@@ -10,14 +10,14 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-class class_6aaccc24 
+class cLUIelem 
 {
 	var var_47d8642e;
 	var var_47e79fc;
 
 	/*
 		Name: constructor
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x80F724D1
 		Offset: 0x2640
 		Size: 0x4
@@ -30,7 +30,7 @@ class class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x80F724D1
 		Offset: 0x2A28
 		Size: 0x4
@@ -42,15 +42,15 @@ class class_6aaccc24
 	}
 
 	/*
-		Name: function_92ba69fa
-		Namespace: namespace_6aaccc24
+		Name: get_data
+		Namespace: cLUIelem
 		Checksum: 0xBBFCD106
 		Offset: 0x29C0
 		Size: 0x5A
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_92ba69fa(localclientnum, field)
+	function get_data(localclientnum, field)
 	{
 		/#
 			assert(var_47d8642e, "");
@@ -59,15 +59,15 @@ class class_6aaccc24
 	}
 
 	/*
-		Name: function_d7d2fcce
-		Namespace: namespace_6aaccc24
+		Name: set_data
+		Namespace: cLUIelem
 		Checksum: 0xDFD2CDB7
 		Offset: 0x2950
 		Size: 0x64
 		Parameters: 3
 		Flags: Linked
 	*/
-	function function_d7d2fcce(localclientnum, field, value)
+	function set_data(localclientnum, field, value)
 	{
 		/#
 			assert(var_47d8642e, "");
@@ -77,7 +77,7 @@ class class_6aaccc24
 
 	/*
 		Name: close
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x34DE8D6
 		Offset: 0x28F0
 		Size: 0x54
@@ -94,7 +94,7 @@ class class_6aaccc24
 
 	/*
 		Name: is_open
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x885EA434
 		Offset: 0x2890
 		Size: 0x52
@@ -111,7 +111,7 @@ class class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x237B563F
 		Offset: 0x2818
 		Size: 0x6C
@@ -129,7 +129,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xBECC2060
 		Offset: 0x27D8
 		Size: 0x34
@@ -145,7 +145,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xDB389259
 		Offset: 0x27A8
 		Size: 0x26
@@ -160,7 +160,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_dcb34c80
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xCDF44B94
 		Offset: 0x2710
 		Size: 0x8C
@@ -177,7 +177,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_da693cbe
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x6DF9DD22
 		Offset: 0x2680
 		Size: 0x84
@@ -189,12 +189,12 @@ class class_6aaccc24
 		/#
 			assert(!var_47d8642e, "");
 		#/
-		clientfield::function_346f95ba(var_47e79fc, field_name, version, bits, type, callback, 0, 0);
+		clientfield::register_luielem(var_47e79fc, field_name, version, bits, type, callback, 0, 0);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xF4A31FEA
 		Offset: 0x2650
 		Size: 0x26
@@ -984,7 +984,7 @@ function set_color(menu, color)
 */
 function function_b48acaf1(uid)
 {
-	elem = new class_6aaccc24();
+	elem = new cLUIelem();
 	[[ elem ]]->setup_clientfields(uid);
 	return elem;
 }

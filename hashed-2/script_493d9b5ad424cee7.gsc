@@ -5,8 +5,8 @@
 #using script_52c6c2d1a2ef1b46;
 #using script_58c342edd81589fb;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\animation_shared.gsc;
@@ -178,7 +178,7 @@ function function_afa2f621()
 	s_activation = self waittill(#"trigger_activated");
 	self playsound(#"hash_95a3e7ee778d597");
 	self hide();
-	s_activation.e_who namespace_3263198e::function_51b752a9("vox_fuse_get");
+	s_activation.e_who zm_orange_util::function_51b752a9("vox_fuse_get");
 }
 
 /*
@@ -192,7 +192,7 @@ function function_afa2f621()
 */
 function function_88a86ef8(n_position)
 {
-	var_b7ba9e35 = getent("bear_claw", "targetname");
+	e_dial = getent("bear_claw", "targetname");
 	switch(n_position)
 	{
 		case 0:
@@ -200,7 +200,7 @@ function function_88a86ef8(n_position)
 			if(level.s_soapstone.var_d143df71 != 0)
 			{
 				s_position = struct::get("bear_digit_0", "targetname");
-				var_b7ba9e35 rotateto(s_position.angles, 1.5, 0.25, 0.25);
+				e_dial rotateto(s_position.angles, 1.5, 0.25, 0.25);
 				level.s_soapstone.var_d143df71 = 0;
 			}
 			break;
@@ -210,7 +210,7 @@ function function_88a86ef8(n_position)
 			if(level.s_soapstone.var_d143df71 != 1)
 			{
 				s_position = struct::get("bear_digit_1", "targetname");
-				var_b7ba9e35 rotateto(s_position.angles, 1.5, 0.25, 0.25);
+				e_dial rotateto(s_position.angles, 1.5, 0.25, 0.25);
 				level.s_soapstone.var_d143df71 = 1;
 			}
 			break;
@@ -220,7 +220,7 @@ function function_88a86ef8(n_position)
 			if(level.s_soapstone.var_d143df71 != 2)
 			{
 				s_position = struct::get("bear_digit_2", "targetname");
-				var_b7ba9e35 rotateto(s_position.angles, 1.5, 0.25, 0.25);
+				e_dial rotateto(s_position.angles, 1.5, 0.25, 0.25);
 				level.s_soapstone.var_d143df71 = 2;
 			}
 			break;
@@ -230,7 +230,7 @@ function function_88a86ef8(n_position)
 			if(level.s_soapstone.var_d143df71 != 3)
 			{
 				s_position = struct::get("bear_digit_3", "targetname");
-				var_b7ba9e35 rotateto(s_position.angles, 1.5, 0.25, 0.25);
+				e_dial rotateto(s_position.angles, 1.5, 0.25, 0.25);
 				level.s_soapstone.var_d143df71 = 3;
 			}
 			break;
@@ -240,7 +240,7 @@ function function_88a86ef8(n_position)
 			if(level.s_soapstone.var_d143df71 != 4)
 			{
 				s_position = struct::get("bear_digit_4", "targetname");
-				var_b7ba9e35 rotateto(s_position.angles, 1.5, 0.25, 0.25);
+				e_dial rotateto(s_position.angles, 1.5, 0.25, 0.25);
 				level.s_soapstone.var_d143df71 = 4;
 			}
 			break;
@@ -503,7 +503,7 @@ function function_9961d00()
 				}
 				else
 				{
-					s_activation.e_who namespace_3263198e::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
+					s_activation.e_who zm_orange_util::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
 				}
 				break;
 			}
@@ -533,7 +533,7 @@ function function_9961d00()
 					}
 					else
 					{
-						s_activation.e_who namespace_3263198e::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
+						s_activation.e_who zm_orange_util::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
 					}
 				}
 				break;
@@ -553,7 +553,7 @@ function function_9961d00()
 				}
 				else
 				{
-					s_activation.e_who namespace_3263198e::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
+					s_activation.e_who zm_orange_util::function_51b752a9("vox_soap_stones_insert_room_temp", -1, 1, 0);
 				}
 				break;
 			}

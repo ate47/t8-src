@@ -5,7 +5,7 @@
 #using script_57f7003580bb15e0;
 #using script_59f07c660e6710a5;
 #using script_5b1c3d314b9c88fb;
-#using script_5c00791eb1bb8daf;
+#using scripts\core_common\ai\archetype_avogadro.gsc;
 #using script_77dd41c80e39f62;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

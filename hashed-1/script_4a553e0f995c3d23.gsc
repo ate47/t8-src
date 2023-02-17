@@ -2,14 +2,14 @@
 #using script_3f9e0dc8454d98e1;
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
-#using script_5d84e90feb36ef87;
+#using scripts\core_common\ai\archetype_blight_father_interface.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 
-#namespace namespace_2ca3706d;
+#namespace archetypeblightfather;
 
 /*
 	Name: main
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0x8F3D99F6
 	Offset: 0x90
 	Size: 0x54
@@ -20,12 +20,12 @@ function autoexec main()
 {
 	registerbehaviorscriptfunctions();
 	spawner::add_archetype_spawn_function(#"blight_father", &function_a27b7fcf);
-	namespace_16541c1c::registerblightfatherinterfaceattributes();
+	blightfatherinterface::registerblightfatherinterfaceattributes();
 }
 
 /*
 	Name: function_a27b7fcf
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0xF39C1620
 	Offset: 0xF0
 	Size: 0x4A
@@ -41,7 +41,7 @@ function private function_a27b7fcf()
 
 /*
 	Name: function_aefef9ae
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0xA5C408E
 	Offset: 0x148
 	Size: 0xAE
@@ -63,7 +63,7 @@ function private function_aefef9ae(entity)
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0x80F724D1
 	Offset: 0x200
 	Size: 0x4
@@ -76,7 +76,7 @@ function private registerbehaviorscriptfunctions()
 
 /*
 	Name: function_e286179f
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0x73605095
 	Offset: 0x210
 	Size: 0xA8
@@ -105,7 +105,7 @@ function function_e286179f(spawner, location)
 
 /*
 	Name: function_ac921de9
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0x41C1FB4D
 	Offset: 0x2C0
 	Size: 0x24
@@ -119,7 +119,7 @@ function private function_ac921de9(entity)
 
 /*
 	Name: function_3e8300e9
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0xB49EBA60
 	Offset: 0x2F0
 	Size: 0x58
@@ -136,7 +136,7 @@ function function_3e8300e9(entity, attribute, oldvalue, value)
 
 /*
 	Name: function_b95978a7
-	Namespace: namespace_2ca3706d
+	Namespace: archetypeblightfather
 	Checksum: 0x602F6900
 	Offset: 0x350
 	Size: 0x58

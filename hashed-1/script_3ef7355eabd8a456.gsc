@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1c72973fb240f263;
-#using script_467027ea7017462b;
+#using scripts\zm_common\zm_items.gsc;
 #using script_59a783d756554a80;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -134,9 +134,9 @@ function function_88d1bd71()
 		assert(isdefined(var_453ce50f), "");
 	#/
 	var_453ce50f hide();
-	namespace_ee206246::register(#"hash_6bd65802877ef7e0", #"step_1", #"hash_5bd2150946a6e992", &function_bdadef61, &function_be13a68b);
-	namespace_ee206246::register(#"hash_6bd65802877ef7e0", #"step_2", #"hash_5bd2140946a6e7df", &function_b3b228e2, &function_dd89f412);
-	namespace_ee206246::start(#"hash_6bd65802877ef7e0");
+	zm_sq::register(#"hash_6bd65802877ef7e0", #"step_1", #"hash_5bd2150946a6e992", &function_bdadef61, &function_be13a68b);
+	zm_sq::register(#"hash_6bd65802877ef7e0", #"step_2", #"hash_5bd2140946a6e7df", &function_b3b228e2, &function_dd89f412);
+	zm_sq::start(#"hash_6bd65802877ef7e0");
 	level thread function_afb5905e();
 }
 
@@ -337,14 +337,14 @@ function function_dd89f412(var_5ea5c94d, ended_early)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e8d6a81b(var_2e1f34dd)
+function function_e8d6a81b(e_item)
 {
 	var_4239616e = level.var_5a599dbf[level.var_3d015a65];
 	var_4239616e.var_85f707f6 = 1;
 	self thread zm_vo::function_a2bd5a0c(#"hash_7e030fccc2c5a121");
-	if(isdefined(var_2e1f34dd))
+	if(isdefined(e_item))
 	{
-		var_2e1f34dd playsound(#"hash_18f957b8000dd0c6");
+		e_item playsound(#"hash_18f957b8000dd0c6");
 	}
 	function_2f5993d6();
 	level.var_3d015a65++;
@@ -523,14 +523,14 @@ function function_9f206255()
 */
 function function_fe05ebd7()
 {
-	var_58d9e0d3 = getitemarray();
-	foreach(var_2e1f34dd in var_58d9e0d3)
+	a_e_items = getitemarray();
+	foreach(e_item in a_e_items)
 	{
 		foreach(var_4239616e in level.var_5a599dbf)
 		{
-			if(var_2e1f34dd.item.name == var_4239616e.name)
+			if(e_item.item.name == var_4239616e.name)
 			{
-				var_2e1f34dd delete();
+				e_item delete();
 				break;
 			}
 		}

@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_24c32478acf44108;
-#using script_3110b4b6b21db11f;
-#using script_3cebb48c37fc271;
-#using script_4d000493c57bb851;
+#using scripts\zm\zm_orange_water.gsc;
+#using scripts\zm_common\zm_fasttravel.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_6a3f43063dfd1bdc;
 #using script_6b6fff322a8a64eb;
 #using script_db06eb511bd9b36;
@@ -255,7 +255,7 @@ function function_5d984ff3()
 		{
 			e_who.var_2e6aa97d = 1;
 			level namespace_6747c550::function_7df6bb60("heat_pack_complete", 1, e_who);
-			e_who namespace_3263198e::function_51b752a9("vox_heat_pack_pickup", -1, 1, 0);
+			e_who zm_orange_util::function_51b752a9("vox_heat_pack_pickup", -1, 1, 0);
 			e_who clientfield::set_player_uimodel("ZMInventoryPersonal.heat_pack", 1);
 		}
 	}
@@ -602,7 +602,7 @@ function function_4578fdfd()
 			{
 				if(level flag::get(#"hash_f14d343f59fc897"))
 				{
-					namespace_17555f14::function_3b77181c(1);
+					zm_orange_zones::function_3b77181c(1);
 				}
 				else
 				{
@@ -767,7 +767,7 @@ function fling_player(v_flinger)
 	self clientfield::set_to_player("blur_post_fx", 1);
 	if(v_flinger.str_location === "island_return")
 	{
-		self thread namespace_3263198e::function_51b752a9("vox_flinger_react");
+		self thread zm_orange_util::function_51b752a9("vox_flinger_react");
 	}
 	else
 	{
@@ -968,7 +968,7 @@ function function_57806638(v_flinger)
 		{
 			if(v_flinger.var_745ac235.size > 0 && isdefined(v_flinger.var_745ac235[0]))
 			{
-				v_flinger.var_745ac235[0] thread namespace_3263198e::function_51b752a9("vox_generic_responses_positive", -1, 0, 0);
+				v_flinger.var_745ac235[0] thread zm_orange_util::function_51b752a9("vox_generic_responses_positive", -1, 0, 0);
 			}
 			v_flinger.var_320be97e = 1;
 			v_flinger.var_48abac67 zm_unitrigger::create(&function_8bf0a961, 64);

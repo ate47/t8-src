@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_pack_a_punch_util.gsc;
@@ -37,11 +37,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_6fd9b42462e3c33c", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6fd9b42462e3c33c", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_d46e694c
 	Checksum: 0x13A8CFB1
 	Offset: 0x158
@@ -49,7 +49,7 @@ function __init__()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(n_count, n_repacks)
+function private on_begin(n_count, n_repacks)
 {
 	/#
 		assert(isdefined(level.zombie_weapons_upgraded));
@@ -89,7 +89,7 @@ function private function_d1de6a85(n_count, n_repacks)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_d46e694c
 	Checksum: 0xA2F7A260
 	Offset: 0x3A8
@@ -97,11 +97,11 @@ function private function_d1de6a85(n_count, n_repacks)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 	}
 	/#
 		assert(isdefined(level.var_ab9d0ec6));
@@ -166,7 +166,7 @@ function private function_e73fbbf7(var_5ba20db5, var_27f8d634)
 		{
 			if(!var_fa5d7ea0)
 			{
-				self namespace_b22c99a5::function_63060af4(1);
+				self zm_trial_util::function_63060af4(1);
 				var_fa5d7ea0 = 1;
 			}
 		}
@@ -174,22 +174,22 @@ function private function_e73fbbf7(var_5ba20db5, var_27f8d634)
 		{
 			if(zm_weapons::weapon_supports_aat(var_f2a06582) && var_27f8d634 > 0)
 			{
-				self namespace_b22c99a5::function_63060af4(0);
-				self namespace_b22c99a5::function_f3aacffb();
+				self zm_trial_util::function_63060af4(0);
+				self zm_trial_util::function_f3aacffb();
 				n_repacks = zm_pap_util::function_83c29ddb(var_f2a06582);
-				self namespace_b22c99a5::function_c2cd0cba(var_27f8d634);
-				self namespace_b22c99a5::function_2190356a(n_repacks);
+				self zm_trial_util::function_c2cd0cba(var_27f8d634);
+				self zm_trial_util::function_2190356a(n_repacks);
 				var_fa5d7ea0 = 0;
 			}
 			else
 			{
 				if(zm_weapons::is_weapon_upgraded(var_f2a06582))
 				{
-					self namespace_b22c99a5::function_63060af4(1);
+					self zm_trial_util::function_63060af4(1);
 				}
 				else
 				{
-					self namespace_b22c99a5::function_63060af4(0);
+					self zm_trial_util::function_63060af4(0);
 				}
 				var_fa5d7ea0 = 0;
 			}

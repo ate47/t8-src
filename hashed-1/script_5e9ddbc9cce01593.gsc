@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5bb072c3abf4652c;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
@@ -23,9 +23,9 @@ function init()
 {
 	zm_traps::register_trap_basic_info("boiling_bath", &trap_activate, &trap_audio);
 	zm_traps::register_trap_damage("boiling_bath", &function_c7393b8d, &trap_damage);
-	var_9bda8088 = getent("boiling_bath", "script_noteworthy");
-	var_9bda8088._trap_duration = 20;
-	var_9bda8088._trap_cooldown_time = 30;
+	t_trap = getent("boiling_bath", "script_noteworthy");
+	t_trap._trap_duration = 20;
+	t_trap._trap_cooldown_time = 30;
 	clientfield::register("actor", "boiling_trap_death_fx", 16000, 1, "int");
 	level.var_4a0ddedd = 0;
 	level.var_30ec2c9a = 0;
@@ -98,7 +98,7 @@ function trap_audio()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c7393b8d(var_9bda8088)
+function function_c7393b8d(t_trap)
 {
 	if(isplayer(self) && zm_utility::is_player_valid(self, 0, 0, 0) && (!(isdefined(self.var_99557baf) && self.var_99557baf)))
 	{
@@ -117,7 +117,7 @@ function function_c7393b8d(var_9bda8088)
 	Parameters: 1
 	Flags: Linked
 */
-function trap_damage(var_9bda8088)
+function trap_damage(t_trap)
 {
 	if(!isalive(self) || (isdefined(self.var_99557baf) && self.var_99557baf) || (isdefined(self.b_trap_kill) && self.b_trap_kill))
 	{
@@ -161,7 +161,7 @@ function trap_damage(var_9bda8088)
 	n_damage = int(self.maxhealth * n_percent);
 	if(n_damage >= self.health)
 	{
-		level notify(#"trap_kill", {#e_trap:var_9bda8088, #e_victim:self});
+		level notify(#"trap_kill", {#e_trap:t_trap, #e_victim:self});
 		if(self.archetype === #"zombie")
 		{
 			level.var_c33299e2++;
@@ -175,31 +175,31 @@ function trap_damage(var_9bda8088)
 			}
 			else
 			{
-				self dodamage(n_damage, var_9bda8088.origin);
+				self dodamage(n_damage, t_trap.origin);
 			}
 		}
 		else
 		{
-			self dodamage(n_damage, var_9bda8088.origin);
+			self dodamage(n_damage, t_trap.origin);
 		}
 		if(isdefined(level.var_bae901ce) && level.var_bae901ce)
 		{
-			if(isdefined(var_9bda8088) && isplayer(var_9bda8088.activated_by_player))
+			if(isdefined(t_trap) && isplayer(t_trap.activated_by_player))
 			{
-				var_9bda8088.activated_by_player thread zm_vo::function_a2bd5a0c(#"hash_150ed78f0557df5f", 0.5, 1, 0, 1);
+				t_trap.activated_by_player thread zm_vo::function_a2bd5a0c(#"hash_150ed78f0557df5f", 0.5, 1, 0, 1);
 				level.var_bae901ce = undefined;
 			}
 		}
-		if(isplayer(var_9bda8088.activated_by_player))
+		if(isplayer(t_trap.activated_by_player))
 		{
-			var_9bda8088.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			var_9bda8088.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			t_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
+			t_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
 		}
 		self.b_trap_kill = 1;
 	}
 	else
 	{
-		self dodamage(n_damage, var_9bda8088.origin);
+		self dodamage(n_damage, t_trap.origin);
 	}
 }
 

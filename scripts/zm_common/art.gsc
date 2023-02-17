@@ -45,7 +45,7 @@ function __init__()
 	#/
 	if(!isdefined(level.script))
 	{
-		level.script = util::function_53bbf9d2();
+		level.script = util::get_map_name();
 	}
 }
 

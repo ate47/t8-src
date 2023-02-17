@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_300f815a565e66fb;
 #using script_383a3b1bb18ba876;
-#using script_6c8abe14025b47c4;
-#using script_8988fdbc78d6c53;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1254ac024174d9c0;
-#using script_14f4a3c583c77d4b;
-#using script_7133a4d461308099;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\core_common\activecamo_shared.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -620,7 +620,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 					{
 						level clientfield::set(self.clientfieldname, 1);
 					}
-					if(zm_utility::function_166646a6() != 1 && !isdefined(model))
+					if(zm_utility::get_story() != 1 && !isdefined(model))
 					{
 						var_6ff4b667 = struct::get(self.target, "targetname");
 						if(isdefined(var_6ff4b667) && isdefined(var_6ff4b667.target))

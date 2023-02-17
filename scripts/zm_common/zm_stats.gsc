@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_345bb77d6298356c;
 #using script_47fb62300ac0bd60;
-#using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\match_record.gsc;
@@ -139,11 +139,11 @@ function player_stats_init()
 	self globallogic_score::initpersstat(#"minigun_pickedup", 0);
 	self globallogic_score::initpersstat(#"island_seed_pickedup", 0);
 	self globallogic_score::initpersstat(#"hash_cdafe5cd6299b0c", 0);
-	self globallogic_score::initpersstat(#"hash_3ec2a334a55d8215", 0);
-	self globallogic_score::initpersstat(#"hash_7d6f5e2da0f7af67", 0);
-	self globallogic_score::initpersstat(#"hash_636a6750788b3df0", 0);
-	self globallogic_score::initpersstat(#"hash_29b45601d5e0d53f", 0);
-	self globallogic_score::initpersstat(#"hash_79071dc310fc378f", 0);
+	self globallogic_score::initpersstat(#"pack_a_punch_pickedup", 0);
+	self globallogic_score::initpersstat(#"extra_lives_pickedup", 0);
+	self globallogic_score::initpersstat(#"zmarcade_key_pickedup", 0);
+	self globallogic_score::initpersstat(#"shield_charge_pickedup", 0);
+	self globallogic_score::initpersstat(#"dung_pickedup", 0);
 	self globallogic_score::initpersstat(#"hash_1b192689f4c8c402", 0);
 	self globallogic_score::initpersstat(#"hash_65472fa120ebce1c", 0);
 	self globallogic_score::initpersstat(#"bonus_points_team_pickedup", 0);
@@ -1877,7 +1877,7 @@ function get_stat_distance_traveled()
 */
 function get_stat_round_number()
 {
-	return namespace_a28acff3::get_round_number();
+	return zm_round_logic::get_round_number();
 }
 
 /*
@@ -1941,12 +1941,12 @@ function update_global_counters_on_match_end()
 	var_d61f06ce = 0;
 	minigun_pickedup = 0;
 	island_seed_pickedup = 0;
-	var_3e74dc38 = 0;
-	var_d858ee80 = 0;
-	var_550709e6 = 0;
-	var_b4012da = 0;
-	var_47c42f82 = 0;
-	var_dcc9d810 = 0;
+	hero_weapon_power_pickedup = 0;
+	pack_a_punch_pickedup = 0;
+	extra_lives_pickedup = 0;
+	zmarcade_key_pickedup = 0;
+	shield_charge_pickedup = 0;
+	dung_pickedup = 0;
 	var_614312ad = 0;
 	var_be43e4a5 = 0;
 	bonus_points_team_pickedup = 0;
@@ -2097,12 +2097,12 @@ function update_global_counters_on_match_end()
 		var_d61f06ce = var_d61f06ce + player.pers[#"hash_27399de28b76c5c6"];
 		minigun_pickedup = minigun_pickedup + player.pers[#"minigun_pickedup"];
 		island_seed_pickedup = island_seed_pickedup + player.pers[#"island_seed_pickedup"];
-		var_3e74dc38 = var_3e74dc38 + player.pers[#"hash_cdafe5cd6299b0c"];
-		var_d858ee80 = var_d858ee80 + player.pers[#"hash_3ec2a334a55d8215"];
-		var_550709e6 = var_550709e6 + player.pers[#"hash_7d6f5e2da0f7af67"];
-		var_b4012da = var_b4012da + player.pers[#"hash_636a6750788b3df0"];
-		var_47c42f82 = var_47c42f82 + player.pers[#"hash_29b45601d5e0d53f"];
-		var_dcc9d810 = var_dcc9d810 + player.pers[#"hash_79071dc310fc378f"];
+		hero_weapon_power_pickedup = hero_weapon_power_pickedup + player.pers[#"hash_cdafe5cd6299b0c"];
+		pack_a_punch_pickedup = pack_a_punch_pickedup + player.pers[#"pack_a_punch_pickedup"];
+		extra_lives_pickedup = extra_lives_pickedup + player.pers[#"extra_lives_pickedup"];
+		zmarcade_key_pickedup = zmarcade_key_pickedup + player.pers[#"zmarcade_key_pickedup"];
+		shield_charge_pickedup = shield_charge_pickedup + player.pers[#"shield_charge_pickedup"];
+		dung_pickedup = dung_pickedup + player.pers[#"dung_pickedup"];
 		var_614312ad = var_614312ad + player.pers[#"hash_1b192689f4c8c402"];
 		var_be43e4a5 = var_be43e4a5 + player.pers[#"hash_65472fa120ebce1c"];
 		bonus_points_team_pickedup = bonus_points_team_pickedup + player.pers[#"bonus_points_team_pickedup"];

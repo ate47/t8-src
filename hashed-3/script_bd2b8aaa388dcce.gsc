@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_178024232e91b0a1;
-#using script_1fd28440161f280e;
+#using scripts\core_common\ai\archetype_zombie_interface.gsc;
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;

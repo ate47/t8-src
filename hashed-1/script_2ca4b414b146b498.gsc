@@ -1,21 +1,21 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b905a8474ed2a62;
-#using script_1d1a97b78f64bfd;
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\remote_weapons.gsc;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_300f815a565e66fb;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_3819e7a1427df6d2;
 #using script_383a3b1bb18ba876;
 #using script_46fade957db10c16;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
+#using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_522aeb6ae906391e;
 #using script_52d2de9b438adc78;
 #using script_545a0bac37bda541;
-#using script_57c900a7e39234be;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\airsupport.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -161,11 +161,11 @@ function function_1210a3d6(mantis)
 	Parameters: 2
 	Flags: None
 */
-function function_127fb8f3(mantis, var_dbd1a594)
+function function_127fb8f3(mantis, attackingplayer)
 {
 	if(isdefined(level.var_1794f85f))
 	{
-		[[level.var_1794f85f]](var_dbd1a594, "disrupted_mantis");
+		[[level.var_1794f85f]](attackingplayer, "disrupted_mantis");
 	}
 	if(!(isdefined(mantis.isstunned) && mantis.isstunned))
 	{
@@ -997,7 +997,7 @@ function ai_tank_killstreak_start(owner, origin, killstreak_id, category, var_d8
 	drone.treat_owner_damage_as_friendly_fire = 1;
 	drone.ignore_team_kills = 1;
 	drone.var_b4c9d62 = 1;
-	drone.var_c8e5ca0d = 1;
+	drone.offhand_special = 1;
 	drone.var_e9d49a33 = 1;
 	drone.goalradius = 250;
 	if(isdefined(level.var_1dd2fbe1))
@@ -1082,8 +1082,8 @@ function function_9868e24e(player)
 		{
 			var_be788bba multi_stage_target_lockon::open(player, 1);
 		}
-		var_be788bba multi_stage_target_lockon::function_c8350e33(player, player.clientid);
-		var_be788bba multi_stage_target_lockon::function_f1e8a488(player, 0);
+		var_be788bba multi_stage_target_lockon::set_entNum(player, player.clientid);
+		var_be788bba multi_stage_target_lockon::set_targetState(player, 0);
 	}
 	enemies = getplayers();
 	ti = 0;
@@ -1174,8 +1174,8 @@ function function_9868e24e(player)
 					}
 				}
 			}
-			var_be788bba multi_stage_target_lockon::function_c8350e33(player, var_4ef4e267);
-			var_be788bba multi_stage_target_lockon::function_f1e8a488(player, var_8712c5b8.state);
+			var_be788bba multi_stage_target_lockon::set_entNum(player, var_4ef4e267);
+			var_be788bba multi_stage_target_lockon::set_targetState(player, var_8712c5b8.state);
 		}
 		foreach(target in enemies)
 		{
@@ -1185,8 +1185,8 @@ function function_9868e24e(player)
 			{
 				if(!isdefined(target) || !isalive(target))
 				{
-					level.var_aca462a0[ti] multi_stage_target_lockon::function_c8350e33(player, var_4ef4e267);
-					level.var_aca462a0[ti] multi_stage_target_lockon::function_f1e8a488(player, 0);
+					level.var_aca462a0[ti] multi_stage_target_lockon::set_entNum(player, var_4ef4e267);
+					level.var_aca462a0[ti] multi_stage_target_lockon::set_targetState(player, 0);
 					player.var_6b2d5c29[ti].state = 0;
 				}
 			}
@@ -2335,7 +2335,7 @@ function cleanup_targeting(player)
 			if(isdefined(level.var_aca462a0[ti]))
 			{
 				var_be788bba = level.var_aca462a0[ti];
-				var_be788bba multi_stage_target_lockon::function_f1e8a488(player, 0);
+				var_be788bba multi_stage_target_lockon::set_targetState(player, 0);
 				if(var_be788bba multi_stage_target_lockon::is_open(player))
 				{
 					var_be788bba multi_stage_target_lockon::close(player);
@@ -3249,7 +3249,7 @@ function watch_target(owner, target_index)
 	wait(3);
 	if(isalive(self))
 	{
-		level.var_aca462a0[target_index] multi_stage_target_lockon::function_f1e8a488(owner, 0);
+		level.var_aca462a0[target_index] multi_stage_target_lockon::set_targetState(owner, 0);
 		owner.var_6b2d5c29[target_index].state = 0;
 	}
 }
@@ -3289,7 +3289,7 @@ function shoot_targets(projectile, max_missiles)
 				if(isdefined(rocket) && rocket.classname === "rocket")
 				{
 					rocket missile_settarget(target);
-					level.var_aca462a0[ti] multi_stage_target_lockon::function_f1e8a488(owner, 4);
+					level.var_aca462a0[ti] multi_stage_target_lockon::set_targetState(owner, 4);
 					var_8712c5b8.state = 4;
 					target thread watch_target(owner, ti);
 					var_e3a3ecd3++;

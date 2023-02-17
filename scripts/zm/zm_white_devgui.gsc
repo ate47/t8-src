@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_10956a741a7e186e;
 #using script_52c6c2d1a2ef1b46;
-#using script_62a0cb1167067152;
+#using scripts\zm\zm_white_mee.gsc;
 #using script_724752ab26bff81b;
 #using script_ab862743b3070a;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\zm_common\zm_devgui.gsc;
 
-#namespace namespace_db259423;
+#namespace zm_white_devgui;
 
 /*
 	Name: init
-	Namespace: namespace_db259423
+	Namespace: zm_white_devgui
 	Checksum: 0x3BE8B162
 	Offset: 0xA0
 	Size: 0x1C
@@ -27,7 +27,7 @@ function init()
 
 /*
 	Name: function_3552f301
-	Namespace: namespace_db259423
+	Namespace: zm_white_devgui
 	Checksum: 0x4BF26068
 	Offset: 0xC8
 	Size: 0x1C
@@ -37,13 +37,13 @@ function init()
 function private function_3552f301()
 {
 	/#
-		namespace_b9fd696c::function_6af32608();
+		zm_white_mee::function_6af32608();
 	#/
 }
 
 /*
 	Name: function_2639784
-	Namespace: namespace_db259423
+	Namespace: zm_white_devgui
 	Checksum: 0xF8F7F3EF
 	Offset: 0xF0
 	Size: 0x6C
@@ -64,7 +64,7 @@ function private function_2639784()
 
 /*
 	Name: function_3db5079
-	Namespace: namespace_db259423
+	Namespace: zm_white_devgui
 	Checksum: 0x96D0A16C
 	Offset: 0x168
 	Size: 0x108
@@ -90,7 +90,7 @@ function private function_3db5079()
 
 /*
 	Name: devgui
-	Namespace: namespace_db259423
+	Namespace: zm_white_devgui
 	Checksum: 0x31B3069F
 	Offset: 0x278
 	Size: 0x470
@@ -120,23 +120,23 @@ function private devgui()
 					function_3552f301();
 					break;
 				}
-				case "hash_247b9e41efaa41a9":
+				case "skip1":
 				{
 					function_2639784();
 					break;
 				}
-				case "hash_247b9b41efaa3c90":
+				case "skip2":
 				{
 					function_3db5079();
 					break;
 				}
-				case "hash_247b9c41efaa3e43":
+				case "skip3":
 				{
 					function_3db5079();
 					namespace_a01a2431::function_256cc56e();
 					break;
 				}
-				case "hash_429bdbdfaae45ca7":
+				case "cheat1":
 				{
 					iprintlnbold(((("" + level.var_276bd207[0]) + level.var_276bd207[1]) + level.var_276bd207[2]) + level.var_276bd207[3]);
 					break;

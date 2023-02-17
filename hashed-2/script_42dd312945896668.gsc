@@ -22,7 +22,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_4e3cb1bcbc6c3c25", &__init__, undefined, undefined);
+	system::register(#"mansion_ww", &__init__, undefined, undefined);
 }
 
 /*

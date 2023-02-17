@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2c49ae69cd8ce30c;
-#using script_38af8be38c6709ff;
+#using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_47fb62300ac0bd60;
-#using script_6c8abe14025b47c4;
-#using script_7b8ad364b9de169e;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\abilities\mp\gadgets\gadget_smart_cover.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_12282e6b2cc91b42;
-#using script_709bf7c56eb65adf;
+#using scripts\zm_common\zm_loadout.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -23,7 +23,7 @@ function init()
 {
 	if(!isdefined(level.var_c3e5c4cd))
 	{
-		level.var_c3e5c4cd = zm_utility::function_166646a6();
+		level.var_c3e5c4cd = zm_utility::get_story();
 	}
 	callback::on_start_gametype(&init_perk_machines_fx);
 	level._effect[#"hash_57c8c9eff08ddf44"] = #"hash_56161fdf383c5fdc";
@@ -54,16 +54,16 @@ function init()
 */
 function function_f3c80d73(var_d7e9261c, var_136e2645)
 {
-	if(zm_utility::function_166646a6() == 1)
+	if(zm_utility::get_story() == 1)
 	{
-		var_920c5fbb = getweapon(var_d7e9261c);
+		w_perk = getweapon(var_d7e9261c);
 	}
 	else
 	{
-		var_920c5fbb = getweapon(var_136e2645);
+		w_perk = getweapon(var_136e2645);
 	}
-	forcestreamxmodel(var_920c5fbb.viewmodel, -1, -1);
-	forcestreamxmodel(var_920c5fbb.worldmodel, 1, 1);
+	forcestreamxmodel(w_perk.viewmodel, -1, -1);
+	forcestreamxmodel(w_perk.worldmodel, 1, 1);
 }
 
 /*
@@ -441,16 +441,16 @@ function function_bb184fed(localclientnum, oldval, newval, bnewent, binitialsnap
 		switch(self.model)
 		{
 			case "p8_fxanim_zm_vapor_altar_danu_mod":
-			case "hash_52ea8d11cd7fefd0":
+			case "p8_fxanim_zm_perk_vending_brew_mod":
 			{
 				n_slot = 0;
 				var_fe826f11 = level._effect[#"hash_223e3f9bde46f5b4"];
 				var_7ad76c54 = 3;
 				break;
 			}
-			case "hash_1d2e6398115c7fb4":
+			case "p8_fxanim_zm_red_vapor_altar_ra_mod":
 			case "p8_fxanim_zm_vapor_altar_ra_mod":
-			case "hash_72ce199a2f767495":
+			case "p8_fxanim_zm_perk_vending_cola_mod":
 			{
 				n_slot = 1;
 				var_fe826f11 = level._effect[#"hash_10e42380c1009ee9"];
@@ -458,7 +458,7 @@ function function_bb184fed(localclientnum, oldval, newval, bnewent, binitialsnap
 				break;
 			}
 			case "p8_fxanim_zm_vapor_altar_zeus_mod":
-			case "hash_412846638d8a5d6d":
+			case "p8_fxanim_zm_perk_vending_soda_mod":
 			{
 				n_slot = 2;
 				var_fe826f11 = level._effect[#"hash_110d9fbfd034c819"];
@@ -522,7 +522,7 @@ function function_bb184fed(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_be82764e = var_fe826f11;
 			self.var_7ad76c54 = var_7ad76c54;
 		}
-		if(isdefined(var_16c042b8) && isdefined(level._custom_perks[var_16c042b8]) && isdefined(level._custom_perks[var_16c042b8].var_51f1a532) && (!(isdefined(namespace_59ff1d6c::function_901b751c(level._custom_perks[var_16c042b8].var_51f1a532)) && namespace_59ff1d6c::function_901b751c(level._custom_perks[var_16c042b8].var_51f1a532))))
+		if(isdefined(var_16c042b8) && isdefined(level._custom_perks[var_16c042b8]) && isdefined(level._custom_perks[var_16c042b8].var_51f1a532) && (!(isdefined(zm_custom::function_901b751c(level._custom_perks[var_16c042b8].var_51f1a532)) && zm_custom::function_901b751c(level._custom_perks[var_16c042b8].var_51f1a532))))
 		{
 			var_c809f6c1 = 6;
 		}

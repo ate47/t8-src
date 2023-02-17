@@ -179,7 +179,7 @@ function function_fc45523f()
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		level thread function_37401a52();
 	#/

@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_47fb62300ac0bd60;
 #using script_56d425496a225a1b;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -43,11 +43,11 @@ function __init__()
 {
 	level.var_7048dda4 = getweapon("ultimate_turret");
 	deployable::function_2e088f73(level.var_7048dda4, undefined, &function_b02e4a26);
-	callback::function_955a779c(&function_955a779c);
+	callback::on_item_use(&on_item_use);
 }
 
 /*
-	Name: function_955a779c
+	Name: on_item_use
 	Namespace: ultimate_turret
 	Checksum: 0x89A454BC
 	Offset: 0x2D8
@@ -55,7 +55,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_955a779c(params)
+function private on_item_use(params)
 {
 	self endon(#"death", #"disconnect", #"begin_grenade_tracking", #"grenade_throw_cancelled");
 	var_d0931295 = function_b02e4a26(self);

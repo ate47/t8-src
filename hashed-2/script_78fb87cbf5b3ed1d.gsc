@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_52f559a;
+#namespace wz_stash_blackjack;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_52f559a
+	Namespace: wz_stash_blackjack
 	Checksum: 0xB4D4A563
 	Offset: 0x78
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_6111cfdbe7da9cd1", &__init__, undefined, undefined);
+	system::register(#"wz_stash_blackjack", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_52f559a
+	Namespace: wz_stash_blackjack
 	Checksum: 0x51E262EE
 	Offset: 0xC0
 	Size: 0xCC
@@ -29,9 +29,9 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	level.var_dca119c2 = (isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0);
+	level.blackjackstash = (isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0);
 	var_3ff328e2 = gamemodeismode(1) || gamemodeismode(7);
-	if(var_3ff328e2 || !level.var_dca119c2)
+	if(var_3ff328e2 || !level.blackjackstash)
 	{
 		level thread function_e973becc();
 	}
@@ -39,7 +39,7 @@ function __init__()
 
 /*
 	Name: function_e973becc
-	Namespace: namespace_52f559a
+	Namespace: wz_stash_blackjack
 	Checksum: 0x4372E8E9
 	Offset: 0x198
 	Size: 0xB0
@@ -49,7 +49,7 @@ function __init__()
 function private function_e973becc()
 {
 	item_world::function_4de3ca98();
-	var_14957968 = getdynentarray(#"hash_6111cfdbe7da9cd1");
+	var_14957968 = getdynentarray(#"wz_stash_blackjack");
 	foreach(var_2e01d28f in var_14957968)
 	{
 		item_world::function_160294c7(var_2e01d28f);

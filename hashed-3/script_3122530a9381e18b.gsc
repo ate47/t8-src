@@ -2,9 +2,9 @@
 #using script_10956a741a7e186e;
 #using script_174ce72cc0f850;
 #using script_1c72973fb240f263;
-#using script_3510d12b63a575c3;
+#using scripts\zm\zm_white_main_quest.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6a3f43063dfd1bdc;
 #using script_724752ab26bff81b;
 #using scripts\core_common\array_shared.gsc;
@@ -261,7 +261,7 @@ function private function_d41d20b1()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_9d66ea6f(var_2e1f34dd, e_player)
+function private function_9d66ea6f(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -293,9 +293,9 @@ function function_130ea633()
 {
 	if(zm_utility::is_classic())
 	{
-		self zm_vo::function_57b8cd17();
+		self zm_vo::vo_stop();
 		self namespace_509a75d1::function_51b752a9("vox_ww_v_ammo_pickup");
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
 			self zm_audio::do_player_or_npc_playvox("vox_ww_v_elec_hint_rush_0", 1);
 		}
@@ -313,13 +313,13 @@ function function_130ea633()
 */
 function private function_87e09347()
 {
-	if(namespace_3e3742fd::function_6cebbce1())
+	if(zm_white_main_quest::function_6cebbce1())
 	{
 		/#
 			iprintlnbold("");
 		#/
 	}
-	while(namespace_3e3742fd::function_6cebbce1())
+	while(zm_white_main_quest::function_6cebbce1())
 	{
 		wait(3);
 	}
@@ -512,7 +512,7 @@ function private function_a66f0de2()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_e90f6026(var_2e1f34dd, e_player)
+function private function_e90f6026(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -543,9 +543,9 @@ function function_9d800221()
 	if(zm_utility::is_classic())
 	{
 		namespace_509a75d1::function_29fe9a5d();
-		self zm_vo::function_57b8cd17();
+		self zm_vo::vo_stop();
 		self namespace_509a75d1::function_51b752a9("vox_ww_v_pickup");
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
 			self zm_audio::do_player_or_npc_playvox("vox_ww_v_pickup_rush_1", 1);
 		}
@@ -707,9 +707,9 @@ function function_62ac32b9()
 	if(zm_utility::is_classic())
 	{
 		namespace_509a75d1::function_29fe9a5d();
-		self zm_vo::function_57b8cd17();
+		self zm_vo::vo_stop();
 		self namespace_509a75d1::function_51b752a9("vox_ww_v_craft");
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
 			self zm_audio::do_player_or_npc_playvox("vox_ww_v_craft_rush_1", 1);
 		}

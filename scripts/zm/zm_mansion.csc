@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_13a302ecb87a29fe;
+#using scripts\zm\ai\zm_ai_bat.csc;
 #using script_14d2d89964cae0b1;
-#using script_168eb2ab39a74080;
+#using scripts\zm\zm_mansion_jordans.csc;
 #using script_1ebb85ae10368663;
-#using script_21b99e2f421608bf;
-#using script_27ba6748d83412fd;
-#using script_2c454d63a96d2d0b;
+#using scripts\zm\zm_mansion_triad.csc;
+#using scripts\zm_common\zm_fasttravel.csc;
+#using scripts\zm_common\zm_characters.csc;
 #using script_2d9c4a173633aa72;
 #using script_2e85434cebf2404b;
 #using script_30ace59de1b1bb3a;
@@ -13,8 +13,8 @@
 #using script_42dd312945896668;
 #using script_47c293f002042d7e;
 #using script_5fb8da2731850d9e;
-#using script_67051bc8c81031aa;
-#using script_6b91760bb3045851;
+#using scripts\zm\weapons\zm_weap_riotshield.csc;
+#using scripts\zm\zm_mansion_silver_bullet.csc;
 #using script_6c494cd6189bb8dc;
 #using script_74f5ae6ffc8bd614;
 #using script_76b36ed1b7a51ed2;
@@ -66,7 +66,7 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_42e03f9ae74a1070", 8000, 1, "int", &function_64968a3c, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_602ae5683c010563", 8000, 1, "int", &function_94cf8d37, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_4bd91c5285da0899", 8000, 1, "counter", &function_cb417790, 0, 0);
-	clientfield::register("scriptmover", "" + #"soul_fx", 8000, 1, "int", &namespace_b8f22955::soul_release, 0, 0);
+	clientfield::register("scriptmover", "" + #"soul_fx", 8000, 1, "int", &mansion_pap::soul_release, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_60051e21f8eb4af", 8000, 1, "int", &function_39b69f3f, 0, 0);
 	clientfield::register("actor", "" + #"clock_zombie", 8000, 1, "int", &clock_zombie_fx, 0, 0);
 	clientfield::register("actor", "" + #"hash_1d0080ad80fd0913", 8000, 1, "int", &function_8048af7e, 0, 0);
@@ -124,20 +124,20 @@ event main(eventstruct)
 	level.var_d0ab70a2 = #"hash_67972fca091f2c13";
 	namespace_a8113e97::init_clientfields();
 	namespace_b6ca3ccc::init_clientfields();
-	namespace_7922d3d4::init_clientfields();
+	mansion_triad::init_clientfields();
 	namespace_bfa7c2ed::init_clientfields();
 	namespace_c2ad41c5::init();
-	namespace_b8f22955::init_fx();
-	namespace_b8f22955::init_clientfields();
+	mansion_pap::init_fx();
+	mansion_pap::init_clientfields();
 	namespace_1bf74f9e::init();
-	namespace_d0842c8b::init();
+	mansion_silver_bullet::init();
 	namespace_59d4913f::init();
-	namespace_a34af286::init();
+	mansion_jordans::init();
 	namespace_8f39dfb1::init();
 	ai::add_archetype_spawn_function(#"zombie_dog", &zombie_dog_spawned);
 	load::main();
 	util::waitforclient(0);
-	namespace_48607e17::main();
+	zm_mansion_sound::main();
 	setdvar(#"hash_6d05981efd5d8d74", 400);
 }
 

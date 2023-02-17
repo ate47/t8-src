@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_43e752475599d64c;
-#using script_48454d623e99a919;
-#using script_663c3bd4763135c6;
+#using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
+#using scripts\zm\powerup\zm_powerup_small_ammo.gsc;
+#using scripts\zm\powerup\zm_powerup_bonus_points_player.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -61,18 +61,18 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"hash_4723e346254cb334", "mod_wolf_protector", #"hash_1334f2c7e1b57493", #"hash_4519dc1d3ac79139", 4000);
-	zm_perks::register_perk_clientfields(#"hash_4723e346254cb334", &register_clientfield, &function_b0c4e363);
+	zm_perks::function_7f42e14e(#"hash_4723e346254cb334", "mod_wolf_protector", #"perk_wolf_protector", #"specialty_wolf_protector", 4000);
+	zm_perks::register_perk_clientfields(#"hash_4723e346254cb334", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_threads(#"hash_4723e346254cb334", &give_perk, &take_perk);
 	callback::on_ai_killed(&on_ai_killed);
 	zm_powerups::register_powerup("wolf_bonus_points", &function_5517e41a);
-	zm_powerups::register_powerup("wolf_bonus_ammo", &namespace_b6737b02::function_81558cdf);
-	zm_powerups::register_powerup("wolf_bonus_hero_power", &namespace_d2304f18::hero_weapon_power);
+	zm_powerups::register_powerup("wolf_bonus_ammo", &zm_powerup_small_ammo::function_81558cdf);
+	zm_powerups::register_powerup("wolf_bonus_hero_power", &zm_powerup_hero_weapon_power::hero_weapon_power);
 	if(zm_powerups::function_cc33adc8())
 	{
 		zm_powerups::add_zombie_powerup("wolf_bonus_points", "zombie_z_money_icon", #"zombie_powerup_bonus_points", &zm_powerups::func_should_never_drop, 1, 0, 0);
 		zm_powerups::add_zombie_powerup("wolf_bonus_ammo", "p7_zm_power_up_max_ammo", #"hash_69256172c78db147", &zm_powerups::func_should_never_drop, 1, 0, 0);
-		zm_powerups::add_zombie_powerup("wolf_bonus_hero_power", "p8_zm_powerup_full_power", #"zombie_powerup_free_perk", &namespace_d2304f18::function_7e51ac0f, 1, 0, 0);
+		zm_powerups::add_zombie_powerup("wolf_bonus_hero_power", "p8_zm_powerup_full_power", #"zombie_powerup_free_perk", &zm_powerup_hero_weapon_power::function_7e51ac0f, 1, 0, 0);
 	}
 }
 
@@ -90,7 +90,7 @@ function register_clientfield()
 }
 
 /*
-	Name: function_b0c4e363
+	Name: set_clientfield
 	Namespace: namespace_b4ded66d
 	Checksum: 0xE86EF71
 	Offset: 0x490
@@ -98,7 +98,7 @@ function register_clientfield()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0c4e363(state)
+function set_clientfield(state)
 {
 }
 

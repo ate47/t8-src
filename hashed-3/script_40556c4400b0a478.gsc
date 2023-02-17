@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2afa753925b20cc0;
+#using scripts\zm\ai\zm_ai_brutus.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_devgui.gsc;

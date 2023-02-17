@@ -82,7 +82,7 @@ function function_c5343206(eattacker, einflictor, idamage, smeansofdeath, weapon
 		var_d72bd991.var_8e35fb71 = function_ce33e204(eattacker);
 		var_d72bd991.var_5745c480 = function_5af0c53c(eattacker);
 		var_d72bd991.var_54433d4b = eattacker.scavenged === 1;
-		var_d72bd991.var_4409f8bd = (isdefined(eattacker.var_f208fb92) ? arraycopy(eattacker.var_f208fb92) : undefined);
+		var_d72bd991.sensordarts = (isdefined(eattacker.sensor_darts) ? arraycopy(eattacker.sensor_darts) : undefined);
 		var_d72bd991.var_85997af0 = distance2dsquared(self.origin, eattacker.origin);
 		var_d72bd991.var_53611a9c = eattacker function_d210981e(self.origin);
 		var_d72bd991.var_9a5c07a = self.var_15b42025 === 1;
@@ -204,11 +204,11 @@ function function_9f942458(var_6ba44c6, var_fbbdf63c)
 	{
 		return false;
 	}
-	if(!isdefined(var_fbbdf63c.var_f208fb92))
+	if(!isdefined(var_fbbdf63c.sensor_darts))
 	{
 		return false;
 	}
-	foreach(sensor in var_fbbdf63c.var_f208fb92)
+	foreach(sensor in var_fbbdf63c.sensor_darts)
 	{
 		if(!isdefined(sensor))
 		{

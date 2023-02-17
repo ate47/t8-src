@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_5b1c3d314b9c88fb;
 #using script_77dd41c80e39f62;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -45,7 +45,7 @@ function __init__()
 	level.var_45e13026 = 0;
 	level.var_76fc612e = 50;
 	level.var_e147d7b8 = (isdefined(getgametypesetting(#"hash_29ef96a3b8f635fd")) ? getgametypesetting(#"hash_29ef96a3b8f635fd") : 1);
-	level.var_cca518d = (isdefined(getgametypesetting(#"hash_161cc16b77a29f87")) ? getgametypesetting(#"hash_161cc16b77a29f87") : 1);
+	level.var_cca518d = (isdefined(getgametypesetting(#"wzzombies")) ? getgametypesetting(#"wzzombies") : 1);
 	level.var_d33a57a = (isdefined(getgametypesetting(#"hash_58981ece00ffa6bc")) ? getgametypesetting(#"hash_58981ece00ffa6bc") : 0);
 	level.var_b6e30614 = (isdefined(getgametypesetting(#"hash_6c65796bd239e3c")) ? getgametypesetting(#"hash_6c65796bd239e3c") : 0);
 	level.var_6b59ac2c = (isdefined(getgametypesetting(#"hash_5414fca2f68467d")) ? getgametypesetting(#"hash_5414fca2f68467d") : 0);
@@ -70,12 +70,12 @@ function __init__()
 	level.var_28a3f929 = (isdefined(getgametypesetting(#"hash_49ef6375e8d3832c")) ? getgametypesetting(#"hash_49ef6375e8d3832c") : 0);
 	if(isdedicated())
 	{
-		var_bf160a69 = getdvarint(#"hash_57d63269cdf0c97f", 0);
-		if(0 < var_bf160a69)
+		numzm = getdvarint(#"hash_57d63269cdf0c97f", 0);
+		if(0 < numzm)
 		{
-			iprintlnbold((("Initing " + var_bf160a69) + " zombies ") + "\n");
+			iprintlnbold((("Initing " + numzm) + " zombies ") + "\n");
 			level.var_d373b4e4 = 1;
-			level.var_aad912ad = var_bf160a69;
+			level.var_aad912ad = numzm;
 		}
 	}
 	level.var_d06e67bc = (isdefined(getgametypesetting(#"hash_1fdc18ec4c85b70d")) ? getgametypesetting(#"hash_1fdc18ec4c85b70d") : 0);
@@ -108,7 +108,7 @@ function __init__()
 	level thread function_7b0c014e();
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_killed_with_params(&on_player_killed);
-	callback::function_1475a073(&function_4927535c);
+	callback::function_1475a073(&on_player_downed);
 	level.var_dabf85eb = 0;
 	level.var_392ea96a = 0;
 	level.var_3140c814 = 1;
@@ -121,11 +121,11 @@ function __init__()
 	level.var_bd19c3a8 = &function_bd19c3a8;
 	level.var_a7f72ea1 = #"hash_1dcbe8021fb16344";
 	level.var_f2bbd457 = #"hash_2719f9bf8294979f";
-	level.var_b6e3500b = #"hash_217ded615ffcff28";
+	level.var_b6e3500b = #"p8_wz_teddybear";
 	level.var_96bd78dd = #"hash_1cd5ad7d3323d02c";
 	level.var_591aff35 = #"hash_5afb37e5e38fa248";
 	level.var_3b378d26 = #"hash_5e132c061625eb87";
-	level.var_d8ddf407 = #"hash_71512392558a739d";
+	level.var_d8ddf407 = #"p8_wz_win_teddybear";
 	level.zmb_laugh_alias = "zmb_player_outofbounds";
 	level.var_5f531c0f = int(100 * 1000);
 	level.var_d2954f43 = 90;
@@ -139,7 +139,7 @@ function __init__()
 }
 
 /*
-	Name: function_4927535c
+	Name: on_player_downed
 	Namespace: namespace_bf3feaf0
 	Checksum: 0xC78D2CF9
 	Offset: 0x1210
@@ -147,7 +147,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_4927535c()
+function private on_player_downed()
 {
 	if(isdefined(self.laststandparams))
 	{

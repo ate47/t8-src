@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2c49ae69cd8ce30c;
-#using script_38af8be38c6709ff;
+#using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_47fb62300ac0bd60;
 #using script_4c8dba49908aecc2;
-#using script_7b8ad364b9de169e;
+#using scripts\abilities\mp\gadgets\gadget_smart_cover.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\demo_shared.gsc;
@@ -1032,7 +1032,7 @@ function onuseplantobject(player)
 	demo::bookmark(#"event", gettime(), player);
 	potm::bookmark(#"event", gettime(), player);
 	player stats::function_bb7eedf0(#"plants", 1);
-	player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+	player stats::function_dad108fa(#"plants_defuses", 1);
 	player globallogic_score::incpersstat(#"objectivescore", 1, 0, 1);
 	globallogic_audio::leader_dialog("bombPlanted");
 	scoreevents::processscoreevent(#"planted_bomb", player, undefined, undefined);
@@ -1076,7 +1076,7 @@ function onusedefuseobject(player)
 	player.pers[#"objectives"]++;
 	player.objectives = player.pers[#"objectives"];
 	player stats::function_bb7eedf0(#"defuses", 1);
-	player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+	player stats::function_dad108fa(#"plants_defuses", 1);
 	demo::bookmark(#"event", gettime(), player);
 	potm::bookmark(#"event", gettime(), player);
 	globallogic_audio::leader_dialog("bombDefused");
@@ -1251,7 +1251,7 @@ function bombplanted(destroyedobj, player)
 		dropangles = vectortoangles(forward);
 		level.sdbombmodel = spawn("script_model", trace[#"position"]);
 		level.sdbombmodel.angles = dropangles;
-		level.sdbombmodel setmodel(#"hash_5426eab51c4c10bc");
+		level.sdbombmodel setmodel(#"wpn_t8_eqp_briefcase_bomb_stow");
 	}
 	destroyedobj gameobjects::allow_use(#"none");
 	destroyedobj gameobjects::set_visible_team("none");

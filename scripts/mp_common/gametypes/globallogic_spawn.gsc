@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_18f0d22c75b141a7;
-#using script_1d1e03233039d175;
+#using scripts\mp_common\bots\mp_bot.gsc;
 #using script_256b8879317373de;
 #using script_29ed825598140ca0;
 #using script_2c49ae69cd8ce30c;
 #using script_3f27a7b2232674db;
-#using script_3f9e54c7a9a7e1e2;
-#using script_6c8abe14025b47c4;
+#using scripts\mp_common\teams\teams.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_6eb0d63d4a90adcf;
 #using script_788472602edbe3b9;
 #using scripts\core_common\array_shared.gsc;
@@ -1107,7 +1107,7 @@ function spawnplayer()
 		var_f8e6b703 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 		if(isdefined(var_f8e6b703))
 		{
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_4fb5a848ac8329a8", gender);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_gender", gender);
 			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_7f98574cf2a03360", var_9cc50881);
 			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_38198df3d9b2c8b8", var_be574bd8);
 			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_77e4495eb46e7e2b", var_8fa79650);

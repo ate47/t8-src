@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_624a704d0f6bf28d;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\beam_shared.csc;

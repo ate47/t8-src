@@ -1,34 +1,34 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_11c0a75851de7fce;
-#using script_14e569dd391faf67;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm\weapons\zm_weap_minigun.gsc;
+#using scripts\zm\zm_office_teleporters.gsc;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_174ebb9642933bf7;
-#using script_193e6daef46bb88b;
-#using script_1a0465ccc4a3ef61;
-#using script_1b65a63cea0fa4b5;
-#using script_27e13de8e5cf7b4;
+#using scripts\zm\weapons\zm_weap_katana.gsc;
+#using scripts\zm\zm_office_defcon.gsc;
+#using scripts\zm_common\bgbs\zm_bgb_nowhere_but_there.gsc;
+#using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
 #using script_293299be863018bb;
 #using script_2cd0a997aa904279;
-#using script_3ed4043a74fa517b;
-#using script_42ac6fc8b2ff0f3e;
+#using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4bae07eadc57bb51;
-#using script_51256766e8ea8391;
+#using scripts\zm\zm_office_trials.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_56a07ed451084ca5;
+#using scripts\zm\zm_office_elevators.gsc;
 #using script_59a783d756554a80;
-#using script_5a979d9fa7d64923;
-#using script_5b4f7a8178990872;
-#using script_5bb072c3abf4652c;
-#using script_6021ce59143452c3;
+#using scripts\zm\weapons\zm_weap_flamethrower.gsc;
+#using scripts\zm_common\zm_hud.gsc;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_63da2325262612ba;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
-#using script_71b31a94cdaeca53;
-#using script_7224d61ed502ea07;
+#using scripts\zm\zm_office_floors.gsc;
+#using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7b75a29159ce123e;
 #using script_7be39c34f66312aa;
 #using script_ab862743b3070a;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -116,7 +116,7 @@ event main(eventstruct)
 	level.zombiemode_reusing_pack_a_punch = 1;
 	level.var_161cb00c = 1;
 	level.var_ef785c4c = 0;
-	level.pack_a_punch.custom_power_think = &namespace_a701220b::function_9b917fd5;
+	level.pack_a_punch.custom_power_think = &zm_office_teleporters::function_9b917fd5;
 	zm_pap_util::set_interaction_height(28);
 	zm_pap_util::function_11fdb083(16);
 	if(zm_utility::is_standard())
@@ -129,7 +129,7 @@ event main(eventstruct)
 	}
 	load::main();
 	level.zones = [];
-	level.zone_manager_init_func = &namespace_d1510b23::zone_init;
+	level.zone_manager_init_func = &zm_office_zones::zone_init;
 	init_zones[0] = "conference_level1";
 	level thread zm_zonemgr::manage_zones(init_zones);
 	level.random_pandora_box_start = 1;
@@ -150,21 +150,21 @@ event main(eventstruct)
 	}
 	level thread sndfunctions();
 	level thread metal_detectors();
-	level thread namespace_d1510b23::init();
-	level thread namespace_47276bad::init();
-	level thread namespace_a57fd442::init();
-	level thread namespace_ccdea9b1::init();
+	level thread zm_office_zones::init();
+	level thread zm_office_floors::init();
+	level thread zm_office_fx::init();
+	level thread zm_office_elevators::init();
 	level thread wait_for_power();
 	level thread namespace_2a4e49d0::init();
 	level thread namespace_ef310bfe::init();
 	level thread namespace_c71ecd1b::init();
 	level thread namespace_a5657ff1::init();
 	level thread namespace_6a81d072::init();
-	level thread namespace_6cd64b2b::pentagon_packapunch_init();
-	level thread namespace_d8d92c8b::init();
+	level thread zm_office_defcon::pentagon_packapunch_init();
+	level thread zm_office_ww_quest::init();
 	level thread namespace_6f62781f::init();
 	level thread namespace_8f53e87b::init();
-	level thread namespace_fada3c80::main();
+	level thread zm_office_sound::main();
 	if(!zm_trial::function_b47f6aba())
 	{
 		level thread namespace_55f8626e::init();
@@ -180,10 +180,10 @@ event main(eventstruct)
 	level thread registergondola_moving_watcher();
 	level thread function_8aea12();
 	level thread function_785cadc4();
-	namespace_ee206246::register(#"main_quest", #"step1", #"hash_269c18969e47568f", &function_7b48256b, &function_e3a10039, 1);
-	namespace_ee206246::start(#"main_quest");
-	namespace_59ff1d6c::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
-	if(namespace_59ff1d6c::function_901b751c(#"zmenhancedstate") == 2)
+	zm_sq::register(#"main_quest", #"step1", #"hash_269c18969e47568f", &function_7b48256b, &function_e3a10039, 1);
+	zm_sq::start(#"main_quest");
+	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
+	if(zm_custom::function_901b751c(#"zmenhancedstate") == 2)
 	{
 		level flag::set(#"hash_2a1fc2e349c48462");
 	}
@@ -459,9 +459,9 @@ function wait_for_power()
 {
 	level thread function_cbc7dc41();
 	level thread function_65642571();
-	level thread namespace_a701220b::teleporter_init();
+	level thread zm_office_teleporters::teleporter_init();
 	level flag::wait_till("power_on");
-	level thread namespace_a701220b::function_ea199c46();
+	level thread zm_office_teleporters::function_ea199c46();
 	util::wait_network_frame();
 	level notify(#"hash_2124984d1ece329c");
 	util::wait_network_frame();
@@ -813,7 +813,7 @@ function function_335eca01()
 */
 function registerquest_key_pickup_explode(e_player)
 {
-	if(e_player != self && e_player laststand::player_is_in_laststand() && (!(isdefined(e_player.var_16735873) && e_player.var_16735873)) && !namespace_47276bad::function_ee59e344(e_player))
+	if(e_player != self && e_player laststand::player_is_in_laststand() && (!(isdefined(e_player.var_16735873) && e_player.var_16735873)) && !zm_office_floors::function_ee59e344(e_player))
 	{
 		return true;
 	}
@@ -829,15 +829,15 @@ function registerquest_key_pickup_explode(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_eeb98313(var_de1edcdb)
+function function_eeb98313(a_s_respawn_points)
 {
 	var_5f7e6059 = [];
-	var_c0a091bc = namespace_47276bad::function_2fe0c64e(self.var_ca944973);
+	var_c0a091bc = zm_office_floors::function_2fe0c64e(self.var_ca944973);
 	if(isdefined(var_c0a091bc))
 	{
-		foreach(s_point in var_de1edcdb)
+		foreach(s_point in a_s_respawn_points)
 		{
-			var_3193076f = namespace_47276bad::function_2fe0c64e(s_point.origin);
+			var_3193076f = zm_office_floors::function_2fe0c64e(s_point.origin);
 			if(var_3193076f === var_c0a091bc)
 			{
 				if(!isdefined(var_5f7e6059))
@@ -853,7 +853,7 @@ function function_eeb98313(var_de1edcdb)
 		}
 		return var_5f7e6059;
 	}
-	return var_de1edcdb;
+	return a_s_respawn_points;
 }
 
 /*
@@ -880,7 +880,7 @@ function private function_8d718d6c()
 			{
 				case "hash_2347d90c6e4ac494":
 				{
-					level thread namespace_6cd64b2b::function_d2f6cecb();
+					level thread zm_office_defcon::function_d2f6cecb();
 					break;
 				}
 				case "hash_721e1a59dcdbed92":
@@ -895,7 +895,7 @@ function private function_8d718d6c()
 				}
 				case "enable_ww_crate":
 				{
-					level.s_ww_quest_reward namespace_d8d92c8b::function_68f68bb4();
+					level.s_ww_quest_reward zm_office_ww_quest::function_68f68bb4();
 					break;
 				}
 			}

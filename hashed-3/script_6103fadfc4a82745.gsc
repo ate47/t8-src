@@ -2,13 +2,13 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_e5d48e46 : class_6aaccc24
+class cscavenger_icon : cLUIelem
 {
 	var var_47e79fc;
 
 	/*
 		Name: constructor
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x17567AB1
 		Offset: 0x1C8
 		Size: 0x14
@@ -21,7 +21,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x6F82F3C6
 		Offset: 0x300
 		Size: 0x14
@@ -34,7 +34,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: function_693a2be8
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x86C117DA
 		Offset: 0x2C0
 		Size: 0x34
@@ -48,7 +48,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: close
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x4E07157C
 		Offset: 0x290
 		Size: 0x24
@@ -57,12 +57,12 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
 		Name: open
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x46D70449
 		Offset: 0x240
 		Size: 0x44
@@ -71,12 +71,12 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function open(player, persistent = 0)
 	{
-		namespace_6aaccc24::function_8b8089ba(player, "scavenger_icon", persistent);
+		cLUIelem::function_8b8089ba(player, "scavenger_icon", persistent);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x1839F8E1
 		Offset: 0x1E8
 		Size: 0x4C
@@ -85,8 +85,8 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function setup_clientfields(uid)
 	{
-		namespace_6aaccc24::setup_clientfields(uid);
-		namespace_6aaccc24::function_da693cbe("pulse", 1, 1, "counter");
+		cLUIelem::setup_clientfields(uid);
+		cLUIelem::function_da693cbe("pulse", 1, 1, "counter");
 	}
 
 }
@@ -104,7 +104,7 @@ class class_e5d48e46 : class_6aaccc24
 */
 function register(uid)
 {
-	elem = new class_e5d48e46();
+	elem = new cscavenger_icon();
 	[[ elem ]]->setup_clientfields(uid);
 	return elem;
 }

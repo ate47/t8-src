@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_13581d8481dff471;
-#using script_1611421ee9b880d3;
-#using script_17179876e0e27f8c;
-#using script_1f0690730d18d827;
-#using script_22073723f8f4cda2;
-#using script_2630b7cb2596f8e4;
-#using script_3762ce8163e304e6;
+#using scripts\zm_common\zm_wallbuy.csc;
+#using scripts\core_common\status_effects\status_effects.csc;
+#using scripts\zm_common\aats\zm_aat_brain_decay.csc;
+#using scripts\zm_common\aats\zm_aat_frostbite.csc;
+#using scripts\zm\weapons\zm_weap_homunculus.csc;
+#using scripts\zm_common\zm_hud.csc;
 #using script_3e87d9314f0597ef;
-#using script_4548e05a471de3f5;
-#using script_4c3385b0ecce078c;
-#using script_4e8f5e71e8d29a03;
-#using script_50d6f39176a340a9;
-#using script_6d85b093d74cdfdd;
+#using scripts\zm_common\aats\zm_aat_plasmatic_burst.csc;
+#using scripts\zm_common\zm_demo.csc;
+#using scripts\zm\weapons\zm_weap_mini_turret.csc;
+#using scripts\zm_common\aats\zm_aat_kill_o_watt.csc;
+#using scripts\zm_common\zm_crafting.csc;
 #using script_7520bf82a814057c;
 #using script_76b36ed1b7a51ed2;
 #using scripts\core_common\aat_shared.csc;
@@ -64,7 +64,7 @@ function autoexec ignore_systems()
 	system::ignore(#"gadget_overdrive");
 	system::ignore(#"gadget_security_breach");
 	system::ignore(#"gadget_cleanse");
-	system::ignore(#"hash_52aca7c35be649b8");
+	system::ignore(#"gadget_health_boost");
 	system::ignore(#"gadget_combat_efficiency");
 	system::ignore(#"gadget_other");
 	system::ignore(#"gadget_vision_pulse");

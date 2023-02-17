@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -97,7 +97,7 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: None
 */
-function function_127fb8f3(supplypod, var_dbd1a594)
+function function_127fb8f3(supplypod, attackingplayer)
 {
 	supplypod.gameobject gameobjects::allow_use(#"none");
 	if(isdefined(level.var_86e3d17a))
@@ -120,7 +120,7 @@ function function_127fb8f3(supplypod, var_dbd1a594)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(supplypod, var_dbd1a594)
+function function_bff5c062(supplypod, attackingplayer)
 {
 	if(!isdefined(supplypod.gameobject))
 	{
@@ -129,11 +129,11 @@ function function_bff5c062(supplypod, var_dbd1a594)
 	original_owner = supplypod.owner;
 	supplypod.owner weaponobjects::hackerremoveweapon(supplypod);
 	supplypod.owner function_890b2784();
-	supplypod.owner = var_dbd1a594;
-	supplypod setowner(var_dbd1a594);
-	supplypod setteam(var_dbd1a594 getteam());
-	supplypod.team = var_dbd1a594 getteam();
-	supplypod.gameobject gameobjects::set_owner_team(var_dbd1a594.team);
+	supplypod.owner = attackingplayer;
+	supplypod setowner(attackingplayer);
+	supplypod setteam(attackingplayer getteam());
+	supplypod.team = attackingplayer getteam();
+	supplypod.gameobject gameobjects::set_owner_team(attackingplayer.team);
 	supplypod.gameobject gameobjects::set_visible_team(#"friendly");
 	supplypod.gameobject gameobjects::allow_use(#"friendly");
 	supplypod notify(#"hash_523ddcbd662010e5");
@@ -142,8 +142,8 @@ function function_bff5c062(supplypod, var_dbd1a594)
 	{
 		supplypod.var_2d045452 notify(#"hacked");
 	}
-	supplypod thread function_b44dec0b(var_dbd1a594);
-	supplypod thread function_a2c40499(var_dbd1a594);
+	supplypod thread function_b44dec0b(attackingplayer);
+	supplypod thread function_a2c40499(attackingplayer);
 	supplypod thread watchfordamage();
 	supplypod thread watchfordeath();
 	var_a87deb22 = 1;
@@ -172,13 +172,13 @@ function function_bff5c062(supplypod, var_dbd1a594)
 	{
 		[[level.var_fc1bbaef]](supplypod);
 	}
-	level.var_934fb97.var_5f6d033b[supplypod.objectiveid] = supplypod;
-	if(!isdefined(level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid]))
+	level.var_934fb97.supplypods[supplypod.objectiveid] = supplypod;
+	if(!isdefined(level.var_934fb97.var_27fce4c0[attackingplayer.clientid]))
 	{
-		level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid] = [];
+		level.var_934fb97.var_27fce4c0[attackingplayer.clientid] = [];
 	}
 	var_a7edcaed = level.var_934fb97.var_27fce4c0.size + 1;
-	array::push(level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid], supplypod, var_a7edcaed);
+	array::push(level.var_934fb97.var_27fce4c0[attackingplayer.clientid], supplypod, var_a7edcaed);
 	if(var_a87deb22)
 	{
 		supplypod thread function_827486aa(0);
@@ -667,7 +667,7 @@ function function_827486aa(var_d3213f00, var_7497ba51 = 1)
 	deleteobjective(self.objectiveid);
 	deleteobjective(self.var_134eefb9);
 	self.var_83d9bfb5 = 1;
-	level.var_934fb97.var_5f6d033b[self.objectiveid] = undefined;
+	level.var_934fb97.supplypods[self.objectiveid] = undefined;
 	self clientfield::set("enemyequip", 0);
 	if(isdefined(self.gameobject))
 	{
@@ -1006,7 +1006,7 @@ function function_9abdee8c(object)
 	supplypod.var_57022ab8 = (isdefined(level.var_934fb97.bundle.var_5a0d87e0) ? level.var_934fb97.bundle.var_5a0d87e0 : 20);
 	supplypod.usecount = 0;
 	supplypod.objectiveid = getobjectiveid();
-	level.var_934fb97.var_5f6d033b[supplypod.objectiveid] = supplypod;
+	level.var_934fb97.supplypods[supplypod.objectiveid] = supplypod;
 	if(!isdefined(level.var_934fb97.var_27fce4c0[player.clientid]))
 	{
 		level.var_934fb97.var_27fce4c0[player.clientid] = [];
@@ -1462,12 +1462,12 @@ function function_bcf0dd99()
 function function_b8a25634(owner)
 {
 	player = self;
-	var_ab282d2a[0] = level.var_934fb97.bundle.var_b9443d6b;
-	var_ab282d2a[1] = level.var_934fb97.bundle.var_ea340924;
-	var_ab282d2a[2] = level.var_934fb97.bundle.var_ff3d4d40;
+	cooldowns[0] = level.var_934fb97.bundle.var_b9443d6b;
+	cooldowns[1] = level.var_934fb97.bundle.var_ea340924;
+	cooldowns[2] = level.var_934fb97.bundle.var_ff3d4d40;
 	for(slot = 0; slot < 3; slot++)
 	{
-		if(!isdefined(var_ab282d2a[slot]))
+		if(!isdefined(cooldowns[slot]))
 		{
 			continue;
 		}
@@ -1475,7 +1475,7 @@ function function_b8a25634(owner)
 		{
 			continue;
 		}
-		cooldown = var_ab282d2a[slot] * (isdefined(player._gadgets_player[slot].var_e4d4fa7e) ? player._gadgets_player[slot].var_e4d4fa7e : 0);
+		cooldown = cooldowns[slot] * (isdefined(player._gadgets_player[slot].var_e4d4fa7e) ? player._gadgets_player[slot].var_e4d4fa7e : 0);
 		if(isdefined(owner) && owner)
 		{
 			cooldown = cooldown * (isdefined(level.var_934fb97.bundle.var_44a195ff) ? level.var_934fb97.bundle.var_44a195ff : 0);

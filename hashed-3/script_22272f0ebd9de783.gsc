@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
-#using script_6ce38ab036223e6e;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -169,26 +169,26 @@ function function_8fe2d903()
 	self notify(#"trap_activate");
 	level notify(#"trap_activate", self);
 	self.activated_by_player thread function_45a2294f(self.script_string);
-	foreach(var_9bda8088 in level.var_5f47f17d)
+	foreach(t_trap in level.var_5f47f17d)
 	{
-		if(var_9bda8088.script_string === self.script_string)
+		if(t_trap.script_string === self.script_string)
 		{
-			var_deed061f = getentarray(var_9bda8088.target, "targetname");
+			var_deed061f = getentarray(t_trap.target, "targetname");
 			var_db919ceb = getent(var_deed061f[0].target, "targetname");
 			var_db919ceb scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 1", var_db919ceb);
 			var_db919ceb thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 2", var_db919ceb);
-			var_9bda8088 thread zm_traps::trap_damage();
+			t_trap thread zm_traps::trap_damage();
 		}
 	}
 	self waittilltimeout(self._trap_duration, #"trap_deactivate");
-	foreach(var_9bda8088 in level.var_5f47f17d)
+	foreach(t_trap in level.var_5f47f17d)
 	{
-		if(var_9bda8088.script_string === self.script_string)
+		if(t_trap.script_string === self.script_string)
 		{
-			var_deed061f = getentarray(var_9bda8088.target, "targetname");
+			var_deed061f = getentarray(t_trap.target, "targetname");
 			var_db919ceb = getent(var_deed061f[0].target, "targetname");
 			var_db919ceb thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 3", var_db919ceb);
-			var_9bda8088 notify(#"trap_done");
+			t_trap notify(#"trap_done");
 		}
 	}
 }
@@ -348,7 +348,7 @@ function damage(e_trap)
 		level notify(#"trap_kill", {#e_trap:e_trap, #e_victim:self});
 		self dodamage(self.health + 666, self.origin, e_trap);
 		self thread function_373d49f(v_dest, 0.25, 0, 0.125);
-		self thread namespace_11c28b18::function_ae1b4f5b(90, 75, 25);
+		self thread zm_towers_util::function_ae1b4f5b(90, 75, 25);
 	}
 }
 

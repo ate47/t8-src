@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2fcb47e3735a6edd;
+#using scripts\zm\zm_orange_pap.gsc;
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
 #using script_421e0a3702e22de;
@@ -7,7 +7,7 @@
 #using script_58c342edd81589fb;
 #using script_5e177698fdcdbe2c;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_d19b1fbf1d7cdd6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -184,7 +184,7 @@ function function_816c3132(var_5ea5c94d)
 		}
 		level flag::set(#"hash_3028604821838259");
 		level flag::set(#"hash_1d9afa9be4c10160");
-		level thread namespace_44916ada::function_56db9cdc();
+		level thread zm_orange_pap::function_56db9cdc();
 		level.var_1c53964e thread namespace_509a75d1::function_6a0d675d(#"hash_17b44ac72ae4b92f", -1, 0, 1);
 		level thread function_8c273b51();
 		while(!namespace_509a75d1::any_player_in_zone(array("ice_floe")))
@@ -192,7 +192,7 @@ function function_816c3132(var_5ea5c94d)
 			waitframe(1);
 		}
 		level.var_b2b15659 = 1;
-		namespace_3263198e::function_fd24e47f(#"hash_56bc0447e6f4c9bf", -1, 1, 1);
+		zm_orange_util::function_fd24e47f(#"hash_56bc0447e6f4c9bf", -1, 1, 1);
 		level waittill(#"hash_5266a594b96823e2");
 	}
 }
@@ -230,7 +230,7 @@ function function_3c9be590(var_5ea5c94d, ended_early)
 	foreach(s_challenge_station in level.var_23b90682)
 	{
 		s_challenge_station.b_is_active = 0;
-		s_challenge_station namespace_86eed980::function_fd8a137e();
+		s_challenge_station zm_orange_challenges::function_fd8a137e();
 	}
 	level flag::clear(#"hash_3028604821838259");
 	namespace_509a75d1::function_314447b(1, 0);
@@ -465,17 +465,17 @@ function function_dc380897()
 	player = waitresult.e_who;
 	if(level.var_d7374603 == 0)
 	{
-		player thread namespace_3263198e::function_51b752a9(#"hash_abba1937c744399", -1, 0, 1);
+		player thread zm_orange_util::function_51b752a9(#"hash_abba1937c744399", -1, 0, 1);
 	}
 	else
 	{
 		if(level.var_d7374603 == 3)
 		{
-			player thread namespace_3263198e::function_51b752a9(#"hash_549030026224cbce", -1, 0, 1);
+			player thread zm_orange_util::function_51b752a9(#"hash_549030026224cbce", -1, 0, 1);
 		}
 		else if(level.var_d7374603 == 4)
 		{
-			player thread namespace_3263198e::function_51b752a9(#"hash_103075d32e77e799", -1, 0, 1);
+			player thread zm_orange_util::function_51b752a9(#"hash_103075d32e77e799", -1, 0, 1);
 		}
 	}
 	level flag::clear(#"hash_11d64d1f93c196cc");
@@ -546,11 +546,11 @@ function function_dc380897()
 		self.vessel playsound(#"zmb_vessel_pickup");
 		if(level.var_d7374603 == 1)
 		{
-			player thread namespace_3263198e::function_51b752a9(#"hash_4de6e4f76ebb0c43", -1, 0, 1);
+			player thread zm_orange_util::function_51b752a9(#"hash_4de6e4f76ebb0c43", -1, 0, 1);
 		}
 		else if(level.var_d7374603 == 4)
 		{
-			player thread namespace_3263198e::function_51b752a9(#"hash_2fbc5c784ba782b6", -1, 0, 1);
+			player thread zm_orange_util::function_51b752a9(#"hash_2fbc5c784ba782b6", -1, 0, 1);
 		}
 		arrayremovevalue(level.var_3089454f, self.vessel);
 		self.vessel delete();

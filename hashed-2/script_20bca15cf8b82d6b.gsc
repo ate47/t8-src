@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2a8820b4158c6689;
-#using script_70e093910fc75f4;
+#using scripts\core_common\ai\archetype_brutus.csc;
+#using scripts\zm\ai\zm_ai_brutus.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

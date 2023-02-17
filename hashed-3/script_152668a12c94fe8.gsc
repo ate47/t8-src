@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_10956a741a7e186e;
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_28b18e98462a3c7c;
 #using script_39e954a546d3baf;
 #using script_3f9e0dc8454d98e1;
@@ -125,7 +125,7 @@ function function_ca35fa36()
 	level flag::init(#"hash_3bb140702c2b1323");
 	level.var_d6538eef = 0;
 	level flag::wait_till("start_zombie_round_logic");
-	namespace_9cf755b::function_985c08e7();
+	zm_white_util::function_985c08e7();
 	zm_utility::enable_power_switch(0);
 	/#
 		if(getdvarint(#"hash_b3363e1d25715d7", 0))
@@ -181,8 +181,8 @@ function function_ca35fa36()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45);
 	level flag::set(#"hash_50990d5b9376f50d");
 	level flag::set(#"power_on1");
-	namespace_9cf755b::function_6f635c39("bunker_power_event_storage");
-	namespace_9cf755b::function_6f635c39("bunker_power_event_solitary");
+	zm_white_util::function_6f635c39("bunker_power_event_storage");
+	zm_white_util::function_6f635c39("bunker_power_event_solitary");
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_4aa70779 = "";
 	if(math::cointoss())
@@ -230,18 +230,18 @@ function function_ca35fa36()
 	if(var_73ca1ee9 == "apd")
 	{
 		var_f79ff5ec = #"operations";
-		level thread namespace_9cf755b::function_364cd8c0("bunker_power_event_storage");
-		level thread namespace_9cf755b::function_612918d9("bunker_door_storage_blocker");
-		level thread namespace_9cf755b::function_bf25aeb1("bunker_door_storage_lockdown");
+		level thread zm_white_util::function_364cd8c0("bunker_power_event_storage");
+		level thread zm_white_util::function_612918d9("bunker_door_storage_blocker");
+		level thread zm_white_util::function_bf25aeb1("bunker_door_storage_lockdown");
 		level flag::set("storage_points");
 		level flag::set("operations_points");
 	}
 	else
 	{
 		var_f79ff5ec = #"apd";
-		level thread namespace_9cf755b::function_364cd8c0("bunker_power_event_solitary");
-		level thread namespace_9cf755b::function_612918d9("bunker_door_solitary_blocker");
-		level thread namespace_9cf755b::function_bf25aeb1("bunker_door_solitary_lockdown");
+		level thread zm_white_util::function_364cd8c0("bunker_power_event_solitary");
+		level thread zm_white_util::function_612918d9("bunker_door_solitary_blocker");
+		level thread zm_white_util::function_bf25aeb1("bunker_door_solitary_lockdown");
 		level flag::set("solitary_points");
 		level flag::set("apd_points");
 	}
@@ -267,18 +267,18 @@ function function_ca35fa36()
 	level zm_utility::open_door(var_dca419c2, undefined, undefined, 0);
 	if(var_73ca1ee9 == "apd")
 	{
-		level thread namespace_9cf755b::function_364cd8c0("bunker_power_event_solitary");
-		level thread namespace_9cf755b::function_612918d9("bunker_door_solitary_blocker");
-		level thread namespace_9cf755b::function_bf25aeb1("bunker_door_solitary_lockdown");
+		level thread zm_white_util::function_364cd8c0("bunker_power_event_solitary");
+		level thread zm_white_util::function_612918d9("bunker_door_solitary_blocker");
+		level thread zm_white_util::function_bf25aeb1("bunker_door_solitary_lockdown");
 	}
 	else
 	{
-		level thread namespace_9cf755b::function_364cd8c0("bunker_power_event_storage");
-		level thread namespace_9cf755b::function_612918d9("bunker_door_storage_blocker");
-		level thread namespace_9cf755b::function_bf25aeb1("bunker_door_storage_lockdown");
+		level thread zm_white_util::function_364cd8c0("bunker_power_event_storage");
+		level thread zm_white_util::function_612918d9("bunker_door_storage_blocker");
+		level thread zm_white_util::function_bf25aeb1("bunker_door_storage_lockdown");
 	}
-	namespace_9cf755b::function_f2fa71ce();
-	namespace_9cf755b::function_364cd8c0("apd_lockdown");
+	zm_white_util::function_f2fa71ce();
+	zm_white_util::function_364cd8c0("apd_lockdown");
 	zm_zonemgr::enable_zone("zone_bunker_apd");
 	level thread function_466fb0ff(var_f79ff5ec);
 }
@@ -447,8 +447,8 @@ function intro_zombie_dog(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		var_b88c4823 = namespace_c402654::function_62db7b1c(1, undefined);
-		if(isdefined(var_b88c4823))
+		e_nova_crawler = namespace_c402654::function_62db7b1c(1, undefined);
+		if(isdefined(e_nova_crawler))
 		{
 			n_spawn_count++;
 		}
@@ -487,8 +487,8 @@ function intro_nova_crawler(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		var_b88c4823 = namespace_5c160465::function_dd836251();
-		if(isdefined(var_b88c4823))
+		e_nova_crawler = namespace_5c160465::function_dd836251();
+		if(isdefined(e_nova_crawler))
 		{
 			n_spawn_count++;
 		}
@@ -680,8 +680,8 @@ function function_1dcc39ae()
 */
 function init_traps()
 {
-	var_2b4789ce = getentarray("zombie_trap", "targetname");
-	foreach(e_trap in var_2b4789ce)
+	a_e_traps = getentarray("zombie_trap", "targetname");
+	foreach(e_trap in a_e_traps)
 	{
 		e_trap.script_string = "disable_wait_for_power";
 	}

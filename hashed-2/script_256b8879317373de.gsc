@@ -118,7 +118,7 @@ function spawn_player()
 */
 function on_player_spawned()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3affe3aaa3f22cb0;
-#using script_3f9e54c7a9a7e1e2;
-#using script_8210b63db522f15;
+#using scripts\wz_common\character_unlock_fixup.gsc;
+#using scripts\mp_common\teams\teams.gsc;
+#using scripts\wz_common\character_unlock.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;
@@ -33,7 +33,7 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	namespace_fa6b9ef8::function_90ee7a97(#"hash_518e05d31b55dfe7", &function_2613aeec);
+	character_unlock_fixup::function_90ee7a97(#"hash_518e05d31b55dfe7", &function_2613aeec);
 }
 
 /*

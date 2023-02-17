@@ -5,7 +5,7 @@
 #using script_57f7003580bb15e0;
 #using script_58c342edd81589fb;
 #using script_684097158a90b5c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -472,7 +472,7 @@ function function_93eab559(var_b45e3d90 = 0)
 		s_loc.var_7c5f8ec1 = util::spawn_model("tag_origin", s_loc.origin);
 		s_loc.var_7c5f8ec1 thread function_85324f75(var_b45e3d90);
 	}
-	namespace_11c28b18::function_afd37143(#"special_round_start");
+	zm_towers_util::function_afd37143(#"special_round_start");
 	if(level flag::get(#"hash_6205682540170b8"))
 	{
 		level thread namespace_9d301ad2::function_5d0d1807();
@@ -585,7 +585,7 @@ function function_85324f75(var_8657f7ff = 0)
 	self endon(#"death");
 	if(!var_8657f7ff)
 	{
-		var_7a79774b = function_4d1e7b48("dot_corrosive_catalyst");
+		var_7a79774b = getstatuseffect("dot_corrosive_catalyst");
 	}
 	if(level.start_round == level.round_number)
 	{
@@ -689,7 +689,7 @@ function function_71c7c70b(var_c1ff0b19)
 */
 function function_39a9e7ce()
 {
-	var_629da31e = namespace_59ff1d6c::function_901b751c(#"hash_70517c36d49b4ee0");
+	var_629da31e = zm_custom::function_901b751c(#"hash_70517c36d49b4ee0");
 	wait(1.5);
 	level notify(#"kill_special_round_fog");
 	var_60bb2505 = getent("vol_spawn_area", "targetname");

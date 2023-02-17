@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2255a7ad3edc838f;
-#using script_2dc48f46bfeac894;
+#using scripts\core_common\bots\bot.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_3f27a7b2232674db;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_56ca01b3b31455b5;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_7133a4d461308099;
+#using scripts\abilities\ability_util.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -836,7 +836,7 @@ function function_3172cf59(player, newscore, weapon, mpplayerscore)
 		}
 		else if(weapon.var_b76e0a09)
 		{
-			player stats::function_dad108fa(#"hash_26cba7430b2ed7b1", scorediff);
+			player stats::function_dad108fa(#"score_specialized_weapons", scorediff);
 		}
 	}
 	if(level.hardcoremode)
@@ -849,11 +849,11 @@ function function_3172cf59(player, newscore, weapon, mpplayerscore)
 	}
 	else if(!level.arenamatch)
 	{
-		player stats::function_bb7eedf0(#"hash_2b53b624764a0a41", scorediff);
+		player stats::function_bb7eedf0(#"score_core", scorediff);
 	}
 	if(level.arenamatch)
 	{
-		player stats::function_bb7eedf0(#"hash_6e15cfed6ce05699", scorediff);
+		player stats::function_bb7eedf0(#"score_arena", scorediff);
 	}
 	if(level.multiteam)
 	{
@@ -1829,11 +1829,11 @@ function updatewinstats(winner)
 	}
 	else if(!level.arenamatch)
 	{
-		winner stats::function_dad108fa(#"hash_14d06f640b771fb8", 1);
+		winner stats::function_dad108fa(#"wins_core", 1);
 	}
 	if(level.arenamatch)
 	{
-		winner stats::function_dad108fa(#"hash_1c95b400490ba23a", 1);
+		winner stats::function_dad108fa(#"wins_arena", 1);
 	}
 	if(level.multiteam)
 	{
@@ -2418,7 +2418,7 @@ function givekillstats(smeansofdeath, weapon, evictim, var_e7a369ea)
 		{
 			if(isarray(evictim.attackerdamage) && isdefined(self.clientid) && isdefined(evictim.attackerdamage[self.clientid]) && evictim.attackerdamage.size == 1)
 			{
-				stats::function_dad108fa(#"hash_7333f2fa3df0ea1d", 1);
+				stats::function_dad108fa(#"direct_action_kills", 1);
 			}
 		}
 		if(isdefined(level.var_c8453874))

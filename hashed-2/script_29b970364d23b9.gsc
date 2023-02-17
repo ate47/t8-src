@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1dfbba29049027e1;
+#using scripts\zm\zm_escape_travel.gsc;
 #using script_4cc2542101cb7973;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -157,7 +157,7 @@ function function_29543c()
 	s_info = undefined;
 	s_info = var_baa069fa waittill(#"trigger");
 	e_player = s_info.activator;
-	b_say = e_player zm_audio::create_and_play_dialog(#"zone_dock", #"hash_4f30a7de1a21c7cb", undefined, 1);
+	b_say = e_player zm_audio::create_and_play_dialog(#"zone_dock", #"react_0", undefined, 1);
 	if(isdefined(b_say) && b_say && e_player zm_characters::is_character(array(#"hash_1aa57ef704f24fa5", #"hash_36bc80636f0fdac4")))
 	{
 		wait(soundgetplaybacktime(#"hash_6598db6cd61c4aad") / 1000);
@@ -304,7 +304,7 @@ function function_4f89089b()
 		s_result = self waittill(#"trigger");
 		if(isplayer(s_result.activator) && isalive(s_result.activator))
 		{
-			b_played = s_result.activator zm_audio::create_and_play_dialog(#"hash_2df8832316a42fe1", #"react");
+			b_played = s_result.activator zm_audio::create_and_play_dialog(#"vpods", #"react");
 			if(isdefined(b_played) && b_played)
 			{
 				s_result.activator.var_b5fbfab4 = 1;
@@ -600,7 +600,7 @@ function private function_a78a3261()
 			var_be632f74 = 1;
 			foreach(player in getplayers())
 			{
-				if(player namespace_efb8c7fe::function_9a8ab327())
+				if(player zm_escape_travel::function_9a8ab327())
 				{
 					var_be632f74 = 0;
 					break;

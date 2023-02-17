@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_10034e69dca1cdbd;
 #using script_1254ac024174d9c0;
-#using script_1402fb2f7b0ede8b;
+#using scripts\zm_common\trials\zm_trial_give_reward.gsc;
 #using script_1496ada77dc2f2e2;
 #using script_1827ef4caab1c237;
-#using script_1ac263b07ef50ab6;
+#using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
 #using script_225941405db7c1fd;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_27d214e32f50853d;
 #using script_35d3717bf2cbee8f;
 #using script_3657077a08b7f19e;
@@ -15,10 +15,10 @@
 #using script_512d27609721ec85;
 #using script_536485e2fdf72e34;
 #using script_559aef57a0fe3c60;
-#using script_6021ce59143452c3;
-#using script_660b0ec6a2295085;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\trials\zm_trial_timeout.gsc;
 #using script_6951ea86fdae9ae0;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6d813fcbc979603a;
 #using script_7299aefe4149ed5d;
 #using script_770e34dfe9b07f3c;
@@ -55,7 +55,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 	level.var_57cc29f3 = &function_491101ba;
 	level.var_d0b54199 = &function_b8839207;
 	level.var_9093a47e = &function_b8839207;
@@ -69,7 +69,7 @@ event main(eventstruct)
 }
 
 /*
-	Name: function_a97958c3
+	Name: levelinit
 	Namespace: ztrials
 	Checksum: 0x3077CB36
 	Offset: 0x3E0
@@ -77,7 +77,7 @@ event main(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_a97958c3(eventstruct)
+event levelinit(eventstruct)
 {
 	var_189d26ca = "";
 	/#
@@ -86,11 +86,11 @@ event function_a97958c3(eventstruct)
 	var_3b363b7a = getgametypesetting(#"zmtrialsvariant");
 	if(isdefined(var_3b363b7a) && var_3b363b7a > 0)
 	{
-		var_189d26ca = (util::function_53bbf9d2() + "_variant_") + var_3b363b7a;
+		var_189d26ca = (util::get_map_name() + "_variant_") + var_3b363b7a;
 	}
 	else if(var_189d26ca == "")
 	{
-		var_189d26ca = util::function_53bbf9d2() + "_default";
+		var_189d26ca = util::get_map_name() + "_default";
 	}
 	/#
 		assert(var_189d26ca != "", "");
@@ -251,7 +251,7 @@ function private function_61fd0e87()
 	}
 	if(!level flag::get("round_reset") && !level flag::get(#"hash_6acab8bde7078239"))
 	{
-		namespace_b22c99a5::function_96e10d88(1);
+		zm_trial_util::function_96e10d88(1);
 		wait(3);
 	}
 }
@@ -478,7 +478,7 @@ function private function_9a6b2309()
 			}
 			if(getdvarint(#"hash_145033f5271f2651", 0) == 1)
 			{
-				namespace_b22c99a5::function_9c1092f6();
+				zm_trial_util::function_9c1092f6();
 				setdvar(#"hash_145033f5271f2651", 0);
 			}
 			waitframe(1);

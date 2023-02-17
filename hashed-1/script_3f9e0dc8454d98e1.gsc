@@ -939,8 +939,8 @@ function drawstringtime(msg, org, color, timer)
 function showlastenemysightpos(string)
 {
 	/#
-		self notify(#"hash_5c1ef88eda405ba4");
-		self endon(#"hash_5c1ef88eda405ba4", #"death");
+		self notify(#"got known enemy2");
+		self endon(#"got known enemy2", #"death");
 		if(!isvalidenemy(self.enemy))
 		{
 			return;

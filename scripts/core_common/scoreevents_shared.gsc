@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_bc839bb0e693558;
+#using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
 #using scripts\core_common\rank_shared.gsc;

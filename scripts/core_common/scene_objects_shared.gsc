@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3b7405881c081f6;
+#using scripts\core_common\bots\bot_util.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -2183,7 +2183,7 @@ class csceneobject
 		{
 			if(isbot(_e))
 			{
-				_e namespace_87f62ea8::function_23cbc6c1(_e.origin, 1);
+				_e bot_util::function_23cbc6c1(_e.origin, 1);
 			}
 			else
 			{
@@ -3826,7 +3826,7 @@ class cscene
 			{
 				if(isbot(obj._e))
 				{
-					obj._e namespace_87f62ea8::function_33834a13();
+					obj._e bot_util::function_33834a13();
 					obj._e bottakemanualcontrol();
 					continue;
 				}

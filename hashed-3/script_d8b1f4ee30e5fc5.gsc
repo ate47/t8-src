@@ -6,7 +6,7 @@
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
-#using script_58b1be28f065696d;
+#using scripts\core_common\ai\archetype_tiger_interface.gsc;
 #using script_59f07c660e6710a5;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;
@@ -151,7 +151,7 @@ function autoexec registerbehaviorscriptfunctions()
 	animationstatenetwork::registernotetrackhandlerfunction("tiger_melee_left", &function_8ad0c889);
 	animationstatenetwork::registernotetrackhandlerfunction("tiger_melee_right", &function_33958f06);
 	animationstatenetwork::registernotetrackhandlerfunction("tiger_pounce", &function_5ee65256);
-	namespace_93b6af30::registertigerinterfaceattributes();
+	tigerinterface::registertigerinterfaceattributes();
 	/#
 		if(isarchetypeloaded(#"tiger"))
 		{

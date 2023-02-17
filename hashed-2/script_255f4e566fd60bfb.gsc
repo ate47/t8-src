@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_39c61335d85620af;
+#using scripts\core_common\ai\planner_commander.gsc;
 
 #namespace namespace_7095eb0c;
 

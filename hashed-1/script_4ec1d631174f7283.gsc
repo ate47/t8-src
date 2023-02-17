@@ -41,7 +41,7 @@ function __init__()
 	/#
 		assert(isscriptfunctionptr(&function_b4b7cd20));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_52d4464152a75fb9", &function_b4b7cd20);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"ispablo", &function_b4b7cd20);
 	/#
 		zm_devgui::function_c7dd7a17("");
 		adddebugcommand("");

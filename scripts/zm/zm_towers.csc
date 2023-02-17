@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1611421ee9b880d3;
-#using script_2c454d63a96d2d0b;
+#using scripts\zm_common\zm_wallbuy.csc;
+#using scripts\zm_common\zm_characters.csc;
 #using script_3f48538738283547;
-#using script_67051bc8c81031aa;
-#using script_67b98aa634d9decc;
-#using script_74bae32e2e91a208;
+#using scripts\zm\weapons\zm_weap_riotshield.csc;
+#using scripts\zm\powerup\zm_powerup_free_perk.csc;
+#using scripts\zm\ai\zm_ai_elephant.csc;
 #using script_74f5ae6ffc8bd614;
 #using script_76b36ed1b7a51ed2;
 #using scripts\core_common\array_shared.csc;
@@ -222,7 +222,7 @@ event main(eventstruct)
 			hidevolumedecal(i);
 		}
 	}
-	level thread function_9290b227();
+	level thread startzmbspawnersoundloops();
 	level thread setup_personality_character_exerts();
 	level.fx_special_round_camera = [];
 }
@@ -559,8 +559,8 @@ function function_345ea423(localclientnum)
 	wait(n_random_wait);
 	while(true)
 	{
-		var_9324af94 = function_5c10bd79(localclientnum);
-		if(self === var_9324af94 && function_d17ae3cc(localclientnum))
+		e_client = function_5c10bd79(localclientnum);
+		if(self === e_client && function_d17ae3cc(localclientnum))
 		{
 			playfxoncamera(localclientnum, level._effect[#"hash_1f7bfd354d2472e3"], (0, 0, 0), (1, 0, 0));
 		}
@@ -1334,7 +1334,7 @@ function crowd_react_wave(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval)
 	{
-		level thread function_d431f37a();
+		level thread _crowd_react_wave();
 	}
 	else
 	{
@@ -1347,7 +1347,7 @@ function crowd_react_wave(localclientnum, oldval, newval, bnewent, binitialsnap,
 }
 
 /*
-	Name: function_d431f37a
+	Name: _crowd_react_wave
 	Namespace: zm_towers
 	Checksum: 0xD54391F4
 	Offset: 0x76C8
@@ -1355,7 +1355,7 @@ function crowd_react_wave(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 0
 	Flags: Linked
 */
-function function_d431f37a()
+function _crowd_react_wave()
 {
 	level notify(#"hash_53c191bb10cd9670");
 	level endon(#"hash_53c191bb10cd9670");
@@ -2763,12 +2763,12 @@ function function_98d53b6b(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval)
 	{
 		forcestreamxmodel(#"p8_zm_gla_artifact_podium");
-		forcestreamxmodel(#"hash_77c082bfbea9adca");
+		forcestreamxmodel(#"p8_zm_gla_artifact_podium_on");
 	}
 	else
 	{
 		stopforcestreamingxmodel(#"p8_zm_gla_artifact_podium");
-		stopforcestreamingxmodel(#"hash_77c082bfbea9adca");
+		stopforcestreamingxmodel(#"p8_zm_gla_artifact_podium_on");
 	}
 }
 
@@ -3193,7 +3193,7 @@ function function_4c2b87ed(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_9290b227
+	Name: startzmbspawnersoundloops
 	Namespace: zm_towers
 	Checksum: 0x13363984
 	Offset: 0xCC40
@@ -3201,7 +3201,7 @@ function function_4c2b87ed(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 0
 	Flags: Linked
 */
-function function_9290b227()
+function startzmbspawnersoundloops()
 {
 	wait(2);
 	loopers = struct::get_array("spawn_location", "script_noteworthy");

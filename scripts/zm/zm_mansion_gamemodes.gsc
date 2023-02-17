@@ -2,11 +2,11 @@
 #using script_696e327e00824120;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_b623f8ef;
+#namespace zm_mansion_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_b623f8ef
+	Namespace: zm_mansion_gamemodes
 	Checksum: 0xA4EA617E
 	Offset: 0x78
 	Size: 0xE2

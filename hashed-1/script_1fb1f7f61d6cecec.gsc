@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_399c912938783695;
-#using script_46b763cb3769d370;
+#using scripts\zm\weapons\zm_weap_homunculus.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -59,7 +59,7 @@ function __init__()
 */
 function __main__()
 {
-	if(getdvarint(#"hash_d287d6d0be9f28c", 0) && zm_utility::is_classic() && (!(isdefined(level.var_aa2d5655) && level.var_aa2d5655)) && namespace_cb7cafc3::function_166646a6() == 2)
+	if(getdvarint(#"hash_d287d6d0be9f28c", 0) && zm_utility::is_classic() && (!(isdefined(level.var_aa2d5655) && level.var_aa2d5655)) && namespace_cb7cafc3::get_story() == 2)
 	{
 		level.var_3b96ad73 = getweapon(#"hash_2b3a2f2eeada34a8");
 		if(!isdefined(level.var_fe96a4c4))
@@ -74,7 +74,7 @@ function __main__()
 		{
 			level.var_fe96a4c4[level.var_fe96a4c4.size] = level.var_3b96ad73;
 		}
-		zm_weapons::register_zombie_weapon_callback(level.var_3b96ad73, &namespace_bf5fee30::function_91b8863c);
+		zm_weapons::register_zombie_weapon_callback(level.var_3b96ad73, &zm_weap_homunculus::function_91b8863c);
 		level thread function_e95f47c2();
 		/#
 			level thread devgui();

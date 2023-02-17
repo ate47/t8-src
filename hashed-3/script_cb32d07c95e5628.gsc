@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_39bd5b6b799b1c9c;
-#using script_3f65948f90646f7c;
+#using scripts\mp_common\item_drop.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
 #using scripts\core_common\struct.gsc;
 
@@ -292,7 +292,7 @@ function private function_98013deb(row)
 }
 
 /*
-	Name: function_a0a5aec6
+	Name: _spawn_item
 	Namespace: namespace_65181344
 	Checksum: 0x23F0CF98
 	Offset: 0xE40
@@ -300,7 +300,7 @@ function private function_98013deb(row)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_a0a5aec6(point, row, var_be90d3da = 0)
+function private _spawn_item(point, row, var_be90d3da = 0)
 {
 	if(!isdefined(point))
 	{
@@ -616,7 +616,7 @@ function private function_ea39d1fa(stash)
 			var_8107154f[var_8107154f.size] = point.id;
 			if(!var_bbe618cc)
 			{
-				function_a0a5aec6(point, row, 1);
+				_spawn_item(point, row, 1);
 			}
 			available--;
 		}
@@ -840,7 +840,7 @@ function private _setup()
 }
 
 /*
-	Name: function_a71c4d18
+	Name: _teardown
 	Namespace: namespace_65181344
 	Checksum: 0x87BA8A9E
 	Offset: 0x2ED0
@@ -848,7 +848,7 @@ function private _setup()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a71c4d18()
+function private _teardown()
 {
 	self.points = undefined;
 	self.var_8107154f = undefined;
@@ -1143,8 +1143,8 @@ function private function_e25c9d12(var_8107154f, spawncount, var_be90d3da = 0, v
 			{
 				if(var_8107154f[var_a1b91de4[pointindex]] == -2)
 				{
-					var_9ffcb596 = self function_35461e5f(var_75aa5cbb, var_be90d3da);
-					items = arraycombine(items, var_9ffcb596, 1, 0);
+					spawnitems = self function_35461e5f(var_75aa5cbb, var_be90d3da);
+					items = arraycombine(items, spawnitems, 1, 0);
 				}
 				else
 				{
@@ -1182,7 +1182,7 @@ function private function_e25c9d12(var_8107154f, spawncount, var_be90d3da = 0, v
 						{
 						}
 					}
-					self function_a0a5aec6(var_f77e15f6, var_75aa5cbb, var_be90d3da);
+					self _spawn_item(var_f77e15f6, var_75aa5cbb, var_be90d3da);
 				}
 				else
 				{
@@ -1527,7 +1527,7 @@ function function_50a2c746(var_f38d5b52, reset = 1, var_87e9f374 = 0)
 		group function_9db93def();
 		group _setup();
 		group _spawn(reset);
-		group function_a71c4d18();
+		group _teardown();
 		if(getrealtime() - level.var_d0676b07 > level.var_3e9c9a35)
 		{
 			waitframe(1);
@@ -1702,8 +1702,8 @@ function function_5eada592(scriptbundlename, linkto = 1)
 			var_8107154f[var_8107154f.size] = -2;
 			if(!var_bbe618cc)
 			{
-				var_9ffcb596 = function_35461e5f(row, 1);
-				items = arraycombine(items, var_9ffcb596, 1, 0);
+				spawnitems = function_35461e5f(row, 1);
+				items = arraycombine(items, spawnitems, 1, 0);
 			}
 			available--;
 		}
@@ -1725,8 +1725,8 @@ function function_5eada592(scriptbundlename, linkto = 1)
 			}
 			itemspawnlist = spawnstruct();
 			itemspawnlist.var_b91441dd = var_b91441dd;
-			var_9ffcb596 = itemspawnlist function_e25c9d12(var_8107154f, var_8107154f.size, 1);
-			items = arraycombine(items, var_9ffcb596, 1, 0);
+			spawnitems = itemspawnlist function_e25c9d12(var_8107154f, var_8107154f.size, 1);
+			items = arraycombine(items, spawnitems, 1, 0);
 		}
 	}
 	foreach(item in items)

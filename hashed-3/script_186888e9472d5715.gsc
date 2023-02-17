@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_devgui.gsc;
 
-#namespace namespace_879c1bee;
+#namespace zm_ai_mannequin;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0x813CEADE
 	Offset: 0x80
 	Size: 0x44
@@ -16,12 +16,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_731ab037ad2e053c", &__init__, &__main__, undefined);
+	system::register(#"zm_ai_mannequin", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0x49D19151
 	Offset: 0xD0
 	Size: 0x5C
@@ -38,7 +38,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0x80F724D1
 	Offset: 0x138
 	Size: 0x4
@@ -51,7 +51,7 @@ function __main__()
 
 /*
 	Name: function_c381536b
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0xD593BED8
 	Offset: 0x148
 	Size: 0x36

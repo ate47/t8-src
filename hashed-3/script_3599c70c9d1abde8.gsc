@@ -7,11 +7,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_4719c045;
+#namespace zm_ai_werewolf;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0xA6D18658
 	Offset: 0x240
 	Size: 0x3C
@@ -20,12 +20,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_6e8654cf5bb63c35", &__init__, undefined, undefined);
+	system::register(#"zm_ai_werewolf", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x6D76280E
 	Offset: 0x288
 	Size: 0x184
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: function_d45ef8ea
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x505D6A89
 	Offset: 0x418
 	Size: 0xBC
@@ -62,7 +62,7 @@ function function_d45ef8ea(localclientnum)
 
 /*
 	Name: on_entity_shutdown
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x720D7403
 	Offset: 0x4E0
 	Size: 0x74
@@ -84,7 +84,7 @@ function on_entity_shutdown(localclientnum)
 
 /*
 	Name: function_c65ce64a
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x70DF5FD2
 	Offset: 0x560
 	Size: 0x5C
@@ -101,7 +101,7 @@ function function_c65ce64a(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_815cc85c
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x6DC30090
 	Offset: 0x5C8
 	Size: 0x64
@@ -117,7 +117,7 @@ function function_815cc85c(localclientnum)
 
 /*
 	Name: function_3f3f0d8
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0xFA479459
 	Offset: 0x638
 	Size: 0xA4
@@ -138,7 +138,7 @@ function function_3f3f0d8(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_39053880
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x48B728DE
 	Offset: 0x6E8
 	Size: 0x6C
@@ -155,7 +155,7 @@ function private function_39053880(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_f4b140ab
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0x9F838F74
 	Offset: 0x760
 	Size: 0x194
@@ -193,7 +193,7 @@ function private function_f4b140ab(localclientnum, pos, surface, notetrack, bone
 
 /*
 	Name: function_e980911c
-	Namespace: namespace_4719c045
+	Namespace: zm_ai_werewolf
 	Checksum: 0xB0900FB4
 	Offset: 0x900
 	Size: 0x174

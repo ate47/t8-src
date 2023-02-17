@@ -43,7 +43,7 @@ event main(eventstruct)
 */
 function function_b9962a73()
 {
-	if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312"))
+	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
 		chests = getdynentarray("world_ammo_stash_blackjack");
 		foreach(dynent in chests)
@@ -71,7 +71,7 @@ function function_63ad593a()
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	var_edfbccd0 = &namespace_b0722f43::function_e70fa91c;
-	if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312"))
+	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_13ba73311ab5250f", #"hash_58c8b457cdf56278");
 		if(isdefined(getgametypesetting(#"hash_2fa72a7ec2d86741")) && getgametypesetting(#"hash_2fa72a7ec2d86741"))

@@ -2,11 +2,11 @@
 #using script_48070e662d26d3e3;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_c6fbe72b;
+#namespace zm_towers_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_c6fbe72b
+	Namespace: zm_towers_gamemodes
 	Checksum: 0x6668F62
 	Offset: 0x78
 	Size: 0xE2

@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_9bf1b425;
+#namespace trapd;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0x8966B341
 	Offset: 0xA0
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_5eff6da6c51cbff2", &__init__, undefined, undefined);
+	system::register(#"trapd", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xE712F420
 	Offset: 0xE8
 	Size: 0x64
@@ -36,7 +36,7 @@ function __init__()
 
 /*
 	Name: function_9f6d38cf
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0x1B84F2A0
 	Offset: 0x158
 	Size: 0x24
@@ -50,7 +50,7 @@ function function_9f6d38cf(localclientnum)
 
 /*
 	Name: fx_think
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xF5CC7F15
 	Offset: 0x188
 	Size: 0xF8
@@ -75,7 +75,7 @@ function fx_think(localclientnum)
 
 /*
 	Name: start_light_fx
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xF5C615EF
 	Offset: 0x288
 	Size: 0x4A
@@ -89,7 +89,7 @@ function start_light_fx(localclientnum)
 
 /*
 	Name: stop_light_fx
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xA515550D
 	Offset: 0x2E0
 	Size: 0x4E

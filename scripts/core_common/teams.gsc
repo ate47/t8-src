@@ -175,7 +175,7 @@ function function_a9d594a0(party)
 	/#
 		foreach(var_52ec371a in party.var_d77ed5eb)
 		{
-			var_2798314b = var_52ec371a function_491311f4();
+			var_2798314b = var_52ec371a getparty();
 			if(var_2798314b.var_a15e4438 != party.var_a15e4438)
 			{
 				/#
@@ -201,7 +201,7 @@ function function_d28f6fa0(team)
 		players = getplayers(team);
 		foreach(player in players)
 		{
-			function_a9d594a0(player function_491311f4());
+			function_a9d594a0(player getparty());
 		}
 	#/
 }

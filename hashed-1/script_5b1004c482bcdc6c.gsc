@@ -111,7 +111,7 @@ function function_2cdcf5c3()
 function function_2085db3b()
 {
 	/#
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");

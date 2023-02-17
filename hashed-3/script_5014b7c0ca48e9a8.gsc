@@ -63,11 +63,11 @@ function autoexec function_45a212c0()
 	}
 	if(!(isdefined(getgametypesetting(#"hash_437b759bd6885560")) && getgametypesetting(#"hash_437b759bd6885560")))
 	{
-		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_7f877a112c8c4187", #"");
+		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"wz_snowball", #"");
 	}
 	if(!(isdefined(getgametypesetting(#"hash_33d1ac5e99fb0584")) && getgametypesetting(#"hash_33d1ac5e99fb0584")) && (!(isdefined(getgametypesetting(#"hash_3e2d2cf6b1cc6c68")) && getgametypesetting(#"hash_3e2d2cf6b1cc6c68"))))
 	{
-		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_7aca06dcd83beef3", #"");
+		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"wz_waterballoon", #"");
 	}
 	if(isdefined(getgametypesetting(#"hash_230e67d5ddfb2c06")) && getgametypesetting(#"hash_230e67d5ddfb2c06"))
 	{

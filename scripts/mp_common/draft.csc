@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1e34fbb210f87b6f;
-#using script_6ad3fda349f49bf9;
+#using scripts\killstreaks\killstreak_detect.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\character_customization.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -117,7 +117,7 @@ function __init__()
 		clearstreamerloadinghints();
 	}
 	level.var_8c099032 = getgametypesetting(#"draftenabled") && !getroundsplayed(0);
-	level.var_f35699bc = [#"hash_68a980198a51e72b":"melee_actionfigure", #"melee_zombiearm_t8":"melee_backhand", #"special_ballisticknife_t8_dw_dw":"melee_alt", #"special_ballisticknife_t8_dw":"melee_alt", #"melee_cutlass_t8":"melee_alt", #"melee_club_t8":"melee_alt", #"melee_demohammer_t8":"melee_alt", #"melee_coinbag_t8":"melee_alt", #"melee_secretsanta_t8":"melee_alt", #"melee_slaybell_t8":"melee_alt"];
+	level.var_f35699bc = [#"melee_actionfigure_t8":"melee_actionfigure", #"melee_zombiearm_t8":"melee_backhand", #"special_ballisticknife_t8_dw_dw":"melee_alt", #"special_ballisticknife_t8_dw":"melee_alt", #"melee_cutlass_t8":"melee_alt", #"melee_club_t8":"melee_alt", #"melee_demohammer_t8":"melee_alt", #"melee_coinbag_t8":"melee_alt", #"melee_secretsanta_t8":"melee_alt", #"melee_slaybell_t8":"melee_alt"];
 }
 
 /*
@@ -711,7 +711,7 @@ function function_4ccc033d(localclientnum, var_d0c67621)
 		}
 		if(isdefined(level.var_207a1c9a) && level.var_207a1c9a)
 		{
-			return ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != getweapon(#"hash_124cfa74fbc2fd96");
+			return ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != getweapon(#"crossbow_special_t8");
 		}
 		var_aec11cf1 = ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != ([[ var_d0c67621 ]]->function_82e05d64().primaryweapon) || ([[ var_d0c67621 ]]->function_82e05d64().var_b8f20727) !== ([[ var_d0c67621 ]]->function_82e05d64().primaryweaponoptions);
 		return var_aec11cf1;

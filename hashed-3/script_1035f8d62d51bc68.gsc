@@ -1,21 +1,21 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_30ba61ad5559c51d;
 #using script_35598499769dbb3d;
 #using script_387eab232fe22983;
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
-#using script_79c9122f9058e8ba;
+#using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using script_ab862743b3070a;
 #using script_b761c44ab2e5b46;
-#using script_c17220bc4d57fdd;
+#using scripts\zm\zm_mansion_silver_bullet.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -88,10 +88,10 @@ function init()
 */
 function function_c739f755()
 {
-	namespace_ee206246::register(#"hash_331f9ba64e2c2478", #"step_1", #"hash_6be882382480789d", &function_ff75fde6, &function_ff3b1efd);
-	namespace_ee206246::register(#"hash_331f9ba64e2c2478", #"step_2", #"hash_6be87f3824807384", &function_39e0636, &function_4fccc01f);
-	namespace_ee206246::register(#"hash_331f9ba64e2c2478", #"step_3", #"hash_6be8803824807537", &function_15c82a8a, &function_62856590);
-	namespace_ee206246::register(#"hash_331f9ba64e2c2478", #"step_4", #"hash_6be87d382480701e", &function_2879cfed, &function_354f0b24);
+	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_1", #"hash_6be882382480789d", &function_ff75fde6, &function_ff3b1efd);
+	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_2", #"hash_6be87f3824807384", &function_39e0636, &function_4fccc01f);
+	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_3", #"hash_6be8803824807537", &function_15c82a8a, &function_62856590);
+	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_4", #"hash_6be87d382480701e", &function_2879cfed, &function_354f0b24);
 }
 
 /*
@@ -115,7 +115,7 @@ function function_93bd3e32()
 	level.var_5e01899a = array::randomize(level.var_5e01899a);
 	function_f2971bfd();
 	level flag::wait_till(#"open_pap");
-	namespace_ee206246::start(#"hash_331f9ba64e2c2478", 1);
+	zm_sq::start(#"hash_331f9ba64e2c2478", 1);
 }
 
 /*
@@ -433,7 +433,7 @@ function function_6941c919()
 {
 	self.t_damage = spawn("trigger_damage_new", self.origin, 0, 8, 8);
 	self.t_damage endon(#"death");
-	var_54cae2d8 = getweapon(#"zhield_dw");
+	w_shield = getweapon(#"zhield_dw");
 	while(true)
 	{
 		var_be17187b = undefined;
@@ -441,11 +441,11 @@ function function_6941c919()
 		var_2af07147 = zm_weapons::get_base_weapon(var_be17187b.weapon);
 		if(isplayer(var_be17187b.attacker))
 		{
-			if(var_2af07147 === level.var_1c0d76f8)
+			if(var_2af07147 === level.w_bowie_knife)
 			{
 				level.var_d5f74526 notify(#"hash_15ccd1fdda38284a", {#attacker:var_be17187b.attacker, #hash_c8407ea2:self.script_int});
 			}
-			else if(var_be17187b.weapon === var_54cae2d8 && var_be17187b.mod === "MOD_MELEE")
+			else if(var_be17187b.weapon === w_shield && var_be17187b.mod === "MOD_MELEE")
 			{
 				level.var_d5f74526 notify(#"hash_5f436e1bb5dc641d", {#attacker:var_be17187b.attacker, #hash_c8407ea2:self.script_int});
 			}
@@ -591,10 +591,10 @@ function private function_eb6f728f()
 		}
 		else if(namespace_11abec5a::is_active(var_6d66c4ba))
 		{
-			n_nosferatus = namespace_2fa8319f::function_853b43e8();
+			n_nosferatus = zm_ai_nosferatu::function_853b43e8();
 			if(n_nosferatus < 10)
 			{
-				ai = namespace_2fa8319f::function_74f25f8a(1);
+				ai = zm_ai_nosferatu::function_74f25f8a(1);
 				if(isdefined(ai))
 				{
 					ai zm_score::function_acaab828();
@@ -743,7 +743,7 @@ function function_354f0b24(var_a276c861, ended_early)
 function function_36194a5f(e_player)
 {
 	unitrigger_stub = self.stub;
-	unitrigger_stub.model setmodel(#"hash_2bea3ece67482937");
+	unitrigger_stub.model setmodel(#"wpn_t8_zm_knife_stake_world");
 	unitrigger_stub.model show();
 	zm_unitrigger::unregister_unitrigger(unitrigger_stub);
 	e_player thread function_db526700();

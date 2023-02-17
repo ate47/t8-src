@@ -270,8 +270,8 @@ function get_point_of_interest()
 	{
 		return level.mapcenter;
 	}
-	var_3d454e88 = var_c951a2c2 / (var_c951a2c2 + var_3ac8b299);
-	origin = vectorlerp(ai_target.origin, objective_target.origin, var_3d454e88);
+	coef = var_c951a2c2 / (var_c951a2c2 + var_3ac8b299);
+	origin = vectorlerp(ai_target.origin, objective_target.origin, coef);
 	return origin;
 }
 

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6a3f43063dfd1bdc;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -58,13 +58,13 @@ function init()
 	level.pablo_npc.var_cb3ed98f[12] = {#n_obj:9, #hash_23d421c1:undefined, #hash_e7b75754:#"", #hash_fcab5f41:#"hash_14448cae6cbf526"};
 	level.pablo_npc.var_cb3ed98f[13] = {#n_obj:3, #hash_23d421c1:undefined, #hash_e7b75754:#"", #hash_fcab5f41:#"hash_38aad0b1eae4093a"};
 	level.pablo_npc.var_cb3ed98f[14] = {#n_obj:3, #hash_23d421c1:undefined, #hash_e7b75754:#"", #hash_fcab5f41:#"hash_38aad0b1eae4093a"};
-	level.var_d827e909 = spawner::simple_spawn_single(getent("pablo_spawner", "targetname"));
-	while(!isdefined(level.var_d827e909))
+	level.npc_pablo = spawner::simple_spawn_single(getent("pablo_spawner", "targetname"));
+	while(!isdefined(level.npc_pablo))
 	{
 		waitframe(1);
-		level.var_d827e909 = spawner::simple_spawn_single(getent("pablo_spawner", "targetname"));
+		level.npc_pablo = spawner::simple_spawn_single(getent("pablo_spawner", "targetname"));
 	}
-	level.var_d827e909 val::set(#"hash_48ce7f436d6e49e6", "takedamage", 0);
+	level.npc_pablo val::set(#"hash_48ce7f436d6e49e6", "takedamage", 0);
 	if(zm_utility::is_classic())
 	{
 		level thread function_b85344d1();
@@ -90,11 +90,11 @@ function init()
 */
 function function_e44c7c0c(str_alias, n_variant)
 {
-	level.pablo_npc zm_vo::function_57b8cd17();
+	level.pablo_npc zm_vo::vo_stop();
 	level.pablo_npc namespace_509a75d1::function_6a0d675d(str_alias, n_variant, 0, 1);
 	if(str_alias == #"hash_18d17175b6700e47" && n_variant === 1)
 	{
-		namespace_3263198e::function_fd24e47f(#"hash_35b42e4ca5afd6da", -1, 1);
+		zm_orange_util::function_fd24e47f(#"hash_35b42e4ca5afd6da", -1, 1);
 		level.var_1c53964e thread namespace_509a75d1::function_6a0d675d(#"hash_35b42e4ca5afd6da");
 	}
 }
@@ -112,11 +112,11 @@ function function_b9e15919(b_crouch = 1)
 {
 	if(b_crouch)
 	{
-		level.var_d827e909 setblackboardattribute("_stance", "crouch");
+		level.npc_pablo setblackboardattribute("_stance", "crouch");
 	}
 	else
 	{
-		level.var_d827e909 setblackboardattribute("_stance", "stand");
+		level.npc_pablo setblackboardattribute("_stance", "stand");
 	}
 }
 
@@ -145,7 +145,7 @@ function private function_b85344d1()
 			player = namespace_509a75d1::function_3815943c(a_players);
 			if(isdefined(player))
 			{
-				player namespace_3263198e::function_51b752a9(#"hash_2a582565ea3add7e", -1, 0, 1);
+				player zm_orange_util::function_51b752a9(#"hash_2a582565ea3add7e", -1, 0, 1);
 			}
 			break;
 		}
@@ -168,7 +168,7 @@ function private function_b85344d1()
 				player = namespace_509a75d1::function_3815943c(a_players);
 				if(isdefined(player))
 				{
-					player namespace_3263198e::function_51b752a9(str_alias, -1, 0, 1);
+					player zm_orange_util::function_51b752a9(str_alias, -1, 0, 1);
 				}
 			}
 			level flag::set(#"hash_641f14d0b2fd57d7");
@@ -529,7 +529,7 @@ function private function_9f77ef2(s_info)
 	var_d2d60dc4 = 0;
 	if(isdefined(level.var_d1206a2b))
 	{
-		var_d2d60dc4 = level.var_d1206a2b namespace_3263198e::function_51b752a9(s_info.var_e7b75754, -1, 0, 0);
+		var_d2d60dc4 = level.var_d1206a2b zm_orange_util::function_51b752a9(s_info.var_e7b75754, -1, 0, 0);
 	}
 	if(isdefined(s_info.var_6e67b4c4) && s_info.var_6e67b4c4)
 	{
@@ -738,7 +738,7 @@ function private function_d7e79438()
 	s_info = level.pablo_npc.var_cb3ed98f[level.pablo_npc.var_df3d62aa];
 	if(s_info.var_fcab5f41 === #"hash_38aad0b1eae4093a" && !level flag::get(#"hash_59d5ba61f4b8f405") && !level flag::get(#"hash_6a7b24db9087b2eb"))
 	{
-		level.var_d1206a2b thread namespace_3263198e::function_51b752a9(s_info.var_fcab5f41, -1, 1, 0);
+		level.var_d1206a2b thread zm_orange_util::function_51b752a9(s_info.var_fcab5f41, -1, 1, 0);
 	}
 	level.pablo_npc notify(#"hash_276524e7f5657e50");
 	playsoundatposition(#"hash_512bec1d554e89f1", self.origin);

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ce72cc0f850;
 #using script_1c72973fb240f263;
-#using script_3510d12b63a575c3;
+#using scripts\zm\zm_white_main_quest.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
 #using script_724752ab26bff81b;
@@ -272,7 +272,7 @@ function function_e08b0124(e_player)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_9d66ea6f(var_2e1f34dd, e_player)
+function private function_9d66ea6f(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -291,9 +291,9 @@ function private function_9d66ea6f(var_2e1f34dd, e_player)
 	if(zm_utility::is_classic())
 	{
 		level.var_74170866.e_player namespace_509a75d1::function_51b752a9("vox_ww_z_ammo_pickup", 0);
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
-			level.var_74170866.e_player namespace_9cf755b::function_491673da(#"hash_571c990866faa511");
+			level.var_74170866.e_player zm_white_util::function_491673da(#"hash_571c990866faa511");
 		}
 	}
 }
@@ -312,13 +312,13 @@ function private function_87e09347()
 	/#
 		iprintlnbold("");
 	#/
-	if(namespace_3e3742fd::function_6cebbce1())
+	if(zm_white_main_quest::function_6cebbce1())
 	{
 		/#
 			iprintlnbold("");
 		#/
 	}
-	while(namespace_3e3742fd::function_6cebbce1())
+	while(zm_white_main_quest::function_6cebbce1())
 	{
 		wait(3);
 	}
@@ -347,9 +347,9 @@ function private function_91563ae6()
 	level thread function_7130498();
 	level thread function_20b366ef();
 	level flag::wait_till(#"hash_12c5d7e1fc876517");
-	if(!namespace_3e3742fd::function_6cebbce1() && zm_utility::is_classic())
+	if(!zm_white_main_quest::function_6cebbce1() && zm_utility::is_classic())
 	{
-		level.var_74170866.e_player thread namespace_9cf755b::function_491673da(#"hash_5dc92cbe0fbe5da");
+		level.var_74170866.e_player thread zm_white_util::function_491673da(#"hash_5dc92cbe0fbe5da");
 	}
 	exploder::stop_exploder(("fxexp_mk2_Z_smoke_chimney_" + level.var_74170866.s_fireplace.script_string) + "_house");
 	level.var_74170866.s_fireplace.var_7126b6eb triggerenable(0);
@@ -498,7 +498,7 @@ function private function_a66f0de2()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_b9a31cb(var_2e1f34dd, e_player)
+function private function_b9a31cb(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -512,9 +512,9 @@ function private function_b9a31cb(var_2e1f34dd, e_player)
 	e_player.var_f7694097 = 3;
 	e_player playsound("evt_canister_pickup");
 	function_a36c4a5e();
-	if(!namespace_3e3742fd::function_6cebbce1() && zm_utility::is_classic())
+	if(!zm_white_main_quest::function_6cebbce1() && zm_utility::is_classic())
 	{
-		e_player namespace_9cf755b::function_491673da(#"hash_3fa02403cbe89e77");
+		e_player zm_white_util::function_491673da(#"hash_3fa02403cbe89e77");
 	}
 }
 
@@ -641,9 +641,9 @@ function private function_cba90c3c()
 	self waittill(#"hash_13f3f231b45420ef");
 	if(zm_utility::is_classic())
 	{
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
-			level.var_74170866.e_player namespace_9cf755b::function_491673da(#"hash_4107574caf164040");
+			level.var_74170866.e_player zm_white_util::function_491673da(#"hash_4107574caf164040");
 		}
 		level.var_74170866.e_player namespace_509a75d1::function_51b752a9("vox_ww_z_craft", 0);
 	}

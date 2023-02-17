@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_269e356734524812;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
-#using script_68d2ee1489345a1d;
-#using script_6b93dd1f0ad89d91;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\mp\supplydrop.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_788472602edbe3b9;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1196,23 +1196,23 @@ function function_48a6b85()
 		if(!isdefined(level.var_94f4ca81))
 		{
 			level.var_94f4ca81 = spawnstruct();
-			level.var_94f4ca81.var_e3c223f5 = [];
+			level.var_94f4ca81.dataset = [];
 			var_2e980658 = spawnstruct();
 			var_2e980658.name = "";
 			var_2e980658.spawns = level.spawnpoints;
-			level.var_94f4ca81.var_e3c223f5[0] = var_2e980658;
+			level.var_94f4ca81.dataset[0] = var_2e980658;
 			var_bc7d1357 = spawnstruct();
 			var_bc7d1357.name = "";
 			var_bc7d1357.spawns = level.spawn_start[#"allies"];
-			level.var_94f4ca81.var_e3c223f5[1] = var_bc7d1357;
+			level.var_94f4ca81.dataset[1] = var_bc7d1357;
 			var_2a1cb802 = spawnstruct();
 			var_2a1cb802.name = "";
 			var_2a1cb802.spawns = level.spawn_start[#"axis"];
-			level.var_94f4ca81.var_e3c223f5[2] = var_2a1cb802;
+			level.var_94f4ca81.dataset[2] = var_2a1cb802;
 			var_c95c8eff = spawnstruct();
 			var_c95c8eff.name = "";
 			var_c95c8eff.spawns = level.allspawnpoints;
-			level.var_94f4ca81.var_e3c223f5[3] = var_c95c8eff;
+			level.var_94f4ca81.dataset[3] = var_c95c8eff;
 		}
 		level.var_94f4ca81.var_89266507 = "";
 		level.var_94f4ca81.var_1fde6598 = 0;
@@ -1225,7 +1225,7 @@ function function_48a6b85()
 			if(!dpad_up && self buttonpressed(""))
 			{
 				level.var_94f4ca81.var_1fde6598++;
-				if(level.var_94f4ca81.var_1fde6598 >= level.var_94f4ca81.var_e3c223f5.size)
+				if(level.var_94f4ca81.var_1fde6598 >= level.var_94f4ca81.dataset.size)
 				{
 					level.var_94f4ca81.var_1fde6598 = 0;
 				}
@@ -1242,7 +1242,7 @@ function function_48a6b85()
 				level.var_94f4ca81.var_1fde6598--;
 				if(level.var_94f4ca81.var_1fde6598 < 0)
 				{
-					level.var_94f4ca81.var_1fde6598 = level.var_94f4ca81.var_e3c223f5.size - 1;
+					level.var_94f4ca81.var_1fde6598 = level.var_94f4ca81.dataset.size - 1;
 				}
 				level.var_94f4ca81.var_64799f7 = 0;
 				var_f94a23 = 1;
@@ -1259,9 +1259,9 @@ function function_48a6b85()
 					level.var_94f4ca81.var_64799f7--;
 					if(level.var_94f4ca81.var_64799f7 < 0)
 					{
-						level.var_94f4ca81.var_64799f7 = level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns.size - 1;
+						level.var_94f4ca81.var_64799f7 = level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns.size - 1;
 					}
-					if(!(isdefined(level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct) && level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct))
+					if(!(isdefined(level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct) && level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct))
 					{
 						break;
 					}
@@ -1278,11 +1278,11 @@ function function_48a6b85()
 				while(true)
 				{
 					level.var_94f4ca81.var_64799f7++;
-					if(level.var_94f4ca81.var_64799f7 >= level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns.size)
+					if(level.var_94f4ca81.var_64799f7 >= level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns.size)
 					{
 						level.var_94f4ca81.var_64799f7 = 0;
 					}
-					if(!(isdefined(level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct) && level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct))
+					if(!(isdefined(level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct) && level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].ct))
 					{
 						break;
 					}
@@ -1296,15 +1296,15 @@ function function_48a6b85()
 			}
 			if(var_f94a23)
 			{
-				origin = level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].origin;
-				angles = level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].angles;
-				println("" + level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].name);
+				origin = level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].origin;
+				angles = level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns[level.var_94f4ca81.var_64799f7].angles;
+				println("" + level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].name);
 				self setorigin(origin);
 				self setplayerangles(angles);
 				var_f94a23 = 0;
 			}
-			debug2dtext((100, 750, 0), "" + level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].name, (1, 0, 0));
-			debug2dtext((100, 800, 0), (("" + string(level.var_94f4ca81.var_64799f7)) + "") + string(level.var_94f4ca81.var_e3c223f5[level.var_94f4ca81.var_1fde6598].spawns.size), (1, 0, 0));
+			debug2dtext((100, 750, 0), "" + level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].name, (1, 0, 0));
+			debug2dtext((100, 800, 0), (("" + string(level.var_94f4ca81.var_64799f7)) + "") + string(level.var_94f4ca81.dataset[level.var_94f4ca81.var_1fde6598].spawns.size), (1, 0, 0));
 			waitframe(1);
 		}
 	#/

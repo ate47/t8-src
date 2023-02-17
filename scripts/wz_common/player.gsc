@@ -3,11 +3,11 @@
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_2d81529e;
+#namespace wz_player;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0xC4FBE99D
 	Offset: 0x80
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_6d455d07ee9a592c", &__init__, undefined, undefined);
+	system::register(#"wz_player", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x83B4B058
 	Offset: 0xC8
 	Size: 0x24
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x34345AF
 	Offset: 0xF8
 	Size: 0x24
@@ -49,7 +49,7 @@ function on_player_spawned()
 
 /*
 	Name: function_20263b9e
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x4D69926E
 	Offset: 0x128
 	Size: 0xFA
@@ -82,7 +82,7 @@ function function_20263b9e(params)
 
 /*
 	Name: function_4861487f
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x5FAA724F
 	Offset: 0x230
 	Size: 0x56
@@ -104,7 +104,7 @@ function function_4861487f(weapon, player)
 
 /*
 	Name: function_cd8ee3c5
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0xFFE0FC7
 	Offset: 0x290
 	Size: 0x124
@@ -129,7 +129,7 @@ function function_cd8ee3c5()
 
 /*
 	Name: function_f3edce9a
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x1EDA065E
 	Offset: 0x3C0
 	Size: 0x1CC
@@ -156,7 +156,7 @@ function function_f3edce9a()
 
 /*
 	Name: grenade_safe_to_throw
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0xE49C317B
 	Offset: 0x598
 	Size: 0x18
@@ -170,7 +170,7 @@ function grenade_safe_to_throw(player, weapon)
 
 /*
 	Name: makegrenadedudanddestroy
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0x124A5FC8
 	Offset: 0x5B8
 	Size: 0x64
@@ -191,7 +191,7 @@ function makegrenadedudanddestroy()
 
 /*
 	Name: debug_star
-	Namespace: namespace_2d81529e
+	Namespace: wz_player
 	Checksum: 0xB5186428
 	Offset: 0x628
 	Size: 0x84

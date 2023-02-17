@@ -43,7 +43,7 @@ function __init__()
 */
 function function_37c0d395()
 {
-	zm_perks::function_7f42e14e(#"hash_4c14ed37c4038671", "mod_zombshell", #"hash_6fac30b31b5bec64", #"hash_36b9957a693185ea", 5500);
+	zm_perks::function_7f42e14e(#"hash_4c14ed37c4038671", "mod_zombshell", #"perk_zombshell", #"specialty_zombshell", 5500);
 	zm_perks::register_perk_threads(#"hash_4c14ed37c4038671", &function_58d94d9, &function_bf7ca4a7);
 }
 

@@ -56,7 +56,7 @@ function localclient_connect(localclientnum)
 	function_13861db4(12);
 	function_4d990c6a();
 	function_d9a960f2(4, 12, 8698, 2500, 750, 750, 0);
-	if(!util::function_3f165ee8())
+	if(!util::is_frontend_map())
 	{
 		thread function_ba24f324(localclientnum);
 		thread function_1d13e2db(localclientnum);

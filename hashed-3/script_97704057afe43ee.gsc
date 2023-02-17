@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_39e954a546d3baf;
 #using script_3aa54d3cb36ea43f;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_4d00889cf8c807d5;
-#using script_52a84b3d20788c6;
+#using scripts\zm\ai\zm_ai_catalyst.gsc;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -109,7 +109,7 @@ function main()
 	level.fn_custom_round_ai_spawn = undefined;
 	level.var_ef785c4c = 1;
 	level.var_81c681aa = 1;
-	level.var_3e96c707 = &namespace_159b5b5b::function_f0ed2a66;
+	level.var_3e96c707 = &zm_red_util::function_f0ed2a66;
 	level.var_3f86fd35 = 8;
 	level.var_d7853f35 = 14;
 	level.var_ecdf38f = 13;

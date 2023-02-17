@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
-#using script_72eca4c9e2aea110;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm\zm_orange_ee_dynamite.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -263,7 +263,7 @@ function private function_a5fa6428()
 	#/
 	level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(level.var_d6513b72.script_noteworthy, -1, 0, 1);
 	level.var_d6513b72.e_cover cover_think();
-	level.var_d6513b72 zm_unitrigger::create(&namespace_be178848::function_2a27ccb9, 64);
+	level.var_d6513b72 zm_unitrigger::create(&zm_orange_ee_dynamite::function_2a27ccb9, 64);
 	level.var_d6513b72 thread function_9c223c27();
 }
 
@@ -315,7 +315,7 @@ function private function_9c223c27()
 	level endon(#"end_game", #"hash_6ba951b37826e520");
 	self endon(#"death");
 	self.var_8ac20606 show();
-	self namespace_be178848::function_170afe2c(1);
+	self zm_orange_ee_dynamite::function_170afe2c(1);
 	self waittill(#"hash_126c823a82e09010");
 	self.e_safe hide();
 	if(level.var_98138d6b > 1)
@@ -323,7 +323,7 @@ function private function_9c223c27()
 		level.var_1c53964e namespace_509a75d1::function_6a0d675d(#"hash_497ec7e9ca9ca204", -1, 0, 1);
 	}
 	player = self zm_unitrigger::function_fac87205(zm_utility::function_d6046228(#"hash_3be823a04b5cca2d", #"hash_25cb84d1af883c53"), 64);
-	player thread namespace_3263198e::function_51b752a9(#"hash_4323f85521955dd7");
+	player thread zm_orange_util::function_51b752a9(#"hash_4323f85521955dd7");
 	self.var_8ac20606 hide();
 	self.var_8ac20606 playsound("zmb_vessel_pickup");
 	level flag::set(#"hash_6ba951b37826e520");

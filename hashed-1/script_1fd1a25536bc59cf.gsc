@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -68,7 +68,7 @@ function main()
 	level.var_9928b94b[0] = array("docks_1", "docks_2", "boathouse", "frozen_crevasse", "ice_grotto", "lagoon");
 	level.var_9928b94b[1] = array("beach", "lighthouse_approach", "lighthouse_station", "lighthouse_cove", "hidden_path");
 	level.var_9928b94b[2] = array("main_entrance", "outer_walkway", "loading_platform", "specimen_storage", "decontamination", "security_lobby", "geological_processing", "upper_catwalk", "human_infusion");
-	level.var_16972e5c = array(#"snowball", #"hash_1ecb90ddb44096f4", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d", #"tundragun", #"tundragun_upgraded");
+	level.var_16972e5c = array(#"snowball", #"snowball_upgraded", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d", #"tundragun", #"tundragun_upgraded");
 }
 
 /*
@@ -377,7 +377,7 @@ function function_5a12b82()
 function function_7535dc08()
 {
 	level endon(#"end_game");
-	namespace_3263198e::function_fd24e47f(#"hash_17d537f3403651e2");
+	zm_orange_util::function_fd24e47f(#"hash_17d537f3403651e2");
 	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_17d537f3403651e2");
 }
 

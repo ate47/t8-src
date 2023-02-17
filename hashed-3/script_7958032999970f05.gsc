@@ -15,7 +15,7 @@
 */
 function preload()
 {
-	level._effect[#"hash_5f526b16c09951f6"] = #"hash_445f04139d92c61b";
+	level._effect[#"sam_orb"] = #"hash_445f04139d92c61b";
 	clientfield::register("scriptmover", "" + #"hash_4a18e1ea1950215d", 24000, 1, "int", &function_db7a9c9d, 0, 0);
 }
 
@@ -32,7 +32,7 @@ function function_db7a9c9d(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval > 0)
 	{
-		self.var_af793e2d = util::playfxontag(localclientnum, level._effect[#"hash_5f526b16c09951f6"], self, "tag_origin");
+		self.var_af793e2d = util::playfxontag(localclientnum, level._effect[#"sam_orb"], self, "tag_origin");
 	}
 	else if(isdefined(self.var_af793e2d))
 	{

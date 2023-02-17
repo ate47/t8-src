@@ -35,7 +35,7 @@ function function_acd44e5f()
 	var_87d0eef8 = &namespace_b0722f43::function_63bfe27;
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
-	if(isdefined(getgametypesetting(#"hash_53d529e82bcf1212")) && getgametypesetting(#"hash_53d529e82bcf1212"))
+	if(isdefined(getgametypesetting(#"wzhardcore")) && getgametypesetting(#"wzhardcore"))
 	{
 		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_6f80136c3b79d9e");
 		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_8578856a247ab60");

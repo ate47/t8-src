@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_243ea03c7a285692;
 #using script_30a4b3e6d6d5e540;
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_48f7c4ab73137f8;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -335,7 +335,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 	}
 	self.n_downs = self.n_downs + 1;
 	bleedout_time = getdvarfloat(#"hash_1116ba0f929df636", (isdefined(self.var_b92e42da) ? self.var_b92e42da : getdvarfloat(#"player_laststandbleedouttime", 0)));
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2d34a5d9024db85f") && self.n_downs > namespace_59ff1d6c::function_901b751c(#"hash_2d34a5d9024db85f"))
+	if(zm_custom::function_901b751c(#"hash_2d34a5d9024db85f") && self.n_downs > zm_custom::function_901b751c(#"hash_2d34a5d9024db85f"))
 	{
 		bleedout_time = 0;
 	}
@@ -693,9 +693,9 @@ function function_5ff83684()
 	level.pistol_value_solo_replace_below = level.pistol_values.size - 1;
 	level.pistol_values[level.pistol_values.size] = level.default_solo_laststandpistol;
 	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_cd53ea4d4ee864c");
-	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_2df0835a53060b95");
+	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_burst_t8_upgraded");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_c2a620242d1636a");
-	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_7dc8f3611c942007");
+	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_fullauto_t8_upgraded");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"ray_gun");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"ray_gun_upgraded");
 }
@@ -1046,13 +1046,13 @@ function laststand_bleedout(delay)
 	self.bleedout_time = delay;
 	n_default_bleedout_time = getdvarfloat(#"player_laststandbleedouttime", 0);
 	level.var_ff482f76 zm_laststand_client::open(self, 0);
-	level.var_ff482f76 zm_laststand_client::function_65194707(self, self.n_downs);
-	level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, 0);
+	level.var_ff482f76 zm_laststand_client::set_num_downs(self, self.n_downs);
+	level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
 	while(self.bleedout_time > 0)
 	{
 		self.bleedout_time = self.bleedout_time - 1;
 		level clientfield::set("laststand_update" + self getentitynumber(), self.bleedout_time / delay);
-		level.var_ff482f76 zm_laststand_client::function_67bdfe40(self, self.bleedout_time / delay);
+		level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, self.bleedout_time / delay);
 		wait(1);
 	}
 	while(self.var_16735873 === 1)
@@ -1315,7 +1315,7 @@ function function_b7c101fa()
 	{
 		var_7f2e1d50 = self.var_5d4c5daf;
 	}
-	var_48f2f554 = namespace_59ff1d6c::function_901b751c(#"hash_21ae4d5b707b063");
+	var_48f2f554 = zm_custom::function_901b751c(#"hash_21ae4d5b707b063");
 	if(var_48f2f554)
 	{
 		self.var_d66589da = int(var_48f2f554);
@@ -1466,14 +1466,14 @@ function function_73d6c609(n_duration)
 		{
 			waitframe(1);
 			var_722c6f25 = var_722c6f25 + 0.05;
-			level.var_1c957023 self_revive_visuals::function_d50fdde9(self, var_722c6f25 / n_duration);
+			level.var_1c957023 self_revive_visuals::set_revive_progress(self, var_722c6f25 / n_duration);
 			if(var_722c6f25 >= n_duration)
 			{
 				b_success = 1;
 				break;
 			}
 		}
-		level.var_1c957023 self_revive_visuals::function_d50fdde9(self, 0);
+		level.var_1c957023 self_revive_visuals::set_revive_progress(self, 0);
 		var_722c6f25 = 0;
 		if(isdefined(b_success) && b_success)
 		{
@@ -1496,7 +1496,7 @@ function function_a7f11faa(var_c34665fc)
 {
 	if(var_c34665fc != "disconnect")
 	{
-		level.var_1c957023 self_revive_visuals::function_d50fdde9(self, 0);
+		level.var_1c957023 self_revive_visuals::set_revive_progress(self, 0);
 	}
 }
 
@@ -1641,7 +1641,7 @@ function revive_trigger_think(t_secondary)
 			}
 			if(isdefined(e_reviver))
 			{
-				e_reviver zm_vo::function_57b8cd17();
+				e_reviver zm_vo::vo_stop();
 			}
 		}
 	}
@@ -1659,7 +1659,7 @@ function revive_trigger_think(t_secondary)
 function function_8fd9d8b9(e_reviver)
 {
 	self endon(#"death");
-	zm_vo::function_57b8cd17();
+	zm_vo::vo_stop();
 	if(e_reviver === self && isdefined(self.var_ff5f8752))
 	{
 		self.last_vo_played_time = 0;
@@ -1928,7 +1928,7 @@ function revive_do_revive(e_revivee, w_reviver, w_revive_tool, t_secondary)
 	{
 		waitframe(1);
 		e_revivee.var_6fc48a11 = e_revivee.var_6fc48a11 + 0.05;
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(e_revivee, e_revivee.var_6fc48a11 / revivetime);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(e_revivee, e_revivee.var_6fc48a11 / revivetime);
 		if(isdefined(e_revivee.revivetrigger.auto_revive) && e_revivee.revivetrigger.auto_revive)
 		{
 			break;
@@ -1973,7 +1973,7 @@ function revive_do_revive(e_revivee, w_reviver, w_revive_tool, t_secondary)
 	else
 	{
 		e_revivee.var_6fc48a11 = 0;
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(e_revivee, 0);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(e_revivee, 0);
 	}
 	return revived;
 }
@@ -1993,7 +1993,7 @@ function function_2cc9a315(revivetime)
 	while(!(isdefined(self.var_c6a6f334) && self.var_c6a6f334) && isdefined(self.var_6fc48a11) && self.var_6fc48a11 >= 0)
 	{
 		self.var_6fc48a11 = self.var_6fc48a11 - 0.05;
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, self.var_6fc48a11 / revivetime);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(self, self.var_6fc48a11 / revivetime);
 		waitframe(1);
 	}
 }

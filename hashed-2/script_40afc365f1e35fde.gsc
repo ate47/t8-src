@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_178024232e91b0a1;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_3738f84821de194e;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
@@ -13,7 +13,7 @@
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
 #using script_5e918923a121b594;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using script_caf007e2a98afa2;
 #using script_ebc09732f6544a3;
@@ -119,11 +119,11 @@ class class_9fa5eb75
 
 }
 
-#namespace namespace_c3527dc1;
+#namespace archetypempdog;
 
 /*
 	Name: init
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x4D7A5ACF
 	Offset: 0x2C8
 	Size: 0x114
@@ -148,7 +148,7 @@ function init()
 
 /*
 	Name: function_ef4b81af
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x9B3F6E4C
 	Offset: 0x570
 	Size: 0x214
@@ -186,7 +186,7 @@ function private function_ef4b81af()
 
 /*
 	Name: function_3fb68a86
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x8D18740D
 	Offset: 0x790
 	Size: 0x24
@@ -200,7 +200,7 @@ function function_3fb68a86()
 
 /*
 	Name: function_a543b380
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x870EEAAA
 	Offset: 0x7C0
 	Size: 0x236
@@ -260,7 +260,7 @@ function function_a543b380(player)
 
 /*
 	Name: function_8f876521
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x404395C8
 	Offset: 0xA00
 	Size: 0x1D4
@@ -299,7 +299,7 @@ function function_8f876521()
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xA02A7B85
 	Offset: 0xBE0
 	Size: 0x91C
@@ -396,7 +396,7 @@ function registerbehaviorscriptfunctions()
 
 /*
 	Name: function_d6d0a32e
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x696D8C6B
 	Offset: 0x1508
 	Size: 0xEA
@@ -416,7 +416,7 @@ function function_d6d0a32e(inflictor, attacker, damage, idflags, meansofdeath, w
 
 /*
 	Name: function_4f9ebad6
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xCA889E57
 	Offset: 0x1600
 	Size: 0x56
@@ -431,7 +431,7 @@ function private function_4f9ebad6(entity)
 
 /*
 	Name: function_81c29086
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x3C7A3135
 	Offset: 0x1660
 	Size: 0x64
@@ -449,7 +449,7 @@ function private function_81c29086(entity)
 
 /*
 	Name: function_c34253a9
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x10ED41A8
 	Offset: 0x16D0
 	Size: 0x24
@@ -463,7 +463,7 @@ function private function_c34253a9(entity)
 
 /*
 	Name: function_d338afb8
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xE9273C34
 	Offset: 0x1700
 	Size: 0x2C
@@ -477,7 +477,7 @@ function function_d338afb8(entity)
 
 /*
 	Name: function_d68af34c
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x6F9F23F1
 	Offset: 0x1738
 	Size: 0x2A
@@ -495,7 +495,7 @@ function function_d68af34c()
 
 /*
 	Name: function_1eda333b
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x7F57DFEF
 	Offset: 0x1770
 	Size: 0x302
@@ -541,7 +541,7 @@ function function_1eda333b()
 
 /*
 	Name: function_a3708944
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x933477E1
 	Offset: 0x1A80
 	Size: 0xA2
@@ -564,7 +564,7 @@ function function_a3708944(entity)
 
 /*
 	Name: function_c2bf7f10
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x65089071
 	Offset: 0x1B30
 	Size: 0x2D2
@@ -612,7 +612,7 @@ function function_c2bf7f10()
 
 /*
 	Name: function_cebd576f
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x4391D59D
 	Offset: 0x1E10
 	Size: 0x74
@@ -630,7 +630,7 @@ function function_cebd576f(entity)
 
 /*
 	Name: function_ae45f57b
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x27F074BA
 	Offset: 0x1E90
 	Size: 0x4A
@@ -646,7 +646,7 @@ function function_ae45f57b()
 
 /*
 	Name: function_cb274b5
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x2C276C0E
 	Offset: 0x1EE8
 	Size: 0x2C
@@ -661,7 +661,7 @@ function private function_cb274b5(entity)
 
 /*
 	Name: getyaw
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x2CFB296F
 	Offset: 0x1F20
 	Size: 0x40
@@ -676,7 +676,7 @@ function getyaw(org)
 
 /*
 	Name: absyawtoenemy
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x13D8F0E1
 	Offset: 0x1F68
 	Size: 0x8A
@@ -699,7 +699,7 @@ function absyawtoenemy(enemy)
 
 /*
 	Name: can_see_enemy
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xE4EF4B3A
 	Offset: 0x2000
 	Size: 0x56
@@ -725,7 +725,7 @@ function can_see_enemy(enemy)
 
 /*
 	Name: function_a78474f2
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x319AEE9E
 	Offset: 0x2060
 	Size: 0x1A
@@ -739,7 +739,7 @@ function private function_a78474f2()
 
 /*
 	Name: get_favorite_enemy
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x1545DF58
 	Offset: 0x2088
 	Size: 0x64
@@ -758,7 +758,7 @@ function private get_favorite_enemy()
 
 /*
 	Name: get_last_valid_position
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x1A555F96
 	Offset: 0x20F8
 	Size: 0x3E
@@ -776,7 +776,7 @@ function get_last_valid_position()
 
 /*
 	Name: function_3b9e385c
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xE3D1772A
 	Offset: 0x2140
 	Size: 0x7E
@@ -792,7 +792,7 @@ function function_3b9e385c(entity)
 
 /*
 	Name: function_b2e0da2
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x98C36B69
 	Offset: 0x21C8
 	Size: 0x44
@@ -810,7 +810,7 @@ function function_b2e0da2(entity)
 
 /*
 	Name: lid_closedpositionservicee
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x2E925DF1
 	Offset: 0x2218
 	Size: 0x22
@@ -824,7 +824,7 @@ function private lid_closedpositionservicee(entity)
 
 /*
 	Name: function_bcd7b170
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xB7F7D905
 	Offset: 0x2248
 	Size: 0x236
@@ -871,7 +871,7 @@ function private function_bcd7b170(entity)
 
 /*
 	Name: function_dc0b544b
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x45F615C3
 	Offset: 0x2488
 	Size: 0x36
@@ -889,7 +889,7 @@ function function_dc0b544b(entity, enemy)
 
 /*
 	Name: get_last_attacker
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xC372A17B
 	Offset: 0x24C8
 	Size: 0x82
@@ -914,7 +914,7 @@ function private get_last_attacker()
 
 /*
 	Name: target_enemy
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xD4380F29
 	Offset: 0x2558
 	Size: 0x4A4
@@ -997,7 +997,7 @@ function target_enemy(entity)
 
 /*
 	Name: function_df8cb62a
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x5A73E6
 	Offset: 0x2A08
 	Size: 0x170
@@ -1023,7 +1023,7 @@ function function_df8cb62a(entity)
 
 /*
 	Name: dogtargetservice
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x76B258EA
 	Offset: 0x2B80
 	Size: 0x44
@@ -1042,7 +1042,7 @@ function dogtargetservice(entity)
 
 /*
 	Name: dogshouldwalk
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x12405CED
 	Offset: 0x2BD0
 	Size: 0x24
@@ -1056,7 +1056,7 @@ function dogshouldwalk(entity)
 
 /*
 	Name: dogshouldrun
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x9A7A7D9A
 	Offset: 0x2C00
 	Size: 0x62
@@ -1077,7 +1077,7 @@ function dogshouldrun(entity)
 
 /*
 	Name: function_e382db1f
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x9043F65B
 	Offset: 0x2C70
 	Size: 0xBC
@@ -1103,7 +1103,7 @@ function function_e382db1f(entity)
 
 /*
 	Name: function_ac9765d1
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xE1655CA3
 	Offset: 0x2D38
 	Size: 0x36
@@ -1117,7 +1117,7 @@ function private function_ac9765d1(entity)
 
 /*
 	Name: dogjukeinitialize
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x71497191
 	Offset: 0x2D78
 	Size: 0x10
@@ -1131,7 +1131,7 @@ function private dogjukeinitialize(entity)
 
 /*
 	Name: dogpreemptivejuketerminate
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x672AE9D4
 	Offset: 0x2D90
 	Size: 0x36
@@ -1145,7 +1145,7 @@ function private dogpreemptivejuketerminate(entity)
 
 /*
 	Name: function_6c2426d3
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x6E15DD31
 	Offset: 0x2DD0
 	Size: 0x29A
@@ -1188,7 +1188,7 @@ function function_6c2426d3(entity)
 
 /*
 	Name: dogmeleeaction
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x9301C602
 	Offset: 0x3078
 	Size: 0x30
@@ -1203,7 +1203,7 @@ function dogmeleeaction(entity, asmstatename)
 
 /*
 	Name: function_303397b0
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x7341BBC7
 	Offset: 0x30B0
 	Size: 0x18
@@ -1217,7 +1217,7 @@ function function_303397b0(entity, asmstatename)
 
 /*
 	Name: function_475a38e6
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xBA57FEB6
 	Offset: 0x30D0
 	Size: 0x84
@@ -1234,7 +1234,7 @@ function function_475a38e6(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_75068028
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x5C825369
 	Offset: 0x3160
 	Size: 0x2C
@@ -1247,7 +1247,7 @@ function function_75068028(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_13978732
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xAA034506
 	Offset: 0x3198
 	Size: 0x84
@@ -1264,7 +1264,7 @@ function function_13978732(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_3089bb44
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x7913F88E
 	Offset: 0x3228
 	Size: 0x26C
@@ -1311,7 +1311,7 @@ function function_3089bb44(entity)
 
 /*
 	Name: function_b17821dd
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x473612E4
 	Offset: 0x3568
 	Size: 0x6C
@@ -1326,7 +1326,7 @@ function function_b17821dd(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_92620306
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x96F714DA
 	Offset: 0x35E0
 	Size: 0x4C
@@ -1340,7 +1340,7 @@ function function_92620306(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_b1eb29d8
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xD981EDA6
 	Offset: 0x3638
 	Size: 0x31C
@@ -1380,7 +1380,7 @@ function function_b1eb29d8(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_a5923bea
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xD0B2BD62
 	Offset: 0x3960
 	Size: 0xB34
@@ -1508,7 +1508,7 @@ function function_a5923bea(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_668f9379
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0x8D4C5A8E
 	Offset: 0x44A0
 	Size: 0xAE
@@ -1527,7 +1527,7 @@ function function_668f9379(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_df9abf31
-	Namespace: namespace_c3527dc1
+	Namespace: archetypempdog
 	Checksum: 0xF4381CFE
 	Offset: 0x4558
 	Size: 0x6C

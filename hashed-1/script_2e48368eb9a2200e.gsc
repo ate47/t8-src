@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_31e56101095f174b;
-#using script_387c92656e7ac7d1;
-#using script_39c61335d85620af;
-#using script_3d2e260ec67fded8;
+#using scripts\core_common\ai\planner_generic_commander.gsc;
+#using scripts\core_common\ai\planner_commander.gsc;
+#using scripts\core_common\ai\planner_squad_utility.gsc;
 #using script_522aeb6ae906391e;
 #using script_60f1433e7c9a921c;
 #using script_6c3d8db095c51b5e;
-#using script_7312bc36741c9418;
+#using scripts\core_common\ai\planner_commander_utility.gsc;
 
 #namespace namespace_16057557;
 
@@ -43,7 +43,7 @@ function createcommander(team)
 	plannercommanderutility::addsquadevaluator(commander, "commanderScoreForceGoal");
 	plannercommanderutility::addsquadevaluator(commander, "commanderScoreKothZone");
 	plannercommanderutility::addsquadevaluator(commander, "commanderScoreTeam");
-	plannercommanderutility::addsquadevaluator(commander, "commanderScoreAge", [#"hash_2fe4d5f6cd1c7ca8":15000]);
+	plannercommanderutility::addsquadevaluator(commander, "commanderScoreAge", [#"maxage":15000]);
 	plannercommanderutility::addsquadevaluator(commander, "commanderScoreAlive");
 	return commander;
 }

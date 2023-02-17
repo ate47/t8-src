@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5bb072c3abf4652c;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -13,11 +13,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_48607e17;
+#namespace zm_mansion_sound;
 
 /*
 	Name: main
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xD001FC13
 	Offset: 0x330
 	Size: 0xA6
@@ -38,7 +38,7 @@ function main()
 
 /*
 	Name: function_96da6081
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x62A4B74A
 	Offset: 0x3E0
 	Size: 0x344
@@ -68,7 +68,7 @@ function private function_96da6081()
 
 /*
 	Name: function_aba430c2
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x4346D985
 	Offset: 0x730
 	Size: 0x154
@@ -97,7 +97,7 @@ function private function_aba430c2()
 
 /*
 	Name: function_63c3fd24
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xB7846ACF
 	Offset: 0x890
 	Size: 0x280
@@ -143,7 +143,7 @@ function private function_63c3fd24()
 
 /*
 	Name: function_f2d27140
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x8345CE46
 	Offset: 0xB18
 	Size: 0x164
@@ -173,7 +173,7 @@ function private function_f2d27140(var_6a87ce6d)
 
 /*
 	Name: function_64834acd
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x2A186231
 	Offset: 0xC88
 	Size: 0x66
@@ -194,7 +194,7 @@ function private function_64834acd()
 
 /*
 	Name: function_21a979f7
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xC5B86A60
 	Offset: 0xCF8
 	Size: 0x9E
@@ -217,7 +217,7 @@ function private function_21a979f7()
 
 /*
 	Name: function_ad05f6f3
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xB0E25702
 	Offset: 0xDA0
 	Size: 0x10C
@@ -245,7 +245,7 @@ function private function_ad05f6f3()
 
 /*
 	Name: function_6aad582c
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x1A66D9F
 	Offset: 0xEB8
 	Size: 0x1E4
@@ -286,7 +286,7 @@ function private function_6aad582c(e_player)
 
 /*
 	Name: function_3741630d
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x7F4DBC7C
 	Offset: 0x10A8
 	Size: 0x2C
@@ -300,7 +300,7 @@ function private function_3741630d(var_c34665fc)
 
 /*
 	Name: function_9ea70701
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x763EF434
 	Offset: 0x10E0
 	Size: 0x28E
@@ -330,7 +330,7 @@ function function_9ea70701()
 
 /*
 	Name: function_33864e5d
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xD12CD752
 	Offset: 0x1378
 	Size: 0x15C
@@ -366,7 +366,7 @@ function function_33864e5d()
 
 /*
 	Name: function_63491fbd
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x59CBE2FD
 	Offset: 0x14E0
 	Size: 0x10E
@@ -392,7 +392,7 @@ function function_63491fbd()
 
 /*
 	Name: function_a3a23636
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x991ADC6B
 	Offset: 0x15F8
 	Size: 0x39A
@@ -442,7 +442,7 @@ function function_a3a23636()
 
 /*
 	Name: function_90659e2c
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xF638E2E7
 	Offset: 0x19A0
 	Size: 0x9C
@@ -462,7 +462,7 @@ function function_90659e2c()
 
 /*
 	Name: function_eb112701
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xC80BFE5
 	Offset: 0x1A48
 	Size: 0x1AC
@@ -502,7 +502,7 @@ function function_eb112701()
 
 /*
 	Name: function_6b5b1780
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x8060A9DB
 	Offset: 0x1C00
 	Size: 0x9C
@@ -522,7 +522,7 @@ function function_6b5b1780()
 
 /*
 	Name: function_70c90053
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xCD80A98A
 	Offset: 0x1CA8
 	Size: 0x148
@@ -547,7 +547,7 @@ function function_70c90053()
 
 /*
 	Name: function_e432aeb6
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x99B9245
 	Offset: 0x1DF8
 	Size: 0x9C
@@ -569,7 +569,7 @@ function function_e432aeb6(str_category, var_39acfdda)
 
 /*
 	Name: function_2d4ce142
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x3F264D8B
 	Offset: 0x1EA0
 	Size: 0x1D2
@@ -615,7 +615,7 @@ function private function_2d4ce142(n_voice)
 
 /*
 	Name: function_c8d42aba
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xD9C6657B
 	Offset: 0x2080
 	Size: 0x34E
@@ -676,7 +676,7 @@ function function_c8d42aba(str_category, var_39acfdda)
 
 /*
 	Name: function_4928382a
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x705C421C
 	Offset: 0x23D8
 	Size: 0xC0
@@ -697,7 +697,7 @@ function function_4928382a(str_category, var_39acfdda)
 
 /*
 	Name: function_658ce256
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x15B8DEF5
 	Offset: 0x24A0
 	Size: 0x74
@@ -717,7 +717,7 @@ function function_658ce256(str_category, var_39acfdda)
 
 /*
 	Name: function_df8a01f3
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x85FE5116
 	Offset: 0x2520
 	Size: 0x176
@@ -756,7 +756,7 @@ function function_df8a01f3()
 
 /*
 	Name: function_edae33b5
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xDAC4BFAF
 	Offset: 0x26A0
 	Size: 0x5C
@@ -775,7 +775,7 @@ function function_edae33b5(str_category, var_39acfdda)
 
 /*
 	Name: function_fe8cce7a
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xBA053010
 	Offset: 0x2708
 	Size: 0x74
@@ -795,7 +795,7 @@ function function_fe8cce7a(str_category, var_39acfdda)
 
 /*
 	Name: function_bb1888fe
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0x749CC7D3
 	Offset: 0x2788
 	Size: 0x74
@@ -815,7 +815,7 @@ function function_bb1888fe(str_category, var_39acfdda)
 
 /*
 	Name: function_f26d178f
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xC028F3C0
 	Offset: 0x2808
 	Size: 0x74
@@ -835,7 +835,7 @@ function function_f26d178f(str_category, var_39acfdda)
 
 /*
 	Name: function_1f4ab5ec
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xF9AA8192
 	Offset: 0x2888
 	Size: 0xFA
@@ -868,7 +868,7 @@ function function_1f4ab5ec(str_category, var_39acfdda)
 
 /*
 	Name: function_a3a92098
-	Namespace: namespace_48607e17
+	Namespace: zm_mansion_sound
 	Checksum: 0xC234F167
 	Offset: 0x2990
 	Size: 0x13C

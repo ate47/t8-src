@@ -19,11 +19,11 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_69a3fa9c29ebbb82", &function_f0f91440, undefined, undefined);
+	system::register(#"hash_69a3fa9c29ebbb82", &_init_, undefined, undefined);
 }
 
 /*
-	Name: function_f0f91440
+	Name: _init_
 	Namespace: namespace_fb5e95e9
 	Checksum: 0x63D61A99
 	Offset: 0x290
@@ -31,7 +31,7 @@ function autoexec function_89f2df9()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f0f91440()
+function _init_()
 {
 	callback::on_player_corpse(&function_8cc4432b);
 	dynents = getdynentarray("dynent_garage_button");
@@ -205,7 +205,7 @@ function is_equipment(entity)
 	if(isdefined(entity.weapon))
 	{
 		weapon = entity.weapon;
-		if(weapon.name === #"ability_smart_cover" || weapon.name === #"eq_tripwire" || weapon.name === #"trophy_system" || weapon.name === #"eq_concertina_wire" || weapon.name === #"eq_sensor" || weapon.name === #"cymbal_monkey" || weapon.name === #"gadget_supplypod" || weapon.name === #"hash_10f614b278daaebc")
+		if(weapon.name === #"ability_smart_cover" || weapon.name === #"eq_tripwire" || weapon.name === #"trophy_system" || weapon.name === #"eq_concertina_wire" || weapon.name === #"eq_sensor" || weapon.name === #"cymbal_monkey" || weapon.name === #"gadget_supplypod" || weapon.name === #"homunculus")
 		{
 			return true;
 		}
@@ -225,7 +225,7 @@ function is_equipment(entity)
 function function_777e012d(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;
@@ -254,7 +254,7 @@ function function_777e012d(t_damage)
 						device [[level.var_7c5c96dc]]();
 						break;
 					}
-					case "hash_10f614b278daaebc":
+					case "homunculus":
 					{
 						device [[level.var_cc310d06]]();
 						break;
@@ -295,7 +295,7 @@ function function_777e012d(t_damage)
 function elevator_kill_player(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;
@@ -354,7 +354,7 @@ function function_8e73d913()
 function function_26ab1b5e(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;

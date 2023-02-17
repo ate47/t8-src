@@ -4,8 +4,8 @@
 #using script_421e0a3702e22de;
 #using script_58c342edd81589fb;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\animation_shared.gsc;
@@ -299,7 +299,7 @@ function function_c303e169()
 */
 function function_7512675b(e_who)
 {
-	e_who namespace_3263198e::function_51b752a9("vox_shard_place", -1, 1, 0);
+	e_who zm_orange_util::function_51b752a9("vox_shard_place", -1, 1, 0);
 }
 
 /*

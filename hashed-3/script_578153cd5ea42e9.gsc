@@ -56,7 +56,7 @@ function __main__()
 */
 function function_bf3cfde4()
 {
-	zm_perks::function_7f42e14e(#"hash_6ca140703a87cd09", "mod_slider", #"hash_63e46074d37d524b", #"specialty_phdflopper", 4500);
+	zm_perks::function_7f42e14e(#"hash_6ca140703a87cd09", "mod_slider", #"perk_slider", #"specialty_phdflopper", 4500);
 	zm_perks::register_perk_threads(#"hash_6ca140703a87cd09", &function_6a308c34, &function_ea0dd5e6);
 }
 

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3c362258ff800237;
-#using script_4c875fef517e2061;
+#using scripts\zm_common\zm_trial.csc;
+#using scripts\zm\perk\zm_perk_death_perception.csc;
 #using scripts\core_common\system_shared.csc;
 #using scripts\zm_common\zm.csc;
 
@@ -35,11 +35,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5507dc3
 	Checksum: 0x2FA80FF9
 	Offset: 0x138
@@ -47,7 +47,7 @@ function __init__()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(local_client_num, params)
+function private on_begin(local_client_num, params)
 {
 	level thread function_40349f7c();
 }
@@ -77,14 +77,14 @@ function function_40349f7c(localclientnum)
 			}
 			foreach(player in getplayers(localclientnum))
 			{
-				player namespace_e1e7cabf::function_25410869(localclientnum);
+				player zm_perk_death_perception::function_25410869(localclientnum);
 			}
 		}
 	}
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5507dc3
 	Checksum: 0xF81C5BDC
 	Offset: 0x320
@@ -92,7 +92,7 @@ function function_40349f7c(localclientnum)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(local_client_num)
+function private on_end(local_client_num)
 {
 	level notify(#"hash_38932f8deb28b470");
 	level.var_dc60105c = undefined;
@@ -107,7 +107,7 @@ function private function_9e7b3f4d(local_client_num)
 			}
 			foreach(player in getplayers(localclientnum))
 			{
-				player namespace_e1e7cabf::function_25410869(localclientnum);
+				player zm_perk_death_perception::function_25410869(localclientnum);
 			}
 		}
 	}

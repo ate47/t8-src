@@ -3,7 +3,7 @@
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -21,11 +21,11 @@
 #using scripts\zm_common\zm_traps.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_652c3ad8;
+#namespace zm_escape_traps;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9E235049
 	Offset: 0x4E0
 	Size: 0x44
@@ -34,12 +34,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_74eeacf89752d785", &__init__, &__main__, undefined);
+	system::register(#"zm_escape_traps", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xD190ADB5
 	Offset: 0x530
 	Size: 0x1CC
@@ -63,7 +63,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x5AAAD9DF
 	Offset: 0x708
 	Size: 0x1F8
@@ -92,7 +92,7 @@ function __main__()
 
 /*
 	Name: init_fan_trap_trigs
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xC6CFA320
 	Offset: 0x908
 	Size: 0x424
@@ -106,22 +106,22 @@ function init_fan_trap_trigs()
 	{
 		var_7c68fa38._trap_cooldown_time = 25;
 		var_7c68fa38.var_cd6ebde4 = [];
-		var_8541c382 = getentarray(var_7c68fa38.target, "targetname");
-		for(i = 0; i < var_8541c382.size; i++)
+		a_e_trap = getentarray(var_7c68fa38.target, "targetname");
+		for(i = 0; i < a_e_trap.size; i++)
 		{
-			if(isdefined(var_8541c382[i].script_string))
+			if(isdefined(a_e_trap[i].script_string))
 			{
-				if(var_8541c382[i].script_string == "fan_trap_rumble")
+				if(a_e_trap[i].script_string == "fan_trap_rumble")
 				{
-					var_7c68fa38.t_rumble = var_8541c382[i];
+					var_7c68fa38.t_rumble = a_e_trap[i];
 					continue;
 				}
-				if(var_8541c382[i].script_string == "fxanim_fan")
+				if(a_e_trap[i].script_string == "fxanim_fan")
 				{
-					var_7c68fa38.var_6dead4d5 = var_8541c382[i];
+					var_7c68fa38.var_6dead4d5 = a_e_trap[i];
 					continue;
 				}
-				if(var_8541c382[i].script_string == "trap_control_panel")
+				if(a_e_trap[i].script_string == "trap_control_panel")
 				{
 					if(!isdefined(var_7c68fa38.var_cd6ebde4))
 					{
@@ -131,9 +131,9 @@ function init_fan_trap_trigs()
 					{
 						var_7c68fa38.var_cd6ebde4 = array(var_7c68fa38.var_cd6ebde4);
 					}
-					if(!isinarray(var_7c68fa38.var_cd6ebde4, var_8541c382[i]))
+					if(!isinarray(var_7c68fa38.var_cd6ebde4, a_e_trap[i]))
 					{
-						var_7c68fa38.var_cd6ebde4[var_7c68fa38.var_cd6ebde4.size] = var_8541c382[i];
+						var_7c68fa38.var_cd6ebde4[var_7c68fa38.var_cd6ebde4.size] = a_e_trap[i];
 					}
 				}
 			}
@@ -168,7 +168,7 @@ function init_fan_trap_trigs()
 
 /*
 	Name: function_ea490292
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x1CA8B893
 	Offset: 0xD38
 	Size: 0x108
@@ -200,7 +200,7 @@ function function_ea490292()
 
 /*
 	Name: activate_zm_fan_trap
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x7994919C
 	Offset: 0xE48
 	Size: 0x1DA
@@ -233,7 +233,7 @@ function activate_zm_fan_trap()
 
 /*
 	Name: function_76e0728d
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xD5445E23
 	Offset: 0x1030
 	Size: 0x5C
@@ -249,7 +249,7 @@ function function_76e0728d()
 
 /*
 	Name: function_5758997a
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xD7206E39
 	Offset: 0x1098
 	Size: 0xFC
@@ -278,7 +278,7 @@ function function_5758997a(t_damage)
 
 /*
 	Name: function_9c2d463d
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x3FAAAFF8
 	Offset: 0x11A0
 	Size: 0x424
@@ -350,7 +350,7 @@ function function_9c2d463d(t_damage)
 
 /*
 	Name: function_1395e596
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xF39B18C
 	Offset: 0x15D0
 	Size: 0x12E
@@ -394,7 +394,7 @@ function private function_1395e596()
 
 /*
 	Name: fan_trap_timeout
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x665E175F
 	Offset: 0x1708
 	Size: 0x66
@@ -415,7 +415,7 @@ function fan_trap_timeout()
 
 /*
 	Name: fan_trap_rumble_think
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xA5587E71
 	Offset: 0x1778
 	Size: 0xB8
@@ -441,7 +441,7 @@ function fan_trap_rumble_think()
 
 /*
 	Name: fan_trap_rumble
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xB9C57ABF
 	Offset: 0x1838
 	Size: 0xDA
@@ -471,7 +471,7 @@ function fan_trap_rumble(e_player)
 
 /*
 	Name: fan_trap_damage
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xBCC6947A
 	Offset: 0x1920
 	Size: 0x158
@@ -516,7 +516,7 @@ function fan_trap_damage()
 
 /*
 	Name: player_fan_trap_damage
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x4A849144
 	Offset: 0x1A80
 	Size: 0xEC
@@ -545,7 +545,7 @@ function player_fan_trap_damage()
 
 /*
 	Name: zombie_fan_trap_death
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x669E1A22
 	Offset: 0x1B78
 	Size: 0xAC
@@ -566,7 +566,7 @@ function zombie_fan_trap_death()
 
 /*
 	Name: stop_fan_trap_blood_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xA4C83E5
 	Offset: 0x1C30
 	Size: 0x34
@@ -584,7 +584,7 @@ function stop_fan_trap_blood_fx()
 
 /*
 	Name: function_8aeee6b8
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xBD4CD294
 	Offset: 0x1C70
 	Size: 0x54
@@ -599,7 +599,7 @@ function function_8aeee6b8()
 
 /*
 	Name: init_acid_trap_trigs
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xD12FB3E9
 	Offset: 0x1CD0
 	Size: 0x4C4
@@ -615,12 +615,12 @@ function init_acid_trap_trigs()
 		var_4d42c97f.var_28ea1870 = [];
 		var_4d42c97f.var_cd6ebde4 = [];
 		var_4d42c97f.var_31004a80 = [];
-		var_8541c382 = getentarray(var_4d42c97f.target, "targetname");
-		for(i = 0; i < var_8541c382.size; i++)
+		a_e_trap = getentarray(var_4d42c97f.target, "targetname");
+		for(i = 0; i < a_e_trap.size; i++)
 		{
-			if(isdefined(var_8541c382[i].script_string))
+			if(isdefined(a_e_trap[i].script_string))
 			{
-				if(var_8541c382[i].script_string == "trap_control_panel")
+				if(a_e_trap[i].script_string == "trap_control_panel")
 				{
 					if(!isdefined(var_4d42c97f.var_cd6ebde4))
 					{
@@ -630,9 +630,9 @@ function init_acid_trap_trigs()
 					{
 						var_4d42c97f.var_cd6ebde4 = array(var_4d42c97f.var_cd6ebde4);
 					}
-					if(!isinarray(var_4d42c97f.var_cd6ebde4, var_8541c382[i]))
+					if(!isinarray(var_4d42c97f.var_cd6ebde4, a_e_trap[i]))
 					{
-						var_4d42c97f.var_cd6ebde4[var_4d42c97f.var_cd6ebde4.size] = var_8541c382[i];
+						var_4d42c97f.var_cd6ebde4[var_4d42c97f.var_cd6ebde4.size] = a_e_trap[i];
 					}
 				}
 			}
@@ -685,7 +685,7 @@ function init_acid_trap_trigs()
 
 /*
 	Name: function_39f2d90f
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xB2A57974
 	Offset: 0x21A0
 	Size: 0xD0
@@ -710,7 +710,7 @@ function function_39f2d90f()
 
 /*
 	Name: activate_zm_acid_trap
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x193586E3
 	Offset: 0x2278
 	Size: 0xDA
@@ -735,7 +735,7 @@ function activate_zm_acid_trap()
 
 /*
 	Name: function_6219e5ab
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xA26F2280
 	Offset: 0x2360
 	Size: 0x74
@@ -751,7 +751,7 @@ function function_6219e5ab(trap)
 
 /*
 	Name: function_efd61793
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x8DC9FDD8
 	Offset: 0x23E0
 	Size: 0x1CE
@@ -791,7 +791,7 @@ function function_efd61793(t_damage)
 
 /*
 	Name: function_9699194a
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9F746EDB
 	Offset: 0x25B8
 	Size: 0x464
@@ -871,7 +871,7 @@ function function_9699194a(t_damage)
 
 /*
 	Name: acid_trap_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xEFBBB124
 	Offset: 0x2A28
 	Size: 0xAC
@@ -890,7 +890,7 @@ function acid_trap_fx(e_trap)
 
 /*
 	Name: stop_acid_death_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xE5A00ED0
 	Offset: 0x2AE0
 	Size: 0x34
@@ -908,7 +908,7 @@ function stop_acid_death_fx()
 
 /*
 	Name: function_1a5df584
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xA6AF4529
 	Offset: 0x2B20
 	Size: 0xDC
@@ -932,7 +932,7 @@ function function_1a5df584(t_damage)
 
 /*
 	Name: function_6dbbc97
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9C8D51FB
 	Offset: 0x2C08
 	Size: 0x464
@@ -1010,7 +1010,7 @@ function function_6dbbc97()
 
 /*
 	Name: function_dcd775a
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xE5646260
 	Offset: 0x3078
 	Size: 0x108
@@ -1042,7 +1042,7 @@ function function_dcd775a()
 
 /*
 	Name: activate_zm_spinning_trap
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x31DF396A
 	Offset: 0x3188
 	Size: 0x222
@@ -1078,7 +1078,7 @@ function activate_zm_spinning_trap()
 
 /*
 	Name: function_ffe09b75
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xBA0CD16F
 	Offset: 0x33B8
 	Size: 0x24
@@ -1092,7 +1092,7 @@ function function_ffe09b75()
 
 /*
 	Name: function_7e74aa5
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x75FF7FDA
 	Offset: 0x33E8
 	Size: 0x10C
@@ -1121,7 +1121,7 @@ function function_7e74aa5(t_damage)
 
 /*
 	Name: function_1f7e661f
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x3C333D34
 	Offset: 0x3500
 	Size: 0x886
@@ -1174,7 +1174,7 @@ function function_1f7e661f(t_damage)
 	{
 		if(isai(self) && !isvehicle(self))
 		{
-			self thread function_572d630b();
+			self thread a_a_arms();
 		}
 		if(self.var_6f84b820 === #"basic" && !isvehicle(self))
 		{
@@ -1243,7 +1243,7 @@ function function_1f7e661f(t_damage)
 
 /*
 	Name: get_closest_tag
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x7E4BAA89
 	Offset: 0x3D90
 	Size: 0xFA
@@ -1274,7 +1274,7 @@ function private get_closest_tag(v_pos)
 
 /*
 	Name: function_c846fd12
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x7334F5B9
 	Offset: 0x3E98
 	Size: 0x72
@@ -1293,7 +1293,7 @@ function private function_c846fd12()
 
 /*
 	Name: function_4a15e725
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x25FF08F0
 	Offset: 0x3F18
 	Size: 0x66
@@ -1314,7 +1314,7 @@ function function_4a15e725()
 
 /*
 	Name: function_c3ac9950
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x23B49756
 	Offset: 0x3F88
 	Size: 0xB8
@@ -1340,7 +1340,7 @@ function function_c3ac9950()
 
 /*
 	Name: spinning_trap_rumble
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x102E9F16
 	Offset: 0x4048
 	Size: 0xD6
@@ -1369,15 +1369,15 @@ function spinning_trap_rumble(e_player)
 }
 
 /*
-	Name: function_572d630b
-	Namespace: namespace_652c3ad8
+	Name: a_a_arms
+	Namespace: zm_escape_traps
 	Checksum: 0x44F41834
 	Offset: 0x4128
 	Size: 0x34
 	Parameters: 0
 	Flags: Linked
 */
-function function_572d630b()
+function a_a_arms()
 {
 	wait(2);
 	if(isdefined(self))
@@ -1388,7 +1388,7 @@ function function_572d630b()
 
 /*
 	Name: function_864365ef
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x75A5EBF0
 	Offset: 0x4168
 	Size: 0x2A6
@@ -1426,7 +1426,7 @@ function function_864365ef(t_damage, var_e72c9959)
 
 /*
 	Name: function_61791b8b
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xAABF4496
 	Offset: 0x4418
 	Size: 0x214
@@ -1462,7 +1462,7 @@ function private function_61791b8b(s_pos = self)
 
 /*
 	Name: function_e3f8ed75
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xFCC27986
 	Offset: 0x4638
 	Size: 0x23C
@@ -1515,7 +1515,7 @@ function function_e3f8ed75()
 
 /*
 	Name: zapper_light_red
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xA1F389E3
 	Offset: 0x4880
 	Size: 0x1CA
@@ -1556,7 +1556,7 @@ function zapper_light_red()
 
 /*
 	Name: zapper_light_green
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xBF143938
 	Offset: 0x4A58
 	Size: 0x1AA
@@ -1596,7 +1596,7 @@ function zapper_light_green()
 
 /*
 	Name: function_80ac9e32
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xEC372C61
 	Offset: 0x4C10
 	Size: 0x188

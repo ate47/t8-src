@@ -22,7 +22,7 @@ event main(eventstruct)
 	screen = spawn("script_model", (2794, -860, 397));
 	if(isdefined(screen))
 	{
-		screen setmodel(#"hash_3b92b4e828277c82");
+		screen setmodel(#"p8_screen_tactical_artic_01");
 		screen.angles = vectorscale((0, 1, 0), 360);
 	}
 	paris = spawn("script_model", (2880, -579, 401));

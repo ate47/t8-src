@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -37,11 +37,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_cb9d8a572a95c71", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_cb9d8a572a95c71", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_c54f5cd1
 	Checksum: 0x176E1326
 	Offset: 0x198
@@ -49,7 +49,7 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	str_targetname = "trials_shoot_from_water";
 	callback::function_33f0ddd3(&function_33f0ddd3);
@@ -61,7 +61,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_c54f5cd1
 	Checksum: 0x426C24ED
 	Offset: 0x268
@@ -69,14 +69,14 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_824d206(&function_33f0ddd3);
 	level zm_trial::function_25ee130(0);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_dc0859e();
-		player thread namespace_b22c99a5::function_73ff0096();
+		player thread zm_trial_util::function_dc0859e();
+		player thread zm_trial_util::function_73ff0096();
 	}
 	level.var_7f31a12d = undefined;
 }
@@ -112,12 +112,12 @@ function private function_9e0e99e1()
 					self unlockweapon(weapon.dualwieldweapon);
 				}
 			}
-			self namespace_b22c99a5::function_dc0859e();
+			self zm_trial_util::function_dc0859e();
 			var_407eb07 = 0;
 		}
 		else if(!var_f2b6fe6e && !var_407eb07)
 		{
-			self namespace_b22c99a5::function_bf710271();
+			self zm_trial_util::function_bf710271();
 			foreach(weapon in self getweaponslist(1))
 			{
 				if(zm_loadout::function_2ff6913(weapon) == 1)

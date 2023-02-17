@@ -1,16 +1,16 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_39e954a546d3baf;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -91,9 +91,9 @@ function init_level_vars()
 function function_9217567c()
 {
 	level waittill(#"all_players_spawned");
-	var_9c95ad05 = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
+	w_item = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
 	e_player = array::random(level.players);
-	zm_items::player_pick_up(e_player, var_9c95ad05);
+	zm_items::player_pick_up(e_player, w_item);
 	foreach(var_5f41c401 in level.var_4fe2f84d)
 	{
 		foreach(s_crafting in var_5f41c401)
@@ -423,13 +423,13 @@ function enable_gondola_at_docks(b_enable)
 		array::run_all(var_b8a0c0a, &setinvisibletoall);
 		foreach(player in level.players)
 		{
-			player namespace_b22c99a5::stop_timer();
+			player zm_trial_util::stop_timer();
 			if(!level.var_f995ece6 zm_trial_timer::is_open(player))
 			{
 				level.var_f995ece6 zm_trial_timer::open(player);
 			}
-			level.var_f995ece6 zm_trial_timer::function_8ede8e82(player, #"hash_4de08152dbb1681f");
-			player namespace_b22c99a5::start_timer(45);
+			level.var_f995ece6 zm_trial_timer::set_timer_text(player, #"hash_4de08152dbb1681f");
+			player zm_trial_util::start_timer(45);
 		}
 		for(n_time = 45; n_time > 0; n_time--)
 		{
@@ -454,7 +454,7 @@ function enable_gondola_at_docks(b_enable)
 			{
 				level.var_f995ece6 zm_trial_timer::close(player);
 			}
-			player namespace_b22c99a5::stop_timer();
+			player zm_trial_util::stop_timer();
 		}
 		zm_utility::function_bc5a54a8(n_obj_id);
 		foreach(t_trigger in var_9ce0aba1)

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -346,12 +346,12 @@ function function_240b713f()
 function function_d3a41243()
 {
 	t_damage = spawn("trigger_damage", struct::get(#"hash_7dc6a17096359ecd").origin, 0, 6, 6);
-	var_1bdfceb3 = getweapon(#"eq_acid_bomb");
+	w_sticky = getweapon(#"eq_acid_bomb");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = t_damage waittill(#"damage");
-		if(s_result.weapon === var_1bdfceb3)
+		if(s_result.weapon === w_sticky)
 		{
 			mdl_fx = util::spawn_model("tag_origin", struct::get(#"hash_351dccee011931a").origin);
 			mdl_fx linkto(level.var_56665536);
@@ -733,19 +733,19 @@ function function_7c9ab1ea(var_87e0cf0b, var_f96aafd8)
 function function_b11c26c9()
 {
 	var_56665536 = getent("skybox_water", "targetname");
-	var_4f3558ce = getent("life_preserver_catch", "targetname");
+	e_homunculus = getent("life_preserver_catch", "targetname");
 	var_21bb918c = getent("life_preserver_catch" + "_l", "targetname");
 	var_c8279d50 = getent("life_preserver_catch" + "_r", "targetname");
-	var_4f3558ce setscale(5);
+	e_homunculus setscale(5);
 	var_21bb918c setscale(1.75);
 	var_c8279d50 setscale(1.75);
-	var_4f3558ce linkto(var_56665536);
+	e_homunculus linkto(var_56665536);
 	var_21bb918c linkto(var_56665536);
 	var_c8279d50 linkto(var_56665536);
-	var_4f3558ce ghost();
+	e_homunculus ghost();
 	var_21bb918c ghost();
 	var_c8279d50 ghost();
-	level thread function_c867ac0a(var_4f3558ce, var_21bb918c, var_c8279d50);
+	level thread function_c867ac0a(e_homunculus, var_21bb918c, var_c8279d50);
 }
 
 /*
@@ -757,10 +757,10 @@ function function_b11c26c9()
 	Parameters: 3
 	Flags: Linked
 */
-function function_e1a452f5(var_4f3558ce, var_21bb918c, var_c8279d50)
+function function_e1a452f5(e_homunculus, var_21bb918c, var_c8279d50)
 {
 	level endon(#"hash_6aec924aa525b354");
-	var_4f3558ce setinvisibletoplayer(self);
+	e_homunculus setinvisibletoplayer(self);
 	var_21bb918c setinvisibletoplayer(self);
 	var_c8279d50 setinvisibletoplayer(self);
 	while(true)
@@ -776,17 +776,17 @@ function function_e1a452f5(var_4f3558ce, var_21bb918c, var_c8279d50)
 				if(isalive(player))
 				{
 					level notify(#"hash_57175159706ca9bf");
-					var_4f3558ce setvisibletoplayer(player);
+					e_homunculus setvisibletoplayer(player);
 					var_21bb918c setvisibletoplayer(player);
 					var_c8279d50 setvisibletoplayer(player);
 					do
 					{
 						wait(0.25);
 					}
-					while(isalive(player) && player adsbuttonpressed() && player istouching(var_93027823) && player util::is_looking_at(var_4f3558ce));
+					while(isalive(player) && player adsbuttonpressed() && player istouching(var_93027823) && player util::is_looking_at(e_homunculus));
 					if(isalive(player))
 					{
-						var_4f3558ce setinvisibletoplayer(player);
+						e_homunculus setinvisibletoplayer(player);
 						var_21bb918c setinvisibletoplayer(player);
 						var_c8279d50 setinvisibletoplayer(player);
 					}
@@ -806,21 +806,21 @@ function function_e1a452f5(var_4f3558ce, var_21bb918c, var_c8279d50)
 	Parameters: 3
 	Flags: Linked
 */
-function function_c867ac0a(var_4f3558ce, var_21bb918c, var_c8279d50)
+function function_c867ac0a(e_homunculus, var_21bb918c, var_c8279d50)
 {
 	level waittill(#"power_on");
 	trigger::wait_till("trigger_life_preserver");
-	var_4f3558ce thread scene::play(#"hash_3cfd8e7348ff04ed", var_4f3558ce);
-	var_4f3558ce show();
+	e_homunculus thread scene::play(#"hash_3cfd8e7348ff04ed", e_homunculus);
+	e_homunculus show();
 	var_21bb918c show();
 	var_c8279d50 show();
 	foreach(player in util::get_players())
 	{
-		player thread function_e1a452f5(var_4f3558ce, var_21bb918c, var_c8279d50);
+		player thread function_e1a452f5(e_homunculus, var_21bb918c, var_c8279d50);
 	}
-	callback::on_connect(&function_e1a452f5, undefined, var_4f3558ce, var_21bb918c, var_c8279d50);
+	callback::on_connect(&function_e1a452f5, undefined, e_homunculus, var_21bb918c, var_c8279d50);
 	level waittill(#"hash_57175159706ca9bf");
-	var_4f3558ce sethighdetail(1);
+	e_homunculus sethighdetail(1);
 	var_21bb918c sethighdetail(1);
 	var_c8279d50 sethighdetail(1);
 	var_21bb918c.var_55e11aa9 = util::spawn_model("tag_origin", var_21bb918c.origin);
@@ -918,10 +918,10 @@ function function_c867ac0a(var_4f3558ce, var_21bb918c, var_c8279d50)
 	var_c8279d50.var_55e11aa9 delete();
 	var_21bb918c delete();
 	var_c8279d50 delete();
-	var_4f3558ce scene::stop(#"hash_3cfd8e7348ff04ed", 1);
-	if(isdefined(var_4f3558ce))
+	e_homunculus scene::stop(#"hash_3cfd8e7348ff04ed", 1);
+	if(isdefined(e_homunculus))
 	{
-		var_4f3558ce delete();
+		e_homunculus delete();
 	}
 }
 

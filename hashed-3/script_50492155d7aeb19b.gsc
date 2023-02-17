@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_63788b93aa1642c1", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_63788b93aa1642c1", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_e87f6502
 	Checksum: 0x17B3512C
 	Offset: 0x180
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	level.var_b31000be = 600;
 	foreach(e_player in getplayers())
@@ -58,7 +58,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_e87f6502
 	Checksum: 0x5A12A664
 	Offset: 0x218
@@ -66,7 +66,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level.var_b31000be = undefined;
 }
@@ -88,7 +88,7 @@ function private function_8bb2443b()
 	{
 		if(self clientfield::get_to_player("nova_crawler_gas_cloud_postfx_clientfield"))
 		{
-			self namespace_59ff1d6c::function_db030433();
+			self zm_custom::function_db030433();
 			self zm_score::player_reduce_points("take_specified", level.var_b31000be);
 		}
 		wait(1);

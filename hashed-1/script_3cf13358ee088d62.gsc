@@ -30,7 +30,7 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	level.var_669e5aa1 = getweapon(#"hash_491ff8e9d1af03a8");
+	level.var_669e5aa1 = getweapon(#"ww_tesla_gun_t8_upgraded");
 	level._effect[#"tesla_viewmodel_rail"] = #"zombie/fx_tesla_rail_view_zmb";
 	level._effect[#"tesla_viewmodel_tube"] = #"zombie/fx_tesla_tube_view_zmb";
 	level._effect[#"tesla_viewmodel_tube2"] = #"zombie/fx_tesla_tube_view2_zmb";

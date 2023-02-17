@@ -41,7 +41,7 @@ function __init__()
 	level._effect[#"hash_71f4fac26bef1997"] = #"hash_3919b64dc762cab2";
 	callback::add_callback(#"freefall", &function_c9a18304);
 	callback::add_callback(#"parachute", &function_26d46af3);
-	animation::add_notetrack_func("player_free_fall::parachute_detach", &function_a7ab6689);
+	animation::add_notetrack_func("player_free_fall::parachute_detach", &parachute_detach);
 	level.var_4a2e0494 = isdefined(getgametypesetting(#"hash_6cf5f53d1fbb1066")) && getgametypesetting(#"hash_6cf5f53d1fbb1066");
 }
 
@@ -795,7 +795,7 @@ function function_fb8d00bf()
 }
 
 /*
-	Name: function_a7ab6689
+	Name: parachute_detach
 	Namespace: namespace_4b76712
 	Checksum: 0xDDACE2EC
 	Offset: 0x1D18
@@ -803,7 +803,7 @@ function function_fb8d00bf()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a7ab6689()
+function parachute_detach()
 {
 	local_client_num = self.localclientnum;
 	chute = self namespace_eb06e24d::function_fc6b6f3b();

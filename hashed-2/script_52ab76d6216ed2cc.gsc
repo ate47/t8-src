@@ -137,7 +137,7 @@ function init_fx()
 	level._effect[#"hash_4fc3dd13e23cd08f"] = #"hash_1a3f1102ecab4c66";
 	level._effect[#"hash_473f56cfe6464b13"] = #"hash_762bfc3142f1039c";
 	level._effect[#"hash_2273f55210ee77b3"] = #"hash_68cc20f5cb8f2474";
-	level._effect[#"hash_5bf3ead674380860"] = #"hash_7d600aa6483d645b";
+	level._effect[#"loc_sun"] = #"hash_7d600aa6483d645b";
 	level._effect[#"hash_4ada101428781d93"] = #"hash_7111a6031de7ead2";
 	level._effect[#"hash_5c7f484e340fdde6"] = #"hash_728126700110e700";
 	level._effect[#"hash_331f4a597e6c0189"] = #"hash_1899ecdfcd7daa00";
@@ -971,7 +971,7 @@ function function_e7c0fb8c(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		case 1:
 		{
-			str_fx = #"hash_5bf3ead674380860";
+			str_fx = #"loc_sun";
 			break;
 		}
 		case 2:

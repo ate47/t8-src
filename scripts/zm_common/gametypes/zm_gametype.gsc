@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_256b8879317373de;
 #using script_4194df57536e11ed;
 #using scripts\core_common\array_shared.gsc;
@@ -1092,7 +1092,7 @@ function private function_788fb510(value)
 	Parameters: 8
 	Flags: Linked
 */
-function setvisiblescoreboardcolumns(col1, col2, col3, col4, col5, col6, var_15af6c19, var_217983ad)
+function setvisiblescoreboardcolumns(col1, col2, col3, col4, col5, col6, col7, col8)
 {
 	col1 = function_788fb510(col1);
 	col2 = function_788fb510(col2);
@@ -1100,8 +1100,8 @@ function setvisiblescoreboardcolumns(col1, col2, col3, col4, col5, col6, var_15a
 	col4 = function_788fb510(col4);
 	col5 = function_788fb510(col5);
 	col6 = function_788fb510(col6);
-	var_15af6c19 = function_788fb510(var_15af6c19);
-	var_217983ad = function_788fb510(var_217983ad);
-	setscoreboardcolumns(col1, col2, col3, col4, col5, col6, var_15af6c19, var_217983ad);
+	col7 = function_788fb510(col7);
+	col8 = function_788fb510(col8);
+	setscoreboardcolumns(col1, col2, col3, col4, col5, col6, col7, col8);
 }
 

@@ -135,10 +135,10 @@ function revive_hud_show_n_fade(text, time, player = undefined)
 		{
 			return;
 		}
-		level.revive_hud revive_hud::function_d5ea17f0(self, text);
+		level.revive_hud revive_hud::set_text(self, text);
 		if(isdefined(player))
 		{
-			level.revive_hud revive_hud::function_3b7b386a(self, player getentitynumber());
+			level.revive_hud revive_hud::set_clientnum(self, player getentitynumber());
 		}
 		level.revive_hud revive_hud::function_28ebf0f1(self, int(time * 10));
 	}

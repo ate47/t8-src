@@ -1072,10 +1072,10 @@ function function_eb0aa7cf(n_pulse = 100, bone)
 		}
 		else
 		{
-			var_57a69262 = (math::cointoss() ? 1 : -1);
-			var_2059cf18 = (math::cointoss() ? 1 : -1);
-			var_f98659c0 = (math::cointoss() ? 1 : -1);
-			var_236556ec = vectorscale((var_57a69262, var_2059cf18, var_f98659c0), n_pulse);
+			x_dir = (math::cointoss() ? 1 : -1);
+			y_dir = (math::cointoss() ? 1 : -1);
+			z_dir = (math::cointoss() ? 1 : -1);
+			var_236556ec = vectorscale((x_dir, y_dir, z_dir), n_pulse);
 			color = (1, 1, 0);
 		}
 		self physicslaunch(var_8ef160cb, var_236556ec);

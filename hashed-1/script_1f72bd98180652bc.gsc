@@ -310,9 +310,9 @@ function function_36c1dcca(n_round, var_b2239dab)
 */
 function function_a0488ba8()
 {
-	var_2b198109 = getaiarray();
+	a_e_zombies = getaiarray();
 	var_a128313 = 0;
-	foreach(e_zombie in var_2b198109)
+	foreach(e_zombie in a_e_zombies)
 	{
 		if(isalive(e_zombie) && (isdefined(e_zombie.archetype) && isinarray(array(#"blight_father", #"brutus", #"gegenees"), e_zombie.archetype)))
 		{

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
 #using script_7c62f55ce3a557ff;
 #using scripts\core_common\array_shared.gsc;
@@ -59,7 +59,7 @@ function function_fb0bd6b9()
 	var_679f0ee5 = struct::get_array("nixie_tubes", "script_noteworthy");
 	foreach(s_tube in var_679f0ee5)
 	{
-		var_ba528742 = util::spawn_model(#"hash_2a475dc4752c8b17", s_tube.origin, s_tube.angles);
+		var_ba528742 = util::spawn_model(#"p8_zm_esc_nixie_tubes", s_tube.origin, s_tube.angles);
 		var_ba528742.script_noteworthy = "blast_attack_interactables";
 		var_ba528742.script_string = "mdl_nixie_tubes";
 		s_tube.var_ba528742 = var_ba528742;
@@ -178,14 +178,14 @@ function function_97f8efcd()
 	foreach(s_tube in var_120c4733)
 	{
 		var_ba528742 = s_tube.var_ba528742;
-		var_ba528742 setmodel(#"hash_53d213db448a97e1");
+		var_ba528742 setmodel(#"p8_zm_esc_nixie_tubes_on");
 		s_tube thread function_ba25a76f(0.75);
 		if(s_tube.targetname == "nixie_tube_2")
 		{
 			s_tube thread function_d6ae109c(1);
 		}
 		s_target = struct::get(s_tube.target);
-		var_68c9a993 = util::spawn_model(#"hash_2a475dc4752c8b17", s_target.origin, s_target.angles);
+		var_68c9a993 = util::spawn_model(#"p8_zm_esc_nixie_tubes", s_target.origin, s_target.angles);
 		s_tube.var_ba528742.var_68c9a993 = var_68c9a993;
 		var_68c9a993 ghost();
 		var_68c9a993 notsolid();
@@ -234,7 +234,7 @@ function function_172e72fa()
 	{
 		s_tube.script_int = 0;
 		var_ba528742 = s_tube.var_ba528742;
-		var_ba528742 setmodel(#"hash_2a475dc4752c8b17");
+		var_ba528742 setmodel(#"p8_zm_esc_nixie_tubes");
 		for(i = 0; i < 10; i++)
 		{
 			var_ba528742 hidepart("tag_nixie_" + i);
@@ -392,13 +392,13 @@ function function_bad2e505(player)
 function function_290d172d()
 {
 	function_dae4ab9b(self, 0.05);
-	var_7a452f77 = struct::get_array("nixie_tubes", "script_noteworthy");
+	a_s_tubes = struct::get_array("nixie_tubes", "script_noteworthy");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"trigger");
-		var_7a452f77 = struct::get_array("nixie_tubes", "script_noteworthy");
-		foreach(s_tube in var_7a452f77)
+		a_s_tubes = struct::get_array("nixie_tubes", "script_noteworthy");
+		foreach(s_tube in a_s_tubes)
 		{
 			var_dc40fc85 = s_tube.var_ba528742 sightconetrace(s_result.activator getweaponmuzzlepoint(), s_result.activator, s_result.activator getweaponforwarddir(), 15);
 			if(isdefined(s_tube.var_ba528742.var_68c9a993))
@@ -503,9 +503,9 @@ function function_c1cc29be(var_64c09f7f)
 		var_62002857 = 0;
 		if(var_954ac27a)
 		{
-			var_d46a1171 = (("" + var_8171dd3a) + var_8dfff656) + var_44e1e41b;
-			level thread function_a5d20d9b(var_d46a1171);
-			if(var_d46a1171 == "115" && (!(isdefined(level.var_4f8596bf) && level.var_4f8596bf)))
+			str_code = (("" + var_8171dd3a) + var_8dfff656) + var_44e1e41b;
+			level thread function_a5d20d9b(str_code);
+			if(str_code == "115" && (!(isdefined(level.var_4f8596bf) && level.var_4f8596bf)))
 			{
 				var_62002857 = 6;
 			}
@@ -532,22 +532,22 @@ function function_c1cc29be(var_64c09f7f)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a5d20d9b(var_d46a1171)
+function function_a5d20d9b(str_code)
 {
-	level notify(#"hash_1ba800da972b0558", {#hash_d46a1171:var_d46a1171});
-	switch(var_d46a1171)
+	level notify(#"hash_1ba800da972b0558", {#hash_d46a1171:str_code});
+	switch(str_code)
 	{
-		case "hash_456c3818181fa486":
+		case "115":
 		{
 			level thread function_74244cfa();
 			break;
 		}
-		case "hash_148ca2184545ba86":
+		case "872":
 		{
 			level thread function_f2f53f97();
 			break;
 		}
-		case "hash_3e1a1e18145b8081":
+		case "666":
 		{
 			level thread function_15aa00e7();
 			break;

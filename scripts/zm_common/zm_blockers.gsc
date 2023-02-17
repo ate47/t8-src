@@ -3,7 +3,7 @@
 #using script_301f64a4090c381a;
 #using script_3f9e0dc8454d98e1;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\demo_shared.gsc;
@@ -181,7 +181,7 @@ function door_init()
 			targets[i].og_angles = targets[i].angles;
 		}
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2c6b5594940cc305") == 0)
+	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") == 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -195,7 +195,7 @@ function door_init()
 	{
 		if(self.script_noteworthy == "electric_door" || self.script_noteworthy == "electric_buyable_door")
 		{
-			if(zm_utility::is_grief() || namespace_59ff1d6c::function_901b751c(#"zmpowerstate") == 0)
+			if(zm_utility::is_grief() || zm_custom::function_901b751c(#"zmpowerstate") == 0)
 			{
 				self setinvisibletoall();
 				return;
@@ -945,7 +945,7 @@ function door_think()
 		{
 			case "local_electric_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
 				{
 					return;
 				}
@@ -986,7 +986,7 @@ function door_think()
 			}
 			case "electric_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
 				{
 					return;
 				}
@@ -1031,7 +1031,7 @@ function door_think()
 			}
 			case "electric_buyable_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
 				{
 					return;
 				}
@@ -1407,7 +1407,7 @@ function debris_init()
 		self zm_utility::set_hint_string(self, "default_buy_debris", n_cost);
 	}
 	self setcursorhint("HINT_NOICON");
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2c6b5594940cc305") == 0)
+	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") == 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -1556,7 +1556,7 @@ function debris_think()
 				}
 			}
 			zm_utility::play_sound_at_pos("purchase", self.origin);
-			level notify(#"hash_6147a4961fd69a6e", {#t_blocker:self, #e_player:who});
+			level notify(#"junk purchased", {#t_blocker:self, #e_player:who});
 			move_ent = undefined;
 			a_clip = [];
 			for(i = 0; i < junk.size; i++)
@@ -2683,7 +2683,7 @@ function blocker_trigger_think()
 		}
 		if(zm_utility::no_valid_repairable_boards(self, self.barrier_chunks))
 		{
-			self notify(#"hash_3562759a2cd48f89");
+			self notify(#"no valid boards");
 			return;
 		}
 		if(isdefined(level._zm_blocker_trigger_think_return_override))
@@ -2782,7 +2782,7 @@ function blocker_trigger_think()
 			}
 			if(zm_utility::no_valid_repairable_boards(self, self.barrier_chunks))
 			{
-				self notify(#"hash_3562759a2cd48f89");
+				self notify(#"no valid boards");
 				player increment_window_repaired(self);
 				return;
 			}

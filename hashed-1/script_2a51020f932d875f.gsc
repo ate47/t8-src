@@ -56,7 +56,7 @@ function __main__()
 */
 function function_dfb8db6a()
 {
-	zm_perks::function_7f42e14e(#"hash_4262dc5dc4acb784", "mod_tortoise", #"hash_2d1dfb82ebcbdb7d", #"specialty_shield", 3500);
+	zm_perks::function_7f42e14e(#"hash_4262dc5dc4acb784", "mod_tortoise", #"perk_tortoise", #"specialty_shield", 3500);
 	zm_perks::register_perk_threads(#"hash_4262dc5dc4acb784", &function_f2b55850, &function_844bdb66);
 }
 

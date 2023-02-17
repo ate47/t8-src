@@ -26,7 +26,7 @@ function init()
 {
 	level function_e12fb431();
 	level function_2b6fe83b();
-	if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") != 2)
+	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 2)
 	{
 		level third_fallen_soldiers_robots_decon_room_cleared();
 	}
@@ -52,7 +52,7 @@ function init()
 */
 function main()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") != 2)
+	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 2)
 	{
 		level thread function_63522769();
 	}
@@ -131,7 +131,7 @@ function function_e86e864b()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"damage");
-		if(namespace_3263198e::function_fe8ee9f0(s_result.weapon, 0) && isplayer(s_result.attacker) && !isbot(s_result.attacker))
+		if(zm_orange_util::function_fe8ee9f0(s_result.weapon, 0) && isplayer(s_result.attacker) && !isbot(s_result.attacker))
 		{
 			s_result.attacker notify(#"hash_2a12c37201945891");
 		}
@@ -270,7 +270,7 @@ function function_e140ff5c()
 */
 function function_4ff2cfd9(s_result)
 {
-	if(self.archetype == #"zombie_dog" && namespace_3263198e::function_fe8ee9f0(s_result.weapon, 0) && !level flag::get(#"hash_6046825f3ec27c48"))
+	if(self.archetype == #"zombie_dog" && zm_orange_util::function_fe8ee9f0(s_result.weapon, 0) && !level flag::get(#"hash_6046825f3ec27c48"))
 	{
 		s_result.eattacker.var_59c409c3 = s_result.eattacker.var_59c409c3 + 1;
 		if(s_result.eattacker.var_59c409c3 >= 5)

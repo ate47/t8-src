@@ -33,15 +33,15 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	level.var_35abdd52 = getweapon(#"hash_13a204ba6887b18f");
-	level.var_669e5aa1 = getweapon(#"hash_491ff8e9d1af03a8");
+	level.var_35abdd52 = getweapon(#"ww_tesla_gun_t8");
+	level.var_669e5aa1 = getweapon(#"ww_tesla_gun_t8_upgraded");
 	level.s_tesla_gun = spawnstruct();
 	level.s_tesla_gun.base = spawnstruct();
 	level.s_tesla_gun.upgraded = spawnstruct();
 	level.s_tesla_gun.base.var_38cd3d0e = lightning_chain::create_lightning_chain_params();
 	level.s_tesla_gun.upgraded.var_38cd3d0e = lightning_chain::create_lightning_chain_params();
-	zm::function_84d343d(#"hash_13a204ba6887b18f", &function_5ff12a45);
-	zm::function_84d343d(#"hash_491ff8e9d1af03a8", &function_52d66433);
+	zm::function_84d343d(#"ww_tesla_gun_t8", &function_5ff12a45);
+	zm::function_84d343d(#"ww_tesla_gun_t8_upgraded", &function_52d66433);
 	callback::function_f77ced93(&function_f77ced93);
 	clientfield::register("toplayer", "" + #"hash_611f27e5d51d036f", 28000, 1, "int");
 }

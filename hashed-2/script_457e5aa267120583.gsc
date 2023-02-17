@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_170a9c130859c688;
-#using script_3affe3aaa3f22cb0;
-#using script_8210b63db522f15;
+#using scripts\wz_common\character_unlock_fixup.gsc;
+#using scripts\wz_common\character_unlock.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -33,7 +33,7 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	namespace_fa6b9ef8::function_90ee7a97(#"hash_de683235345aa4b", &function_2613aeec);
+	character_unlock_fixup::function_90ee7a97(#"hash_de683235345aa4b", &function_2613aeec);
 }
 
 /*
@@ -101,7 +101,7 @@ function on_player_killed()
 	{
 		return;
 	}
-	if(weapon.name != #"eq_acid_bomb" && weapon.name != #"hash_55a4aa4a1077e2cc" && weapon.name != #"hash_c78156ba6aeda14")
+	if(weapon.name != #"eq_acid_bomb" && weapon.name != #"wraith_fire_fire" && weapon.name != #"eq_wraith_fire")
 	{
 		return;
 	}

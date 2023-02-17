@@ -50,7 +50,7 @@ function function_27473e44()
 {
 	zm_perks::register_perk_clientfields(#"hash_4723e346254cb334", &function_37236662, &function_6705773b);
 	zm_perks::register_perk_init_thread(#"hash_4723e346254cb334", &init);
-	zm_perks::function_b60f4a9f(#"hash_4723e346254cb334", #"hash_4d317eb82b267b50", "zombie/fx8_perk_altar_symbol_ambient_blood_wolf", #"hash_75ec38c3f3487d5");
+	zm_perks::function_b60f4a9f(#"hash_4723e346254cb334", #"p8_zm_vapor_altar_icon_01_bloodwolf", "zombie/fx8_perk_altar_symbol_ambient_blood_wolf", #"hash_75ec38c3f3487d5");
 	zm_powerups::include_zombie_powerup("wolf_bonus_points");
 	zm_powerups::add_zombie_powerup("wolf_bonus_points");
 }

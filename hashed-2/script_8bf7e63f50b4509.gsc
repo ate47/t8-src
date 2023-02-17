@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_49188532be2065c8;
+#using scripts\zm\perk\zm_perk_electric_cherry.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\beam_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

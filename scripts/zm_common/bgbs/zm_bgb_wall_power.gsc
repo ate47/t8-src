@@ -67,7 +67,7 @@ function event()
 */
 function validation()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_51a2cf319e12d9ae"))
+	if(!zm_custom::function_901b751c(#"hash_51a2cf319e12d9ae"))
 	{
 		return false;
 	}

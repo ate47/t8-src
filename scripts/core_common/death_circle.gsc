@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_47fb62300ac0bd60;
-#using script_6350c209b3d1b07d;
+#using scripts\core_common\map.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
@@ -782,12 +782,12 @@ function private function_9229c3b3(var_fdd51794, var_85ba7700, neworigin)
 	self moveto(neworigin, var_fdd51794);
 	var_76c954d6 = var_85ba7700 - self.radius;
 	frames = var_fdd51794 / (float(function_60d95f53()) / 1000);
-	var_cbc2cea3 = var_76c954d6 / frames;
+	framedelta = var_76c954d6 / frames;
 	progress = 0;
 	var_6e09d4b7 = 1 / frames;
 	while(time < endtime)
 	{
-		self.radius = self.radius + var_cbc2cea3;
+		self.radius = self.radius + framedelta;
 		if(self.radius <= 0)
 		{
 			break;
@@ -952,7 +952,7 @@ function private function_dc15ad60()
 				}
 				player function_60d14da8(1);
 				player clientfield::set("outsidedeathcircle", 1);
-				player function_3ac75bd8(intensity);
+				player show_effects(intensity);
 				player function_8bd303cc();
 				if(dodamage)
 				{
@@ -1105,7 +1105,7 @@ function function_936b3f09(p, d, circle)
 }
 
 /*
-	Name: function_3ac75bd8
+	Name: show_effects
 	Namespace: death_circle
 	Checksum: 0x4AF57DF
 	Offset: 0x3BD8
@@ -1113,7 +1113,7 @@ function function_936b3f09(p, d, circle)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3ac75bd8(intensity)
+function show_effects(intensity)
 {
 	self clientfield::set_to_player("deathcircleeffects", intensity);
 }

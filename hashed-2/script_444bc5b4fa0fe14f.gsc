@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_4aeb3279b6b23a91;
 #using script_58c342edd81589fb;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_c56530a8;
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3746f3c279f7a5ea", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3746f3c279f7a5ea", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_c56530a8
 	Checksum: 0x6C54C92D
 	Offset: 0x140
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_49d0b42a, var_d2d5c522, var_17d04dfe, var_6a68f1d6)
+function private on_begin(var_49d0b42a, var_d2d5c522, var_17d04dfe, var_6a68f1d6)
 {
 	n_variant = getgametypesetting(#"zmtrialsvariant");
 	switch(getplayers().size)
@@ -80,8 +80,8 @@ function private function_d1de6a85(var_49d0b42a, var_d2d5c522, var_17d04dfe, var
 		}
 	}
 	level.var_fb0b57a7 = 0;
-	namespace_b22c99a5::function_2976fa44(level.var_88bac0b7);
-	namespace_b22c99a5::function_dace284(level.var_fb0b57a7);
+	zm_trial_util::function_2976fa44(level.var_88bac0b7);
+	zm_trial_util::function_dace284(level.var_fb0b57a7);
 	level.var_1c7412f9 = #"catalyst";
 	namespace_c3287616::function_c1571721(&namespace_fd89d870::function_51ec9e09);
 	namespace_c3287616::function_54fee373(&namespace_fd89d870::function_1b1d71e7);
@@ -91,7 +91,7 @@ function private function_d1de6a85(var_49d0b42a, var_d2d5c522, var_17d04dfe, var
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_c56530a8
 	Checksum: 0xE95E715E
 	Offset: 0x430
@@ -99,9 +99,9 @@ function private function_d1de6a85(var_49d0b42a, var_d2d5c522, var_17d04dfe, var
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	namespace_c3287616::function_510039c1(&namespace_fd89d870::function_51ec9e09);
 	namespace_c3287616::function_375519eb(&namespace_fd89d870::function_1b1d71e7);
 	namespace_c3287616::function_9bf14a10(level.var_1c7412f9, &namespace_fd89d870::function_a7c00976);
@@ -137,7 +137,7 @@ function private function_cb35d440()
 		level.var_fb0b57a7++;
 		if(level.var_fb0b57a7 <= level.var_88bac0b7)
 		{
-			namespace_b22c99a5::function_dace284(level.var_fb0b57a7);
+			zm_trial_util::function_dace284(level.var_fb0b57a7);
 		}
 	}
 }

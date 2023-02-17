@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_170a9c130859c688;
-#using script_3affe3aaa3f22cb0;
+#using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_73e11da2;
@@ -16,7 +16,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_bff403c2cb59a3a", &__init__, undefined, #"hash_1fd69f0c10bde41c");
+	system::register(#"hash_bff403c2cb59a3a", &__init__, undefined, #"character_unlock_fixup");
 }
 
 /*
@@ -30,7 +30,7 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	namespace_fa6b9ef8::function_82330491(#"hash_de683235345aa4b", #"hash_4f0c567012b33fd9", #"hash_3a19a30df0f60aa6", &function_d95e620c, #"hash_5495584ec5e9f348");
+	character_unlock_fixup::register_character_unlock(#"hash_de683235345aa4b", #"hash_4f0c567012b33fd9", #"hash_3a19a30df0f60aa6", &function_d95e620c, #"hash_5495584ec5e9f348");
 }
 
 /*

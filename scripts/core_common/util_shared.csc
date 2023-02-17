@@ -2161,7 +2161,7 @@ function releaseobjid(localclientnum, objid)
 	Parameters: 1
 	Flags: None
 */
-function is_safehouse(str_next_map = function_53bbf9d2())
+function is_safehouse(str_next_map = get_map_name())
 {
 	return false;
 }
@@ -2691,7 +2691,7 @@ function function_5df4294()
 }
 
 /*
-	Name: function_53bbf9d2
+	Name: get_map_name
 	Namespace: util
 	Checksum: 0x1A5EF152
 	Offset: 0x4C60
@@ -2699,13 +2699,13 @@ function function_5df4294()
 	Parameters: 0
 	Flags: Linked
 */
-function function_53bbf9d2()
+function get_map_name()
 {
 	return tolower(getdvarstring(#"hash_3b7b241b78207c96"));
 }
 
 /*
-	Name: function_3f165ee8
+	Name: is_frontend_map
 	Namespace: util
 	Checksum: 0x637A394C
 	Offset: 0x4CA0
@@ -2713,9 +2713,9 @@ function function_53bbf9d2()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3f165ee8()
+function is_frontend_map()
 {
-	return function_53bbf9d2() === "core_frontend";
+	return get_map_name() === "core_frontend";
 }
 
 /*
@@ -2730,15 +2730,15 @@ function function_3f165ee8()
 function function_26489405()
 {
 	isnightmap = 0;
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	switch(mapname)
 	{
-		case "hash_623073ec102c587a":
+		case "mp_casino":
 		{
 			isnightmap = 1;
 			break;
 		}
-		case "hash_5a24b2b75032fad0":
+		case "mp_austria":
 		{
 			isnightmap = 1;
 			break;
@@ -2958,7 +2958,7 @@ function function_48e57e36(var_1f1d12d8)
 }
 
 /*
-	Name: function_e2e9d901
+	Name: add_devgui
 	Namespace: util
 	Checksum: 0xF9D0BD1C
 	Offset: 0x52E0
@@ -2966,7 +2966,7 @@ function function_48e57e36(var_1f1d12d8)
 	Parameters: 3
 	Flags: None
 */
-function function_e2e9d901(localclientnum, menu_path, commands)
+function add_devgui(localclientnum, menu_path, commands)
 {
 	/#
 		adddebugcommand(localclientnum, ((("" + menu_path) + "") + commands) + "");

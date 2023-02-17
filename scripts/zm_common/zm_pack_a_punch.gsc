@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1254ac024174d9c0;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using script_47fb62300ac0bd60;
-#using script_5b18db57724ff7be;
+#using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -73,11 +73,11 @@ function __init__()
 	{
 		level.var_a3b71a00 = 0.5;
 	}
-	if(zm_utility::function_166646a6() == 1)
+	if(zm_utility::get_story() == 1)
 	{
 		function_6309e7d5();
 	}
-	else if(zm_utility::function_166646a6() == 2)
+	else if(zm_utility::get_story() == 2)
 	{
 		function_c6d69354();
 	}
@@ -98,7 +98,7 @@ function __main__()
 	{
 		level.pap_zbarrier_state_func = &process_pap_zbarrier_state;
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
 	{
 		var_ed82708a = getentarray("zm_pack_a_punch", "targetname");
 		foreach(var_4db9b7a6 in var_ed82708a)
@@ -194,7 +194,7 @@ function private spawn_init()
 		zbarriers[i] flag::init("pap_taking_gun");
 		zbarriers[i] flag::init("pap_offering_gun");
 		zbarriers[i] flag::init("pap_in_retrigger_delay");
-		if(zm_utility::function_166646a6() == 2)
+		if(zm_utility::get_story() == 2)
 		{
 			foreach(var_b6758aab in var_302c8250)
 			{
@@ -368,11 +368,11 @@ function private function_c6d69354()
 */
 function private get_start_state()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
 	{
 		return false;
 	}
-	if(isdefined(level.var_ef785c4c) && level.var_ef785c4c || namespace_59ff1d6c::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
+	if(isdefined(level.var_ef785c4c) && level.var_ef785c4c || zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
 	{
 		return true;
 	}
@@ -481,7 +481,7 @@ function private turn_on(origin, radius)
 			return;
 		}
 	}
-	if(zm_utility::function_166646a6() != 1)
+	if(zm_utility::get_story() != 1)
 	{
 		self clientfield::set("pap_idle_fx", 1);
 	}
@@ -542,7 +542,7 @@ function private turn_off(origin, radius)
 		}
 	}
 	pap_machine flag::wait_till("pap_waiting_for_user");
-	if(zm_utility::function_166646a6() != 1)
+	if(zm_utility::get_story() != 1)
 	{
 		self clientfield::set("pap_idle_fx", 0);
 	}
@@ -873,7 +873,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 		var_5a20ddd5 = self aat::getaatonweapon(current_weapon);
 		if(isdefined(var_5a20ddd5))
 		{
-			currentaathashid = var_5a20ddd5.var_33c87f51;
+			currentaathashid = var_5a20ddd5.hash_id;
 		}
 		self.var_655c0753 = 1;
 		self.restore_clip = self getweaponammoclip(current_weapon);
@@ -1159,7 +1159,7 @@ function private wait_for_player_to_take(player, weapon, packa_timer, var_a86430
 					aatobj = player aat::getaatonweapon(upgrade_weapon);
 					if(isdefined(aatobj))
 					{
-						aatid = aatobj.var_33c87f51;
+						aatid = aatobj.hash_id;
 						player zm_audio::create_and_play_dialog(#"pap", aatobj.name);
 					}
 				}
@@ -1268,7 +1268,7 @@ function private wait_for_timeout(weapon, packa_timer, player, var_a86430cb, var
 				aathash = -1;
 				if(isdefined(aatonweapon))
 				{
-					aathash = aatonweapon.var_33c87f51;
+					aathash = aatonweapon.hash_id;
 				}
 				player recordmapevent(26, gettime(), player.origin, level.round_number, weaponidx, aathash);
 			}

@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_178024232e91b0a1;
-#using script_317aa6153a75c589;
+#using scripts\core_common\ai\archetype_mocomps_utility.gsc;
 #using script_35598499769dbb3d;
 #using script_3aa0f32b70d4f7cb;
 #using script_4c5c4a64a59247a2;
-#using script_54ad756f68b48e83;
+#using scripts\core_common\ai\archetype_aivsaimelee.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

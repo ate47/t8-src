@@ -959,7 +959,7 @@ function function_191ae5ec()
 			#/
 			return false;
 		}
-		if(namespace_59ff1d6c::function_928e94b9(level.var_45827161[level.round_number].var_d7d3cd31))
+		if(zm_custom::function_928e94b9(level.var_45827161[level.round_number].var_d7d3cd31))
 		{
 			if(isdefined(level.var_45827161[level.round_number].m_func_end))
 			{

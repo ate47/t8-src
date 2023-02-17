@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_6021ce59143452c3;
-#using script_61a734c95edc17aa;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\zm_bgb_pack.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -41,11 +41,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_576c8d43b54453d0", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_576c8d43b54453d0", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_93759983
 	Checksum: 0xCFBEABF8
 	Offset: 0x1A8
@@ -53,7 +53,7 @@ function __init__()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_bd9d962 = #"invert")
+function private on_begin(var_bd9d962 = #"invert")
 {
 	level endon(#"hash_7646638df88a3656");
 	wait(5);
@@ -73,7 +73,7 @@ function private function_d1de6a85(var_bd9d962 = #"invert")
 			foreach(player in getplayers())
 			{
 				player bgb_pack::function_59004002(#"zm_bgb_anywhere_but_here", 1);
-				player bgb_pack::function_59004002(#"hash_a303f67afd6f4a8", 1);
+				player bgb_pack::function_59004002(#"zm_bgb_nowhere_but_there", 1);
 				player thread function_3d8fa20a();
 			}
 			callback::on_ai_spawned(&function_a5b02a07);
@@ -94,7 +94,7 @@ function private function_d1de6a85(var_bd9d962 = #"invert")
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_93759983
 	Checksum: 0xD894B862
 	Offset: 0x4B0
@@ -102,7 +102,7 @@ function private function_d1de6a85(var_bd9d962 = #"invert")
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	switch(level.var_2439365b)
 	{
@@ -119,7 +119,7 @@ function private function_9e7b3f4d(round_reset)
 			foreach(player in getplayers())
 			{
 				player bgb_pack::function_59004002(#"zm_bgb_anywhere_but_here", 0);
-				player bgb_pack::function_59004002(#"hash_a303f67afd6f4a8", 0);
+				player bgb_pack::function_59004002(#"zm_bgb_nowhere_but_there", 0);
 				player setmovespeedscale(1);
 				player allowjump(1);
 				player allowprone(1);

@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
-#using script_2fcb47e3735a6edd;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm\zm_orange_pap.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_d19b1fbf1d7cdd6;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -47,11 +47,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1d70527739c796e5", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_1d70527739c796e5", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_309b53e1
 	Checksum: 0x98BE9A42
 	Offset: 0x280
@@ -59,7 +59,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	str_targetname = "trials_lighthouse_beam";
 	level setup_lighthouse();
@@ -72,7 +72,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_309b53e1
 	Checksum: 0x2AC6BC5A
 	Offset: 0x368
@@ -80,7 +80,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level notify(#"hash_2b53ed06a97eb26c");
 	level.var_ab11c23d function_f223e16f(round_reset);
@@ -88,8 +88,8 @@ function private function_9e7b3f4d(round_reset)
 	level zm_trial::function_25ee130(0);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_dc0859e();
-		player thread namespace_b22c99a5::function_73ff0096();
+		player thread zm_trial_util::function_dc0859e();
+		player thread zm_trial_util::function_73ff0096();
 	}
 	level.var_7f31a12d = undefined;
 	level namespace_d09ff23c::function_d85bd834();
@@ -133,11 +133,11 @@ function private setup_lighthouse()
 			{
 				wait(0.25);
 			}
-			var_611e46b7 thread namespace_44916ada::function_69a4b74b(1);
+			var_611e46b7 thread zm_orange_pap::function_69a4b74b(1);
 			if(isdefined(var_611e46b7.target))
 			{
 				clip_brush = getent(var_611e46b7.target, "targetname");
-				clip_brush thread namespace_44916ada::function_4d7320f5(1);
+				clip_brush thread zm_orange_pap::function_4d7320f5(1);
 			}
 		}
 	}
@@ -151,11 +151,11 @@ function private setup_lighthouse()
 			waitframe(1);
 			level.var_ab11c23d.vh_target delete();
 		}
-		if(isdefined(level.var_ab11c23d.var_9bda8088))
+		if(isdefined(level.var_ab11c23d.t_trap))
 		{
-			level.var_ab11c23d.var_9bda8088 notify(#"trap_done");
+			level.var_ab11c23d.t_trap notify(#"trap_done");
 			waitframe(1);
-			level.var_ab11c23d.var_9bda8088 delete();
+			level.var_ab11c23d.t_trap delete();
 		}
 	}
 	level thread namespace_d09ff23c::function_ad646ef8(0);
@@ -244,12 +244,12 @@ function function_f223e16f(round_reset)
 		{
 			case 2:
 			{
-				level thread namespace_44916ada::function_56db9cdc();
+				level thread zm_orange_pap::function_56db9cdc();
 				break;
 			}
 			case 3:
 			{
-				level thread namespace_44916ada::function_56db9cdc();
+				level thread zm_orange_pap::function_56db9cdc();
 				break;
 			}
 		}
@@ -280,12 +280,12 @@ function private function_1e902f3b()
 		}
 		if(var_f2b6fe6e && var_407eb07)
 		{
-			self namespace_b22c99a5::function_dc0859e();
+			self zm_trial_util::function_dc0859e();
 			var_407eb07 = 0;
 		}
 		else if(!var_f2b6fe6e && !var_407eb07)
 		{
-			self namespace_b22c99a5::function_bf710271();
+			self zm_trial_util::function_bf710271();
 			var_407eb07 = 1;
 		}
 		waitframe(1);

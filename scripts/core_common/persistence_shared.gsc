@@ -318,8 +318,8 @@ function initialize_match_stats()
 		self stats::function_bb7eedf0(#"total_games_played", 1);
 		if(isdefined(level.hardcoremode) && level.hardcoremode)
 		{
-			var_6eba998 = self stats::get_stat(#"playerstatslist", #"hash_bbe0d2619357e0a", #"statvalue") + 1;
-			self stats::set_stat(#"playerstatslist", #"hash_bbe0d2619357e0a", #"statvalue", var_6eba998);
+			hc_games_played = self stats::get_stat(#"playerstatslist", #"hash_bbe0d2619357e0a", #"statvalue") + 1;
+			self stats::set_stat(#"playerstatslist", #"hash_bbe0d2619357e0a", #"statvalue", hc_games_played);
 		}
 	}
 	if(isdefined(level.var_12323003))

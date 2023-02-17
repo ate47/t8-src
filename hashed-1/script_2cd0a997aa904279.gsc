@@ -3,8 +3,8 @@
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
 #using script_59a783d756554a80;
-#using script_6ce38ab036223e6e;
-#using script_71b31a94cdaeca53;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm\zm_office_floors.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -66,7 +66,7 @@ function init()
 	level.var_819e7dfd[#"nova_crawler"].var_87ed2709 = &function_dd836251;
 	level flag::init(#"nova_crawlers_round");
 	level flag::init(#"hash_2a1fc2e349c48462");
-	callback::function_189f87c1(&function_5b22eecf);
+	callback::on_round_end(&function_5b22eecf);
 	if(zm_utility::is_trials())
 	{
 		namespace_c3287616::function_2876740e(#"nova_crawler", &function_6f502b52);
@@ -336,7 +336,7 @@ function function_dd836251()
 	e_target = namespace_df88241c::function_a5abd591();
 	if(isdefined(e_target) && level flag::get(#"hash_2a1fc2e349c48462"))
 	{
-		if(namespace_47276bad::function_35babccd(e_target) < 3)
+		if(zm_office_floors::function_35babccd(e_target) < 3)
 		{
 			ai = function_a409c2a7(e_target);
 		}

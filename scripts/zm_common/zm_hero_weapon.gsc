@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_2dc48f46bfeac894;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_301f64a4090c381a;
 #using script_35d3717bf2cbee8f;
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_6e3c826b1814cab6;
-#using script_9e4105ea1798ccc;
+#using scripts\zm_common\zm_armor.gsc;
 #using script_db06eb511bd9b36;
 #using script_fb16bd158a3e3e7;
 #using scripts\core_common\ai_shared.gsc;
@@ -62,11 +62,11 @@ function __init__()
 	level.var_2d52e9af = [];
 	level.var_d5075025 = [];
 	level.var_a1feaa28 = 1;
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2f03c6055447a6b1") == 2)
+	if(zm_custom::function_901b751c(#"hash_2f03c6055447a6b1") == 2)
 	{
 		level.var_a1feaa28 = 2;
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2f03c6055447a6b1") == 0)
+	if(zm_custom::function_901b751c(#"hash_2f03c6055447a6b1") == 0)
 	{
 		level.var_a1feaa28 = 0.5;
 	}
@@ -115,7 +115,7 @@ function function_124446e(weapon_name)
 		self.var_72d6f15d = weapon_level;
 		self function_23978edd();
 		self clientfield::set_player_uimodel("", self.var_72d6f15d);
-		self function_2264d131(self.var_fd05e363, 1);
+		self hero_give_weapon(self.var_fd05e363, 1);
 		self.var_c9279111 = 0;
 		self.var_821c9bf3 = 0;
 		self.var_1bcf6a9e = 0;
@@ -397,9 +397,9 @@ function function_21c786cf()
 		self.var_d11656b = 0;
 		self.var_9cef1b1e = 0;
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_b066c34278e6394"))
+	if(zm_custom::function_901b751c(#"hash_b066c34278e6394"))
 	{
-		self function_2264d131(self.var_fd05e363, 0);
+		self hero_give_weapon(self.var_fd05e363, 0);
 		if(self.var_fd05e363.isgadget)
 		{
 			slot = self gadgetgetslot(self.var_fd05e363);
@@ -432,9 +432,9 @@ function function_f8bf706f()
 	self.var_184a3854 = 0;
 	self.var_d11656b = 0;
 	self.var_9cef1b1e = 0;
-	if(namespace_59ff1d6c::function_901b751c(#"hash_b066c34278e6394"))
+	if(zm_custom::function_901b751c(#"hash_b066c34278e6394"))
 	{
-		self function_2264d131(self.var_fd05e363, 0);
+		self hero_give_weapon(self.var_fd05e363, 0);
 		if(self.var_fd05e363.isgadget)
 		{
 			n_slot = self gadgetgetslot(self.var_fd05e363);
@@ -501,7 +501,7 @@ function function_23978edd()
 			return;
 		}
 	}
-	if(zm_utility::function_166646a6() == 1)
+	if(zm_utility::get_story() == 1)
 	{
 		self.var_fd05e363 = level.hero_weapon[#"gravityspikes"][self.var_72d6f15d];
 		self.var_b708af7b = "gravityspikes";
@@ -514,7 +514,7 @@ function function_23978edd()
 }
 
 /*
-	Name: function_2264d131
+	Name: hero_give_weapon
 	Namespace: zm_hero_weapon
 	Checksum: 0xF09F6B86
 	Offset: 0x15E8
@@ -522,7 +522,7 @@ function function_23978edd()
 	Parameters: 3
 	Flags: Linked
 */
-function function_2264d131(weapon, enabled, var_b94ec3d9 = 0)
+function hero_give_weapon(weapon, enabled, var_b94ec3d9 = 0)
 {
 	if(!isdefined(self) || !isdefined(weapon))
 	{
@@ -532,12 +532,12 @@ function function_2264d131(weapon, enabled, var_b94ec3d9 = 0)
 	{
 		if(isdefined(self._gadgets_player) && isdefined(self._gadgets_player[level.var_a53a05b5]))
 		{
-			self notify(#"hash_479bfafd386e9994", {#weapon:self._gadgets_player[level.var_a53a05b5]});
+			self notify(#"hero_weapon_take", {#weapon:self._gadgets_player[level.var_a53a05b5]});
 			self takeweapon(self._gadgets_player[level.var_a53a05b5]);
 		}
 		self zm_loadout::set_player_hero_weapon(weapon);
 		self.var_fd05e363 = weapon;
-		self notify(#"hash_3ea6a76d799083d6", {#weapon:weapon});
+		self notify(#"hero_weapon_give", {#weapon:weapon});
 		self giveweapon(weapon);
 		self thread function_ac9f4b22();
 		if(isdefined(level.var_373ced84) && level.var_373ced84)
@@ -589,7 +589,7 @@ function function_2264d131(weapon, enabled, var_b94ec3d9 = 0)
 */
 function function_1297aefe(weapon)
 {
-	var_328c1d6e = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hash_50f35c4cfb775a9c", #"hero_sword_pistol_lv3", #"hash_18829f56b3fbdac1", #"hash_1d3a5309fa2c9b80", #"hash_6627899099b8a69d", #"hash_74dd69dd8a46d4aa");
+	var_328c1d6e = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hero_scepter_lv3", #"hero_sword_pistol_lv3", #"hash_18829f56b3fbdac1", #"hash_1d3a5309fa2c9b80", #"hash_6627899099b8a69d", #"hash_74dd69dd8a46d4aa");
 	i = 0;
 	var_8e233987 = [];
 	do
@@ -729,7 +729,7 @@ function function_9a100883(weapon_level, enabled)
 	self waittilltimeout(2, #"weapon_change_complete");
 	self playsound("zmb_weapon_upgrade_to_lvl_" + (weapon_level + 1));
 	self function_45b7d6c1(weapon_level);
-	self function_2264d131(level.hero_weapon[self.var_b708af7b][weapon_level], enabled, 1);
+	self hero_give_weapon(level.hero_weapon[self.var_b708af7b][weapon_level], enabled, 1);
 	self.var_da2f5f0b = 0;
 	/#
 		self zm_challenges::debug_print("");
@@ -1008,12 +1008,12 @@ function function_45b7d6c1(n_level)
 	Parameters: 4
 	Flags: Linked
 */
-function function_7a394ec4(str_name, var_1a4d3b35, var_1cf44083, var_9d17c0c8)
+function function_7a394ec4(str_name, n_lvl1, n_lvl2, n_lvl3)
 {
 	level.var_5ee61f18[str_name] = [];
-	level.var_5ee61f18[str_name][0] = var_1a4d3b35;
-	level.var_5ee61f18[str_name][1] = var_1cf44083;
-	level.var_5ee61f18[str_name][2] = var_9d17c0c8;
+	level.var_5ee61f18[str_name][0] = n_lvl1;
+	level.var_5ee61f18[str_name][1] = n_lvl2;
+	level.var_5ee61f18[str_name][2] = n_lvl3;
 }
 
 /*
@@ -1060,7 +1060,7 @@ function function_5ccf482(str_name, var_a986aaed, var_f2bbbd56, var_503e1e6)
 function function_60878f7f(w_weapon)
 {
 	self notify(#"hash_5ef1cf6d910b343b");
-	self endon(#"hash_5ef1cf6d910b343b", #"hash_479bfafd386e9994", #"disconnect", #"weapon_change");
+	self endon(#"hash_5ef1cf6d910b343b", #"hero_weapon_take", #"disconnect", #"weapon_change");
 	var_a01a1f92 = w_weapon.var_e4109b63;
 	var_bcf2cdde = w_weapon.var_fb22040b;
 	if(isdefined(var_a01a1f92) && var_a01a1f92 > 0)
@@ -1091,7 +1091,7 @@ function function_60878f7f(w_weapon)
 */
 function function_ac9f4b22()
 {
-	self endon(#"hash_479bfafd386e9994", #"disconnect");
+	self endon(#"hero_weapon_take", #"disconnect");
 	while(true)
 	{
 		s_notify = undefined;
@@ -1436,7 +1436,7 @@ function function_1bb7f7b1(n_level)
 			break;
 		}
 	}
-	self function_2264d131(self.var_fd05e363, 1);
+	self hero_give_weapon(self.var_fd05e363, 1);
 }
 
 /*

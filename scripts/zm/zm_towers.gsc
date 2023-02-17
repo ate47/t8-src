@@ -1,28 +1,28 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1781ac145d783f87;
 #using script_18e21a7011416ce0;
 #using script_1b10fdf0addd52e;
-#using script_266240d702093827;
-#using script_27c22e1d8df4d852;
+#using scripts\zm\zm_towers_shield.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_2affe92664ace48d;
 #using script_31a8049bdbd4af27;
-#using script_349128b28e416f03;
-#using script_3a3c430eb58ed475;
+#using scripts\zm\weapons\zm_weap_bowie.gsc;
+#using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_42ac6fc8b2ff0f3e;
-#using script_50ce372e19db9e7c;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
+#using scripts\zm\ai\zm_ai_elephant.gsc;
 #using script_5e036f43dab5ec66;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6334bf874cddcc13;
 #using script_684097158a90b5c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_715f403a46a823eb;
-#using script_7224d61ed502ea07;
-#using script_84036a646acb958;
+#using scripts\zm\zm_towers_trials.gsc;
+#using scripts\zm_common\zm_wallbuy.gsc;
+#using scripts\zm\powerup\zm_powerup_free_perk.gsc;
 #using script_891797ced4432ca;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -204,9 +204,9 @@ event main(eventstruct)
 	level.var_d0ab70a2 = #"hash_42dcec7533a676b0";
 	level._allow_melee_weapon_switching = 1;
 	level.zombiemode_reusing_pack_a_punch = 1;
-	level.var_43db5ea6 = getweapon(#"hash_c78156ba6aeda14");
-	callback::function_20263b9e(&namespace_11c28b18::function_c05cc102);
-	level.pack_a_punch.custom_power_think = &namespace_2ea65b04::function_9b917fd5;
+	level.w_wraithfire = getweapon(#"eq_wraith_fire");
+	callback::function_20263b9e(&zm_towers_util::function_c05cc102);
+	level.pack_a_punch.custom_power_think = &zm_towers_pap_quest::function_9b917fd5;
 	level.var_ef785c4c = 0;
 	level.use_powerup_volumes = 1;
 	level.var_881e464e = 1;
@@ -217,7 +217,7 @@ event main(eventstruct)
 	load::main();
 	level thread namespace_2e6d0155::init();
 	level.zones = [];
-	level.zone_manager_init_func = &namespace_31edf1d5::zone_init;
+	level.zone_manager_init_func = &zm_towers_zones::zone_init;
 	init_zones[0] = "zone_starting_area_ra";
 	level thread zm_zonemgr::manage_zones(init_zones);
 	level thread function_63a4a57a();
@@ -236,12 +236,12 @@ event main(eventstruct)
 	}
 	level thread function_c6450415();
 	level thread sndfunctions();
-	level thread namespace_26ab2959::init();
-	level thread namespace_ebd828b::init();
+	level thread zm_towers_achievements::init();
+	level thread zm_towers_crowd::init();
 	level thread namespace_2d756999::init();
-	level thread namespace_2ea65b04::init();
-	level thread namespace_31edf1d5::init();
-	level thread namespace_574b32d2::init();
+	level thread zm_towers_pap_quest::init();
+	level thread zm_towers_zones::init();
+	level thread zm_towers_ww_quest::init();
 	level thread namespace_9d301ad2::init();
 	level.vending_machines_powered_on_at_start = 1;
 	level flag::set("power_on");
@@ -263,7 +263,7 @@ event main(eventstruct)
 		hidemiscmodels("narmod");
 	}
 	level.var_b5079c7c = array("exp_lgt_ar_accurate_t8", "exp_lgt_ar_fastfire_t8", "exp_lgt_ar_modular_t8", "exp_lgt_ar_stealth_t8", "exp_lgt_bowie", "exp_lgt_lmg_standard_t8", "exp_lgt_pistol_burst_t8", "exp_lgt_pistol_standard_t8", "exp_lgt_shotgun_pump_t8", "exp_lgt_shotgun_trenchgun_t8", "exp_lgt_smg_accurate_t8", "exp_lgt_smg_drum_pistol_t8", "exp_lgt_smg_fastfire_t8", "exp_lgt_smg_handling_t8", "exp_lgt_smg_standard_t8", "exp_lgt_tr_leveraction_t8", "exp_lgt_tr_longburst_t8", "exp_lgt_tr_powersemi_t8");
-	namespace_59ff1d6c::function_a00576dd(&function_7722c6f0, &function_389e7c22, &function_c8ce0a17, undefined);
+	zm_custom::function_a00576dd(&function_7722c6f0, &function_389e7c22, &function_c8ce0a17, undefined);
 	level.var_43216bdf = &function_b2b69ce5;
 }
 
@@ -280,7 +280,7 @@ function private function_b2b69ce5(b_game_ended)
 {
 	if(!b_game_ended)
 	{
-		namespace_2ea65b04::function_18b39e14();
+		zm_towers_pap_quest::function_18b39e14();
 	}
 }
 
@@ -297,7 +297,7 @@ function function_8e4eff2b()
 {
 	if(isdefined(level.var_210ce105))
 	{
-		array::thread_all(level.players, &namespace_ebd828b::function_51ea46f3, 0, 1);
+		array::thread_all(level.players, &zm_towers_crowd::function_51ea46f3, 0, 1);
 	}
 }
 
@@ -312,7 +312,7 @@ function function_8e4eff2b()
 */
 function function_7722c6f0(var_404e4288, var_8dd554ee)
 {
-	var_6095c0b6 = namespace_a28acff3::function_4e8157cd(var_404e4288, var_8dd554ee);
+	var_6095c0b6 = zm_round_logic::function_4e8157cd(var_404e4288, var_8dd554ee);
 	if(isalive(var_6095c0b6.ai_spawned))
 	{
 		zm_transform::function_d2374144(var_6095c0b6.ai_spawned, #"blight_father");
@@ -355,7 +355,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 {
 	if(math::cointoss())
 	{
-		var_6095c0b6 = namespace_a28acff3::function_4e8157cd(var_404e4288, var_8dd554ee);
+		var_6095c0b6 = zm_round_logic::function_4e8157cd(var_404e4288, var_8dd554ee);
 		if(isalive(var_6095c0b6.ai_spawned))
 		{
 			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2")));
@@ -384,11 +384,11 @@ function function_f6e12f01()
 	var_7eb95af0 = array::randomize(var_7eb95af0);
 	foreach(var_dca0e32e in var_9581be99)
 	{
-		var_dca0e32e namespace_574b32d2::function_a58dfad4();
+		var_dca0e32e zm_towers_ww_quest::function_a58dfad4();
 	}
 	foreach(var_eea6b8f1 in var_7eb95af0)
 	{
-		var_eea6b8f1 namespace_574b32d2::function_b4bc6524();
+		var_eea6b8f1 zm_towers_ww_quest::function_b4bc6524();
 	}
 }
 
@@ -549,10 +549,10 @@ function function_ebe4d15c()
 		{
 			level waittill(#"forever");
 		}
-		level thread namespace_a28acff3::print_zombie_counts();
-		level thread namespace_a28acff3::sndmusiconkillround();
+		level thread zm_round_logic::print_zombie_counts();
+		level thread zm_round_logic::sndmusiconkillround();
 	#/
-	level.var_4b5a684c = namespace_a28acff3::get_zombie_count_for_round(level.round_number, level.players.size);
+	level.var_4b5a684c = zm_round_logic::get_zombie_count_for_round(level.round_number, level.players.size);
 	while(true)
 	{
 		var_7e5b8365 = level flag::get(#"infinite_round_spawning") || (zombie_utility::get_current_zombie_count() > 0 || level.zombie_total > 0 || level.intermission);
@@ -1318,7 +1318,7 @@ function function_643aeb5b()
 		level flag::clear("");
 		level flag::set(#"pause_round_timeout");
 		level zm_utility::function_9ad5aeb1(1);
-		array::thread_all(level.players, &namespace_ebd828b::function_51ea46f3, 0, 1);
+		array::thread_all(level.players, &zm_towers_crowd::function_51ea46f3, 0, 1);
 		while(level.var_a9ae3ceb)
 		{
 			level scene::play("");
@@ -1344,7 +1344,7 @@ function function_1ccb7366()
 		level flag::set(#"pause_round_timeout");
 		level zm_utility::function_9ad5aeb1(0, 0, 1);
 		level thread scene::play("", "");
-		array::thread_all(level.players, &namespace_ebd828b::function_51ea46f3, 0, 1);
+		array::thread_all(level.players, &zm_towers_crowd::function_51ea46f3, 0, 1);
 		while(level.var_68d47b4e)
 		{
 			level thread function_72e2cc56();
@@ -1397,7 +1397,7 @@ function function_ef3f5ee5()
 		level endon(#"end_game", #"hash_2231f086364099b7");
 		level flag::clear("");
 		level flag::set(#"pause_round_timeout");
-		array::thread_all(level.players, &namespace_ebd828b::function_51ea46f3, 0, 1);
+		array::thread_all(level.players, &zm_towers_crowd::function_51ea46f3, 0, 1);
 		scene::init_streamer(#"hash_44287f972922420d", #"allies");
 		while(level.var_7292cf15)
 		{
@@ -1427,7 +1427,7 @@ function function_79aa236()
 			mdl_head show();
 		}
 		var_307566 = getentarray("", "");
-		array::thread_all(var_307566, &namespace_2ea65b04::function_9b320791);
+		array::thread_all(var_307566, &zm_towers_pap_quest::function_9b320791);
 		level thread scene::play("");
 		level thread scene::play("", "");
 		level thread scene::play("", "");
@@ -1660,49 +1660,49 @@ function function_8d6c5e6e(cmd)
 			}
 			case "hash_27bc74ddac87b156":
 			{
-				level thread namespace_2ea65b04::function_438a415(#"danu");
+				level thread zm_towers_pap_quest::function_438a415(#"danu");
 				return true;
 				break;
 			}
 			case "hash_3bb09c753859632b":
 			{
-				level thread namespace_2ea65b04::function_438a415(#"ra");
+				level thread zm_towers_pap_quest::function_438a415(#"ra");
 				return true;
 				break;
 			}
 			case "hash_40f87ec1dffc67d0":
 			{
-				level thread namespace_2ea65b04::function_438a415(#"odin");
+				level thread zm_towers_pap_quest::function_438a415(#"odin");
 				return true;
 				break;
 			}
 			case "hash_2ca290409187993b":
 			{
-				level thread namespace_2ea65b04::function_438a415(#"zeus");
+				level thread zm_towers_pap_quest::function_438a415(#"zeus");
 				return true;
 				break;
 			}
 			case "hash_68370bceab1f118":
 			{
-				level thread namespace_2ea65b04::function_438a415(#"all");
+				level thread zm_towers_pap_quest::function_438a415(#"all");
 				return true;
 				break;
 			}
 			case "hash_2d60025acca3891":
 			{
-				level thread namespace_2ea65b04::function_883e88be("");
+				level thread zm_towers_pap_quest::function_883e88be("");
 				return true;
 				break;
 			}
 			case "hash_31ebe5f3e866cec9":
 			{
-				level thread namespace_2ea65b04::function_883e88be("");
+				level thread zm_towers_pap_quest::function_883e88be("");
 				return true;
 				break;
 			}
 			case "hash_42709656cacf1035":
 			{
-				level thread namespace_2ea65b04::function_883e88be("");
+				level thread zm_towers_pap_quest::function_883e88be("");
 				return true;
 				break;
 			}
@@ -1762,8 +1762,8 @@ function function_4110a06f()
 {
 	/#
 		zm_devgui::zombie_devgui_open_sesame();
-		level namespace_2ea65b04::function_97e78811(1, 1);
-		level namespace_2ea65b04::function_156669dd(1, 1);
+		level zm_towers_pap_quest::function_97e78811(1, 1);
+		level zm_towers_pap_quest::function_156669dd(1, 1);
 	#/
 }
 
@@ -1817,11 +1817,11 @@ function private function_51855e65(round_number)
 		}
 		if(round_number >= 9)
 		{
-			namespace_b22c99a5::function_3e209fb6();
+			zm_trial_util::function_3e209fb6();
 		}
 		if(round_number >= 24)
 		{
-			namespace_b22c99a5::function_9c71b46f();
+			zm_trial_util::function_9c71b46f();
 		}
 	#/
 }

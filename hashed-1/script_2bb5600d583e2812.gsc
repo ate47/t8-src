@@ -20,7 +20,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_10f614b278daaebc", &__init__, undefined, undefined);
+	system::register(#"homunculus", &__init__, undefined, undefined);
 }
 
 /*
@@ -57,7 +57,7 @@ function function_1c601b99()
 {
 	if(isdefined(level.var_a5dacbea))
 	{
-		[[level.var_a5dacbea]](getweapon(#"hash_10f614b278daaebc"), &function_127fb8f3);
+		[[level.var_a5dacbea]](getweapon(#"homunculus"), &function_127fb8f3);
 	}
 }
 
@@ -75,29 +75,29 @@ function private function_c83057f0()
 	level endon(#"game_ended");
 	while(true)
 	{
-		foreach(var_48ad08f5 in level.var_2da60c10)
+		foreach(homunculus in level.var_2da60c10)
 		{
-			if(!isdefined(var_48ad08f5) || var_48ad08f5.spawning === 1)
+			if(!isdefined(homunculus) || homunculus.spawning === 1)
 			{
 				continue;
 			}
-			if(gettime() >= var_48ad08f5.despawn_time)
+			if(gettime() >= homunculus.despawn_time)
 			{
-				var_48ad08f5 function_7bfc867f();
+				homunculus function_7bfc867f();
 				continue;
 			}
-			if(var_48ad08f5.attacking === 1)
+			if(homunculus.attacking === 1)
 			{
 				continue;
 			}
-			if(function_9ce07f7c(var_48ad08f5))
+			if(function_9ce07f7c(homunculus))
 			{
-				var_48ad08f5 thread function_bb17ec5a();
+				homunculus thread function_bb17ec5a();
 				continue;
 			}
-			if(var_48ad08f5.dancing !== 1)
+			if(homunculus.dancing !== 1)
 			{
-				var_48ad08f5 thread function_b053b486();
+				homunculus thread function_b053b486();
 			}
 			waitframe(1);
 		}
@@ -115,12 +115,12 @@ function private function_c83057f0()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9ce07f7c(var_48ad08f5)
+function private function_9ce07f7c(homunculus)
 {
-	var_b1de6a06 = getentitiesinradius(var_48ad08f5.origin, 250, 15);
+	var_b1de6a06 = getentitiesinradius(homunculus.origin, 250, 15);
 	foreach(actor in var_b1de6a06)
 	{
-		if(function_62318121(var_48ad08f5, actor))
+		if(function_62318121(homunculus, actor))
 		{
 			return true;
 		}
@@ -137,13 +137,13 @@ function private function_9ce07f7c(var_48ad08f5)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_90cc805b(var_48ad08f5)
+function private function_90cc805b(homunculus)
 {
-	var_b1de6a06 = getentitiesinradius(var_48ad08f5.origin, 250, 15);
+	var_b1de6a06 = getentitiesinradius(homunculus.origin, 250, 15);
 	var_9db93b2e = [];
 	foreach(var_6baf60af in var_b1de6a06)
 	{
-		if(function_62318121(var_48ad08f5, var_6baf60af))
+		if(function_62318121(homunculus, var_6baf60af))
 		{
 			if(!isdefined(var_9db93b2e))
 			{
@@ -156,7 +156,7 @@ function private function_90cc805b(var_48ad08f5)
 			var_9db93b2e[var_9db93b2e.size] = var_6baf60af;
 		}
 	}
-	return arraysortclosest(var_9db93b2e, var_48ad08f5.origin, undefined, undefined, 250);
+	return arraysortclosest(var_9db93b2e, homunculus.origin, undefined, undefined, 250);
 }
 
 /*
@@ -168,13 +168,13 @@ function private function_90cc805b(var_48ad08f5)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_62318121(var_48ad08f5, ent)
+function private function_62318121(homunculus, ent)
 {
 	if(!isdefined(ent))
 	{
 		return false;
 	}
-	if(ent.archetype == "zombie" && util::function_fbce7263(ent.team, var_48ad08f5.team))
+	if(ent.archetype == "zombie" && util::function_fbce7263(ent.team, homunculus.team))
 	{
 		return true;
 	}
@@ -192,38 +192,38 @@ function private function_62318121(var_48ad08f5, ent)
 */
 event private function_4776caf4(eventstruct)
 {
-	if(eventstruct.weapon.name == #"hash_10f614b278daaebc")
+	if(eventstruct.weapon.name == #"homunculus")
 	{
 		grenade = eventstruct.projectile;
 		grenade ghost();
 		grenade.angles = self.angles;
-		var_48ad08f5 = util::spawn_model(grenade.model, grenade.origin, grenade.angles);
-		var_48ad08f5.spawning = 1;
-		var_48ad08f5.identifier_weapon = grenade.item;
-		var_48ad08f5.player = grenade.thrower;
-		grenade.var_48ad08f5 = var_48ad08f5;
-		grenade.var_48ad08f5 linkto(grenade);
-		grenade.var_48ad08f5.team = grenade.team;
-		grenade.var_48ad08f5 clientfield::set("enemyequip", 1);
+		homunculus = util::spawn_model(grenade.model, grenade.origin, grenade.angles);
+		homunculus.spawning = 1;
+		homunculus.identifier_weapon = grenade.item;
+		homunculus.player = grenade.thrower;
+		grenade.homunculus = homunculus;
+		grenade.homunculus linkto(grenade);
+		grenade.homunculus.team = grenade.team;
+		grenade.homunculus clientfield::set("enemyequip", 1);
 		var_66ae7054 = 0;
 		if(math::cointoss() && math::cointoss())
 		{
-			var_48ad08f5 playsoundontag(#"hash_8d020e5460f4a95", "j_head");
+			homunculus playsoundontag(#"hash_8d020e5460f4a95", "j_head");
 			var_66ae7054 = 1;
 		}
 		else
 		{
-			var_48ad08f5 playsoundontag(#"hash_689f11fd8983d1a6", "j_head");
+			homunculus playsoundontag(#"hash_689f11fd8983d1a6", "j_head");
 		}
-		var_48ad08f5 thread scene::play(#"hash_76de80efed42a7ee", var_48ad08f5);
+		homunculus thread scene::play(#"hash_76de80efed42a7ee", homunculus);
 		grenade waittill(#"stationary", #"death");
 		if(isdefined(grenade))
 		{
-			var_48ad08f5 unlink();
+			homunculus unlink();
 			grenade delete();
-			if(isdefined(var_48ad08f5))
+			if(isdefined(homunculus))
 			{
-				var_48ad08f5.var_acdc8d71 = getclosestpointonnavmesh(var_48ad08f5.origin, 360, 15.1875);
+				homunculus.var_acdc8d71 = getclosestpointonnavmesh(homunculus.origin, 360, 15.1875);
 				if(!isdefined(level.var_2da60c10))
 				{
 					level.var_2da60c10 = [];
@@ -232,37 +232,37 @@ event private function_4776caf4(eventstruct)
 				{
 					level.var_2da60c10 = array(level.var_2da60c10);
 				}
-				level.var_2da60c10[level.var_2da60c10.size] = var_48ad08f5;
-				var_48ad08f5.despawn_time = gettime() + (int(120 * 1000));
-				playfx(#"zm_weapons/fx8_equip_homunc_spawn", var_48ad08f5.origin);
-				var_48ad08f5 playsound(#"hash_21206f1b7fb27f81");
+				level.var_2da60c10[level.var_2da60c10.size] = homunculus;
+				homunculus.despawn_time = gettime() + (int(120 * 1000));
+				playfx(#"zm_weapons/fx8_equip_homunc_spawn", homunculus.origin);
+				homunculus playsound(#"hash_21206f1b7fb27f81");
 				var_255a121f = 0;
 				if(math::cointoss() && math::cointoss() && !var_66ae7054)
 				{
-					var_48ad08f5 playsoundontag(#"hash_6b4fa8bf14690e0c", "j_head");
+					homunculus playsoundontag(#"hash_6b4fa8bf14690e0c", "j_head");
 					var_255a121f = 1;
 				}
 				else
 				{
-					var_48ad08f5 playsoundontag(#"hash_1d6e8d28eabdb1fb", "j_head");
+					homunculus playsoundontag(#"hash_1d6e8d28eabdb1fb", "j_head");
 				}
-				mover = util::spawn_model("tag_origin", var_48ad08f5.origin, var_48ad08f5.angles);
-				var_48ad08f5 linkto(mover);
-				var_48ad08f5.mover = mover;
-				var_48ad08f5 drop_to_ground(1);
-				var_48ad08f5 scene::stop();
+				mover = util::spawn_model("tag_origin", homunculus.origin, homunculus.angles);
+				homunculus linkto(mover);
+				homunculus.mover = mover;
+				homunculus drop_to_ground(1);
+				homunculus scene::stop();
 				if(!var_255a121f)
 				{
-					var_48ad08f5 thread function_1dba4a2();
+					homunculus thread function_1dba4a2();
 				}
-				var_48ad08f5.mover scene::play(#"hash_2e6bf8370e7c2412", var_48ad08f5);
-				var_48ad08f5 notify(#"hash_3e410dbcd9e66000");
-				var_48ad08f5.spawning = undefined;
+				homunculus.mover scene::play(#"hash_2e6bf8370e7c2412", homunculus);
+				homunculus notify(#"hash_3e410dbcd9e66000");
+				homunculus.spawning = undefined;
 			}
 		}
-		else if(isdefined(var_48ad08f5))
+		else if(isdefined(homunculus))
 		{
-			var_48ad08f5 delete();
+			homunculus delete();
 		}
 	}
 }
@@ -405,11 +405,11 @@ function private drop_to_ground(b_immediate = 0)
 */
 function private jump(scene_ents)
 {
-	scene_ents[#"hash_10f614b278daaebc"] endon(#"death");
-	scene_ents[#"hash_10f614b278daaebc"] waittill(#"jumped");
-	if(isdefined(scene_ents[#"hash_10f614b278daaebc"].mover))
+	scene_ents[#"homunculus"] endon(#"death");
+	scene_ents[#"homunculus"] waittill(#"jumped");
+	if(isdefined(scene_ents[#"homunculus"].mover))
 	{
-		scene_ents[#"hash_10f614b278daaebc"].mover movez(40, 0.35);
+		scene_ents[#"homunculus"].mover movez(40, 0.35);
 	}
 }
 
@@ -459,7 +459,7 @@ function private function_c8f642f6(enemy, n_time)
 				self playsound(#"hash_ba5815eb0dc4d97");
 			}
 			enemy playsound(#"hash_3a99f739009a77fa");
-			enemy dodamage(enemy.health + 666, enemy.origin, self.player, undefined, undefined, "MOD_UNKNOWN", 0, getweapon(#"hash_10f614b278daaebc"));
+			enemy dodamage(enemy.health + 666, enemy.origin, self.player, undefined, undefined, "MOD_UNKNOWN", 0, getweapon(#"homunculus"));
 			gibserverutils::gibhead(enemy);
 		}
 	}
@@ -498,19 +498,19 @@ function function_bd59a592(zombie)
 	var_2d9e38fc = 360 * 360;
 	var_128c12c9 = undefined;
 	var_b26b6492 = undefined;
-	foreach(var_48ad08f5 in level.var_2da60c10)
+	foreach(homunculus in level.var_2da60c10)
 	{
-		if(!isdefined(var_48ad08f5))
+		if(!isdefined(homunculus))
 		{
 			continue;
 		}
-		dist_sq = distancesquared(zombie.origin, var_48ad08f5.origin);
-		if(isdefined(var_48ad08f5) && var_48ad08f5.attacking === 1 && dist_sq < var_2d9e38fc)
+		dist_sq = distancesquared(zombie.origin, homunculus.origin);
+		if(isdefined(homunculus) && homunculus.attacking === 1 && dist_sq < var_2d9e38fc)
 		{
 			if(!isdefined(var_128c12c9) || dist_sq < var_128c12c9)
 			{
 				var_128c12c9 = dist_sq;
-				var_b26b6492 = var_48ad08f5;
+				var_b26b6492 = homunculus;
 			}
 		}
 	}
@@ -526,15 +526,15 @@ function function_bd59a592(zombie)
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(var_48ad08f5, var_dbd1a594)
+function function_127fb8f3(homunculus, attackingplayer)
 {
-	var_48ad08f5 endon(#"death");
+	homunculus endon(#"death");
 	randangle = randomfloat(360);
 	if(isdefined(level._equipment_emp_destroy_fx))
 	{
-		playfx(level._equipment_emp_destroy_fx, var_48ad08f5.origin + vectorscale((0, 0, 1), 5), (cos(randangle), sin(randangle), 0), anglestoup(var_48ad08f5.angles));
+		playfx(level._equipment_emp_destroy_fx, homunculus.origin + vectorscale((0, 0, 1), 5), (cos(randangle), sin(randangle), 0), anglestoup(homunculus.angles));
 	}
 	wait(1.1);
-	var_48ad08f5 function_7bfc867f();
+	homunculus function_7bfc867f();
 }
 

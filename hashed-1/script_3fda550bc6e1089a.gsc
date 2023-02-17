@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2c74a7b5eea1ec89;
-#using script_3728b3b9606c4299;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
-#using script_57c900a7e39234be;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreak_hacking.gsc;
+#using scripts\killstreaks\airsupport.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
-#using script_eed89631556efd2;
+#using scripts\killstreaks\flak_drone.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -111,14 +111,14 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(helicopter, var_dbd1a594)
+function function_bff5c062(helicopter, attackingplayer)
 {
-	helicopter killstreaks::configure_team_internal(var_dbd1a594, 1);
-	helicopter.team = var_dbd1a594.team;
-	helicopter setteam(var_dbd1a594.team);
-	helicopter setowner(var_dbd1a594);
-	helicopter.owner = var_dbd1a594;
-	hackedcallbackpost(var_dbd1a594);
+	helicopter killstreaks::configure_team_internal(attackingplayer, 1);
+	helicopter.team = attackingplayer.team;
+	helicopter setteam(attackingplayer.team);
+	helicopter setowner(attackingplayer);
+	helicopter.owner = attackingplayer;
+	hackedcallbackpost(attackingplayer);
 	helicopter.loopcount = 0;
 	if(isdefined(level.var_f1edf93f))
 	{
@@ -132,7 +132,7 @@ function function_bff5c062(helicopter, var_dbd1a594)
 		helicopter.var_478039e8 = 0;
 		helicopter notify(#"hash_12e918889eada2ad");
 	}
-	var_dbd1a594 thread watchforearlyleave(helicopter);
+	attackingplayer thread watchforearlyleave(helicopter);
 }
 
 /*
@@ -913,7 +913,7 @@ function heli_missile_regen()
 		#/
 		if(self.missile_ammo >= level.heli_missile_max)
 		{
-			self waittill(#"hash_49f5138339c191ab");
+			self waittill(#"missile fired");
 		}
 		else
 		{
@@ -1045,7 +1045,7 @@ function heli_targeting(missilesenabled, hardpointtype)
 				self killstreaks::update_missile_dog_threat(targetsmissile[0]);
 			}
 			self.secondarytarget = targetsmissile[0];
-			self notify(#"hash_6dd7a2ff6886252b");
+			self notify(#"secondary acquired");
 			/#
 				debug_print_target();
 			#/
@@ -1496,7 +1496,7 @@ function assignsecondarytargets(targets)
 		assert(isdefined(secondarytarget), "");
 	#/
 	self.secondarytarget = secondarytarget;
-	self notify(#"hash_6dd7a2ff6886252b");
+	self notify(#"secondary acquired");
 }
 
 /*
@@ -1532,7 +1532,7 @@ function heli_wait(waittime)
 	self thread heli_hover();
 	wait(waittime);
 	heli_reset();
-	self notify(#"hash_6c89e93b924cbb7f");
+	self notify(#"stop hover");
 }
 
 /*
@@ -1546,7 +1546,7 @@ function heli_wait(waittime)
 */
 function heli_hover()
 {
-	self endon(#"death", #"hash_6c89e93b924cbb7f", #"evasive", #"leaving", #"crashing");
+	self endon(#"death", #"stop hover", #"evasive", #"leaving", #"crashing");
 	randint = randomint(360);
 	self setgoalyaw(self.angles[1] + randint);
 }
@@ -2075,7 +2075,7 @@ function heli_health(hardpointtype, playernotify)
 			damagestate = 1;
 			self.currentstate = "heavy smoke";
 			self.evasive = 1;
-			self notify(#"hash_7654c30da43c0215");
+			self notify(#"damage state");
 			continue;
 		}
 		if(self.damagetaken >= (self.maxhealth * 0.33) && damagestate == 3)
@@ -2090,7 +2090,7 @@ function heli_health(hardpointtype, playernotify)
 			}
 			damagestate = 2;
 			self.currentstate = "light smoke";
-			self notify(#"hash_7654c30da43c0215");
+			self notify(#"damage state");
 		}
 	}
 }
@@ -2326,7 +2326,7 @@ function crashonnearestcrashpath(hardpointtype)
 	self thread heli_spin(rateofspin);
 	self endon(#"death");
 	self waittill(#"hash_69f631648cf75ba");
-	self waittilltimeout(5, #"hash_477c371e4f948b01");
+	self waittilltimeout(5, #"destination reached");
 	self thread heli_explode();
 }
 
@@ -2671,7 +2671,7 @@ function private function_8de67419(var_b4c35bb7)
 */
 function function_62eb6272(var_70031e7b)
 {
-	self notify(#"hash_51364ded7e42dc41");
+	self notify(#"destintation reached");
 	self notify(#"leaving");
 	hardpointtype = self.hardpointtype;
 	self.leaving = 1;
@@ -2771,7 +2771,7 @@ function heli_leave(var_70031e7b = undefined, var_1caffd41 = 0)
 		self thread function_62eb6272(var_70031e7b);
 		return;
 	}
-	self notify(#"hash_51364ded7e42dc41");
+	self notify(#"destintation reached");
 	self notify(#"leaving");
 	hardpointtype = self.hardpointtype;
 	self.leaving = 1;
@@ -2935,7 +2935,7 @@ function heli_fly(currentnode, startwait, hardpointtype)
 	}
 	self setgoalyaw(currentnode.angles[1]);
 	self.reached_dest = 1;
-	self notify(#"hash_477c371e4f948b01");
+	self notify(#"destination reached");
 	if(isdefined(self.waittime) && self.waittime > 0)
 	{
 		heli_wait(self.waittime);
@@ -3287,7 +3287,7 @@ function function_438e7b44(startnode, protectdest, hardpointtype, heli_team)
 			if(isdefined(var_2ca2e589) && var_2ca2e589)
 			{
 				waitresult = undefined;
-				waitresult = self waittilltimeout(time, #"hash_594587fd1093c3b3", #"hash_7cda5f1e15bc902c", #"hash_7654c30da43c0215");
+				waitresult = self waittilltimeout(time, #"locking on", #"locking on hacking", #"damage state");
 				if(waitresult._notify != "timeout")
 				{
 					var_2ca2e589 = 0;
@@ -3471,7 +3471,7 @@ function updatespeedonlock()
 	self endon(#"death", #"crashing", #"leaving");
 	while(true)
 	{
-		self waittill(#"hash_594587fd1093c3b3", #"hash_7cda5f1e15bc902c");
+		self waittill(#"locking on", #"locking on hacking");
 		self updatespeed();
 		wait(1);
 	}
@@ -3667,7 +3667,7 @@ function attack_secondary(hardpointtype)
 				self.missiletarget.antithreat = undefined;
 			}
 		}
-		self waittill(#"hash_6dd7a2ff6886252b");
+		self waittill(#"secondary acquired");
 		self check_owner(hardpointtype);
 	}
 }
@@ -3752,7 +3752,7 @@ function missile_support(target_player, rof, instantfire, endon_notify)
 	{
 		wait(rof);
 		self.turret_giveup = 1;
-		self notify(#"hash_239cb033027eceb9");
+		self notify(#"give up");
 	}
 	if(isdefined(target_player))
 	{
@@ -3788,7 +3788,7 @@ function missile_support(target_player, rof, instantfire, endon_notify)
 	{
 		self fire_missile("ffar", 1, target_player);
 		self.missile_ammo--;
-		self notify(#"hash_49f5138339c191ab");
+		self notify(#"missile fired");
 	}
 	else
 	{
@@ -3872,7 +3872,7 @@ function attack_primary(hardpointtype)
 					}
 					waitframe(1);
 				}
-				self notify(#"hash_1c98ddac8879f7bc");
+				self notify(#"turret reloading");
 				wait(level.heli_turretreloadtime);
 				self heli_set_active_camo_state(1);
 				if(isdefined(self.turrettarget) && isalive(self.turrettarget))

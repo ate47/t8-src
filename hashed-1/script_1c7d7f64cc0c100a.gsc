@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_35d655b3a0e4a949;
-#using script_51b0fb46d4a05f60;
-#using script_687c5fa24f83e902;
-#using script_6b418dbafc965acc;
+#using scripts\abilities\ability_util.csc;
+#using scripts\abilities\ability_player.csc;
+#using scripts\abilities\gadgets\gadget_smart_cover.csc;
+#using scripts\abilities\ability_power.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
@@ -22,7 +22,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_1fb0b26684caee0f", &__init__, undefined, undefined);
+	system::register(#"gadget_smart_cover", &__init__, undefined, undefined);
 }
 
 /*

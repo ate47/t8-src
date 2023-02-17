@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_14af1fd264ffe8cc;
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -39,11 +39,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_68f514af0bd7872c", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_68f514af0bd7872c", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_3e1fd6e6
 	Checksum: 0x20A007BA
 	Offset: 0x178
@@ -51,7 +51,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	foreach(player in getplayers())
 	{
@@ -64,7 +64,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_3e1fd6e6
 	Checksum: 0x1786B205
 	Offset: 0x270
@@ -72,7 +72,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset)
 	{
@@ -100,7 +100,7 @@ function private function_9e7b3f4d(round_reset)
 	foreach(player in getplayers())
 	{
 		player.var_bfc22435 = undefined;
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 	}
 	level flag::clear("infinite_round_spawning");
 	level.var_ddd04c77 = undefined;
@@ -142,7 +142,7 @@ function private function_29bcf2f8()
 	}
 	self namespace_f8f28e08::function_71c9ab64(0);
 	self namespace_f8f28e08::function_ae2c0ba5();
-	self namespace_b22c99a5::function_63060af4(0);
+	self zm_trial_util::function_63060af4(0);
 	while(true)
 	{
 		var_be17187b = undefined;
@@ -150,7 +150,7 @@ function private function_29bcf2f8()
 		if(var_be17187b.var_9e09931e === 4)
 		{
 			self.var_bfc22435 = 1;
-			self namespace_b22c99a5::function_63060af4(1);
+			self zm_trial_util::function_63060af4(1);
 			return;
 		}
 	}

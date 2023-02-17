@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_12282e6b2cc91b42;
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_624a704d0f6bf28d;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -14,11 +14,11 @@
 #using scripts\zm_common\zm_utility.csc;
 #using scripts\zm_common\zm_weapons.csc;
 
-#namespace namespace_b8f22955;
+#namespace mansion_pap;
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x3AF0921F
 	Offset: 0x2F8
 	Size: 0x78C
@@ -38,23 +38,23 @@ function init_clientfields()
 	clientfield::register("toplayer", "" + #"hash_2d63a1398e98f279", 8000, 1, "int", &function_6812bd74, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_ea66e39c63f5b41", 13000, 1, "int", &function_ec12026f, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_49de76d6c4f95e5d", 8000, 1, "int", &function_738252b1, 0, 0);
-	if(zm_utility::is_standard() || namespace_59ff1d6c::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
+	if(zm_utility::is_standard() || zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
 	{
 		return;
 	}
-	namespace_617a54f4::function_d8383812(#"hash_51c79c8e74688138", 8000, #"mh_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_51c79f8e74688651", 8000, #"mh_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_51c79e8e7468849e", 8000, #"mh_cpt3", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_478cff8e6e2b9aad", 8000, #"lb_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_478cfc8e6e2b9594", 8000, #"lb_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_478cfd8e6e2b9747", 8000, #"lb_cpt3", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_3fc3ce8e6a02292e", 8000, #"cl_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_3fc3cd8e6a02277b", 8000, #"cl_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_mh1", 8000, #"mh_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_mh2", 8000, #"mh_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_mh3", 8000, #"mh_cpt3", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lb1", 8000, #"lb_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lb2", 8000, #"lb_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lb3", 8000, #"lb_cpt3", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_cl1", 8000, #"cl_cpt1", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_cl2", 8000, #"cl_cpt2", 400, level._effect[#"hash_51c7bc3539ed5540"], level._effect[#"hash_68213763a7707b92"], undefined, undefined, 1);
 }
 
 /*
 	Name: init_fx
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x6FDA750E
 	Offset: 0xA90
 	Size: 0x782
@@ -107,7 +107,7 @@ function init_fx()
 
 /*
 	Name: soul_release
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x843E58B2
 	Offset: 0x1220
 	Size: 0xBC
@@ -128,7 +128,7 @@ function soul_release(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 
 /*
 	Name: function_9e5522ac
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x6A7B9748
 	Offset: 0x12E8
 	Size: 0x1AA
@@ -165,7 +165,7 @@ function function_9e5522ac(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_731e7fcf
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xD4A15505
 	Offset: 0x14A0
 	Size: 0x884
@@ -312,7 +312,7 @@ function function_731e7fcf(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_828749d4
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xCAF37C65
 	Offset: 0x1D30
 	Size: 0x1C6
@@ -327,7 +327,7 @@ function function_828749d4(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			switch(self.model)
 			{
-				case "hash_75789bca38aa1419":
+				case "p8_zm_man_pap_gazing_stone_01_full":
 				{
 					str_effect = level._effect[#"hash_59f382e0eb4cd8ae"];
 					break;
@@ -337,7 +337,7 @@ function function_828749d4(localclientnum, oldval, newval, bnewent, binitialsnap
 					str_effect = level._effect[#"hash_2e59763a88bb2bd4"];
 					break;
 				}
-				case "hash_55f5de51b5f366fb":
+				case "p8_zm_man_pap_gazing_stone_03_full":
 				{
 					str_effect = level._effect[#"hash_9ac3900bb7115d"];
 					break;
@@ -363,7 +363,7 @@ function function_828749d4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9d797e21
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xA60E51F9
 	Offset: 0x1F00
 	Size: 0x26A
@@ -378,7 +378,7 @@ function function_9d797e21(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			switch(self.model)
 			{
-				case "hash_75789bca38aa1419":
+				case "p8_zm_man_pap_gazing_stone_01_full":
 				{
 					str_effect = level._effect[#"hash_229bf68ca0edaadb"];
 					break;
@@ -388,7 +388,7 @@ function function_9d797e21(localclientnum, oldval, newval, bnewent, binitialsnap
 					str_effect = level._effect[#"hash_5dfd7f47fc0123ad"];
 					break;
 				}
-				case "hash_55f5de51b5f366fb":
+				case "p8_zm_man_pap_gazing_stone_03_full":
 				{
 					str_effect = level._effect[#"hash_34d62c40ae5290e6"];
 					break;
@@ -408,7 +408,7 @@ function function_9d797e21(localclientnum, oldval, newval, bnewent, binitialsnap
 		self.var_306bf925 = undefined;
 		switch(self.model)
 		{
-			case "hash_75789bca38aa1419":
+			case "p8_zm_man_pap_gazing_stone_01_full":
 			{
 				str_effect = level._effect[#"hash_82b00d6eafcaeb2"];
 				break;
@@ -418,7 +418,7 @@ function function_9d797e21(localclientnum, oldval, newval, bnewent, binitialsnap
 				str_effect = level._effect[#"hash_38b6a9869169d0e4"];
 				break;
 			}
-			case "hash_55f5de51b5f366fb":
+			case "p8_zm_man_pap_gazing_stone_03_full":
 			{
 				str_effect = level._effect[#"hash_43c55f8b435b5b5d"];
 				break;
@@ -430,7 +430,7 @@ function function_9d797e21(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: ghost_trail_fx
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xC55603F8
 	Offset: 0x2178
 	Size: 0x236
@@ -467,7 +467,7 @@ function ghost_trail_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 
 /*
 	Name: function_924f922d
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xEAC1E19D
 	Offset: 0x23B8
 	Size: 0x3A2
@@ -544,7 +544,7 @@ function function_924f922d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3e31854
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x1D90D741
 	Offset: 0x2768
 	Size: 0x1D6
@@ -581,7 +581,7 @@ function function_3e31854(e_player, v_color)
 
 /*
 	Name: function_738252b1
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x2ACC430C
 	Offset: 0x2948
 	Size: 0xDA
@@ -607,7 +607,7 @@ function function_738252b1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5fc23aa1
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xBFB57EA5
 	Offset: 0x2A30
 	Size: 0xD4
@@ -632,7 +632,7 @@ function function_5fc23aa1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: ghost_impact_fx
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x3109846C
 	Offset: 0x2B10
 	Size: 0x33E
@@ -677,7 +677,7 @@ function ghost_impact_fx(localclientnum)
 
 /*
 	Name: function_c0257c1d
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x5A203766
 	Offset: 0x2E58
 	Size: 0x104
@@ -705,7 +705,7 @@ function function_c0257c1d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ec12026f
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xDBCA05FB
 	Offset: 0x2F68
 	Size: 0xF4
@@ -733,7 +733,7 @@ function function_ec12026f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6812bd74
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x9DCB8949
 	Offset: 0x3068
 	Size: 0x106
@@ -760,7 +760,7 @@ function function_6812bd74(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_466c2fa3
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xF9182A33
 	Offset: 0x3178
 	Size: 0xD6
@@ -781,7 +781,7 @@ function function_466c2fa3(str_fx, newval)
 
 /*
 	Name: function_5545acc1
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x5B0BD20A
 	Offset: 0x3258
 	Size: 0x1EA
@@ -821,7 +821,7 @@ function function_5545acc1(newval)
 
 /*
 	Name: function_f415205b
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0x5CF48FC
 	Offset: 0x3450
 	Size: 0x26E
@@ -929,7 +929,7 @@ function function_f415205b(newval)
 
 /*
 	Name: function_e0caca4e
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xA7A63A6D
 	Offset: 0x36C8
 	Size: 0x86
@@ -951,7 +951,7 @@ function function_e0caca4e(org, ang)
 
 /*
 	Name: debug_arrow
-	Namespace: namespace_b8f22955
+	Namespace: mansion_pap
 	Checksum: 0xC35C5A97
 	Offset: 0x3758
 	Size: 0x29C

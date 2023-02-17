@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_20ac552ee498eb9d;
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_2e7b2ce35bae89d9;
 #using script_35b5ff21c2a0960f;
 #using script_522aeb6ae906391e;
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -186,7 +186,7 @@ function function_50fdac80(func, obj)
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: callback
 	Checksum: 0x2D53879D
 	Offset: 0x5A8
@@ -194,9 +194,9 @@ function function_50fdac80(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_189f87c1(func, obj)
+function on_round_end(func, obj)
 {
-	add_callback(#"hash_193ded5c8932fe29", func, obj);
+	add_callback(#"on_round_end", func, obj);
 }
 
 /*
@@ -210,7 +210,7 @@ function function_189f87c1(func, obj)
 */
 function function_ec6dfc37(func, obj)
 {
-	remove_callback(#"hash_193ded5c8932fe29", func, obj);
+	remove_callback(#"on_round_end", func, obj);
 }
 
 /*

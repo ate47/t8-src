@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1e72c148eb0b32d2;
+#using scripts\zm\powerup\zm_powerup_nuke.gsc;
 #using script_2c5daa95f8fec03c;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7e59d7bba853fe4b;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -28,7 +28,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_45a40cc86aed6e2a", &__init__, &__main__, #"hash_770f240f9e25a58d");
+	system::register(#"hash_45a40cc86aed6e2a", &__init__, &__main__, #"zm_ai_gladiator");
 }
 
 /*

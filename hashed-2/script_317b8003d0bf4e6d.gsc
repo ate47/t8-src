@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_39bd5b6b799b1c9c;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
@@ -40,7 +40,7 @@ function private __init__()
 		return;
 	}
 	/#
-		level thread function_44b9dd1d();
+		level thread _setup_devgui();
 	#/
 	/#
 		level thread function_cdd9b388();
@@ -180,7 +180,7 @@ function private function_b6ea080()
 			return;
 		}
 		println("");
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		if(mapname === "" || mapname == "")
 		{
 			world_items = [8:"", 7:"", 6:"", 5:"", 4:"", 3:"", 2:"", 1:"", 0:""];
@@ -294,7 +294,7 @@ function private function_b6ea080()
 function private function_938d798a()
 {
 	/#
-		str_filename = util::function_53bbf9d2() + "";
+		str_filename = util::get_map_name() + "";
 		file = openfile(str_filename, "");
 		if(file == -1)
 		{
@@ -308,16 +308,16 @@ function private function_938d798a()
 		var_7099d03 = [];
 		while(freadln(file) > 0)
 		{
-			var_a9682cef = [];
+			a_vec = [];
 			var_aae1fec0 = fgetarg(file, 0);
 			a_str_keys = strtok2(var_aae1fec0, "");
-			var_a9682cef[0] = float(a_str_keys[5]);
+			a_vec[0] = float(a_str_keys[5]);
 			var_aae1fec0 = fgetarg(file, 1);
-			var_a9682cef[1] = float(var_aae1fec0);
+			a_vec[1] = float(var_aae1fec0);
 			var_aae1fec0 = fgetarg(file, 2);
-			var_a9682cef[2] = float(var_aae1fec0);
+			a_vec[2] = float(var_aae1fec0);
 			var_4e94b449 = strtok2(var_aae1fec0, "");
-			v_origin = (var_a9682cef[0], var_a9682cef[1], var_a9682cef[2]);
+			v_origin = (a_vec[0], a_vec[1], a_vec[2]);
 			v_stand = getclosestpointonnavmesh(v_origin, 192);
 			switch(var_4e94b449[2])
 			{
@@ -1358,7 +1358,7 @@ function private function_cdd9b388()
 }
 
 /*
-	Name: function_44b9dd1d
+	Name: _setup_devgui
 	Namespace: namespace_b56b91cb
 	Checksum: 0xE576C1D
 	Offset: 0x5320
@@ -1366,14 +1366,14 @@ function private function_cdd9b388()
 	Parameters: 0
 	Flags: Private
 */
-function private function_44b9dd1d()
+function private _setup_devgui()
 {
 	/#
 		while(!canadddebugcommand())
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand("");
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand("");

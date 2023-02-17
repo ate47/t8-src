@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_765ad6b;
@@ -34,11 +34,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_4778040558791d02", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_4778040558791d02", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_765ad6b
 	Checksum: 0x74AF0748
 	Offset: 0x130
@@ -46,13 +46,13 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	level.var_2d307e50 = 1;
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_765ad6b
 	Checksum: 0x6D8244EB
 	Offset: 0x150
@@ -60,7 +60,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level.var_2d307e50 = undefined;
 }

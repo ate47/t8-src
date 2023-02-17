@@ -1119,7 +1119,7 @@ function zone_flag_wait(flag_name)
 	{
 		level flag::init(flag_name);
 	}
-	if(flag_name == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+	if(flag_name == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 	{
 		waitframe(1);
 	}
@@ -1143,7 +1143,7 @@ function zone_flag_wait(flag_name)
 				if(azone.flags_do_or_check)
 				{
 					flags_set = 0;
-					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 					{
 						flags_set = 1;
 					}
@@ -1162,7 +1162,7 @@ function zone_flag_wait(flag_name)
 				else
 				{
 					flags_set = 1;
-					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 					{
 						flags_set = 1;
 					}
@@ -1894,16 +1894,16 @@ function function_d4cf2b9b(force_update = 0)
 			level.var_5ef1a72c = [];
 		}
 		players = getplayers();
-		var_4550a175 = [];
+		active_players = [];
 		var_5ef1a72c = [];
 		foreach(player in getplayers())
 		{
 			if(player.sessionstate !== "spectator")
 			{
-				var_4550a175[var_4550a175.size] = player;
+				active_players[active_players.size] = player;
 			}
 		}
-		foreach(player in var_4550a175)
+		foreach(player in active_players)
 		{
 			var_c6bd50df = player get_player_zone();
 			if(!isdefined(var_c6bd50df))
@@ -1945,7 +1945,7 @@ function function_d4cf2b9b(force_update = 0)
 					if(adjacent_zone.is_connected)
 					{
 						var_658cf985 = spawnstruct();
-						var_658cf985.var_ab176ce9 = zone.name;
+						var_658cf985.to_zone = zone.name;
 						var_658cf985.cost = var_1d26c41e.cost + 1;
 						var_23ca4e6e[var_4a52ff35] = var_658cf985;
 						var_14a2a339[var_14a2a339.size] = var_4a52ff35;

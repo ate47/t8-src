@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_12d19e59;
+#namespace character_banter;
 
 /*
 	Name: function_d8f1209f
-	Namespace: namespace_12d19e59
+	Namespace: character_banter
 	Checksum: 0xDD4753E0
 	Offset: 0x88
 	Size: 0x1AC
@@ -36,13 +36,13 @@ event function_d8f1209f(eventstruct)
 	{
 		return;
 	}
-	var_1518f1fb = function_86492662(player1, player2);
-	if(var_1518f1fb.size <= 0)
+	banters = function_86492662(player1, player2);
+	if(banters.size <= 0)
 	{
 		return;
 	}
-	index = eventstruct.var_7e98b410 % var_1518f1fb.size;
-	banter = var_1518f1fb[index];
+	index = eventstruct.var_7e98b410 % banters.size;
+	banter = banters[index];
 	var_bfc07183 = player1 function_7b99157b();
 	var_d6c29f87 = player2 function_7b99157b();
 	level thread play_banter(var_bfc07183, var_d6c29f87, banter[2], banter[3]);
@@ -50,7 +50,7 @@ event function_d8f1209f(eventstruct)
 
 /*
 	Name: function_86492662
-	Namespace: namespace_12d19e59
+	Namespace: character_banter
 	Checksum: 0x4CABDFF7
 	Offset: 0x240
 	Size: 0x12E
@@ -59,7 +59,7 @@ event function_d8f1209f(eventstruct)
 */
 function function_86492662(player1, player2)
 {
-	var_1518f1fb = [];
+	banters = [];
 	player1name = player1 getmpdialogname();
 	player2name = player2 getmpdialogname();
 	if(isdefined(player1name) && isdefined(player2name))
@@ -70,16 +70,16 @@ function function_86492662(player1, player2)
 			row = tablelookuprow(#"hash_5ec1825aeab754a2", i);
 			if(row[0] == player1name && row[1] == player2name)
 			{
-				var_1518f1fb[var_1518f1fb.size] = row;
+				banters[banters.size] = row;
 			}
 		}
 	}
-	return var_1518f1fb;
+	return banters;
 }
 
 /*
 	Name: play_banter
-	Namespace: namespace_12d19e59
+	Namespace: character_banter
 	Checksum: 0x5600264B
 	Offset: 0x378
 	Size: 0xC4
@@ -104,7 +104,7 @@ function play_banter(player1, player2, alias1, alias2)
 
 /*
 	Name: function_7b99157b
-	Namespace: namespace_12d19e59
+	Namespace: character_banter
 	Checksum: 0xC6D9D101
 	Offset: 0x448
 	Size: 0xAA

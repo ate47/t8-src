@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_4c956dd41c112703;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -39,11 +39,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge("mannequin_american", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge("mannequin_american", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_980bab51
 	Checksum: 0xA6055D74
 	Offset: 0x1C0
@@ -51,7 +51,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	var_a2c75164 = getent("mannequin_ally_door", "targetname");
 	var_a2c75164 namespace_ba16273b::function_a51b6403(1);
@@ -79,7 +79,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_980bab51
 	Checksum: 0x20356E11
 	Offset: 0x3F0
@@ -87,13 +87,13 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_824d206(&function_33f0ddd3);
 	level zm_trial::function_25ee130(0);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_dc0859e();
+		player thread zm_trial_util::function_dc0859e();
 	}
 	if(isdefined(level.var_8943f7db) && isalive(level.var_8943f7db))
 	{
@@ -141,12 +141,12 @@ function private function_545d53bf()
 		}
 		if(var_972e1f84 && var_407eb07)
 		{
-			self namespace_b22c99a5::function_dc0859e();
+			self zm_trial_util::function_dc0859e();
 			var_407eb07 = 0;
 		}
 		else if(!var_972e1f84 && !var_407eb07)
 		{
-			self namespace_b22c99a5::function_bf710271();
+			self zm_trial_util::function_bf710271();
 			var_407eb07 = 1;
 		}
 		waitframe(1);
@@ -192,7 +192,7 @@ function private function_33f0ddd3(s_event)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7532e17c(var_d037eef2)
+function function_7532e17c(ai_mannequin)
 {
 	level endon(#"end_game");
 	obj_id = gameobjects::get_next_obj_id();
@@ -205,9 +205,9 @@ function function_7532e17c(var_d037eef2)
 		self.a_n_objective_ids = array(self.a_n_objective_ids);
 	}
 	self.a_n_objective_ids[self.a_n_objective_ids.size] = obj_id;
-	objective_add(obj_id, "active", var_d037eef2, #"hash_423a75e2700a53ab");
+	objective_add(obj_id, "active", ai_mannequin, #"hash_423a75e2700a53ab");
 	function_da7940a3(obj_id, 1);
-	while(isdefined(var_d037eef2))
+	while(isdefined(ai_mannequin))
 	{
 		waitframe(1);
 	}

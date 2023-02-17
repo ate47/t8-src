@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2fcb47e3735a6edd;
+#using scripts\zm\zm_orange_pap.gsc;
 #using script_5660bae5b402a1eb;
 #using script_57f7003580bb15e0;
 #using script_6a3f43063dfd1bdc;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -368,27 +368,27 @@ function function_320f5fb3()
 			wait(3);
 			if(isdefined(level.var_9a8dee15))
 			{
-				level.var_9a8dee15 thread namespace_3263198e::function_51b752a9(#"hash_52d22e25dd1ac29f");
+				level.var_9a8dee15 thread zm_orange_util::function_51b752a9(#"hash_52d22e25dd1ac29f");
 			}
 			break;
 		}
 		case 2:
 		{
-			level thread namespace_44916ada::function_56db9cdc();
-			if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") != 2)
+			level thread zm_orange_pap::function_56db9cdc();
+			if(zm_custom::function_901b751c(#"zmpowerstate") != 2)
 			{
 				wait(3);
 				level.var_1c53964e namespace_509a75d1::function_6a0d675d("vox_power_switch_2_activate");
-				level thread namespace_3263198e::function_fd24e47f("vox_power_switch_2_activate");
+				level thread zm_orange_util::function_fd24e47f("vox_power_switch_2_activate");
 			}
-			level thread namespace_3263198e::function_3d6809e9();
+			level thread zm_orange_util::function_3d6809e9();
 			break;
 		}
 		case 3:
 		{
 			level.var_6ed7c585 = 1;
-			level thread namespace_44916ada::function_2401694f();
-			if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") != 2)
+			level thread zm_orange_pap::function_2401694f();
+			if(zm_custom::function_901b751c(#"zmpowerstate") != 2)
 			{
 				wait(3);
 				level.var_1c53964e thread namespace_509a75d1::function_6a0d675d("vox_power_switch_3_activate");
@@ -598,8 +598,8 @@ function function_71399d9c()
 	self.vh_target clientfield::set("" + #"hash_19bce46b8ab82440", 1);
 	self.vh_target thread function_18f63949();
 	self function_2b2f2a7f();
-	self.var_9bda8088 thread zm_traps::trap_damage();
-	self.var_9bda8088 thread soapstone_watcher();
+	self.t_trap thread zm_traps::trap_damage();
+	self.t_trap thread soapstone_watcher();
 	wait(2);
 	level thread function_ad646ef8(8);
 }
@@ -615,12 +615,12 @@ function function_71399d9c()
 */
 function function_2b2f2a7f()
 {
-	var_9bda8088 = spawn("trigger_radius_new", self.vh_target.origin, 512 | 1, 100);
-	var_9bda8088._trap_type = "lighthouse";
-	var_9bda8088 enablelinkto();
-	var_9bda8088 linkto(self.vh_target);
-	self.var_9bda8088 = var_9bda8088;
-	var_9bda8088.activated_by_player = level.var_ab11c23d.activated_by_player;
+	t_trap = spawn("trigger_radius_new", self.vh_target.origin, 512 | 1, 100);
+	t_trap._trap_type = "lighthouse";
+	t_trap enablelinkto();
+	t_trap linkto(self.vh_target);
+	self.t_trap = t_trap;
+	t_trap.activated_by_player = level.var_ab11c23d.activated_by_player;
 }
 
 /*
@@ -692,9 +692,9 @@ function function_76ff758d()
 	self endon(#"death");
 	self.vh_target.b_moving = 0;
 	wait(2);
-	self.var_9bda8088 notify(#"trap_done");
+	self.t_trap notify(#"trap_done");
 	self.vh_target clientfield::set("" + #"hash_19bce46b8ab82440", 0);
-	self.var_9bda8088 delete();
+	self.t_trap delete();
 	self.vh_target delete();
 	level thread function_ad646ef8(1);
 }
@@ -763,11 +763,11 @@ function shoot_trap_target(v_target, var_64c09f7f)
 */
 function trigger_trap_explosion(v_pos, var_64c09f7f)
 {
-	var_a2e909e9 = var_64c09f7f function_bdda420f(v_pos, 250);
-	array::thread_all(var_a2e909e9, &zm_trap_electric::damage, level.var_ab11c23d);
-	if(var_a2e909e9.size > 0)
+	a_e_ai = var_64c09f7f function_bdda420f(v_pos, 250);
+	array::thread_all(a_e_ai, &zm_trap_electric::damage, level.var_ab11c23d);
+	if(a_e_ai.size > 0)
 	{
-		level notify(#"hash_5e2619172b4487dd", {#n_count:var_a2e909e9.size});
+		level notify(#"hash_5e2619172b4487dd", {#n_count:a_e_ai.size});
 	}
 	a_e_players = getplayers();
 	var_6cb5ae98 = 250 * 250;
@@ -936,11 +936,11 @@ function electrocute_zombie()
 */
 function function_93284efd()
 {
-	var_5b857980 = function_4d1e7b48(#"hash_19533caf858a9f3b");
+	shock_status_effect = getstatuseffect(#"hash_19533caf858a9f3b");
 	if(!(isdefined(self.b_no_trap_damage) && self.b_no_trap_damage))
 	{
 		self thread zm_traps::player_elec_damage(level.var_ab11c23d);
-		self status_effect::status_effect_apply(var_5b857980, undefined, self, 0);
+		self status_effect::status_effect_apply(shock_status_effect, undefined, self, 0);
 	}
 }
 
@@ -1216,7 +1216,7 @@ function soapstone_watcher()
 			{
 				if(!level.s_soapstone.is_charged || !level.s_soapstone.is_hot)
 				{
-					level thread namespace_3263198e::function_fd24e47f("vox_soap_stones_heat", -1, 1, 0);
+					level thread zm_orange_util::function_fd24e47f("vox_soap_stones_heat", -1, 1, 0);
 				}
 				level.s_soapstone.is_charged = 1;
 				level.s_soapstone.is_hot = 1;

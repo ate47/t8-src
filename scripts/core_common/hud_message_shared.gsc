@@ -119,10 +119,10 @@ function setlowermessage(text, time)
 	{
 		return;
 	}
-	level.lower_message lower_message::function_cd1b9801(self, (isdefined(text) ? text : #""));
+	level.lower_message lower_message::set_message(self, (isdefined(text) ? text : #""));
 	if(isdefined(time) && time > 0)
 	{
-		level.lower_message lower_message::function_18a028a3(self, int(time));
+		level.lower_message lower_message::set_countdownTimeSeconds(self, int(time));
 		level.lower_message lower_message::set_state(self, #"visible");
 	}
 	else
@@ -164,8 +164,8 @@ function private function_fa47c5af()
 {
 	self endon(#"hash_6ceeeb477ece797b", #"disconnect");
 	wait(1);
-	level.lower_message lower_message::function_cd1b9801(self, #"");
-	level.lower_message lower_message::function_18a028a3(self, 0);
+	level.lower_message lower_message::set_message(self, #"");
+	level.lower_message lower_message::set_countdownTimeSeconds(self, 0);
 }
 
 /*

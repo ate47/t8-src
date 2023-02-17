@@ -41,7 +41,7 @@ function monitor()
 		return;
 	}
 	self thread function_729bf68e();
-	self thread function_dddb1a7a();
+	self thread wall_run();
 	self thread swimming();
 	self thread slide();
 	self thread doublejump();
@@ -155,7 +155,7 @@ function private function_43e771ee(reason)
 			var_178db383.died = died;
 			var_178db383.time_used_s = var_27047881;
 			var_178db383.longest_hit_distance = var_c2ffb370;
-			var_178db383.attachment1 = attachments.var_65be22a9;
+			var_178db383.attachment1 = attachments.attachment0;
 			var_178db383.attachment2 = attachments.attachment1;
 			var_178db383.attachment3 = attachments.attachment2;
 			var_178db383.attachment4 = attachments.attachment3;
@@ -295,7 +295,7 @@ function private function_729bf68e()
 				groundent = self getgroundent();
 				if(isdefined(groundent) && !isvehicle(groundent))
 				{
-					self stats::function_d40764f3(#"hash_72bde76e57d89017", int(distance));
+					self stats::function_d40764f3(#"distance_traveled_foot", int(distance));
 					if(isdefined(self.outsidedeathcircle) && self.outsidedeathcircle)
 					{
 						self stats::function_d40764f3(#"hash_630fffa7f053a2b7", int(distance));
@@ -321,7 +321,7 @@ function private function_729bf68e()
 }
 
 /*
-	Name: function_dddb1a7a
+	Name: wall_run
 	Namespace: player_monitor
 	Checksum: 0x646FBFD3
 	Offset: 0xFB0
@@ -329,7 +329,7 @@ function private function_729bf68e()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_dddb1a7a()
+function private wall_run()
 {
 	self endon(#"disconnect");
 	self notify(#"stop_player_monitor_wall_run");

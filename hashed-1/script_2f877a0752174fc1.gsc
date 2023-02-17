@@ -550,7 +550,7 @@ function function_ac06ab3a()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1792ae3(var_2e1f34dd)
+function function_1792ae3(e_item)
 {
 	s_reel = level.var_ea514bc4[level.var_804a56e3];
 	if(isdefined(s_reel))
@@ -560,9 +560,9 @@ function function_1792ae3(var_2e1f34dd)
 		{
 			self thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", #"generic");
 		}
-		if(isdefined(var_2e1f34dd))
+		if(isdefined(e_item))
 		{
-			var_2e1f34dd playsound(#"hash_760800881cd94dd1");
+			e_item playsound(#"hash_760800881cd94dd1");
 		}
 		function_de798ee4();
 		level.var_804a56e3++;
@@ -943,7 +943,7 @@ function function_ce7e594b()
 */
 function function_cf1b4a16()
 {
-	var_5b857980 = function_4d1e7b48(#"hash_320c81d91eb89d73");
+	shock_status_effect = getstatuseffect(#"hash_320c81d91eb89d73");
 	while(level flag::get(#"hash_398e4b1e72edb4ee"))
 	{
 		foreach(player in getplayers())
@@ -952,7 +952,7 @@ function function_cf1b4a16()
 			{
 				player playrumbleonentity("damage_heavy");
 				player playsound(#"hash_5af2a9d11f007b9");
-				player status_effect::status_effect_apply(var_5b857980, undefined, self, 1);
+				player status_effect::status_effect_apply(shock_status_effect, undefined, self, 1);
 			}
 		}
 		wait(1);

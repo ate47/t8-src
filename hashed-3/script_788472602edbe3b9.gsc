@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_18f0d22c75b141a7;
 #using script_256b8879317373de;
-#using script_2dc48f46bfeac894;
-#using script_3f9e54c7a9a7e1e2;
-#using script_4663ec59d864e437;
+#using scripts\abilities\ability_player.gsc;
+#using scripts\mp_common\teams\teams.gsc;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_56ca01b3b31455b5;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\abilities\ability_util.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\dev_shared.gsc;
@@ -75,7 +75,7 @@ function autoexec function_313e9d31()
 */
 function function_dd840c5f()
 {
-	function_11b299fc();
+	mp_init();
 }
 
 /*
@@ -89,20 +89,20 @@ function function_dd840c5f()
 */
 function function_9f888e75(var_b918343e)
 {
-	level.var_697e9965 = getweapon(#"sig_minigun");
-	level.var_bb448b5f = getweapon(#"hero_annihilator");
+	level.weapon_sig_minigun = getweapon(#"sig_minigun");
+	level.weapon_hero_annihilator = getweapon(#"hero_annihilator");
 	level.weaponbasemeleeheld = getweapon(#"bare_hands");
 	level.weaponknifeloadout = getweapon(#"knife_loadout");
-	level.var_cbb9b660 = getweapon(#"melee_club_t8");
-	level.var_6e2f43e = getweapon(#"melee_coinbag_t8");
-	level.var_2192f04e = getweapon(#"melee_cutlass_t8");
-	level.var_82303435 = getweapon(#"melee_demohammer_t8");
-	level.var_6011eec9 = getweapon(#"melee_secretsanta_t8");
-	level.var_2313b59b = getweapon(#"melee_slaybell_t8");
-	level.var_463988de = getweapon(#"melee_zombiearm_t8");
-	level.var_b43ce681 = getweapon(#"melee_stopsign_t8");
-	level.var_2f3eaa8f = getweapon(#"hash_68a980198a51e72b");
-	level.var_3fe046be = getweapon(#"hash_20e5bae184643ee5");
+	level.weaponmeleeclub = getweapon(#"melee_club_t8");
+	level.weaponmeleecoinbag = getweapon(#"melee_coinbag_t8");
+	level.weaponmeleecutlass = getweapon(#"melee_cutlass_t8");
+	level.weaponmeleedemohammer = getweapon(#"melee_demohammer_t8");
+	level.weaponmeleesecretsanta = getweapon(#"melee_secretsanta_t8");
+	level.weaponmeleeslaybell = getweapon(#"melee_slaybell_t8");
+	level.weaponmeleezombiearm = getweapon(#"melee_zombiearm_t8");
+	level.weaponmeleestopsign = getweapon(#"melee_stopsign_t8");
+	level.weaponmeleeactionfigure = getweapon(#"melee_actionfigure_t8");
+	level.weaponmeleeamuletfist = getweapon(#"melee_amuletfist_t8");
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -120,7 +120,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_cbb9b660;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeclub;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -129,7 +129,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_6e2f43e;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleecoinbag;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -138,7 +138,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_2192f04e;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleecutlass;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -147,7 +147,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_82303435;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleedemohammer;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -156,7 +156,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_6011eec9;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleesecretsanta;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -165,7 +165,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_2313b59b;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeslaybell;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -174,7 +174,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_463988de;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleezombiearm;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -183,7 +183,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_b43ce681;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleestopsign;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -192,7 +192,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_2f3eaa8f;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeactionfigure;
 	if(!isdefined(level.meleeweapons))
 	{
 		level.meleeweapons = [];
@@ -201,7 +201,7 @@ function function_9f888e75(var_b918343e)
 	{
 		level.meleeweapons = array(level.meleeweapons);
 	}
-	level.meleeweapons[level.meleeweapons.size] = level.var_3fe046be;
+	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeamuletfist;
 	level.weaponshotgunenergy = getweapon(#"shotgun_energy");
 	level.weaponpistolenergy = getweapon(#"pistol_energy");
 	level.var_c1954e36 = getweapon(#"hash_721bd01efec90239");
@@ -235,13 +235,13 @@ function function_5be71695()
 	level.classmap[#"custom8"] = "CLASS_CUSTOM9";
 	level.classmap[#"custom9"] = "CLASS_CUSTOM10";
 	level.classmap[#"custom10"] = "CLASS_CUSTOM11";
-	level.classmap[#"hash_1343c87502a79034"] = "CLASS_CUSTOM12";
-	level.classmap[#"hash_1343cb7502a7954d"] = level.classmap[#"class_smg"];
-	level.classmap[#"hash_1343ca7502a7939a"] = level.classmap[#"class_cqb"];
-	level.classmap[#"hash_1343c57502a78b1b"] = level.classmap[#"class_assault"];
-	level.classmap[#"hash_1343c47502a78968"] = level.classmap[#"class_lmg"];
-	level.classmap[#"hash_1343c77502a78e81"] = level.classmap[#"class_sniper"];
-	level.classmap[#"hash_1343c67502a78cce"] = level.classmap[#"class_specialized"];
+	level.classmap[#"custom11"] = "CLASS_CUSTOM12";
+	level.classmap[#"custom12"] = level.classmap[#"class_smg"];
+	level.classmap[#"custom13"] = level.classmap[#"class_cqb"];
+	level.classmap[#"custom14"] = level.classmap[#"class_assault"];
+	level.classmap[#"custom15"] = level.classmap[#"class_lmg"];
+	level.classmap[#"custom16"] = level.classmap[#"class_sniper"];
+	level.classmap[#"custom17"] = level.classmap[#"class_specialized"];
 }
 
 /*
@@ -271,7 +271,7 @@ function function_5f206535()
 }
 
 /*
-	Name: function_11b299fc
+	Name: mp_init
 	Namespace: loadout
 	Checksum: 0xA1687D1C
 	Offset: 0x1628
@@ -279,7 +279,7 @@ function function_5f206535()
 	Parameters: 0
 	Flags: Linked
 */
-function function_11b299fc()
+function mp_init()
 {
 	level.maxkillstreaks = 4;
 	level.maxspecialties = 6;
@@ -937,12 +937,12 @@ function function_6972fdbb(weaponclass)
 	/#
 		assert(isdefined(weaponclass));
 	#/
-	var_d131d1b2 = "CLASS_CUSTOM";
+	prefixstring = "CLASS_CUSTOM";
 	var_8bba14bc = self function_b69de520();
 	var_8bba14bc = max(var_8bba14bc, 0);
-	if(isstring(weaponclass) && issubstr(weaponclass, var_d131d1b2))
+	if(isstring(weaponclass) && issubstr(weaponclass, prefixstring))
 	{
-		var_3858e4e = getsubstr(weaponclass, var_d131d1b2.size);
+		var_3858e4e = getsubstr(weaponclass, prefixstring.size);
 		class_num = int(var_3858e4e) - 1;
 		if(class_num == -1)
 		{
@@ -1415,9 +1415,9 @@ function private give_hero_gadget(previous_weapon, var_c41b864, var_4571c11d)
 function private function_f20f595a(previous_weapon, var_c41b864, var_4571c11d)
 {
 	var_8feec653 = self function_18a77b37("ultimate");
-	if(isdefined(self.playerrole) && isdefined(self.playerrole.var_ec20b2a))
+	if(isdefined(self.playerrole) && isdefined(self.playerrole.ultimateweapon))
 	{
-		weapon = getweapon(self.playerrole.var_ec20b2a);
+		weapon = getweapon(self.playerrole.ultimateweapon);
 		self [[var_4571c11d]]("ultimate", previous_weapon);
 	}
 	return var_c41b864;
@@ -1752,7 +1752,7 @@ function private function_215f4f21(slot, previous_weapon)
 		{
 			self ability_util::function_36a15b60(specialoffhand);
 		}
-		if(isdefined(self.var_ad1472a2) && self.var_ad1472a2 && specialoffhand.name == #"hash_4bb2d7f789b561eb")
+		if(isdefined(self.var_ad1472a2) && self.var_ad1472a2 && specialoffhand.name == #"eq_gravityslam")
 		{
 			gadgetslot = self gadgetgetslot(specialoffhand);
 			self gadgetpowerchange(gadgetslot, 100 - specialoffhand.var_d911d477);
@@ -1782,9 +1782,9 @@ function private function_c4d5300a(slot, previous_weapon)
 	classnum = self.class_num_for_global_weapons;
 	ultimate = level.weaponnone;
 	var_36aac800 = 0;
-	if(isdefined(self.playerrole) && isdefined(self.playerrole.var_ec20b2a))
+	if(isdefined(self.playerrole) && isdefined(self.playerrole.ultimateweapon))
 	{
-		ultimate = getweapon(self.playerrole.var_ec20b2a);
+		ultimate = getweapon(self.playerrole.ultimateweapon);
 		var_36aac800 = ultimate.startammo;
 	}
 	/#
@@ -1889,8 +1889,8 @@ function give_loadout(team, weaponclass)
 		}
 		else
 		{
-			var_518b9d9d = self function_18a77b37("herogadget");
-			self.var_e74926dc = (isdefined(var_518b9d9d) ? self getweaponammoclip(var_518b9d9d) : undefined);
+			hero_gadget = self function_18a77b37("herogadget");
+			self.var_e74926dc = (isdefined(hero_gadget) ? self getweaponammoclip(hero_gadget) : undefined);
 			primary_grenade = self function_18a77b37("primarygrenade");
 			self.var_d92d6743 = undefined;
 			if(isdefined(primary_grenade))

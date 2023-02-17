@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b10fdf0addd52e;
-#using script_2892d932ac4f3e3c;
+#using scripts\zm\perk\zm_perk_electric_cherry.gsc;
 #using script_35598499769dbb3d;
 #using script_39e954a546d3baf;
 #using script_3f9e0dc8454d98e1;
 #using script_4d00889cf8c807d5;
 #using script_5660bae5b402a1eb;
 #using script_58c342edd81589fb;
-#using script_5bb072c3abf4652c;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
@@ -93,13 +93,13 @@ function function_bda82828()
 {
 	level endon(#"end_game", #"hash_420b070435236eab");
 	level flag::wait_till("all_players_spawned");
-	if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") == 2)
+	if(zm_custom::function_901b751c(#"zmpowerstate") == 2)
 	{
 		function_e8a7948d();
 		function_e059d0e1();
 		return;
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") == 0 || namespace_59ff1d6c::function_901b751c("zmMinibossState") == 2 || namespace_59ff1d6c::function_901b751c("zmEnhancedState") == 2)
+	if(zm_custom::function_901b751c(#"zmpowerstate") == 0 || zm_custom::function_901b751c("zmMinibossState") == 2 || zm_custom::function_901b751c("zmEnhancedState") == 2)
 	{
 		function_e8a7948d();
 		callback::remove_on_connect(&function_8efba1b4);
@@ -131,7 +131,7 @@ function function_bda82828()
 	array::thread_all(getplayers(), &function_8efba1b4);
 	var_3e910f73 = getent("mdl_power_bullet", "targetname");
 	var_3e910f73.origin = var_3e910f73.origin + (0, 0, 2048);
-	var_3e910f73 thread namespace_159b5b5b::barrier_impact();
+	var_3e910f73 thread zm_red_util::barrier_impact();
 	var_4ec3364d = getent("perseus_amphitheater_clip", "targetname");
 	var_4ec3364d notsolid();
 	level clientfield::set("" + #"hash_6e61536372d6546d", 1);
@@ -179,11 +179,11 @@ function function_bda82828()
 	zm_powerups::function_74b8ec6b(#"nuke");
 	var_3e910f73.origin = var_3e910f73.origin - (0, 0, 2048);
 	var_4ec3364d solid();
-	var_4ec3364d thread namespace_159b5b5b::barrier_impact();
+	var_4ec3364d thread zm_red_util::barrier_impact();
 	exploder::exploder("Fxexp_barrier_amph");
 	if(function_71ac80d2())
 	{
-		level zm_utility::function_fdb0368(2, #"hash_5911a4f09afeb690");
+		level zm_utility::function_fdb0368(2, #"round_one");
 		level flag::set("pause_round_timeout");
 		level flag::set("hold_round_end");
 		wait(0.1);
@@ -415,7 +415,7 @@ function despawn_zombie()
 	wait(1);
 	if(isdefined(self))
 	{
-		self thread namespace_159b5b5b::cleanup_zombie();
+		self thread zm_red_util::cleanup_zombie();
 	}
 }
 
@@ -730,7 +730,7 @@ function function_63102269()
 		{
 			if(var_1679e8e.size === var_f64e8455.size)
 			{
-				level zm_utility::function_fdb0368(2, #"hash_5911a4f09afeb690");
+				level zm_utility::function_fdb0368(2, #"round_one");
 				level flag::set("pause_round_timeout");
 				level flag::set("hold_round_end");
 				function_a7bdf314();
@@ -2232,7 +2232,7 @@ function function_342bd17b()
 			{
 				continue;
 			}
-			ai_zombie thread function_f38b76b1(str_side);
+			ai_zombie thread pegasus_strike(str_side);
 			if(i < var_d5d04666.size)
 			{
 				waitframe(2);
@@ -2242,7 +2242,7 @@ function function_342bd17b()
 }
 
 /*
-	Name: function_f38b76b1
+	Name: pegasus_strike
 	Namespace: namespace_8b80898c
 	Checksum: 0xB9DF9456
 	Offset: 0x8338
@@ -2250,7 +2250,7 @@ function function_342bd17b()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f38b76b1(str_side)
+function pegasus_strike(str_side)
 {
 	self endon(#"death");
 	if(zm_utility::is_magic_bullet_shield_enabled(self))

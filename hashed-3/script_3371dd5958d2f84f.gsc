@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_18f0d22c75b141a7;
-#using script_2dc48f46bfeac894;
-#using script_6c8abe14025b47c4;
+#using scripts\abilities\ability_player.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_702b73ee97d18efe;
 #using script_788472602edbe3b9;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -836,10 +836,10 @@ function private function_f14e5ee3()
 	}
 	else
 	{
-		var_43d69af6 = function_898839b4();
-		self giveweapon(var_43d69af6);
-		self setweaponammoclip(var_43d69af6, 0);
-		self loadout::function_442539("primary", var_43d69af6);
+		nullprimary = function_898839b4();
+		self giveweapon(nullprimary);
+		self setweaponammoclip(nullprimary, 0);
+		self loadout::function_442539("primary", nullprimary);
 	}
 	var_23218f5e = self.pers[#"hash_50251e63e4a703b5"].weapons[1];
 	if(isdefined(var_23218f5e))
@@ -856,10 +856,10 @@ function private function_f14e5ee3()
 	}
 	else
 	{
-		var_b5867a38 = getweapon(#"none");
-		self giveweapon(var_b5867a38);
-		self setweaponammoclip(var_b5867a38, 0);
-		self loadout::function_442539("secondary", var_b5867a38);
+		nullsecondary = getweapon(#"none");
+		self giveweapon(nullsecondary);
+		self setweaponammoclip(nullsecondary, 0);
+		self loadout::function_442539("secondary", nullsecondary);
 	}
 	var_c27e9e89 = self.pers[#"hash_50251e63e4a703b5"].weapons[2];
 	if(isdefined(var_c27e9e89))

@@ -39,10 +39,10 @@ function __init__()
 {
 	clientfield::register("scriptmover", "grappler_beam_source", 1, getminbitcountfornum(5), "int");
 	clientfield::register("scriptmover", "grappler_beam_target", 1, getminbitcountfornum(5), "int");
-	level.var_ddd7276e = [];
+	level.grapple_ids = [];
 	for(id = 1; id < 5; id++)
 	{
-		level.var_ddd7276e[id] = 0;
+		level.grapple_ids[id] = 0;
 	}
 }
 
@@ -70,11 +70,11 @@ function __main__()
 */
 function private function_5f5a3405()
 {
-	foreach(key, value in level.var_ddd7276e)
+	foreach(key, value in level.grapple_ids)
 	{
 		if(value === 0)
 		{
-			level.var_ddd7276e[key] = 1;
+			level.grapple_ids[key] = 1;
 			return key;
 		}
 	}
@@ -92,7 +92,7 @@ function private function_5f5a3405()
 */
 function function_56813755()
 {
-	foreach(value in level.var_ddd7276e)
+	foreach(value in level.grapple_ids)
 	{
 		if(value === 0)
 		{
@@ -114,9 +114,9 @@ function function_56813755()
 function private function_2772f623(id)
 {
 	/#
-		assert(isdefined(level.var_ddd7276e[id]) && level.var_ddd7276e[id] === 1);
+		assert(isdefined(level.grapple_ids[id]) && level.grapple_ids[id] === 1);
 	#/
-	level.var_ddd7276e[id] = 0;
+	level.grapple_ids[id] = 0;
 }
 
 /*
@@ -231,17 +231,17 @@ function function_30a5f5c1(e_source, e_target)
 {
 	function_c43e7cab();
 	level.var_acec7a44 = 1;
-	var_352f8ca9 = function_5f5a3405();
+	grapple_id = function_5f5a3405();
 	if(isdefined(e_source))
 	{
-		e_source clientfield::set("grappler_beam_source", var_352f8ca9);
+		e_source clientfield::set("grappler_beam_source", grapple_id);
 	}
 	util::wait_network_frame();
 	if(isdefined(e_target))
 	{
-		e_target clientfield::set("grappler_beam_target", var_352f8ca9);
+		e_target clientfield::set("grappler_beam_target", grapple_id);
 	}
-	thread function_1b905efa(e_source, e_target, var_352f8ca9);
+	thread function_1b905efa(e_source, e_target, grapple_id);
 	util::wait_network_frame();
 	level.var_acec7a44 = 0;
 }
@@ -255,9 +255,9 @@ function function_30a5f5c1(e_source, e_target)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_b9937e84(var_ad3953a4, var_c53e9947, n_speed)
+function private function_b9937e84(e_from, e_to, n_speed)
 {
-	n_distance = distance(var_ad3953a4 function_f21c3519(), var_c53e9947 function_f21c3519());
+	n_distance = distance(e_from function_f21c3519(), e_to function_f21c3519());
 	return n_distance / n_speed;
 }
 
@@ -322,9 +322,9 @@ function function_a60cb756(var_b4666218, var_e9f8c8f3)
 */
 function function_f21c3519()
 {
-	if(isdefined(self.var_9319fd9))
+	if(isdefined(self.grapple_tag))
 	{
-		v_origin = self gettagorigin(self.var_9319fd9);
+		v_origin = self gettagorigin(self.grapple_tag);
 		return v_origin;
 	}
 	return self.origin;

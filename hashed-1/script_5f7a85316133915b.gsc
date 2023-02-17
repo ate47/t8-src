@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
@@ -75,7 +75,7 @@ function __init__()
 function function_542725a1()
 {
 	level flag::wait_till("all_players_connected");
-	if(!level.enable_magic || (!(isdefined(namespace_59ff1d6c::function_901b751c(#"hash_3d18f84f48bd5d1f")) && namespace_59ff1d6c::function_901b751c(#"hash_3d18f84f48bd5d1f"))))
+	if(!level.enable_magic || (!(isdefined(zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f")) && zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f"))))
 	{
 		return;
 	}
@@ -222,7 +222,7 @@ function function_6842bdd7(player)
 {
 	s_altar = self.stub.script_struct;
 	finalfight_raid = struct::get_array(s_altar.target);
-	if(namespace_59ff1d6c::function_8b8fa6e5(player))
+	if(zm_custom::function_8b8fa6e5(player))
 	{
 		player.var_e07e301b = undefined;
 		return false;
@@ -454,7 +454,7 @@ function function_20fe0559()
 			waitframe(1);
 			continue;
 		}
-		if(namespace_59ff1d6c::function_8b8fa6e5(player))
+		if(zm_custom::function_8b8fa6e5(player))
 		{
 			continue;
 		}
@@ -600,7 +600,7 @@ function start_perk_bottle_cycling()
 {
 	self endon(#"done_cycling");
 	var_f0f641ad = level.var_b8be892e;
-	var_f0f641ad = array::exclude(var_f0f641ad, #"hash_66e6fbe3cc2aff65");
+	var_f0f641ad = array::exclude(var_f0f641ad, #"specialty_mystery");
 	if(!var_f0f641ad.size)
 	{
 		return;

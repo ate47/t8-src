@@ -774,15 +774,15 @@ function function_5688631d(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		forcestreamxmodel(#"hash_551dbb04d3fde912");
-		forcestreamxmodel(#"hash_7d8db72b88d71fd7");
-		forcestreamxmodel(#"hash_463ef93e7556c574");
+		forcestreamxmodel(#"c_t8_zmb_mob_ghoul_body1_rob");
+		forcestreamxmodel(#"c_t8_zmb_mob_ghoul_body2_rob");
+		forcestreamxmodel(#"c_t8_zmb_mob_ghoul_body3_rob");
 	}
 	else
 	{
-		stopforcestreamingxmodel(#"hash_551dbb04d3fde912");
-		stopforcestreamingxmodel(#"hash_7d8db72b88d71fd7");
-		stopforcestreamingxmodel(#"hash_463ef93e7556c574");
+		stopforcestreamingxmodel(#"c_t8_zmb_mob_ghoul_body1_rob");
+		stopforcestreamingxmodel(#"c_t8_zmb_mob_ghoul_body2_rob");
+		stopforcestreamingxmodel(#"c_t8_zmb_mob_ghoul_body3_rob");
 	}
 }
 

@@ -2,11 +2,11 @@
 #using script_97704057afe43ee;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_bf320535;
+#namespace zm_red_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_bf320535
+	Namespace: zm_red_gamemodes
 	Checksum: 0x85C3B57D
 	Offset: 0x78
 	Size: 0xE2

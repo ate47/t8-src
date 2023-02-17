@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_13e019f139d2aa4e;
+#using scripts\zm\zm_zodt8_eye.csc;
 #using script_234f79e7e5737561;
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using script_2a907fffc74a075d;
-#using script_2c454d63a96d2d0b;
+#using scripts\zm_common\zm_characters.csc;
 #using script_52ab76d6216ed2cc;
 #using script_54a67b7ed7b385e6;
 #using script_5504fe574aed77a8;
-#using script_67051bc8c81031aa;
-#using script_67b98aa634d9decc;
+#using scripts\zm\weapons\zm_weap_riotshield.csc;
+#using scripts\zm\powerup\zm_powerup_free_perk.csc;
 #using script_74f5ae6ffc8bd614;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -88,7 +88,7 @@ event main(eventstruct)
 	level.var_ec4c3b67 = findvolumedecalindexarray("engine_room_water_puddles");
 	level.var_59d3631c = #"hash_129339f4a4da8ea2";
 	level.var_d0ab70a2 = #"hash_3180c9ba4da02927";
-	namespace_e80d0291::init();
+	zodt8_pap_quest::init();
 	namespace_74905749::init();
 	namespace_4a807bff::init();
 	namespace_b45e3f05::init();
@@ -97,7 +97,7 @@ event main(eventstruct)
 	load::main();
 	function_99e9d1fa();
 	init_flags();
-	namespace_64be5677::main();
+	zm_zodt8_sound::main();
 	level thread setup_personality_character_exerts();
 	callback::on_localplayer_spawned(&on_localplayer_spawned);
 }
@@ -388,8 +388,8 @@ function function_5b0384a(localclientnum, oldval, newval, bnewent, binitialsnap,
 function function_53da552d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	var_a1b31107 = #"hash_d3b7cb6eb2177fb";
-	var_cfa35904 = getweapon(#"hash_5b8d1ff4b772bd85");
-	addzombieboxweapon(var_cfa35904, var_a1b31107, 0);
+	ww_base = getweapon(#"hash_5b8d1ff4b772bd85");
+	addzombieboxweapon(ww_base, var_a1b31107, 0);
 }
 
 /*

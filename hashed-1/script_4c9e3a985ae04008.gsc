@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -604,14 +604,14 @@ function portal_map_indicator_storage(localclientnum, oldval, newval, bnewent, b
 	Parameters: 2
 	Flags: Linked
 */
-function function_af29dda9(localclientnum, var_54d8a03c)
+function function_af29dda9(localclientnum, tag_label)
 {
 	level function_1b1de62b(localclientnum);
 	foreach(portal_map in level.var_31feb02b)
 	{
 		portal_map util::waittill_dobj(localclientnum);
-		portal_map hidepart(localclientnum, var_54d8a03c + "_on");
-		portal_map showpart(localclientnum, var_54d8a03c + "_active");
+		portal_map hidepart(localclientnum, tag_label + "_on");
+		portal_map showpart(localclientnum, tag_label + "_active");
 	}
 }
 
@@ -624,14 +624,14 @@ function function_af29dda9(localclientnum, var_54d8a03c)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8353316a(localclientnum, var_54d8a03c)
+function function_8353316a(localclientnum, tag_label)
 {
 	level function_1b1de62b(localclientnum);
 	foreach(portal_map in level.var_31feb02b)
 	{
 		portal_map util::waittill_dobj(localclientnum);
-		portal_map showpart(localclientnum, var_54d8a03c + "_on");
-		portal_map hidepart(localclientnum, var_54d8a03c + "_active");
+		portal_map showpart(localclientnum, tag_label + "_on");
+		portal_map hidepart(localclientnum, tag_label + "_active");
 	}
 }
 

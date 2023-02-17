@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_3738f84821de194e;
 #using script_383a3b1bb18ba876;
 #using script_40afc365f1e35fde;
@@ -9,7 +9,7 @@
 #using script_49d5f69a3ac4a923;
 #using script_545a0bac37bda541;
 #using script_5e918923a121b594;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -34,7 +34,7 @@ function init_shared()
 	if(!isdefined(level.var_4d6508e))
 	{
 		level.var_4d6508e = {};
-		namespace_c3527dc1::init();
+		archetypempdog::init();
 		clientfield::register("clientuimodel", "hudItems.dogState", 1, 2, "int");
 		clientfield::register("actor", "dogState", 1, 1, "int");
 		ability_player::function_92292af6(34, undefined, &deployed_off);
@@ -324,7 +324,7 @@ function spawn_dog(bundle, owner)
 		dog [[level.var_8d02c681]]();
 	}
 	/#
-		owner.var_eb82491d = dog;
+		owner.killstreak_dog = dog;
 	#/
 	return dog;
 }

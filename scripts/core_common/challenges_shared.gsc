@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
 #using scripts\core_common\drown.gsc;
@@ -608,7 +608,7 @@ function genericbulletkill(data, victim, weapon)
 	{
 		if(data.victim.idflags & 8)
 		{
-			player stats::function_dad108fa(#"hash_2df2ce58360b7c03", 1);
+			player stats::function_dad108fa(#"kill_enemy_through_objects", 1);
 			if(isdefined(weapon) && weaponhasattachment(weapon, "fmj"))
 			{
 				player stats::function_dad108fa(#"hash_5cd4af996e3202e", 1);
@@ -1476,7 +1476,7 @@ function capturedcrate(owner)
 	}
 	if(owner == self)
 	{
-		self stats::function_dad108fa(#"hash_26662af4f77f01fe", 1);
+		self stats::function_dad108fa(#"capture_own_carepackage", 1);
 	}
 	else if(level.teambased && owner.team != self.team || !level.teambased)
 	{
@@ -1501,7 +1501,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 	}
 	if(groundbased)
 	{
-		self stats::function_dad108fa(#"hash_436bb8e11434ff63", 1);
+		self stats::function_dad108fa(#"destroy_groundbased_scorestreak", 1);
 	}
 	if(isdefined(level.killstreakweapons[weapon]))
 	{
@@ -1566,7 +1566,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 	self stats::function_e24eec31(weapon, #"destroy_killstreak", 1);
 	if(self function_6c32d092(#"talent_engineer"))
 	{
-		self stats::function_dad108fa(#"hash_481f9ede13340c00", 1);
+		self stats::function_dad108fa(#"destroy_scorestreaks_equipment_engineer", 1);
 	}
 	if(isdefined(weapon.attachments) && weapon.attachments.size > 0)
 	{
@@ -1621,7 +1621,7 @@ function function_24db0c33(weapon, destroyedobject)
 	self stats::function_eec52333(weapon, #"destroyed", 1, self.class_num, weaponpickedup);
 	if(self function_6c32d092(#"talent_engineer"))
 	{
-		self stats::function_dad108fa(#"hash_481f9ede13340c00", 1);
+		self stats::function_dad108fa(#"destroy_scorestreaks_equipment_engineer", 1);
 	}
 	if(isdefined(weaponclass) && weaponclass == #"weapon_launcher")
 	{
@@ -2477,11 +2477,11 @@ function destroyedaircraft(attacker, weapon, playercontrolled, lethal = 1)
 	attacker destroyscorestreak(weapon, playercontrolled, 0);
 	if(isdefined(lethal) && lethal)
 	{
-		attacker stats::function_dad108fa(#"hash_64a7bfaede8d4d33", 1);
+		attacker stats::function_dad108fa(#"destroy_lethal_aircraft", 1);
 	}
 	else
 	{
-		attacker stats::function_dad108fa(#"hash_458cf5a47e818c7e", 1);
+		attacker stats::function_dad108fa(#"destroy_nonlethal_aircraft", 1);
 	}
 	if(isdefined(weapon))
 	{
@@ -2881,14 +2881,14 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 			data.var_cc8f0762 = attacker.var_9cd2c51d.var_6e219f3c;
 		}
 		data.var_a99236f2 = victim.var_ead9cdbf;
-		if(isdefined(attacker.var_f208fb92))
+		if(isdefined(attacker.sensor_darts))
 		{
-			arrayremovevalue(attacker.var_f208fb92, undefined);
+			arrayremovevalue(attacker.sensor_darts, undefined);
 		}
-		if(isdefined(attacker.var_f208fb92) && attacker.var_f208fb92.size > 0)
+		if(isdefined(attacker.sensor_darts) && attacker.sensor_darts.size > 0)
 		{
 			data.var_cf13980c = [];
-			foreach(var_d81cee52 in attacker.var_f208fb92)
+			foreach(sensor_dart in attacker.sensor_darts)
 			{
 				if(!isdefined(data.var_cf13980c))
 				{
@@ -2898,7 +2898,7 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 				{
 					data.var_cf13980c = array(data.var_cf13980c);
 				}
-				data.var_cf13980c[data.var_cf13980c.size] = var_d81cee52;
+				data.var_cf13980c[data.var_cf13980c.size] = sensor_dart;
 			}
 		}
 		else if(isdefined(attacker.team))
@@ -2910,14 +2910,14 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 				{
 					continue;
 				}
-				if(isdefined(attacking_player.var_f208fb92))
+				if(isdefined(attacking_player.sensor_darts))
 				{
-					arrayremovevalue(attacking_player.var_f208fb92, undefined);
-					if(attacking_player.var_f208fb92.size > 0)
+					arrayremovevalue(attacking_player.sensor_darts, undefined);
+					if(attacking_player.sensor_darts.size > 0)
 					{
 						data.var_78056843 = attacking_player;
 						data.var_4f6eb670 = [];
-						foreach(var_d81cee52 in attacking_player.var_f208fb92)
+						foreach(sensor_dart in attacking_player.sensor_darts)
 						{
 							if(!isdefined(data.var_4f6eb670))
 							{
@@ -2927,7 +2927,7 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 							{
 								data.var_4f6eb670 = array(data.var_4f6eb670);
 							}
-							data.var_4f6eb670[data.var_4f6eb670.size] = var_d81cee52;
+							data.var_4f6eb670[data.var_4f6eb670.size] = sensor_dart;
 						}
 						break;
 					}

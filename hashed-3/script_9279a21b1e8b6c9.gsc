@@ -874,12 +874,12 @@ function function_5425f45d()
 			x_pos = center[0] + (radius * cos(angle));
 			y_pos = center[1] + (radius * sin(angle));
 			height = 20000 - height_diff;
-			var_636e904a = math::clamp(height, 12000, 20000);
+			z_pos = math::clamp(height, 12000, 20000);
 			if(level.var_52b56362 == var_d89a84b0)
 			{
 				height = 12000;
 			}
-			portal.origin = (x_pos, y_pos, var_636e904a);
+			portal.origin = (x_pos, y_pos, z_pos);
 			var_10fdb78b = level.var_52b56362 + 1;
 			var_b0221a68 = math::clamp(var_10fdb78b, 0, var_d89a84b0);
 			var_7aec140c = level.var_fb91af8[var_b0221a68];

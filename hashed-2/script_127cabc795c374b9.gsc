@@ -50,7 +50,7 @@ function __init__()
 		}
 		level.var_afdd2ed7 = 0;
 		callback::on_ai_killed(&on_ai_killed);
-		callback::function_10a4dd0a(&function_dd00c744);
+		callback::on_item_pickup(&on_player_item_pickup);
 	}
 	/#
 		function_4ed420e3();
@@ -95,7 +95,7 @@ function on_ai_killed(params)
 }
 
 /*
-	Name: function_dd00c744
+	Name: on_player_item_pickup
 	Namespace: namespace_87f097c4
 	Checksum: 0x5AF52F1E
 	Offset: 0x4E0
@@ -103,7 +103,7 @@ function on_ai_killed(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_dd00c744(params)
+function on_player_item_pickup(params)
 {
 	if(!isdefined(params.item))
 	{
@@ -121,7 +121,7 @@ function function_dd00c744(params)
 				var_430db2b8 playsound(#"hash_134bc3c2ce6ed759");
 				level thread function_ca44f5a5(var_430db2b8, var_4805bfaa, 1);
 				level clientfield::increment("zombie_arm_blood_splash", 1);
-				callback::remove_callback(#"hash_56d1805bfff3e65b", &function_dd00c744);
+				callback::remove_callback(#"on_item_pickup", &on_player_item_pickup);
 			}
 		}
 	}
@@ -244,7 +244,7 @@ function function_4ed420e3()
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		level thread function_7eabf705();
 	#/

@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1d1a97b78f64bfd;
-#using script_3728b3b9606c4299;
+#using scripts\killstreaks\remote_weapons.gsc;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
-#using script_57c900a7e39234be;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_8988fdbc78d6c53;
+#using scripts\killstreaks\airsupport.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hostmigration_shared.gsc;
@@ -616,7 +616,7 @@ function play_lockon_sounds(player)
 	self.locksounds linkto(self, "tag_player");
 	while(true)
 	{
-		self waittill(#"hash_594587fd1093c3b3");
+		self waittill(#"locking on");
 		while(true)
 		{
 			if(enemy_locking())

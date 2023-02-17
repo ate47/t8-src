@@ -1,15 +1,15 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b65a63cea0fa4b5;
+#using scripts\zm_common\bgbs\zm_bgb_nowhere_but_there.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_421e0a3702e22de;
 #using script_4333a03353e1e13a;
 #using script_52c6c2d1a2ef1b46;
 #using script_58c342edd81589fb;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -69,32 +69,32 @@ function main()
 	level flag::init("facility_flinger_fixed");
 	level flag::init(#"hash_1e0f5a674141f03");
 	level flag::init(#"edge_of_the_world_complete");
-	namespace_ee206246::register(#"hash_12114abc7407913b", #"step_1", #"hash_5986bb2ab1879d84", &function_30ed45c9, &function_960f84d7);
-	namespace_ee206246::register(#"hash_5e38e846ce88405b", #"step_1", #"hash_2572fbc6efde23a8", &function_48a634b7, &function_ee63b8a7);
-	namespace_ee206246::register(#"hash_729a1e4eb041be9b", #"step_1", #"hash_1f2d771acb13cdad", &function_7635afee, &function_ad3e72f);
-	namespace_ee206246::register(#"edge_of_the_world", #"step_1", #"hash_32fca8166d23c911", &function_6c61118a, &function_2980b28b);
-	namespace_ee206246::register(#"edge_of_the_world", #"step_2", #"hash_32fca8166d23c911", &function_8bc27fd3, &security_balcony_time_);
+	zm_sq::register(#"hash_12114abc7407913b", #"step_1", #"hash_5986bb2ab1879d84", &function_30ed45c9, &function_960f84d7);
+	zm_sq::register(#"hash_5e38e846ce88405b", #"step_1", #"hash_2572fbc6efde23a8", &function_48a634b7, &function_ee63b8a7);
+	zm_sq::register(#"hash_729a1e4eb041be9b", #"step_1", #"hash_1f2d771acb13cdad", &function_7635afee, &function_ad3e72f);
+	zm_sq::register(#"edge_of_the_world", #"step_1", #"hash_32fca8166d23c911", &function_6c61118a, &function_2980b28b);
+	zm_sq::register(#"edge_of_the_world", #"step_2", #"hash_32fca8166d23c911", &function_8bc27fd3, &security_balcony_time_);
 	level.var_4ac8ef63 = getent("edge_flinger_spot", "targetname");
 	level flag::init(#"hash_72bd35eacb1940de");
 	level flag::init(#"hash_59d5ba61f4b8f405");
-	namespace_ee206246::register(#"hash_66685502a7dee586", #"step_1", #"hash_66685502a7dee586", &function_a589e722, &function_239ae2e1);
-	namespace_ee206246::register(#"hash_3e4c279707a5abe5", #"step_1", #"hash_3e4c279707a5abe5", &function_594f2c26, &function_5c6d5a0e);
-	namespace_ee206246::start(#"hash_66685502a7dee586", !zm_utility::is_standard());
-	namespace_ee206246::start(#"hash_3e4c279707a5abe5", !zm_utility::is_standard());
+	zm_sq::register(#"hash_66685502a7dee586", #"step_1", #"hash_66685502a7dee586", &function_a589e722, &function_239ae2e1);
+	zm_sq::register(#"hash_3e4c279707a5abe5", #"step_1", #"hash_3e4c279707a5abe5", &function_594f2c26, &function_5c6d5a0e);
+	zm_sq::start(#"hash_66685502a7dee586", !zm_utility::is_standard());
+	zm_sq::start(#"hash_3e4c279707a5abe5", !zm_utility::is_standard());
 	level flag::init(#"hash_431a5026505d71aa");
 	function_779045();
 	if(zm_utility::function_e51dc2d8())
 	{
-		namespace_ee206246::start(#"edge_of_the_world");
+		zm_sq::start(#"edge_of_the_world");
 		callback::on_spawned(&edge_watcher);
 		level.var_5cfc800b = &function_fdc3c7c4;
 	}
 	level flag::wait_till(#"all_players_spawned");
 	if(zm_utility::function_e51dc2d8())
 	{
-		namespace_ee206246::start(#"hash_12114abc7407913b");
-		namespace_ee206246::start(#"hash_5e38e846ce88405b");
-		namespace_ee206246::start(#"hash_729a1e4eb041be9b");
+		zm_sq::start(#"hash_12114abc7407913b");
+		zm_sq::start(#"hash_5e38e846ce88405b");
+		zm_sq::start(#"hash_729a1e4eb041be9b");
 		level thread function_716974ba();
 		level thread sq_glasses();
 		level thread function_7836d215();
@@ -441,7 +441,7 @@ function function_c83f59db()
 */
 function function_5bfaa04()
 {
-	n_time = namespace_a28acff3::get_zombie_spawn_delay(level.round_number + level.var_1c921b2b);
+	n_time = zm_round_logic::get_zombie_spawn_delay(level.round_number + level.var_1c921b2b);
 	wait(n_time);
 }
 
@@ -518,7 +518,7 @@ function function_ea04cfd2()
 			player zm_score::add_to_player_score(500, 1, "bonus_points_powerup_shared");
 			player.var_456e7962 = 1;
 			player playsoundtoplayer(#"zmb_cha_ching", player);
-			player thread namespace_3263198e::function_51b752a9("vox_romero_glasses", -1, 0, 0);
+			player thread zm_orange_util::function_51b752a9("vox_romero_glasses", -1, 0, 0);
 		}
 	}
 }
@@ -659,7 +659,7 @@ function function_a2993671()
 	if(!level flag::get(#"hash_72bd35eacb1940de"))
 	{
 		level flag::set(#"hash_72bd35eacb1940de");
-		player thread namespace_3263198e::function_51b752a9("vox_gear_box_pickup", -1, 0, 1);
+		player thread zm_orange_util::function_51b752a9("vox_gear_box_pickup", -1, 0, 1);
 		namespace_6747c550::function_7df6bb60("flinger_gear_box_1", 1);
 	}
 	else
@@ -685,7 +685,7 @@ function function_1856c416()
 	playsoundatposition(#"hash_30a5ec16dcd18c49", self.origin);
 	flinger = struct::get(self.target, "targetname");
 	flinger namespace_6036de69::function_60325438(1);
-	player thread namespace_3263198e::function_51b752a9("vox_generic_responses_positive", -1, 0, 0);
+	player thread zm_orange_util::function_51b752a9("vox_generic_responses_positive", -1, 0, 0);
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	if(self.var_db053a52 === 1)
 	{
@@ -1301,7 +1301,7 @@ function function_fdc3c7c4()
 	var_fded3d81 = [];
 	foreach(player in level.activeplayers)
 	{
-		if(namespace_770fd0f5::is_valid_target(player) && (!(isdefined(player.var_cdce7ec) && player.var_cdce7ec)))
+		if(zm_bgb_nowhere_but_there::is_valid_target(player) && (!(isdefined(player.var_cdce7ec) && player.var_cdce7ec)))
 		{
 			if(!isdefined(var_fded3d81))
 			{
@@ -1333,7 +1333,7 @@ function function_fdc3c7c4()
 	}
 	foreach(player in var_fded3d81)
 	{
-		s_player_respawn = self namespace_770fd0f5::get_best_spawnpoint(player);
+		s_player_respawn = self zm_bgb_nowhere_but_there::get_best_spawnpoint(player);
 		if(isdefined(s_player_respawn))
 		{
 			return s_player_respawn;

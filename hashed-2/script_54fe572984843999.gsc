@@ -80,12 +80,12 @@ function function_79c97f32()
 	Parameters: 2
 	Flags: Linked
 */
-function pickup_record(var_2e1f34dd, e_player)
+function pickup_record(e_item, e_player)
 {
 	/#
 		iprintln("" + level.var_ca3d4dcd.var_c9f26594.n_collected);
 	#/
-	var_2e1f34dd playsound(#"hash_760800881cd94dd1");
+	e_item playsound(#"hash_760800881cd94dd1");
 	level.var_ca3d4dcd.var_c9f26594.n_collected++;
 }
 
@@ -179,12 +179,12 @@ function function_d6fec498()
 	Parameters: 2
 	Flags: Linked
 */
-function function_4a7ac7a6(var_2e1f34dd, e_player)
+function function_4a7ac7a6(e_item, e_player)
 {
 	/#
 		iprintln("" + level.var_ca3d4dcd.s_reels.n_collected);
 	#/
-	var_2e1f34dd playsound(#"hash_760800881cd94dd1");
+	e_item playsound(#"hash_760800881cd94dd1");
 	level.var_ca3d4dcd.s_reels.n_collected++;
 }
 

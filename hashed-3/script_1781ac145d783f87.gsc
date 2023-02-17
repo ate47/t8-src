@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_266240d702093827;
+#using scripts\zm\zm_towers_shield.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -406,8 +406,8 @@ function function_4b01369a()
 	{
 		var_be17187b = undefined;
 		var_be17187b = level waittill(#"trap_activated");
-		var_9bda8088 = var_be17187b.trap;
-		var_d7a9a6d6 = var_9bda8088.var_a1aa5fa1;
+		t_trap = var_be17187b.trap;
+		var_d7a9a6d6 = t_trap.var_a1aa5fa1;
 		if(isdefined(var_d7a9a6d6))
 		{
 			array::thread_all(level.players, &function_294c9ea7, var_d7a9a6d6);

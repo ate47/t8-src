@@ -36,7 +36,7 @@ function main()
 	level.var_1c921b2b = 0;
 	if(zm_utility::is_classic())
 	{
-		if(namespace_59ff1d6c::function_901b751c(#"hash_5f8aca8340761fce") != 0)
+		if(zm_custom::function_901b751c(#"hash_5f8aca8340761fce") != 0)
 		{
 			namespace_c402654::function_aec3446d(0);
 			level.var_2f14be05 = 15;
@@ -65,7 +65,7 @@ function main()
 function function_2eb8970d()
 {
 	level waittill(#"power_on2");
-	if(namespace_59ff1d6c::function_901b751c(#"zmenhancedstate") != 0)
+	if(zm_custom::function_901b751c(#"zmenhancedstate") != 0)
 	{
 		namespace_c3287616::function_376e51ef(#"zombie_electric", level.round_number);
 	}
@@ -132,7 +132,7 @@ function function_27695a82()
 	ai = zombie_utility::spawn_zombie(spawner, spawner.targetname, spawn_point, level.round_number + level.var_1c921b2b);
 	if(isdefined(ai))
 	{
-		ai thread namespace_3263198e::function_865209df(#"electric_zombie", #"hash_73e5e9787832fc70");
+		ai thread zm_orange_util::function_865209df(#"electric_zombie", #"hash_73e5e9787832fc70");
 	}
 	return ai;
 }

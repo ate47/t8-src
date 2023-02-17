@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_5b1c3d314b9c88fb;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -60,9 +60,9 @@ function function_eaeb557()
 	{
 		function_e2a06860(zombie_apoc_homunculus, 3);
 	}
-	foreach(var_4f3558ce in var_c3ff57f0)
+	foreach(e_homunculus in var_c3ff57f0)
 	{
-		function_e2a06860(var_4f3558ce, 3);
+		function_e2a06860(e_homunculus, 3);
 	}
 	item_world::function_4de3ca98();
 	if(isdefined(zombie_apoc_homunculus))
@@ -77,15 +77,15 @@ function function_eaeb557()
 		}
 	}
 	n_active = 0;
-	foreach(var_4f3558ce in var_c3ff57f0)
+	foreach(e_homunculus in var_c3ff57f0)
 	{
-		if(b_enable && n_active < 5 && (!(isdefined(var_4f3558ce.b_disabled) && var_4f3558ce.b_disabled)))
+		if(b_enable && n_active < 5 && (!(isdefined(e_homunculus.b_disabled) && e_homunculus.b_disabled)))
 		{
-			function_e2a06860(var_4f3558ce, 1);
+			function_e2a06860(e_homunculus, 1);
 			n_active++;
-			if(isdefined(var_4f3558ce.target))
+			if(isdefined(e_homunculus.target))
 			{
-				var_d4265274 = function_c79d31c4(var_4f3558ce.target);
+				var_d4265274 = function_c79d31c4(e_homunculus.target);
 				foreach(var_2ba94f3f in var_d4265274)
 				{
 					if(var_2ba94f3f !== self)
@@ -96,7 +96,7 @@ function function_eaeb557()
 			}
 			continue;
 		}
-		function_e2a06860(var_4f3558ce, 3);
+		function_e2a06860(e_homunculus, 3);
 	}
 }
 

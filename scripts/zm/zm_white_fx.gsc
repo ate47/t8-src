@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#namespace namespace_3ce11c08;
+#namespace zm_white_fx;
 
 /*
 	Name: init
-	Namespace: namespace_3ce11c08
+	Namespace: zm_white_fx
 	Checksum: 0x62C988D1
 	Offset: 0x68
 	Size: 0x1B2

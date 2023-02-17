@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_256b8879317373de;
 #using script_3f9e0dc8454d98e1;
 #using scripts\core_common\aat_shared.gsc;
@@ -89,7 +89,7 @@ function function_9af806be(var_c5b25bc5)
 	{
 		case 1:
 		{
-			self player::function_2a67df65(#"hash_5caf5318fed765da", -50);
+			self player::function_2a67df65(#"fl1", -50);
 			self zm_utility::function_e0448fec();
 			break;
 		}
@@ -100,7 +100,7 @@ function function_9af806be(var_c5b25bc5)
 		}
 		case 3:
 		{
-			self player::function_2a67df65(#"hash_4a896918f453f7d6", 50);
+			self player::function_2a67df65(#"db1", 50);
 			self zm_utility::function_e0448fec();
 			break;
 		}
@@ -147,7 +147,7 @@ function function_2a94cd59()
 		{
 			case 1:
 			{
-				self player::function_b933de24(#"hash_5caf5318fed765da");
+				self player::function_b933de24(#"fl1");
 				break;
 			}
 			case 2:
@@ -157,7 +157,7 @@ function function_2a94cd59()
 			}
 			case 3:
 			{
-				self player::function_b933de24(#"hash_4a896918f453f7d6");
+				self player::function_b933de24(#"db1");
 				break;
 			}
 			case 4:
@@ -376,9 +376,9 @@ function devgui()
 		adddebugcommand("");
 		adddebugcommand("");
 		level.var_8e9d88b6 = [];
-		level.var_8e9d88b6[#"hash_5caf5318fed765da"] = 1;
-		level.var_8e9d88b6[#"hash_56fd011944685352"] = 2;
-		level.var_8e9d88b6[#"hash_4a896918f453f7d6"] = 3;
+		level.var_8e9d88b6[#"fl1"] = 1;
+		level.var_8e9d88b6[#"tn1"] = 2;
+		level.var_8e9d88b6[#"db1"] = 3;
 		level.var_8e9d88b6[#"hash_356b191335bab8"] = 4;
 		level.var_8e9d88b6[#"hash_34ad5ed8d296ff88"] = 5;
 		level.var_8e9d88b6[#"hash_ffc38cdd7774e8b"] = 6;
@@ -391,9 +391,9 @@ function devgui()
 				case "hash_356b191335bab8":
 				case "hash_ffc38cdd7774e8b":
 				case "hash_34ad5ed8d296ff88":
-				case "hash_4a896918f453f7d6":
-				case "hash_56fd011944685352":
-				case "hash_5caf5318fed765da":
+				case "db1":
+				case "tn1":
+				case "fl1":
 				{
 					foreach(e_player in getplayers())
 					{

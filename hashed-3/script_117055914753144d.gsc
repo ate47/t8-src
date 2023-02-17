@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\lui_shared.csc;
 
-class class_8305f378 : class_6aaccc24
+class class_8305f378 : cLUIelem
 {
 
 	/*
@@ -31,7 +31,7 @@ class class_8305f378 : class_6aaccc24
 	}
 
 	/*
-		Name: function_3de638a
+		Name: set_medalThresholds
 		Namespace: namespace_8305f378
 		Checksum: 0xCF225402
 		Offset: 0x938
@@ -39,13 +39,13 @@ class class_8305f378 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_3de638a(localclientnum, value)
+	function set_medalThresholds(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "medalThresholds", value);
+		[[ self ]]->set_data(localclientnum, "medalThresholds", value);
 	}
 
 	/*
-		Name: function_1ca82588
+		Name: set_missionResultMsg
 		Namespace: namespace_8305f378
 		Checksum: 0x1EA2A59B
 		Offset: 0x900
@@ -53,13 +53,13 @@ class class_8305f378 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_1ca82588(localclientnum, value)
+	function set_missionResultMsg(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "missionResultMsg", value);
+		[[ self ]]->set_data(localclientnum, "missionResultMsg", value);
 	}
 
 	/*
-		Name: function_f8ec6ad7
+		Name: set_bestTimeMilliseconds
 		Namespace: namespace_8305f378
 		Checksum: 0x2315508B
 		Offset: 0x8C8
@@ -67,13 +67,13 @@ class class_8305f378 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_f8ec6ad7(localclientnum, value)
+	function set_bestTimeMilliseconds(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bestTimeMilliseconds", value);
+		[[ self ]]->set_data(localclientnum, "bestTimeMilliseconds", value);
 	}
 
 	/*
-		Name: function_4d4ee577
+		Name: set_timeMilliseconds
 		Namespace: namespace_8305f378
 		Checksum: 0xD5A20EE6
 		Offset: 0x890
@@ -81,9 +81,9 @@ class class_8305f378 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_4d4ee577(localclientnum, value)
+	function set_timeMilliseconds(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeMilliseconds", value);
+		[[ self ]]->set_data(localclientnum, "timeMilliseconds", value);
 	}
 
 	/*
@@ -99,73 +99,73 @@ class class_8305f378 : class_6aaccc24
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"hash_9eb93e70b62ebd" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"hash_e4c570778eda419" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
 					if(#"fail" == state_name)
 					{
-						[[ self ]]->function_d7d2fcce(localclientnum, "_state", 3);
+						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
 						if(#"hash_718c7e5495bf7124" == state_name)
 						{
-							[[ self ]]->function_d7d2fcce(localclientnum, "_state", 4);
+							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
 						else
 						{
 							if(#"hash_548784ff7a210cc0" == state_name)
 							{
-								[[ self ]]->function_d7d2fcce(localclientnum, "_state", 5);
+								[[ self ]]->set_data(localclientnum, "_state", 5);
 							}
 							else
 							{
 								if(#"hash_3d4fff458e63e427" == state_name)
 								{
-									[[ self ]]->function_d7d2fcce(localclientnum, "_state", 6);
+									[[ self ]]->set_data(localclientnum, "_state", 6);
 								}
 								else
 								{
 									if(#"hash_44e0b76bd50b192e" == state_name)
 									{
-										[[ self ]]->function_d7d2fcce(localclientnum, "_state", 7);
+										[[ self ]]->set_data(localclientnum, "_state", 7);
 									}
 									else
 									{
 										if(#"hash_18174a43e0ca3b90" == state_name)
 										{
-											[[ self ]]->function_d7d2fcce(localclientnum, "_state", 8);
+											[[ self ]]->set_data(localclientnum, "_state", 8);
 										}
 										else
 										{
 											if(#"hash_3327faf4ae535f2b" == state_name)
 											{
-												[[ self ]]->function_d7d2fcce(localclientnum, "_state", 9);
+												[[ self ]]->set_data(localclientnum, "_state", 9);
 											}
 											else
 											{
 												if(#"hash_32ceb5e1ecc00d78" == state_name)
 												{
-													[[ self ]]->function_d7d2fcce(localclientnum, "_state", 10);
+													[[ self ]]->set_data(localclientnum, "_state", 10);
 												}
 												else
 												{
 													if(#"hash_71b423d13c228d59" == state_name)
 													{
-														[[ self ]]->function_d7d2fcce(localclientnum, "_state", 11);
+														[[ self ]]->set_data(localclientnum, "_state", 11);
 													}
 													else
 													{
@@ -199,7 +199,7 @@ class class_8305f378 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum, #"hash_68dbe5296e5fce65");
+		cLUIelem::open(localclientnum, #"hash_68dbe5296e5fce65");
 	}
 
 	/*
@@ -213,12 +213,12 @@ class class_8305f378 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeMilliseconds", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "bestTimeMilliseconds", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "missionResultMsg", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "medalThresholds", #"");
+		[[ self ]]->set_data(localclientnum, "timeMilliseconds", 0);
+		[[ self ]]->set_data(localclientnum, "bestTimeMilliseconds", 0);
+		[[ self ]]->set_data(localclientnum, "missionResultMsg", #"");
+		[[ self ]]->set_data(localclientnum, "medalThresholds", #"");
 	}
 
 	/*
@@ -232,7 +232,7 @@ class class_8305f378 : class_6aaccc24
 	*/
 	function function_5c1bb138(uid)
 	{
-		namespace_6aaccc24::function_5c1bb138(uid);
+		cLUIelem::function_5c1bb138(uid);
 	}
 
 	/*
@@ -246,12 +246,12 @@ class class_8305f378 : class_6aaccc24
 	*/
 	function setup_clientfields(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 	{
-		namespace_6aaccc24::setup_clientfields(uid);
-		namespace_6aaccc24::function_da693cbe("_state", 1, 4, "int");
-		namespace_6aaccc24::function_da693cbe("timeMilliseconds", 1, 14, "int", var_fa61efce);
-		namespace_6aaccc24::function_da693cbe("bestTimeMilliseconds", 1, 14, "int", var_a2ce4dd8);
-		namespace_6aaccc24::function_dcb34c80("string", "missionResultMsg", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "medalThresholds", 1);
+		cLUIelem::setup_clientfields(uid);
+		cLUIelem::function_da693cbe("_state", 1, 4, "int");
+		cLUIelem::function_da693cbe("timeMilliseconds", 1, 14, "int", var_fa61efce);
+		cLUIelem::function_da693cbe("bestTimeMilliseconds", 1, 14, "int", var_a2ce4dd8);
+		cLUIelem::function_dcb34c80("string", "missionResultMsg", 1);
+		cLUIelem::function_dcb34c80("string", "medalThresholds", 1);
 	}
 
 }
@@ -347,7 +347,7 @@ function set_state(localclientnum, state_name)
 }
 
 /*
-	Name: function_4d4ee577
+	Name: set_timeMilliseconds
 	Namespace: namespace_5cb8426f
 	Checksum: 0xF036B1C2
 	Offset: 0x270
@@ -355,13 +355,13 @@ function set_state(localclientnum, state_name)
 	Parameters: 2
 	Flags: None
 */
-function function_4d4ee577(localclientnum, value)
+function set_timeMilliseconds(localclientnum, value)
 {
-	[[ self ]]->function_4d4ee577(localclientnum, value);
+	[[ self ]]->set_timeMilliseconds(localclientnum, value);
 }
 
 /*
-	Name: function_f8ec6ad7
+	Name: set_bestTimeMilliseconds
 	Namespace: namespace_5cb8426f
 	Checksum: 0x75089D9
 	Offset: 0x2A0
@@ -369,13 +369,13 @@ function function_4d4ee577(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_f8ec6ad7(localclientnum, value)
+function set_bestTimeMilliseconds(localclientnum, value)
 {
-	[[ self ]]->function_f8ec6ad7(localclientnum, value);
+	[[ self ]]->set_bestTimeMilliseconds(localclientnum, value);
 }
 
 /*
-	Name: function_1ca82588
+	Name: set_missionResultMsg
 	Namespace: namespace_5cb8426f
 	Checksum: 0x4B732412
 	Offset: 0x2D0
@@ -383,13 +383,13 @@ function function_f8ec6ad7(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_1ca82588(localclientnum, value)
+function set_missionResultMsg(localclientnum, value)
 {
-	[[ self ]]->function_1ca82588(localclientnum, value);
+	[[ self ]]->set_missionResultMsg(localclientnum, value);
 }
 
 /*
-	Name: function_3de638a
+	Name: set_medalThresholds
 	Namespace: namespace_5cb8426f
 	Checksum: 0xCBDEC09
 	Offset: 0x300
@@ -397,8 +397,8 @@ function function_1ca82588(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_3de638a(localclientnum, value)
+function set_medalThresholds(localclientnum, value)
 {
-	[[ self ]]->function_3de638a(localclientnum, value);
+	[[ self ]]->set_medalThresholds(localclientnum, value);
 }
 

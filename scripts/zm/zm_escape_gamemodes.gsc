@@ -2,11 +2,11 @@
 #using script_2979d67aff5a4c4a;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_ca530363;
+#namespace zm_escape_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_ca530363
+	Namespace: zm_escape_gamemodes
 	Checksum: 0x34FBC09D
 	Offset: 0x78
 	Size: 0xE2

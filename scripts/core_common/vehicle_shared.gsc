@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -1148,7 +1148,7 @@ function get_on_and_go_path(path_start, distance = 0)
 */
 function go_path()
 {
-	self endon(#"death", #"hash_7c36ba955d05ca78");
+	self endon(#"death", #"stop path");
 	if(self.isphysicsvehicle)
 	{
 		self setbrake(0);
@@ -1207,7 +1207,7 @@ function go_path()
 function path_gate_open(node)
 {
 	node.gateopen = 1;
-	node notify(#"hash_4c7e71f20b5a7db7");
+	node notify(#"gate opened");
 }
 
 /*
@@ -1224,7 +1224,7 @@ function path_gate_wait_till_open(pathspot)
 	self endon(#"death");
 	self.waitingforgate = 1;
 	self set_speed(0, 15, "path gate closed");
-	pathspot waittill(#"hash_4c7e71f20b5a7db7");
+	pathspot waittill(#"gate opened");
 	self.waitingforgate = 0;
 	if(self.health > 0)
 	{
@@ -1723,8 +1723,8 @@ function set_speed(speed, rate, msg)
 function debug_set_speed(speed, rate, msg)
 {
 	/#
-		self notify(#"hash_7df59f670b5723ce");
-		self endon(#"hash_7df59f670b5723ce", #"hash_7542a4bb12b44682", #"death");
+		self notify(#"new debug_vehiclesetspeed");
+		self endon(#"new debug_vehiclesetspeed", #"resuming speed", #"death");
 		while(true)
 		{
 			while(getdvarstring(#"debug_vehiclesetspeed") != "")
@@ -1776,7 +1776,7 @@ function script_resume_speed(msg, rate)
 	{
 		self set_speed(fsetspeed, 15, "resume setspeed from attack");
 	}
-	self notify(#"hash_7542a4bb12b44682");
+	self notify(#"resuming speed");
 	/#
 		self thread debug_resume((msg + "") + type);
 	#/
@@ -4510,10 +4510,10 @@ function monitor_damage_as_occupant(player)
 	Parameters: 2
 	Flags: Linked
 */
-function kill_vehicle(var_dbd1a594, weapon = level.weaponnone)
+function kill_vehicle(attackingplayer, weapon = level.weaponnone)
 {
 	damageorigin = self.origin + (0, 0, 1);
-	self finishvehicleradiusdamage(var_dbd1a594, var_dbd1a594, 32000, 32000, 10, 0, "MOD_EXPLOSIVE", weapon, damageorigin, 400, -1, (0, 0, 1), 0);
+	self finishvehicleradiusdamage(attackingplayer, attackingplayer, 32000, 32000, 10, 0, "MOD_EXPLOSIVE", weapon, damageorigin, 400, -1, (0, 0, 1), 0);
 }
 
 /*
@@ -4525,9 +4525,9 @@ function kill_vehicle(var_dbd1a594, weapon = level.weaponnone)
 	Parameters: 2
 	Flags: None
 */
-function function_eb183ffe(var_dbd1a594, weapon)
+function function_eb183ffe(attackingplayer, weapon)
 {
-	kill_vehicle(var_dbd1a594, weapon);
+	kill_vehicle(attackingplayer, weapon);
 }
 
 /*
@@ -4993,7 +4993,7 @@ function private function_831cd622(e_player)
 {
 	s_info = {};
 	v_movement = e_player getnormalizedmovement();
-	if(self.archetype === #"hash_5cb98c18fee01b3a")
+	if(self.archetype === #"fav")
 	{
 		var_d526c0e4 = self.origin + (anglestoright(self.angles) * 115);
 		var_c1af71a1 = self.origin + (anglestoright(self.angles) * -125);

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_177b4c21886142c7", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_177b4c21886142c7", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_16581a1a
 	Checksum: 0x7EC73B64
 	Offset: 0x150
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(var_e84d35d1, var_16e6b8ea)
+function private on_begin(var_e84d35d1, var_16e6b8ea)
 {
 	var_e9433d0 = struct::get_array(var_e84d35d1);
 	/#
@@ -71,7 +71,7 @@ function private function_d1de6a85(var_e84d35d1, var_16e6b8ea)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_16581a1a
 	Checksum: 0x1F994C8D
 	Offset: 0x340
@@ -79,7 +79,7 @@ function private function_d1de6a85(var_e84d35d1, var_16e6b8ea)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 }
 

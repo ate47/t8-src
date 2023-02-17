@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f27a7b2232674db;
-#using script_64ab2b950d85b8ad;
+#using scripts\mp_common\item_inventory.gsc;
 #using script_673e73d0695d82b8;
 #using script_6b993fdc7adc35ec;
 #using script_6de2f7255a97ab00;
@@ -47,7 +47,7 @@ function __init__()
 	clientfield::register("allplayers", "ishighvaluetarget", 16000, 1, "int");
 	callback::add_callback(#"hash_405e46788e83af41", &function_77a44aec);
 	callback::add_callback(#"hash_7912e21750e4010d", &function_77a44aec);
-	callback::add_callback(#"hash_65626f47d6c0717c", &function_9141be4e);
+	callback::add_callback(#"on_player_downed", &function_9141be4e);
 	callback::on_player_killed_with_params(&function_3f8e4156);
 	callback::on_disconnect(&on_player_disconnect);
 	level.var_45c1873e = [];
@@ -73,7 +73,7 @@ function private function_fbb8f1d1()
 	{
 		return;
 	}
-	if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312"))
+	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
 		return self clientfield::get("hasspectrebody");
 	}
@@ -137,8 +137,8 @@ function private function_77a44aec()
 				{
 					var_d1a98222 = 0;
 				}
-				var_6e9efb43[#"indicator"] spectrerisingindicator::function_3b7b386a(other_player, var_6e9efb43[#"clientnum"]);
-				var_6e9efb43[#"indicator"] spectrerisingindicator::function_7f5a9fed(other_player, var_d1a98222);
+				var_6e9efb43[#"indicator"] spectrerisingindicator::set_clientnum(other_player, var_6e9efb43[#"clientnum"]);
+				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(other_player, var_d1a98222);
 			}
 			arrayinsert(var_1ac2b0cd, player, var_1ac2b0cd.size);
 			arrayremovevalue(topplayers, player);
@@ -244,7 +244,7 @@ function private function_3f8e4156(params)
 		{
 			foreach(player in getplayers())
 			{
-				var_6e9efb43[#"indicator"] spectrerisingindicator::function_7f5a9fed(player, 0);
+				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
 			}
 			var_6e9efb43[#"clientnum"] = -1;
 		}
@@ -290,7 +290,7 @@ function private on_player_disconnect()
 		{
 			foreach(player in getplayers())
 			{
-				var_6e9efb43[#"indicator"] spectrerisingindicator::function_7f5a9fed(player, 0);
+				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
 			}
 			var_6e9efb43[#"clientnum"] = -1;
 		}

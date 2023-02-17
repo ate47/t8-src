@@ -2,11 +2,11 @@
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_a3cd8b9a;
+#namespace archetype_catalyst;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_a3cd8b9a
+	Namespace: archetype_catalyst
 	Checksum: 0x6D6ED29C
 	Offset: 0x88
 	Size: 0x3C
@@ -20,7 +20,7 @@ function autoexec function_89f2df9()
 
 /*
 	Name: precache
-	Namespace: namespace_a3cd8b9a
+	Namespace: archetype_catalyst
 	Checksum: 0x80F724D1
 	Offset: 0xD0
 	Size: 0x4
@@ -33,7 +33,7 @@ function autoexec precache()
 
 /*
 	Name: __init__
-	Namespace: namespace_a3cd8b9a
+	Namespace: archetype_catalyst
 	Checksum: 0xFBA5BBC1
 	Offset: 0xE0
 	Size: 0x34
@@ -47,7 +47,7 @@ function __init__()
 
 /*
 	Name: function_5608540a
-	Namespace: namespace_a3cd8b9a
+	Namespace: archetype_catalyst
 	Checksum: 0x885B959
 	Offset: 0x120
 	Size: 0x3C

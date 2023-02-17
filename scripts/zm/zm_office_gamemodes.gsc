@@ -2,11 +2,11 @@
 #using script_23c4b17fd29f98d9;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_5eaa8b14;
+#namespace zm_office_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_5eaa8b14
+	Namespace: zm_office_gamemodes
 	Checksum: 0x6CB9F54D
 	Offset: 0x78
 	Size: 0xE2

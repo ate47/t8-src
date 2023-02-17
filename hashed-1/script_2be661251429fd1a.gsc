@@ -1,15 +1,15 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1650e0411c055aa7;
-#using script_2255a7ad3edc838f;
+#using scripts\abilities\gadgets\gadget_concertina_wire.gsc;
+#using scripts\core_common\bots\bot.gsc;
 #using script_383a3b1bb18ba876;
-#using script_3f9e54c7a9a7e1e2;
-#using script_47f5b3a23db10e76;
+#using scripts\mp_common\teams\teams.gsc;
+#using scripts\abilities\gadgets\gadget_smart_cover.gsc;
 #using script_4bfa1380a94b068b;
 #using script_6158278c8647d8a9;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_7347471e195b15da;
-#using script_79a7e1c31a3e8cc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\localheal.gsc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
@@ -207,19 +207,19 @@ function function_b7cdffc()
 	bot_action::function_f4302f2a(#"ability_dog", &bot_action::function_1879a202, &bot_action::function_8171a298);
 	bot_action::function_f4302f2a(#"eq_hawk", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"hash_40380537847df901", &bot_action::function_1879a202, &bot_action::function_ec16df22);
-	bot_action::function_f4302f2a(#"hash_4a4ba36128b6582f", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
+	bot_action::function_f4302f2a(#"eq_seeker_mine", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"shock_rifle", &bot_action::function_1879a202, &bot_action::function_ec16df22);
 	bot_action::function_f4302f2a(#"eq_sensor", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"gadget_vision_pulse", &bot_action::function_1879a202, &bot_action::function_a9847723);
-	bot_action::function_f4302f2a(#"hash_3a19c6a9c8caef33", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
-	bot_action::function_f4302f2a(#"hash_4bb2d7f789b561eb", &bot_action::function_1879a202, &bot_action::function_a9847723);
+	bot_action::function_f4302f2a(#"eq_grapple", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
+	bot_action::function_f4302f2a(#"eq_gravityslam", &bot_action::function_1879a202, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"gadget_spawnbeacon", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"hero_annihilator", &bot_action::function_2c39b990, &bot_action::function_ec16df22);
 	bot_action::function_f4302f2a(#"eq_smoke", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"sig_blade", &bot_action::function_1879a202, &bot_action::function_ec16df22);
 	bot_action::function_f4302f2a(#"eq_concertina_wire", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"ability_smart_cover", &bot_action::function_1879a202, &bot_action::function_a9847723);
-	bot_action::function_f4302f2a(#"hash_21b346649d376bf3", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
+	bot_action::function_f4302f2a(#"eq_emp_grenade", &bot_action::registermus_gramophone_electricreactidgunterminate, &bot_action::function_a9847723);
 	bot_action::function_f4302f2a(#"gadget_icepick", &bot_action::function_1879a202, &bot_action::function_ec16df22);
 }
 
@@ -300,14 +300,14 @@ function function_aaede90c()
 	bot_action::function_7e847a84(#"hash_40380537847df901", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"hash_40380537847df901", #"hash_7aaeac32a4e1bf84");
 	bot_action::function_a2c83569(#"hash_40380537847df901", #"hash_434716893aa869f3");
-	bot_action::function_7e847a84(#"hash_4a4ba36128b6582f", #"hash_207275481ec8c22b");
+	bot_action::function_7e847a84(#"eq_seeker_mine", #"hash_207275481ec8c22b");
 	bot_action::function_7e847a84(#"shock_rifle", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"shock_rifle", #"hash_7aaeac32a4e1bf84");
 	bot_action::function_a2c83569(#"shock_rifle", #"hash_434716893aa869f3");
 	bot_action::function_7e847a84(#"eq_sensor", #"hash_4600e058d958fc21");
 	bot_action::function_7e847a84(#"gadget_vision_pulse", #"hash_2ca8b8806f95285b");
-	bot_action::function_7e847a84(#"hash_3a19c6a9c8caef33", #"hash_79f1bffaa4e2fbd8");
-	bot_action::function_7e847a84(#"hash_4bb2d7f789b561eb", #"hash_6b075b8b88b1cef");
+	bot_action::function_7e847a84(#"eq_grapple", #"hash_79f1bffaa4e2fbd8");
+	bot_action::function_7e847a84(#"eq_gravityslam", #"hash_6b075b8b88b1cef");
 	bot_action::function_7e847a84(#"gadget_spawnbeacon", #"hash_43d2b48fb33f50f2");
 	bot_action::function_7e847a84(#"hero_annihilator", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"hero_annihilator", #"hash_7aaeac32a4e1bf84");
@@ -318,7 +318,7 @@ function function_aaede90c()
 	bot_action::function_a2c83569(#"sig_blade", #"hash_434716893aa869f3");
 	bot_action::function_7e847a84(#"eq_concertina_wire", #"hash_17f1a25f8c10e1cd");
 	bot_action::function_7e847a84(#"ability_smart_cover", #"hash_5d6b13cfb592ee04");
-	bot_action::function_7e847a84(#"hash_21b346649d376bf3", #"hash_207275481ec8c22b");
+	bot_action::function_7e847a84(#"eq_emp_grenade", #"hash_207275481ec8c22b");
 	bot_action::function_7e847a84(#"gadget_icepick", #"hash_7d4b6d8a21219335");
 }
 

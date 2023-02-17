@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -173,11 +173,11 @@ function function_59257d57()
 */
 function function_4748fb49()
 {
-	var_ccd08b96 = getaiarchetypearray(#"nova_crawler");
-	var_cc9e7e12 = var_ccd08b96.size;
-	foreach(var_2c217682 in var_ccd08b96)
+	a_ai_crawler = getaiarchetypearray(#"nova_crawler");
+	var_cc9e7e12 = a_ai_crawler.size;
+	foreach(ai_crawler in a_ai_crawler)
 	{
-		if(!isalive(var_2c217682))
+		if(!isalive(ai_crawler))
 		{
 			var_cc9e7e12--;
 		}
@@ -475,7 +475,7 @@ function rise_anim_watcher()
 */
 function function_c44636f2(b_ignore_cleanup = 1)
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4deb3ae7a73c87f3") || (isdefined(level.var_5e45f817) && level.var_5e45f817))
+	if(!zm_custom::function_901b751c(#"hash_4deb3ae7a73c87f3") || (isdefined(level.var_5e45f817) && level.var_5e45f817))
 	{
 		return;
 	}
@@ -545,7 +545,7 @@ function function_de265920(var_d25bbdd5)
 function function_70a8e26c()
 {
 	a_e_players = getplayers();
-	n_max = namespace_a28acff3::get_zombie_count_for_round(level.var_f5419c22, a_e_players.size);
+	n_max = zm_round_logic::get_zombie_count_for_round(level.var_f5419c22, a_e_players.size);
 	return int(n_max * 0.6);
 }
 

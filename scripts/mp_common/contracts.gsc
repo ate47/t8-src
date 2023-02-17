@@ -62,7 +62,7 @@ function finalize_init()
 	if(can_process_contracts())
 	{
 		register_player_contract_event(#"headshot", &on_headshot_kill);
-		register_player_contract_event(#"hash_4b92edc69ea525fc", &function_a0045e6a);
+		register_player_contract_event(#"air_assault_total_kills", &function_a0045e6a);
 		register_player_contract_event(#"hash_10b0c56ae630070d", &function_8af6a5a);
 		challenges::registerchallengescallback("playerKilled", &contract_kills);
 		challenges::registerchallengescallback("gameEnd", &function_a4c8ce2a);
@@ -105,7 +105,7 @@ function on_player_connect()
 */
 function can_process_contracts()
 {
-	if(getdvarint(#"hash_5f85c5979e163766", 0) == 0)
+	if(getdvarint(#"contracts_enabled", 0) == 0)
 	{
 		return 0;
 	}
@@ -510,43 +510,43 @@ function function_c5958b54()
 	switch(level.var_12323003)
 	{
 		case "ball":
-		case "hash_7e279a00003eea98":
+		case "ball_hc":
 		{
 			var_c421e6b = #"hash_34477f0475c38164";
 			break;
 		}
-		case "hash_2f6e1c35e35e3cfe":
+		case "bounty_hc":
 		case "bounty":
 		{
 			var_c421e6b = #"hash_4985d4f734fdbfce";
 			break;
 		}
 		case "clean":
-		case "hash_75d2a641c68a5246":
+		case "clean_hc":
 		{
 			var_c421e6b = #"hash_25c3abc9e09fbf61";
 			break;
 		}
 		case "conf":
-		case "hash_40e7fa1f82c9a9a9":
+		case "conf_hc":
 		{
 			var_c421e6b = #"hash_2156d88add08f25f";
 			break;
 		}
 		case "control":
-		case "hash_1acc245ba0adf546":
+		case "control_hc":
 		{
 			var_c421e6b = #"hash_512615d6a9739dfa";
 			break;
 		}
 		case "ctf":
-		case "hash_7eee54ba2b077140":
+		case "ctf_hc":
 		{
 			var_c421e6b = #"hash_42b7ebc5926b0008";
 			break;
 		}
 		case "dem":
-		case "hash_69f97b66f80cb88b":
+		case "dem_hc":
 		{
 			var_c421e6b = #"hash_36472e9b2de73d63";
 			break;
@@ -557,56 +557,56 @@ function function_c5958b54()
 			var_c421e6b = #"hash_5dbf89f59ac323e3";
 			break;
 		}
-		case "hash_2b1e0466676a9e7d":
+		case "dom_hc":
 		case "dom":
 		{
 			var_c421e6b = #"hash_33860b3e1663bea9";
 			break;
 		}
 		case "escort":
-		case "hash_6999ad920e0c2033":
+		case "escort_hc":
 		{
 			var_c421e6b = #"hash_38fb96360f792879";
 			break;
 		}
-		case "hash_2c9bf6486c8d5123":
+		case "gun_hc":
 		case "gun":
 		{
 			var_c421e6b = #"hash_f916a0b9718fb8";
 			break;
 		}
-		case "hash_36ec512a45b61e1c":
+		case "infect_hc":
 		case "infect":
 		{
 			var_c421e6b = #"hash_53542c30ea90ca02";
 			break;
 		}
 		case "koth":
-		case "hash_4d813729d9a4bebd":
+		case "koth_hc":
 		{
 			var_c421e6b = #"hash_7e50b569c6374446";
 			break;
 		}
 		case "prop":
-		case "hash_5fa2c7e9d9b8185c":
+		case "prop_hc":
 		{
 			var_c421e6b = #"hash_6b23bf478e392be0";
 			break;
 		}
 		case "sas":
-		case "hash_2f2a3faa406faca6":
+		case "sas_hc":
 		{
 			var_c421e6b = #"hash_4bba29532de87a59";
 			break;
 		}
 		case "sd":
-		case "hash_7a9ce625ed68488a":
+		case "sd_hc":
 		{
 			var_c421e6b = #"hash_67b25dee32314d8d";
 			break;
 		}
-		case "hash_26793195d075d72":
-		case "hash_73c82b5838fb050a":
+		case "svz":
+		case "svz_hc":
 		{
 			var_c421e6b = #"hash_1d7bdd403c90dda6";
 			break;
@@ -616,7 +616,7 @@ function function_c5958b54()
 			var_c421e6b = #"hash_598fa84b33596a56";
 			break;
 		}
-		case "hash_2ad10ed6e94a349c":
+		case "tdm_hc":
 		{
 			var_c421e6b = #"hash_d55e7fc2ab89041";
 			break;

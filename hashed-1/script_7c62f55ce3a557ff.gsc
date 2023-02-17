@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2afa753925b20cc0;
+#using scripts\zm\ai\zm_ai_brutus.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_41fe08c37d53a635;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
-#using script_4ee0ccb42a9d88f5;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
+#using scripts\core_common\ai\archetype_brutus.gsc;
 #using script_5660bae5b402a1eb;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -692,7 +692,7 @@ function brutus_death()
 	}
 	s_result = undefined;
 	s_result = self waittill(#"death");
-	if(isdefined(s_result.weapon) && (s_result.weapon == getweapon(#"hash_19c157f2230454ad") || s_result.weapon == getweapon(#"hash_cb1cdb5b47f0226") || s_result.weapon == getweapon(#"hash_23882a5729dceca") || s_result.weapon == getweapon(#"hash_1b5092cccdb3d65b") || s_result.weapon == getweapon(#"hash_25a13b6f6232a985") || s_result.weapon == getweapon(#"hash_4c157b1aeefae09e") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9")) && isplayer(s_result.attacker))
+	if(isdefined(s_result.weapon) && (s_result.weapon == getweapon(#"ww_blundergat_t8") || s_result.weapon == getweapon(#"hash_cb1cdb5b47f0226") || s_result.weapon == getweapon(#"hash_23882a5729dceca") || s_result.weapon == getweapon(#"hash_1b5092cccdb3d65b") || s_result.weapon == getweapon(#"hash_25a13b6f6232a985") || s_result.weapon == getweapon(#"hash_4c157b1aeefae09e") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9")) && isplayer(s_result.attacker))
 	{
 		s_result.attacker notify(#"hash_2e36f5f4d9622bb3", {#weapon:s_result.weapon});
 	}
@@ -722,13 +722,13 @@ function brutus_death()
 			break;
 		}
 	}
-	if(isdefined(level.var_d95bcda9[#"hash_1e5657f6a6f09389"]) && (!(isdefined(var_1982af82) && var_1982af82)))
+	if(isdefined(level.crafting_components[#"hash_1e5657f6a6f09389"]) && (!(isdefined(var_1982af82) && var_1982af82)))
 	{
-		var_1c01fdda = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
-		if(!zm_items::player_has(level.players[0], var_1c01fdda) && (!(isdefined(self.var_eebea220) && self.var_eebea220)) && !level flag::get("round_reset"))
+		w_component = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
+		if(!zm_items::player_has(level.players[0], w_component) && (!(isdefined(self.var_eebea220) && self.var_eebea220)) && !level flag::get("round_reset"))
 		{
 			self.var_db8b3627 = 1;
-			self thread function_4621cb04(var_1c01fdda);
+			self thread function_4621cb04(w_component);
 		}
 	}
 	if(!(isdefined(self.var_db8b3627) && self.var_db8b3627))
@@ -787,16 +787,16 @@ function brutus_death()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4621cb04(var_1c01fdda)
+function function_4621cb04(w_component)
 {
 	var_70f6878b = groundtrace(self.origin + vectorscale((0, 0, 1), 8), self.origin + (vectorscale((0, 0, -1), 100000)), 0, self)[#"position"];
-	mdl_key = util::spawn_model(var_1c01fdda.worldmodel, var_70f6878b + vectorscale((0, 0, 1), 36), self.angles);
+	mdl_key = util::spawn_model(w_component.worldmodel, var_70f6878b + vectorscale((0, 0, 1), 36), self.angles);
 	mdl_key endon(#"death");
-	var_9c95ad05 = zm_items::spawn_item(var_1c01fdda, var_70f6878b + vectorscale((0, 0, 1), 12), self.angles);
-	var_9c95ad05 ghost();
-	mdl_key thread function_f57a7d55(var_9c95ad05);
-	mdl_key thread function_69740610(var_9c95ad05);
-	while(isdefined(var_9c95ad05))
+	w_item = zm_items::spawn_item(w_component, var_70f6878b + vectorscale((0, 0, 1), 12), self.angles);
+	w_item ghost();
+	mdl_key thread function_f57a7d55(w_item);
+	mdl_key thread function_69740610(w_item);
+	while(isdefined(w_item))
 	{
 		wait(0.25);
 	}
@@ -812,11 +812,11 @@ function function_4621cb04(var_1c01fdda)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f57a7d55(var_9c95ad05)
+function function_f57a7d55(w_item)
 {
 	self endon(#"death");
 	self clientfield::set("powerup_fx", 2);
-	while(isdefined(var_9c95ad05))
+	while(isdefined(w_item))
 	{
 		waittime = randomfloatrange(2.5, 5);
 		yaw = math::clamp(randomint(360), 60, 300);
@@ -836,7 +836,7 @@ function function_f57a7d55(var_9c95ad05)
 	Parameters: 1
 	Flags: Linked
 */
-function function_69740610(var_9c95ad05)
+function function_69740610(w_item)
 {
 	self endon(#"death");
 	wait(15);
@@ -864,9 +864,9 @@ function function_69740610(var_9c95ad05)
 	}
 	self clientfield::set("powerup_grabbed_fx", 2);
 	util::wait_network_frame();
-	if(isdefined(var_9c95ad05))
+	if(isdefined(w_item))
 	{
-		var_9c95ad05 delete();
+		w_item delete();
 	}
 }
 
@@ -1220,14 +1220,14 @@ function function_b02aec83()
 	Parameters: 1
 	Flags: Linked
 */
-function function_ba497d2d(var_de86a1af)
+function function_ba497d2d(e_brutus)
 {
 	self endon(#"end_game");
-	var_de86a1af clientfield::set("brutus_spawn_clientfield", 0);
+	e_brutus clientfield::set("brutus_spawn_clientfield", 0);
 	waitframe(1);
-	if(isdefined(var_de86a1af) && isalive(var_de86a1af))
+	if(isdefined(e_brutus) && isalive(e_brutus))
 	{
-		var_1a8c05ae = {#hash_72275733:var_de86a1af.explosive_dmg_taken, #hash_1e1ce722:var_de86a1af.helmet_hits, #hash_37d3fab9:var_de86a1af.has_helmet, #n_health:var_de86a1af.health};
+		var_1a8c05ae = {#hash_72275733:e_brutus.explosive_dmg_taken, #hash_1e1ce722:e_brutus.helmet_hits, #hash_37d3fab9:e_brutus.has_helmet, #n_health:e_brutus.health};
 		if(!isdefined(level.var_f158b05c))
 		{
 			level.var_f158b05c = [];
@@ -1237,9 +1237,9 @@ function function_ba497d2d(var_de86a1af)
 			level.var_f158b05c = array(level.var_f158b05c);
 		}
 		level.var_f158b05c[level.var_f158b05c.size] = var_1a8c05ae;
-		var_de86a1af notify(#"zombie_delete");
-		var_de86a1af notify(#"brutus_cleanup");
-		var_de86a1af delete();
+		e_brutus notify(#"zombie_delete");
+		e_brutus notify(#"brutus_cleanup");
+		e_brutus delete();
 	}
 	var_103768a7 = 0;
 	while(!var_103768a7)

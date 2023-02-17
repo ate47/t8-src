@@ -2,21 +2,21 @@
 #using script_184abbae9afad370;
 #using script_18f0d22c75b141a7;
 #using script_2c49ae69cd8ce30c;
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_35b5ff21c2a0960f;
 #using script_3f27a7b2232674db;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_66052559f4fc2bf9;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_75be2950b381443;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using script_caab14e8a60767c;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -340,8 +340,8 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	weapon_at_time_of_death = self getcurrentweapon();
 	var_8efc9727 = isplayer(attacker) && self util::isenemyplayer(attacker) == 0;
 	var_41c4d474 = isplayer(attacker) && self == attacker;
-	var_f90950bd = (isdefined(attacker) ? attacker : self);
-	var_aedb48f4 = {#hash_10d87328:function_f8d53445(), #shitloc:shitloc, #vdir:vdir, #sweapon:weapon, #smeansofdeath:smeansofdeath, #idamage:idamage, #hash_83634238:(isplayer(var_f90950bd.origin) ? var_f90950bd getplayerangles() : var_f90950bd.angles), #attackerorigin:var_f90950bd.origin, #attacker:attacker, #einflictor:einflictor, #victimweapon:self.currentweapon, #hash_5fceefd4:self getplayerangles(), #victimorigin:self.origin};
+	vattacker = (isdefined(attacker) ? attacker : self);
+	var_aedb48f4 = {#hash_10d87328:function_f8d53445(), #shitloc:shitloc, #vdir:vdir, #sweapon:weapon, #smeansofdeath:smeansofdeath, #idamage:idamage, #hash_83634238:(isplayer(vattacker.origin) ? vattacker getplayerangles() : vattacker.angles), #attackerorigin:vattacker.origin, #attacker:attacker, #einflictor:einflictor, #victimweapon:self.currentweapon, #hash_5fceefd4:self getplayerangles(), #victimorigin:self.origin};
 	laststandparams = self.laststandparams;
 	var_a1d415ee = self.var_a1d415ee;
 	if(isdefined(self.uselaststandparams) && enteredresurrect == 0)
@@ -668,7 +668,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	{
 		if(attacker.pers[#"hash_49e7469988944ecf"] === 1)
 		{
-			if(weapon.statindex == level.var_bb448b5f.statindex)
+			if(weapon.statindex == level.weapon_hero_annihilator.statindex)
 			{
 				scoreevents::processscoreevent(#"hash_39926f44fa76b382", attacker, self, weapon);
 				attacker.pers[#"hash_49e7469988944ecf"] = undefined;
@@ -1414,9 +1414,9 @@ function private function_4e516ee6(attacker, weapon)
 				self.pers[#"best_kill_streak"] = self.pers[#"cur_kill_streak"];
 			}
 			self.pers[#"kill_streak_before_death"] = self.pers[#"cur_kill_streak"];
-			if(isdefined(self.pers[#"hash_33112f192fb3c234"]) && isdefined(self.pers[#"hash_33112f192fb3c234"][#"current"]))
+			if(isdefined(self.pers[#"hvo"]) && isdefined(self.pers[#"hvo"][#"current"]))
 			{
-				self.pers[#"hash_33112f192fb3c234"][#"current"][#"highestkillstreak"] = 0;
+				self.pers[#"hvo"][#"current"][#"highestkillstreak"] = 0;
 			}
 			self.pers[#"cur_kill_streak"] = 0;
 			self.pers[#"cur_total_kill_streak"] = 0;
@@ -2876,7 +2876,7 @@ function function_ed2725ad(einflictor, attacker, weapon)
 	}
 	if(isdefined(attacker.var_b6f732c0) && attacker.pers[#"cur_kill_streak"] > attacker.var_b6f732c0)
 	{
-		attacker stats::function_4db3fba1(#"hash_5ef976b050e0aa48", attacker.pers[#"cur_kill_streak"]);
+		attacker stats::function_4db3fba1(#"longest_killstreak", attacker.pers[#"cur_kill_streak"]);
 		attacker.var_b6f732c0 = attacker.pers[#"cur_kill_streak"];
 	}
 }

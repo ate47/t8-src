@@ -31,7 +31,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_44c6201436ba267e", &__init__, &__main__, #"hash_5ecf1967e7cb0189");
+	system::register(#"hash_44c6201436ba267e", &__init__, &__main__, #"zm_ai_gegenees");
 }
 
 /*
@@ -490,9 +490,9 @@ function function_13080a96()
 	}
 	var_d5bd9bcb = getaiarchetypearray(#"gegenees");
 	var_d6ddc067 = var_d5bd9bcb.size;
-	foreach(var_8756a1bd in var_d5bd9bcb)
+	foreach(ai_gegenees in var_d5bd9bcb)
 	{
-		if(!isalive(var_8756a1bd))
+		if(!isalive(ai_gegenees))
 		{
 			var_d6ddc067--;
 		}
@@ -511,13 +511,13 @@ function function_13080a96()
 */
 function function_2ce6dcd4(spawner, s_spot, var_bc66d64b)
 {
-	var_8756a1bd = zombie_utility::spawn_zombie(level.var_b3d6ef3b[0], "gegenees", s_spot, var_bc66d64b);
-	if(isdefined(var_8756a1bd))
+	ai_gegenees = zombie_utility::spawn_zombie(level.var_b3d6ef3b[0], "gegenees", s_spot, var_bc66d64b);
+	if(isdefined(ai_gegenees))
 	{
-		var_8756a1bd.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
-		var_8756a1bd thread zombie_utility::round_spawn_failsafe();
+		ai_gegenees.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
+		ai_gegenees thread zombie_utility::round_spawn_failsafe();
 	}
-	return var_8756a1bd;
+	return ai_gegenees;
 }
 
 /*

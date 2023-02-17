@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_35d3717bf2cbee8f;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -45,7 +45,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_576586e9331e76d2", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_576586e9331e76d2", &on_begin, &on_end);
 }
 
 /*
@@ -114,7 +114,7 @@ function private function_d805557c(weapon)
 */
 function private is_ballistic_knife(weapon)
 {
-	if(weapon == getweapon(#"special_ballisticknife_t8_dw") || weapon == getweapon(#"hash_3882e337d28ec4df") || weapon == getweapon("special_ballisticknife_t8_dw_dw") || weapon == getweapon("special_ballisticknife_t8_dw_upgraded_dw"))
+	if(weapon == getweapon(#"special_ballisticknife_t8_dw") || weapon == getweapon(#"special_ballisticknife_t8_dw_upgraded") || weapon == getweapon("special_ballisticknife_t8_dw_dw") || weapon == getweapon("special_ballisticknife_t8_dw_upgraded_dw"))
 	{
 		return true;
 	}
@@ -208,12 +208,12 @@ function private function_e14e7b75(weapon)
 		self function_28602a03(weapon, var_9caacad5, var_b3340a9);
 		if(zm_loadout::is_lethal_grenade(weapon))
 		{
-			self namespace_b22c99a5::function_88805385(1);
+			self zm_trial_util::function_88805385(1);
 		}
 	}
 	if(isdefined(weapon.isheroweapon) && weapon.isheroweapon && var_9caacad5 && var_b3340a9)
 	{
-		self namespace_b22c99a5::function_9bf8e274();
+		self zm_trial_util::function_9bf8e274();
 	}
 }
 
@@ -246,9 +246,9 @@ function private function_10c80e10(eventstruct)
 			var_568a2ffc = 1;
 			if(isdefined(level.var_ddff6359))
 			{
-				foreach(var_920c5fbb in level.var_ddff6359)
+				foreach(w_perk in level.var_ddff6359)
 				{
-					if(var_920c5fbb == weapon)
+					if(w_perk == weapon)
 					{
 						var_568a2ffc = 0;
 						break;
@@ -306,7 +306,7 @@ function private function_f66032dd()
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_6b49f66b
 	Checksum: 0x19D020B0
 	Offset: 0xF58
@@ -314,7 +314,7 @@ function private function_f66032dd()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_e097dc07, var_f5300808)
+function private on_begin(var_e097dc07, var_f5300808)
 {
 	if(isdefined(var_f5300808))
 	{
@@ -326,7 +326,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 	{
 		case "equipment":
 		{
-			var_e7beaa5 = array(#"eq_acid_bomb", #"hash_246c869c9de45f07", #"hash_10f614b278daaebc", #"tomahawk_t8", #"tomahawk_t8_upgraded", #"claymore", #"hash_4a5efaceb780ecb0", #"eq_molotov", #"hash_308049a67e5afecf", #"hash_34b7eb9fde56bd35", #"hash_244eb1a096b12734", #"hash_c78156ba6aeda14", #"hash_6cb687e3f8c569fd", #"mini_turret", #"proximity_grenade", #"sticky_grenade", #"hash_187a9aad6da705c6");
+			var_e7beaa5 = array(#"eq_acid_bomb", #"eq_acid_bomb_extra", #"homunculus", #"tomahawk_t8", #"tomahawk_t8_upgraded", #"claymore", #"claymore_extra", #"eq_molotov", #"eq_molotov_extra", #"eq_frag_grenade", #"eq_frag_grenade_extra", #"eq_wraith_fire", #"eq_wraith_fire_extra", #"mini_turret", #"proximity_grenade", #"sticky_grenade", #"sticky_grenade_extra");
 			level zm_trial::function_8e2a923(1);
 			level zm_trial::function_44200d07(1);
 			break;
@@ -346,7 +346,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "leveraction":
 		{
-			var_e7beaa5 = array(#"tr_leveraction_t8", #"hash_7f8028bb8adc966c");
+			var_e7beaa5 = array(#"tr_leveraction_t8", #"tr_leveraction_t8_upgraded");
 			objective_struct = struct::get("tr_leveraction_t8", "zombie_weapon_upgrade");
 			var_fda63ae3 = objective_struct.origin;
 			level zm_trial::function_25ee130(1);
@@ -354,7 +354,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "longburst":
 		{
-			var_e7beaa5 = array(#"tr_longburst_t8", #"hash_4bf5a2219b1a65d2");
+			var_e7beaa5 = array(#"tr_longburst_t8", #"tr_longburst_t8_upgraded");
 			objective_struct = struct::get("tr_longburst_t8", "zombie_weapon_upgrade");
 			var_fda63ae3 = objective_struct.origin;
 			level zm_trial::function_25ee130(1);
@@ -362,7 +362,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "hash_33380540d3ae5004":
 		{
-			var_e7beaa5 = array(#"shotgun_pump_t8", #"hash_459f15018585edda");
+			var_e7beaa5 = array(#"shotgun_pump_t8", #"shotgun_pump_t8_upgraded");
 			level zm_trial::function_25ee130(1);
 			objective_struct = struct::get("shotgun_pump_t8", "zombie_weapon_upgrade");
 			var_fda63ae3 = objective_struct.origin;
@@ -370,7 +370,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "hash_2d7eddbe7c839951":
 		{
-			var_e7beaa5 = array(#"pistol_burst_t8", #"hash_2df0835a53060b95");
+			var_e7beaa5 = array(#"pistol_burst_t8", #"pistol_burst_t8_upgraded");
 			objective_struct = struct::get("pistol_burst_t8", "zombie_weapon_upgrade");
 			var_fda63ae3 = objective_struct.origin;
 			level zm_trial::function_25ee130(1);
@@ -449,7 +449,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "special":
 		{
-			var_e7beaa5 = array(#"hero_chakram_lv1", #"hero_chakram_lv2", #"hero_chakram_lv3", #"hash_68705e3b85992a56", #"hash_68705d3b859928a3", #"hash_68705c3b859926f0", #"hero_hammer_lv1", #"hero_hammer_lv2", #"hero_hammer_lv3", #"hash_50f35e4cfb775e02", #"hash_50f35d4cfb775c4f", #"hash_50f35c4cfb775a9c", #"hero_sword_pistol_lv1", #"hero_sword_pistol_lv2", #"hero_sword_pistol_lv3", #"hash_65e48a2e69e81a5e", #"hash_65e4892e69e818ab", #"hash_65e4882e69e816f8", #"hash_18829d56b3fbd75b", #"hash_18829e56b3fbd90e", #"hash_18829f56b3fbdac1", #"hash_1d3a5509fa2c9ee6", #"hash_1d3a5409fa2c9d33", #"hash_1d3a5309fa2c9b80", #"hash_6627879099b8a337", #"hash_6627889099b8a4ea", #"hash_6627899099b8a69d", #"hash_74dd67dd8a46d144", #"hash_74dd6add8a46d65d", #"hash_74dd69dd8a46d4aa");
+			var_e7beaa5 = array(#"hero_chakram_lv1", #"hero_chakram_lv2", #"hero_chakram_lv3", #"hash_68705e3b85992a56", #"hash_68705d3b859928a3", #"hash_68705c3b859926f0", #"hero_hammer_lv1", #"hero_hammer_lv2", #"hero_hammer_lv3", #"hero_scepter_lv1", #"hero_scepter_lv2", #"hero_scepter_lv3", #"hero_sword_pistol_lv1", #"hero_sword_pistol_lv2", #"hero_sword_pistol_lv3", #"hash_65e48a2e69e81a5e", #"hash_65e4892e69e818ab", #"hash_65e4882e69e816f8", #"hash_18829d56b3fbd75b", #"hash_18829e56b3fbd90e", #"hash_18829f56b3fbdac1", #"hash_1d3a5509fa2c9ee6", #"hash_1d3a5409fa2c9d33", #"hash_1d3a5309fa2c9b80", #"hash_6627879099b8a337", #"hash_6627889099b8a4ea", #"hash_6627899099b8a69d", #"hash_74dd67dd8a46d144", #"hash_74dd6add8a46d65d", #"hash_74dd69dd8a46d4aa");
 			level.var_869ea5a = 1;
 			level zm_trial::function_cdcce681(1);
 			break;
@@ -460,7 +460,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 			level zm_trial::function_25ee130(1);
 			break;
 		}
-		case "hash_423a501528fbd0a2":
+		case "sniper_powersemi":
 		{
 			var_e7beaa5 = array(#"sniper_powersemi_t8");
 			objective_struct = struct::get("sniper_powersemi_t8", "zombie_weapon_upgrade");
@@ -473,7 +473,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "spoon":
 		{
-			var_e7beaa5 = array(#"hash_52b03a79f854eed3", #"hash_32a584f5a65c70d1", #"hash_42a45d43be3dba42", #"hash_42895043be26dc73", #"hash_2182349b1e42e1a4", #"hash_78e66b21aa05c753", #"hash_185abc5c82e9d849", #"hash_158041aab1e14f3a", "tomahawk_t8", "tomahawk_t8_upgraded");
+			var_e7beaa5 = array(#"spoon_alcatraz", #"spork_alcatraz", #"hash_42a45d43be3dba42", #"hash_42895043be26dc73", #"hash_2182349b1e42e1a4", #"hash_78e66b21aa05c753", #"hash_185abc5c82e9d849", #"hash_158041aab1e14f3a", "tomahawk_t8", "tomahawk_t8_upgraded");
 			level zm_trial::function_8e2a923(1);
 			level zm_trial::function_44200d07(1);
 			break;
@@ -499,7 +499,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "hash_2a9cff6031a07658":
 		{
-			var_e7beaa5 = array(#"smg_thompson_t8", #"hash_3273c6574279dea9");
+			var_e7beaa5 = array(#"smg_thompson_t8", #"smg_thompson_t8_upgraded");
 			objective_struct = struct::get("smg_thompson_t8", "zombie_weapon_upgrade");
 			if(isdefined(objective_struct))
 			{
@@ -516,7 +516,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 		case "snowballs":
 		{
-			var_e7beaa5 = array(#"snowball", #"hash_1ecb90ddb44096f4", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d");
+			var_e7beaa5 = array(#"snowball", #"snowball_upgraded", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d");
 			level zm_trial::function_8e2a923(1);
 			level zm_trial::function_44200d07(1);
 			break;
@@ -556,7 +556,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 		}
 	}
 	callback::function_33f0ddd3(&function_33f0ddd3);
-	callback::function_f77ced93(&namespace_b22c99a5::function_79518194);
+	callback::function_f77ced93(&zm_trial_util::function_79518194);
 	zm_traps::function_6966417b();
 	self function_e20ebcfd();
 	if(isdefined(var_fda63ae3))
@@ -592,7 +592,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_6b49f66b
 	Checksum: 0x1DA54F10
 	Offset: 0x26D8
@@ -600,7 +600,7 @@ function private function_d1de6a85(var_e097dc07, var_f5300808)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(isarray(self.a_n_objective_ids))
 	{
@@ -612,7 +612,7 @@ function private function_9e7b3f4d(round_reset)
 	}
 	level.var_869ea5a = undefined;
 	callback::function_824d206(&function_33f0ddd3);
-	callback::function_5a753d97(&namespace_b22c99a5::function_79518194);
+	callback::function_5a753d97(&zm_trial_util::function_79518194);
 	challenge = zm_trial::function_a36e8c38(#"hash_576586e9331e76d2");
 	if(challenge.var_e097dc07 === #"snowballs")
 	{
@@ -629,11 +629,11 @@ function private function_9e7b3f4d(round_reset)
 			}
 			if(zm_loadout::is_lethal_grenade(weapon))
 			{
-				player namespace_b22c99a5::function_88805385(0);
+				player zm_trial_util::function_88805385(0);
 			}
 		}
-		player namespace_b22c99a5::function_73ff0096();
-		player namespace_b22c99a5::function_7dbb1712(1);
+		player zm_trial_util::function_73ff0096();
+		player zm_trial_util::function_7dbb1712(1);
 		if(self.var_e097dc07 == #"hash_6e90934692fe71cd")
 		{
 			player allowmelee(1);
@@ -720,7 +720,7 @@ function function_f0e03d3(var_f5300808)
 		self zm_weapons::weapon_give(var_d6e53d7a);
 	}
 	self thread function_6a8979c9();
-	self namespace_b22c99a5::function_7dbb1712(1);
+	self zm_trial_util::function_7dbb1712(1);
 }
 
 /*
@@ -914,7 +914,7 @@ function function_5fbf572(weapon, var_2f0cc3aa = 0)
 	{
 		if(isplayer(self))
 		{
-			self namespace_b22c99a5::function_97444b02();
+			self zm_trial_util::function_97444b02();
 		}
 		return false;
 	}

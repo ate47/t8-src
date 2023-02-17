@@ -227,7 +227,7 @@ function waittill_dead(guys, num, timeoutlength)
 	array::thread_all(guys, &waittill_dead_thread, ent);
 	while(ent.count > 0)
 	{
-		ent waittill(#"hash_1619fcb8878d16b1");
+		ent waittill(#"waittill_dead guy died");
 	}
 }
 
@@ -282,7 +282,7 @@ function private waittill_dead_thread(ent)
 {
 	self waittill(#"death");
 	ent.count--;
-	ent notify(#"hash_1619fcb8878d16b1");
+	ent notify(#"waittill_dead guy died");
 }
 
 /*
@@ -1276,24 +1276,24 @@ function function_9139c839()
 	{
 		if(isdefined(self.var_ae8ec545))
 		{
-			var_51d5c26f = self.var_ae8ec545;
+			settingsbundle = self.var_ae8ec545;
 		}
 		else
 		{
 			if(isspawner(self) && isdefined(self.aitype))
 			{
-				var_51d5c26f = function_edf479a3(self.aitype);
+				settingsbundle = function_edf479a3(self.aitype);
 			}
 			else if(isvehicle(self) && isdefined(self.scriptbundlesettings))
 			{
-				var_51d5c26f = getscriptbundle(self.scriptbundlesettings).var_ae8ec545;
+				settingsbundle = getscriptbundle(self.scriptbundlesettings).var_ae8ec545;
 			}
 		}
-		if(!isdefined(var_51d5c26f))
+		if(!isdefined(settingsbundle))
 		{
 			return undefined;
 		}
-		self.var_76167463 = var_51d5c26f;
+		self.var_76167463 = settingsbundle;
 		if(!isdefined(level.var_e3a467cf))
 		{
 			level.var_e3a467cf = [];

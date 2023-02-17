@@ -10,11 +10,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_26f64b41;
+#namespace zodt8_achievements;
 
 /*
 	Name: init
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x2AD7089E
 	Offset: 0x188
 	Size: 0x74
@@ -31,7 +31,7 @@ function init()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0xC78AADA2
 	Offset: 0x208
 	Size: 0xAC
@@ -51,7 +51,7 @@ function on_player_connect()
 
 /*
 	Name: on_ai_killed
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x838CF89B
 	Offset: 0x2C0
 	Size: 0x18C
@@ -86,7 +86,7 @@ function on_ai_killed(params)
 
 /*
 	Name: function_55aa3c20
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x49303A05
 	Offset: 0x458
 	Size: 0x7C
@@ -105,7 +105,7 @@ function function_55aa3c20()
 
 /*
 	Name: function_25c39229
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x42E0F8C
 	Offset: 0x4E0
 	Size: 0x11E
@@ -138,7 +138,7 @@ function function_25c39229()
 
 /*
 	Name: function_6e60e5b8
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0xE6AE2DE3
 	Offset: 0x608
 	Size: 0xB8
@@ -163,7 +163,7 @@ function function_6e60e5b8()
 
 /*
 	Name: function_934d3464
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0xE10964F0
 	Offset: 0x6C8
 	Size: 0x134
@@ -198,7 +198,7 @@ function function_934d3464()
 
 /*
 	Name: function_6b34cb92
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0xAE4A0115
 	Offset: 0x808
 	Size: 0xC2
@@ -225,7 +225,7 @@ function function_6b34cb92()
 
 /*
 	Name: function_d814403c
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x5A822FB2
 	Offset: 0x8D8
 	Size: 0x1F4
@@ -279,7 +279,7 @@ function function_d814403c()
 
 /*
 	Name: function_1b454689
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x8BA8D7CF
 	Offset: 0xAD8
 	Size: 0x1CC
@@ -334,7 +334,7 @@ function function_1b454689()
 
 /*
 	Name: function_46c56964
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0xE74186FC
 	Offset: 0xCB0
 	Size: 0xEA
@@ -362,7 +362,7 @@ function function_46c56964()
 
 /*
 	Name: function_e7750e06
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x69B3EC39
 	Offset: 0xDA8
 	Size: 0x194
@@ -408,7 +408,7 @@ function function_e7750e06(params)
 
 /*
 	Name: function_ec3040dd
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x72113C50
 	Offset: 0xF48
 	Size: 0xD6
@@ -438,7 +438,7 @@ function function_ec3040dd()
 
 /*
 	Name: function_79182658
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x60FC3E8E
 	Offset: 0x1028
 	Size: 0xA4
@@ -468,7 +468,7 @@ function function_79182658()
 
 /*
 	Name: function_52f9045f
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x976D3A30
 	Offset: 0x10D8
 	Size: 0x110
@@ -506,7 +506,7 @@ function function_52f9045f()
 
 /*
 	Name: function_4060b2c6
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x2686B2B5
 	Offset: 0x11F0
 	Size: 0x10
@@ -520,7 +520,7 @@ function function_4060b2c6()
 
 /*
 	Name: function_b97662b6
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x8C51D986
 	Offset: 0x1208
 	Size: 0x110
@@ -558,7 +558,7 @@ function function_b97662b6()
 
 /*
 	Name: function_9ac35f47
-	Namespace: namespace_26f64b41
+	Namespace: zodt8_achievements
 	Checksum: 0x773CA6FF
 	Offset: 0x1320
 	Size: 0x10

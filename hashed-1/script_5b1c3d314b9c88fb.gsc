@@ -2,7 +2,7 @@
 #using script_38755604e51a604e;
 #using script_47fb62300ac0bd60;
 #using script_77dd41c80e39f62;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using script_c60e21cd69c9db2;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -110,11 +110,11 @@ function function_b4f41a02()
 		{
 			if(function_e949cfd7(type))
 			{
-				util::function_345e5b9a((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
+				util::add_debug_command((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
 			}
 		}
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		while(true)
 		{
 			wait(0.1);
@@ -1132,7 +1132,7 @@ function function_f311bd4c(var_4dc5382f)
 		{
 			if(!level.inprematchperiod)
 			{
-				waitresult.attacker stats::function_d40764f3(#"hash_5e146097143ab761", 1);
+				waitresult.attacker stats::function_d40764f3(#"kills_zombie", 1);
 			}
 			if(isdefined(self.var_2cee3556))
 			{

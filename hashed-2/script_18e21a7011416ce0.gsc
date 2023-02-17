@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -20,8 +20,8 @@
 function init()
 {
 	clientfield::register("scriptmover", "medallion_fx", 1, 1, "int");
-	namespace_ee206246::register(#"hash_637ceeb3bef1ea35", #"first_location", #"hash_3531cfab5aa57f4b", &function_fe4dc0ff, &function_3f739fed);
-	namespace_ee206246::start(#"hash_637ceeb3bef1ea35");
+	zm_sq::register(#"hash_637ceeb3bef1ea35", #"first_location", #"hash_3531cfab5aa57f4b", &function_fe4dc0ff, &function_3f739fed);
+	zm_sq::start(#"hash_637ceeb3bef1ea35");
 }
 
 /*

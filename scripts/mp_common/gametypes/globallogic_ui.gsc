@@ -2,11 +2,11 @@
 #using script_16cb0a6a492a6a4f;
 #using script_18f0d22c75b141a7;
 #using script_1bd0552c85e48ebe;
-#using script_1f2f7ef27f2aabba;
+#using scripts\mp_common\teams\platoons.gsc;
 #using script_256b8879317373de;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_3f27a7b2232674db;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_788472602edbe3b9;
 #using scripts\core_common\gamestate.gsc;
 #using scripts\core_common\hud_message_shared.gsc;

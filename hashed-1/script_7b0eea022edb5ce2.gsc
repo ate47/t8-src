@@ -3,8 +3,8 @@
 #using script_256b8879317373de;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
-#using script_42ac6fc8b2ff0f3e;
-#using script_4d000493c57bb851;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_5660bae5b402a1eb;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\ai_shared.gsc;

@@ -29,7 +29,7 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	status_effect::function_6f4eaf88(function_4d1e7b48("movement"));
+	status_effect::function_6f4eaf88(getstatuseffect("movement"));
 	status_effect::function_5bae5120(8, &function_f7e9c0bb);
 }
 

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2255a7ad3edc838f;
-#using script_68d2ee1489345a1d;
+#using scripts\core_common\bots\bot.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7edb54aca54e9a2b;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -224,7 +224,7 @@ function function_cb7cee87()
 		level endon(#"game_ended");
 		player_devgui_base = "";
 		setdvar(#"hash_2abeb78ad3292aa1", "");
-		util::function_e2e9d901(player_devgui_base + "", ("" + "") + "");
+		util::add_devgui(player_devgui_base + "", ("" + "") + "");
 		while(getdvarstring(#"hash_2abeb78ad3292aa1", "") == "")
 		{
 			wait(1);
@@ -237,7 +237,7 @@ function function_cb7cee87()
 			var_64345a05 = (player_devgui_base + function_9e72a96(var_1a983da1)) + "";
 			foreach(boast in var_31863ee4)
 			{
-				util::function_e2e9d901(var_64345a05 + function_9e72a96(boast), (("" + "") + "") + function_9e72a96(boast));
+				util::add_devgui(var_64345a05 + function_9e72a96(boast), (("" + "") + "") + function_9e72a96(boast));
 			}
 			waitframe(1);
 		}
@@ -954,7 +954,7 @@ function init_debug_center_screen()
 			}
 			else
 			{
-				level notify(#"hash_63054d2b7dcb7739");
+				level notify(#"stop center screen debug");
 				if(zero_idle_movement == 1)
 				{
 					setdvar(#"zero_idle_movement", 0);
@@ -981,7 +981,7 @@ function debug_center_screen()
 		level.var_7929a046 = 1;
 		wait(0.1);
 		level.var_f9f04b00 debug_center_screen::open(level.players[0], 1);
-		level waittill(#"hash_63054d2b7dcb7739");
+		level waittill(#"stop center screen debug");
 		level.var_f9f04b00 debug_center_screen::close(level.players[0]);
 		level.var_7929a046 = 0;
 	#/
@@ -1077,7 +1077,7 @@ function function_6a24e58f()
 		wait(0.5);
 		path = "";
 		cmd = "";
-		util::function_e2e9d901(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
 		for(minutes = 0; minutes < 10; minutes++)
 		{
 			seconds = 0;
@@ -1097,7 +1097,7 @@ function function_6a24e58f()
 						var_99cfbb07 = "";
 					}
 				}
-				util::function_e2e9d901(((path + minutes) + "") + var_99cfbb07, cmd + totalseconds);
+				util::add_devgui(((path + minutes) + "") + var_99cfbb07, cmd + totalseconds);
 				seconds = seconds + 15;
 			}
 			waitframe(1);
@@ -1120,8 +1120,8 @@ function function_6a24e58f()
 		{
 			var_8acb4d22 = (int(score / 10)) * 10;
 			var_daf8d664 = ((int(score / 10)) * 10) + 10;
-			util::function_e2e9d901(((((((var_a11730e4 + var_8acb4d22) + "") + var_daf8d664) + "") + var_8acb4d22) + "") + score, var_eb72e2d3 + score);
-			util::function_e2e9d901(((((((var_3b0a5dad + var_8acb4d22) + "") + var_daf8d664) + "") + var_8acb4d22) + "") + score, var_5f2cb965 + score);
+			util::add_devgui(((((((var_a11730e4 + var_8acb4d22) + "") + var_daf8d664) + "") + var_8acb4d22) + "") + score, var_eb72e2d3 + score);
+			util::add_devgui(((((((var_3b0a5dad + var_8acb4d22) + "") + var_daf8d664) + "") + var_8acb4d22) + "") + score, var_5f2cb965 + score);
 			if(score == var_daf8d664)
 			{
 				waitframe(1);
@@ -1368,12 +1368,12 @@ function function_e4b86469()
 	/#
 		path = "";
 		cmd = "";
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
 	#/
 }
 
@@ -1391,14 +1391,14 @@ function function_51cc2292()
 	/#
 		path = "";
 		cmd = "";
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
-		util::function_e2e9d901(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
+		util::add_devgui(path + "", cmd + "");
 	#/
 }
 
@@ -1414,7 +1414,7 @@ function function_51cc2292()
 function function_9fb69cba()
 {
 	/#
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
 	#/
 }
 
@@ -1443,20 +1443,20 @@ function function_354e12a4()
 				if(isdefined(action[#"hash_7fe1763a3ac14691"]))
 				{
 					keystring = function_9e72a96(key);
-					util::function_e2e9d901((((path + "") + keystring[0]) + "") + keystring, cmd + action[#"row"]);
+					util::add_devgui((((path + "") + keystring[0]) + "") + keystring, cmd + action[#"row"]);
 					if(isdefined(action[#"hash_401b1493e5188252"]) && action[#"hash_401b1493e5188252"] == #"ender")
 					{
-						util::function_e2e9d901((((path + "") + keystring[0]) + "") + keystring, var_ab79c6df + action[#"row"]);
+						util::add_devgui((((path + "") + keystring[0]) + "") + keystring, var_ab79c6df + action[#"row"]);
 					}
 				}
 			}
 		}
 		var_e625686f = path + "";
 		var_f99507b8 = "";
-		util::function_e2e9d901(var_e625686f + "", var_f99507b8 + "");
-		util::function_e2e9d901(var_e625686f + "", var_f99507b8 + "");
-		util::function_e2e9d901(var_e625686f + "", var_f99507b8 + "");
-		util::function_e2e9d901(var_e625686f + "", var_f99507b8 + "");
+		util::add_devgui(var_e625686f + "", var_f99507b8 + "");
+		util::add_devgui(var_e625686f + "", var_f99507b8 + "");
+		util::add_devgui(var_e625686f + "", var_f99507b8 + "");
+		util::add_devgui(var_e625686f + "", var_f99507b8 + "");
 	#/
 }
 
@@ -1472,8 +1472,8 @@ function function_354e12a4()
 function private function_57edec18()
 {
 	/#
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
 		while(true)
 		{
 			if(getdvarint(#"hash_428eca4823d65134", 0))

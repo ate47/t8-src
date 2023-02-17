@@ -52,11 +52,11 @@ function lookatposition(looktargetpos, lookduration, lookspeed, eyesonly, interr
 		}
 		if(isdefined(eyesonly) && eyesonly == "eyes only")
 		{
-			self notify(#"hash_65f45f02d394bffe");
+			self notify(#"eyes look now");
 		}
 		else
 		{
-			self notify(#"hash_23639563af2eae72");
+			self notify(#"look now");
 		}
 	}
 }
@@ -134,11 +134,11 @@ function growling()
 */
 function registernotetracks()
 {
-	anim.notetracks[#"hash_4c309a126c1a44ff"] = &notetrackposestand;
+	anim.notetracks[#"anim_pose = "stand""] = &notetrackposestand;
 	anim.notetracks[#"hash_eafc4a7d7b6a027"] = &notetrackposecrouch;
 	anim.notetracks[#"hash_ec5e7d2072ae0d5"] = &notetrackmovementstop;
-	anim.notetracks[#"hash_4170f46935239626"] = &notetrackmovementwalk;
-	anim.notetracks[#"hash_2c94246462ac6748"] = &notetrackmovementrun;
+	anim.notetracks[#"anim_movement = "walk""] = &notetrackmovementwalk;
+	anim.notetracks[#"anim_movement = "run""] = &notetrackmovementrun;
 	anim.notetracks[#"hash_40fdc55d0cf02732"] = &notetrackalertnesscasual;
 	anim.notetracks[#"hash_404f1950633f51b"] = &notetrackalertnessalert;
 	anim.notetracks[#"gravity on"] = &notetrackgravity;

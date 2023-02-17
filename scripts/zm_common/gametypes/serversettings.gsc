@@ -139,7 +139,7 @@ function updateserversettings()
 	if(level.friendlyfire != scr_friendlyfire)
 	{
 		level.friendlyfire = scr_friendlyfire;
-		namespace_59ff1d6c::function_928be07c();
+		zm_custom::function_928be07c();
 		setdvar(#"ui_friendlyfire", level.friendlyfire);
 	}
 }

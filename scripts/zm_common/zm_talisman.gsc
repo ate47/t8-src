@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_6e3c826b1814cab6;
@@ -54,7 +54,7 @@ function on_player_connect()
 		n_remaining = self function_bd6a3188(s_talisman.var_3cf2d21);
 	}
 	var_88049519 = 0;
-	if(isdefined(s_talisman) && namespace_59ff1d6c::function_ff4557dc(s_talisman) && n_remaining > 0)
+	if(isdefined(s_talisman) && zm_custom::function_ff4557dc(s_talisman) && n_remaining > 0)
 	{
 		var_240061ef = s_talisman.var_3cf2d21;
 		if(isdefined(level.var_e1074d3e[var_240061ef]))
@@ -73,7 +73,7 @@ function on_player_connect()
 	{
 		if(n_remaining > 0)
 		{
-			self thread namespace_59ff1d6c::function_2717f4b3();
+			self thread zm_custom::function_2717f4b3();
 		}
 		else
 		{
@@ -159,7 +159,7 @@ function private function_954b9083(var_240061ef)
 	level waittill(#"start_zombie_round_logic");
 	wait(getdvarint(#"hash_4e0eefe07702cb87", 60));
 	self stats::inc_stat(#"hash_2718ba6536e331ce", var_240061ef, #"used", #"statvalue", 1);
-	self zm_stats::increment_challenge_stat(#"hash_6a8397235f934872");
+	self zm_stats::increment_challenge_stat(#"talisman_used");
 	self reportlootconsume(var_240061ef, 1);
 }
 

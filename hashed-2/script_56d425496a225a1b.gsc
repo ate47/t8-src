@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1d1a97b78f64bfd;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\remote_weapons.gsc;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreak_hacking.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -37,7 +37,7 @@ function init_shared()
 	if(!isdefined(level.var_af634c52))
 	{
 		level.var_af634c52 = {};
-		killstreaks::function_e4ef8390("killstreak_ultimate_turret", &activateturret);
+		killstreaks::register_killstreak("killstreak_ultimate_turret", &activateturret);
 		killstreaks::register_alt_weapon("ultimate_turret", getweapon("ultimate_turret_deploy"));
 		killstreaks::function_b013c2d3("ultimate_turret", getweapon("ultimate_turret_deploy"));
 		killstreaks::register_alt_weapon("ultimate_turret", getweapon(#"hash_36a6454f13b54f18"));
@@ -95,7 +95,7 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(turret, var_dbd1a594)
+function function_127fb8f3(turret, attackingplayer)
 {
 	turret.isjammed = 1;
 	if(isdefined(level.var_86e3d17a) && turret.classname == "script_vehicle")
@@ -108,7 +108,7 @@ function function_127fb8f3(turret, var_dbd1a594)
 		}
 		if(isdefined(level.var_1794f85f))
 		{
-			[[level.var_1794f85f]](var_dbd1a594, "disrupted_sentry");
+			[[level.var_1794f85f]](attackingplayer, "disrupted_sentry");
 		}
 		turret clientfield::set("enemyvehicle", 0);
 	}
@@ -123,17 +123,17 @@ function function_127fb8f3(turret, var_dbd1a594)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(turret, var_dbd1a594)
+function function_bff5c062(turret, attackingplayer)
 {
 	turret function_3a9dddac();
 	if(isdefined(turret.turret))
 	{
 		turret.owner weaponobjects::hackerremoveweapon(turret.turret);
 	}
-	turret.owner = var_dbd1a594;
-	turret.team = var_dbd1a594.team;
-	turret setowner(var_dbd1a594);
-	turret setteam(var_dbd1a594.team);
+	turret.owner = attackingplayer;
+	turret.team = attackingplayer.team;
+	turret setowner(attackingplayer);
+	turret setteam(attackingplayer.team);
 	turret.isjammed = 0;
 	if(turret.classname == "script_vehicle")
 	{
@@ -1687,7 +1687,7 @@ function function_21f16a35()
 	Parameters: 2
 	Flags: Linked
 */
-function function_59ce22f9(attacker, var_61dedb9f)
+function function_59ce22f9(attacker, callback_data)
 {
 	if(!isdefined(self))
 	{

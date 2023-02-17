@@ -1,15 +1,15 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_256b8879317373de;
 #using script_399c912938783695;
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
-#using script_56ca01b3b31455b5;
-#using script_5b18db57724ff7be;
-#using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
+#using scripts\abilities\ability_util.gsc;
+#using scripts\zm_common\zm_camos.gsc;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -239,7 +239,7 @@ function function_d6046228(var_67441581, var_756ee4e5, var_bcb9de3e, var_299ea95
 }
 
 /*
-	Name: function_90500af5
+	Name: get_cast
 	Namespace: zm_utility
 	Checksum: 0x40EDF07C
 	Offset: 0xB48
@@ -247,13 +247,13 @@ function function_d6046228(var_67441581, var_756ee4e5, var_bcb9de3e, var_299ea95
 	Parameters: 0
 	Flags: None
 */
-function function_90500af5()
+function get_cast()
 {
-	return namespace_cb7cafc3::function_90500af5();
+	return namespace_cb7cafc3::get_cast();
 }
 
 /*
-	Name: function_166646a6
+	Name: get_story
 	Namespace: zm_utility
 	Checksum: 0x26ABA9D4
 	Offset: 0xB68
@@ -261,9 +261,9 @@ function function_90500af5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_166646a6()
+function get_story()
 {
-	return namespace_cb7cafc3::function_166646a6();
+	return namespace_cb7cafc3::get_story();
 }
 
 /*
@@ -2059,9 +2059,9 @@ function get_closest_valid_player(origin, ignore_player = array(), var_b106b254 
 	}
 	if(isdefined(ignore_player))
 	{
-		foreach(var_7dfcc4b7 in ignore_player)
+		foreach(ignored_player in ignore_player)
 		{
-			arrayremovevalue(players, var_7dfcc4b7);
+			arrayremovevalue(players, ignored_player);
 		}
 	}
 	done = 0;
@@ -4413,7 +4413,7 @@ function function_e51dc2d8()
 	{
 		return false;
 	}
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_3c5363541b97ca3e"))
+	if(!zm_custom::function_901b751c(#"hash_3c5363541b97ca3e"))
 	{
 		return false;
 	}
@@ -5170,15 +5170,15 @@ function function_7a35b1d7(var_c857a96d)
 	Parameters: 2
 	Flags: None
 */
-function function_846eb7dd(var_ed5f6ed6, var_c857a96d)
+function function_846eb7dd(type_id, var_c857a96d)
 {
 	if(isplayer(self))
 	{
-		self luinotifyevent(var_ed5f6ed6, 2, var_c857a96d, self getentitynumber());
+		self luinotifyevent(type_id, 2, var_c857a96d, self getentitynumber());
 	}
 	else
 	{
-		luinotifyevent(var_ed5f6ed6, 1, var_c857a96d);
+		luinotifyevent(type_id, 1, var_c857a96d);
 	}
 }
 
@@ -5191,15 +5191,15 @@ function function_846eb7dd(var_ed5f6ed6, var_c857a96d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e64ac3b6(var_ed5f6ed6, var_c857a96d)
+function function_e64ac3b6(type_id, var_c857a96d)
 {
 	if(isplayer(self))
 	{
-		self luinotifyevent(#"hash_4e47c74793854333", 3, var_ed5f6ed6, var_c857a96d, self getentitynumber());
+		self luinotifyevent(#"hash_4e47c74793854333", 3, type_id, var_c857a96d, self getentitynumber());
 	}
 	else
 	{
-		luinotifyevent(#"hash_4e47c74793854333", 2, var_ed5f6ed6, var_c857a96d);
+		luinotifyevent(#"hash_4e47c74793854333", 2, type_id, var_c857a96d);
 	}
 }
 
@@ -5802,7 +5802,7 @@ function zombie_goto_round(n_target_round)
 	}
 	level.zombie_total = 0;
 	level.zombie_health = zombie_utility::ai_calculate_health(zombie_utility::function_d2dfacfd(#"zombie_health_start"), n_target_round);
-	namespace_a28acff3::set_round_number(n_target_round);
+	zm_round_logic::set_round_number(n_target_round);
 	zombies = zombie_utility::get_round_enemy_array();
 	if(isdefined(zombies))
 	{
@@ -6764,11 +6764,11 @@ function function_508f636d()
 */
 function function_850e7499(weapon, var_20c27a34 = 0)
 {
-	if(weapon === getweapon(#"hash_c78156ba6aeda14") || weapon === getweapon(#"hash_6cb687e3f8c569fd"))
+	if(weapon === getweapon(#"eq_wraith_fire") || weapon === getweapon(#"eq_wraith_fire_extra"))
 	{
 		return true;
 	}
-	if(var_20c27a34 && weapon === getweapon(#"hash_55a4aa4a1077e2cc"))
+	if(var_20c27a34 && weapon === getweapon(#"wraith_fire_fire"))
 	{
 		return true;
 	}
@@ -6786,7 +6786,7 @@ function function_850e7499(weapon, var_20c27a34 = 0)
 */
 function is_claymore(weapon)
 {
-	if(weapon === getweapon(#"claymore") || weapon === getweapon(#"hash_4a5efaceb780ecb0"))
+	if(weapon === getweapon(#"claymore") || weapon === getweapon(#"claymore_extra"))
 	{
 		return true;
 	}
@@ -6804,7 +6804,7 @@ function is_claymore(weapon)
 */
 function function_b797694c(weapon)
 {
-	if(weapon === getweapon(#"eq_acid_bomb") || weapon === getweapon(#"hash_246c869c9de45f07"))
+	if(weapon === getweapon(#"eq_acid_bomb") || weapon === getweapon(#"eq_acid_bomb_extra"))
 	{
 		return true;
 	}
@@ -6822,7 +6822,7 @@ function function_b797694c(weapon)
 */
 function is_frag_grenade(weapon)
 {
-	if(weapon === getweapon(#"hash_34b7eb9fde56bd35") || weapon === getweapon(#"hash_244eb1a096b12734"))
+	if(weapon === getweapon(#"eq_frag_grenade") || weapon === getweapon(#"eq_frag_grenade_extra"))
 	{
 		return true;
 	}

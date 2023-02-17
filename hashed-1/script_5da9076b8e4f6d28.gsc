@@ -205,8 +205,8 @@ function function_6061a15(var_f4b807cb, maxdist, origin, angles, forward, var_4b
 	if(isdefined(var_9b882d22))
 	{
 		neardist = util::function_4c1656d5();
-		var_9b882d22.var_5a15eef2 = neardist < maxdist && distance2dsquared(origin, var_9b882d22.origin) > (neardist * neardist);
-		var_9b882d22.var_dae3e8db = distance2dsquared(origin, var_9b882d22.origin) < (128 - 12) * (128 - 12);
+		var_9b882d22.isfar = neardist < maxdist && distance2dsquared(origin, var_9b882d22.origin) > (neardist * neardist);
+		var_9b882d22.isclose = distance2dsquared(origin, var_9b882d22.origin) < (128 - 12) * (128 - 12);
 		var_9b882d22.var_5d97fed1 = var_9b882d22.var_8e092725 === -1;
 	}
 	return var_9b882d22;
@@ -423,7 +423,7 @@ function function_c62ad9a7(vehicle)
 		{
 			case "player_atv":
 			{
-				hinttext = #"hash_2007e0c3be383f26";
+				hinttext = #"wz/player_atv";
 				break;
 			}
 			case "helicopter_light":
@@ -433,7 +433,7 @@ function function_c62ad9a7(vehicle)
 			}
 			case "cargo_truck_wz":
 			{
-				hinttext = #"hash_31aeb0f803285127";
+				hinttext = #"wz/cargo_truck";
 				break;
 			}
 			case "tactical_raft_wz":
@@ -448,27 +448,27 @@ function function_c62ad9a7(vehicle)
 			}
 			case "player_suv":
 			{
-				hinttext = #"hash_51759939a9774d6d";
+				hinttext = #"wz/suv";
 				break;
 			}
 			case "player_muscle":
 			{
-				hinttext = #"hash_5057fbcd1ec7a683";
+				hinttext = #"wz/muscle_car";
 				break;
 			}
 			case "pbr_boat_wz":
 			{
-				hinttext = #"hash_4a4c5c39a5d5f303";
+				hinttext = #"wz/pbr";
 				break;
 			}
 			case "player_motorcycle":
 			{
-				hinttext = #"hash_27cc3dadf4c042d8";
+				hinttext = #"wz/motorcycle";
 				break;
 			}
 			case "player_tank":
 			{
-				hinttext = #"hash_47934713b29ff6f5";
+				hinttext = #"wz/tank";
 				break;
 			}
 		}

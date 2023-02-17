@@ -19,7 +19,7 @@ function autoexec function_89f2df9()
 }
 
 /*
-	Name: function_9738468f
+	Name: __init
 	Namespace: namespace_da5c04c3
 	Checksum: 0x8DA7E28B
 	Offset: 0xC0
@@ -27,7 +27,7 @@ function autoexec function_89f2df9()
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_9738468f()
+function autoexec __init()
 {
 	function_41453b43();
 }

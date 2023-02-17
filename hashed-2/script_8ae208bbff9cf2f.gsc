@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_490759cf62a1abc8;
-#using script_5b092d41f1ecae8a;
+#using scripts\mp_common\gametypes\ct_vo.gsc;
 #using script_61826ca279ffa0;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -99,7 +99,7 @@ function function_c7106205()
 	}
 	if(isdefined(level.var_ae120f18))
 	{
-		level thread namespace_8c007aa6::function_831e0584(level.var_ae120f18, 1);
+		level thread ct_vo::function_831e0584(level.var_ae120f18, 1);
 		level.var_ae120f18 = undefined;
 	}
 	if(isdefined(level._objective_zapper_tall))

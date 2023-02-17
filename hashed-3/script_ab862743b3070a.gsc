@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -83,7 +83,7 @@ function __init__()
 */
 function function_aec3446d(b_ignore_cleanup = 1)
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4deb3ae7a73c87f3") || (isdefined(level.var_15747fb1) && level.var_15747fb1))
+	if(!zm_custom::function_901b751c(#"hash_4deb3ae7a73c87f3") || (isdefined(level.var_15747fb1) && level.var_15747fb1))
 	{
 		return;
 	}
@@ -166,7 +166,7 @@ function function_dd162858()
 function function_20aadb5e()
 {
 	a_e_players = getplayers();
-	n_max = namespace_a28acff3::get_zombie_count_for_round(level.round_number, a_e_players.size);
+	n_max = zm_round_logic::get_zombie_count_for_round(level.round_number, a_e_players.size);
 	return int(n_max * 0.6);
 }
 

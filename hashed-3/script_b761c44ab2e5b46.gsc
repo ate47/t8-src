@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_387eab232fe22983;
-#using script_3e8c1d1a6e50b75b;
+#using scripts\zm\ai\zm_ai_stoker.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using script_7e59d7bba853fe4b;
 #using script_ab862743b3070a;
@@ -548,7 +548,7 @@ function function_38c0c907()
 	var_d3b167fd = self.origin;
 	if(isdefined(var_d3b167fd))
 	{
-		v_drop = namespace_c05f06c7::function_a8176b98(var_d3b167fd);
+		v_drop = mansion_util::function_a8176b98(var_d3b167fd);
 	}
 	if(!isdefined(v_drop))
 	{
@@ -685,7 +685,7 @@ function function_50ec1ddf()
 			{
 				return s_spawn_loc;
 			}
-			if(s_spawn_loc.var_39512f0e === "power_on3" && namespace_59ff1d6c::function_901b751c("zmPowerState") == 2 && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 0)
+			if(s_spawn_loc.var_39512f0e === "power_on3" && zm_custom::function_901b751c("zmPowerState") == 2 && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
 			{
 				return s_spawn_loc;
 			}

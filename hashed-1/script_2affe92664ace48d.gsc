@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_319f949ff1a59d26;
+#using scripts\zm\ai\zm_ai_tiger.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4aeb3279b6b23a91;
 #using script_58c342edd81589fb;
@@ -28,7 +28,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_2a747ac7e33453cc", &__init__, &__main__, #"hash_6c20d49019c685c7");
+	system::register(#"hash_2a747ac7e33453cc", &__init__, &__main__, #"zm_ai_tiger");
 }
 
 /*
@@ -214,9 +214,9 @@ function function_ba8172ca()
 {
 	var_cf9c1780 = getaiarchetypearray(#"tiger");
 	var_6ecc1639 = var_cf9c1780.size;
-	foreach(var_7ff26d3c in var_cf9c1780)
+	foreach(ai_tiger in var_cf9c1780)
 	{
-		if(!isalive(var_7ff26d3c))
+		if(!isalive(ai_tiger))
 		{
 			var_6ecc1639--;
 		}

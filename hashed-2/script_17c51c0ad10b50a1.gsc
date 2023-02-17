@@ -44,7 +44,7 @@ function __init__()
 */
 function function_a7cdda99()
 {
-	zm_perks::function_7f42e14e(#"hash_7036ce8dafbf1f81", "mod_ethereal_razor", #"hash_42c03eb685b6fe1b", #"hash_6da63d760c1788e2", 5500);
+	zm_perks::function_7f42e14e(#"hash_7036ce8dafbf1f81", "mod_ethereal_razor", #"perk_ethereal_razor", #"specialty_etherealrazor", 5500);
 	zm_perks::register_perk_threads(#"hash_7036ce8dafbf1f81", &function_5b26f1e3, &function_98c3f271);
 }
 

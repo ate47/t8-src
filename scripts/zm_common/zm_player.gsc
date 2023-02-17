@@ -1,16 +1,16 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_20ac552ee498eb9d;
 #using script_35b5ff21c2a0960f;
-#using script_3b034476f596d018;
+#using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4194df57536e11ed;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_53f13b381cd4251d;
-#using script_6021ce59143452c3;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\zm_common\bots\zm_bot.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
-#using script_9e4105ea1798ccc;
+#using scripts\zm_common\zm_armor.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -552,12 +552,12 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		if(isdefined(level.var_a2d8b7eb))
 		{
-			namespace_59ff1d6c::function_db030433();
+			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_percent", level.var_a2d8b7eb);
 		}
 		else if(isdefined(level.var_39e18a71))
 		{
-			namespace_59ff1d6c::function_db030433();
+			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_value", level.var_39e18a71);
 			if(zm_trial::function_b47f6aba())
 			{
@@ -1482,7 +1482,7 @@ function player_revive_monitor()
 				self zm_audio::create_and_play_dialog(#"revive", #"up");
 			}
 			points = self.score_lost_when_downed;
-			if(!isdefined(points) || self == reviver || namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+			if(!isdefined(points) || self == reviver || zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 			{
 				points = 0;
 			}

@@ -218,7 +218,7 @@ function private play_critical_health_rumble(localclientnum)
 		}
 		if(name == #"reaper")
 		{
-			sound = #"hash_5efb63d6f3917a19";
+			sound = #"mpl_reaper_heartbeat";
 		}
 		else
 		{

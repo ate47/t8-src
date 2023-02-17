@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_35598499769dbb3d;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -132,7 +132,7 @@ function function_6c5cb6e()
 		}
 		else
 		{
-			self val::reset(#"hash_6c2d131e7ade07fa", "freezecontrols");
+			self val::reset(#"pegasus_strike", "freezecontrols");
 			self notify(#"hash_2938992396267cf3");
 		}
 	}
@@ -157,7 +157,7 @@ function function_feb1573e()
 		s_result = self waittill(#"grenade_fire", #"grenade_throw_cancelled");
 		if(s_result.weapon == getweapon(#"hash_27e4878539bc7f72"))
 		{
-			self val::reset(#"hash_6c2d131e7ade07fa", "freezecontrols");
+			self val::reset(#"pegasus_strike", "freezecontrols");
 		}
 	}
 }
@@ -176,9 +176,9 @@ function function_cf0a2056()
 	self notify("c644bc956afb928");
 	self endon("c644bc956afb928");
 	self endon(#"disconnect");
-	self val::set(#"hash_6c2d131e7ade07fa", "freezecontrols", 1);
+	self val::set(#"pegasus_strike", "freezecontrols", 1);
 	wait(0.1);
-	self val::reset(#"hash_6c2d131e7ade07fa", "freezecontrols");
+	self val::reset(#"pegasus_strike", "freezecontrols");
 }
 
 /*

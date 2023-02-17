@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1f2f7ef27f2aabba;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\mp_common\teams\platoons.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_75be2950b381443;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\gamestate.gsc;
@@ -50,8 +50,8 @@ function getwinningteamfromloser(losing_team)
 function default_onforfeit(params)
 {
 	level.gameforfeited = 1;
-	level notify(#"hash_7c63ed1f465e8e8e");
-	level endon(#"hash_7c63ed1f465e8e8e", #"hash_39a00a79045884ca");
+	level notify(#"forfeit in progress");
+	level endon(#"forfeit in progress", #"abort forfeit");
 	forfeit_delay = 20;
 	announcement(game.strings[#"opponent_forfeiting_in"], forfeit_delay, 0);
 	wait(10);

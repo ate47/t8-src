@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -282,7 +282,7 @@ function function_561d9cff()
 	e_who = s_result.e_who;
 	if(level.var_96eedc2a === 2)
 	{
-		e_who thread namespace_3263198e::function_51b752a9(#"hash_6f774fe92d5d01b6", -1, 1, 0);
+		e_who thread zm_orange_util::function_51b752a9(#"hash_6f774fe92d5d01b6", -1, 1, 0);
 	}
 	self.vessel hide();
 	self.vessel playsound("zmb_vessel_pickup");

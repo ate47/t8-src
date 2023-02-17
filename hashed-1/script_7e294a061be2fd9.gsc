@@ -305,7 +305,7 @@ function function_4a5dff80(zombie)
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(cymbal_monkey, var_dbd1a594)
+function function_127fb8f3(cymbal_monkey, attackingplayer)
 {
 	cymbal_monkey endon(#"death");
 	randangle = randomfloat(360);

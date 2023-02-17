@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_6a3f43063dfd1bdc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -104,7 +104,7 @@ function function_9d9bff80(var_2fe3186e, attacker)
 	var_b7fc8c3e = var_2fe3186e + vectorscale((0, 0, 1), 64);
 	self playsound("vox_musicbox_start_sama_" + randomint(3));
 	wait(1);
-	var_a6323eb5 = util::spawn_model("p8_zm_music_box_samantha_trap", self.var_1a61db89.origin, (0, self.angles[1] + 180, 0));
+	e_sam = util::spawn_model("p8_zm_music_box_samantha_trap", self.var_1a61db89.origin, (0, self.angles[1] + 180, 0));
 	a_zombies = getaiteamarray(level.zombie_team);
 	a_zombies = arraysortclosest(a_zombies, var_2fe3186e, 25, 0, 350);
 	a_zombies = array::filter(a_zombies, 0, &function_3adb94b4);
@@ -131,7 +131,7 @@ function function_9d9bff80(var_2fe3186e, attacker)
 			}
 		}
 	}
-	var_a6323eb5 thread scene::play(#"hash_67030b23e27f4303", "one_shot", var_a6323eb5);
+	e_sam thread scene::play(#"hash_67030b23e27f4303", "one_shot", e_sam);
 	wait(0.5);
 	self.var_1a61db89 hide();
 	self.var_1a61db89 clientfield::set("" + #"hash_136e9d44e7e2e888", 0);
@@ -179,10 +179,10 @@ function function_9d9bff80(var_2fe3186e, attacker)
 	{
 		level.var_f1907c72 notify(#"music_box");
 	}
-	var_a6323eb5 playsound("vox_musicbox_end_sama_" + randomint(3));
+	e_sam playsound("vox_musicbox_end_sama_" + randomint(3));
 	wait(1.5);
-	var_a6323eb5 thread scene::stop();
-	var_a6323eb5 delete();
+	e_sam thread scene::stop();
+	e_sam delete();
 	self.var_1a61db89 delete();
 	level thread function_6b8c9160();
 }

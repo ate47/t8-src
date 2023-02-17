@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_387eab232fe22983;
-#using script_42ac6fc8b2ff0f3e;
-#using script_467027ea7017462b;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
+#using scripts\zm_common\zm_items.gsc;
 #using script_5660bae5b402a1eb;
 #using script_57f7003580bb15e0;
 #using script_67bf0b64dcb873b1;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -53,13 +53,13 @@ function autoexec function_89f2df9()
 */
 function __init__()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
 	level._effect[#"werewolfer_impact"] = #"hash_6e44fde5d49cfc9b";
 	zm_traps::register_trap_basic_info("werewolfer", &function_670dda89, &zm_trap_electric::trap_audio);
-	zm_traps::register_trap_damage("werewolfer", &function_436d9a24, &function_836dec7);
+	zm_traps::register_trap_damage("werewolfer", &function_436d9a24, &ai_damage);
 	level flag::init(#"hash_2287cf5d6310237e");
 	level flag::init(#"hash_6f483dda6f8ab19d");
 	if(!isdefined(level.var_7aa02c24))
@@ -80,7 +80,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -142,12 +142,12 @@ function function_670dda89()
 */
 function function_408fcb87()
 {
-	var_9bda8088 = getent("werewolfer", "script_noteworthy");
+	t_trap = getent("werewolfer", "script_noteworthy");
 	while(level flag::get(#"hash_6f483dda6f8ab19d"))
 	{
 		foreach(player in getplayers())
 		{
-			if(isdefined(player) && player istouching(var_9bda8088) && player.currentweapon === getweapon(#"zhield_dw"))
+			if(isdefined(player) && player istouching(t_trap) && player.currentweapon === getweapon(#"zhield_dw"))
 			{
 				player riotshield::player_damage_shield(5);
 			}
@@ -187,16 +187,16 @@ function function_38b44aab()
 */
 function function_436d9a24(t_damage)
 {
-	var_5b857980 = function_4d1e7b48(#"hash_19533caf858a9f3b");
+	shock_status_effect = getstatuseffect(#"hash_19533caf858a9f3b");
 	if(!(isdefined(self.b_no_trap_damage) && self.b_no_trap_damage))
 	{
 		self thread zm_traps::player_elec_damage(t_damage);
-		status_effect::status_effect_apply(var_5b857980, undefined, self, 0);
+		status_effect::status_effect_apply(shock_status_effect, undefined, self, 0);
 	}
 }
 
 /*
-	Name: function_836dec7
+	Name: ai_damage
 	Namespace: namespace_172975be
 	Checksum: 0x7FE5958A
 	Offset: 0xA10
@@ -204,7 +204,7 @@ function function_436d9a24(t_damage)
 	Parameters: 1
 	Flags: Linked
 */
-function function_836dec7(e_trap)
+function ai_damage(e_trap)
 {
 	self endon(#"death");
 	if(self.var_9fde8624 === #"hash_266b62e342076a90")

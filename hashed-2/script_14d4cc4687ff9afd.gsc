@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c28a77967267c7a;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_421e0a3702e22de;
 #using script_44a3aa5e67faebf4;
-#using script_467027ea7017462b;
+#using scripts\zm_common\zm_items.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_56ca01b3b31455b5;
-#using script_61a734c95edc17aa;
+#using scripts\abilities\ability_util.gsc;
+#using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -168,9 +168,9 @@ function function_4dc96e66()
 	Parameters: 2
 	Flags: Linked
 */
-function function_13febd4b(e_holder, var_9c95ad05)
+function function_13febd4b(e_holder, w_item)
 {
-	switch(var_9c95ad05.name)
+	switch(w_item.name)
 	{
 		case "hash_7ca6dc6b2bfb8745":
 		{
@@ -277,7 +277,7 @@ function function_2713a96a()
 			level.var_1537d233--;
 			if(level.var_1b737b93 === 1)
 			{
-				e_who thread namespace_3263198e::function_51b752a9(#"hash_34b136597d3788ee");
+				e_who thread zm_orange_util::function_51b752a9(#"hash_34b136597d3788ee");
 			}
 			self thread function_665b4fa6();
 			self notify(#"hash_762e0e4561d25aeb");
@@ -546,11 +546,11 @@ function function_e82679f8(e_player)
 	}
 	if(function_8b1a219a())
 	{
-		zone = namespace_17555f14::function_ab7f70b9(undefined, s_zipline_use.str_destination);
+		zone = zm_orange_zones::function_ab7f70b9(undefined, s_zipline_use.str_destination);
 		self sethintstring(#"hash_1c90be4081261de3", zone);
 		return true;
 	}
-	zone = namespace_17555f14::function_ab7f70b9(undefined, s_zipline_use.str_destination);
+	zone = zm_orange_zones::function_ab7f70b9(undefined, s_zipline_use.str_destination);
 	self sethintstring(#"hash_498ce6b1275c33fd", zone);
 	return true;
 }
@@ -666,7 +666,7 @@ function function_5dbd6a40(s_zipline_use)
 	self util::magic_bullet_shield();
 	self zm_audio::create_and_play_dialog(#"zipline", #"activate");
 	current_weapon = self getcurrentweapon();
-	var_478a6888 = array(#"hash_2b4e93e32a29b66b", #"hash_603fdd2e4ae5b2b0", #"launcher_standard_t8", #"hash_7f6a3674177103f1");
+	var_478a6888 = array(#"hash_2b4e93e32a29b66b", #"hash_603fdd2e4ae5b2b0", #"launcher_standard_t8", #"launcher_standard_t8_upgraded");
 	if(isinarray(var_478a6888, current_weapon.name) || current_weapon.isheroweapon)
 	{
 		self.var_479965f7 = undefined;

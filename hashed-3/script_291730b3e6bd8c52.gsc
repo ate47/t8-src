@@ -8,11 +8,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_83bc53d2;
+#namespace zm_ai_catalyst;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x91864D0A
 	Offset: 0x418
 	Size: 0x3C
@@ -21,12 +21,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_4bca7168ca976d7f", &__init__, undefined, undefined);
+	system::register(#"zm_ai_catalyst", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x9C214B01
 	Offset: 0x460
 	Size: 0x1CC
@@ -54,7 +54,7 @@ function private __init__()
 
 /*
 	Name: function_b6fd8c68
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0xF8365BAE
 	Offset: 0x638
 	Size: 0x1FC
@@ -74,7 +74,7 @@ function function_b6fd8c68()
 
 /*
 	Name: function_213aaacc
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x68D0E4F4
 	Offset: 0x840
 	Size: 0x14C
@@ -120,7 +120,7 @@ function private function_213aaacc(localclientnum, oldvalue, newvalue, bnewent, 
 
 /*
 	Name: function_b3c2dc1c
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x4F48B3BF
 	Offset: 0x998
 	Size: 0x9C
@@ -135,7 +135,7 @@ function private function_b3c2dc1c(localclientnum, oldvalue, newvalue, bnewent, 
 
 /*
 	Name: function_8cc5be3b
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x5737973E
 	Offset: 0xA40
 	Size: 0x194
@@ -174,7 +174,7 @@ function private function_8cc5be3b(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_72d9d9e7
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x3F55DB04
 	Offset: 0xBE0
 	Size: 0x186
@@ -210,7 +210,7 @@ function private function_72d9d9e7(localclientnum, oldvalue, newvalue, bnewent, 
 
 /*
 	Name: function_dce55f49
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x8B895A48
 	Offset: 0xD70
 	Size: 0xD6
@@ -234,7 +234,7 @@ function private function_dce55f49(localclientnum, oldvalue, newvalue, bnewent, 
 
 /*
 	Name: function_8c78e227
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0xB1ED09EA
 	Offset: 0xE50
 	Size: 0x13C
@@ -259,7 +259,7 @@ function private function_8c78e227(localclientnum)
 
 /*
 	Name: function_1578a764
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0xF02C27E3
 	Offset: 0xF98
 	Size: 0xC4
@@ -275,7 +275,7 @@ function private function_1578a764(localclientnum, oldvalue, newvalue, bnewent, 
 
 /*
 	Name: function_5c22755
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0xD9779E91
 	Offset: 0x1068
 	Size: 0x15C
@@ -303,7 +303,7 @@ function private function_5c22755(localclientnum, oldvalue, newvalue, bnewent, b
 
 /*
 	Name: function_ce9e3dc7
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0xEB6F2090
 	Offset: 0x11D0
 	Size: 0x124
@@ -336,7 +336,7 @@ function private function_ce9e3dc7(animname)
 
 /*
 	Name: function_5608540a
-	Namespace: namespace_83bc53d2
+	Namespace: zm_ai_catalyst
 	Checksum: 0x9E735D7E
 	Offset: 0x1300
 	Size: 0x22

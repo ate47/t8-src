@@ -33,7 +33,7 @@ function __init__()
 {
 	callback::on_spawned(&on_player_spawned);
 	level.weaponnone = getweapon(#"none");
-	level.var_697e9965 = getweapon(#"sig_minigun");
+	level.weapon_sig_minigun = getweapon(#"sig_minigun");
 	vehicle::add_vehicletype_callback("swivel_mount", &function_5e4b481b);
 }
 
@@ -141,7 +141,7 @@ function function_7a677105(weapon)
 */
 function function_903d2d4c(local_client_num)
 {
-	if(level.var_697e9965 == level.weaponnone)
+	if(level.weapon_sig_minigun == level.weaponnone)
 	{
 		return;
 	}
@@ -154,7 +154,7 @@ function function_903d2d4c(local_client_num)
 	}
 	while(true)
 	{
-		var_8cf0e703 = function_4878c786(local_client_num, level.var_697e9965);
+		var_8cf0e703 = function_4878c786(local_client_num, level.weapon_sig_minigun);
 		if(!var_8cf0e703 && level.var_644fb9ec)
 		{
 			stopforcestreamingxmodel(#"hash_253fe56e77e698b3");

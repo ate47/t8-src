@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_5bb072c3abf4652c;
-#using script_6ce38ab036223e6e;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -315,7 +315,7 @@ function function_29fe9a5d()
 	{
 		if(isdefined(npc))
 		{
-			npc zm_vo::function_57b8cd17();
+			npc zm_vo::vo_stop();
 		}
 	}
 }
@@ -558,7 +558,7 @@ function function_b2e1326(var_58df9892, var_1dc9c1bf = 1)
 		}
 		case 4:
 		{
-			self sethintstring(#"hash_21db2780833a8bfd");
+			self sethintstring(#"zombie/trap_cooldown");
 			break;
 		}
 	}
@@ -663,7 +663,7 @@ function function_2ba419ee(var_53458a86 = 1, round = level.round_number)
 {
 	level.zombie_total = 0;
 	level.zombie_health = zombie_utility::ai_calculate_health(zombie_utility::function_d2dfacfd(#"zombie_health_start"), round);
-	namespace_a28acff3::set_round_number(round);
+	zm_round_logic::set_round_number(round);
 	level notify(#"kill_round");
 	level zm_utility::function_9ad5aeb1(1, 1, 0, var_53458a86, 1);
 }

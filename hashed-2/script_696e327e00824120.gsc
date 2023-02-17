@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_387eab232fe22983;
 #using script_39e954a546d3baf;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
-#using script_52a84b3d20788c6;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
+#using scripts\zm\ai\zm_ai_catalyst.gsc;
 #using script_58c342edd81589fb;
-#using script_6ce38ab036223e6e;
-#using script_79c9122f9058e8ba;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm\ai\zm_ai_nosferatu.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_b761c44ab2e5b46;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -104,7 +104,7 @@ function main()
 	level thread zm_blockers::function_6f01c3cf("barricade_hall_west_end_1", "script_string");
 	level thread zm_blockers::function_6f01c3cf("barricade_hall_east_end_1", "script_string");
 	zm_power::turn_power_on_and_open_doors(1);
-	namespace_b8f22955::function_cdb8fe80();
+	mansion_pap::function_cdb8fe80();
 }
 
 /*
@@ -237,7 +237,7 @@ function function_40dfd00b(n_round_number)
 function function_2ce29db3(n_round)
 {
 	zm_utility::function_9b7bc715(#"nosferatu", 1);
-	namespace_2fa8319f::function_74f25f8a(1);
+	zm_ai_nosferatu::function_74f25f8a(1);
 }
 
 /*
@@ -291,7 +291,7 @@ function function_ca35fa36()
 	/#
 		if(getdvarint(#"hash_b3363e1d25715d7", 0))
 		{
-			namespace_c05f06c7::function_57423f(1);
+			mansion_util::function_57423f(1);
 			return;
 		}
 	#/
@@ -562,19 +562,19 @@ function function_f3859095()
 */
 function function_fe69176c()
 {
-	var_18c56c6b = array();
-	var_18c56c6b[0] = zm_crafting::function_4c2f8683(#"hash_1d492d987b5f57ed");
-	var_18c56c6b[1] = zm_crafting::function_4c2f8683(#"hash_1d492a987b5f52d4");
-	var_18c56c6b[2] = zm_crafting::function_4c2f8683(#"hash_1d492b987b5f5487");
-	var_18c56c6b[3] = zm_crafting::function_4c2f8683(#"hash_11ae647a1f0d9704");
-	var_18c56c6b[4] = zm_crafting::function_4c2f8683(#"hash_11ae677a1f0d9c1d");
-	var_18c56c6b[5] = zm_crafting::function_4c2f8683(#"hash_11ae667a1f0d9a6a");
-	var_58d9e0d3 = getitemarray();
-	foreach(var_2e1f34dd in var_58d9e0d3)
+	a_w_component = array();
+	a_w_component[0] = zm_crafting::function_4c2f8683(#"hash_1d492d987b5f57ed");
+	a_w_component[1] = zm_crafting::function_4c2f8683(#"hash_1d492a987b5f52d4");
+	a_w_component[2] = zm_crafting::function_4c2f8683(#"hash_1d492b987b5f5487");
+	a_w_component[3] = zm_crafting::function_4c2f8683(#"hash_11ae647a1f0d9704");
+	a_w_component[4] = zm_crafting::function_4c2f8683(#"hash_11ae677a1f0d9c1d");
+	a_w_component[5] = zm_crafting::function_4c2f8683(#"hash_11ae667a1f0d9a6a");
+	a_e_items = getitemarray();
+	foreach(e_item in a_e_items)
 	{
-		if(isinarray(var_18c56c6b, var_2e1f34dd.item))
+		if(isinarray(a_w_component, e_item.item))
 		{
-			var_2e1f34dd delete();
+			e_item delete();
 		}
 	}
 	hidemiscmodels("ww_lvl3_quest_piece_on_table");

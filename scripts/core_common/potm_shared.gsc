@@ -155,7 +155,7 @@ function private init()
 }
 
 /*
-	Name: function_f22ccf4a
+	Name: forceinit
 	Namespace: potm
 	Checksum: 0xAFE21ECE
 	Offset: 0x828
@@ -163,7 +163,7 @@ function private init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f22ccf4a()
+function forceinit()
 {
 	game.var_ab39640b = undefined;
 	init();
@@ -617,7 +617,7 @@ function private play_potm_on_player_internal(event)
 		killcamoffset = (float(gettime() - event.var_ba8bdc4c.starttime)) / 1000;
 		killcamlength = (float(event.var_ba8bdc4c.endtime - event.var_ba8bdc4c.starttime)) / 1000;
 		spectatorclient = event.clientnum;
-		var_1c66b97d = event.var_f58cbb24;
+		var_1c66b97d = event.clientxuid;
 		targetentityindex = -1;
 		offsettime = 0;
 	}
@@ -679,9 +679,9 @@ function private play_potm_on_player(event)
 	level endon(#"game_ended");
 	if(isdefined(game.var_321b0d80))
 	{
-		self [[game.var_321b0d80]](event.var_f58cbb24);
+		self [[game.var_321b0d80]](event.clientxuid);
 	}
-	var_f699686a = #"hash_20e5bae184643ee5";
+	var_f699686a = #"melee_amuletfist_t8";
 	var_45552e04 = 0;
 	var_61d85ed2 = event.var_ba8bdc4c.var_61d85ed2;
 	if(isdefined(var_61d85ed2))
@@ -920,9 +920,9 @@ function private function_60211cf4(sequence)
 				var_aa5d1f5b = 0;
 			}
 		}
-		if(event.var_97370473 != "")
+		if(event.luievent != "")
 		{
-			luinotifyevent(event.var_97370473);
+			luinotifyevent(event.luievent);
 		}
 		if(processevent)
 		{
@@ -1340,14 +1340,14 @@ function function_b6a5e7fa(var_a7f35e6d = 1)
 			thread function_a85adb2c(event.var_ba8bdc4c.endtime - event.var_ba8bdc4c.starttime);
 			level notify(#"hash_4ead2cd3fa59f29b");
 			function_a714a888(event.var_ba8bdc4c);
-			function_fff1ad7e(event.var_f58cbb24);
+			function_fff1ad7e(event.clientxuid);
 			level thread function_f909006c(event.var_ba8bdc4c);
 			if(isdefined(event.clientnum))
 			{
 				player = getentbynum(event.clientnum);
 				if(isplayer(player))
 				{
-					player stats::function_dad108fa(#"hash_639d9af21c54a255", 1);
+					player stats::function_dad108fa(#"featured_in_best_play", 1);
 				}
 			}
 			for(index = 0; index < level.players.size; index++)
@@ -2684,10 +2684,10 @@ function private function_1dd2e5ca(bookmark, var_6060b78c)
 			else
 			{
 				clientnum = var_6060b78c.clientnum;
-				var_f58cbb24 = var_6060b78c.var_f58cbb24;
+				clientxuid = var_6060b78c.clientxuid;
 				function_9ad04689(var_6060b78c);
 				function_1cc3b6fd(var_6060b78c);
-				var_6060b78c = function_929d9485(clientnum, var_f58cbb24);
+				var_6060b78c = function_929d9485(clientnum, clientxuid);
 			}
 		}
 	}
@@ -2757,10 +2757,10 @@ function private function_abd02279(bookmark, var_6060b78c)
 			else
 			{
 				clientnum = var_6060b78c.clientnum;
-				var_f58cbb24 = var_6060b78c.var_f58cbb24;
+				clientxuid = var_6060b78c.clientxuid;
 				function_9ad04689(var_6060b78c);
 				function_1cc3b6fd(var_6060b78c);
-				var_6060b78c = function_929d9485(clientnum, var_f58cbb24);
+				var_6060b78c = function_929d9485(clientnum, clientxuid);
 			}
 		}
 	}
@@ -2862,12 +2862,12 @@ function private function_9ad04689(var_6060b78c)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_929d9485(clientnum, var_f58cbb24)
+function private function_929d9485(clientnum, clientxuid)
 {
 	var_6060b78c = spawnstruct();
 	var_6060b78c.var_3444056b = 0;
 	var_6060b78c.clientnum = clientnum;
-	var_6060b78c.var_f58cbb24 = var_f58cbb24;
+	var_6060b78c.clientxuid = clientxuid;
 	var_6060b78c.var_e567d17 = 0;
 	var_6060b78c.var_ba8bdc4c = {};
 	var_6060b78c.var_ba8bdc4c.priority = 0;
@@ -2945,7 +2945,7 @@ function private function_4a28cb83(clientnum)
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_4f69bbd(clientnum, var_f58cbb24, isfirstperson, b_add)
+function private function_4f69bbd(clientnum, clientxuid, isfirstperson, b_add)
 {
 	for(i = 0; i < game.var_aafe322f.size; i++)
 	{
@@ -2971,7 +2971,7 @@ function private function_4f69bbd(clientnum, var_f58cbb24, isfirstperson, b_add)
 	}
 	if(b_add)
 	{
-		return function_929d9485(clientnum, var_f58cbb24);
+		return function_929d9485(clientnum, clientxuid);
 	}
 	return undefined;
 }

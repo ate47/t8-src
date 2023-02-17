@@ -26,7 +26,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_381a5b2deb7adc74", &__init__, undefined, #"hash_36b936ddd622fccf");
+	system::register(#"hash_381a5b2deb7adc74", &__init__, undefined, #"zm_ai_skeleton");
 }
 
 /*
@@ -116,8 +116,8 @@ function round_spawn()
 */
 function private function_8609d56e()
 {
-	var_8739be3d = function_1ea880bd(1);
-	return isdefined(var_8739be3d);
+	ai_skeleton = function_1ea880bd(1);
+	return isdefined(ai_skeleton);
 }
 
 /*
@@ -279,9 +279,9 @@ function function_331e9312()
 {
 	var_f98807b1 = getaiarchetypearray(#"skeleton");
 	var_14bd36c2 = var_f98807b1.size;
-	foreach(var_8739be3d in var_f98807b1)
+	foreach(ai_skeleton in var_f98807b1)
 	{
-		if(!isalive(var_8739be3d))
+		if(!isalive(ai_skeleton))
 		{
 			var_14bd36c2--;
 		}

@@ -723,7 +723,7 @@ function show_friendly_outlines(local_client_num)
 */
 function set_entity_draft_unselected(localclientnum, on_off)
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		rob = #"hash_79892e1d5a8f9f33";
 	}

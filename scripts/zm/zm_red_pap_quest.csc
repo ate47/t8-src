@@ -7,11 +7,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_b4ea833c;
+#namespace zm_red_pap_quest;
 
 /*
 	Name: function_842831cf
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0x2D5016C6
 	Offset: 0xF0
 	Size: 0x352
@@ -35,7 +35,7 @@ function function_842831cf()
 
 /*
 	Name: function_56b9111c
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0x6DA124C0
 	Offset: 0x450
 	Size: 0x3C
@@ -48,7 +48,7 @@ function function_56b9111c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f2332be2
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0xBBDBD950
 	Offset: 0x498
 	Size: 0x3C
@@ -61,7 +61,7 @@ function function_f2332be2(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_11d62eb0
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0x2D6025E5
 	Offset: 0x4E0
 	Size: 0x94
@@ -82,7 +82,7 @@ function function_11d62eb0(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e83bf3a
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0x95BF318B
 	Offset: 0x580
 	Size: 0x94
@@ -103,7 +103,7 @@ function function_e83bf3a(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_417c12e1
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0xB20E224E
 	Offset: 0x620
 	Size: 0x74
@@ -117,7 +117,7 @@ function function_417c12e1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: crystal_explosion_func
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0xABC79EEC
 	Offset: 0x6A0
 	Size: 0x9C
@@ -132,7 +132,7 @@ function crystal_explosion_func(localclientnum, oldval, newval, bnewent, binitia
 
 /*
 	Name: function_5783c958
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0x445DAEFE
 	Offset: 0x748
 	Size: 0x94
@@ -153,7 +153,7 @@ function function_5783c958(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6c40f793
-	Namespace: namespace_b4ea833c
+	Namespace: zm_red_pap_quest
 	Checksum: 0xAC7A16B1
 	Offset: 0x7E8
 	Size: 0x94

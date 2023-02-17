@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -43,7 +43,7 @@ function __init__()
 	{
 		return;
 	}
-	if(util::function_53bbf9d2() === "zm_red")
+	if(util::get_map_name() === "zm_red")
 	{
 		level.var_b5079c7c = array("exp_lgt_ar_accurate_t8", "exp_lgt_ar_fastfire_t8", "exp_lgt_ar_modular_t8", "exp_lgt_ar_stealth_t8", "exp_lgt_bowie", "exp_lgt_lmg_standard_t8", "exp_lgt_pistol_revolver_t8", "exp_lgt_pistol_standard_t8", "exp_lgt_shotgun_pump_t8", "exp_lgt_shotgun_trenchgun_t8", "exp_lgt_smg_accurate_t8", "exp_lgt_smg_fastfire_t8", "exp_lgt_smg_handling_t8", "exp_lgt_smg_standard_t8", "exp_lgt_sniper_quickscope_t8", "exp_lgt_tr_leveraction_t8", "exp_lgt_tr_longburst_t8", "exp_lgt_tr_powersemi_t8");
 	}
@@ -51,11 +51,11 @@ function __init__()
 	{
 		level.var_b5079c7c = array("exp_lgt_ar_accurate_t8", "exp_lgt_ar_fastfire_t8", "exp_lgt_ar_modular_t8", "exp_lgt_ar_stealth_t8", "exp_lgt_ar_stealth_t8_2", "exp_lgt_bowie", "exp_lgt_bowie_2", "exp_lgt_lmg_standard_t8", "exp_lgt_pistol_burst_t8", "exp_lgt_pistol_standard_t8", "exp_lgt_shotgun_pump_t8", "exp_lgt_shotgun_trenchgun_t8", "exp_lgt_smg_accurate_t8", "exp_lgt_smg_accurate_t8_2", "exp_lgt_smg_drum_pistol_t8", "exp_lgt_smg_fastfire_t8", "exp_lgt_smg_handling_t8", "exp_lgt_smg_standard_t8", "exp_lgt_sniper_quickscope_t8", "exp_lgt_tr_leveraction_t8", "exp_lgt_tr_longburst_t8", "exp_lgt_tr_powersemi_t8");
 	}
-	zm_trial::register_challenge(#"hash_347b44dd26e1875", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_347b44dd26e1875", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_497ab7da
 	Checksum: 0x10BC5B6A
 	Offset: 0x5F8
@@ -63,7 +63,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_a29299fb)
+function private on_begin(var_a29299fb)
 {
 	if(!(isdefined(level.var_9d606cae) && level.var_9d606cae))
 	{
@@ -72,19 +72,19 @@ function private function_d1de6a85(var_a29299fb)
 		function_6fd56055();
 		function_a4284cb4();
 		function_47c81160();
-		namespace_b22c99a5::function_eea26e56();
+		zm_trial_util::function_eea26e56();
 		level.var_a29299fb = var_a29299fb;
 		if(!isdefined(level.var_a29299fb))
 		{
 			function_d5e17413();
 		}
-		namespace_b22c99a5::function_8036c103();
+		zm_trial_util::function_8036c103();
 		function_ffdd5310();
 	}
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_497ab7da
 	Checksum: 0x2092082D
 	Offset: 0x6E8
@@ -92,7 +92,7 @@ function private function_d1de6a85(var_a29299fb)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	/#
 		assert(isdefined(level.var_9d606cae) && level.var_9d606cae);
@@ -102,9 +102,9 @@ function private function_9e7b3f4d(round_reset)
 		function_fa70c8c4();
 		function_c606ef4b();
 		function_d7ee2133();
-		namespace_b22c99a5::function_ef1fce77();
+		zm_trial_util::function_ef1fce77();
 		function_c348adcc();
-		namespace_b22c99a5::function_302c6014();
+		zm_trial_util::function_302c6014();
 		level.var_9d606cae = undefined;
 		function_c0da518d();
 	}
@@ -497,11 +497,11 @@ function private function_c348adcc()
 */
 function private function_ffdd5310()
 {
-	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
+	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_55d25caf8f7bbb2f";
-	foreach(var_9bda8088 in var_ec9e2b1d)
+	foreach(t_trap in a_t_traps)
 	{
-		var_9bda8088 zm_traps::trap_set_string(str_text);
+		t_trap zm_traps::trap_set_string(str_text);
 	}
 	level notify(#"hash_3c662e7b29cfc3dd");
 }
@@ -517,11 +517,11 @@ function private function_ffdd5310()
 */
 function private function_c0da518d()
 {
-	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
+	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = zm_utility::function_d6046228(#"hash_23c1c09e94181fdb", #"hash_6e8ef1b690e98e51");
-	foreach(var_9bda8088 in var_ec9e2b1d)
+	foreach(t_trap in a_t_traps)
 	{
-		var_9bda8088 zm_traps::trap_set_string(str_text, var_9bda8088.zombie_cost);
+		t_trap zm_traps::trap_set_string(str_text, t_trap.zombie_cost);
 	}
 	level notify(#"traps_available");
 }

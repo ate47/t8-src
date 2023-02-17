@@ -5,7 +5,7 @@
 #namespace radar_sweeps;
 
 /*
-	Name: function_ce66ebf2
+	Name: radarsweeps
 	Namespace: radar_sweeps
 	Checksum: 0xCCCA18F
 	Offset: 0x98
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_ce66ebf2()
+function radarsweeps()
 {
 	level endon(#"game_ended");
 	if(!sessionmodeismultiplayergame())

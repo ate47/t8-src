@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
-#using script_68d2ee1489345a1d;
-#using script_6b93dd1f0ad89d91;
-#using script_6c8abe14025b47c4;
-#using script_7bafaa95bb1b427e;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\mp\supplydrop.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\loadout_shared.gsc;
 #using scripts\core_common\popups_shared.gsc;

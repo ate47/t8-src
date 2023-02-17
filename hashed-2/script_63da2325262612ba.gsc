@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14e569dd391faf67;
-#using script_1a0465ccc4a3ef61;
+#using scripts\zm\zm_office_teleporters.gsc;
+#using scripts\zm\zm_office_defcon.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_71b31a94cdaeca53;
+#using scripts\zm\zm_office_floors.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -96,8 +96,8 @@ function function_4d58e688(e_poi)
 	{
 		return false;
 	}
-	var_271de3da = namespace_47276bad::function_35babccd(e_poi[1]);
-	var_b2818507 = namespace_47276bad::function_35babccd(self);
+	var_271de3da = zm_office_floors::function_35babccd(e_poi[1]);
+	var_b2818507 = zm_office_floors::function_35babccd(self);
 	if(!isdefined(var_271de3da))
 	{
 		return false;
@@ -128,8 +128,8 @@ function function_6c7d76d(e_player)
 	{
 		return false;
 	}
-	var_5949c6af = namespace_47276bad::function_35babccd(e_player);
-	var_b2818507 = namespace_47276bad::function_35babccd(self);
+	var_5949c6af = zm_office_floors::function_35babccd(e_player);
+	var_b2818507 = zm_office_floors::function_35babccd(self);
 	if(!isdefined(var_5949c6af))
 	{
 		return false;
@@ -155,15 +155,15 @@ function private function_1969a102()
 	target = self.favoriteenemy;
 	if(!isdefined(self.var_3f667178))
 	{
-		if(self namespace_6cd64b2b::function_cacd3270() && namespace_6cd64b2b::is_packroom_clear())
+		if(self zm_office_defcon::function_cacd3270() && zm_office_defcon::is_packroom_clear())
 		{
-			self thread namespace_a701220b::function_9d689cc4(level.portal_pack);
+			self thread zm_office_teleporters::function_9d689cc4(level.portal_pack);
 		}
-		else if(isdefined(target) && namespace_47276bad::function_35babccd(self) != namespace_47276bad::function_35babccd(target))
+		else if(isdefined(target) && zm_office_floors::function_35babccd(self) != zm_office_floors::function_35babccd(target))
 		{
 			if(level flag::get(#"hash_53a41180dac96fff") && level.zones[#"war_room_zone_north"].is_enabled)
 			{
-				self thread namespace_a701220b::function_9d689cc4();
+				self thread zm_office_teleporters::function_9d689cc4();
 			}
 			else
 			{

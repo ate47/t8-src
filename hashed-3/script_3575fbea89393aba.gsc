@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_2daa33c5;
+#namespace laststand_warzone;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xD9BF85CC
 	Offset: 0x238
 	Size: 0x3C
@@ -23,7 +23,7 @@ function autoexec function_89f2df9()
 
 /*
 	Name: __init__
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x7B7A17A5
 	Offset: 0x280
 	Size: 0x1FC
@@ -51,7 +51,7 @@ function __init__()
 
 /*
 	Name: wait_and_set_revive_shader_constant
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x93751CBE
 	Offset: 0x488
 	Size: 0xD0
@@ -75,7 +75,7 @@ function wait_and_set_revive_shader_constant()
 
 /*
 	Name: laststand_bleed
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x32E2A262
 	Offset: 0x560
 	Size: 0x19C

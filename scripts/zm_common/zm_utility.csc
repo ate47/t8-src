@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using script_18a9e529264a3d29;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;
@@ -632,7 +632,7 @@ function function_ae3780f1(localclientnum, n_fx_id, var_3ab46b9)
 }
 
 /*
-	Name: function_90500af5
+	Name: get_cast
 	Namespace: zm_utility
 	Checksum: 0xDD376061
 	Offset: 0x14C8
@@ -640,13 +640,13 @@ function function_ae3780f1(localclientnum, n_fx_id, var_3ab46b9)
 	Parameters: 0
 	Flags: None
 */
-function function_90500af5()
+function get_cast()
 {
-	return namespace_cb7cafc3::function_90500af5();
+	return namespace_cb7cafc3::get_cast();
 }
 
 /*
-	Name: function_166646a6
+	Name: get_story
 	Namespace: zm_utility
 	Checksum: 0x442E838A
 	Offset: 0x14E8
@@ -654,9 +654,9 @@ function function_90500af5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_166646a6()
+function get_story()
 {
-	return namespace_cb7cafc3::function_166646a6();
+	return namespace_cb7cafc3::get_story();
 }
 
 /*
@@ -776,7 +776,7 @@ function flame_corpse_fx(localclientnum, oldval, newval, bnewent, binitialsnap, 
 */
 function function_c599ed65()
 {
-	if(function_166646a6() == 1)
+	if(get_story() == 1)
 	{
 		level.var_12b59dee = "rob_zm_eyes_yellow";
 		level._effect[#"eye_glow"] = #"hash_760112479afe6e2";

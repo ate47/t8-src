@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using scripts\core_common\hud_message_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gametypes\outcome.gsc;
@@ -31,21 +31,21 @@ function init()
 	game.strings[#"intermission"] = #"hash_24bb668f17a9cc67";
 	game.strings[#"match_bonus"] = #"hash_57a8d1440d2cb4c7";
 	game.strings[#"codpoints_match_bonus"] = #"mp_codpoints_match_bonus_is";
-	game.strings[#"cod_caster_team_wins"] = #"hash_4c5b0e4d83e5f96e";
-	game.strings[#"cod_caster_team_eliminated"] = #"hash_22438613d436b209";
+	game.strings[#"cod_caster_team_wins"] = #"mp/wins";
+	game.strings[#"cod_caster_team_eliminated"] = #"mp/team_eliminated";
 	game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
-	game.strings[#"round_draw"] = #"hash_7d3ae25e0187143e";
+	game.strings[#"round_draw"] = #"mp/round_draw";
 	game.strings[#"enemies_eliminated"] = #"hash_3191d03a1c0615ad";
 	game.strings[#"team_eliminated"] = #"hash_5ebfcbc4ad2769b6";
-	game.strings[#"score_limit_reached"] = #"hash_3050eee23c6a3574";
-	game.strings[#"round_score_limit_reached"] = #"hash_3050eee23c6a3574";
-	game.strings[#"round_limit_reached"] = #"hash_3b23cb510ab5970a";
-	game.strings[#"time_limit_reached"] = #"hash_4e2680278af76571";
-	game.strings[#"players_forfeited"] = #"hash_4b172be7ce459674";
+	game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";
+	game.strings[#"round_score_limit_reached"] = #"mp/score_limit_reached";
+	game.strings[#"round_limit_reached"] = #"mp/round_limit_reached";
+	game.strings[#"time_limit_reached"] = #"mp/time_limit_reached";
+	game.strings[#"players_forfeited"] = #"mp/players_forfeited";
 	game.strings[#"other_teams_forfeited"] = #"mp_other_teams_forfeited";
 	game.strings[#"hash_d79f1c697d6bc1b"] = #"hash_115339e33ac1efcb";
 	game.strings[#"hash_5f818a6c2853a7c"] = #"hash_cd63faed592da03";
-	game.strings[#"game_ended"] = #"hash_4f9682270c82e8f6";
+	game.strings[#"game_ended"] = #"mp/ended_game";
 	level.var_c3abe983 = [];
 	function_5d9d54a9(0, game.strings[#"tie"]);
 	function_36419c2(1, game.strings[#"victory"], game.strings[#"defeat"]);

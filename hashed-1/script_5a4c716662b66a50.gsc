@@ -2,7 +2,7 @@
 #using script_421e0a3702e22de;
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;
@@ -281,9 +281,9 @@ function private lavapit_breach_(object)
 function function_a02dfba()
 {
 	var_aff5104e = getentarray("mq_dial_number", "targetname");
-	foreach(var_f0c3a84d in var_aff5104e)
+	foreach(e_code in var_aff5104e)
 	{
-		var_f0c3a84d function_eb2835af();
+		e_code function_eb2835af();
 	}
 }
 
@@ -374,17 +374,17 @@ function function_5f228e90()
 	Parameters: 3
 	Flags: Linked
 */
-function function_ca3efcd8(var_f0c3a84d, str_noteworthy, n_code)
+function function_ca3efcd8(e_code, str_noteworthy, n_code)
 {
 	var_127789d1 = randomint(3);
-	var_52ed9cd6 = namespace_509a75d1::function_bffcedde(str_noteworthy, "script_noteworthy", "script_int");
-	level.var_c205c941[str_noteworthy] = var_52ed9cd6[var_127789d1];
+	a_e_codes = namespace_509a75d1::function_bffcedde(str_noteworthy, "script_noteworthy", "script_int");
+	level.var_c205c941[str_noteworthy] = a_e_codes[var_127789d1];
 	level.var_c205c941[str_noteworthy] function_66365668(n_code);
-	for(i = 0; i < var_52ed9cd6.size; i++)
+	for(i = 0; i < a_e_codes.size; i++)
 	{
 		if(i != var_127789d1)
 		{
-			var_52ed9cd6[i] delete();
+			a_e_codes[i] delete();
 		}
 	}
 	waitframe(1);

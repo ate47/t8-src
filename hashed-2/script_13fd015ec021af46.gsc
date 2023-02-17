@@ -16,8 +16,8 @@
 */
 function autoexec main()
 {
-	clientfield::register("vehicle", "seeker_mine_fx", 1, 1, "int", &function_ef0662f9, 0, 0);
-	clientfield::register("vehicle", "seeker_mine_light_fx", 1, 1, "int", &function_b85cddbd, 0, 0);
+	clientfield::register("vehicle", "seeker_mine_fx", 1, 1, "int", &fxhandler, 0, 0);
+	clientfield::register("vehicle", "seeker_mine_light_fx", 1, 1, "int", &lightfxhandler, 0, 0);
 	ai::add_archetype_spawn_function("seeker_mine", &spawned);
 }
 
@@ -73,7 +73,7 @@ function private function_710c1bb3(localclientnum)
 }
 
 /*
-	Name: function_ef0662f9
+	Name: fxhandler
 	Namespace: seeker_mine
 	Checksum: 0xD0C75BCF
 	Offset: 0x340
@@ -81,7 +81,7 @@ function private function_710c1bb3(localclientnum)
 	Parameters: 7
 	Flags: Private
 */
-function private function_ef0662f9(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private fxhandler(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	if(newvalue)
 	{
@@ -144,7 +144,7 @@ function function_5aa8d239(localclientnum, fx)
 }
 
 /*
-	Name: function_b85cddbd
+	Name: lightfxhandler
 	Namespace: seeker_mine
 	Checksum: 0x39623459
 	Offset: 0x540
@@ -152,7 +152,7 @@ function function_5aa8d239(localclientnum, fx)
 	Parameters: 7
 	Flags: Private
 */
-function private function_b85cddbd(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private lightfxhandler(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	if(newvalue)
 	{

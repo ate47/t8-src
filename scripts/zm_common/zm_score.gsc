@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_27d214e32f50853d;
 #using script_3f9e0dc8454d98e1;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -531,9 +531,9 @@ function player_reduce_points(event, n_amount)
 		}
 		case "no_revive_penalty":
 		{
-			if(namespace_59ff1d6c::function_901b751c(#"hash_64291919b16c489a"))
+			if(zm_custom::function_901b751c(#"hash_64291919b16c489a"))
 			{
-				percent = namespace_59ff1d6c::function_901b751c(#"hash_64291919b16c489a") / 100;
+				percent = zm_custom::function_901b751c(#"hash_64291919b16c489a") / 100;
 				points = self.score * percent;
 			}
 			else if(level.round_number >= 50)
@@ -545,9 +545,9 @@ function player_reduce_points(event, n_amount)
 		}
 		case "died":
 		{
-			if(namespace_59ff1d6c::function_901b751c(#"hash_1158d006a3913ef6"))
+			if(zm_custom::function_901b751c(#"hash_1158d006a3913ef6"))
 			{
-				percent = namespace_59ff1d6c::function_901b751c(#"hash_1158d006a3913ef6") / 100;
+				percent = zm_custom::function_901b751c(#"hash_1158d006a3913ef6") / 100;
 				points = self.score * percent;
 			}
 			else if(level.round_number >= 50)
@@ -559,15 +559,15 @@ function player_reduce_points(event, n_amount)
 		}
 		case "downed":
 		{
-			if(level.round_number < 50 && !namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+			if(level.round_number < 50 && !zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 			{
 				percent = 0;
 			}
 			else
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+				if(zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 				{
-					percent = namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040") / 100;
+					percent = zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040") / 100;
 				}
 				else
 				{

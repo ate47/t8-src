@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2694b388c90e575;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm\weapons\zm_weap_blundergat.gsc;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_6e3c826b1814cab6;
 #using script_7c62f55ce3a557ff;
@@ -96,7 +96,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
 		return;
 	}
@@ -147,9 +147,9 @@ function function_842d114a(player)
 	{
 		return false;
 	}
-	if(player hasweapon(getweapon(#"hash_19c157f2230454ad")) || player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) && !isdefined(self.stub.var_bd8af718))
+	if(player hasweapon(getweapon(#"ww_blundergat_t8")) || player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) && !isdefined(self.stub.var_bd8af718))
 	{
-		if(player hasweapon(getweapon(#"hash_19c157f2230454ad")))
+		if(player hasweapon(getweapon(#"ww_blundergat_t8")))
 		{
 			if(function_8b1a219a())
 			{
@@ -289,9 +289,9 @@ function function_d74a3faf(e_player)
 	self notify("4e021117b5553400");
 	self endon("4e021117b5553400");
 	var_f2528cbc = undefined;
-	if(e_player hasweapon(getweapon(#"hash_19c157f2230454ad")))
+	if(e_player hasweapon(getweapon(#"ww_blundergat_t8")))
 	{
-		var_f2528cbc = #"hash_19c157f2230454ad";
+		var_f2528cbc = #"ww_blundergat_t8";
 	}
 	else
 	{
@@ -746,7 +746,7 @@ function function_dd30dc9a(var_146228fb)
 	self clientfield::set("" + #"hash_1142930568dc278b", 1);
 	while(isdefined(var_146228fb))
 	{
-		self namespace_54386dac::function_8b5765c6();
+		self zm_escape_util::function_8b5765c6();
 	}
 }
 
@@ -876,7 +876,7 @@ function function_6222e98f()
 		{
 			self giveweapon(getweapon(self.var_22b64976));
 			self switchtoweapon(getweapon(self.var_22b64976));
-			self zm_audio::create_and_play_dialog(#"hash_14db46413dd7381e", #"hash_3f9b8ab1dea1f35c", undefined, 1);
+			self zm_audio::create_and_play_dialog(#"magmagat", #"burnout", undefined, 1);
 			self.var_22b64976 = undefined;
 		}
 		self.var_1ea09849 = undefined;
@@ -1095,7 +1095,7 @@ function function_3e6b7a2d()
 				{
 					e_player.var_a40e9d01 = 1;
 					e_player thread function_e02f6600();
-					e_player zm_audio::create_and_play_dialog(#"hash_14db46413dd7381e", #"hash_2d83229cecbed82", undefined, 1);
+					e_player zm_audio::create_and_play_dialog(#"magmagat", #"hash_2d83229cecbed82", undefined, 1);
 				}
 			}
 			level waittill(#"hash_575b654fc5c59146");
@@ -1182,9 +1182,9 @@ function function_77e65267(player)
 		}
 		return true;
 	}
-	if(player hasweapon(getweapon(#"hash_19c157f2230454ad")) || player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) && level flag::get(#"hash_38c04d24b5213b00") && !isdefined(self.stub.var_cec3094a))
+	if(player hasweapon(getweapon(#"ww_blundergat_t8")) || player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) && level flag::get(#"hash_38c04d24b5213b00") && !isdefined(self.stub.var_cec3094a))
 	{
-		if(player hasweapon(getweapon(#"hash_19c157f2230454ad")))
+		if(player hasweapon(getweapon(#"ww_blundergat_t8")))
 		{
 			if(function_8b1a219a())
 			{
@@ -1297,9 +1297,9 @@ function function_d3db303d()
 			}
 			else
 			{
-				if(e_player hasweapon(getweapon(#"hash_19c157f2230454ad")))
+				if(e_player hasweapon(getweapon(#"ww_blundergat_t8")))
 				{
-					var_fc074136 = #"hash_19c157f2230454ad";
+					var_fc074136 = #"ww_blundergat_t8";
 				}
 				else
 				{
@@ -1379,7 +1379,7 @@ function function_d3db303d()
 					e_player setweaponammostock(var_f2fae71a, math::clamp(e_player.var_452feb6c, 0, var_f2fae71a.maxammo));
 					e_player.var_452feb6c = undefined;
 				}
-				e_player thread zm_audio::create_and_play_dialog(#"weapon_pickup", #"hash_14db46413dd7381e");
+				e_player thread zm_audio::create_and_play_dialog(#"weapon_pickup", #"magmagat");
 				e_player notify(#"hash_6e0a27b37f225a25");
 				self.stub.var_154419fd = undefined;
 				if(isdefined(e_player))
@@ -1498,7 +1498,7 @@ function private function_a6a91f7a(var_f2528cbc)
 		self.var_607f49de = zm_utility::spawn_weapon_model(getweapon(#"hash_23882a5729dceca"), undefined, self.v_weapon_origin, self.v_weapon_angles);
 		return false;
 	}
-	if(var_f2528cbc == #"hash_19c157f2230454ad" || var_f2528cbc == #"hash_25a13b6f6232a985")
+	if(var_f2528cbc == #"ww_blundergat_t8" || var_f2528cbc == #"hash_25a13b6f6232a985")
 	{
 		self.var_607f49de = zm_utility::spawn_weapon_model(getweapon(#"hash_23882a5729dceca"), undefined, self.v_weapon_origin, self.v_weapon_angles);
 		return false;
@@ -1628,7 +1628,7 @@ function function_b00fd241()
 			}
 			if(e_part.script_noteworthy === "item_part")
 			{
-				var_f4539b2e.var_2e1f34dd = e_part;
+				var_f4539b2e.e_item = e_part;
 			}
 		}
 	}
@@ -1647,7 +1647,7 @@ function function_b00fd241()
 	Parameters: 2
 	Flags: Linked
 */
-function function_6fe98729(e_holder, var_9c95ad05)
+function function_6fe98729(e_holder, w_item)
 {
 	self playsound(#"hash_230737b2535a3374");
 }
@@ -1692,22 +1692,22 @@ function function_48c915fa()
 					playsoundatposition(e_door.script_sound, e_door.origin);
 				}
 			}
-			if(isdefined(self.var_2e1f34dd) && isdefined(self.var_2e1f34dd.script_int))
+			if(isdefined(self.e_item) && isdefined(self.e_item.script_int))
 			{
-				if(self.var_2e1f34dd.script_int == 1)
+				if(self.e_item.script_int == 1)
 				{
 					level flag::set(#"activate_sally_port_acid");
-					self.var_2e1f34dd ghost();
+					self.e_item ghost();
 					var_80c0f2e6 = zm_crafting::function_4c2f8683(#"hash_5517c404e6d9592b");
-					zm_items::spawn_item(var_80c0f2e6, self.var_2e1f34dd.origin, self.var_2e1f34dd.angles);
-					self.var_2e1f34dd delete();
+					zm_items::spawn_item(var_80c0f2e6, self.e_item.origin, self.e_item.angles);
+					self.e_item delete();
 				}
-				if(self.var_2e1f34dd.script_int == 2)
+				if(self.e_item.script_int == 2)
 				{
-					self.var_2e1f34dd ghost();
+					self.e_item ghost();
 					var_80c0f2e6 = zm_crafting::function_4c2f8683(#"hash_5517c504e6d95ade");
-					zm_items::spawn_item(var_80c0f2e6, self.var_2e1f34dd.origin, self.var_2e1f34dd.angles);
-					self.var_2e1f34dd delete();
+					zm_items::spawn_item(var_80c0f2e6, self.e_item.origin, self.e_item.angles);
+					self.e_item delete();
 				}
 			}
 			if(isdefined(self.e_clip))

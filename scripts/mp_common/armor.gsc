@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
@@ -215,7 +215,7 @@ function function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon
 }
 
 /*
-	Name: function_4f977182
+	Name: get_armor
 	Namespace: armor
 	Checksum: 0xA160A368
 	Offset: 0x7A0
@@ -223,7 +223,7 @@ function function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon
 	Parameters: 0
 	Flags: Linked
 */
-function function_4f977182()
+function get_armor()
 {
 	if(!isdefined(self))
 	{
@@ -291,7 +291,7 @@ function set_armor(amount, var_8814a91, armortier, var_2274e560 = 1, var_cdeeec2
 */
 function has_armor()
 {
-	return self function_4f977182() > 0;
+	return self get_armor() > 0;
 }
 
 /*

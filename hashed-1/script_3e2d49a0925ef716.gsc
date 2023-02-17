@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_175bdf559cba9248;
-#using script_2118e128407b7acb;
+#using scripts\zm\perk\zm_perk_wolf_protector.gsc;
+#using scripts\zm\ai\zm_ai_dog.gsc;
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
@@ -193,7 +193,7 @@ function private function_6ca1cd82(entity, player, duration, color)
 					distance = distance(var_748152f4, var_bf50a54d);
 					print3d(var_bf50a54d + vectorscale((0, 0, 1), 30), "" + distance, color, 1, 1, 1);
 				#/
-				locomotion_target = namespace_5eb9b9b6::get_locomotion_target(self);
+				locomotion_target = zm_ai_dog::get_locomotion_target(self);
 				if(isdefined(locomotion_target))
 				{
 					/#
@@ -237,7 +237,7 @@ function private function_462df450(inflictor, attacker, damage, flags, meansofda
 function private function_bd0a9007(entity, target)
 {
 	result = 1;
-	if(!namespace_5eb9b9b6::is_target_valid(entity, target) || (!(isdefined(target.completed_emerging_into_playable_area) && target.completed_emerging_into_playable_area)) || (isdefined(target.in_gravity_trap) && target.in_gravity_trap) || (isdefined(target.var_105c6f35) && target.var_105c6f35) || (isdefined(target.archetype) && target.archetype == #"hash_3b41c3299f47fb7f"))
+	if(!zm_ai_dog::is_target_valid(entity, target) || (!(isdefined(target.completed_emerging_into_playable_area) && target.completed_emerging_into_playable_area)) || (isdefined(target.in_gravity_trap) && target.in_gravity_trap) || (isdefined(target.var_105c6f35) && target.var_105c6f35) || (isdefined(target.archetype) && target.archetype == #"hash_3b41c3299f47fb7f"))
 	{
 		result = 0;
 	}
@@ -361,7 +361,7 @@ function private function_af59b7a5(entity)
 				return;
 			}
 		}
-		locomotion_target = namespace_5eb9b9b6::get_locomotion_target(entity);
+		locomotion_target = zm_ai_dog::get_locomotion_target(entity);
 		if(isdefined(locomotion_target) && (!isdefined(entity.lasttargetposition) || distancesquared(entity.lasttargetposition, locomotion_target) > (16 * 16) || !entity haspath()))
 		{
 			path = generatenavmeshpath(entity.origin, locomotion_target, entity);
@@ -743,7 +743,7 @@ function private function_87660c12(entity)
 	player_owner = function_f00b611e();
 	if(isdefined(player_owner))
 	{
-		spawn_location = player_owner namespace_96bb7ff1::function_562ade9e();
+		spawn_location = player_owner zm_perk_wolf_protector::function_562ade9e();
 		if(isdefined(spawn_location))
 		{
 			entity forceteleport(spawn_location);

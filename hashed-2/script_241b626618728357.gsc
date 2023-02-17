@@ -3,11 +3,11 @@
 #using script_2affe92664ace48d;
 #using script_31a8049bdbd4af27;
 #using script_39e954a546d3baf;
-#using script_3a3c430eb58ed475;
+#using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
 #using script_684097158a90b5c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -239,7 +239,7 @@ function function_bbbc20bf(var_a7bc1cee = 0)
 		if(var_a7bc1cee)
 		{
 			mdl_head playsound(#"hash_3d7066af9c9bf849");
-			mdl_head thread namespace_2ea65b04::function_61cf4d04();
+			mdl_head thread zm_towers_pap_quest::function_61cf4d04();
 		}
 	}
 	if(var_a7bc1cee)
@@ -527,7 +527,7 @@ function function_5dff542c()
 		{
 			if(isalive(player))
 			{
-				player namespace_ebd828b::function_b8dfa139(#"hash_5986c925a370e137");
+				player zm_towers_crowd::function_b8dfa139(#"hash_5986c925a370e137");
 			}
 		}
 	}

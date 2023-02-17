@@ -143,7 +143,7 @@ function callback_playerconnect()
 	if(level.onlinegame && (!(isdefined(level.freerun) && level.freerun)))
 	{
 		self.gametype_kill_streak = self stats::function_ed81f25e(#"kill_streak");
-		self.var_b6f732c0 = self stats::function_441050ca(#"hash_5ef976b050e0aa48");
+		self.var_b6f732c0 = self stats::function_441050ca(#"longest_killstreak");
 		if(!isdefined(self.gametype_kill_streak))
 		{
 			self.gametype_kill_streak = 0;
@@ -335,7 +335,7 @@ function callback_playerconnect()
 	{
 		self namespace_42fe87d::record_global_mp_stats_for_player_at_match_start();
 	}
-	self namespace_9a8d2924::function_2ce5cb7e();
+	self hvo::function_2ce5cb7e();
 	num_con = getnumconnectedplayers();
 	num_exp = getnumexpectedplayers();
 	/#
@@ -522,7 +522,7 @@ function private init_character_index()
 			if(function_f99d2668())
 			{
 				var_72964a59 = self stats::function_6d50f14b(#"cacloadouts", #"charactercontext", #"characterindex");
-				if(var_72964a59 != 0 && (isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312")))
+				if(var_72964a59 != 0 && (isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising")))
 				{
 					rf = function_fb05c532(var_72964a59, currentsessionmode());
 					if(isdefined(rf) && rf.var_57519715 === #"hash_350d7fc2aca48b7f")

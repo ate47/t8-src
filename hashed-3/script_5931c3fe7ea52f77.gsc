@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6a3f43063dfd1bdc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -37,11 +37,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_7319a6081ff47958", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_7319a6081ff47958", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_675c5a11
 	Checksum: 0x7710A107
 	Offset: 0x1C0
@@ -49,9 +49,9 @@ function __init__()
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_80bd7996, var_49d28bc1, var_5b932f42, var_a53dc296, var_60bdad5f)
+function private on_begin(var_80bd7996, var_49d28bc1, var_5b932f42, var_a53dc296, var_60bdad5f)
 {
-	namespace_b22c99a5::function_7d32b7d0(0);
+	zm_trial_util::function_7d32b7d0(0);
 	n_base = 99;
 	level.population_count = n_base;
 	switch(getplayers().size)
@@ -86,7 +86,7 @@ function private function_d1de6a85(var_80bd7996, var_49d28bc1, var_5b932f42, var
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_675c5a11
 	Checksum: 0x828B3EDE
 	Offset: 0x370
@@ -94,9 +94,9 @@ function private function_d1de6a85(var_80bd7996, var_49d28bc1, var_5b932f42, var
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	level flag::clear(#"infinite_round_spawning");
 	level.var_382a24b0 = 0;
 	if(!round_reset)
@@ -147,7 +147,7 @@ function private function_75f0aac6()
 		if(waitresult.weapon.name === #"galvaknuckles_t8" && level.population_count === 0)
 		{
 			level.var_5cf4858b = 1;
-			namespace_b22c99a5::function_7d32b7d0(1);
+			zm_trial_util::function_7d32b7d0(1);
 			level flag::clear(#"infinite_round_spawning");
 			level flag::set(#"hold_round_end");
 			level zm_utility::function_9ad5aeb1(1, 1, 0, 1, 0);

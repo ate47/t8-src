@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1254ac024174d9c0;
 #using script_3e5ec44cfab7a201;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_50c040e371c1c35f;
 #using script_52c6c2d1a2ef1b46;
 #using script_681abc4248c2bc7d;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -44,12 +44,12 @@ function init()
 		s_chest chest_init();
 		namespace_617a54f4::function_d8383812(s_chest.script_noteworthy, 1, s_chest, &function_62f0c1c, &function_32edfed);
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
-		namespace_ee206246::register(#"hash_1222a3e832bad772", #"hash_2725edd09b4bb1b6", #"hash_13b316981d67e1ad", &function_e4b33b89, &function_64809180);
-		namespace_ee206246::register(#"hash_1222a3e832bad772", #"hash_6cc4f52e0ed36f92", #"hash_13b313981d67dc94", &function_fee02008, &function_bb332956);
-		namespace_ee206246::register(#"hash_1222a3e832bad772", #"hash_575b4d3faca8bf2e", #"hash_13b314981d67de47", &function_aed5650e, &function_8a5e22a9);
-		namespace_ee206246::register(#"hash_1222a3e832bad772", #"hash_1d89a5560669ab60", #"hash_13b311981d67d92e", &function_fb4f668c, &function_d332dd57);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_2725edd09b4bb1b6", #"hash_13b316981d67e1ad", &function_e4b33b89, &function_64809180);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_6cc4f52e0ed36f92", #"hash_13b313981d67dc94", &function_fee02008, &function_bb332956);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_575b4d3faca8bf2e", #"hash_13b314981d67de47", &function_aed5650e, &function_8a5e22a9);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_1d89a5560669ab60", #"hash_13b311981d67d92e", &function_fb4f668c, &function_d332dd57);
 		level flag::init(#"hash_1562cc6d96b2bc4");
 		level flag::init(#"hash_635fa9d7a8be6607");
 		level flag::init(#"hash_2889330d50a4cc38");
@@ -133,7 +133,7 @@ function private function_2c93a769()
 	}
 	callback::on_connect(&function_707a3db7);
 	zm_crafting::function_d1f16587(#"hash_6f259b259997271a", &function_8498110e);
-	namespace_ee206246::start(#"hash_1222a3e832bad772", 1);
+	zm_sq::start(#"hash_1222a3e832bad772", 1);
 }
 
 /*
@@ -1454,7 +1454,7 @@ function private show_chest()
 {
 	if(!isdefined(self.var_31919730))
 	{
-		self.var_31919730 = util::spawn_model(#"hash_14afe310dc0d4bd9", self.s_chest.origin, self.s_chest.angles);
+		self.var_31919730 = util::spawn_model(#"p8_fxanim_zm_zod_kraken_chest_mod", self.s_chest.origin, self.s_chest.angles);
 	}
 	else
 	{

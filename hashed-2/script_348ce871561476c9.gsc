@@ -210,7 +210,7 @@ function private function_a7e644f6(eventstruct)
 function private function_1fc427dc()
 {
 	/#
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		waitframe(1);
 		waitframe(1);
 		adddebugcommand("");

@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -39,11 +39,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3e1f71884b537274", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3e1f71884b537274", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_7519066e
 	Checksum: 0x9A889F82
 	Offset: 0x188
@@ -51,21 +51,21 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	callback::function_78ccee50(&function_78ccee50);
 	callback::function_33f0ddd3(&function_33f0ddd3);
-	callback::function_f77ced93(&namespace_b22c99a5::function_79518194);
+	callback::function_f77ced93(&zm_trial_util::function_79518194);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_bf710271(1, 1, 1, 0, 1);
-		player thread namespace_b22c99a5::function_dc9ab223(1, 1);
+		player thread zm_trial_util::function_bf710271(1, 1, 1, 0, 1);
+		player thread zm_trial_util::function_dc9ab223(1, 1);
 	}
 	level zm_trial::function_25ee130(1);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_7519066e
 	Checksum: 0xADACDEAB
 	Offset: 0x2C8
@@ -73,15 +73,15 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_deba137d(&function_78ccee50);
 	callback::function_824d206(&function_33f0ddd3);
-	callback::function_5a753d97(&namespace_b22c99a5::function_79518194);
+	callback::function_5a753d97(&zm_trial_util::function_79518194);
 	foreach(player in getplayers())
 	{
 		player notify(#"hash_1fbfdb0105f48f89");
-		player thread namespace_b22c99a5::function_dc0859e();
+		player thread zm_trial_util::function_dc0859e();
 	}
 	level zm_trial::function_25ee130(0);
 }
@@ -156,7 +156,7 @@ function private function_29ee24dd(weapon)
 {
 	self endon(#"disconnect");
 	self function_28602a03(weapon, 1, 1);
-	self namespace_b22c99a5::function_7dbb1712();
+	self zm_trial_util::function_7dbb1712();
 	n_clip_ammo = self getweaponammoclip(weapon);
 	n_stock_ammo = self getweaponammostock(weapon);
 	if(n_stock_ammo > 0)
@@ -179,7 +179,7 @@ function private function_29ee24dd(weapon)
 	if(isdefined(self))
 	{
 		self unlockweapon(weapon);
-		self namespace_b22c99a5::function_7dbb1712(1);
+		self zm_trial_util::function_7dbb1712(1);
 	}
 }
 

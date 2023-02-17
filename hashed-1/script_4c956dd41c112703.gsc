@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_78e9e286015f2ec;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -140,9 +140,9 @@ function function_88d1bd71()
 	}
 	level.mannequin_ally_spawner = getent("mannequin_ally_spawner", "targetname");
 	level.var_777acf92 = level.mannequin_ally_spawner;
-	namespace_ee206246::register(#"hash_5209f17dc73f0224", #"step_1", #"hash_5c83380ff7db3131", &function_cff5f83, &function_aceec77a);
-	namespace_ee206246::register(#"hash_5209f17dc73f0224", #"step_2", #"hash_5c83350ff7db2c18", &function_20c4e844, &function_9101a54d);
-	namespace_ee206246::start(#"hash_5209f17dc73f0224");
+	zm_sq::register(#"hash_5209f17dc73f0224", #"step_1", #"hash_5c83380ff7db3131", &function_cff5f83, &function_aceec77a);
+	zm_sq::register(#"hash_5209f17dc73f0224", #"step_2", #"hash_5c83350ff7db2c18", &function_20c4e844, &function_9101a54d);
+	zm_sq::start(#"hash_5209f17dc73f0224");
 }
 
 /*
@@ -323,10 +323,10 @@ function function_7d470210()
 	level flag::clear(#"hash_315d0bf1d50724f0");
 	level flag::clear(#"hash_130656ec8ad5480d");
 	level flag::clear(#"hash_130656ec8ad5480d");
-	level.var_f13364b4.var_132bd718[level.var_f13364b4.var_8deb4ed2].var_544c05c6 = 1;
-	level.var_f13364b4.var_132bd718[level.var_f13364b4.var_a7450be4].var_544c05c6 = 1;
-	level.var_f13364b4.var_132bd718[level.var_f13364b4.var_72c3e48c].var_544c05c6 = 1;
-	level.var_f13364b4.var_132bd718[level.var_f13364b4.var_98e79e76].var_544c05c6 = 1;
+	level.var_f13364b4.a_n_codes[level.var_f13364b4.var_8deb4ed2].var_544c05c6 = 1;
+	level.var_f13364b4.a_n_codes[level.var_f13364b4.var_a7450be4].var_544c05c6 = 1;
+	level.var_f13364b4.a_n_codes[level.var_f13364b4.var_72c3e48c].var_544c05c6 = 1;
+	level.var_f13364b4.a_n_codes[level.var_f13364b4.var_98e79e76].var_544c05c6 = 1;
 }
 
 /*

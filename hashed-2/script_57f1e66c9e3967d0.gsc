@@ -44,8 +44,8 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"hash_66e6fbe3cc2aff65", &function_12161a30, &function_b10a7225);
-	zm_perks::function_b60f4a9f(#"hash_66e6fbe3cc2aff65", #"hash_4a19d36f59c813cf", "zombie/fx8_perk_altar_symbol_ambient_secret_sauce", #"hash_179ae09979e80714");
+	zm_perks::register_perk_clientfields(#"specialty_mystery", &function_12161a30, &function_b10a7225);
+	zm_perks::function_b60f4a9f(#"specialty_mystery", #"p8_zm_vapor_altar_icon_01_secretsauce", "zombie/fx8_perk_altar_symbol_ambient_secret_sauce", #"hash_179ae09979e80714");
 }
 
 /*

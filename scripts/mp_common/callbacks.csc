@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b80a90bb1ce332e;
-#using script_6fe18f6a76bd7e8d;
-#using script_7c21aca7f8a3572a;
-#using script_ecbb3819941bb69;
+#using scripts\weapons\acid_bomb.csc;
+#using scripts\killstreaks\airsupport.csc;
+#using scripts\abilities\gadgets\gadget_vision_pulse.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\footsteps_shared.csc;
 #using scripts\core_common\system_shared.csc;
@@ -186,7 +186,7 @@ function entityspawned(localclientnum)
 		}
 		if(self.weapon.name === "eq_acid_bomb")
 		{
-			self thread namespace_e6ad7806::spawned(localclientnum);
+			self thread acid_bomb::spawned(localclientnum);
 		}
 	}
 	else

@@ -56,7 +56,7 @@ function __main__()
 */
 function function_7299c39e()
 {
-	zm_perks::function_7f42e14e(#"hash_301aaa36fae44a5c", "mod_cooldown", #"hash_69fcf7d746edeeaf", #"hash_37aa3a5919757781", 3500);
+	zm_perks::function_7f42e14e(#"hash_301aaa36fae44a5c", "mod_cooldown", #"perk_cooldown", #"hash_37aa3a5919757781", 3500);
 	zm_perks::register_perk_threads(#"hash_301aaa36fae44a5c", &function_8d51d9a8, &function_754453a);
 }
 

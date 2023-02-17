@@ -1,19 +1,19 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_229f24b1662651c4;
+#using scripts\killstreaks\mp\killstreaks.gsc;
 #using script_256b8879317373de;
 #using script_2c49ae69cd8ce30c;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_3f27a7b2232674db;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_56ca01b3b31455b5;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
-#using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
 #using script_788472602edbe3b9;
-#using script_7bafaa95bb1b427e;
-#using script_bc839bb0e693558;
+#using scripts\weapons\weapons.gsc;
+#using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\burnplayer.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
@@ -299,7 +299,7 @@ function function_74a5d514(eattacker, idamage, smeansofdeath, weapon, shitloc)
 		idamage = int(idamage * 4);
 		new_health = eattacker.health + 50;
 		eattacker.health = int(math::clamp(new_health, 0, max(eattacker.health, eattacker.maxhealth)));
-		params = function_4d1e7b48(#"hash_505300dab645fba4");
+		params = getstatuseffect(#"hash_505300dab645fba4");
 		self status_effect::status_effect_apply(params, weapon, eattacker);
 	}
 	return idamage;
@@ -416,7 +416,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 	{
 		var_771902ea = status_effect::function_3c54ae98(3);
 		var_81ccea1a = 1;
-		if(weapons::getbaseweapon(weapon) == level.var_9e188c0b)
+		if(weapons::getbaseweapon(weapon) == level.weaponflechette)
 		{
 			var_81ccea1a = smeansofdeath != "MOD_PROJECTILE" && weaponhasattachment(weapon, "uber");
 		}
@@ -424,7 +424,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 		{
 			idamage = int(idamage * (1 - var_771902ea));
 		}
-		var_677cfdb0 = function_4d1e7b48("explosive_damage");
+		var_677cfdb0 = getstatuseffect("explosive_damage");
 		status_effect::status_effect_apply(var_677cfdb0, weapon, eattacker);
 	}
 	if(isdefined(eattacker) && self != eattacker)
@@ -461,7 +461,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 			}
 			if(smeansofdeath === "MOD_HEAD_SHOT" && !killstreaks::is_killstreak_weapon(weapon))
 			{
-				eattacker stats::function_dad108fa(#"hash_770b357b9f671585", int(damagedone));
+				eattacker stats::function_dad108fa(#"headshot_damage", int(damagedone));
 			}
 		}
 	}
@@ -489,13 +489,13 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 		self.var_9277fb8e = var_9277fb8e;
 		if(isdefined(self.var_4dcf932b))
 		{
-			params = function_4d1e7b48("wound_radiation");
+			params = getstatuseffect("wound_radiation");
 		}
 		else
 		{
 			if(isdefined(self.var_e8bb749a))
 			{
-				params = function_4d1e7b48("shock_rifle_shock");
+				params = getstatuseffect("shock_rifle_shock");
 			}
 			else
 			{
@@ -511,7 +511,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 					}
 					else
 					{
-						params = function_4d1e7b48("wound");
+						params = getstatuseffect("wound");
 					}
 				}
 			}
@@ -519,17 +519,17 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 		if(!(isdefined(params.var_d8e9a175) && params.var_d8e9a175) && (!isdefined(self.var_4dcf932b) || self.var_4dcf932b != self))
 		{
 			params.var_4df0ea83 = smeansofdeath != "MOD_DOT";
-			if(params.var_67e2281d == 6)
+			if(params.setype == 6)
 			{
 				params.var_752c0834 = function_a31ab50c(var_7c61c7a1);
 				params.var_4df0ea83 = 1;
 				self.var_abe2db87 = 1;
 			}
 			self status_effect::status_effect_apply(params, weapon, eattacker, 0);
-			var_284f3c1a = params.var_67e2281d == 6;
+			var_284f3c1a = params.setype == 6;
 			if(var_7e7a6e97 && !var_284f3c1a)
 			{
-				var_25635954 = (var_e31583b3 ? var_8c8cca9b : function_4d1e7b48("wound"));
+				var_25635954 = (var_e31583b3 ? var_8c8cca9b : getstatuseffect("wound"));
 				var_25635954.var_752c0834 = function_a31ab50c(var_7c61c7a1);
 				self.var_abe2db87 = 1;
 				self status_effect::status_effect_apply(var_25635954, weapon, eattacker, 0);
@@ -955,7 +955,7 @@ function private function_29b3ff22(einflictor, eattacker, idamage, smeansofdeath
 			dot = vectordot(forward, vdir);
 			if(dot < -0.8)
 			{
-				self status_effect::status_effect_apply(function_4d1e7b48("riotshield_hit_slow"), self.currentweapon, self, 0);
+				self status_effect::status_effect_apply(getstatuseffect("riotshield_hit_slow"), self.currentweapon, self, 0);
 			}
 		}
 	}
@@ -1098,12 +1098,12 @@ function private apply_damage_to_armor(einflictor, eattacker, idamage, idflags, 
 	{
 		return {#idamage:victim.health, #idflags:idflags};
 	}
-	armor = self armor::function_4f977182();
+	armor = self armor::get_armor();
 	gear_armor = self.armor;
 	self.var_426947c4 = undefined;
 	idamage = victim armor::apply_damage(weapon, idamage, smeansofdeath, eattacker, shitloc);
 	idamage = victim armor::function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon, shitloc);
-	armor_damaged = armor != self armor::function_4f977182();
+	armor_damaged = armor != self armor::get_armor();
 	if(armor_damaged)
 	{
 		idflags = idflags | 2048;
@@ -1386,7 +1386,7 @@ function private function_811dd365(einflictor, weapon, smeansofdeath)
 	{
 		return false;
 	}
-	if(weapons::getbaseweapon(weapon) == level.var_9e188c0b && weaponhasattachment(weapon, "uber"))
+	if(weapons::getbaseweapon(weapon) == level.weaponflechette && weaponhasattachment(weapon, "uber"))
 	{
 		return false;
 	}

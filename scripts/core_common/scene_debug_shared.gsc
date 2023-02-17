@@ -708,13 +708,13 @@ function scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444
 	/#
 		if(!level flagsys::get(#"hash_20a4053fe3e70f8"))
 		{
-			thread function_e67dabcc(strings, n_selected, str_title, b_shot_menu, var_444abf97);
+			thread _scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444abf97);
 		}
 	#/
 }
 
 /*
-	Name: function_e67dabcc
+	Name: _scene_list_settext
 	Namespace: scene
 	Checksum: 0xA9684AF9
 	Offset: 0x2050
@@ -722,7 +722,7 @@ function scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444
 	Parameters: 5
 	Flags: Private
 */
-function private function_e67dabcc(strings, n_selected, str_title, b_shot_menu, var_444abf97)
+function private _scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444abf97)
 {
 	/#
 		if(!isdefined(b_shot_menu))

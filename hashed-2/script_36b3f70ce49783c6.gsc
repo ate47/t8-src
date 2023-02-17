@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2bb5600d583e2812;
-#using script_34d114dff9ef2f09;
+#using scripts\abilities\gadgets\gadget_tripwire.gsc;
 #using script_7e294a061be2fd9;
-#using script_8988fdbc78d6c53;
-#using script_8abfb58852911dd;
+#using scripts\weapons\weaponobjects.gsc;
+#using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -109,7 +109,7 @@ function private function_b465b436(deathcircle, var_898879a6)
 function private function_35e11623(deathcircle, var_898879a6)
 {
 	players = getplayers();
-	excludelist = [#"willy_pete":1, #"frag_grenade":1, #"hash_c78156ba6aeda14":1, #"eq_swat_grenade":1, #"eq_slow_grenade":1, #"eq_molotov":1, #"eq_cluster_semtex_grenade":1, #"eq_acid_bomb":1];
+	excludelist = [#"willy_pete":1, #"frag_grenade":1, #"eq_wraith_fire":1, #"eq_swat_grenade":1, #"eq_slow_grenade":1, #"eq_molotov":1, #"eq_cluster_semtex_grenade":1, #"eq_acid_bomb":1];
 	foreach(player in players)
 	{
 		if(!isplayer(player))
@@ -186,11 +186,11 @@ function private function_35e11623(deathcircle, var_898879a6)
 		var_90afc439[index] namespace_c5ba6e2a::function_4f90c4c2();
 	}
 	var_2e20127d = [];
-	foreach(var_48ad08f5 in level.var_2da60c10)
+	foreach(homunculus in level.var_2da60c10)
 	{
-		if(isdefined(var_48ad08f5) && function_3703bc36(var_48ad08f5, deathcircle))
+		if(isdefined(homunculus) && function_3703bc36(homunculus, deathcircle))
 		{
-			var_2e20127d[var_2e20127d.size] = var_48ad08f5;
+			var_2e20127d[var_2e20127d.size] = homunculus;
 		}
 	}
 	for(index = 0; index < var_2e20127d.size; index++)

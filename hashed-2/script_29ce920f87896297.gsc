@@ -3,11 +3,11 @@
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_6027db6e;
+#namespace archetype_blight_father;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_6027db6e
+	Namespace: archetype_blight_father
 	Checksum: 0xD02EBC30
 	Offset: 0x90
 	Size: 0x3C
@@ -21,7 +21,7 @@ function autoexec function_89f2df9()
 
 /*
 	Name: precache
-	Namespace: namespace_6027db6e
+	Namespace: archetype_blight_father
 	Checksum: 0x8DD4106B
 	Offset: 0xD8
 	Size: 0x34
@@ -35,7 +35,7 @@ function autoexec precache()
 
 /*
 	Name: __init__
-	Namespace: namespace_6027db6e
+	Namespace: archetype_blight_father
 	Checksum: 0x80F724D1
 	Offset: 0x118
 	Size: 0x4
@@ -48,7 +48,7 @@ function __init__()
 
 /*
 	Name: function_859ccb1e
-	Namespace: namespace_6027db6e
+	Namespace: archetype_blight_father
 	Checksum: 0x2988A9B8
 	Offset: 0x128
 	Size: 0x5C

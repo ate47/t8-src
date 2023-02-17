@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1c72973fb240f263;
-#using script_3cebb48c37fc271;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_fasttravel.gsc;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
 #using scripts\core_common\array_shared.gsc;
@@ -1174,23 +1174,23 @@ function portal_init()
 function function_688df525()
 {
 	var_63fca02d = struct::get_array("white_portal");
-	var_46b8d72b = [];
+	a_s_active = [];
 	foreach(s_portal in var_63fca02d)
 	{
 		if(s_portal.b_placed)
 		{
-			if(!isdefined(var_46b8d72b))
+			if(!isdefined(a_s_active))
 			{
-				var_46b8d72b = [];
+				a_s_active = [];
 			}
-			else if(!isarray(var_46b8d72b))
+			else if(!isarray(a_s_active))
 			{
-				var_46b8d72b = array(var_46b8d72b);
+				a_s_active = array(a_s_active);
 			}
-			var_46b8d72b[var_46b8d72b.size] = s_portal;
+			a_s_active[a_s_active.size] = s_portal;
 		}
 	}
-	return var_46b8d72b;
+	return a_s_active;
 }
 
 /*
@@ -1224,22 +1224,22 @@ function function_a09d62f1()
 				self.e_model show();
 				playsoundatposition(#"hash_d8a6518e5c2027d", self.e_model.origin + vectorscale((0, 0, 1), 20));
 			}
-			level.var_46b8d72b = function_688df525();
+			level.a_s_active = function_688df525();
 			if(level.var_868c98df == 0)
 			{
-				level.var_46b8d72b[0].n_dest = level.var_46b8d72b[1].var_7b89ada3;
-				level.var_46b8d72b[1].n_dest = level.var_46b8d72b[0].var_7b89ada3;
-				level.var_46b8d72b[0] thread function_16ccd69f();
-				level.var_46b8d72b[1] thread function_16ccd69f();
+				level.a_s_active[0].n_dest = level.a_s_active[1].var_7b89ada3;
+				level.a_s_active[1].n_dest = level.a_s_active[0].var_7b89ada3;
+				level.a_s_active[0] thread function_16ccd69f();
+				level.a_s_active[1] thread function_16ccd69f();
 			}
-			foreach(s_portal in level.var_46b8d72b)
+			foreach(s_portal in level.a_s_active)
 			{
 				level thread function_3566160b(s_portal.script_noteworthy, 1);
 			}
 		}
 		else if(self.b_placed && !self.b_locked && !function_26ddb915())
 		{
-			level.var_46b8d72b = function_688df525();
+			level.a_s_active = function_688df525();
 			level.var_868c98df++;
 			self.b_active = 0;
 			self.b_placed = 0;
@@ -1250,9 +1250,9 @@ function function_a09d62f1()
 			}
 			if(level.var_868c98df == 1)
 			{
-				foreach(var_47e97b1a in level.var_46b8d72b)
+				foreach(s_active in level.a_s_active)
 				{
-					var_47e97b1a function_978923cd();
+					s_active function_978923cd();
 				}
 			}
 			level thread function_3566160b(self.script_noteworthy, 0);

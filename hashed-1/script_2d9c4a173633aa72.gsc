@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_624a704d0f6bf28d;
 #using scripts\core_common\beam_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -27,7 +27,7 @@ function init_clientfields()
 	clientfield::register("allplayers", "" + #"hash_5370f4bc9fc25d13", 8000, 1, "int", &function_bdecc239, 0, 1);
 	clientfield::register("scriptmover", "" + #"hash_42b6c982eeb59c79", 8000, 2, "int", &function_9caa803, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_15af8e35c0c1f344", 8000, 2, "int", &function_986307c4, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_663a4a99828c832b", 8000, 2, "int", &function_d9cc443f, 0, 0);
+	clientfield::register("scriptmover", "" + #"red_ray", 8000, 2, "int", &red_ray, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_709c03abf1a2e08b", 8000, 2, "int", &function_faf293b9, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_61d9ba9310d827ea", 8000, 2, "int", &function_8c4a565c, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_5eff598dc267e32a", 8000, 1, "int", &function_b75c6b4f, 0, 0);
@@ -37,7 +37,7 @@ function init_clientfields()
 	clientfield::register("scriptmover", "" + #"hash_546e7612359187c3", 8000, 1, "counter", &function_a0d4ae11, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_73a4abf07bc65bc3", 8000, 1, "counter", &function_b479829c, 0, 0);
 	clientfield::register("world", "" + #"hash_557a1703971f074c", 8000, 1, "int", &function_bca55d4e, 0, 0);
-	level._effect[#"hash_663a4a99828c832b"] = #"hash_7046110ad3c65161";
+	level._effect[#"red_ray"] = #"hash_7046110ad3c65161";
 	level._effect[#"hash_709c03abf1a2e08b"] = #"hash_532ac819595d9bb5";
 	level._effect[#"hash_61d9ba9310d827ea"] = #"hash_4a495cef0ef4aee2";
 	level._effect[#"hash_415a43ea0ce519d0"] = #"hash_6a1ab09280787b72";
@@ -194,7 +194,7 @@ function function_b75c6b4f(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_d9cc443f
+	Name: red_ray
 	Namespace: namespace_a8113e97
 	Checksum: 0xD80D7592
 	Offset: 0xDA0
@@ -202,7 +202,7 @@ function function_b75c6b4f(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_d9cc443f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function red_ray(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(isdefined(self.var_c04854d8))
 	{
@@ -217,7 +217,7 @@ function function_d9cc443f(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 1)
 	{
-		self.var_c04854d8 = util::playfxontag(localclientnum, level._effect[#"hash_663a4a99828c832b"], self, "tag_origin");
+		self.var_c04854d8 = util::playfxontag(localclientnum, level._effect[#"red_ray"], self, "tag_origin");
 	}
 	else if(newval == 2)
 	{

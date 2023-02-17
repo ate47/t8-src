@@ -2,8 +2,8 @@
 #using script_24c32478acf44108;
 #using script_256b8879317373de;
 #using script_3f9e0dc8454d98e1;
-#using script_42ac6fc8b2ff0f3e;
-#using script_4d000493c57bb851;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_5660bae5b402a1eb;
 #using script_6951ea86fdae9ae0;
 #using script_6e3c826b1814cab6;
@@ -1156,12 +1156,12 @@ function function_d1a7390b(var_f2a06582)
 				a_trace[#"entity"] = undefined;
 			}
 		}
-		var_4ff501e0 = self function_f0b16c98(var_f2a06582, n_dist_sq_max);
-		if(isdefined(a_trace[#"entity"]) || isdefined(var_4ff501e0))
+		ai_zombie_target = self function_f0b16c98(var_f2a06582, n_dist_sq_max);
+		if(isdefined(a_trace[#"entity"]) || isdefined(ai_zombie_target))
 		{
-			if(isdefined(var_4ff501e0))
+			if(isdefined(ai_zombie_target))
 			{
-				self.var_f1b20bef = var_4ff501e0;
+				self.var_f1b20bef = ai_zombie_target;
 			}
 			else if(isdefined(a_trace[#"entity"]))
 			{
@@ -1743,7 +1743,7 @@ function function_df8ce6e2(player)
 	{
 		return true;
 	}
-	var_54cae2d8 = getweapon(#"hash_42a45d43be3dba42");
+	w_shield = getweapon(#"hash_42a45d43be3dba42");
 	var_710873d9 = getweapon(#"hash_78e66b21aa05c753");
 	if(player != self.parent_player)
 	{
@@ -1754,9 +1754,9 @@ function function_df8ce6e2(player)
 		player thread zm_utility::ignore_triggers(0.5);
 		return false;
 	}
-	if(player hasweapon(var_54cae2d8))
+	if(player hasweapon(w_shield))
 	{
-		player zm_weapons::weapon_take(var_54cae2d8);
+		player zm_weapons::weapon_take(w_shield);
 		player thread zm_weapons::weapon_give(var_710873d9);
 		player.weaponriotshield = var_710873d9;
 		return false;
@@ -2018,7 +2018,7 @@ function function_6da92963(cmd)
 	Parameters: 1
 	Flags: None
 */
-function function_4df187a9(var_54cae2d8)
+function function_4df187a9(w_shield)
 {
 	/#
 		self notify(#"hash_1f37709e96e62bf2");
@@ -2028,12 +2028,12 @@ function function_4df187a9(var_54cae2d8)
 			self thread function_804309c();
 			s_result = undefined;
 			s_result = self waittill(#"hash_5ac00f85b943ba5f", #"take_weapon");
-			if(!self hasweapon(var_54cae2d8))
+			if(!self hasweapon(w_shield))
 			{
 				return;
 			}
 			self.var_9fd623ed = math::clamp(self.var_f7c822b5 * 3, 0, self.var_f7c822b5 * 3);
-			self setweaponammoclip(var_54cae2d8, self.var_f7c822b5);
+			self setweaponammoclip(w_shield, self.var_f7c822b5);
 			self notify(#"hash_22a49f7903e394a5");
 		}
 	#/

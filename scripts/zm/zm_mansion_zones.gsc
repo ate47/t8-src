@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5b4f7a8178990872;
+#using scripts\zm_common\zm_hud.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -9,11 +9,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_8b84598b;
+#namespace zm_mansion_zones;
 
 /*
 	Name: init
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x51EB35AD
 	Offset: 0x790
 	Size: 0x24
@@ -27,7 +27,7 @@ function init()
 
 /*
 	Name: zone_init
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x354E6ADA
 	Offset: 0x7C0
 	Size: 0x8A4
@@ -98,7 +98,7 @@ function zone_init()
 
 /*
 	Name: function_18b016d2
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0xE6CD0B56
 	Offset: 0x1070
 	Size: 0x11C
@@ -130,7 +130,7 @@ function function_18b016d2()
 
 /*
 	Name: function_d274c574
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x2B6FE108
 	Offset: 0x1198
 	Size: 0x10C
@@ -155,7 +155,7 @@ function function_d274c574()
 
 /*
 	Name: function_29ec1ad7
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x5A7A681C
 	Offset: 0x12B0
 	Size: 0x34
@@ -170,7 +170,7 @@ function function_29ec1ad7()
 
 /*
 	Name: function_8e0b371
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x3E980C24
 	Offset: 0x12F0
 	Size: 0xB8
@@ -197,7 +197,7 @@ function function_8e0b371()
 
 /*
 	Name: function_ab7f70b9
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0xC8C24C7
 	Offset: 0x13B0
 	Size: 0x5F6
@@ -394,7 +394,7 @@ function function_ab7f70b9(e_player)
 
 /*
 	Name: function_17ac86f7
-	Namespace: namespace_8b84598b
+	Namespace: zm_mansion_zones
 	Checksum: 0x81074820
 	Offset: 0x19B0
 	Size: 0x214

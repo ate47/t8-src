@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_5da9076b8e4f6d28;
-#using script_68264f587357ea51;
+#using scripts\mp_common\item_world.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flagsys_shared.csc;
@@ -50,7 +50,7 @@ function __init__()
 */
 function private on_localclient_connect(localclientnum)
 {
-	if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312"))
+	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
 		level thread function_53d906fd(localclientnum);
 	}

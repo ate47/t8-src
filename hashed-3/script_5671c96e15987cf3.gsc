@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_90c1b3a6b0730e2;
+#using scripts\zm\perk\zm_perk_death_dash.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -49,8 +49,8 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"hash_1b2d5c9444ac98f2", "mod_death_dash", #"hash_773d5ce33dd7cde9", #"hash_377149a415143f1b", 3000);
-	zm_perks::register_perk_clientfields(#"hash_1b2d5c9444ac98f2", &register_clientfield, &function_b0c4e363);
+	zm_perks::function_7f42e14e(#"hash_1b2d5c9444ac98f2", "mod_death_dash", #"hash_773d5ce33dd7cde9", #"specialty_death_dash", 3000);
+	zm_perks::register_perk_clientfields(#"hash_1b2d5c9444ac98f2", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_threads(#"hash_1b2d5c9444ac98f2", &give_perk, &take_perk);
 }
 
@@ -69,7 +69,7 @@ function register_clientfield()
 }
 
 /*
-	Name: function_b0c4e363
+	Name: set_clientfield
 	Namespace: namespace_256d0f31
 	Checksum: 0x3979DBEB
 	Offset: 0x280
@@ -77,7 +77,7 @@ function register_clientfield()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0c4e363(state)
+function set_clientfield(state)
 {
 }
 
@@ -160,7 +160,7 @@ function function_6607df78()
 				{
 					ai_zombie.var_96d5504c = 1;
 					[[ self.var_3dd38cd4 ]]->waitinqueue(ai_zombie);
-					ai_zombie thread namespace_ec6b032::function_c1c51837(self);
+					ai_zombie thread zm_perk_death_dash::function_c1c51837(self);
 					ai_zombie.var_96d5504c = undefined;
 					break;
 				}

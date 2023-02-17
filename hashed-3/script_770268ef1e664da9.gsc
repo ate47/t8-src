@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b4af057274ffcd0;
 #using script_31e56101095f174b;
-#using script_387c92656e7ac7d1;
-#using script_39c61335d85620af;
+#using scripts\core_common\ai\planner_generic_commander.gsc;
+#using scripts\core_common\ai\planner_commander.gsc;
 #using script_55cdac8f3eaa44cd;
-#using script_7312bc36741c9418;
+#using scripts\core_common\ai\planner_commander_utility.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_42cba673;
@@ -66,17 +66,17 @@ function createcommander()
 	team = #"allies";
 	commander = plannercommanderutility::createcommander(team, function_cdaddee(team), function_ce59625f(team));
 	plannergenericcommander::commanderdaemons(commander);
-	plannercommanderutility::adddaemon(commander, #"hash_62f9340b8f782bd5");
+	plannercommanderutility::adddaemon(commander, #"daemonzmaltars");
 	plannercommanderutility::adddaemon(commander, #"daemonzmblockers");
-	plannercommanderutility::adddaemon(commander, #"hash_5fb7ec66ffe3b9d2");
-	plannercommanderutility::adddaemon(commander, #"hash_290aa7564003048d");
-	plannercommanderutility::adddaemon(commander, #"hash_5021ab98d5068338");
+	plannercommanderutility::adddaemon(commander, #"daemonzmchests");
+	plannercommanderutility::adddaemon(commander, #"daemonzmpowerups");
+	plannercommanderutility::adddaemon(commander, #"daemonzmswitches");
 	plannercommanderutility::adddaemon(commander, #"daemonzmwallbuys");
 	plannercommanderutility::addsquadevaluator(commander, #"commanderscorebotpresence");
 	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreescortpathing");
 	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreforcegoal");
 	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreteam");
 	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreviableescort");
-	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreage", [#"hash_2fe4d5f6cd1c7ca8":6000]);
+	plannercommanderutility::addsquadevaluator(commander, #"commanderscoreage", [#"maxage":6000]);
 }
 

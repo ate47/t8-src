@@ -7,11 +7,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_652c3ad8;
+#namespace zm_escape_traps;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xE7D0C6A3
 	Offset: 0x1F0
 	Size: 0x3C
@@ -20,12 +20,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_74eeacf89752d785", &__init__, undefined, undefined);
+	system::register(#"zm_escape_traps", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9D67AE71
 	Offset: 0x238
 	Size: 0x422
@@ -56,7 +56,7 @@ function __init__()
 
 /*
 	Name: fan_trap_blood_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xF133933F
 	Offset: 0x668
 	Size: 0x14E
@@ -86,7 +86,7 @@ function fan_trap_blood_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: rumble_fan_trap
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x78FE4287
 	Offset: 0x7C0
 	Size: 0xDE
@@ -116,7 +116,7 @@ function rumble_fan_trap(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: acid_trap_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9399307D
 	Offset: 0x8A8
 	Size: 0x1AC
@@ -150,7 +150,7 @@ function acid_trap_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 
 /*
 	Name: acid_trap_death_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x9D2F1810
 	Offset: 0xA60
 	Size: 0xEE
@@ -173,7 +173,7 @@ function acid_trap_death_fx(localclientnum, oldval, newval, bnewent, binitialsna
 
 /*
 	Name: player_acid_trap_post_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xD0024089
 	Offset: 0xB58
 	Size: 0x206
@@ -216,7 +216,7 @@ function player_acid_trap_post_fx(localclientnum, oldval, newval, bnewent, binit
 
 /*
 	Name: function_17956e93
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x61F1E63A
 	Offset: 0xD68
 	Size: 0x13C
@@ -251,7 +251,7 @@ function function_17956e93(localclientnum)
 
 /*
 	Name: function_502136a5
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xB5CF8EB8
 	Offset: 0xEB0
 	Size: 0x144
@@ -288,7 +288,7 @@ function function_502136a5(str_notify)
 
 /*
 	Name: spinning_trap_blood_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x32C0A7B0
 	Offset: 0x1000
 	Size: 0x114
@@ -316,7 +316,7 @@ function spinning_trap_blood_fx(localclientnum, oldval, newval, bnewent, binitia
 
 /*
 	Name: spinning_trap_eye_fx
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0x8B7427C7
 	Offset: 0x1120
 	Size: 0xBA
@@ -338,7 +338,7 @@ function spinning_trap_eye_fx(localclientnum, oldval, newval, bnewent, binitials
 
 /*
 	Name: rumble_spinning_trap
-	Namespace: namespace_652c3ad8
+	Namespace: zm_escape_traps
 	Checksum: 0xE309B0B6
 	Offset: 0x11E8
 	Size: 0xDE

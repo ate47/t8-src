@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3cebb48c37fc271;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_fasttravel.gsc;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

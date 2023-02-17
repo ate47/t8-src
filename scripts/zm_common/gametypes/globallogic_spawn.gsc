@@ -357,11 +357,11 @@ function spawnplayer()
 		self.momentum = self.pers[#"momentum"];
 	}
 	pixendevent();
-	self thread function_7455b680();
+	self thread _spawnplayer();
 }
 
 /*
-	Name: function_7455b680
+	Name: _spawnplayer
 	Namespace: globallogic_spawn
 	Checksum: 0xAA8AF5DC
 	Offset: 0xDF0
@@ -369,7 +369,7 @@ function spawnplayer()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7455b680()
+function _spawnplayer()
 {
 	self endon(#"disconnect", #"joined_spectators");
 	waittillframeend();

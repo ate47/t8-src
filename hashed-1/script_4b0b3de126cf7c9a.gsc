@@ -146,16 +146,16 @@ function function_40935801()
 	self function_ad31c153();
 	var_e8145621 = self getweaponslistprimaries();
 	w_current_weapon = self getcurrentweapon();
-	foreach(var_91bb47aa in var_e8145621)
+	foreach(w_upgraded in var_e8145621)
 	{
-		var_2af07147 = self zm_weapons::get_base_weapon(var_91bb47aa);
-		n_clip = self getweaponammoclip(var_91bb47aa);
-		n_stock = self getweaponammostock(var_91bb47aa);
-		if(w_current_weapon == var_91bb47aa)
+		var_2af07147 = self zm_weapons::get_base_weapon(w_upgraded);
+		n_clip = self getweaponammoclip(w_upgraded);
+		n_stock = self getweaponammostock(w_upgraded);
+		if(w_current_weapon == w_upgraded)
 		{
 			var_147bd2 = var_2af07147;
 		}
-		self zm_weapons::weapon_take(var_91bb47aa);
+		self zm_weapons::weapon_take(w_upgraded);
 		self zm_weapons::weapon_give(var_2af07147, 1, 0);
 		self setweaponammoclip(var_2af07147, n_clip);
 		self setweaponammostock(var_2af07147, n_stock);

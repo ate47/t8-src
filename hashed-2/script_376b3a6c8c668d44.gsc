@@ -46,12 +46,12 @@ function function_27473e44()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"hash_66e6fbe3cc2aff65", #"hash_5952e08594e632f7", 1500, #"hash_7db4db936bc2abe6", getweapon("zombie_perk_bottle_mystery"), getweapon("zombie_perk_vapor_juggernaut"), #"hash_179ae09979e80714");
+		zm_perks::register_perk_basic_info(#"specialty_mystery", #"perk_mystery", 1500, #"hash_7db4db936bc2abe6", getweapon("zombie_perk_bottle_mystery"), getweapon("zombie_perk_vapor_juggernaut"), #"hash_179ae09979e80714");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"hash_66e6fbe3cc2aff65", #"hash_5952e08594e632f7", 1500, #"hash_66729a440fb1a452", getweapon("zombie_perk_bottle_mystery"), getweapon("zombie_perk_vapor_juggernaut"), #"hash_179ae09979e80714");
+		zm_perks::register_perk_basic_info(#"specialty_mystery", #"perk_mystery", 1500, #"hash_66729a440fb1a452", getweapon("zombie_perk_bottle_mystery"), getweapon("zombie_perk_vapor_juggernaut"), #"hash_179ae09979e80714");
 	}
-	zm_perks::function_7f42e14e(#"hash_23c63c9a3acb397", "perk_mod_mystery", #"hash_5952e08594e632f7", #"hash_66e6fbe3cc2aff65", 2500);
+	zm_perks::function_7f42e14e(#"hash_23c63c9a3acb397", "perk_mod_mystery", #"perk_mystery", #"specialty_mystery", 2500);
 }
 

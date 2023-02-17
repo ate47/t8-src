@@ -6,11 +6,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\core_common\vehicle_shared.csc;
 
-#namespace namespace_25e7a951;
+#namespace hawk_mp;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x20061FDE
 	Offset: 0x1F8
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_6904e1bbfeec0434", &__init__, undefined, undefined);
+	system::register(#"hawk_mp", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x93DC7979
 	Offset: 0x240
 	Size: 0x244
@@ -42,7 +42,7 @@ function __init__()
 	for(ti = 0; ti < 6; ti++)
 	{
 		level.remote_missile_targets[ti] = spawnstruct();
-		clientfield::function_346f95ba("hawk_target_lockon" + ti, "target_visible", 13000, 1, "int", undefined, 0, 0);
+		clientfield::register_luielem("hawk_target_lockon" + ti, "target_visible", 13000, 1, "int", undefined, 0, 0);
 	}
 	clientfield::register("vehicle", "hawk_range", 13000, 1, "int", &function_6701affc, 0, 1);
 	vehicle::add_vehicletype_callback("veh_hawk_player_mp", &hawk_spawned);
@@ -55,7 +55,7 @@ function __init__()
 
 /*
 	Name: hawk_spawned
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x8DE05FD1
 	Offset: 0x490
 	Size: 0x3C
@@ -64,13 +64,13 @@ function __init__()
 */
 function private hawk_spawned(localclientnum)
 {
-	self.var_51d5c26f = level.hawk_settings.bundle;
+	self.settingsbundle = level.hawk_settings.bundle;
 	self thread function_23a9e4af(localclientnum);
 }
 
 /*
 	Name: function_23a9e4af
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xDDA19F3B
 	Offset: 0x4D8
 	Size: 0x17C
@@ -102,7 +102,7 @@ function private function_23a9e4af(localclientnum)
 
 /*
 	Name: function_70a07f6f
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x42F437D0
 	Offset: 0x660
 	Size: 0x7C
@@ -122,7 +122,7 @@ function function_70a07f6f(localclientnum, newval, fieldname)
 
 /*
 	Name: function_e656f88a
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x32ADFED7
 	Offset: 0x6E8
 	Size: 0x96
@@ -145,7 +145,7 @@ function function_e656f88a(localclientnum, newval, fieldname)
 
 /*
 	Name: function_fbdbb841
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x3A91369E
 	Offset: 0x788
 	Size: 0x44
@@ -163,7 +163,7 @@ function function_fbdbb841(localclientnum, vehicle)
 
 /*
 	Name: function_1ed9ef6a
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xFB3FB64F
 	Offset: 0x7D8
 	Size: 0x44
@@ -181,7 +181,7 @@ function function_1ed9ef6a(localclientnum, vehicle)
 
 /*
 	Name: function_500d3fa7
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x2ADE28B3
 	Offset: 0x828
 	Size: 0x44
@@ -199,7 +199,7 @@ function function_500d3fa7(localclientnum, vehicle)
 
 /*
 	Name: function_fc1227ca
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xDD96DBA9
 	Offset: 0x878
 	Size: 0x44
@@ -217,7 +217,7 @@ function function_fc1227ca(localclientnum, vehicle)
 
 /*
 	Name: on_local_player_spawned
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xE52066DA
 	Offset: 0x8C8
 	Size: 0xB4
@@ -237,7 +237,7 @@ function on_local_player_spawned(localclientnum)
 
 /*
 	Name: function_6701affc
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x39B211FC
 	Offset: 0x988
 	Size: 0x104
@@ -267,7 +267,7 @@ function function_6701affc(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_775073e
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x5485AE82
 	Offset: 0xA98
 	Size: 0xE4
@@ -293,7 +293,7 @@ function function_775073e(localclientnum)
 
 /*
 	Name: function_6367489e
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xC2FF78D7
 	Offset: 0xB88
 	Size: 0xEC
@@ -319,7 +319,7 @@ function function_6367489e(localclientnum)
 
 /*
 	Name: function_3759fcf
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x67ECC746
 	Offset: 0xC80
 	Size: 0xEC
@@ -345,7 +345,7 @@ function function_3759fcf(localclientnum, var_c5e2f09a)
 
 /*
 	Name: function_2e07be71
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x5C48AE2F
 	Offset: 0xD78
 	Size: 0x15C
@@ -374,7 +374,7 @@ function function_2e07be71(localclientnum)
 
 /*
 	Name: function_5a1bf101
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0xEA7B787B
 	Offset: 0xEE0
 	Size: 0x8EE
@@ -510,7 +510,7 @@ function function_5a1bf101(localclientnum)
 
 /*
 	Name: function_86f17acc
-	Namespace: namespace_25e7a951
+	Namespace: hawk_mp
 	Checksum: 0x39122974
 	Offset: 0x17D8
 	Size: 0x5E

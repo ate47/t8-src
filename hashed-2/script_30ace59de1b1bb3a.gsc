@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_12282e6b2cc91b42;
-#using script_1611421ee9b880d3;
-#using script_1d99711a5c22bdef;
+#using scripts\zm_common\zm_wallbuy.csc;
+#using scripts\zm\ai\zm_ai_stoker.csc;
 #using script_624a704d0f6bf28d;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
@@ -25,7 +25,7 @@
 */
 function init()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
 		clientfield::register("scriptmover", "" + #"hash_63ffcbb6c8f4bc11", 8000, 1, "int", &function_41ad73f5, 0, 0);
 		clientfield::register("scriptmover", "" + #"hash_62ee80337662b3cd", 8000, 1, "int", &function_3ab850d6, 0, 0);

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_184abbae9afad370;
-#using script_317aa6153a75c589;
+#using scripts\core_common\ai\archetype_mocomps_utility.gsc;
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
@@ -525,7 +525,7 @@ function private function_85e8940a(entity)
 	}
 	var_aa6baab8 = entity ai::function_9139c839().var_1709a39;
 	players = getplayers(#"all", entity.origin, var_aa6baab8);
-	var_5b857980 = function_4d1e7b48(#"hash_19533caf858a9f3b");
+	shock_status_effect = getstatuseffect(#"hash_19533caf858a9f3b");
 	entity clientfield::increment("brutus_shock_attack", 1);
 	foreach(player in players)
 	{
@@ -548,7 +548,7 @@ function private function_85e8940a(entity)
 		damage = mapfloat(entity getpathfindingradius() + 15, entity ai::function_9139c839().var_1709a39, entity ai::function_9139c839().var_7ea758e1, 0, distance(entity.origin, player.origin));
 		damage = int(max(10, damage));
 		player dodamage(damage, entity.origin, entity, entity, "none", "MOD_PROJECTILE_SPLASH");
-		player status_effect::status_effect_apply(var_5b857980, undefined, self, 0);
+		player status_effect::status_effect_apply(shock_status_effect, undefined, self, 0);
 		player clientfield::increment_to_player("brutus_shock_attack_player", 1);
 	}
 }

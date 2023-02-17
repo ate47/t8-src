@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_28212a1c4376c358;
+#using scripts\weapons\deployable.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\system_shared.csc;
 

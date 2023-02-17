@@ -87,7 +87,7 @@ function __init__()
 			level.var_445e24c8[level.var_445e24c8.size] = trigger;
 		}
 	}
-	level.var_c2981ce9 = [#"hash_741c87a90c4ecc58":&function_33b2c99e, #"hash_73d1b7a90c0f326e":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"hash_44497a6311259d30":&function_fa7c080];
+	level.var_c2981ce9 = [#"tag_eggsack_weakspot_ri":&function_33b2c99e, #"tag_eggsack_weakspot_le":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"tag_mouth_weakspot":&function_fa7c080];
 }
 
 /*
@@ -101,7 +101,7 @@ function __init__()
 */
 function private on_player_spawned()
 {
-	self.var_9319fd9 = "j_mainroot";
+	self.grapple_tag = "j_mainroot";
 }
 
 /*
@@ -1786,13 +1786,13 @@ function private function_124486ee(delay)
 		var_892397fd notify(#"detonated");
 		var_892397fd moveto(var_892397fd.origin, 0.05);
 		var_892397fd clientfield::set("blight_father_chaos_missile_explosion_clientfield", 1);
-		var_a7530fbc = var_892397fd.var_52334e8c;
+		e_blightfather = var_892397fd.var_52334e8c;
 		w_weapon = getweapon(#"none");
-		var_892397fd function_8e8b1dfc(var_c45ef84c, var_a7530fbc, w_weapon);
+		var_892397fd function_8e8b1dfc(var_c45ef84c, e_blightfather, w_weapon);
 		explosion_point = var_892397fd.origin;
 		function_44e3e0d1(explosion_point + vectorscale((0, 0, 1), 18));
 		util::wait_network_frame();
-		radiusdamage(explosion_point + vectorscale((0, 0, 1), 18), blast_radius, var_83f35abe, var_6927cfa0, var_a7530fbc, "MOD_UNKNOWN", w_weapon);
+		radiusdamage(explosion_point + vectorscale((0, 0, 1), 18), blast_radius, var_83f35abe, var_6927cfa0, e_blightfather, "MOD_UNKNOWN", w_weapon);
 		if(isdefined(var_892397fd))
 		{
 			var_892397fd clientfield::set("blight_father_maggot_trail_fx", 0);
@@ -1877,7 +1877,7 @@ function private function_8e8b1dfc(var_c45ef84c, blight_father, weapon)
 		{
 			continue;
 		}
-		status_effect = function_4d1e7b48(#"hash_7867f8f9aaaa0c40");
+		status_effect = getstatuseffect(#"hash_7867f8f9aaaa0c40");
 		level.activeplayers[i] status_effect::status_effect_apply(status_effect, weapon, blight_father);
 		level.activeplayers[i] clientfield::increment_to_player("blight_father_chaos_missile_rumble_clientfield", 1);
 	}

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_6158278c8647d8a9;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_ee56e8b680377b6;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

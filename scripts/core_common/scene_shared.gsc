@@ -3552,21 +3552,21 @@ function function_a4ad0308(o_scene)
 	}
 	self.skip_scene_menu_handle = lui::function_e810a527("cp_skip_scene_menu");
 	self.skip_scene_menu_handle cp_skip_scene_menu::open(self);
-	self.skip_scene_menu_handle cp_skip_scene_menu::function_6c680730(self, 0);
-	self.skip_scene_menu_handle cp_skip_scene_menu::function_300eba00(self, 0);
-	self.skip_scene_menu_handle cp_skip_scene_menu::function_5d0d17fd(self, 0);
-	self.skip_scene_menu_handle cp_skip_scene_menu::function_dad9a8ef(self, 0);
+	self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 0);
+	self.skip_scene_menu_handle cp_skip_scene_menu::set_hostIsSkipping(self, 0);
+	self.skip_scene_menu_handle cp_skip_scene_menu::set_votedToSkip(self, 0);
+	self.skip_scene_menu_handle cp_skip_scene_menu::set_sceneSkipEndTime(self, 0);
 	while(true)
 	{
 		if(isdefined(self.var_fc92900f) && self.var_fc92900f && isdefined(self.skip_scene_menu_handle))
 		{
-			self.skip_scene_menu_handle cp_skip_scene_menu::function_5d0d17fd(self, 1);
-			self.skip_scene_menu_handle cp_skip_scene_menu::function_6c680730(self, 2);
+			self.skip_scene_menu_handle cp_skip_scene_menu::set_votedToSkip(self, 1);
+			self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 2);
 			self.scene_skip_timer = undefined;
 			p_host = util::gethostplayer();
 			if(isdefined(p_host) && isdefined(p_host.skip_scene_menu_handle))
 			{
-				p_host.skip_scene_menu_handle cp_skip_scene_menu::function_5d0d17fd(p_host, 1);
+				p_host.skip_scene_menu_handle cp_skip_scene_menu::set_votedToSkip(p_host, 1);
 			}
 		}
 		else
@@ -3575,7 +3575,7 @@ function function_a4ad0308(o_scene)
 			{
 				if(!isdefined(self.scene_skip_timer) && isdefined(self.skip_scene_menu_handle))
 				{
-					self.skip_scene_menu_handle cp_skip_scene_menu::function_6c680730(self, 1);
+					self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 1);
 				}
 				self.scene_skip_timer = gettime();
 			}
@@ -3583,7 +3583,7 @@ function function_a4ad0308(o_scene)
 			{
 				if(gettime() - self.scene_skip_timer > var_d60120)
 				{
-					self.skip_scene_menu_handle cp_skip_scene_menu::function_6c680730(self, 2);
+					self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 2);
 					self.scene_skip_timer = undefined;
 				}
 			}
@@ -3597,7 +3597,7 @@ function function_a4ad0308(o_scene)
 		{
 			if(!isdefined(self.scene_skip_start_time) && isdefined(self.skip_scene_menu_handle))
 			{
-				self.skip_scene_menu_handle cp_skip_scene_menu::function_dad9a8ef(self, gettime() + var_d60120);
+				self.skip_scene_menu_handle cp_skip_scene_menu::set_sceneSkipEndTime(self, gettime() + var_d60120);
 				self.scene_skip_start_time = gettime();
 				if(self ishost())
 				{
@@ -3605,7 +3605,7 @@ function function_a4ad0308(o_scene)
 					{
 						if(isdefined(player.skip_scene_menu_handle) && !player ishost())
 						{
-							player.skip_scene_menu_handle cp_skip_scene_menu::function_300eba00(player, 1);
+							player.skip_scene_menu_handle cp_skip_scene_menu::set_hostIsSkipping(player, 1);
 						}
 					}
 				}
@@ -3638,7 +3638,7 @@ function function_a4ad0308(o_scene)
 		}
 		else if(isdefined(self.scene_skip_start_time) && isdefined(self.skip_scene_menu_handle))
 		{
-			self.skip_scene_menu_handle cp_skip_scene_menu::function_dad9a8ef(self, 0);
+			self.skip_scene_menu_handle cp_skip_scene_menu::set_sceneSkipEndTime(self, 0);
 			self.scene_skip_start_time = undefined;
 			if(self ishost())
 			{
@@ -3646,7 +3646,7 @@ function function_a4ad0308(o_scene)
 				{
 					if(isdefined(player.skip_scene_menu_handle) && !player ishost())
 					{
-						player.skip_scene_menu_handle cp_skip_scene_menu::function_300eba00(player, 0);
+						player.skip_scene_menu_handle cp_skip_scene_menu::set_hostIsSkipping(player, 0);
 					}
 				}
 			}

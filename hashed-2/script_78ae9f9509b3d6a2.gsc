@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_68264f587357ea51;
+#using scripts\mp_common\item_world.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
@@ -119,25 +119,25 @@ function private function_93b89303(localclientnum)
 				objective_setstate(localclientnum, level.var_f042433[localclientnum][i], "invisible");
 			}
 		}
-		var_5482d370 = 0;
+		carryingcash = 0;
 		var_59a2b21b = [];
 		if(isdefined(player) && isalive(player))
 		{
-			var_8040e225 = item_world::function_a7e98a1a(localclientnum);
-			foreach(item in var_8040e225.inventory.items)
+			clientdata = item_world::function_a7e98a1a(localclientnum);
+			foreach(item in clientdata.inventory.items)
 			{
 				if(item.id != 32767)
 				{
 					point = function_b1702735(item.id);
 					if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.itemtype == #"cash")
 					{
-						var_5482d370 = 1;
+						carryingcash = 1;
 						break;
 					}
 				}
 			}
 		}
-		if(var_5482d370)
+		if(carryingcash)
 		{
 			dynents = [];
 			foreach(targetname in level.var_e245bbc5)
@@ -204,7 +204,7 @@ function private function_93b89303(localclientnum)
 					{
 						continue;
 					}
-					if(!(isdefined(enemy_player.var_ba474290) && enemy_player.var_ba474290))
+					if(!(isdefined(enemy_player.wz_carrying_cash) && enemy_player.wz_carrying_cash))
 					{
 						continue;
 					}
@@ -291,7 +291,7 @@ function function_4fec33b5(clientnum, value)
 */
 function function_3d113bfb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.var_ba474290 = newval;
+	self.wz_carrying_cash = newval;
 	localplayer = function_5c10bd79(localclientnum);
 	if(self != localplayer && self.team == localplayer.team)
 	{

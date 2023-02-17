@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_135d37089bbde4f2;
+#using scripts\mp_common\gametypes\ct_core.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_32ded0d491664a2c;
 #using script_490759cf62a1abc8;
 #using script_61826ca279ffa0;
 #using script_788472602edbe3b9;
-#using script_bb99a1f9be8d0a7;
+#using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -15,11 +15,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic_spawn.gsc;
 
-#namespace namespace_b3ee2bfb;
+#namespace ct_ruin;
 
 /*
 	Name: main
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xF12B44D9
 	Offset: 0x218
 	Size: 0x2C4
@@ -28,11 +28,11 @@
 */
 event main(eventstruct)
 {
-	namespace_13777bae::function_46e95cc7();
+	ct_core::function_46e95cc7();
 	level.select_character = namespace_73e1c3e3::function_d153452e(#"prt_mp_mercenary");
 	level.var_820c5561 = "RUIN";
 	namespace_73e1c3e3::function_be3a76b7(level.var_820c5561);
-	namespace_13777bae::function_fa03fc55();
+	ct_core::function_fa03fc55();
 	clientfield::register("scriptmover", "follow_path_fx", 1, 1, "int");
 	level.var_4c2ecc6f = &function_e8a7cae0;
 	level.var_c01b7f8b = &function_872c9404;
@@ -42,8 +42,8 @@ event main(eventstruct)
 	player::function_cf3aa03d(&function_39002b98);
 	level.var_cdb8ae2c = &namespace_73e1c3e3::function_a8da260c;
 	level.resurrect_override_spawn = &namespace_73e1c3e3::function_78469779;
-	level.var_e31c5d7a = &namespace_64a487a9::function_e31c5d7a;
-	callback::function_98a0917d(&namespace_13777bae::function_1e84c767);
+	level.var_e31c5d7a = &ct_bots::function_e31c5d7a;
+	callback::function_98a0917d(&ct_core::function_1e84c767);
 	globallogic_spawn::addsupportedspawnpointtype("ct");
 	namespace_73e1c3e3::function_6046a5e3(#"ar_fastfire_t8", array(#"steadyaim", #"steadyaim2", #"stalker", #"uber"));
 	namespace_73e1c3e3::function_c3e647e2(#"pistol_standard_t8");
@@ -59,7 +59,7 @@ event main(eventstruct)
 
 /*
 	Name: function_73c1ecd4
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x784B21B2
 	Offset: 0x4E8
 	Size: 0x104
@@ -73,9 +73,9 @@ function function_73c1ecd4(predictedspawn)
 		self namespace_2885895d::function_c9ff0dce();
 		return;
 	}
-	self thread namespace_13777bae::function_d2845186();
+	self thread ct_core::function_d2845186();
 	spawning::onspawnplayer(predictedspawn);
-	self namespace_13777bae::function_45a4f027();
+	self ct_core::function_45a4f027();
 	if(isbot(self))
 	{
 		if(isdefined(level.var_e31c5d7a))
@@ -92,7 +92,7 @@ function function_73c1ecd4(predictedspawn)
 
 /*
 	Name: function_39002b98
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x840EBAE
 	Offset: 0x5F8
 	Size: 0x234
@@ -118,7 +118,7 @@ function function_39002b98(einflictor, attacker, idamage, smeansofdeath, weapon,
 	{
 		if(self.team == #"axis")
 		{
-			if(isdefined(weapon) && weapon.name == #"hash_4bb2d7f789b561eb")
+			if(isdefined(weapon) && weapon.name == #"eq_gravityslam")
 			{
 				if(!(isdefined(level.var_1aa75661) && level.var_1aa75661))
 				{
@@ -142,7 +142,7 @@ function function_39002b98(einflictor, attacker, idamage, smeansofdeath, weapon,
 
 /*
 	Name: function_e8a7cae0
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x15808416
 	Offset: 0x838
 	Size: 0x7E
@@ -163,7 +163,7 @@ function function_e8a7cae0()
 
 /*
 	Name: function_872c9404
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x37C6E004
 	Offset: 0x8C0
 	Size: 0x3E0
@@ -172,7 +172,7 @@ function function_e8a7cae0()
 */
 function function_872c9404(mode)
 {
-	namespace_64a487a9::function_a64b7003(1);
+	ct_bots::function_a64b7003(1);
 	if(isdefined(level.var_1ecfe3a2))
 	{
 		self.var_71a70093 = level.var_1ecfe3a2;
@@ -225,7 +225,7 @@ function function_872c9404(mode)
 
 /*
 	Name: function_9270ab93
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xC3B5F538
 	Offset: 0xCA8
 	Size: 0x21C
@@ -235,25 +235,25 @@ function function_872c9404(mode)
 function function_9270ab93(var_db89c655, var_27875ecd)
 {
 	var_e7cc5e43 = [];
-	var_e7cc5e43[#"hash_6b9fd25bcf5649cb"][1] = 55000;
-	var_e7cc5e43[#"hash_6b9fd25bcf5649cb"][2] = 48000;
-	var_e7cc5e43[#"hash_6b9fd25bcf5649cb"][3] = 42000;
+	var_e7cc5e43[#"mp_frenetic"][1] = 55000;
+	var_e7cc5e43[#"mp_frenetic"][2] = 48000;
+	var_e7cc5e43[#"mp_frenetic"][3] = 42000;
 	var_e7cc5e43[#"hash_28913deffdfcddf"][1] = 55000;
 	var_e7cc5e43[#"hash_28913deffdfcddf"][2] = 48000;
 	var_e7cc5e43[#"hash_28913deffdfcddf"][3] = 42000;
-	var_e7cc5e43[#"hash_31d29891e0259e47"][1] = 52000;
-	var_e7cc5e43[#"hash_31d29891e0259e47"][2] = 46000;
-	var_e7cc5e43[#"hash_31d29891e0259e47"][3] = 40000;
-	var_e7cc5e43[#"hash_6ccddb822640b098"][1] = 55000;
-	var_e7cc5e43[#"hash_6ccddb822640b098"][2] = 48000;
-	var_e7cc5e43[#"hash_6ccddb822640b098"][3] = 42000;
+	var_e7cc5e43[#"mp_seaside"][1] = 52000;
+	var_e7cc5e43[#"mp_seaside"][2] = 46000;
+	var_e7cc5e43[#"mp_seaside"][3] = 40000;
+	var_e7cc5e43[#"mp_silo"][1] = 55000;
+	var_e7cc5e43[#"mp_silo"][2] = 48000;
+	var_e7cc5e43[#"mp_silo"][3] = 42000;
 	var_b1cb18f1 = hash(getrootmapname());
 	namespace_73e1c3e3::function_7a21ac57(0, var_27875ecd, var_e7cc5e43[var_b1cb18f1][1], var_e7cc5e43[var_b1cb18f1][2], var_e7cc5e43[var_b1cb18f1][3]);
 }
 
 /*
 	Name: function_7d779cf7
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x4C621FFD
 	Offset: 0xED0
 	Size: 0xD8
@@ -281,7 +281,7 @@ function function_7d779cf7(gamedifficulty)
 
 /*
 	Name: function_926fcb2f
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x39755B48
 	Offset: 0xFB0
 	Size: 0x266
@@ -327,7 +327,7 @@ function function_926fcb2f(b_success)
 
 /*
 	Name: function_ecd8cc50
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xE1599DB2
 	Offset: 0x1220
 	Size: 0x112
@@ -350,7 +350,7 @@ function function_ecd8cc50()
 
 /*
 	Name: function_72e84e64
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xDDCC765D
 	Offset: 0x1340
 	Size: 0x21C
@@ -388,7 +388,7 @@ function function_72e84e64()
 			}
 			else if(level.var_b5529824 == 0)
 			{
-				e_player potm::bookmark(#"hash_635ba9acaf53c1c1", gettime(), e_player);
+				e_player potm::bookmark(#"ct_ruin", gettime(), e_player);
 			}
 		}
 		else
@@ -403,7 +403,7 @@ function function_72e84e64()
 
 /*
 	Name: function_4b5c96a0
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x503380BF
 	Offset: 0x1568
 	Size: 0x3C0
@@ -422,7 +422,7 @@ function function_4b5c96a0()
 		n_bomb_timer = int((gettime() + 1000) + (int(40 * 1000)));
 		setbombtimer("A", n_bomb_timer);
 		setmatchflag("bomb_timer_a", 1);
-		level thread namespace_64a487a9::activate_bots(15, #"axis");
+		level thread ct_bots::activate_bots(15, #"axis");
 		level.var_9b517372 = 1;
 		level.var_ebad4ea8 = gettime();
 		level thread function_a3e6f3d();
@@ -440,7 +440,7 @@ function function_4b5c96a0()
 		s_notify = self waittill(#"damage");
 		e_attacker = s_notify.attacker;
 		e_weapon = s_notify.weapon;
-		if(isdefined(e_attacker) && isdefined(e_weapon) && e_weapon.name == #"hash_4bb2d7f789b561eb")
+		if(isdefined(e_attacker) && isdefined(e_weapon) && e_weapon.name == #"eq_gravityslam")
 		{
 			level.var_b5529824--;
 			e_attacker thread namespace_73e1c3e3::function_785eb2ca();
@@ -461,7 +461,7 @@ function function_4b5c96a0()
 
 /*
 	Name: function_7b738fd
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x1C8F149E
 	Offset: 0x1930
 	Size: 0x54
@@ -478,7 +478,7 @@ function function_7b738fd()
 
 /*
 	Name: function_d999dbe2
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0x418FF259
 	Offset: 0x1990
 	Size: 0xB2
@@ -510,7 +510,7 @@ function function_d999dbe2(var_8e2567b1)
 
 /*
 	Name: function_7898b91b
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xD531E3D1
 	Offset: 0x1A50
 	Size: 0x64
@@ -529,7 +529,7 @@ function function_7898b91b()
 
 /*
 	Name: function_3c522403
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xB2F4AD88
 	Offset: 0x1AC0
 	Size: 0x8C
@@ -549,7 +549,7 @@ function function_3c522403()
 
 /*
 	Name: function_a3e6f3d
-	Namespace: namespace_b3ee2bfb
+	Namespace: ct_ruin
 	Checksum: 0xCAFF9671
 	Offset: 0x1B58
 	Size: 0xB2

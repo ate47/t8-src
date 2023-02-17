@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
@@ -39,11 +39,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_74c2bf5674739948", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_74c2bf5674739948", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_bf26a851
 	Checksum: 0x529F23BA
 	Offset: 0x200
@@ -51,7 +51,7 @@ function __init__()
 	Parameters: 5
 	Flags: Private
 */
-function private function_d1de6a85(weapon_name, var_eaa7f0ba, var_957937ee, var_9c56c5a9, var_b896fe29)
+function private on_begin(weapon_name, var_eaa7f0ba, var_957937ee, var_9c56c5a9, var_b896fe29)
 {
 	if(isdefined(var_eaa7f0ba))
 	{
@@ -59,7 +59,7 @@ function private function_d1de6a85(weapon_name, var_eaa7f0ba, var_957937ee, var_
 	}
 	if(weapon_name == #"hash_2299197a67620a6e")
 	{
-		var_789e79cc = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hash_50f35c4cfb775a9c", #"hero_sword_pistol_lv3");
+		var_789e79cc = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hero_scepter_lv3", #"hero_sword_pistol_lv3");
 		level.var_ab9d0ec6 = [];
 		foreach(var_ae209633 in var_789e79cc)
 		{
@@ -215,7 +215,7 @@ function private function_d1de6a85(weapon_name, var_eaa7f0ba, var_957937ee, var_
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_bf26a851
 	Checksum: 0xAF37E5F6
 	Offset: 0xB50
@@ -223,12 +223,12 @@ function private function_d1de6a85(weapon_name, var_eaa7f0ba, var_957937ee, var_
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 	}
 	if(isarray(self.a_n_objective_ids))
 	{
@@ -399,7 +399,7 @@ function private function_fa5e5e08()
 {
 	level endon(#"hash_7646638df88a3656", #"end_game");
 	var_629c4c4a = 0;
-	namespace_b22c99a5::function_7d32b7d0(0);
+	zm_trial_util::function_7d32b7d0(0);
 	while(true)
 	{
 		var_5cb7ddf1 = 0;
@@ -420,12 +420,12 @@ function private function_fa5e5e08()
 		}
 		if(var_5cb7ddf1 > 0 && !var_629c4c4a)
 		{
-			namespace_b22c99a5::function_7d32b7d0(1);
+			zm_trial_util::function_7d32b7d0(1);
 			var_629c4c4a = 1;
 		}
 		else if(var_5cb7ddf1 == 0 && var_629c4c4a)
 		{
-			namespace_b22c99a5::function_7d32b7d0(0);
+			zm_trial_util::function_7d32b7d0(0);
 			var_629c4c4a = 0;
 		}
 		waitframe(1);
@@ -528,13 +528,13 @@ function private function_e73fbbf7()
 		{
 			if(!var_fa5d7ea0)
 			{
-				self namespace_b22c99a5::function_63060af4(1);
+				self zm_trial_util::function_63060af4(1);
 				var_fa5d7ea0 = 1;
 			}
 		}
 		else
 		{
-			self namespace_b22c99a5::function_63060af4(0);
+			self zm_trial_util::function_63060af4(0);
 			var_fa5d7ea0 = 0;
 		}
 		waitframe(1);

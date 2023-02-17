@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_256b8879317373de;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_70a43d6ba27cff6a;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -485,7 +485,7 @@ function function_7314957c(player, result)
 	var_906bdcf3.game_variant = "zm";
 	var_906bdcf3.game_mode = level.gametype;
 	var_906bdcf3.private_match = sessionmodeisprivate();
-	var_906bdcf3.game_map = util::function_53bbf9d2();
+	var_906bdcf3.game_map = util::get_map_name();
 	var_906bdcf3.player_xuid = player getxuid(1);
 	var_906bdcf3.player_ip = player getipaddress();
 	var_906bdcf3.season_pass_owned = player hasseasonpass(0);

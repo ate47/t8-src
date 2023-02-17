@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -38,11 +38,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3ee4fa74a546cbcd", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3ee4fa74a546cbcd", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_87ea1cc
 	Checksum: 0x38E136F4
 	Offset: 0x160
@@ -50,14 +50,14 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	zm_powerups::function_74b8ec6b("carpenter");
 	level thread function_4172344e();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_87ea1cc
 	Checksum: 0xFD858BDA
 	Offset: 0x1A0
@@ -65,7 +65,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset && level.var_3de460b1 < level.var_70135c38)
 	{
@@ -73,7 +73,7 @@ function private function_9e7b3f4d(round_reset)
 	}
 	level.var_3de460b1 = undefined;
 	level.var_70135c38 = undefined;
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	zm_powerups::function_41cedb05("carpenter");
 }
 
@@ -100,8 +100,8 @@ function function_4172344e()
 				level.var_3de460b1++;
 			}
 		}
-		namespace_b22c99a5::function_2976fa44(level.var_70135c38);
-		namespace_b22c99a5::function_dace284(level.var_3de460b1, 1);
+		zm_trial_util::function_2976fa44(level.var_70135c38);
+		zm_trial_util::function_dace284(level.var_3de460b1, 1);
 		var_be17187b = undefined;
 		var_be17187b = level waittill(#"zombie_board_tear", #"hash_747f63d86cb99870", #"carpenter_finished");
 	}

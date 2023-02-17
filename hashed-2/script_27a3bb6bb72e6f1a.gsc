@@ -2,7 +2,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
 #using script_57f7003580bb15e0;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -298,7 +298,7 @@ function function_a5ed4dd9(var_6c367c57, var_e7c0257b, n_time_between)
 	Parameters: 1
 	Flags: Linked
 */
-function function_faf783b2(var_5a5260d8)
+function function_faf783b2(_hash)
 {
 	foreach(trap in level.var_abf198ff)
 	{
@@ -501,7 +501,7 @@ function function_97d7f14c()
 function function_a29b80e8(e_victim)
 {
 	self endon(#"deactivate");
-	var_e71dffbb = getweapon(#"incendiary_fire");
+	w_fire = getweapon(#"incendiary_fire");
 	if(isalive(e_victim) && (!(isdefined(e_victim.var_52f07157) && e_victim.var_52f07157)) && (isdefined(self.var_94de9684) && self.var_94de9684))
 	{
 		e_victim.var_52f07157 = 1;
@@ -527,12 +527,12 @@ function function_a29b80e8(e_victim)
 						}
 						e_victim.brutus_setup_completerant[e_victim.brutus_setup_completerant.size] = self;
 					}
-					params = function_4d1e7b48(#"hash_4b174f501c358c4c");
+					params = getstatuseffect(#"hash_4b174f501c358c4c");
 					if(zm_utility::is_standard())
 					{
 						params.var_9f648d82 = int(params.var_9f648d82 / 2);
 					}
-					e_victim status_effect::status_effect_apply(params, var_e71dffbb, self, 0, undefined, undefined, self.origin);
+					e_victim status_effect::status_effect_apply(params, w_fire, self, 0, undefined, undefined, self.origin);
 					e_victim notify(#"hash_60f39c53ee3e0ec7");
 				}
 			}

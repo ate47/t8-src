@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c72973fb240f263;
-#using script_2c5e325003fa52e2;
+#using scripts\zm\zm_orange_snowball_piles.gsc;
 #using script_421e0a3702e22de;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6a3f43063dfd1bdc;
-#using script_9e4105ea1798ccc;
+#using scripts\zm_common\zm_armor.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -28,11 +28,11 @@
 #using scripts\zm_common\zm_weapons.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_86eed980;
+#namespace zm_orange_challenges;
 
 /*
 	Name: init
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1E65669A
 	Offset: 0x588
 	Size: 0x4C
@@ -48,7 +48,7 @@ function init()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x5AC4DDD
 	Offset: 0x5E0
 	Size: 0x34
@@ -62,7 +62,7 @@ function init_clientfields()
 
 /*
 	Name: init_flags
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBFC50376
 	Offset: 0x620
 	Size: 0x1C4
@@ -74,7 +74,7 @@ function init_flags()
 	level flag::init(#"all_challenges_complete");
 	level flag::init(#"hash_4a8105909cc2603d");
 	level flag::init(#"break_freeze_faster");
-	level flag::init(#"hash_671b32b10654845d");
+	level flag::init(#"challenge_active");
 	level flag::init(#"hash_b544517e05d7175");
 	level flag::init(#"extra_snowballs");
 	level flag::init(#"hash_2a1215d8a3e31013");
@@ -89,7 +89,7 @@ function init_flags()
 
 /*
 	Name: main
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x40FDCC2C
 	Offset: 0x7F0
 	Size: 0x54
@@ -110,7 +110,7 @@ function main()
 
 /*
 	Name: init_challenge
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x14A21049
 	Offset: 0x850
 	Size: 0xFA
@@ -135,7 +135,7 @@ function init_challenge(n_index, var_db4802f2, var_be570367, str_notify, func_se
 
 /*
 	Name: function_980b1dc5
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xF2C1DB09
 	Offset: 0x958
 	Size: 0x198
@@ -164,7 +164,7 @@ function function_980b1dc5()
 
 /*
 	Name: function_d3fc7131
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x7046A9B8
 	Offset: 0xAF8
 	Size: 0x7CA
@@ -219,7 +219,7 @@ function function_d3fc7131()
 
 /*
 	Name: function_848a8225
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB9DE18A3
 	Offset: 0x12D0
 	Size: 0x2F8
@@ -261,7 +261,7 @@ function function_848a8225(e_player)
 		self sethintstring(#"hash_6e0cbceab229716f");
 		return true;
 	}
-	if(level flag::get(#"hash_671b32b10654845d"))
+	if(level flag::get(#"challenge_active"))
 	{
 		self sethintstring(#"hash_eff579a2073f6b5");
 		return true;
@@ -273,7 +273,7 @@ function function_848a8225(e_player)
 
 /*
 	Name: function_9f2ab302
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC4E8BC5B
 	Offset: 0x15D0
 	Size: 0x1E2
@@ -344,7 +344,7 @@ function function_9f2ab302()
 
 /*
 	Name: function_af2eff2e
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x8E1193FA
 	Offset: 0x17C0
 	Size: 0x29E
@@ -370,12 +370,12 @@ function function_af2eff2e()
 			self.var_d6578e1f function_c40f1feb(self);
 			continue;
 		}
-		if(level flag::get(#"hash_671b32b10654845d"))
+		if(level flag::get(#"challenge_active"))
 		{
 			continue;
 		}
 		self.b_is_active = 1;
-		level flag::set(#"hash_671b32b10654845d");
+		level flag::set(#"challenge_active");
 		level.var_97a44fdd = self;
 		self.var_a80cd5e8 = spawn("script_origin", self.origin);
 		self.var_a80cd5e8.name = "herm";
@@ -395,7 +395,7 @@ function function_af2eff2e()
 
 /*
 	Name: function_2a4de81f
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x7F78F8B7
 	Offset: 0x1A68
 	Size: 0x2E
@@ -411,7 +411,7 @@ function function_2a4de81f()
 
 /*
 	Name: function_1525b94c
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xCAB59CF7
 	Offset: 0x1AA0
 	Size: 0xF4
@@ -439,7 +439,7 @@ function function_1525b94c()
 
 /*
 	Name: function_99698cd6
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x28075A3A
 	Offset: 0x1BA0
 	Size: 0x114
@@ -451,7 +451,7 @@ function function_99698cd6()
 	self notify(#"hash_7a82343959085c17");
 	self.var_6fb9ebb6 = 1;
 	level.var_97a44fdd = undefined;
-	level flag::clear(#"hash_671b32b10654845d");
+	level flag::clear(#"challenge_active");
 	level.var_a43a746d++;
 	level function_e7b5b4bc();
 	callback::remove_on_connect(&function_76007e28);
@@ -471,7 +471,7 @@ function function_99698cd6()
 
 /*
 	Name: function_e7b5b4bc
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x2A643A7E
 	Offset: 0x1CC0
 	Size: 0x132
@@ -512,7 +512,7 @@ function function_e7b5b4bc()
 
 /*
 	Name: function_76007e28
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1956ED61
 	Offset: 0x1E00
 	Size: 0x1A2
@@ -534,7 +534,7 @@ function function_76007e28()
 	{
 		level namespace_6747c550::function_7df6bb60(#"hash_380ef45b5b7d0888", n_current_progress, self);
 		level namespace_6747c550::function_7df6bb60(#"hash_49e0a1059cfa201a", n_goal, self);
-		level namespace_6747c550::function_7df6bb60(#"hash_56eb67699f4d5fd2", n_index, self);
+		level namespace_6747c550::function_7df6bb60(#"zm_orange_challenges", n_index, self);
 		switch(n_index)
 		{
 			case 4:
@@ -553,7 +553,7 @@ function function_76007e28()
 
 /*
 	Name: all_challenges_completed
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x10BCC49
 	Offset: 0x1FB0
 	Size: 0x7C
@@ -569,7 +569,7 @@ function all_challenges_completed()
 
 /*
 	Name: function_561fda29
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA91FA99D
 	Offset: 0x2038
 	Size: 0xFC
@@ -588,7 +588,7 @@ function function_561fda29()
 
 /*
 	Name: function_54e8826c
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xD1C8E324
 	Offset: 0x2140
 	Size: 0xB0
@@ -608,7 +608,7 @@ function function_54e8826c(e_player)
 
 /*
 	Name: function_400a7216
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBC724342
 	Offset: 0x2200
 	Size: 0x74
@@ -626,7 +626,7 @@ function function_400a7216()
 
 /*
 	Name: function_735037d4
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBE204375
 	Offset: 0x2280
 	Size: 0x13C
@@ -646,12 +646,12 @@ function function_735037d4()
 	self.var_9dd10753 waittill(#"rotatedone");
 	self.e_weapon movez(24, 2);
 	self.e_weapon waittill(#"movedone");
-	self.e_weapon namespace_3263198e::start_zombies_collision_manager(getweapon("thundergun"), &function_3e185177);
+	self.e_weapon zm_orange_util::start_zombies_collision_manager(getweapon("thundergun"), &function_3e185177);
 }
 
 /*
 	Name: function_3e185177
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xDEDB9ABA
 	Offset: 0x23C8
 	Size: 0x3C
@@ -662,13 +662,13 @@ function function_3e185177(e_player, var_876ad064)
 {
 	if(var_876ad064)
 	{
-		e_player thread namespace_3263198e::function_51b752a9(#"hash_5de2e17b31c4f1fd");
+		e_player thread zm_orange_util::function_51b752a9(#"hash_5de2e17b31c4f1fd");
 	}
 }
 
 /*
 	Name: start_challenge
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x677A7899
 	Offset: 0x2410
 	Size: 0x20C
@@ -714,7 +714,7 @@ function start_challenge()
 
 /*
 	Name: function_616536b0
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x65233DE5
 	Offset: 0x2628
 	Size: 0x60
@@ -730,7 +730,7 @@ function function_616536b0()
 
 /*
 	Name: function_658f9053
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x6EB16963
 	Offset: 0x2690
 	Size: 0x3C
@@ -745,7 +745,7 @@ function function_658f9053()
 
 /*
 	Name: function_5ba49bb9
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC8F1074F
 	Offset: 0x26D8
 	Size: 0x3C
@@ -760,7 +760,7 @@ function function_5ba49bb9()
 
 /*
 	Name: function_b1c46dce
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC15728AC
 	Offset: 0x2720
 	Size: 0x34
@@ -775,7 +775,7 @@ function function_b1c46dce()
 
 /*
 	Name: function_b0d19ce9
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x53DBE2E1
 	Offset: 0x2760
 	Size: 0x1A
@@ -789,7 +789,7 @@ function function_b0d19ce9()
 
 /*
 	Name: function_e960fbf3
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC78B448C
 	Offset: 0x2788
 	Size: 0xAC
@@ -808,7 +808,7 @@ function function_e960fbf3()
 
 /*
 	Name: function_35f6e838
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB166682F
 	Offset: 0x2840
 	Size: 0x1A
@@ -822,7 +822,7 @@ function function_35f6e838()
 
 /*
 	Name: function_63ed3839
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x45A40EF6
 	Offset: 0x2868
 	Size: 0x124
@@ -842,7 +842,7 @@ function function_63ed3839()
 
 /*
 	Name: function_d9dffba1
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE8ACD9CD
 	Offset: 0x2998
 	Size: 0x3C
@@ -857,7 +857,7 @@ function function_d9dffba1()
 
 /*
 	Name: function_6d225067
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x8F625CBD
 	Offset: 0x29E0
 	Size: 0x3C
@@ -872,7 +872,7 @@ function function_6d225067()
 
 /*
 	Name: function_6d50f216
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA3628771
 	Offset: 0x2A28
 	Size: 0x3C
@@ -887,7 +887,7 @@ function function_6d50f216()
 
 /*
 	Name: function_2ae162bf
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xDE36E564
 	Offset: 0x2A70
 	Size: 0x1C4
@@ -914,7 +914,7 @@ function function_2ae162bf()
 
 /*
 	Name: function_1de4dc2b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA20D9AAE
 	Offset: 0x2C40
 	Size: 0xBC
@@ -934,7 +934,7 @@ function function_1de4dc2b()
 
 /*
 	Name: function_f0f0f5f3
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x35C01C84
 	Offset: 0x2D08
 	Size: 0x3C
@@ -949,7 +949,7 @@ function function_f0f0f5f3()
 
 /*
 	Name: function_20f477f2
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x7475D6A2
 	Offset: 0x2D50
 	Size: 0x3C
@@ -964,7 +964,7 @@ function function_20f477f2()
 
 /*
 	Name: function_8885885d
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1970EB98
 	Offset: 0x2D98
 	Size: 0x34
@@ -979,7 +979,7 @@ function function_8885885d()
 
 /*
 	Name: function_b0848cf7
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xF30B793A
 	Offset: 0x2DD8
 	Size: 0x1A
@@ -993,7 +993,7 @@ function function_b0848cf7()
 
 /*
 	Name: function_39ca7654
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xEDB81750
 	Offset: 0x2E00
 	Size: 0xAC
@@ -1012,7 +1012,7 @@ function function_39ca7654()
 
 /*
 	Name: function_a0ebbf07
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x171C68C8
 	Offset: 0x2EB8
 	Size: 0xC8
@@ -1031,7 +1031,7 @@ function function_a0ebbf07()
 
 /*
 	Name: function_6384ebfd
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB708B57E
 	Offset: 0x2F88
 	Size: 0x54
@@ -1047,7 +1047,7 @@ function function_6384ebfd()
 
 /*
 	Name: function_fd31e27b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x120A6B30
 	Offset: 0x2FE8
 	Size: 0xD8
@@ -1067,7 +1067,7 @@ function function_fd31e27b()
 
 /*
 	Name: function_6639d547
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x39466E6B
 	Offset: 0x30C8
 	Size: 0x3C
@@ -1082,7 +1082,7 @@ function function_6639d547()
 
 /*
 	Name: function_50961fa5
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x741C3D8
 	Offset: 0x3110
 	Size: 0x3C
@@ -1097,7 +1097,7 @@ function function_50961fa5()
 
 /*
 	Name: function_bb6ca008
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x59104406
 	Offset: 0x3158
 	Size: 0x2C8
@@ -1137,7 +1137,7 @@ function function_bb6ca008()
 
 /*
 	Name: function_a9598dd1
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xDC2135
 	Offset: 0x3428
 	Size: 0xE8
@@ -1158,7 +1158,7 @@ function function_a9598dd1()
 
 /*
 	Name: function_b40fed60
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA2EF4E87
 	Offset: 0x3518
 	Size: 0x34
@@ -1173,7 +1173,7 @@ function function_b40fed60()
 
 /*
 	Name: function_a4b66a2b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x330CACA8
 	Offset: 0x3558
 	Size: 0x1A
@@ -1187,7 +1187,7 @@ function function_a4b66a2b()
 
 /*
 	Name: registersplicestarttraverse
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC38D5FF6
 	Offset: 0x3580
 	Size: 0x3C
@@ -1202,7 +1202,7 @@ function registersplicestarttraverse()
 
 /*
 	Name: function_7d030c3d
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE589E4F5
 	Offset: 0x35C8
 	Size: 0x3C
@@ -1217,7 +1217,7 @@ function function_7d030c3d()
 
 /*
 	Name: function_a36ace8b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xCA0BF19
 	Offset: 0x3610
 	Size: 0x34
@@ -1232,7 +1232,7 @@ function function_a36ace8b()
 
 /*
 	Name: function_6884e5b8
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1DF99CFA
 	Offset: 0x3650
 	Size: 0x34
@@ -1247,7 +1247,7 @@ function function_6884e5b8()
 
 /*
 	Name: function_a0ce7b0f
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x98D08DF6
 	Offset: 0x3690
 	Size: 0x184
@@ -1273,7 +1273,7 @@ function function_a0ce7b0f()
 
 /*
 	Name: whack_a_mole_start_watcher
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA5AB2538
 	Offset: 0x3820
 	Size: 0xFA
@@ -1290,7 +1290,7 @@ function whack_a_mole_start_watcher(var_d6578e1f)
 	{
 		s_params = undefined;
 		s_params = self waittill(#"damage");
-		if(namespace_3263198e::function_fe8ee9f0(s_params.weapon, 0))
+		if(zm_orange_util::function_fe8ee9f0(s_params.weapon, 0))
 		{
 			self setcandamage(0);
 			self val::reset("challenges", "allowdeath");
@@ -1302,7 +1302,7 @@ function whack_a_mole_start_watcher(var_d6578e1f)
 
 /*
 	Name: function_4ce023ff
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE0F1F5B7
 	Offset: 0x3928
 	Size: 0x184
@@ -1337,7 +1337,7 @@ function function_4ce023ff()
 
 /*
 	Name: function_1e4147b3
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBCF3E3B9
 	Offset: 0x3AB8
 	Size: 0x1D4
@@ -1386,7 +1386,7 @@ function function_1e4147b3(var_a5d77ed0, var_a5bc211a)
 
 /*
 	Name: function_8288a87
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x38695F58
 	Offset: 0x3C98
 	Size: 0x108
@@ -1410,7 +1410,7 @@ function function_8288a87()
 
 /*
 	Name: function_a80a048d
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC457B830
 	Offset: 0x3DA8
 	Size: 0x110
@@ -1437,7 +1437,7 @@ function function_a80a048d(s_challenge)
 
 /*
 	Name: function_b0770e43
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xDEBD28D6
 	Offset: 0x3EC0
 	Size: 0x16C
@@ -1454,7 +1454,7 @@ function function_b0770e43()
 		{
 			if(!e_player util::is_spectating())
 			{
-				e_player thread namespace_3263198e::function_51b752a9(#"vox_generic_responses_negative");
+				e_player thread zm_orange_util::function_51b752a9(#"vox_generic_responses_negative");
 				break;
 			}
 		}
@@ -1467,7 +1467,7 @@ function function_b0770e43()
 
 /*
 	Name: function_8645fbe7
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x6D34744D
 	Offset: 0x4038
 	Size: 0x12C
@@ -1483,7 +1483,7 @@ function function_8645fbe7(s_challenge)
 	{
 		s_params = undefined;
 		s_params = self waittill(#"damage");
-		if(namespace_3263198e::function_fe8ee9f0(s_params.weapon, 0))
+		if(zm_orange_util::function_fe8ee9f0(s_params.weapon, 0))
 		{
 			self moveto(self.var_107ca298, 0.1);
 			self rotateto(self.var_5287d229, 0.1);
@@ -1498,7 +1498,7 @@ function function_8645fbe7(s_challenge)
 
 /*
 	Name: function_33f591cf
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x59BDA882
 	Offset: 0x4170
 	Size: 0x3EC
@@ -1572,7 +1572,7 @@ function function_33f591cf()
 
 /*
 	Name: function_577eae5d
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x228BED9
 	Offset: 0x4568
 	Size: 0xBA
@@ -1596,7 +1596,7 @@ function function_577eae5d(var_dd80e9d, var_e205c5f3)
 
 /*
 	Name: function_5ba54739
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x67FBDC53
 	Offset: 0x4630
 	Size: 0xE8
@@ -1618,7 +1618,7 @@ function function_5ba54739(var_dd80e9d, var_e205c5f3)
 
 /*
 	Name: function_89754c19
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x305DF385
 	Offset: 0x4720
 	Size: 0x1FE
@@ -1634,7 +1634,7 @@ function function_89754c19(var_d6578e1f)
 	{
 		s_params = undefined;
 		s_params = self waittill(#"damage");
-		if(namespace_3263198e::function_fe8ee9f0(s_params.weapon, 0))
+		if(zm_orange_util::function_fe8ee9f0(s_params.weapon, 0))
 		{
 			self show();
 			if(self.script_int === 0)
@@ -1678,7 +1678,7 @@ function function_89754c19(var_d6578e1f)
 
 /*
 	Name: function_dfeb1c1b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x8FFD931E
 	Offset: 0x4928
 	Size: 0x568
@@ -1779,7 +1779,7 @@ function function_dfeb1c1b()
 
 /*
 	Name: function_79884a9c
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xF51A81FD
 	Offset: 0x4E98
 	Size: 0x60
@@ -1795,7 +1795,7 @@ function function_79884a9c(e_player)
 
 /*
 	Name: function_2fc4d208
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE3D6CFD6
 	Offset: 0x4F00
 	Size: 0x12C
@@ -1822,7 +1822,7 @@ function function_2fc4d208(s_challenge)
 
 /*
 	Name: function_e845253b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB67164C
 	Offset: 0x5038
 	Size: 0x84
@@ -1847,7 +1847,7 @@ function function_e845253b()
 
 /*
 	Name: function_7327ab9f
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x31E365C8
 	Offset: 0x50C8
 	Size: 0x138
@@ -1881,7 +1881,7 @@ function function_7327ab9f(e_player)
 
 /*
 	Name: function_4ab0f49a
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x6A02F1C3
 	Offset: 0x5208
 	Size: 0x192
@@ -1922,7 +1922,7 @@ function function_4ab0f49a(var_d6578e1f)
 
 /*
 	Name: function_65a629f5
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1C65E5B9
 	Offset: 0x53A8
 	Size: 0x84
@@ -1942,7 +1942,7 @@ function function_65a629f5()
 
 /*
 	Name: function_48f86741
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB537A42D
 	Offset: 0x5438
 	Size: 0x17A
@@ -1959,7 +1959,7 @@ function function_48f86741(var_d6578e1f)
 	{
 		s_params = undefined;
 		s_params = self waittill(#"damage");
-		if(namespace_3263198e::function_fe8ee9f0(s_params.weapon) && !level flag::get(#"hash_743092bcb25effda"))
+		if(zm_orange_util::function_fe8ee9f0(s_params.weapon) && !level flag::get(#"hash_743092bcb25effda"))
 		{
 			var_d6578e1f.n_current_progress++;
 			var_d6578e1f function_544b63c0(var_d6578e1f.n_current_progress);
@@ -1976,7 +1976,7 @@ function function_48f86741(var_d6578e1f)
 
 /*
 	Name: function_be80cd37
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xFD57408
 	Offset: 0x55C0
 	Size: 0x34
@@ -1991,7 +1991,7 @@ function function_be80cd37()
 
 /*
 	Name: function_753b9012
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xAAA849BB
 	Offset: 0x5600
 	Size: 0x90
@@ -2011,7 +2011,7 @@ function function_753b9012(e_player)
 
 /*
 	Name: function_c607ac40
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x27B570F7
 	Offset: 0x56A0
 	Size: 0x138
@@ -2045,7 +2045,7 @@ function function_c607ac40(var_d6578e1f)
 
 /*
 	Name: function_88d98fce
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB57585B6
 	Offset: 0x57E0
 	Size: 0xEE
@@ -2066,7 +2066,7 @@ function function_88d98fce(e_player)
 
 /*
 	Name: function_3fbb4390
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x791AA52D
 	Offset: 0x58D8
 	Size: 0x168
@@ -2098,7 +2098,7 @@ function function_3fbb4390(var_d6578e1f)
 
 /*
 	Name: function_77044d02
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x1F9FB433
 	Offset: 0x5A48
 	Size: 0x10A
@@ -2134,7 +2134,7 @@ function function_77044d02()
 
 /*
 	Name: function_10e9c8b5
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC9984F2E
 	Offset: 0x5B60
 	Size: 0x10A
@@ -2170,7 +2170,7 @@ function function_10e9c8b5()
 
 /*
 	Name: function_f6ccb39
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x10BFE04A
 	Offset: 0x5C78
 	Size: 0x150
@@ -2189,7 +2189,7 @@ function function_f6ccb39(s_challenge)
 			self playsound(#"hash_2fe344cda8a89a7a");
 			if(math::cointoss(50))
 			{
-				self thread namespace_3263198e::function_51b752a9(#"vox_generic_responses_negative");
+				self thread zm_orange_util::function_51b752a9(#"vox_generic_responses_negative");
 			}
 			self.var_77d7715a = 0;
 			self notify(#"hash_279113df33d9d7fc");
@@ -2200,7 +2200,7 @@ function function_f6ccb39(s_challenge)
 
 /*
 	Name: function_f1da3c8
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x2BA19AE6
 	Offset: 0x5DD0
 	Size: 0xB0
@@ -2224,7 +2224,7 @@ function function_f1da3c8(s_challenge)
 
 /*
 	Name: function_e12fb431
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBA655FC4
 	Offset: 0x5E88
 	Size: 0x120
@@ -2246,7 +2246,7 @@ function function_e12fb431()
 
 /*
 	Name: function_3bb5cdd9
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xBFAA19B8
 	Offset: 0x5FB0
 	Size: 0x9A
@@ -2265,7 +2265,7 @@ function function_3bb5cdd9(s_challenge_station)
 
 /*
 	Name: function_c40f1feb
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x830C3541
 	Offset: 0x6058
 	Size: 0x184
@@ -2309,7 +2309,7 @@ function function_c40f1feb(s_challenge_station)
 
 /*
 	Name: function_472fa2ca
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x13185F55
 	Offset: 0x61E8
 	Size: 0x30E
@@ -2378,7 +2378,7 @@ function function_472fa2ca(s_challenge)
 
 /*
 	Name: function_f363530e
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x77D2633E
 	Offset: 0x6500
 	Size: 0x70
@@ -2398,7 +2398,7 @@ function function_f363530e()
 
 /*
 	Name: function_ce8060cc
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x16F0A6CF
 	Offset: 0x6578
 	Size: 0x78
@@ -2419,7 +2419,7 @@ function function_ce8060cc()
 
 /*
 	Name: function_abec537
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA077C7F
 	Offset: 0x65F8
 	Size: 0x78
@@ -2440,7 +2440,7 @@ function function_abec537()
 
 /*
 	Name: function_1fdda3c7
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x6281C325
 	Offset: 0x6678
 	Size: 0x1C2
@@ -2500,7 +2500,7 @@ function function_1fdda3c7(s_params)
 
 /*
 	Name: function_2d23b317
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x3A6448CB
 	Offset: 0x6848
 	Size: 0x6C
@@ -2517,7 +2517,7 @@ function function_2d23b317(s_params)
 
 /*
 	Name: function_d06cd5f9
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA4927FE
 	Offset: 0x68C0
 	Size: 0x54
@@ -2534,7 +2534,7 @@ function function_d06cd5f9(s_params)
 
 /*
 	Name: function_ffe9eab7
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x114EFF25
 	Offset: 0x6920
 	Size: 0x1A4
@@ -2574,7 +2574,7 @@ function function_ffe9eab7(s_challenge)
 
 /*
 	Name: function_eaf96378
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x46B26B10
 	Offset: 0x6AD0
 	Size: 0x54
@@ -2591,7 +2591,7 @@ function function_eaf96378(s_params)
 
 /*
 	Name: function_a741762f
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xD9E34A5B
 	Offset: 0x6B30
 	Size: 0x54
@@ -2608,7 +2608,7 @@ function function_a741762f(s_params)
 
 /*
 	Name: function_55bd528c
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC6DCCA13
 	Offset: 0x6B90
 	Size: 0xCC
@@ -2632,7 +2632,7 @@ function function_55bd528c(s_params, ai)
 
 /*
 	Name: function_b0d64cce
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x2A8694CF
 	Offset: 0x6C68
 	Size: 0x204
@@ -2669,17 +2669,17 @@ function function_b0d64cce(v_pos, v_angles)
 
 /*
 	Name: function_4626ec3
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x28769EA2
 	Offset: 0x6E78
 	Size: 0x8C
 	Parameters: 2
 	Flags: Linked
 */
-function function_4626ec3(var_2e1f34dd, e_player)
+function function_4626ec3(e_item, e_player)
 {
-	var_2e1f34dd zm_unitrigger::unregister_unitrigger(var_2e1f34dd.s_unitrigger);
-	var_2e1f34dd stoploopsound();
+	e_item zm_unitrigger::unregister_unitrigger(e_item.s_unitrigger);
+	e_item stoploopsound();
 	e_player playsound(#"zmb_powerup_grabbed");
 	level notify(#"hash_3f9f63ddefc15247");
 	level.var_9cb7f7de--;
@@ -2687,7 +2687,7 @@ function function_4626ec3(var_2e1f34dd, e_player)
 
 /*
 	Name: function_fde99ac6
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x61AE97DC
 	Offset: 0x6F10
 	Size: 0x60
@@ -2703,7 +2703,7 @@ function function_fde99ac6(e_player)
 
 /*
 	Name: function_1417e75b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xEAD70E3C
 	Offset: 0x6F78
 	Size: 0x60
@@ -2723,7 +2723,7 @@ function function_1417e75b()
 
 /*
 	Name: function_a302ccda
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x14A80D5A
 	Offset: 0x6FE0
 	Size: 0x3C
@@ -2732,7 +2732,7 @@ function function_1417e75b()
 */
 function function_a302ccda(s_params)
 {
-	if(namespace_3263198e::function_fe8ee9f0(s_params.weapon))
+	if(zm_orange_util::function_fe8ee9f0(s_params.weapon))
 	{
 		self function_eaf6e39e();
 	}
@@ -2740,7 +2740,7 @@ function function_a302ccda(s_params)
 
 /*
 	Name: function_d2403e6a
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x54C7040D
 	Offset: 0x7028
 	Size: 0x6C
@@ -2757,7 +2757,7 @@ function function_d2403e6a(s_params)
 
 /*
 	Name: function_11001794
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xEF4DB543
 	Offset: 0x70A0
 	Size: 0x5B2
@@ -2878,7 +2878,7 @@ function function_11001794()
 
 /*
 	Name: function_f5f83516
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x956B2419
 	Offset: 0x7660
 	Size: 0x1A0
@@ -2914,7 +2914,7 @@ function function_f5f83516()
 
 /*
 	Name: powerup_wobble_fx
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA7ABB262
 	Offset: 0x7808
 	Size: 0xC4
@@ -2947,7 +2947,7 @@ function powerup_wobble_fx()
 
 /*
 	Name: function_9e87f32a
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xF1B79181
 	Offset: 0x78D8
 	Size: 0xE2
@@ -2974,7 +2974,7 @@ function function_9e87f32a()
 
 /*
 	Name: function_98233b53
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x935E3B8D
 	Offset: 0x79C8
 	Size: 0xBA
@@ -3000,7 +3000,7 @@ function function_98233b53()
 
 /*
 	Name: function_b49b8fc6
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE6BE2F76
 	Offset: 0x7A90
 	Size: 0x1B0
@@ -3040,7 +3040,7 @@ function function_b49b8fc6()
 
 /*
 	Name: function_816f228f
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x686E2C4B
 	Offset: 0x7C48
 	Size: 0x52C
@@ -3134,7 +3134,7 @@ function function_816f228f(e_who)
 
 /*
 	Name: function_f0c3ac7c
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xF84C5E15
 	Offset: 0x8180
 	Size: 0x154
@@ -3144,25 +3144,25 @@ function function_816f228f(e_who)
 function function_f0c3ac7c()
 {
 	var_d49d10b0 = self zm_loadout::get_player_lethal_grenade();
-	if(isdefined(var_d49d10b0) && var_d49d10b0 == level.var_ad5d43cf)
+	if(isdefined(var_d49d10b0) && var_d49d10b0 == level.w_snowball)
 	{
 		self zm_weapons::weapon_give(level.var_f8934665, 1, 0);
 		n_slot = self gadgetgetslot(var_d49d10b0);
 		self gadgetpowerreset(n_slot, 0);
-		self thread namespace_f93d2fa1::function_76e94d52();
+		self thread zm_orange_snowball_piles::function_76e94d52();
 	}
 	else if(isdefined(var_d49d10b0) && var_d49d10b0 == level.var_bf70d56c)
 	{
 		self zm_weapons::weapon_give(level.var_d879215, 1, 0);
 		n_slot = self gadgetgetslot(var_d49d10b0);
 		self gadgetpowerreset(n_slot, 0);
-		self thread namespace_f93d2fa1::function_76e94d52();
+		self thread zm_orange_snowball_piles::function_76e94d52();
 	}
 }
 
 /*
 	Name: swap_weapon
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xD69A45CE
 	Offset: 0x82E0
 	Size: 0xEC
@@ -3172,11 +3172,11 @@ function function_f0c3ac7c()
 function swap_weapon(var_498a708)
 {
 	var_6822257f = self getweaponslist();
-	foreach(var_f99a6771 in var_6822257f)
+	foreach(w_gun in var_6822257f)
 	{
-		if(var_f99a6771.rootweapon === var_498a708)
+		if(w_gun.rootweapon === var_498a708)
 		{
-			self zm_weapons::function_7c5dd4bd(var_f99a6771);
+			self zm_weapons::function_7c5dd4bd(w_gun);
 			return;
 		}
 	}
@@ -3188,7 +3188,7 @@ function swap_weapon(var_498a708)
 
 /*
 	Name: function_e2a25377
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0x18CA9DA6
 	Offset: 0x83D8
 	Size: 0x84
@@ -3206,7 +3206,7 @@ function function_e2a25377(var_498a708)
 
 /*
 	Name: function_eaf6e39e
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xE8FC0067
 	Offset: 0x8468
 	Size: 0x172
@@ -3230,7 +3230,7 @@ function function_eaf6e39e(n_count = 1)
 			{
 				if(!e_player util::is_spectating())
 				{
-					e_player thread namespace_3263198e::function_51b752a9(#"vox_generic_responses_positive");
+					e_player thread zm_orange_util::function_51b752a9(#"vox_generic_responses_positive");
 					break;
 				}
 			}
@@ -3241,7 +3241,7 @@ function function_eaf6e39e(n_count = 1)
 
 /*
 	Name: function_bce7e59b
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC8B92B0A
 	Offset: 0x85E8
 	Size: 0xF8
@@ -3254,13 +3254,13 @@ function function_bce7e59b(n_index, n_current_progress, n_goal)
 	{
 		level namespace_6747c550::function_7df6bb60(#"hash_380ef45b5b7d0888", n_current_progress, e_player);
 		level namespace_6747c550::function_7df6bb60(#"hash_49e0a1059cfa201a", n_goal, e_player);
-		level namespace_6747c550::function_7df6bb60(#"hash_56eb67699f4d5fd2", n_index, e_player);
+		level namespace_6747c550::function_7df6bb60(#"zm_orange_challenges", n_index, e_player);
 	}
 }
 
 /*
 	Name: function_544b63c0
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xB92E3B39
 	Offset: 0x86E8
 	Size: 0xB8
@@ -3281,7 +3281,7 @@ function private function_544b63c0(n_progress)
 
 /*
 	Name: function_fd8a137e
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xC6E86FF8
 	Offset: 0x87A8
 	Size: 0x118
@@ -3298,14 +3298,14 @@ function function_fd8a137e(n_time = 0)
 	}
 	foreach(e_player in getplayers())
 	{
-		level namespace_6747c550::function_7df6bb60(#"hash_56eb67699f4d5fd2", 0, e_player);
+		level namespace_6747c550::function_7df6bb60(#"zm_orange_challenges", 0, e_player);
 		level namespace_6747c550::function_7df6bb60(#"hash_380ef45b5b7d0888", 0, e_player);
 	}
 }
 
 /*
 	Name: function_e4b04738
-	Namespace: namespace_86eed980
+	Namespace: zm_orange_challenges
 	Checksum: 0xA1DF1DBB
 	Offset: 0x88C8
 	Size: 0xA4
@@ -3315,7 +3315,7 @@ function function_fd8a137e(n_time = 0)
 function function_e4b04738()
 {
 	/#
-		if(level flag::get(#"hash_671b32b10654845d"))
+		if(level flag::get(#"challenge_active"))
 		{
 			if(isdefined(level.var_97a44fdd))
 			{

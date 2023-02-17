@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_1615105f580458d3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm\weapons\zm_weap_tomahawk.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -282,7 +282,7 @@ function function_7d6c1805(e_player)
 	{
 		return;
 	}
-	var_69e7f149 = getweapon(#"hash_32a584f5a65c70d1");
+	var_69e7f149 = getweapon(#"spork_alcatraz");
 	if(self.damageweapon == var_69e7f149)
 	{
 		e_player.var_b3076a2d++;
@@ -368,7 +368,7 @@ function function_3c616882()
 		{
 			if(!level.var_4024aaf6.var_ca691b03)
 			{
-				level.var_4024aaf6 thread function_831aa56d(e_player, #"hash_32a584f5a65c70d1");
+				level.var_4024aaf6 thread function_831aa56d(e_player, #"spork_alcatraz");
 				e_player flag::set(#"hash_334221cd7977f5d5");
 			}
 		}
@@ -420,11 +420,11 @@ function private function_831aa56d(e_player, var_69970c6)
 	function_455ede41(e_player);
 	level.var_4024aaf6.var_e88acf63 = level.var_4024aaf6 gettagorigin("tag_spork");
 	level.var_4024aaf6.var_a9a3211a = level.var_4024aaf6 gettagangles("tag_spork");
-	if(var_69970c6 == #"hash_32a584f5a65c70d1")
+	if(var_69970c6 == #"spork_alcatraz")
 	{
 		level.var_4024aaf6.var_87d57162 = util::spawn_model("wpn_t8_zm_spork_world", level.var_4024aaf6.var_e88acf63, level.var_4024aaf6.var_a9a3211a);
 		level.var_4024aaf6.var_87d57162 linkto(level.var_4024aaf6);
-		e_player takeweapon(getweapon(#"hash_32a584f5a65c70d1"));
+		e_player takeweapon(getweapon(#"spork_alcatraz"));
 	}
 	else
 	{
@@ -629,13 +629,13 @@ function function_a93fd607(e_grenade, n_grenade_charge_power)
 	if(distancesquared(e_grenade.origin, level.var_ca0f81c1.origin) < 62500 && !self flag::get(#"hash_465b23ced2029d95"))
 	{
 		level flag::set(#"hash_6ee51d9a7d37aecc");
-		var_6e6ec518 = namespace_268fc37c::tomahawk_spawn(e_grenade.origin);
+		var_6e6ec518 = zm_weap_tomahawk::tomahawk_spawn(e_grenade.origin);
 		var_6e6ec518.n_grenade_charge_power = n_grenade_charge_power;
 		var_bba04f72 = util::spawn_model(level.var_ca0f81c1.model, e_grenade.origin, level.var_ca0f81c1.angles);
 		var_bba04f72 setscale(1.2);
 		var_bba04f72 linkto(var_6e6ec518);
 		level.var_ca0f81c1 delete();
-		self thread namespace_268fc37c::tomahawk_return_player(var_6e6ec518, undefined, 800);
+		self thread zm_weap_tomahawk::tomahawk_return_player(var_6e6ec518, undefined, 800);
 		self thread function_986bf0d5(var_6e6ec518, var_bba04f72);
 		return true;
 	}
@@ -678,12 +678,12 @@ function function_1d02544f(e_grenade, n_grenade_charge_power)
 	if(distancesquared(e_grenade.origin, s_rock.origin) < 10000 && !self flag::get(#"hash_3aa12cac41d4ba98"))
 	{
 		self clientfield::set_to_player("" + #"hash_11ff39a3100ac894", 0);
-		var_6e6ec518 = namespace_268fc37c::tomahawk_spawn(e_grenade.origin);
+		var_6e6ec518 = zm_weap_tomahawk::tomahawk_spawn(e_grenade.origin);
 		var_6e6ec518.n_grenade_charge_power = n_grenade_charge_power;
 		var_bba04f72 = util::spawn_model(s_rock.model, e_grenade.origin, s_rock.angles);
 		var_bba04f72 setscale(2.75);
 		var_bba04f72 linkto(var_6e6ec518);
-		self thread namespace_268fc37c::tomahawk_return_player(var_6e6ec518, undefined, 800);
+		self thread zm_weap_tomahawk::tomahawk_return_player(var_6e6ec518, undefined, 800);
 		self thread function_f02db707(var_6e6ec518, var_bba04f72);
 		return true;
 	}
@@ -726,11 +726,11 @@ function function_b74fca4c(e_grenade, n_grenade_charge_power)
 	if(distancesquared(e_grenade.origin, s_rock.origin) < 10000 && !self flag::get(#"hash_12826eeb0abe1308"))
 	{
 		self clientfield::set_to_player("" + #"hash_37c33178198d54e4", 0);
-		var_6e6ec518 = namespace_268fc37c::tomahawk_spawn(e_grenade.origin);
+		var_6e6ec518 = zm_weap_tomahawk::tomahawk_spawn(e_grenade.origin);
 		var_6e6ec518.n_grenade_charge_power = n_grenade_charge_power;
 		var_bba04f72 = util::spawn_model(s_rock.model, e_grenade.origin, s_rock.angles);
 		var_bba04f72 linkto(var_6e6ec518);
-		self thread namespace_268fc37c::tomahawk_return_player(var_6e6ec518, undefined, 800);
+		self thread zm_weap_tomahawk::tomahawk_return_player(var_6e6ec518, undefined, 800);
 		self thread function_7694f3cb(var_6e6ec518, var_bba04f72);
 		return true;
 	}
@@ -1267,17 +1267,17 @@ function function_858b2d2f()
 				mdl_piece setvisibletoplayer(e_player);
 			}
 			playsoundatposition(#"hash_35c5e590e88c66e9", e_player.origin);
-			if(e_player hasweapon(getweapon(#"hash_32a584f5a65c70d1")))
+			if(e_player hasweapon(getweapon(#"spork_alcatraz")))
 			{
-				e_player takeweapon(getweapon(#"hash_32a584f5a65c70d1"));
+				e_player takeweapon(getweapon(#"spork_alcatraz"));
 				if(isdefined(e_player.var_1c4683c4))
 				{
 					e_player giveweapon(e_player.var_1c4683c4);
 				}
 				else
 				{
-					var_be633b3a = getweapon(#"knife");
-					e_player giveweapon(var_be633b3a);
+					w_knife = getweapon(#"knife");
+					e_player giveweapon(w_knife);
 				}
 			}
 			var_25b99c94 = struct::get("s_ni_mach");
@@ -1430,8 +1430,8 @@ function function_134e0d03(e_player)
 	{
 		return;
 	}
-	var_be633b3a = getweapon("knife");
-	if(self.damageweapon == var_be633b3a && self.archetype == #"brutus" && e_player.var_946c0773 === 1)
+	w_knife = getweapon("knife");
+	if(self.damageweapon == w_knife && self.archetype == #"brutus" && e_player.var_946c0773 === 1)
 	{
 		e_player.n_brutus_killed++;
 		e_player flag::set(#"hash_7bcf95ea12236f0d");
@@ -1632,7 +1632,7 @@ function function_efd25c9()
 		var_6b6eb535 hide();
 		foreach(player in level.players)
 		{
-			if(!player hasweapon(getweapon(#"hash_32a584f5a65c70d1")))
+			if(!player hasweapon(getweapon(#"spork_alcatraz")))
 			{
 				while(!isdefined(player.var_1c4683c4))
 				{
@@ -1640,7 +1640,7 @@ function function_efd25c9()
 					wait(0.1);
 				}
 				w_current = player.currentweapon;
-				player zm_melee_weapon::award_melee_weapon(#"hash_32a584f5a65c70d1");
+				player zm_melee_weapon::award_melee_weapon(#"spork_alcatraz");
 				player flag::set(#"hash_79ab766693ef2532");
 			}
 			if(!player hasweapon(getweapon(#"tomahawk_t8_upgraded")))

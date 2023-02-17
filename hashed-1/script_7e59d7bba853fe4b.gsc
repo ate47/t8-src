@@ -71,23 +71,23 @@ function private function_8d30564f()
 */
 function private function_637778cf()
 {
-	var_51d5c26f = self ai::function_9139c839();
-	if(!isdefined(var_51d5c26f))
+	settingsbundle = self ai::function_9139c839();
+	if(!isdefined(settingsbundle))
 	{
 		return;
 	}
-	self.var_6f84b820 = var_51d5c26f.category;
-	self.var_28aab32a = var_51d5c26f.var_10460f1e;
-	self.var_95d94ac4 = var_51d5c26f.stunduration;
-	self.score_event = var_51d5c26f.scoreevent;
-	if(isdefined(var_51d5c26f.var_5c3586f3))
+	self.var_6f84b820 = settingsbundle.category;
+	self.var_28aab32a = settingsbundle.var_10460f1e;
+	self.var_95d94ac4 = settingsbundle.stunduration;
+	self.score_event = settingsbundle.scoreevent;
+	if(isdefined(settingsbundle.var_5c3586f3))
 	{
-		self.powerups = arraycopy(var_51d5c26f.var_5c3586f3);
+		self.powerups = arraycopy(settingsbundle.var_5c3586f3);
 		self thread function_3edc6292();
 	}
-	if(isdefined(var_51d5c26f.var_ca920a99))
+	if(isdefined(settingsbundle.var_ca920a99))
 	{
-		function_a19d7104(var_51d5c26f);
+		function_a19d7104(settingsbundle);
 	}
 }
 
@@ -100,9 +100,9 @@ function private function_637778cf()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a19d7104(var_51d5c26f)
+function private function_a19d7104(settingsbundle)
 {
-	if(isdefined(var_51d5c26f.var_6199bcd5) && var_51d5c26f.var_6199bcd5)
+	if(isdefined(settingsbundle.var_6199bcd5) && settingsbundle.var_6199bcd5)
 	{
 		return;
 	}
@@ -110,22 +110,22 @@ function private function_a19d7104(var_51d5c26f)
 	{
 		level.var_532264f5 = [];
 	}
-	if(!isdefined(level.var_532264f5[var_51d5c26f.name]))
+	if(!isdefined(level.var_532264f5[settingsbundle.name]))
 	{
-		level.var_532264f5[var_51d5c26f.name] = [];
+		level.var_532264f5[settingsbundle.name] = [];
 	}
-	foreach(var_e8d7c6d7 in var_51d5c26f.var_ca920a99)
+	foreach(var_e8d7c6d7 in settingsbundle.var_ca920a99)
 	{
 		if(!isdefined(var_e8d7c6d7.weaponid) || !isdefined(var_e8d7c6d7.var_54c33ecd))
 		{
 			/#
-				println("" + var_51d5c26f.name);
+				println("" + settingsbundle.name);
 			#/
 			continue;
 		}
-		level.var_532264f5[var_51d5c26f.name][var_e8d7c6d7.weaponid] = {#hash_fac896db:var_e8d7c6d7.var_97b22faa, #hash_8e22aa87:var_e8d7c6d7.var_fc420d71, #hash_fff93f95:var_e8d7c6d7.var_628192b0, #hash_c6cc6205:var_e8d7c6d7.var_54c33ecd};
+		level.var_532264f5[settingsbundle.name][var_e8d7c6d7.weaponid] = {#hash_fac896db:var_e8d7c6d7.var_97b22faa, #hash_8e22aa87:var_e8d7c6d7.var_fc420d71, #hash_fff93f95:var_e8d7c6d7.var_628192b0, #hash_c6cc6205:var_e8d7c6d7.var_54c33ecd};
 	}
-	var_51d5c26f.var_6199bcd5 = 1;
+	settingsbundle.var_6199bcd5 = 1;
 }
 
 /*
@@ -484,7 +484,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	if(var_8d3f5b7d)
 	{
 		var_38d1de41 = isdefined(namespace_81245006::function_fab3ee3e(self));
-		if(var_30362eca && attacker hasperk(#"hash_6afc24062d2515a2"))
+		if(var_30362eca && attacker hasperk(#"specialty_mod_awareness"))
 		{
 			if(var_b1c1c5cf < 1)
 			{
@@ -573,19 +573,19 @@ function function_a2e8fd7b(entity, player, var_3f120c4d = 4)
 		var_e2414b1b = zm_zonemgr::function_54fc7938(player, entity);
 		if(isdefined(var_e2414b1b) && var_e2414b1b.cost >= var_3f120c4d)
 		{
-			var_ab176ce9 = level.zones[var_e2414b1b.var_ab176ce9];
-			for(var_3a38abb0 = 0; isdefined(var_ab176ce9.var_458fe8a) && var_ab176ce9.var_458fe8a && var_3a38abb0 < 4; var_3a38abb0++)
+			to_zone = level.zones[var_e2414b1b.to_zone];
+			for(var_3a38abb0 = 0; isdefined(to_zone.var_458fe8a) && to_zone.var_458fe8a && var_3a38abb0 < 4; var_3a38abb0++)
 			{
-				var_e2414b1b = zm_zonemgr::function_54fc7938(player, var_e2414b1b.var_ab176ce9);
+				var_e2414b1b = zm_zonemgr::function_54fc7938(player, var_e2414b1b.to_zone);
 				if(!isdefined(var_e2414b1b))
 				{
 					return player;
 				}
-				var_ab176ce9 = level.zones[var_e2414b1b.var_ab176ce9];
+				to_zone = level.zones[var_e2414b1b.to_zone];
 			}
-			if(isdefined(var_ab176ce9) && var_ab176ce9.nodes.size > 0)
+			if(isdefined(to_zone) && to_zone.nodes.size > 0)
 			{
-				return var_ab176ce9.nodes[0];
+				return to_zone.nodes[0];
 			}
 		}
 	}

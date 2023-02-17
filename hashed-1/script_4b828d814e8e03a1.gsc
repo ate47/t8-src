@@ -24,7 +24,7 @@ function autoexec function_89f2df9()
 }
 
 /*
-	Name: function_9738468f
+	Name: __init
 	Namespace: namespace_dfdf035c
 	Checksum: 0xB7B2BDB1
 	Offset: 0x130
@@ -32,7 +32,7 @@ function autoexec function_89f2df9()
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_9738468f()
+function autoexec __init()
 {
 	level.var_5805dc3b = (isdefined(getgametypesetting(#"hash_5f842714fa80e5a9")) ? getgametypesetting(#"hash_5f842714fa80e5a9") : 0);
 }

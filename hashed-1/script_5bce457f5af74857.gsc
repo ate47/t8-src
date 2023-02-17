@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
@@ -163,11 +163,11 @@ function function_e968fd4f(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		forcestreamxmodel(#"hash_1a4e506fbadd9db6");
+		forcestreamxmodel(#"p8_wz_foliage_tree_oak_md");
 	}
 	else
 	{
-		stopforcestreamingxmodel(#"hash_1a4e506fbadd9db6");
+		stopforcestreamingxmodel(#"p8_wz_foliage_tree_oak_md");
 	}
 }
 

@@ -6,11 +6,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_14104b98;
+#namespace zm_red_challenges;
 
 /*
 	Name: init
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x16DFBB97
 	Offset: 0x178
 	Size: 0x72E
@@ -58,7 +58,7 @@ function init()
 
 /*
 	Name: function_de1bffd6
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0xD7687222
 	Offset: 0x8B0
 	Size: 0x392
@@ -129,7 +129,7 @@ function function_de1bffd6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9ed71eeb
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x45A316C5
 	Offset: 0xC50
 	Size: 0x342
@@ -193,7 +193,7 @@ function function_9ed71eeb(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: keyline_model
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0xD9E6861D
 	Offset: 0xFA0
 	Size: 0x9C
@@ -218,7 +218,7 @@ function keyline_model(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 
 /*
 	Name: function_a7ee082f
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x455F4549
 	Offset: 0x1048
 	Size: 0x74
@@ -232,7 +232,7 @@ function function_a7ee082f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_75ac8f21
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x8EC2531C
 	Offset: 0x10C8
 	Size: 0x82
@@ -251,7 +251,7 @@ function function_75ac8f21(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3298ba0
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x42F3055E
 	Offset: 0x1158
 	Size: 0xC0
@@ -278,7 +278,7 @@ function function_3298ba0(n_index)
 
 /*
 	Name: function_250bbf4e
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x5D95AC41
 	Offset: 0x1220
 	Size: 0xA4
@@ -303,7 +303,7 @@ function function_250bbf4e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4b8846c3
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0xB85BA97
 	Offset: 0x12D0
 	Size: 0xF8
@@ -326,7 +326,7 @@ function function_4b8846c3(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_840d5e0b
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0xE7F8AE64
 	Offset: 0x13D0
 	Size: 0x4A
@@ -340,7 +340,7 @@ function function_840d5e0b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c63a4f32
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0xA8423505
 	Offset: 0x1428
 	Size: 0x2C4
@@ -382,7 +382,7 @@ function function_c63a4f32(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: fake_physicslaunch
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x12433902
 	Offset: 0x16F8
 	Size: 0x148
@@ -405,7 +405,7 @@ function fake_physicslaunch(target_pos, power, var_4862f668)
 
 /*
 	Name: function_beb03b41
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x22DF4E2
 	Offset: 0x1848
 	Size: 0x8C
@@ -427,7 +427,7 @@ function function_beb03b41(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4eff20ff
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x548E279D
 	Offset: 0x18E0
 	Size: 0x1C8
@@ -466,7 +466,7 @@ function function_4eff20ff()
 
 /*
 	Name: function_23333a90
-	Namespace: namespace_14104b98
+	Namespace: zm_red_challenges
 	Checksum: 0x4FD7DB6D
 	Offset: 0x1AB0
 	Size: 0xD4

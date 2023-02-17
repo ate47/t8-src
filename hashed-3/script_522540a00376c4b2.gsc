@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_983c37ea;
+#namespace zm_ai_tiger;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0x21B73A15
 	Offset: 0x168
 	Size: 0x3C
@@ -25,12 +25,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_6c20d49019c685c7", &__init__, undefined, undefined);
+	system::register(#"zm_ai_tiger", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0x8CA4C4EF
 	Offset: 0x1B0
 	Size: 0x8C
@@ -45,7 +45,7 @@ function __init__()
 
 /*
 	Name: function_6d7e1f79
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0xF8D6DB05
 	Offset: 0x248
 	Size: 0x74
@@ -61,7 +61,7 @@ function function_6d7e1f79(localclientnum)
 
 /*
 	Name: function_76110e92
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0xDAE7DDA4
 	Offset: 0x2C8
 	Size: 0xC4
@@ -83,7 +83,7 @@ function function_76110e92(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3be6531a
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0xE6224459
 	Offset: 0x398
 	Size: 0x84
@@ -104,7 +104,7 @@ function function_3be6531a(localclientnum, turned)
 
 /*
 	Name: on_entity_shutdown
-	Namespace: namespace_983c37ea
+	Namespace: zm_ai_tiger
 	Checksum: 0xF78BEE22
 	Offset: 0x428
 	Size: 0x104

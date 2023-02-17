@@ -84,7 +84,7 @@ function perks_behind_door()
 	{
 		return;
 	}
-	if(!namespace_59ff1d6c::function_901b751c("zmPowerupsActive") || namespace_59ff1d6c::function_901b751c("zmPowerupsIsLimitedRound") || !namespace_59ff1d6c::function_901b751c("zmPowerupNuke") || !namespace_59ff1d6c::function_901b751c("zmPowerupDouble") || !namespace_59ff1d6c::function_901b751c("zmPowerupInstakill") || !namespace_59ff1d6c::function_901b751c("zmPowerupFireSale") || !namespace_59ff1d6c::function_901b751c("zmPowerupMaxAmmo"))
+	if(!zm_custom::function_901b751c("zmPowerupsActive") || zm_custom::function_901b751c("zmPowerupsIsLimitedRound") || !zm_custom::function_901b751c("zmPowerupNuke") || !zm_custom::function_901b751c("zmPowerupDouble") || !zm_custom::function_901b751c("zmPowerupInstakill") || !zm_custom::function_901b751c("zmPowerupFireSale") || !zm_custom::function_901b751c("zmPowerupMaxAmmo"))
 	{
 		return;
 	}

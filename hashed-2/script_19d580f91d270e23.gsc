@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_6021ce59143452c3;
-#using script_62a0cb1167067152;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm\zm_white_mee.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -42,11 +42,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_4c1b3f603272e5fc", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_4c1b3f603272e5fc", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_be6ee171
 	Checksum: 0x2E77DCF0
 	Offset: 0x1D8
@@ -54,7 +54,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	spawner = getent("weeping_spawner", "script_noteworthy");
 	level.disable_nuke_delay_spawning = 1;
@@ -77,15 +77,15 @@ function private function_d1de6a85()
 		player.var_5f4eaf85 forceteleport(goal_pos, player.angles - vectorscale((0, 1, 0), 180), 1);
 		player.var_5f4eaf85.var_72411ccf = &function_660c908;
 		player.var_5f4eaf85.favoriteenemy = player;
-		player.var_5f4eaf85 val::set(#"hash_2c2f52c7b4c42bab", "takedamage", 0);
-		player.var_5f4eaf85 val::set(#"hash_2c2f52c7b4c42bab", "ignoreme", 1);
+		player.var_5f4eaf85 val::set(#"mee_2", "takedamage", 0);
+		player.var_5f4eaf85 val::set(#"mee_2", "ignoreme", 1);
 		player.var_5f4eaf85.team = #"team3";
 		wait(0.1);
 	}
 	level.var_5f4eaf85 = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
 	level.var_5f4eaf85.var_72411ccf = &function_660c908;
-	level.var_5f4eaf85 val::set(#"hash_2c2f52c7b4c42bab", "takedamage", 0);
-	level.var_5f4eaf85 val::set(#"hash_2c2f52c7b4c42bab", "ignoreme", 1);
+	level.var_5f4eaf85 val::set(#"mee_2", "takedamage", 0);
+	level.var_5f4eaf85 val::set(#"mee_2", "ignoreme", 1);
 	level.var_5f4eaf85.team = #"team3";
 	wait(1.5);
 	level.disable_nuke_delay_spawning = 0;
@@ -96,15 +96,15 @@ function private function_d1de6a85()
 		player.var_5f4eaf85.var_72411ccf = undefined;
 		player.var_5f4eaf85 zombie_utility::set_zombie_run_cycle("super_sprint");
 		player callback::on_player_damage(&on_player_damage);
-		player.var_5f4eaf85 thread namespace_b9fd696c::function_d10bf985();
+		player.var_5f4eaf85 thread zm_white_mee::function_d10bf985();
 	}
 	level.var_5f4eaf85.var_72411ccf = undefined;
 	level.var_5f4eaf85 zombie_utility::set_zombie_run_cycle("super_sprint");
-	level.var_5f4eaf85 thread namespace_b9fd696c::function_d10bf985();
+	level.var_5f4eaf85 thread zm_white_mee::function_d10bf985();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_be6ee171
 	Checksum: 0x9D086FAC
 	Offset: 0x790
@@ -112,13 +112,13 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
 		player callback::remove_on_player_damage(&on_player_damage);
-		player.var_5f4eaf85 val::reset(#"hash_2c2f52c7b4c42bab", "takedamage");
-		player.var_5f4eaf85 val::reset(#"hash_2c2f52c7b4c42bab", "ignoreme");
+		player.var_5f4eaf85 val::reset(#"mee_2", "takedamage");
+		player.var_5f4eaf85 val::reset(#"mee_2", "ignoreme");
 		player.var_5f4eaf85.team = #"axis";
 		if(isdefined(player.var_5f4eaf85.kill_brush))
 		{
@@ -126,8 +126,8 @@ function private function_9e7b3f4d(round_reset)
 		}
 		player.var_5f4eaf85 kill();
 	}
-	level.var_5f4eaf85 val::reset(#"hash_2c2f52c7b4c42bab", "takedamage");
-	level.var_5f4eaf85 val::reset(#"hash_2c2f52c7b4c42bab", "ignoreme");
+	level.var_5f4eaf85 val::reset(#"mee_2", "takedamage");
+	level.var_5f4eaf85 val::reset(#"mee_2", "ignoreme");
 	level.var_5f4eaf85.team = #"axis";
 	if(isdefined(level.var_5f4eaf85.kill_brush))
 	{

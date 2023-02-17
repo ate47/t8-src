@@ -451,13 +451,13 @@ function function_14d49bd7(weapon)
 	Parameters: 1
 	Flags: None
 */
-function function_2d6e2fb(var_715c83d9)
+function function_2d6e2fb(e_shot)
 {
-	while(isdefined(var_715c83d9))
+	while(isdefined(e_shot))
 	{
-		if(isdefined(var_715c83d9.origin))
+		if(isdefined(e_shot.origin))
 		{
-			v_impact = var_715c83d9.origin;
+			v_impact = e_shot.origin;
 		}
 		waitframe(1);
 	}

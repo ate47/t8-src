@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\struct.gsc;
 
-#namespace namespace_89e315a4;
+#namespace zodt8_sound;
 
 /*
 	Name: main
-	Namespace: namespace_89e315a4
+	Namespace: zodt8_sound
 	Checksum: 0xD26A1F98
 	Offset: 0x80
 	Size: 0x1E
@@ -19,7 +19,7 @@ function main()
 
 /*
 	Name: function_45b0f2f3
-	Namespace: namespace_89e315a4
+	Namespace: zodt8_sound
 	Checksum: 0x841A21B0
 	Offset: 0xA8
 	Size: 0xEE

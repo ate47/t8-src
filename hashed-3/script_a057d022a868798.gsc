@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_d30b9d9b;
@@ -34,11 +34,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3a3072e83c70889c", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3a3072e83c70889c", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_d30b9d9b
 	Checksum: 0xDD0B9891
 	Offset: 0x130
@@ -46,7 +46,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_ff22cb62)
+function private on_begin(var_ff22cb62)
 {
 	self.var_ff22cb62 = zm_trial::function_5769f26a(var_ff22cb62);
 	self.var_6a7521e3 = 0;
@@ -54,7 +54,7 @@ function private function_d1de6a85(var_ff22cb62)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_d30b9d9b
 	Checksum: 0xE791F91
 	Offset: 0x188
@@ -62,9 +62,9 @@ function private function_d1de6a85(var_ff22cb62)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	foreach(s_portal in level.var_63fca02d)
 	{
 		s_portal.var_5b12474a = undefined;
@@ -94,8 +94,8 @@ function private function_9e7b3f4d(round_reset)
 function private function_53627246()
 {
 	level endon(#"hash_7646638df88a3656", #"end_game");
-	namespace_b22c99a5::function_2976fa44(self.var_ff22cb62);
-	namespace_b22c99a5::function_dace284(self.var_6a7521e3);
+	zm_trial_util::function_2976fa44(self.var_ff22cb62);
+	zm_trial_util::function_dace284(self.var_6a7521e3);
 	while(true)
 	{
 		var_be17187b = undefined;
@@ -104,11 +104,11 @@ function private function_53627246()
 		{
 			var_be17187b.s_portal.var_5b12474a = 1;
 			self.var_6a7521e3++;
-			namespace_b22c99a5::function_dace284(self.var_6a7521e3);
+			zm_trial_util::function_dace284(self.var_6a7521e3);
 		}
 		if(self.var_6a7521e3 == self.var_ff22cb62)
 		{
-			namespace_b22c99a5::function_7d32b7d0(1);
+			zm_trial_util::function_7d32b7d0(1);
 			break;
 		}
 	}

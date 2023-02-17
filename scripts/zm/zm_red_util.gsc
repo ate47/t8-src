@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_48288470fe0b53d;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm_unitrigger.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_159b5b5b;
+#namespace zm_red_util;
 
 /*
 	Name: init
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xFAC4A453
 	Offset: 0x178
 	Size: 0xC2
@@ -36,7 +36,7 @@ function init()
 
 /*
 	Name: barrier_impact
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x95F5D50F
 	Offset: 0x248
 	Size: 0x138
@@ -66,7 +66,7 @@ function barrier_impact()
 
 /*
 	Name: function_6f5a2cb2
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xFAE71D42
 	Offset: 0x388
 	Size: 0xF0
@@ -84,7 +84,7 @@ function function_6f5a2cb2(text, n_display_time = 0, str_waittill = undefined, v
 
 /*
 	Name: function_207cca50
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x6AFDEC4A
 	Offset: 0x480
 	Size: 0x44
@@ -101,7 +101,7 @@ function function_207cca50()
 
 /*
 	Name: function_18bb0d0d
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x222EC418
 	Offset: 0x4D0
 	Size: 0x44
@@ -118,7 +118,7 @@ function function_18bb0d0d()
 
 /*
 	Name: function_b4759cf8
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xD9F48CC4
 	Offset: 0x520
 	Size: 0x84
@@ -140,7 +140,7 @@ function function_b4759cf8()
 
 /*
 	Name: function_7e30f24c
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x9BA96C22
 	Offset: 0x5B0
 	Size: 0x44
@@ -155,7 +155,7 @@ function function_7e30f24c()
 
 /*
 	Name: function_7e617e33
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x5A38BF7D
 	Offset: 0x600
 	Size: 0x64
@@ -165,12 +165,12 @@ function function_7e30f24c()
 function function_7e617e33(var_9eb6bb80 = 1)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_3fdd9da7(self, (var_9eb6bb80 ? 0 : 1));
+	level.var_d0d80ff8 zm_red_challenges_hud::set_rewardHidden(self, (var_9eb6bb80 ? 0 : 1));
 }
 
 /*
 	Name: function_9ab191d3
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xF9B86EDE
 	Offset: 0x670
 	Size: 0x64
@@ -180,27 +180,27 @@ function function_7e617e33(var_9eb6bb80 = 1)
 function function_9ab191d3(var_447e014a = 1)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_c6703876(self, (var_447e014a ? 1 : 0));
+	level.var_d0d80ff8 zm_red_challenges_hud::set_challengeFailing(self, (var_447e014a ? 1 : 0));
 }
 
 /*
-	Name: function_7a344bdf
-	Namespace: namespace_159b5b5b
+	Name: set_challenge_text
+	Namespace: zm_red_util
 	Checksum: 0xCE71FA2A
 	Offset: 0x6E0
 	Size: 0x44
 	Parameters: 1
 	Flags: Linked
 */
-function function_7a344bdf(text)
+function set_challenge_text(text)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_1c836e71(self, text);
+	level.var_d0d80ff8 zm_red_challenges_hud::set_challengeText(self, text);
 }
 
 /*
 	Name: function_f0d355fc
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xD7AFAC97
 	Offset: 0x730
 	Size: 0x44
@@ -210,12 +210,12 @@ function function_7a344bdf(text)
 function function_f0d355fc(text)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_2dde4d6c(self, text);
+	level.var_d0d80ff8 zm_red_challenges_hud::set_bottomText(self, text);
 }
 
 /*
 	Name: function_76f2fea0
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xB4795570
 	Offset: 0x780
 	Size: 0x64
@@ -225,12 +225,12 @@ function function_f0d355fc(text)
 function function_76f2fea0(var_3f4d60e3 = 1)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_ad9c4f0(self, (var_3f4d60e3 ? 1 : 0));
+	level.var_d0d80ff8 zm_red_challenges_hud::set_bInLocation(self, (var_3f4d60e3 ? 1 : 0));
 }
 
 /*
 	Name: function_a6d4b55e
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xFAF4BFE2
 	Offset: 0x7F0
 	Size: 0x44
@@ -240,12 +240,12 @@ function function_76f2fea0(var_3f4d60e3 = 1)
 function function_a6d4b55e(var_e2fdd04c)
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_ac67ad85(self, var_e2fdd04c);
+	level.var_d0d80ff8 zm_red_challenges_hud::set_tributeAvailable(self, var_e2fdd04c);
 }
 
 /*
 	Name: function_34a533b1
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x547D559E
 	Offset: 0x840
 	Size: 0x3C
@@ -260,7 +260,7 @@ function function_34a533b1()
 
 /*
 	Name: show_text
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xBEE73795
 	Offset: 0x888
 	Size: 0x15C
@@ -272,7 +272,7 @@ function show_text(text, n_display_time = 0, str_waittill = undefined, var_3de28
 	self endon(#"death");
 	if(var_3de28ed8)
 	{
-		self function_7a344bdf(text);
+		self set_challenge_text(text);
 		self function_b4759cf8();
 	}
 	else
@@ -299,7 +299,7 @@ function show_text(text, n_display_time = 0, str_waittill = undefined, var_3de28
 
 /*
 	Name: function_b952264e
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x1558E3E1
 	Offset: 0x9F0
 	Size: 0x6C
@@ -310,7 +310,7 @@ function function_b952264e(var_3de28ed8 = 1)
 {
 	if(var_3de28ed8)
 	{
-		self function_7a344bdf(#"");
+		self set_challenge_text(#"");
 	}
 	else
 	{
@@ -320,7 +320,7 @@ function function_b952264e(var_3de28ed8 = 1)
 
 /*
 	Name: can_see
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xBEB091BB
 	Offset: 0xA68
 	Size: 0x116
@@ -349,7 +349,7 @@ function can_see(v_pos, var_7b20e52b, n_dot = 0.7)
 
 /*
 	Name: start_timer
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xB3DA70B8
 	Offset: 0xB88
 	Size: 0x90
@@ -366,7 +366,7 @@ function start_timer(n_time_seconds)
 
 /*
 	Name: stop_timer
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x8AC45C4
 	Offset: 0xC20
 	Size: 0x88
@@ -383,7 +383,7 @@ function stop_timer()
 
 /*
 	Name: function_dd9dd1cd
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x3097F338
 	Offset: 0xCB0
 	Size: 0xD4
@@ -397,7 +397,7 @@ function function_dd9dd1cd()
 	{
 		if(isdefined(zone) && zone.is_enabled)
 		{
-			var_a24af036 = namespace_a409d261::function_27028b8e(zone.name);
+			var_a24af036 = zm_red_zones::function_27028b8e(zone.name);
 			array::add(var_90c5736d, var_a24af036, 0);
 		}
 	}
@@ -406,7 +406,7 @@ function function_dd9dd1cd()
 
 /*
 	Name: function_9dcee9e4
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x3A4F0BF
 	Offset: 0xD90
 	Size: 0x4A
@@ -422,7 +422,7 @@ function function_9dcee9e4(vol_area)
 
 /*
 	Name: function_797ac3b0
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xE279D30F
 	Offset: 0xDE8
 	Size: 0x52
@@ -438,7 +438,7 @@ function function_797ac3b0(vol_area)
 
 /*
 	Name: function_f17015c8
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x8DC730B7
 	Offset: 0xE48
 	Size: 0xA4
@@ -460,7 +460,7 @@ function function_f17015c8(a_ents, vol_area)
 
 /*
 	Name: function_a3a07623
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xBD1B89D
 	Offset: 0xEF8
 	Size: 0x9C
@@ -477,7 +477,7 @@ function function_a3a07623()
 
 /*
 	Name: function_ee58ddd4
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xC01EF4F5
 	Offset: 0xFA0
 	Size: 0x10C
@@ -511,7 +511,7 @@ function private function_ee58ddd4(is_scroll = 0)
 
 /*
 	Name: function_a94baf7b
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x1A0F73EA
 	Offset: 0x10B8
 	Size: 0x1B8
@@ -536,7 +536,7 @@ function function_a94baf7b()
 
 /*
 	Name: function_8916aa62
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xD9DB8149
 	Offset: 0x1278
 	Size: 0x47E
@@ -687,7 +687,7 @@ function function_8916aa62(str_line)
 
 /*
 	Name: function_eb6f144
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xA8C4134B
 	Offset: 0x1700
 	Size: 0x384
@@ -785,7 +785,7 @@ function function_eb6f144(str_line, mdl_collectible)
 
 /*
 	Name: function_d24a0f09
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x23185496
 	Offset: 0x1A90
 	Size: 0x7E
@@ -805,7 +805,7 @@ function function_d24a0f09(str_vo_line, var_e688ce8f = 0)
 
 /*
 	Name: function_f0ed2a66
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x52CC99A1
 	Offset: 0x1B18
 	Size: 0x56
@@ -824,7 +824,7 @@ function function_f0ed2a66(v_pos)
 
 /*
 	Name: cleanup_zombie
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0x42F21F9B
 	Offset: 0x1B78
 	Size: 0xE4
@@ -858,7 +858,7 @@ function cleanup_zombie()
 
 /*
 	Name: function_643916c9
-	Namespace: namespace_159b5b5b
+	Namespace: zm_red_util
 	Checksum: 0xAEA13BCC
 	Offset: 0x1C68
 	Size: 0x68

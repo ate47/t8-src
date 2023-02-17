@@ -3,11 +3,11 @@
 #using scripts\zm_common\zm_perks.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_10df686;
+#namespace zm_perk_mod_bandolier;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0xA0C67529
 	Offset: 0x98
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_3e54b9da1b1e7a51", &__init__, undefined, undefined);
+	system::register(#"zm_perk_mod_bandolier", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0x587397E
 	Offset: 0xE0
 	Size: 0x14
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: function_27473e44
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0xD1C36D04
 	Offset: 0x100
 	Size: 0x94
@@ -44,13 +44,13 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"specialty_mod_extraammo", "mod_bandolier", #"hash_420c7fd6609f0966", #"specialty_extraammo", 3500);
+	zm_perks::function_7f42e14e(#"specialty_mod_extraammo", "mod_bandolier", #"perk_bandolier", #"specialty_extraammo", 3500);
 	zm_perks::register_perk_threads(#"specialty_mod_extraammo", &function_dde8cedc, &function_3781ff37);
 }
 
 /*
 	Name: function_dde8cedc
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0xBCAE9E91
 	Offset: 0x1A0
 	Size: 0x1C
@@ -64,7 +64,7 @@ function function_dde8cedc()
 
 /*
 	Name: function_3781ff37
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0x2246689C
 	Offset: 0x1C8
 	Size: 0x36
@@ -78,7 +78,7 @@ function function_3781ff37(b_pause, str_perk, str_result, n_slot)
 
 /*
 	Name: function_9335851
-	Namespace: namespace_10df686
+	Namespace: zm_perk_mod_bandolier
 	Checksum: 0xA79F56A
 	Offset: 0x208
 	Size: 0x354

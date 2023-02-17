@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_score.gsc;
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_2fc73bc20035fe8", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_2fc73bc20035fe8", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_983e5028
 	Checksum: 0x861EF37D
 	Offset: 0x158
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_d34d02af)
+function private on_begin(var_d34d02af)
 {
 	level.var_d34d02af = zm_trial::function_5769f26a(var_d34d02af);
 	callback::function_78ccee50(&function_78ccee50);
@@ -59,7 +59,7 @@ function private function_d1de6a85(var_d34d02af)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_983e5028
 	Checksum: 0xC72452A0
 	Offset: 0x228
@@ -67,7 +67,7 @@ function private function_d1de6a85(var_d34d02af)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_deba137d(&function_78ccee50);
 	level.var_d34d02af = undefined;

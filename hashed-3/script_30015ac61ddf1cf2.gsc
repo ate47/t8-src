@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_17539b09f594dc50;
-#using script_35d655b3a0e4a949;
-#using script_51b0fb46d4a05f60;
-#using script_6b418dbafc965acc;
+#using scripts\abilities\ability_gadgets.csc;
+#using scripts\abilities\ability_util.csc;
+#using scripts\abilities\ability_player.csc;
+#using scripts\abilities\ability_power.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;

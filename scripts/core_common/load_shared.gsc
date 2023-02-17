@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\delete.gsc;
@@ -97,7 +97,7 @@ function __init__()
 			defaultaspectratio = 1.777778;
 		}
 	}
-	level.script = util::function_53bbf9d2();
+	level.script = util::get_map_name();
 	level.clientscripts = getdvarstring(#"cg_usingclientscripts") != "";
 	level.campaign = "american";
 	level.clientscripts = getdvarstring(#"cg_usingclientscripts") != "";

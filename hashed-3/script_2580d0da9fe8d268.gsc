@@ -11,11 +11,11 @@
 #using scripts\zm_common\zm.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_c49f9e2b;
+#namespace zm_ai_gladiator;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0x7BC6ED58
 	Offset: 0x1D0
 	Size: 0x3C
@@ -24,12 +24,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_770f240f9e25a58d", &__init__, undefined, undefined);
+	system::register(#"zm_ai_gladiator", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0xEECC43C5
 	Offset: 0x218
 	Size: 0x15C
@@ -48,7 +48,7 @@ function __init__()
 
 /*
 	Name: function_918ce680
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0x284319B
 	Offset: 0x380
 	Size: 0x1BC
@@ -97,7 +97,7 @@ function private function_918ce680(localclientnum, pos, surface, notetrack, bone
 
 /*
 	Name: function_5dae94f
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0x1394B3F4
 	Offset: 0x548
 	Size: 0x8C
@@ -112,7 +112,7 @@ function private function_5dae94f(localclientnum, oldval, newval, bnewent, binit
 
 /*
 	Name: function_f5a07d57
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0xF27044F8
 	Offset: 0x5E0
 	Size: 0xCC
@@ -133,7 +133,7 @@ function private function_f5a07d57(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_49fab171
-	Namespace: namespace_c49f9e2b
+	Namespace: zm_ai_gladiator
 	Checksum: 0xFDC7E784
 	Offset: 0x6B8
 	Size: 0xB4

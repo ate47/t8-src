@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3110b4b6b21db11f;
+#using scripts\zm\zm_orange_water.gsc;
 #using script_58c342edd81589fb;
 #using script_6a3f43063dfd1bdc;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -56,8 +56,8 @@ function main()
 	{
 		barrier notsolid();
 	}
-	namespace_ee206246::register(#"hash_507adabe6ce05360", #"step_1", #"hash_fca1aaee837b77", &function_b0cb0de5, &function_b5fd797c);
-	namespace_ee206246::start(#"hash_507adabe6ce05360", zm_utility::function_e51dc2d8());
+	zm_sq::register(#"hash_507adabe6ce05360", #"step_1", #"hash_fca1aaee837b77", &function_b0cb0de5, &function_b5fd797c);
+	zm_sq::start(#"hash_507adabe6ce05360", zm_utility::function_e51dc2d8());
 	callback::on_spawned(&function_1bb74851);
 }
 
@@ -294,7 +294,7 @@ function player_sprinting()
 	self endon(#"death", #"player_frozen");
 	self notify(#"hash_668824b34b3076bc");
 	self allowslide(1);
-	self thread namespace_18db89ed::function_d2dd1f2b();
+	self thread zm_orange_water::function_d2dd1f2b();
 	self clientfield::set_to_player("" + #"hash_13f1aaee7ebf9986", 0);
 	self thread function_e42e358e();
 }
@@ -342,18 +342,18 @@ function function_6577cacc()
 */
 function function_9364acc1()
 {
-	self endoncallback(&namespace_18db89ed::function_c64292f, #"death");
+	self endoncallback(&zm_orange_water::function_c64292f, #"death");
 	self.var_7dc2d507 = 1;
 	self notify(#"player_frozen");
-	self namespace_18db89ed::function_bad6907c();
+	self zm_orange_water::function_bad6907c();
 	self clientfield::set("" + #"hash_55543319943057f1", 1);
 	self clientfield::set_to_player("" + #"hash_5160727729fd57a2", 1);
-	var_1d3683e1 = spawn("trigger_damage", self.origin, 0, 15, 72);
-	var_1d3683e1 enablelinkto();
-	var_1d3683e1 linkto(self);
-	self.var_1d3683e1 = var_1d3683e1;
-	self thread namespace_18db89ed::function_872ec0b2(var_1d3683e1);
-	self thread namespace_18db89ed::function_6cadbaff();
+	t_ice = spawn("trigger_damage", self.origin, 0, 15, 72);
+	t_ice enablelinkto();
+	t_ice linkto(self);
+	self.t_ice = t_ice;
+	self thread zm_orange_water::function_872ec0b2(t_ice);
+	self thread zm_orange_water::function_6cadbaff();
 	if(self.var_d844486 !== 1)
 	{
 		self thread zm_equipment::show_hint_text(#"hash_4b6950ec49c7e04c", 3);
@@ -362,16 +362,16 @@ function function_9364acc1()
 	self waittill(#"hash_53bfad7081c69dee");
 	self playsound(#"hash_2f8c9575cb36a298");
 	self.var_7dc2d507 = 0;
-	self namespace_18db89ed::function_46c3bbf7();
+	self zm_orange_water::function_46c3bbf7();
 	self clientfield::set("" + #"hash_55543319943057f1", 0);
 	self clientfield::set_to_player("" + #"hash_5160727729fd57a2", 0);
 	self clientfield::set_to_player("" + #"hash_603fc9d210bdbc4d", 1);
 	waitframe(2);
 	self clientfield::set_to_player("" + #"hash_603fc9d210bdbc4d", 0);
-	if(isdefined(var_1d3683e1))
+	if(isdefined(t_ice))
 	{
-		var_1d3683e1 delete();
-		self.var_1d3683e1 = undefined;
+		t_ice delete();
+		self.t_ice = undefined;
 	}
 	self clientfield::set_to_player("" + #"hash_13f1aaee7ebf9986", 0);
 	waitframe(2);

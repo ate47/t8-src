@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2cb831533cab2794;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -87,7 +87,7 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		var_61b8f8fb = "";
 		add_cmd_with_root = (("" + var_61b8f8fb) + pname) + "";
 		a_abilities = [];
-		arrayinsert(a_abilities, getweapon(#"hash_34b7eb9fde56bd35"), 0);
+		arrayinsert(a_abilities, getweapon(#"eq_frag_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"incendiary_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"sticky_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"proximity_grenade"), 0);
@@ -115,9 +115,9 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv3"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35e4cfb775e02"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35d4cfb775c4f"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35c4cfb775a9c"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv3"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv3"), 0);
@@ -127,9 +127,9 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv3"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35e4cfb775e02"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35d4cfb775c4f"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35c4cfb775a9c"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv3"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv3"), 0);
@@ -921,7 +921,7 @@ function show_hint_text(text, show_for_time = 3.2, font_scale = 1.25, ypos = 220
 	{
 		level.zm_hint_text zm_hint_text::open(self);
 	}
-	level.zm_hint_text zm_hint_text::function_d5ea17f0(self, text);
+	level.zm_hint_text zm_hint_text::set_text(self, text);
 	level.zm_hint_text zm_hint_text::set_state(self, #"visible");
 	time = undefined;
 	time = self waittilltimeout(show_for_time, #"hide_equipment_hint_text", #"death", #"disconnect");

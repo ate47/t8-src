@@ -1370,7 +1370,7 @@ function function_50ba1eb0(entity, stub)
 	Parameters: 4
 	Flags: Linked
 */
-function function_9b84bb88(entity, var_f2b00446, var_d05e79c8, var_c7455683)
+function function_9b84bb88(entity, stubtypes, var_d05e79c8, var_c7455683)
 {
 	/#
 		if(getdvarint(#"hash_3ec02cda135af40f", 0) == 1 && getdvarint(#"recorder_enablerec", 0) == 1)
@@ -1379,9 +1379,9 @@ function function_9b84bb88(entity, var_f2b00446, var_d05e79c8, var_c7455683)
 		}
 	#/
 	registerlotus_right = [];
-	foreach(var_b7d35f70 in var_f2b00446)
+	foreach(stubtype in stubtypes)
 	{
-		[[level.var_492142a5[var_b7d35f70]]](entity, registerlotus_right, var_d05e79c8);
+		[[level.var_492142a5[stubtype]]](entity, registerlotus_right, var_d05e79c8);
 	}
 	registerlotus_right = array::filter(registerlotus_right, 0, &function_9f952db3, entity, var_c7455683);
 	/#
@@ -1450,7 +1450,7 @@ function function_7258b5cc(entity, var_410a8c7, var_2baba799, var_22c317cc)
 		newstub.var_895b6b = stub.var_895b6b;
 		newstub.script_string = stub.script_string;
 		stub.var_895b6b = undefined;
-		stub.var_25df04b4 = newstub;
+		stub.lockdownstub = newstub;
 		var_a0692a89.stub = newstub;
 		var_a0692a89.var_6f08706b = stub;
 		stub = newstub;
@@ -1598,7 +1598,7 @@ function function_4de23f77()
 	{
 		var_a0692a89.var_4f0ea1b5 = 2;
 	}
-	self.var_6f08706b.var_25df04b4 = undefined;
+	self.var_6f08706b.lockdownstub = undefined;
 	if(isdefined(self) && isdefined(self.var_22c317cc))
 	{
 		[[self.var_22c317cc]](self);

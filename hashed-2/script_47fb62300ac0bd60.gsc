@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace stats;
@@ -458,9 +458,9 @@ function function_81f5c0fe(statname, value)
 		return 0;
 	}
 	gametype = level.var_12323003;
-	map = util::function_53bbf9d2();
+	map = util::get_map_name();
 	var_96e39f1 = (isarenamode() ? #"hash_2935ab25a7444ebf" : #"hash_42205318c6f41220");
-	return self inc_stat(var_96e39f1, map, #"hash_1a3dbc08fc5d3627", gametype, statname, value);
+	return self inc_stat(var_96e39f1, map, #"permode", gametype, statname, value);
 }
 
 /*
@@ -526,7 +526,7 @@ function function_efbbc38f(statname, value)
 }
 
 /*
-	Name: function_222de31d
+	Name: get_stat_challenge
 	Namespace: stats
 	Checksum: 0x249D9D92
 	Offset: 0x1250
@@ -534,7 +534,7 @@ function function_efbbc38f(statname, value)
 	Parameters: 1
 	Flags: Linked
 */
-function function_222de31d(statname)
+function get_stat_challenge(statname)
 {
 	return self get_stat(#"playerstatslist", statname, #"challengevalue");
 }
@@ -666,7 +666,7 @@ function function_eec52333(weapon, statname, value, classnum, pickedup, var_9ade
 		{
 			if(weapon.var_ff0b00ba)
 			{
-				self function_dad108fa(#"hash_3e934a4d2ecdedfd", 1);
+				self function_dad108fa(#"kills_equipment", 1);
 			}
 			break;
 		}

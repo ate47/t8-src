@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_58c342edd81589fb;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_fd89d870;
@@ -34,11 +34,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_6823bfb199f0c884", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6823bfb199f0c884", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_fd89d870
 	Checksum: 0x651493B6
 	Offset: 0x130
@@ -46,7 +46,7 @@ function __init__()
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private function_d1de6a85(enemy_type, var_1f950d4d, var_81dcf087, var_d631185a, var_fe1bdf31)
+function private on_begin(enemy_type, var_1f950d4d, var_81dcf087, var_d631185a, var_fe1bdf31)
 {
 	level.var_1c7412f9 = enemy_type;
 	switch(getplayers().size)
@@ -78,7 +78,7 @@ function private function_d1de6a85(enemy_type, var_1f950d4d, var_81dcf087, var_d
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_fd89d870
 	Checksum: 0xD07F26D7
 	Offset: 0x2C0
@@ -86,7 +86,7 @@ function private function_d1de6a85(enemy_type, var_1f950d4d, var_81dcf087, var_d
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	namespace_c3287616::function_9bf14a10(level.var_1c7412f9, &function_a7c00976);
 	namespace_c3287616::function_510039c1(&function_51ec9e09);

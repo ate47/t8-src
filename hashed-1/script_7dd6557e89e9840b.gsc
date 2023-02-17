@@ -2,11 +2,11 @@
 #using script_342e0d1a78771d3f;
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
-#using script_57c900a7e39234be;
+#using scripts\killstreaks\killstreak_hacking.gsc;
+#using scripts\killstreaks\airsupport.gsc;
 #using script_5afbda9de6000ad9;
-#using script_6c8abe14025b47c4;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -96,9 +96,9 @@ function function_3675de8b()
 	Parameters: 2
 	Flags: None
 */
-function function_bff5c062(remotemissile, var_dbd1a594)
+function function_bff5c062(remotemissile, attackingplayer)
 {
-	remotemissile dodamage(1000, remotemissile.origin, var_dbd1a594);
+	remotemissile dodamage(1000, remotemissile.origin, attackingplayer);
 	if(isdefined(remotemissile.bomblets))
 	{
 		foreach(bomblet in remotemissile.bomblets)
@@ -1275,9 +1275,9 @@ function create_missile_hud(rocket)
 		{
 			var_be788bba remote_missile_target_lockon::open(player, 1);
 		}
-		var_be788bba remote_missile_target_lockon::function_3b7b386a(player, player_entnum);
-		var_be788bba remote_missile_target_lockon::function_2ecbc83c(player, 0);
-		var_be788bba remote_missile_target_lockon::function_505f092a(player, 0);
+		var_be788bba remote_missile_target_lockon::set_clientnum(player, player_entnum);
+		var_be788bba remote_missile_target_lockon::set_target_locked(player, 0);
+		var_be788bba remote_missile_target_lockon::set_isHawkTag(player, 0);
 	}
 	enemies = getplayers();
 	ti = 0;
@@ -1419,8 +1419,8 @@ function targeting_hud_think(rocket)
 				ti = player.var_ebf52bbc[var_4ef4e267];
 				if(isdefined(ti) && isdefined(player.var_bbe80eed[ti]))
 				{
-					level.var_aac98621[ti] remote_missile_target_lockon::function_3b7b386a(player, var_4ef4e267);
-					level.var_aac98621[ti] remote_missile_target_lockon::function_2ecbc83c(player, player.var_bbe80eed[ti].state);
+					level.var_aac98621[ti] remote_missile_target_lockon::set_clientnum(player, var_4ef4e267);
+					level.var_aac98621[ti] remote_missile_target_lockon::set_target_locked(player, player.var_bbe80eed[ti].state);
 				}
 			}
 		}

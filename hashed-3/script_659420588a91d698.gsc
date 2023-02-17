@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -37,11 +37,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1b6ebc56a697d63d", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_1b6ebc56a697d63d", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_d920a65
 	Checksum: 0x628ED64E
 	Offset: 0x1C0
@@ -49,9 +49,9 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
-	if(util::function_53bbf9d2() == "zm_office")
+	if(util::get_map_name() == "zm_office")
 	{
 		elevator1 = getent("elevator1", "targetname");
 		elevator2 = getent("elevator2", "targetname");
@@ -75,7 +75,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_d920a65
 	Checksum: 0x57685273
 	Offset: 0x410
@@ -83,10 +83,10 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_824d206(&function_33f0ddd3);
-	if(util::function_53bbf9d2() == "zm_office")
+	if(util::get_map_name() == "zm_office")
 	{
 		elevator1 = getent("elevator1", "targetname");
 		elevator2 = getent("elevator2", "targetname");
@@ -99,7 +99,7 @@ function private function_9e7b3f4d(round_reset)
 	}
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_dc0859e();
+		player thread zm_trial_util::function_dc0859e();
 	}
 	level.var_7f31a12d = undefined;
 }
@@ -131,12 +131,12 @@ function private function_3658663()
 		}
 		if(var_f2b6fe6e && var_407eb07)
 		{
-			self namespace_b22c99a5::function_dc0859e();
+			self zm_trial_util::function_dc0859e();
 			var_407eb07 = 0;
 		}
 		else if(!var_f2b6fe6e && !var_407eb07)
 		{
-			self namespace_b22c99a5::function_bf710271();
+			self zm_trial_util::function_bf710271();
 			var_407eb07 = 1;
 		}
 		waitframe(1);

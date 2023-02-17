@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_879c1bee;
+#namespace zm_ai_mannequin;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0xFA1014E8
 	Offset: 0x88
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_731ab037ad2e053c", &__init__, undefined, undefined);
+	system::register(#"zm_ai_mannequin", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_879c1bee
+	Namespace: zm_ai_mannequin
 	Checksum: 0x80F724D1
 	Offset: 0xD0
 	Size: 0x4

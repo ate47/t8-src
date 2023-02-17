@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_3be6f96;
@@ -35,11 +35,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3ad93d68c19802af", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3ad93d68c19802af", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_3be6f96
 	Checksum: 0x1A2233C6
 	Offset: 0x138
@@ -47,7 +47,7 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	foreach(player in getplayers())
 	{
@@ -56,7 +56,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_3be6f96
 	Checksum: 0x9E506D36
 	Offset: 0x1C0
@@ -64,7 +64,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset)
 	{
@@ -91,7 +91,7 @@ function private function_9e7b3f4d(round_reset)
 	}
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 		player.var_53531c80 = undefined;
 	}
 }
@@ -110,11 +110,11 @@ function private function_7bc122af()
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656", #"end_game");
 	self.var_53531c80 = 0;
-	self namespace_b22c99a5::function_63060af4(0);
+	self zm_trial_util::function_63060af4(0);
 	while(true)
 	{
 		a_weapons = self getweaponslistprimaries();
-		var_1a3ca504 = self zm_loadout::get_player_lethal_grenade();
+		weapon_equipment = self zm_loadout::get_player_lethal_grenade();
 		if(!isdefined(a_weapons))
 		{
 			a_weapons = [];
@@ -123,7 +123,7 @@ function private function_7bc122af()
 		{
 			a_weapons = array(a_weapons);
 		}
-		a_weapons[a_weapons.size] = var_1a3ca504;
+		a_weapons[a_weapons.size] = weapon_equipment;
 		var_94020d2 = 1;
 		foreach(weapon in a_weapons)
 		{
@@ -140,7 +140,7 @@ function private function_7bc122af()
 		if(self.var_53531c80 != var_94020d2)
 		{
 			self.var_53531c80 = var_94020d2;
-			self namespace_b22c99a5::function_63060af4(self.var_53531c80);
+			self zm_trial_util::function_63060af4(self.var_53531c80);
 		}
 		waitframe(1);
 	}

@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
-#using script_3a3c430eb58ed475;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm\zm_towers_crowd.gsc;
 #using script_57f7003580bb15e0;
-#using script_5bb072c3abf4652c;
-#using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -56,11 +56,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1c44e237ebd3728d", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_1c44e237ebd3728d", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_e1d3749c
 	Checksum: 0x61BBFDF6
 	Offset: 0x4D8
@@ -68,7 +68,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_6325d314, var_52b8b3a2, n_time)
+function private on_begin(var_6325d314, var_52b8b3a2, n_time)
 {
 	level flag::clear(#"spawn_zombies");
 	callback::on_spawned(&zm_towers_main_quest::function_d4e923e7);
@@ -78,7 +78,7 @@ function private function_d1de6a85(var_6325d314, var_52b8b3a2, n_time)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_e1d3749c
 	Checksum: 0xE9288B6
 	Offset: 0x588
@@ -86,7 +86,7 @@ function private function_d1de6a85(var_6325d314, var_52b8b3a2, n_time)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::remove_on_spawned(&zm_towers_main_quest::function_d4e923e7);
 }
@@ -178,10 +178,10 @@ function private boss_fight()
 	self notify("4b6131952d06894a");
 	self endon("4b6131952d06894a");
 	wait(5);
-	namespace_ebd828b::function_5c1184e(0);
-	namespace_ebd828b::function_aec5ec5a(1);
+	zm_towers_crowd::function_5c1184e(0);
+	zm_towers_crowd::function_aec5ec5a(1);
 	level.var_9a992b09 = 1;
-	array::thread_all(level.players, &namespace_ebd828b::function_51ea46f3, 0, 1);
+	array::thread_all(level.players, &zm_towers_crowd::function_51ea46f3, 0, 1);
 	foreach(player in level.players)
 	{
 		player clientfield::set_to_player("snd_crowd_react", 11);
@@ -206,8 +206,8 @@ function private boss_fight()
 	level thread function_95785950(187, level.var_8b66546e, "m_quest", "basket_nag");
 	level thread function_95785950(211, level.var_49328379, "m_quest", "heart_nag");
 	array::thread_all(level.players, &function_3d487e02);
-	var_e1892f1c = spawner::simple_spawn_single(sp_spawner, &function_f9da4403, var_47312393, #"hash_266f53fb994e6120");
-	while(!isdefined(var_e1892f1c.ai.riders) || var_e1892f1c.ai.riders.size < 2)
+	e_elephant = spawner::simple_spawn_single(sp_spawner, &function_f9da4403, var_47312393, #"hash_266f53fb994e6120");
+	while(!isdefined(e_elephant.ai.riders) || e_elephant.ai.riders.size < 2)
 	{
 		wait(0.1);
 	}
@@ -215,13 +215,13 @@ function private boss_fight()
 	level.var_27d781ea = 1;
 	level.var_3395fcab = 1;
 	animation::add_global_notetrack_handler("tower_contact", &function_dd2db3df, 0);
-	scene::play(#"hash_5e82fd01d9eb1519", array(var_e1892f1c));
-	var_e1892f1c notify(#"hash_6451d1a6caf29e08");
+	scene::play(#"hash_5e82fd01d9eb1519", array(e_elephant));
+	e_elephant notify(#"hash_6451d1a6caf29e08");
 	level thread function_ae1cbf2e();
 	level flag::set(#"spawn_zombies");
 	level flag::set(#"infinite_round_spawning");
 	level flag::set(#"pause_round_timeout");
-	var_e1892f1c waittill(#"death");
+	e_elephant waittill(#"death");
 	level notify(#"elephant_death");
 }
 
@@ -353,7 +353,7 @@ function private function_3d487e02()
 	level endon(#"end_game", #"boss_battle_done");
 	self endon(#"disconnect");
 	b_success = 0;
-	params = function_4d1e7b48(#"hash_12a64221f4d27f9b");
+	params = getstatuseffect(#"hash_12a64221f4d27f9b");
 	weapon = getweapon(#"eq_molotov");
 	while(true)
 	{
@@ -384,7 +384,7 @@ function function_f9da4403(s_spawn, phase)
 	self endon(#"death");
 	self.ai.phase = phase;
 	self forceteleport(s_spawn.origin, s_spawn.angles);
-	level.var_e1892f1c = self;
+	level.e_elephant = self;
 	self.instakill_func = &zm_powerups::function_16c2586a;
 }
 

@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f65948f90646f7c;
+#using scripts\mp_common\item_drop.gsc;
 #using script_47fb62300ac0bd60;
-#using script_64ab2b950d85b8ad;
+#using scripts\mp_common\item_inventory.gsc;
 #using script_6b7c77b107c81e62;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
@@ -328,7 +328,7 @@ function private function_7c5a1e82(activator, stateindex, var_9bdcfcd8)
 	{
 		scoreamount = var_22aec194.var_a6762160.amount;
 		var_3e67196f = var_22aec194.count;
-		activator namespace_b376ff3f::function_6e376bb1(var_22aec194.var_bd027dd9, 1);
+		activator item_inventory::function_6e376bb1(var_22aec194.var_bd027dd9, 1);
 		if(var_22aec194.count < var_3e67196f)
 		{
 			[[level._setteamscore]](activator.team, [[level._getteamscore]](activator.team) + scoreamount);

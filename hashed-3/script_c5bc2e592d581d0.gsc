@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_30e0aa25775a6927;
 #using script_31e56101095f174b;
-#using script_321486e8a7c7176f;
-#using script_3d2e260ec67fded8;
+#using scripts\core_common\ai\planner_squad.gsc;
+#using scripts\core_common\ai\planner_squad_utility.gsc;
 #using script_522aeb6ae906391e;
-#using script_aa63c66acbb23e;
+#using scripts\core_common\ai\strategic_command.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\perks.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -700,7 +700,7 @@ function private function_e057582f(planner, constants)
 	}
 	var_6a7f5461 = [];
 	distancesq = constants[#"distance"] * constants[#"distance"];
-	chests = planner::getblackboardattribute(planner, #"hash_5b81c238b9038817");
+	chests = planner::getblackboardattribute(planner, #"zm_chests");
 	if(!isdefined(chests))
 	{
 		chests = [];
@@ -777,7 +777,7 @@ function function_ac1b59c(planner, constants)
 		return params;
 	}
 	var_6a7f5461 = [];
-	chests = planner::getblackboardattribute(planner, #"hash_5b81c238b9038817");
+	chests = planner::getblackboardattribute(planner, #"zm_chests");
 	if(!isdefined(chests))
 	{
 		chests = [];

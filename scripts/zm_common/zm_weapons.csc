@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1611421ee9b880d3;
-#using script_4321c2f1193f3097;
-#using script_43808e214c232a5c;
-#using script_52f584056ffc5d28;
-#using script_5eca3e484e3a306f;
-#using script_709bf7c56eb65adf;
+#using scripts\zm_common\zm_wallbuy.csc;
+#using scripts\zm\weapons\zm_weap_scepter.csc;
+#using scripts\zm\weapons\zm_weap_chakram.csc;
+#using scripts\zm\weapons\zm_weap_sword_pistol.csc;
+#using scripts\zm\weapons\zm_weap_hammer.csc;
+#using scripts\zm_common\zm_loadout.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;
@@ -416,9 +416,9 @@ function function_ec38915a()
 		level.var_44e0d625 = [];
 	}
 	function_8005e7f3(getweapon(#"smg_handling_t8"), getweapon(#"hash_1b055fadc5573c29"));
-	function_8005e7f3(getweapon(#"hash_514128f7d058cde0"), getweapon(#"hash_3b34bf98ebd70d14"));
+	function_8005e7f3(getweapon(#"smg_handling_t8_upgraded"), getweapon(#"hash_3b34bf98ebd70d14"));
 	function_8005e7f3(getweapon(#"special_ballisticknife_t8_dw"), getweapon(#"special_ballisticknife_t8_dw_dw"));
-	function_8005e7f3(getweapon(#"hash_3882e337d28ec4df"), getweapon(#"special_ballisticknife_t8_dw_upgraded_dw"));
+	function_8005e7f3(getweapon(#"special_ballisticknife_t8_dw_upgraded"), getweapon(#"special_ballisticknife_t8_dw_upgraded_dw"));
 }
 
 /*

@@ -2,10 +2,10 @@
 #using script_174ce72cc0f850;
 #using script_1c72973fb240f263;
 #using script_24c32478acf44108;
-#using script_3510d12b63a575c3;
+#using scripts\zm\zm_white_main_quest.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6a3f43063dfd1bdc;
 #using script_724752ab26bff81b;
 #using scripts\core_common\array_shared.gsc;
@@ -255,7 +255,7 @@ function private function_c0fc92d2()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_9d66ea6f(var_2e1f34dd, e_player)
+function private function_9d66ea6f(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -287,9 +287,9 @@ function function_130ea633()
 {
 	if(zm_utility::is_classic())
 	{
-		self zm_vo::function_57b8cd17();
+		self zm_vo::vo_stop();
 		self namespace_509a75d1::function_51b752a9("vox_ww_x_ammo_pickup");
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
 			self zm_audio::do_player_or_npc_playvox("vox_ww_x_freeze_rush_0", 1);
 		}
@@ -332,7 +332,7 @@ function private function_ecdebc72()
 		{
 			waitframe(1);
 		}
-		if(namespace_9146fc8b::is_bunker_zone(self.spawn_pos.zone_name) && function_e4f54b1d() < level.var_ae5fb719.var_ad2870bb)
+		if(zm_white_zones::is_bunker_zone(self.spawn_pos.zone_name) && function_e4f54b1d() < level.var_ae5fb719.var_ad2870bb)
 		{
 			self.var_13a2274b = 1;
 			self.actor_damage_func = &function_cdddec81;
@@ -507,7 +507,7 @@ function private function_baec0416(v_pos, v_angles)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_cf69599(var_2e1f34dd, e_player)
+function private function_cf69599(e_item, e_player)
 {
 	level.var_ae5fb719.var_128cd2c8--;
 	e_player playsound("evt_ee_goo_pickup");
@@ -527,11 +527,11 @@ function private function_cf69599(var_2e1f34dd, e_player)
 				println(e_player.name + "");
 			}
 		#/
-		if(!namespace_3e3742fd::function_6cebbce1() && (!(isdefined(level.var_5dd0d3ff.isspeaking) && level.var_5dd0d3ff.isspeaking)))
+		if(!zm_white_main_quest::function_6cebbce1() && (!(isdefined(level.var_5dd0d3ff.isspeaking) && level.var_5dd0d3ff.isspeaking)))
 		{
 			if(zm_utility::is_classic())
 			{
-				e_player thread namespace_9cf755b::function_491673da(#"hash_aec062a8a2a5d26");
+				e_player thread zm_white_util::function_491673da(#"hash_aec062a8a2a5d26");
 			}
 		}
 		function_6f437b06();
@@ -645,7 +645,7 @@ function private function_a66f0de2()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_b9a31cb(var_2e1f34dd, e_player)
+function private function_b9a31cb(e_item, e_player)
 {
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -657,9 +657,9 @@ function private function_b9a31cb(var_2e1f34dd, e_player)
 	namespace_6747c550::function_7df6bb60("zm_white_ww_mk2x_ammo", 2, e_player);
 	e_player.var_f7694097 = 1;
 	e_player playsound("evt_canister_pickup");
-	if(!namespace_3e3742fd::function_6cebbce1() && zm_utility::is_classic())
+	if(!zm_white_main_quest::function_6cebbce1() && zm_utility::is_classic())
 	{
-		e_player thread namespace_9cf755b::function_491673da(#"hash_28707927bb714f9");
+		e_player thread zm_white_util::function_491673da(#"hash_28707927bb714f9");
 	}
 	function_a36c4a5e();
 }
@@ -801,9 +801,9 @@ function function_c6fc34a()
 {
 	if(zm_utility::is_classic())
 	{
-		self zm_vo::function_57b8cd17();
+		self zm_vo::vo_stop();
 		self namespace_509a75d1::function_51b752a9("vox_ww_x_craft");
-		if(!namespace_3e3742fd::function_6cebbce1())
+		if(!zm_white_main_quest::function_6cebbce1())
 		{
 			self zm_audio::do_player_or_npc_playvox("vox_ww_x_craft_rush_1", 1);
 		}

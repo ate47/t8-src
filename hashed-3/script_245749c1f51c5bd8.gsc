@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -45,11 +45,11 @@ function __init__()
 		return;
 	}
 	clientfield::register("scriptmover", "" + #"hash_530f1e3dbb50b5f6", 16000, 1, "int");
-	zm_trial::register_challenge(#"hash_6f720e698e84015d", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6f720e698e84015d", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_6f53a9bb
 	Checksum: 0x7FD88030
 	Offset: 0x230
@@ -57,7 +57,7 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	function_58fc4e38(8);
 	level flag::set(#"hash_1b9ecc7979b0fcfb");
@@ -68,7 +68,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_6f53a9bb
 	Checksum: 0xBBDA85B5
 	Offset: 0x308
@@ -76,7 +76,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level flag::clear(#"hash_1b9ecc7979b0fcfb");
 	var_57ba058f = getentarray("gondola_call_trigger", "targetname");

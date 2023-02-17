@@ -236,7 +236,7 @@ function function_f6515ba2(inflictor, attacker, damage, flags, meansofdeath, wea
 			/#
 				attacker zm_challenges::debug_print("");
 			#/
-			attacker zm_stats::increment_challenge_stat(#"hash_783ec74bf31f604d");
+			attacker zm_stats::increment_challenge_stat(#"perk_electric_cherry_kills");
 			return self.health;
 		}
 		if(self.health <= var_5a8c565a)
@@ -245,7 +245,7 @@ function function_f6515ba2(inflictor, attacker, damage, flags, meansofdeath, wea
 			/#
 				attacker zm_challenges::debug_print("");
 			#/
-			attacker zm_stats::increment_challenge_stat(#"hash_783ec74bf31f604d");
+			attacker zm_stats::increment_challenge_stat(#"perk_electric_cherry_kills");
 			return var_5a8c565a;
 		}
 		self thread electric_cherry_stun();

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_4daa124bc391e7ed;
-#using script_7db26be178c873e2;
-#using script_ecbb3819941bb69;
+#using scripts\weapons\smokegrenade.csc;
+#using scripts\abilities\gadgets\gadget_vision_pulse.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -23,7 +23,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_413cdfff74818010", &__init__, undefined, "renderoverridebundle");
+	system::register(#"player_mp", &__init__, undefined, "renderoverridebundle");
 }
 
 /*

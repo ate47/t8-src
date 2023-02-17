@@ -2,11 +2,11 @@
 #using script_435c51ae43d7d9c7;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_78dfd964;
+#namespace zm_orange_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_78dfd964
+	Namespace: zm_orange_gamemodes
 	Checksum: 0x285E26CA
 	Offset: 0x78
 	Size: 0xE2

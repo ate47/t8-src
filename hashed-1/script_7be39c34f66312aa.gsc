@@ -65,7 +65,7 @@ function magic_box_update()
 	self endon(#"end_game");
 	util::registerclientsys("box_indicator");
 	util::setclientsysstate("box_indicator", level._pentagon_no_power);
-	if(namespace_59ff1d6c::function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
+	if(zm_custom::function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
 	{
 		return;
 	}

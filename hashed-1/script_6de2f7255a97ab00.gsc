@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_39bd5b6b799b1c9c;
-#using script_3f65948f90646f7c;
+#using scripts\mp_common\item_drop.gsc;
 #using script_55e622b35104ba68;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -44,7 +44,7 @@ function private __init__()
 	}
 	level.var_a5f063d = [];
 	/#
-		level thread function_44b9dd1d();
+		level thread _setup_devgui();
 	#/
 	clientfield::register("scriptmover", "supply_drop_fx", 1, 1, "int");
 	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int");
@@ -142,7 +142,7 @@ function private function_eaba72c9()
 }
 
 /*
-	Name: function_44b9dd1d
+	Name: _setup_devgui
 	Namespace: namespace_8f74625a
 	Checksum: 0xB7A59F54
 	Offset: 0x9E0
@@ -150,14 +150,14 @@ function private function_eaba72c9()
 	Parameters: 0
 	Flags: Private
 */
-function private function_44b9dd1d()
+function private _setup_devgui()
 {
 	/#
 		while(!canadddebugcommand())
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");

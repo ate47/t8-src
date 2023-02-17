@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
 #using script_6a3f43063dfd1bdc;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -205,7 +205,7 @@ function function_4bbed101(e_player)
 		level.s_soapstone.var_e15f0d15 = 1;
 		if(!level.s_soapstone.is_charged || level.s_soapstone.is_hot)
 		{
-			level thread namespace_3263198e::function_fd24e47f("vox_generic_responses_positive", -1, 1, 0);
+			level thread zm_orange_util::function_fd24e47f("vox_generic_responses_positive", -1, 1, 0);
 		}
 	}
 	while(n_total_time < 40)
@@ -219,7 +219,7 @@ function function_4bbed101(e_player)
 	{
 		if(!level.s_soapstone.is_charged || level.s_soapstone.is_hot)
 		{
-			level thread namespace_3263198e::function_fd24e47f("vox_soap_stones_freeze", -1, 1, 0);
+			level thread zm_orange_util::function_fd24e47f("vox_soap_stones_freeze", -1, 1, 0);
 		}
 		level.s_soapstone.is_charged = 1;
 		level.s_soapstone.is_hot = 0;
@@ -457,7 +457,7 @@ function function_67b12ae8(e_player)
 	}
 	if(s_button.s_trap.var_41ee2ddc === 0)
 	{
-		self sethintstring(#"hash_21db2780833a8bfd");
+		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
 	if(util::function_5df4294() == "zstandard")

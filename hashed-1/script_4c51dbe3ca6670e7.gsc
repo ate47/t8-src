@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_467027ea7017462b;
+#using scripts\zm_common\zm_items.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_57f7003580bb15e0;
 #using script_6a3f43063dfd1bdc;
@@ -72,7 +72,7 @@ function init_clientfields()
 */
 function __main__()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -174,7 +174,7 @@ function function_d12e5ff9(e_player)
 	}
 	if(self.stub.related_parent.trap_struct.var_41ee2ddc === 0 || (isdefined(level.var_4f7df1ac) && level.var_4f7df1ac))
 	{
-		self sethintstring(#"hash_21db2780833a8bfd");
+		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
 	if(util::function_5df4294() == "zstandard")
@@ -593,7 +593,7 @@ function function_93284efd(e_trigger)
 	{
 		self.var_58538bef = 0;
 	}
-	var_5b857980 = function_4d1e7b48(#"hash_19533caf858a9f3b");
+	shock_status_effect = getstatuseffect(#"hash_19533caf858a9f3b");
 	if(e_trigger zm_traps::function_3f401e8d(self))
 	{
 		return;
@@ -601,7 +601,7 @@ function function_93284efd(e_trigger)
 	if(!(isdefined(self.b_no_trap_damage) && self.b_no_trap_damage))
 	{
 		self thread zm_traps::player_elec_damage(e_trigger);
-		status_effect::status_effect_apply(var_5b857980, undefined, self, 0);
+		status_effect::status_effect_apply(shock_status_effect, undefined, self, 0);
 	}
 }
 

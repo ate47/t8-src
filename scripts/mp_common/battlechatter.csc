@@ -432,7 +432,7 @@ function function_20edb636(weapon, playerbundle)
 			var_7f8fdcd6.startdelay = playerbundle.var_f88f40a;
 			break;
 		}
-		case "hash_4bb2d7f789b561eb":
+		case "eq_gravityslam":
 		{
 			var_7f8fdcd6.var_17a094cf = playerbundle.var_d1c8dc4;
 			break;
@@ -468,7 +468,7 @@ function function_20edb636(weapon, playerbundle)
 			var_7f8fdcd6.startdelay = mpdialog_value("pineappleGunSuccessDialogBuffer", 0);
 			break;
 		}
-		case "hash_52aca7c35be649b8":
+		case "gadget_health_boost":
 		case "gadget_cleanse":
 		{
 			var_7f8fdcd6.var_17a094cf = playerbundle.var_febcf0b;
@@ -487,12 +487,12 @@ function function_20edb636(weapon, playerbundle)
 			var_7f8fdcd6.startdelay = mpdialog_value("nineBangSuccessDialogBuffer", 0);
 			break;
 		}
-		case "hash_3a19c6a9c8caef33":
+		case "eq_grapple":
 		{
 			var_7f8fdcd6.var_17a094cf = playerbundle.var_390929f1;
 			break;
 		}
-		case "hash_23dd6039fe2f36c6":
+		case "molotov_fire":
 		case "eq_molotov":
 		{
 			var_7f8fdcd6.var_17a094cf = playerbundle.var_e64f9f9a;
@@ -604,7 +604,7 @@ function function_6bb302ba(weapon, playerbundle)
 			var_cf38843b = playerbundle.var_772dbd73;
 			break;
 		}
-		case "hash_4bb2d7f789b561eb":
+		case "eq_gravityslam":
 		{
 			var_cf38843b = playerbundle.var_3e1a4fb8;
 			break;
@@ -640,7 +640,7 @@ function function_6bb302ba(weapon, playerbundle)
 			var_cf38843b = playerbundle.var_bbf7c71f;
 			break;
 		}
-		case "hash_52aca7c35be649b8":
+		case "gadget_health_boost":
 		case "gadget_cleanse":
 		{
 			var_cf38843b = playerbundle.var_26d4d8b3;
@@ -676,7 +676,7 @@ function function_6bb302ba(weapon, playerbundle)
 			var_cf38843b = playerbundle.var_d32aca42;
 			break;
 		}
-		case "hash_23dd6039fe2f36c6":
+		case "molotov_fire":
 		case "eq_molotov":
 		{
 			var_cf38843b = playerbundle.var_140be686;
@@ -720,7 +720,7 @@ function function_506f762f(weapon)
 	{
 		case "gadget_supplypod":
 		case "eq_localheal":
-		case "hash_52aca7c35be649b8":
+		case "gadget_health_boost":
 		case "gadget_cleanse":
 		{
 			return true;
@@ -812,7 +812,7 @@ function function_c8663dbc(weapon, player)
 	}
 	switch(weapon.name)
 	{
-		case "hash_21b346649d376bf3":
+		case "eq_emp_grenade":
 		{
 			var_60d3002f = "jammerWeaponHacked";
 			break;
@@ -823,7 +823,7 @@ function function_c8663dbc(weapon, player)
 			var_b3fe42a9 = 1;
 			break;
 		}
-		case "hash_4a4ba36128b6582f":
+		case "eq_seeker_mine":
 		{
 			var_60d3002f = "seekerMineWeaponHacked";
 			var_b3fe42a9 = 1;
@@ -836,7 +836,7 @@ function function_c8663dbc(weapon, player)
 			break;
 		}
 		case "ability_smart_cover":
-		case "hash_1fb0b26684caee0f":
+		case "gadget_smart_cover":
 		{
 			var_60d3002f = "smartCoverHacked";
 			var_b3fe42a9 = 1;

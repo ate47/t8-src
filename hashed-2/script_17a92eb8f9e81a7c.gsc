@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -52,8 +52,8 @@ function __init__()
 function __main__()
 {
 	level flag::wait_till(#"all_players_spawned");
-	namespace_ee206246::start(#"hash_306a7f142403b7c6");
-	namespace_ee206246::start(#"hash_5474fbb93aebbb65");
+	zm_sq::start(#"hash_306a7f142403b7c6");
+	zm_sq::start(#"hash_5474fbb93aebbb65");
 }
 
 /*
@@ -82,9 +82,9 @@ function function_842831cf()
 */
 function function_ec9e5cf2()
 {
-	namespace_ee206246::register(#"hash_306a7f142403b7c6", #"step_1", #"hash_3203b932029a4e0b", &function_4d029800, &function_e3a2a8ab);
-	namespace_ee206246::register(#"hash_5474fbb93aebbb65", #"step_1", #"hash_64d6af5ddc324d26", &function_6f55d670, &function_13c87ace);
-	namespace_ee206246::register(#"hash_5474fbb93aebbb65", #"step_2", #"hash_3f567f217222e5b2", &function_e6ce9708, &function_4f6285d0);
+	zm_sq::register(#"hash_306a7f142403b7c6", #"step_1", #"hash_3203b932029a4e0b", &function_4d029800, &function_e3a2a8ab);
+	zm_sq::register(#"hash_5474fbb93aebbb65", #"step_1", #"hash_64d6af5ddc324d26", &function_6f55d670, &function_13c87ace);
+	zm_sq::register(#"hash_5474fbb93aebbb65", #"step_2", #"hash_3f567f217222e5b2", &function_e6ce9708, &function_4f6285d0);
 }
 
 /*

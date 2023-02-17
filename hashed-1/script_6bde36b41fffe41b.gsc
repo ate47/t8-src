@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_170a9c130859c688;
-#using script_3affe3aaa3f22cb0;
+#using scripts\wz_common\character_unlock_fixup.gsc;
 #using script_71e26f08f03b7a7a;
-#using script_8210b63db522f15;
+#using scripts\wz_common\character_unlock.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;

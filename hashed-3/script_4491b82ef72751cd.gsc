@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5c39714fe470e000", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5c39714fe470e000", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_7ceb3542
 	Checksum: 0x4A580E45
 	Offset: 0x140
@@ -48,16 +48,16 @@ function __init__()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(str_flag, var_60bdad5f)
+function private on_begin(str_flag, var_60bdad5f)
 {
-	namespace_b22c99a5::function_7d32b7d0(0);
+	zm_trial_util::function_7d32b7d0(0);
 	level.var_5fccce01 = str_flag;
 	level.var_4ce2a315 = var_60bdad5f;
 	level thread function_3ed3d711(str_flag);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_7ceb3542
 	Checksum: 0xD6823854
 	Offset: 0x1B0
@@ -65,9 +65,9 @@ function private function_d1de6a85(str_flag, var_60bdad5f)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	if(!round_reset)
 	{
 		if(!level flag::get(level.var_5fccce01))
@@ -92,9 +92,9 @@ function private function_3ed3d711(str_flag)
 	while(true)
 	{
 		level flag::wait_till(str_flag);
-		namespace_b22c99a5::function_7d32b7d0(1);
+		zm_trial_util::function_7d32b7d0(1);
 		level flag::wait_till_clear(str_flag);
-		namespace_b22c99a5::function_7d32b7d0(0);
+		zm_trial_util::function_7d32b7d0(0);
 	}
 }
 

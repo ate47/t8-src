@@ -3,11 +3,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_59ff1d6c;
+#namespace zm_custom;
 
 /*
 	Name: function_d776b402
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0x8DBD6478
 	Offset: 0x138
 	Size: 0x14E
@@ -35,7 +35,7 @@ function autoexec function_d776b402()
 
 /*
 	Name: function_772f66bd
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0xE0D14266
 	Offset: 0x290
 	Size: 0x27E
@@ -116,7 +116,7 @@ function function_772f66bd(localclientnum)
 
 /*
 	Name: function_e49dbc72
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0x3AD4DE21
 	Offset: 0x518
 	Size: 0xD2
@@ -146,7 +146,7 @@ function function_e49dbc72()
 
 /*
 	Name: function_ecc5a0b9
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0x6CCEFF6B
 	Offset: 0x5F8
 	Size: 0x44
@@ -164,7 +164,7 @@ function private function_ecc5a0b9(local_client_num, player, damage)
 
 /*
 	Name: function_901b751c
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0xDFA6B531
 	Offset: 0x648
 	Size: 0x70

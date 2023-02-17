@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -70,7 +70,7 @@ function __init__()
 */
 function __main__()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
 		level thread function_6b6712e3();
 		level thread function_c9e23896();
@@ -146,7 +146,7 @@ function function_6b6712e3()
 	var_80c684f thread function_4a81e337();
 	level waittill(#"hash_2588983e2be22ca5");
 	s_loc = struct::get("s_wwlvl2_quest_pickup_1", "targetname");
-	var_ef5b83bb = namespace_c05f06c7::function_89e9bca5(#"hash_5dba840c6ed3ea3b", s_loc.origin, s_loc.angles);
+	var_ef5b83bb = mansion_util::function_89e9bca5(#"hash_5dba840c6ed3ea3b", s_loc.origin, s_loc.angles);
 	var_ef5b83bb clientfield::set("" + #"hash_524ec892754aeb34", 1);
 }
 
@@ -216,7 +216,7 @@ function function_216d0545(s_notify)
 			return 1;
 		}
 	#/
-	return s_notify.mod === "MOD_MELEE" || s_notify.mod === "MOD_IMPACT" && namespace_c05f06c7::is_shield(s_notify.weapon);
+	return s_notify.mod === "MOD_MELEE" || s_notify.mod === "MOD_IMPACT" && mansion_util::is_shield(s_notify.weapon);
 }
 
 /*
@@ -345,7 +345,7 @@ function function_ea6f56ee()
 			var_21839a96 = #"hash_5dba850c6ed3ebee";
 			level thread function_29f66f1a(var_21839a96, var_57ec466d);
 			level.var_9332cecc = 1;
-			level namespace_6747c550::function_7df6bb60(#"hash_3761ebdf006d549e", 0);
+			level namespace_6747c550::function_7df6bb60(#"ww_p1_2", 0);
 		}
 		else
 		{
@@ -354,14 +354,14 @@ function function_ea6f56ee()
 				var_21839a96 = #"hash_3f639544c52d4fa3";
 				level thread function_29f66f1a(var_21839a96, var_57ec466d);
 				level.var_f6a6ddae = 1;
-				level namespace_6747c550::function_7df6bb60(#"hash_3eb09edf042e93c7", 0);
+				level namespace_6747c550::function_7df6bb60(#"ww_p2_2", 0);
 			}
 			else if(level flag::get("flag_player_grabbed_nosferatu_material") && !level flag::get("flag_player_grabbed_nosferatu_prima"))
 			{
 				var_21839a96 = #"hash_3f639644c52d5156";
 				level thread function_29f66f1a(var_21839a96, var_57ec466d);
 				level.var_ea58030a = 1;
-				level namespace_6747c550::function_7df6bb60(#"hash_3eb09ddf042e9214", 0);
+				level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 0);
 			}
 		}
 		if(isdefined(level.var_9332cecc) && level.var_9332cecc && (isdefined(level.var_f6a6ddae) && level.var_f6a6ddae) && (isdefined(level.var_ea58030a) && level.var_ea58030a))
@@ -431,7 +431,7 @@ function function_672eb1dc(var_21839a96, var_57ec466d)
 {
 	s_loc = struct::get("s_prima_material_spawn_loc");
 	wait(5);
-	var_58b3e56b = namespace_c05f06c7::function_89e9bca5(var_21839a96, s_loc.origin, s_loc.angles);
+	var_58b3e56b = mansion_util::function_89e9bca5(var_21839a96, s_loc.origin, s_loc.angles);
 	playsoundatposition(var_57ec466d, var_58b3e56b.origin);
 	level notify(#"hash_144b3192f03325f3");
 }
@@ -445,26 +445,26 @@ function function_672eb1dc(var_21839a96, var_57ec466d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b9cbdac6(e_holder, var_9c95ad05)
+function function_b9cbdac6(e_holder, w_item)
 {
 	s_machine = struct::get("s_pr_mach");
-	switch(var_9c95ad05.name)
+	switch(w_item.name)
 	{
 		case "hash_5dba850c6ed3ebee":
 		{
-			level namespace_6747c550::function_7df6bb60(#"hash_3761ebdf006d549e", 2);
+			level namespace_6747c550::function_7df6bb60(#"ww_p1_2", 2);
 			level flag::set("flag_player_grabbed_werewolf_prima");
 			break;
 		}
 		case "hash_3f639544c52d4fa3":
 		{
-			level namespace_6747c550::function_7df6bb60(#"hash_3eb09edf042e93c7", 2);
+			level namespace_6747c550::function_7df6bb60(#"ww_p2_2", 2);
 			level flag::set("flag_player_grabbed_bat_prima");
 			break;
 		}
 		case "hash_3f639644c52d5156":
 		{
-			level namespace_6747c550::function_7df6bb60(#"hash_3eb09ddf042e9214", 5);
+			level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 5);
 			level flag::set("flag_player_grabbed_nosferatu_prima");
 			break;
 		}

@@ -229,7 +229,7 @@ function devgui_notif_init()
 		{
 			return;
 		}
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
 		level thread function_a65863ce();
 	#/
 }

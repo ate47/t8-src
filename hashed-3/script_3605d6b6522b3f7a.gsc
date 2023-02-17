@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
-#using script_61a734c95edc17aa;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -38,11 +38,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_43dda54e53f4807f", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_43dda54e53f4807f", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_8e5dd29a
 	Checksum: 0xA82CD81B
 	Offset: 0x160
@@ -50,7 +50,7 @@ function __init__()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_dd1a18c9)
+function private on_begin(var_dd1a18c9)
 {
 	level.var_dd1a18c9 = zm_trial::function_5769f26a(var_dd1a18c9);
 	level.var_59f4d3a6 = 0;
@@ -60,13 +60,13 @@ function private function_d1de6a85(var_dd1a18c9)
 	zm_powerups::function_74b8ec6b("fire_sale");
 	setgametypesetting(#"zmpowerupfiresale", 0);
 	array::thread_all(getplayers(), &function_a4bcce4e);
-	namespace_b22c99a5::function_2976fa44(level.var_dd1a18c9);
-	namespace_b22c99a5::function_dace284(0);
+	zm_trial_util::function_2976fa44(level.var_dd1a18c9);
+	zm_trial_util::function_dace284(0);
 	level thread function_cfb0f4d();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_8e5dd29a
 	Checksum: 0xCD42B9B8
 	Offset: 0x280
@@ -74,9 +74,9 @@ function private function_d1de6a85(var_dd1a18c9)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	level.var_dd1a18c9 = undefined;
 	level.var_59f4d3a6 = undefined;
 	level.var_bb641599 = 0;
@@ -109,14 +109,14 @@ function private function_cfb0f4d()
 		level.var_59f4d3a6++;
 		if(level.var_59f4d3a6 == level.var_dd1a18c9)
 		{
-			namespace_b22c99a5::function_7d32b7d0(1);
+			zm_trial_util::function_7d32b7d0(1);
 			level.var_b69d170f = 1;
 			level.var_bb641599 = 0;
 			level notify(#"hash_2b35a48172d1e0c2");
 		}
 		else
 		{
-			namespace_b22c99a5::function_dace284(level.var_59f4d3a6);
+			zm_trial_util::function_dace284(level.var_59f4d3a6);
 		}
 	}
 }

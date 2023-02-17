@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_2255a7ad3edc838f;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\core_common\bots\bot.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_522aeb6ae906391e;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_7e63597649100b1c;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -361,9 +361,9 @@ function zombie_devgui_player_menu(player)
 		{
 			for(i = 0; i < level.validcharacters.size; i++)
 			{
-				var_abaefc38 = level.validcharacters[i];
-				var_b82273f = getcharacterfields(var_abaefc38, currentsessionmode());
-				adddebugcommand((((((((((((("" + player.name) + "") + ip1) + "") + var_abaefc38) + "") + var_b82273f.chrname) + "") + (var_abaefc38 + 1) + "") + ip1) + "") + var_abaefc38) + "");
+				ci = level.validcharacters[i];
+				var_b82273f = getcharacterfields(ci, currentsessionmode());
+				adddebugcommand((((((((((((("" + player.name) + "") + ip1) + "") + ci) + "") + var_b82273f.chrname) + "") + (ci + 1) + "") + ip1) + "") + ci) + "");
 			}
 		}
 		if(isdefined(level.var_e2c54606))
@@ -434,16 +434,16 @@ function function_38184bf8()
 					circle(print_origin, 30, color);
 					print3d(print_origin, function_9e72a96(var_375627f0), color, 1, 0.5);
 					print3d(print_origin + (vectorscale((0, 0, -1), 10)), "" + var_e2414b1b.cost, color, 1, 0.5);
-					if(isdefined(var_e2414b1b.var_ab176ce9))
+					if(isdefined(var_e2414b1b.to_zone))
 					{
-						var_ab176ce9 = level.zones[var_e2414b1b.var_ab176ce9];
-						if(isdefined(var_ab176ce9.nodes[0]))
+						to_zone = level.zones[var_e2414b1b.to_zone];
+						if(isdefined(to_zone.nodes[0]))
 						{
-							var_fbe06d06 = var_ab176ce9.nodes[0].origin;
+							var_fbe06d06 = to_zone.nodes[0].origin;
 						}
 						if(!isdefined(var_fbe06d06))
 						{
-							var_fbe06d06 = var_ab176ce9.volumes[0].origin;
+							var_fbe06d06 = to_zone.volumes[0].origin;
 						}
 						line(print_origin, var_fbe06d06, color, 0, 0);
 					}
@@ -714,9 +714,9 @@ function zombie_spawner_validation()
 {
 	/#
 		level.validation_errors_count = 0;
-		if(!isdefined(level.var_2460bf54))
+		if(!isdefined(level.toggle_spawner_validation))
 		{
-			level.var_2460bf54 = 1;
+			level.toggle_spawner_validation = 1;
 			zombie_devgui_open_sesame();
 			spawners = function_edce7be0();
 			foreach(zone in level.zones)
@@ -768,7 +768,7 @@ function zombie_spawner_validation()
 		}
 		else
 		{
-			level.var_2460bf54 = !level.var_2460bf54;
+			level.toggle_spawner_validation = !level.toggle_spawner_validation;
 		}
 	#/
 }
@@ -906,7 +906,7 @@ function drawvalidation(origin, zone_name, nav_mesh_wait_point, boards_point, zo
 		}
 		while(true)
 		{
-			if(isdefined(level.var_2460bf54) && level.var_2460bf54)
+			if(isdefined(level.toggle_spawner_validation) && level.toggle_spawner_validation)
 			{
 				if(!isdefined(origin))
 				{
@@ -2311,9 +2311,9 @@ function zombie_devgui_think()
 				}
 				case "hash_7f4d70c7ded8e94a":
 				{
-					if(zm_utility::function_166646a6() === 2)
+					if(zm_utility::get_story() === 2)
 					{
-						array::random(getplayers()) giveweapon(getweapon(#"hash_10f614b278daaebc"));
+						array::random(getplayers()) giveweapon(getweapon(#"homunculus"));
 					}
 					array::thread_all(getplayers(), &function_8d799ebd);
 					break;
@@ -3867,7 +3867,7 @@ function zombie_devgui_give_lethal(weapon)
 function zombie_devgui_give_frags()
 {
 	/#
-		zombie_devgui_give_lethal(getweapon(#"hash_34b7eb9fde56bd35"));
+		zombie_devgui_give_lethal(getweapon(#"eq_frag_grenade"));
 	#/
 }
 
@@ -4670,7 +4670,7 @@ function zombie_devgui_goto_round(target_round)
 		level.devcheater = 1;
 		level.zombie_total = 0;
 		level.zombie_health = zombie_utility::ai_calculate_health(zombie_utility::function_d2dfacfd(#"zombie_health_start"), target_round);
-		namespace_a28acff3::set_round_number(target_round - 1);
+		zm_round_logic::set_round_number(target_round - 1);
 		level notify(#"kill_round");
 		wait(1);
 		zombies = getaiteamarray(level.zombie_team);
@@ -4801,10 +4801,10 @@ function zombie_devgui_dump_zombie_vars()
 		{
 			return;
 		}
-		var_392d3ebe = getarraykeys(level.zombie_vars);
+		var_names = getarraykeys(level.zombie_vars);
 		for(i = 0; i < level.zombie_vars.size; i++)
 		{
-			key = var_392d3ebe[i];
+			key = var_names[i];
 			println((key + "") + zombie_utility::function_d2dfacfd(key));
 		}
 		println("");
@@ -6802,7 +6802,7 @@ function init_debug_center_screen()
 			}
 			else
 			{
-				level notify(#"hash_63054d2b7dcb7739");
+				level notify(#"stop center screen debug");
 				if(zero_idle_movement == 1)
 				{
 					setdvar(#"zero_idle_movement", 0);
@@ -6844,7 +6844,7 @@ function debug_center_screen()
 		level.center_screen_debug_hudelem2.x = 320 - 1;
 		level.center_screen_debug_hudelem2.y = 240;
 		level.center_screen_debug_hudelem2 setshader("", 1, 480);
-		level waittill(#"hash_63054d2b7dcb7739");
+		level waittill(#"stop center screen debug");
 		level.center_screen_debug_hudelem1 destroy();
 		level.center_screen_debug_hudelem2 destroy();
 		level.center_screen_debug_hudelem_active = 0;
@@ -6929,13 +6929,13 @@ function function_7c9dd642()
 			for(i = 0; i < num; i++)
 			{
 				cmdarg = (function_9e72a96(key) + "") + i;
-				util::function_e2e9d901(((path + function_9e72a96(key)) + "") + i, cmd + cmdarg);
+				util::add_devgui(((path + function_9e72a96(key)) + "") + i, cmd + cmdarg);
 			}
 		}
 		var_30a96cf9 = "";
 		cmd = "";
-		util::function_e2e9d901(var_30a96cf9 + "", cmd + 1);
-		util::function_e2e9d901(var_30a96cf9 + "", cmd + 0);
+		util::add_devgui(var_30a96cf9 + "", cmd + 1);
+		util::add_devgui(var_30a96cf9 + "", cmd + 0);
 	#/
 }
 

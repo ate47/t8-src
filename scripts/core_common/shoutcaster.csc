@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_ecbb3819941bb69;
+#using scripts\abilities\gadgets\gadget_vision_pulse.csc;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\renderoverridebundle.csc;
 #using scripts\core_common\util_shared.csc;

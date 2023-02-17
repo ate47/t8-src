@@ -2,8 +2,8 @@
 #using script_184abbae9afad370;
 #using script_243ea03c7a285692;
 #using script_5394c653bafe1358;
-#using script_5399f402045d7abd;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\demo_shared.gsc;
@@ -20,11 +20,11 @@
 #using scripts\core_common\weapons_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic_spawn.gsc;
 
-#namespace namespace_674e6435;
+#namespace laststand_mp;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x3ACF7F49
 	Offset: 0x358
 	Size: 0x3C
@@ -33,12 +33,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_707dc47b03316f1d", &__init__, undefined, undefined);
+	system::register(#"laststand_mp", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x51D65682
 	Offset: 0x3A0
 	Size: 0x534
@@ -91,7 +91,7 @@ function __init__()
 
 /*
 	Name: function_feb3e91d
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x7D857546
 	Offset: 0x8E0
 	Size: 0x50
@@ -105,7 +105,7 @@ function function_feb3e91d()
 
 /*
 	Name: function_367cfa1b
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xAE1E4843
 	Offset: 0x938
 	Size: 0x1A
@@ -119,7 +119,7 @@ function function_367cfa1b(callbackfunc)
 
 /*
 	Name: function_eb8c0e47
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x709AC87F
 	Offset: 0x960
 	Size: 0x1A
@@ -133,7 +133,7 @@ function function_eb8c0e47(callbackfunc)
 
 /*
 	Name: function_414115a0
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x70AF7F8
 	Offset: 0x988
 	Size: 0x66
@@ -148,7 +148,7 @@ function function_414115a0(time, health)
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x82A31DD9
 	Offset: 0x9F8
 	Size: 0x1AC
@@ -163,14 +163,14 @@ function on_player_spawned()
 	self.var_d887a4ad = undefined;
 	foreach(prompt in level.mp_revive_prompt)
 	{
-		[[ prompt ]]->function_3b7b386a(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
+		[[ prompt ]]->set_clientnum(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 	}
 	self clientfield::set_player_uimodel("hudItems.laststand.revivingClientNum", int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 }
 
 /*
 	Name: function_9f66e37a
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x62E0EF03
 	Offset: 0xBB0
 	Size: 0x62
@@ -190,7 +190,7 @@ function function_9f66e37a()
 
 /*
 	Name: function_4e612708
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xE68BF550
 	Offset: 0xC20
 	Size: 0x56
@@ -210,7 +210,7 @@ function function_4e612708()
 
 /*
 	Name: on_player_damage
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xE530F408
 	Offset: 0xC80
 	Size: 0xBA
@@ -234,7 +234,7 @@ function on_player_damage(params)
 
 /*
 	Name: on_player_killed
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xBAFFD474
 	Offset: 0xD48
 	Size: 0x3C
@@ -251,7 +251,7 @@ function on_player_killed(params)
 
 /*
 	Name: on_player_disconnect
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xE5F9C26
 	Offset: 0xD90
 	Size: 0x1C
@@ -265,7 +265,7 @@ function on_player_disconnect()
 
 /*
 	Name: function_7ff2fc91
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x7ADD43D4
 	Offset: 0xDB8
 	Size: 0x190
@@ -302,7 +302,7 @@ function function_7ff2fc91()
 
 /*
 	Name: function_263a2944
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xD9F6EEED
 	Offset: 0xF50
 	Size: 0xF0
@@ -315,13 +315,13 @@ function function_263a2944(prompt, var_a1258c6b)
 	if(isdefined(self))
 	{
 		[[ prompt ]]->close(self);
-		[[ prompt ]]->function_3b7b386a(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
+		[[ prompt ]]->set_clientnum(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 	}
 }
 
 /*
 	Name: function_c025efba
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x699A1649
 	Offset: 0x1048
 	Size: 0xBA
@@ -335,14 +335,14 @@ function function_c025efba(prompt, var_a1258c6b)
 	while(true)
 	{
 		[[ prompt ]]->set_health(self, var_a1258c6b.var_2d19ce3c);
-		[[ prompt ]]->function_4b3fb8b8(self, var_a1258c6b.reviveprogress);
+		[[ prompt ]]->set_reviveProgress(self, var_a1258c6b.reviveprogress);
 		waitframe(1);
 	}
 }
 
 /*
 	Name: function_5de626dc
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x82307AAC
 	Offset: 0x1110
 	Size: 0x12C
@@ -357,8 +357,8 @@ function function_5de626dc(var_a1258c6b)
 		{
 			[[ prompt ]]->open(self);
 			[[ prompt ]]->set_health(self, 1);
-			[[ prompt ]]->function_4b3fb8b8(self, 0);
-			[[ prompt ]]->function_3b7b386a(self, var_a1258c6b getentitynumber());
+			[[ prompt ]]->set_reviveProgress(self, 0);
+			[[ prompt ]]->set_clientnum(self, var_a1258c6b getentitynumber());
 			self thread function_263a2944(prompt, var_a1258c6b);
 			self thread function_c025efba(prompt, var_a1258c6b);
 			break;
@@ -368,7 +368,7 @@ function function_5de626dc(var_a1258c6b)
 
 /*
 	Name: function_dc7906e8
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xAD6033CA
 	Offset: 0x1248
 	Size: 0x2DA
@@ -412,7 +412,7 @@ function function_dc7906e8(einflictor, attacker, idamage, smeansofdeath, weapon,
 
 /*
 	Name: function_67b38e11
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xC870CA41
 	Offset: 0x1530
 	Size: 0x1D2
@@ -450,7 +450,7 @@ function function_67b38e11(einflictor, attacker, idamage, smeansofdeath, weapon,
 
 /*
 	Name: function_d5db8d2e
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x89DC6D93
 	Offset: 0x1710
 	Size: 0x2C
@@ -464,7 +464,7 @@ function function_d5db8d2e(attacker, weapon)
 
 /*
 	Name: function_463b3f65
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xA1AA61C4
 	Offset: 0x1748
 	Size: 0xBC
@@ -491,7 +491,7 @@ function function_463b3f65()
 
 /*
 	Name: function_ce726eb4
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x829D07E4
 	Offset: 0x1810
 	Size: 0x1C0
@@ -527,7 +527,7 @@ function function_ce726eb4()
 
 /*
 	Name: playerlaststand
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x16F0A777
 	Offset: 0x19D8
 	Size: 0xA4C
@@ -702,7 +702,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 
 /*
 	Name: function_5ccd602d
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x3088DE71
 	Offset: 0x2430
 	Size: 0x64
@@ -719,7 +719,7 @@ function function_5ccd602d()
 
 /*
 	Name: laststand_disable_player_weapons
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x5E73FA25
 	Offset: 0x24A0
 	Size: 0xE4
@@ -740,7 +740,7 @@ function laststand_disable_player_weapons()
 
 /*
 	Name: function_102748f8
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x5DF1FAC8
 	Offset: 0x2590
 	Size: 0x64
@@ -756,7 +756,7 @@ function function_102748f8()
 
 /*
 	Name: laststand_enable_player_weapons
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x93A315DA
 	Offset: 0x2600
 	Size: 0x74
@@ -773,7 +773,7 @@ function laststand_enable_player_weapons()
 
 /*
 	Name: laststand_clean_up_on_interrupt
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x4794B502
 	Offset: 0x2680
 	Size: 0x12C
@@ -801,7 +801,7 @@ function laststand_clean_up_on_interrupt(playerbeingrevived)
 
 /*
 	Name: laststand_bleedout_damage
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xB5E1349
 	Offset: 0x27B8
 	Size: 0x348
@@ -831,8 +831,8 @@ function laststand_bleedout_damage()
 		{
 			self.bleedout_time = 0;
 			self.var_1cc38de0 = 1;
-			var_f90950bd = (isdefined(waitresult.eattacker) ? waitresult.eattacker : self);
-			self.var_a1d415ee = {#hash_10d87328:function_f8d53445(), #shitloc:waitresult.shitloc, #vdir:waitresult.vdir, #sweapon:waitresult.weapon, #smeansofdeath:waitresult.smeansofdeath, #idamage:waitresult.idamage, #hash_83634238:(isplayer(var_f90950bd) ? var_f90950bd getplayerangles() : var_f90950bd.angles), #attackerorigin:var_f90950bd.origin, #attacker:waitresult.eattacker, #einflictor:waitresult.einflictor};
+			vattacker = (isdefined(waitresult.eattacker) ? waitresult.eattacker : self);
+			self.var_a1d415ee = {#hash_10d87328:function_f8d53445(), #shitloc:waitresult.shitloc, #vdir:waitresult.vdir, #sweapon:waitresult.weapon, #smeansofdeath:waitresult.smeansofdeath, #idamage:waitresult.idamage, #hash_83634238:(isplayer(vattacker) ? vattacker getplayerangles() : vattacker.angles), #attackerorigin:vattacker.origin, #attacker:waitresult.eattacker, #einflictor:waitresult.einflictor};
 			self notify(#"hash_5b5b14bba3930da1");
 		}
 		if(isdefined(self.var_d75a6ff5))
@@ -845,7 +845,7 @@ function laststand_bleedout_damage()
 
 /*
 	Name: laststand_bleedout
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x8AD31632
 	Offset: 0x2B08
 	Size: 0x214
@@ -890,7 +890,7 @@ function laststand_bleedout(bleedouttime, var_969fabf4)
 
 /*
 	Name: function_263492d9
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x742E2006
 	Offset: 0x2D28
 	Size: 0x5C
@@ -907,7 +907,7 @@ function function_263492d9()
 
 /*
 	Name: function_6da86ae
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x91201BFA
 	Offset: 0x2D90
 	Size: 0x46
@@ -924,7 +924,7 @@ function function_6da86ae()
 
 /*
 	Name: bleed_out
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xEE645088
 	Offset: 0x2DE0
 	Size: 0x3DC
@@ -985,7 +985,7 @@ function bleed_out()
 
 /*
 	Name: respawn_player_after_time
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x1C1973A8
 	Offset: 0x31C8
 	Size: 0xBC
@@ -1011,7 +1011,7 @@ function respawn_player_after_time(n_time_seconds)
 
 /*
 	Name: function_2907ce7a
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x1CC6E0DD
 	Offset: 0x3290
 	Size: 0x44
@@ -1026,7 +1026,7 @@ function function_2907ce7a()
 
 /*
 	Name: revive_trigger_spawn
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xAEBCA555
 	Offset: 0x32E0
 	Size: 0x17C
@@ -1052,7 +1052,7 @@ function revive_trigger_spawn()
 
 /*
 	Name: revive_trigger_think
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x2768EBD3
 	Offset: 0x3468
 	Size: 0x498
@@ -1152,7 +1152,7 @@ function revive_trigger_think()
 
 /*
 	Name: function_356caede
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x842CE368
 	Offset: 0x3908
 	Size: 0x652
@@ -1253,7 +1253,7 @@ function function_356caede(team)
 
 /*
 	Name: function_684a5394
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x3F1A02A0
 	Offset: 0x3F68
 	Size: 0x24
@@ -1271,7 +1271,7 @@ function function_684a5394()
 
 /*
 	Name: function_b16f016a
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x5FDC4664
 	Offset: 0x3F98
 	Size: 0x4E
@@ -1293,7 +1293,7 @@ function function_b16f016a()
 
 /*
 	Name: function_fab0e07e
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x913BAF1D
 	Offset: 0x3FF0
 	Size: 0xC4
@@ -1315,7 +1315,7 @@ function function_fab0e07e(var_f7cfe7ee)
 
 /*
 	Name: function_516a3bef
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xA1755438
 	Offset: 0x40C0
 	Size: 0x84
@@ -1336,7 +1336,7 @@ function function_516a3bef(replace)
 
 /*
 	Name: function_c82a14d1
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xEB59ED73
 	Offset: 0x4150
 	Size: 0xB6
@@ -1355,7 +1355,7 @@ function function_c82a14d1(var_f7cfe7ee)
 
 /*
 	Name: function_1c8cab15
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x481C31CD
 	Offset: 0x4210
 	Size: 0x188
@@ -1388,7 +1388,7 @@ function function_1c8cab15(var_b4bb7319)
 
 /*
 	Name: revive_give_back_weapons
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xFBBF013F
 	Offset: 0x43A0
 	Size: 0xAC
@@ -1414,7 +1414,7 @@ function revive_give_back_weapons()
 
 /*
 	Name: can_revive
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x52C47298
 	Offset: 0x4458
 	Size: 0x2D6
@@ -1487,7 +1487,7 @@ function can_revive(revivee, ignore_touch_checks = 0, height = undefined)
 
 /*
 	Name: is_reviving
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xA1CBE083
 	Offset: 0x4738
 	Size: 0xB4
@@ -1513,7 +1513,7 @@ function is_reviving(revivee, ignore_touch_checks = 0, height = undefined)
 
 /*
 	Name: is_reviving_any
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x62AC27BB
 	Offset: 0x47F8
 	Size: 0x18
@@ -1527,7 +1527,7 @@ function is_reviving_any()
 
 /*
 	Name: revive_do_revive
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xAD1932B2
 	Offset: 0x4818
 	Size: 0x5DA
@@ -1635,7 +1635,7 @@ function revive_do_revive(playerbeingrevived)
 
 /*
 	Name: auto_revive_on_notify
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x4BAAF792
 	Offset: 0x4E00
 	Size: 0x74
@@ -1652,7 +1652,7 @@ function auto_revive_on_notify()
 
 /*
 	Name: auto_revive
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xFF743E64
 	Offset: 0x4E80
 	Size: 0x216
@@ -1705,7 +1705,7 @@ function auto_revive(reviver)
 
 /*
 	Name: revive_success
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xE521EA86
 	Offset: 0x50A0
 	Size: 0x39C
@@ -1774,7 +1774,7 @@ function revive_success(reviver, b_track_stats = 1)
 
 /*
 	Name: revive_hud_think
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xA86EC7F7
 	Offset: 0x5448
 	Size: 0x274
@@ -1829,7 +1829,7 @@ function revive_hud_think()
 
 /*
 	Name: faderevivemessageover
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x2FC0F328
 	Offset: 0x56C8
 	Size: 0x3C
@@ -1843,7 +1843,7 @@ function faderevivemessageover(playertorevive, time)
 
 /*
 	Name: function_ecdd4b27
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xDFE17E6A
 	Offset: 0x5710
 	Size: 0xF6
@@ -1861,7 +1861,7 @@ function function_ecdd4b27()
 
 /*
 	Name: function_1e8018b0
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x743B03D6
 	Offset: 0x5810
 	Size: 0x198
@@ -1892,7 +1892,7 @@ function function_1e8018b0()
 
 /*
 	Name: function_b1ad0b64
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x1D2FB17E
 	Offset: 0x59B0
 	Size: 0x3C
@@ -1910,7 +1910,7 @@ function function_b1ad0b64(idamage, smeansofdeath)
 
 /*
 	Name: function_b394486e
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xBF79497B
 	Offset: 0x59F8
 	Size: 0x6A
@@ -1927,7 +1927,7 @@ function function_b394486e()
 
 /*
 	Name: is_cheating
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0xCA60D0E7
 	Offset: 0x5A70
 	Size: 0x22
@@ -1945,7 +1945,7 @@ function is_cheating()
 
 /*
 	Name: function_7afe7d1e
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x6ECA1005
 	Offset: 0x5AA0
 	Size: 0x46A
@@ -2007,7 +2007,7 @@ function function_7afe7d1e(attacker, victim)
 
 /*
 	Name: function_7e980623
-	Namespace: namespace_674e6435
+	Namespace: laststand_mp
 	Checksum: 0x25394226
 	Offset: 0x5F18
 	Size: 0x46A

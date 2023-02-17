@@ -990,7 +990,7 @@ function remove_on_vehicle_damage(func, obj)
 */
 function function_1475a073(func, obj)
 {
-	add_callback(#"hash_65626f47d6c0717c", func, obj);
+	add_callback(#"on_player_downed", func, obj);
 }
 
 /*
@@ -1004,7 +1004,7 @@ function function_1475a073(func, obj)
 */
 function function_626c1390(func, obj)
 {
-	remove_callback(#"hash_65626f47d6c0717c", func, obj);
+	remove_callback(#"on_player_downed", func, obj);
 }
 
 /*
@@ -1414,7 +1414,7 @@ function function_824d206(func, obj)
 }
 
 /*
-	Name: function_4b1aff2
+	Name: on_boast
 	Namespace: callback
 	Checksum: 0x8F34252E
 	Offset: 0x2240
@@ -1422,9 +1422,9 @@ function function_824d206(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_4b1aff2(func, obj)
+function on_boast(func, obj)
 {
-	add_callback(#"hash_6c189017e0e91d02", func, obj);
+	add_callback(#"on_boast", func, obj);
 }
 
 /*
@@ -1438,7 +1438,7 @@ function function_4b1aff2(func, obj)
 */
 function function_d935a5b6(func, obj)
 {
-	remove_callback(#"hash_6c189017e0e91d02", func, obj);
+	remove_callback(#"on_boast", func, obj);
 }
 
 /*
@@ -1484,7 +1484,7 @@ function on_menu_response(func, obj)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: callback
 	Checksum: 0x1B6691D0
 	Offset: 0x23A8
@@ -1492,9 +1492,9 @@ function on_menu_response(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_10a4dd0a(func, obj)
+function on_item_pickup(func, obj)
 {
-	add_callback(#"hash_56d1805bfff3e65b", func, obj);
+	add_callback(#"on_item_pickup", func, obj);
 }
 
 /*
@@ -1526,7 +1526,7 @@ function function_28a6c197(func, obj)
 }
 
 /*
-	Name: function_955a779c
+	Name: on_item_use
 	Namespace: callback
 	Checksum: 0xA80B4B56
 	Offset: 0x2480
@@ -1534,9 +1534,9 @@ function function_28a6c197(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_955a779c(func, obj)
+function on_item_use(func, obj)
 {
-	add_callback(#"hash_41c107b83320aba2", func, obj);
+	add_callback(#"on_item_use", func, obj);
 }
 
 /*
@@ -2020,7 +2020,7 @@ event function_3b159f77(eventstruct)
 	{
 		[[level.var_4268159]](eventstruct.gestureindex, eventstruct.animlength);
 	}
-	callback(#"hash_6c189017e0e91d02", eventstruct);
+	callback(#"on_boast", eventstruct);
 }
 
 /*

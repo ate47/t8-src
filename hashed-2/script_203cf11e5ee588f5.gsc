@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_items.gsc;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_50c040e371c1c35f;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
 #using script_57f7003580bb15e0;
-#using script_6ce38ab036223e6e;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_round_logic.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -312,7 +312,7 @@ function function_55d14d78()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b54b9d5e(e_holder, var_9c95ad05)
+function function_b54b9d5e(e_holder, w_item)
 {
 	mdl_clip = getent("mdl_acid_trap_cauldron_piece_clip", "targetname");
 	if(isdefined(mdl_clip))
@@ -611,7 +611,7 @@ function function_506285c3(t_damage)
 		{
 			if(!self laststand::player_is_in_laststand() && !level flag::get("round_reset"))
 			{
-				params = function_4d1e7b48(#"hash_baee445ed1d9b99");
+				params = getstatuseffect(#"hash_baee445ed1d9b99");
 				if(zm_utility::is_standard())
 				{
 					params.var_9f648d82 = int(params.var_9f648d82 / 4);

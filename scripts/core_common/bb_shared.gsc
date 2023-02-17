@@ -92,7 +92,7 @@ function commit_weapon_data(spawnid, currentweapon, time0)
 		}
 		else if(function_f99d2668())
 		{
-			blackboxeventname = #"hash_205db9f882d276a1";
+			blackboxeventname = #"wzweapons";
 			eventname = #"hash_63ec5305e1ef1335";
 		}
 	}

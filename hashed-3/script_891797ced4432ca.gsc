@@ -1015,7 +1015,7 @@ function function_81c8a125()
 {
 	level endon(#"end_game");
 	var_8a88c4c8 = getent("mdl_narrative_destiny", "targetname");
-	var_4fa6e6eb = getentarray("t_narrative_destiny", "targetname");
+	a_t_shields = getentarray("t_narrative_destiny", "targetname");
 	if(!zm_utility::function_e51dc2d8())
 	{
 		var_8a88c4c8 delete();
@@ -1023,14 +1023,14 @@ function function_81c8a125()
 	else
 	{
 		var_8b789c96 = 0;
-		var_63e5fc38 = var_4fa6e6eb.size;
+		var_63e5fc38 = a_t_shields.size;
 		while(true)
 		{
-			var_357aadcd = trigger::wait_till("t_narrative_destiny");
-			if(var_8b789c96 != var_357aadcd.script_int)
+			t_shield = trigger::wait_till("t_narrative_destiny");
+			if(var_8b789c96 != t_shield.script_int)
 			{
 				var_7ef1d61 = var_8b789c96 + 1;
-				if(var_7ef1d61 == var_357aadcd.script_int)
+				if(var_7ef1d61 == t_shield.script_int)
 				{
 					var_8b789c96 = var_7ef1d61;
 					if(var_8b789c96 >= var_63e5fc38)
@@ -1049,7 +1049,7 @@ function function_81c8a125()
 		var_e9e88745 rotatepitch(15, 0.5);
 		var_8a88c4c8 clientfield::set("" + #"hash_2407f687f7d24a83", 1);
 	}
-	array::delete_all(var_4fa6e6eb);
+	array::delete_all(a_t_shields);
 }
 
 /*

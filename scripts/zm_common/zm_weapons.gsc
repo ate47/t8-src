@@ -1,19 +1,19 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14f4a3c583c77d4b;
-#using script_1ac263b07ef50ab6;
-#using script_2f09d8055b480c9c;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
+#using scripts\zm\weapons\zm_weap_sword_pistol.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_43642da1b2402e5c;
 #using script_47fb62300ac0bd60;
-#using script_56ca01b3b31455b5;
-#using script_5b18db57724ff7be;
-#using script_63a86ef12b120b23;
-#using script_676d3a2160d92de8;
+#using scripts\abilities\ability_util.gsc;
+#using scripts\zm_common\zm_camos.gsc;
+#using scripts\zm\weapons\zm_weap_scepter.gsc;
+#using scripts\zm\weapons\zm_weap_chakram.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7133a4d461308099;
-#using script_7224d61ed502ea07;
-#using script_7bafaa95bb1b427e;
-#using script_7fbcea48606829db;
+#using scripts\core_common\activecamo_shared.gsc;
+#using scripts\zm_common\zm_wallbuy.gsc;
+#using scripts\weapons\weapons.gsc;
+#using scripts\zm\weapons\zm_weap_hammer.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -164,9 +164,9 @@ function function_ec38915a()
 		level.var_44e0d625 = [];
 	}
 	function_8005e7f3(getweapon(#"smg_handling_t8"), getweapon(#"hash_1b055fadc5573c29"));
-	function_8005e7f3(getweapon(#"hash_514128f7d058cde0"), getweapon(#"hash_3b34bf98ebd70d14"));
+	function_8005e7f3(getweapon(#"smg_handling_t8_upgraded"), getweapon(#"hash_3b34bf98ebd70d14"));
 	function_8005e7f3(getweapon(#"special_ballisticknife_t8_dw"), getweapon(#"special_ballisticknife_t8_dw_dw"));
-	function_8005e7f3(getweapon(#"hash_3882e337d28ec4df"), getweapon(#"special_ballisticknife_t8_dw_upgraded_dw"));
+	function_8005e7f3(getweapon(#"special_ballisticknife_t8_dw_upgraded"), getweapon(#"special_ballisticknife_t8_dw_upgraded_dw"));
 }
 
 /*
@@ -543,7 +543,7 @@ function switch_from_alt_weapon(weapon)
 */
 function give_start_weapons(takeallweapons, alreadyspawned)
 {
-	if(isdefined(self.s_loadout) && zombie_utility::function_d2dfacfd("retain_weapons") && namespace_59ff1d6c::function_901b751c(#"hash_589c0366b1458c7e"))
+	if(isdefined(self.s_loadout) && zombie_utility::function_d2dfacfd("retain_weapons") && zm_custom::function_901b751c(#"hash_589c0366b1458c7e"))
 	{
 		self player_give_loadout(self.s_loadout, 1, 0);
 		self.s_loadout = undefined;
@@ -1449,7 +1449,7 @@ function get_upgrade_weapon(weapon, add_attachment)
 	{
 		newweapon = level.zombie_weapons[rootweapon].upgrade;
 	}
-	else if(!namespace_59ff1d6c::function_901b751c(#"hash_57a5c7a9dcf94d61"))
+	else if(!zm_custom::function_901b751c(#"hash_57a5c7a9dcf94d61"))
 	{
 		return weapon;
 	}
@@ -1504,7 +1504,7 @@ function can_upgrade_weapon(weapon)
 */
 function weapon_supports_aat(weapon)
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_57a5c7a9dcf94d61"))
+	if(!zm_custom::function_901b751c(#"hash_57a5c7a9dcf94d61"))
 	{
 		return false;
 	}
@@ -2070,7 +2070,7 @@ function ammo_give(weapon, b_purchased = 1)
 		weapon = self get_weapon_with_attachments(weapon);
 		if(isdefined(weapon))
 		{
-			if(namespace_4b9b8ded::is_active(1) || namespace_a9e73d8d::is_active())
+			if(zm_trial_reset_loadout::is_active(1) || namespace_a9e73d8d::is_active())
 			{
 				var_cb48c3c9 = 0;
 				var_ef0714fa = 0;
@@ -2109,7 +2109,7 @@ function ammo_give(weapon, b_purchased = 1)
 				}
 				if(weapon.isdualwield)
 				{
-					if(weapon == getweapon(#"hash_6a0c4101e88a4707"))
+					if(weapon == getweapon(#"pistol_topbreak_t8_upgraded"))
 					{
 						n_ammo_max = (n_ammo_max * 2) - var_98f6dae8;
 					}
@@ -2461,27 +2461,27 @@ function weapondata_take(weapondata)
 		}
 	}
 	alt_weapon = weapon.altweapon;
-	var_15e41636 = [];
+	a_alt_weapons = [];
 	while(alt_weapon != level.weaponnone)
 	{
-		if(!isdefined(var_15e41636))
+		if(!isdefined(a_alt_weapons))
 		{
-			var_15e41636 = [];
+			a_alt_weapons = [];
 		}
-		else if(!isarray(var_15e41636))
+		else if(!isarray(a_alt_weapons))
 		{
-			var_15e41636 = array(var_15e41636);
+			a_alt_weapons = array(a_alt_weapons);
 		}
-		if(!isinarray(var_15e41636, alt_weapon))
+		if(!isinarray(a_alt_weapons, alt_weapon))
 		{
-			var_15e41636[var_15e41636.size] = alt_weapon;
+			a_alt_weapons[a_alt_weapons.size] = alt_weapon;
 		}
 		if(self hasweapon(alt_weapon))
 		{
 			self weapon_take(alt_weapon);
 		}
 		alt_weapon = alt_weapon.altweapon;
-		if(isinarray(var_15e41636, alt_weapon))
+		if(isinarray(a_alt_weapons, alt_weapon))
 		{
 			/#
 				println(("" + function_9e72a96(alt_weapon.name)) + "");
@@ -2571,7 +2571,7 @@ function player_give_loadout(loadout, replace_existing = 1, immediate_switch = 0
 	{
 		if(isdefined(weapondata[#"weapon"].isheroweapon) && weapondata[#"weapon"].isheroweapon)
 		{
-			self zm_hero_weapon::function_2264d131(self.var_fd05e363, 0);
+			self zm_hero_weapon::hero_give_weapon(self.var_fd05e363, 0);
 			w_weapon = weapondata[#"weapon"];
 			if(w_weapon.isgadget && isdefined(weapondata[#"power"]))
 			{
@@ -2830,7 +2830,7 @@ function is_wonder_weapon(w_to_check)
 }
 
 /*
-	Name: function_eb0b9fc3
+	Name: is_tactical_rifle
 	Namespace: zm_weapons
 	Checksum: 0x6C46732B
 	Offset: 0x66A8
@@ -2838,7 +2838,7 @@ function is_wonder_weapon(w_to_check)
 	Parameters: 1
 	Flags: Linked
 */
-function function_eb0b9fc3(w_to_check)
+function is_tactical_rifle(w_to_check)
 {
 	if(level.zombie_weapons[w_to_check].weapon_classname === "tr")
 	{
@@ -2912,7 +2912,7 @@ function function_7c5dd4bd(w_weapon)
 	}
 	self setweaponammoclip(w_weapon, w_weapon.clipsize);
 	self notify(#"hash_278526d0bbdb4ce7");
-	if(namespace_4b9b8ded::is_active(1))
+	if(zm_trial_reset_loadout::is_active(1))
 	{
 		self function_7f7c1226(w_weapon);
 		return;

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1f2f7ef27f2aabba;
-#using script_2255a7ad3edc838f;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\platoons.gsc;
+#using scripts\core_common\bots\bot.gsc;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_75be2950b381443;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\teams.gsc;
@@ -107,7 +107,7 @@ function function_ee150fcc(team, team_players)
 	#/
 	foreach(player in team_players)
 	{
-		party = player function_491311f4();
+		party = player getparty();
 		/#
 			assert(party.var_a15e4438 <= level.maxteamplayers);
 		#/
@@ -187,7 +187,7 @@ function function_efe5a681(team)
 		}
 	}
 	var_fa810454 = function_ee150fcc(team, team_players);
-	party = self function_491311f4();
+	party = self getparty();
 	if(party.var_a15e4438 > var_fa810454)
 	{
 		return false;
@@ -438,7 +438,7 @@ function private function_1e545bc7()
 	{
 		return self.botteam;
 	}
-	party = self function_491311f4();
+	party = self getparty();
 	if(isdefined(party) && party.var_a15e4438 > 1)
 	{
 		return function_5d02dd86(party);
@@ -1072,7 +1072,7 @@ function private function_6c66cc64(team)
 		println(((((("" + "") + platoon_name) + "") + var_54e8d52e) + "") + voip);
 		foreach(player in players)
 		{
-			party = player function_491311f4();
+			party = player getparty();
 			println((((("" + "") + player.name) + "") + (party.fill ? "" : "") + "") + party.var_a15e4438);
 		}
 	#/
@@ -1101,7 +1101,7 @@ function function_58b6d2c9()
 					var_f554d31e = "";
 					foreach(player in var_dcbb8617)
 					{
-						party = player function_491311f4();
+						party = player getparty();
 						var_f554d31e = (((var_f554d31e + player.name) + "") + party.party_id) + "";
 					}
 					/#
@@ -1117,7 +1117,7 @@ function function_58b6d2c9()
 					{
 						continue;
 					}
-					party = player function_491311f4();
+					party = player getparty();
 					foreach(var_52ec371a in party.var_d77ed5eb)
 					{
 						if(var_52ec371a.team == #"spectator")

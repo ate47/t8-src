@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3c362258ff800237;
+#using scripts\zm_common\zm_trial.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\math_shared.csc;
@@ -41,11 +41,11 @@ function __init__()
 	clientfield::register("toplayer", "" + #"hash_b905d796914b710", 14000, 1, "int", &function_1e14a14e, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_1b9477ddcf30191f", 16000, 1, "int", &function_b5ea67f1, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_52347bec3f1339fd", 16000, 4, "int", &function_cc4c5d4b, 0, 0);
-	zm_trial::register_challenge(#"hash_6c768f3c15d55377", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6c768f3c15d55377", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_a6aea2c6
 	Checksum: 0xD4F01D93
 	Offset: 0x278
@@ -53,7 +53,7 @@ function __init__()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_d1de6a85(localclientnum, a_params)
+function private on_begin(localclientnum, a_params)
 {
 	level.var_4ecf5754 = (isdefined(a_params[0]) ? a_params[0] : #"hash_65cfe78dc61dd3af");
 	switch(level.var_4ecf5754)
@@ -75,7 +75,7 @@ function private function_d1de6a85(localclientnum, a_params)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_a6aea2c6
 	Checksum: 0x63219C4
 	Offset: 0x338
@@ -83,7 +83,7 @@ function private function_d1de6a85(localclientnum, a_params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(localclientnum)
+function private on_end(localclientnum)
 {
 	switch(level.var_4ecf5754)
 	{

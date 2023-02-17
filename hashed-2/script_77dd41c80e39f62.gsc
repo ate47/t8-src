@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1650e0411c055aa7;
+#using scripts\abilities\gadgets\gadget_concertina_wire.gsc;
 #using script_178024232e91b0a1;
 #using script_184abbae9afad370;
-#using script_28adde80b4763443;
+#using scripts\abilities\wz\gadgets\gadget_concertina_wire.gsc;
 #using script_2bb5600d583e2812;
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
@@ -4740,14 +4740,14 @@ function damage_over_time(dmg, delay, attacker)
 */
 function function_2d87c1f1(str_zone, v_loc)
 {
-	var_6fbdd8ad = spawn("script_model", v_loc);
-	var_6fbdd8ad.targetname = "zm_ammo_pickup";
-	var_6fbdd8ad setmodel(#"p7_zm_power_up_max_ammo");
-	var_6fbdd8ad playsound(#"zmb_spawn_powerup");
-	var_6fbdd8ad playloopsound(#"zmb_spawn_powerup_loop");
-	var_6fbdd8ad thread powerup_wobble();
-	var_6fbdd8ad thread powerup_timeout();
-	var_6fbdd8ad thread function_4346d61d(str_zone);
+	e_pickup = spawn("script_model", v_loc);
+	e_pickup.targetname = "zm_ammo_pickup";
+	e_pickup setmodel(#"p7_zm_power_up_max_ammo");
+	e_pickup playsound(#"zmb_spawn_powerup");
+	e_pickup playloopsound(#"zmb_spawn_powerup_loop");
+	e_pickup thread powerup_wobble();
+	e_pickup thread powerup_timeout();
+	e_pickup thread function_4346d61d(str_zone);
 }
 
 /*
@@ -5419,7 +5419,7 @@ function private function_ef4bd1a6()
 {
 	/#
 		util::waittill_can_add_debug_command();
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand("");
 		adddebugcommand(("" + mapname) + "");
 	#/

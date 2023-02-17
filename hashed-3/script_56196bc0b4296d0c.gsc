@@ -5,11 +5,11 @@
 #using scripts\core_common\postfx_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_312634d1;
+#namespace zm_ai_nova_crawler;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0xAD7805E7
 	Offset: 0x158
 	Size: 0x3C
@@ -18,12 +18,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_26aeac851e7602d1", &__init__, undefined, undefined);
+	system::register(#"zm_ai_nova_crawler", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0x76255E0A
 	Offset: 0x1A0
 	Size: 0x10C
@@ -40,7 +40,7 @@ function __init__()
 
 /*
 	Name: function_1d34f2b6
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0xE72A07F2
 	Offset: 0x2B8
 	Size: 0x46
@@ -58,7 +58,7 @@ function private function_1d34f2b6(localclientnum)
 
 /*
 	Name: function_d8505ab6
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0x8AF857D6
 	Offset: 0x308
 	Size: 0xB4
@@ -75,7 +75,7 @@ function function_d8505ab6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c81db9a1
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0x2FD795FD
 	Offset: 0x3C8
 	Size: 0x94
@@ -96,7 +96,7 @@ function function_c81db9a1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f8947dfe
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0x8DF106F3
 	Offset: 0x468
 	Size: 0x84
@@ -117,7 +117,7 @@ function function_f8947dfe(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4b3c6d28
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0x5F306C6E
 	Offset: 0x4F8
 	Size: 0xA0
@@ -139,7 +139,7 @@ function private function_4b3c6d28()
 
 /*
 	Name: function_fa939efb
-	Namespace: namespace_312634d1
+	Namespace: zm_ai_nova_crawler
 	Checksum: 0xC89F7DEE
 	Offset: 0x5A0
 	Size: 0x34

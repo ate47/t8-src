@@ -435,12 +435,12 @@ class csceneplayer : csceneobject
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 1);
 					break;
 				}
-				case "hash_5d9e7981e1527c4c":
+				case "bank3":
 				{
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 2);
 					break;
 				}
-				case "hash_5d9e7881e1527a99":
+				case "bank4":
 				{
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 3);
 					break;
@@ -799,22 +799,22 @@ class csceneplayer : csceneobject
 					{
 						if(player gamepadusedlast())
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_66ac13c66930481e");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_66ac13c66930481e");
 						}
 						else
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_2e61b9986055044e");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_2e61b9986055044e");
 						}
 					}
 					else
 					{
 						if(player gamepadusedlast())
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_f7f3ef0446b4447");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_f7f3ef0446b4447");
 						}
 						else
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_63aa233af2b054f1");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_63aa233af2b054f1");
 						}
 					}
 					break;
@@ -826,61 +826,61 @@ class csceneplayer : csceneobject
 					{
 						if(player gamepadusedlast())
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_b89e8fe23b5a6ff");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_b89e8fe23b5a6ff");
 						}
 						else
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_5cafbb3ef224b89");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_5cafbb3ef224b89");
 						}
 					}
 					else
 					{
 						if(player gamepadusedlast())
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_43fe6cadb07b27b2");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_43fe6cadb07b27b2");
 						}
 						else
 						{
-							level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_121d78dfceea3bf2");
+							level.interactive_shot interactive_shot::set_text(player, #"hash_121d78dfceea3bf2");
 						}
 					}
 					break;
 				}
 				case "jump":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_5b57ca9476df902b");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_5b57ca9476df902b");
 					break;
 				}
 				case "stance":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_30214ec564c2c09b");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_30214ec564c2c09b");
 					break;
 				}
 				case "use":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_1c489083f5cdb3f6");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_1c489083f5cdb3f6");
 					break;
 				}
 				case "weapon_switch":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_5d8ce20bafb14fec");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_5d8ce20bafb14fec");
 					break;
 				}
 				case "sprint":
 				{
 					if(player gamepadusedlast())
 					{
-						level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_6b873520c198df93");
+						level.interactive_shot interactive_shot::set_text(player, #"hash_6b873520c198df93");
 					}
 					else
 					{
-						level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_7f72586820c8b86d");
+						level.interactive_shot interactive_shot::set_text(player, #"hash_7f72586820c8b86d");
 					}
 					break;
 				}
 				case "melee":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_6c4731677fa269b1");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_6c4731677fa269b1");
 					break;
 				}
 				case "attack":
@@ -889,27 +889,27 @@ class csceneplayer : csceneobject
 				}
 				case "dpad_up":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_327b92f099f4b62e");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_327b92f099f4b62e");
 					break;
 				}
 				case "dpad_down":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_51f4288480f483f7");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_51f4288480f483f7");
 					break;
 				}
 				case "dpad_left":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_2f8bb64325eeac62");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_2f8bb64325eeac62");
 					break;
 				}
 				case "dpad_right":
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"hash_2c841879f1d933ef");
+					level.interactive_shot interactive_shot::set_text(player, #"hash_2c841879f1d933ef");
 					break;
 				}
 				default:
 				{
-					level.interactive_shot interactive_shot::function_d5ea17f0(player, #"");
+					level.interactive_shot interactive_shot::set_text(player, #"");
 					break;
 				}
 			}
@@ -1480,12 +1480,12 @@ class csceneplayer : csceneobject
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 1);
 					break;
 				}
-				case "hash_5d9e7981e1527c4c":
+				case "bank3":
 				{
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 2);
 					break;
 				}
-				case "hash_5d9e7881e1527a99":
+				case "bank4":
 				{
 					player clientfield::set_to_player("player_pbg_bank_scene_system", 3);
 					break;

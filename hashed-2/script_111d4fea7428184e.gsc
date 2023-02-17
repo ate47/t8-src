@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_184abbae9afad370;
-#using script_1f2f7ef27f2aabba;
+#using scripts\mp_common\teams\platoons.gsc;
 #using script_256b8879317373de;
 #using script_29ed825598140ca0;
 #using script_3de49240300c8cc9;
 #using script_47fb62300ac0bd60;
 #using script_75be2950b381443;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\demo_shared.gsc;
@@ -24,11 +24,11 @@
 #using scripts\mp_common\gametypes\globallogic_spawn.gsc;
 #using scripts\mp_common\scoreevents.gsc;
 
-#namespace namespace_2daa33c5;
+#namespace laststand_warzone;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x711042B2
 	Offset: 0x3B0
 	Size: 0x3C
@@ -37,12 +37,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_4b85d514cef1a6fc", &__init__, undefined, undefined);
+	system::register(#"laststand_warzone", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x5B06F59D
 	Offset: 0x3F8
 	Size: 0x494
@@ -90,7 +90,7 @@ function __init__()
 
 /*
 	Name: function_feb3e91d
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x2D177566
 	Offset: 0x898
 	Size: 0x50
@@ -104,7 +104,7 @@ function function_feb3e91d()
 
 /*
 	Name: function_414115a0
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xCA78A47D
 	Offset: 0x8F0
 	Size: 0x66
@@ -119,7 +119,7 @@ function function_414115a0(time, health)
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x882A14D3
 	Offset: 0x960
 	Size: 0xDC
@@ -130,13 +130,13 @@ function on_player_connect()
 {
 	foreach(prompt in level.wz_revive_prompt)
 	{
-		[[ prompt ]]->function_3b7b386a(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
+		[[ prompt ]]->set_clientnum(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 	}
 }
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xC8932A2C
 	Offset: 0xA48
 	Size: 0x106
@@ -155,7 +155,7 @@ function on_player_spawned()
 
 /*
 	Name: on_player_damage
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x3B63FC5C
 	Offset: 0xB58
 	Size: 0xBA
@@ -179,7 +179,7 @@ function on_player_damage(params)
 
 /*
 	Name: on_player_killed
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x6FFF5212
 	Offset: 0xC20
 	Size: 0x14
@@ -193,7 +193,7 @@ function on_player_killed()
 
 /*
 	Name: on_player_disconnect
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xE6C331F6
 	Offset: 0xC40
 	Size: 0xDC
@@ -218,7 +218,7 @@ function on_player_disconnect()
 
 /*
 	Name: function_c7d3aeec
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x7FCE3548
 	Offset: 0xD28
 	Size: 0x172
@@ -249,7 +249,7 @@ function function_c7d3aeec(statname, value)
 
 /*
 	Name: function_6f7bff5d
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x1F1F96B8
 	Offset: 0xEA8
 	Size: 0x6C
@@ -268,7 +268,7 @@ function function_6f7bff5d(statname, value)
 
 /*
 	Name: function_23089de2
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x393534A6
 	Offset: 0xF20
 	Size: 0x17C
@@ -297,7 +297,7 @@ function function_23089de2()
 
 /*
 	Name: function_e011eea6
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x53402256
 	Offset: 0x10A8
 	Size: 0xCA
@@ -327,7 +327,7 @@ event function_e011eea6(eventstruct)
 
 /*
 	Name: function_263a2944
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x8DC1E762
 	Offset: 0x1180
 	Size: 0x118
@@ -340,14 +340,14 @@ function function_263a2944(prompt, var_a1258c6b)
 	if(isdefined(self))
 	{
 		[[ prompt ]]->close(self);
-		[[ prompt ]]->function_3b7b386a(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
+		[[ prompt ]]->set_clientnum(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 		self notify(prompt.var_47e79fc + "_terminated");
 	}
 }
 
 /*
 	Name: function_60cc4433
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x989BDABA
 	Offset: 0x12A0
 	Size: 0xE8
@@ -363,14 +363,14 @@ function function_60cc4433(prompt, var_a1258c6b)
 		if(isdefined(self))
 		{
 			[[ prompt ]]->close(self);
-			[[ prompt ]]->function_3b7b386a(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
+			[[ prompt ]]->set_clientnum(self, int(min(getdvarint(#"com_maxclients", 0), pow(2, 7))) - 1);
 		}
 	}
 }
 
 /*
 	Name: function_c025efba
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xDD7CF948
 	Offset: 0x1390
 	Size: 0x15E
@@ -386,16 +386,16 @@ function function_c025efba(prompt, var_a1258c6b)
 		beingrevived = var_a1258c6b is_being_revived();
 		var_3840aba9 = var_a1258c6b function_72e0c544();
 		cowardsway = isdefined(var_a1258c6b.var_eb33efbc) && var_a1258c6b.var_eb33efbc;
-		[[ prompt ]]->function_f52e0186(self, !beingrevived && !var_3840aba9 && cowardsway);
+		[[ prompt ]]->set_cowardsWay(self, !beingrevived && !var_3840aba9 && cowardsway);
 		[[ prompt ]]->set_health(self, var_a1258c6b.var_2d19ce3c);
-		[[ prompt ]]->function_4b3fb8b8(self, var_a1258c6b.reviveprogress);
+		[[ prompt ]]->set_reviveProgress(self, var_a1258c6b.reviveprogress);
 		waitframe(1);
 	}
 }
 
 /*
 	Name: function_2b77bc35
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xC52BD118
 	Offset: 0x14F8
 	Size: 0x108
@@ -426,7 +426,7 @@ function function_2b77bc35()
 
 /*
 	Name: function_fb02bdd4
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x50D44CC2
 	Offset: 0x1608
 	Size: 0xF0
@@ -456,7 +456,7 @@ function function_fb02bdd4(var_17a89b1)
 
 /*
 	Name: function_16d5deba
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xEF5CC071
 	Offset: 0x1700
 	Size: 0xB8
@@ -478,7 +478,7 @@ function function_16d5deba()
 
 /*
 	Name: function_5de626dc
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x73886EE1
 	Offset: 0x17C0
 	Size: 0x160
@@ -493,9 +493,9 @@ function function_5de626dc(var_a1258c6b)
 		{
 			[[ prompt ]]->open(self, 1);
 			[[ prompt ]]->set_health(self, 1);
-			[[ prompt ]]->function_4b3fb8b8(self, 0);
-			[[ prompt ]]->function_f52e0186(self, 0);
-			[[ prompt ]]->function_3b7b386a(self, var_a1258c6b getentitynumber());
+			[[ prompt ]]->set_reviveProgress(self, 0);
+			[[ prompt ]]->set_cowardsWay(self, 0);
+			[[ prompt ]]->set_clientnum(self, var_a1258c6b getentitynumber());
 			self thread function_263a2944(prompt, var_a1258c6b);
 			self thread function_c025efba(prompt, var_a1258c6b);
 			self thread function_60cc4433(prompt);
@@ -507,7 +507,7 @@ function function_5de626dc(var_a1258c6b)
 
 /*
 	Name: function_dc7906e8
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x8018474A
 	Offset: 0x1928
 	Size: 0x232
@@ -522,9 +522,9 @@ function function_dc7906e8(einflictor, attacker, idamage, smeansofdeath, weapon,
 	self.laststandparams.victimorigin = self.origin;
 	self.laststandparams.var_5fceefd4 = self getplayerangles();
 	self.laststandparams.victimweapon = self.currentweapon;
-	var_f90950bd = (isdefined(attacker) ? attacker : self);
-	self.laststandparams.attackerorigin = var_f90950bd.origin;
-	self.laststandparams.var_83634238 = (isplayer(var_f90950bd) ? var_f90950bd getplayerangles() : var_f90950bd.angles);
+	vattacker = (isdefined(attacker) ? attacker : self);
+	self.laststandparams.attackerorigin = vattacker.origin;
+	self.laststandparams.var_83634238 = (isplayer(vattacker) ? vattacker getplayerangles() : vattacker.angles);
 	self.laststandparams.idamage = idamage;
 	self.laststandparams.smeansofdeath = smeansofdeath;
 	self.laststandparams.sweapon = weapon;
@@ -539,7 +539,7 @@ function function_dc7906e8(einflictor, attacker, idamage, smeansofdeath, weapon,
 
 /*
 	Name: function_d5db8d2e
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x20B05E46
 	Offset: 0x1B68
 	Size: 0x2C
@@ -553,7 +553,7 @@ function function_d5db8d2e(attacker, weapon)
 
 /*
 	Name: function_463b3f65
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xFC05EAD5
 	Offset: 0x1BA0
 	Size: 0xBC
@@ -580,7 +580,7 @@ function function_463b3f65()
 
 /*
 	Name: function_ce726eb4
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x9B6905D1
 	Offset: 0x1C68
 	Size: 0x1B8
@@ -616,7 +616,7 @@ function function_ce726eb4()
 
 /*
 	Name: function_90f43127
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x8919C4B4
 	Offset: 0x1E28
 	Size: 0x1A4
@@ -651,7 +651,7 @@ function function_90f43127(attacker)
 
 /*
 	Name: function_ed72859e
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xFBB90CDC
 	Offset: 0x1FD8
 	Size: 0x14A
@@ -681,7 +681,7 @@ function function_ed72859e()
 
 /*
 	Name: function_b1158c52
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xEB2F5EBD
 	Offset: 0x2130
 	Size: 0x1D6
@@ -732,7 +732,7 @@ function function_b1158c52(var_90c1e72d)
 
 /*
 	Name: playerlaststand
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xBC2AD293
 	Offset: 0x2310
 	Size: 0x8C4
@@ -780,7 +780,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		self.var_22002c3b[self.var_22002c3b.size] = einflictor;
 	}
 	self function_ecdd4b27(attacker);
-	callback::callback(#"hash_65626f47d6c0717c");
+	callback::callback(#"on_player_downed");
 	var_90c1e72d = function_ed72859e();
 	var_ef3f8858 = function_90f43127(attacker);
 	var_4db50476 = self util::isenemyplayer(attacker);
@@ -795,7 +795,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 		obituary(self, attacker, weapon, smeansofdeath);
 		if(var_4db50476)
 		{
-			attacker function_c7d3aeec(#"hash_5e8aeab034e87107", 1);
+			attacker function_c7d3aeec(#"kills_eliminated", 1);
 			attacker thread globallogic_score::givekillstats(smeansofdeath, weapon, self, attacker);
 			attacker clientfield::set_player_uimodel("hudItems.playerKills", attacker.kills);
 			damage = self player::function_40c6c42d(attacker);
@@ -887,7 +887,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 
 /*
 	Name: function_5ccd602d
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x729BD8F6
 	Offset: 0x2BE0
 	Size: 0xA4
@@ -906,7 +906,7 @@ function function_5ccd602d()
 
 /*
 	Name: laststand_disable_player_weapons
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xB1642842
 	Offset: 0x2C90
 	Size: 0x94
@@ -924,7 +924,7 @@ function laststand_disable_player_weapons()
 
 /*
 	Name: function_102748f8
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xE967C347
 	Offset: 0x2D30
 	Size: 0x64
@@ -940,7 +940,7 @@ function function_102748f8()
 
 /*
 	Name: laststand_enable_player_weapons
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xC87E35C9
 	Offset: 0x2DA0
 	Size: 0xDC
@@ -963,7 +963,7 @@ function laststand_enable_player_weapons()
 
 /*
 	Name: laststand_clean_up_on_interrupt
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xDABD412B
 	Offset: 0x2E88
 	Size: 0x1EC
@@ -998,7 +998,7 @@ function laststand_clean_up_on_interrupt(playerbeingrevived)
 
 /*
 	Name: laststand_bleedout_damage
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x9E434A86
 	Offset: 0x3080
 	Size: 0x49A
@@ -1019,13 +1019,13 @@ function laststand_bleedout_damage()
 		{
 			return;
 		}
-		var_fba25119 = 0;
+		playermelee = 0;
 		attacker = player::figure_out_attacker(waitresult.eattacker);
 		if(isplayer(attacker) && isdefined(waitresult.einflictor) && waitresult.einflictor == attacker)
 		{
-			var_fba25119 = waitresult.smeansofdeath == "MOD_MELEE" || waitresult.smeansofdeath == "MOD_MELEE_WEAPON_BUTT" || waitresult.smeansofdeath == "MOD_MELEE_ASSASSINATE";
+			playermelee = waitresult.smeansofdeath == "MOD_MELEE" || waitresult.smeansofdeath == "MOD_MELEE_WEAPON_BUTT" || waitresult.smeansofdeath == "MOD_MELEE_ASSASSINATE";
 		}
-		if(var_fba25119)
+		if(playermelee)
 		{
 			self.bleedout_time = 0;
 		}
@@ -1039,8 +1039,8 @@ function laststand_bleedout_damage()
 		{
 			self.bleedout_time = 0;
 			self.var_1cc38de0 = 1;
-			var_f90950bd = (isdefined(attacker) ? attacker : self);
-			self.var_a1d415ee = {#hash_10d87328:function_f8d53445(), #shitloc:waitresult.shitloc, #vdir:waitresult.vdir, #sweapon:waitresult.weapon, #smeansofdeath:waitresult.smeansofdeath, #idamage:waitresult.idamage, #hash_83634238:(isplayer(var_f90950bd) ? var_f90950bd getplayerangles() : var_f90950bd.angles), #attackerorigin:var_f90950bd.origin, #attacker:attacker, #einflictor:waitresult.einflictor};
+			vattacker = (isdefined(attacker) ? attacker : self);
+			self.var_a1d415ee = {#hash_10d87328:function_f8d53445(), #shitloc:waitresult.shitloc, #vdir:waitresult.vdir, #sweapon:waitresult.weapon, #smeansofdeath:waitresult.smeansofdeath, #idamage:waitresult.idamage, #hash_83634238:(isplayer(vattacker) ? vattacker getplayerangles() : vattacker.angles), #attackerorigin:vattacker.origin, #attacker:attacker, #einflictor:waitresult.einflictor};
 		}
 		if(isdefined(self.var_d75a6ff5))
 		{
@@ -1053,7 +1053,7 @@ function laststand_bleedout_damage()
 
 /*
 	Name: function_99fa3916
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x3C99A4F1
 	Offset: 0x3528
 	Size: 0x3C
@@ -1067,7 +1067,7 @@ function private function_99fa3916(notifyhash)
 
 /*
 	Name: is_being_revived
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xC4899785
 	Offset: 0x3570
 	Size: 0x36
@@ -1081,7 +1081,7 @@ function is_being_revived()
 
 /*
 	Name: function_72e0c544
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x9CDA0F89
 	Offset: 0x35B0
 	Size: 0x36
@@ -1095,7 +1095,7 @@ function function_72e0c544()
 
 /*
 	Name: laststand_bleedout
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x9B20ADD4
 	Offset: 0x35F0
 	Size: 0x3D4
@@ -1171,7 +1171,7 @@ function laststand_bleedout(bleedouttime, var_969fabf4)
 
 /*
 	Name: function_263492d9
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x1FE92E3A
 	Offset: 0x39D0
 	Size: 0x5C
@@ -1188,7 +1188,7 @@ function function_263492d9()
 
 /*
 	Name: function_6da86ae
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xCE4A2FFF
 	Offset: 0x3A38
 	Size: 0x46
@@ -1205,7 +1205,7 @@ function function_6da86ae()
 
 /*
 	Name: function_dab36dc8
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x28E8A17F
 	Offset: 0x3A88
 	Size: 0x74
@@ -1227,7 +1227,7 @@ function function_dab36dc8()
 
 /*
 	Name: bleed_out
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x2EBE2527
 	Offset: 0x3B08
 	Size: 0x6A6
@@ -1288,18 +1288,18 @@ function bleed_out(var_40d90c02)
 		{
 			if(isplayer(var_620529b4) && attacker == var_620529b4)
 			{
-				attacker function_c7d3aeec(#"hash_5e8aeab034e87107", 1);
+				attacker function_c7d3aeec(#"kills_eliminated", 1);
 			}
 			else
 			{
 				if(attacker util::function_4ded36e3(var_620529b4))
 				{
-					attacker function_c7d3aeec(#"hash_145aa173d16d98e5", 1);
+					attacker function_c7d3aeec(#"downs_eliminated_team", 1);
 					function_f887b191(self, attacker, 0, 2);
 				}
 				else
 				{
-					attacker function_c7d3aeec(#"hash_3de53e8cc577b633", 1);
+					attacker function_c7d3aeec(#"downs_eliminated", 1);
 					function_f887b191(self, attacker, 0, 3);
 				}
 			}
@@ -1331,7 +1331,7 @@ function bleed_out(var_40d90c02)
 
 /*
 	Name: respawn_player_after_time
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xE1DE28FC
 	Offset: 0x41B8
 	Size: 0xBC
@@ -1357,7 +1357,7 @@ function respawn_player_after_time(n_time_seconds)
 
 /*
 	Name: function_2907ce7a
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xEFD144D9
 	Offset: 0x4280
 	Size: 0x44
@@ -1372,7 +1372,7 @@ function function_2907ce7a()
 
 /*
 	Name: revive_trigger_spawn
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x13F56161
 	Offset: 0x42D0
 	Size: 0x18C
@@ -1399,7 +1399,7 @@ function revive_trigger_spawn()
 
 /*
 	Name: function_2dcf15cb
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x1C8380FC
 	Offset: 0x4468
 	Size: 0x28
@@ -1413,7 +1413,7 @@ function function_2dcf15cb(team)
 
 /*
 	Name: revive_trigger_think
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x9DC479A6
 	Offset: 0x4498
 	Size: 0x298
@@ -1473,7 +1473,7 @@ function revive_trigger_think()
 
 /*
 	Name: function_356caede
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x72554345
 	Offset: 0x4738
 	Size: 0x7EA
@@ -1518,7 +1518,7 @@ function function_356caede(team)
 		var_f7cfe7ee function_684a5394();
 		var_c9c35e60 = (getdvarint(#"hash_4fe437fabb65172a", 0) > 0 ? getdvarint(#"hash_4fe437fabb65172a", 0) : randomintrange(1, level.var_91c33dcb.finishers.size - 1));
 		var_dc5a63bd = level.var_91c33dcb.finishers.size - 1;
-		if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312") && var_f7cfe7ee clientfield::get("hasspectrebody"))
+		if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising") && var_f7cfe7ee clientfield::get("hasspectrebody"))
 		{
 			var_c9c35e60 = var_dc5a63bd;
 		}
@@ -1587,7 +1587,7 @@ function function_356caede(team)
 
 /*
 	Name: function_684a5394
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x3285F840
 	Offset: 0x4F30
 	Size: 0x24
@@ -1605,7 +1605,7 @@ function function_684a5394()
 
 /*
 	Name: function_b16f016a
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xA72E5A78
 	Offset: 0x4F60
 	Size: 0x4E
@@ -1627,7 +1627,7 @@ function function_b16f016a()
 
 /*
 	Name: function_fab0e07e
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x2767F4AB
 	Offset: 0x4FB8
 	Size: 0xD4
@@ -1652,7 +1652,7 @@ function function_fab0e07e(var_f7cfe7ee)
 
 /*
 	Name: function_516a3bef
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x29CA0616
 	Offset: 0x5098
 	Size: 0xB4
@@ -1673,7 +1673,7 @@ function function_516a3bef(replace)
 
 /*
 	Name: function_55f6978f
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x8DDF967
 	Offset: 0x5158
 	Size: 0x338
@@ -1740,7 +1740,7 @@ function function_55f6978f(team)
 
 /*
 	Name: revive_give_back_weapons
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x2D508A64
 	Offset: 0x5498
 	Size: 0xAC
@@ -1762,7 +1762,7 @@ function revive_give_back_weapons()
 
 /*
 	Name: can_revive
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x25DCCBE1
 	Offset: 0x5550
 	Size: 0x1F6
@@ -1815,7 +1815,7 @@ function can_revive(revivee, ignore_touch_checks = 0, height = undefined)
 
 /*
 	Name: is_reviving
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x79D08A25
 	Offset: 0x5750
 	Size: 0xB4
@@ -1841,7 +1841,7 @@ function is_reviving(revivee, ignore_touch_checks = 0, height = undefined)
 
 /*
 	Name: is_reviving_any
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x4E913811
 	Offset: 0x5810
 	Size: 0x18
@@ -1855,7 +1855,7 @@ function is_reviving_any()
 
 /*
 	Name: function_5c574004
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x59515D79
 	Offset: 0x5830
 	Size: 0x18
@@ -1869,7 +1869,7 @@ function function_5c574004()
 
 /*
 	Name: revive_do_revive
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x1C6E0F72
 	Offset: 0x5850
 	Size: 0x5E8
@@ -1975,7 +1975,7 @@ function revive_do_revive(playerbeingrevived)
 
 /*
 	Name: function_adecbc95
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x326172DD
 	Offset: 0x5E40
 	Size: 0x82
@@ -2002,7 +2002,7 @@ function function_adecbc95()
 
 /*
 	Name: function_c82a14d1
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xA78B497C
 	Offset: 0x5ED0
 	Size: 0xB6
@@ -2021,7 +2021,7 @@ function function_c82a14d1(var_f7cfe7ee)
 
 /*
 	Name: function_1c8cab15
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xDF2760BB
 	Offset: 0x5F90
 	Size: 0x188
@@ -2054,7 +2054,7 @@ function function_1c8cab15(var_b4bb7319)
 
 /*
 	Name: auto_revive_on_notify
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x38631D06
 	Offset: 0x6120
 	Size: 0x7C
@@ -2073,7 +2073,7 @@ function auto_revive_on_notify()
 
 /*
 	Name: function_b1303a37
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xAAB17AA4
 	Offset: 0x61A8
 	Size: 0x36
@@ -2091,7 +2091,7 @@ function function_b1303a37()
 
 /*
 	Name: revive_success
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x741EF2BC
 	Offset: 0x61E8
 	Size: 0x524
@@ -2115,7 +2115,7 @@ function revive_success(reviver, b_track_stats = 1)
 	}
 	if(isdefined(self.laststandparams) && self util::isenemyplayer(self.laststandparams.attacker))
 	{
-		self.laststandparams.attacker stats::function_d40764f3(#"hash_73dbce40eb17c57e", 1);
+		self.laststandparams.attacker stats::function_d40764f3(#"downs_revived", 1);
 	}
 	self.var_d887a4ad = 1;
 	var_cbf9fa14 = getdvarint(#"hash_77107267fe87b359", 350) / 1000;
@@ -2175,7 +2175,7 @@ function revive_success(reviver, b_track_stats = 1)
 
 /*
 	Name: function_ecdd4b27
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x44C35985
 	Offset: 0x6718
 	Size: 0x226
@@ -2201,7 +2201,7 @@ function function_ecdd4b27(attacker)
 
 /*
 	Name: function_1e8018b0
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x295F4D81
 	Offset: 0x6948
 	Size: 0xA6
@@ -2221,7 +2221,7 @@ function function_1e8018b0()
 
 /*
 	Name: function_b1ad0b64
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0x13593B62
 	Offset: 0x69F8
 	Size: 0xB8
@@ -2234,8 +2234,8 @@ function function_b1ad0b64(idamage, smeansofdeath)
 	{
 		return 0;
 	}
-	var_fba25119 = smeansofdeath == "MOD_MELEE" || smeansofdeath == "MOD_MELEE_WEAPON_BUTT" || smeansofdeath == "MOD_MELEE_ASSASSINATE";
-	if(var_fba25119)
+	playermelee = smeansofdeath == "MOD_MELEE" || smeansofdeath == "MOD_MELEE_WEAPON_BUTT" || smeansofdeath == "MOD_MELEE_ASSASSINATE";
+	if(playermelee)
 	{
 		return 1;
 	}
@@ -2246,7 +2246,7 @@ function function_b1ad0b64(idamage, smeansofdeath)
 
 /*
 	Name: function_7e714b6a
-	Namespace: namespace_2daa33c5
+	Namespace: laststand_warzone
 	Checksum: 0xD0684724
 	Offset: 0x6AB8
 	Size: 0x3E

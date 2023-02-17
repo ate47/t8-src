@@ -17,7 +17,7 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_411235ee3f5d491c", undefined, undefined, undefined);
+	system::register(#"contracts_shared", undefined, undefined, undefined);
 }
 
 /*

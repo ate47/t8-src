@@ -2,7 +2,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_3fda550bc6e1089a;
 #using script_47fb62300ac0bd60;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

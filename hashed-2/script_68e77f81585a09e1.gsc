@@ -23,7 +23,7 @@ function function_9f47471()
 		{
 			return;
 		}
-		var_94237d8 = array(#"hash_20deab97abbf7b12", #"hash_764a5fc3ba8820d2", #"hash_647ebc7d24425fee", #"hash_25bf2f1ea44e6b98");
+		var_94237d8 = array(#"hash_20deab97abbf7b12", #"hash_764a5fc3ba8820d2", #"hash_647ebc7d24425fee", #"tcmgoal");
 		i = 0;
 		foreach(var_acbd7392 in var_94237d8)
 		{

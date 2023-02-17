@@ -124,7 +124,7 @@ function function_d1112480(e_player)
 	}
 	if(level.s_apd_trap.var_41ee2ddc === 0)
 	{
-		self sethintstring(#"hash_21db2780833a8bfd");
+		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
 	if(util::function_5df4294() == "zstandard")
@@ -246,7 +246,7 @@ function apd_trap_activate(e_player)
 {
 	level endon(#"end_game");
 	n_total_time = 0;
-	weapon = getweapon(#"hash_13a204ba6887b18f");
+	weapon = getweapon(#"ww_tesla_gun_t8");
 	while(n_total_time < 60)
 	{
 		var_890584df = [];

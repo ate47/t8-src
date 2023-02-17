@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
@@ -38,11 +38,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3d1eec1f4849b380", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_3d1eec1f4849b380", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_42dceb2d
 	Checksum: 0xC55F7553
 	Offset: 0x170
@@ -50,7 +50,7 @@ function __init__()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(n_min_time, n_max_time)
+function private on_begin(n_min_time, n_max_time)
 {
 	level.var_935c100a = zm_trial::function_5769f26a(n_min_time);
 	level.var_33146b2e = zm_trial::function_5769f26a(n_max_time);
@@ -61,7 +61,7 @@ function private function_d1de6a85(n_min_time, n_max_time)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_42dceb2d
 	Checksum: 0x79ECF3C7
 	Offset: 0x250
@@ -69,7 +69,7 @@ function private function_d1de6a85(n_min_time, n_max_time)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level notify(#"hash_34f9cf7500b33c6b");
 	foreach(player in getplayers())

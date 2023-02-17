@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_42ac4a2f5444022b;
+#using scripts\zm\zm_mansion_triad.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
-#using script_5bb072c3abf4652c;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_contracts.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_c54399dcca098ce;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -136,7 +136,7 @@ function function_85839afe()
 {
 	var_9a2f8aa = getentarray("zombie_trap", "targetname");
 	level.var_ba53c5c5 = array::filter(var_9a2f8aa, 0, &function_960a9a04);
-	if(namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		level.var_940ee624 = 0;
 		level.var_adc872f3 = 0;
@@ -147,7 +147,7 @@ function function_85839afe()
 	{
 		var_e2623858 function_bd8eddac();
 	}
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -236,7 +236,7 @@ function function_aa539d7b()
 {
 	level flag::wait_till("all_players_spawned");
 	self function_b97c8553();
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -248,7 +248,7 @@ function function_aa539d7b()
 	foreach(var_d0ba86c2 in self.var_3a2026c0)
 	{
 		str_prompt = zm_utility::function_d6046228(#"hash_888d5fd1e90d685", #"hash_f1db4a15f0e12bb");
-		var_47323b73 = namespace_c05f06c7::create_unitrigger(var_d0ba86c2, &function_5b8a557f, str_prompt, 0, 0, 0);
+		var_47323b73 = mansion_util::create_unitrigger(var_d0ba86c2, &function_5b8a557f, str_prompt, 0, 0, 0);
 		var_47323b73.e_trap = self;
 		var_47323b73.prompt_and_visibility_func = &function_9026cbcd;
 		self.var_23769a97[self.var_23769a97.size] = var_47323b73;
@@ -260,7 +260,7 @@ function function_aa539d7b()
 		array::thread_all(self.var_3d6b88c4, &function_e714e3a8, "green");
 		foreach(var_4a416ea9 in self.var_3d6b88c4)
 		{
-			var_fe316a03 = util::spawn_model(#"hash_739ab862899e9135", var_4a416ea9 gettagorigin("energy_core_tag"), var_4a416ea9 gettagangles("energy_core_tag"));
+			var_fe316a03 = util::spawn_model(#"p8_zm_man_fire_trap_power_core_on", var_4a416ea9 gettagorigin("energy_core_tag"), var_4a416ea9 gettagangles("energy_core_tag"));
 			var_fe316a03 linkto(var_4a416ea9, "energy_core_tag");
 		}
 		return;
@@ -273,7 +273,7 @@ function function_aa539d7b()
 	array::thread_all(self.var_3d6b88c4, &function_e714e3a8, "green");
 	foreach(var_4a416ea9 in self.var_3d6b88c4)
 	{
-		var_fe316a03 = util::spawn_model(#"hash_739ab862899e9135", var_4a416ea9 gettagorigin("energy_core_tag"), var_4a416ea9 gettagangles("energy_core_tag"));
+		var_fe316a03 = util::spawn_model(#"p8_zm_man_fire_trap_power_core_on", var_4a416ea9 gettagorigin("energy_core_tag"), var_4a416ea9 gettagangles("energy_core_tag"));
 		var_fe316a03 linkto(var_4a416ea9, "energy_core_tag");
 	}
 }
@@ -375,7 +375,7 @@ function function_9026cbcd(player)
 	}
 	if(isdefined(self.stub.e_trap.is_cooling) && self.stub.e_trap.is_cooling)
 	{
-		self sethintstring(#"hash_21db2780833a8bfd");
+		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
 	if(isdefined(self.stub.e_trap.var_23aecef0) && self.stub.e_trap.var_23aecef0 && !zm_utility::is_standard())
@@ -473,8 +473,8 @@ function function_2a5a929(str_location, var_b7eee573)
 		}
 	}
 	str_prompt = zm_utility::function_d6046228(#"hash_78bf6e69946b64ca", #"hash_7042b50d373a6fce");
-	var_47323b73 = namespace_c05f06c7::create_unitrigger(s_loc, &function_b1bd4115, str_prompt, 0, undefined, 0);
-	var_47323b73.mdl = util::spawn_model(#"hash_739ab862899e9135", s_loc.origin, s_loc.angles);
+	var_47323b73 = mansion_util::create_unitrigger(s_loc, &function_b1bd4115, str_prompt, 0, undefined, 0);
+	var_47323b73.mdl = util::spawn_model(#"p8_zm_man_fire_trap_power_core_on", s_loc.origin, s_loc.angles);
 	var_47323b73.mdl notsolid();
 	var_47323b73.mdl thread function_ab6f51d9();
 	var_47323b73.str_location = str_location;
@@ -954,7 +954,7 @@ function function_7947b7ee()
 */
 function blue_fire()
 {
-	self thread namespace_7922d3d4::function_40e665ab();
+	self thread mansion_triad::function_40e665ab();
 	self flag::wait_till_clear(#"friendly");
 	self notify(#"extinguish");
 }

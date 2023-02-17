@@ -217,13 +217,13 @@ function private function_91b514e8(menuname)
 	Parameters: 2
 	Flags: Linked
 */
-function function_61d01718(transitions, var_276aad88)
+function function_61d01718(transitions, lui_event)
 {
 	player = self;
 	player endon(#"disconnect");
 	foreach(index, transition in transitions)
 	{
-		player function_b797319e(var_276aad88, index + 1);
+		player function_b797319e(lui_event, index + 1);
 		if((isdefined(transition.time) ? transition.time : 0) != 0)
 		{
 			function_3dc5df3b(float(transition.time) / 1000);
@@ -831,10 +831,10 @@ function function_d7b5082e()
 	Parameters: 4
 	Flags: Linked
 */
-function function_81c567a8(transition, var_e6825eda, outcome, var_276aad88)
+function function_81c567a8(transition, var_e6825eda, outcome, lui_event)
 {
 	level thread globallogic::sndsetmatchsnapshot(2);
-	player::function_e7f18b20(&function_b797319e, var_276aad88, var_e6825eda + 1);
+	player::function_e7f18b20(&function_b797319e, lui_event, var_e6825eda + 1);
 	[[level.var_3a309902[transition.type]]](transition, outcome);
 }
 
@@ -952,7 +952,7 @@ function function_40a46b5b(transition, outcome)
 	Parameters: 3
 	Flags: Linked
 */
-function function_7e8f8c47(transitions, outcome, var_276aad88)
+function function_7e8f8c47(transitions, outcome, lui_event)
 {
 	foreach(index, transition in transitions)
 	{
@@ -961,7 +961,7 @@ function function_7e8f8c47(transitions, outcome, var_276aad88)
 			continue;
 		}
 		level notify(#"hash_2895c81f7bc8a45", index, transition, outcome);
-		function_81c567a8(transition, index, outcome, var_276aad88);
+		function_81c567a8(transition, index, outcome, lui_event);
 		if((isdefined(transition.time) ? transition.time : 0) != 0)
 		{
 			function_3dc5df3b(float(transition.time) / 1000);

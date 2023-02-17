@@ -243,7 +243,7 @@ function get_safehouse_position_struct()
 {
 	position = spawnstruct();
 	position.angles = (0, 0, 0);
-	switch(util::function_53bbf9d2())
+	switch(util::get_map_name())
 	{
 		default:
 		{

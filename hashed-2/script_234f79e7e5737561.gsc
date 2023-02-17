@@ -65,7 +65,7 @@ function function_9fc8cc9c(localclientnum)
 			{
 				case 0:
 				{
-					var_dcf4ea85 setmodel(#"hash_6c0474e5948852cb");
+					var_dcf4ea85 setmodel(#"p8_zm_vapor_altar_icon_01_staminup");
 					break;
 				}
 				case 1:
@@ -75,12 +75,12 @@ function function_9fc8cc9c(localclientnum)
 				}
 				case 2:
 				{
-					var_dcf4ea85 setmodel(#"hash_7941823894380037");
+					var_dcf4ea85 setmodel(#"p8_zm_vapor_altar_icon_01_timeslip");
 					break;
 				}
 				case 3:
 				{
-					var_dcf4ea85 setmodel(#"hash_3d6bbf11f303d3b6");
+					var_dcf4ea85 setmodel(#"p8_zm_vapor_altar_icon_01_deadshot");
 					break;
 				}
 			}

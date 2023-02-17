@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_47fb62300ac0bd60;
-#using script_8abfb58852911dd;
+#using scripts\mp_common\item_world.gsc;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -40,12 +40,12 @@ function autoexec function_89f2df9()
 function __init__()
 {
 	level.var_f64d56a1 = (isdefined(getgametypesetting(#"hash_11b79ec2ffb886c8")) ? getgametypesetting(#"hash_11b79ec2ffb886c8") : 0) || (isdefined(getgametypesetting(#"hash_697d65a68cc6c6f1")) ? getgametypesetting(#"hash_697d65a68cc6c6f1") : 0);
-	var_a45a64b6 = getdynent("nixie_tube_cage");
+	nixie_tube_cage = getdynent("nixie_tube_cage");
 	if(!(isdefined(level.var_f64d56a1) && level.var_f64d56a1))
 	{
-		if(isdefined(var_a45a64b6))
+		if(isdefined(nixie_tube_cage))
 		{
-			function_e2a06860(var_a45a64b6, 3);
+			function_e2a06860(nixie_tube_cage, 3);
 		}
 	}
 	level thread function_5f309cfb();
@@ -64,12 +64,12 @@ function function_5f309cfb()
 {
 	level flagsys::wait_till(#"hash_507a4486c4a79f1d");
 	waitframe(1);
-	var_a45a64b6 = getdynent("nixie_tube_cage");
+	nixie_tube_cage = getdynent("nixie_tube_cage");
 	if(!(isdefined(level.var_f64d56a1) && level.var_f64d56a1))
 	{
-		if(isdefined(var_a45a64b6))
+		if(isdefined(nixie_tube_cage))
 		{
-			function_e2a06860(var_a45a64b6, 3);
+			function_e2a06860(nixie_tube_cage, 3);
 		}
 	}
 }

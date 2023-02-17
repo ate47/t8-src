@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -36,11 +36,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_547de32b173ee2a4", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_547de32b173ee2a4", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_50e678c1
 	Checksum: 0xDE84642F
 	Offset: 0x140
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_60bdad5f, var_36c3cc24, var_4ee27b15, var_3bc46181, var_1f6e1e99)
+function private on_begin(var_60bdad5f, var_36c3cc24, var_4ee27b15, var_3bc46181, var_1f6e1e99)
 {
 	switch(level.players.size)
 	{
@@ -77,13 +77,13 @@ function private function_d1de6a85(var_60bdad5f, var_36c3cc24, var_4ee27b15, var
 	self.var_e6e7a65d = (isdefined(zombie_utility::function_d2dfacfd(#"rebuild_barrier_cap_per_round")) ? zombie_utility::function_d2dfacfd(#"rebuild_barrier_cap_per_round") : 0);
 	zombie_utility::set_zombie_var(#"rebuild_barrier_cap_per_round", self.var_28433a54);
 	self.var_a84ac7c8 = var_60bdad5f;
-	namespace_b22c99a5::function_2976fa44(self.var_358e6a29);
-	namespace_b22c99a5::function_dace284(0);
+	zm_trial_util::function_2976fa44(self.var_358e6a29);
+	zm_trial_util::function_dace284(0);
 	self thread function_738e3a43();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_50e678c1
 	Checksum: 0xBD37AE61
 	Offset: 0x340
@@ -91,7 +91,7 @@ function private function_d1de6a85(var_60bdad5f, var_36c3cc24, var_4ee27b15, var
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset)
 	{
@@ -100,7 +100,7 @@ function private function_9e7b3f4d(round_reset)
 			zm_trial::fail(self.var_a84ac7c8);
 		}
 	}
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	zombie_utility::set_zombie_var(#"rebuild_barrier_cap_per_round", self.var_e6e7a65d);
 }
 
@@ -138,7 +138,7 @@ function private function_738e3a43()
 			self.var_28433a54 = self.var_28433a54 - waitresult.points;
 		}
 		self.var_28433a54 = math::clamp(self.var_28433a54, 0, 1000);
-		namespace_b22c99a5::function_dace284(int(self.var_358e6a29 - self.var_28433a54));
+		zm_trial_util::function_dace284(int(self.var_358e6a29 - self.var_28433a54));
 	}
 }
 

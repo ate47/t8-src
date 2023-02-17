@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using scripts\core_common\animation_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\audio_shared.csc;
@@ -534,7 +534,7 @@ function function_b195a021(func, obj)
 }
 
 /*
-	Name: function_e9e16e2f
+	Name: on_killcam_begin
 	Namespace: callback
 	Checksum: 0xC3BF41A0
 	Offset: 0xF28
@@ -542,13 +542,13 @@ function function_b195a021(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_e9e16e2f(func, obj)
+function on_killcam_begin(func, obj)
 {
 	add_callback(#"killcam_begin", func, obj);
 }
 
 /*
-	Name: function_4f6cafea
+	Name: on_killcam_end
 	Namespace: callback
 	Checksum: 0x4AC1D2B9
 	Offset: 0xF70
@@ -556,13 +556,13 @@ function function_e9e16e2f(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_4f6cafea(func, obj)
+function on_killcam_end(func, obj)
 {
 	add_callback(#"killcam_end", func, obj);
 }
 
 /*
-	Name: function_10a8ebd8
+	Name: on_melee
 	Namespace: callback
 	Checksum: 0x3F39F469
 	Offset: 0xFB8
@@ -570,7 +570,7 @@ function function_4f6cafea(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_10a8ebd8(func, obj)
+function on_melee(func, obj)
 {
 	add_callback(#"melee", func, obj);
 }

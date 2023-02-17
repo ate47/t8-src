@@ -1,46 +1,46 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_11c0a75851de7fce;
-#using script_14f4a3c583c77d4b;
-#using script_193e6daef46bb88b;
-#using script_1bdbc6ad80276558;
-#using script_1dfbba29049027e1;
+#using scripts\zm\weapons\zm_weap_minigun.gsc;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm\weapons\zm_weap_katana.gsc;
+#using scripts\zm\weapons\zm_weap_spoon.gsc;
+#using scripts\zm\zm_escape_travel.gsc;
 #using script_22ebc4167e3bcd3f;
-#using script_2694b388c90e575;
-#using script_27e13de8e5cf7b4;
+#using scripts\zm\weapons\zm_weap_blundergat.gsc;
+#using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
 #using script_29b970364d23b9;
 #using script_2ba3951675c7ee1c;
-#using script_2fd955361c8b5861;
+#using scripts\zm\weapons\zm_weap_claymore.gsc;
 #using script_36222395658446f5;
-#using script_36574a0018b81aa0;
-#using script_3cebb48c37fc271;
-#using script_3ed4043a74fa517b;
+#using scripts\zm\zm_escape_spoon.gsc;
+#using scripts\zm_common\zm_fasttravel.gsc;
+#using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_4149480a9efe4d71;
-#using script_42ac6fc8b2ff0f3e;
-#using script_4548d9c08e3d56a;
+#using scripts\zm\zm_escape_pebble.gsc;
+#using scripts\zm\weapons\zm_weap_riotshield.gsc;
+#using scripts\zm\zm_escape_achievement.gsc;
 #using script_464d52643f5d868f;
 #using script_46cea9e5d4ef9e21;
-#using script_49d32f7eebe334a;
+#using scripts\zm\powerup\zm_powerup_zombie_blood.gsc;
 #using script_4cc2542101cb7973;
-#using script_511a13aec3bda066;
+#using scripts\zm\weapons\zm_weap_spork.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_58c342edd81589fb;
-#using script_5a979d9fa7d64923;
-#using script_5b4f7a8178990872;
+#using scripts\zm\weapons\zm_weap_flamethrower.gsc;
+#using scripts\zm_common\zm_hud.gsc;
 #using script_602009d88d859543;
-#using script_6099a32a397c3817;
-#using script_6190a46e0a7406eb;
+#using scripts\zm\weapons\zm_weap_spknifeork.gsc;
+#using scripts\zm\zm_escape_sq_bg.gsc;
 #using script_61ef84ea1a82c001;
 #using script_668c4fbb94671fb4;
-#using script_6d6f43a15ef163b8;
+#using scripts\zm\zm_escape_trials.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7224d61ed502ea07;
+#using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7980097e532303d1;
-#using script_7b5b9a915801c53a;
+#using scripts\zm\weapons\zm_weap_golden_knife.gsc;
 #using script_7c62f55ce3a557ff;
 #using script_ab862743b3070a;
 #using script_b00fcbc28051f15;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -89,11 +89,11 @@ function autoexec opt_in()
 	level.random_pandora_box_start = 1;
 	level.pack_a_punch_camo_index = 156;
 	level.pack_a_punch_camo_index_number_variants = 5;
-	system::ignore(#"hash_746f7956b9307f72");
-	system::ignore(#"hash_1b45fa71df7a015f");
-	system::ignore(#"hash_2aa13876578b1f89");
-	system::ignore(#"hash_19637d14ae86b4ec");
-	system::ignore(#"hash_2c7981ab6ce5ed74");
+	system::ignore(#"zm_weap_chakram");
+	system::ignore(#"zm_weap_hammer");
+	system::ignore(#"zm_weap_scepter");
+	system::ignore(#"zm_weap_sword_pistol");
+	system::ignore(#"zm_weap_homunculus");
 }
 
 /*
@@ -125,7 +125,7 @@ event main(eventstruct)
 	clientfield::register("vehicle", "" + #"hash_4fe04b8fa56a05c6", 1, 1, "int");
 	namespace_f2502da8::init_clientfields();
 	namespace_9d58c1cd::init_clientfields();
-	namespace_54386dac::init_clientfields();
+	zm_escape_util::init_clientfields();
 	namespace_1063645::init_clientfields();
 	namespace_b99141ed::init_clientfields();
 	level._effect[#"headshot"] = #"zombie/fx_bul_flesh_head_fatal_zmb";
@@ -150,7 +150,7 @@ event main(eventstruct)
 	level.var_1e480ea7 = &function_bcc6a9d8;
 	namespace_b99141ed::init();
 	namespace_69ddf44f::init();
-	namespace_53595129::init();
+	zm_escape_achievement::init();
 	level.custom_spawner_entry[#"crawl"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"hash_67303f9697bd0645"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"hash_cd17ca22402a02b"] = &zm_spawner::function_45bb11e4;
@@ -172,7 +172,7 @@ event main(eventstruct)
 	level.zone_manager_init_func = &function_f8274c62;
 	init_zones[0] = "zone_model_industries";
 	level thread zm_zonemgr::manage_zones(init_zones);
-	level thread namespace_efb8c7fe::init_alcatraz_zipline();
+	level thread zm_escape_travel::init_alcatraz_zipline();
 	level.random_pandora_box_start = 1;
 	level.start_chest_name = "powerhouse_chest";
 	level.var_161cb00c = 1;
@@ -196,7 +196,7 @@ event main(eventstruct)
 	level thread function_11794ed8();
 	level thread namespace_9d58c1cd::main();
 	level thread namespace_1063645::function_fb0bd6b9();
-	level.var_6f6cc58 = &namespace_54386dac::function_34b291c3;
+	level.var_6f6cc58 = &zm_escape_util::function_34b291c3;
 	if(zm_utility::is_trials())
 	{
 		level.dog_round_track_override = &function_246a0760;
@@ -205,20 +205,20 @@ event main(eventstruct)
 	}
 	else
 	{
-		level.var_539f36cd = &namespace_54386dac::function_cd3a65e0;
+		level.var_539f36cd = &zm_escape_util::function_cd3a65e0;
 	}
-	level.player_out_of_playable_area_override = &namespace_54386dac::function_e270dfe4;
-	level thread namespace_54386dac::function_a8024c77();
-	level thread namespace_54386dac::function_d89227a0("power_global", "start_zombie_round_logic");
-	level thread namespace_54386dac::function_d89227a0("power_building64", "power_on1");
-	level thread namespace_54386dac::function_d89227a0("power_powerhouse", "power_on2");
-	level thread namespace_54386dac::function_2def6c82();
+	level.player_out_of_playable_area_override = &zm_escape_util::function_e270dfe4;
+	level thread zm_escape_util::function_a8024c77();
+	level thread zm_escape_util::function_d89227a0("power_global", "start_zombie_round_logic");
+	level thread zm_escape_util::function_d89227a0("power_building64", "power_on1");
+	level thread zm_escape_util::function_d89227a0("power_powerhouse", "power_on2");
+	level thread zm_escape_util::function_2def6c82();
 	level thread namespace_69ddf44f::main();
 	level thread function_172ac1b5();
 	/#
 		level thread function_acb5b0ec();
 	#/
-	namespace_59ff1d6c::function_a00576dd(&function_7722c6f0, undefined, undefined, &function_e5086229);
+	zm_custom::function_a00576dd(&function_7722c6f0, undefined, undefined, &function_e5086229);
 	level thread function_30a6ae7c();
 	if(zm_utility::is_trials())
 	{
@@ -355,7 +355,7 @@ function function_e5086229(var_404e4288, var_8dd554ee)
 function function_11794ed8()
 {
 	level waittill(#"all_players_spawned");
-	if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") == 2)
+	if(zm_custom::function_901b751c(#"zmpowerstate") == 2)
 	{
 		level flag::set("power_on1");
 		level flag::set("power_on2");
@@ -397,7 +397,7 @@ function function_8d0c655f()
 */
 function function_2141ca97()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") != 2)
+	if(zm_custom::function_901b751c(#"zmpowerstate") != 2)
 	{
 		level clientfield::set("" + #"hash_4a8a7b58bf6cd5d8", 1);
 		level thread function_83c0bb0d();
@@ -1124,7 +1124,7 @@ function function_45b0f2f3(str_weapon_name)
 	switch(str_weapon_name)
 	{
 		case "hash_cb1cdb5b47f0226":
-		case "hash_19c157f2230454ad":
+		case "ww_blundergat_t8":
 		{
 			str_weapon = "wonder";
 			break;
@@ -1141,8 +1141,8 @@ function function_45b0f2f3(str_weapon_name)
 			str_weapon = "novox";
 			break;
 		}
-		case "hash_32a584f5a65c70d1":
-		case "hash_52b03a79f854eed3":
+		case "spork_alcatraz":
+		case "spoon_alcatraz":
 		{
 			str_weapon = "melee";
 			break;
@@ -1165,7 +1165,7 @@ function custom_add_vox()
 	zm_audio::loadplayervoicecategories(#"hash_41c3d60c9fdc1c1a");
 	zm_audio::loadplayervoicecategories(#"hash_6d9aadb58948623b");
 	zm_audio::loadplayervoicecategories(#"hash_5513a399a5c36320");
-	level.sndweaponpickupoverride = array(#"spoon", #"spork", #"spknifeork", #"tomahawk", #"blundergat", #"acidgat", #"hash_14db46413dd7381e", #"hash_49548133c092e662");
+	level.sndweaponpickupoverride = array(#"spoon", #"spork", #"spknifeork", #"tomahawk", #"blundergat", #"acidgat", #"magmagat", #"hash_49548133c092e662");
 }
 
 /*
@@ -1281,13 +1281,13 @@ function function_adac5e49(a_keys)
 	{
 		self.var_ee09b3bf = 0;
 	}
-	if(a_keys[0] === getweapon(#"hash_19c157f2230454ad"))
+	if(a_keys[0] === getweapon(#"ww_blundergat_t8"))
 	{
 		self.var_ee09b3bf = 0;
 		return a_keys;
 	}
 	n_chance = 0;
-	if(zm_weapons::limited_weapon_below_quota(getweapon(#"hash_19c157f2230454ad")))
+	if(zm_weapons::limited_weapon_below_quota(getweapon(#"ww_blundergat_t8")))
 	{
 		self.var_ee09b3bf++;
 		if(level.chest_moves == 0)
@@ -1314,9 +1314,9 @@ function function_adac5e49(a_keys)
 	{
 		self.var_ee09b3bf = 0;
 	}
-	if(randomint(100) <= n_chance && zm_magicbox::function_db355791(self, getweapon(#"hash_19c157f2230454ad")) && !self hasweapon(getweapon(#"hash_cb1cdb5b47f0226")))
+	if(randomint(100) <= n_chance && zm_magicbox::function_db355791(self, getweapon(#"ww_blundergat_t8")) && !self hasweapon(getweapon(#"hash_cb1cdb5b47f0226")))
 	{
-		arrayinsert(a_keys, getweapon(#"hash_19c157f2230454ad"), 0);
+		arrayinsert(a_keys, getweapon(#"ww_blundergat_t8"), 0);
 		self.var_ee09b3bf = 0;
 	}
 	return a_keys;
@@ -1333,11 +1333,11 @@ function function_adac5e49(a_keys)
 */
 function function_3511e2af(w_weapon, e_player)
 {
-	if(w_weapon == getweapon(#"hash_19c157f2230454ad") && (e_player hasweapon(getweapon(#"hash_19c157f2230454ad")) || e_player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || e_player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || e_player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) || e_player hasweapon(getweapon(#"hash_23882a5729dceca")) || e_player hasweapon(getweapon(#"hash_1b5092cccdb3d65b")) || e_player hasweapon(getweapon(#"hash_617dcc39334959ce"))))
+	if(w_weapon == getweapon(#"ww_blundergat_t8") && (e_player hasweapon(getweapon(#"ww_blundergat_t8")) || e_player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || e_player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || e_player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) || e_player hasweapon(getweapon(#"hash_23882a5729dceca")) || e_player hasweapon(getweapon(#"hash_1b5092cccdb3d65b")) || e_player hasweapon(getweapon(#"hash_617dcc39334959ce"))))
 	{
 		return false;
 	}
-	if(w_weapon == getweapon(#"hash_19c157f2230454ad") && isdefined(e_player.var_22b64976))
+	if(w_weapon == getweapon(#"ww_blundergat_t8") && isdefined(e_player.var_22b64976))
 	{
 		return false;
 	}
@@ -1392,7 +1392,7 @@ function function_e6797b71()
 */
 function function_172ac1b5()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"zmpowerstate") == 2)
+	if(zm_custom::function_901b751c(#"zmpowerstate") == 2)
 	{
 		zm_zonemgr::enable_zone("zone_cellblock_jail_1");
 		zm_zonemgr::enable_zone("zone_cellblock_jail_2");
@@ -1403,7 +1403,7 @@ function function_172ac1b5()
 		zm_zonemgr::enable_zone("zone_cellblock_west");
 		zm_zonemgr::enable_zone("zone_start");
 		zm_zonemgr::enable_zone("zone_library");
-		if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 0)
+		if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
 		{
 			zm_zonemgr::enable_zone("zone_catwalk_01");
 			zm_zonemgr::enable_zone("zone_catwalk_02");
@@ -1544,8 +1544,8 @@ function function_71a6c3ea()
 function function_2b57b5d6()
 {
 	/#
-		var_de1edcdb = struct::get_array("");
-		foreach(s_respawn_point in var_de1edcdb)
+		a_s_respawn_points = struct::get_array("");
+		foreach(s_respawn_point in a_s_respawn_points)
 		{
 			a_s_points = struct::get_array(s_respawn_point.target);
 			for(i = 1; i <= 4; i++)
@@ -1619,7 +1619,7 @@ function function_4b511c76()
 			var_46bf10d9.var_740e1e0e setmodel("");
 		}
 		level.n_soul_catchers_charged = level.var_4952e1.size;
-		level thread namespace_60a296cc::function_5fd2c72e();
+		level thread zm_escape_weap_quest::function_5fd2c72e();
 	#/
 }
 

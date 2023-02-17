@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_18f0d22c75b141a7;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_57f7003580bb15e0;
-#using script_6c8abe14025b47c4;
-#using script_7133a4d461308099;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
@@ -80,7 +80,7 @@ function function_4013aee1(status_effect, var_3bc85d80)
 	{
 		return;
 	}
-	switch(status_effect.var_67e2281d)
+	switch(status_effect.setype)
 	{
 		case 2:
 		{
@@ -677,14 +677,14 @@ function scoreeventplayerkill(data, time)
 		}
 		if(isdefined(attacker.var_a7f5c61e) && attacker.var_a7f5c61e)
 		{
-			if(isdefined(level.playgadgetsuccess) && weapon != getweapon(#"hash_4bb2d7f789b561eb") && gettime() > (isdefined(attacker.var_5069fdec) ? attacker.var_5069fdec : int(-30 * 1000)) + (int(30 * 1000)))
+			if(isdefined(level.playgadgetsuccess) && weapon != getweapon(#"eq_gravityslam") && gettime() > (isdefined(attacker.var_5069fdec) ? attacker.var_5069fdec : int(-30 * 1000)) + (int(30 * 1000)))
 			{
-				attacker [[level.playgadgetsuccess]](getweapon(#"hash_3a19c6a9c8caef33"), undefined, undefined, undefined);
+				attacker [[level.playgadgetsuccess]](getweapon(#"eq_grapple"), undefined, undefined, undefined);
 				attacker.var_5069fdec = gettime();
 			}
 			processscoreevent(#"hash_2b28b6abff07567e", attacker, victim, weapon);
 		}
-		if(weapon == getweapon(#"hash_4bb2d7f789b561eb"))
+		if(weapon == getweapon(#"eq_gravityslam"))
 		{
 			processscoreevent(#"hash_5c8c3bd3007e5948", attacker, victim, weapon);
 		}
@@ -795,7 +795,7 @@ function scoreeventplayerkill(data, time)
 		if(isdefined(data.victimweapon))
 		{
 			killedheavyweaponenemy(attacker, victim, weapon, data.victimweapon, victimgadgetpower);
-			if(data.victimweapon.statindex == level.var_697e9965.statindex)
+			if(data.victimweapon.statindex == level.weapon_sig_minigun.statindex)
 			{
 				processscoreevent(#"hash_3988d3aa940f2e77", attacker, victim, weapon);
 			}
@@ -806,11 +806,11 @@ function scoreeventplayerkill(data, time)
 		}
 		if(weapon.statname == #"frag_grenade")
 		{
-			attacker stats::function_dad108fa(#"hash_448dd62e83fdf39e", 1);
+			attacker stats::function_dad108fa(#"kills_frag_grenade", 1);
 		}
 		else if(weapon.statname == #"eq_molotov")
 		{
-			attacker stats::function_dad108fa(#"hash_48b36f9eaa29e8b3", 1);
+			attacker stats::function_dad108fa(#"kills_molotov", 1);
 		}
 		attacker thread updatemultikills(weapon, weaponclass, killstreak, victim);
 		if(level.numkills == 1)
@@ -977,7 +977,7 @@ function scoreeventplayerkill(data, time)
 				}
 			}
 		}
-		else if(isdefined(victim.firsttimedamaged) && victim.firsttimedamaged == time && (weapon.statindex == level.var_bb448b5f.statindex || weapon.inventorytype != "ability"))
+		else if(isdefined(victim.firsttimedamaged) && victim.firsttimedamaged == time && (weapon.statindex == level.weapon_hero_annihilator.statindex || weapon.inventorytype != "ability"))
 		{
 			if(attackershotvictim)
 			{
@@ -1517,7 +1517,7 @@ function is_weapon_valid(meansofdeath, weapon, weaponclass, killstreak)
 					else
 					{
 						baseweapon = challenges::getbaseweapon(weapon);
-						if(baseweapon == level.weaponspecialcrossbow || weapon.isballisticknife || baseweapon == level.var_9e188c0b && meansofdeath == "MOD_IMPACT")
+						if(baseweapon == level.weaponspecialcrossbow || weapon.isballisticknife || baseweapon == level.weaponflechette && meansofdeath == "MOD_IMPACT")
 						{
 							valid_weapon = 1;
 						}
@@ -1589,8 +1589,8 @@ function updatemultikills(weapon, weaponclass, killstreak, victim)
 		}
 		else if(self.var_311e32f > 1)
 		{
-			var_2ad6ce74 = "specialist_weapon_equipment_multikill_x" + self.var_311e32f;
-			processscoreevent(var_2ad6ce74, self, victim, weapon);
+			scorestr = "specialist_weapon_equipment_multikill_x" + self.var_311e32f;
+			processscoreevent(scorestr, self, victim, weapon);
 		}
 	}
 	if(isdefined(weaponclass))
@@ -1682,7 +1682,7 @@ function updatemultikills(weapon, weaponclass, killstreak, victim)
 			}
 		}
 	}
-	if(self.var_a7f5c61e && weapon.name == #"hash_4bb2d7f789b561eb")
+	if(self.var_a7f5c61e && weapon.name == #"eq_gravityslam")
 	{
 		self.var_cc5ece37++;
 	}
@@ -1977,7 +1977,7 @@ function updateoneshotmultikills(victim, weapon, firsttimedamaged, meansofdeath)
 		processscoreevent(#"kill_enemies_one_bullet", self, victim, weapon);
 		self contracts::function_a54e2068(#"hash_45b74ebf1ab2fd47");
 	}
-	else if(weapon.statindex != level.var_bb448b5f.statindex)
+	else if(weapon.statindex != level.weapon_hero_annihilator.statindex)
 	{
 		processscoreevent(#"kill_enemy_one_bullet", self, victim, weapon);
 		if(!level.hardcoremode)
@@ -1986,8 +1986,8 @@ function updateoneshotmultikills(victim, weapon, firsttimedamaged, meansofdeath)
 		}
 		if(meansofdeath == "MOD_HEAD_SHOT")
 		{
-			var_f9d69b3b = self stats::function_441050ca(#"hash_4db8a1f607f40ac1");
-			var_35635206 = self stats::function_af5584ca(#"hash_4db8a1f607f40ac1");
+			var_f9d69b3b = self stats::function_441050ca(#"kill_enemy_one_bullet_headshot");
+			var_35635206 = self stats::function_af5584ca(#"kill_enemy_one_bullet_headshot");
 			var_413c3e61 = 1;
 			if(isdefined(var_35635206))
 			{
@@ -2011,7 +2011,7 @@ function updateoneshotmultikills(victim, weapon, firsttimedamaged, meansofdeath)
 					}
 				}
 			}
-			self stats::function_dad108fa(#"hash_4db8a1f607f40ac1", var_413c3e61);
+			self stats::function_dad108fa(#"kill_enemy_one_bullet_headshot", var_413c3e61);
 		}
 	}
 	self.oneshotmultikills = 0;
@@ -2271,13 +2271,13 @@ function multikillmedalachievement()
 	Parameters: 2
 	Flags: Linked
 */
-function function_c01cb128(entity, var_f208fb92)
+function function_c01cb128(entity, sensor_darts)
 {
-	if(!isdefined(entity) || !isdefined(var_f208fb92) || !isarray(var_f208fb92) || !isdefined(entity.origin))
+	if(!isdefined(entity) || !isdefined(sensor_darts) || !isarray(sensor_darts) || !isdefined(entity.origin))
 	{
 		return undefined;
 	}
-	return function_c28e2c05(entity.origin, var_f208fb92, 1);
+	return function_c28e2c05(entity.origin, sensor_darts, 1);
 }
 
 /*
@@ -2289,16 +2289,16 @@ function function_c01cb128(entity, var_f208fb92)
 	Parameters: 3
 	Flags: Linked
 */
-function function_c28e2c05(var_152c14d0, var_f208fb92, var_e13a103a)
+function function_c28e2c05(var_152c14d0, sensor_darts, var_e13a103a)
 {
 	if(!var_e13a103a)
 	{
-		if(!isdefined(var_f208fb92) || !isarray(var_f208fb92) || !isdefined(var_152c14d0))
+		if(!isdefined(sensor_darts) || !isarray(sensor_darts) || !isdefined(var_152c14d0))
 		{
 			return undefined;
 		}
 	}
-	foreach(sensor in var_f208fb92)
+	foreach(sensor in sensor_darts)
 	{
 		if(!isdefined(sensor))
 		{
@@ -2321,9 +2321,9 @@ function function_c28e2c05(var_152c14d0, var_f208fb92, var_e13a103a)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3932ffa2(var_f208fb92)
+function function_3932ffa2(sensor_darts)
 {
-	foreach(sensor in var_f208fb92)
+	foreach(sensor in sensor_darts)
 	{
 		if(!isdefined(sensor))
 		{

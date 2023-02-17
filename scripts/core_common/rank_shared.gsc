@@ -223,7 +223,7 @@ function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_
 		}
 		if(isdefined(is_obj) && is_obj)
 		{
-			level.scoreinfo[type][#"hash_49b115fae591f06a"] = is_obj;
+			level.scoreinfo[type][#"isobj"] = is_obj;
 		}
 		if(isdefined(medalname))
 		{

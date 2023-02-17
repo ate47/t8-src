@@ -16,7 +16,7 @@ function function_10672567()
 {
 	if(!isdefined(level.var_4ada4f1f))
 	{
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		fields = getmapfields();
 		if(!isdefined(fields))
 		{
@@ -50,7 +50,7 @@ function function_10672567()
 }
 
 /*
-	Name: function_90500af5
+	Name: get_cast
 	Namespace: namespace_cb7cafc3
 	Checksum: 0x1AC6ABE3
 	Offset: 0x1C8
@@ -58,7 +58,7 @@ function function_10672567()
 	Parameters: 0
 	Flags: Linked
 */
-function function_90500af5()
+function get_cast()
 {
 	cast = #"other";
 	fields = function_10672567();
@@ -70,7 +70,7 @@ function function_90500af5()
 }
 
 /*
-	Name: function_166646a6
+	Name: get_story
 	Namespace: namespace_cb7cafc3
 	Checksum: 0x34DAAB84
 	Offset: 0x230
@@ -78,10 +78,10 @@ function function_90500af5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_166646a6()
+function get_story()
 {
-	var_26ea2807 = function_90500af5();
-	if(var_26ea2807 === #"hash_517389c0ae1875f9")
+	var_26ea2807 = get_cast();
+	if(var_26ea2807 === #"story1")
 	{
 		return 1;
 	}

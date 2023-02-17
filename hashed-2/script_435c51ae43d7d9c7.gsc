@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
-#using script_2fcb47e3735a6edd;
+#using scripts\zm_common\zm_trial_util.gsc;
+#using scripts\zm\zm_orange_pap.gsc;
 #using script_39e954a546d3baf;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
 #using script_5b2f999b8dbf5f77;
 #using script_6a3f43063dfd1bdc;
-#using script_72eca4c9e2aea110;
+#using scripts\zm\zm_orange_ee_dynamite.gsc;
 #using script_ab862743b3070a;
 #using script_d19b1fbf1d7cdd6;
 #using scripts\core_common\array_shared.gsc;
@@ -169,11 +169,11 @@ function function_ca35fa36()
 	level.var_a385f14 notify(#"hash_77af4c847e66b4ca");
 	namespace_d09ff23c::function_602d605();
 	level flag::set(#"hash_5a3d0402a5557739");
-	foreach(var_a84febff in level.var_4d8e32c8)
+	foreach(e_pap in level.var_4d8e32c8)
 	{
-		if(!var_a84febff.script_noteworthy === "pap_island")
+		if(!e_pap.script_noteworthy === "pap_island")
 		{
-			var_a84febff thread namespace_44916ada::function_e3921120(1);
+			e_pap thread zm_orange_pap::function_e3921120(1);
 		}
 	}
 	level thread registerlast_truck_headshot_();
@@ -237,7 +237,7 @@ function function_ca35fa36()
 	level function_a97f7327();
 	for(i = 0; i < 3; i++)
 	{
-		namespace_be178848::function_61511fcf(i);
+		zm_orange_ee_dynamite::function_61511fcf(i);
 	}
 	level thread function_466fb0ff(var_f79ff5ec);
 }
@@ -375,8 +375,8 @@ function intro_zombie_dog(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		var_b88c4823 = namespace_c402654::function_62db7b1c(1, undefined);
-		if(isdefined(var_b88c4823))
+		e_nova_crawler = namespace_c402654::function_62db7b1c(1, undefined);
+		if(isdefined(e_nova_crawler))
 		{
 			n_spawn_count++;
 		}
@@ -587,8 +587,8 @@ function function_1dcc39ae()
 */
 function init_traps()
 {
-	var_2b4789ce = getentarray("zombie_trap", "targetname");
-	foreach(e_trap in var_2b4789ce)
+	a_e_traps = getentarray("zombie_trap", "targetname");
+	foreach(e_trap in a_e_traps)
 	{
 		e_trap.script_string = "disable_wait_for_power";
 	}

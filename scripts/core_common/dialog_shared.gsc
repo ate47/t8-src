@@ -1410,10 +1410,10 @@ function get_random_key(dialogkey)
 	{
 		return dialogkey;
 	}
-	var_4b7f8a7b = level.var_f53efe5c[bundlename][dialogkey];
-	if(var_4b7f8a7b > 0)
+	keycount = level.var_f53efe5c[bundlename][dialogkey];
+	if(keycount > 0)
 	{
-		return dialogkey + randomint(var_4b7f8a7b);
+		return dialogkey + randomint(keycount);
 	}
 	return dialogkey + 0;
 }

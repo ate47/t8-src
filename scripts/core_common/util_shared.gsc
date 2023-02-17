@@ -5316,7 +5316,7 @@ function delayed_delete(f_delay_seconds)
 */
 function is_safehouse()
 {
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	return false;
 }
 
@@ -5331,7 +5331,7 @@ function is_safehouse()
 */
 function is_new_cp_map()
 {
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	switch(mapname)
 	{
 		default:
@@ -5904,7 +5904,7 @@ function waittill_can_add_debug_command()
 }
 
 /*
-	Name: function_345e5b9a
+	Name: add_debug_command
 	Namespace: util
 	Checksum: 0x67794AA5
 	Offset: 0xB3D8
@@ -5912,7 +5912,7 @@ function waittill_can_add_debug_command()
 	Parameters: 1
 	Flags: None
 */
-function function_345e5b9a(cmd)
+function add_debug_command(cmd)
 {
 	/#
 		waittill_can_add_debug_command();
@@ -6644,7 +6644,7 @@ function function_5df4294()
 }
 
 /*
-	Name: function_53bbf9d2
+	Name: get_map_name
 	Namespace: util
 	Checksum: 0x24AA524
 	Offset: 0xCA08
@@ -6652,13 +6652,13 @@ function function_5df4294()
 	Parameters: 0
 	Flags: Linked
 */
-function function_53bbf9d2()
+function get_map_name()
 {
 	return tolower(getdvarstring(#"hash_3b7b241b78207c96"));
 }
 
 /*
-	Name: function_3f165ee8
+	Name: is_frontend_map
 	Namespace: util
 	Checksum: 0xC8A51926
 	Offset: 0xCA48
@@ -6666,13 +6666,13 @@ function function_53bbf9d2()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3f165ee8()
+function is_frontend_map()
 {
-	return function_53bbf9d2() === "core_frontend";
+	return get_map_name() === "core_frontend";
 }
 
 /*
-	Name: function_e2e9d901
+	Name: add_devgui
 	Namespace: util
 	Checksum: 0xBF4797FD
 	Offset: 0xCA70
@@ -6680,7 +6680,7 @@ function function_3f165ee8()
 	Parameters: 2
 	Flags: None
 */
-function function_e2e9d901(menu_path, commands)
+function add_devgui(menu_path, commands)
 {
 	/#
 		add_queued_debug_command(((("" + menu_path) + "") + commands) + "");
@@ -6715,7 +6715,7 @@ function function_d84da933(menu_path)
 function function_3f749abc(menu_path, commands)
 {
 	/#
-		function_345e5b9a(((("" + menu_path) + "") + commands) + "");
+		add_debug_command(((("" + menu_path) + "") + commands) + "");
 	#/
 }
 
@@ -6731,7 +6731,7 @@ function function_3f749abc(menu_path, commands)
 function function_85c62761(menu_path)
 {
 	/#
-		function_345e5b9a(("" + menu_path) + "");
+		add_debug_command(("" + menu_path) + "");
 	#/
 }
 
@@ -6909,13 +6909,13 @@ function show_hit_marker(var_554cb812 = 0, var_1ed250ec = 0)
 		}
 		else if(isdefined(self) && !isdefined(self.hud_damagefeedback))
 		{
-			self thread function_6e97119b(var_554cb812, var_1ed250ec);
+			self thread _show_hit_marker(var_554cb812, var_1ed250ec);
 		}
 	}
 }
 
 /*
-	Name: function_6e97119b
+	Name: _show_hit_marker
 	Namespace: util
 	Checksum: 0xE0355944
 	Offset: 0xD200
@@ -6923,7 +6923,7 @@ function show_hit_marker(var_554cb812 = 0, var_1ed250ec = 0)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_6e97119b(var_554cb812, var_1ed250ec)
+function private _show_hit_marker(var_554cb812, var_1ed250ec)
 {
 	self endon(#"death");
 	if(!isdefined(self.var_9a94bf1))

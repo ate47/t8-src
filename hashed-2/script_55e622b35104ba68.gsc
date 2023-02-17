@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3bf78bb3042fc0e2;
 #using script_429c7c5a289f2b25;
-#using script_4663ec59d864e437;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_57f7003580bb15e0;
 #using script_d43f0658aa1a5e5;
 #using scripts\core_common\array_shared.gsc;
@@ -84,7 +84,7 @@ function __init__()
 	clientfield::register("vehicle", "warpportalfx", 15000, 1, "int");
 	clientfield::register("vehicle", "warpportalfx_launch", 15000, 1, "counter");
 	clientfield::register("toplayer", "warpportal_fx_wormhole", 1, 1, "int");
-	level.var_60467c6c = wz_wingsuit_hud::register("wz_wingsuit_hud");
+	level.wingsuit_hud = wz_wingsuit_hud::register("wz_wingsuit_hud");
 	/#
 		level thread function_943c98fb(level.insertion);
 	#/
@@ -126,10 +126,10 @@ function function_3ca86964(var_1d83d08d)
 	}
 	mins = vectorscale((-1, -1, 0), 150000);
 	maxs = vectorscale((1, 1, 0), 150000);
-	var_f5663ad6 = var_6024133d[0].origin;
-	var_4ffef006 = var_6024133d[1].origin;
-	mins = (min(var_f5663ad6[0], var_4ffef006[0]), min(var_f5663ad6[1], var_4ffef006[1]), 150000);
-	maxs = (max(var_f5663ad6[0], var_4ffef006[0]), max(var_f5663ad6[1], var_4ffef006[1]), 150000);
+	o_a = var_6024133d[0].origin;
+	o_b = var_6024133d[1].origin;
+	mins = (min(o_a[0], o_b[0]), min(o_a[1], o_b[1]), 150000);
+	maxs = (max(o_a[0], o_b[0]), max(o_a[1], o_b[1]), 150000);
 	return function_24531a26(var_1d83d08d.start, var_1d83d08d.end, mins, maxs);
 }
 
@@ -1081,8 +1081,8 @@ function function_57d4a011(insertion)
 			{
 				x_pos = center[0] + (radius * cos(angle));
 				y_pos = center[1] + (radius * sin(angle));
-				var_636e904a = 20000;
-				var_9fac9726.origin = (x_pos, y_pos, var_636e904a);
+				z_pos = 20000;
+				var_9fac9726.origin = (x_pos, y_pos, z_pos);
 				var_9fac9726.var_8c9cad0b = angle;
 				angle = angle + step_size;
 				target = var_8a2c40d0.origin - var_9fac9726.origin;
@@ -1510,12 +1510,12 @@ function function_ca5b6591(insertion, startorigin, endorigin, var_872f085f)
 			continue;
 		}
 		var_31a37076[player.team] = 1;
-		if(isdefined(getgametypesetting(#"hash_2992e3d39d55b312")) && getgametypesetting(#"hash_2992e3d39d55b312"))
+		if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 		{
 			function_58ca2822("warSpectreRisingInfiltration", undefined, {#team:player.team});
 			continue;
 		}
-		if(isdefined(getgametypesetting(#"hash_53d529e82bcf1212")) && getgametypesetting(#"hash_53d529e82bcf1212"))
+		if(isdefined(getgametypesetting(#"wzhardcore")) && getgametypesetting(#"wzhardcore"))
 		{
 			function_58ca2822("hcWarBoostInfiltration", undefined, {#team:player.team});
 			continue;
@@ -2558,7 +2558,7 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 		assert(total_distance > (var_671fc488 - var_5e24c814));
 	#/
 	var_f26cf241 = (var_671fc488 - var_5e24c814) / total_distance;
-	var_1da12059 = var_671fc488 / total_distance;
+	end_t = var_671fc488 / total_distance;
 	/#
 		level thread function_63793dbe();
 	#/
@@ -2575,7 +2575,7 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 		}
 		player clientfield::set_to_player("infiltration_final_warning", 1);
 	}
-	plane function_85635daf(startpoint, total_distance, var_1da12059);
+	plane function_85635daf(startpoint, total_distance, end_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
@@ -2644,14 +2644,14 @@ function private function_6da3daa0(insertion, plane, startpoint, endpoint, var_6
 	/#
 		assert(total_distance > (var_6a694ed8 - var_7cd0d619));
 	#/
-	var_309de265 = (var_6a694ed8 - var_7cd0d619) / total_distance;
-	var_ed08031a = var_6a694ed8 / total_distance;
-	plane function_85635daf(startpoint, total_distance, var_309de265);
+	cargo_t = (var_6a694ed8 - var_7cd0d619) / total_distance;
+	start_t = var_6a694ed8 / total_distance;
+	plane function_85635daf(startpoint, total_distance, cargo_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
 	insertion thread function_d11a5f0c(insertion);
-	plane function_85635daf(startpoint, total_distance, var_ed08031a);
+	plane function_85635daf(startpoint, total_distance, start_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
@@ -2875,7 +2875,7 @@ function function_2d683dc2(aircraft)
 	{
 		level.var_a2915a68 [[level.var_81b39a59]](self);
 	}
-	self thread function_910065da(aircraft);
+	self thread player_freefall(aircraft);
 	self function_af096637();
 	self stoprumble(#"hash_233b436a07cd091a");
 	level callback::callback(#"hash_74b19f5972b0ee52", {#player:self});
@@ -2898,7 +2898,7 @@ function function_ba904ee2(velocity)
 }
 
 /*
-	Name: function_910065da
+	Name: player_freefall
 	Namespace: namespace_67838d10
 	Checksum: 0x1D80D2E6
 	Offset: 0xAB08
@@ -2906,7 +2906,7 @@ function function_ba904ee2(velocity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_910065da(aircraft)
+function player_freefall(aircraft)
 {
 	self notify("23caea5eda85f40b");
 	self endon("23caea5eda85f40b");
@@ -2977,7 +2977,7 @@ function function_4630bf0a()
 */
 function function_4eb0c560()
 {
-	[[ level.var_60467c6c ]]->close(self);
+	[[ level.wingsuit_hud ]]->close(self);
 	self val::reset(#"hash_75440eb9162352b6", "disablegadgets");
 	self val::reset(#"hash_37b74f87edd2df20", "show_hud");
 	self val::reset(#"hash_ce6d3e6ece6e18d", "show_weapon_hud");
@@ -3056,7 +3056,7 @@ function function_2b276ae0()
 	self setclientuivisibilityflag("weapon_hud_visible", 0);
 	self val::reset(#"hash_75440eb9162352b6", "freezecontrols");
 	self function_4feecc32();
-	[[ level.var_60467c6c ]]->open(self);
+	[[ level.wingsuit_hud ]]->open(self);
 	callback::function_d8abfc3d(#"parachute", &function_66c91693);
 	callback::on_death(&function_916470ec);
 	self thread function_7a4c1517();
@@ -3075,7 +3075,7 @@ function function_712f9f52()
 {
 	self endon(#"disconnect", #"death");
 	self setclientuivisibilityflag("weapon_hud_visible", 0);
-	[[ level.var_60467c6c ]]->open(self);
+	[[ level.wingsuit_hud ]]->open(self);
 	callback::function_d8abfc3d(#"parachute", &function_66c91693);
 	callback::on_death(&function_916470ec);
 }
@@ -3129,9 +3129,9 @@ function function_c71552d0(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 		if(isdefined(player))
 		{
 			[[ lui_menu ]]->open(player);
-			[[ lui_menu ]]->function_9cd54463(player, 0);
-			[[ lui_menu ]]->function_331f9dd(player, 1);
-			[[ lui_menu ]]->function_237ff433(player, int(fadeouttime * 1000));
+			[[ lui_menu ]]->set_startAlpha(player, 0);
+			[[ lui_menu ]]->set_endAlpha(player, 1);
+			[[ lui_menu ]]->set_fadeOverTime(player, int(fadeouttime * 1000));
 		}
 	}
 	wait(fadeouttime + var_8e0c0121);
@@ -3144,9 +3144,9 @@ function function_c71552d0(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 			player playrumbleonentity(#"hash_4b19c1d08875f55c");
 		}
 		[[ lui_menu ]]->open(player);
-		[[ lui_menu ]]->function_9cd54463(player, 1);
-		[[ lui_menu ]]->function_331f9dd(player, 0);
-		[[ lui_menu ]]->function_237ff433(player, int(fadeintime * 1000));
+		[[ lui_menu ]]->set_startAlpha(player, 1);
+		[[ lui_menu ]]->set_endAlpha(player, 0);
+		[[ lui_menu ]]->set_fadeOverTime(player, int(fadeintime * 1000));
 	}
 	wait(fadeintime);
 	function_a5fd9aa8(insertion);
@@ -3420,7 +3420,7 @@ function private function_943c98fb(insertion)
 		/#
 			assert(isstruct(insertion));
 		#/
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		waitframe(1);
 		adddebugcommand(("" + mapname) + "");

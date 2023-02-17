@@ -696,10 +696,10 @@ function private transform(id, var_c2a69066, var_2cf708f4 = 1)
 		}
 		else
 		{
-			var_51d5c26f = self ai::function_9139c839();
-			if(isdefined(var_51d5c26f) && isdefined(var_51d5c26f.var_d354164e))
+			settingsbundle = self ai::function_9139c839();
+			if(isdefined(settingsbundle) && isdefined(settingsbundle.var_d354164e))
 			{
-				foreach(var_127d3a7a in var_51d5c26f.var_d354164e)
+				foreach(var_127d3a7a in settingsbundle.var_d354164e)
 				{
 					if(self.model === var_127d3a7a.var_a3c9023c)
 					{

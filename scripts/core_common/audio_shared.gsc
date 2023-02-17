@@ -306,12 +306,12 @@ function function_30d4f8c4(attacker, smeansofdeath, weapon)
 			str_alias = #"hash_5e5050d7f9042fac";
 			break;
 		}
-		case "hash_4bb2d7f789b561eb":
+		case "eq_gravityslam":
 		{
 			str_alias = #"hash_191ff361b2a52032";
 			break;
 		}
-		case "hash_23dd6039fe2f36c6":
+		case "molotov_fire":
 		{
 			str_alias = #"hash_40a5f428bba291a8";
 			break;

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -35,11 +35,11 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5507dc3
 	Checksum: 0x7D36DD88
 	Offset: 0x170
@@ -47,7 +47,7 @@ function __init__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	level thread function_afe4a356();
 }
@@ -75,7 +75,7 @@ function function_afe4a356()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5507dc3
 	Checksum: 0x2251729D
 	Offset: 0x2A0
@@ -83,7 +83,7 @@ function function_afe4a356()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level clientfield::set_world_uimodel("ZMHudGlobal.trials.hudDeactivated", 0);
 	level.var_dc60105c = undefined;

@@ -2,11 +2,11 @@
 #using script_152668a12c94fe8;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_460fc6f7;
+#namespace zm_white_gamemodes;
 
 /*
 	Name: main
-	Namespace: namespace_460fc6f7
+	Namespace: zm_white_gamemodes
 	Checksum: 0xC94CEE9
 	Offset: 0x78
 	Size: 0xE2

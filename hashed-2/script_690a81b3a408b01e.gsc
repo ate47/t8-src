@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_3f142cad;
+#namespace decoygrenade;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_3f142cad
+	Namespace: decoygrenade
 	Checksum: 0xEB7EE462
 	Offset: 0xB0
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec function_89f2df9()
 {
-	system::register(#"hash_710022810de6d77", &__init__, undefined, undefined);
+	system::register(#"decoygrenade", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_3f142cad
+	Namespace: decoygrenade
 	Checksum: 0x8F3D22F3
 	Offset: 0xF8
 	Size: 0x4C
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: function_52b6cd8b
-	Namespace: namespace_3f142cad
+	Namespace: decoygrenade
 	Checksum: 0x1253DCA7
 	Offset: 0x150
 	Size: 0x74
@@ -52,7 +52,7 @@ function function_52b6cd8b(localclientnum, oldvalue, newvalue, bnewent, binitial
 
 /*
 	Name: monitor_footsteps
-	Namespace: namespace_3f142cad
+	Namespace: decoygrenade
 	Checksum: 0xABE72F71
 	Offset: 0x1D0
 	Size: 0x60
