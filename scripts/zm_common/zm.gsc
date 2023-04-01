@@ -15,7 +15,7 @@
 #using scripts\zm_common\talisman\zm_talisman_box_guarantee_lmg.gsc;
 #using script_299f56e6d0b16416;
 #using script_2c5daa95f8fec03c;
-#using script_2cb46c63a33c9b9c;
+#using scripts\zm_common\zm_playerzombie.gsc;
 #using scripts\zm\weapons\zm_weap_mini_turret.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_3.gsc;
 #using scripts\zm\weapons\zm_weap_claymore.gsc;
@@ -1162,7 +1162,7 @@ function init_function_overrides()
 	level.custom_introscreen = &zombie_intro_screen;
 	level.custom_intermission = &zm_player::player_intermission;
 	level.reset_clientdvars = &zm_player::onplayerconnect_clientdvars;
-	level.player_becomes_zombie = &namespace_cc96b007::zombify_player;
+	level.player_becomes_zombie = &zm_playerzombie::zombify_player;
 	level.validate_enemy_path_length = &zm_utility::default_validate_enemy_path_length;
 }
 

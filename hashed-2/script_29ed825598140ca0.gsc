@@ -808,7 +808,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	var_989983f4.var_28af8061 = var_28af8061;
 	var_989983f4.var_8926cc9f = var_8926cc9f;
 	matchrecordlogadditionaldeathinfo(self, killer, victimweapon, weapon, var_989983f4);
-	self namespace_42fe87d::record_special_move_data_for_life(killer);
+	self player_record::record_special_move_data_for_life(killer);
 	self.pickedupweapons = [];
 	self.switching_teams = undefined;
 	self.joining_team = undefined;

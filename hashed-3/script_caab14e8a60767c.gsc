@@ -11,11 +11,11 @@
 #using scripts\mp_common\gametypes\globallogic.gsc;
 #using scripts\mp_common\gametypes\globallogic_score.gsc;
 
-#namespace namespace_42fe87d;
+#namespace player_record;
 
 /*
 	Name: function_685505ce
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0x28E36A7E
 	Offset: 0x310
 	Size: 0x92
@@ -42,7 +42,7 @@ function private function_685505ce(inputarray)
 
 /*
 	Name: function_96d38b95
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0x18691943
 	Offset: 0x3B0
 	Size: 0x127C
@@ -288,7 +288,7 @@ function function_96d38b95(result)
 
 /*
 	Name: record_special_move_data_for_life
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0x9957AE61
 	Offset: 0x1638
 	Size: 0x204
@@ -323,7 +323,7 @@ function record_special_move_data_for_life(killer)
 
 /*
 	Name: record_global_mp_stats_for_player_at_match_start
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0x96B48F61
 	Offset: 0x1848
 	Size: 0x38C
@@ -366,7 +366,7 @@ function record_global_mp_stats_for_player_at_match_start()
 
 /*
 	Name: record_global_mp_stats_for_player_at_match_end
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0xF3E5069B
 	Offset: 0x1BE0
 	Size: 0x36C
@@ -406,7 +406,7 @@ function record_global_mp_stats_for_player_at_match_end()
 
 /*
 	Name: record_misc_player_stats
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0x61D83D2E
 	Offset: 0x1F58
 	Size: 0x2A4
@@ -454,7 +454,7 @@ function record_misc_player_stats()
 
 /*
 	Name: function_ea5da381
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0xDABDD15A
 	Offset: 0x2208
 	Size: 0x104
@@ -477,7 +477,7 @@ function function_ea5da381()
 
 /*
 	Name: function_7569c0fb
-	Namespace: namespace_42fe87d
+	Namespace: player_record
 	Checksum: 0xF5CF1DCA
 	Offset: 0x2318
 	Size: 0x75A

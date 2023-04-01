@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_perks.gsc;
 
-#namespace namespace_34a41f6b;
+#namespace zm_perk_mystery;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_34a41f6b
+	Namespace: zm_perk_mystery
 	Checksum: 0xE9377090
 	Offset: 0xD0
 	Size: 0x3C
@@ -21,7 +21,7 @@ function autoexec function_89f2df9()
 
 /*
 	Name: __init__
-	Namespace: namespace_34a41f6b
+	Namespace: zm_perk_mystery
 	Checksum: 0x34C97978
 	Offset: 0x118
 	Size: 0x14
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: function_27473e44
-	Namespace: namespace_34a41f6b
+	Namespace: zm_perk_mystery
 	Checksum: 0x975F7CDF
 	Offset: 0x138
 	Size: 0x16C

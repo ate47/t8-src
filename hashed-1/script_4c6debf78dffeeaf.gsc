@@ -333,7 +333,7 @@ function callback_playerconnect()
 	}
 	if(util::isfirstround())
 	{
-		self namespace_42fe87d::record_global_mp_stats_for_player_at_match_start();
+		self player_record::record_global_mp_stats_for_player_at_match_start();
 	}
 	self hvo::function_2ce5cb7e();
 	num_con = getnumconnectedplayers();

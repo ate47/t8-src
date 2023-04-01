@@ -406,7 +406,7 @@ function function_dd616fdd()
 				var_ee7af3b = randomintrange(0, 11);
 			}
 			var_6f927674 = randomintrange(0, 3) * 15;
-			s_unitrigger.var_3e8690ab namespace_3be0b7ad::function_9b62d333(var_ee7af3b, var_6f927674);
+			s_unitrigger.var_3e8690ab timecard_control::function_9b62d333(var_ee7af3b, var_6f927674);
 			s_unitrigger.n_hour = var_ee7af3b;
 			s_unitrigger.n_minute = var_6f927674;
 			level.var_7c64053d[i] thread function_2193794();
@@ -427,7 +427,7 @@ function function_dd616fdd()
 function function_d7662e16(var_ee7af3b, var_6f927674)
 {
 	self.is_rotating = 1;
-	self.var_3e8690ab namespace_3be0b7ad::function_9b62d333(var_ee7af3b, var_6f927674);
+	self.var_3e8690ab timecard_control::function_9b62d333(var_ee7af3b, var_6f927674);
 	self.n_hour = var_ee7af3b;
 	self.n_minute = var_6f927674;
 	self.is_rotating = 0;
@@ -787,7 +787,7 @@ function function_5391159f()
 				{
 					var_c6781a1b = 0;
 				}
-				self.s_unitrigger.var_3e8690ab namespace_3be0b7ad::function_64c53556();
+				self.s_unitrigger.var_3e8690ab timecard_control::function_64c53556();
 				wait(1);
 				self.s_unitrigger.n_hour = var_c6781a1b;
 				if(self.s_unitrigger.n_hour == self.s_unitrigger.var_ab28dca && self.s_unitrigger.n_minute == self.s_unitrigger.var_af1cfded && self.s_unitrigger.is_selected == 1)
@@ -930,7 +930,7 @@ function function_2193794()
 								var_c6781a1b = 0;
 							}
 						}
-						self.s_unitrigger.var_3e8690ab namespace_3be0b7ad::function_fba6efd4();
+						self.s_unitrigger.var_3e8690ab timecard_control::function_fba6efd4();
 						self.s_unitrigger.n_hour = var_c6781a1b;
 						self.s_unitrigger.n_minute = var_6fad1e36;
 						wait(0.15);
@@ -1043,7 +1043,7 @@ function function_7b7aa3ff()
 	a_time = level.var_ebf9cb51;
 	self.s_unitrigger.is_rotating = 1;
 	self.s_unitrigger.var_9c74d1b8 = 1;
-	self.s_unitrigger.var_3e8690ab namespace_3be0b7ad::function_9b62d333(a_time[#"hour"], a_time[#"minute"]);
+	self.s_unitrigger.var_3e8690ab timecard_control::function_9b62d333(a_time[#"hour"], a_time[#"minute"]);
 	var_97ee4db9 = 360 - (self.s_unitrigger.n_minute * 6);
 	self.s_unitrigger.n_minute = a_time[#"minute"];
 	self.s_unitrigger.n_hour = a_time[#"hour"];
@@ -1172,7 +1172,7 @@ function function_643d9747()
 			var_ee7af3b = randomintrange(0, 11);
 		}
 		var_6f927674 = randomintrange(0, 3) * 15;
-		var_6be675b7.s_unitrigger.var_3e8690ab namespace_3be0b7ad::function_9b62d333(var_ee7af3b, var_6f927674);
+		var_6be675b7.s_unitrigger.var_3e8690ab timecard_control::function_9b62d333(var_ee7af3b, var_6f927674);
 		var_6be675b7.s_unitrigger.n_hour = var_ee7af3b;
 		var_6be675b7.s_unitrigger.n_minute = var_6f927674;
 		var_6be675b7.s_unitrigger.var_9c74d1b8 = 0;

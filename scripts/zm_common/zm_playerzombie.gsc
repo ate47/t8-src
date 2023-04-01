@@ -57,11 +57,11 @@
 #using scripts\zm_common\zm_weapons.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_cc96b007;
+#namespace zm_playerzombie;
 
 /*
 	Name: zombify_player
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xA6ADAAC0
 	Offset: 0x2D0
 	Size: 0x24C
@@ -108,7 +108,7 @@ function zombify_player()
 
 /*
 	Name: playerzombie_player_damage
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x6CA8EE34
 	Offset: 0x528
 	Size: 0x13E
@@ -143,7 +143,7 @@ function playerzombie_player_damage()
 
 /*
 	Name: playerzombie_downed_state
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xE559A1C2
 	Offset: 0x670
 	Size: 0x196
@@ -178,7 +178,7 @@ function playerzombie_downed_state()
 
 /*
 	Name: playerzombie_downed_hud
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xFCA6C126
 	Offset: 0x810
 	Size: 0x1AA
@@ -215,7 +215,7 @@ function playerzombie_downed_hud()
 
 /*
 	Name: playerzombie_infinite_health
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x1F6EE51E
 	Offset: 0x9C8
 	Size: 0x6C
@@ -238,7 +238,7 @@ function playerzombie_infinite_health()
 
 /*
 	Name: playerzombie_soundboard
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x78B5D480
 	Offset: 0xA40
 	Size: 0x2A4
@@ -305,7 +305,7 @@ function playerzombie_soundboard()
 
 /*
 	Name: can_do_input
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x81FE6E2
 	Offset: 0xCF0
 	Size: 0x126
@@ -358,7 +358,7 @@ function can_do_input(inputtype)
 
 /*
 	Name: playerzombie_play_sound
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x705C56F3
 	Offset: 0xE20
 	Size: 0x24
@@ -372,7 +372,7 @@ function playerzombie_play_sound(alias)
 
 /*
 	Name: playerzombie_waitfor_buttonrelease
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x27A0E3DF
 	Offset: 0xE50
 	Size: 0x182

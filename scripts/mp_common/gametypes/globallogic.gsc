@@ -1840,12 +1840,12 @@ function updateandfinalizematchrecord()
 	for(index = 0; index < level.players.size; index++)
 	{
 		player = level.players[index];
-		player namespace_42fe87d::record_special_move_data_for_life(undefined);
+		player player_record::record_special_move_data_for_life(undefined);
 		if(isbot(player))
 		{
 			continue;
 		}
-		player namespace_42fe87d::record_global_mp_stats_for_player_at_match_end();
+		player player_record::record_global_mp_stats_for_player_at_match_end();
 		nemesis = player.pers[#"nemesis_name"];
 		if(!isdefined(player.pers[#"killed_players"][nemesis]))
 		{
@@ -2986,8 +2986,8 @@ function private function_6a4a86()
 {
 	result = function_e8cd6051();
 	recordgameresult(result);
-	player::function_2f80d95b(&namespace_42fe87d::function_96d38b95, result);
-	player::function_2f80d95b(&namespace_42fe87d::record_misc_player_stats);
+	player::function_2f80d95b(&player_record::function_96d38b95, result);
+	player::function_2f80d95b(&player_record::record_misc_player_stats);
 	skillupdate();
 	if(function_f99d2668())
 	{
@@ -3203,7 +3203,7 @@ function function_4636deca(player)
 	{
 		return;
 	}
-	player namespace_42fe87d::function_7569c0fb();
+	player player_record::function_7569c0fb();
 	nemesis = player.pers[#"nemesis_name"];
 	/#
 		assert(isdefined(nemesis), "" + player.name);
