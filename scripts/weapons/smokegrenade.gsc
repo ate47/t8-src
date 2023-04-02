@@ -43,11 +43,11 @@ function init_shared()
 */
 function function_79d42bea(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return 128;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.var_40dfefd1) ? var_b0b958b3.var_40dfefd1 : 128);
 }
 
@@ -62,11 +62,11 @@ function function_79d42bea(weapon)
 */
 function function_f199623f(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return level.smokegrenadeduration;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.smokegrenadeduration) ? var_b0b958b3.smokegrenadeduration : level.smokegrenadeduration);
 }
 
@@ -81,11 +81,11 @@ function function_f199623f(weapon)
 */
 function function_184e15d2(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return level.smokegrenadedissipation;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.smokegrenadedissipation) ? var_b0b958b3.smokegrenadedissipation : level.smokegrenadedissipation);
 }
 
@@ -417,11 +417,11 @@ function function_50ef4b12(weapon)
 */
 function private function_579815a1(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return false;
 	}
-	var_e6fbac16 = getscriptbundle(weapon.var_4dd46f8a);
+	var_e6fbac16 = getscriptbundle(weapon.customsettings);
 	if(var_e6fbac16.var_8ceb6ac8 === 1)
 	{
 		return true;

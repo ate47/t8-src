@@ -52,9 +52,9 @@ function init_shared()
 	}
 	else
 	{
-		if(isdefined(level.var_1f151eb.var_4dd46f8a))
+		if(isdefined(level.var_1f151eb.customsettings))
 		{
-			level.var_e88e144b = getscriptbundle(level.var_1f151eb.var_4dd46f8a);
+			level.var_e88e144b = getscriptbundle(level.var_1f151eb.customsettings);
 		}
 		else
 		{

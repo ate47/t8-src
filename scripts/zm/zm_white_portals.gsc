@@ -22,11 +22,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_1846c963;
+#namespace zm_white_portals;
 
 /*
 	Name: init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xBECB86D2
 	Offset: 0x5E0
 	Size: 0x34
@@ -41,7 +41,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xFFFF3465
 	Offset: 0x620
 	Size: 0x5C
@@ -60,7 +60,7 @@ function main()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x8F3F1077
 	Offset: 0x688
 	Size: 0x634
@@ -106,7 +106,7 @@ function init_clientfields()
 
 /*
 	Name: function_24167ed8
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x251EE8F8
 	Offset: 0xCC8
 	Size: 0x94
@@ -123,7 +123,7 @@ function function_24167ed8()
 
 /*
 	Name: function_ab07399f
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xA34B844F
 	Offset: 0xD68
 	Size: 0xE0
@@ -144,7 +144,7 @@ function function_ab07399f()
 
 /*
 	Name: function_5702b2e7
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x2E8750F9
 	Offset: 0xE50
 	Size: 0x22C
@@ -188,7 +188,7 @@ function function_5702b2e7(e_player)
 
 /*
 	Name: function_735e7b
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xFCA8C528
 	Offset: 0x1088
 	Size: 0x2C
@@ -203,7 +203,7 @@ function function_735e7b()
 
 /*
 	Name: function_e0a8fc52
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x2C9E1825
 	Offset: 0x10C0
 	Size: 0x114
@@ -225,7 +225,7 @@ function function_e0a8fc52()
 
 /*
 	Name: function_3264eb9c
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xB6B38E49
 	Offset: 0x11E0
 	Size: 0x24
@@ -239,7 +239,7 @@ function function_3264eb9c()
 
 /*
 	Name: function_71e1c159
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x53F8A366
 	Offset: 0x1210
 	Size: 0xC0
@@ -258,7 +258,7 @@ function function_71e1c159()
 
 /*
 	Name: teleporter_init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x6A833C79
 	Offset: 0x12D8
 	Size: 0xA4
@@ -277,7 +277,7 @@ function teleporter_init()
 
 /*
 	Name: function_2113985
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x1E8F6085
 	Offset: 0x1388
 	Size: 0xA8
@@ -295,7 +295,7 @@ function function_2113985()
 
 /*
 	Name: teleport_pad_init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7ECC06CC
 	Offset: 0x1438
 	Size: 0x7C
@@ -315,7 +315,7 @@ function teleport_pad_init()
 
 /*
 	Name: player_teleporting
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x925FDE08
 	Offset: 0x14C0
 	Size: 0x110
@@ -355,7 +355,7 @@ function player_teleporting()
 
 /*
 	Name: teleport_player
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7711B844
 	Offset: 0x15D8
 	Size: 0x594
@@ -486,7 +486,7 @@ function teleport_player(user)
 
 /*
 	Name: function_96e88318
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD4C18B82
 	Offset: 0x1B78
 	Size: 0x1E
@@ -501,7 +501,7 @@ function function_96e88318(str_notify)
 
 /*
 	Name: function_c234a5ce
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xB25867E2
 	Offset: 0x1BA0
 	Size: 0x6C
@@ -518,7 +518,7 @@ function function_c234a5ce()
 
 /*
 	Name: function_4f5d4783
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xF75909B3
 	Offset: 0x1C18
 	Size: 0x34
@@ -532,7 +532,7 @@ function function_4f5d4783(str_notify)
 
 /*
 	Name: function_26ddb915
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x73699DF3
 	Offset: 0x1C58
 	Size: 0x84
@@ -553,7 +553,7 @@ function function_26ddb915()
 
 /*
 	Name: cooldown_portal_timer
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x8807CFCB
 	Offset: 0x1CE8
 	Size: 0x134
@@ -582,7 +582,7 @@ function cooldown_portal_timer(e_user)
 
 /*
 	Name: function_cb7c6fc7
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD263410D
 	Offset: 0x1E28
 	Size: 0x74
@@ -603,7 +603,7 @@ function function_cb7c6fc7(e_user, b_show = 1)
 
 /*
 	Name: function_7c7520a5
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7A92E47A
 	Offset: 0x1EA8
 	Size: 0x2C
@@ -617,7 +617,7 @@ function function_7c7520a5(e_user)
 
 /*
 	Name: function_fe50866d
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD591F273
 	Offset: 0x1EE0
 	Size: 0xD8
@@ -639,7 +639,7 @@ function function_fe50866d(target, portal_enter, portal_exit)
 
 /*
 	Name: function_d9e2dc1f
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xC25D558F
 	Offset: 0x1FC0
 	Size: 0xAA
@@ -660,7 +660,7 @@ function function_d9e2dc1f()
 
 /*
 	Name: function_254e91a2
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x1E5C19E5
 	Offset: 0x2078
 	Size: 0xAA
@@ -681,7 +681,7 @@ function function_254e91a2()
 
 /*
 	Name: find_portal_destination
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x2A25C319
 	Offset: 0x2130
 	Size: 0x14A
@@ -724,7 +724,7 @@ function find_portal_destination(var_210b4680)
 
 /*
 	Name: enable_zone_portals_init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xC6629AAC
 	Offset: 0x2288
 	Size: 0x6E
@@ -742,7 +742,7 @@ function enable_zone_portals_init()
 
 /*
 	Name: enable_zone_portals
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xF948E50B
 	Offset: 0x2300
 	Size: 0x9C
@@ -762,7 +762,7 @@ function enable_zone_portals()
 
 /*
 	Name: function_e9848fa7
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD2BB8BAE
 	Offset: 0x23A8
 	Size: 0x1FA
@@ -815,7 +815,7 @@ function function_e9848fa7()
 
 /*
 	Name: function_9d689cc4
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x4F1EF3
 	Offset: 0x25B0
 	Size: 0x1CC
@@ -868,7 +868,7 @@ function function_9d689cc4(portal, portal_exit)
 
 /*
 	Name: function_2ef25d40
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7C6B6B9C
 	Offset: 0x2788
 	Size: 0x36
@@ -884,7 +884,7 @@ function function_2ef25d40(str_notify)
 
 /*
 	Name: function_71be28e1
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x2141A220
 	Offset: 0x27C8
 	Size: 0x2A2
@@ -918,7 +918,7 @@ function function_71be28e1(zombie, start_portal, end_portal)
 
 /*
 	Name: function_554c780b
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xAD48742
 	Offset: 0x2A78
 	Size: 0x3E
@@ -934,7 +934,7 @@ function function_554c780b()
 
 /*
 	Name: function_1f034d46
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7EF367E6
 	Offset: 0x2AC0
 	Size: 0x3E
@@ -956,7 +956,7 @@ function function_1f034d46(destination)
 
 /*
 	Name: setup_portals
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xB9086E97
 	Offset: 0x2B08
 	Size: 0x344
@@ -992,7 +992,7 @@ function setup_portals()
 
 /*
 	Name: portal_init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xE93EE376
 	Offset: 0x2E58
 	Size: 0x796
@@ -1164,7 +1164,7 @@ function portal_init()
 
 /*
 	Name: function_688df525
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xCE611E71
 	Offset: 0x35F8
 	Size: 0xF8
@@ -1195,7 +1195,7 @@ function function_688df525()
 
 /*
 	Name: function_a09d62f1
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x5C83CCD6
 	Offset: 0x36F8
 	Size: 0x56E
@@ -1290,7 +1290,7 @@ function function_a09d62f1()
 
 /*
 	Name: portal_ready
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD81482D0
 	Offset: 0x3C70
 	Size: 0x54
@@ -1308,7 +1308,7 @@ function portal_ready()
 
 /*
 	Name: function_97d4ad50
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x9BFDAB26
 	Offset: 0x3CD0
 	Size: 0x2C
@@ -1322,7 +1322,7 @@ function function_97d4ad50()
 
 /*
 	Name: function_99407d66
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x8B98F650
 	Offset: 0x3D08
 	Size: 0x220
@@ -1372,7 +1372,7 @@ function function_99407d66(e_player)
 
 /*
 	Name: function_360c6be0
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x6BE67D5E
 	Offset: 0x3F38
 	Size: 0x170
@@ -1410,7 +1410,7 @@ function function_360c6be0()
 
 /*
 	Name: function_a54a70b3
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x5AC2680A
 	Offset: 0x40B0
 	Size: 0x5A
@@ -1430,7 +1430,7 @@ function function_a54a70b3()
 
 /*
 	Name: portal_activate
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x6B7EC20B
 	Offset: 0x4118
 	Size: 0x34
@@ -1445,7 +1445,7 @@ function portal_activate()
 
 /*
 	Name: function_ea199c46
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xA369B451
 	Offset: 0x4158
 	Size: 0x104
@@ -1469,7 +1469,7 @@ function function_ea199c46()
 
 /*
 	Name: function_79e8b4c6
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x68515CCB
 	Offset: 0x4268
 	Size: 0x1A
@@ -1483,7 +1483,7 @@ function function_79e8b4c6(var_9dff0a2b)
 
 /*
 	Name: function_98cd139
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x9216C019
 	Offset: 0x4290
 	Size: 0x2C
@@ -1497,7 +1497,7 @@ function function_98cd139()
 
 /*
 	Name: function_134670b9
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x60D460F6
 	Offset: 0x42C8
 	Size: 0x2E
@@ -1514,7 +1514,7 @@ function function_134670b9(n_delay)
 
 /*
 	Name: function_a6bb56f6
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x769DE9D4
 	Offset: 0x4300
 	Size: 0x80
@@ -1531,7 +1531,7 @@ function function_a6bb56f6()
 
 /*
 	Name: function_3566160b
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x24336D43
 	Offset: 0x4388
 	Size: 0x194
@@ -1599,7 +1599,7 @@ function function_3566160b(str_location, var_fb122039)
 
 /*
 	Name: function_978923cd
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xD9FF2AE1
 	Offset: 0x4528
 	Size: 0xB0
@@ -1619,7 +1619,7 @@ function function_978923cd()
 
 /*
 	Name: function_16ccd69f
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xBB8BF0D1
 	Offset: 0x45E0
 	Size: 0x128
@@ -1646,7 +1646,7 @@ function function_16ccd69f(var_1e62b431 = 1)
 
 /*
 	Name: on_player_spawn
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x4EE0E4D6
 	Offset: 0x4710
 	Size: 0xB0
@@ -1669,7 +1669,7 @@ function on_player_spawn()
 
 /*
 	Name: function_35babccd
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x1BA2D7CF
 	Offset: 0x47C8
 	Size: 0x13E
@@ -1706,7 +1706,7 @@ function function_35babccd(ent)
 
 /*
 	Name: function_5c2807fc
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x3CA89BF0
 	Offset: 0x4910
 	Size: 0xE0

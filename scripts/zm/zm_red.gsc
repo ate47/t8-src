@@ -16,7 +16,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
 #using scripts\zm_common\zm_items.gsc;
-#using script_4a88aba9724a1fa1;
+#using scripts\zm\zm_red_boss_battle.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_4d00889cf8c807d5;
 #using script_52c6c2d1a2ef1b46;
@@ -37,7 +37,7 @@
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using scripts\zm\ai\zm_ai_gegenees.gsc;
-#using script_7fb9f17f6fab98e3;
+#using scripts\zm\zm_red_fasttravel.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -115,9 +115,9 @@ event main(eventstruct)
 	level._uses_default_wallbuy_fx = 1;
 	level._uses_sticky_grenades = 1;
 	level._uses_taser_knuckles = 1;
-	level.var_a5689564 = &namespace_66445b8f::function_a5689564;
-	level.var_e9737821 = &namespace_66445b8f::function_c52e8ba;
-	level.var_829d6a97 = &namespace_66445b8f::function_ae5d684b;
+	level.var_a5689564 = &zm_red_fasttravel::function_a5689564;
+	level.var_e9737821 = &zm_red_fasttravel::function_c52e8ba;
+	level.var_829d6a97 = &zm_red_fasttravel::function_ae5d684b;
 	level.var_a5a050c1 = 15;
 	level.var_9d19ea6d = 1;
 	level.var_ce0f67cf = 120;
@@ -167,7 +167,7 @@ event main(eventstruct)
 	level._no_vending_machine_auto_collision = 1;
 	level thread sndfunctions();
 	zm_red_achievement::init();
-	namespace_66445b8f::init();
+	zm_red_fasttravel::init();
 	namespace_140c66e4::init();
 	namespace_f2050961::init();
 	zm_red_ww_quests::init();
@@ -176,7 +176,7 @@ event main(eventstruct)
 	zm_red_main_quest::init();
 	zm_red_challenges::init();
 	zm_red_util::init();
-	namespace_765d6379::init();
+	red_boss_battle::init();
 	namespace_8f39dfb1::init();
 	load::main();
 	scene::add_scene_func(#"hash_649bf4517c6d8d25", &function_509bbc5b, "sh290");
@@ -198,7 +198,7 @@ event main(eventstruct)
 	level thread zm_red_zones::init();
 	level thread namespace_d129df5c::init();
 	level thread zm_red_main_quest::main();
-	namespace_66445b8f::main();
+	zm_red_fasttravel::main();
 	level thread function_3f6e4b5f();
 	zm_blockers::function_6f01c3cf("start_open", "script_label");
 	if(!getdvarint(#"hash_576506f1621c45d2", 0))

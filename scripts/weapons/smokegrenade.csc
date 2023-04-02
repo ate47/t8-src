@@ -83,11 +83,11 @@ function function_16e642d6(local_client_num)
 function function_709fad19()
 {
 	weapon = getweapon(#"eq_smoke");
-	if(!isdefined(weapon) || weapon == level.weaponnone || !isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon) || weapon == level.weaponnone || !isdefined(weapon.customsettings))
 	{
 		return 128;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.var_40dfefd1) ? var_b0b958b3.var_40dfefd1 : 128);
 }
 
@@ -251,9 +251,9 @@ function function_62ec0142(local_client_num, bundle)
 		}
 	}
 	weapon = getweapon("eq_smoke");
-	if(isdefined(weapon.var_4dd46f8a))
+	if(isdefined(weapon.customsettings))
 	{
-		var_ed9e87ac = getscriptbundle(weapon.var_4dd46f8a);
+		var_ed9e87ac = getscriptbundle(weapon.customsettings);
 		/#
 			assert(isdefined(var_ed9e87ac));
 		#/
@@ -298,9 +298,9 @@ function function_28db726(local_client_num, bundle)
 		return false;
 	}
 	weapon = getweapon("eq_smoke");
-	if(isdefined(weapon.var_4dd46f8a))
+	if(isdefined(weapon.customsettings))
 	{
-		var_ed9e87ac = getscriptbundle(weapon.var_4dd46f8a);
+		var_ed9e87ac = getscriptbundle(weapon.customsettings);
 		/#
 			assert(isdefined(var_ed9e87ac));
 		#/

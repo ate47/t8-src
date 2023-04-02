@@ -20,7 +20,7 @@
 #using scripts\zm\weapons\zm_weap_hand_hemera.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using scripts\zm_common\bgbs\zm_bgb_shields_up.gsc;
-#using script_7fb9f17f6fab98e3;
+#using scripts\zm\zm_red_fasttravel.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -51,11 +51,11 @@
 #using scripts\zm_common\zm_weapons.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_765d6379;
+#namespace red_boss_battle;
 
 /*
 	Name: init
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xAF3BCD06
 	Offset: 0x8A8
 	Size: 0xDEC
@@ -166,7 +166,7 @@ function init()
 
 /*
 	Name: function_e46ef00b
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x43295C86
 	Offset: 0x16A0
 	Size: 0x24
@@ -180,7 +180,7 @@ function function_e46ef00b(a_ents)
 
 /*
 	Name: function_a4bcce4e
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x2D5DADD5
 	Offset: 0x16D0
 	Size: 0x76
@@ -201,7 +201,7 @@ function function_a4bcce4e()
 
 /*
 	Name: function_3a2efd4e
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x767E498D
 	Offset: 0x1750
 	Size: 0x864
@@ -281,7 +281,7 @@ function function_3a2efd4e(b_cheated = 0, var_7982b1c8 = 1, var_8ef91a04 = 1)
 		a_players[i] thread function_9099e4d8();
 		foreach(var_de3a312c in level.var_3958c9ff)
 		{
-			a_players[i] thread namespace_66445b8f::function_28deccf1(var_de3a312c, 1);
+			a_players[i] thread zm_red_fasttravel::function_28deccf1(var_de3a312c, 1);
 		}
 		a_players[i] thread function_6401a80e();
 		a_players[i] thread function_1722dae1();
@@ -302,7 +302,7 @@ function function_3a2efd4e(b_cheated = 0, var_7982b1c8 = 1, var_8ef91a04 = 1)
 
 /*
 	Name: function_dfaf17c8
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xB594BDA0
 	Offset: 0x1FC0
 	Size: 0x404
@@ -341,7 +341,7 @@ function function_dfaf17c8()
 		var_de3a312c.var_151f9e4b = undefined;
 		foreach(player in getplayers())
 		{
-			player thread namespace_66445b8f::function_28deccf1(var_de3a312c, 1);
+			player thread zm_red_fasttravel::function_28deccf1(var_de3a312c, 1);
 		}
 	}
 	level flag::clear(#"hash_315fae99adaebfb4");
@@ -353,7 +353,7 @@ function function_dfaf17c8()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xE5CBFA61
 	Offset: 0x23D0
 	Size: 0x4C
@@ -369,7 +369,7 @@ function on_player_spawned()
 
 /*
 	Name: function_9099e4d8
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xEC08BD12
 	Offset: 0x2428
 	Size: 0x6E
@@ -394,7 +394,7 @@ function function_9099e4d8()
 
 /*
 	Name: function_3de660a0
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x835D6533
 	Offset: 0x24A0
 	Size: 0x26C
@@ -418,7 +418,7 @@ function function_3de660a0()
 
 /*
 	Name: function_756474bf
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x92D0177
 	Offset: 0x2718
 	Size: 0x8E4
@@ -552,7 +552,7 @@ function function_756474bf()
 
 /*
 	Name: function_e4f860ab
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC2C7021B
 	Offset: 0x3008
 	Size: 0x6A
@@ -569,7 +569,7 @@ function function_e4f860ab()
 
 /*
 	Name: function_8b1f9518
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x1FAE4239
 	Offset: 0x3080
 	Size: 0x54
@@ -586,7 +586,7 @@ function function_8b1f9518()
 
 /*
 	Name: function_170c8b16
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xF9C89855
 	Offset: 0x30E0
 	Size: 0xAC
@@ -606,7 +606,7 @@ function function_170c8b16()
 
 /*
 	Name: function_b8510127
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xA301C827
 	Offset: 0x3198
 	Size: 0xE4
@@ -623,7 +623,7 @@ function function_b8510127()
 
 /*
 	Name: function_b3df51ad
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x4FE6C7BC
 	Offset: 0x3288
 	Size: 0x148
@@ -654,7 +654,7 @@ function function_b3df51ad(a_ents)
 
 /*
 	Name: chaos_bolt_thrower
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x6CDC6D74
 	Offset: 0x33D8
 	Size: 0x47A
@@ -743,7 +743,7 @@ function chaos_bolt_thrower(e_target)
 
 /*
 	Name: function_9e8c41f4
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x5A9E1816
 	Offset: 0x3860
 	Size: 0x202
@@ -808,7 +808,7 @@ function private function_9e8c41f4(e_target)
 
 /*
 	Name: function_20bfbc00
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x4407A0FA
 	Offset: 0x3A70
 	Size: 0x2B4
@@ -862,7 +862,7 @@ function function_20bfbc00(a_ents)
 
 /*
 	Name: function_aa23278d
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x1B6ABE03
 	Offset: 0x3D30
 	Size: 0x8C
@@ -881,7 +881,7 @@ function function_aa23278d(a_ents)
 
 /*
 	Name: function_2858e671
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x454429EB
 	Offset: 0x3DC8
 	Size: 0x300
@@ -947,7 +947,7 @@ function function_2858e671(var_c34665fc, e_boss)
 
 /*
 	Name: function_12f4c281
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xA0245C05
 	Offset: 0x40D0
 	Size: 0x820
@@ -1199,7 +1199,7 @@ function function_12f4c281(var_be17187b, w_weapon, e_boss)
 
 /*
 	Name: function_26acf7ee
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xD3F1DA08
 	Offset: 0x48F8
 	Size: 0x1DA
@@ -1241,7 +1241,7 @@ function function_26acf7ee()
 
 /*
 	Name: function_4cd6f3d3
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xB68D7A1
 	Offset: 0x4AE0
 	Size: 0x44
@@ -1258,7 +1258,7 @@ function function_4cd6f3d3(eventstruct)
 
 /*
 	Name: function_517bbfad
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xA4596C3B
 	Offset: 0x4B30
 	Size: 0x19C
@@ -1289,7 +1289,7 @@ function function_517bbfad(var_2f02900b)
 
 /*
 	Name: function_5e02e791
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xEE04E084
 	Offset: 0x4CD8
 	Size: 0x3A
@@ -1307,7 +1307,7 @@ function function_5e02e791()
 
 /*
 	Name: function_a362f6ed
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x26EC542B
 	Offset: 0x4D20
 	Size: 0x3C
@@ -1324,7 +1324,7 @@ function function_a362f6ed(s_params)
 
 /*
 	Name: function_9d06f858
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x85F8AA06
 	Offset: 0x4D68
 	Size: 0xEA
@@ -1355,7 +1355,7 @@ function function_9d06f858(var_fb8c33cc)
 
 /*
 	Name: function_263a0b8
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x8E27FEC9
 	Offset: 0x4E60
 	Size: 0x25C
@@ -1387,7 +1387,7 @@ function function_263a0b8()
 
 /*
 	Name: function_f6306dea
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xD7116E83
 	Offset: 0x50C8
 	Size: 0x3D0
@@ -1462,7 +1462,7 @@ function function_f6306dea()
 
 /*
 	Name: function_7a7b5e79
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC7849284
 	Offset: 0x54A0
 	Size: 0x20E
@@ -1504,7 +1504,7 @@ function function_7a7b5e79()
 
 /*
 	Name: function_1ce83bec
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xF1A8D325
 	Offset: 0x56B8
 	Size: 0x210
@@ -1546,7 +1546,7 @@ function function_1ce83bec()
 
 /*
 	Name: function_8e7ffff8
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x2F8123A4
 	Offset: 0x58D0
 	Size: 0x5C
@@ -1566,7 +1566,7 @@ function function_8e7ffff8()
 
 /*
 	Name: function_84fac8d5
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xB867BDF
 	Offset: 0x5938
 	Size: 0x462
@@ -1665,7 +1665,7 @@ function function_84fac8d5(var_956f2977, n_delay, v_origin)
 
 /*
 	Name: function_ca661e4b
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x6C391A10
 	Offset: 0x5DA8
 	Size: 0x1EA
@@ -1711,7 +1711,7 @@ function private function_ca661e4b(var_956f2977, _town_pap_quest_complete)
 
 /*
 	Name: function_21ef9bb7
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xED26FC47
 	Offset: 0x5FA0
 	Size: 0x458
@@ -1804,7 +1804,7 @@ function function_21ef9bb7(a_ents)
 
 /*
 	Name: function_d9802986
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC02F6580
 	Offset: 0x6400
 	Size: 0x3B0
@@ -1881,7 +1881,7 @@ function function_d9802986()
 
 /*
 	Name: function_732c74f7
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x99AC7635
 	Offset: 0x67B8
 	Size: 0xDE
@@ -1916,7 +1916,7 @@ function private function_732c74f7(n_max_time)
 
 /*
 	Name: function_3c2238ed
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xD2C89D14
 	Offset: 0x68A0
 	Size: 0x86
@@ -1949,7 +1949,7 @@ function private function_3c2238ed(str_zone)
 
 /*
 	Name: function_cb86284d
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xE7BB4D86
 	Offset: 0x6930
 	Size: 0x154
@@ -1994,7 +1994,7 @@ function function_cb86284d(a_ents)
 
 /*
 	Name: function_b4723f8e
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x179934B2
 	Offset: 0x6A90
 	Size: 0x294
@@ -2035,7 +2035,7 @@ function private function_b4723f8e(v_origin, e_pegasus)
 
 /*
 	Name: lightning_flash
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xE6E5D2CA
 	Offset: 0x6D30
 	Size: 0x8C
@@ -2052,7 +2052,7 @@ function lightning_flash()
 
 /*
 	Name: function_325b6d95
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x3AF1C904
 	Offset: 0x6DC8
 	Size: 0x1B2
@@ -2087,7 +2087,7 @@ function private function_325b6d95(v_origin)
 
 /*
 	Name: function_290d42b8
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x25F69705
 	Offset: 0x6F88
 	Size: 0x22A
@@ -2124,7 +2124,7 @@ function function_290d42b8(b_skipped = 0)
 
 /*
 	Name: function_4a58a0
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xA5A90534
 	Offset: 0x71C0
 	Size: 0x640
@@ -2218,7 +2218,7 @@ function function_4a58a0(e_perseus)
 
 /*
 	Name: function_2a866d1a
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x880DFD3E
 	Offset: 0x7808
 	Size: 0x1AE
@@ -2244,7 +2244,7 @@ function function_2a866d1a(a_ents)
 
 /*
 	Name: function_ab699e09
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x3E04CB27
 	Offset: 0x79C0
 	Size: 0x74
@@ -2260,7 +2260,7 @@ function function_ab699e09()
 
 /*
 	Name: function_caa7eeb
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x53647951
 	Offset: 0x7A40
 	Size: 0x3DC
@@ -2304,7 +2304,7 @@ function function_caa7eeb()
 
 /*
 	Name: function_662093d4
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x9F6BF122
 	Offset: 0x7E28
 	Size: 0x68
@@ -2320,7 +2320,7 @@ function function_662093d4(player)
 
 /*
 	Name: function_e069d23c
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x450A6228
 	Offset: 0x7E98
 	Size: 0x17C
@@ -2346,7 +2346,7 @@ function function_e069d23c(a_ents)
 
 /*
 	Name: function_ce82050b
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x75FAB4CE
 	Offset: 0x8020
 	Size: 0x60
@@ -2366,7 +2366,7 @@ function function_ce82050b()
 
 /*
 	Name: function_123b6625
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x293F986F
 	Offset: 0x8088
 	Size: 0x1DC
@@ -2406,7 +2406,7 @@ function private function_123b6625(e_player)
 
 /*
 	Name: function_20c2dd32
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xE9D2A830
 	Offset: 0x8270
 	Size: 0x3A
@@ -2421,7 +2421,7 @@ function private function_20c2dd32(poi)
 
 /*
 	Name: function_14833fc2
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x16B56B49
 	Offset: 0x82B8
 	Size: 0x68
@@ -2441,7 +2441,7 @@ function private function_14833fc2()
 
 /*
 	Name: function_d899c62c
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xDC28AA19
 	Offset: 0x8328
 	Size: 0x134
@@ -2472,7 +2472,7 @@ function function_d899c62c(var_88f4c6ec, round_number)
 
 /*
 	Name: function_54c795f6
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xD0F7472E
 	Offset: 0x8468
 	Size: 0xE4
@@ -2499,7 +2499,7 @@ function private function_54c795f6()
 
 /*
 	Name: function_4d844f2
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xFE85B8FE
 	Offset: 0x8558
 	Size: 0x24
@@ -2513,7 +2513,7 @@ function private function_4d844f2()
 
 /*
 	Name: function_79611ef0
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x699012B4
 	Offset: 0x8588
 	Size: 0x408
@@ -2578,7 +2578,7 @@ function function_79611ef0(n_island)
 
 /*
 	Name: function_a3f19534
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xBD6A4E98
 	Offset: 0x8998
 	Size: 0xE0
@@ -2602,7 +2602,7 @@ function function_a3f19534(a_ents)
 
 /*
 	Name: function_2003ebc9
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xECC216C2
 	Offset: 0x8A80
 	Size: 0x306
@@ -2620,7 +2620,7 @@ function private function_2003ebc9(n_island)
 				if(var_225a75b4.script_string === "column_to_park" || var_225a75b4.script_string === "fountain_to_park")
 				{
 					var_225a75b4.var_5a099a2d = 1;
-					array::thread_all(util::get_players(#"allies"), &namespace_66445b8f::function_28deccf1, var_225a75b4, 0);
+					array::thread_all(util::get_players(#"allies"), &zm_red_fasttravel::function_28deccf1, var_225a75b4, 0);
 					var_225a75b4.unitrigger_stub thread util::delay_notify(0.1, "cancel_fasttravel_cooldown");
 				}
 				if(var_225a75b4.script_string === "park_to_column" || var_225a75b4.script_string === "park_to_fountain")
@@ -2635,7 +2635,7 @@ function private function_2003ebc9(n_island)
 				if(var_225a75b4.script_string === "column_to_fountain" || var_225a75b4.script_string === "park_to_fountain")
 				{
 					var_225a75b4.var_5a099a2d = 1;
-					array::thread_all(util::get_players(#"allies"), &namespace_66445b8f::function_28deccf1, var_225a75b4, 0);
+					array::thread_all(util::get_players(#"allies"), &zm_red_fasttravel::function_28deccf1, var_225a75b4, 0);
 					var_225a75b4.unitrigger_stub thread util::delay_notify(0.1, "cancel_fasttravel_cooldown");
 				}
 				if(var_225a75b4.script_string === "fountain_to_column" || var_225a75b4.script_string === "fountain_to_park")
@@ -2651,7 +2651,7 @@ function private function_2003ebc9(n_island)
 
 /*
 	Name: function_75f1dc3a
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xD16057AA
 	Offset: 0x8D90
 	Size: 0x1C6
@@ -2669,7 +2669,7 @@ function private function_75f1dc3a(n_island)
 				if(var_225a75b4.script_string === "park_to_column" || var_225a75b4.script_string === "park_to_fountain")
 				{
 					var_225a75b4.var_5a099a2d = 1;
-					array::thread_all(util::get_players(#"allies"), &namespace_66445b8f::function_28deccf1, var_225a75b4, 0);
+					array::thread_all(util::get_players(#"allies"), &zm_red_fasttravel::function_28deccf1, var_225a75b4, 0);
 				}
 				break;
 			}
@@ -2678,7 +2678,7 @@ function private function_75f1dc3a(n_island)
 				if(var_225a75b4.script_string === "fountain_to_column" || var_225a75b4.script_string === "fountain_to_park")
 				{
 					var_225a75b4.var_5a099a2d = 1;
-					array::thread_all(util::get_players(#"allies"), &namespace_66445b8f::function_28deccf1, var_225a75b4, 0);
+					array::thread_all(util::get_players(#"allies"), &zm_red_fasttravel::function_28deccf1, var_225a75b4, 0);
 				}
 				break;
 			}
@@ -2688,7 +2688,7 @@ function private function_75f1dc3a(n_island)
 
 /*
 	Name: function_b2420fe0
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x85727AC3
 	Offset: 0x8F60
 	Size: 0x2CC
@@ -2763,7 +2763,7 @@ function function_b2420fe0(n_island)
 
 /*
 	Name: function_a695c70b
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xEA5D9658
 	Offset: 0x9238
 	Size: 0x50
@@ -2781,7 +2781,7 @@ function function_a695c70b(s_loc)
 
 /*
 	Name: function_c7a3202c
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x5DDCD09E
 	Offset: 0x9290
 	Size: 0x1F6
@@ -2852,7 +2852,7 @@ function private function_c7a3202c(var_5f3b05e8)
 
 /*
 	Name: function_39dc3a09
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC2418781
 	Offset: 0x9490
 	Size: 0xBC
@@ -2890,7 +2890,7 @@ function private function_39dc3a09(e_target)
 
 /*
 	Name: function_766fb0b1
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x7ED90142
 	Offset: 0x9558
 	Size: 0x160
@@ -2923,7 +2923,7 @@ function function_766fb0b1(var_fd1c353a)
 
 /*
 	Name: return_false
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC48A0C58
 	Offset: 0x96C0
 	Size: 0x6
@@ -2937,7 +2937,7 @@ function return_false()
 
 /*
 	Name: function_85593a2
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x2FA48D9
 	Offset: 0x96D0
 	Size: 0x88
@@ -2958,7 +2958,7 @@ function function_85593a2(v_point)
 
 /*
 	Name: function_bc717eee
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC03D947C
 	Offset: 0x9760
 	Size: 0x224
@@ -2985,7 +2985,7 @@ function function_bc717eee(v_destination)
 
 /*
 	Name: spawn_miniboss
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xBEAFB348
 	Offset: 0x9990
 	Size: 0x144
@@ -3020,7 +3020,7 @@ function spawn_miniboss()
 
 /*
 	Name: function_6c856fde
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC1A83CEE
 	Offset: 0x9AE0
 	Size: 0x30
@@ -3038,7 +3038,7 @@ function function_6c856fde(e_zombie)
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x634F2A46
 	Offset: 0x9B18
 	Size: 0x88
@@ -3049,13 +3049,13 @@ function on_player_connect()
 {
 	foreach(var_de3a312c in level.var_3958c9ff)
 	{
-		self thread namespace_66445b8f::function_28deccf1(var_de3a312c, 1);
+		self thread zm_red_fasttravel::function_28deccf1(var_de3a312c, 1);
 	}
 }
 
 /*
 	Name: function_6401a80e
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x6C0FAB0D
 	Offset: 0x9BA8
 	Size: 0x4FE
@@ -3115,7 +3115,7 @@ function function_6401a80e()
 				}
 				if(!(isdefined(var_e1284bee.var_5a099a2d) && var_e1284bee.var_5a099a2d) && (!(isdefined(var_e1284bee.var_151f9e4b) && var_e1284bee.var_151f9e4b)))
 				{
-					self namespace_66445b8f::function_28deccf1(var_e1284bee, 2);
+					self zm_red_fasttravel::function_28deccf1(var_e1284bee, 2);
 				}
 				break;
 			}
@@ -3128,7 +3128,7 @@ function function_6401a80e()
 				}
 				else if(!(isdefined(var_f0bbde5.var_5a099a2d) && var_f0bbde5.var_5a099a2d))
 				{
-					self namespace_66445b8f::function_28deccf1(var_f0bbde5, 2);
+					self zm_red_fasttravel::function_28deccf1(var_f0bbde5, 2);
 				}
 				break;
 			}
@@ -3136,11 +3136,11 @@ function function_6401a80e()
 			{
 				if(!(isdefined(var_e1284bee.var_5a099a2d) && var_e1284bee.var_5a099a2d))
 				{
-					self namespace_66445b8f::function_28deccf1(var_e1284bee, 1);
+					self zm_red_fasttravel::function_28deccf1(var_e1284bee, 1);
 				}
 				if(!(isdefined(var_f0bbde5.var_5a099a2d) && var_f0bbde5.var_5a099a2d))
 				{
-					self namespace_66445b8f::function_28deccf1(var_f0bbde5, 1);
+					self zm_red_fasttravel::function_28deccf1(var_f0bbde5, 1);
 				}
 				break;
 			}
@@ -3150,7 +3150,7 @@ function function_6401a80e()
 
 /*
 	Name: function_5fc81f0a
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xAC4CCECE
 	Offset: 0xA0B0
 	Size: 0x134
@@ -3173,7 +3173,7 @@ function function_5fc81f0a(e_target)
 
 /*
 	Name: function_1722dae1
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x1DC147D9
 	Offset: 0xA1F0
 	Size: 0x168
@@ -3205,7 +3205,7 @@ function function_1722dae1()
 
 /*
 	Name: function_4c17036d
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xCF1A4FE8
 	Offset: 0xA360
 	Size: 0x74
@@ -3223,7 +3223,7 @@ function private function_4c17036d(e_attacker, b_hero_weapon = 0)
 
 /*
 	Name: function_5ac09481
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xB3975B7E
 	Offset: 0xA3E0
 	Size: 0xD4
@@ -3242,7 +3242,7 @@ function function_5ac09481(b_skipped)
 
 /*
 	Name: function_43d699d6
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x3F85189C
 	Offset: 0xA4C0
 	Size: 0x34
@@ -3256,7 +3256,7 @@ function function_43d699d6(b_skipped, var_19e802fa)
 
 /*
 	Name: function_60d4faca
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x437FA88C
 	Offset: 0xA500
 	Size: 0x218
@@ -3310,7 +3310,7 @@ function function_60d4faca(a_s_valid_respawn_points)
 
 /*
 	Name: function_9bc4f8cb
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xF05A0AC
 	Offset: 0xA720
 	Size: 0x3C
@@ -3325,7 +3325,7 @@ function function_9bc4f8cb()
 
 /*
 	Name: function_135159d
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x96F28C7F
 	Offset: 0xA768
 	Size: 0x98
@@ -3346,7 +3346,7 @@ function function_135159d()
 
 /*
 	Name: cleanup_zombie
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x7A5F5A69
 	Offset: 0xA808
 	Size: 0x8C
@@ -3364,7 +3364,7 @@ function cleanup_zombie()
 
 /*
 	Name: function_27486895
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xDD3C16BE
 	Offset: 0xA8A0
 	Size: 0x15A
@@ -3410,7 +3410,7 @@ function function_27486895(cmd)
 
 /*
 	Name: function_d5a70078
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x6B819220
 	Offset: 0xAA08
 	Size: 0xD8
@@ -3441,7 +3441,7 @@ function function_d5a70078()
 
 /*
 	Name: function_213d02bd
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x129F9B54
 	Offset: 0xAAE8
 	Size: 0x88
@@ -3464,7 +3464,7 @@ function function_213d02bd()
 
 /*
 	Name: function_99f0123d
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x644160B6
 	Offset: 0xAB78
 	Size: 0x28A

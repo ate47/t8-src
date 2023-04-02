@@ -91,9 +91,9 @@ function gadget_health_regen_on_give(slot, weapon)
 	self.gadget_health_regen_slot = slot;
 	self.gadget_health_regen_weapon = weapon;
 	weapon.ignore_grenade = 1;
-	if(isdefined(weapon) && weapon.var_44377ea6)
+	if(isdefined(weapon) && weapon.maxheal)
 	{
-		self player::function_9080887a(weapon.var_44377ea6);
+		self player::function_9080887a(weapon.maxheal);
 	}
 	else
 	{
@@ -365,9 +365,9 @@ function enable_healing(slot, weapon, player)
 		return;
 	}
 	self function_1e02d458();
-	if(isdefined(weapon) && weapon.var_44377ea6)
+	if(isdefined(weapon) && weapon.maxheal)
 	{
-		self player::function_9080887a(weapon.var_44377ea6);
+		self player::function_9080887a(weapon.maxheal);
 	}
 	else
 	{
@@ -389,9 +389,9 @@ function enable_healing(slot, weapon, player)
 	if(weapon.heal)
 	{
 		max_health = self.maxhealth;
-		if(weapon.var_44377ea6)
+		if(weapon.maxheal)
 		{
-			max_health = weapon.var_44377ea6;
+			max_health = weapon.maxheal;
 		}
 		self.heal.var_bc840360 = math::clamp(weapon.heal + var_bc840360, 0, max_health);
 		if(self.heal.var_bc840360 == 0)

@@ -7,11 +7,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_1846c963;
+#namespace zm_white_portals;
 
 /*
 	Name: init
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xDC57F79C
 	Offset: 0x5B8
 	Size: 0x34
@@ -27,7 +27,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x9AC208E2
 	Offset: 0x5F8
 	Size: 0x29C
@@ -76,7 +76,7 @@ function main()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x735AACC8
 	Offset: 0x8A0
 	Size: 0x94C
@@ -122,7 +122,7 @@ function init_clientfields()
 
 /*
 	Name: init_fx
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x7C91154E
 	Offset: 0x11F8
 	Size: 0x242
@@ -147,7 +147,7 @@ function init_fx()
 
 /*
 	Name: function_3ad8c656
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xBA66D52E
 	Offset: 0x1448
 	Size: 0x116
@@ -170,7 +170,7 @@ function function_3ad8c656()
 
 /*
 	Name: function_38a241a1
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x48FB6073
 	Offset: 0x1568
 	Size: 0x7C
@@ -187,7 +187,7 @@ function function_38a241a1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_69108708
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x9DFC7A42
 	Offset: 0x15F0
 	Size: 0x94
@@ -204,7 +204,7 @@ function function_69108708(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_98cff177
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xDC300939
 	Offset: 0x1690
 	Size: 0x94
@@ -221,7 +221,7 @@ function function_98cff177(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e4ea441
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x4220772B
 	Offset: 0x1730
 	Size: 0x29A
@@ -269,7 +269,7 @@ function function_e4ea441(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: portal_ready_fx
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x181647F2
 	Offset: 0x19D8
 	Size: 0x15E
@@ -299,7 +299,7 @@ function portal_ready_fx(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: crawler_portal_spawn_fx
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xA1B7DFE5
 	Offset: 0x1B40
 	Size: 0xC4
@@ -319,7 +319,7 @@ function crawler_portal_spawn_fx(localclientnum, oldval, newval, bnewent, biniti
 
 /*
 	Name: portal_maps_clear_lights
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x26E63D44
 	Offset: 0x1C10
 	Size: 0xE0
@@ -341,7 +341,7 @@ function portal_maps_clear_lights(localclientnum, oldval, newval, bnewent, binit
 
 /*
 	Name: function_bae44e14
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x74298774
 	Offset: 0x1CF8
 	Size: 0xE8
@@ -361,7 +361,7 @@ function function_bae44e14(localclientnum)
 
 /*
 	Name: portal_maps_initialize_lights
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x58E14D02
 	Offset: 0x1DE8
 	Size: 0x16C
@@ -387,7 +387,7 @@ function portal_maps_initialize_lights(localclientnum, oldval, newval, bnewent, 
 
 /*
 	Name: portal_map_indicator_green_house_backyard
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x8708A374
 	Offset: 0x1F60
 	Size: 0x94
@@ -408,7 +408,7 @@ function portal_map_indicator_green_house_backyard(localclientnum, oldval, newva
 
 /*
 	Name: portal_map_indicator_red_house
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xDED00C12
 	Offset: 0x2000
 	Size: 0x94
@@ -429,7 +429,7 @@ function portal_map_indicator_red_house(localclientnum, oldval, newval, bnewent,
 
 /*
 	Name: portal_map_indicator_yellow_house
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x3379BD45
 	Offset: 0x20A0
 	Size: 0x94
@@ -450,7 +450,7 @@ function portal_map_indicator_yellow_house(localclientnum, oldval, newval, bnewe
 
 /*
 	Name: portal_map_indicator_prisoner_holding
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xE5F0CC4F
 	Offset: 0x2140
 	Size: 0x94
@@ -471,7 +471,7 @@ function portal_map_indicator_prisoner_holding(localclientnum, oldval, newval, b
 
 /*
 	Name: portal_map_indicator_street_middle
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x21F07A14
 	Offset: 0x21E0
 	Size: 0x94
@@ -492,7 +492,7 @@ function portal_map_indicator_street_middle(localclientnum, oldval, newval, bnew
 
 /*
 	Name: portal_map_indicator_transfusion_facility
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xFFC99845
 	Offset: 0x2280
 	Size: 0x94
@@ -513,7 +513,7 @@ function portal_map_indicator_transfusion_facility(localclientnum, oldval, newva
 
 /*
 	Name: portal_map_indicator_diner
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xB75580A2
 	Offset: 0x2320
 	Size: 0x94
@@ -534,7 +534,7 @@ function portal_map_indicator_diner(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: portal_map_indicator_beds
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xCE151E84
 	Offset: 0x23C0
 	Size: 0x94
@@ -555,7 +555,7 @@ function portal_map_indicator_beds(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: portal_map_indicator_power
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x2F282B33
 	Offset: 0x2460
 	Size: 0x94
@@ -576,7 +576,7 @@ function portal_map_indicator_power(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: portal_map_indicator_storage
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x10427DBC
 	Offset: 0x2500
 	Size: 0x94
@@ -597,7 +597,7 @@ function portal_map_indicator_storage(localclientnum, oldval, newval, bnewent, b
 
 /*
 	Name: function_af29dda9
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x539B2DB5
 	Offset: 0x25A0
 	Size: 0xF8
@@ -617,7 +617,7 @@ function function_af29dda9(localclientnum, tag_label)
 
 /*
 	Name: function_8353316a
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0xA9FA257D
 	Offset: 0x26A0
 	Size: 0xF8
@@ -637,7 +637,7 @@ function function_8353316a(localclientnum, tag_label)
 
 /*
 	Name: function_1b1de62b
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x1A14B06B
 	Offset: 0x27A0
 	Size: 0x4E
@@ -654,7 +654,7 @@ function function_1b1de62b(localclientnum)
 
 /*
 	Name: function_73460c84
-	Namespace: namespace_1846c963
+	Namespace: zm_white_portals
 	Checksum: 0x4AA05CB4
 	Offset: 0x27F8
 	Size: 0x48

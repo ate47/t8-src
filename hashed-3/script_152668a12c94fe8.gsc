@@ -2,7 +2,7 @@
 #using script_10956a741a7e186e;
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using script_39e954a546d3baf;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
@@ -260,8 +260,8 @@ function function_ca35fa36()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45);
 	level flag::set(#"hash_3bb140702c2b1323");
 	zm_utility::function_fef4b36a(var_f79ff5ec);
-	level.s_portal_power thread namespace_1846c963::function_16ccd69f();
-	level.s_portal_street_mid thread namespace_1846c963::function_16ccd69f();
+	level.s_portal_power thread zm_white_portals::function_16ccd69f();
+	level.s_portal_street_mid thread zm_white_portals::function_16ccd69f();
 	level function_a97f7327();
 	var_dca419c2 = arraycombine(var_dca419c2, array("truck_blocker"), 0, 0);
 	level zm_utility::open_door(var_dca419c2, undefined, undefined, 0);
@@ -299,14 +299,14 @@ function function_7f933d39()
 	var_63fca02d = struct::get_array("white_portal");
 	foreach(s_portal in var_63fca02d)
 	{
-		s_portal namespace_1846c963::portal_init();
+		s_portal zm_white_portals::portal_init();
 	}
 	level.s_portal_power.b_active = 1;
 	level.s_portal_street_mid.b_active = 1;
 	level.s_portal_power.e_model show();
 	level.s_portal_street_mid.e_model show();
-	level.s_portal_power thread namespace_1846c963::portal_activate();
-	level.s_portal_street_mid thread namespace_1846c963::portal_activate();
+	level.s_portal_power thread zm_white_portals::portal_activate();
+	level.s_portal_street_mid thread zm_white_portals::portal_activate();
 	level.s_portal_power.n_dest = level.s_portal_street_mid.var_7b89ada3;
 	level.s_portal_street_mid.n_dest = level.s_portal_power.var_7b89ada3;
 }
@@ -324,12 +324,12 @@ function function_c87db3f7(var_f79ff5ec)
 {
 	level waittill(#"creating_zone_defend_area");
 	level flag::wait_till("started_defend_area");
-	level.s_portal_power thread namespace_1846c963::function_978923cd();
-	level.s_portal_street_mid thread namespace_1846c963::function_978923cd();
+	level.s_portal_power thread zm_white_portals::function_978923cd();
+	level.s_portal_street_mid thread zm_white_portals::function_978923cd();
 	level waittill(#"hash_7a04a7fb98fa4e4d");
 	wait(2);
-	level.s_portal_power thread namespace_1846c963::function_16ccd69f();
-	level.s_portal_street_mid thread namespace_1846c963::function_16ccd69f();
+	level.s_portal_power thread zm_white_portals::function_16ccd69f();
+	level.s_portal_street_mid thread zm_white_portals::function_16ccd69f();
 }
 
 /*

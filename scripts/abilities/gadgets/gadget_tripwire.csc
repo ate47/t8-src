@@ -39,9 +39,9 @@ function __init__()
 	clientfield::register("missile", "tripwire_state", 1, 2, "int", &function_6868fab3, 1, 1);
 	clientfield::register("scriptmover", "tripwire_solo_beam_fx", 1, 1, "int", &function_9233eb94, 0, 0);
 	level.var_c27600b0 = getweapon("eq_tripwire");
-	if(isdefined(level.var_c27600b0.var_4dd46f8a))
+	if(isdefined(level.var_c27600b0.customsettings))
 	{
-		level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.var_4dd46f8a);
+		level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.customsettings);
 	}
 	else
 	{

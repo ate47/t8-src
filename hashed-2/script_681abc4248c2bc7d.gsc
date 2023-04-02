@@ -33,7 +33,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	}
 
 	/*
-		Name: function_940bbc52
+		Name: set_decay
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0xA75EEB4A
 		Offset: 0x4D0
@@ -41,13 +41,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_940bbc52(player, value)
+	function set_decay(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "decay", value);
 	}
 
 	/*
-		Name: function_52773fa9
+		Name: set_purity
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0xEC16543E
 		Offset: 0x488
@@ -55,13 +55,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_52773fa9(player, value)
+	function set_purity(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "purity", value);
 	}
 
 	/*
-		Name: function_5c237e79
+		Name: set_plasma
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x301F9088
 		Offset: 0x440
@@ -69,13 +69,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_5c237e79(player, value)
+	function set_plasma(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "plasma", value);
 	}
 
 	/*
-		Name: function_e5c37a19
+		Name: set_radiance
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0xAC90D776
 		Offset: 0x3F8
@@ -83,7 +83,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_e5c37a19(player, value)
+	function set_radiance(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "radiance", value);
 	}
@@ -197,7 +197,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_e5c37a19
+	Name: set_radiance
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0x71BD35FE
 	Offset: 0x1C8
@@ -205,13 +205,13 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_e5c37a19(player, value)
+function set_radiance(player, value)
 {
-	[[ self ]]->function_e5c37a19(player, value);
+	[[ self ]]->set_radiance(player, value);
 }
 
 /*
-	Name: function_5c237e79
+	Name: set_plasma
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0xFE874A47
 	Offset: 0x1F8
@@ -219,13 +219,13 @@ function function_e5c37a19(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5c237e79(player, value)
+function set_plasma(player, value)
 {
-	[[ self ]]->function_5c237e79(player, value);
+	[[ self ]]->set_plasma(player, value);
 }
 
 /*
-	Name: function_52773fa9
+	Name: set_purity
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0x944268FB
 	Offset: 0x228
@@ -233,13 +233,13 @@ function function_5c237e79(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_52773fa9(player, value)
+function set_purity(player, value)
 {
-	[[ self ]]->function_52773fa9(player, value);
+	[[ self ]]->set_purity(player, value);
 }
 
 /*
-	Name: function_940bbc52
+	Name: set_decay
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0x6F5DF670
 	Offset: 0x258
@@ -247,8 +247,8 @@ function function_52773fa9(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_940bbc52(player, value)
+function set_decay(player, value)
 {
-	[[ self ]]->function_940bbc52(player, value);
+	[[ self ]]->set_decay(player, value);
 }
 

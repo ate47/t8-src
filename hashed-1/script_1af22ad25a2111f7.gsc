@@ -34,7 +34,7 @@ function init_shared()
 		level.var_578f7c6d.var_1728e736 = [];
 	}
 	level.var_578f7c6d.weapon = getweapon(#"eq_emp_grenade");
-	level.var_578f7c6d.var_4dd46f8a = getscriptbundle(level.var_578f7c6d.weapon.var_4dd46f8a);
+	level.var_578f7c6d.customsettings = getscriptbundle(level.var_578f7c6d.weapon.customsettings);
 	weaponobjects::function_e6400478(#"eq_emp_grenade", &function_1a50ce7b, 1);
 	registerclientfields();
 	setupcallbacks();
@@ -131,7 +131,7 @@ function function_48c30195(entity, var_ec9c756e)
 */
 function function_86e3d17a()
 {
-	return level.var_578f7c6d.var_4dd46f8a.var_3bd9b483;
+	return level.var_578f7c6d.customsettings.var_3bd9b483;
 }
 
 /*
@@ -413,7 +413,7 @@ function private function_b8c5ab9c(jammer, player, attackingplayer)
 	player setempjammed(1);
 	scoreevents::processscoreevent(#"disrupted_enemy", attackingplayer, undefined, level.var_578f7c6d.weapon);
 	function_58f8bf08(jammer, attackingplayer, player);
-	wait(level.var_578f7c6d.var_4dd46f8a.var_f29418f1);
+	wait(level.var_578f7c6d.customsettings.var_f29418f1);
 	if(!isdefined(player))
 	{
 		return;

@@ -116,7 +116,7 @@ function function_1c61050d(local_client_num, objective_id)
 function function_7a677105(weapon)
 {
 	/#
-		assert(isdefined(weapon.var_4dd46f8a), "" + weapon.name);
+		assert(isdefined(weapon.customsettings), "" + weapon.name);
 	#/
 	if(!isdefined(level.var_825acea))
 	{
@@ -125,7 +125,7 @@ function function_7a677105(weapon)
 	var_f0bf9259 = hash(weapon.name);
 	if(!isdefined(level.var_825acea[var_f0bf9259]))
 	{
-		level.var_825acea[var_f0bf9259] = getscriptbundle(weapon.var_4dd46f8a);
+		level.var_825acea[var_f0bf9259] = getscriptbundle(weapon.customsettings);
 	}
 	return level.var_825acea[var_f0bf9259];
 }

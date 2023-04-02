@@ -31,7 +31,7 @@ class crevive_hud : cLUIelem
 	}
 
 	/*
-		Name: function_28ebf0f1
+		Name: set_fadeTime
 		Namespace: crevive_hud
 		Checksum: 0xFFFA0B09
 		Offset: 0x4D0
@@ -39,7 +39,7 @@ class crevive_hud : cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_28ebf0f1(localclientnum, value)
+	function set_fadeTime(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "fadeTime", value);
 	}
@@ -241,7 +241,7 @@ function set_clientnum(localclientnum, value)
 }
 
 /*
-	Name: function_28ebf0f1
+	Name: set_fadeTime
 	Namespace: revive_hud
 	Checksum: 0x2127309D
 	Offset: 0x258
@@ -249,8 +249,8 @@ function set_clientnum(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_28ebf0f1(localclientnum, value)
+function set_fadeTime(localclientnum, value)
 {
-	[[ self ]]->function_28ebf0f1(localclientnum, value);
+	[[ self ]]->set_fadeTime(localclientnum, value);
 }
 

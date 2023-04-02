@@ -185,7 +185,7 @@ function _fire(lifeid, player, team, killstreak_id)
 {
 	player notify(#"remote_missile_fired");
 	weapon = getweapon(#"remote_missile");
-	settings = getscriptbundle(weapon.var_4dd46f8a);
+	settings = getscriptbundle(weapon.customsettings);
 	streamermodelhint(weapon.var_22082a57, 7);
 	remotemissilespawnarray = getentarray("remoteMissileSpawn", "targetname");
 	foreach(spawn in remotemissilespawnarray)
@@ -1154,7 +1154,7 @@ function getvalidtargets(rocket, trace, max_targets)
 function getbesttarget(rocket, trace)
 {
 	weapon = getweapon(#"remote_missile");
-	settings = getscriptbundle(weapon.var_4dd46f8a);
+	settings = getscriptbundle(weapon.customsettings);
 	target_radius = (isdefined(settings.target_radius) ? settings.target_radius : 600);
 	best_target = undefined;
 	best_dist2 = target_radius * target_radius;
@@ -1210,7 +1210,7 @@ function function_8c981143(rocket)
 	if(isdefined(target) && isalive(target))
 	{
 		weapon = getweapon(#"remote_missile");
-		settings = getscriptbundle(weapon.var_4dd46f8a);
+		settings = getscriptbundle(weapon.customsettings);
 		target_radius = (isdefined(settings.target_radius) ? settings.target_radius : 600);
 		var_5667e212 = target_radius * target_radius;
 		fwd = anglestoforward(rocket.angles);
@@ -1392,17 +1392,17 @@ function targeting_hud_think(rocket)
 				index = target.missileiconindex;
 				if(index == 0)
 				{
-					level.remote_missile_targets remote_missile_targets::function_d798388d(self, target getentitynumber());
+					level.remote_missile_targets remote_missile_targets::set_extra_target_1(self, target getentitynumber());
 					continue;
 				}
 				if(index == 1)
 				{
-					level.remote_missile_targets remote_missile_targets::function_808f0a7c(self, target getentitynumber());
+					level.remote_missile_targets remote_missile_targets::set_extra_target_2(self, target getentitynumber());
 					continue;
 				}
 				if(index == 2)
 				{
-					level.remote_missile_targets remote_missile_targets::function_808f0a7c(self, target getentitynumber());
+					level.remote_missile_targets remote_missile_targets::set_extra_target_2(self, target getentitynumber());
 					continue;
 				}
 				/#

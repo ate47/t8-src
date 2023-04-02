@@ -33,7 +33,7 @@ class crevive_hud : cLUIelem
 	}
 
 	/*
-		Name: function_28ebf0f1
+		Name: set_fadeTime
 		Namespace: crevive_hud
 		Checksum: 0xEF18594C
 		Offset: 0x420
@@ -41,7 +41,7 @@ class crevive_hud : cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_28ebf0f1(player, value)
+	function set_fadeTime(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "fadeTime", value);
 	}
@@ -210,7 +210,7 @@ function set_clientnum(player, value)
 }
 
 /*
-	Name: function_28ebf0f1
+	Name: set_fadeTime
 	Namespace: revive_hud
 	Checksum: 0x9930F51F
 	Offset: 0x218
@@ -218,8 +218,8 @@ function set_clientnum(player, value)
 	Parameters: 2
 	Flags: Linked
 */
-function function_28ebf0f1(player, value)
+function set_fadeTime(player, value)
 {
-	[[ self ]]->function_28ebf0f1(player, value);
+	[[ self ]]->set_fadeTime(player, value);
 }
 

@@ -33,7 +33,7 @@ class cself_respawn : cLUIelem
 	}
 
 	/*
-		Name: function_459465a
+		Name: set_percent
 		Namespace: cself_respawn
 		Checksum: 0xC0D82E
 		Offset: 0x2C8
@@ -41,7 +41,7 @@ class cself_respawn : cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_459465a(player, value)
+	function set_percent(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "percent", value);
 	}
@@ -152,7 +152,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_459465a
+	Name: set_percent
 	Namespace: self_respawn
 	Checksum: 0x592A5FBC
 	Offset: 0x1A0
@@ -160,8 +160,8 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_459465a(player, value)
+function set_percent(player, value)
 {
-	[[ self ]]->function_459465a(player, value);
+	[[ self ]]->set_percent(player, value);
 }
 

@@ -369,10 +369,10 @@ function function_7b6777c5(t_spawner)
 	}
 	if(isdefined(t_spawner.var_945ce5e))
 	{
-		var_54d9911f = strtok(t_spawner.var_945ce5e, " ");
-		foreach(var_98ed4e60 in var_54d9911f)
+		a_str_sets = strtok(t_spawner.var_945ce5e, " ");
+		foreach(str_set in a_str_sets)
 		{
-			a_s_spots = struct::get_array(var_98ed4e60, "catwalk_spawner");
+			a_s_spots = struct::get_array(str_set, "catwalk_spawner");
 			foreach(s_spot in a_s_spots)
 			{
 				s_spot notify(#"restore");

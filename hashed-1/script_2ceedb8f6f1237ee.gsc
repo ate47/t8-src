@@ -33,7 +33,7 @@ class cct_shared_ingame_hint : cLUIelem
 	}
 
 	/*
-		Name: function_f9868b51
+		Name: set_inGameHint
 		Namespace: cct_shared_ingame_hint
 		Checksum: 0x311F4293
 		Offset: 0x600
@@ -41,7 +41,7 @@ class cct_shared_ingame_hint : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_f9868b51(player, value)
+	function set_inGameHint(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "inGameHint", value);
 	}
@@ -255,7 +255,7 @@ function set_state(player, state_name)
 }
 
 /*
-	Name: function_f9868b51
+	Name: set_inGameHint
 	Namespace: ct_shared_ingame_hint
 	Checksum: 0x4ADA5926
 	Offset: 0x1E8
@@ -263,8 +263,8 @@ function set_state(player, state_name)
 	Parameters: 2
 	Flags: None
 */
-function function_f9868b51(player, value)
+function set_inGameHint(player, value)
 {
-	[[ self ]]->function_f9868b51(player, value);
+	[[ self ]]->set_inGameHint(player, value);
 }
 

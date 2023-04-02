@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ebb9642933bf7;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
@@ -1582,13 +1582,13 @@ function function_cd39be3()
 		iprintlnbold("");
 		iprintlnbold("");
 	#/
-	var_c718a93c = level namespace_1846c963::function_688df525();
+	var_c718a93c = level zm_white_portals::function_688df525();
 	foreach(s_portal in var_c718a93c)
 	{
-		s_portal thread namespace_1846c963::function_978923cd();
+		s_portal thread zm_white_portals::function_978923cd();
 		s_portal.b_active = 0;
 		waitframe(1);
-		s_portal thread namespace_1846c963::function_16ccd69f();
+		s_portal thread zm_white_portals::function_16ccd69f();
 	}
 }
 
@@ -1608,12 +1608,12 @@ function function_ab8edf2c()
 		/#
 			iprintlnbold("");
 		#/
-		var_c718a93c = level namespace_1846c963::function_688df525();
+		var_c718a93c = level zm_white_portals::function_688df525();
 		foreach(s_portal in var_c718a93c)
 		{
 			s_portal.b_active = 1;
 			waitframe(1);
-			s_portal thread namespace_1846c963::function_16ccd69f();
+			s_portal thread zm_white_portals::function_16ccd69f();
 		}
 	}
 }
@@ -2025,10 +2025,10 @@ function function_2330b278()
 	level thread function_8d7b02b0();
 	level.var_e120ae98 = &function_71753169;
 	level.var_eeb98313 = &function_71753169;
-	level.var_63fca02d[#"portal_power"] thread namespace_1846c963::function_978923cd();
+	level.var_63fca02d[#"portal_power"] thread zm_white_portals::function_978923cd();
 	level.var_63fca02d[#"portal_power"].b_active = 0;
 	waitframe(1);
-	level.var_63fca02d[#"portal_power"] thread namespace_1846c963::function_16ccd69f(0);
+	level.var_63fca02d[#"portal_power"] thread zm_white_portals::function_16ccd69f(0);
 	zm_unitrigger::unregister_unitrigger(level.var_63fca02d[#"portal_power"].s_unitrigger);
 	wait(5);
 	if(!(isdefined(level.var_5e45f817) && level.var_5e45f817 || (isdefined(level.var_2b94ce72) && level.var_2b94ce72)))
@@ -2173,14 +2173,14 @@ function function_6acd363d(is_completed)
 	#/
 	level.var_e120ae98 = undefined;
 	level.var_eeb98313 = undefined;
-	level.var_63fca02d[#"portal_power"] namespace_1846c963::function_97d4ad50();
+	level.var_63fca02d[#"portal_power"] zm_white_portals::function_97d4ad50();
 	if(level.var_63fca02d[#"portal_power"].b_placed === 1)
 	{
 		level.var_63fca02d[#"portal_power"].b_active = 1;
 		waitframe(1);
 		if(level.var_868c98df === 0)
 		{
-			level.var_63fca02d[#"portal_power"] namespace_1846c963::function_16ccd69f();
+			level.var_63fca02d[#"portal_power"] zm_white_portals::function_16ccd69f();
 		}
 	}
 	level callback::remove_on_ai_spawned(&function_96c2cbb3);

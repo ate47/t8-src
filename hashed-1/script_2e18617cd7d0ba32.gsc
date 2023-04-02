@@ -31,7 +31,7 @@ class cct_shared_objcounter : cLUIelem
 	}
 
 	/*
-		Name: function_871cdcb3
+		Name: set_objectiveTotal
 		Namespace: cct_shared_objcounter
 		Checksum: 0x8F4A52
 		Offset: 0x738
@@ -39,13 +39,13 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_871cdcb3(localclientnum, value)
+	function set_objectiveTotal(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "objectiveTotal", value);
 	}
 
 	/*
-		Name: function_d9fa867a
+		Name: set_objectiveLabel
 		Namespace: cct_shared_objcounter
 		Checksum: 0xDEE6DF9C
 		Offset: 0x700
@@ -53,13 +53,13 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_d9fa867a(localclientnum, value)
+	function set_objectiveLabel(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "objectiveLabel", value);
 	}
 
 	/*
-		Name: function_e23dcbb4
+		Name: set_objectiveCount
 		Namespace: cct_shared_objcounter
 		Checksum: 0x23C50273
 		Offset: 0x6C8
@@ -67,7 +67,7 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_e23dcbb4(localclientnum, value)
+	function set_objectiveCount(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "objectiveCount", value);
 	}
@@ -296,7 +296,7 @@ function set_state(localclientnum, state_name)
 }
 
 /*
-	Name: function_e23dcbb4
+	Name: set_objectiveCount
 	Namespace: ct_shared_objcounter
 	Checksum: 0x4FDE408D
 	Offset: 0x248
@@ -304,13 +304,13 @@ function set_state(localclientnum, state_name)
 	Parameters: 2
 	Flags: None
 */
-function function_e23dcbb4(localclientnum, value)
+function set_objectiveCount(localclientnum, value)
 {
-	[[ self ]]->function_e23dcbb4(localclientnum, value);
+	[[ self ]]->set_objectiveCount(localclientnum, value);
 }
 
 /*
-	Name: function_d9fa867a
+	Name: set_objectiveLabel
 	Namespace: ct_shared_objcounter
 	Checksum: 0x65261ED9
 	Offset: 0x278
@@ -318,13 +318,13 @@ function function_e23dcbb4(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d9fa867a(localclientnum, value)
+function set_objectiveLabel(localclientnum, value)
 {
-	[[ self ]]->function_d9fa867a(localclientnum, value);
+	[[ self ]]->set_objectiveLabel(localclientnum, value);
 }
 
 /*
-	Name: function_871cdcb3
+	Name: set_objectiveTotal
 	Namespace: ct_shared_objcounter
 	Checksum: 0xAABCD3E3
 	Offset: 0x2A8
@@ -332,8 +332,8 @@ function function_d9fa867a(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_871cdcb3(localclientnum, value)
+function set_objectiveTotal(localclientnum, value)
 {
-	[[ self ]]->function_871cdcb3(localclientnum, value);
+	[[ self ]]->set_objectiveTotal(localclientnum, value);
 }
 

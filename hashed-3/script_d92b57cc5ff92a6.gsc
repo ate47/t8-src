@@ -33,7 +33,7 @@ class cct_shared_objcounter : cLUIelem
 	}
 
 	/*
-		Name: function_871cdcb3
+		Name: set_objectiveTotal
 		Namespace: cct_shared_objcounter
 		Checksum: 0xD858D50B
 		Offset: 0x6A8
@@ -41,13 +41,13 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_871cdcb3(player, value)
+	function set_objectiveTotal(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "objectiveTotal", value);
 	}
 
 	/*
-		Name: function_d9fa867a
+		Name: set_objectiveLabel
 		Namespace: cct_shared_objcounter
 		Checksum: 0xC46DCDF1
 		Offset: 0x660
@@ -55,13 +55,13 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_d9fa867a(player, value)
+	function set_objectiveLabel(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "objectiveLabel", value);
 	}
 
 	/*
-		Name: function_e23dcbb4
+		Name: set_objectiveCount
 		Namespace: cct_shared_objcounter
 		Checksum: 0x7B7A794C
 		Offset: 0x618
@@ -69,7 +69,7 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_e23dcbb4(player, value)
+	function set_objectiveCount(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "objectiveCount", value);
 	}
@@ -264,7 +264,7 @@ function set_state(player, state_name)
 }
 
 /*
-	Name: function_e23dcbb4
+	Name: set_objectiveCount
 	Namespace: ct_shared_objcounter
 	Checksum: 0xD36D4652
 	Offset: 0x210
@@ -272,13 +272,13 @@ function set_state(player, state_name)
 	Parameters: 2
 	Flags: None
 */
-function function_e23dcbb4(player, value)
+function set_objectiveCount(player, value)
 {
-	[[ self ]]->function_e23dcbb4(player, value);
+	[[ self ]]->set_objectiveCount(player, value);
 }
 
 /*
-	Name: function_d9fa867a
+	Name: set_objectiveLabel
 	Namespace: ct_shared_objcounter
 	Checksum: 0x3A83F056
 	Offset: 0x240
@@ -286,13 +286,13 @@ function function_e23dcbb4(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d9fa867a(player, value)
+function set_objectiveLabel(player, value)
 {
-	[[ self ]]->function_d9fa867a(player, value);
+	[[ self ]]->set_objectiveLabel(player, value);
 }
 
 /*
-	Name: function_871cdcb3
+	Name: set_objectiveTotal
 	Namespace: ct_shared_objcounter
 	Checksum: 0x6F552D5C
 	Offset: 0x270
@@ -300,8 +300,8 @@ function function_d9fa867a(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_871cdcb3(player, value)
+function set_objectiveTotal(player, value)
 {
-	[[ self ]]->function_871cdcb3(player, value);
+	[[ self ]]->set_objectiveTotal(player, value);
 }
 

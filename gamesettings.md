@@ -1,9 +1,11 @@
-all the settins: [gamesettings.csv](gamesettings.csv)
+all the settings: [gamesettings.csv](gamesettings.csv)
 
 - [All (core)](#all-core)
   - [Modes](#modes)
 - [Multiplayer (mp)](#multiplayer-mp)
 - [Blackout (Warzone/wz)](#blackout-warzonewz)
+  - [General](#general)
+  - [XP](#xp)
   - [Characters](#characters)
     - [Multiplayer](#multiplayer)
     - [Zombies](#zombies)
@@ -11,11 +13,12 @@ all the settins: [gamesettings.csv](gamesettings.csv)
   - [Item spawns](#item-spawns)
   - [Zombies](#zombies-1)
 - [Zombies (zm)](#zombies-zm)
-  - [General](#general)
+  - [General](#general-1)
   - [Allow weapon wallbuy](#allow-weapon-wallbuy)
 
 
 # All (core)
+
 
 ## Modes
 
@@ -25,6 +28,31 @@ all the settins: [gamesettings.csv](gamesettings.csv)
 # Multiplayer (mp)
 
 # Blackout (Warzone/wz)
+
+## General
+
+- `"waverespawndelay"` - respawn wave delay (seconds)
+- `"hash_35c2d850e39fa704"` - max player count
+- `"hash_7695bdd7b20cdda"` - allow to convert the muscle car to the replacer's muscle car 
+
+## XP
+
+- `"hash_271f60ded9c53d99"` - xp per kill
+- `"hash_788f9d764901a139"` - xp per win
+- `"hash_678c85f6f120d34b"` - xp per top 5
+- `"hash_14a8959bbad2b045"` - xp per top 10
+- `"hash_14a8909bbad2a7c6"` - xp per top 15
+- `"hash_14ac1b9bbad5c9ce"` - xp per top 20
+- `"hash_14ac209bbad5d24d"` - xp per top 25
+- `"hash_14af219bbad809d7"` - xp per top 30
+- `"hash_149b1d9bbac75a01"` - xp per top 50
+- `"hash_149e239bbac99a0a"` - xp per top 60
+- `"hash_14a18c9bbacc824c"` - xp per top 75
+- `"hash_64e698c86ac94f34"` - xp per remaining lives (respawn modes)
+- `"hash_6beb27cc6f581f2d"` - xp per kill while infected (pandemic)
+- `"hash_5596ee09efc44216"` - xp per kill of non infected player (pandemic)
+- `"hash_6551049476c7127c"` - xp per kill of infected player (pandemic)
+- `"hash_709b7e506f5d3775"` - xp per infected win (pandemic)
 
 ## Characters
 
@@ -103,6 +131,9 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
   - 2 = hard
   - 3 = insane
 - `"zmtrialsvariant"` - Variant of a trials (gauntlet), default = 0, hard = 1
+- `"waverespawndelay"` - respawn wave delay (seconds)
+- `"magic"` - enable magic
+- `"hash_4cb15aed177a8ef5"` and `"headshotsonly"` - headshots only
 
 ## Allow weapon wallbuy
 

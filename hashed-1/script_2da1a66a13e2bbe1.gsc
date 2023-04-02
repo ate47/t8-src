@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_24c32478acf44108;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
@@ -638,7 +638,7 @@ function warp_player()
 	s_destination = self zm_bgb_anywhere_but_here::function_91a62549();
 	self zm_fasttravel::function_66d020b0(undefined, undefined, undefined, undefined, s_destination, undefined, "warp");
 	self clientfield::increment_to_player("teleporter_transition", 1);
-	self thread namespace_1846c963::function_c234a5ce();
+	self thread zm_white_portals::function_c234a5ce();
 	self clientfield::increment_to_player("teleporter_arrive", 1);
 	playfx(level._effect[#"hash_51e5effc17815d68"], self.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_go", self.origin);

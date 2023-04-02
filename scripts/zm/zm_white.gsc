@@ -8,7 +8,7 @@
 #using script_1c1d447ddbce2c00;
 #using script_25b8e6a85a7f8635;
 #using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using script_2da1a66a13e2bbe1;
 #using script_2f877a0752174fc1;
 #using scripts\zm\weapons\zm_weap_claymore.gsc;
@@ -147,7 +147,7 @@ event main(eventstruct)
 	level.registerobjective_qzonejukeinit = 0;
 	level namespace_5c160465::register_clientfields();
 	level namespace_2eb2d493::register_clientfields();
-	level namespace_1846c963::init_clientfields();
+	level zm_white_portals::init_clientfields();
 	level zm_white_mee::preload();
 	level zm_white_toast::preload();
 	level namespace_a01a2431::preload();
@@ -189,7 +189,7 @@ event main(eventstruct)
 	flag::wait_till("start_zombie_round_logic");
 	level notify(#"players_done_connecting");
 	level thread zm_white_zones::function_fb29f7ca();
-	level thread namespace_1846c963::init();
+	level thread zm_white_portals::init();
 	level thread zm_white_doomsday_clock::init();
 	level thread namespace_a71af4de::init();
 	level thread namespace_5c160465::init();

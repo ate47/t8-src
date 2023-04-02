@@ -49,9 +49,9 @@ function __init__()
 	}
 	else
 	{
-		if(isdefined(level.var_c27600b0.var_4dd46f8a))
+		if(isdefined(level.var_c27600b0.customsettings))
 		{
-			level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.var_4dd46f8a);
+			level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.customsettings);
 		}
 		else
 		{

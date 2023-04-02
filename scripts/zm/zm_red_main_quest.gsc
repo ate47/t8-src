@@ -6,7 +6,7 @@
 #using script_3aa54d3cb36ea43f;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
-#using script_4a88aba9724a1fa1;
+#using scripts\zm\zm_red_boss_battle.gsc;
 #using script_4d00889cf8c807d5;
 #using scripts\zm\ai\zm_ai_blight_father.gsc;
 #using script_52c6c2d1a2ef1b46;
@@ -9284,7 +9284,7 @@ function function_9f8fe5ae(b_skipped, var_19e802fa)
 	}
 	s_unitrigger struct::delete();
 	level.var_29e8cce2 struct::delete();
-	level thread namespace_765d6379::function_3a2efd4e(0);
+	level thread red_boss_battle::function_3a2efd4e(0);
 }
 
 /*

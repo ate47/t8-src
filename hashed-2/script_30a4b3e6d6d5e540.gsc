@@ -47,7 +47,7 @@ class cself_revive_visuals : cLUIelem
 	}
 
 	/*
-		Name: function_7a5768aa
+		Name: set_self_revive_progress_bar_fill
 		Namespace: cself_revive_visuals
 		Checksum: 0x33F62F01
 		Offset: 0x350
@@ -55,7 +55,7 @@ class cself_revive_visuals : cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_7a5768aa(player, value)
+	function set_self_revive_progress_bar_fill(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "self_revive_progress_bar_fill", value);
 	}
@@ -167,7 +167,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_7a5768aa
+	Name: set_self_revive_progress_bar_fill
 	Namespace: self_revive_visuals
 	Checksum: 0x2E311F5
 	Offset: 0x1D0
@@ -175,9 +175,9 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_7a5768aa(player, value)
+function set_self_revive_progress_bar_fill(player, value)
 {
-	[[ self ]]->function_7a5768aa(player, value);
+	[[ self ]]->set_self_revive_progress_bar_fill(player, value);
 }
 
 /*

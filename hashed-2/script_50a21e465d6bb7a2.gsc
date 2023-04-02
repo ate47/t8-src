@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_24c32478acf44108;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
@@ -622,7 +622,7 @@ function function_1541f1c9()
 	array::run_all(getaiarray(), &namespace_9ff9f642::freeze);
 	wait(1);
 	zm_white_main_quest::function_32c317fb();
-	namespace_1846c963::function_5c2807fc();
+	zm_white_portals::function_5c2807fc();
 	function_69a6d31a(1);
 	function_83c13f8e();
 	function_5ac5f2aa();

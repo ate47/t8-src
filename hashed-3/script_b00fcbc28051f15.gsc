@@ -712,13 +712,13 @@ function private function_b18688c9()
 				}
 				continue;
 			}
-			e_player function_745fe17c();
+			e_player set_player_health();
 		}
 	}
 }
 
 /*
-	Name: function_745fe17c
+	Name: set_player_health
 	Namespace: namespace_b4a066ff
 	Checksum: 0xBDD12871
 	Offset: 0x2690
@@ -726,7 +726,7 @@ function private function_b18688c9()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_745fe17c()
+function private set_player_health()
 {
 	if(self.health < self.var_66cb03ad)
 	{

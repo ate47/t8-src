@@ -77,7 +77,7 @@ function __init__()
 	level.var_db720da1.top60 = (isdefined(getgametypesetting(#"hash_149e239bbac99a0a")) ? getgametypesetting(#"hash_149e239bbac99a0a") : 0);
 	level.var_db720da1.top75 = (isdefined(getgametypesetting(#"hash_14a18c9bbacc824c")) ? getgametypesetting(#"hash_14a18c9bbacc824c") : 0);
 	level.var_db720da1.lives = (isdefined(getgametypesetting(#"hash_64e698c86ac94f34")) ? getgametypesetting(#"hash_64e698c86ac94f34") : 0);
-	level.var_db720da1.var_7751a92c = (isdefined(getgametypesetting(#"hash_6beb27cc6f581f2d")) ? getgametypesetting(#"hash_6beb27cc6f581f2d") : 0);
+	level.var_db720da1.killinfected = (isdefined(getgametypesetting(#"hash_6beb27cc6f581f2d")) ? getgametypesetting(#"hash_6beb27cc6f581f2d") : 0);
 	level.var_db720da1.var_56dcbb49 = (isdefined(getgametypesetting(#"hash_5596ee09efc44216")) ? getgametypesetting(#"hash_5596ee09efc44216") : 0);
 	level.var_db720da1.var_cbafe055 = (isdefined(getgametypesetting(#"hash_6551049476c7127c")) ? getgametypesetting(#"hash_6551049476c7127c") : 0);
 	level.var_db720da1.infectedwin = (isdefined(getgametypesetting(#"hash_709b7e506f5d3775")) ? getgametypesetting(#"hash_709b7e506f5d3775") : 0);
@@ -1095,7 +1095,7 @@ function function_35ac33e1(attacker, victim, var_c5948a69 = {})
 			var_507f7385 = (isdefined(victim) ? victim clientfield::get_to_player("infected") : 0);
 			if(isdefined(var_ea0ef21e) && var_ea0ef21e)
 			{
-				var_ced14f4b = level.var_db720da1.var_7751a92c;
+				var_ced14f4b = level.var_db720da1.killinfected;
 			}
 			else
 			{

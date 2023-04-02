@@ -33,7 +33,7 @@ class cremote_missile_targets : cLUIelem
 	}
 
 	/*
-		Name: function_ec1de198
+		Name: set_extra_target_3
 		Namespace: cremote_missile_targets
 		Checksum: 0x52EC8BBE
 		Offset: 0x4F0
@@ -41,13 +41,13 @@ class cremote_missile_targets : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_ec1de198(player, value)
+	function set_extra_target_3(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "extra_target_3", value);
 	}
 
 	/*
-		Name: function_808f0a7c
+		Name: set_extra_target_2
 		Namespace: cremote_missile_targets
 		Checksum: 0x7E009F12
 		Offset: 0x4A8
@@ -55,13 +55,13 @@ class cremote_missile_targets : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_808f0a7c(player, value)
+	function set_extra_target_2(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "extra_target_2", value);
 	}
 
 	/*
-		Name: function_d798388d
+		Name: set_extra_target_1
 		Namespace: cremote_missile_targets
 		Checksum: 0x82AA601F
 		Offset: 0x460
@@ -69,13 +69,13 @@ class cremote_missile_targets : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_d798388d(player, value)
+	function set_extra_target_1(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "extra_target_1", value);
 	}
 
 	/*
-		Name: function_46609401
+		Name: set_player_target_active
 		Namespace: cremote_missile_targets
 		Checksum: 0x1D30A022
 		Offset: 0x418
@@ -83,7 +83,7 @@ class cremote_missile_targets : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_46609401(player, value)
+	function set_player_target_active(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_47e79fc, "player_target_active", value);
 	}
@@ -197,7 +197,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_46609401
+	Name: set_player_target_active
 	Namespace: remote_missile_targets
 	Checksum: 0xC7155B29
 	Offset: 0x1E8
@@ -205,13 +205,13 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_46609401(player, value)
+function set_player_target_active(player, value)
 {
-	[[ self ]]->function_46609401(player, value);
+	[[ self ]]->set_player_target_active(player, value);
 }
 
 /*
-	Name: function_d798388d
+	Name: set_extra_target_1
 	Namespace: remote_missile_targets
 	Checksum: 0xC14752F3
 	Offset: 0x218
@@ -219,13 +219,13 @@ function function_46609401(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d798388d(player, value)
+function set_extra_target_1(player, value)
 {
-	[[ self ]]->function_d798388d(player, value);
+	[[ self ]]->set_extra_target_1(player, value);
 }
 
 /*
-	Name: function_808f0a7c
+	Name: set_extra_target_2
 	Namespace: remote_missile_targets
 	Checksum: 0xD1101E04
 	Offset: 0x248
@@ -233,13 +233,13 @@ function function_d798388d(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_808f0a7c(player, value)
+function set_extra_target_2(player, value)
 {
-	[[ self ]]->function_808f0a7c(player, value);
+	[[ self ]]->set_extra_target_2(player, value);
 }
 
 /*
-	Name: function_ec1de198
+	Name: set_extra_target_3
 	Namespace: remote_missile_targets
 	Checksum: 0xF84D24EF
 	Offset: 0x278
@@ -247,8 +247,8 @@ function function_808f0a7c(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_ec1de198(player, value)
+function set_extra_target_3(player, value)
 {
-	[[ self ]]->function_ec1de198(player, value);
+	[[ self ]]->set_extra_target_3(player, value);
 }
 

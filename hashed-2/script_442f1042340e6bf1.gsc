@@ -31,7 +31,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	}
 
 	/*
-		Name: function_940bbc52
+		Name: set_decay
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x7D953140
 		Offset: 0x580
@@ -39,13 +39,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_940bbc52(localclientnum, value)
+	function set_decay(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "decay", value);
 	}
 
 	/*
-		Name: function_52773fa9
+		Name: set_purity
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x3D73EEA
 		Offset: 0x548
@@ -53,13 +53,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_52773fa9(localclientnum, value)
+	function set_purity(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "purity", value);
 	}
 
 	/*
-		Name: function_5c237e79
+		Name: set_plasma
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x1ABC56F0
 		Offset: 0x510
@@ -67,13 +67,13 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_5c237e79(localclientnum, value)
+	function set_plasma(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "plasma", value);
 	}
 
 	/*
-		Name: function_e5c37a19
+		Name: set_radiance
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x642752F1
 		Offset: 0x4D8
@@ -81,7 +81,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_e5c37a19(localclientnum, value)
+	function set_radiance(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "radiance", value);
 	}
@@ -229,7 +229,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_e5c37a19
+	Name: set_radiance
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0xD6569038
 	Offset: 0x200
@@ -237,13 +237,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_e5c37a19(localclientnum, value)
+function set_radiance(localclientnum, value)
 {
-	[[ self ]]->function_e5c37a19(localclientnum, value);
+	[[ self ]]->set_radiance(localclientnum, value);
 }
 
 /*
-	Name: function_5c237e79
+	Name: set_plasma
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0xBE223F5B
 	Offset: 0x230
@@ -251,13 +251,13 @@ function function_e5c37a19(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5c237e79(localclientnum, value)
+function set_plasma(localclientnum, value)
 {
-	[[ self ]]->function_5c237e79(localclientnum, value);
+	[[ self ]]->set_plasma(localclientnum, value);
 }
 
 /*
-	Name: function_52773fa9
+	Name: set_purity
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0x8A405C92
 	Offset: 0x260
@@ -265,13 +265,13 @@ function function_5c237e79(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_52773fa9(localclientnum, value)
+function set_purity(localclientnum, value)
 {
-	[[ self ]]->function_52773fa9(localclientnum, value);
+	[[ self ]]->set_purity(localclientnum, value);
 }
 
 /*
-	Name: function_940bbc52
+	Name: set_decay
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0x79B4923F
 	Offset: 0x290
@@ -279,8 +279,8 @@ function function_52773fa9(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_940bbc52(localclientnum, value)
+function set_decay(localclientnum, value)
 {
-	[[ self ]]->function_940bbc52(localclientnum, value);
+	[[ self ]]->set_decay(localclientnum, value);
 }
 

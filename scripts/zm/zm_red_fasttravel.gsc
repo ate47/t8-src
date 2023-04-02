@@ -9,11 +9,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_66445b8f;
+#namespace zm_red_fasttravel;
 
 /*
 	Name: init
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x4BA69CEB
 	Offset: 0x480
 	Size: 0x3D4
@@ -58,7 +58,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x4625A761
 	Offset: 0x860
 	Size: 0x84
@@ -76,7 +76,7 @@ function main()
 
 /*
 	Name: on_player_spawned
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x9EEF15F5
 	Offset: 0x8F0
 	Size: 0x44
@@ -92,7 +92,7 @@ function on_player_spawned()
 
 /*
 	Name: function_e49ceeb9
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x34B9050A
 	Offset: 0x940
 	Size: 0x84
@@ -108,7 +108,7 @@ function function_e49ceeb9(str_targetname)
 
 /*
 	Name: function_d69c301b
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x5029653E
 	Offset: 0x9D0
 	Size: 0x9C
@@ -129,7 +129,7 @@ function function_d69c301b()
 
 /*
 	Name: function_fe50c802
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xC565A67E
 	Offset: 0xA78
 	Size: 0xAC
@@ -146,7 +146,7 @@ function function_fe50c802(str_model, n_z_diff)
 
 /*
 	Name: function_91fabcb
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x53818AB8
 	Offset: 0xB30
 	Size: 0x13E
@@ -177,7 +177,7 @@ function function_91fabcb(var_e007f14b, b_clean_up = 0)
 
 /*
 	Name: function_9aec1610
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xF6571F86
 	Offset: 0xC78
 	Size: 0x3C
@@ -192,7 +192,7 @@ function function_9aec1610(var_e007f14b)
 
 /*
 	Name: function_25f97da0
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x5AE3A2FD
 	Offset: 0xCC0
 	Size: 0xE0
@@ -217,7 +217,7 @@ function function_25f97da0()
 
 /*
 	Name: function_e968fd4f
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x46D31F03
 	Offset: 0xDA8
 	Size: 0x100
@@ -242,7 +242,7 @@ function function_e968fd4f()
 
 /*
 	Name: function_a5689564
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xF8F3A325
 	Offset: 0xEB0
 	Size: 0x2AA
@@ -288,7 +288,7 @@ function function_a5689564(s_loc)
 
 /*
 	Name: function_ae5d684b
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xEE19F957
 	Offset: 0x1168
 	Size: 0xDA
@@ -322,7 +322,7 @@ function function_ae5d684b()
 
 /*
 	Name: function_c52e8ba
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x1F9FC7ED
 	Offset: 0x1250
 	Size: 0x906
@@ -527,7 +527,7 @@ function function_c52e8ba(e_player, var_8d5d092c)
 
 /*
 	Name: function_706b7928
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xDDD554F7
 	Offset: 0x1B60
 	Size: 0xAC
@@ -545,7 +545,7 @@ function function_706b7928()
 
 /*
 	Name: function_63cbb9f
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x21DC50CE
 	Offset: 0x1C18
 	Size: 0xAC
@@ -563,7 +563,7 @@ function function_63cbb9f()
 
 /*
 	Name: function_7ebbc601
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x40DFE3C3
 	Offset: 0x1CD0
 	Size: 0xB4
@@ -581,7 +581,7 @@ function function_7ebbc601()
 
 /*
 	Name: function_b3bfd869
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x251EAC65
 	Offset: 0x1D90
 	Size: 0xB4
@@ -599,7 +599,7 @@ function function_b3bfd869()
 
 /*
 	Name: function_28deccf1
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x23800D91
 	Offset: 0x1E50
 	Size: 0x448
@@ -673,7 +673,7 @@ function function_28deccf1(var_de3a312c, var_d53c9600 = 1)
 
 /*
 	Name: function_f8655c9
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x38A662E5
 	Offset: 0x22A0
 	Size: 0xA4
@@ -691,7 +691,7 @@ function function_f8655c9()
 
 /*
 	Name: function_af65fe93
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x28D6BAED
 	Offset: 0x2350
 	Size: 0xF4

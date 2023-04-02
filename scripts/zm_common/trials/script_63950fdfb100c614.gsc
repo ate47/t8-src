@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_47495939f228e438;
-#using script_4a88aba9724a1fa1;
+#using scripts\zm\zm_red_boss_battle.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_7fb9f17f6fab98e3;
+#using scripts\zm\zm_red_fasttravel.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -109,14 +109,14 @@ function private start_boss_fight()
 	level.check_for_valid_spawn_near_team_callback = &function_7d23aaf2;
 	if(level.var_27a02034)
 	{
-		namespace_765d6379::function_dfaf17c8();
-		level thread namespace_765d6379::function_3a2efd4e(0, 0, 0);
+		red_boss_battle::function_dfaf17c8();
+		level thread red_boss_battle::function_3a2efd4e(0, 0, 0);
 	}
 	else
 	{
 		wait(12);
 		level lui::screen_fade_out(1);
-		level thread namespace_765d6379::function_3a2efd4e(0, 0, 1);
+		level thread red_boss_battle::function_3a2efd4e(0, 0, 1);
 		wait(0.5);
 		level thread lui::screen_fade_in(1);
 	}

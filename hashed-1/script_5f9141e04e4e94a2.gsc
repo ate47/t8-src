@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ce72cc0f850;
 #using script_1c72973fb240f263;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_6a3f43063dfd1bdc;
@@ -333,7 +333,7 @@ function private function_87e09347()
 	level endon(#"end_game", #"hash_36fd0ff497e7cb39");
 	level.var_23674b8f.n_step = 2;
 	var_63fca02d = struct::get_array("white_portal");
-	var_7ed14c5f = namespace_1846c963::function_688df525();
+	var_7ed14c5f = zm_white_portals::function_688df525();
 	var_95d7a612 = array::exclude(var_63fca02d, var_7ed14c5f);
 	var_95d7a612 = array::randomize(var_95d7a612);
 	level.var_23674b8f.var_80284ca5 = [];
@@ -460,7 +460,7 @@ function private function_92344a03()
 		self waittill(#"teleporting");
 		var_8a3d3cf4 = level flag::get(#"hash_11513646e875455c");
 		var_86812839 = 1;
-		var_7ed14c5f = namespace_1846c963::function_688df525();
+		var_7ed14c5f = zm_white_portals::function_688df525();
 		foreach(var_e2db3886 in level.var_23674b8f.var_80284ca5)
 		{
 			if(!isinarray(var_7ed14c5f, var_e2db3886))

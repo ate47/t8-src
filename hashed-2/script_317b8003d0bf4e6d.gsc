@@ -114,10 +114,10 @@ function private function_bebe535()
 		var_9243cc66 = 0;
 		foreach(i, list in level.var_2e96a450)
 		{
-			var_98ed4e60 = function_9e72a96(i);
-			println((var_98ed4e60 + "") + list);
+			str_set = function_9e72a96(i);
+			println((str_set + "") + list);
 			n_total = n_total + list;
-			a_tokens = strtok(var_98ed4e60, "");
+			a_tokens = strtok(str_set, "");
 			foreach(token in a_tokens)
 			{
 				if(token === "" || token === "")

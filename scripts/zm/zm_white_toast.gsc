@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
@@ -745,7 +745,7 @@ function apd_lockdown()
 	var_63fca02d = struct::get_array("white_portal");
 	foreach(s_portal in var_63fca02d)
 	{
-		s_portal thread namespace_1846c963::function_978923cd();
+		s_portal thread zm_white_portals::function_978923cd();
 		s_portal.b_active = 0;
 		if(isdefined(s_portal.s_unitrigger))
 		{

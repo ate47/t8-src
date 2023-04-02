@@ -3,7 +3,7 @@
 #using script_184abbae9afad370;
 #using scripts\core_common\bots\bot.gsc;
 #using script_29ed825598140ca0;
-#using script_2e7b2ce35bae89d9;
+#using scripts\core_common\bots\bot_traversals.gsc;
 #using script_35b5ff21c2a0960f;
 #using script_43956600fe6c6be1;
 #using script_4c6debf78dffeeaf;

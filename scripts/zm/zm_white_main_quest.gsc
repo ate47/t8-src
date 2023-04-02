@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_10956a741a7e186e;
 #using script_174ebb9642933bf7;
-#using script_28b18e98462a3c7c;
+#using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_toast.gsc;
 #using script_3bdc2bccbfc95114;
 #using script_3e5ec44cfab7a201;
@@ -3735,12 +3735,12 @@ function function_c9d90b42()
 	}
 	playsoundatposition(#"hash_15f3b938e2fc15af", (0, 0, 0));
 	level exploder::exploder("fxexp_script_pap_lgt");
-	var_c718a93c = level namespace_1846c963::function_688df525();
+	var_c718a93c = level zm_white_portals::function_688df525();
 	foreach(s_portal in var_c718a93c)
 	{
 		s_portal.b_active = 1;
 		waitframe(1);
-		s_portal thread namespace_1846c963::function_16ccd69f();
+		s_portal thread zm_white_portals::function_16ccd69f();
 	}
 	foreach(var_5baafbb2 in level.var_76a7ad28)
 	{
@@ -3770,7 +3770,7 @@ function function_c9d90b42()
 	waitframe(1);
 	zm_white::function_1c074340();
 	level exploder::exploder("fxexp_power_on");
-	level namespace_1846c963::function_71e1c159();
+	level zm_white_portals::function_71e1c159();
 	level namespace_5c160465::function_10f8273e();
 	namespace_5c160465::function_4b72fed8();
 	if(level.var_bcaf8591 >= 4)
@@ -3803,15 +3803,15 @@ function function_c9d90b42()
 function function_12ea5b51()
 {
 	level flag::set(#"hash_1478cafcd626c361");
-	var_c718a93c = level namespace_1846c963::function_688df525();
+	var_c718a93c = level zm_white_portals::function_688df525();
 	foreach(s_portal in var_c718a93c)
 	{
-		s_portal thread namespace_1846c963::function_978923cd();
+		s_portal thread zm_white_portals::function_978923cd();
 		s_portal.b_active = 0;
 		waitframe(1);
-		s_portal thread namespace_1846c963::function_16ccd69f();
+		s_portal thread zm_white_portals::function_16ccd69f();
 	}
-	level namespace_1846c963::function_3264eb9c();
+	level zm_white_portals::function_3264eb9c();
 	level namespace_5c160465::function_61753e3();
 	if(isdefined(level.pack_a_punch) && level zm_pack_a_punch::is_on())
 	{

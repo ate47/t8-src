@@ -53,7 +53,7 @@ function init_shared()
 	weapon = getweapon("eq_localheal");
 	if(isdefined(weapon) && weapon.name != #"none")
 	{
-		level.var_c34a20f5 = getscriptbundle(weapon.var_4dd46f8a);
+		level.var_c34a20f5 = getscriptbundle(weapon.customsettings);
 	}
 	else
 	{

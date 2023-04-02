@@ -37,9 +37,9 @@ function init_shared()
 	clientfield::register("toplayer", "shock_rifle_damage", 1, 1, "int");
 	clientfield::register("allplayers", "shock_rifle_sound", 1, 1, "int");
 	level.var_1b72f911 = getweapon(#"shock_rifle");
-	if(isdefined(level.var_1b72f911.var_4dd46f8a))
+	if(isdefined(level.var_1b72f911.customsettings))
 	{
-		level.var_a5ff950 = getscriptbundle(level.var_1b72f911.var_4dd46f8a);
+		level.var_a5ff950 = getscriptbundle(level.var_1b72f911.customsettings);
 	}
 	else
 	{

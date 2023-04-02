@@ -4,11 +4,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_66445b8f;
+#namespace zm_red_fasttravel;
 
 /*
 	Name: init
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xD13F28C7
 	Offset: 0x180
 	Size: 0x37A
@@ -34,7 +34,7 @@ function init()
 
 /*
 	Name: main
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0xA58A0807
 	Offset: 0x508
 	Size: 0x284
@@ -82,7 +82,7 @@ function main()
 
 /*
 	Name: function_ec7e76a8
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x7881F22D
 	Offset: 0x798
 	Size: 0x2AA
@@ -135,7 +135,7 @@ function function_ec7e76a8(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: override_fasttravel_end_fx
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x6CE5EB9C
 	Offset: 0xA50
 	Size: 0x64
@@ -152,7 +152,7 @@ function override_fasttravel_end_fx(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: function_e968fd4f
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x1700DE58
 	Offset: 0xAC0
 	Size: 0x8C
@@ -173,7 +173,7 @@ function function_e968fd4f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_fe50c802
-	Namespace: namespace_66445b8f
+	Namespace: zm_red_fasttravel
 	Checksum: 0x7A299AA6
 	Offset: 0xB58
 	Size: 0x7C

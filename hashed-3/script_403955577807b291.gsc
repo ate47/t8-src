@@ -447,7 +447,7 @@ function function_9e88e881(local_client_num)
 		var_a9705012[0]++;
 	}
 	var_8b745faa = getweapon(#"gadget_icepick");
-	var_a4739e20 = getscriptbundle(var_8b745faa.var_4dd46f8a);
+	var_a4739e20 = getscriptbundle(var_8b745faa.customsettings);
 	var_9b81203 = var_a4739e20.var_a65e249e;
 	var_f998f517 = 0;
 	foreach(var_20651f4 in var_e33ae97c[1])

@@ -610,7 +610,7 @@ function aoe_friendlies(weapon, aoe)
 	frac = 0;
 	while(frac < 1 || aoe_applied > 0)
 	{
-		settings = getscriptbundle(weapon.var_4dd46f8a);
+		settings = getscriptbundle(weapon.customsettings);
 		frac = (gettime() - start_time) / aoe.duration;
 		if(frac > 1)
 		{

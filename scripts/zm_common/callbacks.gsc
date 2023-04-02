@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_20ac552ee498eb9d;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2e7b2ce35bae89d9;
+#using scripts\core_common\bots\bot_traversals.gsc;
 #using script_35b5ff21c2a0960f;
 #using script_522aeb6ae906391e;
 #using scripts\weapons\deployable.gsc;

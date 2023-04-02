@@ -5,11 +5,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_765d6379;
+#namespace red_boss_battle;
 
 /*
 	Name: init
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x46CBFF36
 	Offset: 0x150
 	Size: 0x426
@@ -37,7 +37,7 @@ function init()
 
 /*
 	Name: function_6e3ecc82
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x8F91D013
 	Offset: 0x580
 	Size: 0x132
@@ -70,7 +70,7 @@ function function_6e3ecc82(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_d7fa0a53
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x39975A05
 	Offset: 0x6C0
 	Size: 0x74
@@ -84,7 +84,7 @@ function function_d7fa0a53(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_272aa016
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x40C444C1
 	Offset: 0x740
 	Size: 0x13E
@@ -119,7 +119,7 @@ function function_272aa016(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_a27b945a
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x9CC32CB6
 	Offset: 0x888
 	Size: 0x11C
@@ -141,7 +141,7 @@ function function_a27b945a(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b9329291
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xC0DCA5A3
 	Offset: 0x9B0
 	Size: 0x5C
@@ -155,7 +155,7 @@ function function_b9329291(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ed1d0231
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x3145D344
 	Offset: 0xA18
 	Size: 0x12C
@@ -179,7 +179,7 @@ function function_ed1d0231(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_37d1ee2e
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x5D72CA99
 	Offset: 0xB50
 	Size: 0x96
@@ -201,7 +201,7 @@ function function_37d1ee2e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e9aa9e80
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xA336065E
 	Offset: 0xBF0
 	Size: 0x278
@@ -248,7 +248,7 @@ function private function_e9aa9e80(localclientnum)
 
 /*
 	Name: function_954b9602
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xCF72EA6F
 	Offset: 0xE70
 	Size: 0x96
@@ -272,7 +272,7 @@ function private function_954b9602(localclientnum)
 
 /*
 	Name: function_5091797
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0x4CA58769
 	Offset: 0xF10
 	Size: 0x1F4
@@ -309,7 +309,7 @@ function function_5091797(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_e2680ff3
-	Namespace: namespace_765d6379
+	Namespace: red_boss_battle
 	Checksum: 0xABC85803
 	Offset: 0x1110
 	Size: 0xD4

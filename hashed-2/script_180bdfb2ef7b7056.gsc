@@ -31,7 +31,7 @@ class cself_respawn : cLUIelem
 	}
 
 	/*
-		Name: function_459465a
+		Name: set_percent
 		Namespace: cself_respawn
 		Checksum: 0x4F8D2406
 		Offset: 0x330
@@ -39,7 +39,7 @@ class cself_respawn : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function function_459465a(localclientnum, value)
+	function set_percent(localclientnum, value)
 	{
 		[[ self ]]->set_data(localclientnum, "percent", value);
 	}
@@ -181,7 +181,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_459465a
+	Name: set_percent
 	Namespace: self_respawn
 	Checksum: 0x8B484602
 	Offset: 0x1C8
@@ -189,8 +189,8 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_459465a(localclientnum, value)
+function set_percent(localclientnum, value)
 {
-	[[ self ]]->function_459465a(localclientnum, value);
+	[[ self ]]->set_percent(localclientnum, value);
 }
 

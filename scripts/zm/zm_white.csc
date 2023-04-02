@@ -14,7 +14,7 @@
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
 #using script_3ba495e039989116;
 #using script_412188df54bb77d9;
-#using script_4c9e3a985ae04008;
+#using scripts\zm\zm_white_portals.csc;
 #using script_4deda6ab11ad22af;
 #using script_518e526a2898bf6d;
 #using script_5d65ba89fe134c5c;
@@ -100,7 +100,7 @@ event main(eventstruct)
 	level namespace_2eb2d493::main();
 	level namespace_7d8e6ec3::preload();
 	level namespace_5c160465::register_clientfields();
-	level namespace_1846c963::init_clientfields();
+	level zm_white_portals::init_clientfields();
 	level namespace_a01a2431::preload();
 	level namespace_87b5173f::init();
 	level namespace_ca03bbb4::preload();
@@ -110,7 +110,7 @@ event main(eventstruct)
 	level namespace_fddd83bd::init();
 	load::main();
 	level thread zm_white_sound::main();
-	level thread namespace_1846c963::init();
+	level thread zm_white_portals::init();
 	level thread namespace_5c160465::init();
 	level thread setup_personality_character_exerts();
 	level thread function_b8da6f44();

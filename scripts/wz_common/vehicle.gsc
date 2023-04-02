@@ -411,9 +411,9 @@ function is_staircase_up(attackingplayer = undefined, jammer = undefined)
 	self endon(#"emped_vehicle", #"death");
 	params = spawnstruct();
 	emp_duration = 30;
-	if(isdefined(level.var_578f7c6d.var_4dd46f8a.var_3bd9b483))
+	if(isdefined(level.var_578f7c6d.customsettings.var_3bd9b483))
 	{
-		emp_duration = level.var_578f7c6d.var_4dd46f8a.var_3bd9b483;
+		emp_duration = level.var_578f7c6d.customsettings.var_3bd9b483;
 	}
 	params.param0 = emp_duration;
 	params.param1 = attackingplayer;

@@ -624,7 +624,7 @@ function function_6c031486(hacker)
 function function_13f4415c()
 {
 	var_8b745faa = getweapon(#"gadget_icepick");
-	return getscriptbundle(var_8b745faa.var_4dd46f8a);
+	return getscriptbundle(var_8b745faa.customsettings);
 }
 
 /*

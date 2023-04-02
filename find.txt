@@ -1680,7 +1680,19 @@ script_5567f9f82a6d84b3,scripts/killstreaks/mp/killstreak_weapons.gsc
 script_10364e32f7d0a577,scripts/mp_common/gametypes/ct_ruin.gsc
 script_23899c01557c3192,scripts/mp_common/gametypes/ct_firebreak.csc
 script_28596c4105d5d742,scripts/mp_common/gametypes/ct_crash.csc
+script_4a88aba9724a1fa1,scripts/zm/zm_red_boss_battle.gsc
+script_6b0e57a9841b472d,scripts/zm/zm_red_boss_battle.csc
+script_5bce457f5af74857,scripts/zm/zm_red_fasttravel.csc
+script_7fb9f17f6fab98e3,scripts/zm/zm_red_fasttravel.gsc
+script_2e7b2ce35bae89d9,scripts/core_common/bots/bot_traversals.gsc
+script_3b15c71efb661694,scripts/weapons/pineapple_gun.gsc
+script_5f02331f101bad60,scripts/weapons/pineapple_gun.csc
+script_4c9e3a985ae04008,scripts/zm/zm_white_portals.csc
+script_28b18e98462a3c7c,scripts/zm/zm_white_portals.gsc
 
+namespace_1846c963,zm_white_portals
+namespace_66445b8f,zm_red_fasttravel
+namespace_765d6379,red_boss_battle
 namespace_309bc702,zm_white_trials
 namespace_d8dd0d46,zm_weap_spork
 namespace_6ecedca5,zm_ai_werewolf_interface
@@ -2067,6 +2079,10 @@ namespace_fc2e71d1,zm_ai_elephant
 namespace_fd46b4a7,zm_bgb_join_the_party
 namespace_59ff1d6c,zm_custom
 
+var_7751a92c,killinfected
+var_98ed4e60,str_set
+var_54d9911f,a_str_sets
+var_4dd46f8a,customsettings
 var_54cae2d8,w_shield
 var_5482d370,carryingcash
 var_ba474290,wz_carrying_cash
@@ -2454,6 +2470,7 @@ var_eecd6160,a_w_items
 var_ef492be,w_comp
 var_f0511818,w_thompson
 var_f052c1f6,phys5
+var_44377ea6,maxheal
 var_f05faf2e,fishing_rocks
 var_f0c3a84d,e_code
 var_f205bc2b,objectivekill
@@ -2771,3 +2788,24 @@ function_e2e9d901,add_devgui
 function_e46dab5e,adddevguicommand
 function_6650e201,allow_all
 function_89f2df9,__init__system__
+function_459465a,set_percent
+function_46609401,set_player_target_active
+function_808f0a7c,set_extra_target_2
+function_d798388d,set_extra_target_1
+function_ec1de198,set_extra_target_3
+function_28ebf0f1,set_fadeTime
+function_459465a,set_percent
+function_46609401,set_player_target_active
+function_52773fa9,set_purity
+function_5c237e79,set_plasma
+function_7a5768aa,set_self_revive_progress_bar_fill
+function_808f0a7c,set_extra_target_2
+function_871cdcb3,set_objectiveTotal
+function_940bbc52,set_decay
+function_d798388d,set_extra_target_1
+function_d9fa867a,set_objectiveLabel
+function_e23dcbb4,set_objectiveCount
+function_e5c37a19,set_radiance
+function_ec1de198,set_extra_target_3
+function_f9868b51,set_inGameHint
+function_745fe17c,set_player_health

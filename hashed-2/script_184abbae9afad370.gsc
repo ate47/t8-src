@@ -864,11 +864,11 @@ function private does_player_completely_avoid_damage(idflags, shitloc, weapon, f
 			{
 				var_709ce886 = idamage;
 				var_709ce886 = var_709ce886 * (1 - var_a0c3f41d);
-				function_56dc620b(einflictor, eattacker, int(var_709ce886), weapon, getscriptbundle(self.currentweapon.var_4dd46f8a));
+				function_56dc620b(einflictor, eattacker, int(var_709ce886), weapon, getscriptbundle(self.currentweapon.customsettings));
 				idamage = idamage * var_a0c3f41d;
 				return int(idamage);
 			}
-			function_56dc620b(einflictor, eattacker, idamage, weapon, getscriptbundle(self.currentweapon.var_4dd46f8a));
+			function_56dc620b(einflictor, eattacker, idamage, weapon, getscriptbundle(self.currentweapon.customsettings));
 			return 0;
 		}
 	}
@@ -891,7 +891,7 @@ function private does_player_completely_avoid_damage(idflags, shitloc, weapon, f
 	Parameters: 5
 	Flags: Linked
 */
-function function_56dc620b(einflictor, eattacker, idamage, weapon, var_4dd46f8a)
+function function_56dc620b(einflictor, eattacker, idamage, weapon, customsettings)
 {
 	previous_shield_damage = self.shielddamageblocked;
 	self.shielddamageblocked = self.shielddamageblocked + idamage;
@@ -915,7 +915,7 @@ function function_56dc620b(einflictor, eattacker, idamage, weapon, var_4dd46f8a)
 				einflictor.var_a6cf412b[self.clientid].var_5d378d77++;
 			}
 		}
-		var_2c23422d = (isdefined(var_4dd46f8a.var_2c23422d) ? var_4dd46f8a.var_2c23422d : 0);
+		var_2c23422d = (isdefined(customsettings.var_2c23422d) ? customsettings.var_2c23422d : 0);
 		if(isplayer(einflictor) || einflictor.var_a6cf412b[self.clientid].var_5d378d77 <= var_2c23422d)
 		{
 			score = rank::getscoreinfovalue("shield_blocked_damage");
@@ -950,7 +950,7 @@ function private function_29b3ff22(einflictor, eattacker, idamage, smeansofdeath
 				eattacker.lastattackedshieldplayer = self;
 				eattacker.lastattackedshieldtime = gettime();
 			}
-			function_56dc620b(einflictor, eattacker, idamage, weapon, getscriptbundle(currentweapon.var_4dd46f8a));
+			function_56dc620b(einflictor, eattacker, idamage, weapon, getscriptbundle(currentweapon.customsettings));
 			forward = anglestoforward(self getplayerangles());
 			dot = vectordot(forward, vdir);
 			if(dot < -0.8)

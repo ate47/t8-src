@@ -237,7 +237,7 @@ function function_a7d0e0f3()
 */
 function function_f89bbe72(value)
 {
-	level.ct_shared_ingame_hint ct_shared_ingame_hint::function_f9868b51(self, value);
+	level.ct_shared_ingame_hint ct_shared_ingame_hint::set_inGameHint(self, value);
 	self.var_32fc20b0 = value;
 }
 
@@ -453,7 +453,7 @@ function function_8b7a2fdd()
 */
 function function_abf1af6e(value)
 {
-	level.ct_shared_objcounter ct_shared_objcounter::function_d9fa867a(self, value);
+	level.ct_shared_objcounter ct_shared_objcounter::set_objectiveLabel(self, value);
 }
 
 /*
@@ -467,7 +467,7 @@ function function_abf1af6e(value)
 */
 function function_9e1cea71(value)
 {
-	level.ct_shared_objcounter ct_shared_objcounter::function_e23dcbb4(self, value);
+	level.ct_shared_objcounter ct_shared_objcounter::set_objectiveCount(self, value);
 }
 
 /*
@@ -481,7 +481,7 @@ function function_9e1cea71(value)
 */
 function function_bf3a2a42(value)
 {
-	level.ct_shared_objcounter ct_shared_objcounter::function_871cdcb3(self, value);
+	level.ct_shared_objcounter ct_shared_objcounter::set_objectiveTotal(self, value);
 }
 
 /*
