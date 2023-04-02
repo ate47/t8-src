@@ -6,7 +6,7 @@
 #namespace status_effect_deaf;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_deaf
 	Checksum: 0x7F2162F6
 	Offset: 0x88
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"status_effect_deaf", &__init__, undefined, undefined);
 }

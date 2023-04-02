@@ -9,7 +9,7 @@
 #namespace zm_bgb_perkaholic;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_perkaholic
 	Checksum: 0x26551737
 	Offset: 0xB0
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_perkaholic", &__init__, undefined, #"bgb");
 }

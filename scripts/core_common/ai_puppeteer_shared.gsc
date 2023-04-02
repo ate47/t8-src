@@ -5,7 +5,7 @@
 #namespace ai_puppeteer;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ai_puppeteer
 	Checksum: 0x47178BB6
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	/#
 		system::register(#"ai_puppeteer", &__init__, undefined, undefined);

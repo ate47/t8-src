@@ -6,7 +6,7 @@
 #namespace blade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: blade
 	Checksum: 0x61BB8363
 	Offset: 0x140
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"blade", &__init__, undefined, undefined);
 }

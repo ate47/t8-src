@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_13fd015ec021af46;
+#using scripts\core_common\vehicles\seeker_mine.csc;
 #using script_36556543de898549;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -10,7 +10,7 @@
 #namespace seeker_mine_mp;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: seeker_mine_mp
 	Checksum: 0x8CE2587F
 	Offset: 0x1D0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"seeker_mine_mp", &__init__, undefined, undefined);
 }

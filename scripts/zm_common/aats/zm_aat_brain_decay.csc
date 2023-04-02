@@ -10,7 +10,7 @@
 #namespace zm_aat_brain_decay;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_aat_brain_decay
 	Checksum: 0xEFBF62AA
 	Offset: 0x1C0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("zm_aat_brain_decay", &__init__, undefined, undefined);
 }

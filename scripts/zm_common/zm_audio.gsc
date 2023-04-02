@@ -30,7 +30,7 @@
 #namespace zm_audio;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_audio
 	Checksum: 0xE5EBCEE6
 	Offset: 0x4E8
@@ -38,7 +38,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_audio", &__init__, undefined, undefined);
 }

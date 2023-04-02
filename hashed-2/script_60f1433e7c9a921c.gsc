@@ -15,7 +15,7 @@
 #namespace namespace_ff7f7372;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_ff7f7372
 	Checksum: 0xD8C3321A
 	Offset: 0x350
@@ -23,7 +23,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_432f3eb0cc2e347f", &namespace_e2d53d54::__init__, undefined, undefined);
 }

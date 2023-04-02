@@ -17,7 +17,7 @@
 #namespace zm_powerup_fire_sale;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_fire_sale
 	Checksum: 0x29E09EBA
 	Offset: 0x1A8
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_fire_sale", &__init__, undefined, undefined);
 }

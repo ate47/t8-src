@@ -32,11 +32,11 @@
 #using scripts\zm_common\bgbs\zm_bgb_anywhere_but_here.gsc;
 #using scripts\zm_common\zm_powerups.gsc;
 
-#namespace namespace_309bc702;
+#namespace zm_white_trials;
 
 /*
 	Name: main
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xB8C9F93A
 	Offset: 0x290
 	Size: 0x328
@@ -105,7 +105,7 @@ function main()
 
 /*
 	Name: function_1a2500e5
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0x9564527C
 	Offset: 0x5C0
 	Size: 0xD6
@@ -126,7 +126,7 @@ function function_1a2500e5()
 
 /*
 	Name: function_c4d44a1b
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0x8F600EB6
 	Offset: 0x6A0
 	Size: 0x4C
@@ -142,7 +142,7 @@ function function_c4d44a1b(a_s_respawn_points)
 
 /*
 	Name: teleport_player
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0x22B001D7
 	Offset: 0x6F8
 	Size: 0x7C
@@ -163,7 +163,7 @@ function teleport_player()
 
 /*
 	Name: function_439b486f
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xB140592
 	Offset: 0x780
 	Size: 0x14C
@@ -190,7 +190,7 @@ function function_439b486f()
 
 /*
 	Name: function_21e77256
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xDBACE9D7
 	Offset: 0x8D8
 	Size: 0xF8
@@ -217,7 +217,7 @@ function function_21e77256()
 
 /*
 	Name: function_1bc491ab
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xDF2CDC7C
 	Offset: 0x9D8
 	Size: 0x13C
@@ -241,7 +241,7 @@ function function_1bc491ab()
 
 /*
 	Name: spawn_boss
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xAA65E073
 	Offset: 0xB20
 	Size: 0x134
@@ -267,7 +267,7 @@ function spawn_boss()
 
 /*
 	Name: function_e478fb2a
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0xF9BA92D7
 	Offset: 0xC60
 	Size: 0x84
@@ -284,7 +284,7 @@ function function_e478fb2a()
 
 /*
 	Name: spawn_done
-	Namespace: namespace_309bc702
+	Namespace: zm_white_trials
 	Checksum: 0x95EDBBFF
 	Offset: 0xCF0
 	Size: 0x17C

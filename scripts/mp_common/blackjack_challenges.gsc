@@ -9,7 +9,7 @@
 #namespace blackjack_challenges;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: blackjack_challenges
 	Checksum: 0xFF1E509A
 	Offset: 0xF8
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"blackjack_challenges", &__init__, undefined, undefined);
 }

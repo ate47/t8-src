@@ -18,7 +18,7 @@
 #namespace ct_bots;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ct_bots
 	Checksum: 0x210533A3
 	Offset: 0x208
@@ -26,7 +26,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ct_bots", &__init__, undefined, undefined);
 }

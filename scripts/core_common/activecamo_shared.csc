@@ -10,7 +10,7 @@
 #namespace activecamo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: activecamo
 	Checksum: 0x13356F99
 	Offset: 0x1A8
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"activecamo", &__init__, undefined, undefined);
 }

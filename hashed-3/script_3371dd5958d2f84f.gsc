@@ -17,7 +17,7 @@
 #namespace namespace_8fdcbe8b;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_8fdcbe8b
 	Checksum: 0xEE5AF6E0
 	Offset: 0x4B0
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_50251e63e4a703b5", &__init__, undefined, #"weapons");
 }

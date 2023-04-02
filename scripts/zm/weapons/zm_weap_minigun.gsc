@@ -24,7 +24,7 @@
 #namespace zm_weap_minigun;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_minigun
 	Checksum: 0x4AE07E94
 	Offset: 0x270
@@ -32,7 +32,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_minigun", &__init__, undefined, undefined);
 }

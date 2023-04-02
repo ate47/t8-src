@@ -14,7 +14,7 @@
 #namespace wz_vehicle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_vehicle
 	Checksum: 0xB3526EB
 	Offset: 0x348
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_vehicle", &__init__, undefined, undefined);
 }

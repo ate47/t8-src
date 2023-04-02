@@ -14,7 +14,7 @@
 #namespace strategic_command;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: strategic_command
 	Checksum: 0xC8BADC5
 	Offset: 0x2F8
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"strategic_command", &strategiccommandutility::__init__, undefined, undefined);
 }

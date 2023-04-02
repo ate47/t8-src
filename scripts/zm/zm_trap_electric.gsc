@@ -12,7 +12,7 @@
 #namespace zm_trap_electric;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trap_electric
 	Checksum: 0x953042D3
 	Offset: 0x178
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trap_electric", &__init__, undefined, undefined);
 }

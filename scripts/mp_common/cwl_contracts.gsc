@@ -12,7 +12,7 @@
 #namespace contracts;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: contracts
 	Checksum: 0x130BDF16
 	Offset: 0xC0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"cwl_contracts", &__init__, undefined, undefined);
 }

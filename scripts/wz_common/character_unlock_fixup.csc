@@ -7,7 +7,7 @@
 #namespace character_unlock_fixup;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_fixup
 	Checksum: 0x29CF519F
 	Offset: 0xA0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_fixup", &__init__, undefined, undefined);
 }

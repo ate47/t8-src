@@ -17,7 +17,7 @@
 #namespace wz_dynents;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_dynents
 	Checksum: 0xE2232081
 	Offset: 0x2A0
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_dynents", &__init, undefined, undefined);
 }

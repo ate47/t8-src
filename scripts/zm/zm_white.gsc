@@ -216,7 +216,7 @@ event main(eventstruct)
 	}
 	if(zm_utility::is_trials())
 	{
-		level thread namespace_309bc702::main();
+		level thread zm_white_trials::main();
 	}
 	namespace_6747c550::function_7df6bb60(#"hash_24d1f7403563d66f", 0);
 	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);

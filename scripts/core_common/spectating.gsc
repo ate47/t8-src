@@ -7,7 +7,7 @@
 #namespace spectating;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spectating
 	Checksum: 0x61E01D0E
 	Offset: 0xB0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spectating", &__init__, undefined, undefined);
 }

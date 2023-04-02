@@ -23,7 +23,7 @@
 #namespace laststand_mp;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: laststand_mp
 	Checksum: 0x3ACF7F49
 	Offset: 0x358
@@ -31,7 +31,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"laststand_mp", &__init__, undefined, undefined);
 }

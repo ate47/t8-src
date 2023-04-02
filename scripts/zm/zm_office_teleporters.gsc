@@ -23,7 +23,7 @@
 #namespace zm_office_teleporters;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_office_teleporters
 	Checksum: 0xF186CB2
 	Offset: 0x6A8
@@ -31,7 +31,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_46f39ac878b7d58f", &__init__, &__main__, undefined);
 }

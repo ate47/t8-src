@@ -54,7 +54,7 @@ class class_b382833a
 #namespace namespace_598c63f4;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_598c63f4
 	Checksum: 0xAB4EC432
 	Offset: 0x1B0
@@ -62,7 +62,7 @@ class class_b382833a
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_71cd66f517d8bc47", &__init__, &__main__, undefined);
 }

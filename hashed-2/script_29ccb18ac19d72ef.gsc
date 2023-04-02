@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_78baa66c;
+#namespace zm_orange_trials;
 
 /*
 	Name: preload
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0xCDE04808
 	Offset: 0xA0
 	Size: 0xDC
@@ -22,7 +22,7 @@ function preload()
 
 /*
 	Name: function_8532d13f
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0xB7804C10
 	Offset: 0x188
 	Size: 0x12C
@@ -50,7 +50,7 @@ function function_8532d13f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_804015d2
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x4202CF6B
 	Offset: 0x2C0
 	Size: 0xAC

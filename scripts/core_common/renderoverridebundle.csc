@@ -9,7 +9,7 @@
 #namespace renderoverridebundle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: renderoverridebundle
 	Checksum: 0x60A63078
 	Offset: 0xF8
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("renderoverridebundle", &__init__, undefined, undefined);
 }

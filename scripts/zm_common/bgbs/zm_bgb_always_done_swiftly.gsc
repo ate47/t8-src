@@ -6,7 +6,7 @@
 #namespace zm_bgb_always_done_swiftly;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_always_done_swiftly
 	Checksum: 0x73F498B2
 	Offset: 0xB0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_always_done_swiftly", &__init__, undefined, #"bgb");
 }

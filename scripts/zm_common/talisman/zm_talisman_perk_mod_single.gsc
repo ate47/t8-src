@@ -12,7 +12,7 @@
 #namespace zm_talisman_perk_mod_single;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_talisman_perk_mod_single
 	Checksum: 0x137FB1C6
 	Offset: 0xD0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_talisman_perk_mod_single", &__init__, undefined, undefined);
 }

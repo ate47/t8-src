@@ -9,7 +9,7 @@
 #namespace laststand;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: laststand
 	Checksum: 0xAFDB1CF4
 	Offset: 0x288
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"laststand", &__init__, undefined, undefined);
 }

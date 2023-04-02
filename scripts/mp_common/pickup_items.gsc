@@ -9,7 +9,7 @@
 #namespace pickup_items;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: pickup_items
 	Checksum: 0x45FD14FB
 	Offset: 0x180
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"pickup_items", &__init__, undefined, undefined);
 }

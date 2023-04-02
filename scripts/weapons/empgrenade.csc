@@ -9,7 +9,7 @@
 #namespace empgrenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: empgrenade
 	Checksum: 0x7F8D766A
 	Offset: 0x108
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"empgrenade", &__init__, undefined, undefined);
 }

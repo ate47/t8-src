@@ -6,7 +6,7 @@
 #using scripts\killstreaks\mp\uav.gsc;
 #using scripts\killstreaks\mp\counteruav.gsc;
 #using script_47fb62300ac0bd60;
-#using script_4bfa1380a94b068b;
+#using scripts\mp_common\supplypod.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -25,7 +25,7 @@
 #namespace challenges;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: challenges
 	Checksum: 0xAC527100
 	Offset: 0x470
@@ -33,7 +33,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"challenges", &__init__, undefined, undefined);
 }

@@ -6,7 +6,7 @@
 #namespace claymore;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: claymore
 	Checksum: 0xF6FD6A84
 	Offset: 0xB0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"claymore", &init_shared, undefined, undefined);
 }

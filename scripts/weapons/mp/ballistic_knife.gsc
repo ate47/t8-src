@@ -5,7 +5,7 @@
 #namespace ballistic_knife;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ballistic_knife
 	Checksum: 0x113F649D
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ballistic_knife", &__init__, undefined, undefined);
 }

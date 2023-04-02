@@ -8,7 +8,7 @@
 #namespace damagefeedback;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: damagefeedback
 	Checksum: 0xFA37EF50
 	Offset: 0x188
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	/#
 		system::register(#"damagefeedback", &__init__, undefined, undefined);

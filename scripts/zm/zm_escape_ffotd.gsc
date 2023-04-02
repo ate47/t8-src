@@ -5,7 +5,7 @@
 #namespace zm_escape_ffotd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_escape_ffotd
 	Checksum: 0x32D51B4B
 	Offset: 0xC8
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_escape_ffotd", &__init__, &__main__, undefined);
 }

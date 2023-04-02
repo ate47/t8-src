@@ -5,7 +5,7 @@
 #namespace shockrifle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: shockrifle
 	Checksum: 0x5188B1AB
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"shockrifle", &__init__, undefined, undefined);
 }

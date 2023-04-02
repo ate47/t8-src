@@ -7,7 +7,7 @@
 #namespace status_effect_suppress;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_suppress
 	Checksum: 0xCC3D92E0
 	Offset: 0xB8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"status_effect_suppress", &__init__, undefined, undefined);
 }

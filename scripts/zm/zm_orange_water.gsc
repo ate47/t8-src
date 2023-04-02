@@ -772,7 +772,7 @@ function function_46c3bbf7()
 	self endoncallback(&function_26234f4c, #"disconnect");
 	if(zm_utility::is_trials())
 	{
-		self namespace_78baa66c::function_b4bd25ef();
+		self zm_orange_trials::function_b4bd25ef();
 	}
 	else
 	{

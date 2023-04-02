@@ -7,7 +7,7 @@
 #namespace character_unlock_battery;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_battery
 	Checksum: 0x25D9EE6B
 	Offset: 0x88
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_battery", &__init__, undefined, #"character_unlock_battery_fixup");
 }

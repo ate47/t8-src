@@ -10,7 +10,7 @@
 #namespace rank;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rank
 	Checksum: 0xFB84FD23
 	Offset: 0x118
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"rank", &__init__, undefined, undefined);
 }

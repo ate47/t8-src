@@ -8,7 +8,7 @@
 #namespace exploder;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: exploder
 	Checksum: 0xC88494B1
 	Offset: 0x178
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"exploder", &__init__, &__main__, undefined);
 }

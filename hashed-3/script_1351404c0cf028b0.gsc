@@ -5,7 +5,7 @@
 #namespace hacker_tool;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hacker_tool
 	Checksum: 0x30582281
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hacker_tool", &__init__, undefined, undefined);
 }

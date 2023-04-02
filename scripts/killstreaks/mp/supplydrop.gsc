@@ -7,7 +7,7 @@
 #using script_3fda550bc6e1089a;
 #using script_47fb62300ac0bd60;
 #using script_52d2de9b438adc78;
-#using script_5567f9f82a6d84b3;
+#using scripts\killstreaks\mp\killstreak_weapons.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\weapons\smokegrenade.gsc;
 #using scripts\weapons\tacticalinsertion.gsc;
@@ -37,7 +37,7 @@
 #namespace supplydrop;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: supplydrop
 	Checksum: 0x749ECE1A
 	Offset: 0x798
@@ -45,7 +45,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"supplydrop", &__init__, undefined, #"killstreaks");
 }

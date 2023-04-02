@@ -14,7 +14,7 @@
 #namespace zm_powerup_double_points;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_double_points
 	Checksum: 0x1F070DF7
 	Offset: 0x188
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_double_points", &__init__, undefined, undefined);
 }

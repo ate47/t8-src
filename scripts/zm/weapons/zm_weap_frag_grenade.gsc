@@ -10,7 +10,7 @@
 #namespace frag_grenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: frag_grenade
 	Checksum: 0xE4AB97A5
 	Offset: 0xB0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"frag_grenade", &__init__, undefined, undefined);
 }

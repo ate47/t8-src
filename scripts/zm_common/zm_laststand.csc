@@ -14,7 +14,7 @@
 #namespace zm_laststand;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_laststand
 	Checksum: 0x736C82C1
 	Offset: 0x250
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_laststand", &__init__, undefined, undefined);
 }

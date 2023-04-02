@@ -8,7 +8,7 @@
 #namespace deployable;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: deployable
 	Checksum: 0x4DDFC935
 	Offset: 0xD8
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"deployable", &__init__, undefined, undefined);
 }

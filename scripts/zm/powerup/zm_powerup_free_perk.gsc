@@ -17,7 +17,7 @@
 #namespace zm_powerup_free_perk;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_free_perk
 	Checksum: 0x90C812FD
 	Offset: 0xF0
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_free_perk", &__init__, undefined, undefined);
 }

@@ -16,7 +16,7 @@
 #namespace devgui;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: devgui
 	Checksum: 0xAA84CEC
 	Offset: 0xD0
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	/#
 		system::register(#"devgui", &__init__, undefined, #"load");

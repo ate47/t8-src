@@ -2,7 +2,7 @@
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -16,7 +16,7 @@
 #namespace namespace_bc12435c;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_bc12435c
 	Checksum: 0x56488435
 	Offset: 0x1B0
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_381a5b2deb7adc74", &__init__, undefined, #"zm_ai_skeleton");
 }
@@ -425,7 +425,7 @@ function function_ad4293a8()
 			var_b2aa54a9 = var_d7eff26a;
 		}
 	}
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	return true;
 }
 

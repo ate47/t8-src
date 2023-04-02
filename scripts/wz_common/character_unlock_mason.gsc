@@ -12,7 +12,7 @@
 #namespace character_unlock_mason;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_mason
 	Checksum: 0x1C210ABD
 	Offset: 0xF0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_mason", &__init__, undefined, #"character_unlock_mason_fixup");
 }

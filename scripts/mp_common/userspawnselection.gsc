@@ -14,7 +14,7 @@
 #namespace userspawnselection;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: userspawnselection
 	Checksum: 0xA1D75F50
 	Offset: 0x1C8
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"userspawnselection", &__init__, undefined, undefined);
 }

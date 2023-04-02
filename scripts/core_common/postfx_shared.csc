@@ -6,7 +6,7 @@
 #namespace postfx;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: postfx
 	Checksum: 0x98D999B0
 	Offset: 0x98
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"postfx_bundle", &__init__, undefined, undefined);
 }

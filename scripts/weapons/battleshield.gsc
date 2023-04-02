@@ -7,7 +7,7 @@
 #namespace battleshield;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battleshield
 	Checksum: 0x45041D36
 	Offset: 0xA8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"battleshield", &__init__, undefined, undefined);
 }

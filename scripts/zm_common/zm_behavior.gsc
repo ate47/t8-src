@@ -7,7 +7,7 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using script_6809bf766eba194a;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
@@ -32,7 +32,7 @@
 #namespace zm_behavior;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_behavior
 	Checksum: 0x93A6DDAC
 	Offset: 0x428
@@ -40,7 +40,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_behavior", &__init__, &__main__, undefined);
 }
@@ -965,7 +965,7 @@ function zombieupdategoal()
 	{
 		if(isplayer(self.favoriteenemy))
 		{
-			goalent = namespace_e0710ee6::function_a2e8fd7b(self, self.favoriteenemy);
+			goalent = zm_ai_utility::function_a2e8fd7b(self, self.favoriteenemy);
 			if(isdefined(goalent.last_valid_position))
 			{
 				goalpos = getclosestpointonnavmesh(goalent.last_valid_position, 64, self getpathfindingradius());

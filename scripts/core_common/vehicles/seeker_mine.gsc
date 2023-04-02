@@ -21,7 +21,7 @@
 #namespace seeker_mine;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: seeker_mine
 	Checksum: 0xBB58545B
 	Offset: 0x230
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"seeker_mine", &__init__, undefined, undefined);
 }

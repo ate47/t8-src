@@ -75,7 +75,7 @@ class class_60aca60a
 #namespace swat_team;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: swat_team
 	Checksum: 0x762B3A43
 	Offset: 0x9D8
@@ -83,7 +83,7 @@ class class_60aca60a
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"swat_team", &__init__, undefined, #"killstreaks");
 }

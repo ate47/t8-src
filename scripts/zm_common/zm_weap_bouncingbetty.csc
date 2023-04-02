@@ -5,7 +5,7 @@
 #namespace bouncingbetty;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bouncingbetty
 	Checksum: 0x3FACD997
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bouncingbetty", &__init__, undefined, undefined);
 }

@@ -11,7 +11,7 @@
 #namespace planner_squad_utility;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: planner_squad_utility
 	Checksum: 0xC5DDB00B
 	Offset: 0x1D0
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"planner_squad_utility", &plannersquadutility::__init__, undefined, undefined);
 }

@@ -14,7 +14,7 @@
 #namespace zm_weap_thundergun;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_thundergun
 	Checksum: 0x8622C7B7
 	Offset: 0x2B0
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_thundergun", &__init__, &__main__, undefined);
 }

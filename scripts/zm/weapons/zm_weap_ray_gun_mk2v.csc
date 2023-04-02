@@ -8,7 +8,7 @@
 #namespace zm_weap_ray_gun_mk2v;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_ray_gun_mk2v
 	Checksum: 0xD0DC9FDB
 	Offset: 0x148
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ray_gun_mk2v", &__init__, undefined, undefined);
 }

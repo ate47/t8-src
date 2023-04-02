@@ -16,7 +16,7 @@
 #namespace zm_perk_quick_revive;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_quick_revive
 	Checksum: 0x5443F863
 	Offset: 0x208
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_quick_revive", &__init__, undefined, undefined);
 }

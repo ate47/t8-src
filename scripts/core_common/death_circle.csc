@@ -7,7 +7,7 @@
 #namespace death_circle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: death_circle
 	Checksum: 0xA0ED348F
 	Offset: 0x198
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"death_circle", &__init__, undefined, undefined);
 }

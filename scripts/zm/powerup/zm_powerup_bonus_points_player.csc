@@ -6,7 +6,7 @@
 #namespace zm_powerup_bonus_points_player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_bonus_points_player
 	Checksum: 0x87D859EC
 	Offset: 0xB8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_bonus_points_player", &__init__, undefined, undefined);
 }

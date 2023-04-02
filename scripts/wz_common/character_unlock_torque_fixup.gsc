@@ -5,7 +5,7 @@
 #namespace character_unlock_torque_fixup;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_torque_fixup
 	Checksum: 0x37E6D01C
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_torque_fixup", &__init__, undefined, #"character_unlock_fixup");
 }

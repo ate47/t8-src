@@ -7,7 +7,7 @@
 #namespace zombie_vortex;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_vortex
 	Checksum: 0xB36F33FA
 	Offset: 0x1E0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"vortex", &__init__, undefined, undefined);
 }

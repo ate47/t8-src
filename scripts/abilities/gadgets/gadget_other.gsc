@@ -5,7 +5,7 @@
 #namespace gadget_other;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_other
 	Checksum: 0x44EFEA1F
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gadget_other", &__init__, undefined, undefined);
 }

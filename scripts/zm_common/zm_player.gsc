@@ -51,7 +51,7 @@
 #namespace zm_player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_player
 	Checksum: 0x1E34193A
 	Offset: 0x5D0
@@ -59,7 +59,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_player", &__init__, undefined, undefined);
 }

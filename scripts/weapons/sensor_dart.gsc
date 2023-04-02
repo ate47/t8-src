@@ -16,7 +16,7 @@
 #namespace sensor_dart;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: sensor_dart
 	Checksum: 0xAA5B377B
 	Offset: 0x1E0
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"sensor_dart", &init_shared, undefined, undefined);
 }

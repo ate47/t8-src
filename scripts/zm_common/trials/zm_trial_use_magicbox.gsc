@@ -8,7 +8,7 @@
 #namespace zm_trial_use_magicbox;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_use_magicbox
 	Checksum: 0x5B4008D8
 	Offset: 0x90
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trial_use_magicbox", &__init__, undefined, undefined);
 }

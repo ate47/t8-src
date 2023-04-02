@@ -19,7 +19,7 @@
 #namespace wz_medals;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_medals
 	Checksum: 0x218717CE
 	Offset: 0xF8
@@ -27,7 +27,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_medals", &__init__, &__main__, undefined);
 }

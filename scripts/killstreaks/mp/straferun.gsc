@@ -23,7 +23,7 @@
 #namespace straferun;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: straferun
 	Checksum: 0xC5E8B3E0
 	Offset: 0x440
@@ -31,7 +31,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"straferun", &__init__, undefined, #"killstreaks");
 }

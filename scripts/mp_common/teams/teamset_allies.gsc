@@ -5,7 +5,7 @@
 #namespace teamset_allies;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teamset_allies
 	Checksum: 0x7AD7AB16
 	Offset: 0x138
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"teamset_allies", &__init__, undefined, undefined);
 }

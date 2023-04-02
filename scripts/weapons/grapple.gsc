@@ -9,7 +9,7 @@
 #namespace grapple;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: grapple
 	Checksum: 0xE5EC29BB
 	Offset: 0x98
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"grapple", &__init__, undefined, undefined);
 }

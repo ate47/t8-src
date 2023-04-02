@@ -8,7 +8,7 @@
 #namespace character_unlock_scarlett;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_scarlett
 	Checksum: 0xB0F59B9F
 	Offset: 0xA0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_scarlett", &__init__, undefined, #"character_unlock_scarlett_fixup");
 }

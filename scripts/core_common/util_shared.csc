@@ -7,7 +7,7 @@
 #namespace util;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: util
 	Checksum: 0x8883E8A7
 	Offset: 0x180
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"util_shared", &__init__, undefined, undefined);
 }

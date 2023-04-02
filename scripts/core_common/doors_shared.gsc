@@ -1488,7 +1488,7 @@ class cdoor
 #namespace doors;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: doors
 	Checksum: 0x4F5520BF
 	Offset: 0x4818
@@ -1496,7 +1496,7 @@ class cdoor
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"doors", &__init__, &__main__, undefined);
 }

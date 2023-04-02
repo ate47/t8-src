@@ -10,7 +10,7 @@
 #namespace gadget_radiation_field;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_radiation_field
 	Checksum: 0x54B7FBA7
 	Offset: 0xA0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gadget_radiation_field", &__init__, undefined, undefined);
 }

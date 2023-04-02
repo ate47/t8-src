@@ -2,25 +2,25 @@
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_e0710ee6;
+#namespace zm_ai_utility;
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_e0710ee6
+	Name: __init__system__
+	Namespace: zm_ai_utility
 	Checksum: 0x2375DF0
 	Offset: 0x78
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_3997833cc3034f0", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x377DCECC
 	Offset: 0xC0
 	Size: 0x24
@@ -34,7 +34,7 @@ function private __init__()
 
 /*
 	Name: function_f3a051c6
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xFCBDAB69
 	Offset: 0xF0
 	Size: 0xC

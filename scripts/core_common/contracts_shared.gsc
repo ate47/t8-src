@@ -7,7 +7,7 @@
 #namespace contracts;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: contracts
 	Checksum: 0x70A48F56
 	Offset: 0x98
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"contracts_shared", undefined, undefined, undefined);
 }

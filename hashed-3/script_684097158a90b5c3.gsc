@@ -4,7 +4,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -18,7 +18,7 @@
 #namespace namespace_acd9c698;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_acd9c698
 	Checksum: 0x6E817A6A
 	Offset: 0x1B8
@@ -26,7 +26,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_45a40cc86aed6e2a", &__init__, &__main__, #"zm_ai_gladiator");
 }
@@ -76,7 +76,7 @@ function __main__()
 */
 function private function_8c0ab720()
 {
-	n_hp = namespace_e0710ee6::function_8d44707e(1) * (isdefined(level.var_1b0cc4f5) ? level.var_1b0cc4f5 : 1);
+	n_hp = zm_ai_utility::function_8d44707e(1) * (isdefined(level.var_1b0cc4f5) ? level.var_1b0cc4f5 : 1);
 	if(self.var_9fde8624 == #"gladiator_marauder")
 	{
 		n_hp = n_hp * 0.7;

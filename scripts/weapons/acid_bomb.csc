@@ -7,7 +7,7 @@
 #namespace acid_bomb;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: acid_bomb
 	Checksum: 0x5A0AE5BF
 	Offset: 0xB0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"acid_bomb", undefined, &__main__, undefined);
 }

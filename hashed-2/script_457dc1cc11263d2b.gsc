@@ -7,7 +7,7 @@
 #namespace hvo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hvo
 	Checksum: 0xE469AB4C
 	Offset: 0xA0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_3a7ac32272007c6d", &__init__, undefined, undefined);
 }

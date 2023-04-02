@@ -6,7 +6,7 @@
 #namespace zm_powerup_hero_weapon_power;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_hero_weapon_power
 	Checksum: 0xCF6BFDC
 	Offset: 0x98
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_hero_weapon_power", &__init__, undefined, undefined);
 }

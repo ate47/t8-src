@@ -64,7 +64,7 @@
 #using scripts\zm_common\talisman\zm_talisman_perk_permanent_2.gsc;
 #using scripts\zm_common\talisman\zm_talisman_special_startlv2.gsc;
 #using scripts\zm_common\aats\zm_aat_frostbite.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_start_1.gsc;
 #using scripts\zm_common\zm_armor.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_permanent_1.gsc;
@@ -164,7 +164,7 @@ function autoexec ignore_systems()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm
 	Checksum: 0x9DE745FF
 	Offset: 0x1680
@@ -172,7 +172,7 @@ function autoexec ignore_systems()
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm", &__init__, undefined, undefined);
 }
@@ -1515,7 +1515,7 @@ function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath,
 	self.var_2e581a5 = undefined;
 	if(self.var_6f84b820 === #"heavy" || self.var_6f84b820 === #"miniboss")
 	{
-		var_84ed9a13 = self namespace_e0710ee6::function_de3dda83(boneindex, shitloc, vpoint);
+		var_84ed9a13 = self zm_ai_utility::function_de3dda83(boneindex, shitloc, vpoint);
 		if(isdefined(var_84ed9a13) && namespace_81245006::function_f29756fe(var_84ed9a13) == 1 && var_84ed9a13.type !== #"armor")
 		{
 			self.var_2e581a5 = 1;

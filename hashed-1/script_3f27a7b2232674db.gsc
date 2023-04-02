@@ -5,7 +5,7 @@
 #namespace player_role;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_role
 	Checksum: 0xBC5C8B65
 	Offset: 0x90
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"player_role", &__init__, undefined, undefined);
 }

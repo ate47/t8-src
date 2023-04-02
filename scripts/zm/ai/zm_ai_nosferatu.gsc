@@ -22,7 +22,7 @@
 #using script_6e3c826b1814cab6;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
@@ -55,7 +55,7 @@
 #namespace zm_ai_nosferatu;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_nosferatu
 	Checksum: 0xB7237B8B
 	Offset: 0x410
@@ -63,7 +63,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_nosferatu", &__init__, &__main__, undefined);
 }
@@ -303,7 +303,7 @@ function private function_c12f7b53()
 	self setblackboardattribute("_locomotion_speed", "locomotion_speed_sprint");
 	self.completed_emerging_into_playable_area = 1;
 	self.ignorepathenemyfightdist = 1;
-	var_eb297ead = namespace_e0710ee6::function_8d44707e(0);
+	var_eb297ead = zm_ai_utility::function_8d44707e(0);
 	var_eb297ead = var_eb297ead * (isdefined(level.var_1eb98fb1) ? level.var_1eb98fb1 : 1);
 	self.health = int(var_eb297ead);
 	self.maxhealth = int(var_eb297ead);
@@ -916,7 +916,7 @@ function function_4c71848e()
 			var_b2aa54a9 = var_d7eff26a;
 		}
 	}
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	return true;
 }
 

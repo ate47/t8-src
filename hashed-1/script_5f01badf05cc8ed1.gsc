@@ -6,7 +6,7 @@
 #namespace antipersonnel_guidance;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: antipersonnel_guidance
 	Checksum: 0xD14166A3
 	Offset: 0xB0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"antipersonnel_guidance", &__init__, undefined, undefined);
 }

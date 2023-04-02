@@ -19,7 +19,7 @@
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
@@ -87,7 +87,7 @@ class class_52f0d01d
 #namespace zm_ai_gladiator;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_gladiator
 	Checksum: 0x605DBC29
 	Offset: 0x738
@@ -95,7 +95,7 @@ class class_52f0d01d
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_gladiator", &__init__, &__main__, undefined);
 }
@@ -672,7 +672,7 @@ function private function_edd0777f(entity)
 	{
 		return false;
 	}
-	if(namespace_e0710ee6::function_54054394(entity))
+	if(zm_ai_utility::function_54054394(entity))
 	{
 		return false;
 	}
@@ -871,7 +871,7 @@ function function_13f886a2(entity)
 	{
 		return false;
 	}
-	if(namespace_e0710ee6::function_54054394(entity))
+	if(zm_ai_utility::function_54054394(entity))
 	{
 		return false;
 	}
@@ -927,7 +927,7 @@ function function_61e7d5f5(entity)
 	{
 		return false;
 	}
-	if(namespace_e0710ee6::function_54054394(entity))
+	if(zm_ai_utility::function_54054394(entity))
 	{
 		return false;
 	}
@@ -1676,7 +1676,7 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 	{
 		var_ae30c5b0 = 1;
 	}
-	var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
+	var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
 	var_dd54fdb1 = var_786d7e06.var_84ed9a13;
 	var_88e794fb = var_786d7e06.registerzombie_bgb_used_reinforce;
 	if(!isdefined(var_dd54fdb1) && var_ae30c5b0)
@@ -2334,7 +2334,7 @@ function function_831dd6bd()
 	{
 		if(isplayer(self.favoriteenemy))
 		{
-			goalent = namespace_e0710ee6::function_a2e8fd7b(self, self.favoriteenemy);
+			goalent = zm_ai_utility::function_a2e8fd7b(self, self.favoriteenemy);
 			if(isdefined(goalent.last_valid_position))
 			{
 				goalpos = getclosestpointonnavmesh(goalent.last_valid_position, 64, self getpathfindingradius());

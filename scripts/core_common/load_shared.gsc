@@ -14,7 +14,7 @@
 #namespace load;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: load
 	Checksum: 0x5CEBCCFA
 	Offset: 0x240
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"load", &__init__, undefined, undefined);
 }

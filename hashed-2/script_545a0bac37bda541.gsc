@@ -14,7 +14,7 @@
 #namespace globallogic_score;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_score
 	Checksum: 0x652113EE
 	Offset: 0x178
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"globallogic_score", &__init__, undefined, undefined);
 }

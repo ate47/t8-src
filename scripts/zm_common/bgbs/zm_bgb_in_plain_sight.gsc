@@ -8,7 +8,7 @@
 #namespace zm_bgb_in_plain_sight;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_in_plain_sight
 	Checksum: 0xD0F0C244
 	Offset: 0xE0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_in_plain_sight", &__init__, undefined, #"bgb");
 }

@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
@@ -244,7 +244,7 @@ function function_a2f2a9a3()
 	if(isdefined(self) && isentity(self))
 	{
 		self thread clientfield::set("zm_ai/zombie_electric_fx_clientfield", 0);
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		if(isdefined(self))
 		{
 			self thread clientfield::set("zm_ai/zombie_electric_fx_clientfield", 1);

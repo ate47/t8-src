@@ -11,7 +11,7 @@
 #namespace zm_callings;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_callings
 	Checksum: 0x2705BF5D
 	Offset: 0xC0
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_callings", &__init__, &__main__, undefined);
 }

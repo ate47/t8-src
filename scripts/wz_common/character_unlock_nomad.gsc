@@ -9,7 +9,7 @@
 #namespace character_unlock_nomad;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_nomad
 	Checksum: 0x902ED361
 	Offset: 0x98
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_nomad", &__init__, undefined, #"character_unlock_nomad_fixup");
 }

@@ -7,7 +7,7 @@
 #namespace zm_trial_no_sprint;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_no_sprint
 	Checksum: 0x5C6B5B5A
 	Offset: 0xA0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trial_no_sprint", &__init__, undefined, undefined);
 }

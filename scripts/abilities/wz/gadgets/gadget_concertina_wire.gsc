@@ -5,7 +5,7 @@
 #namespace concertina_wire;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: concertina_wire
 	Checksum: 0x954867F1
 	Offset: 0x98
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"concertina_wire", &__init__, undefined, #"weapons");
 }

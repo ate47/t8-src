@@ -10,7 +10,7 @@
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
 #using script_7b7ed6e4bc963a51;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -117,7 +117,7 @@ function private function_deb99302()
 */
 function private function_767db9a1(attacker, weapon, boneindex, hitloc, point)
 {
-	var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
+	var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
 	damage_scale = var_786d7e06.damage_scale;
 	return damage_scale;
 }
@@ -523,7 +523,7 @@ function function_6b086058(inflictor, attacker, damage, idflags, meansofdeath, w
 			playfx("maps/zm_towers/fx8_boss_dmg_flesh", point, dir * -1);
 		}
 		attacker playhitmarker(undefined, 1, undefined, 0);
-		var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex);
+		var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex);
 		return damage * var_786d7e06.damage_scale;
 	}
 	if(self.ai.var_112ec817 == #"hash_8e173ae91589439")
@@ -531,13 +531,13 @@ function function_6b086058(inflictor, attacker, damage, idflags, meansofdeath, w
 		var_dd54fdb1 = namespace_81245006::function_37e3f011(self, "tag_carriage_ws_le");
 		if(isdefined(var_dd54fdb1) && namespace_81245006::function_f29756fe(var_dd54fdb1) === 1)
 		{
-			var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, var_88cb1bf9, undefined, undefined, var_dd54fdb1);
+			var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, var_88cb1bf9, undefined, undefined, var_dd54fdb1);
 			damage = damage * var_786d7e06.damage_scale;
 			archetypeelephant::function_e864f0da(self, damage, attacker, point, dir, var_88cb1bf9);
 			return 0;
 		}
 		attacker playhitmarker(undefined, 1, undefined, 0);
-		var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex);
+		var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex);
 		return damage * var_786d7e06.damage_scale;
 	}
 	if(self.ai.var_112ec817 == #"hash_8e170ae91588f20")
@@ -551,7 +551,7 @@ function function_6b086058(inflictor, attacker, damage, idflags, meansofdeath, w
 				damage = int(damage);
 			}
 			attacker playhitmarker(undefined, 5, undefined, 1, 0);
-			var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, var_88cb1bf9, undefined, undefined, var_dd54fdb1);
+			var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, var_88cb1bf9, undefined, undefined, var_dd54fdb1);
 			damage = damage * var_786d7e06.damage_scale;
 			namespace_81245006::function_ef87b7e8(var_dd54fdb1, damage);
 			playfx("maps/zm_towers/fx8_boss_dmg_weakspot_organ", point, dir * -1);
@@ -567,11 +567,11 @@ function function_6b086058(inflictor, attacker, damage, idflags, meansofdeath, w
 			return 0;
 		}
 		attacker playhitmarker(undefined, 1, undefined, 0);
-		var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex);
+		var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex);
 		return damage * var_786d7e06.damage_scale;
 	}
 	attacker playhitmarker(undefined, 1, undefined, 0);
-	var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex);
+	var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex);
 	return damage * var_786d7e06.damage_scale;
 }
 

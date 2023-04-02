@@ -45,7 +45,7 @@ class class_92792865
 #namespace bot_chain;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bot_chain
 	Checksum: 0xFA268BC2
 	Offset: 0x120
@@ -53,7 +53,7 @@ class class_92792865
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bot_chain", &__init__, undefined, undefined);
 }

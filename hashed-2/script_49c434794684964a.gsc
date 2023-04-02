@@ -6,7 +6,7 @@
 #namespace player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player
 	Checksum: 0xFECF46BA
 	Offset: 0x100
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"player", &__init__, undefined, undefined);
 }

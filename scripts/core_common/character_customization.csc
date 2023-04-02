@@ -2025,7 +2025,7 @@ class class_7da27482
 #namespace character_customization;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_customization
 	Checksum: 0x2E74F733
 	Offset: 0x310
@@ -2033,7 +2033,7 @@ class class_7da27482
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_customization", &__init__, undefined, undefined);
 }

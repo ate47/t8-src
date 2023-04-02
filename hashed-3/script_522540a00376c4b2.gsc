@@ -15,7 +15,7 @@
 #namespace zm_ai_tiger;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_tiger
 	Checksum: 0x21B73A15
 	Offset: 0x168
@@ -23,7 +23,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_tiger", &__init__, undefined, undefined);
 }

@@ -9,7 +9,7 @@
 #using script_668c4fbb94671fb4;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using script_b00fcbc28051f15;
 #using script_db06eb511bd9b36;
@@ -33,7 +33,7 @@
 #namespace pebble;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: pebble
 	Checksum: 0xEBD52B1
 	Offset: 0x638
@@ -41,7 +41,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_escape_pebble", &__init__, &__main__, undefined);
 }

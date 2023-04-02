@@ -29,7 +29,7 @@
 #namespace zm_weap_scepter;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_scepter
 	Checksum: 0x25A1C890
 	Offset: 0x2F8
@@ -37,7 +37,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_scepter", &__init__, undefined, undefined);
 }

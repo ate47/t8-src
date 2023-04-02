@@ -21,7 +21,7 @@
 #namespace scoreevents;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scoreevents
 	Checksum: 0xFB8FC2F7
 	Offset: 0x618
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"scoreevents", &__init__, undefined, undefined);
 }

@@ -11,7 +11,7 @@
 #namespace bot_action;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bot_action
 	Checksum: 0xA153AE7D
 	Offset: 0x4B8
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bot_action", &__init__, undefined, undefined);
 }

@@ -24,7 +24,7 @@
 #namespace zm_wallbuy;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_wallbuy
 	Checksum: 0xD6629811
 	Offset: 0x348
@@ -32,7 +32,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_wallbuy", &__init__, &__main__, array(#"zm", #"zm_zonemgr", #"zm_unitrigger", #"zm_weapons"));
 }

@@ -6,7 +6,7 @@
 #namespace hud_message;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hud_message
 	Checksum: 0x93C8A1D6
 	Offset: 0xA0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hud_message", &__init__, undefined, undefined);
 }

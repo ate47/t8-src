@@ -7,7 +7,7 @@
 #using script_4d85e8de54b02198;
 #using script_5dbd8e79a9aa7b75;
 #using script_6809bf766eba194a;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -27,7 +27,7 @@
 #namespace zm_ai_nova_crawler;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_nova_crawler
 	Checksum: 0x41433C11
 	Offset: 0x278
@@ -35,7 +35,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_nova_crawler", &__init__, &__main__, undefined);
 }
@@ -99,7 +99,7 @@ function __main__()
 */
 function function_1d34f2b6()
 {
-	var_626a6a36 = namespace_e0710ee6::function_8d44707e(1);
+	var_626a6a36 = zm_ai_utility::function_8d44707e(1);
 	var_626a6a36 = var_626a6a36 * (isdefined(level.var_1eb98fb1) ? level.var_1eb98fb1 : 1);
 	self.maxhealth = int(var_626a6a36);
 	self.health = self.maxhealth;

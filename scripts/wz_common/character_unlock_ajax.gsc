@@ -8,7 +8,7 @@
 #namespace character_unlock_ajax;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_ajax
 	Checksum: 0xD33B04A3
 	Offset: 0x90
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_ajax", &__init__, undefined, #"character_unlock_ajax_fixup");
 }

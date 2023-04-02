@@ -6,7 +6,7 @@
 #namespace character_unlock_crash;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_crash
 	Checksum: 0xFD57BB71
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_crash", &__init__, undefined, #"character_unlock_crash_fixup");
 }

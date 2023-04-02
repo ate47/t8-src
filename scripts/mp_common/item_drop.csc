@@ -10,7 +10,7 @@
 #namespace item_drop;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_drop
 	Checksum: 0xFCC7187E
 	Offset: 0x118
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"item_drop", &__init__, undefined, undefined);
 }

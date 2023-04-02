@@ -12,7 +12,7 @@
 #using script_57f7003580bb15e0;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\aat_shared.gsc;
@@ -46,7 +46,7 @@
 #namespace zm_ai_catalyst;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_catalyst
 	Checksum: 0x9DDDEEBE
 	Offset: 0x688
@@ -54,7 +54,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_catalyst", &__init__, undefined, undefined);
 }
@@ -564,7 +564,7 @@ function function_3eaa8337()
 		{
 			self clientfield::set("corrosive_miasma_clientfield", 0);
 		}
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		if(isdefined(self))
 		{
 			self clientfield::set("catalyst_aura_clientfield", self.var_62e81e47);
@@ -1665,7 +1665,7 @@ function function_39212989()
 	{
 		return 0;
 	}
-	if(namespace_e0710ee6::function_db610082() == 0)
+	if(zm_ai_utility::function_db610082() == 0)
 	{
 		return 0;
 	}

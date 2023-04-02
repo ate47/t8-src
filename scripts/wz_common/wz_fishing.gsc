@@ -14,7 +14,7 @@
 #namespace wz_fishing;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_fishing
 	Checksum: 0x7F67F6DB
 	Offset: 0x2D8
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_fishing", &__init__, undefined, undefined);
 }

@@ -14,7 +14,7 @@
 #namespace spawning;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spawning
 	Checksum: 0x23D53D98
 	Offset: 0x220
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spawning_shared", &__init__, undefined, undefined);
 }

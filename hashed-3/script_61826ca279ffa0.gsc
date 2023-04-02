@@ -48,7 +48,7 @@
 #namespace namespace_73e1c3e3;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_73e1c3e3
 	Checksum: 0x9D5A2002
 	Offset: 0x988
@@ -56,7 +56,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ct_util", &__init__, undefined, undefined);
 }

@@ -7,7 +7,7 @@
 #namespace zm_perk_electric_cherry;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_electric_cherry
 	Checksum: 0x8004A7F9
 	Offset: 0x1E8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_electric_cherry", &__init__, undefined, undefined);
 }

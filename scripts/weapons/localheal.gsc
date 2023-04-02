@@ -13,25 +13,25 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_b5dd0093;
+#namespace locaheal;
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_b5dd0093
+	Name: __init__system__
+	Namespace: locaheal
 	Checksum: 0x4597D17C
 	Offset: 0x190
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"localheal", &init_shared, undefined, undefined);
 }
 
 /*
 	Name: init_shared
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xC7C78316
 	Offset: 0x1D8
 	Size: 0x25C
@@ -65,7 +65,7 @@ function init_shared()
 
 /*
 	Name: function_d58bf295
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x2FB3F84C
 	Offset: 0x440
 	Size: 0xE4
@@ -87,7 +87,7 @@ function function_d58bf295(params)
 
 /*
 	Name: function_a5b7c42d
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x43D8B747
 	Offset: 0x530
 	Size: 0x4E
@@ -105,7 +105,7 @@ function function_a5b7c42d()
 
 /*
 	Name: function_2100fa40
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x35F57238
 	Offset: 0x588
 	Size: 0x108
@@ -127,7 +127,7 @@ function function_2100fa40(attacker, victim, weapon, attackerweapon, meansofdeat
 
 /*
 	Name: function_4afb5c9d
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x1E72664D
 	Offset: 0x698
 	Size: 0x62
@@ -142,7 +142,7 @@ function function_4afb5c9d(attacker, victim, weapon, attackerweapon)
 
 /*
 	Name: function_1c0720fc
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xA00E04DC
 	Offset: 0x708
 	Size: 0x1C4
@@ -175,7 +175,7 @@ function function_1c0720fc(params)
 
 /*
 	Name: function_c04c8002
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x650BAD78
 	Offset: 0x8D8
 	Size: 0x72
@@ -196,7 +196,7 @@ function function_c04c8002()
 
 /*
 	Name: on_player_killed
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xD1918CE1
 	Offset: 0x958
 	Size: 0x134
@@ -221,7 +221,7 @@ function on_player_killed(params)
 
 /*
 	Name: has_target
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x59753833
 	Offset: 0xA98
 	Size: 0x3E
@@ -235,7 +235,7 @@ function has_target()
 
 /*
 	Name: function_c075723c
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xEE0D7053
 	Offset: 0xAE0
 	Size: 0x4C
@@ -252,7 +252,7 @@ function function_c075723c(str_field_name, n_value)
 
 /*
 	Name: function_c7dcfe36
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x6C4DA0BC
 	Offset: 0xB38
 	Size: 0x4C
@@ -269,7 +269,7 @@ function function_c7dcfe36(slot, value)
 
 /*
 	Name: regen_health
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xE58CD126
 	Offset: 0xB90
 	Size: 0x3EC
@@ -330,7 +330,7 @@ function regen_health(weapon, source_player, var_7b8559d4)
 
 /*
 	Name: function_903b9495
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xDFF27DF0
 	Offset: 0xF88
 	Size: 0x1D0
@@ -360,7 +360,7 @@ function function_903b9495(weapon, source_player)
 
 /*
 	Name: function_9fe3d492
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xC44513D3
 	Offset: 0x1160
 	Size: 0x6E
@@ -382,7 +382,7 @@ function function_9fe3d492()
 
 /*
 	Name: function_ee175021
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xBC80BFB2
 	Offset: 0x11D8
 	Size: 0xA4
@@ -405,7 +405,7 @@ function function_ee175021(array, entnum)
 
 /*
 	Name: gadget_on
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x5FE823F1
 	Offset: 0x1288
 	Size: 0x21C
@@ -442,7 +442,7 @@ function gadget_on(slot, weapon)
 
 /*
 	Name: gadget_off
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x7A9AEC62
 	Offset: 0x14B0
 	Size: 0x38
@@ -457,7 +457,7 @@ function gadget_off(slot, weapon)
 
 /*
 	Name: function_6628dc23
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0xC32689BB
 	Offset: 0x14F0
 	Size: 0x34C
@@ -512,7 +512,7 @@ function function_6628dc23(slot, weapon)
 
 /*
 	Name: function_45fd00c6
-	Namespace: namespace_b5dd0093
+	Namespace: locaheal
 	Checksum: 0x42EFABBF
 	Offset: 0x1848
 	Size: 0x1E6

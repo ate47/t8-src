@@ -7,7 +7,7 @@
 #namespace status_effect_pulse;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_pulse
 	Checksum: 0x68D993BA
 	Offset: 0xB8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"status_effect_pulse", &__init__, undefined, undefined);
 }

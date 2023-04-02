@@ -6,7 +6,7 @@
 #namespace singlelockap_guidance;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: singlelockap_guidance
 	Checksum: 0x9B4B4C3A
 	Offset: 0xB0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"singlelockap_guidance", &__init__, undefined, undefined);
 }

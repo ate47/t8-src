@@ -160,7 +160,7 @@ event main(eventstruct)
 	level zm_orange_ww_quest::init();
 	level namespace_5095a550::preload();
 	level namespace_e9563b61::init();
-	level namespace_78baa66c::preload();
+	level zm_orange_trials::preload();
 	load::main();
 	setdvar(#"zombie_unlock_all", 0);
 	level.zones = [];
@@ -218,7 +218,7 @@ event main(eventstruct)
 	}
 	if(zm_utility::is_trials())
 	{
-		level thread namespace_78baa66c::main();
+		level thread zm_orange_trials::main();
 	}
 	level flag::init("fasttravel_disabled");
 	level thread function_4dacc177();

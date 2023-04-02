@@ -10,7 +10,7 @@
 #namespace teams;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teams
 	Checksum: 0xE5A3A656
 	Offset: 0xD0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_29ee595d6bf61bf4", &__init__, undefined, undefined);
 }

@@ -12,7 +12,7 @@
 #namespace namespace_82497b8a;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_82497b8a
 	Checksum: 0xF50E6CF3
 	Offset: 0x520
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"mansion_ww", &__init__, undefined, undefined);
 }

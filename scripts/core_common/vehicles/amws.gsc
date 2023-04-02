@@ -13,7 +13,7 @@
 #namespace amws;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: amws
 	Checksum: 0x3BA5496F
 	Offset: 0x220
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"amws", &__init__, undefined, undefined);
 }

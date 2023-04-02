@@ -28,7 +28,7 @@
 #namespace dev;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dev
 	Checksum: 0xFC91A826
 	Offset: 0x130
@@ -36,7 +36,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	/#
 		system::register(#"dev", &__init__, undefined, #"spawning_shared");

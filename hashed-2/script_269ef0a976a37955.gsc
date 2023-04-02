@@ -7,7 +7,7 @@
 #namespace namespace_bf08ec2;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_bf08ec2
 	Checksum: 0x6CCD1399
 	Offset: 0xA0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"galvaknuckles", &__init__, &__main__, undefined);
 }

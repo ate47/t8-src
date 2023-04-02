@@ -12,7 +12,7 @@
 #namespace item_inventory;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_inventory
 	Checksum: 0xB2B95669
 	Offset: 0xA68
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"item_inventory", &__init__, undefined, #"item_world");
 }

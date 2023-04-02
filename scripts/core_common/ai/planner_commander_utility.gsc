@@ -11,7 +11,7 @@
 #namespace planner_commander_utility;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: planner_commander_utility
 	Checksum: 0x65C47AD1
 	Offset: 0x510
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"planner_commander_utility", &plannercommanderutility::__init__, undefined, undefined);
 }

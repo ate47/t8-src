@@ -27,7 +27,7 @@
 #namespace bgb;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bgb
 	Checksum: 0x9C672F76
 	Offset: 0x2B8
@@ -35,7 +35,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bgb", &__init__, &__main__, undefined);
 }

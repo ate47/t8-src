@@ -16,7 +16,7 @@
 #namespace item_world;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_world
 	Checksum: 0xB708DBFD
 	Offset: 0x2E0
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"item_world", &__init__, undefined, undefined);
 }

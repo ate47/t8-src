@@ -10,7 +10,7 @@
 #namespace duplicate_render;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: duplicate_render
 	Checksum: 0x37B13407
 	Offset: 0x2F8
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"duplicate_render", &__init__, undefined, undefined);
 }

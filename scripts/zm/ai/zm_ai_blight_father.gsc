@@ -13,7 +13,7 @@
 #using script_41fe08c37d53a635;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_489b835a247c990e;
-#using script_4a553e0f995c3d23;
+#using scripts\core_common\ai\archetype_blight_father.gsc;
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
 #using script_50c040e371c1c35f;
@@ -27,7 +27,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
@@ -56,7 +56,7 @@
 #namespace zm_ai_blight_father;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_blight_father
 	Checksum: 0x3623997B
 	Offset: 0xBC8
@@ -64,7 +64,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_blight_father", &__init__, undefined, undefined);
 }
@@ -137,7 +137,7 @@ function __init__()
 		}
 	}
 	level.var_c2981ce9 = [#"tag_eggsack_weakspot_ri":&function_33b2c99e, #"tag_eggsack_weakspot_le":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"tag_mouth_weakspot":&function_fa7c080];
-	namespace_e0710ee6::function_2ad308c4(#"blight_father", &function_744be31d);
+	zm_ai_utility::function_2ad308c4(#"blight_father", &function_744be31d);
 	namespace_32192f7::function_95c1dd81(#"blight_father", &function_2315440d);
 	namespace_9ff9f642::register_slowdown(#"hash_2fd5f5f16583a427", 0.8);
 	callback::add_callback(#"hash_4d2043b190b84792", &function_ef860973);
@@ -297,7 +297,7 @@ function private function_7c52f40()
 */
 function private function_95a6fbef()
 {
-	self.maxhealth = int(self namespace_e0710ee6::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_9503486c) ? level.var_9503486c : 1));
+	self.maxhealth = int(self zm_ai_utility::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_9503486c) ? level.var_9503486c : 1));
 	self.health = self.maxhealth;
 	namespace_81245006::initweakpoints(self, #"hash_403f3bb3fd75a9c7");
 	zm_score::function_e5d6e6dd(#"blight_father", self ai::function_9139c839().var_bd058b07);
@@ -444,7 +444,7 @@ function function_2628e1c2()
 	{
 		return;
 	}
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	return true;
 }
 
@@ -1506,7 +1506,7 @@ function private function_afce1cf(inflictor, attacker, damage, flags, meansofdam
 	{
 		var_dd54fdb1 = namespace_81245006::function_73ab4754(self, point, 1);
 	}
-	var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point, var_dd54fdb1);
+	var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point, var_dd54fdb1);
 	damage_scale = var_786d7e06.damage_scale;
 	var_84ed9a13 = var_786d7e06.var_84ed9a13;
 	registerzombie_bgb_used_reinforce = var_786d7e06.registerzombie_bgb_used_reinforce;
@@ -3976,7 +3976,7 @@ function function_3dbdca02()
 */
 function function_39212989()
 {
-	if(!self namespace_e0710ee6::function_db610082())
+	if(!self zm_ai_utility::function_db610082())
 	{
 		return 0;
 	}

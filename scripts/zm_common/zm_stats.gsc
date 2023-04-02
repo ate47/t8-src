@@ -21,7 +21,7 @@
 #namespace zm_stats;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_stats
 	Checksum: 0x6159FE12
 	Offset: 0x968
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_stats", &__init__, undefined, undefined);
 }

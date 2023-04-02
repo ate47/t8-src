@@ -6,7 +6,7 @@
 #namespace gravity_spikes;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gravity_spikes
 	Checksum: 0x5D558BDE
 	Offset: 0xC8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gravity_spikes", &__init__, undefined, undefined);
 }

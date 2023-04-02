@@ -5,7 +5,7 @@
 #namespace heatseekingmissile;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: heatseekingmissile
 	Checksum: 0x440EA55A
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"heatseekingmissile", &__init__, undefined, undefined);
 }

@@ -6,7 +6,7 @@
 #namespace dialog_shared;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dialog_shared
 	Checksum: 0xF531AC2
 	Offset: 0x2A8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"dialog_shared", &__init__, undefined, undefined);
 }

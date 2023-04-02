@@ -11,7 +11,7 @@
 #namespace rat;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rat
 	Checksum: 0xDE25B7C6
 	Offset: 0xA8
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	/#
 		system::register(#"wz_rat", &__init__, undefined, undefined);

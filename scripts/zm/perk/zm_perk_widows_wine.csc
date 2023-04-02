@@ -8,7 +8,7 @@
 #namespace zm_perk_widows_wine;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_widows_wine
 	Checksum: 0xD955652E
 	Offset: 0x240
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_widows_wine", &__init__, undefined, undefined);
 }

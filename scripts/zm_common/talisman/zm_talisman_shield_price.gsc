@@ -12,7 +12,7 @@
 #namespace zm_talisman_shield_price;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_talisman_shield_price
 	Checksum: 0x1FAC61CF
 	Offset: 0xC8
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_talisman_shield_price", &__init__, undefined, undefined);
 }

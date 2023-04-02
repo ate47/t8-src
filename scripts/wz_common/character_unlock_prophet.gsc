@@ -9,7 +9,7 @@
 #namespace character_unlock_prophet;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_prophet
 	Checksum: 0x7BAC539B
 	Offset: 0xB0
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_prophet", &__init__, undefined, #"character_unlock_prophet_fixup");
 }

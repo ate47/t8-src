@@ -6,7 +6,7 @@
 #namespace bb;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bb
 	Checksum: 0xDF1FF9D6
 	Offset: 0xA8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bb", &__init__, undefined, undefined);
 }

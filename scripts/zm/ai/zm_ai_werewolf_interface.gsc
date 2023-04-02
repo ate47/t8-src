@@ -2,11 +2,11 @@
 #using scripts\zm\ai\zm_ai_werewolf.gsc;
 #using script_59f07c660e6710a5;
 
-#namespace namespace_6ecedca5;
+#namespace zm_ai_werewolf_interface;
 
 /*
 	Name: registerwerewolfinterfaceattributes
-	Namespace: namespace_6ecedca5
+	Namespace: zm_ai_werewolf_interface
 	Checksum: 0x1E64ECBC
 	Offset: 0x78
 	Size: 0xB4

@@ -6,7 +6,7 @@
 #namespace zm_powerup_insta_kill;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_insta_kill
 	Checksum: 0x3AE6D5DB
 	Offset: 0xA8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_powerup_insta_kill", &__init__, undefined, undefined);
 }

@@ -24,7 +24,7 @@
 #namespace zm_weap_claymore;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_claymore
 	Checksum: 0xE943CECB
 	Offset: 0x180
@@ -32,7 +32,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"claymore_zm", &__init__, undefined, undefined);
 }

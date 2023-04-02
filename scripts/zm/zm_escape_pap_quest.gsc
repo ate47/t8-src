@@ -25,7 +25,7 @@
 #namespace pap_quest;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: pap_quest
 	Checksum: 0xE200B596
 	Offset: 0x328
@@ -33,7 +33,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"pap_quest", &__init__, &__main__, undefined);
 }

@@ -21,7 +21,7 @@
 #namespace zm_score;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_score
 	Checksum: 0x3A6D8772
 	Offset: 0x298
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_score", &__init__, &__main__, undefined);
 }

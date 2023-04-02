@@ -12,7 +12,7 @@
 #namespace zm_talisman_coagulant;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_talisman_coagulant
 	Checksum: 0x6A6ECAC1
 	Offset: 0xC8
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_talisman_coagulant", &__init__, undefined, undefined);
 }

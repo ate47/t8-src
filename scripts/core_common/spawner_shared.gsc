@@ -14,7 +14,7 @@
 #namespace spawner;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spawner
 	Checksum: 0x81DD415A
 	Offset: 0x160
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spawner", &__init__, &__main__, undefined);
 }

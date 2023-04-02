@@ -27,7 +27,7 @@
 #namespace laststand_warzone;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: laststand_warzone
 	Checksum: 0x711042B2
 	Offset: 0x3B0
@@ -35,7 +35,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"laststand_warzone", &__init__, undefined, undefined);
 }

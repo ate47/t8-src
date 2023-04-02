@@ -10,7 +10,7 @@
 #namespace colors;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: colors
 	Checksum: 0x781D9A18
 	Offset: 0x170
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"colors", &__init__, &__main__, undefined);
 }

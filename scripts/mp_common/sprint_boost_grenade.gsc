@@ -8,7 +8,7 @@
 #namespace sprint_boost_grenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: sprint_boost_grenade
 	Checksum: 0x769F28E9
 	Offset: 0x90
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"sprint_boost_grenade", &__init__, undefined, undefined);
 }

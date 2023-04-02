@@ -28,7 +28,7 @@
 #namespace clean;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: clean
 	Checksum: 0x62FF81E1
 	Offset: 0x650
@@ -36,7 +36,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"clean", &__init__, undefined, undefined);
 }

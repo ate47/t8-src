@@ -24,7 +24,7 @@
 #namespace namespace_edfc2a97;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_edfc2a97
 	Checksum: 0xE3F8C41
 	Offset: 0x1E0
@@ -32,7 +32,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_2b52a9f53a5e4b45", &__init__, &__main__, undefined);
 }

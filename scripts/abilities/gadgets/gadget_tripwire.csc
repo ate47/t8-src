@@ -9,7 +9,7 @@
 #namespace gadget_tripwire;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_tripwire
 	Checksum: 0x8202D603
 	Offset: 0x1D8
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gadget_tripwire", &__init__, undefined, undefined);
 }

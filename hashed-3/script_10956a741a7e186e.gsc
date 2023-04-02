@@ -11,7 +11,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm\ai\zm_ai_white_nova_crawler.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
@@ -2889,7 +2889,7 @@ function function_b448360c()
 	}
 	if(isentity(self))
 	{
-		self namespace_e0710ee6::function_a8dc3363(s_spawn_loc);
+		self zm_ai_utility::function_a8dc3363(s_spawn_loc);
 		self ghost();
 		b_teleported = s_spawn_loc function_13f107c4(self, s_spawn_loc);
 		if(isdefined(b_teleported) && !b_teleported)

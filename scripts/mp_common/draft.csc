@@ -14,7 +14,7 @@
 #namespace draft;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: draft
 	Checksum: 0x19315C36
 	Offset: 0x3218
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"draft", &__init__, undefined, undefined);
 }

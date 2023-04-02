@@ -5,7 +5,7 @@
 #namespace wz_stash_blackjack;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_stash_blackjack
 	Checksum: 0xB4D4A563
 	Offset: 0x78
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_stash_blackjack", &__init__, undefined, undefined);
 }

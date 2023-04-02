@@ -10,7 +10,7 @@
 #namespace wave_spawn;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wave_spawn
 	Checksum: 0xF93E3A8D
 	Offset: 0x108
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wave_spawn", &__init__, undefined, undefined);
 }

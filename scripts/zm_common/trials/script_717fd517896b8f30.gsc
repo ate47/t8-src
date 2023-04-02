@@ -6,7 +6,7 @@
 #namespace zm_trial_randomize_perks;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_randomize_perks
 	Checksum: 0xCE5CDBE8
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_24dadafee669bfbe", &__init__, undefined, undefined);
 }

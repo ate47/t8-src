@@ -6,7 +6,7 @@
 #namespace status_effect_wound;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_wound
 	Checksum: 0xECB9E6E2
 	Offset: 0xA8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"status_effect_wound", &__init__, undefined, undefined);
 }

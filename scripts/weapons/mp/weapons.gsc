@@ -6,7 +6,7 @@
 #namespace weapons;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weapons
 	Checksum: 0x886464F6
 	Offset: 0x90
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"weapons", &__init__, undefined, undefined);
 }

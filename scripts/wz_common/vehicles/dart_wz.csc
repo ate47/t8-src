@@ -10,7 +10,7 @@
 #namespace dart_wz;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dart_wz
 	Checksum: 0x81C5885D
 	Offset: 0x148
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"dart_wz", &__init__, undefined, undefined);
 }

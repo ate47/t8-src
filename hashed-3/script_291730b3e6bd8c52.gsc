@@ -11,7 +11,7 @@
 #namespace zm_ai_catalyst;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_catalyst
 	Checksum: 0x91864D0A
 	Offset: 0x418
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_catalyst", &__init__, undefined, undefined);
 }

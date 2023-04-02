@@ -6,7 +6,7 @@
 #namespace zm_weap_spoon;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_spoon
 	Checksum: 0x3A648F5
 	Offset: 0x88
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spoon", &__init__, &__main__, undefined);
 }

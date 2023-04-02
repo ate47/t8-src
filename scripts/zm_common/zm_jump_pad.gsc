@@ -11,7 +11,7 @@
 #namespace zm_jump_pad;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_jump_pad
 	Checksum: 0x2015D980
 	Offset: 0xE8
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_jump_pad", &__init__, undefined, undefined);
 }

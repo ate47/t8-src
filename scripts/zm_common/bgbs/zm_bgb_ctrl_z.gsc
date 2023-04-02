@@ -12,7 +12,7 @@
 #namespace zm_bgb_ctrl_z;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_ctrl_z
 	Checksum: 0x4FA6A128
 	Offset: 0x100
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_ctrl_z", &__init__, undefined, #"bgb");
 }

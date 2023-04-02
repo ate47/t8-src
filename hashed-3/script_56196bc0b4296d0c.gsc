@@ -8,7 +8,7 @@
 #namespace zm_ai_nova_crawler;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_nova_crawler
 	Checksum: 0xAD7805E7
 	Offset: 0x158
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_nova_crawler", &__init__, undefined, undefined);
 }

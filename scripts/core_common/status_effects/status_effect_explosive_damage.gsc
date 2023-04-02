@@ -7,7 +7,7 @@
 #namespace status_effect_explosive_damage;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_explosive_damage
 	Checksum: 0x1C499757
 	Offset: 0xA0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"status_effect_explosive_damage", &__init__, undefined, undefined);
 }

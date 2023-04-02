@@ -99,7 +99,7 @@ class class_b599a4bc
 #namespace namespace_cb42c6c0;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_cb42c6c0
 	Checksum: 0x3311AE7D
 	Offset: 0x388
@@ -107,7 +107,7 @@ class class_b599a4bc
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_32b5086207157433", &__init__, undefined, undefined);
 }

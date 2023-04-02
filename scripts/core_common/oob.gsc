@@ -12,7 +12,7 @@
 #namespace oob;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: oob
 	Checksum: 0x4EDF9298
 	Offset: 0x1C0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"out_of_bounds", &__init__, undefined, undefined);
 }

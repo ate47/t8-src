@@ -6,7 +6,7 @@
 #namespace supplypod;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: supplypod
 	Checksum: 0xCCC41BE5
 	Offset: 0xF8
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"supplypod", &__init__, undefined, #"killstreaks");
 }

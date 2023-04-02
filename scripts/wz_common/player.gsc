@@ -6,7 +6,7 @@
 #namespace wz_player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_player
 	Checksum: 0xC4FBE99D
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_player", &__init__, undefined, undefined);
 }

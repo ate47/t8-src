@@ -7,7 +7,7 @@
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -2575,7 +2575,7 @@ function _angles_cp_medal_no_deaths()
 			}
 			foreach(ai in a_zombies)
 			{
-				if(ai namespace_e0710ee6::function_db610082())
+				if(ai zm_ai_utility::function_db610082())
 				{
 					zm_transform::function_9acf76e6(ai, array::pop(var_18f3c565, undefined, 0));
 					break;
@@ -2841,13 +2841,13 @@ function function_f0a7d11b()
 		level.var_8a64ef3a = 0;
 	}
 	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_corrosive", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"hash_48d8727043be63bc", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"hash_48d8727043be63bc", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
 	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_water", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"hash_cc3279e1c9378c3", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"hash_cc3279e1c9378c3", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
 	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_electric", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"hash_f320466b419b45", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"hash_f320466b419b45", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
 	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_plasma", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"hash_45bc5c87327d33a2", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"hash_45bc5c87327d33a2", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
 }
 
 /*

@@ -4,7 +4,7 @@
 #namespace zm_white_ffotd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_white_ffotd
 	Checksum: 0xA6047EED
 	Offset: 0x70
@@ -12,7 +12,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_white_ffotd", &__init__, &__main__, undefined);
 }

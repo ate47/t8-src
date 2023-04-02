@@ -9,7 +9,7 @@
 #namespace zm_weap_chakram;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_chakram
 	Checksum: 0x5C0D729B
 	Offset: 0x178
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_chakram", &__init__, undefined, undefined);
 }

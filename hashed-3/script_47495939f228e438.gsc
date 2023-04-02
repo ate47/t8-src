@@ -77,7 +77,7 @@ class class_698343df
 #namespace zm_aoe;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_aoe
 	Checksum: 0xB0187EA4
 	Offset: 0x178
@@ -85,7 +85,7 @@ class class_698343df
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_aoe", &__init__, &__main__, undefined);
 }

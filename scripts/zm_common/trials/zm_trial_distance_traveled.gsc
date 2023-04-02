@@ -11,7 +11,7 @@
 #namespace zm_trial_distance_traveled;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_distance_traveled
 	Checksum: 0x2BEFB5DA
 	Offset: 0xA8
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trial_distance_traveled", &__init__, undefined, undefined);
 }

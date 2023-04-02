@@ -10,7 +10,7 @@
 #namespace character_unlock_ruin;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_ruin
 	Checksum: 0x849BF37C
 	Offset: 0xA0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_ruin", &__init__, undefined, #"character_unlock_ruin_fixup");
 }

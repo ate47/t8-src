@@ -1,28 +1,28 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5ce3a97e77bb8a9f;
+#using scripts\weapons\bouncingbetty.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace remotemissile;
+#namespace bouncingbetty;
 
 /*
-	Name: function_89f2df9
-	Namespace: remotemissile
-	Checksum: 0xFA23F5C8
+	Name: __init__system__
+	Namespace: bouncingbetty
+	Checksum: 0x282CE923
 	Offset: 0x78
-	Size: 0x44
+	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
-	system::register(#"remotemissile", &__init__, undefined, #"killstreaks");
+	system::register(#"bouncingbetty", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: remotemissile
-	Checksum: 0x656B5EB6
-	Offset: 0xC8
+	Namespace: bouncingbetty
+	Checksum: 0xB065D309
+	Offset: 0xC0
 	Size: 0x14
 	Parameters: 0
 	Flags: Linked

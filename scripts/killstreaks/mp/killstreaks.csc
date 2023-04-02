@@ -6,7 +6,7 @@
 #namespace killstreaks;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: killstreaks
 	Checksum: 0x5043BA20
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"killstreaks", &__init__, undefined, undefined);
 }

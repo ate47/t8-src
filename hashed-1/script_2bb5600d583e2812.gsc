@@ -10,7 +10,7 @@
 #namespace namespace_8bf2881e;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_8bf2881e
 	Checksum: 0x4A826BE7
 	Offset: 0xE0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"homunculus", &__init__, undefined, undefined);
 }

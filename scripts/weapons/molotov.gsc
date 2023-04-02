@@ -16,7 +16,7 @@
 #namespace molotov;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: molotov
 	Checksum: 0xEB8260F3
 	Offset: 0x1D0
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"molotov", &init_shared, undefined, undefined);
 }

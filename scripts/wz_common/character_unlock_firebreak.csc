@@ -6,7 +6,7 @@
 #namespace character_unlock_firebreak;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_firebreak
 	Checksum: 0xAE8D98EB
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_firebreak", &__init__, undefined, #"character_unlock_firebreak_fixup");
 }

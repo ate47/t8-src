@@ -6,7 +6,7 @@
 #namespace character_unlock_torque;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_torque
 	Checksum: 0xD4DC92B
 	Offset: 0x80
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_torque", &__init__, undefined, #"character_unlock_torque_fixup");
 }

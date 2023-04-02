@@ -29,7 +29,7 @@
 #namespace zm_weap_gravityspikes;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_gravityspikes
 	Checksum: 0x305B5461
 	Offset: 0x440
@@ -37,7 +37,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_gravityspikes", &__init__, undefined, undefined);
 }

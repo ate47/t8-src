@@ -7,7 +7,7 @@
 #namespace zm_weap_wraith_fire;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_wraith_fire
 	Checksum: 0x5486EBFB
 	Offset: 0x1A0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wraith_fire_zm", &__init__, undefined, undefined);
 }

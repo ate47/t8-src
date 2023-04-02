@@ -7,7 +7,7 @@
 #namespace wz_ai;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_ai
 	Checksum: 0xAF8C399D
 	Offset: 0x130
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_ai", &__init__, undefined, undefined);
 }

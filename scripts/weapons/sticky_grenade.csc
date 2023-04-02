@@ -7,7 +7,7 @@
 #namespace sticky_grenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: sticky_grenade
 	Checksum: 0xDCD579F5
 	Offset: 0xF0
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"sticky_grenade", &__init__, undefined, undefined);
 }

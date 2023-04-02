@@ -7,7 +7,7 @@
 #namespace archetype_stoker;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_stoker
 	Checksum: 0x69E0B7A5
 	Offset: 0xA8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"stoker", &__init__, undefined, undefined);
 }

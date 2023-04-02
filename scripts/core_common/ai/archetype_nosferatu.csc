@@ -5,7 +5,7 @@
 #namespace archetype_nosferatu;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_nosferatu
 	Checksum: 0x538CB13A
 	Offset: 0xC0
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"nosferatu", &__init__, undefined, undefined);
 }

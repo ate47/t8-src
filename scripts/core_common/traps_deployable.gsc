@@ -91,7 +91,7 @@ class class_7b5e0861
 #namespace traps_deployable;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: traps_deployable
 	Checksum: 0xB75BBC6D
 	Offset: 0x260
@@ -99,7 +99,7 @@ class class_7b5e0861
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"traps_deployable", &__init__, undefined, #"load");
 }

@@ -5,7 +5,7 @@
 #namespace serverfaceanim;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: serverfaceanim
 	Checksum: 0x91DC1210
 	Offset: 0xC0
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"serverfaceanim", &__init__, undefined, undefined);
 }

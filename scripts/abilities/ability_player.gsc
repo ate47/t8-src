@@ -14,7 +14,7 @@
 #namespace ability_player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ability_player
 	Checksum: 0x23E136A2
 	Offset: 0x190
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ability_player", &__init__, undefined, undefined);
 }

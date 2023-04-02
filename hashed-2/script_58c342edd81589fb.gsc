@@ -82,7 +82,7 @@ class class_2517dc3b
 #namespace namespace_c3287616;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c3287616
 	Checksum: 0x9548C1A3
 	Offset: 0x110
@@ -90,7 +90,7 @@ class class_2517dc3b
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_4b9d2976864eeabd", &__init__, &__main__, undefined);
 }

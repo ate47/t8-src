@@ -13,7 +13,7 @@
 #namespace healthoverlay;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: healthoverlay
 	Checksum: 0x2C171865
 	Offset: 0xE8
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"healthoverlay", &__init__, undefined, undefined);
 }

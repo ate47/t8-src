@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_245749c1f51c5bd8;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -759,7 +759,7 @@ function move_gondola(b_suppress_doors_close = 0)
 	{
 		if(player function_9a8ab327())
 		{
-			namespace_e0710ee6::function_991333ce(player);
+			zm_ai_utility::function_991333ce(player);
 		}
 	}
 	if(!(isdefined(b_suppress_doors_close) && b_suppress_doors_close))

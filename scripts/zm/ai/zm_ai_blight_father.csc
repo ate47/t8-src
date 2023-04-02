@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_260abbdf1ff0aa9a;
-#using script_29ce920f87896297;
+#using scripts\core_common\ai\archetype_blight_father.csc;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -14,7 +14,7 @@
 #namespace zm_ai_blight_father;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_blight_father
 	Checksum: 0x583617C3
 	Offset: 0x778
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_blight_father", &__init__, undefined, undefined);
 }

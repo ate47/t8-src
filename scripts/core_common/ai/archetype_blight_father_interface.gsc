@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_4a553e0f995c3d23;
+#using scripts\core_common\ai\archetype_blight_father.gsc;
 #using script_59f07c660e6710a5;
 
 #namespace blightfatherinterface;

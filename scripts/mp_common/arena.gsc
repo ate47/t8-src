@@ -8,7 +8,7 @@
 #namespace arena;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: arena
 	Checksum: 0x87ECD8BC
 	Offset: 0xB8
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"arena", &__init__, undefined, undefined);
 }

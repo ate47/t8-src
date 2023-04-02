@@ -7,7 +7,7 @@
 #namespace character_unlock_bruno;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_bruno
 	Checksum: 0x2B9D2BEB
 	Offset: 0x88
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_bruno", &__init__, undefined, #"character_unlock_bruno_fixup");
 }

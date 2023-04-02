@@ -15,7 +15,7 @@
 #namespace wasp;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wasp
 	Checksum: 0xA99098A9
 	Offset: 0x280
@@ -23,7 +23,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wasp", &__init__, undefined, undefined);
 }

@@ -11,7 +11,7 @@
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\aat_shared.gsc;
@@ -1324,13 +1324,13 @@ function function_ba182aaa(var_5ea5c94d, ended_early)
 function function_ce111e55()
 {
 	var_c1da220b = getent("zombie_spawn_1", "script_string");
-	zm_transform::function_cfca77a7(var_c1da220b, #"transform1", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"transform1", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
 	var_c1da220b = getent("zombie_spawn_2", "script_string");
-	zm_transform::function_cfca77a7(var_c1da220b, #"transform2", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"transform2", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
 	var_c1da220b = getent("zombie_spawn_3", "script_string");
-	zm_transform::function_cfca77a7(var_c1da220b, #"transform3", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"transform3", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
 	var_c1da220b = getent("zombie_spawn_4", "script_string");
-	zm_transform::function_cfca77a7(var_c1da220b, #"transform4", &namespace_e0710ee6::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
+	zm_transform::function_cfca77a7(var_c1da220b, #"transform4", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
 }
 
 /*
@@ -2281,7 +2281,7 @@ function function_71d1696b(var_6d630352, var_c0958d26)
 		{
 			var_6c463143 = 0;
 		}
-		if(var_6c463143 && !zm_transform::function_abf1dcb4(var_c0958d26) && namespace_e0710ee6::function_db610082())
+		if(var_6c463143 && !zm_transform::function_abf1dcb4(var_c0958d26) && zm_ai_utility::function_db610082())
 		{
 			zm_transform::function_9acf76e6(self, var_c0958d26);
 			return;
@@ -2373,7 +2373,7 @@ function spawn_blightfather()
 			foreach(ai in getaiteamarray(level.zombie_team))
 			{
 				waitframe(1);
-				if(ai namespace_e0710ee6::function_db610082())
+				if(ai zm_ai_utility::function_db610082())
 				{
 					var_3d5dc4ac = ai;
 					break;

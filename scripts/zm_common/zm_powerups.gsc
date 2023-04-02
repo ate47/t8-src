@@ -5,7 +5,7 @@
 #using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\trials\zm_trial_no_powerups.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -1084,7 +1084,7 @@ function function_37e79fb6(powerup)
 	{
 		level.playable_area = getentarray("player_volume", "script_noteworthy");
 	}
-	if(namespace_e0710ee6::function_54054394(powerup))
+	if(zm_ai_utility::function_54054394(powerup))
 	{
 		return false;
 	}

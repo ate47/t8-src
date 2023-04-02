@@ -8,7 +8,7 @@
 #namespace zm_bgb_join_the_party;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_join_the_party
 	Checksum: 0x2ADDAD88
 	Offset: 0xA0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_join_the_party", &__init__, undefined, #"bgb");
 }

@@ -6,7 +6,7 @@
 #using script_522aeb6ae906391e;
 #using script_57f7003580bb15e0;
 #using script_59f07c660e6710a5;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -25,7 +25,7 @@
 #namespace namespace_af28b608;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_af28b608
 	Checksum: 0x10D9A3A3
 	Offset: 0x180
@@ -33,7 +33,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_2281c92f7b8c6d9d", &__init__, &__main__, undefined);
 }

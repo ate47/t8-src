@@ -83,7 +83,7 @@ function autoexec ignore_systems()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm
 	Checksum: 0x5B9393D2
 	Offset: 0x848
@@ -91,7 +91,7 @@ function autoexec ignore_systems()
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm", &__init__, undefined, "renderoverridebundle");
 }

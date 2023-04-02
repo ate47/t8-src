@@ -9,7 +9,7 @@
 #namespace zm_equip_shield;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_equip_shield
 	Checksum: 0xC80286DB
 	Offset: 0x148
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_equip_shield", &__init__, undefined, undefined);
 }

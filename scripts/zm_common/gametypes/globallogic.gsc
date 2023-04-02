@@ -42,7 +42,7 @@
 #namespace globallogic;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic
 	Checksum: 0x26364FE0
 	Offset: 0x450
@@ -50,7 +50,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"globallogic", &__init__, undefined, #"visionset_mgr");
 }

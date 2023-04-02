@@ -105,7 +105,7 @@ event main(eventstruct)
 	level zm_orange_ww_quest::init();
 	level thread zm_orange_sound::main();
 	level namespace_5095a550::preload();
-	level namespace_78baa66c::preload();
+	level zm_orange_trials::preload();
 	load::main();
 	level thread setup_personality_character_exerts();
 	level thread zm_orange_challenges::main();

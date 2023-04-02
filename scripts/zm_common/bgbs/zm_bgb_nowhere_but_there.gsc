@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -17,7 +17,7 @@
 #namespace zm_bgb_nowhere_but_there;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_nowhere_but_there
 	Checksum: 0xB2481D58
 	Offset: 0x1F8
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_nowhere_but_there", &__init__, undefined, "bgb");
 }
@@ -69,7 +69,7 @@ function activation()
 	self endon(#"disconnect");
 	self val::set(#"zm_bgb_nowhere_but_there", "ignoreme");
 	self.var_25c3de32 = 1;
-	namespace_e0710ee6::function_594bb7bd(self);
+	zm_ai_utility::function_594bb7bd(self);
 	if(ispointonnavmesh(self.origin))
 	{
 		playsoundatposition(#"zmb_bgb_abh_teleport_out", self.origin);

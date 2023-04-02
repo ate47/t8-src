@@ -12,7 +12,7 @@
 #namespace trigger;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: trigger
 	Checksum: 0xE3E7AA94
 	Offset: 0x238
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"trigger", &__init__, undefined, undefined);
 }

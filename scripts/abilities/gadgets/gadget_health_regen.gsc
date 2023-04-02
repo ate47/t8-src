@@ -11,7 +11,7 @@
 #namespace gadget_health_regen;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_health_regen
 	Checksum: 0x5AC9CAC
 	Offset: 0x120
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gadget_health_regen", &__init__, undefined, undefined);
 }

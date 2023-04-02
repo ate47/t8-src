@@ -12,7 +12,7 @@
 #namespace weaponobjects;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weaponobjects
 	Checksum: 0xFD51A06F
 	Offset: 0xB0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"weaponobjects", &__init__, undefined, undefined);
 }

@@ -6,7 +6,7 @@
 #namespace zm_perk_mystery;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_mystery
 	Checksum: 0xE9377090
 	Offset: 0xD0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_5393b5cb8b30a8ef", &__init__, undefined, undefined);
 }

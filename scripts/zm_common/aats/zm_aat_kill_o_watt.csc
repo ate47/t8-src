@@ -9,7 +9,7 @@
 #namespace zm_aat_kill_o_watt;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_aat_kill_o_watt
 	Checksum: 0x33C99B1D
 	Offset: 0x198
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("zm_aat_kill_o_watt", &__init__, undefined, undefined);
 }

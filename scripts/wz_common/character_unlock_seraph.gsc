@@ -14,7 +14,7 @@
 #namespace character_unlock_seraph;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_seraph
 	Checksum: 0x7900179E
 	Offset: 0xE0
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_seraph", &__init__, undefined, #"character_unlock_seraph_fixup");
 }

@@ -13,7 +13,7 @@
 #namespace player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player
 	Checksum: 0x1A8C2AFE
 	Offset: 0xF8
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"player_mp", &__init__, undefined, "renderoverridebundle");
 }

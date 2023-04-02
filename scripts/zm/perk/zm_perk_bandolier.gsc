@@ -7,7 +7,7 @@
 #namespace zm_perk_bandolier;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_bandolier
 	Checksum: 0x728B343C
 	Offset: 0x150
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_bandolier", &__init__, undefined, undefined);
 }

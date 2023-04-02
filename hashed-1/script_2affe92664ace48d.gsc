@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4aeb3279b6b23a91;
 #using script_58c342edd81589fb;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_d8b1f4ee30e5fc5;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -18,7 +18,7 @@
 #namespace namespace_3fe4d0d7;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_3fe4d0d7
 	Checksum: 0x3F99401F
 	Offset: 0x140
@@ -26,7 +26,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_2a747ac7e33453cc", &__init__, &__main__, #"zm_ai_tiger");
 }
@@ -80,7 +80,7 @@ function __main__()
 function function_fe4c8547()
 {
 	self thread function_94c9b195();
-	var_1751372a = namespace_e0710ee6::function_8d44707e(0);
+	var_1751372a = zm_ai_utility::function_8d44707e(0);
 	var_1751372a = var_1751372a * (isdefined(level.var_1eb98fb1) ? level.var_1eb98fb1 : 1);
 	var_1751372a = int(var_1751372a);
 	self.health = var_1751372a;

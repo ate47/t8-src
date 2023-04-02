@@ -13,7 +13,7 @@
 #namespace zm_powerup_zombie_blood;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_zombie_blood
 	Checksum: 0x99A1173
 	Offset: 0x1F0
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("zm_powerup_zombie_blood", &__init__, undefined, undefined);
 }

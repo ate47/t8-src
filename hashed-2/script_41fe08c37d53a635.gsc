@@ -8,7 +8,7 @@
 #namespace destructserverutils;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: destructserverutils
 	Checksum: 0xE670CD45
 	Offset: 0x230
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"destructible_character", &__init__, undefined, undefined);
 }

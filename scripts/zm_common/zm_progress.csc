@@ -9,7 +9,7 @@
 #namespace zm_progress;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_progress
 	Checksum: 0xB0C73883
 	Offset: 0xB0
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_progress", &__init__, undefined, undefined);
 }

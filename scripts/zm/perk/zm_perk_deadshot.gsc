@@ -13,7 +13,7 @@
 #namespace zm_perk_deadshot;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_deadshot
 	Checksum: 0xE5D62835
 	Offset: 0x198
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_deadshot", &__init__, undefined, undefined);
 }

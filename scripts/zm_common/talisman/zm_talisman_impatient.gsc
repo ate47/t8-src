@@ -15,7 +15,7 @@
 #namespace zm_talisman_impatient;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_talisman_impatient
 	Checksum: 0x24BE7B42
 	Offset: 0xE8
@@ -23,7 +23,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_talisman_impatient", &__init__, undefined, undefined);
 }

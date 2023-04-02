@@ -6,7 +6,7 @@
 #namespace blood;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: blood
 	Checksum: 0x33AEA648
 	Offset: 0x388
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"blood", undefined, &__postload_init__, undefined);
 }

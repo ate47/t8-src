@@ -18,7 +18,7 @@
 #namespace zm_loadout;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_loadout
 	Checksum: 0x311BB2D
 	Offset: 0x118
@@ -26,7 +26,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_loadout", &__init__, undefined, undefined);
 }

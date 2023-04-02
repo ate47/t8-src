@@ -4,7 +4,7 @@
 #using script_383a3b1bb18ba876;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\abilities\gadgets\gadget_smart_cover.gsc;
-#using script_4bfa1380a94b068b;
+#using scripts\mp_common\supplypod.gsc;
 #using script_6158278c8647d8a9;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -19,7 +19,7 @@
 #namespace namespace_104c3c75;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_104c3c75
 	Checksum: 0xB67A7EAB
 	Offset: 0x130
@@ -27,7 +27,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_67d1c49d4f76fc41", &__init__, &__main__, undefined);
 }
@@ -1417,7 +1417,7 @@ function function_7fa22be8(var_b594a2cd)
 		#/
 		return undefined;
 	}
-	var_660b71a5 = self namespace_b5dd0093::function_45fd00c6();
+	var_660b71a5 = self locaheal::function_45fd00c6();
 	if(!isdefined(var_660b71a5))
 	{
 		var_660b71a5 = [];

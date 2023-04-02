@@ -8,7 +8,7 @@
 #namespace sticky_grenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: sticky_grenade
 	Checksum: 0x44284F1D
 	Offset: 0xB0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spike_charge", &__init__, undefined, undefined);
 }

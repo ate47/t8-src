@@ -2,7 +2,7 @@
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_3395cf41e5900492;
+#using scripts\core_common\vehicles\rcxd.gsc;
 #using script_383a3b1bb18ba876;
 #using script_47fb62300ac0bd60;
 #using scripts\killstreaks\killstreak_hacking.gsc;

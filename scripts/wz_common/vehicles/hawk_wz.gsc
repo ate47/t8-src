@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_50299901e4f5f38c;
+#using scripts\core_common\vehicles\hawk.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\mp_common\item_inventory.gsc;
@@ -17,7 +17,7 @@
 #namespace hawk_wz;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hawk_wz
 	Checksum: 0x322E18DB
 	Offset: 0x1B8
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hawk_wz", &__init__, undefined, undefined);
 }

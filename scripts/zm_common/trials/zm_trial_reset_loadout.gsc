@@ -11,7 +11,7 @@
 #namespace zm_trial_reset_loadout;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_reset_loadout
 	Checksum: 0xE12BA31D
 	Offset: 0xF8
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trial_reset_loadout", &__init__, undefined, undefined);
 }

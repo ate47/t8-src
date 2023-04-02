@@ -2329,7 +2329,7 @@ function get_existing_ent(clientnum, str_name)
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scene
 	Checksum: 0x10B23919
 	Offset: 0x8198
@@ -2337,7 +2337,7 @@ function get_existing_ent(clientnum, str_name)
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"scene", &__init__, &__main__, undefined);
 }

@@ -10,7 +10,7 @@
 #namespace platoons;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: platoons
 	Checksum: 0x34FE4404
 	Offset: 0xA8
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"mp_platoons", &__init__, undefined, undefined);
 }

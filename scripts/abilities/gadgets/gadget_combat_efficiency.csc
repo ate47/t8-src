@@ -5,7 +5,7 @@
 #namespace gadget_combat_efficiency;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_combat_efficiency
 	Checksum: 0x1380DD1E
 	Offset: 0xB0
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gadget_combat_efficiency", &__init__, undefined, undefined);
 }

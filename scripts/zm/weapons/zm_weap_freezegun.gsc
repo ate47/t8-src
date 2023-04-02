@@ -10,7 +10,7 @@
 #namespace zm_weap_freezegun;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_freezegun
 	Checksum: 0xA64E8F97
 	Offset: 0x130
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_freezegun", &_init_, undefined, undefined);
 }

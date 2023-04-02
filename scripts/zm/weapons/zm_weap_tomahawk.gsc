@@ -19,7 +19,7 @@
 #namespace zm_weap_tomahawk;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_tomahawk
 	Checksum: 0xAB003B72
 	Offset: 0x268
@@ -27,7 +27,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_tomahawk", &__init__, &__main__, undefined);
 }

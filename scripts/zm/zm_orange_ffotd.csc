@@ -4,7 +4,7 @@
 #namespace zm_orange_ffotd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_orange_ffotd
 	Checksum: 0xDF587DF1
 	Offset: 0x70
@@ -12,7 +12,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_orange_ffotd", &__init__, undefined, undefined);
 }

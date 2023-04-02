@@ -13,7 +13,7 @@
 #namespace zm_grappler;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_grappler
 	Checksum: 0xD3BED0D4
 	Offset: 0x120
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_grappler", &__init__, &__main__, undefined);
 }

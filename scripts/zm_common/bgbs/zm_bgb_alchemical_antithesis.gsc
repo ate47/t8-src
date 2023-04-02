@@ -9,7 +9,7 @@
 #namespace zm_bgb_alchemical_antithesis;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_alchemical_antithesis
 	Checksum: 0x1E88FBEA
 	Offset: 0xA8
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_alchemical_antithesis", &__init__, undefined, #"bgb");
 }

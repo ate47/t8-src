@@ -16,7 +16,7 @@
 #namespace battlechatter;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battlechatter
 	Checksum: 0x9500F5E3
 	Offset: 0xBD8
@@ -24,7 +24,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"battlechatter", &__init__, undefined, undefined);
 }

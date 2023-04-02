@@ -8,7 +8,7 @@
 #namespace zm_ai_skeleton;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_skeleton
 	Checksum: 0x34693AAE
 	Offset: 0x130
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_skeleton", &__init__, undefined, undefined);
 }

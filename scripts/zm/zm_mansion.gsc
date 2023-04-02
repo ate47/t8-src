@@ -32,7 +32,7 @@
 #using scripts\zm\zm_mansion_jordans.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using script_7acfd9adfb8235d7;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_9af9e17217da6e6;
 #using script_a2c974cd6e11ddf;
 #using script_ab862743b3070a;

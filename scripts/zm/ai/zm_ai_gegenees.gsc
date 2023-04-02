@@ -14,7 +14,7 @@
 #using script_57f7003580bb15e0;
 #using script_59f07c660e6710a5;
 #using script_7b7ed6e4bc963a51;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\aat_shared.gsc;
@@ -39,7 +39,7 @@
 #namespace zm_ai_gegenees;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_gegenees
 	Checksum: 0x3DC794FA
 	Offset: 0x628
@@ -47,7 +47,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_gegenees", &__init__, &__main__, undefined);
 }
@@ -1008,7 +1008,7 @@ function private gegeneestargetservice(entity)
 	goalent = entity.favoriteenemy;
 	if(isplayer(goalent))
 	{
-		goalent = namespace_e0710ee6::function_a2e8fd7b(entity, entity.favoriteenemy);
+		goalent = zm_ai_utility::function_a2e8fd7b(entity, entity.favoriteenemy);
 	}
 	return entity zm_utility::function_64259898(goalent.origin);
 }
@@ -1358,7 +1358,7 @@ function private function_ca5688e3(inflictor, attacker, damage, idflags, meansof
 			return 0;
 		}
 	}
-	var_786d7e06 = namespace_e0710ee6::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
+	var_786d7e06 = zm_ai_utility::function_422fdfd4(self, attacker, weapon, boneindex, hitloc, point);
 	var_dd54fdb1 = var_786d7e06.var_84ed9a13;
 	var_88e794fb = var_786d7e06.registerzombie_bgb_used_reinforce;
 	adjusted_damage = int(damage * var_786d7e06.damage_scale);

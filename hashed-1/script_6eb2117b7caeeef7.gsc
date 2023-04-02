@@ -17,7 +17,7 @@
 #namespace ultimate_turret;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ultimate_turret
 	Checksum: 0x4FD35E6E
 	Offset: 0x220
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("ultimate_turret_wz", &__init__, undefined, undefined);
 }

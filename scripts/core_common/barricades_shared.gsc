@@ -200,7 +200,7 @@ class cbarricade : cdoor
 #namespace barricades;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: barricades
 	Checksum: 0xCAA1220C
 	Offset: 0x140
@@ -208,7 +208,7 @@ class cbarricade : cdoor
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"barricades", &__init__, &__main__, undefined);
 }

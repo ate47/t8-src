@@ -20,7 +20,7 @@
 #using scripts\zm\weapons\zm_weap_hand_charon.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using scripts\zm\ai\zm_ai_gegenees.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -3145,7 +3145,7 @@ function function_3c71e07d()
 				a_ai_zombies = array::randomize(a_ai_zombies);
 				foreach(ai_zombie in a_ai_zombies)
 				{
-					if(isdefined(ai_zombie.completed_emerging_into_playable_area) && ai_zombie.completed_emerging_into_playable_area && !zm_utility::is_magic_bullet_shield_enabled(ai_zombie) && (!(isdefined(ai_zombie.marked_for_death) && ai_zombie.marked_for_death)) && (!(isdefined(ai_zombie.var_94c53b42) && ai_zombie.var_94c53b42)) && (!(isdefined(ai_zombie.var_52531256) && ai_zombie.var_52531256)) && (!(isdefined(ai_zombie.var_3c394b1b) && ai_zombie.var_3c394b1b)) && ai_zombie namespace_e0710ee6::function_db610082())
+					if(isdefined(ai_zombie.completed_emerging_into_playable_area) && ai_zombie.completed_emerging_into_playable_area && !zm_utility::is_magic_bullet_shield_enabled(ai_zombie) && (!(isdefined(ai_zombie.marked_for_death) && ai_zombie.marked_for_death)) && (!(isdefined(ai_zombie.var_94c53b42) && ai_zombie.var_94c53b42)) && (!(isdefined(ai_zombie.var_52531256) && ai_zombie.var_52531256)) && (!(isdefined(ai_zombie.var_3c394b1b) && ai_zombie.var_3c394b1b)) && ai_zombie zm_ai_utility::function_db610082())
 					{
 						b_has_spawned = 1;
 						level thread zm_transform::function_9acf76e6(ai_zombie, #"hash_266b62e342076a90");
@@ -4093,7 +4093,7 @@ function function_202bd7b8()
 				a_ai_zombies = array::randomize(a_ai_zombies);
 				foreach(ai_zombie in a_ai_zombies)
 				{
-					if(isdefined(ai_zombie.completed_emerging_into_playable_area) && ai_zombie.completed_emerging_into_playable_area && !zm_utility::is_magic_bullet_shield_enabled(ai_zombie) && (!(isdefined(ai_zombie.marked_for_death) && ai_zombie.marked_for_death)) && (!(isdefined(ai_zombie.var_94c53b42) && ai_zombie.var_94c53b42)) && (!(isdefined(ai_zombie.var_52531256) && ai_zombie.var_52531256)) && (!(isdefined(ai_zombie.var_3c394b1b) && ai_zombie.var_3c394b1b)) && ai_zombie namespace_e0710ee6::function_db610082())
+					if(isdefined(ai_zombie.completed_emerging_into_playable_area) && ai_zombie.completed_emerging_into_playable_area && !zm_utility::is_magic_bullet_shield_enabled(ai_zombie) && (!(isdefined(ai_zombie.marked_for_death) && ai_zombie.marked_for_death)) && (!(isdefined(ai_zombie.var_94c53b42) && ai_zombie.var_94c53b42)) && (!(isdefined(ai_zombie.var_52531256) && ai_zombie.var_52531256)) && (!(isdefined(ai_zombie.var_3c394b1b) && ai_zombie.var_3c394b1b)) && ai_zombie zm_ai_utility::function_db610082())
 					{
 						level thread zm_transform::function_9acf76e6(ai_zombie, #"blight_father");
 						return;

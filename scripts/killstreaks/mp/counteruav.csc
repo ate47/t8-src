@@ -5,7 +5,7 @@
 #namespace counteruav;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: counteruav
 	Checksum: 0x532A54B4
 	Offset: 0xA8
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"counteruav", &__init__, undefined, #"killstreaks");
 }

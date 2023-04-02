@@ -13,7 +13,7 @@
 #namespace auto_turret;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: auto_turret
 	Checksum: 0x2DF9655F
 	Offset: 0x200
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"auto_turret", &__init__, undefined, undefined);
 }

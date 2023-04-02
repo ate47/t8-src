@@ -13,3 +13,8 @@ SyGnUs - string decryption help\
 alexisloic21 - Found and reported a bug with for loops\
 Kenshin9977 - Additional hashes\
 Scobalula - Original T7 decompiler
+
+# ATE47's files
+
+- [gamesettings.md](gamesettings.md) - the settings usable
+- [find.txt](find.txt) - the find hashes

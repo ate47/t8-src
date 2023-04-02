@@ -18,7 +18,7 @@
 #namespace zm_placeable_mine;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_placeable_mine
 	Checksum: 0xB62C55BF
 	Offset: 0x168
@@ -26,7 +26,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"placeable_mine", undefined, &__main__, undefined);
 }

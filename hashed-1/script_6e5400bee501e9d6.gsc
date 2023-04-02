@@ -6,7 +6,7 @@
 #namespace trapd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: trapd
 	Checksum: 0x8966B341
 	Offset: 0xA0
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"trapd", &__init__, undefined, undefined);
 }

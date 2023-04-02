@@ -8,7 +8,7 @@
 #namespace persistence;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: persistence
 	Checksum: 0x6EFA365E
 	Offset: 0xA0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"persistence", &__init__, undefined, undefined);
 }

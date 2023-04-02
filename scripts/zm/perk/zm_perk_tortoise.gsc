@@ -10,7 +10,7 @@
 #namespace zm_perk_tortoise;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_tortoise
 	Checksum: 0xAEF80383
 	Offset: 0x1A0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_tortoise", &__init__, &__main__, undefined);
 }

@@ -7,7 +7,7 @@
 #namespace character_unlock_takeo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_takeo
 	Checksum: 0x13E3C2CB
 	Offset: 0x88
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_takeo", &__init__, undefined, #"character_unlock_takeo_fixup");
 }

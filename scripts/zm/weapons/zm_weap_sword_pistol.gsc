@@ -14,7 +14,7 @@
 #namespace zm_weap_sword_pistol;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_sword_pistol
 	Checksum: 0x2714C444
 	Offset: 0x248
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_weap_sword_pistol", &__init__, undefined, undefined);
 }

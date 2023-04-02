@@ -11,7 +11,7 @@
 #namespace character_unlock_nikolai;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_nikolai
 	Checksum: 0x8416E1B
 	Offset: 0xD0
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_unlock_nikolai", &__init__, undefined, #"character_unlock_nikolai_fixup");
 }

@@ -32,7 +32,7 @@
 #namespace drone_squadron;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: drone_squadron
 	Checksum: 0x28B739F7
 	Offset: 0x348
@@ -40,7 +40,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"drone_squadron", &__init__, undefined, #"killstreaks");
 }

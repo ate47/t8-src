@@ -6,7 +6,7 @@
 #namespace archetype_blight_father;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_blight_father
 	Checksum: 0xD02EBC30
 	Offset: 0x90
@@ -14,7 +14,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"blight_father", &__init__, undefined, undefined);
 }

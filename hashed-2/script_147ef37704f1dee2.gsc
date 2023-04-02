@@ -7,7 +7,7 @@
 #namespace multilockap_guidance;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: multilockap_guidance
 	Checksum: 0xE2190632
 	Offset: 0xB8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"multilockap_guidance", &__init__, undefined, undefined);
 }

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -13,7 +13,7 @@
 #namespace zm_bgb_anywhere_but_here;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bgb_anywhere_but_here
 	Checksum: 0x98EE2FA0
 	Offset: 0x1C0
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bgb_anywhere_but_here", &__init__, undefined, #"bgb");
 }
@@ -63,7 +63,7 @@ function activation(var_fad9ed02 = 1)
 	self endon(#"disconnect");
 	self val::set(#"hash_7d2b25df35ca5b3", "ignoreme");
 	self.var_ffe2c4d7 = 1;
-	namespace_e0710ee6::function_594bb7bd(self);
+	zm_ai_utility::function_594bb7bd(self);
 	if(self zm_utility::function_ab9a9770())
 	{
 		self.var_b520496e = 1;

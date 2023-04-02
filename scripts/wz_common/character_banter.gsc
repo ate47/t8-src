@@ -8,7 +8,7 @@
 #namespace character_banter;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_banter
 	Checksum: 0xF7CF5E0
 	Offset: 0x90
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"character_banter", &__init__, undefined, undefined);
 }

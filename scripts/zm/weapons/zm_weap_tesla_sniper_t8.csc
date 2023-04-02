@@ -5,7 +5,7 @@
 #namespace zm_weap_tesla_sniper_t8;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_tesla_sniper_t8
 	Checksum: 0xF1B63F5A
 	Offset: 0x180
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"tesla_sniper", &__init__, undefined, undefined);
 }

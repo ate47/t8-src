@@ -20,7 +20,7 @@
 #namespace zm_perk_wolf_protector;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_wolf_protector
 	Checksum: 0x7A205F9E
 	Offset: 0x200
@@ -28,7 +28,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_wolf_protector", &__init__, undefined, undefined);
 }

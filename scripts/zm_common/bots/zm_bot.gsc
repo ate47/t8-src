@@ -2,7 +2,7 @@
 #using scripts\zm_common\bots\zm_bot_action.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using script_56efe81f606bc487;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -17,7 +17,7 @@
 #namespace zm_bot;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bot
 	Checksum: 0xA97B3094
 	Offset: 0x1A0
@@ -25,7 +25,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_bot", &__init__, undefined, undefined);
 }
@@ -428,7 +428,7 @@ function function_e16b5033(actor)
 		}
 		else
 		{
-			max_health = float(actor namespace_e0710ee6::function_8d44707e(level.var_faf67c27[actor.archetype].var_6109b81d, override_round_num));
+			max_health = float(actor zm_ai_utility::function_8d44707e(level.var_faf67c27[actor.archetype].var_6109b81d, override_round_num));
 		}
 		level.var_faf67c27[actor.archetype].scale = max_health / level.var_faf67c27[actor.archetype].min_health;
 		level.var_faf67c27[actor.archetype].round_number = level.round_number;

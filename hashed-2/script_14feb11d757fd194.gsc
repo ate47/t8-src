@@ -10,7 +10,7 @@
 #namespace voice;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: voice
 	Checksum: 0xAC688999
 	Offset: 0xE8
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"voice", &__init__, undefined, undefined);
 }

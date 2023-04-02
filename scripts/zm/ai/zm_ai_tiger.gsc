@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3aa0f32b70d4f7cb;
 #using script_3f9e0dc8454d98e1;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_d8b1f4ee30e5fc5;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -22,7 +22,7 @@
 #namespace zm_ai_tiger;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_tiger
 	Checksum: 0x8A353D1A
 	Offset: 0x150
@@ -30,7 +30,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_tiger", &__init__, &__main__, undefined);
 }
@@ -198,7 +198,7 @@ function private function_10687511(entity)
 	goalent = entity.favoriteenemy;
 	if(isplayer(goalent))
 	{
-		goalent = namespace_e0710ee6::function_a2e8fd7b(entity, entity.favoriteenemy);
+		goalent = zm_ai_utility::function_a2e8fd7b(entity, entity.favoriteenemy);
 	}
 	return entity zm_utility::function_64259898(goalent.origin, 128);
 }
@@ -326,7 +326,7 @@ function function_8709c761(entity)
 	{
 		return false;
 	}
-	if(namespace_e0710ee6::function_54054394(entity))
+	if(zm_ai_utility::function_54054394(entity))
 	{
 		return false;
 	}
@@ -361,7 +361,7 @@ function function_6c513e36(entity)
 	{
 		return true;
 	}
-	if(namespace_e0710ee6::function_54054394(entity))
+	if(zm_ai_utility::function_54054394(entity))
 	{
 		return false;
 	}

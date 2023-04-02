@@ -19,7 +19,7 @@
 #namespace zm_challenges;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_challenges
 	Checksum: 0xFCAA4555
 	Offset: 0x1B0
@@ -27,7 +27,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_challenges", &__init__, &__main__, undefined);
 }

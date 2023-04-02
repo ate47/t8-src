@@ -26,7 +26,7 @@
 #namespace zm_hero_weapon;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_hero_weapon
 	Checksum: 0xC7E6F661
 	Offset: 0x280
@@ -34,7 +34,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_hero_weapons", &__init__, undefined, #"gadget_hero_weapon");
 }

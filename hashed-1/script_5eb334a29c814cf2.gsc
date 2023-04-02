@@ -11,7 +11,7 @@
 #namespace namespace_ca8676a3;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_ca8676a3
 	Checksum: 0x4041B5EE
 	Offset: 0x110
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_217942543a3e669b", &__init__, &__main__, undefined);
 }

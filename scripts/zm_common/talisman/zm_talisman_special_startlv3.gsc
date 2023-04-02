@@ -12,7 +12,7 @@
 #namespace zm_talisman_special_startlv3;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_talisman_special_startlv3
 	Checksum: 0xD3CF044F
 	Offset: 0xD0
@@ -20,7 +20,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_talisman_special_startlv3", &__init__, undefined, undefined);
 }

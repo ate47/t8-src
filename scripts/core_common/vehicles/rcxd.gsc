@@ -7,7 +7,7 @@
 #namespace rcxd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rcxd
 	Checksum: 0x15FF27CE
 	Offset: 0xC8
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"rcxd", &__init__, undefined, undefined);
 }

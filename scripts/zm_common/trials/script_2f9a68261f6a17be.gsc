@@ -13,7 +13,7 @@
 #namespace namespace_b28d86fd;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_b28d86fd
 	Checksum: 0x165F1B2C
 	Offset: 0xE8
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_41cb195ec280085c", &__init__, undefined, undefined);
 }

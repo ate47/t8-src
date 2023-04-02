@@ -5,7 +5,7 @@
 #namespace ability_gadgets;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ability_gadgets
 	Checksum: 0x1B9B11CC
 	Offset: 0xF8
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"ability_gadgets", &__init__, undefined, undefined);
 }

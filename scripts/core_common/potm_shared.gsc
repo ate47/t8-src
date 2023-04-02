@@ -13,7 +13,7 @@
 #namespace potm;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: potm
 	Checksum: 0x72FFF11D
 	Offset: 0x218
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"potm", &__init__, undefined, undefined);
 }

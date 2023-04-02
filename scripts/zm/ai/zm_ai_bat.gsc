@@ -6,7 +6,7 @@
 #using script_522aeb6ae906391e;
 #using script_58c342edd81589fb;
 #using script_59f07c660e6710a5;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
@@ -67,7 +67,7 @@ class class_726d8173
 #namespace bat;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bat
 	Checksum: 0xEE82E95D
 	Offset: 0x278
@@ -75,7 +75,7 @@ class class_726d8173
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bat", &__init__, undefined, undefined);
 }
@@ -138,7 +138,7 @@ function function_6c223039()
 	self.var_ec0d66ce = 0.5 * (self.settings.engagementdistmin + self.settings.engagementdistmax);
 	self.var_ff6d7c88 = self.var_ec0d66ce * self.var_ec0d66ce;
 	self thread vehicle_ai::nudge_collision();
-	var_134ac8f9 = int(namespace_e0710ee6::function_8d44707e(0));
+	var_134ac8f9 = int(zm_ai_utility::function_8d44707e(0));
 	var_134ac8f9 = var_134ac8f9 * (isdefined(level.var_570d178a) ? level.var_570d178a : 1);
 	self.health = int(var_134ac8f9);
 	self.maxhealth = int(var_134ac8f9);
@@ -157,7 +157,7 @@ function function_6c223039()
 */
 function function_141c342b()
 {
-	var_134ac8f9 = int(namespace_e0710ee6::function_8d44707e(0));
+	var_134ac8f9 = int(zm_ai_utility::function_8d44707e(0));
 	var_134ac8f9 = var_134ac8f9 * (isdefined(level.var_570d178a) ? level.var_570d178a : 1);
 	self.health = int(var_134ac8f9);
 	self.maxhealth = int(var_134ac8f9);

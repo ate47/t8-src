@@ -5,7 +5,7 @@
 #namespace archetype_catalyst;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_catalyst
 	Checksum: 0x6D6ED29C
 	Offset: 0x88
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"catalyst", &__init__, undefined, undefined);
 }

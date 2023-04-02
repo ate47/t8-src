@@ -19,7 +19,7 @@
 #namespace bot;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bot
 	Checksum: 0xD73825AA
 	Offset: 0x260
@@ -27,7 +27,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bot", &__init__, undefined, undefined);
 }
@@ -153,7 +153,7 @@ function add_fixed_spawn_bot(team, origin, yaw, var_f11eb5f2 = undefined)
 		{
 			bot.var_29b433bd = int(var_f11eb5f2);
 		}
-		bot function_6650e201(0);
+		bot allow_all(0);
 		node = bot get_nearest_node(origin);
 		bot thread fixed_spawn_override(origin, yaw, node);
 	}
@@ -1538,7 +1538,7 @@ function get_position_node()
 }
 
 /*
-	Name: function_6650e201
+	Name: allow_all
 	Namespace: bot
 	Checksum: 0x3BAB689
 	Offset: 0x3430
@@ -1546,7 +1546,7 @@ function get_position_node()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6650e201(allow)
+function allow_all(allow)
 {
 	self.ignoreall = !allow;
 	self ai::set_behavior_attribute("allowprimaryoffhand", allow);
@@ -2223,7 +2223,7 @@ function function_7f17c614(host, botarg, cmdarg)
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
 	{
-		bot function_6650e201(cmdarg);
+		bot allow_all(cmdarg);
 	}
 }
 

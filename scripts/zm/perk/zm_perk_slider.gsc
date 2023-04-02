@@ -15,7 +15,7 @@
 #namespace zm_perk_slider;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_slider
 	Checksum: 0x53692AE1
 	Offset: 0x1C8
@@ -23,7 +23,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_perk_slider", &__init__, &__main__, undefined);
 }

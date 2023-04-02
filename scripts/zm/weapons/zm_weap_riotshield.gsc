@@ -30,7 +30,7 @@
 #namespace riotshield;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: riotshield
 	Checksum: 0x33650318
 	Offset: 0x240
@@ -38,7 +38,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_equip_riotshield", &__init__, &__main__, undefined);
 }

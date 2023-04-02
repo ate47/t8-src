@@ -43,7 +43,7 @@
 #namespace globallogic_spawn;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_spawn
 	Checksum: 0xD1FEF0F3
 	Offset: 0x350
@@ -51,7 +51,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"globallogic_spawn", &__init__, undefined, undefined);
 }

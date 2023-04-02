@@ -9,7 +9,7 @@
 #namespace zm_weap_bowie;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_bowie
 	Checksum: 0xF122812
 	Offset: 0x130
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"bowie_knife", &__init__, &__main__, undefined);
 }

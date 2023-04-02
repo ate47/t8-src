@@ -14,7 +14,7 @@
 #namespace killcam;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: killcam
 	Checksum: 0xD1234DE7
 	Offset: 0x190
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"killcam", &__init__, undefined, undefined);
 }

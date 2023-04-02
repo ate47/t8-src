@@ -2,7 +2,7 @@
 #using script_2c5daa95f8fec03c;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -21,7 +21,7 @@
 #namespace namespace_75cbf125;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_75cbf125
 	Checksum: 0xD30799B1
 	Offset: 0x1D8
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_44c6201436ba267e", &__init__, &__main__, #"zm_ai_gegenees");
 }
@@ -136,7 +136,7 @@ function function_ea46ca6f()
 */
 function gegenees_init()
 {
-	self.maxhealth = int(self namespace_e0710ee6::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_9503486c) ? level.var_9503486c : 1));
+	self.maxhealth = int(self zm_ai_utility::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_9503486c) ? level.var_9503486c : 1));
 	self.health = self.maxhealth;
 	self zm_score::function_82732ced();
 	self.var_ab8f2b90 = 3;
@@ -192,7 +192,7 @@ function function_7640eac2()
 			var_b2aa54a9 = var_d7eff26a;
 		}
 	}
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	if(isdefined(var_b2aa54a9.scriptbundlename))
 	{
 		self function_9a9b5f49(var_b2aa54a9);

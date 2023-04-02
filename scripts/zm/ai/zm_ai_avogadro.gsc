@@ -7,7 +7,7 @@
 #using script_57f7003580bb15e0;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai\archetype_avogadro.gsc;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
@@ -29,7 +29,7 @@
 #namespace zm_ai_avogadro;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_avogadro
 	Checksum: 0xC43B5C31
 	Offset: 0x4D0
@@ -37,7 +37,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_avogadro", &__init__, &__main__, #"archetype_avogadro");
 }
@@ -277,7 +277,7 @@ function private function_f34df3c()
 */
 function private function_c41e67c()
 {
-	self.maxhealth = self namespace_e0710ee6::function_8d44707e(1, self._starting_round_number);
+	self.maxhealth = self zm_ai_utility::function_8d44707e(1, self._starting_round_number);
 	self.health = self.maxhealth;
 	self.deathfunction = &zm_spawner::zombie_death_animscript;
 	level thread zm_spawner::zombie_death_event(self);

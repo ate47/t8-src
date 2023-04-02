@@ -3,25 +3,25 @@
 #using scripts\zm_common\zm_melee_weapon.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_d8dd0d46;
+#namespace zm_weap_spork;
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_d8dd0d46
+	Name: __init__system__
+	Namespace: zm_weap_spork
 	Checksum: 0x4C38790B
 	Offset: 0x88
 	Size: 0x44
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"spork", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_d8dd0d46
+	Namespace: zm_weap_spork
 	Checksum: 0xE567473F
 	Offset: 0xD8
 	Size: 0x4C
@@ -35,7 +35,7 @@ function private __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_d8dd0d46
+	Namespace: zm_weap_spork
 	Checksum: 0x80F724D1
 	Offset: 0x130
 	Size: 0x4

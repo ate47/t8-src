@@ -42,11 +42,11 @@
 #using scripts\zm_common\zm_powerups.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_78baa66c;
+#namespace zm_orange_trials;
 
 /*
 	Name: preload
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0xFEF028B3
 	Offset: 0x248
 	Size: 0xDE
@@ -64,7 +64,7 @@ function preload()
 
 /*
 	Name: main
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x23B058A
 	Offset: 0x330
 	Size: 0x83C
@@ -192,7 +192,7 @@ function main()
 
 /*
 	Name: function_ff59ba7a
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x60E10458
 	Offset: 0xB78
 	Size: 0x17C
@@ -219,7 +219,7 @@ function function_ff59ba7a(is_game_over)
 
 /*
 	Name: function_b4bd25ef
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x8E2B10A2
 	Offset: 0xD00
 	Size: 0x794
@@ -359,7 +359,7 @@ function function_b4bd25ef()
 
 /*
 	Name: function_ff0b7907
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x4442EF2F
 	Offset: 0x14A0
 	Size: 0x2D4
@@ -397,7 +397,7 @@ function function_ff0b7907()
 
 /*
 	Name: function_7206d28
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x64DB86F8
 	Offset: 0x1780
 	Size: 0x1BC
@@ -430,7 +430,7 @@ function function_7206d28()
 
 /*
 	Name: function_b93ad88d
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0xA8C9B9ED
 	Offset: 0x1948
 	Size: 0x66
@@ -447,7 +447,7 @@ function function_b93ad88d()
 
 /*
 	Name: function_53a1ecb9
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x74F7F77C
 	Offset: 0x19B8
 	Size: 0x7C
@@ -467,7 +467,7 @@ function function_53a1ecb9()
 
 /*
 	Name: function_b0779ef4
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x791891D6
 	Offset: 0x1A40
 	Size: 0x23C
@@ -510,7 +510,7 @@ function function_b0779ef4()
 
 /*
 	Name: function_8532d13f
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0xD85ED267
 	Offset: 0x1C88
 	Size: 0xFC
@@ -533,7 +533,7 @@ function function_8532d13f()
 
 /*
 	Name: function_dcebc908
-	Namespace: namespace_78baa66c
+	Namespace: zm_orange_trials
 	Checksum: 0x5ECA80FA
 	Offset: 0x1D90
 	Size: 0xB8

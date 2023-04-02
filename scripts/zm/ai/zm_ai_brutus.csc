@@ -13,7 +13,7 @@
 #namespace zm_ai_brutus;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_brutus
 	Checksum: 0xE4AA031F
 	Offset: 0x1D8
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_ai_brutus", &__init__, undefined, undefined);
 }

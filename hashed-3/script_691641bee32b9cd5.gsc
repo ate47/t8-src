@@ -114,7 +114,7 @@ class class_8e39177
 #namespace namespace_96ff9fb2;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x592F3965
 	Offset: 0x1E0
@@ -122,7 +122,7 @@ class class_8e39177
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("wave_manager", &__init__, &__main__, undefined);
 }

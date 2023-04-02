@@ -13,7 +13,7 @@
 #namespace zm_white_mee;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_white_mee
 	Checksum: 0x58FA338
 	Offset: 0x250
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hash_504b7a4d96264f45", &init, &main, undefined);
 }

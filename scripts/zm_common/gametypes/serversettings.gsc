@@ -7,7 +7,7 @@
 #namespace serversettings;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: serversettings
 	Checksum: 0xCB22BAC
 	Offset: 0x98
@@ -15,7 +15,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"serversettings", &__init__, undefined, undefined);
 }

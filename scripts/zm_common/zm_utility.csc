@@ -13,7 +13,7 @@
 #namespace zm_utility;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_utility
 	Checksum: 0x7D99F724
 	Offset: 0x1D8
@@ -21,7 +21,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_utility", &__init__, &__main__, undefined);
 }

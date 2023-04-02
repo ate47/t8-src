@@ -5,7 +5,7 @@
 #namespace teamset_axis;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teamset_axis
 	Checksum: 0xA426095F
 	Offset: 0x130
@@ -13,7 +13,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"teamset_axis", &__init__, undefined, undefined);
 }

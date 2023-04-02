@@ -21,7 +21,7 @@
 #namespace uav;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: uav
 	Checksum: 0x45FC0B84
 	Offset: 0x230
@@ -29,7 +29,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"uav", &__init__, undefined, #"killstreaks");
 }

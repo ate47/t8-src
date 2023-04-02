@@ -10,7 +10,7 @@
 #namespace zm_trial_give_reward;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_give_reward
 	Checksum: 0x33EED44E
 	Offset: 0xB8
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_trial_give_reward", &__init__, undefined, undefined);
 }

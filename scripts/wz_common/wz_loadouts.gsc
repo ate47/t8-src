@@ -8,7 +8,7 @@
 #namespace wz_loadouts;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_loadouts
 	Checksum: 0xC4A1C5E1
 	Offset: 0x90
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_loadouts", &__init__, undefined, #"item_inventory");
 }

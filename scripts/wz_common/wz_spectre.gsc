@@ -11,7 +11,7 @@
 #namespace wz_spectre;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_spectre
 	Checksum: 0x4AB039A0
 	Offset: 0x178
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"wz_spectre", &__init__, undefined, undefined);
 }

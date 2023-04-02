@@ -20,7 +20,7 @@
 #namespace zm_melee_weapon;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_melee_weapon
 	Checksum: 0x25562EEC
 	Offset: 0x158
@@ -28,7 +28,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"melee_weapon", &__init__, &__main__, undefined);
 }

@@ -8,7 +8,7 @@
 #namespace recon_wz;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: recon_wz
 	Checksum: 0xDB1A8669
 	Offset: 0xF0
@@ -16,7 +16,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register("recon_wz", &__init__, undefined, undefined);
 }

@@ -9,7 +9,7 @@
 #namespace weapons;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weapons
 	Checksum: 0xE7976474
 	Offset: 0x180
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"weapons_shared", &__init__, undefined, undefined);
 }

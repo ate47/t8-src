@@ -552,7 +552,7 @@ class cinteractobj
 #namespace gameobjects;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gameobjects
 	Checksum: 0xDE25BA0B
 	Offset: 0x4A8
@@ -560,7 +560,7 @@ class cinteractobj
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"gameobjects", &__init__, undefined, undefined);
 }

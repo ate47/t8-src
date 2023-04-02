@@ -14,7 +14,7 @@
 #namespace decoygrenade;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: decoygrenade
 	Checksum: 0x726CFDF2
 	Offset: 0x110
@@ -22,7 +22,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"decoygrenade", &init_shared, undefined, undefined);
 }

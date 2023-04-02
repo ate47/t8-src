@@ -9,7 +9,7 @@
 #namespace zodcompanionclientutils;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zodcompanionclientutils
 	Checksum: 0xD370C438
 	Offset: 0x160
@@ -17,7 +17,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"zm_zod_companion", &__init__, undefined, undefined);
 }

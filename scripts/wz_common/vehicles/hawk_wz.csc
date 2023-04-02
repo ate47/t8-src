@@ -11,7 +11,7 @@
 #namespace hawk_wz;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hawk_wz
 	Checksum: 0x5C33FB04
 	Offset: 0x200
@@ -19,7 +19,7 @@
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_89f2df9()
+function autoexec __init__system__()
 {
 	system::register(#"hawk_wz", &__init__, undefined, undefined);
 }
