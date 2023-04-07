@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\bots\bot_chain.gsc;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
-#using script_6158278c8647d8a9;
+#using scripts\core_common\bots\bot_position.gsc;
 #using scripts\core_common\bots\bot_interface.gsc;
 #using script_ee56e8b680377b6;
 #using scripts\core_common\ai_shared.gsc;
@@ -713,14 +713,14 @@ function update_loop()
 		return;
 	}
 	self bot_action::start();
-	self namespace_b20b4885::start();
+	self bot_position::start();
 	self namespace_9c817acd::start();
 	while(isdefined(self.bot))
 	{
 		if(!isbot(self) || !self initialized())
 		{
 			self bot_action::stop();
-			self namespace_b20b4885::stop();
+			self bot_position::stop();
 			self namespace_9c817acd::stop();
 			return;
 		}
@@ -750,14 +750,14 @@ function update_loop()
 		if(!self isplayinganimscripted() && !self arecontrolsfrozen() && !self function_5972c3cf() && !self isinvehicle() && !self util::isflashed() && isdefined(self.sessionstate) && self.sessionstate == "playing")
 		{
 			self bot_action::update();
-			self thread namespace_b20b4885::update(tacbundle);
+			self thread bot_position::update(tacbundle);
 			self namespace_9c817acd::update(tacbundle);
 			self update_swim();
 		}
 		else
 		{
 			self bot_action::reset();
-			self namespace_b20b4885::reset();
+			self bot_position::reset();
 			self namespace_9c817acd::reset();
 			if(self function_dd750ead())
 			{
@@ -2940,7 +2940,7 @@ function function_301f229d(team)
 		if(assignment.bot get_revive_target() !== assignment.target)
 		{
 			assignment.bot set_revive_target(assignment.target);
-			assignment.bot namespace_b20b4885::reset();
+			assignment.bot bot_position::reset();
 		}
 		arrayremovevalue(var_52e61055, assignment.bot);
 		j = i + 1;
@@ -2960,7 +2960,7 @@ function function_301f229d(team)
 		if(isdefined(bot get_revive_target()))
 		{
 			bot clear_revive_target();
-			bot namespace_b20b4885::reset();
+			bot bot_position::reset();
 		}
 	}
 }

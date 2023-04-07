@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_345bb77d6298356c;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -138,7 +138,7 @@ function player_stats_init()
 	self globallogic_score::initpersstat(#"hash_27399de28b76c5c6", 0);
 	self globallogic_score::initpersstat(#"minigun_pickedup", 0);
 	self globallogic_score::initpersstat(#"island_seed_pickedup", 0);
-	self globallogic_score::initpersstat(#"hash_cdafe5cd6299b0c", 0);
+	self globallogic_score::initpersstat(#"hero_weapon_power_pickedup", 0);
 	self globallogic_score::initpersstat(#"pack_a_punch_pickedup", 0);
 	self globallogic_score::initpersstat(#"extra_lives_pickedup", 0);
 	self globallogic_score::initpersstat(#"zmarcade_key_pickedup", 0);
@@ -2097,7 +2097,7 @@ function update_global_counters_on_match_end()
 		var_d61f06ce = var_d61f06ce + player.pers[#"hash_27399de28b76c5c6"];
 		minigun_pickedup = minigun_pickedup + player.pers[#"minigun_pickedup"];
 		island_seed_pickedup = island_seed_pickedup + player.pers[#"island_seed_pickedup"];
-		hero_weapon_power_pickedup = hero_weapon_power_pickedup + player.pers[#"hash_cdafe5cd6299b0c"];
+		hero_weapon_power_pickedup = hero_weapon_power_pickedup + player.pers[#"hero_weapon_power_pickedup"];
 		pack_a_punch_pickedup = pack_a_punch_pickedup + player.pers[#"pack_a_punch_pickedup"];
 		extra_lives_pickedup = extra_lives_pickedup + player.pers[#"extra_lives_pickedup"];
 		zmarcade_key_pickedup = zmarcade_key_pickedup + player.pers[#"zmarcade_key_pickedup"];

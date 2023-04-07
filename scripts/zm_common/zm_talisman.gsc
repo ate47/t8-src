@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -40,7 +40,7 @@ function init()
 */
 function on_player_connect()
 {
-	var_e18c5d7 = self zm_loadout::function_2dfb9150("talisman1");
+	var_e18c5d7 = self zm_loadout::get_loadout_item("talisman1");
 	s_talisman = getunlockableiteminfofromindex(var_e18c5d7, 4);
 	var_ea4558f5 = function_b143666d(var_e18c5d7, 4);
 	n_remaining = 0;
@@ -98,7 +98,7 @@ function on_player_disconnect()
 	{
 		return;
 	}
-	var_e18c5d7 = self zm_loadout::function_2dfb9150("talisman1");
+	var_e18c5d7 = self zm_loadout::get_loadout_item("talisman1");
 	s_talisman = getunlockableiteminfofromindex(var_e18c5d7, 4);
 	var_ea4558f5 = function_b143666d(var_e18c5d7, 4);
 	if(isdefined(s_talisman))

@@ -4,7 +4,7 @@
 #using scripts\zm\weapons\zm_weap_sword_pistol.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_43642da1b2402e5c;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using scripts\zm\weapons\zm_weap_scepter.gsc;

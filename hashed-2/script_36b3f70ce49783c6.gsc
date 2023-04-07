@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2bb5600d583e2812;
+#using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using scripts\abilities\gadgets\gadget_tripwire.gsc;
-#using script_7e294a061be2fd9;
+#using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -183,7 +183,7 @@ function private function_35e11623(deathcircle, var_898879a6)
 	}
 	for(index = 0; index < var_90afc439.size; index++)
 	{
-		var_90afc439[index] namespace_c5ba6e2a::function_4f90c4c2();
+		var_90afc439[index] gadget_cymbal_monkey::function_4f90c4c2();
 	}
 	var_2e20127d = [];
 	foreach(homunculus in level.var_2da60c10)
@@ -195,7 +195,7 @@ function private function_35e11623(deathcircle, var_898879a6)
 	}
 	for(index = 0; index < var_2e20127d.size; index++)
 	{
-		var_2e20127d[index] namespace_8bf2881e::function_7bfc867f();
+		var_2e20127d[index] gadget_homunculus::function_7bfc867f();
 	}
 }
 

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_56cb7cd4a61c4db8;
+#using scripts\mp_common\gametypes\ct_ruin_tutorial.csc;
 #using scripts\mp_common\gametypes\ct_core.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
@@ -20,7 +20,7 @@ event main(eventstruct)
 	ct_core::function_46e95cc7();
 	ct_core::function_fa03fc55();
 	clientfield::register("scriptmover", "follow_path_fx", 1, 1, "int", &follow_path_fx, 0, 0);
-	namespace_2885895d::init();
+	ct_ruin_tutorial::init();
 }
 
 /*

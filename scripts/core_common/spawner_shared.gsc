@@ -1335,8 +1335,8 @@ function spawn(b_force = 0, str_targetname, v_origin, v_angles, bignorespawningl
 		infinitespawn = 1;
 	}
 	/#
-		var_ca330541 = self.classname == "";
-		var_cff301a5 = !var_ca330541 || (!(isdefined(level.var_3313aeb2) && level.var_3313aeb2));
+		vehiclespawner = self.classname == "";
+		var_cff301a5 = !vehiclespawner || (!(isdefined(level.var_3313aeb2) && level.var_3313aeb2));
 		if(isdefined(level.archetype_spawners) && isarray(level.archetype_spawners) && var_cff301a5)
 		{
 			archetype = undefined;

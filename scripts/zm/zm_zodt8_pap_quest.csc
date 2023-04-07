@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_zodt8_eye.csc;
-#using script_234f79e7e5737561;
+#using scripts\zm\zm_zodt8_tutorial.csc;
 #using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\zm_common\zm_characters.csc;
 #using script_52ab76d6216ed2cc;

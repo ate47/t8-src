@@ -8,7 +8,7 @@
 #using script_3819e7a1427df6d2;
 #using script_383a3b1bb18ba876;
 #using script_46fade957db10c16;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_522aeb6ae906391e;
 #using script_52d2de9b438adc78;

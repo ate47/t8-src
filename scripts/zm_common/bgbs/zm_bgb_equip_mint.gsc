@@ -79,7 +79,7 @@ function validation()
 {
 	var_ac6ee9a0 = self zm_loadout::get_player_lethal_grenade();
 	n_stock_size = self getweaponammostock(var_ac6ee9a0);
-	n_clip_size = self function_f09c133d(var_ac6ee9a0);
+	n_clip_size = self getweaponammoclipsize(var_ac6ee9a0);
 	n_slot = self gadgetgetslot(var_ac6ee9a0);
 	n_power = self gadgetpowerget(n_slot);
 	if(var_ac6ee9a0 == getweapon(#"tomahawk_t8") || var_ac6ee9a0 == getweapon(#"tomahawk_t8_upgraded") && self function_36dfc05f(n_slot))

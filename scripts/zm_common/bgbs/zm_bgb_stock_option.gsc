@@ -51,7 +51,7 @@ function __init__()
 function enable()
 {
 	self thread function_1ff1beff();
-	w_previous = self.var_1d838ee9;
+	w_previous = self.previousweapon;
 	if(w_previous.isprimary)
 	{
 		n_clip = self getweaponammoclip(w_previous);
@@ -92,7 +92,7 @@ function disable()
 	wait(0.1);
 	if(self hasperk("specialty_ammodrainsfromstockfirst"))
 	{
-		self perks::function_45d12554("specialty_ammodrainsfromstockfirst");
+		self perks::perk_unsetperk("specialty_ammodrainsfromstockfirst");
 	}
 }
 
@@ -130,7 +130,7 @@ function function_1ff1beff()
 	w_current = self getcurrentweapon();
 	if(!(isdefined(w_current.isheroweapon) && w_current.isheroweapon) && !zm_weapons::is_wonder_weapon(w_current))
 	{
-		self perks::function_7637bafa("specialty_ammodrainsfromstockfirst");
+		self perks::perk_setperk("specialty_ammodrainsfromstockfirst");
 	}
 	while(true)
 	{
@@ -141,12 +141,12 @@ function function_1ff1beff()
 		{
 			if(self hasperk("specialty_ammodrainsfromstockfirst"))
 			{
-				self perks::function_45d12554("specialty_ammodrainsfromstockfirst");
+				self perks::perk_unsetperk("specialty_ammodrainsfromstockfirst");
 			}
 		}
 		else if(!self hasperk("specialty_ammodrainsfromstockfirst"))
 		{
-			self perks::function_7637bafa("specialty_ammodrainsfromstockfirst");
+			self perks::perk_setperk("specialty_ammodrainsfromstockfirst");
 		}
 	}
 }

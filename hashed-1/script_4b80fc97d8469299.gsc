@@ -5,10 +5,10 @@
 #using script_421e0a3702e22de;
 #using script_52c6c2d1a2ef1b46;
 #using script_58c342edd81589fb;
-#using script_5e177698fdcdbe2c;
+#using scripts\zm\zm_orange_mq_hell.gsc;
 #using script_6a3f43063dfd1bdc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_d19b1fbf1d7cdd6;
+#using scripts\zm\zm_orange_lighthouse.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -235,8 +235,8 @@ function function_3c9be590(var_5ea5c94d, ended_early)
 	level flag::clear(#"hash_3028604821838259");
 	namespace_509a75d1::function_314447b(1, 0);
 	level flag::set(#"disable_special_rounds");
-	namespace_bfc8ee03::spawn_guide();
-	namespace_d09ff23c::function_da304f6e(0);
+	zm_orange_mq_hell::spawn_guide();
+	zm_orange_lighthouse::function_da304f6e(0);
 }
 
 /*
@@ -668,7 +668,7 @@ function function_a66f0de2()
 	if(level.var_d7374603 > 3)
 	{
 		level flag::set(#"hash_5266a594b96823e2");
-		namespace_d09ff23c::function_da304f6e(0);
+		zm_orange_lighthouse::function_da304f6e(0);
 	}
 }
 

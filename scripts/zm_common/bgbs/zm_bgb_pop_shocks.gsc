@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_35598499769dbb3d;
 #using script_460f2e04fb3cff8a;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm\zm_lightning_chain.gsc;

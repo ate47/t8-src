@@ -2,7 +2,7 @@
 #using scripts\mp_common\teams\platoons.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_75be2950b381443;
+#using scripts\core_common\platoons.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\teams.gsc;
 #using scripts\core_common\util_shared.gsc;

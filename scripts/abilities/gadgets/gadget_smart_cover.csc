@@ -446,12 +446,12 @@ function function_5a8becdc(localclientnum, player, var_7daa4df9, var_4b1c8937)
 	for(var_688bc60 = 0; var_688bc60 < int(var_f636c423 / 2); var_688bc60++)
 	{
 		cola = var_688bc60 + 1;
-		var_b2d5a637 = level.var_5101157d.bundle.var_b118698f - var_688bc60;
+		colb = level.var_5101157d.bundle.var_b118698f - var_688bc60;
 		for(rowindex = 0; rowindex < level.var_5101157d.bundle.var_f0b4da50; rowindex++)
 		{
-			var_e5b19696 = function_d66a0190(rowindex, cola);
-			var_1ffc0b2e = function_d66a0190(rowindex, var_b2d5a637);
-			smartcover hidepart(localclientnum, var_e5b19696);
+			microwave_sh_turr = function_d66a0190(rowindex, cola);
+			var_1ffc0b2e = function_d66a0190(rowindex, colb);
+			smartcover hidepart(localclientnum, microwave_sh_turr);
 			smartcover hidepart(localclientnum, var_1ffc0b2e);
 		}
 	}

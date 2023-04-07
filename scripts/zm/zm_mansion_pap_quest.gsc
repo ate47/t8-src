@@ -12,7 +12,7 @@
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -2090,7 +2090,7 @@ function function_f7b04d9c(s_key)
 		}
 	}
 	e_player thread function_51367ff6(s_key.origin);
-	level thread namespace_9d27962b::function_93eab559();
+	level thread zm_mansion_special_rounds::function_93eab559();
 	if(s_key.targetname === "cemetery_pap_key")
 	{
 		exploder::exploder("fxexp_pap_barrier_nosferatu");

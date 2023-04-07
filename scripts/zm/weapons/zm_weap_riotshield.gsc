@@ -95,7 +95,7 @@ function __init__()
 	}
 	if(!isdefined(level.var_7509c7d8))
 	{
-		level.var_7509c7d8 = &function_452827de;
+		level.var_7509c7d8 = &callback_playershielddamageblocked;
 	}
 	if(!isdefined(level.var_2677b8bb))
 	{
@@ -273,7 +273,7 @@ function player_shield_absorb_damage(eattacker, idamage, shitloc, smeansofdeath)
 }
 
 /*
-	Name: function_452827de
+	Name: callback_playershielddamageblocked
 	Namespace: riotshield
 	Checksum: 0x55F3EDFA
 	Offset: 0xCA0
@@ -281,7 +281,7 @@ function player_shield_absorb_damage(eattacker, idamage, shitloc, smeansofdeath)
 	Parameters: 1
 	Flags: Linked
 */
-function function_452827de(damage)
+function callback_playershielddamageblocked(damage)
 {
 }
 

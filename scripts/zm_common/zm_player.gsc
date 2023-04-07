@@ -5,7 +5,7 @@
 #using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4194df57536e11ed;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
 #using scripts\zm_common\zm_trial.gsc;

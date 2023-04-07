@@ -48,7 +48,7 @@ function __init__()
 */
 function enable()
 {
-	self perks::function_7637bafa("specialty_locdamagecountsasheadshot");
+	self perks::perk_setperk("specialty_locdamagecountsasheadshot");
 }
 
 /*
@@ -62,6 +62,6 @@ function enable()
 */
 function disable()
 {
-	self perks::function_45d12554("specialty_locdamagecountsasheadshot");
+	self perks::perk_unsetperk("specialty_locdamagecountsasheadshot");
 }
 

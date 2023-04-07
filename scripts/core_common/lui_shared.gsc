@@ -209,7 +209,7 @@ function function_b95a3ba5(alias, registerfunc, uid)
 }
 
 /*
-	Name: function_e810a527
+	Name: get_luimenu
 	Namespace: lui
 	Checksum: 0x34FD4BAF
 	Offset: 0x3A0
@@ -217,7 +217,7 @@ function function_b95a3ba5(alias, registerfunc, uid)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e810a527(alias)
+function get_luimenu(alias)
 {
 	return level.luimenus[alias];
 }
@@ -565,7 +565,7 @@ function private _play_movie_for_player(str_movie, str_type, show_black_screen, 
 	{
 		self playsoundtoplayer(#"uin_pip_open", self);
 	}
-	lui_menu = function_e810a527(str_menu);
+	lui_menu = get_luimenu(str_menu);
 	[[ lui_menu ]]->open(self);
 	if(isdefined(lui_menu))
 	{
@@ -703,7 +703,7 @@ function play_outro_movie(show_black_screen = 1)
 */
 function private function_1bc580af()
 {
-	lui_menu = function_e810a527("full_screen_movie");
+	lui_menu = get_luimenu("full_screen_movie");
 	[[ lui_menu ]]->open(self);
 	if(isdefined(lui_menu))
 	{
@@ -925,9 +925,9 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 	}
 	else
 	{
-		if(isdefined(function_e810a527(str_menu)))
+		if(isdefined(get_luimenu(str_menu)))
 		{
-			lui_menu = function_e810a527(str_menu);
+			lui_menu = get_luimenu(str_menu);
 			[[ lui_menu ]]->open(self);
 		}
 		else

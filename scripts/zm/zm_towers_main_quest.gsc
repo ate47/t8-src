@@ -4,7 +4,7 @@
 #using script_27a3bb6bb72e6f1a;
 #using script_2affe92664ace48d;
 #using script_2c5daa95f8fec03c;
-#using script_31a8049bdbd4af27;
+#using scripts\zm\zm_towers_special_rounds.gsc;
 #using script_35598499769dbb3d;
 #using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
@@ -3928,14 +3928,14 @@ function function_4213282b(b_skipped, var_19e802fa)
 	if(!level flag::get("special_round"))
 	{
 		level notify(#"hash_7b9245ff51f3d4f7");
-		level thread namespace_700b02ad::function_417990b9(1);
+		level thread zm_towers_special_rounds::function_417990b9(1);
 	}
 	callback::remove_on_spawned(&function_6b8497c);
 	foreach(e_player in level.players)
 	{
 		e_player clientfield::set_to_player("" + #"hash_17002d8f9d5c197b", 0);
 	}
-	level thread namespace_700b02ad::function_39a9e7ce();
+	level thread zm_towers_special_rounds::function_39a9e7ce();
 	wait(1);
 	level flag::clear(#"pause_round_timeout");
 	function_314447b(0);
@@ -3977,7 +3977,7 @@ function function_40f8980d()
 	array::thread_all(level.players, &function_6b8497c);
 	level thread function_ca9986f7();
 	wait(1);
-	level thread namespace_700b02ad::function_93eab559(1);
+	level thread zm_towers_special_rounds::function_93eab559(1);
 }
 
 /*
@@ -6631,7 +6631,7 @@ function function_b3e0a008()
 	foreach(s_loc in var_4ad6b8c9)
 	{
 		s_loc.var_7c5f8ec1 = util::spawn_model("tag_origin", s_loc.origin);
-		s_loc.var_7c5f8ec1 thread namespace_700b02ad::function_85324f75();
+		s_loc.var_7c5f8ec1 thread zm_towers_special_rounds::function_85324f75();
 	}
 	scene::play("p8_fxanim_zm_towers_boss_arena_gate_raise_bundle", "Shot 1");
 	wait(50);

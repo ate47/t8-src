@@ -6,7 +6,7 @@
 #using scripts\zm\zm_towers_shield.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_2affe92664ace48d;
-#using script_31a8049bdbd4af27;
+#using scripts\zm\zm_towers_special_rounds.gsc;
 #using scripts\zm\weapons\zm_weap_bowie.gsc;
 #using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
@@ -198,7 +198,7 @@ event main(eventstruct)
 	level.var_262798e2 = &function_f1e7bc35;
 	level.var_290ac2c3 = &function_f1e7bc35;
 	level.var_ea32773 = &function_8e4eff2b;
-	level thread namespace_700b02ad::init();
+	level thread zm_towers_special_rounds::init();
 	level.var_22fda912 = &function_9f50079d;
 	level.zombiemode_offhand_weapon_give_override = &offhand_weapon_give_override;
 	level.var_d0ab70a2 = #"hash_42dcec7533a676b0";
@@ -877,7 +877,7 @@ function function_f1e7bc35(s_spot)
 	}
 	if(level flag::get("special_round"))
 	{
-		self thread namespace_700b02ad::function_461a99a5(s_spot);
+		self thread zm_towers_special_rounds::function_461a99a5(s_spot);
 	}
 	switch(self.archetype)
 	{

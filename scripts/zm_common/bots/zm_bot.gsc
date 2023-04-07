@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\bots\zm_bot_action.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_56efe81f606bc487;
+#using scripts\zm_common\bots\zm_bot_position.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
@@ -257,14 +257,14 @@ event function_9b83de0f()
 			{
 				continue;
 			}
-			self function_cd815ad0(player);
+			self order_bot(player);
 			break;
 		}
 	#/
 }
 
 /*
-	Name: function_cd815ad0
+	Name: order_bot
 	Namespace: zm_bot
 	Checksum: 0x8F8CEBC4
 	Offset: 0x848
@@ -272,7 +272,7 @@ event function_9b83de0f()
 	Parameters: 1
 	Flags: None
 */
-function function_cd815ad0(bot)
+function order_bot(bot)
 {
 	target = undefined;
 	targetdistsq = undefined;

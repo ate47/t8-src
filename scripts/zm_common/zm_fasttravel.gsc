@@ -1171,7 +1171,7 @@ function function_c1f603e(var_12230d08, n_cooldown, var_8d5d092c)
 		return;
 	}
 	self.var_9c7b96ed[var_8d5d092c] = 1;
-	if(self hasperk(#"hash_37aa3a5919757781"))
+	if(self hasperk(#"specialty_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.5;
 	}

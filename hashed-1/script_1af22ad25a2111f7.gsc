@@ -374,7 +374,7 @@ function private function_e27c41b4(jammer, entity, attackingplayer)
 	{
 		function_1c430dad(entity, 1);
 		function_58f8bf08(jammer, attackingplayer, undefined);
-		entity callback::callback(#"hash_7140c3848cbefaa1", {#jammer:jammer, #hash_dbd1a594:attackingplayer});
+		entity callback::callback(#"hash_7140c3848cbefaa1", {#jammer:jammer, #attackingplayer:attackingplayer});
 		return true;
 	}
 	weapon = (isdefined(entity.identifier_weapon) ? entity.identifier_weapon : entity.weapon);

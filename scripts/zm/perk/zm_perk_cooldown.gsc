@@ -67,17 +67,17 @@ function function_482ec336()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"hash_37aa3a5919757781", #"perk_cooldown", 1500, #"hash_1bf5482d3d2bee30", getweapon("zombie_perk_bottle_cooldown"), getweapon("zombie_perk_totem_timeslip"), #"hash_1e9fb2463e6eee58");
+		zm_perks::register_perk_basic_info(#"specialty_cooldown", #"perk_cooldown", 1500, #"hash_1bf5482d3d2bee30", getweapon("zombie_perk_bottle_cooldown"), getweapon("zombie_perk_totem_timeslip"), #"hash_1e9fb2463e6eee58");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"hash_37aa3a5919757781", #"perk_cooldown", 1500, #"zombie/perk_cooldown", getweapon("zombie_perk_bottle_cooldown"), getweapon("zombie_perk_totem_timeslip"), #"hash_1e9fb2463e6eee58");
+		zm_perks::register_perk_basic_info(#"specialty_cooldown", #"perk_cooldown", 1500, #"zombie/perk_cooldown", getweapon("zombie_perk_bottle_cooldown"), getweapon("zombie_perk_totem_timeslip"), #"hash_1e9fb2463e6eee58");
 	}
-	zm_perks::register_perk_precache_func(#"hash_37aa3a5919757781", &function_14afd300);
-	zm_perks::register_perk_clientfields(#"hash_37aa3a5919757781", &function_eaa4f1a1, &function_bfc02d23);
-	zm_perks::register_perk_machine(#"hash_37aa3a5919757781", &function_cf203b00, &function_a2d341cc);
-	zm_perks::register_perk_host_migration_params(#"hash_37aa3a5919757781", "p7_zm_vending_nuke", "divetonuke_light");
-	zm_perks::register_perk_threads(#"hash_37aa3a5919757781", &function_44cf89d3, &function_d0623d8c);
+	zm_perks::register_perk_precache_func(#"specialty_cooldown", &function_14afd300);
+	zm_perks::register_perk_clientfields(#"specialty_cooldown", &function_eaa4f1a1, &function_bfc02d23);
+	zm_perks::register_perk_machine(#"specialty_cooldown", &function_cf203b00, &function_a2d341cc);
+	zm_perks::register_perk_host_migration_params(#"specialty_cooldown", "p7_zm_vending_nuke", "divetonuke_light");
+	zm_perks::register_perk_threads(#"specialty_cooldown", &function_44cf89d3, &function_d0623d8c);
 }
 
 /*
@@ -110,10 +110,10 @@ function function_14afd300()
 		return;
 	}
 	level._effect[#"divetonuke_light"] = #"hash_2225287695ddf9c9";
-	level.machine_assets[#"hash_37aa3a5919757781"] = spawnstruct();
-	level.machine_assets[#"hash_37aa3a5919757781"].weapon = getweapon("zombie_perk_bottle_cooldown");
-	level.machine_assets[#"hash_37aa3a5919757781"].off_model = "p7_zm_vending_nuke";
-	level.machine_assets[#"hash_37aa3a5919757781"].on_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_cooldown"] = spawnstruct();
+	level.machine_assets[#"specialty_cooldown"].weapon = getweapon("zombie_perk_bottle_cooldown");
+	level.machine_assets[#"specialty_cooldown"].off_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_cooldown"].on_model = "p7_zm_vending_nuke";
 }
 
 /*

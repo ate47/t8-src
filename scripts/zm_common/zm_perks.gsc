@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\trials\zm_trial_randomize_perks.gsc;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
@@ -199,7 +199,7 @@ function on_player_connect()
 	j = 0;
 	for(i = 1; i <= 4; i++)
 	{
-		var_96861ec8 = self zm_loadout::function_2dfb9150("specialty" + i);
+		var_96861ec8 = self zm_loadout::get_loadout_item("specialty" + i);
 		s_perk = getunlockableiteminfofromindex(var_96861ec8, 3);
 		str_perk = "";
 		if(isdefined(s_perk))
@@ -899,19 +899,19 @@ function function_305131b1(perk)
 */
 function function_a7ae070c(var_16c042b8, var_b169f6df = 0)
 {
-	self perks::function_7637bafa(var_16c042b8);
+	self perks::perk_setperk(var_16c042b8);
 	if(isdefined(level._custom_perks[var_16c042b8].var_658e2856))
 	{
 		if(isarray(level._custom_perks[var_16c042b8].var_658e2856))
 		{
 			foreach(specialty in level._custom_perks[var_16c042b8].var_658e2856)
 			{
-				perks::function_7637bafa(specialty);
+				perks::perk_setperk(specialty);
 			}
 		}
 		else
 		{
-			perks::function_7637bafa(level._custom_perks[var_16c042b8].var_658e2856);
+			perks::perk_setperk(level._custom_perks[var_16c042b8].var_658e2856);
 		}
 	}
 	if(!var_b169f6df)
@@ -1001,19 +1001,19 @@ function perk_think(perk)
 	result = undefined;
 	result = self waittill(#"fake_death", #"death", #"player_downed", perk_str);
 	result = result._notify;
-	self perks::function_45d12554(perk);
+	self perks::perk_unsetperk(perk);
 	if(isdefined(level._custom_perks[perk].var_658e2856))
 	{
 		if(isarray(level._custom_perks[perk].var_658e2856))
 		{
 			foreach(specialty in level._custom_perks[perk].var_658e2856)
 			{
-				perks::function_45d12554(specialty);
+				perks::perk_unsetperk(specialty);
 			}
 		}
 		else
 		{
-			perks::function_45d12554(level._custom_perks[perk].var_658e2856);
+			perks::perk_unsetperk(level._custom_perks[perk].var_658e2856);
 		}
 	}
 	self.num_perks--;
@@ -1301,19 +1301,19 @@ function perk_pause(perk)
 		player.var_c4890291[perk] = isdefined(player.var_c4890291[perk]) && player.var_c4890291[perk] || player hasperk(perk);
 		if(player.var_c4890291[perk])
 		{
-			player perks::function_45d12554(perk);
+			player perks::perk_unsetperk(perk);
 			if(isdefined(level._custom_perks[perk].var_658e2856))
 			{
 				if(isarray(level._custom_perks[perk].var_658e2856))
 				{
 					foreach(specialty in level._custom_perks[perk].var_658e2856)
 					{
-						perks::function_45d12554(specialty);
+						perks::perk_unsetperk(specialty);
 					}
 				}
 				else
 				{
-					perks::function_45d12554(level._custom_perks[perk].var_658e2856);
+					perks::perk_unsetperk(level._custom_perks[perk].var_658e2856);
 				}
 			}
 			n_slot = player function_c1efcc57(perk);
@@ -1358,19 +1358,19 @@ function perk_unpause(perk)
 			player set_perk_clientfield(perk, 1);
 			n_slot = player function_c1efcc57(perk);
 			player function_2ac7579(n_slot, 1, level._custom_perks[perk].alias);
-			player perks::function_7637bafa(perk);
+			player perks::perk_setperk(perk);
 			if(isdefined(level._custom_perks[perk].var_658e2856))
 			{
 				if(isarray(level._custom_perks[perk].var_658e2856))
 				{
 					foreach(specialty in level._custom_perks[perk].var_658e2856)
 					{
-						perks::function_7637bafa(specialty);
+						perks::perk_setperk(specialty);
 					}
 				}
 				else
 				{
-					perks::function_7637bafa(level._custom_perks[perk].var_658e2856);
+					perks::perk_setperk(level._custom_perks[perk].var_658e2856);
 				}
 			}
 			/#
@@ -3470,19 +3470,19 @@ function function_9bdf581f(perk, n_slot, b_bought = 0)
 	self endon(#"player_downed", #"disconnect", #"perk_abort_drinking");
 	level endon(#"end_game");
 	level notify(#"hash_4e566c83cdfabe44", {#perk:perk, #e_player:self});
-	self perks::function_7637bafa(perk);
+	self perks::perk_setperk(perk);
 	if(isdefined(level._custom_perks[perk].var_658e2856))
 	{
 		if(isarray(level._custom_perks[perk].var_658e2856))
 		{
 			foreach(specialty in level._custom_perks[perk].var_658e2856)
 			{
-				perks::function_7637bafa(specialty);
+				perks::perk_setperk(specialty);
 			}
 		}
 		else
 		{
-			perks::function_7637bafa(level._custom_perks[perk].var_658e2856);
+			perks::perk_setperk(level._custom_perks[perk].var_658e2856);
 		}
 	}
 	if(isdefined(b_bought) && b_bought)
@@ -3666,7 +3666,7 @@ function function_329ae65e(perk, n_slot)
 	}
 	while(!(isdefined(s_result.var_613b7621) && s_result.var_613b7621) && self lost_perk_override(perk));
 	var_ac32c1b8 = 0;
-	self perks::function_45d12554(perk);
+	self perks::perk_unsetperk(perk);
 	if(isdefined(self.var_47654123[n_slot]) && self.var_47654123[n_slot] && self.var_c27f1e90[n_slot] == perk)
 	{
 		self.var_c27f1e90[n_slot] = #"specialty_mystery";
@@ -3679,12 +3679,12 @@ function function_329ae65e(perk, n_slot)
 		{
 			foreach(specialty in level._custom_perks[perk].var_658e2856)
 			{
-				perks::function_45d12554(specialty);
+				perks::perk_unsetperk(specialty);
 			}
 		}
 		else
 		{
-			perks::function_45d12554(level._custom_perks[perk].var_658e2856);
+			perks::perk_unsetperk(level._custom_perks[perk].var_658e2856);
 		}
 	}
 	self.num_perks--;
@@ -4633,7 +4633,7 @@ function function_4d342a8f()
 {
 	if(!self hasperk(#"specialty_fastreload"))
 	{
-		perks::function_7637bafa(#"specialty_fastreload");
+		perks::perk_setperk(#"specialty_fastreload");
 	}
 }
 
@@ -4650,7 +4650,7 @@ function function_528f82a9()
 {
 	if(self hasperk(#"specialty_fastreload"))
 	{
-		perks::function_45d12554(#"specialty_fastreload");
+		perks::perk_unsetperk(#"specialty_fastreload");
 	}
 }
 
@@ -5254,7 +5254,7 @@ function function_545a79c()
 				case "hash_3fe4509a2ac36a60":
 				case "hash_7237eda7099e624d":
 				{
-					str_perk = #"hash_37aa3a5919757781";
+					str_perk = #"specialty_cooldown";
 					var_8d1a1acc = strtok(cmd, "");
 					var_eb4c64e8 = int(var_8d1a1acc[1]) - 1;
 					break;

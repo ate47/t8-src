@@ -16,8 +16,8 @@
 #using script_4491b82ef72751cd;
 #using script_4f1abd7be75f8a2f;
 #using script_512d27609721ec85;
-#using script_5b2f999b8dbf5f77;
-#using script_5e177698fdcdbe2c;
+#using scripts\zm\zm_orange_special_rounds.gsc;
+#using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_67da0c3654a906b6;
@@ -386,7 +386,7 @@ function function_ff0b7907()
 		level.var_71435e8 = 1;
 		if(level.var_43c25ad2 !== 1)
 		{
-			array::thread_all(level.var_35e33dbe, &namespace_bfc8ee03::function_a8fd16d0);
+			array::thread_all(level.var_35e33dbe, &zm_orange_mq_hell::function_a8fd16d0);
 			level.var_43c25ad2 = 1;
 		}
 		level flag::set(#"hash_198bc172b5af7f25");

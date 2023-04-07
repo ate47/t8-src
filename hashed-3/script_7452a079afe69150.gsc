@@ -3,9 +3,9 @@
 #using script_1d29de500c266470;
 #using scripts\wz_common\wz_contracts.gsc;
 #using script_39bd5b6b799b1c9c;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\gametypes\warzone.gsc;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

@@ -38,7 +38,7 @@
 #using script_460f2e04fb3cff8a;
 #using scripts\zm_common\talisman\zm_talisman_weapon_reducepapcost.gsc;
 #using scripts\zm\weapons\zm_weap_homunculus.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48f7c4ab73137f8;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
@@ -604,7 +604,7 @@ function _outro_slow(func)
 function initialblack()
 {
 	self endon(#"disconnect");
-	initial_black = lui::function_e810a527("InitialBlack");
+	initial_black = lui::get_luimenu("InitialBlack");
 	initial_black initial_black::close(self);
 	initial_black initial_black::open(self, 1);
 	if(level flag::get("start_zombie_round_logic"))

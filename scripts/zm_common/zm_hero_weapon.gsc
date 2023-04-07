@@ -4,7 +4,7 @@
 #using script_301f64a4090c381a;
 #using script_35d3717bf2cbee8f;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_armor.gsc;
 #using script_db06eb511bd9b36;

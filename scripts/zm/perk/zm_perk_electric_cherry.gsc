@@ -376,7 +376,7 @@ function electric_cherry_reload_attack()
 		self.wait_on_reload[self.wait_on_reload.size] = current_weapon;
 		self.consecutive_electric_cherry_attacks++;
 		n_clip_current = self getweaponammoclip(current_weapon);
-		n_clip_max = self function_f09c133d(current_weapon);
+		n_clip_max = self getweaponammoclipsize(current_weapon);
 		if(n_clip_max <= 0)
 		{
 			continue;

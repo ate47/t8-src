@@ -41,11 +41,11 @@ function __init__()
 */
 function __main__()
 {
-	var_8a44c43c = (6512, 5109, 874);
+	col_origin = (6512, 5109, 874);
 	var_a9430bbc = vectorscale((0, 1, 0), 324);
-	var_5774de71 = spawncollision("collision_clip_wall_256x256x10", "hack_collider", var_8a44c43c, var_a9430bbc);
-	var_5774de71 disconnectpaths(0, 0);
-	var_5774de71 notsolid();
+	hack_col = spawncollision("collision_clip_wall_256x256x10", "hack_collider", col_origin, var_a9430bbc);
+	hack_col disconnectpaths(0, 0);
+	hack_col notsolid();
 	spawncollision("p8_col_rock_large_04", "collider", (-7044.5, -5855.5, 63.2374), (359.701, 349.702, 0.437607));
 }
 

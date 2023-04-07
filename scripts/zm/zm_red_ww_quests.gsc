@@ -15,11 +15,11 @@
 #using scripts\zm\weapons\zm_weap_hand_charon.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm\weapons\zm_weap_hand_hemera.gsc;
-#using script_70d6524cefc5604f;
+#using scripts\zm\perk\zm_perk_mod_additionalprimaryweapon.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using script_8dca41f2d7c91bc;
 #using script_db06eb511bd9b36;
-#using script_dd9ad19442b7991;
+#using scripts\zm\perk\zm_perk_mod_quick_revive.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -139,7 +139,7 @@ function init()
 	function_809767d(#"death");
 	function_809767d(#"air");
 	function_809767d(#"earth");
-	namespace_4cd9c601::function_69f490a(array(getweapon("ww_hand_h_uncharged"), getweapon("ww_hand_c_uncharged"), getweapon("ww_hand_g_uncharged"), getweapon("ww_hand_o_uncharged"), getweapon("ww_hand_h_upgraded"), getweapon("ww_hand_c_upgraded"), getweapon("ww_hand_g_upgraded"), getweapon("ww_hand_o_upgraded"), getweapon("ww_hand_h"), getweapon("ww_hand_c"), getweapon("ww_hand_g"), getweapon("ww_hand_o")));
+	zm_perk_mod_additionalprimaryweapon::function_69f490a(array(getweapon("ww_hand_h_uncharged"), getweapon("ww_hand_c_uncharged"), getweapon("ww_hand_g_uncharged"), getweapon("ww_hand_o_uncharged"), getweapon("ww_hand_h_upgraded"), getweapon("ww_hand_c_upgraded"), getweapon("ww_hand_g_upgraded"), getweapon("ww_hand_o_upgraded"), getweapon("ww_hand_h"), getweapon("ww_hand_c"), getweapon("ww_hand_g"), getweapon("ww_hand_o")));
 }
 
 /*
@@ -2628,14 +2628,14 @@ function private function_e9127e33()
 	{
 		if(self hasperk(#"hash_650a97787905913f"))
 		{
-			self namespace_e03931f::take_perk();
+			self zm_perk_mod_quick_revive::take_perk();
 			var_b338fe44 = 1;
 		}
 		wait(1);
 	}
 	if(var_b338fe44)
 	{
-		self namespace_e03931f::give_perk();
+		self zm_perk_mod_quick_revive::give_perk();
 	}
 }
 
@@ -5653,8 +5653,8 @@ function function_d271c27e()
 */
 function function_f5f50d2b(e_player)
 {
-	var_89a7260e = e_player getcurrentweapon();
-	if(var_89a7260e.name === #"ww_hand_h" || var_89a7260e.name === #"ww_hand_g" || var_89a7260e.name === #"ww_hand_c" || var_89a7260e.name === #"ww_hand_o")
+	w_cur = e_player getcurrentweapon();
+	if(w_cur.name === #"ww_hand_h" || w_cur.name === #"ww_hand_g" || w_cur.name === #"ww_hand_c" || w_cur.name === #"ww_hand_o")
 	{
 		if(isdefined(level.var_6e857dad) && level.var_6e857dad)
 		{
@@ -6317,13 +6317,13 @@ function function_d0b13de1()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"hash_12922c9c5f12df1");
-		var_89a7260e = s_result.w_current;
-		if(isdefined(function_9b3e9487(var_89a7260e)) && function_9b3e9487(var_89a7260e))
+		w_cur = s_result.w_current;
+		if(isdefined(function_9b3e9487(w_cur)) && function_9b3e9487(w_cur))
 		{
 			self.var_7e19c3db = 1;
 			wait(1);
 			self.var_7e19c3db = 0;
-			level thread function_43a6c665(var_89a7260e);
+			level thread function_43a6c665(w_cur);
 			self thread function_63eabd37();
 		}
 	}
@@ -6369,14 +6369,14 @@ function private function_63eabd37()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_43a6c665(var_89a7260e)
+function private function_43a6c665(w_cur)
 {
 	level endon(#"pap_taken");
 	s_result = undefined;
 	s_result = level waittill(#"pap_timeout");
 	if(isdefined(s_result.e_player))
 	{
-		s_result.e_player thread function_841236e4(var_89a7260e, 0);
+		s_result.e_player thread function_841236e4(w_cur, 0);
 	}
 }
 

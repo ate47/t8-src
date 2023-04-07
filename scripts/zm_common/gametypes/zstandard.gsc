@@ -2854,7 +2854,7 @@ function function_ae6cb441()
 	wait(0.25);
 	w_current = self getcurrentweapon();
 	n_stock_size = self getweaponammostock(w_current);
-	n_clip_size = self function_f09c133d(w_current);
+	n_clip_size = self getweaponammoclipsize(w_current);
 	if(n_stock_size <= 0)
 	{
 		if(self hasweapon(w_current))

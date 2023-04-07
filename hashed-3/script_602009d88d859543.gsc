@@ -613,7 +613,7 @@ function function_eef4fa8c(var_8d5d092c, var_418e2265)
 		else
 		{
 			n_cooldown = 30;
-			if(isplayer(var_418e2265) && var_418e2265 hasperk(#"hash_37aa3a5919757781"))
+			if(isplayer(var_418e2265) && var_418e2265 hasperk(#"specialty_cooldown"))
 			{
 				n_cooldown = n_cooldown * 0.5;
 			}

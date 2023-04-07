@@ -635,7 +635,7 @@ function function_91a84161(w_weapon, var_7966d557)
 	}
 	else
 	{
-		n_clip_size = self function_f09c133d(w_weapon);
+		n_clip_size = self getweaponammoclipsize(w_weapon);
 		if(var_7966d557 < n_clip_size)
 		{
 			self setweaponammostock(w_weapon, 0);

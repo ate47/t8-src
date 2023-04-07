@@ -534,7 +534,7 @@ function function_c1cc29be(var_64c09f7f)
 */
 function function_a5d20d9b(str_code)
 {
-	level notify(#"hash_1ba800da972b0558", {#hash_d46a1171:str_code});
+	level notify(#"hash_1ba800da972b0558", {#str_code:str_code});
 	switch(str_code)
 	{
 		case "115":

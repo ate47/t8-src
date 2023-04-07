@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_10956a741a7e186e;
+#using scripts\zm\zm_white_special_rounds.gsc;
 #using script_174ce72cc0f850;
 #using script_1c72973fb240f263;
 #using scripts\zm\zm_white_main_quest.gsc;
@@ -67,7 +67,7 @@ function function_1c530e2d()
 	/#
 		level endon(#"game_ended");
 		level waittill(#"open_sesame");
-		namespace_5c160465::function_6acd363d(1);
+		zm_white_special_rounds::function_6acd363d(1);
 	#/
 }
 

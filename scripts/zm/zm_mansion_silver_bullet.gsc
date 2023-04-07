@@ -514,7 +514,7 @@ function function_ec89dca9()
 	{
 		n_ammo_max = w_current.startammo;
 	}
-	if(self getweaponammoclip(w_current) == self function_f09c133d(w_current) && self getweaponammostock(w_current) == n_ammo_max && self zm_utility::function_aa45670f(w_current, 0))
+	if(self getweaponammoclip(w_current) == self getweaponammoclipsize(w_current) && self getweaponammostock(w_current) == n_ammo_max && self zm_utility::function_aa45670f(w_current, 0))
 	{
 		return true;
 	}

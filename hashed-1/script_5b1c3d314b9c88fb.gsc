@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_38755604e51a604e;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_77dd41c80e39f62;
 #using scripts\mp_common\item_world.gsc;
 #using script_c60e21cd69c9db2;
@@ -104,7 +104,7 @@ function function_b4f41a02()
 {
 	/#
 		level endon(#"game_ended");
-		aitypes = array(#"spawner_boct_zombie_wz", #"hash_618248fca82d83a6", #"hash_50c4ae7eab84983b", #"hash_7905cf70902495a2", #"hash_2d45c1aaf7808b60", #"hash_70f16a3fe6713fa0", #"hash_78b8c004294d69fe");
+		aitypes = array(#"spawner_boct_zombie_wz", #"hash_618248fca82d83a6", #"hash_50c4ae7eab84983b", #"spawner_boct_zombie_dog_wz", #"hash_2d45c1aaf7808b60", #"spawner_boct_brutus_wz", #"hash_78b8c004294d69fe");
 		setdvar(#"hash_209287456d55fca1", "");
 		foreach(type in aitypes)
 		{

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial.gsc;
 #using script_6ef496a1b77e83a4;
-#using script_70d6524cefc5604f;
+#using scripts\zm\perk\zm_perk_mod_additionalprimaryweapon.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -195,7 +195,7 @@ function take_additional_primary_weapon_perk(b_pause, str_perk, str_result, n_sl
 				self clientfield::set_player_uimodel("hudItems.perks.additional_primary_weapon", 0);
 				return;
 			}
-			if(isdefined(self.var_dd1b11fe) && self.var_dd1b11fe && namespace_4cd9c601::function_23c3c9db(self.var_2a62e678))
+			if(isdefined(self.var_dd1b11fe) && self.var_dd1b11fe && zm_perk_mod_additionalprimaryweapon::function_23c3c9db(self.var_2a62e678))
 			{
 				self.var_11b895b8 = {#hash_80c3ca2:self.aat[self.var_2a62e678], #hash_2d5dec87:self zm_weapons::get_player_weapondata(self.var_2a62e678)};
 				self.var_dd1b11fe = undefined;

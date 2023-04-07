@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18f0d22c75b141a7;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_role.gsc;
 #using script_4c8dba49908aecc2;
 #using scripts\abilities\ability_util.gsc;
-#using script_61826ca279ffa0;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\gametypes\ct_utils.gsc;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_7f988b980dd872d4;
 #using script_8ae208bbff9cf2f;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
@@ -99,7 +99,7 @@ function function_1dd43d36(spawn_weapon)
 	}
 	player setplayerrenderoptions(0);
 	var_e6b5e0d7 = getdvar(#"hash_3fb2952874e511c2");
-	hands_weapon = namespace_73e1c3e3::function_84adcd1f();
+	hands_weapon = ct_utils::function_84adcd1f();
 	var_d0d43f5a = getdvar(#"hash_4b0035c0038e0762");
 	if(isdefined(var_d0d43f5a))
 	{
@@ -121,8 +121,8 @@ function function_1dd43d36(spawn_weapon)
 		}
 		arrayremovevalue(attachments, #"");
 		primary_weapon = getweapon(var_d0d43f5a, attachments);
-		var_86ffcfef = getdvarint(#"hash_48162cd174e3034d", 0) || isdefined(spawn_weapon);
-		if(var_86ffcfef)
+		stashweapon = getdvarint(#"hash_48162cd174e3034d", 0) || isdefined(spawn_weapon);
+		if(stashweapon)
 		{
 			if(!isdefined(player.var_de9764de))
 			{
@@ -362,7 +362,7 @@ function function_f8f94589(gamedifficulty)
 	waitresult = undefined;
 	waitresult = level waittill(#"combattraining_logic_finished");
 	level flag::clear("combat_training_started");
-	e_player = namespace_73e1c3e3::get_player();
+	e_player = ct_utils::get_player();
 	if(isdefined(e_player) && isdefined(e_player.var_560765bb))
 	{
 		e_player on_end_game(undefined);
@@ -393,7 +393,7 @@ function function_1e84c767()
 	{
 		level thread [[level.var_4c2ecc6f]]();
 	}
-	namespace_73e1c3e3::function_1edf99df();
+	ct_utils::function_1edf99df();
 	function_9a022fbc("open");
 	player = getplayers()[0];
 	var_60786cb4 = 0;
@@ -538,9 +538,9 @@ function function_45a4f027()
 */
 function on_end_game(params)
 {
-	namespace_73e1c3e3::function_64f9f527();
-	namespace_73e1c3e3::function_c3a6c010();
-	e_player = namespace_73e1c3e3::get_player();
+	ct_utils::function_64f9f527();
+	ct_utils::function_c3a6c010();
+	e_player = ct_utils::get_player();
 	if(isdefined(e_player))
 	{
 		e_player.var_560765bb = undefined;
@@ -560,7 +560,7 @@ function on_end_game(params)
 */
 function private function_a1fb023a(var_e5cf3cc9)
 {
-	e_player = namespace_73e1c3e3::get_player();
+	e_player = ct_utils::get_player();
 	if(isdefined(e_player))
 	{
 		var_1e77bf82 = ismature(e_player);
@@ -652,7 +652,7 @@ function function_588a84ce()
 function function_9a022fbc(str_state)
 {
 	player = getplayers()[0];
-	lui_menu = lui::function_e810a527("FullScreenBlack");
+	lui_menu = lui::get_luimenu("FullScreenBlack");
 	if(str_state == "open")
 	{
 		if(isdefined(lui_menu))

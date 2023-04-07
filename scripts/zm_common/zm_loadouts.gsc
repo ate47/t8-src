@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_399c912938783695;
 #using scripts\zm_common\zm_items.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -70,7 +70,7 @@ function on_player_connect()
 {
 	self.currentweaponstarttime = gettime();
 	self.currentweapon = level.weaponnone;
-	self.var_1d838ee9 = level.weaponnone;
+	self.previousweapon = level.weaponnone;
 	if(!isdefined(self.var_57c1d146))
 	{
 		self.var_57c1d146 = [];
@@ -108,7 +108,7 @@ event weapon_changed(eventstruct)
 	}
 	self.currentweaponstarttime = gettime();
 	self.currentweapon = eventstruct.weapon;
-	self.var_1d838ee9 = eventstruct.last_weapon;
+	self.previousweapon = eventstruct.last_weapon;
 }
 
 /*
@@ -559,7 +559,7 @@ function set_player_lethal_grenade(weapon)
 */
 function init_player_lethal_grenade()
 {
-	var_cd6fae8c = self function_2dfb9150("primarygrenade");
+	var_cd6fae8c = self get_loadout_item("primarygrenade");
 	s_weapon = getunlockableiteminfofromindex(var_cd6fae8c, 1);
 	w_weapon = level.zombie_lethal_grenade_player_init;
 	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21))
@@ -1076,7 +1076,7 @@ function has_hero_weapon()
 */
 function give_start_weapon(b_switch_weapon)
 {
-	var_9aeb4447 = self function_2dfb9150("primary");
+	var_9aeb4447 = self get_loadout_item("primary");
 	s_weapon = getunlockableiteminfofromindex(var_9aeb4447, 1);
 	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21) && zm_custom::function_bce642a1(s_weapon) && zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
 	{
@@ -1097,7 +1097,7 @@ function give_start_weapon(b_switch_weapon)
 }
 
 /*
-	Name: function_2dfb9150
+	Name: get_loadout_item
 	Namespace: zm_loadout
 	Checksum: 0x54691FC6
 	Offset: 0x1ED8
@@ -1105,7 +1105,7 @@ function give_start_weapon(b_switch_weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_2dfb9150(slot)
+function get_loadout_item(slot)
 {
 	if(!isdefined(self.class_num))
 	{

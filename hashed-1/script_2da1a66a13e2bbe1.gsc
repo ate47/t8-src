@@ -151,7 +151,7 @@ function guns()
 		var_dac0c546 = e_player getweaponslist();
 		e_player switchtoweaponimmediate(var_dac0c546[0], 1);
 		e_player disableweaponcycling();
-		e_player perks::function_7637bafa("specialty_ammodrainsfromstockfirst");
+		e_player perks::perk_setperk("specialty_ammodrainsfromstockfirst");
 		e_player thread function_9992bb68();
 		e_player thread function_ad15a8b3();
 	}
@@ -208,7 +208,7 @@ function guns()
 	{
 		e_player thread function_a9e83aa6();
 		e_player enableweaponcycling();
-		e_player perks::function_45d12554("specialty_ammodrainsfromstockfirst");
+		e_player perks::perk_unsetperk("specialty_ammodrainsfromstockfirst");
 	}
 	if(zm_white::function_b6f53cd2())
 	{

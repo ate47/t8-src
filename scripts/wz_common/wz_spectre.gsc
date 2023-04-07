@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using script_6b993fdc7adc35ec;
 #using scripts\core_common\callbacks_shared.gsc;

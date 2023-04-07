@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2440e8ed4d15391b;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c6ff91addfd14b7;
 #using script_545a0bac37bda541;
 #using script_751513c609504a42;

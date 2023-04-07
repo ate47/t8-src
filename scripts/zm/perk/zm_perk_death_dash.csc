@@ -52,7 +52,7 @@ function function_27473e44()
 {
 	zm_perks::register_perk_clientfields(#"specialty_death_dash", &function_37236662, &function_6705773b);
 	zm_perks::register_perk_init_thread(#"specialty_death_dash", &init);
-	zm_perks::function_b60f4a9f(#"specialty_death_dash", #"hash_2c7d417ffd8a2a0", "zombie/fx8_perk_altar_symbol_ambient_blaze_phase", #"hash_544b157a9fa6573d");
+	zm_perks::function_b60f4a9f(#"specialty_death_dash", #"p8_zm_vapor_altar_icon_01_blaze_phase", "zombie/fx8_perk_altar_symbol_ambient_blaze_phase", #"hash_544b157a9fa6573d");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_death_dash", "zombie_perk_totem_death_dash");
 }
 

@@ -164,8 +164,8 @@ function private function_16824dc3()
 	self endon(#"disconnect", #"allow_ads");
 	while(true)
 	{
-		var_f2a06582 = self getcurrentweapon();
-		if(isalive(self) && self adsbuttonpressed() && (var_f2a06582.dualwieldweapon === level.weaponnone || var_f2a06582.isriotshield))
+		w_curr = self getcurrentweapon();
+		if(isalive(self) && self adsbuttonpressed() && (w_curr.dualwieldweapon === level.weaponnone || w_curr.isriotshield))
 		{
 			self zm_trial_util::function_97444b02();
 			while(self adsbuttonpressed())

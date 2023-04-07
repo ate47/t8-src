@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2cd0a997aa904279;
+#using scripts\zm\zm_office_special_rounds.gsc;
 #using script_6a3f43063dfd1bdc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -322,7 +322,7 @@ function function_d8b688e7(var_5ea5c94d, ended_early)
 		wait(3);
 		namespace_509a75d1::function_e308175e(#"hash_e51948d3d12b229", level.mcnamara.origin);
 	}
-	level thread namespace_c71ecd1b::function_6b3512d();
+	level thread zm_office_special_rounds::function_6b3512d();
 }
 
 /*

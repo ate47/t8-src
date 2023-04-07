@@ -642,7 +642,7 @@ function private function_e1bfb2de()
 		if(zm_custom::function_901b751c(#"zmpowerupsactive") && zm_utility::is_player_valid(self) && !self zm_utility::is_drinking() && (!(isdefined(var_59130748) && var_59130748)) && !self zm_laststand::is_reviving_any())
 		{
 			w_weapon = self getcurrentweapon();
-			if(self getweaponammostock(w_weapon) < self function_f09c133d(w_weapon) && self getweaponammoclip(w_weapon) <= (int(self function_f09c133d(w_weapon) / 2)) && !isinarray(level.var_e8ccb5b4, w_weapon))
+			if(self getweaponammostock(w_weapon) < self getweaponammoclipsize(w_weapon) && self getweaponammoclip(w_weapon) <= (int(self getweaponammoclipsize(w_weapon) / 2)) && !isinarray(level.var_e8ccb5b4, w_weapon))
 			{
 				if(self function_3b81466e(1) == 1)
 				{

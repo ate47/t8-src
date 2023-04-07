@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm\powerup\zm_powerup_nuke.gsc;
-#using script_20d7669868834bae;
+#using scripts\core_common\ai\archetype_stoker.gsc;
 #using script_24c32478acf44108;
 #using script_2c5daa95f8fec03c;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;

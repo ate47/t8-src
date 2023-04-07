@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5f9141e04e4e94a2;
 #using script_6a3f43063dfd1bdc;
-#using script_70d6524cefc5604f;
+#using scripts\zm\perk\zm_perk_mod_additionalprimaryweapon.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -58,7 +58,7 @@ function init()
 	level.a_w_ray_guns[11] = getweapon("ray_gun_mk2z_upgraded");
 	level.var_65b6264d = array(level.a_w_ray_guns[0], level.a_w_ray_guns[1], level.a_w_ray_guns[2], level.a_w_ray_guns[3]);
 	level.var_584a3e61 = array(level.a_w_ray_guns[4], level.a_w_ray_guns[5], level.a_w_ray_guns[6], level.a_w_ray_guns[7], level.a_w_ray_guns[8], level.a_w_ray_guns[9], level.a_w_ray_guns[10], level.a_w_ray_guns[11]);
-	namespace_4cd9c601::function_69f490a(level.var_584a3e61);
+	zm_perk_mod_additionalprimaryweapon::function_69f490a(level.var_584a3e61);
 	level.var_ee565b3f = &function_8a4b7d4a;
 	level.var_bb2323e4 = &function_afbd7223;
 	level flag::init(#"hash_595f26b382ef7867");

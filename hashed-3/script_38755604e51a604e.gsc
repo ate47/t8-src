@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_5b1c3d314b9c88fb;
 #using script_77dd41c80e39f62;
@@ -46,11 +46,11 @@ function __init__()
 	level.var_76fc612e = 50;
 	level.var_e147d7b8 = (isdefined(getgametypesetting(#"hash_29ef96a3b8f635fd")) ? getgametypesetting(#"hash_29ef96a3b8f635fd") : 1);
 	level.var_cca518d = (isdefined(getgametypesetting(#"wzzombies")) ? getgametypesetting(#"wzzombies") : 1);
-	level.var_d33a57a = (isdefined(getgametypesetting(#"hash_58981ece00ffa6bc")) ? getgametypesetting(#"hash_58981ece00ffa6bc") : 0);
+	level.var_d33a57a = (isdefined(getgametypesetting(#"wzblightfather")) ? getgametypesetting(#"wzblightfather") : 0);
 	level.var_b6e30614 = (isdefined(getgametypesetting(#"hash_6c65796bd239e3c")) ? getgametypesetting(#"hash_6c65796bd239e3c") : 0);
-	level.var_6b59ac2c = (isdefined(getgametypesetting(#"hash_5414fca2f68467d")) ? getgametypesetting(#"hash_5414fca2f68467d") : 0);
+	level.var_6b59ac2c = (isdefined(getgametypesetting(#"wzbrutus")) ? getgametypesetting(#"wzbrutus") : 0);
 	level.var_4f7f5c18 = (isdefined(getgametypesetting(#"hash_2f1217d530d06c4c")) ? getgametypesetting(#"hash_2f1217d530d06c4c") : 0);
-	level.var_9196aafd = (isdefined(getgametypesetting(#"hash_3333e676caab3cff")) ? getgametypesetting(#"hash_3333e676caab3cff") : 0);
+	level.var_9196aafd = (isdefined(getgametypesetting(#"wzavogadro")) ? getgametypesetting(#"wzavogadro") : 0);
 	level.var_bbad516a = (isdefined(getgametypesetting(#"hash_1d45d6254eafda02")) ? getgametypesetting(#"hash_1d45d6254eafda02") : 0);
 	level.var_4774c9e9 = (isdefined(getgametypesetting(#"hash_7dd54269f48d6047")) ? getgametypesetting(#"hash_7dd54269f48d6047") : 0);
 	level.var_e7cfbb8e = (isdefined(getgametypesetting(#"hash_530fdf750e69c0d6")) ? getgametypesetting(#"hash_530fdf750e69c0d6") : 0);
@@ -518,7 +518,7 @@ function function_dc16557c()
 			{
 				if(isdefined(var_4dc5382f.item_drops))
 				{
-					foreach(archetype, var_38098f2a in var_4dc5382f.item_drops)
+					foreach(archetype, archetypeitems in var_4dc5382f.item_drops)
 					{
 						var_7a69806 = #"hash_5ca6052f03257d05";
 						if(archetype == #"blight_father")
@@ -1262,13 +1262,13 @@ function function_71d1b294()
 				foreach(var_4dc5382f in level.var_5b357434)
 				{
 					drawpos = var_4dc5382f.minimap.origin;
-					var_48768c0a = (1, 0, 0);
+					zonecolor = (1, 0, 0);
 					if(!var_4dc5382f.is_disabled && (isdefined(level.var_e147d7b8) && level.var_e147d7b8))
 					{
-						var_48768c0a = (1, 1, 0);
+						zonecolor = (1, 1, 0);
 						if(var_4dc5382f.is_occupied)
 						{
-							var_48768c0a = (0, 1, 0);
+							zonecolor = (0, 1, 0);
 						}
 						foreach(spawn_point in var_4dc5382f.spawn_points)
 						{
@@ -1287,16 +1287,16 @@ function function_71d1b294()
 						}
 						if(var_4dc5382f.is_active)
 						{
-							print3d(drawpos + vectorscale((0, 0, 1), 25), (("" + var_4dc5382f.var_7aa3cde7) + "") + var_4dc5382f.var_aeae9f59, var_48768c0a);
-							print3d(drawpos + vectorscale((0, 0, 1), 10), (("" + var_4dc5382f.var_84b8298c) + "") + var_4dc5382f.var_10f73408, var_48768c0a);
+							print3d(drawpos + vectorscale((0, 0, 1), 25), (("" + var_4dc5382f.var_7aa3cde7) + "") + var_4dc5382f.var_aeae9f59, zonecolor);
+							print3d(drawpos + vectorscale((0, 0, 1), 10), (("" + var_4dc5382f.var_84b8298c) + "") + var_4dc5382f.var_10f73408, zonecolor);
 						}
 					}
-					print3d(drawpos + vectorscale((0, 0, 1), 40), "" + var_4dc5382f.zone_name, var_48768c0a);
+					print3d(drawpos + vectorscale((0, 0, 1), 40), "" + var_4dc5382f.zone_name, zonecolor);
 					for(i = 0; i < var_4dc5382f.var_cd0f88ec.size; i++)
 					{
-						print3d(drawpos + (0, 0, 55 + (15 * i)), "" + var_4dc5382f.var_cd0f88ec[i], var_48768c0a);
+						print3d(drawpos + (0, 0, 55 + (15 * i)), "" + var_4dc5382f.var_cd0f88ec[i], zonecolor);
 					}
-					circle(drawpos, 40, var_48768c0a, 0, 1);
+					circle(drawpos, 40, zonecolor, 0, 1);
 				}
 				var_f71adb48 = struct::get_array("", "");
 				for(i = 0; i < var_f71adb48.size; i++)
@@ -1435,7 +1435,7 @@ function function_a2ac506b(zone_name, spawner_type, var_800d413a)
 	{
 		return;
 	}
-	if(!level.var_b6e30614 && var_800d413a == #"hash_7905cf70902495a2")
+	if(!level.var_b6e30614 && var_800d413a == #"spawner_boct_zombie_dog_wz")
 	{
 		return;
 	}
@@ -1584,7 +1584,7 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	{
 		return;
 	}
-	if(!level.var_b6e30614 && spawner_type == #"hash_7905cf70902495a2")
+	if(!level.var_b6e30614 && spawner_type == #"spawner_boct_zombie_dog_wz")
 	{
 		return;
 	}
@@ -2427,11 +2427,11 @@ function function_41101f23(zone, var_d42412dc)
 	{
 		zone.var_da0adf34++;
 	}
-	if(zone.var_cafac64a == #"hash_70f16a3fe6713fa0")
+	if(zone.var_cafac64a == #"spawner_boct_brutus_wz")
 	{
 		zone.var_6cd24451++;
 	}
-	if(zone.var_cafac64a == #"hash_7905cf70902495a2")
+	if(zone.var_cafac64a == #"spawner_boct_zombie_dog_wz")
 	{
 		zone.var_e16382e4++;
 	}

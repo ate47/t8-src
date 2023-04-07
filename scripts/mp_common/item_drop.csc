@@ -102,7 +102,7 @@ function private function_b8f6e02f()
 */
 function private function_67189b6b(localclientnum, newval)
 {
-	var_be90d3da = (newval & 4) != 0;
+	stashitem = (newval & 4) != 0;
 	newval = newval & -5;
 	if(newval == 0)
 	{
@@ -128,7 +128,7 @@ function private function_67189b6b(localclientnum, newval)
 			}
 			self.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(self);
 			self.var_8e092725 = 0;
-			if(var_be90d3da)
+			if(stashitem)
 			{
 				self.var_8e092725 = -1;
 			}
@@ -150,7 +150,7 @@ function private function_67189b6b(localclientnum, newval)
 				player.var_506495f9 = 1;
 			}
 			item_inventory::function_b1136fc8(localclientnum, self);
-			player item_world::show_item(localclientnum, self.var_bd027dd9, !var_be90d3da);
+			player item_world::show_item(localclientnum, self.var_bd027dd9, !stashitem);
 		}
 		else if(newval == 2)
 		{

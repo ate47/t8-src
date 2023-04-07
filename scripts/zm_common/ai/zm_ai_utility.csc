@@ -15,7 +15,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_3997833cc3034f0", &__init__, undefined, undefined);
+	system::register(#"zm_ai_utility", &__init__, undefined, undefined);
 }
 
 /*

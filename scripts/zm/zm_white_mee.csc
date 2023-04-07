@@ -23,7 +23,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_504b7a4d96264f45", &init, &main, undefined);
+	system::register(#"zm_white_ee", &init, &main, undefined);
 }
 
 /*

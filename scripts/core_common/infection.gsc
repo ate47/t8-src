@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f27a7b2232674db;
-#using script_75be2950b381443;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\core_common\platoons.gsc;
 #using scripts\core_common\spectating.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\teams.gsc;
@@ -49,7 +49,7 @@ function __init__()
 */
 function initialize()
 {
-	level.infection = {#hash_c0879807:[], #hash_c4b373ef:[], #platoon:#"invalid", #team:#"none", #hash_e088b6aa:undefined, #primary_weapon:undefined, #bodies:[], #perks:[]};
+	level.infection = {#hash_c0879807:[], #hash_c4b373ef:[], #platoon:#"invalid", #team:#"none", #offhand_weapon:undefined, #primary_weapon:undefined, #bodies:[], #perks:[]};
 }
 
 /*

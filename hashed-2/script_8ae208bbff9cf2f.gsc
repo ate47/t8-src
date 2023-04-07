@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_490759cf62a1abc8;
 #using scripts\mp_common\gametypes\ct_vo.gsc;
-#using script_61826ca279ffa0;
+#using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
@@ -22,7 +22,7 @@
 function function_6889bb61(var_74d544ba)
 {
 	self endon(#"death");
-	self thread namespace_73e1c3e3::function_f03da80a();
+	self thread ct_utils::function_f03da80a();
 	if(!level flag::exists("desc_fillup_gadgets"))
 	{
 		level flag::init("desc_fillup_gadgets");
@@ -60,7 +60,7 @@ function function_6889bb61(var_74d544ba)
 	wait(1);
 	level flag::set("desc_countdown_start");
 	wait(3);
-	namespace_73e1c3e3::function_9aca2fa0("ct_spawn");
+	ct_utils::function_9aca2fa0("ct_spawn");
 	level notify(#"hash_44623efd9f4d41a4");
 	if(self.sessionstate == "playing")
 	{
@@ -74,7 +74,7 @@ function function_6889bb61(var_74d544ba)
 	if(isdefined(level.var_c3af52cc))
 	{
 		self [[level.var_c3af52cc]]();
-		self thread namespace_73e1c3e3::function_d3fd7ef7();
+		self thread ct_utils::function_d3fd7ef7();
 	}
 	level flag::set("desc_fillup_gadgets");
 }
@@ -120,7 +120,7 @@ function function_c7106205()
 */
 function function_4b4ca178()
 {
-	e_player = namespace_73e1c3e3::get_player();
+	e_player = ct_utils::get_player();
 	wait(0.5);
 	e_player playsound("uin_timer_1");
 	wait(1.5);

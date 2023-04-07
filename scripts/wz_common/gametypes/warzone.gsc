@@ -4,13 +4,13 @@
 #using script_16cb0a6a492a6a4f;
 #using scripts\wz_common\wz_rat.gsc;
 #using scripts\mp_common\teams\platoons.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\wz_common\wz_contracts.gsc;
 #using script_29ed825598140ca0;
 #using script_2c49ae69cd8ce30c;
 #using script_38755604e51a604e;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\infection.gsc;
 #using script_55e622b35104ba68;
 #using scripts\wz_common\wz_ai.gsc;
@@ -21,8 +21,8 @@
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\wz_common\character_banter.gsc;
 #using script_7452a079afe69150;
-#using script_75be2950b381443;
-#using script_788472602edbe3b9;
+#using scripts\core_common\platoons.gsc;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_9279a21b1e8b6c9;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -179,7 +179,7 @@ event main(eventstruct)
 		}
 		else
 		{
-			if(isdefined(getgametypesetting(#"hash_4ff7ee3c3a534065")) && getgametypesetting(#"hash_4ff7ee3c3a534065"))
+			if(isdefined(getgametypesetting(#"wzzombieapocalypse")) && getgametypesetting(#"wzzombieapocalypse"))
 			{
 				key = "warZombieStart";
 			}

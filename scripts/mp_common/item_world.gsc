@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2bb5600d583e2812;
+#using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using script_39bd5b6b799b1c9c;
 #using script_3a6e1cc57d28db61;
 #using scripts\mp_common\item_drop.gsc;
@@ -491,8 +491,8 @@ function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, ite
 	#/
 	if(item_inventory::function_57eac2ca() == 2)
 	{
-		var_be90d3da = item.var_8e092725 === -1;
-		var_be90d3da = var_be90d3da & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
+		stashitem = item.var_8e092725 === -1;
+		stashitem = stashitem & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
 		weaponitem = item_inventory::function_230ceec4(player.currentweapon);
 		if(!isdefined(weaponitem))
 		{
@@ -500,7 +500,7 @@ function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, ite
 		}
 		else
 		{
-			player thread item_inventory::function_418f9eb8(weaponitem.var_bd027dd9, var_be90d3da, item.origin, (isdefined(item.var_67169c0b) ? item.var_67169c0b : item.targetname));
+			player thread item_inventory::function_418f9eb8(weaponitem.var_bd027dd9, stashitem, item.origin, (isdefined(item.var_67169c0b) ? item.var_67169c0b : item.targetname));
 		}
 	}
 	var_77e61fc6 = player item_inventory::function_e274f1fe(item, itemcount, var_aec6fa7f, slotid);
@@ -558,7 +558,7 @@ function private function_e1965ae1()
 	{
 		if(isdefined(homunculus))
 		{
-			homunculus namespace_8bf2881e::function_7bfc867f();
+			homunculus gadget_homunculus::function_7bfc867f();
 		}
 	}
 	function_8da29c95();
@@ -1617,9 +1617,9 @@ function function_a54d07e6(item, activator)
 			{
 				var_bad52796 = function_91b29d2a(targetname);
 				var_bad52796 = arraysortclosest(var_bad52796, stashes[0].origin, var_bad52796.size, 0, 12);
-				foreach(var_be90d3da in var_bad52796)
+				foreach(stashitem in var_bad52796)
 				{
-					if(isdefined(var_be90d3da.var_a6762160) && var_be90d3da.var_8e092725 === -1)
+					if(isdefined(stashitem.var_a6762160) && stashitem.var_8e092725 === -1)
 					{
 						return;
 					}
@@ -1785,12 +1785,12 @@ function private function_7c84312d(origin, angles)
 	{
 		self.var_f0f7e918 = [];
 		var_4f583f35 = self item_inventory::has_backpack();
-		var_be90d3da = var_9b882d22.var_8e092725 === -1;
-		var_52bfa6e5 = !var_be90d3da && item_inventory::function_550fcb41(var_9b882d22);
+		stashitem = var_9b882d22.var_8e092725 === -1;
+		var_52bfa6e5 = !stashitem && item_inventory::function_550fcb41(var_9b882d22);
 		var_f4b42fba = self item_inventory::has_armor() && var_9b882d22.var_a6762160.itemtype == #"armor";
 		isammo = var_9b882d22.var_a6762160.itemtype == #"ammo";
 		var_de41d336 = !var_4f583f35 && var_9b882d22.var_a6762160.itemtype == #"backpack";
-		if(var_be90d3da || (!isammo && !var_de41d336 && !var_52bfa6e5 && !var_f4b42fba))
+		if(stashitem || (!isammo && !var_de41d336 && !var_52bfa6e5 && !var_f4b42fba))
 		{
 			var_433d429 = 14;
 			self.var_f0f7e918 = function_2e3efdda(var_9b882d22.origin, undefined, 128, var_433d429);
@@ -1798,7 +1798,7 @@ function private function_7c84312d(origin, angles)
 		}
 		if(self.var_f0f7e918.size == 1)
 		{
-			var_be90d3da = self.var_f0f7e918[0].var_8e092725 === -1;
+			stashitem = self.var_f0f7e918[0].var_8e092725 === -1;
 		}
 		var_b46724f6 = 0;
 		if(isdefined(self.var_d5673d87) && (isdefined(var_9b882d22.targetname) || isdefined(var_9b882d22.var_67169c0b)))
@@ -1810,7 +1810,7 @@ function private function_7c84312d(origin, angles)
 				var_b46724f6 = var_45602f41 != var_d2daaa1a;
 			}
 		}
-		if(var_be90d3da)
+		if(stashitem)
 		{
 			usetrigger setcursorhint("HINT_NOICON");
 			usetrigger sethintstring(#"");
@@ -2355,9 +2355,9 @@ function pickup_item(item, var_22be503 = 1, var_26a492bc = 0)
 		}
 		if(var_77e61fc6 < var_8cd447d8 && !isentity(item) && item.var_a6762160.itemtype != #"ammo")
 		{
-			var_be90d3da = item.var_8e092725 === -1;
-			var_be90d3da = var_be90d3da & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
-			dropitem = self item_drop::drop_item(item.var_a6762160.weapon, var_77e61fc6, item.amount, item.id, item.origin, item.angles, var_be90d3da, undefined, (isdefined(item.var_67169c0b) ? item.var_67169c0b : item.targetname), undefined, undefined, 0);
+			stashitem = item.var_8e092725 === -1;
+			stashitem = stashitem & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
+			dropitem = self item_drop::drop_item(item.var_a6762160.weapon, var_77e61fc6, item.amount, item.id, item.origin, item.angles, stashitem, undefined, (isdefined(item.var_67169c0b) ? item.var_67169c0b : item.targetname), undefined, undefined, 0);
 			if(isdefined(dropitem))
 			{
 				dropitem.origin = item.origin;
@@ -2452,9 +2452,9 @@ function function_83ddce0f(item, inventoryslot)
 	var_a1ca235e = undefined;
 	var_3d1f9df4 = 0;
 	var_8acbe1d0 = self item_inventory::function_550fcb41(item) || item.var_a6762160.itemtype == #"hash_56d6621e6c4caf07" || item.var_a6762160.itemtype == #"resource" || item.var_a6762160.itemtype == #"ammo" || (item.var_a6762160.itemtype == #"backpack" && !self item_inventory::has_backpack());
-	var_be90d3da = item.var_8e092725 === -1;
+	stashitem = item.var_8e092725 === -1;
 	var_a692c6d6 = (isdefined(item.var_4961f577) ? item.var_4961f577 : 0);
-	var_be90d3da = var_be90d3da & (~var_a692c6d6);
+	stashitem = stashitem & (~var_a692c6d6);
 	dropitem = undefined;
 	if(!var_8acbe1d0 && self item_inventory::function_f62713c3(inventoryslot))
 	{

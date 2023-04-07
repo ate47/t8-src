@@ -1460,7 +1460,7 @@ function function_19d61a68()
 */
 function function_da13db45(n_cooldown, e_player)
 {
-	if(isdefined(e_player) && e_player hasperk(#"hash_37aa3a5919757781"))
+	if(isdefined(e_player) && e_player hasperk(#"specialty_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.5;
 	}

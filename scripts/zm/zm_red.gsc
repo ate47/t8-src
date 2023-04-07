@@ -3,10 +3,10 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_18e21a7011416ce0;
 #using script_1b10fdf0addd52e;
-#using script_1f72bd98180652bc;
+#using scripts\zm\zm_red_special_rounds.gsc;
 #using scripts\zm\zm_red_achievement.gsc;
 #using script_2978eda7f776f14f;
-#using script_2d182a640a1c6775;
+#using scripts\zm\zm_red_power_quest.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\zm\weapons\zm_weap_bowie.gsc;
 #using script_3aa54d3cb36ea43f;
@@ -23,7 +23,7 @@
 #using scripts\zm\zm_red_trials.gsc;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_5e9ddbc9cce01593;
+#using scripts\zm\zm_red_trap_boiling_bath.gsc;
 #using scripts\zm\zm_red_ww_quests.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm\zm_red_main_quest.gsc;
@@ -168,11 +168,11 @@ event main(eventstruct)
 	level thread sndfunctions();
 	zm_red_achievement::init();
 	zm_red_fasttravel::init();
-	namespace_140c66e4::init();
+	zm_red_trap_boiling_bath::init();
 	namespace_f2050961::init();
 	zm_red_ww_quests::init();
 	zm_red_pap_quest::init();
-	namespace_8b80898c::init();
+	zm_red_power_quest::init();
 	zm_red_main_quest::init();
 	zm_red_challenges::init();
 	zm_red_util::init();
@@ -196,7 +196,7 @@ event main(eventstruct)
 	level.zone_manager_init_func = &zm_red_zones::zone_init;
 	level thread zm_zonemgr::manage_zones("zone_temple_of_apollo");
 	level thread zm_red_zones::init();
-	level thread namespace_d129df5c::init();
+	level thread zm_red_special_rounds::init();
 	level thread zm_red_main_quest::main();
 	zm_red_fasttravel::main();
 	level thread function_3f6e4b5f();
@@ -330,7 +330,7 @@ function private function_28073e18(b_game_ended)
 	}
 	if(isdefined(level.var_ac6d10d4) && level.var_ac6d10d4)
 	{
-		level thread namespace_8b80898c::function_a5b8e88f(1);
+		level thread zm_red_power_quest::function_a5b8e88f(1);
 	}
 	if(isdefined(level.var_8aa0830e) && level.var_8aa0830e)
 	{
@@ -1040,7 +1040,7 @@ function function_a4e2970b(var_4e4cc9a9 = 1, s_damage)
 			ai_zombie.var_12745932 = 1;
 			ai_zombie.var_ae4569d5 = 1;
 			ai_zombie.var_e259ad71 = self.var_e259ad71;
-			ai_zombie thread namespace_8b80898c::function_2a80a9cc();
+			ai_zombie thread zm_red_power_quest::function_2a80a9cc();
 		}
 		if(isdefined(self.str_scene))
 		{
@@ -1175,7 +1175,7 @@ function function_fb3ab798(var_4e4cc9a9 = 1)
 	{
 		if(level flag::get(#"hash_dc34ebe02d09532"))
 		{
-			level thread namespace_8b80898c::function_b8848794(self.var_e259ad71, 0);
+			level thread zm_red_power_quest::function_b8848794(self.var_e259ad71, 0);
 		}
 		if(var_4e4cc9a9)
 		{
@@ -2646,7 +2646,7 @@ function function_76dc48b8(cmd)
 			}
 			case "hash_5e2fc595f8d3d7bd":
 			{
-				level thread namespace_8b80898c::devgui_complete();
+				level thread zm_red_power_quest::devgui_complete();
 				return true;
 				break;
 			}
@@ -3132,7 +3132,7 @@ function function_125c9449()
 		level flag::set(#"hash_67695ee69c57c0b2");
 		level flag::set(#"hash_61de3b8fe6f6a35");
 		level flag::set(#"hash_7943879f3be8ccc6");
-		level thread namespace_8b80898c::devgui_complete();
+		level thread zm_red_power_quest::devgui_complete();
 		level thread scene::play(#"hash_6c19cacedbc244f", "");
 		level thread scene::play(#"hash_437ea4a503c2e1c7", "");
 		level thread scene::play(#"hash_c877e10a252f5a8", "");

@@ -3099,7 +3099,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"hash_6f8668b64fa3cfaf", #"hash_3867b4fd5932968a");
 		sndannouncervoxadd(#"hash_5b141f82a55645a9", #"hash_70503fc906187e02");
 		sndannouncervoxadd(#"specialty_phdflopper", #"hash_7b66342b9cdb1b0d");
-		sndannouncervoxadd(#"hash_37aa3a5919757781", #"hash_4b9e2835c9165954");
+		sndannouncervoxadd(#"specialty_cooldown", #"hash_4b9e2835c9165954");
 		sndannouncervoxadd(#"specialty_shield", #"hash_21a6409eae2b8aa9");
 		sndannouncervoxadd(#"specialty_awareness", #"hash_4fb2d077e5dcb19c");
 		sndannouncervoxadd(#"specialty_extraammo", #"hash_52fd3e1c86fae905");

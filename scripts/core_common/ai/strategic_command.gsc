@@ -361,21 +361,21 @@ function private function_7c3d768e(var_1b2a0645, var_d695a79f, commander)
 		var_e348a3f4 = 27;
 		textcolor = (1, 1, 1);
 		textalpha = 1;
-		var_48a7a4bd = (0, 0, 0);
+		backgroundcolor = (0, 0, 0);
 		backgroundalpha = 0.8;
 		textsize = 1.25;
 		team = blackboard::getstructblackboardattribute(commander, #"team");
 		paused = isdefined(commander.pause) && commander.pause;
 		squadcount = commander.squads.size;
-		debug2dtext((var_1b2a0645, var_d695a79f, 0), ("" + function_9e72a96(team)) + "", textcolor, textalpha, var_48a7a4bd, backgroundalpha, textsize);
+		debug2dtext((var_1b2a0645, var_d695a79f, 0), ("" + function_9e72a96(team)) + "", textcolor, textalpha, backgroundcolor, backgroundalpha, textsize);
 		var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 		var_d695a79f = var_d695a79f + var_e348a3f4;
 		var_1b2a0645 = var_1b2a0645 + 25;
-		debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + squadcount, (squadcount == 0 ? (0, 1, 0) : (1, 0.5, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+		debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + squadcount, (squadcount == 0 ? (0, 1, 0) : (1, 0.5, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 		var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 		var_d695a79f = var_d695a79f + var_e348a3f4;
 		loc_000011DE:
-		debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (paused ? "" : ""), (paused ? (0, 1, 0) : (1, 0.5, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+		debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (paused ? "" : ""), (paused ? (0, 1, 0) : (1, 0.5, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 		var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 		var_d695a79f = var_d695a79f + var_e348a3f4;
 	#/
@@ -398,7 +398,7 @@ function private function_df74a8f3(var_1b2a0645, var_d695a79f, members, commande
 		var_e348a3f4 = 27;
 		textcolor = (1, 1, 1);
 		textalpha = 1;
-		var_48a7a4bd = (0, 0, 0);
+		backgroundcolor = (0, 0, 0);
 		backgroundalpha = 0.8;
 		textsize = 1.25;
 		var_4fe31551 = 350;
@@ -406,37 +406,37 @@ function private function_df74a8f3(var_1b2a0645, var_d695a79f, members, commande
 		foreach(member in members)
 		{
 			yoffset = var_d695a79f;
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), (((("" + member getentitynumber()) + "") + member.name) + "") + function_9e72a96(member.team) + "", textcolor, textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), (((("" + member getentitynumber()) + "") + member.name) + "") + function_9e72a96(member.team) + "", textcolor, textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
 			var_1b2a0645 = var_1b2a0645 + var_96e1d277;
 			var_78caba27 = function_65b80a10(commander, member);
 			loc_000014A2:
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member isplayinganimscripted() ? "" : ""), (member isplayinganimscripted() ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member isplayinganimscripted() ? "" : ""), (member isplayinganimscripted() ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + var_78caba27, function_41c81572(var_78caba27), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + var_78caba27, function_41c81572(var_78caba27), textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
 			var_52cace54 = function_741d9796(member, undefined, commander, var_78caba27);
 			if(isdefined(var_52cace54))
 			{
 				var_1b2a0645 = var_1b2a0645 + var_96e1d277;
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), var_52cace54, function_41c81572(var_78caba27), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), var_52cace54, function_41c81572(var_78caba27), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				var_1b2a0645 = var_1b2a0645 - var_96e1d277;
 			}
 			loc_00001652:
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.ignoreme ? "" : ""), (member.ignoreme ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.ignoreme ? "" : ""), (member.ignoreme ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
 			loc_000016EA:
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.ignoreall ? "" : ""), (member.ignoreall ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.ignoreall ? "" : ""), (member.ignoreall ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
 			loc_00001782:
-			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.takedamage ? "" : ""), (member.takedamage ? (0, 1, 0) : (1, 0.5, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+			debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (member.takedamage ? "" : ""), (member.takedamage ? (0, 1, 0) : (1, 0.5, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 			var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 			var_d695a79f = var_d695a79f + var_e348a3f4;
 			var_cf1c1552 = var_d695a79f;
@@ -446,37 +446,37 @@ function private function_df74a8f3(var_1b2a0645, var_d695a79f, members, commande
 				var_538f88eb = vehicle getoccupantseat(member);
 				var_d695a79f = yoffset;
 				var_1b2a0645 = var_1b2a0645 + var_4fe31551;
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), (((("" + vehicle getentitynumber()) + "") + vehicle.scriptvehicletype) + "") + function_9e72a96(vehicle.team) + "", textcolor, textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), (((("" + vehicle getentitynumber()) + "") + vehicle.scriptvehicletype) + "") + function_9e72a96(vehicle.team) + "", textcolor, textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				var_1b2a0645 = var_1b2a0645 + var_96e1d277;
 				var_78caba27 = function_65b80a10(commander, member, vehicle);
 				loc_00001962:
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle isplayinganimscripted() ? "" : ""), (vehicle isplayinganimscripted() ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle isplayinganimscripted() ? "" : ""), (vehicle isplayinganimscripted() ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + var_78caba27, function_41c81572(var_78caba27), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + var_78caba27, function_41c81572(var_78caba27), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				var_52cace54 = function_741d9796(member, vehicle, commander, var_78caba27);
 				if(isdefined(var_52cace54))
 				{
 					var_1b2a0645 = var_1b2a0645 + var_96e1d277;
-					debug2dtext((var_1b2a0645, var_d695a79f, 0), var_52cace54, function_41c81572(var_78caba27), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+					debug2dtext((var_1b2a0645, var_d695a79f, 0), var_52cace54, function_41c81572(var_78caba27), textalpha, backgroundcolor, backgroundalpha, textsize);
 					var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 					var_d695a79f = var_d695a79f + var_e348a3f4;
 					var_1b2a0645 = var_1b2a0645 - var_96e1d277;
 				}
 				loc_00001B1A:
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.ignoreme ? "" : ""), (vehicle.ignoreme ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.ignoreme ? "" : ""), (vehicle.ignoreme ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				loc_00001BB2:
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.ignoreall ? "" : ""), (vehicle.ignoreall ? (1, 0.5, 0) : (0, 1, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.ignoreall ? "" : ""), (vehicle.ignoreall ? (1, 0.5, 0) : (0, 1, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				loc_00001C4A:
-				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.takedamage ? "" : ""), (vehicle.takedamage ? (0, 1, 0) : (1, 0.5, 0)), textalpha, var_48a7a4bd, backgroundalpha, textsize);
+				debug2dtext((var_1b2a0645, var_d695a79f, 0), "" + (vehicle.takedamage ? "" : ""), (vehicle.takedamage ? (0, 1, 0) : (1, 0.5, 0)), textalpha, backgroundcolor, backgroundalpha, textsize);
 				var_1b2a0645 = var_1b2a0645 + var_6e868cb7;
 				var_d695a79f = var_d695a79f + var_e348a3f4;
 				var_d695a79f = var_cf1c1552;
@@ -524,26 +524,26 @@ function private function_75df771f()
 				var_6854a979 = 0;
 				if(var_f3ac248f != 3)
 				{
-					var_6854a979 = function_7c3d768e(var_1b2a0645, var_d695a79f, level.var_6e68e2a4);
+					var_6854a979 = function_7c3d768e(var_1b2a0645, var_d695a79f, level.alliescommander);
 					var_1b2a0645 = var_1b2a0645 + var_2f7868e6;
 				}
 				if(var_f3ac248f != 2)
 				{
-					var_6854a979 = function_7c3d768e(var_1b2a0645, var_d695a79f, level.var_c2ba4b3d);
+					var_6854a979 = function_7c3d768e(var_1b2a0645, var_d695a79f, level.axiscommander);
 				}
 				var_1b2a0645 = xoffset;
 				var_d695a79f = var_6854a979 + var_608ee9cd;
 				if(var_f3ac248f != 3)
 				{
 					allies = function_45857dbe(util::function_517954bb(#"allies"));
-					function_df74a8f3(var_1b2a0645, var_d695a79f, allies, level.var_6e68e2a4);
+					function_df74a8f3(var_1b2a0645, var_d695a79f, allies, level.alliescommander);
 					var_1b2a0645 = var_1b2a0645 + var_2f7868e6;
 					var_d695a79f = var_6854a979 + var_608ee9cd;
 				}
 				if(var_f3ac248f != 2)
 				{
 					axis = function_45857dbe(util::function_517954bb(#"axis"));
-					function_df74a8f3(var_1b2a0645, var_d695a79f, axis, level.var_c2ba4b3d);
+					function_df74a8f3(var_1b2a0645, var_d695a79f, axis, level.axiscommander);
 				}
 			}
 			else if(var_f7059c)
@@ -663,36 +663,36 @@ function private function_31badd5d(var_5fbc7570, index)
 			var_f3fe7e2c = ("" + (isdefined(var_5fbc7570.var_4702e184) ? var_5fbc7570.var_4702e184 : "")) + "";
 			var_2aac6b87 = ("" + (isdefined(var_5fbc7570.var_eba32ac6) ? var_5fbc7570.var_eba32ac6 : "")) + "";
 			var_7c52e53d = "";
-			var_651415fc = (1, 1, 1);
+			statuscolor = (1, 1, 1);
 			tacpointtext = "";
 			var_31aedcbf = undefined;
 			component = var_5fbc7570.var_36f0c06d;
 			if(isdefined(component) && var_5fbc7570 flag::get(""))
 			{
 				var_7c52e53d = "";
-				var_651415fc = (0, 1, 0);
+				statuscolor = (0, 1, 0);
 				gameobject = component.var_abc3ef9;
 				var_41dd65b0 = undefined;
 				if(isdefined(gameobject))
 				{
 					var_41dd65b0 = gameobject.mdl_gameobject.trigger;
 					function_3ed19fa3(gameobject.mdl_gameobject);
-					recordline(origin, gameobject.mdl_gameobject.origin, var_651415fc, "");
+					recordline(origin, gameobject.mdl_gameobject.origin, statuscolor, "");
 				}
 				else
 				{
 					if(isdefined(component.var_2956bff4))
 					{
 						var_41dd65b0 = component.var_2956bff4;
-						function_20610c3(component.var_2956bff4, var_651415fc, "");
-						recordline(origin, component.var_2956bff4.origin, var_651415fc, "");
-						record3dtext("", component.var_2956bff4.origin + (vectorscale((0, 0, -1), 5)), var_651415fc, "");
+						function_20610c3(component.var_2956bff4, statuscolor, "");
+						recordline(origin, component.var_2956bff4.origin, statuscolor, "");
+						record3dtext("", component.var_2956bff4.origin + (vectorscale((0, 0, -1), 5)), statuscolor, "");
 					}
 					if(isdefined(component.var_6bc907c4))
 					{
-						function_20610c3(component.var_6bc907c4, var_651415fc, "");
-						recordline(origin, component.var_6bc907c4.origin, var_651415fc, "");
-						record3dtext("", component.var_6bc907c4.origin + vectorscale((0, 0, 1), 5), var_651415fc, "");
+						function_20610c3(component.var_6bc907c4, statuscolor, "");
+						recordline(origin, component.var_6bc907c4.origin, statuscolor, "");
+						record3dtext("", component.var_6bc907c4.origin + vectorscale((0, 0, 1), 5), statuscolor, "");
 					}
 				}
 				if(isdefined(var_41dd65b0))
@@ -712,11 +712,11 @@ function private function_31badd5d(var_5fbc7570, index)
 			else if(var_5fbc7570 flag::get(""))
 			{
 				var_7c52e53d = "";
-				var_651415fc = vectorscale((1, 1, 1), 0.1);
+				statuscolor = vectorscale((1, 1, 1), 0.1);
 			}
 			textcolor = (isdefined(var_31aedcbf) ? (1, 0, 0) : (1, 1, 1));
 			function_15462dcd(origin, textcolor, "", identifiertext, var_7c52e53d, origintext, var_4fea471b, var_fabc86d6, var_f3fe7e2c, var_2aac6b87, tacpointtext, var_31aedcbf);
-			recordsphere(origin, 20, var_651415fc);
+			recordsphere(origin, 20, statuscolor);
 		#/
 	#/
 }
@@ -791,7 +791,7 @@ function private function_3ed19fa3(gameobject, position)
 			}
 			var_f3fe7e2c = (("" + (isdefined(var_ea15be8) ? var_ea15be8 : "")) + "") + var_7ddeb599;
 			var_2aac6b87 = (("" + (isdefined(var_da71cc36) ? var_da71cc36 : "")) + "") + var_bd3388e8;
-			var_651415fc = (gameobject.type !== "" ? (1, 1, 1) : vectorscale((1, 1, 1), 0.1));
+			statuscolor = (gameobject.type !== "" ? (1, 1, 1) : vectorscale((1, 1, 1), 0.1));
 			if(isdefined(gameobject.trigger) && gameobject.trigger istriggerenabled())
 			{
 				points = tacticalquery(#"stratcom_tacquery_trigger", gameobject.trigger);
@@ -800,14 +800,14 @@ function private function_3ed19fa3(gameobject, position)
 				{
 					var_31aedcbf = "";
 				}
-				var_651415fc = (0, 1, 1);
-				function_20610c3(gameobject.trigger, var_651415fc, "");
-				recordline(origin, gameobject.trigger.origin, var_651415fc, "");
-				record3dtext("", gameobject.trigger.origin + vectorscale((0, 0, 1), 5), var_651415fc, "");
+				statuscolor = (0, 1, 1);
+				function_20610c3(gameobject.trigger, statuscolor, "");
+				recordline(origin, gameobject.trigger.origin, statuscolor, "");
+				record3dtext("", gameobject.trigger.origin + vectorscale((0, 0, 1), 5), statuscolor, "");
 			}
 			textcolor = (isdefined(var_31aedcbf) ? (1, 0, 0) : (1, 1, 1));
 			function_15462dcd(origin, textcolor, "", identifiertext, var_5f5e2bd5, var_8de0589e, origintext, var_7358fe8e, var_4fea471b, var_8dbcaed7, var_f3fe7e2c, var_2aac6b87, tacpointtext, var_d8e00365, var_31aedcbf);
-			recordsphere(origin, 17, var_651415fc, "");
+			recordsphere(origin, 17, statuscolor, "");
 		#/
 	#/
 }
@@ -833,12 +833,12 @@ function private function_adb62fbb(breadcrumb, index)
 			identifiertext = ("" + index) + "";
 			origintext = ((("" + int(origin[0])) + "") + int(origin[1]) + "") + int(origin[2]) + "";
 			var_4fea471b = ("" + breadcrumb.script_team) + "";
-			var_651415fc = (1, 1, 1);
+			statuscolor = (1, 1, 1);
 			tacpointtext = "";
 			var_31aedcbf = undefined;
 			if(isdefined(breadcrumb.trigger))
 			{
-				var_651415fc = (1, 1, 0);
+				statuscolor = (1, 1, 0);
 				function_20610c3(breadcrumb.trigger, (1, 1, 0), "");
 				recordline(origin, breadcrumb.trigger.origin, (1, 1, 0), "");
 				record3dtext("", breadcrumb.trigger.origin, (1, 1, 0), "");
@@ -849,7 +849,7 @@ function private function_adb62fbb(breadcrumb, index)
 					var_31aedcbf = "";
 				}
 			}
-			recordsphere(origin, 14, var_651415fc);
+			recordsphere(origin, 14, statuscolor);
 			textcolor = (isdefined(var_31aedcbf) ? (1, 0, 0) : (1, 1, 1));
 			function_15462dcd(origin, textcolor, "", identifiertext, origintext, var_4fea471b, tacpointtext, var_31aedcbf);
 		#/

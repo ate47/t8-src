@@ -1106,11 +1106,11 @@ function private function_cdd9b388()
 									}
 									var_c3ff57f0[var_c3ff57f0.size] = zombie_apoc_homunculus;
 								}
-								foreach(var_1176d784 in var_c3ff57f0)
+								foreach(d_homunculus in var_c3ff57f0)
 								{
-									if(function_8a8a409b(var_1176d784))
+									if(function_8a8a409b(d_homunculus))
 									{
-										sphere(var_1176d784.origin, 256, (0, 1, 0), 1, 0, 10, 20);
+										sphere(d_homunculus.origin, 256, (0, 1, 0), 1, 0, 10, 20);
 									}
 								}
 							}

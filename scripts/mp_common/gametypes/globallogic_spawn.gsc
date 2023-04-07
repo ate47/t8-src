@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\bots\mp_bot.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_29ed825598140ca0;
 #using script_2c49ae69cd8ce30c;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_6eb0d63d4a90adcf;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_monitor.gsc;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

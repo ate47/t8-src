@@ -272,13 +272,13 @@ function function_d8cebda3(var_a6762160)
 	Parameters: 2
 	Flags: Linked
 */
-function function_2879cbe0(mutators, var_95162a97)
+function function_2879cbe0(mutators, ammoweapon)
 {
 	/#
 		assert(isint(mutators));
 	#/
 	/#
-		assert(isweapon(var_95162a97));
+		assert(isweapon(ammoweapon));
 	#/
 	if(!isdefined(level.var_e2df03ad))
 	{
@@ -301,8 +301,8 @@ function function_2879cbe0(mutators, var_95162a97)
 			level.var_98c8f260[var_3160a910] = var_c2043143[index];
 		}
 	}
-	maxammo = var_95162a97.maxammo;
-	var_6f2df38a = level.var_98c8f260[var_95162a97.ammoindex];
+	maxammo = ammoweapon.maxammo;
+	var_6f2df38a = level.var_98c8f260[ammoweapon.ammoindex];
 	if(isdefined(var_6f2df38a) && mutators & var_6f2df38a)
 	{
 		maxammo = maxammo * 2;

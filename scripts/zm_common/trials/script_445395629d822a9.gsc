@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm\zm_orange_pap.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_d19b1fbf1d7cdd6;
+#using scripts\zm\zm_orange_lighthouse.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -92,7 +92,7 @@ function private on_end(round_reset)
 		player thread zm_trial_util::function_73ff0096();
 	}
 	level.var_7f31a12d = undefined;
-	level namespace_d09ff23c::function_d85bd834();
+	level zm_orange_lighthouse::function_d85bd834();
 }
 
 /*
@@ -158,7 +158,7 @@ function private setup_lighthouse()
 			level.var_ab11c23d.t_trap delete();
 		}
 	}
-	level thread namespace_d09ff23c::function_ad646ef8(0);
+	level thread zm_orange_lighthouse::function_ad646ef8(0);
 	level.var_ab11c23d thread function_dbad2f5a();
 }
 
@@ -186,15 +186,15 @@ function function_dbad2f5a()
 	vh_target.b_moving = 0;
 	vh_target val::set(#"hash_69024cc79ba5b8d3", "takedamage", 0);
 	self.vh_target = vh_target;
-	self namespace_d09ff23c::function_1b488412(vh_target.origin, 1);
+	self zm_orange_lighthouse::function_1b488412(vh_target.origin, 1);
 	self.vh_target.e_spotlight = util::spawn_model("tag_origin", self.vh_target.origin);
 	self.vh_target.e_spotlight enablelinkto();
 	self.vh_target.e_spotlight linkto(self.vh_target, "tag_origin", vectorscale((0, 0, 1), 390), vectorscale((1, 0, 0), 90));
 	self waittill(#"rotatedone");
 	level.var_ab11c23d clientfield::set("lighthouse_on", 3);
 	self.vh_target.e_spotlight clientfield::set("" + #"trials_lighthouse_beam", 2);
-	self.vh_target thread namespace_d09ff23c::function_18f63949();
-	self namespace_d09ff23c::function_2b2f2a7f();
+	self.vh_target thread zm_orange_lighthouse::function_18f63949();
+	self zm_orange_lighthouse::function_2b2f2a7f();
 	wait(1);
 	self.vh_target thread function_b502c51(self.var_da138ae4);
 }
@@ -239,7 +239,7 @@ function function_f223e16f(round_reset)
 	self.vh_target delete();
 	if(round_reset !== 1)
 	{
-		level thread namespace_d09ff23c::function_ad646ef8(1);
+		level thread zm_orange_lighthouse::function_ad646ef8(1);
 		switch(level.var_98138d6b)
 		{
 			case 2:

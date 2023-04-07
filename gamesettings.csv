@@ -10,9 +10,12 @@ zmweaponsknife,zm,boolean,allow to buy knife
 zmdifficulty,zm,int[0-3],difficulty 0 = easy; 1 = normal; 2 = hard; 3 = insane
 zmtrialsvariant,zm,int,variant of a trials; 0 = default; 1 = hard?
 wzzombies,wz,boolean,spawn zombies
+wzbrutus,wz,boolean,spawn brutus
+wzblightfather,wz,boolean,spawn blight father
+wzavogadro,wz,boolean,spawn avogadro
 wzspectrerising,wz,boolean,wz spectre rising operation
 wzhardcore,wz,boolean,wz hardcore
-hash_4ff7ee3c3a534065,wz,boolean,wz pandemic
+wzzombieapocalypse,wz,boolean,wz pandemic
 infectionmode,core,boolean,is infection mode
 hardcoremode,core,boolean,hardcore mode
 hash_50b1121aee76a7e4,wz,boolean,allow to unlock character
@@ -290,7 +293,6 @@ hash_5a147405a1dfd976,unknown,unknown,unknown
 hash_59fbb75e58a43cc6,unknown,unknown,unknown
 hash_59ab05f71c3789c7,unknown,unknown,unknown
 hash_58a3b9a2190fbbc6,unknown,unknown,unknown
-hash_58981ece00ffa6bc,unknown,unknown,unknown
 hash_580dd188be1df5b0,unknown,unknown,unknown
 hash_57743f417c14e3f9,unknown,unknown,unknown
 hash_56ab3c042b783de6,unknown,unknown,unknown
@@ -303,7 +305,6 @@ hash_54fe37a58b87c7a0,unknown,unknown,unknown
 hash_54dfa988db5db24c,unknown,unknown,unknown
 hash_54b31c3bfb70da4c,unknown,unknown,unknown
 hash_542ec48cf30b74c0,unknown,unknown,unknown
-hash_5414fca2f68467d,unknown,unknown,unknown
 hash_5408e974098bc234,unknown,unknown,unknown
 hash_53b5887dea69a320,unknown,unknown,unknown
 hash_53464d3535fadbe3,unknown,unknown,unknown
@@ -397,7 +398,6 @@ hash_33d1ac5e99fb0584,unknown,unknown,unknown
 hash_33c34a7d3c678e37,unknown,unknown,unknown
 hash_33bc6781006ae83d,unknown,unknown,unknown
 hash_33b7c0db94a8da,unknown,unknown,unknown
-hash_3333e676caab3cff,unknown,unknown,unknown
 hash_330eef3a75c26bb4,unknown,unknown,unknown
 hash_32da91b78e54e7b5,unknown,unknown,unknown
 hash_31a92a9f4a213a7c,unknown,unknown,unknown

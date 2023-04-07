@@ -2,8 +2,8 @@
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using script_2c49ae69cd8ce30c;
-#using script_3f27a7b2232674db;
-#using script_61826ca279ffa0;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -377,7 +377,7 @@ function function_26d45f32(var_4406a529 = 0, var_8c5f03d7 = 1, var_dd200d99 = 1)
 	{
 		weapons = self getweaponslistprimaries();
 	}
-	var_46ccfe18 = namespace_73e1c3e3::function_84adcd1f();
+	var_46ccfe18 = ct_utils::function_84adcd1f();
 	arrayremovevalue(weapons, var_46ccfe18);
 	if(var_8c5f03d7)
 	{
@@ -458,7 +458,7 @@ function function_fd2d220e(var_742b083e = undefined)
 			{
 				self giveweapon(weapon);
 			}
-			self takeweapon(namespace_73e1c3e3::function_84adcd1f());
+			self takeweapon(ct_utils::function_84adcd1f());
 			self.var_de9764de = undefined;
 		}
 	}
@@ -502,7 +502,7 @@ function function_e31c5d7a()
 	{
 		if(self.team == #"axis")
 		{
-			self thread namespace_73e1c3e3::function_8963dae3();
+			self thread ct_utils::function_8963dae3();
 		}
 	}
 	self thread function_7d86a450();
@@ -1316,7 +1316,7 @@ function function_f83f2862()
 	if(!(isdefined(self.var_9f73d035) && self.var_9f73d035))
 	{
 		e_player = getplayers()[0];
-		e_player thread namespace_73e1c3e3::function_d471f8fa(5, undefined, 1);
+		e_player thread ct_utils::function_d471f8fa(5, undefined, 1);
 		self.var_9f73d035 = 1;
 	}
 	self thread function_35e77034(getweapon(#"pistol_standard"), 1);
@@ -1695,7 +1695,7 @@ function function_9125af5f()
 					n_dist = distance(e_player.origin, self.origin);
 					if(n_dist < 1000)
 					{
-						e_player thread namespace_73e1c3e3::function_329f9ba6(#"hash_2d1a463cfe8da8e2", 4, "green", 1);
+						e_player thread ct_utils::function_329f9ba6(#"hash_2d1a463cfe8da8e2", 4, "green", 1);
 						self.var_8618a8fc = n_time;
 					}
 				}
@@ -1743,7 +1743,7 @@ function function_ae20926a()
 	}
 	self.var_2a7a9ac7 = 1;
 	e_player = getplayers()[0];
-	e_player thread namespace_73e1c3e3::function_329f9ba6(#"hash_28f3ed7e8d30dfff", 5, "green", 2);
+	e_player thread ct_utils::function_329f9ba6(#"hash_28f3ed7e8d30dfff", 5, "green", 2);
 	self.health = 650;
 	self thread function_b7307ff();
 	level notify(#"hash_4974b99613386da1");
@@ -1783,10 +1783,10 @@ function function_ae20926a()
 	self clientfield::set("player_keyline_render", 0);
 	self.v_train_inbound_igc = 1;
 	level.var_88024dd9--;
-	level thread namespace_73e1c3e3::function_bfa522d1(0);
+	level thread ct_utils::function_bfa522d1(0);
 	e_player = getplayers()[0];
-	e_player thread namespace_73e1c3e3::function_329f9ba6(#"hash_30cf2650faf0b7fb", 4, "green", 2);
-	e_player thread namespace_73e1c3e3::function_d471f8fa(30, undefined, 1);
+	e_player thread ct_utils::function_329f9ba6(#"hash_30cf2650faf0b7fb", 4, "green", 2);
+	e_player thread ct_utils::function_d471f8fa(30, undefined, 1);
 	level notify(#"hash_4467c8999d018835");
 }
 
@@ -1803,7 +1803,7 @@ function function_4afb85fd()
 {
 	e_player = getplayers(#"allies")[0];
 	e_player endon(#"death");
-	e_player namespace_73e1c3e3::function_329f9ba6(#"hash_5a1802aa5de6267f", 5, "green", 2);
+	e_player ct_utils::function_329f9ba6(#"hash_5a1802aa5de6267f", 5, "green", 2);
 }
 
 /*
@@ -1819,10 +1819,10 @@ function function_b7307ff()
 {
 	self waittill(#"death");
 	level.var_88024dd9--;
-	level thread namespace_73e1c3e3::function_bfa522d1(0);
+	level thread ct_utils::function_bfa522d1(0);
 	e_player = getplayers()[0];
-	e_player thread namespace_73e1c3e3::function_329f9ba6(#"hash_9d6017f6c7829ad", 4, "red", 2);
-	e_player thread namespace_73e1c3e3::function_d471f8fa(-30, undefined, 1);
+	e_player thread ct_utils::function_329f9ba6(#"hash_9d6017f6c7829ad", 4, "red", 2);
+	e_player thread ct_utils::function_d471f8fa(-30, undefined, 1);
 }
 
 /*
@@ -1847,7 +1847,7 @@ function function_a64b7003(var_bf0bb02d = 0, var_61e27031)
 	}
 	if(var_bf0bb02d)
 	{
-		var_d27f913e = array::filter(level.var_5ec2d86e, 0, &namespace_73e1c3e3::function_e928f210);
+		var_d27f913e = array::filter(level.var_5ec2d86e, 0, &ct_utils::function_e928f210);
 		if(var_d27f913e.size > 0)
 		{
 			level.var_5ec2d86e = var_d27f913e;
@@ -2044,7 +2044,7 @@ function function_59458966(nd_spawn, n_state)
 	self endon(#"death");
 	self setorigin(nd_spawn.origin);
 	self setplayerangles(nd_spawn.angles);
-	self.waypoint = self namespace_73e1c3e3::create_waypoint(#"hash_4b08047cf5e74f2e", self.origin, self.angles, #"any", undefined, 0, undefined);
+	self.waypoint = self ct_utils::create_waypoint(#"hash_4b08047cf5e74f2e", self.origin, self.angles, #"any", undefined, 0, undefined);
 	while(isdefined(nd_spawn.target))
 	{
 		a_nd_targets = getnodearray(nd_spawn.target, "targetname");
@@ -2110,7 +2110,7 @@ function function_43df30a8()
 	self function_623c7cae();
 	if(isdefined(self.waypoint))
 	{
-		self.waypoint namespace_73e1c3e3::function_f9ed304d();
+		self.waypoint ct_utils::function_f9ed304d();
 	}
 	self.disablespawning = 1;
 	self.isinuse = 0;

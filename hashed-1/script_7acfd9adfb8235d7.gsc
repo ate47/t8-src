@@ -10,7 +10,7 @@
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

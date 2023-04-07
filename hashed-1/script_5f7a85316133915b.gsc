@@ -334,7 +334,7 @@ function function_6842bdd7(player)
 				}
 				break;
 			}
-			case "hash_37aa3a5919757781":
+			case "specialty_cooldown":
 			{
 				if(function_8b1a219a())
 				{

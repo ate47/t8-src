@@ -127,7 +127,7 @@ function private function_7bc122af()
 		var_94020d2 = 1;
 		foreach(weapon in a_weapons)
 		{
-			n_clip_size = self function_f09c133d(weapon);
+			n_clip_size = self getweaponammoclipsize(weapon);
 			var_2cf11630 = self getweaponammoclip(weapon);
 			var_45193587 = self getweaponammostock(weapon);
 			n_stock_size = min(weapon.maxammo, weapon.startammo);

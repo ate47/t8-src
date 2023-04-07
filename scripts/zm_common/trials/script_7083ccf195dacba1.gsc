@@ -128,7 +128,7 @@ function private function_78ccee50(params)
 	self notify("3a8478a97b3babfa");
 	self endon("3a8478a97b3babfa");
 	self endon(#"disconnect", #"hash_1fbfdb0105f48f89");
-	n_clip_size = self function_f09c133d(params.weapon);
+	n_clip_size = self getweaponammoclipsize(params.weapon);
 	var_2cf11630 = self getweaponammoclip(params.weapon);
 	if(n_clip_size > 1 && var_2cf11630 < n_clip_size)
 	{

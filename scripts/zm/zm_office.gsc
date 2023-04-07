@@ -8,7 +8,7 @@
 #using scripts\zm_common\bgbs\zm_bgb_nowhere_but_there.gsc;
 #using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
 #using script_293299be863018bb;
-#using script_2cd0a997aa904279;
+#using scripts\zm\zm_office_special_rounds.gsc;
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4bae07eadc57bb51;
@@ -157,7 +157,7 @@ event main(eventstruct)
 	level thread wait_for_power();
 	level thread namespace_2a4e49d0::init();
 	level thread namespace_ef310bfe::init();
-	level thread namespace_c71ecd1b::init();
+	level thread zm_office_special_rounds::init();
 	level thread namespace_a5657ff1::init();
 	level thread namespace_6a81d072::init();
 	level thread zm_office_defcon::pentagon_packapunch_init();
@@ -274,7 +274,7 @@ function function_7437db04()
 function function_c8ce0a17(var_404e4288, var_8dd554ee)
 {
 	level flag::set(#"disable_special_rounds");
-	ai = namespace_c71ecd1b::function_dd836251();
+	ai = zm_office_special_rounds::function_dd836251();
 	if(isdefined(ai))
 	{
 		level.zombie_total--;

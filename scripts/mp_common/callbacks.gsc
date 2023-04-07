@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14fed2239df479b1;
+#using scripts\mp_common\player\player_callbacks.gsc;
 #using script_184abbae9afad370;
 #using scripts\core_common\bots\bot.gsc;
 #using script_29ed825598140ca0;
@@ -97,7 +97,7 @@ function set_default_callbacks()
 	level.callbackplayerdamage = &player::callback_playerdamage;
 	level.callbackplayerkilled = &player::callback_playerkilled;
 	level.var_3a9881cb = &player::function_74b6d714;
-	level.var_7509c7d8 = &player::function_452827de;
+	level.var_7509c7d8 = &player::callback_playershielddamageblocked;
 	level.callbackplayermelee = &player::callback_playermelee;
 	level.callbackplayerlaststand = &player::callback_playerlaststand;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\weapons\grapple.gsc;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

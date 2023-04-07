@@ -1065,9 +1065,9 @@ function function_504d49aa(player)
 		var_406c6a0e[var_d9a91a6.size] = inventoryitem.var_2febbde5;
 		var_d9a91a6[var_d9a91a6.size] = var_d8138db2;
 	}
-	foreach(var_95162a97, var_d8138db2 in player.inventory.ammo)
+	foreach(ammoweapon, var_d8138db2 in player.inventory.ammo)
 	{
-		weapon = getweapon(var_95162a97);
+		weapon = getweapon(ammoweapon);
 		ammostock = player getweaponammostock(weapon);
 		player setweaponammostock(weapon, 0);
 		if(ammostock > 0)
@@ -1193,7 +1193,7 @@ function function_504d49aa(player)
 	Parameters: 15
 	Flags: Linked
 */
-function drop_item(weapon = undefined, count = 0, amount = 0, var_d8138db2, position, angles = (0, 0, 0), var_be90d3da = 0, var_4961f577 = 0, targetname = undefined, parentent = undefined, attachments = undefined, var_ba40b4c1 = 1, weaponoptions = undefined, var_3a7d925b = undefined, var_2febbde5 = undefined)
+function drop_item(weapon = undefined, count = 0, amount = 0, var_d8138db2, position, angles = (0, 0, 0), stashitem = 0, var_4961f577 = 0, targetname = undefined, parentent = undefined, attachments = undefined, var_ba40b4c1 = 1, weaponoptions = undefined, var_3a7d925b = undefined, var_2febbde5 = undefined)
 {
 	/#
 		assert(!isdefined(var_4961f577) || var_4961f577 === 1 || var_4961f577 === 0);
@@ -1283,7 +1283,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, var_d8138db2, posi
 	{
 		level.var_5b2a8d88[dropitem.var_bd027dd9] = 1;
 	}
-	if(var_be90d3da)
+	if(stashitem)
 	{
 		dropitem clientfield::set("dynamic_item_drop", 5);
 	}
@@ -1294,7 +1294,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, var_d8138db2, posi
 	dropitem function_46d7f921(dropitem.id);
 	dropitem notsolid();
 	dropitem ghost();
-	if(var_be90d3da)
+	if(stashitem)
 	{
 		dropitem.var_8e092725 = -1;
 	}
@@ -1350,7 +1350,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, var_d8138db2, posi
 	{
 		dropitem setscale(dropitem.var_a6762160.modelscale);
 	}
-	if(!var_be90d3da)
+	if(!stashitem)
 	{
 		dropitem function_a938fba7((isentity(self) ? self : dropitem), position, angles, item.var_a6762160, undefined, var_ba40b4c1);
 	}

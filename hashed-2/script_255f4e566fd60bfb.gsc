@@ -18,17 +18,17 @@ function function_2c38e191(team)
 	{
 		case "allies":
 		{
-			if(isdefined(level.var_6e68e2a4))
+			if(isdefined(level.alliescommander))
 			{
-				plannercommanderutility::function_2974807c(level.var_6e68e2a4);
+				plannercommanderutility::function_2974807c(level.alliescommander);
 			}
 			break;
 		}
 		case "axis":
 		{
-			if(isdefined(level.var_c2ba4b3d))
+			if(isdefined(level.axiscommander))
 			{
-				plannercommanderutility::function_2974807c(level.var_c2ba4b3d);
+				plannercommanderutility::function_2974807c(level.axiscommander);
 			}
 			break;
 		}
@@ -50,17 +50,17 @@ function function_a36c087f(team)
 	{
 		case "allies":
 		{
-			if(isdefined(level.var_6e68e2a4))
+			if(isdefined(level.alliescommander))
 			{
-				plannercommanderutility::function_b822982(level.var_6e68e2a4);
+				plannercommanderutility::function_b822982(level.alliescommander);
 			}
 			break;
 		}
 		case "axis":
 		{
-			if(isdefined(level.var_c2ba4b3d))
+			if(isdefined(level.axiscommander))
 			{
-				plannercommanderutility::function_b822982(level.var_c2ba4b3d);
+				plannercommanderutility::function_b822982(level.axiscommander);
 			}
 			break;
 		}

@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2bb5600d583e2812;
+#using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using scripts\abilities\gadgets\gadget_tripwire.gsc;
 #using script_6b7c77b107c81e62;
 #using scripts\weapons\sensor_dart.gsc;
 #using scripts\weapons\trophy_system.gsc;
-#using script_7e294a061be2fd9;
+#using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
@@ -299,12 +299,12 @@ function function_777e012d(t_damage)
 				}
 				if(device.weapon.name === #"cymbal_monkey")
 				{
-					device namespace_c5ba6e2a::function_4f90c4c2();
+					device gadget_cymbal_monkey::function_4f90c4c2();
 					continue;
 				}
 				if(device.weapon.name === #"homunculus")
 				{
-					device namespace_8bf2881e::function_7bfc867f();
+					device gadget_homunculus::function_7bfc867f();
 					continue;
 				}
 				if(device.weapon.name === #"eq_sensor")

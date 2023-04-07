@@ -1181,17 +1181,17 @@ function function_62d37304(weapon)
 	}
 	if(isarray(self.weaponobjectwatcherarray))
 	{
-		foreach(var_5f7ab57f in self.weaponobjectwatcherarray)
+		foreach(s_weapon_object in self.weaponobjectwatcherarray)
 		{
-			if(!is_crossbow(var_5f7ab57f.weapon))
+			if(!is_crossbow(s_weapon_object.weapon))
 			{
 				continue;
 			}
-			if(var_5f7ab57f.onfizzleout === (&function_74106de1))
+			if(s_weapon_object.onfizzleout === (&function_74106de1))
 			{
 				continue;
 			}
-			var_5f7ab57f.onfizzleout = &function_74106de1;
+			s_weapon_object.onfizzleout = &function_74106de1;
 		}
 	}
 	if(function_c6da1395(weapon, self))

@@ -48,8 +48,8 @@ function __init__()
 */
 function enable()
 {
-	self perks::function_7637bafa("specialty_fastads");
-	self perks::function_7637bafa("specialty_stalker");
+	self perks::perk_setperk("specialty_fastads");
+	self perks::perk_setperk("specialty_stalker");
 }
 
 /*
@@ -63,7 +63,7 @@ function enable()
 */
 function disable()
 {
-	self perks::function_45d12554("specialty_fastads");
-	self perks::function_45d12554("specialty_stalker");
+	self perks::perk_unsetperk("specialty_fastads");
+	self perks::perk_unsetperk("specialty_stalker");
 }
 

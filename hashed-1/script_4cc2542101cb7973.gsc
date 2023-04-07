@@ -493,7 +493,7 @@ function function_6578dc64()
 		n_dist_sq = distance2dsquared(var_5a5135e6.origin, s_result.brutus.origin);
 		if(n_dist_sq < n_dist_sq_max)
 		{
-			level notify(#"hash_703a48e58dfd43d6", {#hash_de86a1af:e_brutus});
+			level notify(#"hash_703a48e58dfd43d6", {#e_brutus:e_brutus});
 		}
 	}
 }

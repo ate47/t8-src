@@ -236,7 +236,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				smg.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(smg));
+				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				ammo = function_ba18c3e5(#"hash_212b01feaa916a00");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
@@ -279,7 +279,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				smg.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(smg));
+				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
 				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
@@ -316,7 +316,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				smg.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(smg));
+				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
 				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
@@ -353,7 +353,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-				pistol.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(pistol));
+				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
 				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
@@ -390,7 +390,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-				pistol.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(pistol));
+				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
 				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
@@ -424,7 +424,7 @@ function function_9de0644f()
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-				pistol.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(pistol));
+				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
 				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
@@ -509,7 +509,7 @@ function private function_6667abef()
 		var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 		var_e38a0464.var_a6762160 = attachment.var_a6762160;
 		namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-		pistol.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(pistol));
+		pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
 		ammo = function_ba18c3e5(#"hash_212b01feaa916a00");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
@@ -540,7 +540,7 @@ function private function_6667abef()
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			weapon.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(weapon));
+			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
 			ammo = function_ba18c3e5(#"hash_3bf6ed4e3a22e9f3");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
@@ -659,7 +659,7 @@ function private function_1f091d2f()
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			weapon.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(weapon));
+			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
 			ammo = function_ba18c3e5(#"hash_1f72dec518451f8c");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
@@ -748,7 +748,7 @@ function private function_2d31b980()
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			weapon.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(weapon));
+			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
 			ammo = function_ba18c3e5(#"hash_1f72dec518451f8c");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);

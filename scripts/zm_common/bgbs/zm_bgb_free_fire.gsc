@@ -70,7 +70,7 @@ function disable()
 	wait(0.1);
 	if(self hasperk("specialty_freefire"))
 	{
-		self perks::function_45d12554("specialty_freefire");
+		self perks::perk_unsetperk("specialty_freefire");
 	}
 }
 
@@ -108,7 +108,7 @@ function function_1ff1beff()
 	w_current = self getcurrentweapon();
 	if(!(isdefined(w_current.isheroweapon) && w_current.isheroweapon) && !zm_weapons::is_wonder_weapon(w_current))
 	{
-		self perks::function_7637bafa("specialty_freefire");
+		self perks::perk_setperk("specialty_freefire");
 	}
 	while(true)
 	{
@@ -119,14 +119,14 @@ function function_1ff1beff()
 		{
 			if(self hasperk("specialty_freefire"))
 			{
-				self perks::function_45d12554("specialty_freefire");
+				self perks::perk_unsetperk("specialty_freefire");
 			}
 		}
 		else
 		{
 			if(!self hasperk("specialty_freefire"))
 			{
-				self perks::function_7637bafa("specialty_freefire");
+				self perks::perk_setperk("specialty_freefire");
 			}
 			self function_9d347621(var_1c114591);
 		}

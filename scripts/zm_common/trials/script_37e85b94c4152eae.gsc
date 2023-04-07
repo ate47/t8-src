@@ -8,11 +8,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_ec1ef97a;
+#namespace orange_fastt_zm;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x41F6EDE2
 	Offset: 0xC0
 	Size: 0x3C
@@ -26,7 +26,7 @@ function autoexec __init__system__()
 
 /*
 	Name: __init__
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x8491F0A7
 	Offset: 0x108
 	Size: 0x5C
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x439D3F64
 	Offset: 0x170
 	Size: 0x11C
@@ -65,7 +65,7 @@ function private on_begin(var_6325d314, var_52b8b3a2, n_time)
 
 /*
 	Name: on_end
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0xC2A5C96B
 	Offset: 0x298
 	Size: 0x164
@@ -91,7 +91,7 @@ function private on_end(round_reset)
 
 /*
 	Name: function_8b87e57c
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x63756787
 	Offset: 0x408
 	Size: 0x2B8
@@ -132,7 +132,7 @@ function private function_8b87e57c(var_6325d314, n_grace, n_time_limit)
 
 /*
 	Name: function_31f197c2
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x37CDCA79
 	Offset: 0x6C8
 	Size: 0x10C
@@ -160,7 +160,7 @@ function private function_31f197c2()
 
 /*
 	Name: function_14a98a41
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x934F7B75
 	Offset: 0x7E0
 	Size: 0x90
@@ -183,7 +183,7 @@ function private function_14a98a41(str_label, n_time_limit)
 
 /*
 	Name: function_ff66b979
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x4C90B67E
 	Offset: 0x878
 	Size: 0xF4

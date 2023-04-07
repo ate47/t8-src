@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_16cb0a6a492a6a4f;
-#using script_18f0d22c75b141a7;
-#using script_1bd0552c85e48ebe;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\mp_common\player\player.gsc;
 #using scripts\mp_common\teams\platoons.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\core_common\gamestate.gsc;
 #using scripts\core_common\hud_message_shared.gsc;
 #using scripts\core_common\hud_util_shared.gsc;

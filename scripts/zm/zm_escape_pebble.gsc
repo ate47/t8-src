@@ -2,7 +2,7 @@
 #using scripts\zm\weapons\zm_weap_tomahawk.gsc;
 #using scripts\zm\weapons\zm_weap_katana.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5660bae5b402a1eb;
 #using script_57f7003580bb15e0;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;

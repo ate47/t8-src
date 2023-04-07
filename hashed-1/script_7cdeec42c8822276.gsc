@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_office_teleporters.gsc;
 #using script_174ebb9642933bf7;
-#using script_2cd0a997aa904279;
+#using scripts\zm\zm_office_special_rounds.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;

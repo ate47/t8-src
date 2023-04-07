@@ -2,7 +2,7 @@
 #using script_170a9c130859c688;
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\character_unlock.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

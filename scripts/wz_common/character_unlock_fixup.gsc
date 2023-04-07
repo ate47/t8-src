@@ -173,7 +173,7 @@ function function_c67a5089()
 			arrayremoveindex(var_743d50f5, i);
 		}
 	}
-	if(isdefined(getgametypesetting(#"hash_58981ece00ffa6bc")) && getgametypesetting(#"hash_58981ece00ffa6bc"))
+	if(isdefined(getgametypesetting(#"wzblightfather")) && getgametypesetting(#"wzblightfather"))
 	{
 		var_f279f28f = [];
 		for(i = 0; i < var_743d50f5.size; i++)

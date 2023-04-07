@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\bots\bot.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1201,7 +1201,7 @@ function function_d9f0defb(str_perk)
 			}
 			break;
 		}
-		case "hash_37aa3a5919757781":
+		case "specialty_cooldown":
 		{
 			if(!function_901b751c(#"hash_1e9fb2463e6eee58"))
 			{

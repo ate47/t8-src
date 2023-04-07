@@ -2610,10 +2610,10 @@ function function_e106cbe9(localclientnum, item, var_1326fcc7 = undefined)
 	#/
 	data = item_world::function_a7e98a1a(localclientnum);
 	var_a6762160 = item.var_a6762160;
-	var_95162a97 = var_a6762160.weapon;
+	ammoweapon = var_a6762160.weapon;
 	var_1326fcc7 = (isdefined(var_1326fcc7) ? var_1326fcc7 : (isdefined(var_a6762160.amount) ? var_a6762160.amount : 1));
-	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(data.inventory.var_7658cbec, var_95162a97);
-	currentammostock = self getweaponammostock(localclientnum, var_95162a97);
+	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(data.inventory.var_7658cbec, ammoweapon);
+	currentammostock = self getweaponammostock(localclientnum, ammoweapon);
 	var_9b9ba643 = var_2f399b51 - currentammostock;
 	addammo = int(min(var_1326fcc7, var_9b9ba643));
 	return addammo > 0;

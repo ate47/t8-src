@@ -16,9 +16,7 @@ all the settings: [gamesettings.csv](gamesettings.csv)
   - [General](#general-1)
   - [Allow weapon wallbuy](#allow-weapon-wallbuy)
 
-
 # All (core)
-
 
 ## Modes
 
@@ -33,7 +31,7 @@ all the settings: [gamesettings.csv](gamesettings.csv)
 
 - `"waverespawndelay"` - respawn wave delay (seconds)
 - `"hash_35c2d850e39fa704"` - max player count
-- `"hash_7695bdd7b20cdda"` - allow to convert the muscle car to the replacer's muscle car 
+- `"hash_7695bdd7b20cdda"` - allow to convert the muscle car to the replacer's muscle car
 
 ## XP
 
@@ -105,12 +103,11 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 - `"hash_47242abeaa29479b"` - allow to unlock reznov
 - `"hash_265bdda9362c5a35"` - allow to unlock woods
 
-
 ## Modes
 
 - `"wzspectrerising"` - Is WZ Spectrer rising mode (true|false)
 - `"wzhardcore"` - Is WZ Hardcore mode (true|false)
-- `"hash_4ff7ee3c3a534065"` - Is WZ Pandemic mode (true|false)
+- `"wzzombieapocalypse"` - Is WZ Pandemic mode (true|false)
 
 ## Item spawns
 
@@ -120,6 +117,9 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 ## Zombies
 
 - `"wzzombies"` - Spawn zombies (true|false)
+- `"wzbrutus"` - Spawn brutus (true|false)
+- `"wzblightfather"` spawn blight father (true|false)
+- `"wzavogadro"` spawn avogadro (true|false)
 
 # Zombies (zm)
 
@@ -147,4 +147,3 @@ Boolean values to allow wallbuy of a weapon category
 - `"hash_2f6740b518dbeb8f"` - Allow LMG
 - `"hash_5bfd047c58816496"` - Allow snipers
 - `"zmweaponsknife"` - Allow knifes
-

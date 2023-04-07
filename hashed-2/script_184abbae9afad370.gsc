@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\mp\killstreaks.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
 #using scripts\abilities\ability_player.gsc;
-#using script_3f27a7b2232674db;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\burnplayer.gsc;

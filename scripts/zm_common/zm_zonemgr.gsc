@@ -1772,7 +1772,7 @@ function private function_8a9003ae()
 			{
 				continue;
 			}
-			var_8a28016b = (1, 0, 0);
+			sphere_color = (1, 0, 0);
 			line_color = (1, 0, 0);
 			var_82ceb4ef = (zone.name + "\n") + var_4b0b7fff;
 			if(isdefined(player.zone_name))
@@ -1780,12 +1780,12 @@ function private function_8a9003ae()
 				var_a4808c85 = getarraykeys(zone.adjacent_zones);
 				if(player.zone_name == zone.name)
 				{
-					var_8a28016b = (0, 1, 0);
+					sphere_color = (0, 1, 0);
 					line_color = (1, 1, 1);
 				}
 				else if(isinarray(var_a4808c85, hash(player.zone_name)))
 				{
-					var_8a28016b = (1, 1, 0);
+					sphere_color = (1, 1, 0);
 					line_color = (1, 1, 1);
 				}
 			}
@@ -1806,7 +1806,7 @@ function private function_8a9003ae()
 					node_location = node.origin;
 					/#
 						line(var_db6c400c, node_location, line_color, 1, 0, 1);
-						sphere(node_location, 6, var_8a28016b, 1, 0, 10, 1);
+						sphere(node_location, 6, sphere_color, 1, 0, 10, 1);
 					#/
 				}
 			}

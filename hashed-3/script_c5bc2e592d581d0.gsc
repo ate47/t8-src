@@ -315,7 +315,7 @@ function private function_d6d5e252(bot, altar)
 		assert(isstruct(altar));
 	#/
 	specialty = bot.var_c27f1e90[altar.script_int];
-	return bot perks::function_be94fe26(specialty);
+	return bot perks::perk_hasperk(specialty);
 }
 
 /*

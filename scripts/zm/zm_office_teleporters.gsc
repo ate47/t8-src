@@ -33,7 +33,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_46f39ac878b7d58f", &__init__, &__main__, undefined);
+	system::register(#"zm_office_teleporters", &__init__, &__main__, undefined);
 }
 
 /*
@@ -354,8 +354,8 @@ function teleport_player(user)
 	{
 		return;
 	}
-	var_f2a06582 = user getcurrentweapon();
-	if(isdefined(var_f2a06582.isburstfire) && var_f2a06582.isburstfire && user isfiring() && !user ismeleeing())
+	w_curr = user getcurrentweapon();
+	if(isdefined(w_curr.isburstfire) && w_curr.isburstfire && user isfiring() && !user ismeleeing())
 	{
 		return;
 	}

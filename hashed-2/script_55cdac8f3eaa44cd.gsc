@@ -8,7 +8,7 @@
 #namespace namespace_42cba673;
 
 /*
-	Name: function_ce59625f
+	Name: createsquadplanner
 	Namespace: namespace_42cba673
 	Checksum: 0xA1801263
 	Offset: 0xA8
@@ -16,7 +16,7 @@
 	Parameters: 1
 	Flags: Linked
 */
-function function_ce59625f(team)
+function createsquadplanner(team)
 {
 	planner = plannerutility::createplannerfromasset("zm_squad.ai_htn");
 	return planner;

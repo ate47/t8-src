@@ -16,7 +16,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5393b5cb8b30a8ef", &__init__, undefined, undefined);
+	system::register(#"zm_perk_mystery", &__init__, undefined, undefined);
 }
 
 /*

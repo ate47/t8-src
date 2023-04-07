@@ -2,7 +2,7 @@
 #using script_14d4cc4687ff9afd;
 #using scripts\zm\zm_orange_pap.gsc;
 #using script_5c6694d7aa0f1490;
-#using script_5e177698fdcdbe2c;
+#using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm\zm_orange_ee_dynamite.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -107,7 +107,7 @@ function private devgui()
 				}
 				case "hash_5aeb6018289cc278":
 				{
-					namespace_bfc8ee03::lava_control();
+					zm_orange_mq_hell::lava_control();
 					break;
 				}
 				case "hash_75c01ef1f8005214":
@@ -138,7 +138,7 @@ function private devgui()
 						level.var_9cc989a5 delete();
 						level flag::set(#"hash_6f7fd3d4d070db87");
 					}
-					namespace_bfc8ee03::function_405f867d();
+					zm_orange_mq_hell::function_405f867d();
 					break;
 				}
 				case "hash_1ff4cd3ce63b00f9":
@@ -177,7 +177,7 @@ function private devgui()
 				}
 				case "hash_86a620951049404":
 				{
-					namespace_bfc8ee03::function_fe36418c();
+					zm_orange_mq_hell::function_fe36418c();
 					break;
 				}
 				case "move_pap_boathouse":
@@ -225,7 +225,7 @@ function private devgui()
 				}
 				case "test_hell":
 				{
-					namespace_bfc8ee03::test_hell();
+					zm_orange_mq_hell::test_hell();
 					break;
 				}
 			}

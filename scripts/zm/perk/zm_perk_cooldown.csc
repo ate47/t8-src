@@ -44,10 +44,10 @@ function __init__()
 */
 function function_482ec336()
 {
-	zm_perks::register_perk_clientfields(#"hash_37aa3a5919757781", &function_683242be, &function_20945b84);
-	zm_perks::register_perk_effects(#"hash_37aa3a5919757781", "divetonuke_light");
-	zm_perks::register_perk_init_thread(#"hash_37aa3a5919757781", &function_a2d341cc);
-	zm_perks::function_b60f4a9f(#"hash_37aa3a5919757781", #"p8_zm_vapor_altar_icon_01_timeslip", "zombie/fx8_perk_altar_symbol_ambient_timeslip", #"hash_1e9fb2463e6eee58");
+	zm_perks::register_perk_clientfields(#"specialty_cooldown", &function_683242be, &function_20945b84);
+	zm_perks::register_perk_effects(#"specialty_cooldown", "divetonuke_light");
+	zm_perks::register_perk_init_thread(#"specialty_cooldown", &function_a2d341cc);
+	zm_perks::function_b60f4a9f(#"specialty_cooldown", #"p8_zm_vapor_altar_icon_01_timeslip", "zombie/fx8_perk_altar_symbol_ambient_timeslip", #"hash_1e9fb2463e6eee58");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_cooldown", "zombie_perk_totem_timeslip");
 }
 

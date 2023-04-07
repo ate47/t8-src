@@ -556,7 +556,7 @@ function function_35ba0b0e(localclientnum, n_slot)
 	self endon(#"death");
 	self zm_loadout::function_622d8349(localclientnum);
 	n_perk = n_slot + 1;
-	var_3e311473 = self zm_loadout::function_2dfb9150(localclientnum, "specialty" + n_perk);
+	var_3e311473 = self zm_loadout::get_loadout_item(localclientnum, "specialty" + n_perk);
 	/#
 		if(!isdemoplaying() && (!(isdefined(level.b_game_ended) && level.b_game_ended)))
 		{

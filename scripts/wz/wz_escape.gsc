@@ -2,7 +2,7 @@
 #using script_1b150f8ff0495a20;
 #using script_2c2d166441e0da0f;
 #using script_4b828d814e8e03a1;
-#using scripts/wz_common/wz_loadouts.gsc;
+#using scripts\wz_common\wz_loadouts.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using script_6aa2128e9d9956a2;
 #using script_71e26f08f03b7a7a;
@@ -320,7 +320,7 @@ function function_9cc59537()
 			foreach(group in var_1d9375fc)
 			{
 				var_b91441dd = getscriptbundle(group.scriptbundlename);
-				if(!isdefined(var_b91441dd) || (isdefined(var_b91441dd.var_ca330541) && var_b91441dd.var_ca330541) || group.var_4a3dcff2.size == 0 || var_b91441dd.name === "" || var_b91441dd.name === "" || var_b91441dd.name === "")
+				if(!isdefined(var_b91441dd) || (isdefined(var_b91441dd.vehiclespawner) && var_b91441dd.vehiclespawner) || group.var_4a3dcff2.size == 0 || var_b91441dd.name === "" || var_b91441dd.name === "" || var_b91441dd.name === "")
 				{
 					continue;
 				}

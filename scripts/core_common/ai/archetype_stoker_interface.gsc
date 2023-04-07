@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_20d7669868834bae;
+#using scripts\core_common\ai\archetype_stoker.gsc;
 #using script_59f07c660e6710a5;
 
 #namespace stokerinterface;

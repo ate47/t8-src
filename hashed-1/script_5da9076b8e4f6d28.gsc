@@ -428,7 +428,7 @@ function function_c62ad9a7(vehicle)
 			}
 			case "helicopter_light":
 			{
-				hinttext = #"hash_8b24b9a8b37cbd4";
+				hinttext = #"wz/helicopter";
 				break;
 			}
 			case "cargo_truck_wz":
@@ -443,7 +443,7 @@ function function_c62ad9a7(vehicle)
 			}
 			case "player_fav":
 			{
-				hinttext = #"hash_d4649719cad3c69";
+				hinttext = #"wz/arav";
 				break;
 			}
 			case "player_suv":

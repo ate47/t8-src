@@ -3,7 +3,7 @@
 #using script_178024232e91b0a1;
 #using script_184abbae9afad370;
 #using scripts\abilities\wz\gadgets\gadget_concertina_wire.gsc;
-#using script_2bb5600d583e2812;
+#using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_38755604e51a604e;
@@ -13,7 +13,7 @@
 #using script_4d85e8de54b02198;
 #using script_57f7003580bb15e0;
 #using script_5b1c3d314b9c88fb;
-#using script_7e294a061be2fd9;
+#using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;
@@ -3024,8 +3024,8 @@ function private function_b67c088d()
 function private function_a9cfe717()
 {
 	var_158e7fe3 = undefined;
-	var_158e7fe3 = namespace_c5ba6e2a::function_4a5dff80(self);
-	var_b26b6492 = namespace_8bf2881e::function_bd59a592(self);
+	var_158e7fe3 = gadget_cymbal_monkey::function_4a5dff80(self);
+	var_b26b6492 = gadget_homunculus::function_bd59a592(self);
 	if(isdefined(var_b26b6492))
 	{
 		if(!isdefined(var_158e7fe3))

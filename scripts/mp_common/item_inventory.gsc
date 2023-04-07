@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_39bd5b6b799b1c9c;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_67c87580908a0a00;
 #using script_6b993fdc7adc35ec;
 #using scripts\weapons\sensor_dart.gsc;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1257,7 +1257,7 @@ function private function_60706bdb(var_bd027dd9)
 	Parameters: 8
 	Flags: Linked, Private
 */
-function private function_d7944517(var_d8138db2, weapon, count, amount, var_be90d3da = 0, var_7cab8e12 = undefined, targetname = undefined, attachments = undefined)
+function private function_d7944517(var_d8138db2, weapon, count, amount, stashitem = 0, var_7cab8e12 = undefined, targetname = undefined, attachments = undefined)
 {
 	/#
 		assert(isplayer(self));
@@ -1267,12 +1267,12 @@ function private function_d7944517(var_d8138db2, weapon, count, amount, var_be90
 	#/
 	self endon(#"death");
 	droppos = var_7cab8e12;
-	if(!var_be90d3da)
+	if(!stashitem)
 	{
 		forward = anglestoforward(self.angles);
 		droppos = (self.origin + (36 * forward)) + vectorscale((0, 0, 1), 10);
 	}
-	return self item_drop::drop_item(weapon, count, amount, var_d8138db2, droppos, (0, randomintrange(0, 360), 0), var_be90d3da, 0, targetname, undefined, attachments);
+	return self item_drop::drop_item(weapon, count, amount, var_d8138db2, droppos, (0, randomintrange(0, 360), 0), stashitem, 0, targetname, undefined, attachments);
 }
 
 /*
@@ -1424,7 +1424,7 @@ function private function_ee9ce1c4(var_a6762160, var_dfe6c7e5 = 0)
 {
 	self endon(#"death");
 	self.var_10abd91d = 1;
-	self function_5110caa3(namespace_ad5a0cd6::function_35e06774(var_a6762160), level.nullprimaryoffhand);
+	self replace_weapon(namespace_ad5a0cd6::function_35e06774(var_a6762160), level.nullprimaryoffhand);
 	self function_c6be9f7f(level.nullprimaryoffhand, 0);
 	self.var_10abd91d = 0;
 }
@@ -1451,7 +1451,7 @@ function private function_8214f1b6(var_a6762160, var_dfe6c7e5 = 0)
 			waitframe(1);
 		}
 	}
-	self function_5110caa3(weapon, level.var_ef61b4b5);
+	self replace_weapon(weapon, level.var_ef61b4b5);
 	self.var_10abd91d = 0;
 }
 
@@ -1509,10 +1509,10 @@ function function_e106cbe9(item, var_1326fcc7 = undefined)
 		assert(isplayer(self));
 	#/
 	var_a6762160 = item.var_a6762160;
-	var_95162a97 = var_a6762160.weapon;
+	ammoweapon = var_a6762160.weapon;
 	var_1326fcc7 = (isdefined(var_1326fcc7) ? var_1326fcc7 : (isdefined(var_a6762160.amount) ? var_a6762160.amount : 1));
-	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(self.inventory.var_7658cbec, var_95162a97);
-	currentammostock = self getweaponammostock(var_95162a97);
+	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(self.inventory.var_7658cbec, ammoweapon);
+	currentammostock = self getweaponammostock(ammoweapon);
 	var_9b9ba643 = var_2f399b51 - currentammostock;
 	addammo = int(min(var_1326fcc7, var_9b9ba643));
 	return addammo > 0;
@@ -2214,7 +2214,7 @@ function function_e66dcff5(item, var_662e1704 = 0)
 	Parameters: 3
 	Flags: Linked
 */
-function drop_armor(var_be90d3da = 0, var_7cab8e12 = undefined, targetname = undefined)
+function drop_armor(stashitem = 0, var_7cab8e12 = undefined, targetname = undefined)
 {
 	/#
 		assert(isplayer(self));
@@ -2222,7 +2222,7 @@ function drop_armor(var_be90d3da = 0, var_7cab8e12 = undefined, targetname = und
 	if(self has_armor())
 	{
 		item = self.inventory.items[11];
-		self thread function_418f9eb8(item.var_bd027dd9, var_be90d3da, var_7cab8e12, targetname);
+		self thread function_418f9eb8(item.var_bd027dd9, stashitem, var_7cab8e12, targetname);
 		return true;
 	}
 	return false;
@@ -2237,7 +2237,7 @@ function drop_armor(var_be90d3da = 0, var_7cab8e12 = undefined, targetname = und
 	Parameters: 3
 	Flags: Linked
 */
-function function_d86d7ac7(var_be90d3da = 0, var_7cab8e12 = undefined, targetname = undefined)
+function function_d86d7ac7(stashitem = 0, var_7cab8e12 = undefined, targetname = undefined)
 {
 	/#
 		assert(isplayer(self));
@@ -2247,7 +2247,7 @@ function function_d86d7ac7(var_be90d3da = 0, var_7cab8e12 = undefined, targetnam
 		inventoryitem = self.inventory.items[index];
 		if(inventoryitem.var_bd027dd9 != 32767)
 		{
-			self thread function_418f9eb8(inventoryitem.var_bd027dd9, var_be90d3da, var_7cab8e12, targetname);
+			self thread function_418f9eb8(inventoryitem.var_bd027dd9, stashitem, var_7cab8e12, targetname);
 		}
 	}
 }
@@ -2261,7 +2261,7 @@ function function_d86d7ac7(var_be90d3da = 0, var_7cab8e12 = undefined, targetnam
 	Parameters: 5
 	Flags: Linked
 */
-function function_418f9eb8(var_bd027dd9, var_be90d3da = 0, var_7cab8e12 = undefined, targetname = undefined, var_4a6f595d = 1)
+function function_418f9eb8(var_bd027dd9, stashitem = 0, var_7cab8e12 = undefined, targetname = undefined, var_4a6f595d = 1)
 {
 	/#
 		assert(isplayer(self));
@@ -2287,7 +2287,7 @@ function function_418f9eb8(var_bd027dd9, var_be90d3da = 0, var_7cab8e12 = undefi
 		{
 			for(i = getdvarint(#"hash_5f50ef95773c29b5", 0); i > 0; i--)
 			{
-				dropitem = self function_d7944517(item.id, weapon, item.count, item.amount, var_be90d3da, var_7cab8e12, targetname, (isdefined(item.attachments) ? item.attachments : array()));
+				dropitem = self function_d7944517(item.id, weapon, item.count, item.amount, stashitem, var_7cab8e12, targetname, (isdefined(item.attachments) ? item.attachments : array()));
 			}
 			return dropitem;
 		}
@@ -2301,7 +2301,7 @@ function function_418f9eb8(var_bd027dd9, var_be90d3da = 0, var_7cab8e12 = undefi
 	{
 		if(var_337ff88 && var_4a6f595d)
 		{
-			function_d86d7ac7(var_be90d3da, var_7cab8e12, targetname);
+			function_d86d7ac7(stashitem, var_7cab8e12, targetname);
 			function_ec238da8();
 		}
 		if(count > 0)
@@ -2314,7 +2314,7 @@ function function_418f9eb8(var_bd027dd9, var_be90d3da = 0, var_7cab8e12 = undefi
 			if(!var_104acafa)
 			{
 				weapon = namespace_a0d533d1::function_2b83d3ff(item);
-				dropitem = self function_d7944517(item.id, weapon, count, amount, var_be90d3da, var_7cab8e12, targetname, (isdefined(item.attachments) ? item.attachments : array()));
+				dropitem = self function_d7944517(item.id, weapon, count, amount, stashitem, var_7cab8e12, targetname, (isdefined(item.attachments) ? item.attachments : array()));
 			}
 			else
 			{
@@ -2385,16 +2385,16 @@ function equip_ammo(item, var_aec6fa7f)
 	#/
 	self function_db2abc4(item);
 	var_a6762160 = item.var_a6762160;
-	var_95162a97 = var_a6762160.weapon;
+	ammoweapon = var_a6762160.weapon;
 	var_1326fcc7 = (isdefined(var_aec6fa7f) ? var_aec6fa7f : (isdefined(var_a6762160.amount) ? var_a6762160.amount : 1));
-	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(self.inventory.var_7658cbec, var_95162a97);
-	currentammostock = self getweaponammostock(var_95162a97);
+	var_2f399b51 = namespace_a0d533d1::function_2879cbe0(self.inventory.var_7658cbec, ammoweapon);
+	currentammostock = self getweaponammostock(ammoweapon);
 	var_9b9ba643 = var_2f399b51 - currentammostock;
 	addammo = int(min(var_1326fcc7, var_9b9ba643));
-	if(isdefined(var_95162a97) && var_95162a97 != level.weaponnone)
+	if(isdefined(ammoweapon) && ammoweapon != level.weaponnone)
 	{
-		self.inventory.ammo[var_95162a97.name] = item.id;
-		self function_fc9f8b05(var_95162a97, addammo);
+		self.inventory.ammo[ammoweapon.name] = item.id;
+		self function_fc9f8b05(ammoweapon, addammo);
 		if(isdefined(var_aec6fa7f))
 		{
 			return var_1326fcc7 - addammo;
@@ -2716,7 +2716,7 @@ function equip_equipment(item)
 			var_f94ce554 = array(111, 112, 113, 114, 115, 116);
 			weaponoptions = self calcweaponoptions(var_f94ce554[randomintrange(0, var_f94ce554.size)], 0, 0);
 		}
-		self function_5110caa3(level.nullprimaryoffhand, weapon, undefined, undefined, undefined, weaponoptions);
+		self replace_weapon(level.nullprimaryoffhand, weapon, undefined, undefined, undefined, weaponoptions);
 		self function_b00db06(6, item.var_bd027dd9);
 		for(i = 0; i < self.inventory.items.size; i++)
 		{
@@ -2823,7 +2823,7 @@ function equip_health(item)
 		{
 			function_26c87da8(slotid, 10);
 		}
-		self function_5110caa3(level.var_ef61b4b5, weapon);
+		self replace_weapon(level.var_ef61b4b5, weapon);
 		self function_b00db06(6, item.var_bd027dd9);
 		self clientfield::set_player_uimodel("hudItems.healthItemstackCount", function_bba770de(item.var_a6762160));
 		slot = self gadgetgetslot(weapon);
@@ -3096,10 +3096,10 @@ function equip_weapon(item, switchweapon = 1, var_9fa01da8 = 0, var_a3a17c55 = 0
 			item.var_2febbde5 = var_2febbde5;
 		}
 		item.weaponoptions = self function_fc04b237(weapon, item.weaponoptions);
-		self function_5110caa3(currentweapon, weapon, 1, initialweaponraise, var_a3a17c55, item.weaponoptions, item.var_3a7d925b, item.var_2febbde5);
+		self replace_weapon(currentweapon, weapon, 1, initialweaponraise, var_a3a17c55, item.weaponoptions, item.var_3a7d925b, item.var_2febbde5);
 		if(var_6073ab7b)
 		{
-			self function_5110caa3(level.weaponnone, level.weaponbasemeleeheld);
+			self replace_weapon(level.weaponnone, level.weaponbasemeleeheld);
 		}
 		self function_b00db06(6, item.var_bd027dd9);
 		inventoryitem = function_dfcacdc2(item.var_bd027dd9);
@@ -3606,7 +3606,7 @@ function function_3f7ef88()
 		var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 		var_e38a0464.var_a6762160 = attachment.var_a6762160;
 		namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-		pistol.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(pistol));
+		pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
 		ammo = function_4ba8fde(#"hash_212b01feaa916a00");
 		var_fa3df96 = self function_e66dcff5(ammo);
@@ -3798,7 +3798,7 @@ function function_e274f1fe(item, itemcount = 1, var_aec6fa7f = 0, slotid = undef
 						weapon = namespace_a0d533d1::function_2b83d3ff(var_92d652f2);
 						if(isdefined(weapon))
 						{
-							var_92d652f2.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(var_92d652f2));
+							var_92d652f2.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(var_92d652f2));
 						}
 					}
 				}
@@ -4343,7 +4343,7 @@ function function_5852cb7b(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var
 }
 
 /*
-	Name: function_5110caa3
+	Name: replace_weapon
 	Namespace: item_inventory
 	Checksum: 0xDC8A5501
 	Offset: 0xCF70
@@ -4351,7 +4351,7 @@ function function_5852cb7b(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var
 	Parameters: 8
 	Flags: Linked
 */
-function function_5110caa3(old_weapon, new_weapon, primary_weapon = 0, var_e47b0bf = 1, var_6086c488 = 0, options = undefined, var_3a7d925b = undefined, var_2febbde5)
+function replace_weapon(old_weapon, new_weapon, primary_weapon = 0, var_e47b0bf = 1, var_6086c488 = 0, options = undefined, var_3a7d925b = undefined, var_2febbde5)
 {
 	/#
 		assert(isdefined(old_weapon));
@@ -4855,9 +4855,9 @@ function function_56a681fb()
 			function_5852cb7b(inventoryitem.var_bd027dd9, 0, 0);
 		}
 	}
-	foreach(var_95162a97, var_d8138db2 in self.inventory.ammo)
+	foreach(ammoweapon, var_d8138db2 in self.inventory.ammo)
 	{
-		weapon = getweapon(var_95162a97);
+		weapon = getweapon(ammoweapon);
 		self setweaponammostock(weapon, 0);
 	}
 	if(isdefined(level.givecustomloadout))
@@ -4975,7 +4975,7 @@ function function_b3342af3(item, var_b44c0e7e = 1, var_2ea908ac = undefined)
 			function_d019bf1d(var_f0dc4e93, undefined, var_b44c0e7e, 0);
 			namespace_a0d533d1::function_6e9e7169(weaponitem);
 			equip_weapon(weaponitem, iscurrentweapon, undefined, 1, 0);
-			newammo = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(weaponitem));
+			newammo = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weaponitem));
 			var_b917b36f = currentammo - newammo;
 			if(var_b917b36f > 0)
 			{
@@ -5127,7 +5127,7 @@ function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
 	item.weaponoptions = self function_fc04b237(weapon, item.weaponoptions);
 	if(function_57eac2ca() > 1)
 	{
-		self function_5110caa3(weapon, level.weaponbasemeleeheld, 1);
+		self replace_weapon(weapon, level.weaponbasemeleeheld, 1);
 		foreach(slotid in array(16 + 1, ((16 + 1) + 6) + 1))
 		{
 			if(self.inventory.items[slotid].var_bd027dd9 != 32767 && self.inventory.items[slotid].var_bd027dd9 != item.var_bd027dd9)
@@ -5145,7 +5145,7 @@ function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
 	}
 	else
 	{
-		self function_5110caa3(weapon, level.weaponbasemeleeheld, 1);
+		self replace_weapon(weapon, level.weaponbasemeleeheld, 1);
 		if(weapon == self.currentweapon)
 		{
 			currentweapon = self getcurrentweapon();

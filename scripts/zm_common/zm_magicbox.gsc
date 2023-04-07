@@ -2198,7 +2198,7 @@ function treasure_chest_weapon_spawn(chest, player, respin)
 	modelname = undefined;
 	rand = undefined;
 	var_943077fe = (isdefined(level.var_3ba4b305) ? level.var_3ba4b305 : 40);
-	if(player hasperk(#"hash_37aa3a5919757781"))
+	if(player hasperk(#"specialty_cooldown"))
 	{
 		var_943077fe = min(var_943077fe, 10);
 	}

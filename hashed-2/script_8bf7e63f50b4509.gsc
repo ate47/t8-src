@@ -7,11 +7,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_8b80898c;
+#namespace zm_red_power_quest;
 
 /*
 	Name: init
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xC9459725
 	Offset: 0x1C8
 	Size: 0x8F2
@@ -61,7 +61,7 @@ function init()
 
 /*
 	Name: function_ee7e8a00
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x37F974AE
 	Offset: 0xAC8
 	Size: 0x84
@@ -78,7 +78,7 @@ function function_ee7e8a00(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5f8c1946
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xA53705E7
 	Offset: 0xB58
 	Size: 0x248
@@ -115,7 +115,7 @@ function function_5f8c1946(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_bc717eee
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xE1A193F3
 	Offset: 0xDA8
 	Size: 0x104
@@ -133,7 +133,7 @@ function function_bc717eee(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7993c728
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xB2B1D048
 	Offset: 0xEB8
 	Size: 0x1FE
@@ -163,7 +163,7 @@ function function_7993c728(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: zombie_breakout_func
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x648F446D
 	Offset: 0x10C0
 	Size: 0xAC
@@ -178,7 +178,7 @@ function zombie_breakout_func(localclientnum, oldval, newval, bnewent, binitials
 
 /*
 	Name: function_1dd6279b
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xF26EE52B
 	Offset: 0x1178
 	Size: 0x1AC
@@ -222,7 +222,7 @@ function function_1dd6279b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: chaos_explosion
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xF481587D
 	Offset: 0x1330
 	Size: 0x94
@@ -238,7 +238,7 @@ function chaos_explosion(localclientnum)
 
 /*
 	Name: artifact_fx
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x83A405BC
 	Offset: 0x13D0
 	Size: 0xC6
@@ -260,7 +260,7 @@ function artifact_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 
 /*
 	Name: function_638482f6
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x1F47C5C3
 	Offset: 0x14A0
 	Size: 0x74
@@ -274,7 +274,7 @@ function function_638482f6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_988637e5
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x1D96DF07
 	Offset: 0x1520
 	Size: 0x74
@@ -288,7 +288,7 @@ function function_988637e5(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_785a67c5
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x12732DE7
 	Offset: 0x15A0
 	Size: 0xBE
@@ -310,7 +310,7 @@ function function_785a67c5(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_8d9ce264
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xE6670930
 	Offset: 0x1668
 	Size: 0xBE
@@ -332,7 +332,7 @@ function function_8d9ce264(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_cca9b50e
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x5F7FAA3B
 	Offset: 0x1730
 	Size: 0x1EE
@@ -373,7 +373,7 @@ function function_cca9b50e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7152ba7c
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xCC300322
 	Offset: 0x1928
 	Size: 0x58
@@ -393,7 +393,7 @@ function function_7152ba7c(var_c712b3e9)
 
 /*
 	Name: function_1bad7fac
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0xAFE96925
 	Offset: 0x1988
 	Size: 0x94
@@ -417,7 +417,7 @@ function function_1bad7fac(localclientnum)
 
 /*
 	Name: function_cb64dcb1
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x171F534C
 	Offset: 0x1A28
 	Size: 0x74
@@ -431,7 +431,7 @@ function function_cb64dcb1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c96c5397
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x70CC62F3
 	Offset: 0x1AA8
 	Size: 0x134
@@ -467,7 +467,7 @@ function function_c96c5397(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_192be936
-	Namespace: namespace_8b80898c
+	Namespace: zm_red_power_quest
 	Checksum: 0x323EC426
 	Offset: 0x1BE8
 	Size: 0x15C

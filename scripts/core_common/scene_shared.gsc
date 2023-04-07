@@ -3550,7 +3550,7 @@ function function_a4ad0308(o_scene)
 		var_6b859e8c = 0;
 		var_d60120 = 2500;
 	}
-	self.skip_scene_menu_handle = lui::function_e810a527("cp_skip_scene_menu");
+	self.skip_scene_menu_handle = lui::get_luimenu("cp_skip_scene_menu");
 	self.skip_scene_menu_handle cp_skip_scene_menu::open(self);
 	self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 0);
 	self.skip_scene_menu_handle cp_skip_scene_menu::set_hostIsSkipping(self, 0);

@@ -248,7 +248,7 @@ function private function_c5bf12a5(commander)
 		return;
 	}
 	commanderteam = blackboard::getstructblackboardattribute(commander, #"team");
-	var_1b956c5a = [];
+	controlzones = [];
 	var_c4c8bf3f = arraycopy(level.zones);
 	foreach(zone in var_c4c8bf3f)
 	{
@@ -263,15 +263,15 @@ function private function_c5bf12a5(commander)
 			var_72812cde[#"__unsafe__"] = array();
 		}
 		var_72812cde[#"__unsafe__"][#"controlzone"] = zone;
-		if(!isdefined(var_1b956c5a))
+		if(!isdefined(controlzones))
 		{
-			var_1b956c5a = [];
+			controlzones = [];
 		}
-		else if(!isarray(var_1b956c5a))
+		else if(!isarray(controlzones))
 		{
-			var_1b956c5a = array(var_1b956c5a);
+			controlzones = array(controlzones);
 		}
-		var_1b956c5a[var_1b956c5a.size] = var_72812cde;
+		controlzones[controlzones.size] = var_72812cde;
 		if(getrealtime() - commander.var_22765a25 > commander.var_b9dd2f)
 		{
 			aiprofile_endentry();
@@ -282,7 +282,7 @@ function private function_c5bf12a5(commander)
 			aiprofile_beginentry("daemonControlZones");
 		}
 	}
-	blackboard::setstructblackboardattribute(commander, "mp_controlZones", var_1b956c5a);
+	blackboard::setstructblackboardattribute(commander, "mp_controlZones", controlzones);
 }
 
 /*
@@ -573,12 +573,12 @@ function private function_e319475e(commander, squad, constants)
 */
 function private function_f478ac94(commander, squad, constants)
 {
-	var_1b956c5a = plannersquadutility::getblackboardattribute(squad, "mp_controlZones");
-	if(isdefined(var_1b956c5a) && var_1b956c5a.size > 0)
+	controlzones = plannersquadutility::getblackboardattribute(squad, "mp_controlZones");
+	if(isdefined(controlzones) && controlzones.size > 0)
 	{
-		for(i = 0; i < var_1b956c5a.size; i++)
+		for(i = 0; i < controlzones.size; i++)
 		{
-			zone = var_1b956c5a[i][#"__unsafe__"][#"controlzone"];
+			zone = controlzones[i][#"__unsafe__"][#"controlzone"];
 			if(!zone.gameobject.trigger istriggerenabled())
 			{
 				return 0;
@@ -601,13 +601,13 @@ function private function_f478ac94(commander, squad, constants)
 function private function_78126acd(commander, squad, constants)
 {
 	domflags = plannersquadutility::getblackboardattribute(squad, "mp_domFlags");
-	var_f3ff0f9c = plannersquadutility::getblackboardattribute(squad, "team");
+	squadteam = plannersquadutility::getblackboardattribute(squad, "team");
 	if(isdefined(domflags) && domflags.size > 0)
 	{
 		foreach(domflag in domflags)
 		{
 			object = domflag[#"__unsafe__"][#"domflag"];
-			if(hash(var_f3ff0f9c) !== object gameobjects::get_owner_team())
+			if(hash(squadteam) !== object gameobjects::get_owner_team())
 			{
 				return 1;
 			}
@@ -685,8 +685,8 @@ function private function_2f04f764(planner, constants)
 	/#
 		assert(squadindex >= 0, "");
 	#/
-	var_1b956c5a = planner::getblackboardattribute(planner, "mp_pathable_controlZones", squadindex);
-	foreach(controlzone in var_1b956c5a)
+	controlzones = planner::getblackboardattribute(planner, "mp_pathable_controlZones", squadindex);
+	foreach(controlzone in controlzones)
 	{
 		zone = controlzone[#"controlzone"][#"__unsafe__"][#"controlzone"];
 		if(!isdefined(zone) || !isdefined(zone.gameobject))
@@ -716,8 +716,8 @@ function private function_34c0ebaf(planner, constants)
 	/#
 		assert(squadindex >= 0, "");
 	#/
-	var_1b956c5a = planner::getblackboardattribute(planner, "mp_pathable_controlZones", squadindex);
-	return var_1b956c5a.size > 0;
+	controlzones = planner::getblackboardattribute(planner, "mp_pathable_controlZones", squadindex);
+	return controlzones.size > 0;
 }
 
 /*
@@ -872,8 +872,8 @@ function private function_b35625c2(planner, constants)
 		assert(squadindex >= 0, "");
 	#/
 	bots = planner::getblackboardattribute(planner, "doppelbots", squadindex);
-	var_1b956c5a = planner::getblackboardattribute(planner, "mp_controlZones");
-	var_72d5b8ac = function_c0e398c4(bots, var_1b956c5a, "controlZone");
+	controlzones = planner::getblackboardattribute(planner, "mp_controlZones");
+	var_72d5b8ac = function_c0e398c4(bots, controlzones, "controlZone");
 	planner::setblackboardattribute(planner, "mp_pathable_controlZones", var_72d5b8ac, squadindex);
 	return spawnstruct();
 }
@@ -966,19 +966,19 @@ function private function_9d8a9994(planner, constants)
 	{
 		return spawnstruct();
 	}
-	var_1b956c5a = [];
+	controlzones = [];
 	for(i = 0; i < var_72d5b8ac.size; i++)
 	{
 		zone = var_72d5b8ac[i][#"controlzone"];
-		if(!isdefined(var_1b956c5a))
+		if(!isdefined(controlzones))
 		{
-			var_1b956c5a = [];
+			controlzones = [];
 		}
-		else if(!isarray(var_1b956c5a))
+		else if(!isarray(controlzones))
 		{
-			var_1b956c5a = array(var_1b956c5a);
+			controlzones = array(controlzones);
 		}
-		var_1b956c5a[var_1b956c5a.size] = zone;
+		controlzones[controlzones.size] = zone;
 	}
 	controlzone = undefined;
 	bot = undefined;
@@ -993,7 +993,7 @@ function private function_9d8a9994(planner, constants)
 		{
 			if(function_97659d05(planner, constants))
 			{
-				foreach(var_e8450bcf in var_1b956c5a)
+				foreach(var_e8450bcf in controlzones)
 				{
 					var_f7b61e5e = var_e8450bcf[#"__unsafe__"][#"controlzone"];
 					if(var_f7b61e5e.gameobject.trigger istriggerenabled() && bot istouching(var_f7b61e5e.gameobject.trigger) && var_f7b61e5e.gameobject.curprogress > 0)
@@ -1008,7 +1008,7 @@ function private function_9d8a9994(planner, constants)
 		{
 			if(function_39cd5957(planner, constants))
 			{
-				foreach(var_e8450bcf in var_1b956c5a)
+				foreach(var_e8450bcf in controlzones)
 				{
 					var_f7b61e5e = var_e8450bcf[#"__unsafe__"][#"controlzone"];
 					if(var_f7b61e5e.gameobject.trigger istriggerenabled() && bot istouching(var_f7b61e5e.gameobject.trigger))
@@ -1022,7 +1022,7 @@ function private function_9d8a9994(planner, constants)
 	}
 	if(!isdefined(controlzone))
 	{
-		controlzone = array::random(var_1b956c5a);
+		controlzone = array::random(controlzones);
 	}
 	planner::setblackboardattribute(planner, "mp_controlZones", array(controlzone), squadindex);
 	return spawnstruct();

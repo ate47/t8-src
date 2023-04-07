@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_61826ca279ffa0;
+#using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using script_ee56e8b680377b6;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -372,7 +372,7 @@ function function_12f9ed01(var_4abe70c5)
 	{
 		self function_8e0db9e6(s_loc, 40, 40, 1);
 	}
-	self thread namespace_73e1c3e3::function_89cd182c(s_loc);
+	self thread ct_utils::function_89cd182c(s_loc);
 }
 
 /*
@@ -391,7 +391,7 @@ function function_8e0db9e6(s_loc, var_feefa8d9, var_ecf349de, var_3fc5d539)
 	{
 		self namespace_9c817acd::stand();
 	}
-	self thread namespace_73e1c3e3::function_5b59f3b7(s_loc.origin, s_loc.angles, var_feefa8d9);
+	self thread ct_utils::function_5b59f3b7(s_loc.origin, s_loc.angles, var_feefa8d9);
 	while(true)
 	{
 		n_dist = distance(self.origin, s_loc.origin);
@@ -405,6 +405,6 @@ function function_8e0db9e6(s_loc, var_feefa8d9, var_ecf349de, var_3fc5d539)
 	{
 		self namespace_9c817acd::crouch();
 	}
-	self thread namespace_73e1c3e3::function_5b59f3b7(s_loc.origin, s_loc.angles, var_ecf349de);
+	self thread ct_utils::function_5b59f3b7(s_loc.origin, s_loc.angles, var_ecf349de);
 }
 

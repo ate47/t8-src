@@ -1,29 +1,29 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\weapons\mp\weapons.gsc;
 #using script_1417f739c5b20576;
-#using script_18f0d22c75b141a7;
-#using script_1bd0552c85e48ebe;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\mp_common\player\player.gsc;
 #using scripts\mp_common\bots\mp_bot.gsc;
 #using scripts\mp_common\teams\platoons.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\killstreaks\mp\killstreaks.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_2d050f995be06579;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_457dc1cc11263d2b;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_57f7003580bb15e0;
 #using scripts\core_common\map.gsc;
 #using script_66052559f4fc2bf9;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_6eb0d63d4a90adcf;
-#using script_75be2950b381443;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_monitor.gsc;
+#using scripts\core_common\platoons.gsc;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -894,7 +894,7 @@ function function_4b670b29()
 	{
 		return false;
 	}
-	params = {#hash_6eb69269:[], #hash_9648a6d7:[]};
+	params = {#hash_6eb69269:[], #teams_forfeited:[]};
 	foreach(team, _ in level.teams)
 	{
 		if(function_f25690c1(team))
@@ -3323,7 +3323,7 @@ function function_9a022fbc(str_state)
 	}
 	foreach(player in players)
 	{
-		lui_menu = lui::function_e810a527("FullScreenBlack");
+		lui_menu = lui::get_luimenu("FullScreenBlack");
 		if(str_state == "open")
 		{
 			if(isdefined(lui_menu))

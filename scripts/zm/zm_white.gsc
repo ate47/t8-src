@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_10956a741a7e186e;
+#using scripts\zm\zm_white_special_rounds.gsc;
 #using scripts\zm\weapons\zm_weap_minigun.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_152668a12c94fe8;
+#using scripts\zm\zm_white_zstandard.gsc;
 #using scripts\zm\weapons\zm_weap_katana.gsc;
 #using scripts\zm\zm_white_doomsday_clock.gsc;
 #using script_1c1d447ddbce2c00;
@@ -103,8 +103,8 @@ event main(eventstruct)
 	setclearanceceiling(17);
 	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
 	level thread function_d0f18ffe();
-	level.custom_spawner_entry[#"crawl"] = &namespace_5c160465::function_45bb11e4;
-	level.var_ddcd74c6 = &namespace_5c160465::function_f79e10f9;
+	level.custom_spawner_entry[#"crawl"] = &zm_white_special_rounds::function_45bb11e4;
+	level.var_ddcd74c6 = &zm_white_special_rounds::function_f79e10f9;
 	level.var_c02e63 = &zm_white_util::function_5d7d0c85;
 	level._no_vending_machine_auto_collision = 1;
 	level._uses_default_wallbuy_fx = 1;
@@ -145,8 +145,8 @@ event main(eventstruct)
 	level._allow_melee_weapon_switching = 1;
 	level.var_161cb00c = 1;
 	level.registerobjective_qzonejukeinit = 0;
-	level namespace_5c160465::register_clientfields();
-	level namespace_2eb2d493::register_clientfields();
+	level zm_white_special_rounds::register_clientfields();
+	level zm_white_zstandard::register_clientfields();
 	level zm_white_portals::init_clientfields();
 	level zm_white_mee::preload();
 	level zm_white_toast::preload();
@@ -192,7 +192,7 @@ event main(eventstruct)
 	level thread zm_white_portals::init();
 	level thread zm_white_doomsday_clock::init();
 	level thread namespace_a71af4de::init();
-	level thread namespace_5c160465::init();
+	level thread zm_white_special_rounds::init();
 	level thread function_d574cfc6();
 	level thread namespace_cc08081f::init();
 	level thread namespace_7d8e6ec3::init();
@@ -1275,10 +1275,10 @@ function function_e120ae98(a_s_respawn_points)
 function function_c8ce0a17(var_404e4288, var_8dd554ee)
 {
 	level flag::set(#"disable_special_rounds");
-	ai = namespace_5c160465::function_dd836251();
+	ai = zm_white_special_rounds::function_dd836251();
 	if(!isdefined(ai))
 	{
-		ai = namespace_5c160465::function_75309b09();
+		ai = zm_white_special_rounds::function_75309b09();
 	}
 	if(isdefined(ai))
 	{

@@ -1344,7 +1344,7 @@ function private function_192b39cd(localclientnum)
 }
 
 /*
-	Name: function_cfebeacb
+	Name: _set_weapon
 	Namespace: item_world
 	Checksum: 0xB2A461CF
 	Offset: 0x4BA0
@@ -1352,7 +1352,7 @@ function private function_192b39cd(localclientnum)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_cfebeacb(localclientnum, item)
+function private _set_weapon(localclientnum, item)
 {
 	if(isdefined(item) && isdefined(item.var_a6762160.weapon) && !isdefined(item.var_a6762160.model) && isdefined(item.var_a6762160.weapon.worldmodel))
 	{
@@ -1411,7 +1411,7 @@ function private function_e082e650(localclientnum, item, newmodel, scale)
 	function_3ee12d25(localclientnum, self);
 	if(isdefined(newmodel))
 	{
-		if(!self function_cfebeacb(localclientnum, item) || isdefined(item.var_a6762160.model))
+		if(!self _set_weapon(localclientnum, item) || isdefined(item.var_a6762160.model))
 		{
 			self setmodel(newmodel);
 		}

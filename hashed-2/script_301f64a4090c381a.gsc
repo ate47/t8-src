@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -95,7 +95,7 @@ function function_9af806be(var_c5b25bc5)
 		}
 		case 2:
 		{
-			self perks::function_7637bafa(#"hash_53010725c65a98a5");
+			self perks::perk_setperk(#"hash_53010725c65a98a5");
 			break;
 		}
 		case 3:
@@ -106,12 +106,12 @@ function function_9af806be(var_c5b25bc5)
 		}
 		case 4:
 		{
-			self perks::function_7637bafa(#"hash_130074ec6de7a431");
+			self perks::perk_setperk(#"hash_130074ec6de7a431");
 			break;
 		}
 		case 5:
 		{
-			self perks::function_7637bafa(#"hash_1bc7d0ea42d1d0a8");
+			self perks::perk_setperk(#"hash_1bc7d0ea42d1d0a8");
 			break;
 		}
 		case 6:
@@ -152,7 +152,7 @@ function function_2a94cd59()
 			}
 			case 2:
 			{
-				self perks::function_45d12554(#"hash_53010725c65a98a5");
+				self perks::perk_unsetperk(#"hash_53010725c65a98a5");
 				break;
 			}
 			case 3:
@@ -162,12 +162,12 @@ function function_2a94cd59()
 			}
 			case 4:
 			{
-				self perks::function_45d12554(#"hash_130074ec6de7a431");
+				self perks::perk_unsetperk(#"hash_130074ec6de7a431");
 				break;
 			}
 			case 5:
 			{
-				self perks::function_45d12554(#"hash_1bc7d0ea42d1d0a8");
+				self perks::perk_unsetperk(#"hash_1bc7d0ea42d1d0a8");
 				break;
 			}
 			case 6:

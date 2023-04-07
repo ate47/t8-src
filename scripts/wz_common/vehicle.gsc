@@ -2,7 +2,7 @@
 #using script_1af22ad25a2111f7;
 #using script_1cf46b33555422b7;
 #using scripts\wz_common\wz_contracts.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48bb1764a662152d;
 #using script_578e247c429144f6;
 #using script_5961deb533dad533;

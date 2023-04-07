@@ -363,7 +363,7 @@ function private function_ea764100()
 		structs = struct::get_array("", "");
 		targetstructs = [];
 		duration = 10;
-		var_d515e92d = 3000 * 3000;
+		viewdistancesq = 3000 * 3000;
 		while(true)
 		{
 			waitframe(duration);
@@ -397,7 +397,7 @@ function private function_ea764100()
 			}
 			for(index = 0; index < structs.size; index++)
 			{
-				if(distance2dsquared(campos, structs[index].origin) <= var_d515e92d)
+				if(distance2dsquared(campos, structs[index].origin) <= viewdistancesq)
 				{
 					targetstructs[index] = function_8ded619(structs[index], targetstructs[index], duration);
 				}

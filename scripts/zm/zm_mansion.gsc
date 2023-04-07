@@ -37,7 +37,7 @@
 #using script_a2c974cd6e11ddf;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\zm\zm_mansion_silver_bullet.gsc;
 #using script_c54399dcca098ce;
 #using script_db06eb511bd9b36;
@@ -196,7 +196,7 @@ event main(eventstruct)
 	level.round_wait_func = &function_802dde1f;
 	level.pack_a_punch.custom_power_think = &mansion_pap::function_124362b5;
 	level.player_out_of_playable_area_monitor_callback = &player_out_of_playable_area_monitor_callback;
-	level thread namespace_9d27962b::init();
+	level thread zm_mansion_special_rounds::init();
 	level.var_22fda912 = &offhand_weapon_overrride;
 	level.zombiemode_offhand_weapon_give_override = &offhand_weapon_give_override;
 	level.var_ee565b3f = &namespace_82497b8a::function_1998c3ac;
@@ -3579,7 +3579,7 @@ function function_d7bc714e(cmd)
 	/#
 		if(cmd == "")
 		{
-			level thread namespace_9d27962b::function_93eab559();
+			level thread zm_mansion_special_rounds::function_93eab559();
 			return;
 		}
 		level clientfield::set("" + #"hash_42e03f9ae74a1070", 0);

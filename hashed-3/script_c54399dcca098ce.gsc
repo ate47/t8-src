@@ -10,7 +10,7 @@
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -1471,7 +1471,7 @@ function function_c1c2fc5b(n_to_spawn)
 			{
 				arrayremovevalue(var_8deb2034, s_pos);
 				n_spawned++;
-				namespace_9d27962b::function_f46db405();
+				zm_mansion_special_rounds::function_f46db405();
 			}
 		}
 	}

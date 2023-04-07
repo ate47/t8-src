@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_24c32478acf44108;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;

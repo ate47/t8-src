@@ -20,7 +20,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_46f39ac878b7d58f", &__init__, &__main__, undefined);
+	system::register(#"zm_office_teleporters", &__init__, &__main__, undefined);
 }
 
 /*

@@ -2515,8 +2515,8 @@ function function_85635daf(startpoint, total_distance, delta_t)
 	while(true)
 	{
 		current_distance = distance(startpoint, self.origin);
-		var_3d1b6203 = current_distance / total_distance;
-		if(var_3d1b6203 > delta_t)
+		current_t = current_distance / total_distance;
+		if(current_t > delta_t)
 		{
 			return;
 		}
@@ -3114,9 +3114,9 @@ function function_c71552d0(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 	/#
 		assert(isstruct(insertion));
 	#/
-	if(isdefined(lui::function_e810a527("FullScreenBlack")))
+	if(isdefined(lui::get_luimenu("FullScreenBlack")))
 	{
-		lui_menu = lui::function_e810a527("FullScreenBlack");
+		lui_menu = lui::get_luimenu("FullScreenBlack");
 	}
 	else
 	{

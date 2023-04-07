@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_10956a741a7e186e;
+#using scripts\zm\zm_white_special_rounds.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using scripts\zm\zm_white_mee.gsc;
 #using script_724752ab26bff81b;
@@ -58,7 +58,7 @@ function private function_2639784()
 			zm_devgui::zombie_devgui_open_sesame();
 		}
 		level.old_dog_spawn = &namespace_c402654::function_62db7b1c;
-		namespace_5c160465::function_6acd363d(1);
+		zm_white_special_rounds::function_6acd363d(1);
 	#/
 }
 
@@ -82,7 +82,7 @@ function private function_3db5079()
 		{
 			if(var_ab611263[#"hash_5ec516364540f76a"] == #"active")
 			{
-				var_ab611263[#"gas_cloud"] namespace_5c160465::function_27a8604b(var_ab611263[#"group"]);
+				var_ab611263[#"gas_cloud"] zm_white_special_rounds::function_27a8604b(var_ab611263[#"group"]);
 			}
 		}
 	#/

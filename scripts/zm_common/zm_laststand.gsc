@@ -3,7 +3,7 @@
 #using script_243ea03c7a285692;
 #using script_30a4b3e6d6d5e540;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48f7c4ab73137f8;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;

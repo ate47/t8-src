@@ -208,18 +208,18 @@ function private function_304a3c9b(var_c34665fc)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_4521ac7e(var_f2a06582, n_lvl)
+function private function_4521ac7e(w_curr, n_lvl)
 {
 	self endoncallback(&function_304a3c9b, #"hash_219c7081783c2153", #"player_downed", #"disconnect", #"hero_weapon_power_off");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_melee_power");
-		if(s_result.weapon !== var_f2a06582)
+		if(s_result.weapon !== w_curr)
 		{
 			continue;
 		}
-		if(!namespace_6b49f66b::function_5fbf572(var_f2a06582))
+		if(!namespace_6b49f66b::function_5fbf572(w_curr))
 		{
 			continue;
 		}
@@ -231,8 +231,8 @@ function private function_4521ac7e(var_f2a06582, n_lvl)
 		self clientfield::set("" + #"skull_turret_beam_fire", n_lvl);
 		self clientfield::set("" + #"hash_6635e6da6fcfe594", n_lvl);
 		self.var_1de56cc8 = 1;
-		self thread function_be8ae52f(var_f2a06582);
-		self notify(#"hash_7d855302d88c6701", {#weapon:var_f2a06582});
+		self thread function_be8ae52f(w_curr);
+		self notify(#"hash_7d855302d88c6701", {#weapon:w_curr});
 		wait(0.1);
 		var_43b42a60 = 1;
 		do
@@ -241,7 +241,7 @@ function private function_4521ac7e(var_f2a06582, n_lvl)
 			var_43b42a60 = var_43b42a60 - (float(function_60d95f53()) / 1000);
 			if(var_43b42a60 <= 0)
 			{
-				self notify(#"hash_7d855302d88c6701", {#weapon:var_f2a06582});
+				self notify(#"hash_7d855302d88c6701", {#weapon:w_curr});
 				var_43b42a60 = 1;
 			}
 		}
@@ -564,10 +564,10 @@ function function_4e055c08(d, n)
 	Parameters: 1
 	Flags: Linked
 */
-function function_be8ae52f(var_f2a06582)
+function function_be8ae52f(w_curr)
 {
 	self endon(#"death", #"stop_damage");
-	switch(var_f2a06582.name)
+	switch(w_curr.name)
 	{
 		case "hero_scepter_lv2":
 		{
@@ -660,7 +660,7 @@ function function_be8ae52f(var_f2a06582)
 					}
 				}
 				self scepter_rumble(6);
-				self thread function_b67b2aff(e_last_target, n_damage, var_1c218ece, var_f2a06582);
+				self thread function_b67b2aff(e_last_target, n_damage, var_1c218ece, w_curr);
 			}
 			else if(isplayer(e_last_target))
 			{

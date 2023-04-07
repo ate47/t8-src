@@ -69,7 +69,7 @@ function __init__()
 */
 function __main__()
 {
-	zm_transform::function_cfca77a7(#"hash_2ca39a768b9be4ab", #"werewolf", &function_39212989, 1, undefined, undefined, "aib_vign_zm_mnsn_werewolf_pre_transform", "aib_vign_zm_mnsn_werewolf_post_transform", &function_5c0a0b26);
+	zm_transform::function_cfca77a7(#"spawner_zm_werewolf", #"werewolf", &function_39212989, 1, undefined, undefined, "aib_vign_zm_mnsn_werewolf_pre_transform", "aib_vign_zm_mnsn_werewolf_post_transform", &function_5c0a0b26);
 }
 
 /*

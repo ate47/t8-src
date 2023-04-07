@@ -2,7 +2,7 @@
 #using scripts\mp_common\teams\platoons.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_75be2950b381443;
+#using scripts\core_common\platoons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\gamestate.gsc;
 #using scripts\core_common\infection.gsc;

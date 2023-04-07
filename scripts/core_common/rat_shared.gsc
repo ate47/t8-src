@@ -490,7 +490,7 @@ function function_3b51dc31(params)
 	/#
 		player = getplayer(params);
 		currentweapon = player getcurrentweapon();
-		return player function_f09c133d(currentweapon);
+		return player getweaponammoclipsize(currentweapon);
 	#/
 }
 

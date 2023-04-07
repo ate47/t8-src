@@ -14,7 +14,7 @@
 #using script_6e3c826b1814cab6;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using script_ab862743b3070a;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\zm\zm_mansion_silver_bullet.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

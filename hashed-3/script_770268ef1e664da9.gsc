@@ -38,7 +38,7 @@ function __init__()
 }
 
 /*
-	Name: function_cdaddee
+	Name: createcommanderplanner
 	Namespace: namespace_42cba673
 	Checksum: 0xDD1A2186
 	Offset: 0x110
@@ -46,7 +46,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_cdaddee(team)
+function createcommanderplanner(team)
 {
 	planner = plannerutility::createplannerfromasset(#"zm_commander.ai_htn");
 	return planner;
@@ -64,7 +64,7 @@ function function_cdaddee(team)
 function createcommander()
 {
 	team = #"allies";
-	commander = plannercommanderutility::createcommander(team, function_cdaddee(team), function_ce59625f(team));
+	commander = plannercommanderutility::createcommander(team, createcommanderplanner(team), createsquadplanner(team));
 	plannergenericcommander::commanderdaemons(commander);
 	plannercommanderutility::adddaemon(commander, #"daemonzmaltars");
 	plannercommanderutility::adddaemon(commander, #"daemonzmblockers");

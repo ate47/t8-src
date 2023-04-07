@@ -1,22 +1,22 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1479b2205c2a8ccd;
-#using script_1a970b4b3bc5fb3a;
-#using script_1fd1a25536bc59cf;
+#using scripts\zm\zm_orange_mq_vessel.gsc;
+#using scripts\zm\zm_orange_mq_campfire.gsc;
+#using scripts\zm\zm_orange_mq_blood.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_48586eea5c3542a4;
-#using script_493d9b5ad424cee7;
+#using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using script_4b80fc97d8469299;
 #using script_4ec1d631174f7283;
 #using script_57f7003580bb15e0;
 #using script_5a4c716662b66a50;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5c6694d7aa0f1490;
-#using script_5e177698fdcdbe2c;
+#using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_6a3f43063dfd1bdc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6f35f7919b97e062;
+#using scripts\zm\zm_orange_mq_fuse.gsc;
 #using script_7bc1d63f5e0e027;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -50,11 +50,11 @@
 function preload()
 {
 	namespace_45e52e8a::preload();
-	namespace_c52ee24f::preload();
-	namespace_ff7e4f08::preload();
-	namespace_1a68a5da::preload();
+	zm_orange_mq_vessel::preload();
+	zm_orange_mq_blood::preload();
+	zm_orange_mq_campfire::preload();
 	namespace_4b68b2b3::preload();
-	namespace_bfc8ee03::preload();
+	zm_orange_mq_hell::preload();
 	namespace_13b4b4b::preload();
 	clientfield::register("toplayer", "" + #"hash_668f474410d5c1d0", 24000, 1, "int");
 }
@@ -71,29 +71,29 @@ function preload()
 function main()
 {
 	namespace_45e52e8a::main();
-	namespace_c52ee24f::main();
-	namespace_ff7e4f08::main();
-	namespace_1a68a5da::main();
+	zm_orange_mq_vessel::main();
+	zm_orange_mq_blood::main();
+	zm_orange_mq_campfire::main();
 	namespace_4b68b2b3::main();
-	namespace_bfc8ee03::main();
+	zm_orange_mq_hell::main();
 	namespace_13b4b4b::init();
 	level flag::init("sam_music_done");
 	level flag::init(#"hash_18b94410e3b6b0bf");
 	zm_sq::register(#"main_quest", #"hash_86e283359f19a5f", #"hash_269c18969e47568f", &namespace_45e52e8a::function_77ed3bab, &namespace_45e52e8a::function_51ecc801);
-	zm_sq::register(#"main_quest", #"hash_467104204a4803ad", #"hash_269c19969e475842", &namespace_c52ee24f::function_a5254494, &namespace_c52ee24f::function_77e4073b);
-	zm_sq::register(#"main_quest", #"hash_7c16d3a3e4250b9a", #"hash_269c1a969e4759f5", &namespace_ff7e4f08::function_8d43b840, &namespace_ff7e4f08::function_2d9e1e29);
-	zm_sq::register(#"main_quest", #"hash_2dfcd4264b2c2340", #"hash_269c13969e474e10", &namespace_1a68a5da::function_13dda28a, &namespace_1a68a5da::function_a874e5d0);
-	zm_sq::register(#"main_quest", #"hash_c2e45a40a675911", #"hash_269c14969e474fc3", &namespace_f7a40df8::function_d878e1ee, &namespace_f7a40df8::function_9ee4c8c3);
-	zm_sq::register(#"main_quest", #"hash_72bc0ec65f4afcca", #"hash_6289c5eef32eca15", &namespace_55999fe::function_742dfdb5, &namespace_55999fe::function_9e34b0d4);
-	zm_sq::register(#"main_quest", #"hash_28c88f40ace27a7b", #"hash_6289c2eef32ec4fc", &namespace_55999fe::function_c723e684, &namespace_55999fe::function_3d5a45fb);
-	zm_sq::register(#"main_quest", #"hash_382d731d4de07ed3", #"hash_269c16969e475329", &namespace_ff7e4f08::function_8d43b840, &namespace_ff7e4f08::function_2d9e1e29);
-	zm_sq::register(#"main_quest", #"hash_2c00866b95e17ff5", #"hash_269c1f969e476274", &namespace_1a68a5da::function_13dda28a, &namespace_1a68a5da::function_a874e5d0);
+	zm_sq::register(#"main_quest", #"hash_467104204a4803ad", #"hash_269c19969e475842", &zm_orange_mq_vessel::function_a5254494, &zm_orange_mq_vessel::function_77e4073b);
+	zm_sq::register(#"main_quest", #"hash_7c16d3a3e4250b9a", #"hash_269c1a969e4759f5", &zm_orange_mq_blood::function_8d43b840, &zm_orange_mq_blood::function_2d9e1e29);
+	zm_sq::register(#"main_quest", #"hash_2dfcd4264b2c2340", #"hash_269c13969e474e10", &zm_orange_mq_campfire::function_13dda28a, &zm_orange_mq_campfire::function_a874e5d0);
+	zm_sq::register(#"main_quest", #"hash_c2e45a40a675911", #"hash_269c14969e474fc3", &zm_orange_mq_soapstone::function_d878e1ee, &zm_orange_mq_soapstone::function_9ee4c8c3);
+	zm_sq::register(#"main_quest", #"hash_72bc0ec65f4afcca", #"hash_6289c5eef32eca15", &zm_orange_mq_fuse::function_742dfdb5, &zm_orange_mq_fuse::function_9e34b0d4);
+	zm_sq::register(#"main_quest", #"hash_28c88f40ace27a7b", #"hash_6289c2eef32ec4fc", &zm_orange_mq_fuse::function_c723e684, &zm_orange_mq_fuse::function_3d5a45fb);
+	zm_sq::register(#"main_quest", #"hash_382d731d4de07ed3", #"hash_269c16969e475329", &zm_orange_mq_blood::function_8d43b840, &zm_orange_mq_blood::function_2d9e1e29);
+	zm_sq::register(#"main_quest", #"hash_2c00866b95e17ff5", #"hash_269c1f969e476274", &zm_orange_mq_campfire::function_13dda28a, &zm_orange_mq_campfire::function_a874e5d0);
 	zm_sq::register(#"main_quest", #"hash_ebca448700872b8", #"hash_62afa5eef34f62f2", &namespace_4b68b2b3::function_1faf4b9, &namespace_4b68b2b3::function_a8748143);
 	zm_sq::register(#"main_quest", #"hash_810019231f11ea1", #"hash_62afa4eef34f613f", &namespace_4b68b2b3::function_91fbb734, &namespace_4b68b2b3::function_c2898bf0);
-	zm_sq::register(#"main_quest", #"hash_11c4f1ecb0dd5a34", #"hash_629486eef338668d", &namespace_ff7e4f08::function_8d43b840, &namespace_ff7e4f08::function_2d9e1e29);
-	zm_sq::register(#"main_quest", #"hash_d0bf3cf30a07a84", #"hash_629485eef33864da", &namespace_1a68a5da::function_13dda28a, &namespace_1a68a5da::function_a874e5d0);
+	zm_sq::register(#"main_quest", #"hash_11c4f1ecb0dd5a34", #"hash_629486eef338668d", &zm_orange_mq_blood::function_8d43b840, &zm_orange_mq_blood::function_2d9e1e29);
+	zm_sq::register(#"main_quest", #"hash_d0bf3cf30a07a84", #"hash_629485eef33864da", &zm_orange_mq_campfire::function_13dda28a, &zm_orange_mq_campfire::function_a874e5d0);
 	zm_sq::register(#"main_quest", #"hash_13b9abe1bd17294c", #"hash_629484eef3386327", &namespace_4b68b2b3::function_816c3132, &namespace_4b68b2b3::function_3c9be590);
-	zm_sq::register(#"main_quest", #"hash_7d78cef11f6afb5e", #"hash_629483eef3386174", &namespace_bfc8ee03::function_5309464a, &namespace_bfc8ee03::function_ae270d9e);
+	zm_sq::register(#"main_quest", #"hash_7d78cef11f6afb5e", #"hash_629483eef3386174", &zm_orange_mq_hell::function_5309464a, &zm_orange_mq_hell::function_ae270d9e);
 	zm_sq::register(#"main_quest", #"hash_2bd81e2b05fccbed", #"hash_629482eef3385fc1", &namespace_13b4b4b::function_5309464a, &namespace_13b4b4b::function_ae270d9e);
 	zm_sq::register(#"main_quest", #"hash_49b41abaa9addedd", #"hash_629481eef3385e0e", &function_d4147875, &function_895265b1, 1);
 	if(zm_utility::function_e51dc2d8())

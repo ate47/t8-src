@@ -207,7 +207,7 @@ function private function_607b1eb0()
 						self clientfield::set_to_player("death_dash_charging_postfx", 1);
 					}
 				}
-				if(self hasperk(#"hash_1b2d5c9444ac98f2") && self.var_d675d730.var_f658b938 < 1)
+				if(self hasperk(#"specialty_mod_death_dash") && self.var_d675d730.var_f658b938 < 1)
 				{
 					var_77aee2d6 = (gettime() - self.var_d675d730.var_40cb1997) / 1000;
 					self.var_d675d730.var_f658b938 = math::clamp(var_77aee2d6 / 6, 0, 1);
@@ -312,7 +312,7 @@ function function_b1d12202()
 	self thread function_aeda9580(var_8e317f6c);
 	self thread function_749be7c5();
 	var_23322f89 = lerpfloat(0.1, 0.5, self.var_d675d730.var_ec50ac8e);
-	if(self hasperk(#"hash_1b2d5c9444ac98f2") && self.var_d675d730.var_f658b938 >= 1)
+	if(self hasperk(#"specialty_mod_death_dash") && self.var_d675d730.var_f658b938 >= 1)
 	{
 		var_23322f89 = 5;
 	}
@@ -455,7 +455,7 @@ function function_c1c51837(e_player)
 			self zm_cleanup::function_23621259();
 			self zm_score::function_acaab828(1);
 		}
-		if(e_player hasperk(#"hash_1b2d5c9444ac98f2") && e_player.var_d675d730.var_f658b938 >= 1)
+		if(e_player hasperk(#"specialty_mod_death_dash") && e_player.var_d675d730.var_f658b938 >= 1)
 		{
 			n_damage = 4400;
 		}

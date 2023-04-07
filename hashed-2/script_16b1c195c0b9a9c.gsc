@@ -112,9 +112,9 @@ function private function_5cc53671(bot)
 */
 function private function_61be4b2c(bot, gameobject)
 {
-	var_8a1ac8ea = getclosestpointonnavmesh(bot.origin, 120, bot getpathfindingradius() * 1.05);
+	botpos = getclosestpointonnavmesh(bot.origin, 120, bot getpathfindingradius() * 1.05);
 	var_5bf84edd = getclosestpointonnavmesh(gameobject.origin, 200);
-	if(!isdefined(var_8a1ac8ea) || !isdefined(var_5bf84edd))
+	if(!isdefined(botpos) || !isdefined(var_5bf84edd))
 	{
 		return gameobject.origin;
 	}
@@ -123,7 +123,7 @@ function private function_61be4b2c(bot, gameobject)
 	{
 		for(i = 0; i < queryresult.data.size; i++)
 		{
-			pathsegment = generatenavmeshpath(var_8a1ac8ea, queryresult.data[i].origin, bot);
+			pathsegment = generatenavmeshpath(botpos, queryresult.data[i].origin, bot);
 			if(isdefined(pathsegment) && pathsegment.status === "succeeded")
 			{
 				return queryresult.data[i].origin;
@@ -385,14 +385,14 @@ function function_55cc58c4(planner, var_973c5ec5)
 */
 function private function_984c7289(planner, constants)
 {
-	var_1b956c5a = planner::getblackboardattribute(planner, "mp_controlZones");
-	if(!isarray(var_1b956c5a) || var_1b956c5a.size <= 0)
+	controlzones = planner::getblackboardattribute(planner, "mp_controlZones");
+	if(!isarray(controlzones) || controlzones.size <= 0)
 	{
 		return false;
 	}
-	for(i = 0; i < var_1b956c5a.size; i++)
+	for(i = 0; i < controlzones.size; i++)
 	{
-		zone = var_1b956c5a[i][#"__unsafe__"][#"controlzone"];
+		zone = controlzones[i][#"__unsafe__"][#"controlzone"];
 		if(isdefined(zone) && isdefined(zone.gameobject))
 		{
 			return true;

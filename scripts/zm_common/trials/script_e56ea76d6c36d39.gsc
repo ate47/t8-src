@@ -161,7 +161,7 @@ function private function_e73fbbf7(var_5ba20db5, var_27f8d634)
 	while(true)
 	{
 		self function_46feb36d(var_5ba20db5, var_27f8d634);
-		var_f2a06582 = self getcurrentweapon();
+		w_curr = self getcurrentweapon();
 		if(self.var_c2490d61)
 		{
 			if(!var_fa5d7ea0)
@@ -172,18 +172,18 @@ function private function_e73fbbf7(var_5ba20db5, var_27f8d634)
 		}
 		else
 		{
-			if(zm_weapons::weapon_supports_aat(var_f2a06582) && var_27f8d634 > 0)
+			if(zm_weapons::weapon_supports_aat(w_curr) && var_27f8d634 > 0)
 			{
 				self zm_trial_util::function_63060af4(0);
 				self zm_trial_util::function_f3aacffb();
-				n_repacks = zm_pap_util::function_83c29ddb(var_f2a06582);
+				n_repacks = zm_pap_util::function_83c29ddb(w_curr);
 				self zm_trial_util::function_c2cd0cba(var_27f8d634);
 				self zm_trial_util::function_2190356a(n_repacks);
 				var_fa5d7ea0 = 0;
 			}
 			else
 			{
-				if(zm_weapons::is_weapon_upgraded(var_f2a06582))
+				if(zm_weapons::is_weapon_upgraded(w_curr))
 				{
 					self zm_trial_util::function_63060af4(1);
 				}

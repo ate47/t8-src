@@ -6,7 +6,7 @@
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\mp\supplydrop.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\dev_shared.gsc;
@@ -948,7 +948,7 @@ function updatedevsettings()
 			{
 				for(j = 0; j < specialties.size; j++)
 				{
-					players[i] perks::function_7637bafa(specialties[j]);
+					players[i] perks::perk_setperk(specialties[j]);
 					players[i].extraperks[specialties[j]] = 1;
 				}
 			}
@@ -1058,7 +1058,7 @@ function updatedevsettings()
 			perk = getdvarstring(#"scr_takeperk");
 			for(i = 0; i < level.players.size; i++)
 			{
-				level.players[i] perks::function_45d12554(perk);
+				level.players[i] perks::perk_unsetperk(perk);
 				level.players[i].extraperks[perk] = undefined;
 			}
 			setdvar(#"scr_takeperk", "");
@@ -1588,7 +1588,7 @@ function giveextraperks()
 			/#
 				println(((("" + self.name) + "") + perks[i]) + "");
 			#/
-			self perks::function_7637bafa(perks[i]);
+			self perks::perk_setperk(perks[i]);
 		}
 	#/
 }

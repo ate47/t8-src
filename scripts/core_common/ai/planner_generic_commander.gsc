@@ -112,8 +112,8 @@ function commanderutilityevaluators(commander)
 function function_6549878f()
 {
 	function_321afadc();
-	level.var_c2ba4b3d = createcommander(#"axis");
-	level.var_6e68e2a4 = createcommander(#"allies");
+	level.axiscommander = createcommander(#"axis");
+	level.alliescommander = createcommander(#"allies");
 }
 
 /*

@@ -7,7 +7,7 @@
 #using script_6a3f43063dfd1bdc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
-#using script_d19b1fbf1d7cdd6;
+#using scripts\zm\zm_orange_lighthouse.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -350,7 +350,7 @@ function function_56db9cdc()
 	{
 		playsoundatposition("zmb_pap_lightning_2", (0, 0, 0));
 		function_1556161f();
-		namespace_d09ff23c::function_da304f6e(2);
+		zm_orange_lighthouse::function_da304f6e(2);
 		level.var_7d8bf93f function_e3921120(1);
 		level flag::clear(#"hash_78cf83ad057b4f1f");
 		if(level flag::get(#"hash_4898001eb77cb16f"))
@@ -401,7 +401,7 @@ function function_56db9cdc()
 		{
 			level.var_ab11c23d clientfield::set("lighthouse_on", 2);
 		}
-		namespace_d09ff23c::function_da304f6e(0);
+		zm_orange_lighthouse::function_da304f6e(0);
 		if(s_notify._notify !== #"hash_39b6629ce957cce9")
 		{
 			level waittilltimeout(30, #"hash_39b6629ce957cce9");
@@ -793,7 +793,7 @@ function function_21b093ce(var_5ea5c94d, ended_early)
 		{
 			level.var_ab11c23d clientfield::set("lighthouse_on", 2);
 		}
-		namespace_d09ff23c::function_1f29d511();
+		zm_orange_lighthouse::function_1f29d511();
 	}
 	n_variant = function_21a3a673(0, 2);
 	if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f))

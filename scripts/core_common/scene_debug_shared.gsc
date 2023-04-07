@@ -1209,9 +1209,9 @@ function function_42edf155()
 			var_45ec9741 = getdvarint(#"hash_1c68b689a2dac0fa", 0);
 			if(var_45ec9741 != 0)
 			{
-				var_ddf8730e = 0;
-				var_d039d791 = 0;
-				var_506e57f8 = 0;
+				position_x = 0;
+				position_y = 0;
+				position_z = 0;
 				angle_x = 0;
 				angle_y = 0;
 				angle_z = 0;
@@ -1224,16 +1224,16 @@ function function_42edf155()
 					{
 						s = animation::_get_align_pos(s, align_tag);
 					}
-					var_ddf8730e = s.origin[0];
-					var_d039d791 = s.origin[1];
-					var_506e57f8 = s.origin[2];
+					position_x = s.origin[0];
+					position_y = s.origin[1];
+					position_z = s.origin[2];
 					angle_x = s.angles[0];
 					angle_y = s.angles[1];
 					angle_z = s.angles[2];
 				}
-				setdvar(#"hash_6c03d4e558bf8abd", var_ddf8730e);
-				setdvar(#"hash_6c03d3e558bf890a", var_d039d791);
-				setdvar(#"hash_6c03d2e558bf8757", var_506e57f8);
+				setdvar(#"hash_6c03d4e558bf8abd", position_x);
+				setdvar(#"hash_6c03d3e558bf890a", position_y);
+				setdvar(#"hash_6c03d2e558bf8757", position_z);
 				setdvar(#"hash_277ac0be2726df0f", angle_x);
 				setdvar(#"hash_277abfbe2726dd5c", angle_y);
 				setdvar(#"hash_277ac2be2726e275", angle_z);

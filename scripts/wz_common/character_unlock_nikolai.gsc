@@ -2,7 +2,7 @@
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\wz_common\character_unlock_nikolai_fixup.gsc;
-#using script_7e294a061be2fd9;
+#using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
 #using scripts\wz_common\character_unlock.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -101,7 +101,7 @@ function function_19a80b40(var_a0ffe134)
 	{
 		return;
 	}
-	var_a0ffe134 thread namespace_c5ba6e2a::function_b9934c1d();
+	var_a0ffe134 thread gadget_cymbal_monkey::function_b9934c1d();
 }
 
 /*

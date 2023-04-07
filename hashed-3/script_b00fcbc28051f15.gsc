@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_24c32478acf44108;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
@@ -231,7 +231,7 @@ function function_4173ee30()
 			self thread function_ebe5f74b();
 		}
 		self.var_8d49716e = 1;
-		if(self.var_1d838ee9 == level.var_637136f3 || self.var_1d838ee9 == level.var_d7e67022)
+		if(self.previousweapon == level.var_637136f3 || self.previousweapon == level.var_d7e67022)
 		{
 			return;
 		}
@@ -252,7 +252,7 @@ function function_4173ee30()
 	}
 	if(w_current == level.var_4e845c84 || w_current == level.var_58e17ce3)
 	{
-		if(self.var_1d838ee9 == level.var_4e845c84 || self.var_1d838ee9 == level.var_58e17ce3)
+		if(self.previousweapon == level.var_4e845c84 || self.previousweapon == level.var_58e17ce3)
 		{
 			return;
 		}
@@ -313,7 +313,7 @@ function function_401e4768()
 		self clientfield::set_to_player("" + #"hash_3538d219b7eb5ba0", 0);
 	}
 	self notify(#"hash_1b7c4bada7fa6175");
-	if(function_98890cd8(self.var_1d838ee9))
+	if(function_98890cd8(self.previousweapon))
 	{
 		self playsoundtoplayer(#"hash_6632e419b4028fc4", self);
 	}
@@ -1138,7 +1138,7 @@ function private function_423e10ee()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d1a7390b(var_f2a06582)
+function function_d1a7390b(w_curr)
 {
 	self endon(#"disconnect", #"hash_7a5ea8904c04f16b");
 	n_dist_sq_max = 173056;
@@ -1156,7 +1156,7 @@ function function_d1a7390b(var_f2a06582)
 				a_trace[#"entity"] = undefined;
 			}
 		}
-		ai_zombie_target = self function_f0b16c98(var_f2a06582, n_dist_sq_max);
+		ai_zombie_target = self function_f0b16c98(w_curr, n_dist_sq_max);
 		if(isdefined(a_trace[#"entity"]) || isdefined(ai_zombie_target))
 		{
 			if(isdefined(ai_zombie_target))
@@ -1338,7 +1338,7 @@ function private function_81947c70()
 	Parameters: 2
 	Flags: Linked
 */
-function function_f0b16c98(var_f2a06582, n_dist_sq_max)
+function function_f0b16c98(w_curr, n_dist_sq_max)
 {
 	var_2ed6f142 = self getweaponmuzzlepoint();
 	var_a993e05e = self getweaponforwarddir();

@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_522aeb6ae906391e;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
@@ -150,9 +150,9 @@ function zombie_devgui_player_commands()
 function function_358c899d()
 {
 	/#
-		var_faf3d613 = array(1, 10, 50, 100, 3500, 9999);
+		test_scores = array(1, 10, 50, 100, 3500, 9999);
 		i = 0;
-		foreach(score in var_faf3d613)
+		foreach(score in test_scores)
 		{
 			adddebugcommand(((((("" + score) + "") + i) + "") + score) + "");
 			i++;

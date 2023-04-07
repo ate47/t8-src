@@ -5,7 +5,7 @@
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_52d2de9b438adc78;
 #using scripts\killstreaks\mp\killstreak_weapons.gsc;
 #using scripts\killstreaks\airsupport.gsc;

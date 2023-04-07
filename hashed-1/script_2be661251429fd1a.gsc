@@ -5,7 +5,7 @@
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\abilities\gadgets\gadget_smart_cover.gsc;
 #using scripts\mp_common\supplypod.gsc;
-#using script_6158278c8647d8a9;
+#using scripts\core_common\bots\bot_position.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\localheal.gsc;
@@ -1247,7 +1247,7 @@ function function_79988b4b(var_b594a2cd)
 		self waittill(#"hash_347a612b61067eb3");
 		return;
 	}
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	self bot_action::function_8a2b82ad(var_b594a2cd);
 	self bot_action::aim_at_target(var_b594a2cd);
@@ -1371,7 +1371,7 @@ function function_76c8b8e8(var_b594a2cd)
 		self waittill(#"hash_347a612b61067eb3");
 		return;
 	}
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	self bot_action::function_ccdcc5d9(weapon);
 	starttime = gettime();
@@ -1645,7 +1645,7 @@ function function_d2f7890(var_b594a2cd)
 		self waittill(#"hash_347a612b61067eb3");
 		return;
 	}
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	self bot_action::function_8a2b82ad(var_b594a2cd);
 	self bot_action::aim_at_target(var_b594a2cd);
@@ -2078,7 +2078,7 @@ function function_39c29cdd(var_b594a2cd)
 function function_8f5d7136(var_b594a2cd)
 {
 	scorestreakweapon = var_b594a2cd.weapon;
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	self bot_action::function_11c3d810(scorestreakweapon);
 	while(!self function_a39f313c() || self getcurrentweapon() != scorestreakweapon)
@@ -2180,7 +2180,7 @@ function function_883edf75(var_b594a2cd)
 {
 	scorestreakweapon = var_b594a2cd.weapon;
 	self bot_action::function_11c3d810(scorestreakweapon);
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	while(self getcurrentweapon() != scorestreakweapon)
 	{
@@ -2297,7 +2297,7 @@ function function_7d799351(var_b594a2cd)
 {
 	scorestreakweapon = var_b594a2cd.weapon;
 	self bot_action::function_11c3d810(scorestreakweapon);
-	self namespace_b20b4885::stop();
+	self bot_position::stop();
 	self function_a57c34b7(self.origin);
 	while(!self function_a39f313c() || self getcurrentweapon() != scorestreakweapon)
 	{

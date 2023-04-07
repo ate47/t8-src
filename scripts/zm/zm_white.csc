@@ -9,7 +9,7 @@
 #using script_28144a2871e71a78;
 #using scripts\zm_common\zm_characters.csc;
 #using script_2cb5724648b5b416;
-#using script_318816742cac11da;
+#using scripts\zm\zm_white_special_rounds.csc;
 #using scripts\zm\weapons\zm_weap_minigun.csc;
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
 #using script_3ba495e039989116;
@@ -17,7 +17,7 @@
 #using scripts\zm\zm_white_portals.csc;
 #using script_4deda6ab11ad22af;
 #using script_518e526a2898bf6d;
-#using script_5d65ba89fe134c5c;
+#using scripts\zm\zm_white_zstandard.csc;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\zm\weapons\zm_weap_katana.csc;
 #using script_84f5590d2ac48f8;
@@ -97,9 +97,9 @@ event main(eventstruct)
 	level.zombiemode_using_revive_perk = 1;
 	level.zombiemode_using_sleightofhand_perk = 1;
 	level.var_d0ab70a2 = #"hash_6dcfc619b819ab4f";
-	level namespace_2eb2d493::main();
+	level zm_white_zstandard::main();
 	level namespace_7d8e6ec3::preload();
-	level namespace_5c160465::register_clientfields();
+	level zm_white_special_rounds::register_clientfields();
 	level zm_white_portals::init_clientfields();
 	level namespace_a01a2431::preload();
 	level namespace_87b5173f::init();
@@ -111,7 +111,7 @@ event main(eventstruct)
 	load::main();
 	level thread zm_white_sound::main();
 	level thread zm_white_portals::init();
-	level thread namespace_5c160465::init();
+	level thread zm_white_special_rounds::init();
 	level thread setup_personality_character_exerts();
 	level thread function_b8da6f44();
 	zm_utility::function_beed5764("rob_zm_eyes_blue_light", #"hash_7fcc925775fa9101");

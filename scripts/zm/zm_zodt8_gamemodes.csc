@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5cc4813bae17d230;
+#using scripts\zm\zm_zodt8_zstandard.csc;
 #using scripts\core_common\util_shared.csc;
 
 #namespace zm_zodt8_gamemodes;
@@ -24,7 +24,7 @@ event main(eventstruct)
 	{
 		case "zstandard":
 		{
-			namespace_a4c489e7::main();
+			zm_zodt8_zstandard::main();
 			break;
 		}
 	}

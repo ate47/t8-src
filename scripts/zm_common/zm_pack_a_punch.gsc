@@ -2,7 +2,7 @@
 #using script_1254ac024174d9c0;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
 #using script_6e3c826b1814cab6;
@@ -1013,7 +1013,7 @@ function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgra
 	interact_offset = origin_offset + (forward * -25);
 	offsetdw = vectorscale((1, 1, 1), 3);
 	var_397d50da = (isdefined(level.var_fbca9d31) ? level.var_fbca9d31 : 3.35);
-	if(self hasperk(#"hash_37aa3a5919757781"))
+	if(self hasperk(#"specialty_cooldown"))
 	{
 		pap_machine playsound(#"hash_552a43efc3f770d");
 		var_397d50da = min(var_397d50da, 1.25);

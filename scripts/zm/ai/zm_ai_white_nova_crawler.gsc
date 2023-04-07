@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4d85e8de54b02198;
 #using script_57f7003580bb15e0;
-#using script_5dbd8e79a9aa7b75;
+#using scripts\core_common\ai\archetype_nova_crawler.gsc;
 #using scripts\zm\ai\zm_ai_nova_crawler.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\array_shared.gsc;

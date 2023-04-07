@@ -1239,10 +1239,10 @@ function private setup_status()
 		{
 			y = y + 10;
 			var_f225e659 = colors[i % colors.size];
-			var_a9a6a9ac = create_hudelem(y);
-			var_a9a6a9ac settext(function_9e72a96(id));
-			var_a9a6a9ac.color = var_f225e659;
-			var_a9a6a9ac.fontscale = 1.2;
+			id_elem = create_hudelem(y);
+			id_elem settext(function_9e72a96(id));
+			id_elem.color = var_f225e659;
+			id_elem.fontscale = 1.2;
 			var_83db7237 = create_hudelem(y, 160);
 			var_83db7237 settext(0);
 			var_83db7237.color = var_f225e659;
@@ -1259,7 +1259,7 @@ function private setup_status()
 			{
 				level.var_deb567a8 = array(level.var_deb567a8);
 			}
-			level.var_deb567a8[level.var_deb567a8.size] = {#color:var_f225e659, #id:id, #hash_b99573ec:var_82f71158, #hash_d189697d:var_83db7237, #title:var_a9a6a9ac};
+			level.var_deb567a8[level.var_deb567a8.size] = {#color:var_f225e659, #id:id, #hash_b99573ec:var_82f71158, #hash_d189697d:var_83db7237, #title:id_elem};
 			i++;
 		}
 	#/

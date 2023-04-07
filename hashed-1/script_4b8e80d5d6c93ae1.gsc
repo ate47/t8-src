@@ -55,7 +55,7 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 		return;
 	}
 	e_player = function_5c10bd79(localclientnum);
-	var_3d2b5c8c = self.origin;
+	vposition = self.origin;
 	newval = newval - oldval;
 	if(newval == 2)
 	{
@@ -69,12 +69,12 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 		var_800bc32d = "zombie/fx_idgun_vortex_explo_zod_zmb";
 		n_vortex_time = 5;
 	}
-	vortex_fx_handle = playfx(localclientnum, registerplayer_lift_clipbamfupdate, var_3d2b5c8c);
+	vortex_fx_handle = playfx(localclientnum, registerplayer_lift_clipbamfupdate, vposition);
 	setfxignorepause(localclientnum, vortex_fx_handle, 1);
-	playsound(0, #"wpn_idgun_portal_start", var_3d2b5c8c);
-	audio::playloopat("wpn_idgun_portal_loop", var_3d2b5c8c);
-	self thread vortex_shake_and_rumble(localclientnum, var_3d2b5c8c);
-	self thread function_2dd3c5bc(localclientnum, vortex_fx_handle, var_3d2b5c8c, var_800bc32d, n_vortex_time);
+	playsound(0, #"wpn_idgun_portal_start", vposition);
+	audio::playloopat("wpn_idgun_portal_loop", vposition);
+	self thread vortex_shake_and_rumble(localclientnum, vposition);
+	self thread function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, var_800bc32d, n_vortex_time);
 }
 
 /*
@@ -126,7 +126,7 @@ function vision_blur(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	Parameters: 5
 	Flags: Linked
 */
-function function_2dd3c5bc(localclientnum, vortex_fx_handle, var_3d2b5c8c, var_800bc32d, n_vortex_time)
+function function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, var_800bc32d, n_vortex_time)
 {
 	e_player = function_5c10bd79(localclientnum);
 	n_starttime = e_player getclienttime();
@@ -138,13 +138,13 @@ function function_2dd3c5bc(localclientnum, vortex_fx_handle, var_3d2b5c8c, var_8
 		n_currtime = e_player getclienttime() - n_starttime;
 	}
 	stopfx(localclientnum, vortex_fx_handle);
-	audio::stoploopat("wpn_idgun_portal_loop", var_3d2b5c8c);
-	playsound(0, #"wpn_idgun_portal_stop", var_3d2b5c8c);
+	audio::stoploopat("wpn_idgun_portal_loop", vposition);
+	playsound(0, #"wpn_idgun_portal_stop", vposition);
 	wait(0.15);
 	self notify(#"vortex_stop");
-	var_ad8208a9 = playfx(localclientnum, var_800bc32d, var_3d2b5c8c);
+	var_ad8208a9 = playfx(localclientnum, var_800bc32d, vposition);
 	setfxignorepause(localclientnum, var_ad8208a9, 1);
-	playsound(0, #"wpn_idgun_portal_explode", var_3d2b5c8c);
+	playsound(0, #"wpn_idgun_portal_explode", vposition);
 	waitframe(1);
 	self playrumbleonentity(localclientnum, "zod_idgun_vortex_shockwave");
 	vision_blur(localclientnum, undefined, 1);

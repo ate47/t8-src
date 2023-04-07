@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18f0d22c75b141a7;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_300f815a565e66fb;
 #using scripts\killstreaks\mp\uav.gsc;
 #using scripts\killstreaks\mp\counteruav.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\supplypod.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
@@ -1158,7 +1158,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		}
 		if(var_2adaec2f === 1)
 		{
-			self stats::function_dad108fa(#"hash_c639ebeec696bf1", 1);
+			self stats::function_dad108fa(#"ekia_every_enemy_onelife", 1);
 		}
 		if(var_1f0bdb8f === 1)
 		{

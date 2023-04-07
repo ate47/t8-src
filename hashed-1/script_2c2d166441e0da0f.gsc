@@ -35,7 +35,7 @@ function init()
 	{
 		if(isdefined(level.var_2e681d63) && level.var_2e681d63 && (isdefined(level.var_6b59ac2c) && level.var_6b59ac2c))
 		{
-			function_36cc50(#"hash_70f16a3fe6713fa0", 4, 2);
+			function_36cc50(#"spawner_boct_brutus_wz", 4, 2);
 		}
 		else
 		{
@@ -47,7 +47,7 @@ function init()
 			{
 				if(isdefined(level.var_e7cfbb8e) && level.var_e7cfbb8e && (isdefined(level.var_b6e30614) && level.var_b6e30614))
 				{
-					function_36cc50(#"hash_7905cf70902495a2", 10, 4);
+					function_36cc50(#"spawner_boct_zombie_dog_wz", 10, 4);
 				}
 				else
 				{
@@ -260,27 +260,27 @@ function function_f0b2e300()
 	var_ecf3ab7f = 10;
 	var_8a0a1dec = var_34a27e6c[1];
 	var_5b2d986e = 3;
-	namespace_bf3feaf0::function_5f0d105a(1, #"hash_56936f5946d31e10", #"hash_7905cf70902495a2", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
-	namespace_bf3feaf0::function_5f0d105a(1, #"hash_6a63c77e32735ddb", #"hash_7905cf70902495a2", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
-	namespace_bf3feaf0::function_6c75dee3(#"hash_56936f5946d31e10", #"hash_7905cf70902495a2", 5);
-	namespace_bf3feaf0::function_6c75dee3(#"hash_6a63c77e32735ddb", #"hash_7905cf70902495a2", 5);
-	namespace_bf3feaf0::function_c3bb62c1(#"hash_56936f5946d31e10", #"hash_7905cf70902495a2", 0);
-	namespace_bf3feaf0::function_c3bb62c1(#"hash_6a63c77e32735ddb", #"hash_7905cf70902495a2", 0);
+	namespace_bf3feaf0::function_5f0d105a(1, #"hash_56936f5946d31e10", #"spawner_boct_zombie_dog_wz", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
+	namespace_bf3feaf0::function_5f0d105a(1, #"hash_6a63c77e32735ddb", #"spawner_boct_zombie_dog_wz", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
+	namespace_bf3feaf0::function_6c75dee3(#"hash_56936f5946d31e10", #"spawner_boct_zombie_dog_wz", 5);
+	namespace_bf3feaf0::function_6c75dee3(#"hash_6a63c77e32735ddb", #"spawner_boct_zombie_dog_wz", 5);
+	namespace_bf3feaf0::function_c3bb62c1(#"hash_56936f5946d31e10", #"spawner_boct_zombie_dog_wz", 0);
+	namespace_bf3feaf0::function_c3bb62c1(#"hash_6a63c77e32735ddb", #"spawner_boct_zombie_dog_wz", 0);
 	var_ecf3ab7f = 1;
 	var_8a0a1dec = var_34a27e6c[2];
 	var_5b2d986e = 1;
-	namespace_bf3feaf0::function_5f0d105a(2, #"hash_56936f5946d31e10", #"hash_70f16a3fe6713fa0", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
-	namespace_bf3feaf0::function_5f0d105a(2, #"hash_c6197358856090b", #"hash_70f16a3fe6713fa0", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
-	namespace_bf3feaf0::function_5f0d105a(2, #"hash_6a63c77e32735ddb", #"hash_70f16a3fe6713fa0", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
-	namespace_bf3feaf0::function_6c75dee3(#"hash_56936f5946d31e10", #"hash_70f16a3fe6713fa0", 3);
-	namespace_bf3feaf0::function_6c75dee3(#"hash_c6197358856090b", #"hash_70f16a3fe6713fa0", 3);
-	namespace_bf3feaf0::function_6c75dee3(#"hash_6a63c77e32735ddb", #"hash_70f16a3fe6713fa0", 3);
-	namespace_bf3feaf0::function_c3bb62c1(#"hash_56936f5946d31e10", #"hash_70f16a3fe6713fa0", 2);
-	namespace_bf3feaf0::function_c3bb62c1(#"hash_c6197358856090b", #"hash_70f16a3fe6713fa0", 2);
-	namespace_bf3feaf0::function_c3bb62c1(#"hash_6a63c77e32735ddb", #"hash_70f16a3fe6713fa0", 2);
-	namespace_bf3feaf0::function_462b41e2(#"hash_56936f5946d31e10", #"hash_70f16a3fe6713fa0", #"hash_3e4109550d98219f", #"hash_43b30c7ff9b4f4c2", #"hash_3c449d1a7a0cd70e");
-	namespace_bf3feaf0::function_462b41e2(#"hash_c6197358856090b", #"hash_70f16a3fe6713fa0", #"hash_3e410a550d982352", #"hash_367f5a5f344dcda7", #"hash_6a498d20dd284089");
-	namespace_bf3feaf0::function_462b41e2(#"hash_6a63c77e32735ddb", #"hash_70f16a3fe6713fa0", #"hash_3e410b550d982505", #"hash_451e5522eeb07ee8", #"hash_3db2892c24c8a1bc");
+	namespace_bf3feaf0::function_5f0d105a(2, #"hash_56936f5946d31e10", #"spawner_boct_brutus_wz", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
+	namespace_bf3feaf0::function_5f0d105a(2, #"hash_c6197358856090b", #"spawner_boct_brutus_wz", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
+	namespace_bf3feaf0::function_5f0d105a(2, #"hash_6a63c77e32735ddb", #"spawner_boct_brutus_wz", var_ecf3ab7f, var_8a0a1dec, var_5b2d986e);
+	namespace_bf3feaf0::function_6c75dee3(#"hash_56936f5946d31e10", #"spawner_boct_brutus_wz", 3);
+	namespace_bf3feaf0::function_6c75dee3(#"hash_c6197358856090b", #"spawner_boct_brutus_wz", 3);
+	namespace_bf3feaf0::function_6c75dee3(#"hash_6a63c77e32735ddb", #"spawner_boct_brutus_wz", 3);
+	namespace_bf3feaf0::function_c3bb62c1(#"hash_56936f5946d31e10", #"spawner_boct_brutus_wz", 2);
+	namespace_bf3feaf0::function_c3bb62c1(#"hash_c6197358856090b", #"spawner_boct_brutus_wz", 2);
+	namespace_bf3feaf0::function_c3bb62c1(#"hash_6a63c77e32735ddb", #"spawner_boct_brutus_wz", 2);
+	namespace_bf3feaf0::function_462b41e2(#"hash_56936f5946d31e10", #"spawner_boct_brutus_wz", #"hash_3e4109550d98219f", #"hash_43b30c7ff9b4f4c2", #"hash_3c449d1a7a0cd70e");
+	namespace_bf3feaf0::function_462b41e2(#"hash_c6197358856090b", #"spawner_boct_brutus_wz", #"hash_3e410a550d982352", #"hash_367f5a5f344dcda7", #"hash_6a498d20dd284089");
+	namespace_bf3feaf0::function_462b41e2(#"hash_6a63c77e32735ddb", #"spawner_boct_brutus_wz", #"hash_3e410b550d982505", #"hash_451e5522eeb07ee8", #"hash_3db2892c24c8a1bc");
 }
 
 /*
@@ -325,12 +325,12 @@ function function_c41ad9f9()
 */
 function function_4cfa640c()
 {
-	namespace_bf3feaf0::function_5f0d105a(0, #"hash_56936f5946d31e10", #"hash_7905cf70902495a2", 10, 4, 4);
-	namespace_bf3feaf0::function_5f0d105a(0, #"hash_c6197358856090b", #"hash_7905cf70902495a2", 10, 4, 4);
-	namespace_bf3feaf0::function_5f0d105a(0, #"hash_6a63c77e32735ddb", #"hash_7905cf70902495a2", 10, 4, 4);
-	namespace_bf3feaf0::function_462b41e2(#"hash_56936f5946d31e10", #"hash_7905cf70902495a2", #"hash_3e4109550d98219f", #"hash_43b30c7ff9b4f4c2", #"hash_3c449d1a7a0cd70e");
-	namespace_bf3feaf0::function_462b41e2(#"hash_c6197358856090b", #"hash_7905cf70902495a2", #"hash_3e410a550d982352", #"hash_367f5a5f344dcda7", #"hash_6a498d20dd284089");
-	namespace_bf3feaf0::function_462b41e2(#"hash_6a63c77e32735ddb", #"hash_7905cf70902495a2", #"hash_3e410b550d982505", #"hash_451e5522eeb07ee8", #"hash_3db2892c24c8a1bc");
+	namespace_bf3feaf0::function_5f0d105a(0, #"hash_56936f5946d31e10", #"spawner_boct_zombie_dog_wz", 10, 4, 4);
+	namespace_bf3feaf0::function_5f0d105a(0, #"hash_c6197358856090b", #"spawner_boct_zombie_dog_wz", 10, 4, 4);
+	namespace_bf3feaf0::function_5f0d105a(0, #"hash_6a63c77e32735ddb", #"spawner_boct_zombie_dog_wz", 10, 4, 4);
+	namespace_bf3feaf0::function_462b41e2(#"hash_56936f5946d31e10", #"spawner_boct_zombie_dog_wz", #"hash_3e4109550d98219f", #"hash_43b30c7ff9b4f4c2", #"hash_3c449d1a7a0cd70e");
+	namespace_bf3feaf0::function_462b41e2(#"hash_c6197358856090b", #"spawner_boct_zombie_dog_wz", #"hash_3e410a550d982352", #"hash_367f5a5f344dcda7", #"hash_6a498d20dd284089");
+	namespace_bf3feaf0::function_462b41e2(#"hash_6a63c77e32735ddb", #"spawner_boct_zombie_dog_wz", #"hash_3e410b550d982505", #"hash_451e5522eeb07ee8", #"hash_3db2892c24c8a1bc");
 }
 
 /*

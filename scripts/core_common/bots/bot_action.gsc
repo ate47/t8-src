@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\bots\bot.gsc;
-#using script_6158278c8647d8a9;
+#using scripts\core_common\bots\bot_position.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_ee56e8b680377b6;
 #using scripts\core_common\ai_shared.gsc;
@@ -644,7 +644,7 @@ function private execution_loop()
 		var_b594a2cd = self function_9e181b0f();
 		if(isdefined(self.bot.var_211ab18e) && !self.bot.var_211ab18e)
 		{
-			self namespace_b20b4885::start();
+			self bot_position::start();
 		}
 		if(!isdefined(var_b594a2cd))
 		{
@@ -773,7 +773,7 @@ function function_cf788c22()
 */
 function function_9e181b0f()
 {
-	self.bot.var_20ba0819 = [];
+	self.bot.weaponranks = [];
 	self.bot.paramslist = [];
 	/#
 		self.bot.var_c4fbaffc = [];
@@ -1129,7 +1129,7 @@ function function_30e579d5(weapon)
 	{
 		return -1000;
 	}
-	return self.bot.var_20ba0819[weapon];
+	return self.bot.weaponranks[weapon];
 }
 
 /*
@@ -1144,7 +1144,7 @@ function function_30e579d5(weapon)
 function function_3df363bf(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
-	return self.bot.var_20ba0819[weapon];
+	return self.bot.weaponranks[weapon];
 }
 
 /*
@@ -1309,7 +1309,7 @@ function function_d9c35bee(weapon, var_c300ee65)
 */
 function set_weapon_rank(weapon, rank, reason)
 {
-	self.bot.var_20ba0819[weapon] = rank;
+	self.bot.weaponranks[weapon] = rank;
 	/#
 		rankstr = (isdefined(rank) ? rank : "");
 		self.bot.var_c4fbaffc[weapon] = array((weapon.name + "") + rankstr);
@@ -1331,11 +1331,11 @@ function set_weapon_rank(weapon, rank, reason)
 */
 function modify_weapon_rank(weapon, amount, reason)
 {
-	if(!isdefined(self.bot.var_20ba0819[weapon]))
+	if(!isdefined(self.bot.weaponranks[weapon]))
 	{
 		return;
 	}
-	self.bot.var_20ba0819[weapon] = self.bot.var_20ba0819[weapon] + amount;
+	self.bot.weaponranks[weapon] = self.bot.weaponranks[weapon] + amount;
 	/#
 		sign = (amount > 0 ? "" : "");
 		self.bot.var_c4fbaffc[weapon][self.bot.var_c4fbaffc[weapon].size] = ((("" + sign) + amount) + "") + reason;

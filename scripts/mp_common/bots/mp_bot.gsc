@@ -1,22 +1,22 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_200b13b5d57385c9;
+#using scripts\mp_common\ai\planner_mp_control_squad.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_239939e7c47969db;
+#using scripts\mp_common\ai\planner_mp_tdm_commander.gsc;
 #using script_2be661251429fd1a;
-#using script_2e48368eb9a2200e;
-#using script_2f2404e80f3ea88c;
+#using scripts\mp_common\ai\planner_mp_koth_commander.gsc;
+#using scripts\mp_common\ai\planner_mp_dom_squad.gsc;
 #using script_300f815a565e66fb;
-#using script_3222cd965314777b;
+#using scripts\mp_common\ai\planner_mp_sd_commander.gsc;
 #using script_383a3b1bb18ba876;
-#using script_3f27a7b2232674db;
-#using script_5346195733ec825;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\mp_common\ai\planner_mp_control_commander.gsc;
 #using script_53b37ee2382572eb;
-#using script_6af0e65a86d4464f;
-#using script_6c3d8db095c51b5e;
+#using scripts\mp_common\bots\mp_bot_position.gsc;
+#using scripts\mp_common\ai\planner_mp_koth_squad.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_6d3e5926dde329b0;
-#using script_78397ce5b6087efb;
-#using script_7981a30041d0325b;
+#using scripts\mp_common\ai\planner_mp_dom_commander.gsc;
+#using scripts\mp_common\ai\planner_mp_sd_squad.gsc;
+#using scripts\mp_common\ai\planner_mp_tdm_squad.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
@@ -160,17 +160,17 @@ function init_strategic_command()
 		{
 			foreach(team in level.teams)
 			{
-				namespace_f4b94322::createcommander(team);
+				plannermpcontrolcommander::createcommander(team);
 			}
 			break;
 		}
-		case "hash_102a5001f20ea7b6":
+		case "dom_cwl":
 		case "dom_hc":
 		case "dom":
 		{
 			foreach(team in level.teams)
 			{
-				namespace_ccb7bb29::createcommander(team);
+				plannermpdomcommander::createcommander(team);
 			}
 			break;
 		}
@@ -180,7 +180,7 @@ function init_strategic_command()
 		{
 			foreach(team in level.teams)
 			{
-				namespace_16057557::createcommander(team);
+				plannermpkothcommander::createcommander(team);
 			}
 			break;
 		}
@@ -190,7 +190,7 @@ function init_strategic_command()
 		{
 			foreach(team in level.teams)
 			{
-				namespace_621e1e77::createcommander(team);
+				plannermpsdcommander::createcommander(team);
 			}
 			break;
 		}
@@ -198,7 +198,7 @@ function init_strategic_command()
 		{
 			foreach(team in level.teams)
 			{
-				namespace_7684cced::createcommander(team);
+				plannermptdmcommander::createcommander(team);
 			}
 		}
 	}
@@ -352,12 +352,12 @@ function function_1b0af429()
 	Parameters: 2
 	Flags: None
 */
-function function_165d8cc2(var_2faf31e0, var_eeb40b86)
+function function_165d8cc2(var_2faf31e0, loadoutitem)
 {
 	/#
 		if(var_2faf31e0 == "" || var_2faf31e0 == "")
 		{
-			bot_action::function_36052a7f(var_eeb40b86);
+			bot_action::function_36052a7f(loadoutitem);
 		}
 	#/
 }

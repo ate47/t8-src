@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_184abbae9afad370;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_2c49ae69cd8ce30c;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_35b5ff21c2a0960f;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_66052559f4fc2bf9;
@@ -15,9 +15,9 @@
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
 #using scripts\core_common\activecamo_shared.gsc;
-#using script_75be2950b381443;
+#using scripts\core_common\platoons.gsc;
 #using scripts\weapons\weapons.gsc;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

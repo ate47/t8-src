@@ -7,7 +7,7 @@
 #using script_6e3c826b1814cab6;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_b761c44ab2e5b46;
+#using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -2231,7 +2231,7 @@ function wave_2()
 	level.var_20f423f6 = 0;
 	for(i = 0; i < n_wolves; i++)
 	{
-		var_69024a6a = namespace_9d27962b::function_988438a7(level.dog_spawners[0], undefined, 20);
+		var_69024a6a = zm_mansion_special_rounds::function_988438a7(level.dog_spawners[0], undefined, 20);
 		if(isdefined(var_69024a6a))
 		{
 			level.var_20f423f6++;
@@ -2242,9 +2242,9 @@ function wave_2()
 			var_69024a6a.b_ignore_cleanup = 1;
 			var_69024a6a.no_powerups = 1;
 			var_69024a6a.favoriteenemy = array::random(getplayers());
-			s_spawn_loc = namespace_9d27962b::function_e1c262fb(var_69024a6a);
+			s_spawn_loc = zm_mansion_special_rounds::function_e1c262fb(var_69024a6a);
 			var_69024a6a forceteleport(s_spawn_loc.origin, s_spawn_loc.angles);
-			var_69024a6a thread namespace_9d27962b::function_c79d744e(s_spawn_loc);
+			var_69024a6a thread zm_mansion_special_rounds::function_c79d744e(s_spawn_loc);
 			var_69024a6a callback::function_d8abfc3d(#"on_ai_killed", &function_831a12ae);
 		}
 		wait(0.25);

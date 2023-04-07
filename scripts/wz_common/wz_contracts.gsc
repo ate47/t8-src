@@ -2,7 +2,7 @@
 #using script_111d4fea7428184e;
 #using script_29ed825598140ca0;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;

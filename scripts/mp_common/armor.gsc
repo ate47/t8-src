@@ -638,19 +638,19 @@ function apply_damage(weapon, damage, smeansofdeath, eattacker, shitloc)
 		self playsoundtoplayer(#"hash_22f2a16e63651515", self);
 		self thread function_386de852();
 		self function_51df9c0c(#"hash_6be738527a4213aa");
-		if(perks::function_be94fe26(#"specialty_armor"))
+		if(perks::perk_hasperk(#"specialty_armor"))
 		{
-			self perks::function_45d12554(#"specialty_armor");
+			self perks::perk_unsetperk(#"specialty_armor");
 			playfxontag(#"hash_4a955131370a3720", self, "j_spineupper");
 		}
-		if(perks::function_be94fe26(#"specialty_armor_tier_two"))
+		if(perks::perk_hasperk(#"specialty_armor_tier_two"))
 		{
-			self perks::function_45d12554(#"specialty_armor_tier_two");
+			self perks::perk_unsetperk(#"specialty_armor_tier_two");
 			playfxontag(#"hash_56c8182de62c1c6", self, "j_spineupper");
 		}
-		if(perks::function_be94fe26(#"specialty_armor_tier_three"))
+		if(perks::perk_hasperk(#"specialty_armor_tier_three"))
 		{
-			self perks::function_45d12554(#"specialty_armor_tier_three");
+			self perks::perk_unsetperk(#"specialty_armor_tier_three");
 			playfxontag(#"hash_3c6a01bd4394d4f3", self, "j_spineupper");
 		}
 		if(isdefined(level.var_67f4fd41))
