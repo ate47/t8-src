@@ -245,15 +245,15 @@ function function_ba863dca()
 */
 function function_ab78507c()
 {
-	zm_sq::register(#"zm_white_main_quest", #"hash_482ab5c3c8c111fc", #"hash_2400e42b1267ab11", &function_2b1ff821, &function_40f35ada);
-	zm_sq::register(#"zm_white_main_quest", #"mq2_cv1", #"hash_2400e12b1267a5f8", &function_43cc6c97, &function_4924cb9a);
-	zm_sq::register(#"zm_white_main_quest", #"mq3_cv2", #"hash_2400e22b1267a7ab", &function_150faad9, &function_68d29adf);
-	zm_sq::register(#"zm_white_main_quest", #"hash_3f4bee62afbe0d8", #"hash_2400e72b1267b02a", &function_cb313a15, &function_89ec3a1c);
-	zm_sq::register(#"zm_white_main_quest", #"mq5_cv4", #"hash_2400e82b1267b1dd", &function_5446e4c0, &function_c87f079a);
-	zm_sq::register(#"zm_white_main_quest", #"mq6_cv5", #"hash_2400e52b1267acc4", &function_aa0bf75b, &function_d12818ba);
-	zm_sq::register(#"zm_white_main_quest", #"hash_3a3d5f6df2a45005", #"hash_2400e62b1267ae77", &function_9952862f, &function_ad2bd43);
-	zm_sq::register(#"zm_white_main_quest", #"hash_12ea405f7c5f915c", #"hash_2400db2b12679bc6", &function_cce995f2, &function_6c9fdfa1);
-	zm_sq::register(#"zm_white_main_quest", #"hash_3a9a71b60d9f9435", #"hash_2400dc2b12679d79", &function_584620c3, &function_aea19bda);
+	zm_sq::register(#"zm_white_main_quest", #"hash_482ab5c3c8c111fc", #"zm_white_main_quest_step1", &function_2b1ff821, &function_40f35ada);
+	zm_sq::register(#"zm_white_main_quest", #"mq2_cv1", #"zm_white_main_quest_step2", &function_43cc6c97, &function_4924cb9a);
+	zm_sq::register(#"zm_white_main_quest", #"mq3_cv2", #"zm_white_main_quest_step3", &function_150faad9, &function_68d29adf);
+	zm_sq::register(#"zm_white_main_quest", #"mq4_cv3", #"zm_white_main_quest_step4", &function_cb313a15, &function_89ec3a1c);
+	zm_sq::register(#"zm_white_main_quest", #"mq5_cv4", #"zm_white_main_quest_step5", &function_5446e4c0, &function_c87f079a);
+	zm_sq::register(#"zm_white_main_quest", #"mq6_cv5", #"zm_white_main_quest_step6", &function_aa0bf75b, &function_d12818ba);
+	zm_sq::register(#"zm_white_main_quest", #"hash_3a3d5f6df2a45005", #"zm_white_main_quest_step7", &function_9952862f, &function_ad2bd43);
+	zm_sq::register(#"zm_white_main_quest", #"hash_12ea405f7c5f915c", #"zm_white_main_quest_step8", &function_cce995f2, &function_6c9fdfa1);
+	zm_sq::register(#"zm_white_main_quest", #"hash_3a9a71b60d9f9435", #"zm_white_main_quest_step9", &function_584620c3, &function_aea19bda);
 	level.var_7be97400 = struct::get("hal_trigger", "targetname");
 }
 
@@ -521,34 +521,34 @@ function function_55672ea2()
 	s_hammond = struct::get("cp_hammond", "script_noteworthy");
 	s_diner = struct::get("cp_diner", "script_noteworthy");
 	s_lounge = struct::get("cp_lounge", "script_noteworthy");
-	var_22f19cbb = [];
+	a_s_mannequins = [];
 	a_s_delete = [];
-	var_22f19cbb[0] = s_green;
-	var_22f19cbb[1] = s_lounge;
+	a_s_mannequins[0] = s_green;
+	a_s_mannequins[1] = s_lounge;
 	a_s_delete[0] = s_yellow;
 	a_s_delete[1] = s_diner;
 	if(math::cointoss())
 	{
-		var_22f19cbb[0] = s_yellow;
-		var_22f19cbb[1] = s_diner;
+		a_s_mannequins[0] = s_yellow;
+		a_s_mannequins[1] = s_diner;
 		a_s_delete[0] = s_green;
 		a_s_delete[1] = s_lounge;
 	}
-	var_22f19cbb[2] = s_hoggat;
+	a_s_mannequins[2] = s_hoggat;
 	a_s_delete[2] = s_hammond;
 	if(math::cointoss())
 	{
-		var_22f19cbb[2] = s_hammond;
+		a_s_mannequins[2] = s_hammond;
 		a_s_delete[2] = s_hoggat;
 	}
-	level.var_22f19cbb = var_22f19cbb;
-	for(i = 0; i < var_22f19cbb.size; i++)
+	level.a_s_mannequins = a_s_mannequins;
+	for(i = 0; i < a_s_mannequins.size; i++)
 	{
-		if(isdefined(var_22f19cbb[i].script_string))
+		if(isdefined(a_s_mannequins[i].script_string))
 		{
-			sc = var_22f19cbb[i].script_string;
-			var_dc3827e3 = getentarray(sc + "_block", "targetname");
-			foreach(e_blocker in var_dc3827e3)
+			sc = a_s_mannequins[i].script_string;
+			a_e_blockers = getentarray(sc + "_block", "targetname");
+			foreach(e_blocker in a_e_blockers)
 			{
 				e_blocker notsolid();
 			}
@@ -564,12 +564,12 @@ function function_55672ea2()
 			e_collision = getent(sc + "_collision", "targetname");
 			e_part = getent(sc + "_part", "targetname");
 			e_hatch = getent(sc + "_hatch", "script_noteworthy");
-			var_dc3827e3 = getentarray(sc + "_block", "targetname");
+			a_e_blockers = getentarray(sc + "_block", "targetname");
 			e_head delete();
 			e_body delete();
 			e_collision delete();
 			e_part delete();
-			foreach(e_blocker in var_dc3827e3)
+			foreach(e_blocker in a_e_blockers)
 			{
 				e_blocker delete();
 			}
@@ -581,19 +581,19 @@ function function_55672ea2()
 			a_s_delete[i] struct::delete();
 		}
 	}
-	var_22f19cbb = struct::get_array("capture_point", "targetname");
+	a_s_mannequins = struct::get_array("capture_point", "targetname");
 	var_3006dbae = struct::get("atlas_trigger", "targetname");
 	var_7aabee8e = 0;
-	for(i = 0; i < var_22f19cbb.size; i++)
+	for(i = 0; i < a_s_mannequins.size; i++)
 	{
-		sc = var_22f19cbb[i].script_string;
+		sc = a_s_mannequins[i].script_string;
 		e_hatch = getent(sc + "_hatch", "script_noteworthy");
 		e_head = getent(sc + "_head", "script_noteworthy");
 		e_body = getent(sc + "_body", "script_noteworthy");
 		e_collision = getent(sc + "_collision", "targetname");
 		e_part = getent(sc + "_part", "targetname");
 		var_e2f3631c = struct::get(sc + "_part_trigger", "targetname");
-		var_22f19cbb[i].zone = e_head.script_string;
+		a_s_mannequins[i].zone = e_head.script_string;
 		e_head hide();
 		e_body hide();
 		e_collision notsolid();
@@ -2880,31 +2880,31 @@ function function_9b979e93()
 			level waittill(#"zombie_total_set");
 		}
 		str_zone = self.zone_name;
-		var_eb3b90d = [];
+		a_s_spawns = [];
 		if(isdefined(str_zone))
 		{
 			foreach(s_spawn in level.zm_loc_types[#"zombie_location"])
 			{
 				if(s_spawn.zone_name == str_zone)
 				{
-					if(!isdefined(var_eb3b90d))
+					if(!isdefined(a_s_spawns))
 					{
-						var_eb3b90d = [];
+						a_s_spawns = [];
 					}
-					else if(!isarray(var_eb3b90d))
+					else if(!isarray(a_s_spawns))
 					{
-						var_eb3b90d = array(var_eb3b90d);
+						a_s_spawns = array(a_s_spawns);
 					}
-					if(!isinarray(var_eb3b90d, s_spawn))
+					if(!isinarray(a_s_spawns, s_spawn))
 					{
-						var_eb3b90d[var_eb3b90d.size] = s_spawn;
+						a_s_spawns[a_s_spawns.size] = s_spawn;
 					}
 				}
 			}
 		}
 		else
 		{
-			var_eb3b90d = level.zm_loc_types[#"zombie_location"];
+			a_s_spawns = level.zm_loc_types[#"zombie_location"];
 		}
 		if(getplayers().size > 2)
 		{
@@ -2926,9 +2926,9 @@ function function_9b979e93()
 			ai = undefined;
 			if(zombie_utility::get_current_zombie_count() < 24)
 			{
-				if(var_eb3b90d.size > 0)
+				if(a_s_spawns.size > 0)
 				{
-					s_spawn_point = array::random(var_eb3b90d);
+					s_spawn_point = array::random(a_s_spawns);
 					ai = zombie_utility::spawn_zombie(getentarray("zombie_spawner", "script_noteworthy")[0], undefined, s_spawn_point);
 				}
 				else
@@ -5292,8 +5292,8 @@ function function_d221a1e8(var_5ea5c94d, ended_early)
 function mannequin_step()
 {
 	level thread function_dd76c634();
-	var_22f19cbb = level.var_22f19cbb;
-	foreach(s_mannequin in var_22f19cbb)
+	a_s_mannequins = level.a_s_mannequins;
+	foreach(s_mannequin in a_s_mannequins)
 	{
 		sc = s_mannequin.script_string;
 		e_head = getent(sc + "_head", "script_noteworthy");
@@ -5321,12 +5321,12 @@ function mannequin_step()
 			var_67830325 zm_unitrigger::create("", 64);
 		}
 	}
-	foreach(s_mannequin in var_22f19cbb)
+	foreach(s_mannequin in a_s_mannequins)
 	{
 		s_mannequin.is_active = 0;
 	}
 	n_difficulty = 0;
-	foreach(s_mannequin in var_22f19cbb)
+	foreach(s_mannequin in a_s_mannequins)
 	{
 		if(isdefined(s_mannequin))
 		{
@@ -5614,9 +5614,9 @@ function mannequin_activate(n_difficulty)
 		level.a_func_score_events[#"damage_points"] = undefined;
 		level.a_func_score_events[#"death"] = undefined;
 		level.var_382a24b0 = undefined;
-		var_dc3827e3 = getentarray(self.script_string + "_block", "targetname");
-		level exploder::stop_exploder(var_dc3827e3[0].script_string);
-		foreach(e_blocker in var_dc3827e3)
+		a_e_blockers = getentarray(self.script_string + "_block", "targetname");
+		level exploder::stop_exploder(a_e_blockers[0].script_string);
+		foreach(e_blocker in a_e_blockers)
 		{
 			e_blocker notsolid();
 		}
@@ -5734,8 +5734,8 @@ function function_b7afb313(e_player)
 */
 function function_32c317fb()
 {
-	var_22f19cbb = level.var_22f19cbb;
-	foreach(s_mannequin in var_22f19cbb)
+	a_s_mannequins = level.a_s_mannequins;
+	foreach(s_mannequin in a_s_mannequins)
 	{
 		sc = s_mannequin.script_string;
 		e_head = getent(sc + "_head", "script_noteworthy");
@@ -5773,9 +5773,9 @@ function mannequin_defend(n_difficulty)
 {
 	self endon(#"hash_406e88e2ddaa3ffa");
 	self thread function_578194a0();
-	var_dc3827e3 = getentarray(self.script_string + "_block", "targetname");
-	level exploder::exploder(var_dc3827e3[0].script_string);
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray(self.script_string + "_block", "targetname");
+	level exploder::exploder(a_e_blockers[0].script_string);
+	foreach(e_blocker in a_e_blockers)
 	{
 		e_blocker solid();
 		e_blocker playsound(#"hash_3faa335fd02a531");
@@ -6381,14 +6381,14 @@ function function_1ac25ead()
 		if(isdefined(self.var_38f957e))
 		{
 			str_zone = self.var_38f957e;
-			var_eb3b90d = [];
+			a_s_spawns = [];
 			if(isdefined(str_zone) && level.zones[str_zone].a_loc_types[#"zombie_location"].size > 0)
 			{
-				var_eb3b90d = level.zones[str_zone].a_loc_types[#"zombie_location"];
+				a_s_spawns = level.zones[str_zone].a_loc_types[#"zombie_location"];
 			}
 			else
 			{
-				var_eb3b90d = level.zm_loc_types[#"zombie_location"];
+				a_s_spawns = level.zm_loc_types[#"zombie_location"];
 			}
 			if(getplayers().size > 2)
 			{
@@ -6410,9 +6410,9 @@ function function_1ac25ead()
 				ai = undefined;
 				if(zombie_utility::get_current_zombie_count() < 24)
 				{
-					if(var_eb3b90d.size > 0)
+					if(a_s_spawns.size > 0)
 					{
-						s_spawn_point = array::random(var_eb3b90d);
+						s_spawn_point = array::random(a_s_spawns);
 						ai = zombie_utility::spawn_zombie(getentarray("zombie_spawner", "script_noteworthy")[0], undefined, s_spawn_point);
 					}
 					else

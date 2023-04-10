@@ -3160,7 +3160,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"bonus_points_player_shared", #"hash_451ad4649125eabb");
 		sndannouncervoxadd(#"hero_weapon_power", #"hash_93327b9599b606d");
 		sndannouncervoxadd(#"hellhound", #"hash_1ee46eef183307d9");
-		sndannouncervoxadd(#"hash_3a6c12bfc807aa2", #"hash_133c3414ba1817b5");
+		sndannouncervoxadd(#"nova_6", #"hash_133c3414ba1817b5");
 		sndannouncervoxadd(#"zmb_tigers", #"hash_33120300ceee6b04");
 		sndannouncervoxadd(#"tigers", #"hash_6ee21c358714ed5a");
 		sndannouncervoxadd(#"catalyst", #"hash_51aa5a9d6896a049");

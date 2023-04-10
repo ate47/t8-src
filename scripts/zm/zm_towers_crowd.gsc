@@ -99,7 +99,7 @@ function function_e45ccfd7()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_26b0477726cdbf77");
+		var_be17187b = level waittill(#"homunculus_thrown");
 		if(zm_utility::function_e51dc2d8() && isdefined(var_be17187b.e_homunculus))
 		{
 			var_be17187b.e_homunculus thread function_55d09221();

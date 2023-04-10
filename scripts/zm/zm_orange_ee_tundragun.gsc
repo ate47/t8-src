@@ -80,8 +80,8 @@ function main()
 		e_model = util::spawn_model(var_5fbb6b48.model, var_5fbb6b48.origin, var_5fbb6b48.angles);
 		level.var_97da986d.var_5fbb6b48.e_model = e_model;
 	}
-	zm_sq::register(#"ee_tundragun", #"step_1", #"hash_3e669a61b30bad3c", &function_8128801a, &function_5f8f9262);
-	zm_sq::register(#"ee_tundragun", #"step_2", #"hash_3e669d61b30bb255", &function_219876e0, &function_67098abf);
+	zm_sq::register(#"ee_tundragun", #"step_1", #"ee_tundragun_step1", &function_8128801a, &function_5f8f9262);
+	zm_sq::register(#"ee_tundragun", #"step_2", #"ee_tundragun_step2", &function_219876e0, &function_67098abf);
 	zm_sq::start(#"ee_tundragun", !zm_utility::is_standard());
 }
 

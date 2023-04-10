@@ -253,7 +253,7 @@ function function_ebd67076(team)
 */
 function function_a2b53e17(player)
 {
-	if(game.outcome.platoon !== #"none" && function_22448d6c(player.pers[#"team"]) === game.outcome.platoon)
+	if(game.outcome.platoon !== #"none" && getteamplatoon(player.pers[#"team"]) === game.outcome.platoon)
 	{
 		return true;
 	}

@@ -122,7 +122,7 @@ function function_cd8ee3c5()
 		if(isdefined(trace[#"position"]) && trace[#"surfacetype"] != #"none")
 		{
 			org = trace[#"position"];
-			namespace_8f74625a::function_1b48df6d(org, 1);
+			namespace_8f74625a::drop_supply_drop(org, 1);
 		}
 	}
 }
@@ -149,7 +149,7 @@ function function_f3edce9a()
 		{
 			org = trace[#"position"];
 			vehicletypes = array(#"hash_660785b539889002", #"hash_54bf3cd56e8c5c4a", #"hash_6fdb3b0114439974", #"hash_327d1f9834b6b91e");
-			namespace_8f74625a::function_1b48df6d(org, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
+			namespace_8f74625a::drop_supply_drop(org, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
 		}
 	}
 }

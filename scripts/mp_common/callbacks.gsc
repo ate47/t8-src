@@ -4,7 +4,7 @@
 #using scripts\core_common\bots\bot.gsc;
 #using script_29ed825598140ca0;
 #using scripts\core_common\bots\bot_traversals.gsc;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_43956600fe6c6be1;
 #using script_4c6debf78dffeeaf;
 #using script_6f416ed516b814a3;

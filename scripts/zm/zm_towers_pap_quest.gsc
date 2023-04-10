@@ -211,8 +211,8 @@ function pap_quest_init(var_5ea5c94d)
 	level.var_7695ff59 = 0;
 	level.var_9847c460 = 0;
 	level thread function_a2f4eb85();
-	var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-	foreach(mdl_head in var_307566)
+	a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+	foreach(mdl_head in a_mdl_heads)
 	{
 		mdl_head flag::init(#"hash_26125a3306681e2");
 		mdl_head hide();
@@ -349,8 +349,8 @@ function function_57d79cac()
 	level.var_7695ff59 = 0;
 	level.var_9847c460 = 0;
 	level thread function_a2f4eb85();
-	var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-	foreach(mdl_head in var_307566)
+	a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+	foreach(mdl_head in a_mdl_heads)
 	{
 		mdl_head flag::clear(#"hash_26125a3306681e2");
 		mdl_head hide();
@@ -379,8 +379,8 @@ function function_57d79cac()
 function function_64f2d6de(a_ents)
 {
 	var_f99f1421 = a_ents[#"hash_7aff0ee60ddd937b"];
-	var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-	foreach(mdl_head in var_307566)
+	a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+	foreach(mdl_head in a_mdl_heads)
 	{
 		mdl_head linkto(var_f99f1421, mdl_head.var_d06913fa);
 	}
@@ -1145,8 +1145,8 @@ function function_156669dd(var_5ea5c94d, ended_early)
 		level flag::set(#"hash_2cf71ce4a3d1c081");
 		level flag::set("zm_towers_pap_quest_sentinel_artifact_exploded");
 		level flag::set("zm_towers_pap_quest_completed");
-		var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-		foreach(mdl_head in var_307566)
+		a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+		foreach(mdl_head in a_mdl_heads)
 		{
 			mdl_head show();
 		}
@@ -1168,8 +1168,8 @@ function function_156669dd(var_5ea5c94d, ended_early)
 			level flag::set("power_on");
 		}
 		zm_towers_util::function_afd37143(#"pap_quest_completed");
-		var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-		array::thread_all(var_307566, &function_9b320791);
+		a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+		array::thread_all(a_mdl_heads, &function_9b320791);
 		level thread scene::play("p8_fxanim_zm_towers_pap_sarcophagus_spikes_bundle");
 		level thread scene::play("p8_fxanim_zm_towers_pap_sarcophagus_blood_01_bundle", "Shot 2");
 		level thread scene::play("p8_fxanim_zm_towers_pap_sarcophagus_blood_02_bundle", "Shot 2");
@@ -1281,11 +1281,11 @@ function function_7590a833()
 */
 function function_5ed0d968(v_player_origin)
 {
-	var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-	var_307566 = util::get_array_of_closest(v_player_origin, var_307566);
+	a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+	a_mdl_heads = util::get_array_of_closest(v_player_origin, a_mdl_heads);
 	n_heads = level.var_c22016cf;
 	level.var_c22016cf = 0;
-	foreach(mdl_head in var_307566)
+	foreach(mdl_head in a_mdl_heads)
 	{
 		if(mdl_head flag::get(#"hash_26125a3306681e2"))
 		{

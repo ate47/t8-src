@@ -2,7 +2,7 @@
 #using script_3bf78bb3042fc0e2;
 #using script_429c7c5a289f2b25;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_d43f0658aa1a5e5;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -426,7 +426,7 @@ function function_20cba65e(player)
 	{
 		var_9257bec[platoons[index]] = index;
 	}
-	platoon = function_22448d6c(player.team);
+	platoon = getteamplatoon(player.team);
 	for(index = 0; index < level.insertions.size; index++)
 	{
 		if(isdefined(var_9257bec[platoon]) && var_9257bec[platoon] == (index % (platoons.size - 1)))

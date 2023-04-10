@@ -59,12 +59,12 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"spike_spawn", 16000, 1, "counter");
 	level.var_53789618 = getweapon(#"ww_hand_g");
 	level.var_161aeda7 = getweapon(#"hash_6538045b64145e74");
-	level.var_b784afad = getweapon(#"hash_57feb2fb3f73d361");
-	level.var_54ed88ec = getweapon(#"hash_7d9d24e1aef966fc");
+	level.var_b784afad = getweapon(#"ww_hand_g_uncharged");
+	level.var_54ed88ec = getweapon(#"ww_hand_g_upgraded");
 	zm_weapons::include_zombie_weapon(#"ww_hand_g", 0);
 	zm_weapons::include_zombie_weapon(#"hash_6538045b64145e74", 0);
-	zm_weapons::include_zombie_weapon(#"hash_57feb2fb3f73d361", 0);
-	zm_weapons::include_zombie_weapon(#"hash_7d9d24e1aef966fc", 0);
+	zm_weapons::include_zombie_weapon(#"ww_hand_g_uncharged", 0);
+	zm_weapons::include_zombie_weapon(#"ww_hand_g_upgraded", 0);
 	namespace_9ff9f642::register_slowdown(#"hash_4689473b7f0df2f7", 0.1, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_2b068d1172ea957", 0.3, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_315cdbcb170fa2c4", 0.5, 3);

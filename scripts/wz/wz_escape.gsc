@@ -399,7 +399,7 @@ function function_9cc59537()
 								}
 							}
 						}
-						if(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08)
+						if(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash)
 						{
 							n_depth = 18;
 							n_width = 24;
@@ -433,7 +433,7 @@ function function_9cc59537()
 								print3d(point.origin + vectorscale((0, 0, 1), 24), sqrt(distancesquared(point.origin, close.origin)), v_color, 1, 0.3, 8);
 							}
 						}
-						if(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08)
+						if(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash)
 						{
 							var_47748885 = n_depth;
 							foreach(i, v_test in var_7cb887a8)
@@ -479,7 +479,7 @@ function function_9cc59537()
 								n_radius = 32;
 							}
 						}
-						if(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08)
+						if(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash)
 						{
 							function_47351fa3(point.origin, point.angles, v_color, 8);
 						}

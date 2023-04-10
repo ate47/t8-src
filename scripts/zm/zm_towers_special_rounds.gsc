@@ -2,7 +2,7 @@
 #using script_1781ac145d783f87;
 #using script_2affe92664ace48d;
 #using script_3f9e0dc8454d98e1;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_round_logic.gsc;

@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_7b7ed6e4bc963a51;
 #using script_caf007e2a98afa2;

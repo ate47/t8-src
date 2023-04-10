@@ -8,7 +8,7 @@
 #using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using script_4b80fc97d8469299;
 #using script_4ec1d631174f7283;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_5a4c716662b66a50;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5c6694d7aa0f1490;

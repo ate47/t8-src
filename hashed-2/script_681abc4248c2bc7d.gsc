@@ -99,7 +99,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "zm_zod_wonderweapon_quest", persistent);
+		cLUIelem::open_luielem(player, "zm_zod_wonderweapon_quest", persistent);
 	}
 
 	/*

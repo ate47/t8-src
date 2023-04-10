@@ -487,8 +487,8 @@ function function_e43bea18(var_11975e15)
 	{
 		case "snowball_upgraded":
 		case "snowball":
-		case "hash_4d50a2c4ff4e615d":
-		case "hash_7b1ab4354f6a9ef4":
+		case "snowball_yellow_upgraded":
+		case "snowball_yellow":
 		{
 			str_weapon = #"snowball";
 			break;

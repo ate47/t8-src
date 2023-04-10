@@ -156,7 +156,7 @@ function private function_e969e75(type)
 	Parameters: 9
 	Flags: Linked
 */
-function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3aad, damagemin, damagemax, radius, height)
+function function_15dea507(aoeid, type, var_3a11a165, lifetime, var_f2cd3aad, damagemin, damagemax, radius, height)
 {
 	if(!isdefined(level.var_400ae143))
 	{
@@ -179,7 +179,7 @@ function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3
 	var_508aaded.var_f2cd3aad = var_f2cd3aad;
 	var_508aaded.radius = radius;
 	var_508aaded.height = height;
-	var_508aaded.var_2fb5df20 = var_2fb5df20;
+	var_508aaded.aoeid = aoeid;
 	level thread function_60bb02f3(type);
 	/#
 		level thread function_e39c0be4(var_508aaded);
@@ -195,7 +195,7 @@ function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3
 	Parameters: 4
 	Flags: Linked
 */
-function function_371b4147(var_2fb5df20, type, position, userdata)
+function function_371b4147(aoeid, type, position, userdata)
 {
 	var_46f1b5eb = function_e969e75(type);
 	/#
@@ -213,7 +213,7 @@ function function_371b4147(var_2fb5df20, type, position, userdata)
 	aoe.endtime = gettime() + var_46f1b5eb.lifetime;
 	aoe.entity = spawn("script_model", position);
 	aoe.type = type;
-	aoe.entity clientfield::set("aoe_id", var_2fb5df20);
+	aoe.entity clientfield::set("aoe_id", aoeid);
 	function_668a9b2d(aoe, type);
 	if(isdefined(userdata))
 	{

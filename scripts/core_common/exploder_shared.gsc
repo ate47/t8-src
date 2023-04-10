@@ -143,7 +143,7 @@ function __main__()
 		level.createfxent = [];
 	}
 	acceptabletargetnames = [];
-	acceptabletargetnames[#"hash_7a9dcee99d931917"] = 1;
+	acceptabletargetnames[#"exploderchunk visible"] = 1;
 	acceptabletargetnames[#"exploderchunk"] = 1;
 	acceptabletargetnames[#"exploder"] = 1;
 	for(i = 0; i < script_exploders.size; i++)

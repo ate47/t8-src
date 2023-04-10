@@ -314,8 +314,8 @@ function function_4f056f0c(b_skipped, var_19e802fa)
 */
 function function_a58dfad4()
 {
-	var_575ce9bb = struct::get_array(self.target);
-	foreach(s_part in var_575ce9bb)
+	a_s_parts = struct::get_array(self.target);
+	foreach(s_part in a_s_parts)
 	{
 		switch(s_part.script_noteworthy)
 		{
@@ -405,8 +405,8 @@ function function_c4e5bf05(b_skipped, var_19e802fa)
 	foreach(var_f4dad7ae in var_70d5933e)
 	{
 		var_dca0e32e = struct::get(var_f4dad7ae, "script_ww_quest_acid_trap_unitrigger");
-		var_575ce9bb = struct::get_array(var_dca0e32e.target);
-		foreach(s_part in var_575ce9bb)
+		a_s_parts = struct::get_array(var_dca0e32e.target);
+		foreach(s_part in a_s_parts)
 		{
 			s_part struct::delete();
 		}

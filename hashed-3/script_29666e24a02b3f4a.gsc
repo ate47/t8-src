@@ -117,7 +117,7 @@ class czm_towers_challenges_hud : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -131,7 +131,7 @@ class czm_towers_challenges_hud : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "zm_towers_challenges_hud", persistent);
+		cLUIelem::open_luielem(player, "zm_towers_challenges_hud", persistent);
 	}
 
 	/*

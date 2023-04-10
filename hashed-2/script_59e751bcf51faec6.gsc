@@ -57,7 +57,7 @@ class cdeath_zone : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -71,7 +71,7 @@ class cdeath_zone : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "death_zone", persistent);
+		cLUIelem::open_luielem(player, "death_zone", persistent);
 	}
 
 	/*

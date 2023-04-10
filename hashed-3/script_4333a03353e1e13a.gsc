@@ -112,9 +112,9 @@ function main()
 */
 function function_e91e867d()
 {
-	level.var_4bd7384f = getentarray("v_fasttravel_flinger", "targetname");
+	level.a_v_flingers = getentarray("v_fasttravel_flinger", "targetname");
 	level.var_ad63608b = 0;
-	foreach(v_flinger in level.var_4bd7384f)
+	foreach(v_flinger in level.a_v_flingers)
 	{
 		v_flinger.var_4f952763 = struct::get_array(v_flinger.var_16c4809e + v_flinger.str_location, "targetname");
 		v_flinger.var_9b23f7b9 = struct::get(v_flinger.var_405b850e + v_flinger.str_location, "targetname");
@@ -291,7 +291,7 @@ function function_96dcf25a(e_player)
 */
 function function_b1ec88bc()
 {
-	foreach(v_flinger in level.var_4bd7384f)
+	foreach(v_flinger in level.a_v_flingers)
 	{
 		if(v_flinger.str_location === "island" && !zm_utility::is_standard())
 		{
@@ -455,8 +455,8 @@ function function_b5fc069b()
 			{
 				if(self.str_location == "facility")
 				{
-					var_4bd7384f = array::randomize(level.var_4bd7384f);
-					foreach(v_flinger in var_4bd7384f)
+					a_v_flingers = array::randomize(level.a_v_flingers);
+					foreach(v_flinger in a_v_flingers)
 					{
 						if(v_flinger.str_location == "facility")
 						{
@@ -1018,19 +1018,19 @@ function function_ad05ccbb()
 		{
 			case 0:
 			{
-				e_part = zm_crafting::function_4c2f8683("zitem_orange_heat_pack_part_1");
+				e_part = zm_crafting::get_component("zitem_orange_heat_pack_part_1");
 				e_who giveweapon(e_part);
 				break;
 			}
 			case 1:
 			{
-				e_part = zm_crafting::function_4c2f8683("zitem_orange_heat_pack_part_2");
+				e_part = zm_crafting::get_component("zitem_orange_heat_pack_part_2");
 				e_who giveweapon(e_part);
 				break;
 			}
 			case 2:
 			{
-				e_part = zm_crafting::function_4c2f8683("zitem_orange_heat_pack_part_3");
+				e_part = zm_crafting::get_component("zitem_orange_heat_pack_part_3");
 				e_who giveweapon(e_part);
 				break;
 			}

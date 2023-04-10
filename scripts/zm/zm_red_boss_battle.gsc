@@ -9,7 +9,7 @@
 #using script_47495939f228e438;
 #using script_48288470fe0b53d;
 #using scripts\zm\ai\zm_ai_blight_father.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;

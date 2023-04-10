@@ -55,7 +55,7 @@ function main()
 {
 	level flag::init(#"hash_98e32feb5b8ac79");
 	level flag::init(#"hash_16c15e4538336bb5");
-	level.var_d867b9f3 = array(zm_crafting::function_4c2f8683("zitem_orange_dynamite_bomb_part_1"), zm_crafting::function_4c2f8683("zitem_orange_dynamite_bomb_part_2"), zm_crafting::function_4c2f8683("zitem_orange_dynamite_bomb_part_3"));
+	level.var_d867b9f3 = array(zm_crafting::get_component("zitem_orange_dynamite_bomb_part_1"), zm_crafting::get_component("zitem_orange_dynamite_bomb_part_2"), zm_crafting::get_component("zitem_orange_dynamite_bomb_part_3"));
 	level.var_1daa43ee = 1;
 	callback::function_74872db6(&function_74872db6);
 	zm_items::function_4d230236(level.var_d867b9f3[0], &function_168f686b);
@@ -114,8 +114,8 @@ function main()
 */
 function function_86270fbf(str_targetname)
 {
-	var_dc3827e3 = getentarray(str_targetname, "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray(str_targetname, "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		if(e_blocker.script_noteworthy === "clip")
 		{
@@ -135,8 +135,8 @@ function function_86270fbf(str_targetname)
 */
 function function_70f4c8c3(str_targetname)
 {
-	var_dc3827e3 = getentarray(str_targetname, "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray(str_targetname, "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		if(e_blocker.script_noteworthy === "clip")
 		{

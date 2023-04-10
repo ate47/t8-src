@@ -103,8 +103,8 @@ function function_53b616a4()
 {
 	level.var_1537d233 = 0;
 	level.var_1b737b93 = 0;
-	level.var_67730c8d = struct::get_array("s_zipline_crank", "targetname");
-	foreach(s_zipline_crank in level.var_67730c8d)
+	level.a_s_zipline_cranks = struct::get_array("s_zipline_crank", "targetname");
+	foreach(s_zipline_crank in level.a_s_zipline_cranks)
 	{
 		s_zipline_crank.var_2e77da49 = 0;
 		s_zipline_crank.var_68a09be4 = 0;
@@ -997,7 +997,7 @@ function function_a393b77f()
 function function_80a9077f()
 {
 	/#
-		foreach(s_zipline_crank in level.var_67730c8d)
+		foreach(s_zipline_crank in level.a_s_zipline_cranks)
 		{
 			if(!(isdefined(s_zipline_crank.var_2e77da49 || !s_zipline_crank.var_2e77da49)))
 			{

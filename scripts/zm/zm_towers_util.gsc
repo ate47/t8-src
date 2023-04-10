@@ -214,10 +214,10 @@ function function_1008e277()
 */
 function private function_fcf197fa(targetname, b_show)
 {
-	var_dc3827e3 = getentarray(targetname, "targetname");
-	if(isdefined(var_dc3827e3))
+	a_e_blockers = getentarray(targetname, "targetname");
+	if(isdefined(a_e_blockers))
 	{
-		foreach(blocker in var_dc3827e3)
+		foreach(blocker in a_e_blockers)
 		{
 			if(isdefined(blocker.target))
 			{

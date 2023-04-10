@@ -1586,8 +1586,8 @@ function function_f0c35734(trigger)
 	height = self function_6a9ae71();
 	heightoffset = (0, 0, (height * -1) / 2);
 	var_e790dc87 = (radius, radius, height / 2);
-	var_75ae35a4 = ai::function_470c0597(trigger.origin + heightoffset, trigger.maxs + var_e790dc87, trigger.angles);
-	return var_75ae35a4;
+	obb = ai::function_470c0597(trigger.origin + heightoffset, trigger.maxs + var_e790dc87, trigger.angles);
+	return obb;
 }
 
 /*
@@ -1612,8 +1612,8 @@ function function_52947b70(trigger)
 	heightoffset = (0, 0, (height * -1) / 2);
 	var_e790dc87 = (radius, radius, height / 2);
 	maxs = (trigger.script_width, trigger.script_length, trigger.script_height);
-	var_75ae35a4 = ai::function_470c0597(trigger.origin + heightoffset, maxs + var_e790dc87, trigger.angles);
-	return var_75ae35a4;
+	obb = ai::function_470c0597(trigger.origin + heightoffset, maxs + var_e790dc87, trigger.angles);
+	return obb;
 }
 
 /*

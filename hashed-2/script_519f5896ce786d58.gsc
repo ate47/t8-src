@@ -176,8 +176,8 @@ function function_53e45f4e()
 */
 function function_688bcac2()
 {
-	var_db1edf58 = struct::get_array("ww_case_lock");
-	foreach(s_lock in var_db1edf58)
+	a_s_locks = struct::get_array("ww_case_lock");
+	foreach(s_lock in a_s_locks)
 	{
 		var_f67ecd64 = util::spawn_model(s_lock.model, s_lock.origin, s_lock.angles);
 		var_f67ecd64.script_int = s_lock.script_int;
@@ -549,8 +549,8 @@ function function_8476e19()
 */
 function function_4e833729()
 {
-	var_ecc45b8c = struct::get_array("ww_lock_solution_" + self.script_int);
-	foreach(s_symbol in var_ecc45b8c)
+	a_s_symbols = struct::get_array("ww_lock_solution_" + self.script_int);
+	foreach(s_symbol in a_s_symbols)
 	{
 		if(s_symbol.script_int == self.n_solution)
 		{

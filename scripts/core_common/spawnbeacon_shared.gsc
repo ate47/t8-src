@@ -2,7 +2,7 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\weapons\weaponobjects.gsc;
@@ -515,7 +515,7 @@ function function_41a037e6()
 		foreach(var_25d50c8b in level.spawnbeaconsettings.var_613ff100)
 		{
 			distance = distancesquared(spawnbeacon.origin, player.origin);
-			if(distance <= var_25d50c8b.var_ba0b31e6 && distance > var_25d50c8b.var_5857777c)
+			if(distance <= var_25d50c8b.zonemax && distance > var_25d50c8b.zonemin)
 			{
 				spawnbeacon.threatlevel = spawnbeacon.threatlevel + var_25d50c8b.points;
 			}

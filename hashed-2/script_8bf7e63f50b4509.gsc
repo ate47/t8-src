@@ -87,7 +87,7 @@ function function_ee7e8a00(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_5f8c1946(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_eb22c4da = findvolumedecalindexarray("event_stairs_blood");
+	a_n_decals = findvolumedecalindexarray("event_stairs_blood");
 	var_7a5e182b = findvolumedecalindexarray("event_after_chaos_floor");
 	foreach(var_157cdddc in var_7a5e182b)
 	{
@@ -95,7 +95,7 @@ function function_5f8c1946(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 1)
 	{
-		foreach(n_decal in var_eb22c4da)
+		foreach(n_decal in a_n_decals)
 		{
 			hidevolumedecal(n_decal);
 		}
@@ -106,7 +106,7 @@ function function_5f8c1946(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		foreach(n_decal in var_eb22c4da)
+		foreach(n_decal in a_n_decals)
 		{
 			unhidevolumedecal(n_decal);
 		}

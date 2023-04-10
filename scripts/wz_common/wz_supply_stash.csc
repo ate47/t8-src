@@ -6,11 +6,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_e2ddd1d6;
+#namespace wz_supply_stash;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x61612CB2
 	Offset: 0x118
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_44c7c252cf328038", &__init__, undefined, undefined);
+	system::register(#"wz_supply_stash", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x1308362F
 	Offset: 0x160
 	Size: 0x34
@@ -39,7 +39,7 @@ function __init__()
 
 /*
 	Name: on_localclient_connect
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x2BDE5EB2
 	Offset: 0x1A0
 	Size: 0x124
@@ -60,7 +60,7 @@ function private on_localclient_connect(localclientnum)
 
 /*
 	Name: function_53d906fd
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x6C428957
 	Offset: 0x2D0
 	Size: 0x2BC
@@ -110,7 +110,7 @@ function private function_53d906fd(localclientnum)
 
 /*
 	Name: function_fd3f6235
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x24D5C1C7
 	Offset: 0x598
 	Size: 0x19C
@@ -149,7 +149,7 @@ function private function_fd3f6235(localclientnum)
 
 /*
 	Name: function_e2d53ad5
-	Namespace: namespace_e2ddd1d6
+	Namespace: wz_supply_stash
 	Checksum: 0x31E3E982
 	Offset: 0x740
 	Size: 0xAE

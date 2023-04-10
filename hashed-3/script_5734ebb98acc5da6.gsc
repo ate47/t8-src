@@ -101,9 +101,9 @@ function on_local_client_connect(localclientnum)
 	level function_fb0bd6b9(localclientnum);
 	if(isdefined(nixie_cage))
 	{
-		var_a2b73cfc = spawn(localclientnum, nixie_cage.origin, "script_origin");
-		var_a2b73cfc.targetname = "nixie_sound_manager";
-		var_a2b73cfc.loop_sound = var_a2b73cfc playloopsound(#"hash_589f33024097b46");
+		nixie_sound_manager = spawn(localclientnum, nixie_cage.origin, "script_origin");
+		nixie_sound_manager.targetname = "nixie_sound_manager";
+		nixie_sound_manager.loop_sound = nixie_sound_manager playloopsound(#"hash_589f33024097b46");
 	}
 	else
 	{

@@ -7,7 +7,7 @@
 #using script_452cf453bf79907b;
 #using script_45decd627aedfc09;
 #using script_49d5f69a3ac4a923;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using script_5e918923a121b594;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;

@@ -38,8 +38,8 @@
 */
 function init()
 {
-	level.var_a066b028 = struct::get_array(#"hash_396f65af88a25e7d");
-	foreach(s_chest in level.var_a066b028)
+	level.a_s_chests = struct::get_array(#"hash_396f65af88a25e7d");
+	foreach(s_chest in level.a_s_chests)
 	{
 		s_chest chest_init();
 		namespace_617a54f4::function_d8383812(s_chest.script_noteworthy, 1, s_chest, &function_62f0c1c, &function_32edfed);
@@ -62,8 +62,8 @@ function init()
 		level.n_kill_count = 0;
 		level.var_3a67ac0e = array(#"hash_10d96c6e67b7604d", #"p7_compass_vintage", #"p7_world_globe_vintage_01", #"p7_ra2_tool_vintage_pincer_02", #"p7_zm_ori_scope_vintage");
 		level.var_b26f906a = array(#"hash_6750f91495cec97a", #"hash_5cfcc1e6699e46b6", #"hash_6e6d2b3030f3d6c6", #"hash_6382fc1f3035ccb0", #"hash_76274c14299e46ca");
-		level.var_e083ecbd = randomint(level.var_a066b028.size);
-		level.var_f9f50915 = level.var_a066b028[level.var_e083ecbd];
+		level.var_e083ecbd = randomint(level.a_s_chests.size);
+		level.var_f9f50915 = level.a_s_chests[level.var_e083ecbd];
 		level.var_f9f50915 show_chest();
 		level thread function_2c93a769();
 		var_35da56ee = zm_crafting::function_b18074d0(#"hash_6f259b259997271a");
@@ -352,9 +352,9 @@ function private function_aed5650e(var_a276c861)
 			if(level.var_e2ce1fe1 < 2)
 			{
 				level.var_f9f50915.var_31919730 delete();
-				arrayremoveindex(level.var_a066b028, level.var_e083ecbd);
-				level.var_e083ecbd = randomint(level.var_a066b028.size);
-				level.var_f9f50915 = level.var_a066b028[level.var_e083ecbd];
+				arrayremoveindex(level.a_s_chests, level.var_e083ecbd);
+				level.var_e083ecbd = randomint(level.a_s_chests.size);
+				level.var_f9f50915 = level.a_s_chests[level.var_e083ecbd];
 				level.var_f9f50915 show_chest();
 				level.var_f9f50915.var_31919730 thread scene::play(#"p8_fxanim_zm_zod_kraken_chest_bundle", "open", level.var_f9f50915.var_31919730);
 				level.var_f9f50915.var_31919730 playsound(#"hash_6fa6fc673cdcf645");

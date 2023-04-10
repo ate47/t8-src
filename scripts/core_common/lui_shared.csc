@@ -89,7 +89,7 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		function_43d5b973(localclientnum, var_47e79fc);
+		closeluielem(localclientnum, var_47e79fc);
 	}
 
 	/*
@@ -123,7 +123,7 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		function_5686f5cd(localclientnum, menu_name, var_47e79fc);
+		openluielem(localclientnum, menu_name, var_47e79fc);
 		[[ self ]]->function_fa582112(localclientnum);
 	}
 

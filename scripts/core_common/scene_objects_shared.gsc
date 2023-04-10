@@ -5818,7 +5818,7 @@ class cscene
 				var_82bbc872 = 0;
 				var_9d90ef8b = scene::function_12479eba(_str_name);
 				a_shots = scene::get_all_shot_names(_str_name, 1);
-				foreach(str_shot_name in _s.var_b5d05f70)
+				foreach(str_shot_name in _s.a_str_shot_names)
 				{
 					if(str_shot_name != str_shot)
 					{

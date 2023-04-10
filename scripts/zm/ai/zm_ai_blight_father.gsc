@@ -19,7 +19,7 @@
 #using script_50c040e371c1c35f;
 #using script_522aeb6ae906391e;
 #using script_567f1ada8fe29a1c;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai\archetype_blight_father_interface.gsc;

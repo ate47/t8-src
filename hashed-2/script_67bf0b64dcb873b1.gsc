@@ -285,9 +285,9 @@ function function_514a3f80()
 		level.var_ea58030a = 0;
 	}
 	struct::get("s_prima_material_device") zm_unitrigger::create(&function_32573d2a, 64, &function_ea6f56ee);
-	zm_items::function_4d230236(zm_crafting::function_4c2f8683(#"hash_5dba850c6ed3ebee"), &function_b9cbdac6);
-	zm_items::function_4d230236(zm_crafting::function_4c2f8683(#"hash_3f639544c52d4fa3"), &function_b9cbdac6);
-	zm_items::function_4d230236(zm_crafting::function_4c2f8683(#"hash_3f639644c52d5156"), &function_b9cbdac6);
+	zm_items::function_4d230236(zm_crafting::get_component(#"hash_5dba850c6ed3ebee"), &function_b9cbdac6);
+	zm_items::function_4d230236(zm_crafting::get_component(#"hash_3f639544c52d4fa3"), &function_b9cbdac6);
+	zm_items::function_4d230236(zm_crafting::get_component(#"hash_3f639644c52d5156"), &function_b9cbdac6);
 	level flagsys::wait_till_any(array(#"power_on1", #"hash_2daf5bdda85cc660"));
 	wait(randomintrange(20, 30));
 	s_machine = struct::get("s_pr_mach");

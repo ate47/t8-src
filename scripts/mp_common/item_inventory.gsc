@@ -4902,25 +4902,25 @@ function function_26c87da8(var_c9293a27, var_8f194e5a)
 	{
 		return;
 	}
-	var_48e276d5 = self.inventory.items[var_c9293a27];
-	var_47684cd2 = self.inventory.items[var_8f194e5a];
-	self.inventory.items[var_c9293a27] = var_47684cd2;
-	self.inventory.items[var_8f194e5a] = var_48e276d5;
-	if(isdefined(var_48e276d5.var_a6762160))
+	fromitem = self.inventory.items[var_c9293a27];
+	toitem = self.inventory.items[var_8f194e5a];
+	self.inventory.items[var_c9293a27] = toitem;
+	self.inventory.items[var_8f194e5a] = fromitem;
+	if(isdefined(fromitem.var_a6762160))
 	{
-		var_48e276d5.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(self, var_8f194e5a);
+		fromitem.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(self, var_8f194e5a);
 	}
-	if(isdefined(var_47684cd2.var_a6762160))
+	if(isdefined(toitem.var_a6762160))
 	{
-		var_47684cd2.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(self, var_c9293a27);
+		toitem.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(self, var_c9293a27);
 	}
 	if(var_8f194e5a == 10)
 	{
-		self clientfield::set_player_uimodel("hudItems.healthItemstackCount", function_bba770de(var_47684cd2.var_a6762160));
+		self clientfield::set_player_uimodel("hudItems.healthItemstackCount", function_bba770de(toitem.var_a6762160));
 	}
 	else if(var_8f194e5a == 12)
 	{
-		self clientfield::set_player_uimodel("hudItems.equipmentStackCount", function_bba770de(var_47684cd2.var_a6762160));
+		self clientfield::set_player_uimodel("hudItems.equipmentStackCount", function_bba770de(toitem.var_a6762160));
 	}
 	self function_b00db06(12, var_c9293a27, var_8f194e5a);
 }
@@ -5108,7 +5108,7 @@ function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
 	function_60706bdb(var_bd027dd9);
 	if(isdefined(item.attachments) && var_8eb4edca)
 	{
-		var_687225b = [];
+		attachmentitems = [];
 		foreach(attachment in item.attachments)
 		{
 			if(!isdefined(attachment))
@@ -5116,9 +5116,9 @@ function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
 				continue;
 			}
 			attachmentitem = function_dfcacdc2(attachment.var_bd027dd9);
-			var_687225b[var_687225b.size] = attachmentitem;
+			attachmentitems[attachmentitems.size] = attachmentitem;
 		}
-		foreach(attachmentitem in var_687225b)
+		foreach(attachmentitem in attachmentitems)
 		{
 			function_b3342af3(attachmentitem, 1);
 		}

@@ -52,8 +52,8 @@ event main(eventstruct)
 	ct_utils::function_6046a5e3(#"ar_modular_t8", array("rf", "steadyanim", "mixclip"));
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
 	level.ct_firebreak_multi_kill = ct_firebreak_multi_kill::register("ct_firebreak_multi_kill");
-	level.var_8eac6c9c = struct::get_array("s_beacon", "targetname");
-	level.var_2392bd18 = level.var_8eac6c9c.size;
+	level.a_s_beacons = struct::get_array("s_beacon", "targetname");
+	level.var_2392bd18 = level.a_s_beacons.size;
 	if(level.var_cd9d597c == 0)
 	{
 		level namespace_154e6230::init();
@@ -217,7 +217,7 @@ function function_6db6572b()
 	level flag::init("mission_success");
 	level flag::init("mission_failed");
 	level flag::init("gamemode_started");
-	foreach(s_beacon in level.var_8eac6c9c)
+	foreach(s_beacon in level.a_s_beacons)
 	{
 		s_beacon function_ca63e908();
 	}
@@ -253,8 +253,8 @@ function function_ba542258(mode)
 	{
 		level.var_20361ed4 = -1;
 		level.var_f3bb2d59 = 0;
-		level.var_8eac6c9c = struct::get_array("s_beacon", "targetname");
-		foreach(s_beacon in level.var_8eac6c9c)
+		level.a_s_beacons = struct::get_array("s_beacon", "targetname");
+		foreach(s_beacon in level.a_s_beacons)
 		{
 			s_beacon.guard1 = undefined;
 			s_beacon.guard2 = undefined;
@@ -366,7 +366,7 @@ function function_72e84e64()
 {
 	level endon(#"combattraining_logic_finished");
 	level thread registerslicendice_enemy_entrance();
-	self thread ct_utils::objcounter_init(undefined, 0, level.var_8eac6c9c.size, 1);
+	self thread ct_utils::objcounter_init(undefined, 0, level.a_s_beacons.size, 1);
 	level.var_ebad4ea8 = gettime();
 	level.var_bd8b567a = 0;
 	level flag::set("gamemode_started");
@@ -438,17 +438,17 @@ function function_ca63e908()
 */
 function registerslicendice_enemy_entrance()
 {
-	foreach(s_beacon in level.var_8eac6c9c)
+	foreach(s_beacon in level.a_s_beacons)
 	{
 		s_beacon.waypoint gameobjects::set_visible_team(#"any");
 		s_beacon.e_beacon = spawn("script_model", s_beacon.origin);
 		s_beacon.e_beacon setmodel("wpn_t8_eqp_spawnbeacon_world");
 		s_beacon.e_beacon clientfield::set("animate_spawn_beacon", 1);
 	}
-	while(level.var_8eac6c9c.size > 0)
+	while(level.a_s_beacons.size > 0)
 	{
 		level waittill(#"beacon_destroyed");
-		if(level.var_8eac6c9c.size > 0)
+		if(level.a_s_beacons.size > 0)
 		{
 			level thread function_965614a5();
 		}
@@ -472,7 +472,7 @@ function registerslicendice_enemy_entrance()
 */
 function function_3192c7f3()
 {
-	if(level.var_8eac6c9c.size == 0)
+	if(level.a_s_beacons.size == 0)
 	{
 		return undefined;
 	}
@@ -480,11 +480,11 @@ function function_3192c7f3()
 	{
 		level.var_24593a52 = 0;
 	}
-	if(level.var_24593a52 >= level.var_8eac6c9c.size)
+	if(level.var_24593a52 >= level.a_s_beacons.size)
 	{
 		level.var_24593a52 = 0;
 	}
-	s_beacon = level.var_8eac6c9c[level.var_24593a52];
+	s_beacon = level.a_s_beacons[level.var_24593a52];
 	level.var_24593a52++;
 	return s_beacon;
 }
@@ -506,7 +506,7 @@ function function_d6c7161f()
 	{
 		self waittill(#"hash_477083bb681cce64");
 		var_326df4eb = undefined;
-		foreach(s_beacon in level.var_8eac6c9c)
+		foreach(s_beacon in level.a_s_beacons)
 		{
 			n_dist = distance(s_beacon.origin, self.origin);
 			if(n_dist < 500)
@@ -524,7 +524,7 @@ function function_d6c7161f()
 			dt = (gettime() / 1000) - n_start_time;
 			if(dt >= 1.75)
 			{
-				arrayremovevalue(level.var_8eac6c9c, s_beacon);
+				arrayremovevalue(level.a_s_beacons, s_beacon);
 				s_beacon.e_beacon clientfield::set("animate_spawn_beacon", 0);
 				level.var_d4722aa0 = 1;
 				s_beacon.waypoint gameobjects::set_visible_team("none");

@@ -60,11 +60,11 @@ function __init__()
 	level.var_45072d7d = getweapon(#"ww_hand_h");
 	level.var_f10d87a1 = getweapon(#"hash_4f2a3ad24337dd19");
 	level.var_e8ffa40 = getweapon(#"ww_hand_h_uncharged");
-	level.var_836fa4da = getweapon(#"hash_403bfa4250f7a743");
+	level.var_836fa4da = getweapon(#"ww_hand_h_upgraded");
 	zm_weapons::include_zombie_weapon(#"ww_hand_h", 0);
 	zm_weapons::include_zombie_weapon(#"hash_4f2a3ad24337dd19", 0);
 	zm_weapons::include_zombie_weapon(#"ww_hand_h_uncharged", 0);
-	zm_weapons::include_zombie_weapon(#"hash_403bfa4250f7a743", 0);
+	zm_weapons::include_zombie_weapon(#"ww_hand_h_upgraded", 0);
 	callback::on_connect(&on_player_connect);
 	if(!isdefined(level.var_ab6fef61))
 	{

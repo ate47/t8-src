@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_20ac552ee498eb9d;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4194df57536e11ed;

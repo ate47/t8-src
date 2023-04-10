@@ -741,7 +741,7 @@ function function_6155752d()
 		}
 		switch(s_result.weapon.weapclass)
 		{
-			case "hash_69055a4af9ca989":
+			case "pistol spread":
 			case "pistolspread":
 			case "pistol":
 			{

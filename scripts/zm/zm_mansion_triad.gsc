@@ -119,8 +119,8 @@ function function_c6e2a4fd()
 	{
 		var_5f3c4fab ghost();
 	}
-	var_67b37a67 = struct::get_array("fireplace_location");
-	foreach(s_fireplace in var_67b37a67)
+	a_s_fireplaces = struct::get_array("fireplace_location");
+	foreach(s_fireplace in a_s_fireplaces)
 	{
 		s_fireplace thread function_8c4357b4("hi", 1);
 	}
@@ -224,10 +224,10 @@ function init_flags()
 */
 function function_c739f755()
 {
-	zm_sq::register(#"zm_mansion_triad", #"step_1", #"hash_54cb84780c19a836", &function_cdfe68a2, &function_c5868f47);
-	zm_sq::register(#"zm_mansion_triad", #"step_2", #"hash_54cb83780c19a683", &function_a03f8d25, &function_f05be4f1);
-	zm_sq::register(#"zm_mansion_triad", #"step_3", #"hash_54cb82780c19a4d0", &function_aa79a199, &function_bafa7a2b);
-	zm_sq::register(#"zm_mansion_triad", #"step_4", #"hash_54cb89780c19b0b5", &function_86e35a69, &function_a93d56b1);
+	zm_sq::register(#"zm_mansion_triad", #"step_1", #"triad_step_1", &function_cdfe68a2, &function_c5868f47);
+	zm_sq::register(#"zm_mansion_triad", #"step_2", #"triad_step_2", &function_a03f8d25, &function_f05be4f1);
+	zm_sq::register(#"zm_mansion_triad", #"step_3", #"triad_step_3", &function_aa79a199, &function_bafa7a2b);
+	zm_sq::register(#"zm_mansion_triad", #"step_4", #"triad_step_4", &function_86e35a69, &function_a93d56b1);
 }
 
 /*
@@ -301,8 +301,8 @@ function function_c5868f47(var_5ea5c94d, ended_early)
 function function_a03f8d25(var_a276c861)
 {
 	level namespace_6747c550::function_7df6bb60(#"hash_22f194aa6971efed", 1);
-	var_67b37a67 = struct::get_array("fireplace_location");
-	foreach(s_fireplace in var_67b37a67)
+	a_s_fireplaces = struct::get_array("fireplace_location");
+	foreach(s_fireplace in a_s_fireplaces)
 	{
 		s_fireplace thread function_8c4357b4("low", 0);
 		s_fireplace thread function_8c4357b4("hi", 1);
@@ -2545,7 +2545,7 @@ function _angles_cp_medal_no_deaths()
 			break;
 		}
 	}
-	var_18f3c565 = [];
+	a_str_archetypes = [];
 	var_a1fc54b0 = 0;
 	var_3833f77b = 0;
 	while(!level flag::get(#"hash_6402d013069eb3a"))
@@ -2569,15 +2569,15 @@ function _angles_cp_medal_no_deaths()
 		a_zombies = getaiarchetypearray(#"zombie");
 		if(level.var_8a64ef3a < 9 && a_zombies.size >= 9)
 		{
-			if(!var_18f3c565.size)
+			if(!a_str_archetypes.size)
 			{
-				var_18f3c565 = array::randomize(array(#"hash_48d8727043be63bc", #"hash_cc3279e1c9378c3", #"hash_f320466b419b45", #"hash_45bc5c87327d33a2"));
+				a_str_archetypes = array::randomize(array(#"hash_48d8727043be63bc", #"hash_cc3279e1c9378c3", #"hash_f320466b419b45", #"hash_45bc5c87327d33a2"));
 			}
 			foreach(ai in a_zombies)
 			{
 				if(ai zm_ai_utility::function_db610082())
 				{
-					zm_transform::function_9acf76e6(ai, array::pop(var_18f3c565, undefined, 0));
+					zm_transform::function_9acf76e6(ai, array::pop(a_str_archetypes, undefined, 0));
 					break;
 				}
 			}

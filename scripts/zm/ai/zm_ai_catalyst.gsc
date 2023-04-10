@@ -9,7 +9,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_444bc5b4fa0fe14f;
 #using script_4d85e8de54b02198;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;

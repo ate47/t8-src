@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_4ae2f15f;
+#namespace wz_ai_zombie;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0x710AC486
 	Offset: 0x198
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_4d14e34831830ee6", &__init__, undefined, undefined);
+	system::register(#"wz_ai_zombie", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0xE8E356B3
 	Offset: 0x1E0
 	Size: 0x242
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: handle_zombie_risers
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0x76A326F3
 	Offset: 0x430
 	Size: 0x11E
@@ -69,7 +69,7 @@ function handle_zombie_risers(localclientnum, oldval, newval, bnewent, binitials
 
 /*
 	Name: rise_dust_fx
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0x7F35CC64
 	Offset: 0x558
 	Size: 0x10C
@@ -93,7 +93,7 @@ function rise_dust_fx(clientnum, billow_fx, burst_fx)
 
 /*
 	Name: zombie_eyes_clientfield_cb
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0xC8815EB2
 	Offset: 0x670
 	Size: 0x194
@@ -139,7 +139,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: function_bee29da4
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0x64C98AD8
 	Offset: 0x810
 	Size: 0xB2
@@ -161,7 +161,7 @@ function function_bee29da4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3acc8ce4
-	Namespace: namespace_4ae2f15f
+	Namespace: wz_ai_zombie
 	Checksum: 0x6F994D0
 	Offset: 0x8D0
 	Size: 0xB4

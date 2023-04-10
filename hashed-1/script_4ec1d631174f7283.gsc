@@ -2,7 +2,7 @@
 #using script_35598499769dbb3d;
 #using script_3aa0f32b70d4f7cb;
 #using script_3f9e0dc8454d98e1;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;

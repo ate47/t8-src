@@ -218,7 +218,7 @@ function on_spawn_player()
 	spawn::on_spawn_player();
 	if(infection::function_74650d7())
 	{
-		platoon = function_22448d6c(self.team);
+		platoon = getteamplatoon(self.team);
 		var_8cc84817 = infection::function_76601b7d();
 		if(var_8cc84817 != #"none" && platoon == infection::function_76601b7d())
 		{
@@ -1409,7 +1409,7 @@ function function_40843d72(team)
 	}
 	else
 	{
-		platoon = function_22448d6c(team);
+		platoon = getteamplatoon(team);
 		if(infection::function_74650d7())
 		{
 			var_293493b = 2;
@@ -1542,7 +1542,7 @@ function function_ded0be06(params)
 		{
 			continue;
 		}
-		if(!function_a40b79b1(var_a505a9b4) && function_22448d6c(var_a505a9b4) != infection::function_76601b7d())
+		if(!function_a40b79b1(var_a505a9b4) && getteamplatoon(var_a505a9b4) != infection::function_76601b7d())
 		{
 			if(var_f1a61e0 == 0)
 			{
@@ -1580,14 +1580,14 @@ function function_ded0be06(params)
 	{
 		foreach(team in params.var_dfa2cc2c)
 		{
-			if(function_22448d6c(team) != platoon)
+			if(getteamplatoon(team) != platoon)
 			{
 				namespace_d3564fd8::team_eliminated(team, 2);
 			}
 		}
 		foreach(team in params.var_46a749a8)
 		{
-			if(function_22448d6c(team) != platoon)
+			if(getteamplatoon(team) != platoon)
 			{
 				namespace_d3564fd8::team_eliminated(team, 2);
 			}
@@ -1615,7 +1615,7 @@ function function_5af3a29(params)
 	{
 		if(platoons::function_382a49e0())
 		{
-			platoon = function_22448d6c(params.teams_alive[0]);
+			platoon = getteamplatoon(params.teams_alive[0]);
 			foreach(team in function_37d3bfcb(platoon))
 			{
 				if(teams::function_9dd75dad(team))
@@ -1731,7 +1731,7 @@ function function_80efb8b1(team)
 	{
 		return;
 	}
-	platoon = function_22448d6c(team);
+	platoon = getteamplatoon(team);
 	if(platoon != #"none" && platoon != #"invalid")
 	{
 		return;
@@ -2083,7 +2083,7 @@ function function_de15dc32(killed_player, var_67bb0009)
 		{
 			continue;
 		}
-		platoon = function_22448d6c(team);
+		platoon = getteamplatoon(team);
 		var_40073db2 = 0;
 		var_ead60f69 = 0;
 		foreach(player in players)
@@ -2184,7 +2184,7 @@ function function_e91890a7()
 		}
 		else
 		{
-			var_a4812ee3 = function_22448d6c(player.team);
+			var_a4812ee3 = getteamplatoon(player.team);
 			/#
 				assert(isdefined(player_counts.var_85587598[var_a4812ee3]));
 			#/
@@ -2201,8 +2201,8 @@ function function_e91890a7()
 			}
 		}
 		var_31cc0ff8 = 0;
-		var_7102d43a = getplayers(player.team);
-		foreach(member in var_7102d43a)
+		teammembers = getplayers(player.team);
+		foreach(member in teammembers)
 		{
 			if(isalive(member) && member != player)
 			{

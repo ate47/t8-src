@@ -8,11 +8,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_b99ba180;
+#namespace wz_ai_brutus;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x8B7F6B60
 	Offset: 0x1C8
 	Size: 0x3C
@@ -26,7 +26,7 @@ function autoexec __init__system__()
 
 /*
 	Name: __init__
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x20974389
 	Offset: 0x210
 	Size: 0x13C
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: function_c7251e62
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xC65A8E1F
 	Offset: 0x358
 	Size: 0x2C
@@ -58,7 +58,7 @@ function function_c7251e62(localclientnum)
 
 /*
 	Name: on_entity_shutdown
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xDC71C402
 	Offset: 0x390
 	Size: 0xC
@@ -71,7 +71,7 @@ function on_entity_shutdown(localclientnum)
 
 /*
 	Name: function_80adaab1
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xDAFC6EAC
 	Offset: 0x3A8
 	Size: 0x10C
@@ -102,7 +102,7 @@ function function_80adaab1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: brutus_shock_attack_fx
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x3DD36CC1
 	Offset: 0x4C0
 	Size: 0xFC
@@ -127,7 +127,7 @@ function brutus_shock_attack_fx(localclientnum, oldval, newval, bnewent, binitia
 
 /*
 	Name: brutus_shock_attack_player
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xBE844F82
 	Offset: 0x5C8
 	Size: 0x5C
@@ -141,7 +141,7 @@ function brutus_shock_attack_player(localclientnum, oldval, newval, bnewent, bin
 
 /*
 	Name: function_6e2a738c
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x8C08CAAA
 	Offset: 0x630
 	Size: 0x12E

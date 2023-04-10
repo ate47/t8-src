@@ -3,7 +3,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using script_5660bae5b402a1eb;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_67bf0b64dcb873b1;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;

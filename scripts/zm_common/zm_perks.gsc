@@ -4148,7 +4148,7 @@ function function_a30c73b9(str_state)
 					}
 					case 3:
 					{
-						var_1d373a09 = #"hash_d0a02c268fb65bf";
+						var_1d373a09 = #"p8_fxanim_zm_perk_vending_tonic_mod";
 						self.var_2839b015 = #"p8_fxanim_zm_perk_vending_tonic_bundle";
 						break;
 					}
@@ -4331,8 +4331,8 @@ function function_1e721859()
 */
 function function_adc671f5(n_slot)
 {
-	var_f0ae0fd1 = struct::get_array("perk_vapor_altar");
-	foreach(s_altar in var_f0ae0fd1)
+	a_s_altars = struct::get_array("perk_vapor_altar");
+	foreach(s_altar in a_s_altars)
 	{
 		if(s_altar.script_int == n_slot)
 		{

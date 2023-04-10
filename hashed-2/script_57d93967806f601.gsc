@@ -174,36 +174,36 @@ function private function_3e9077b(localclientnum)
 			{
 				continue;
 			}
-			var_9901d38a = [];
-			if(!isdefined(var_9901d38a))
+			test_points = [];
+			if(!isdefined(test_points))
 			{
-				var_9901d38a = [];
+				test_points = [];
 			}
-			else if(!isarray(var_9901d38a))
+			else if(!isarray(test_points))
 			{
-				var_9901d38a = array(var_9901d38a);
+				test_points = array(test_points);
 			}
-			var_9901d38a[var_9901d38a.size] = self.origin + vectorscale((0, 0, 1), 11);
-			if(!isdefined(var_9901d38a))
+			test_points[test_points.size] = self.origin + vectorscale((0, 0, 1), 11);
+			if(!isdefined(test_points))
 			{
-				var_9901d38a = [];
+				test_points = [];
 			}
-			else if(!isarray(var_9901d38a))
+			else if(!isarray(test_points))
 			{
-				var_9901d38a = array(var_9901d38a);
+				test_points = array(test_points);
 			}
-			var_9901d38a[var_9901d38a.size] = self.origin + vectorscale((0, 0, 1), 40);
-			if(!isdefined(var_9901d38a))
+			test_points[test_points.size] = self.origin + vectorscale((0, 0, 1), 40);
+			if(!isdefined(test_points))
 			{
-				var_9901d38a = [];
+				test_points = [];
 			}
-			else if(!isarray(var_9901d38a))
+			else if(!isarray(test_points))
 			{
-				var_9901d38a = array(var_9901d38a);
+				test_points = array(test_points);
 			}
-			var_9901d38a[var_9901d38a.size] = self.origin + vectorscale((0, 0, 1), 60);
+			test_points[test_points.size] = self.origin + vectorscale((0, 0, 1), 60);
 			los = 0;
-			foreach(test_point in var_9901d38a)
+			foreach(test_point in test_points)
 			{
 				trace_dist = length(to_self) + 100;
 				trace_end = test_point + (vectorscale(player_forward, trace_dist * -1));

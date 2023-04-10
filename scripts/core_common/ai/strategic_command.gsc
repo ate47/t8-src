@@ -2148,7 +2148,7 @@ function querypointsinsideposition(bot, position, radius, halfheight)
 	Parameters: 2
 	Flags: Private
 */
-function private function_1891d0d2(points, var_75ae35a4)
+function private function_1891d0d2(points, obb)
 {
 	/#
 		var_2586092e = 50;
@@ -2156,7 +2156,7 @@ function private function_1891d0d2(points, var_75ae35a4)
 		{
 			if(getdvarint(#"ai_debugsquadpointquery", 0))
 			{
-				function_af72dbc5(var_75ae35a4.center, var_75ae35a4.halfsize * -1, var_75ae35a4.halfsize, var_75ae35a4.angles[1], (0, 1, 0), "");
+				function_af72dbc5(obb.center, obb.halfsize * -1, obb.halfsize, obb.angles[1], (0, 1, 0), "");
 				foreach(point in points)
 				{
 					recordstar(point.origin, (1, 0.5, 0), "");
@@ -2199,10 +2199,10 @@ function querypointsinsidetrigger(bot, trigger)
 	}
 	else
 	{
-		var_75ae35a4 = bot bot::function_f0c35734(trigger);
-		points = tacticalquery(#"stratcom_tacquery_trigger", var_75ae35a4);
+		obb = bot bot::function_f0c35734(trigger);
+		points = tacticalquery(#"stratcom_tacquery_trigger", obb);
 		/#
-			level thread function_1891d0d2(points, var_75ae35a4);
+			level thread function_1891d0d2(points, obb);
 		#/
 	}
 	return points;
@@ -2235,10 +2235,10 @@ function function_210f00bf(bot, trigger)
 	}
 	else
 	{
-		var_75ae35a4 = bot bot::function_52947b70(trigger);
-		points = tacticalquery(#"stratcom_tacquery_trigger", var_75ae35a4);
+		obb = bot bot::function_52947b70(trigger);
+		points = tacticalquery(#"stratcom_tacquery_trigger", obb);
 		/#
-			level thread function_1891d0d2(points, var_75ae35a4);
+			level thread function_1891d0d2(points, obb);
 		#/
 	}
 	return points;

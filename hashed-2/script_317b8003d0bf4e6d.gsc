@@ -1059,10 +1059,10 @@ function private function_cdd9b388()
 									{
 										radius = max((distance(origin, point.origin) / var_84dd2a8b) * radius, 1);
 									}
-									var_58e1eac5 = item_world::function_2e3efdda(point.origin, undefined, 100, 1);
-									if(var_58e1eac5.size > 0)
+									stash_items = item_world::function_2e3efdda(point.origin, undefined, 100, 1);
+									if(stash_items.size > 0)
 									{
-										switch(var_58e1eac5[0].targetname)
+										switch(stash_items[0].targetname)
 										{
 											case "world_dynent_stash_health":
 											{

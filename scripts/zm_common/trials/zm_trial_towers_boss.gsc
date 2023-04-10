@@ -2,7 +2,7 @@
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm\zm_towers_crowd.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -25,11 +25,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_e1d3749c;
+#namespace zm_trial_towers_boss;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xCABCD533
 	Offset: 0x428
 	Size: 0x3C
@@ -38,12 +38,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_4234fbd26e776f6a", &__init__, undefined, undefined);
+	system::register(#"zm_trial_towers_boss", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x69A5ADE4
 	Offset: 0x470
 	Size: 0x5C
@@ -56,12 +56,12 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1c44e237ebd3728d", &on_begin, &on_end);
+	zm_trial::register_challenge(#"towers_boss", &on_begin, &on_end);
 }
 
 /*
 	Name: on_begin
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x61BBFDF6
 	Offset: 0x4D8
 	Size: 0xA4
@@ -79,7 +79,7 @@ function private on_begin(var_6325d314, var_52b8b3a2, n_time)
 
 /*
 	Name: on_end
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xE9288B6
 	Offset: 0x588
 	Size: 0x2C
@@ -93,7 +93,7 @@ function private on_end(round_reset)
 
 /*
 	Name: function_353ea592
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xFE562B74
 	Offset: 0x5C0
 	Size: 0x108
@@ -118,7 +118,7 @@ function private function_353ea592()
 
 /*
 	Name: function_8318a404
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x4370CC8A
 	Offset: 0x6D0
 	Size: 0x2FC
@@ -166,7 +166,7 @@ function private function_8318a404()
 
 /*
 	Name: boss_fight
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x75527E9D
 	Offset: 0x9D8
 	Size: 0x5B8
@@ -227,7 +227,7 @@ function private boss_fight()
 
 /*
 	Name: function_13576d14
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xE6DE4D8B
 	Offset: 0xF98
 	Size: 0x184
@@ -255,7 +255,7 @@ function private function_13576d14()
 
 /*
 	Name: function_33935d5f
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xCCC9DDFD
 	Offset: 0x1128
 	Size: 0x1B4
@@ -293,7 +293,7 @@ function private function_33935d5f()
 
 /*
 	Name: function_92e1954c
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x26220DE6
 	Offset: 0x12E8
 	Size: 0x8A
@@ -316,7 +316,7 @@ function private function_92e1954c()
 
 /*
 	Name: function_4d682898
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x2B782397
 	Offset: 0x1380
 	Size: 0x8A
@@ -339,7 +339,7 @@ function private function_4d682898()
 
 /*
 	Name: function_3d487e02
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xAFB527A3
 	Offset: 0x1418
 	Size: 0x1AA
@@ -372,7 +372,7 @@ function private function_3d487e02()
 
 /*
 	Name: function_f9da4403
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xD1451732
 	Offset: 0x15D0
 	Size: 0x8A
@@ -390,7 +390,7 @@ function function_f9da4403(s_spawn, phase)
 
 /*
 	Name: function_dd2db3df
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xD86A2E1A
 	Offset: 0x1668
 	Size: 0xF4
@@ -419,7 +419,7 @@ function private function_dd2db3df()
 
 /*
 	Name: function_95785950
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0xB548E59A
 	Offset: 0x1768
 	Size: 0xA8
@@ -447,7 +447,7 @@ function private function_95785950(var_c625106d, var_86163b89, n_stage, var_39ac
 
 /*
 	Name: function_ae1cbf2e
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x509372FA
 	Offset: 0x1818
 	Size: 0x9C
@@ -466,7 +466,7 @@ function private function_ae1cbf2e()
 
 /*
 	Name: function_1a05e10c
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x788CA10D
 	Offset: 0x18C0
 	Size: 0x9A
@@ -488,7 +488,7 @@ function private function_1a05e10c(str_notify, var_f13787ad, var_ca8a3a53)
 
 /*
 	Name: function_c64fc074
-	Namespace: namespace_e1d3749c
+	Namespace: zm_trial_towers_boss
 	Checksum: 0x29F4926C
 	Offset: 0x1968
 	Size: 0x64

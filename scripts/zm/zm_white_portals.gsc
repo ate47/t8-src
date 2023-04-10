@@ -691,7 +691,7 @@ function function_254e91a2()
 function find_portal_destination(var_210b4680)
 {
 	var_98ceafca = [];
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(self == s_portal)
 		{
@@ -774,7 +774,7 @@ function function_e9848fa7()
 	var_84a6eef7 = undefined;
 	var_9d761d98 = function_35babccd(self);
 	var_ba7bf98e = [];
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(s_portal.n_floor == var_9d761d98)
 		{
@@ -965,8 +965,8 @@ function function_1f034d46(destination)
 */
 function setup_portals()
 {
-	var_63fca02d = struct::get_array("white_portal");
-	foreach(s_portal in var_63fca02d)
+	a_s_portals = struct::get_array("white_portal");
+	foreach(s_portal in a_s_portals)
 	{
 		s_portal portal_init();
 	}
@@ -1001,13 +1001,13 @@ function setup_portals()
 */
 function portal_init()
 {
-	if(!isdefined(level.var_63fca02d))
+	if(!isdefined(level.a_s_portals))
 	{
-		level.var_63fca02d = [];
+		level.a_s_portals = [];
 	}
-	else if(!isarray(level.var_63fca02d))
+	else if(!isarray(level.a_s_portals))
 	{
-		level.var_63fca02d = array(level.var_63fca02d);
+		level.a_s_portals = array(level.a_s_portals);
 	}
 	self.var_a1cf77d2 = util::spawn_model("tag_origin", self.origin, self.angles);
 	if(!isdefined(self.var_3dac5f67))
@@ -1173,9 +1173,9 @@ function portal_init()
 */
 function function_688df525()
 {
-	var_63fca02d = struct::get_array("white_portal");
+	a_s_portals = struct::get_array("white_portal");
 	a_s_active = [];
-	foreach(s_portal in var_63fca02d)
+	foreach(s_portal in a_s_portals)
 	{
 		if(s_portal.b_placed)
 		{
@@ -1439,7 +1439,7 @@ function function_a54a70b3()
 */
 function portal_activate()
 {
-	level.var_63fca02d[self.script_noteworthy] = self;
+	level.a_s_portals[self.script_noteworthy] = self;
 	self function_98cd139();
 }
 
@@ -1455,13 +1455,13 @@ function portal_activate()
 function function_ea199c46()
 {
 	level endon(#"game_end");
-	var_63fca02d = struct::get_array("white_portal");
+	a_s_portals = struct::get_array("white_portal");
 	level waittill(#"power_on1");
 	exploder::exploder("fxexp_power_on");
-	for(i = 0; i < var_63fca02d.size; i++)
+	for(i = 0; i < a_s_portals.size; i++)
 	{
-		var_63fca02d[i] portal_activate();
-		var_63fca02d[i] portal_ready();
+		a_s_portals[i] portal_activate();
+		a_s_portals[i] portal_ready();
 	}
 	level flag::set(#"hash_53a41180dac96fff");
 	level clientfield::set("portal_maps_initialize_lights", 1);
@@ -1523,7 +1523,7 @@ function function_134670b9(n_delay)
 */
 function function_a6bb56f6()
 {
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		s_portal function_978923cd();
 	}
@@ -1657,7 +1657,7 @@ function on_player_spawn()
 {
 	if(level flag::get(#"hash_53a41180dac96fff"))
 	{
-		foreach(s_portal in level.var_63fca02d)
+		foreach(s_portal in level.a_s_portals)
 		{
 			if(s_portal.b_active)
 			{
@@ -1716,8 +1716,8 @@ function function_35babccd(ent)
 function function_5c2807fc()
 {
 	level.var_868c98df = 0;
-	var_63fca02d = struct::get_array("white_portal");
-	foreach(s_portal in var_63fca02d)
+	a_s_portals = struct::get_array("white_portal");
+	foreach(s_portal in a_s_portals)
 	{
 		s_portal thread function_978923cd();
 		s_portal.b_active = 0;

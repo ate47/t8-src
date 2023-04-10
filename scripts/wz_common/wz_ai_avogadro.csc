@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_bc1fae7;
+#namespace wz_ai_avogadro;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xF1CCED57
 	Offset: 0x90
 	Size: 0x3C
@@ -18,12 +18,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_78bf0dc450091c57", &__init__, undefined, undefined);
+	system::register(#"wz_ai_avogadro", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x2F22A50F
 	Offset: 0xD8
 	Size: 0x34
@@ -37,7 +37,7 @@ function __init__()
 
 /*
 	Name: function_1caf705e
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xE6677B70
 	Offset: 0x118
 	Size: 0xC

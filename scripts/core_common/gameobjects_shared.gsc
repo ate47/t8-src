@@ -1008,12 +1008,12 @@ function private function_2f3ba1ad()
 		if(isdefined(s_key.var_51676529))
 		{
 			var_fac9218d = strtok(s_key.var_51676529, " ");
-			s_key.var_db1edf58 = [];
+			s_key.a_s_locks = [];
 			foreach(var_9d32a381 in var_fac9218d)
 			{
-				s_key.var_db1edf58 = arraycombine(s_key.var_db1edf58, struct::get_array(var_9d32a381, "script_carry_object_key_target"), 0, 0);
+				s_key.a_s_locks = arraycombine(s_key.a_s_locks, struct::get_array(var_9d32a381, "script_carry_object_key_target"), 0, 0);
 			}
-			foreach(s_lock in s_key.var_db1edf58)
+			foreach(s_lock in s_key.a_s_locks)
 			{
 				if(isdefined(s_lock.mdl_gameobject))
 				{
@@ -1022,7 +1022,7 @@ function private function_2f3ba1ad()
 				}
 				s_lock.var_4cd30731 = s_key;
 			}
-			if(isdefined(s_key.var_3a8907ff) && s_key.var_3a8907ff && isdefined(s_key.var_db1edf58))
+			if(isdefined(s_key.var_3a8907ff) && s_key.var_3a8907ff && isdefined(s_key.a_s_locks))
 			{
 				s_key thread function_2e028a0e();
 			}
@@ -1046,7 +1046,7 @@ function function_2e028a0e()
 	{
 		self.mdl_gameobject waittill(#"pickup_object");
 		self hide_waypoint();
-		foreach(s_lock in self.var_db1edf58)
+		foreach(s_lock in self.a_s_locks)
 		{
 			if(isdefined(s_lock.mdl_gameobject))
 			{
@@ -1061,7 +1061,7 @@ function function_2e028a0e()
 		}
 		self.mdl_gameobject waittill(#"dropped");
 		self show_waypoint();
-		foreach(s_lock in self.var_db1edf58)
+		foreach(s_lock in self.a_s_locks)
 		{
 			if(isdefined(s_lock.mdl_gameobject))
 			{

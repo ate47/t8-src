@@ -319,8 +319,8 @@ function function_f4a39bc4()
 	level thread function_bf25aeb1("bunker_door_solitary_lockdown");
 	level thread function_bf25aeb1("bunker_door_storage_lockdown");
 	level thread function_bf25aeb1("bunker_door_electric");
-	var_baaa17ec = getentarray("lockdown_door", "targetname");
-	foreach(e_lockdown_door in var_baaa17ec)
+	a_e_lockdown_doors = getentarray("lockdown_door", "targetname");
+	foreach(e_lockdown_door in a_e_lockdown_doors)
 	{
 		e_lockdown_door function_46ed91c6();
 	}
@@ -463,8 +463,8 @@ function function_612918d9(str)
 			assert(isdefined(str), "");
 		#/
 	#/
-	var_dc3827e3 = getentarray(str, "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray(str, "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		e_blocker notsolid();
 		e_blocker delete();
@@ -487,8 +487,8 @@ function function_ca4ee4d1(str)
 			assert(isdefined(str), "");
 		#/
 	#/
-	var_20475c5a = struct::get_array(str, "targetname");
-	foreach(s_bunker_door in var_20475c5a)
+	a_s_bunker_doors = struct::get_array(str, "targetname");
+	foreach(s_bunker_door in a_s_bunker_doors)
 	{
 		/#
 			/#
@@ -515,8 +515,8 @@ function function_bf25aeb1(str)
 			assert(isdefined(str), "");
 		#/
 	#/
-	var_20475c5a = struct::get_array(str, "script_noteworthy");
-	foreach(s_bunker_door in var_20475c5a)
+	a_s_bunker_doors = struct::get_array(str, "script_noteworthy");
+	foreach(s_bunker_door in a_s_bunker_doors)
 	{
 		/#
 			/#

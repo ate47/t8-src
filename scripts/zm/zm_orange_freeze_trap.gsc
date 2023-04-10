@@ -65,13 +65,13 @@ function function_e62e184a()
 	s_trap.e_volume = getent(s_trap.target, "targetname");
 	s_trap.e_volume._trap_type = "freeze";
 	s_trap.var_28ea1870 = struct::get_array(s_trap.target3, "targetname");
-	s_trap.var_54a168f2 = struct::get_array(s_trap.target2, "targetname");
+	s_trap.a_s_buttons = struct::get_array(s_trap.target2, "targetname");
 	s_trap.a_e_lights = getentarray(s_trap.target4, "targetname");
 	s_trap.var_2c0d31a5 = struct::get_array(s_trap.target5, "targetname");
 	s_trap.var_6b64b967 = 0;
 	s_trap.var_41ee2ddc = 1;
 	level flag::wait_till("all_players_spawned");
-	foreach(s_button in s_trap.var_54a168f2)
+	foreach(s_button in s_trap.a_s_buttons)
 	{
 		s_button.s_trap = s_trap;
 		s_button zm_unitrigger::create(&function_67b12ae8, 64);

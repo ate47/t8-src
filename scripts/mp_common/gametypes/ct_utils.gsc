@@ -726,14 +726,14 @@ function onscoreclosemusic()
 	Parameters: 6
 	Flags: None
 */
-function hud_message(var_4909a70, str_message, var_2dd80e01, n_y_pos, n_time, n_size = 1)
+function hud_message(var_4909a70, str_message, n_x_pos, n_y_pos, n_time, n_size = 1)
 {
 	a_players = util::get_players(#"allies");
 	foreach(e_player in a_players)
 	{
 		var_4909a70 luielemtext::open(e_player, 1);
 		var_4909a70 luielemtext::set_text(e_player, str_message);
-		var_4909a70 luielemtext::function_f97e9049(e_player, var_2dd80e01, n_y_pos);
+		var_4909a70 luielemtext::function_f97e9049(e_player, n_x_pos, n_y_pos);
 		var_4909a70 luielemtext::set_color(e_player, 1, 1, 1);
 		var_4909a70 luielemtext::set_alpha(e_player, 1);
 		var_4909a70 luielemtext::set_horizontal_alignment(e_player, 1);
@@ -1373,14 +1373,14 @@ function function_1aebd12f()
 	Parameters: 5
 	Flags: None
 */
-function function_7b70bd74(lui_elem, var_c08433b6, var_8a119ef6, n_width, n_height)
+function function_7b70bd74(lui_elem, n_xpos, n_ypos, n_width, n_height)
 {
 	lui_elem luielembar_ct::open(self);
 	lui_elem luielembar_ct::set_color(self, 1, 1, 1);
 	lui_elem luielembar_ct::set_alpha(self, 1);
 	lui_elem luielembar_ct::set_width(self, n_width);
 	lui_elem luielembar_ct::set_height(self, n_height);
-	lui_elem luielembar_ct::function_f97e9049(self, var_c08433b6, var_8a119ef6);
+	lui_elem luielembar_ct::function_f97e9049(self, n_xpos, n_ypos);
 	lui_elem luielembar_ct::set_bar_percent(self, 1);
 }
 
@@ -1423,14 +1423,14 @@ function function_5ccd53d5(var_9e2a4c29)
 		level.var_f6c80c41 luielembar_ct::set_bar_percent(self, level.var_33682199);
 		if(isdefined(level.var_3711d636) && level.var_3711d636 || !isalive(self))
 		{
-			var_8a119ef6 = -100;
+			n_ypos = -100;
 		}
 		else
 		{
-			var_8a119ef6 = level.ypos;
+			n_ypos = level.ypos;
 		}
 		level.var_f6c80c41 luielembar_ct::function_e5898fd7(self, level.xpos);
-		level.var_f6c80c41 luielembar_ct::function_58a135d3(self, var_8a119ef6);
+		level.var_f6c80c41 luielembar_ct::function_58a135d3(self, n_ypos);
 		level.var_f6c80c41 luielembar_ct::set_width(self, level.width);
 		level.var_f6c80c41 luielembar_ct::set_height(self, level.height);
 		level.var_f6c80c41 luielembar_ct::set_alpha(self, 0.85);

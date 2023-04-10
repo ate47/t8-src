@@ -201,11 +201,11 @@ event player_gunchallengecomplete(s_event)
 	if(s_event.is_lastrank)
 	{
 		var_8e617ca1 = 0;
-		var_4e81c501 = function_efd851e();
-		foreach(weapon in var_4e81c501)
+		a_w_guns = function_efd851e();
+		foreach(weapon in a_w_guns)
 		{
 			str_weapon = weapon.name;
-			var_c0ba2963 = getbaseweaponitemindex(weapon);
+			n_item_index = getbaseweaponitemindex(weapon);
 			var_cc074f5b = stats::get_stat(#"hash_60e21f66eb3a1f18", str_weapon, #"xp");
 			if(isdefined(var_cc074f5b))
 			{
@@ -235,7 +235,7 @@ event player_gunchallengecomplete(s_event)
 */
 function function_efd851e()
 {
-	var_4e81c501 = [];
+	a_w_guns = [];
 	foreach(s_weapon in level.zombie_weapons)
 	{
 		switch(s_weapon.weapon_classname)
@@ -252,17 +252,17 @@ function function_efd851e()
 		{
 			continue;
 		}
-		if(!isdefined(var_4e81c501))
+		if(!isdefined(a_w_guns))
 		{
-			var_4e81c501 = [];
+			a_w_guns = [];
 		}
-		else if(!isarray(var_4e81c501))
+		else if(!isarray(a_w_guns))
 		{
-			var_4e81c501 = array(var_4e81c501);
+			a_w_guns = array(a_w_guns);
 		}
-		var_4e81c501[var_4e81c501.size] = s_weapon.weapon;
+		a_w_guns[a_w_guns.size] = s_weapon.weapon;
 	}
-	return var_4e81c501;
+	return a_w_guns;
 }
 
 /*

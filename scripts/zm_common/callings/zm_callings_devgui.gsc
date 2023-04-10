@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_345bb77d6298356c;
+#using scripts\zm_common\callings\zm_callings.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\zm_common\zm_devgui.gsc;
 
-#namespace namespace_fa8546e1;
+#namespace zm_callings_devgui;
 
 /*
 	Name: function_9f47471
-	Namespace: namespace_fa8546e1
+	Namespace: zm_callings_devgui
 	Checksum: 0x7B7DD2AB
 	Offset: 0x80
 	Size: 0x1BC
@@ -37,7 +37,7 @@ function function_9f47471()
 
 /*
 	Name: function_1d4f22e4
-	Namespace: namespace_fa8546e1
+	Namespace: zm_callings_devgui
 	Checksum: 0x50BE5591
 	Offset: 0x248
 	Size: 0x574
@@ -133,7 +133,7 @@ function function_1d4f22e4(cmd)
 
 /*
 	Name: function_8a37e046
-	Namespace: namespace_fa8546e1
+	Namespace: zm_callings_devgui
 	Checksum: 0x52FD2F8D
 	Offset: 0x7C8
 	Size: 0x116
@@ -158,7 +158,7 @@ function function_8a37e046(n_interval)
 
 /*
 	Name: function_6cbc14bb
-	Namespace: namespace_fa8546e1
+	Namespace: zm_callings_devgui
 	Checksum: 0xB6F32025
 	Offset: 0x8E8
 	Size: 0xB8

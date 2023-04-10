@@ -910,7 +910,7 @@ function function_97be15e3(cmd)
 function function_7101d54f()
 {
 	/#
-		w_component = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
+		w_component = zm_crafting::get_component(#"hash_1e5657f6a6f09389");
 		foreach(e_player in level.activeplayers)
 		{
 			e_player zm_crafting::function_3e29352d(w_component);

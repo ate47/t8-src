@@ -2,7 +2,7 @@
 #using script_20ac552ee498eb9d;
 #using script_299f56e6d0b16416;
 #using script_35598499769dbb3d;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_crafting.gsc;

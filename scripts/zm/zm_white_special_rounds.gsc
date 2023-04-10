@@ -4,7 +4,7 @@
 #using scripts\zm\zm_white_main_quest.gsc;
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using script_6a3f43063dfd1bdc;
 #using scripts\zm_common\zm_sq.gsc;
@@ -2025,11 +2025,11 @@ function function_2330b278()
 	level thread function_8d7b02b0();
 	level.var_e120ae98 = &function_71753169;
 	level.var_eeb98313 = &function_71753169;
-	level.var_63fca02d[#"portal_power"] thread zm_white_portals::function_978923cd();
-	level.var_63fca02d[#"portal_power"].b_active = 0;
+	level.a_s_portals[#"portal_power"] thread zm_white_portals::function_978923cd();
+	level.a_s_portals[#"portal_power"].b_active = 0;
 	waitframe(1);
-	level.var_63fca02d[#"portal_power"] thread zm_white_portals::function_16ccd69f(0);
-	zm_unitrigger::unregister_unitrigger(level.var_63fca02d[#"portal_power"].s_unitrigger);
+	level.a_s_portals[#"portal_power"] thread zm_white_portals::function_16ccd69f(0);
+	zm_unitrigger::unregister_unitrigger(level.a_s_portals[#"portal_power"].s_unitrigger);
 	wait(5);
 	if(!(isdefined(level.var_5e45f817) && level.var_5e45f817 || (isdefined(level.var_2b94ce72) && level.var_2b94ce72)))
 	{
@@ -2173,14 +2173,14 @@ function function_6acd363d(is_completed)
 	#/
 	level.var_e120ae98 = undefined;
 	level.var_eeb98313 = undefined;
-	level.var_63fca02d[#"portal_power"] zm_white_portals::function_97d4ad50();
-	if(level.var_63fca02d[#"portal_power"].b_placed === 1)
+	level.a_s_portals[#"portal_power"] zm_white_portals::function_97d4ad50();
+	if(level.a_s_portals[#"portal_power"].b_placed === 1)
 	{
-		level.var_63fca02d[#"portal_power"].b_active = 1;
+		level.a_s_portals[#"portal_power"].b_active = 1;
 		waitframe(1);
 		if(level.var_868c98df === 0)
 		{
-			level.var_63fca02d[#"portal_power"] zm_white_portals::function_16ccd69f();
+			level.a_s_portals[#"portal_power"] zm_white_portals::function_16ccd69f();
 		}
 	}
 	level callback::remove_on_ai_spawned(&function_96c2cbb3);
@@ -2397,28 +2397,28 @@ function function_d39f2f3e()
 	s_spawn_loc = array::random(level.zm_loc_types[#"dog_location"]);
 	if(var_6bfcea24 > 0)
 	{
-		var_eb3b90d = [];
+		a_s_spawns = [];
 		foreach(s_spawn in level.zm_loc_types[#"dog_location"])
 		{
 			if(s_spawn.zone_name != #"zone_bunker_power_1" && s_spawn.zone_name != #"zone_bunker_power_2")
 			{
-				if(!isdefined(var_eb3b90d))
+				if(!isdefined(a_s_spawns))
 				{
-					var_eb3b90d = [];
+					a_s_spawns = [];
 				}
-				else if(!isarray(var_eb3b90d))
+				else if(!isarray(a_s_spawns))
 				{
-					var_eb3b90d = array(var_eb3b90d);
+					a_s_spawns = array(a_s_spawns);
 				}
-				if(!isinarray(var_eb3b90d, s_spawn))
+				if(!isinarray(a_s_spawns, s_spawn))
 				{
-					var_eb3b90d[var_eb3b90d.size] = s_spawn;
+					a_s_spawns[a_s_spawns.size] = s_spawn;
 				}
 			}
 		}
-		if(var_eb3b90d.size > 0)
+		if(a_s_spawns.size > 0)
 		{
-			s_spawn_loc = array::random(var_eb3b90d);
+			s_spawn_loc = array::random(a_s_spawns);
 		}
 		else
 		{
@@ -2459,28 +2459,28 @@ function function_cc0dec67()
 	s_spawn_loc = array::random(level.zm_loc_types[#"zombie_location"]);
 	if(var_6bfcea24 > 0)
 	{
-		var_eb3b90d = [];
+		a_s_spawns = [];
 		foreach(s_spawn in level.zm_loc_types[#"zombie_location"])
 		{
 			if(s_spawn.zone_name != #"zone_bunker_power_1" && s_spawn.zone_name != #"zone_bunker_power_2")
 			{
-				if(!isdefined(var_eb3b90d))
+				if(!isdefined(a_s_spawns))
 				{
-					var_eb3b90d = [];
+					a_s_spawns = [];
 				}
-				else if(!isarray(var_eb3b90d))
+				else if(!isarray(a_s_spawns))
 				{
-					var_eb3b90d = array(var_eb3b90d);
+					a_s_spawns = array(a_s_spawns);
 				}
-				if(!isinarray(var_eb3b90d, s_spawn))
+				if(!isinarray(a_s_spawns, s_spawn))
 				{
-					var_eb3b90d[var_eb3b90d.size] = s_spawn;
+					a_s_spawns[a_s_spawns.size] = s_spawn;
 				}
 			}
 		}
-		if(var_eb3b90d.size > 0)
+		if(a_s_spawns.size > 0)
 		{
-			s_spawn_loc = array::random(var_eb3b90d);
+			s_spawn_loc = array::random(a_s_spawns);
 		}
 		else
 		{

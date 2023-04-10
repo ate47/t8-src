@@ -433,41 +433,41 @@ function function_4ca8c034(attacker, weapon, hit_loc, means_of_death)
 function function_e3f96252()
 {
 	level flag::wait_till("all_players_spawned");
-	level.var_12080390 = [];
-	level.var_12080390[0] = create_challenge(1, 1, 120, &function_572ece72, "zone_temple_of_apollo");
-	level.var_12080390[1] = create_challenge(2, 1, 120, &function_572ece72, "zone_amphitheater");
-	level.var_12080390[2] = create_challenge(3, 2, 120, &function_572ece72, "zone_drakaina_arena");
-	level.var_12080390[3] = create_challenge(4, 1, 120, &function_572ece72, "zone_spartan_monument_west");
-	level.var_12080390[4] = create_challenge(5, 1, 120, &function_572ece72, "zone_stoa_of_the_athenians_east");
-	level.var_12080390[5] = create_challenge(6, 1, 120, &function_572ece72, "zone_offering");
-	level.var_12080390[6] = create_challenge(7, 2, 120, &function_572ece72, "zone_river_upper");
-	level.var_12080390[7] = create_challenge(13, 0, 120, &function_2dcc7ade, undefined);
-	level.var_12080390[8] = create_challenge(10, 0, 120, &function_a987b682, 2);
-	level.var_12080390[9] = create_challenge(11, 0, 120, &function_2dcc7ade, undefined);
-	level.var_12080390[10] = create_challenge(14, 0, 120, &function_2dcc7ade, undefined);
-	level.var_12080390[11] = create_challenge(15, 2, 120, &function_c0539e40, "zone_cliff_tombs_upper");
-	level.var_12080390[12] = create_challenge(16, 1, 120, &function_c0539e40, "zone_bathhouse_inside");
-	level.var_12080390[13] = create_challenge(17, 1, 120, &function_c0539e40, "zone_eastern_plaza");
-	level.var_12080390[14] = create_challenge(18, 2, 120, &function_c0539e40, "zone_serpent_pass_bridge");
-	level.var_12080390[15] = create_challenge(19, 1, 120, &function_c0539e40, "zone_spartan_monument_west");
-	level.var_12080390[16] = create_challenge(20, 1, 120, &function_c0539e40, "zone_spartan_monument_west");
+	level.a_s_challenges = [];
+	level.a_s_challenges[0] = create_challenge(1, 1, 120, &function_572ece72, "zone_temple_of_apollo");
+	level.a_s_challenges[1] = create_challenge(2, 1, 120, &function_572ece72, "zone_amphitheater");
+	level.a_s_challenges[2] = create_challenge(3, 2, 120, &function_572ece72, "zone_drakaina_arena");
+	level.a_s_challenges[3] = create_challenge(4, 1, 120, &function_572ece72, "zone_spartan_monument_west");
+	level.a_s_challenges[4] = create_challenge(5, 1, 120, &function_572ece72, "zone_stoa_of_the_athenians_east");
+	level.a_s_challenges[5] = create_challenge(6, 1, 120, &function_572ece72, "zone_offering");
+	level.a_s_challenges[6] = create_challenge(7, 2, 120, &function_572ece72, "zone_river_upper");
+	level.a_s_challenges[7] = create_challenge(13, 0, 120, &function_2dcc7ade, undefined);
+	level.a_s_challenges[8] = create_challenge(10, 0, 120, &function_a987b682, 2);
+	level.a_s_challenges[9] = create_challenge(11, 0, 120, &function_2dcc7ade, undefined);
+	level.a_s_challenges[10] = create_challenge(14, 0, 120, &function_2dcc7ade, undefined);
+	level.a_s_challenges[11] = create_challenge(15, 2, 120, &function_c0539e40, "zone_cliff_tombs_upper");
+	level.a_s_challenges[12] = create_challenge(16, 1, 120, &function_c0539e40, "zone_bathhouse_inside");
+	level.a_s_challenges[13] = create_challenge(17, 1, 120, &function_c0539e40, "zone_eastern_plaza");
+	level.a_s_challenges[14] = create_challenge(18, 2, 120, &function_c0539e40, "zone_serpent_pass_bridge");
+	level.a_s_challenges[15] = create_challenge(19, 1, 120, &function_c0539e40, "zone_spartan_monument_west");
+	level.a_s_challenges[16] = create_challenge(20, 1, 120, &function_c0539e40, "zone_spartan_monument_west");
 	if(zm_custom::function_901b751c(#"hash_b066c34278e6394"))
 	{
-		level.var_12080390[17] = create_challenge(12, 0, 120, &function_69a721d, 4);
+		level.a_s_challenges[17] = create_challenge(12, 0, 120, &function_69a721d, 4);
 	}
 	if(zm_custom::function_901b751c(#"zmshieldisenabled"))
 	{
-		level.var_12080390[18] = create_challenge(0, 0, 120, &function_40ccb2dc, undefined);
+		level.a_s_challenges[18] = create_challenge(0, 0, 120, &function_40ccb2dc, undefined);
 	}
 	if(zm_custom::function_901b751c(#"hash_65a1298089d361f1"))
 	{
-		level.var_12080390[19] = create_challenge(9, 0, 120, &function_2dcc7ade, undefined);
+		level.a_s_challenges[19] = create_challenge(9, 0, 120, &function_2dcc7ade, undefined);
 	}
 	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
-		level.var_12080390[20] = create_challenge(8, 0, 120, &function_6e07042a, undefined);
+		level.a_s_challenges[20] = create_challenge(8, 0, 120, &function_6e07042a, undefined);
 	}
-	level.var_12080390 = array::randomize(level.var_12080390);
+	level.a_s_challenges = array::randomize(level.a_s_challenges);
 	level.var_2dffd020 = 0;
 	level.var_ead4c5d4 = struct::get_array("s_oracle_challenge_interact", "targetname");
 	foreach(s_interact in level.var_ead4c5d4)
@@ -532,7 +532,7 @@ function create_challenge(n_challenge, n_zone, var_6346e7b, var_12af4e08 = &func
 */
 function function_49e4f4ca(var_ecffa2a8)
 {
-	foreach(s_challenge in level.var_12080390)
+	foreach(s_challenge in level.a_s_challenges)
 	{
 		if(s_challenge.n_id == var_ecffa2a8)
 		{
@@ -679,10 +679,10 @@ function function_5804d6ff()
 */
 function setup_models()
 {
-	var_8b17a3d1 = struct::get_array("s_tribute_bowl", "targetname");
+	a_s_bowls = struct::get_array("s_tribute_bowl", "targetname");
 	level.var_c37fe7bc = 0;
 	level.var_3e72dc3c = [];
-	foreach(s_bowl in var_8b17a3d1)
+	foreach(s_bowl in a_s_bowls)
 	{
 		s_info = struct::spawn();
 		n_index = level.var_3e72dc3c.size;
@@ -904,7 +904,7 @@ function get_challenge()
 	var_99d6574b = undefined;
 	if(isdefined(level.var_656c1a37))
 	{
-		foreach(s_challenge in level.var_12080390)
+		foreach(s_challenge in level.a_s_challenges)
 		{
 			if(s_challenge.n_id == level.var_656c1a37)
 			{
@@ -917,7 +917,7 @@ function get_challenge()
 	else
 	{
 		var_881d9045 = 1000;
-		foreach(s_challenge in level.var_12080390)
+		foreach(s_challenge in level.a_s_challenges)
 		{
 			if(s_challenge.n_count < var_881d9045 && s_challenge [[s_challenge.var_12af4e08]](s_challenge.var_893baaf))
 			{

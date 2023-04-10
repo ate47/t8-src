@@ -175,7 +175,7 @@ event main(eventstruct)
 	}
 	level thread function_7437db04();
 	/#
-		level thread function_8d718d6c();
+		level thread office_devgui();
 	#/
 	level thread registergondola_moving_watcher();
 	level thread function_8aea12();
@@ -857,7 +857,7 @@ function function_eeb98313(a_s_respawn_points)
 }
 
 /*
-	Name: function_8d718d6c
+	Name: office_devgui
 	Namespace: zm_office
 	Checksum: 0x4EB09DDD
 	Offset: 0x3508
@@ -865,7 +865,7 @@ function function_eeb98313(a_s_respawn_points)
 	Parameters: 0
 	Flags: Private
 */
-function private function_8d718d6c()
+function private office_devgui()
 {
 	/#
 		adddebugcommand("");

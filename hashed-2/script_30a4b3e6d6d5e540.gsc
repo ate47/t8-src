@@ -71,7 +71,7 @@ class cself_revive_visuals : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -85,7 +85,7 @@ class cself_revive_visuals : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "self_revive_visuals", persistent);
+		cLUIelem::open_luielem(player, "self_revive_visuals", persistent);
 	}
 
 	/*

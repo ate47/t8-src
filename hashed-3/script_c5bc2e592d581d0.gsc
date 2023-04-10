@@ -1429,19 +1429,19 @@ function function_bd34d468()
 function function_9259be56()
 {
 	/#
-		var_86914e6e = [];
+		obbs = [];
 		var_521da80d = array("", "", "");
 		foreach(var_b849a5e7 in var_521da80d)
 		{
 			doorblockers = getentarray(var_b849a5e7, "");
 			foreach(doorblocker in doorblockers)
 			{
-				var_75ae35a4 = function_fc9f37f4(doorblocker);
-				var_75ae35a4.points = tacticalquery(#"stratcom_tacquery_trigger", var_75ae35a4);
-				var_86914e6e[var_86914e6e.size] = var_75ae35a4;
+				obb = function_fc9f37f4(doorblocker);
+				obb.points = tacticalquery(#"stratcom_tacquery_trigger", obb);
+				obbs[obbs.size] = obb;
 			}
 		}
-		return var_86914e6e;
+		return obbs;
 	#/
 }
 
@@ -1457,19 +1457,19 @@ function function_9259be56()
 function function_6e494c0e()
 {
 	/#
-		var_86914e6e = [];
+		obbs = [];
 		foreach(wallbuy in level._spawned_wallbuys)
 		{
-			var_75ae35a4 = function_3ad5b4e7(wallbuy.trigger_stub);
+			obb = function_3ad5b4e7(wallbuy.trigger_stub);
 			origin = getclosestpointonnavmesh(wallbuy.trigger_stub.origin, 200, 15.1875);
-			var_75ae35a4.points = [];
+			obb.points = [];
 			if(isdefined(origin))
 			{
-				var_75ae35a4.points[var_75ae35a4.points.size] = {#origin:origin};
+				obb.points[obb.points.size] = {#origin:origin};
 			}
-			var_86914e6e[var_86914e6e.size] = var_75ae35a4;
+			obbs[obbs.size] = obb;
 		}
-		return var_86914e6e;
+		return obbs;
 	#/
 }
 
@@ -1517,21 +1517,21 @@ function function_3ad5b4e7(triggerstub)
 	Parameters: 1
 	Flags: None
 */
-function function_fafff2f(var_86914e6e)
+function function_fafff2f(obbs)
 {
 	/#
-		foreach(var_75ae35a4 in var_86914e6e)
+		foreach(obb in obbs)
 		{
-			box(var_75ae35a4.center, var_75ae35a4.halfsize * -1, var_75ae35a4.halfsize, var_75ae35a4.angles[1], (0, 1, 0));
-			if(var_75ae35a4.points.size > 0)
+			box(obb.center, obb.halfsize * -1, obb.halfsize, obb.angles[1], (0, 1, 0));
+			if(obb.points.size > 0)
 			{
-				foreach(point in var_75ae35a4.points)
+				foreach(point in obb.points)
 				{
 					sphere(point.origin, 10, (0, 1, 0));
 				}
 				continue;
 			}
-			sphere(var_75ae35a4.center, 20, (1, 0, 0));
+			sphere(obb.center, 20, (1, 0, 0));
 		}
 	#/
 }

@@ -213,8 +213,8 @@ function function_872c9404(mode)
 			var_d3b9972d connectpaths();
 			var_d3b9972d notsolid();
 		}
-		var_443cd94f = getentarray("clip_destroysite", "targetname");
-		foreach(e_clip in var_443cd94f)
+		a_e_clips = getentarray("clip_destroysite", "targetname");
+		foreach(e_clip in a_e_clips)
 		{
 			e_clip connectpaths();
 			e_clip notsolid();

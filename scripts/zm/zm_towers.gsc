@@ -1421,13 +1421,13 @@ function function_79aa236()
 {
 	/#
 		level waittill(#"hash_550aae2e06c238ce");
-		var_307566 = getentarray("", "");
-		foreach(mdl_head in var_307566)
+		a_mdl_heads = getentarray("", "");
+		foreach(mdl_head in a_mdl_heads)
 		{
 			mdl_head show();
 		}
-		var_307566 = getentarray("", "");
-		array::thread_all(var_307566, &zm_towers_pap_quest::function_9b320791);
+		a_mdl_heads = getentarray("", "");
+		array::thread_all(a_mdl_heads, &zm_towers_pap_quest::function_9b320791);
 		level thread scene::play("");
 		level thread scene::play("", "");
 		level thread scene::play("", "");
@@ -1437,7 +1437,7 @@ function function_79aa236()
 		level thread scene::play("");
 		level thread scene::play("");
 		level waittill(#"hash_61ed5ad857c2709c");
-		foreach(mdl_head in var_307566)
+		foreach(mdl_head in a_mdl_heads)
 		{
 			mdl_head hide();
 		}

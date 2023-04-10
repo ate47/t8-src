@@ -97,7 +97,7 @@ function function_847ab632()
 */
 function function_cdc822b()
 {
-	if(isdefined(self.var_4dc5382f) && (isdefined(self.var_4dc5382f.is_active) && self.var_4dc5382f.is_active))
+	if(isdefined(self.ai_zone) && (isdefined(self.ai_zone.is_active) && self.ai_zone.is_active))
 	{
 		return true;
 	}
@@ -879,9 +879,9 @@ function function_e261b81d()
 			if(!isdefined(self.var_6bcb6977))
 			{
 				self.var_6bcb6977 = gettime();
-				if(isdefined(self.var_4dc5382f.var_2209cb79))
+				if(isdefined(self.ai_zone.var_2209cb79))
 				{
-					self.var_f9d7afa3 = self.var_4dc5382f.var_2209cb79;
+					self.var_f9d7afa3 = self.ai_zone.var_2209cb79;
 				}
 				else
 				{
@@ -1283,7 +1283,7 @@ function private function_36151fe3()
 	}
 	if(isdefined(self.favoriteenemy))
 	{
-		if(isdefined(self.favoriteenemy.last_valid_position) && self.favoriteenemy.var_4dc5382f === self.var_4dc5382f)
+		if(isdefined(self.favoriteenemy.last_valid_position) && self.favoriteenemy.ai_zone === self.ai_zone)
 		{
 			self.var_80780af2 = self.favoriteenemy.last_valid_position;
 			if(self.var_37f16e2e)
@@ -1350,7 +1350,7 @@ function private function_b793bca2()
 function private function_101763c9()
 {
 	self endon(#"death");
-	spawn_point = self.var_4dc5382f.spawn_points[randomint(self.var_4dc5382f.spawn_points.size)];
+	spawn_point = self.ai_zone.spawn_points[randomint(self.ai_zone.spawn_points.size)];
 	if(isdefined(self.var_31a789c0) && self.var_31a789c0)
 	{
 		self.var_8a96267d = 1;

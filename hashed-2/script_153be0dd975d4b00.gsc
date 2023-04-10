@@ -64,7 +64,7 @@ function __main__()
 */
 function init()
 {
-	level.var_96471be = struct::get_array("s_trap_button", "targetname");
+	level.a_s_trap_buttons = struct::get_array("s_trap_button", "targetname");
 	scene::add_scene_func("p8_fxanim_zm_towers_trap_switch_bundle", &function_cb307051, "init");
 	level thread function_eac89317();
 	var_7febdbb2 = getentarray("trig_buy_bladepillars_to_upper_south", "targetname");
@@ -106,7 +106,7 @@ function function_cb307051(a_ents)
 */
 function function_81badccf(str_id)
 {
-	foreach(s_trap_button in level.var_96471be)
+	foreach(s_trap_button in level.a_s_trap_buttons)
 	{
 		if(s_trap_button.script_string === str_id)
 		{
@@ -126,7 +126,7 @@ function function_81badccf(str_id)
 */
 function function_6087ebc2(str_id)
 {
-	foreach(s_trap_button in level.var_96471be)
+	foreach(s_trap_button in level.a_s_trap_buttons)
 	{
 		if(s_trap_button.script_string === str_id)
 		{
@@ -146,7 +146,7 @@ function function_6087ebc2(str_id)
 */
 function function_1b229077(str_id)
 {
-	foreach(s_trap_button in level.var_96471be)
+	foreach(s_trap_button in level.a_s_trap_buttons)
 	{
 		if(s_trap_button.script_string === str_id)
 		{

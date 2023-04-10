@@ -4,7 +4,7 @@
 #using script_35598499769dbb3d;
 #using script_41fe08c37d53a635;
 #using scripts\weapons\weapon_utils.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

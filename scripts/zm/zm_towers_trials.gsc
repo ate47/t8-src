@@ -9,7 +9,7 @@
 #using scripts\zm_common\trials\zm_trial_no_ads.gsc;
 #using scripts\zm_common\trials\zm_trial_weapon_rotation.gsc;
 #using script_62945b40585a6812;
-#using script_632e079c24ffc4a8;
+#using scripts\zm_common\trials\zm_trial_towers_boss.gsc;
 #using script_69e3966400876ea0;
 #using script_760b801e43fe3017;
 #using script_7baf2dd093830ed1;

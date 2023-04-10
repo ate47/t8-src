@@ -75,7 +75,7 @@ function function_32639301()
 	s_trap._trap_type = "soul";
 	s_trap.v_touching = getent(s_trap.target, "targetname");
 	s_trap.v_touching._trap_type = "soul";
-	s_trap.var_54a168f2 = struct::get_array(s_trap.target2, "targetname");
+	s_trap.a_s_buttons = struct::get_array(s_trap.target2, "targetname");
 	s_trap.a_s_bullets = struct::get_array(s_trap.target3, "targetname");
 	s_trap.a_e_lights = getentarray(s_trap.target4, "targetname");
 	s_trap.var_2c0d31a5 = struct::get_array(s_trap.target5, "targetname");
@@ -83,7 +83,7 @@ function function_32639301()
 	s_trap.var_41ee2ddc = 1;
 	level flag::wait_till("all_players_spawned");
 	level flag::wait_till(#"hash_25d9cfebd2bdf1f2");
-	foreach(s_button in s_trap.var_54a168f2)
+	foreach(s_button in s_trap.a_s_buttons)
 	{
 		s_button zm_unitrigger::create(&function_d1112480, 64);
 		s_button thread function_e14376a3();

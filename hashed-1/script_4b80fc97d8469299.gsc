@@ -63,8 +63,8 @@ function main()
 	level flag::init(#"hash_4898001eb77cb16f");
 	level flag::init(#"hash_5266a594b96823e2");
 	level flag::init(#"hash_1d9afa9be4c10160");
-	var_dc3827e3 = getentarray("lockdown_lighthouse", "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray("lockdown_lighthouse", "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		e_blocker notsolid();
 	}
@@ -227,7 +227,7 @@ function function_3c9be590(var_5ea5c94d, ended_early)
 		level notify(#"hash_5266a594b96823e2");
 		level.var_b2b15659 = 1;
 	}
-	foreach(s_challenge_station in level.var_23b90682)
+	foreach(s_challenge_station in level.a_s_challenge_stations)
 	{
 		s_challenge_station.b_is_active = 0;
 		s_challenge_station zm_orange_challenges::function_fd8a137e();
@@ -286,8 +286,8 @@ function private function_a22b0de4()
 	level.var_eacf25e4 = level.func_get_delay_between_rounds;
 	level.func_get_delay_between_rounds = &function_f85d3d98;
 	namespace_509a75d1::function_2ba419ee(0);
-	var_dc3827e3 = getentarray("lockdown_lighthouse", "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray("lockdown_lighthouse", "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		e_blocker solid();
 	}
@@ -354,8 +354,8 @@ function private function_a22b0de4()
 	level.musicsystemoverride = 0;
 	music::setmusicstate("none");
 	namespace_509a75d1::function_314447b(1, 1);
-	var_dc3827e3 = getentarray("lockdown_lighthouse", "targetname");
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = getentarray("lockdown_lighthouse", "targetname");
+	foreach(e_blocker in a_e_blockers)
 	{
 		e_blocker notsolid();
 	}

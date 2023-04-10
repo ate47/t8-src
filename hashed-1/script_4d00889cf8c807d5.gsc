@@ -277,9 +277,9 @@ function function_d3195b0c()
 */
 function function_331e9312()
 {
-	var_f98807b1 = getaiarchetypearray(#"skeleton");
-	var_14bd36c2 = var_f98807b1.size;
-	foreach(ai_skeleton in var_f98807b1)
+	a_ai_skeletons = getaiarchetypearray(#"skeleton");
+	var_14bd36c2 = a_ai_skeletons.size;
+	foreach(ai_skeleton in a_ai_skeletons)
 	{
 		if(!isalive(ai_skeleton))
 		{

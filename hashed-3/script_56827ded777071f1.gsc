@@ -71,8 +71,8 @@ function __main__()
 */
 function init()
 {
-	level.var_2e4bdecf = getentarray("mdl_trap_button", "targetname");
-	foreach(mdl_trap_button in level.var_2e4bdecf)
+	level.a_mdl_trap_buttons = getentarray("mdl_trap_button", "targetname");
+	foreach(mdl_trap_button in level.a_mdl_trap_buttons)
 	{
 		mdl_trap_button thread function_63be76e0();
 	}
@@ -90,7 +90,7 @@ function init()
 */
 function function_bb013f42(str_id)
 {
-	foreach(mdl_trap_button in level.var_2e4bdecf)
+	foreach(mdl_trap_button in level.a_mdl_trap_buttons)
 	{
 		if(mdl_trap_button.script_string === str_id)
 		{
@@ -110,7 +110,7 @@ function function_bb013f42(str_id)
 */
 function function_75046566(str_id)
 {
-	foreach(mdl_trap_button in level.var_2e4bdecf)
+	foreach(mdl_trap_button in level.a_mdl_trap_buttons)
 	{
 		if(mdl_trap_button.script_string === str_id)
 		{

@@ -54,9 +54,9 @@ function main()
 	{
 		level.var_22677da8 = array(level.var_22677da8);
 	}
-	var_63fca02d = struct::get_array("white_portal");
+	a_s_portals = struct::get_array("white_portal");
 	a_e_players = getlocalplayers();
-	foreach(s_portal in var_63fca02d)
+	foreach(s_portal in a_s_portals)
 	{
 		level.var_22677da8[s_portal.script_noteworthy] = s_portal;
 		if(!isdefined(s_portal.var_9d387dd5))

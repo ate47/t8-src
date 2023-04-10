@@ -661,7 +661,7 @@ function function_93a4f3c5(localclientnum, var_d0c67621)
 	else
 	{
 		[[ var_d0c67621 ]]->function_1ec9448d(1);
-		[[ var_d0c67621 ]]->function_72e88afb(0);
+		[[ var_d0c67621 ]]->set_character_index(0);
 		function_799e0ac1(localclientnum, var_d0c67621, 1);
 	}
 	return true;

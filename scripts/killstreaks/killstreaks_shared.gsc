@@ -3,7 +3,7 @@
 #using script_383a3b1bb18ba876;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\weapons\tacticalinsertion.gsc;

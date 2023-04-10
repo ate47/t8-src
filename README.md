@@ -18,3 +18,4 @@ Scobalula - Original T7 decompiler
 
 - [gamesettings.md](gamesettings.md) - the settings usable
 - [find.txt](find.txt) - the find hashes
+- [BOHashTool](https://github.com/ate47/BOHashTool) tool I'm using to search

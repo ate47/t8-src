@@ -941,7 +941,7 @@ function function_f2c53bb2(curweapon)
 	switch(curweapon.weapclass)
 	{
 		case "smg":
-		case "hash_69055a4af9ca989":
+		case "pistol spread":
 		case "mg":
 		case "spread":
 		case "pistol":

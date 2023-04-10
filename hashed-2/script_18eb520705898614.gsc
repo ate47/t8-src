@@ -2462,27 +2462,27 @@ function function_cd4923(ai)
 */
 function function_9ca03a70(str_script_noteworthy = "bat_location")
 {
-	var_eb3b90d = struct::get_array(str_script_noteworthy, "script_noteworthy");
+	a_s_spawns = struct::get_array(str_script_noteworthy, "script_noteworthy");
 	if(str_script_noteworthy == "spawn_location")
 	{
-		var_eb3b90d = arraycombine(var_eb3b90d, struct::get_array("riser_location", "script_noteworthy"), 0, 0);
+		a_s_spawns = arraycombine(a_s_spawns, struct::get_array("riser_location", "script_noteworthy"), 0, 0);
 	}
-	foreach(s_loc in var_eb3b90d)
+	foreach(s_loc in a_s_spawns)
 	{
 		if(str_script_noteworthy == "spawn_location")
 		{
 			if(s_loc.targetname !== "cemetery_graveyard_spawns" && s_loc.targetname !== "mausoleum_spawns" && s_loc.targetname !== "cemetery_path_right_spawns" && s_loc.targetname !== "cemetery_path_left_spawns")
 			{
-				arrayremovevalue(var_eb3b90d, s_loc, 1);
+				arrayremovevalue(a_s_spawns, s_loc, 1);
 			}
 			continue;
 		}
 		if(s_loc.targetname !== "cemetery_graveyard_spawns" && s_loc.targetname !== "mausoleum_spawns")
 		{
-			arrayremovevalue(var_eb3b90d, s_loc, 1);
+			arrayremovevalue(a_s_spawns, s_loc, 1);
 		}
 	}
-	return array::remove_undefined(var_eb3b90d);
+	return array::remove_undefined(a_s_spawns);
 }
 
 /*

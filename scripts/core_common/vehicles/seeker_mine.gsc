@@ -2,7 +2,7 @@
 #using script_2440e8ed4d15391b;
 #using scripts\core_common\player\player_shared.gsc;
 #using script_2c6ff91addfd14b7;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using script_751513c609504a42;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;

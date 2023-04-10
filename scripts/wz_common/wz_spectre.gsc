@@ -120,7 +120,7 @@ function private function_f82142f8(var_b0e2f18c)
 			wait(0.5);
 			self.var_fcb62e3f = role;
 			self player_role::set(57);
-			self function_8fd843dd(0);
+			self setcharacteroutfit(0);
 			self function_9b48a8e5(0);
 			self function_ab96a9b5("head", 0);
 			self function_ab96a9b5("headgear", 0);

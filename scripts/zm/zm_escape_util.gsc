@@ -412,7 +412,7 @@ function function_8164716a()
 				break;
 			}
 		}
-		if(zm_items::player_has(level.players[0], zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389")))
+		if(zm_items::player_has(level.players[0], zm_crafting::get_component(#"hash_1e5657f6a6f09389")))
 		{
 			level flag::set(#"hash_7039457b1cc827de");
 			break;
@@ -432,8 +432,8 @@ function function_8164716a()
 */
 function function_2def6c82()
 {
-	var_6fddadc4 = getitemarray();
-	foreach(mdl_part in var_6fddadc4)
+	a_mdl_parts = getitemarray();
+	foreach(mdl_part in a_mdl_parts)
 	{
 		if(mdl_part.item == getweapon(#"hash_1e5656f6a6f091d6"))
 		{

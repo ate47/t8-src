@@ -459,10 +459,10 @@ function function_ed4ed5e(localclientnum, str_step)
 	{
 		return;
 	}
-	var_d3f5af49 = level.var_b20dd024[str_step];
-	if(isdefined(var_d3f5af49))
+	a_beams = level.var_b20dd024[str_step];
+	if(isdefined(a_beams))
 	{
-		foreach(var_95bce808 in var_d3f5af49)
+		foreach(var_95bce808 in a_beams)
 		{
 			var_360148 = var_95bce808[0];
 			var_b5d35012 = var_95bce808[1];
@@ -774,8 +774,8 @@ function function_fb3b37f4(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		var_eb22c4da = findvolumedecalindexarray("oil_trail_" + newval);
-		foreach(n_index in var_eb22c4da)
+		a_n_decals = findvolumedecalindexarray("oil_trail_" + newval);
+		foreach(n_index in a_n_decals)
 		{
 			hidevolumedecal(n_index);
 		}
@@ -1894,10 +1894,10 @@ function function_67b43987(localclientnum, newval, var_2c03c1e4)
 */
 function function_141a55a4(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_a62803a3 = struct::get_array(#"hash_61ba778e4f6ae3e");
+	a_s_glyphs = struct::get_array(#"hash_61ba778e4f6ae3e");
 	if(newval)
 	{
-		foreach(s_glyph in var_a62803a3)
+		foreach(s_glyph in a_s_glyphs)
 		{
 			if(!isdefined(s_glyph.var_3cd87194))
 			{
@@ -1930,7 +1930,7 @@ function function_141a55a4(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		foreach(s_glyph in var_a62803a3)
+		foreach(s_glyph in a_s_glyphs)
 		{
 			if(isdefined(s_glyph.var_3cd87194))
 			{

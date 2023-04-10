@@ -23,8 +23,8 @@
 */
 function init()
 {
-	var_a017eb40 = struct::get_array("snowball_pile");
-	foreach(s_snowball_pile in var_a017eb40)
+	a_s_snowball_piles = struct::get_array("snowball_pile");
+	foreach(s_snowball_pile in a_s_snowball_piles)
 	{
 		if(isdefined(s_snowball_pile.model))
 		{

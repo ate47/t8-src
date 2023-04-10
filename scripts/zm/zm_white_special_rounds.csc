@@ -125,13 +125,13 @@ function vent_interact_feedback(localclientnum, oldval, newval, bnewent, binitia
 */
 function function_aa1e486e()
 {
-	level.var_bc3b16f3[0] = "tag_green_house";
-	level.var_bc3b16f3[1] = "tag_hammond_house";
-	level.var_bc3b16f3[2] = "tag_hoggatt_house";
-	level.var_bc3b16f3[3] = "tag_obrien_house";
-	level.var_bc3b16f3[4] = "tag_reinsel_house";
-	level.var_bc3b16f3[5] = "tag_yellow_house";
-	level.var_bc3b16f3[6] = "tag_generators";
+	level.a_str_tag_names[0] = "tag_green_house";
+	level.a_str_tag_names[1] = "tag_hammond_house";
+	level.a_str_tag_names[2] = "tag_hoggatt_house";
+	level.a_str_tag_names[3] = "tag_obrien_house";
+	level.a_str_tag_names[4] = "tag_reinsel_house";
+	level.a_str_tag_names[5] = "tag_yellow_house";
+	level.a_str_tag_names[6] = "tag_generators";
 }
 
 /*
@@ -151,7 +151,7 @@ function portal_map_gas_indicators_init(localclientnum, oldval, newval, bnewent,
 		foreach(var_35f97c42 in level.var_8f14a19)
 		{
 			var_35f97c42 util::waittill_dobj(localclientnum);
-			foreach(str_tag_name in level.var_bc3b16f3)
+			foreach(str_tag_name in level.a_str_tag_names)
 			{
 				var_35f97c42 hidepart(localclientnum, str_tag_name + "_clear");
 				var_35f97c42 hidepart(localclientnum, str_tag_name + "_clogged");
@@ -169,7 +169,7 @@ function portal_map_gas_indicators_init(localclientnum, oldval, newval, bnewent,
 			for(i = 0; i < 6; i++)
 			{
 				var_35f97c42 util::waittill_dobj(localclientnum);
-				var_35f97c42 showpart(localclientnum, level.var_bc3b16f3[i] + "_clear");
+				var_35f97c42 showpart(localclientnum, level.a_str_tag_names[i] + "_clear");
 			}
 		}
 	}

@@ -529,43 +529,43 @@ function door()
 	level thread zm_white_util::function_ec34b5ee(#"hash_2c4fa652fb89d231");
 	var_df1533c0 = getentarray("zombie_door", "targetname");
 	var_13a6b1a7 = getentarray("zombie_debris", "targetname");
-	var_855b4271 = [];
+	a_script_flags = [];
 	foreach(var_6620353d in var_df1533c0)
 	{
 		if(isdefined(var_6620353d.script_noteworthy) && var_6620353d.script_noteworthy == "electric_door")
 		{
 			continue;
 		}
-		if(!isdefined(var_855b4271))
+		if(!isdefined(a_script_flags))
 		{
-			var_855b4271 = [];
+			a_script_flags = [];
 		}
-		else if(!isarray(var_855b4271))
+		else if(!isarray(a_script_flags))
 		{
-			var_855b4271 = array(var_855b4271);
+			a_script_flags = array(a_script_flags);
 		}
-		if(!isinarray(var_855b4271, var_6620353d.script_flag))
+		if(!isinarray(a_script_flags, var_6620353d.script_flag))
 		{
-			var_855b4271[var_855b4271.size] = var_6620353d.script_flag;
+			a_script_flags[a_script_flags.size] = var_6620353d.script_flag;
 		}
 	}
 	foreach(var_dc373a8d in var_13a6b1a7)
 	{
-		if(!isdefined(var_855b4271))
+		if(!isdefined(a_script_flags))
 		{
-			var_855b4271 = [];
+			a_script_flags = [];
 		}
-		else if(!isarray(var_855b4271))
+		else if(!isarray(a_script_flags))
 		{
-			var_855b4271 = array(var_855b4271);
+			a_script_flags = array(a_script_flags);
 		}
-		if(!isinarray(var_855b4271, var_dc373a8d.script_flag))
+		if(!isinarray(a_script_flags, var_dc373a8d.script_flag))
 		{
-			var_855b4271[var_855b4271.size] = var_dc373a8d.script_flag;
+			a_script_flags[a_script_flags.size] = var_dc373a8d.script_flag;
 		}
 	}
 	var_5768ad3b = [];
-	foreach(script_flag in var_855b4271)
+	foreach(script_flag in a_script_flags)
 	{
 		if(!level flag::get(script_flag))
 		{

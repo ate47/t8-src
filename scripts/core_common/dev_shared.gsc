@@ -386,7 +386,7 @@ function function_5639909a(bodytype, outfitindex)
 		foreach(player in players)
 		{
 			player setcharacterbodytype(bodytype);
-			player function_8fd843dd(outfitindex);
+			player setcharacteroutfit(outfitindex);
 		}
 	#/
 }

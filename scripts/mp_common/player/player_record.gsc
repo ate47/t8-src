@@ -522,8 +522,8 @@ function function_7569c0fb()
 		case "bounty":
 		case "control_cwl":
 		case "sd_cwl":
-		case "hash_60af7b31f15b60dc":
-		case "hash_69aed4920e1ebe82":
+		case "dom_bb_hc":
+		case "escort_bb":
 		case "clean":
 		case "clean_bb":
 		case "ctf":

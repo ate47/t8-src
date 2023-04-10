@@ -57,7 +57,7 @@ class czm_arcade_keys : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -71,7 +71,7 @@ class czm_arcade_keys : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "zm_arcade_keys", persistent);
+		cLUIelem::open_luielem(player, "zm_arcade_keys", persistent);
 	}
 
 	/*

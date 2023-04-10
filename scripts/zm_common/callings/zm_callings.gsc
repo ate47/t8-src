@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_stats.gsc;
-#using script_68e77f81585a09e1;
+#using scripts\zm_common\callings\zm_callings_devgui.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -61,7 +61,7 @@ function __init__()
 function __main__()
 {
 	/#
-		level thread namespace_fa8546e1::function_9f47471();
+		level thread zm_callings_devgui::function_9f47471();
 	#/
 }
 
@@ -77,7 +77,7 @@ function __main__()
 function private function_c3be3572(var_9c939fff, var_27426b47, target, xp, var_b68d50cb = 1, var_7b2027fe = 1)
 {
 	var_1eb89301 = getscriptbundle(var_9c939fff);
-	if(isdefined(var_1eb89301.var_38fc223d))
+	if(isdefined(var_1eb89301.callingtask))
 	{
 		var_341c004b = undefined;
 		for(i = 0; i < level.var_314051a1.var_df270379.size; i++)
@@ -94,7 +94,7 @@ function private function_c3be3572(var_9c939fff, var_27426b47, target, xp, var_b
 			{
 				self.var_96d6f6d1 = array();
 			}
-			var_d1017f27 = {#hash_949f9254:var_7b2027fe, #hash_52ac6e9c:var_b68d50cb, #hash_4a01cb77:self.var_96d6f6d1.size, #hash_30c47a21:var_27426b47, #hash_de86e878:var_341c004b, #n_xp:xp, #hash_ad971622:var_1eb89301.var_38fc223d, #hash_e226ec4f:target};
+			var_d1017f27 = {#hash_949f9254:var_7b2027fe, #hash_52ac6e9c:var_b68d50cb, #hash_4a01cb77:self.var_96d6f6d1.size, #hash_30c47a21:var_27426b47, #hash_de86e878:var_341c004b, #n_xp:xp, #hash_ad971622:var_1eb89301.callingtask, #hash_e226ec4f:target};
 			if(!isdefined(self.var_96d6f6d1))
 			{
 				self.var_96d6f6d1 = [];

@@ -279,11 +279,11 @@ function private bgb_finalize()
 			#/
 			continue;
 		}
-		if(!isdefined(var_5415dfb9.var_f5aaa47e))
+		if(!isdefined(var_5415dfb9.bgbrarity))
 		{
-			var_5415dfb9.var_f5aaa47e = 0;
+			var_5415dfb9.bgbrarity = 0;
 		}
-		v.rarity = var_5415dfb9.var_f5aaa47e;
+		v.rarity = var_5415dfb9.bgbrarity;
 		if(0 == v.rarity || 1 == v.rarity)
 		{
 			v.consumable = 0;

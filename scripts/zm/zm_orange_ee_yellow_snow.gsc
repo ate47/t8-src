@@ -152,16 +152,16 @@ function function_47274b1e()
 function function_19f2a68d()
 {
 	level flag::init(#"hash_6faa166ee92f0315");
-	var_f61396d5 = struct::get_array("ax_blade", "targetname");
-	var_f61396d5 = array::randomize(var_f61396d5);
-	for(i = 0; i < var_f61396d5.size; i++)
+	a_s_campfires = struct::get_array("ax_blade", "targetname");
+	a_s_campfires = array::randomize(a_s_campfires);
+	for(i = 0; i < a_s_campfires.size; i++)
 	{
-		var_f61396d5[i].var_7944be4a = 0;
-		var_f61396d5[i].var_b9989e12 = hash(var_f61396d5[i].script_noteworthy);
-		var_f61396d5[i].e_vol = getent(var_f61396d5[i].target, "targetname");
-		var_f61396d5[i].e_fire = getent(var_f61396d5[i].script_noteworthy, "targetname");
+		a_s_campfires[i].var_7944be4a = 0;
+		a_s_campfires[i].var_b9989e12 = hash(a_s_campfires[i].script_noteworthy);
+		a_s_campfires[i].e_vol = getent(a_s_campfires[i].target, "targetname");
+		a_s_campfires[i].e_fire = getent(a_s_campfires[i].script_noteworthy, "targetname");
 	}
-	level.var_d41eca77 = var_f61396d5;
+	level.var_d41eca77 = a_s_campfires;
 }
 
 /*
@@ -834,8 +834,8 @@ function function_ae42be1()
 */
 function function_b51a6dd7()
 {
-	var_a017eb40 = struct::get_array("snowball_pile");
-	foreach(s_snowball_pile in var_a017eb40)
+	a_s_snowball_piles = struct::get_array("snowball_pile");
+	foreach(s_snowball_pile in a_s_snowball_piles)
 	{
 		s_snowball_pile.e_model setmodel("p8_zm_ora_yellow_snowball_pile");
 		s_snowball_pile.e_model clientfield::set("fx8_snowpile_swap", 1);

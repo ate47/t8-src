@@ -2202,8 +2202,8 @@ function function_32d78b44()
 	var_538664a6 = [];
 	if(isdefined(level.a_ai_allies) && level.a_ai_allies.size > 0)
 	{
-		var_5c019fe5 = ct_bots::function_fbe3dcbb();
-		foreach(ai_bot in var_5c019fe5)
+		a_ai_bots = ct_bots::function_fbe3dcbb();
+		foreach(ai_bot in a_ai_bots)
 		{
 			if(isalive(ai_bot) && ai_bot.team == #"allies" && (isdefined(ai_bot.allowdeath) && ai_bot.allowdeath))
 			{
@@ -2518,7 +2518,7 @@ function function_5c6cfeda(str_vo, var_f4b1cabb = 1, n_rest = 10, var_515667fb =
 	Parameters: 5
 	Flags: None
 */
-function function_fde0ed2f(var_c2871bf8, spawnpts, n_rest = 0.25, b_randomize = 0, var_e9cd12e3 = 0)
+function function_fde0ed2f(a_n_counts, spawnpts, n_rest = 0.25, b_randomize = 0, var_e9cd12e3 = 0)
 {
 	self endoncallback(&function_8749da79, #"death", #"hash_5ead4664baf07eab");
 	level.var_2c6e8cfe = 0;
@@ -2540,7 +2540,7 @@ function function_fde0ed2f(var_c2871bf8, spawnpts, n_rest = 0.25, b_randomize = 
 	{
 		level.a_s_targets = array::randomize(level.a_s_targets);
 	}
-	foreach(n_count in var_c2871bf8)
+	foreach(n_count in a_n_counts)
 	{
 		if(var_e9cd12e3 == 0)
 		{

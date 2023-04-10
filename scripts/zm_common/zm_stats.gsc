@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_345bb77d6298356c;
+#using scripts\zm_common\callings\zm_callings.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -2577,7 +2577,7 @@ function function_e8c496dd(var_d479261a)
 	{
 		task = var_314051a1.var_4c2d4591[var_d479261a];
 		var_e199fb8a = getscriptbundle(task.task);
-		if(isdefined(var_e199fb8a.var_38fc223d))
+		if(isdefined(var_e199fb8a.callingtask))
 		{
 			var_341c004b = undefined;
 			for(i = 0; i < var_314051a1.var_df270379.size; i++)
@@ -2590,7 +2590,7 @@ function function_e8c496dd(var_d479261a)
 			}
 			if(isdefined(var_341c004b))
 			{
-				level.s_daily_calling_task = {#hash_de86e878:var_341c004b, #n_xp:task.xp, #hash_ad971622:var_e199fb8a.var_38fc223d, #hash_e226ec4f:var_e199fb8a.var_61731cf1};
+				level.s_daily_calling_task = {#hash_de86e878:var_341c004b, #n_xp:task.xp, #hash_ad971622:var_e199fb8a.callingtask, #hash_e226ec4f:var_e199fb8a.var_61731cf1};
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_41fe08c37d53a635;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_bd2b8aaa388dcce;
 #using scripts\core_common\aat_shared.gsc;

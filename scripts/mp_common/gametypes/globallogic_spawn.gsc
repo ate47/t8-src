@@ -1098,7 +1098,7 @@ function spawnplayer()
 			self function_6c3348ac(specialist);
 		}
 		var_be574bd8 = self function_b568258e();
-		outfitindex = self function_50a9aad5();
+		outfitindex = self getcharacteroutfit();
 		gender = self getplayergendertype();
 		var_34ba1b60 = self function_3d1a97c6();
 		var_8fa79650 = self function_564cfaeb();
@@ -1253,14 +1253,14 @@ function respawn_asspectator(origin, angles)
 */
 function function_3ee5119e()
 {
-	if(self.pers[#"team"] != #"spectator" && level.spectatetype == 4 && self.var_92e86779 == #"invalid")
+	if(self.pers[#"team"] != #"spectator" && level.spectatetype == 4 && self.spectatorteam == #"invalid")
 	{
 		team_players = getplayers(self.team);
 		foreach(player in team_players)
 		{
 			if(player != self && isalive(player))
 			{
-				self.var_92e86779 = player.team;
+				self.spectatorteam = player.team;
 				/#
 					println(((((((("" + player.team) + "") + self.name) + "") + self.team) + "") + player.name) + "");
 				#/
@@ -1269,18 +1269,18 @@ function function_3ee5119e()
 		}
 		foreach(player in team_players)
 		{
-			if(player != self && player.var_92e86779 != #"invalid")
+			if(player != self && player.spectatorteam != #"invalid")
 			{
-				self.var_92e86779 = player.var_92e86779;
+				self.spectatorteam = player.spectatorteam;
 				/#
-					println(((((((("" + player.var_92e86779) + "") + self.name) + "") + self.team) + "") + player.name) + "");
+					println(((((((("" + player.spectatorteam) + "") + self.name) + "") + self.team) + "") + player.name) + "");
 				#/
 				return;
 			}
 		}
-		self.var_92e86779 = self.team;
+		self.spectatorteam = self.team;
 		/#
-			println(((((("" + self.var_92e86779) + "") + self.name) + "") + self.team) + "");
+			println(((((("" + self.spectatorteam) + "") + self.name) + "") + self.team) + "");
 		#/
 	}
 }

@@ -38,9 +38,9 @@ function preload()
 	var_7494f038 = array::randomize(var_7494f038);
 	level.var_74170866.s_cabinet = array::pop_front(var_7494f038);
 	level.var_74170866.s_cabinet.a_e_doors = getentarray(level.var_74170866.s_cabinet.target, "targetname");
-	var_67b37a67 = struct::get_array("fireplace_canister");
-	var_67b37a67 = array::randomize(var_67b37a67);
-	level.var_74170866.s_fireplace = array::pop_front(var_67b37a67);
+	a_s_fireplaces = struct::get_array("fireplace_canister");
+	a_s_fireplaces = array::randomize(a_s_fireplaces);
+	level.var_74170866.s_fireplace = array::pop_front(a_s_fireplaces);
 	a_parts = getentarray(level.var_74170866.s_fireplace.target, "targetname");
 	foreach(part in a_parts)
 	{
@@ -57,7 +57,7 @@ function preload()
 	level.var_74170866.s_fireplace.var_b9989e12 = hash(level.var_74170866.s_fireplace.script_noteworthy);
 	level.var_74170866.s_fireplace.var_7944be4a = 0;
 	level.var_74170866.s_fireplace.var_7126b6eb triggerenable(0);
-	foreach(s_fireplace in var_67b37a67)
+	foreach(s_fireplace in a_s_fireplaces)
 	{
 		a_parts = getentarray(s_fireplace.target, "targetname");
 		array::run_all(a_parts, &delete);

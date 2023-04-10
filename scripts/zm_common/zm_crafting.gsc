@@ -279,38 +279,38 @@ function function_b18074d0(name)
 			{
 				case 8:
 				{
-					blueprint.components[7] = function_4c2f8683(blueprint.var_f4d434cb, blueprint);
+					blueprint.components[7] = get_component(blueprint.var_f4d434cb, blueprint);
 				}
 				case 7:
 				{
-					blueprint.components[6] = function_4c2f8683(blueprint.var_e71f1961, blueprint);
+					blueprint.components[6] = get_component(blueprint.var_e71f1961, blueprint);
 				}
 				case 6:
 				{
-					blueprint.components[5] = function_4c2f8683(blueprint.registerperk_packa_seepainterminate, blueprint);
+					blueprint.components[5] = get_component(blueprint.registerperk_packa_seepainterminate, blueprint);
 				}
 				case 5:
 				{
-					blueprint.components[4] = function_4c2f8683(blueprint.var_4282502a, blueprint);
+					blueprint.components[4] = get_component(blueprint.var_4282502a, blueprint);
 				}
 				case 4:
 				{
-					blueprint.components[3] = function_4c2f8683(blueprint.var_7b8e4241, blueprint);
+					blueprint.components[3] = get_component(blueprint.var_7b8e4241, blueprint);
 				}
 				case 3:
 				{
-					blueprint.components[2] = function_4c2f8683(blueprint.var_2e0a273a, blueprint);
+					blueprint.components[2] = get_component(blueprint.var_2e0a273a, blueprint);
 				}
 				case 2:
 				{
-					blueprint.components[1] = function_4c2f8683(blueprint.var_670f9944, blueprint);
+					blueprint.components[1] = get_component(blueprint.var_670f9944, blueprint);
 				}
 				case 1:
 				{
-					blueprint.components[0] = function_4c2f8683(blueprint.var_99577dd3, blueprint);
+					blueprint.components[0] = get_component(blueprint.var_99577dd3, blueprint);
 				}
 			}
-			blueprint.var_54a97edd = function_4c2f8683(blueprint.result, blueprint);
+			blueprint.var_54a97edd = get_component(blueprint.result, blueprint);
 			x = (isdefined(blueprint.var_2206e7ed) ? float(blueprint.var_2206e7ed) : 0);
 			y = (isdefined(blueprint.var_e414062) ? float(blueprint.var_e414062) : 0);
 			z = (isdefined(blueprint.var_3c809ce0) ? float(blueprint.var_3c809ce0) : 0);
@@ -339,7 +339,7 @@ function function_b18074d0(name)
 }
 
 /*
-	Name: function_4c2f8683
+	Name: get_component
 	Namespace: zm_crafting
 	Checksum: 0x281804F0
 	Offset: 0xF60
@@ -347,7 +347,7 @@ function function_b18074d0(name)
 	Parameters: 2
 	Flags: Linked
 */
-function function_4c2f8683(component, blueprint)
+function get_component(component, blueprint)
 {
 	if(isstring(component) || function_7a600918(component))
 	{
@@ -2332,7 +2332,7 @@ function function_4765f5b3(component)
 }
 
 /*
-	Name: function_bebf36b
+	Name: devgui_get_players
 	Namespace: zm_crafting
 	Checksum: 0x81B388CF
 	Offset: 0x5C90
@@ -2340,7 +2340,7 @@ function function_4765f5b3(component)
 	Parameters: 0
 	Flags: None
 */
-function function_bebf36b()
+function devgui_get_players()
 {
 	/#
 		var_4ab6b47 = getdvarstring(#"hash_7c8c0c3f35357a53");
@@ -2386,14 +2386,14 @@ function devgui_think()
 			if(var_cf5ebef8 != "")
 			{
 				table_id = int(var_cf5ebef8);
-				array::thread_all(function_bebf36b(), &function_fe738a08, table_id);
+				array::thread_all(devgui_get_players(), &function_fe738a08, table_id);
 				setdvar(#"hash_43086839e587cc6c", "");
 			}
 			component = getdvarstring(#"hash_3a357be22156749e");
 			if(component != "")
 			{
-				w_comp = function_4c2f8683(component);
-				array::thread_all(function_bebf36b(), &function_3e29352d, w_comp);
+				w_comp = get_component(component);
+				array::thread_all(devgui_get_players(), &function_3e29352d, w_comp);
 				setdvar(#"hash_3a357be22156749e", "");
 			}
 			wait(1);

@@ -1679,7 +1679,7 @@ function function_a2256244(var_f9105ee8, var_f1935ec8)
 	hidemiscmodels(var_f9105ee8.script_noteworthy);
 	if(isdefined(var_f9105ee8.var_3dd3b66e) && var_f9105ee8.var_3dd3b66e)
 	{
-		w_item = zm_crafting::function_4c2f8683("zitem_chaos_lvl3_part_3");
+		w_item = zm_crafting::get_component("zitem_chaos_lvl3_part_3");
 		w_part = zm_items::spawn_item(w_item, var_f9105ee8.origin, var_f9105ee8.angles, 1);
 		level.var_27f4ef2f = undefined;
 		w_part clientfield::set("" + #"hash_524ec892754aeb34", 1);

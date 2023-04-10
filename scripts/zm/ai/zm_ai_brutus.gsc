@@ -17,7 +17,7 @@
 #using script_50c040e371c1c35f;
 #using script_522aeb6ae906391e;
 #using script_5660bae5b402a1eb;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;

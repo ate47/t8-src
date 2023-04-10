@@ -5,7 +5,7 @@
 #using script_50c040e371c1c35f;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -214,7 +214,7 @@ function function_55d14d78()
 				}
 				part show();
 			}
-			foreach(s_trap_button in level.var_96471be)
+			foreach(s_trap_button in level.a_s_trap_buttons)
 			{
 				if(s_trap_button.script_int === 3)
 				{
@@ -239,7 +239,7 @@ function function_55d14d78()
 				}
 				part show();
 			}
-			foreach(s_trap_button in level.var_96471be)
+			foreach(s_trap_button in level.a_s_trap_buttons)
 			{
 				if(s_trap_button.script_int === 4)
 				{
@@ -264,7 +264,7 @@ function function_55d14d78()
 				}
 				part show();
 			}
-			foreach(s_trap_button in level.var_96471be)
+			foreach(s_trap_button in level.a_s_trap_buttons)
 			{
 				if(s_trap_button.script_int === 1)
 				{
@@ -289,7 +289,7 @@ function function_55d14d78()
 				}
 				part show();
 			}
-			foreach(s_trap_button in level.var_96471be)
+			foreach(s_trap_button in level.a_s_trap_buttons)
 			{
 				if(s_trap_button.script_int === 2)
 				{

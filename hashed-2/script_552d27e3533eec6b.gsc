@@ -101,7 +101,7 @@ function private function_77a44aec()
 			{
 				player playsoundtoplayer(#"hash_321dbeea036e0e68", player);
 				player luinotifyevent(#"hash_6b67aa04e378d681", 1, 12);
-				namespace_8f74625a::function_1b48df6d(player.origin);
+				namespace_8f74625a::drop_supply_drop(player.origin);
 			}
 			continue;
 		}
@@ -264,7 +264,7 @@ function private function_3f8e4156(params)
 	}
 	attacker playsoundtoplayer(#"hash_619bf069e410b863", attacker);
 	attacker luinotifyevent(#"hash_6b67aa04e378d681", 1, 11);
-	namespace_8f74625a::function_1b48df6d(attacker.origin);
+	namespace_8f74625a::drop_supply_drop(attacker.origin);
 }
 
 /*

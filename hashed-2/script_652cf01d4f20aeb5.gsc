@@ -64,7 +64,7 @@ function init_flags()
 function main()
 {
 	level.var_79260935 = spawnstruct();
-	level.var_79260935.var_16a6820f = struct::get_array("s_vault_keyhole", "targetname");
+	level.var_79260935.a_s_vault_keyholes = struct::get_array("s_vault_keyhole", "targetname");
 	level.var_79260935.e_vault_defend_blocker = getent("e_vault_defend_blocker", "targetname");
 	level.var_79260935.s_vault_reward = struct::get("s_vault_reward", "targetname");
 	level.var_79260935.var_7ff5dbc4 = struct::get("facility_vault_door_bundle", "targetname");
@@ -90,7 +90,7 @@ function function_88dec965(var_5ea5c94d)
 {
 	function_ee2edc25();
 	level.var_79260935.var_c8b70e7e = 1;
-	foreach(s_vault_keyhole in level.var_79260935.var_16a6820f)
+	foreach(s_vault_keyhole in level.var_79260935.a_s_vault_keyholes)
 	{
 		s_vault_keyhole zm_unitrigger::create(&function_36db86a9, 64);
 		s_vault_keyhole thread function_3590cb58();
@@ -98,7 +98,7 @@ function function_88dec965(var_5ea5c94d)
 	level.var_79260935.s_keycard_machine = struct::get("keycard_machine", "targetname");
 	if(!var_5ea5c94d)
 	{
-		foreach(s_keycard in level.var_79260935.var_9720ddfa)
+		foreach(s_keycard in level.var_79260935.a_s_keycards)
 		{
 			s_keycard zm_unitrigger::create("", 64);
 			s_keycard thread function_d332685();
@@ -123,10 +123,10 @@ function function_ee2edc25()
 {
 	level.var_79260935.var_f4c36022 = 0;
 	level.var_79260935.n_keys_placed = 0;
-	var_9720ddfa = struct::get_array("sam_keycard", "targetname");
+	a_s_keycards = struct::get_array("sam_keycard", "targetname");
 	var_88f6f50a = [];
 	var_7ab3d884 = [];
-	foreach(s_keycard in var_9720ddfa)
+	foreach(s_keycard in a_s_keycards)
 	{
 		if(s_keycard.script_int === 0)
 		{
@@ -151,30 +151,30 @@ function function_ee2edc25()
 		}
 		var_7ab3d884[var_7ab3d884.size] = s_keycard;
 	}
-	level.var_79260935.var_9720ddfa = [];
+	level.var_79260935.a_s_keycards = [];
 	var_986b4af2 = array::random(var_88f6f50a);
-	if(!isdefined(level.var_79260935.var_9720ddfa))
+	if(!isdefined(level.var_79260935.a_s_keycards))
 	{
-		level.var_79260935.var_9720ddfa = [];
+		level.var_79260935.a_s_keycards = [];
 	}
-	else if(!isarray(level.var_79260935.var_9720ddfa))
+	else if(!isarray(level.var_79260935.a_s_keycards))
 	{
-		level.var_79260935.var_9720ddfa = array(level.var_79260935.var_9720ddfa);
+		level.var_79260935.a_s_keycards = array(level.var_79260935.a_s_keycards);
 	}
-	level.var_79260935.var_9720ddfa[level.var_79260935.var_9720ddfa.size] = var_986b4af2;
+	level.var_79260935.a_s_keycards[level.var_79260935.a_s_keycards.size] = var_986b4af2;
 	arrayremovevalue(var_88f6f50a, var_986b4af2);
 	var_f3d781b9 = array::random(var_7ab3d884);
-	if(!isdefined(level.var_79260935.var_9720ddfa))
+	if(!isdefined(level.var_79260935.a_s_keycards))
 	{
-		level.var_79260935.var_9720ddfa = [];
+		level.var_79260935.a_s_keycards = [];
 	}
-	else if(!isarray(level.var_79260935.var_9720ddfa))
+	else if(!isarray(level.var_79260935.a_s_keycards))
 	{
-		level.var_79260935.var_9720ddfa = array(level.var_79260935.var_9720ddfa);
+		level.var_79260935.a_s_keycards = array(level.var_79260935.a_s_keycards);
 	}
-	level.var_79260935.var_9720ddfa[level.var_79260935.var_9720ddfa.size] = var_f3d781b9;
+	level.var_79260935.a_s_keycards[level.var_79260935.a_s_keycards.size] = var_f3d781b9;
 	arrayremovevalue(var_7ab3d884, var_f3d781b9);
-	foreach(s_keycard in level.var_79260935.var_9720ddfa)
+	foreach(s_keycard in level.var_79260935.a_s_keycards)
 	{
 		s_keycard.var_cd0e32a2 = getent(s_keycard.target, "targetname");
 	}
@@ -338,7 +338,7 @@ function function_3aa0b188(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
-		foreach(s_keycard in level.var_79260935.var_9720ddfa)
+		foreach(s_keycard in level.var_79260935.a_s_keycards)
 		{
 			if(isdefined(s_keycard.var_cd0e32a2))
 			{
@@ -468,7 +468,7 @@ function function_33b22107(var_5ea5c94d, ended_early)
 		level flag::set(#"hash_50f159e379843d0c");
 	}
 	level flag::clear(#"hash_475c24f631fab267");
-	foreach(s_vault_keyhole in level.var_79260935.var_16a6820f)
+	foreach(s_vault_keyhole in level.var_79260935.a_s_vault_keyholes)
 	{
 		s_vault_keyhole zm_unitrigger::unregister_unitrigger(s_vault_keyhole.s_unitrigger);
 	}

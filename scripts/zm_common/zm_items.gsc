@@ -387,8 +387,8 @@ function function_ab3bb6bf(holder, w_item)
 	{
 		self takeweapon(w_item);
 	}
-	var_e9c4fe29 = spawn_item(w_item, self.origin + vectorscale((0, 0, 1), 8), self.angles);
-	return var_e9c4fe29;
+	new_item = spawn_item(w_item, self.origin + vectorscale((0, 0, 1), 8), self.angles);
+	return new_item;
 }
 
 /*
@@ -402,8 +402,8 @@ function function_ab3bb6bf(holder, w_item)
 */
 function spawn_item(w_item, v_origin, v_angles, var_f93e465d = 1)
 {
-	var_e9c4fe29 = spawnweapon(w_item, v_origin, v_angles, var_f93e465d);
-	return var_e9c4fe29;
+	new_item = spawnweapon(w_item, v_origin, v_angles, var_f93e465d);
+	return new_item;
 }
 
 /*

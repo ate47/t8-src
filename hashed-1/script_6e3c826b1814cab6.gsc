@@ -104,8 +104,8 @@ function function_901b751c(var_c9db62d5)
 */
 function function_16020b98(var_c9db62d5)
 {
-	var_134dedef = function_a8e9a6c7();
-	foreach(s_setting in var_134dedef)
+	a_s_defaults = function_a8e9a6c7();
+	foreach(s_setting in a_s_defaults)
 	{
 		if(var_c9db62d5 == s_setting.name)
 		{
@@ -573,9 +573,9 @@ function function_3ac936c6(var_ce5ed2e9)
 	}
 	n_index = getitemindexfromref(var_ce5ed2e9);
 	s_fields = function_b143666d(n_index, 2);
-	if(isdefined(s_fields) && isdefined(s_fields.var_f5aaa47e))
+	if(isdefined(s_fields) && isdefined(s_fields.bgbrarity))
 	{
-		n_rarity = s_fields.var_f5aaa47e;
+		n_rarity = s_fields.bgbrarity;
 	}
 	if(!isdefined(n_rarity))
 	{
@@ -1394,9 +1394,9 @@ function function_41ed4017()
 	Parameters: 1
 	Flags: Linked
 */
-function function_928e94b9(var_18f3c565)
+function function_928e94b9(a_str_archetypes)
 {
-	foreach(str_archetype in var_18f3c565)
+	foreach(str_archetype in a_str_archetypes)
 	{
 		str_archetype = hash(str_archetype);
 		if(isinarray(array(#"blight_father", #"brutus", #"gegenees"), str_archetype) && function_901b751c(#"zmminibossstate") == 0)
@@ -1516,8 +1516,8 @@ function function_3f3752ab()
 	{
 		return false;
 	}
-	var_134dedef = function_a8e9a6c7();
-	foreach(s_default in var_134dedef)
+	a_s_defaults = function_a8e9a6c7();
+	foreach(s_default in a_s_defaults)
 	{
 		if(function_901b751c(s_default.name) !== s_default.default_val)
 		{
@@ -1569,28 +1569,28 @@ function private function_74b79f63()
 		case 2:
 		{
 			players = getplayers();
-			var_4506f72b = getentarray("zombie_door", "targetname");
-			foreach(door in arraycopy(var_4506f72b))
+			a_zombie_doors = getentarray("zombie_door", "targetname");
+			foreach(door in arraycopy(a_zombie_doors))
 			{
 				if(isdefined(level.var_f3a008f))
 				{
 					if(isdefined(door [[level.var_f3a008f]]()) && door [[level.var_f3a008f]]())
 					{
-						arrayremovevalue(var_4506f72b, door);
+						arrayremovevalue(a_zombie_doors, door);
 					}
 				}
 			}
 			if(isdefined(level.var_229f30cd))
 			{
-				level thread [[level.var_229f30cd]](var_4506f72b);
+				level thread [[level.var_229f30cd]](a_zombie_doors);
 			}
 			else
 			{
-				for(i = 0; i < var_4506f72b.size; i++)
+				for(i = 0; i < a_zombie_doors.size; i++)
 				{
-					if(!(isdefined(var_4506f72b[i].has_been_opened) && var_4506f72b[i].has_been_opened))
+					if(!(isdefined(a_zombie_doors[i].has_been_opened) && a_zombie_doors[i].has_been_opened))
 					{
-						var_4506f72b[i] notify(#"trigger", {#is_forced:1});
+						a_zombie_doors[i] notify(#"trigger", {#is_forced:1});
 					}
 					waitframe(1);
 				}
@@ -1621,8 +1621,8 @@ function private function_74b79f63()
 		}
 		case 2:
 		{
-			var_4506f72b = getentarray("zombie_door", "targetname");
-			foreach(door in var_4506f72b)
+			a_zombie_doors = getentarray("zombie_door", "targetname");
+			foreach(door in a_zombie_doors)
 			{
 				if(!isdefined(door.script_noteworthy) || !isdefined(door.classname))
 				{
@@ -1663,8 +1663,8 @@ function private function_74b79f63()
 			level flagsys::set(#"hash_3e80d503318a5674");
 			if(function_901b751c(#"hash_29004a67830922b6") == 1)
 			{
-				var_4506f72b = getentarray("zombie_door", "targetname");
-				foreach(door in var_4506f72b)
+				a_zombie_doors = getentarray("zombie_door", "targetname");
+				foreach(door in a_zombie_doors)
 				{
 					if(!isdefined(door.script_noteworthy) || !isdefined(door.classname))
 					{

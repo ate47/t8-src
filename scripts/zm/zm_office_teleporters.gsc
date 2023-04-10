@@ -373,7 +373,7 @@ function teleport_player(user)
 		}
 		case 1:
 		{
-			var_298e4578 = level.var_63fca02d[#"portal_panic_room"];
+			var_298e4578 = level.a_s_portals[#"portal_panic_room"];
 			break;
 		}
 		case 2:
@@ -384,7 +384,7 @@ function teleport_player(user)
 		}
 		case 3:
 		{
-			var_298e4578 = level.var_63fca02d[#"portal_war_room_map"];
+			var_298e4578 = level.a_s_portals[#"portal_war_room_map"];
 			break;
 		}
 		case 4:
@@ -624,7 +624,7 @@ function function_254e91a2()
 function find_portal_destination(var_210b4680)
 {
 	var_98ceafca = [];
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(self == s_portal)
 		{
@@ -836,7 +836,7 @@ function function_e9848fa7()
 	var_84a6eef7 = undefined;
 	var_9d761d98 = zm_office_floors::function_35babccd(self);
 	test_portals = [];
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(s_portal.n_floor == var_9d761d98)
 		{
@@ -1025,12 +1025,12 @@ function function_1f034d46(destination)
 */
 function function_bb3f9afd()
 {
-	s_portal = level.var_63fca02d[#"portal_war_room"];
+	s_portal = level.a_s_portals[#"portal_war_room"];
 	playfx(level._effect[#"hash_3af5f08f0b1ee12"], s_portal.origin, (1, 0, 0), (0, 0, 1));
 	s_portal.var_a1cf77d2 clientfield::set("portal_dest_fx", 0);
 	level clientfield::increment("delete_war_room_portal_fx", 1);
 	zm_unitrigger::unregister_unitrigger(s_portal.s_unitrigger);
-	arrayremoveindex(level.var_63fca02d, "portal_war_room", 1);
+	arrayremoveindex(level.a_s_portals, "portal_war_room", 1);
 	s_portal notify(#"hash_6db43858f08123dd");
 	s_portal notify(#"hash_3c91bf90cecbe758");
 	s_portal = level.var_905aea40;
@@ -1038,7 +1038,7 @@ function function_bb3f9afd()
 	{
 		s_portal.n_floor = -1;
 	}
-	level.var_63fca02d[s_portal.script_noteworthy] = s_portal;
+	level.a_s_portals[s_portal.script_noteworthy] = s_portal;
 	s_portal zm_unitrigger::create("", 32, &portal_think, 0, 0);
 	playfx(level._effect[#"portal_spawn"], s_portal.origin, (1, 0, 0), (0, 0, 1));
 	if(level flag::get("defcon_active") || util::function_5df4294() == #"zstandard")
@@ -1067,8 +1067,8 @@ function function_bb3f9afd()
 */
 function setup_portals()
 {
-	var_63fca02d = struct::get_array("office_portal");
-	foreach(s_portal in var_63fca02d)
+	a_s_portals = struct::get_array("office_portal");
+	foreach(s_portal in a_s_portals)
 	{
 		if(s_portal.script_noteworthy == "portal_war_room_map")
 		{
@@ -1092,13 +1092,13 @@ function setup_portals()
 */
 function portal_init()
 {
-	if(!isdefined(level.var_63fca02d))
+	if(!isdefined(level.a_s_portals))
 	{
-		level.var_63fca02d = [];
+		level.a_s_portals = [];
 	}
-	else if(!isarray(level.var_63fca02d))
+	else if(!isarray(level.a_s_portals))
 	{
-		level.var_63fca02d = array(level.var_63fca02d);
+		level.a_s_portals = array(level.a_s_portals);
 	}
 	self.var_a1cf77d2 = util::spawn_model("tag_origin", self.origin, self.angles);
 	if(!isdefined(self.var_3dac5f67))
@@ -1220,7 +1220,7 @@ function portal_think()
 */
 function portal_activate()
 {
-	level.var_63fca02d[self.script_noteworthy] = self;
+	level.a_s_portals[self.script_noteworthy] = self;
 	if(self.script_noteworthy == "portal_war_room")
 	{
 		s_stub = self zm_unitrigger::function_a7620bfb(32, 0);
@@ -1251,13 +1251,13 @@ function portal_activate()
 */
 function function_ea199c46()
 {
-	var_63fca02d = struct::get_array("office_portal");
+	a_s_portals = struct::get_array("office_portal");
 	level waittill(#"hash_2124984d1ece329c");
-	for(i = 0; i < var_63fca02d.size; i++)
+	for(i = 0; i < a_s_portals.size; i++)
 	{
-		if(var_63fca02d[i].script_noteworthy != "portal_war_room_map")
+		if(a_s_portals[i].script_noteworthy != "portal_war_room_map")
 		{
-			var_63fca02d[i] portal_activate();
+			a_s_portals[i] portal_activate();
 		}
 		if(i == 5)
 		{
@@ -1411,7 +1411,7 @@ function function_134670b9(n_delay)
 */
 function function_c71dfad1(b_enable = 1)
 {
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(s_portal.script_noteworthy == "portal_panic_room")
 		{
@@ -1497,7 +1497,7 @@ function function_1bf7bc9e()
 {
 	self endon(#"death");
 	wait(0.5);
-	array::random(level.var_63fca02d) teleport_player(self);
+	array::random(level.a_s_portals) teleport_player(self);
 }
 
 /*
@@ -1511,7 +1511,7 @@ function function_1bf7bc9e()
 */
 function function_a6bb56f6()
 {
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		if(s_portal.script_noteworthy != "portal_war_room_map" || util::function_5df4294() != #"zstandard")
 		{
@@ -1539,7 +1539,7 @@ function function_a6bb56f6()
 */
 function function_cc9b97b0()
 {
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		s_portal.var_cd2f1fed = 0;
 		foreach(e_player in getplayers())
@@ -1583,7 +1583,7 @@ function on_player_spawn()
 {
 	if(level flag::get(#"hash_53a41180dac96fff"))
 	{
-		foreach(s_portal in level.var_63fca02d)
+		foreach(s_portal in level.a_s_portals)
 		{
 			s_portal function_cb7c6fc7(self, 1);
 		}
@@ -1604,7 +1604,7 @@ function function_2143dc13()
 	a_e_players = getplayers();
 	foreach(e_player in a_e_players)
 	{
-		if(e_player.var_298e4578 === level.var_63fca02d[#"portal_panic_room"])
+		if(e_player.var_298e4578 === level.a_s_portals[#"portal_panic_room"])
 		{
 			return true;
 		}

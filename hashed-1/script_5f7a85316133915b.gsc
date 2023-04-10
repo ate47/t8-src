@@ -169,8 +169,8 @@ function function_1a038e0b()
 	self.var_73bd396b clientfield::set("random_vapor_altar_available", 1);
 	var_ade6ee77 = getentarray(self.target, "targetname");
 	array::run_all(var_ade6ee77, &show);
-	var_e866a143 = struct::get_array(self.target);
-	foreach(s_interact in var_e866a143)
+	a_s_interacts = struct::get_array(self.target);
+	foreach(s_interact in a_s_interacts)
 	{
 		if(s_interact.script_int === 3)
 		{
@@ -192,11 +192,11 @@ function function_1a038e0b()
 */
 function function_8dd97732()
 {
-	var_e866a143 = struct::get_array(self.target);
+	a_s_interacts = struct::get_array(self.target);
 	var_ade6ee77 = getentarray(self.target, "targetname");
 	var_ade6ee77 = getentarray(self.target, "targetname");
 	array::run_all(var_ade6ee77, &ghost);
-	foreach(s_interact in var_e866a143)
+	foreach(s_interact in a_s_interacts)
 	{
 		zm_unitrigger::unregister_unitrigger(s_interact.unitrigger_stub);
 		s_interact.unitrigger_stub = undefined;

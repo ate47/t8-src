@@ -724,7 +724,7 @@ function brutus_death()
 	}
 	if(isdefined(level.crafting_components[#"hash_1e5657f6a6f09389"]) && (!(isdefined(var_1982af82) && var_1982af82)))
 	{
-		w_component = zm_crafting::function_4c2f8683(#"hash_1e5657f6a6f09389");
+		w_component = zm_crafting::get_component(#"hash_1e5657f6a6f09389");
 		if(!zm_items::player_has(level.players[0], w_component) && (!(isdefined(self.var_eebea220) && self.var_eebea220)) && !level flag::get("round_reset"))
 		{
 			self.var_db8b3627 = 1;

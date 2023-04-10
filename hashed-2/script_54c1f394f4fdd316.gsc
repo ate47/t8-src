@@ -129,8 +129,8 @@ function private function_be29b8d2()
 */
 function private function_189f45d2(targetname)
 {
-	var_fd5a4651 = getdynentarray(targetname);
-	foreach(safe in var_fd5a4651)
+	safes = getdynentarray(targetname);
+	foreach(safe in safes)
 	{
 		function_e2a06860(safe, 1);
 	}
@@ -147,14 +147,14 @@ function private function_189f45d2(targetname)
 */
 function private function_af4c6c9b(targetname, count)
 {
-	var_fd5a4651 = getdynentarray(targetname);
-	while(var_fd5a4651.size > count)
+	safes = getdynentarray(targetname);
+	while(safes.size > count)
 	{
-		i = randomint(var_fd5a4651.size);
-		var_fd5a4651[i] function_ec834c4d();
-		arrayremoveindex(var_fd5a4651, i);
+		i = randomint(safes.size);
+		safes[i] function_ec834c4d();
+		arrayremoveindex(safes, i);
 	}
-	foreach(safe in var_fd5a4651)
+	foreach(safe in safes)
 	{
 		safe function_fcf5be67();
 	}
@@ -196,9 +196,9 @@ function private function_fb346efb()
 */
 function private function_3387f756(targetname, origin, radius)
 {
-	var_fd5a4651 = getdynentarray(targetname);
+	safes = getdynentarray(targetname);
 	radiussq = radius * radius;
-	foreach(safe in var_fd5a4651)
+	foreach(safe in safes)
 	{
 		if(distance2dsquared(origin, safe.origin) <= radiussq)
 		{

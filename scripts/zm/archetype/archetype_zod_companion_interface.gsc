@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_27137b97a4a2215f;
+#using scripts\zm\archetype\archetype_zod_companion.gsc;
 #using script_59f07c660e6710a5;
 
 #namespace zodcompanioninterface;

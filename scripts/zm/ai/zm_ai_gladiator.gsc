@@ -14,7 +14,7 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;

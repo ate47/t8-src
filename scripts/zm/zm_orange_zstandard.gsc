@@ -510,8 +510,8 @@ function function_84139b27()
 	zm_utility::function_c492c4d6("geo", "s_destination_geo", array("geological_processing", "security_lobby"), array(#"infusion", #"storage", #"crevasse", #"docks"), #"hash_42e3987404caee2e", #"hash_7714e6727380675a");
 	zm_utility::function_c492c4d6("infusion", "s_destination_infusion", array("human_infusion"), array(#"decon", #"beach", #"infusion", #"crevasse"), #"hash_eb74e8efde96bb6", #"hash_39c6252f8f92d0f2");
 	zm_utility::function_c492c4d6("storage", "s_destination_storage", array("specimen_storage"), array(#"decon", #"beach", #"infusion", #"crevasse"), #"hash_5571176820f1f5c2", #"hash_28ea515ade07dde");
-	a_str_keys = getarraykeys(level.var_f05f7e16);
-	foreach(s_defend_area in level.var_f05f7e16)
+	a_str_keys = getarraykeys(level.a_s_defend_areas);
+	foreach(s_defend_area in level.a_s_defend_areas)
 	{
 		foreach(str_index in s_defend_area.var_cc0c35ca)
 		{
@@ -720,7 +720,7 @@ function function_a97f7327()
 */
 function function_80a9077f()
 {
-	foreach(s_zipline_crank in level.var_67730c8d)
+	foreach(s_zipline_crank in level.a_s_zipline_cranks)
 	{
 		if(!(isdefined(s_zipline_crank.var_2e77da49) && s_zipline_crank.var_2e77da49))
 		{

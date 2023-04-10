@@ -89,7 +89,7 @@ class cplayer_insertion_choice : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -103,7 +103,7 @@ class cplayer_insertion_choice : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "player_insertion_choice", persistent);
+		cLUIelem::open_luielem(player, "player_insertion_choice", persistent);
 	}
 
 	/*

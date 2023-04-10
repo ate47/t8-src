@@ -79,16 +79,16 @@ function init_flags()
 function main()
 {
 	level.s_ww_quest = spawnstruct();
-	zm_sq::register(#"ww_quest", #"hash_48c49b81fdcdc242", #"hash_48ee052467d0fe08", &function_80150833, &function_8d6c13be);
-	zm_sq::register(#"ww_quest", #"hash_6442e35feab8c079", #"hash_48ee082467d10321", &function_9fad6c3e, &function_47490f31);
-	zm_sq::register(#"ww_quest", #"hash_737f8b1503916752", #"hash_48ee072467d1016e", &function_a6c9220d, &function_2f08eadf);
-	zm_sq::register(#"ww_quest", #"hash_60e28c4bd65d92ab", #"hash_48ee0a2467d10687", &function_289d85b4, &function_a7c43a77);
-	zm_sq::register(#"ww_quest", #"hash_4a7a9c037e9a8447", #"hash_48ee092467d104d4", &function_83114bb8, &function_6bf68fa5);
-	zm_sq::register(#"ww_quest", #"hash_7230371c8fbcfec2", #"hash_48ee0c2467d109ed", &function_a7f7fe61, &function_5f6b2151);
-	zm_sq::register(#"ww_quest", #"hash_532d2da7fe5bfe2e", #"hash_48ee0b2467d1083a", &function_cbcf6ce1, &function_69e4f561);
-	zm_sq::register(#"ww_quest", #"hash_52f633bb8e8c32e4", #"hash_48edfe2467d0f223", &function_5624110f, &function_4d76215);
-	zm_sq::register(#"ww_quest", #"hash_43fb367b319214fa", #"hash_48edfd2467d0f070", &function_f9410272, &function_aceb0eca);
-	zm_sq::register(#"ww_quest", #"hash_1ec16bb3298bdc60", #"hash_3d70f4dc681ff928", &registertank_activatedtargetservice, &function_7e65c446);
+	zm_sq::register(#"ww_quest", #"hash_48c49b81fdcdc242", #"ww_quest_step1", &function_80150833, &function_8d6c13be);
+	zm_sq::register(#"ww_quest", #"hash_6442e35feab8c079", #"ww_quest_step2", &function_9fad6c3e, &function_47490f31);
+	zm_sq::register(#"ww_quest", #"hash_737f8b1503916752", #"ww_quest_step3", &function_a6c9220d, &function_2f08eadf);
+	zm_sq::register(#"ww_quest", #"hash_60e28c4bd65d92ab", #"ww_quest_step4", &function_289d85b4, &function_a7c43a77);
+	zm_sq::register(#"ww_quest", #"hash_4a7a9c037e9a8447", #"ww_quest_step5", &function_83114bb8, &function_6bf68fa5);
+	zm_sq::register(#"ww_quest", #"hash_7230371c8fbcfec2", #"ww_quest_step6", &function_a7f7fe61, &function_5f6b2151);
+	zm_sq::register(#"ww_quest", #"hash_532d2da7fe5bfe2e", #"ww_quest_step7", &function_cbcf6ce1, &function_69e4f561);
+	zm_sq::register(#"ww_quest", #"hash_52f633bb8e8c32e4", #"ww_quest_step8", &function_5624110f, &function_4d76215);
+	zm_sq::register(#"ww_quest", #"hash_43fb367b319214fa", #"ww_quest_step9", &function_f9410272, &function_aceb0eca);
+	zm_sq::register(#"ww_quest", #"hash_1ec16bb3298bdc60", #"ww_quest_step10", &registertank_activatedtargetservice, &function_7e65c446);
 	level.s_ww_quest.s_campfire = struct::get("ww_quest_campfire", "targetname");
 	s_campfire = level.s_ww_quest.s_campfire;
 	level.s_ww_quest.s_icicle_in_pot = struct::get("icicle_in_pot", "targetname");

@@ -20,9 +20,9 @@
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_3.gsc;
 #using scripts\zm\weapons\zm_weap_claymore.gsc;
 #using script_301f64a4090c381a;
-#using script_345bb77d6298356c;
+#using scripts\zm_common\callings\zm_callings.gsc;
 #using script_35598499769dbb3d;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_3688d332e17e9ac1;
 #using script_3743c984969444fd;
 #using scripts\zm_common\talisman\zm_talisman_coagulant.gsc;

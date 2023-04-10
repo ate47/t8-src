@@ -229,9 +229,9 @@ function defcon_sign_lights()
 */
 function play_defcon5_alarms()
 {
-	var_566c062 = struct::get_array("defcon_alarms");
+	a_s_alarms = struct::get_array("defcon_alarms");
 	var_674c8f1b = [];
-	foreach(s_alarm in var_566c062)
+	foreach(s_alarm in a_s_alarms)
 	{
 		var_9844b012 = spawn("script_origin", s_alarm.origin);
 		var_9844b012 playloopsound(s_alarm.script_sound, 0.25);

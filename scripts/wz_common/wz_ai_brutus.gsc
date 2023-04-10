@@ -11,12 +11,12 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using script_5660bae5b402a1eb;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_5b1c3d314b9c88fb;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
-#using script_77dd41c80e39f62;
+#using scripts\wz_common\wz_ai_zombie.gsc;
 #using script_7b7ed6e4bc963a51;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
@@ -36,11 +36,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
-#namespace namespace_b99ba180;
+#namespace wz_ai_brutus;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x236A5EBC
 	Offset: 0x370
 	Size: 0x44
@@ -49,12 +49,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_56457c8e4440e055", &__init__, &__main__, undefined);
+	system::register(#"wz_ai_brutus", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xA9F0A957
 	Offset: 0x3C0
 	Size: 0x124
@@ -74,7 +74,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x80F724D1
 	Offset: 0x4F0
 	Size: 0x4
@@ -87,7 +87,7 @@ function __main__()
 
 /*
 	Name: function_517fd069
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x29963147
 	Offset: 0x500
 	Size: 0x62
@@ -104,7 +104,7 @@ function private function_517fd069()
 
 /*
 	Name: function_3cdbfffd
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xE100268A
 	Offset: 0x570
 	Size: 0xC
@@ -117,7 +117,7 @@ function private function_3cdbfffd(entity)
 
 /*
 	Name: function_666b2409
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x44D175CC
 	Offset: 0x588
 	Size: 0x2C
@@ -132,7 +132,7 @@ function private function_666b2409(entity)
 
 /*
 	Name: function_debbd9da
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x1CDE46C6
 	Offset: 0x5C0
 	Size: 0x27E
@@ -144,7 +144,7 @@ function function_debbd9da()
 	self function_517fd069();
 	self namespace_b912c30b::function_9758722("walk");
 	aiutility::addaioverridedamagecallback(self, &function_83a6d3ae);
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_4ae2f15f::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_fc5aa54d);
 	self callback::function_d8abfc3d(#"hash_4e449871617e2c25", &function_6a482c74);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
@@ -163,18 +163,18 @@ function function_debbd9da()
 	self.var_12ec333b = 1;
 	self.var_6501ffdf = 1;
 	self.var_737e8510 = 96;
-	self thread namespace_4ae2f15f::function_6c308e81();
+	self thread wz_ai_zombie::function_6c308e81();
 	self setavoidancemask("avoid none");
-	self.cant_move_cb = &namespace_4ae2f15f::function_9c573bc6;
+	self.cant_move_cb = &wz_ai_zombie::function_9c573bc6;
 	self.ignorepathenemyfightdist = 1;
 	self.var_31a789c0 = 1;
-	self.var_872e52b0 = &namespace_4ae2f15f::function_833ce8c8;
+	self.var_872e52b0 = &wz_ai_zombie::function_833ce8c8;
 	self.var_721a3dbd = 1;
 }
 
 /*
 	Name: function_6a482c74
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xBDDB3034
 	Offset: 0x848
 	Size: 0x6A
@@ -199,7 +199,7 @@ function function_6a482c74(params)
 
 /*
 	Name: function_bad305c7
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x5D1B1ED
 	Offset: 0x8C0
 	Size: 0x2E
@@ -214,7 +214,7 @@ function function_bad305c7()
 
 /*
 	Name: function_6090f71a
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x540C7477
 	Offset: 0x8F8
 	Size: 0x19A
@@ -226,12 +226,12 @@ function function_6090f71a()
 	self.explosive_dmg_req = 50;
 	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
 	{
-		self thread namespace_4ae2f15f::function_e261b81d();
+		self thread wz_ai_zombie::function_e261b81d();
 	}
 	else
 	{
-		self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &namespace_4ae2f15f::function_bb3c1175);
-		self namespace_4ae2f15f::function_b670d610();
+		self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &wz_ai_zombie::function_bb3c1175);
+		self wz_ai_zombie::function_b670d610();
 	}
 	self clientfield::set("brutus_spawn_clientfield", 1);
 	var_7dd9d338 = "c_t8_zmb_mob_brutus_baton";
@@ -240,9 +240,9 @@ function function_6090f71a()
 		var_7dd9d338 = "c_t8_zmb_mob_brutus_boss_baton";
 	}
 	self attach(var_7dd9d338, "tag_weapon_right");
-	if(isdefined(self.var_4dc5382f))
+	if(isdefined(self.ai_zone))
 	{
-		node = getnode(self.var_4dc5382f.zone_name + "_patrol", "targetname");
+		node = getnode(self.ai_zone.zone_name + "_patrol", "targetname");
 		if(isdefined(node))
 		{
 			self.patrol_path = namespace_b912c30b::function_35eac38d(node);
@@ -253,7 +253,7 @@ function function_6090f71a()
 
 /*
 	Name: function_ea3e1b6c
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xFB848AC7
 	Offset: 0xAA0
 	Size: 0x32
@@ -268,7 +268,7 @@ function function_ea3e1b6c(entity)
 
 /*
 	Name: function_fc5aa54d
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x582B366
 	Offset: 0xAE0
 	Size: 0x8C
@@ -285,7 +285,7 @@ function function_fc5aa54d(params)
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xEA2F83EF
 	Offset: 0xB78
 	Size: 0x36C
@@ -331,7 +331,7 @@ function private registerbehaviorscriptfunctions()
 
 /*
 	Name: function_5ca455a0
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x5236A16D
 	Offset: 0xEF0
 	Size: 0x56
@@ -347,7 +347,7 @@ function private function_5ca455a0(entity)
 
 /*
 	Name: function_d996f07c
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x7D9A753
 	Offset: 0xF50
 	Size: 0x2A
@@ -362,7 +362,7 @@ function private function_d996f07c(entity)
 
 /*
 	Name: function_9d76e96c
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x6809116D
 	Offset: 0xF88
 	Size: 0xE4
@@ -382,7 +382,7 @@ function private function_9d76e96c(entity)
 
 /*
 	Name: function_e2ab1df7
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x6A07FCEE
 	Offset: 0x1078
 	Size: 0x2E
@@ -397,7 +397,7 @@ function private function_e2ab1df7(entity)
 
 /*
 	Name: function_1bd1ebe7
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xA12A3B72
 	Offset: 0x10B0
 	Size: 0xA0
@@ -415,7 +415,7 @@ function private function_1bd1ebe7(entity)
 
 /*
 	Name: function_3006441d
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x68AAED6D
 	Offset: 0x1158
 	Size: 0x74
@@ -433,7 +433,7 @@ function private function_3006441d(entity)
 
 /*
 	Name: function_4ec678fe
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xACF41E31
 	Offset: 0x11D8
 	Size: 0xD4
@@ -457,7 +457,7 @@ function private function_4ec678fe(entity)
 
 /*
 	Name: function_3bda3c55
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xA110C3FA
 	Offset: 0x12B8
 	Size: 0x140
@@ -495,7 +495,7 @@ function private function_3bda3c55(entity)
 
 /*
 	Name: function_f4a61e6a
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xE2CCF279
 	Offset: 0x1400
 	Size: 0x4E
@@ -509,7 +509,7 @@ function private function_f4a61e6a(entity)
 
 /*
 	Name: function_85e8940a
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xE25210FB
 	Offset: 0x1458
 	Size: 0x358
@@ -555,7 +555,7 @@ function private function_85e8940a(entity)
 
 /*
 	Name: function_97f51aa3
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xAB84CB7F
 	Offset: 0x17B8
 	Size: 0x62
@@ -570,7 +570,7 @@ function private function_97f51aa3(v_org)
 
 /*
 	Name: function_530c54e3
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xCA1111DC
 	Offset: 0x1828
 	Size: 0x66
@@ -586,7 +586,7 @@ function function_530c54e3()
 
 /*
 	Name: function_55bb9c72
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x17DA0B99
 	Offset: 0x1898
 	Size: 0x96
@@ -609,7 +609,7 @@ function private function_55bb9c72(attacker, damage, weapon, var_81dcad68, damag
 
 /*
 	Name: function_83a6d3ae
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xDA48C67A
 	Offset: 0x1938
 	Size: 0x45C
@@ -690,7 +690,7 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 
 /*
 	Name: getclosestnode
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0x16118778
 	Offset: 0x1DA0
 	Size: 0x1DA
@@ -731,7 +731,7 @@ function private getclosestnode(entity, nodes)
 
 /*
 	Name: function_b510a832
-	Namespace: namespace_b99ba180
+	Namespace: wz_ai_brutus
 	Checksum: 0xE2246578
 	Offset: 0x1F88
 	Size: 0x282

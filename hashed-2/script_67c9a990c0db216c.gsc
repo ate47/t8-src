@@ -141,7 +141,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -155,7 +155,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "full_screen_movie", persistent);
+		cLUIelem::open_luielem(player, "full_screen_movie", persistent);
 	}
 
 	/*

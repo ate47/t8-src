@@ -66,7 +66,7 @@ function __init__()
 function __main__()
 {
 	level.w_homunculus = getweapon(#"homunculus");
-	level.var_fefd572b = getweapon(#"hash_33b996abac467a45");
+	level.w_homunculus_upgraded = getweapon(#"homunculus_upgraded");
 	if(!function_67a145e5())
 	{
 		return;
@@ -92,12 +92,12 @@ function __main__()
 	{
 		level.var_fe96a4c4 = array(level.var_fe96a4c4);
 	}
-	if(!isinarray(level.var_fe96a4c4, level.var_fefd572b))
+	if(!isinarray(level.var_fe96a4c4, level.w_homunculus_upgraded))
 	{
-		level.var_fe96a4c4[level.var_fe96a4c4.size] = level.var_fefd572b;
+		level.var_fe96a4c4[level.var_fe96a4c4.size] = level.w_homunculus_upgraded;
 	}
 	zm_weapons::register_zombie_weapon_callback(level.w_homunculus, &function_91b8863c);
-	zm_weapons::register_zombie_weapon_callback(level.var_fefd572b, &function_91b8863c);
+	zm_weapons::register_zombie_weapon_callback(level.w_homunculus_upgraded, &function_91b8863c);
 	level.a_homunculus = [];
 	level scene::add_scene_func(#"hash_42c9ac9338fda8d1", &function_c6551b38);
 }
@@ -154,7 +154,7 @@ function function_91b8863c()
 */
 function function_7b1ec82e(s_result)
 {
-	if(s_result.weapon == level.w_homunculus || s_result.weapon == level.var_fefd572b || (isdefined(level.var_3b96ad73) && s_result.weapon == level.var_3b96ad73))
+	if(s_result.weapon == level.w_homunculus || s_result.weapon == level.w_homunculus_upgraded || (isdefined(level.var_3b96ad73) && s_result.weapon == level.var_3b96ad73))
 	{
 		s_result.projectile.use_grenade_special_long_bookmark = 1;
 		s_result.projectile.grenade_multiattack_bookmark_count = 1;
@@ -187,7 +187,7 @@ function function_dcaa7a4a(e_grenade, var_bbab4f84, var_c4a5788c, var_2f916462)
 		e_grenade delete();
 		return;
 	}
-	var_515e20e6 = e_grenade.weapon == level.var_fefd572b;
+	var_515e20e6 = e_grenade.weapon == level.w_homunculus_upgraded;
 	if(e_grenade.weapon == getweapon(#"hash_2b3a2f2eeada34a8"))
 	{
 		var_9ddf478 = #"hash_5e7f95fc402bc5f8";
@@ -201,7 +201,7 @@ function function_dcaa7a4a(e_grenade, var_bbab4f84, var_c4a5788c, var_2f916462)
 	e_grenade.mdl_anchor = util::spawn_model(var_9ddf478, e_grenade.origin, e_grenade.angles);
 	e_grenade.mdl_anchor linkto(e_grenade);
 	e_grenade.var_53ba8670 = 0;
-	level notify(#"hash_26b0477726cdbf77", {#e_player:self, #e_homunculus:e_grenade});
+	level notify(#"homunculus_thrown", {#e_player:self, #e_homunculus:e_grenade});
 	if(math::cointoss() && math::cointoss())
 	{
 		e_grenade thread function_4d71ac38(#"hash_8d020e5460f4a95");

@@ -206,8 +206,8 @@ function function_bd8eddac()
 			self.bulletclip = var_a2f7fe95;
 		}
 	}
-	var_b72aaabb = struct::get_array(self.target, "targetname");
-	foreach(s_element in var_b72aaabb)
+	a_s_elements = struct::get_array(self.target, "targetname");
+	foreach(s_element in a_s_elements)
 	{
 		if(s_element.script_noteworthy === "source_trig_pos")
 		{

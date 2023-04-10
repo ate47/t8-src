@@ -2,8 +2,8 @@
 #using scripts\abilities\gadgets\gadget_radiation_field.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_545a0bac37bda541;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\abilities\ability_power.gsc;

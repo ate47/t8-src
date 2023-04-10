@@ -332,9 +332,9 @@ function private function_87e09347()
 {
 	level endon(#"end_game", #"hash_36fd0ff497e7cb39");
 	level.var_23674b8f.n_step = 2;
-	var_63fca02d = struct::get_array("white_portal");
+	a_s_portals = struct::get_array("white_portal");
 	var_7ed14c5f = zm_white_portals::function_688df525();
-	var_95d7a612 = array::exclude(var_63fca02d, var_7ed14c5f);
+	var_95d7a612 = array::exclude(a_s_portals, var_7ed14c5f);
 	var_95d7a612 = array::randomize(var_95d7a612);
 	level.var_23674b8f.var_80284ca5 = [];
 	for(i = 0; i < 2; i++)

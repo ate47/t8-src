@@ -512,7 +512,7 @@ function function_94a403a4(var_1c855a0d)
 */
 function function_6c1be65c(var_a276c861)
 {
-	level.var_992001f4 = [];
+	level.a_s_barrels = [];
 	level.var_8efe799b = [];
 	level flagsys::wait_till(#"load_main_complete");
 	level flag::init(#"hash_63f87f83cf6cbc6a");
@@ -546,7 +546,7 @@ function function_e4b6830d(var_a276c861, ended_early)
 {
 	if(var_a276c861 || ended_early)
 	{
-		foreach(s_barrel in level.var_992001f4)
+		foreach(s_barrel in level.a_s_barrels)
 		{
 			s_barrel notify(#"busted");
 			if(isdefined(s_barrel.var_b0fe1e03))
@@ -572,30 +572,30 @@ function function_e4b6830d(var_a276c861, ended_early)
 */
 function function_c63076b4(var_2afee46 = 1)
 {
-	level.var_992001f4 = array::randomize(struct::get_array("leaker"));
+	level.a_s_barrels = array::randomize(struct::get_array("leaker"));
 	level.var_a54c0174 = 0;
 	var_38376e1d = 0.25;
-	for(i = 0; i < level.var_992001f4.size; i++)
+	for(i = 0; i < level.a_s_barrels.size; i++)
 	{
-		level.var_992001f4[i].var_b0fe1e03 = util::spawn_model("tag_origin", level.var_992001f4[i].origin, level.var_992001f4[i].angles);
-		level.var_992001f4[i].var_80221a28 = util::spawn_model("tag_origin", level.var_992001f4[i].origin, level.var_992001f4[i].angles);
+		level.a_s_barrels[i].var_b0fe1e03 = util::spawn_model("tag_origin", level.a_s_barrels[i].origin, level.a_s_barrels[i].angles);
+		level.a_s_barrels[i].var_80221a28 = util::spawn_model("tag_origin", level.a_s_barrels[i].origin, level.a_s_barrels[i].angles);
 		wait(0.1);
-		if(isdefined(level.var_992001f4[i].var_b0fe1e03))
+		if(isdefined(level.a_s_barrels[i].var_b0fe1e03))
 		{
-			level.var_992001f4[i].n_rate = var_38376e1d + (var_38376e1d * i);
-			level.var_992001f4[i].t_trig = getent(level.var_992001f4[i].target, "targetname");
-			level.var_992001f4[i] thread function_3e37bb63();
+			level.a_s_barrels[i].n_rate = var_38376e1d + (var_38376e1d * i);
+			level.a_s_barrels[i].t_trig = getent(level.a_s_barrels[i].target, "targetname");
+			level.a_s_barrels[i] thread function_3e37bb63();
 			if(var_2afee46)
 			{
-				level.var_992001f4[i] thread function_85e39c4d();
+				level.a_s_barrels[i] thread function_85e39c4d();
 				level clientfield::set("" + #"hash_2c115514da4cee51", 1);
 			}
 		}
 		/#
 			if(var_2afee46)
 			{
-				level.var_992001f4[i].var_b0fe1e03.script_int = i;
-				level.var_992001f4[i].var_b0fe1e03 thread mansion_jordans::function_95b6c945();
+				level.a_s_barrels[i].var_b0fe1e03.script_int = i;
+				level.a_s_barrels[i].var_b0fe1e03 thread mansion_jordans::function_95b6c945();
 			}
 		#/
 	}
@@ -644,7 +644,7 @@ function function_85e39c4d()
 			{
 				level flag::set(#"hash_521d6bb11da55099");
 			}
-			if(!level flag::get(#"hash_63f87f83cf6cbc6a") && self == (level.var_992001f4[level.var_8efe799b.size - 1]))
+			if(!level flag::get(#"hash_63f87f83cf6cbc6a") && self == (level.a_s_barrels[level.var_8efe799b.size - 1]))
 			{
 				self thread function_5e130882();
 				self.e_attacker = s_notify.attacker;
@@ -795,7 +795,7 @@ function function_f2ca3ec8(s_pos)
 	var_9b6698a3 = array(#"lmg_double_t8", #"lmg_heavy_t8", #"lmg_spray_t8", #"lmg_standard_t8");
 	str_weapon = array::random(var_9b6698a3);
 	var_498a708 = getweapon(str_weapon);
-	var_a76c9d75 = level.var_992001f4[level.var_992001f4.size - 1].e_attacker;
+	var_a76c9d75 = level.a_s_barrels[level.a_s_barrels.size - 1].e_attacker;
 	if(!isdefined(var_a76c9d75))
 	{
 		var_a76c9d75 = getplayers()[0];

@@ -42,7 +42,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_a68f6e20
+		Name: close_luielem
 		Namespace: cLUIelem
 		Checksum: 0xA6BAE91C
 		Offset: 0x2C90
@@ -50,11 +50,11 @@ class cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_a68f6e20(player)
+	function close_luielem(player)
 	{
 		if(isplayer(player))
 		{
-			player function_43d5b973(var_47e79fc);
+			player closeluielem(var_47e79fc);
 		}
 	}
 
@@ -73,7 +73,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_8b8089ba
+		Name: open_luielem
 		Namespace: cLUIelem
 		Checksum: 0xAABD2700
 		Offset: 0x2C00
@@ -81,9 +81,9 @@ class cLUIelem
 		Parameters: 3
 		Flags: Linked
 	*/
-	function function_8b8089ba(player, menu_name, persistent = 0)
+	function open_luielem(player, menu_name, persistent = 0)
 	{
-		player function_5686f5cd(menu_name, var_47e79fc, persistent);
+		player openluielem(menu_name, var_47e79fc, persistent);
 	}
 
 	/*

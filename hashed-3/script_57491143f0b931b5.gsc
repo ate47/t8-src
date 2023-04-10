@@ -71,7 +71,7 @@ class cseeker_mine_prompt : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -85,7 +85,7 @@ class cseeker_mine_prompt : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "seeker_mine_prompt", persistent);
+		cLUIelem::open_luielem(player, "seeker_mine_prompt", persistent);
 	}
 
 	/*

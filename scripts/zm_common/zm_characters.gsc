@@ -227,7 +227,7 @@ function set_character(character)
 	self.favorite_wall_weapons_list = [];
 	self.talks_in_danger = 0;
 	self setcharacterbodytype(self.characterindex);
-	self function_8fd843dd(0);
+	self setcharacteroutfit(0);
 	function_50b1ae32();
 	if(!isdefined(level.var_6f14e9e1))
 	{

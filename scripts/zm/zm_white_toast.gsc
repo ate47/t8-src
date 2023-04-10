@@ -4,7 +4,7 @@
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\ai\zm_ai_avogadro.gsc;
@@ -742,8 +742,8 @@ function apd_lockdown()
 		}
 	}
 	level.var_868c98df = 0;
-	var_63fca02d = struct::get_array("white_portal");
-	foreach(s_portal in var_63fca02d)
+	a_s_portals = struct::get_array("white_portal");
+	foreach(s_portal in a_s_portals)
 	{
 		s_portal thread zm_white_portals::function_978923cd();
 		s_portal.b_active = 0;

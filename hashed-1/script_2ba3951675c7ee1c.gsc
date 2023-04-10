@@ -1698,14 +1698,14 @@ function function_48c915fa()
 				{
 					level flag::set(#"activate_sally_port_acid");
 					self.e_item ghost();
-					var_80c0f2e6 = zm_crafting::function_4c2f8683(#"hash_5517c404e6d9592b");
+					var_80c0f2e6 = zm_crafting::get_component(#"hash_5517c404e6d9592b");
 					zm_items::spawn_item(var_80c0f2e6, self.e_item.origin, self.e_item.angles);
 					self.e_item delete();
 				}
 				if(self.e_item.script_int == 2)
 				{
 					self.e_item ghost();
-					var_80c0f2e6 = zm_crafting::function_4c2f8683(#"hash_5517c504e6d95ade");
+					var_80c0f2e6 = zm_crafting::get_component(#"hash_5517c504e6d95ade");
 					zm_items::spawn_item(var_80c0f2e6, self.e_item.origin, self.e_item.angles);
 					self.e_item delete();
 				}

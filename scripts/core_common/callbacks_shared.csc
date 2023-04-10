@@ -1396,7 +1396,7 @@ event function_327732bf(eventstruct)
 {
 	if(isdefined(level.var_dda8e1d8))
 	{
-		[[level.var_dda8e1d8]](eventstruct.localclientnum, eventstruct.job_index, eventstruct.extracam_index, eventstruct.session_mode, eventstruct.character_index, eventstruct.var_7abdc6dd, eventstruct.item_type, eventstruct.item_index, eventstruct.is_defaultrender);
+		[[level.var_dda8e1d8]](eventstruct.localclientnum, eventstruct.job_index, eventstruct.extracam_index, eventstruct.session_mode, eventstruct.character_index, eventstruct.outfit_index, eventstruct.item_type, eventstruct.item_index, eventstruct.is_defaultrender);
 	}
 }
 

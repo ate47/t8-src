@@ -40,17 +40,17 @@ function __init__()
 {
 	level.w_snowball = getweapon(#"snowball");
 	level.var_f8934665 = getweapon(#"snowball_upgraded");
-	level.var_bf70d56c = getweapon(#"hash_7b1ab4354f6a9ef4");
-	level.var_d879215 = getweapon(#"hash_4d50a2c4ff4e615d");
+	level.var_bf70d56c = getweapon(#"snowball_yellow");
+	level.var_d879215 = getweapon(#"snowball_yellow_upgraded");
 	zm::function_84d343d(#"snowball", &function_5ff12a45);
 	zm::function_84d343d(#"snowball_upgraded", &function_5ff12a45);
-	zm::function_84d343d(#"hash_7b1ab4354f6a9ef4", &function_ee240a8e);
-	zm::function_84d343d(#"hash_4d50a2c4ff4e615d", &function_ee240a8e);
+	zm::function_84d343d(#"snowball_yellow", &function_ee240a8e);
+	zm::function_84d343d(#"snowball_yellow_upgraded", &function_ee240a8e);
 	callback::function_20263b9e(&function_20263b9e);
 	zm_loadout::register_lethal_grenade_for_level(#"snowball");
 	zm_loadout::register_lethal_grenade_for_level(#"snowball_upgraded");
-	zm_loadout::register_lethal_grenade_for_level(#"hash_7b1ab4354f6a9ef4");
-	zm_loadout::register_lethal_grenade_for_level(#"hash_4d50a2c4ff4e615d");
+	zm_loadout::register_lethal_grenade_for_level(#"snowball_yellow");
+	zm_loadout::register_lethal_grenade_for_level(#"snowball_yellow_upgraded");
 	clientfield::register("toplayer", "" + #"hash_78aa1dc141a3e27", 24000, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_2fafddfa9f85b8aa", 24000, 1, "int");
 }

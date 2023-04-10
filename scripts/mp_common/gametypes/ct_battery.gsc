@@ -1130,9 +1130,9 @@ function function_cf3224fe(b_success)
 			}
 		}
 	}
-	if(isdefined(level.var_c5d98d25))
+	if(isdefined(level.a_vh_choppers))
 	{
-		foreach(vh_chopper in level.var_c5d98d25)
+		foreach(vh_chopper in level.a_vh_choppers)
 		{
 			if(isalive(vh_chopper))
 			{
@@ -1295,17 +1295,17 @@ function function_52d196f2(n_difficulty = 2)
 	var_edf46d6e[#"shoot_spread"] = var_ed621a12[n_difficulty];
 	var_edf46d6e[#"speed"] = var_c52588b6[n_difficulty];
 	var_edf46d6e[#"accel"] = var_c005d40b[n_difficulty];
-	level.var_c5d98d25 = e_player spawn_attack_wave(var_88e49d60[n_difficulty], 0, var_edf46d6e, 2);
-	foreach(vh_chopper in level.var_c5d98d25)
+	level.a_vh_choppers = e_player spawn_attack_wave(var_88e49d60[n_difficulty], 0, var_edf46d6e, 2);
+	foreach(vh_chopper in level.a_vh_choppers)
 	{
 		vh_chopper.waypoint = vh_chopper ct_utils::create_waypoint(#"hash_3489718f227fba3", vh_chopper.origin, vh_chopper.angles, #"any", undefined, 0, undefined);
 	}
 	n_count = 10;
-	n_total = 10 + level.var_c5d98d25.size;
+	n_total = 10 + level.a_vh_choppers.size;
 	e_player ct_utils::objcounter_init(#"hash_1b6372a0a5dc0fef", n_count, n_total, 1, 1);
-	while(level.var_c5d98d25.size > 0 || level.var_ae0bbaac.size > 0)
+	while(level.a_vh_choppers.size > 0 || level.var_ae0bbaac.size > 0)
 	{
-		function_1eaaceab(level.var_c5d98d25);
+		function_1eaaceab(level.a_vh_choppers);
 		function_1eaaceab(level.var_ae0bbaac);
 		wait(0.5);
 	}

@@ -225,7 +225,7 @@ event main(eventstruct)
 	callback::function_20263b9e(&zm_white_util::function_c05cc102);
 	level thread function_814cda18();
 	/#
-		level thread function_6919a3fd();
+		level thread white_devgui();
 	#/
 	level thread function_f684d327();
 }
@@ -569,10 +569,10 @@ function function_1e56a591()
 			var_c2147f5e hide();
 		}
 	}
-	var_4160471f = struct::get_array("pap_button", "targetname");
-	if(var_4160471f.size > 0)
+	a_s_pap_buttons = struct::get_array("pap_button", "targetname");
+	if(a_s_pap_buttons.size > 0)
 	{
-		foreach(s_pap_button in var_4160471f)
+		foreach(s_pap_button in a_s_pap_buttons)
 		{
 			s_unitrigger = s_pap_button zm_unitrigger::create("", 64);
 			s_unitrigger.is_on = 0;
@@ -1423,7 +1423,7 @@ function function_cc45705b(a_s_respawn_points)
 }
 
 /*
-	Name: function_6919a3fd
+	Name: white_devgui
 	Namespace: zm_white
 	Checksum: 0x37A4ED06
 	Offset: 0x4F60
@@ -1431,7 +1431,7 @@ function function_cc45705b(a_s_respawn_points)
 	Parameters: 0
 	Flags: Private
 */
-function private function_6919a3fd()
+function private white_devgui()
 {
 	/#
 		adddebugcommand("");

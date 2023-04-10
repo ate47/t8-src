@@ -5,7 +5,7 @@
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.csc;
 #using script_1edaf4333ed0bece;
 #using scripts\zm\weapons\zm_weap_gravityspikes.csc;
-#using script_29ccb18ac19d72ef;
+#using scripts\zm\zm_orange_trials.csc;
 #using scripts\zm_common\zm_characters.csc;
 #using scripts\zm\zm_orange_lighthouse.csc;
 #using scripts\zm\weapons\zm_weap_minigun.csc;

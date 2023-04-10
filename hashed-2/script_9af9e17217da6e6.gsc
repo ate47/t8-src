@@ -523,13 +523,13 @@ function function_fde77b55(var_579805b6)
 	while(true)
 	{
 		level flag::wait_till_any(array(#"hash_546b8f78e6510d81", #"hash_546b8c78e6510868", #"hash_546b8d78e6510a1b", #"hash_546b9278e651129a"));
-		var_af1bea51 = [];
+		a_str_flags = [];
 		for(i = 1; i < getplayers().size + 1; i++)
 		{
-			var_af1bea51[var_af1bea51.size] = "symbol_hit_player_" + i;
+			a_str_flags[a_str_flags.size] = "symbol_hit_player_" + i;
 		}
 		wait(getplayers().size * 0.35);
-		if(level flag::get_all(var_af1bea51))
+		if(level flag::get_all(a_str_flags))
 		{
 			level scene::play(#"p8_fxanim_zm_man_beam_device_bundle", "shot 2");
 			var_2782a2fe = getent("beam_man", "targetname");
@@ -561,8 +561,8 @@ function function_d3128b5f()
 	level flag::wait_till(#"ley_start");
 	level.var_3128fb28 clientfield::set("" + #"hash_34c5ab29531f15f0", 0);
 	var_95807f2d = [];
-	var_72243c52 = struct::get_array(#"hash_fd673acb65a1865", "script_string");
-	foreach(s_ring in var_72243c52)
+	a_s_rings = struct::get_array(#"hash_fd673acb65a1865", "script_string");
+	foreach(s_ring in a_s_rings)
 	{
 		trigger = spawn("trigger_box_use", s_ring.origin, 0, 64, 64, 64);
 		trigger setcursorhint("HINT_NOICON");

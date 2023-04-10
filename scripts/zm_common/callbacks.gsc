@@ -2,7 +2,7 @@
 #using script_20ac552ee498eb9d;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\bots\bot_traversals.gsc;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_522aeb6ae906391e;
 #using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

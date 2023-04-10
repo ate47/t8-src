@@ -7,10 +7,10 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\abilities\ability_util.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;

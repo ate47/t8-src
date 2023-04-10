@@ -63,10 +63,10 @@ function function_d53a8c5b()
 		if(isdefined(var_69f123e5))
 		{
 			var_69f123e5 namespace_67838d10::function_723d686d();
-			var_cb4de8b0 = struct::get("zombie_plane_flight_goal", "targetname");
-			if(isdefined(var_cb4de8b0))
+			zombie_plane_flight_goal = struct::get("zombie_plane_flight_goal", "targetname");
+			if(isdefined(zombie_plane_flight_goal))
 			{
-				var_69f123e5 thread function_3e59cbbb(var_cb4de8b0);
+				var_69f123e5 thread function_3e59cbbb(zombie_plane_flight_goal);
 			}
 		}
 	}
@@ -137,8 +137,8 @@ function function_f3dbfe8d(einflictor, eattacker, idamage, idflags, smeansofdeat
 function function_9dc0fa01()
 {
 	var_7206c0ef = getent("motd_plane_ee", "targetname");
-	var_cb4de8b0 = struct::get("zombie_plane_flight_goal", "targetname");
-	if(isdefined(level.deathcircle) && isdefined(var_7206c0ef) && isdefined(var_cb4de8b0))
+	zombie_plane_flight_goal = struct::get("zombie_plane_flight_goal", "targetname");
+	if(isdefined(level.deathcircle) && isdefined(var_7206c0ef) && isdefined(zombie_plane_flight_goal))
 	{
 		center = level.deathcircle.origin;
 		radius = level.deathcircle.radius;
@@ -148,8 +148,8 @@ function function_9dc0fa01()
 		var_7206c0ef.origin = (x_pos, y_pos, 10000);
 		var_e3b87be8 = center[0] + (radius * (cos(angle + 180)));
 		var_8e6c495b = center[1] + (radius * (sin(angle + 180)));
-		var_cb4de8b0.origin = (var_e3b87be8, var_8e6c495b, 10000);
-		var_69f123e5 = spawnvehicle("vehicle_zmb_air_alcatraz_plane", var_7206c0ef.origin, vectortoangles(vectornormalize(var_cb4de8b0.origin - var_7206c0ef.origin)));
+		zombie_plane_flight_goal.origin = (var_e3b87be8, var_8e6c495b, 10000);
+		var_69f123e5 = spawnvehicle("vehicle_zmb_air_alcatraz_plane", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
 		if(!isdefined(var_69f123e5))
 		{
 			return;
@@ -208,10 +208,10 @@ function function_37401a52()
 				if(isdefined(var_69f123e5))
 				{
 					var_69f123e5 namespace_67838d10::function_723d686d();
-					var_cb4de8b0 = struct::get("", "");
-					if(isdefined(var_cb4de8b0))
+					zombie_plane_flight_goal = struct::get("", "");
+					if(isdefined(zombie_plane_flight_goal))
 					{
-						var_69f123e5 thread function_3e59cbbb(var_cb4de8b0);
+						var_69f123e5 thread function_3e59cbbb(zombie_plane_flight_goal);
 					}
 				}
 				setdvar(#"hash_533e1b9932a65628", 0);
@@ -234,8 +234,8 @@ function function_de4b0705()
 {
 	/#
 		var_7206c0ef = getent("", "");
-		var_cb4de8b0 = struct::get("", "");
-		if(!isdefined(level.deathcircle) && isdefined(var_7206c0ef) && isdefined(var_cb4de8b0))
+		zombie_plane_flight_goal = struct::get("", "");
+		if(!isdefined(level.deathcircle) && isdefined(var_7206c0ef) && isdefined(zombie_plane_flight_goal))
 		{
 			var_8a2c40d0 = struct::get("", "");
 			if(isdefined(var_8a2c40d0))
@@ -248,8 +248,8 @@ function function_de4b0705()
 				var_7206c0ef.origin = (x_pos, y_pos, 10000);
 				var_e3b87be8 = center[0] + (radius * (cos(angle + 180)));
 				var_8e6c495b = center[1] + (radius * (sin(angle + 180)));
-				var_cb4de8b0.origin = (var_e3b87be8, var_8e6c495b, 10000);
-				var_69f123e5 = spawnvehicle("", var_7206c0ef.origin, vectortoangles(vectornormalize(var_cb4de8b0.origin - var_7206c0ef.origin)));
+				zombie_plane_flight_goal.origin = (var_e3b87be8, var_8e6c495b, 10000);
+				var_69f123e5 = spawnvehicle("", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
 				if(!isdefined(var_69f123e5))
 				{
 					return;

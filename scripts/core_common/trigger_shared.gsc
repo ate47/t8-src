@@ -337,8 +337,8 @@ function function_ac2f203a(str_flag)
 */
 function flag_set_trigger()
 {
-	var_af1bea51 = util::create_flags_and_return_tokens(self.script_flag_set);
-	foreach(str_flag in var_af1bea51)
+	a_str_flags = util::create_flags_and_return_tokens(self.script_flag_set);
+	foreach(str_flag in a_str_flags)
 	{
 		level flag::set(str_flag);
 	}
@@ -355,8 +355,8 @@ function flag_set_trigger()
 */
 function flag_clear_trigger(s_info)
 {
-	var_af1bea51 = util::create_flags_and_return_tokens(self.script_flag_clear);
-	foreach(str_flag in var_af1bea51)
+	a_str_flags = util::create_flags_and_return_tokens(self.script_flag_clear);
+	foreach(str_flag in a_str_flags)
 	{
 		level flag::clear(str_flag);
 	}

@@ -305,31 +305,31 @@ function function_4514c7b5(var_a276c861, var_19e802fa)
 function function_977835f8()
 {
 	level endon(#"hash_3a873ffa3efcd0cb");
-	var_d66b8108 = array::randomize(struct::get_array(#"hash_7d0aef696381d47a"));
+	a_s_valves = array::randomize(struct::get_array(#"hash_7d0aef696381d47a"));
 	var_810703d4 = [];
-	foreach(s_valve in var_d66b8108)
+	foreach(s_valve in a_s_valves)
 	{
 		if(!isdefined(s_valve.script_int))
 		{
-			arrayremovevalue(var_d66b8108, s_valve, 1);
+			arrayremovevalue(a_s_valves, s_valve, 1);
 		}
 	}
-	var_d66b8108 = array::remove_undefined(var_d66b8108, 0);
+	a_s_valves = array::remove_undefined(a_s_valves, 0);
 	for(i = 0; i < 6; i++)
 	{
-		var_810703d4[i] = var_d66b8108[i];
-		exploder::exploder("exp_engine_warning_light_" + var_d66b8108[i].script_int);
+		var_810703d4[i] = a_s_valves[i];
+		exploder::exploder("exp_engine_warning_light_" + a_s_valves[i].script_int);
 		/#
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
 			{
-				debugstar(var_d66b8108[i].origin, 9999);
+				debugstar(a_s_valves[i].origin, 9999);
 			}
 		#/
 	}
 	while(true)
 	{
 		b_complete = 1;
-		foreach(s_valve in var_d66b8108)
+		foreach(s_valve in a_s_valves)
 		{
 			if(isinarray(var_810703d4, s_valve))
 			{
@@ -1156,8 +1156,8 @@ function function_c62198dc()
 function function_5b9fca53(var_5ea5c94d)
 {
 	level.var_f02a5fea = [];
-	var_e47aabc9 = getentarray("underwater_objects", "script_noteworthy");
-	foreach(mdl in var_e47aabc9)
+	a_mdls = getentarray("underwater_objects", "script_noteworthy");
+	foreach(mdl in a_mdls)
 	{
 		mdl thread function_bf250d60();
 	}
@@ -1438,7 +1438,7 @@ function function_b941922b(var_a276c861)
 		{
 			level.var_f39ad20a = 0;
 			level.var_637aeeb8 = 0;
-			foreach(s_safe in level.var_d3587a62)
+			foreach(s_safe in level.a_s_safes)
 			{
 				s_safe thread function_ae4e9016();
 			}
@@ -1456,7 +1456,7 @@ function function_b941922b(var_a276c861)
 					var_d6249c56.angles = var_d6249c56.original_angles;
 					var_d6249c56.b_taken = 0;
 				}
-				foreach(s_safe in level.var_d3587a62)
+				foreach(s_safe in level.a_s_safes)
 				{
 					s_safe.var_6f7cfe6d clientfield::set("" + #"safe_fx", 0);
 					s_safe.var_d6249c56 = undefined;
@@ -1478,7 +1478,7 @@ function function_b941922b(var_a276c861)
 */
 function function_2eabbbf5(var_a276c861, var_19e802fa)
 {
-	foreach(s_safe in level.var_d3587a62)
+	foreach(s_safe in level.a_s_safes)
 	{
 		if(isdefined(s_safe.var_f02fb354))
 		{
@@ -1511,8 +1511,8 @@ function function_40047f84()
 		var_d6249c56 bone_init();
 		var_d6249c56 thread function_50f4cc80();
 	}
-	level.var_d3587a62 = array::randomize(struct::get_array(#"s_sa_lo"));
-	foreach(s_safe in level.var_d3587a62)
+	level.a_s_safes = array::randomize(struct::get_array(#"s_sa_lo"));
+	foreach(s_safe in level.a_s_safes)
 	{
 		s_safe safe_init();
 	}
@@ -1537,7 +1537,7 @@ function function_b8048aaf()
 		n_index = randomint(var_d19e7d67.size);
 		var_83fad8a9 = var_d19e7d67[n_index];
 		arrayremoveindex(var_d19e7d67, n_index);
-		level.var_d3587a62[i].var_83fad8a9 = var_83fad8a9;
+		level.a_s_safes[i].var_83fad8a9 = var_83fad8a9;
 		level.var_f1be1a60[i].var_83fad8a9 = var_83fad8a9;
 		foreach(var_aed8d635 in level.var_f1be1a60[i].var_3abff2c8)
 		{
@@ -1864,24 +1864,24 @@ function function_2ff57042(var_a276c861, var_19e802fa)
 */
 function function_7f18a333()
 {
-	var_ef1e7447 = getent("portal_block", "targetname");
+	e_block = getent("portal_block", "targetname");
 	var_3bac6db4 = getent(self.target, "targetname");
 	var_3bac6db4 val::set("boney_jones_car", "takedamage", 0);
 	level.var_438aa88 = var_3bac6db4;
 	v_origin = var_3bac6db4.origin;
 	v_angles = var_3bac6db4.angles;
 	var_3bac6db4 endon(#"death");
-	var_ef1e7447 show();
-	var_ef1e7447 playloopsound(#"hash_6ab30aa83cfad114", 0.1);
+	e_block show();
+	e_block playloopsound(#"hash_6ab30aa83cfad114", 0.1);
 	exploder::exploder("exp_bubbles_sink");
-	var_ef1e7447 moveto(var_ef1e7447.origin + vectorscale((0, 0, 1), 12), 1);
-	var_ef1e7447 waittill(#"movedone");
+	e_block moveto(e_block.origin + vectorscale((0, 0, 1), 12), 1);
+	e_block waittill(#"movedone");
 	var_3bac6db4 moveto(var_3bac6db4.origin + (0, 0, -100), 9);
 	var_3bac6db4 waittill(#"movedone");
 	var_3bac6db4 thread scene::init(#"hash_322be85f9a112e9");
 	var_3bac6db4 moveto(var_3bac6db4.origin + (0, 0, -100 * -1), 9);
 	var_3bac6db4 waittill(#"movedone");
-	var_ef1e7447 stoploopsound(1);
+	e_block stoploopsound(1);
 	exploder::stop_exploder("exp_bubbles_sink");
 	while(true)
 	{
@@ -2382,8 +2382,8 @@ function function_bd64f794()
 function function_62c5099d()
 {
 	level endon(#"end_game");
-	level.var_d241eaa9 = struct::get_array(#"s_launcher");
-	foreach(s_launcher in level.var_d241eaa9)
+	level.a_s_launchers = struct::get_array(#"s_launcher");
+	foreach(s_launcher in level.a_s_launchers)
 	{
 		s_launcher.var_f0bbde5 = struct::get(s_launcher.target);
 		s_launcher flag::init(#"hash_2078d5bf94139877");
@@ -2397,7 +2397,7 @@ function function_62c5099d()
 	while(true)
 	{
 		level waittill(#"start_of_round");
-		foreach(s_launcher in level.var_d241eaa9)
+		foreach(s_launcher in level.a_s_launchers)
 		{
 			s_launcher flag::clear(#"hash_2078d5bf94139877");
 		}
@@ -2656,7 +2656,7 @@ function function_7ae29395()
 		{
 			self.s_launcher flag::set(#"hash_2078d5bf94139877");
 			var_a3c52257 = 0;
-			foreach(s_launcher in level.var_d241eaa9)
+			foreach(s_launcher in level.a_s_launchers)
 			{
 				if(s_launcher flag::get(#"hash_2078d5bf94139877"))
 				{
@@ -2666,7 +2666,7 @@ function function_7ae29395()
 			if(var_a3c52257 == 4 && level.var_8c1a6e03 !== 1)
 			{
 				level.var_8c1a6e03 = 1;
-				foreach(s_launcher in level.var_d241eaa9)
+				foreach(s_launcher in level.a_s_launchers)
 				{
 					level thread function_9fa09d36(s_launcher.var_a4bb6a54);
 				}
@@ -2868,7 +2868,7 @@ function function_5f7192b8()
 	wait(1.5);
 	exploder::exploder("fx_exp_flare_vista_red_white_blue");
 	var_2cf73102 = [];
-	foreach(s_launcher in level.var_d241eaa9)
+	foreach(s_launcher in level.a_s_launchers)
 	{
 		if(isdefined(s_launcher.var_a4bb6a54))
 		{
@@ -3161,8 +3161,8 @@ function function_2c343fd8()
 */
 function function_b87c71d7(var_a276c861)
 {
-	var_365259de = struct::get_array(#"hash_238f2635f6e0454a");
-	foreach(s_piano in var_365259de)
+	a_s_pianos = struct::get_array(#"hash_238f2635f6e0454a");
+	foreach(s_piano in a_s_pianos)
 	{
 		s_piano thread function_f003a04b();
 	}
@@ -3173,7 +3173,7 @@ function function_b87c71d7(var_a276c861)
 	}
 	level waittill(#"start_of_round");
 	level thread function_9a209775();
-	util::waittill_multiple_ents(var_365259de[0], #"hash_2de28171d87b35cf", var_365259de[1], #"hash_2de28171d87b35cf", var_365259de[2], #"hash_2de28171d87b35cf");
+	util::waittill_multiple_ents(a_s_pianos[0], #"hash_2de28171d87b35cf", a_s_pianos[1], #"hash_2de28171d87b35cf", a_s_pianos[2], #"hash_2de28171d87b35cf");
 }
 
 /*
@@ -3371,8 +3371,8 @@ function function_6d5cf6b2(str_text, str_endon)
 */
 function function_46a445cd(var_a276c861, var_19e802fa)
 {
-	var_365259de = struct::get_array(#"hash_238f2635f6e0454a");
-	foreach(s_piano in var_365259de)
+	a_s_pianos = struct::get_array(#"hash_238f2635f6e0454a");
+	foreach(s_piano in a_s_pianos)
 	{
 		s_piano.var_1904a11d show();
 		s_piano.var_fd9d797f = 1;
@@ -3403,10 +3403,10 @@ function function_9a209775(var_a276c861)
 	if(!(isdefined(level.var_7812c982) && level.var_7812c982))
 	{
 		level.var_7812c982 = 1;
-		var_365259de = struct::get_array(#"hash_238f2635f6e0454a");
+		a_s_pianos = struct::get_array(#"hash_238f2635f6e0454a");
 		while(true)
 		{
-			foreach(s_piano in var_365259de)
+			foreach(s_piano in a_s_pianos)
 			{
 				s_piano thread function_ff05eb5();
 			}

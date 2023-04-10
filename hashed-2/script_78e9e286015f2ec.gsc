@@ -167,7 +167,7 @@ function function_4da0eaff()
 	level.var_f13364b4.s_keypad zm_unitrigger::create("", 32);
 	level.var_f13364b4.s_keypad thread function_44748fe7();
 	zm_unitrigger::function_89380dda(level.var_f13364b4.s_keypad.s_unitrigger, 1);
-	level.var_f13364b4.var_1a37ad02 = namespace_509a75d1::function_2719d4c0("keypad_keys", "targetname", "script_int");
+	level.var_f13364b4.a_s_keys = namespace_509a75d1::function_2719d4c0("keypad_keys", "targetname", "script_int");
 	function_52838f02("keypad", 1);
 	level function_9a2a7f26();
 	if(zm_utility::function_e51dc2d8())
@@ -195,7 +195,7 @@ function function_44748fe7()
 		e_who = var_be17187b.e_who;
 		if(!level.var_5dd0d3ff.isspeaking || level.var_f13364b4.var_e3d3636b === 1)
 		{
-			foreach(s_key in level.var_f13364b4.var_1a37ad02)
+			foreach(s_key in level.var_f13364b4.a_s_keys)
 			{
 				var_48b3293c = s_key.origin + (anglestoup(s_key.angles) * 0);
 				if(zombie_utility::is_player_valid(e_who) && e_who function_bcec00bc(var_48b3293c, 8, 0))

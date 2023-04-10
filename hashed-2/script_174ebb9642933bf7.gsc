@@ -302,8 +302,8 @@ function private function_9a898f07(e_target)
 		}
 		var_c61e7ea7 = level.zones[var_5f3b05e8];
 		var_24f5d9f8 = array(var_c61e7ea7.name);
-		var_e15699c4 = getarraykeys(var_c61e7ea7.adjacent_zones);
-		foreach(str_zone in var_e15699c4)
+		a_str_adj_zones = getarraykeys(var_c61e7ea7.adjacent_zones);
+		foreach(str_zone in a_str_adj_zones)
 		{
 			if(var_c61e7ea7.adjacent_zones[str_zone].is_connected)
 			{

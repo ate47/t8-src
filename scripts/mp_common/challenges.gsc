@@ -8,7 +8,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\supplypod.gsc;
 #using scripts\weapons\weapon_utils.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -2900,17 +2900,17 @@ function function_ea966b4a(killstreak)
 		case "remote_missile":
 		case "inventory_planemortar":
 		case "drone_squadron":
-		case "hash_3447a6457d26a42e":
+		case "inventory_drone_squadron":
 		case "overwatch_helicopter":
 		case "inventory_dart":
-		case "hash_4307d5aaa7ce21d4":
-		case "hash_459c0007ec5e2470":
+		case "inventory_straferun":
+		case "inventory_ac130":
 		case "inventory_remote_missile":
 		case "straferun":
 		case "ac130":
 		case "helicopter_comlink":
 		case "planemortar":
-		case "hash_74ea4af18853e9af":
+		case "inventory_overwatch_helicopter":
 		case "inventory_helicopter_comlink":
 		{
 			self stats::function_dad108fa(#"air_assault_total_kills", 1);
@@ -2968,17 +2968,17 @@ function function_2f462ffd(victim, weapon, inflictor, objective)
 			case "remote_missile":
 			case "inventory_planemortar":
 			case "drone_squadron":
-			case "hash_3447a6457d26a42e":
+			case "inventory_drone_squadron":
 			case "overwatch_helicopter":
 			case "inventory_dart":
-			case "hash_4307d5aaa7ce21d4":
-			case "hash_459c0007ec5e2470":
+			case "inventory_straferun":
+			case "inventory_ac130":
 			case "inventory_remote_missile":
 			case "straferun":
 			case "ac130":
 			case "helicopter_comlink":
 			case "planemortar":
-			case "hash_74ea4af18853e9af":
+			case "inventory_overwatch_helicopter":
 			case "inventory_helicopter_comlink":
 			{
 				self stats::function_dad108fa(#"hash_55a5fc51678a4dde", 1);
@@ -3199,7 +3199,7 @@ function killedbaseoffender(objective, weapon, inflictor)
 		{
 			case "remote_missile":
 			case "inventory_planemortar":
-			case "hash_4307d5aaa7ce21d4":
+			case "inventory_straferun":
 			case "inventory_remote_missile":
 			case "straferun":
 			case "planemortar":

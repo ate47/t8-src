@@ -2600,12 +2600,12 @@ function function_c7c928e9(var_a3d1842b = 0, var_6df65756 = 0, var_601f90f8)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5382ba1b(var_9a28a0c8)
+function function_5382ba1b(a_vols)
 {
-	var_9a28a0c8 = array::randomize(var_9a28a0c8);
-	var_28f5cd30 = var_9a28a0c8[0];
+	a_vols = array::randomize(a_vols);
+	var_28f5cd30 = a_vols[0];
 	var_8adde38a = 0;
-	foreach(e_vol in var_9a28a0c8)
+	foreach(e_vol in a_vols)
 	{
 		var_f14d7e9d = var_8adde38a;
 		var_8adde38a = 0;
@@ -2652,8 +2652,8 @@ function function_c48e93c1(n_path)
 	}
 	var_1e908ff2 = [];
 	var_8830daf3 = "bs_att_bm_ai_blck_" + self.var_ba0b1919;
-	var_dc3827e3 = array::sort_by_script_int(getentarray(var_8830daf3, "script_blocker"), 1);
-	foreach(e_blocker in var_dc3827e3)
+	a_e_blockers = array::sort_by_script_int(getentarray(var_8830daf3, "script_blocker"), 1);
+	foreach(e_blocker in a_e_blockers)
 	{
 		if(e_blocker.script_int == n_path)
 		{
@@ -2824,7 +2824,7 @@ function function_f142f73c(var_1ee74d52, var_a3d1842b, var_6df65756)
 		}
 		var_b68dd8d0[var_b68dd8d0.size] = n_dist;
 	}
-	var_36e740de = [];
+	a_n_times = [];
 	if(var_6df65756)
 	{
 		n_total_time = 2;
@@ -2843,19 +2843,19 @@ function function_f142f73c(var_1ee74d52, var_a3d1842b, var_6df65756)
 	for(i = 0; i < var_b68dd8d0.size; i++)
 	{
 		n_time = (n_total_time * var_b68dd8d0[i]) / var_a50ac7ec;
-		if(!isdefined(var_36e740de))
+		if(!isdefined(a_n_times))
 		{
-			var_36e740de = [];
+			a_n_times = [];
 		}
-		else if(!isarray(var_36e740de))
+		else if(!isarray(a_n_times))
 		{
-			var_36e740de = array(var_36e740de);
+			a_n_times = array(a_n_times);
 		}
-		var_36e740de[var_36e740de.size] = n_time;
+		a_n_times[a_n_times.size] = n_time;
 	}
 	for(i = 1; i < a_path.size; i++)
 	{
-		level function_3413fdf9(a_path[i].origin, var_36e740de[i - 1]);
+		level function_3413fdf9(a_path[i].origin, a_n_times[i - 1]);
 	}
 }
 
@@ -4006,7 +4006,7 @@ function function_776c95e2(var_61e1a92c, var_dbb23c7)
 	level endon(#"hash_38f29f9cb03586ea", #"spawn_zombies", #"intermission");
 	var_2208179c = struct::get_array(#"blightfather_spawn");
 	var_7bb1ca00 = level.var_f3c4bd00;
-	var_ab2645b = undefined;
+	ai_blightfather = undefined;
 	var_24b27265 = 0;
 	switch(level.var_f3c4bd00)
 	{
@@ -4077,7 +4077,7 @@ function function_770486e1(var_61e1a92c)
 	level endon(#"hash_38f29f9cb03586ea", #"spawn_zombies", #"intermission");
 	var_2208179c = struct::get_array(#"blightfather_spawn");
 	var_7bb1ca00 = level.var_f3c4bd00;
-	var_ab2645b = undefined;
+	ai_blightfather = undefined;
 	while(true)
 	{
 		wait(randomfloatrange(20, 25));
@@ -4099,9 +4099,9 @@ function function_770486e1(var_61e1a92c)
 		var_791efa17 = var_b036ebfb.size;
 		while(var_791efa17 > 0)
 		{
-			foreach(var_ab2645b in var_b036ebfb)
+			foreach(ai_blightfather in var_b036ebfb)
 			{
-				if(!isalive(var_ab2645b))
+				if(!isalive(ai_blightfather))
 				{
 					var_791efa17--;
 				}

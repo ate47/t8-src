@@ -1394,8 +1394,8 @@ function function_a93fe3a4(str_loc)
 			break;
 		}
 	}
-	var_58717b80 = struct::get_array("perk_vapor_altar");
-	foreach(s_perk in var_58717b80)
+	a_s_perks = struct::get_array("perk_vapor_altar");
+	foreach(s_perk in a_s_perks)
 	{
 		if(s_perk.prefabname == var_4e290f2e)
 		{
@@ -1965,7 +1965,7 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 		s_scene = struct::get(s_loc.var_50ed3bae, "scriptbundlename");
 		foreach(s_scene in s_scene.scenes)
 		{
-			var_b2a60109 = s_scene._s.var_b5d05f70;
+			a_str_shots = s_scene._s.a_str_shot_names;
 			break;
 		}
 		switch(s_loc.var_50ed3bae)
@@ -1984,8 +1984,8 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 				var_1f24f68d = 1;
 			}
 		}
-		level scene::add_scene_func(s_loc.var_50ed3bae, &function_342e0887, var_b2a60109[0 + var_8a9c5e4f], mdl_key, s_stub.var_e62bb9d2);
-		level thread function_2f2d292b(s_loc, mdl_key, var_b2a60109, var_8a9c5e4f);
+		level scene::add_scene_func(s_loc.var_50ed3bae, &function_342e0887, a_str_shots[0 + var_8a9c5e4f], mdl_key, s_stub.var_e62bb9d2);
+		level thread function_2f2d292b(s_loc, mdl_key, a_str_shots, var_8a9c5e4f);
 		mdl_key waittill(#"hash_7965b64017c8bf50");
 	}
 	else
@@ -2017,11 +2017,11 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 	Parameters: 4
 	Flags: Linked
 */
-function function_2f2d292b(s_loc, mdl_key, var_b2a60109, var_8a9c5e4f)
+function function_2f2d292b(s_loc, mdl_key, a_str_shots, var_8a9c5e4f)
 {
-	level scene::play(s_loc.var_50ed3bae, var_b2a60109[0 + var_8a9c5e4f]);
-	level thread scene::play(s_loc.var_50ed3bae, var_b2a60109[1 + var_8a9c5e4f]);
-	level thread function_22b22d52(mdl_key, s_loc.var_50ed3bae, var_b2a60109[2 + var_8a9c5e4f]);
+	level scene::play(s_loc.var_50ed3bae, a_str_shots[0 + var_8a9c5e4f]);
+	level thread scene::play(s_loc.var_50ed3bae, a_str_shots[1 + var_8a9c5e4f]);
+	level thread function_22b22d52(mdl_key, s_loc.var_50ed3bae, a_str_shots[2 + var_8a9c5e4f]);
 }
 
 /*

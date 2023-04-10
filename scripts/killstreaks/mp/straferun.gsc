@@ -5,7 +5,7 @@
 #using script_383a3b1bb18ba876;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\airsupport.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -261,8 +261,8 @@ function private function_6ef5c287(deathcircle, var_898879a6)
 	{
 		return;
 	}
-	var_b76aef06 = arraycopy(level.var_a5f063d);
-	foreach(supplydrop in var_b76aef06)
+	supplydrops = arraycopy(level.var_a5f063d);
+	foreach(supplydrop in supplydrops)
 	{
 		if(!isdefined(supplydrop))
 		{

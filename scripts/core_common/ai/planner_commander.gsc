@@ -4,7 +4,7 @@
 #using scripts\core_common\ai\planner_squad.gsc;
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
-#using script_7c9afa4e1db37383;
+#using scripts\core_common\ai\planner_commander_interface.gsc;
 #using scripts\core_common\ai\strategic_command.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

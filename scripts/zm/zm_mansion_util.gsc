@@ -131,7 +131,7 @@ function zombie_death_gib()
 */
 function function_89e9bca5(var_df1a3385, v_origin, v_angles)
 {
-	w_component = zm_crafting::function_4c2f8683(var_df1a3385);
+	w_component = zm_crafting::get_component(var_df1a3385);
 	crafting_component = zm_items::spawn_item(w_component, v_origin, v_angles);
 	return crafting_component;
 }
@@ -1176,20 +1176,20 @@ function create_hudelem(x, y)
 	Parameters: 4
 	Flags: Linked
 */
-function function_bb613572(var_eb3b90d, var_8b518bb0, n_spawn_delay = 1, n_round = 20)
+function function_bb613572(a_s_spawns, a_str_endons, n_spawn_delay = 1, n_round = 20)
 {
 	level flag::clear(#"hash_29b12646045186fa");
-	if(isdefined(var_8b518bb0))
+	if(isdefined(a_str_endons))
 	{
-		if(!isdefined(var_8b518bb0))
+		if(!isdefined(a_str_endons))
 		{
-			var_8b518bb0 = [];
+			a_str_endons = [];
 		}
-		else if(!isarray(var_8b518bb0))
+		else if(!isarray(a_str_endons))
 		{
-			var_8b518bb0 = array(var_8b518bb0);
+			a_str_endons = array(a_str_endons);
 		}
-		foreach(str_endon in var_8b518bb0)
+		foreach(str_endon in a_str_endons)
 		{
 			level endon(str_endon);
 		}
@@ -1203,7 +1203,7 @@ function function_bb613572(var_eb3b90d, var_8b518bb0, n_spawn_delay = 1, n_round
 	n_spawn_delay = n_spawn_delay / n_players;
 	var_e8711f44 = 14 + (n_players * 2);
 	var_3a615dd8 = getspawnerarray("spawner_zm_zombie", "targetname");
-	var_7c332548 = arraycopy(var_eb3b90d);
+	var_7c332548 = arraycopy(a_s_spawns);
 	while(true)
 	{
 		while(getaiteamarray(level.zombie_team).size >= var_e8711f44 || level flag::get(#"hash_29b12646045186fa"))
@@ -1220,7 +1220,7 @@ function function_bb613572(var_eb3b90d, var_8b518bb0, n_spawn_delay = 1, n_round
 			arrayremovevalue(var_7c332548, s_spawn, 0);
 			if(!var_7c332548.size)
 			{
-				var_7c332548 = var_eb3b90d;
+				var_7c332548 = a_s_spawns;
 			}
 			wait(n_spawn_delay);
 		}

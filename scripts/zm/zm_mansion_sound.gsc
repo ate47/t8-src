@@ -55,8 +55,8 @@ function private function_96da6081()
 	level.var_4687b0d0[3] = array(#"hash_47c8e68ac1a558b9");
 	level.var_4687b0d0[4] = array(#"hash_b75c49e9dcc7900", #"hash_3d4162f1d6598a06", #"hash_38da480a84b97bda", #"hash_21856919a8b0f180", #"hash_3a59c33cb06334", #"hash_27a3a2bb7b9f52c2", #"hash_1448f639d29f413e", #"hash_7e02a393e0c315fc");
 	level.var_4687b0d0[5] = array(#"hash_1db1fecdc55a68dd");
-	var_765617b7 = struct::get_array("s_roll");
-	foreach(s_roll in var_765617b7)
+	a_s_rolls = struct::get_array("s_roll");
+	foreach(s_roll in a_s_rolls)
 	{
 		s_roll.var_255658de = util::spawn_model(#"p8_zm_zod_phonograph_opera_roll", s_roll.origin, s_roll.angles);
 		s_roll.s_unitrigger_stub = s_roll zm_unitrigger::create("", 64, &function_aba430c2);

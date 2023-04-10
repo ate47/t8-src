@@ -404,9 +404,9 @@ function function_c025efba(prompt, var_a1258c6b)
 */
 function function_2b77bc35()
 {
-	if(platoons::function_382a49e0() && (function_22448d6c(self.team) != #"none" && function_22448d6c(self.team) != #"invalid"))
+	if(platoons::function_382a49e0() && (getteamplatoon(self.team) != #"none" && getteamplatoon(self.team) != #"invalid"))
 	{
-		teams = function_37d3bfcb(function_22448d6c(self.team));
+		teams = function_37d3bfcb(getteamplatoon(self.team));
 	}
 	else
 	{

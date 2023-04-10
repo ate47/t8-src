@@ -161,8 +161,8 @@ function function_51ec9e09(n_points)
 */
 function function_1b1d71e7(var_8997f0f2)
 {
-	var_18f3c565 = getarraykeys(var_8997f0f2);
-	foreach(str_archetype in var_18f3c565)
+	a_str_archetypes = getarraykeys(var_8997f0f2);
+	foreach(str_archetype in a_str_archetypes)
 	{
 		if(str_archetype === level.var_1c7412f9)
 		{

@@ -379,8 +379,8 @@ function function_8d0c655f()
 	exploder::exploder("powerhouse_power_on");
 	exploder::exploder("fxexp_power_house_on");
 	exploder::stop_exploder("fxexp_power_house_off");
-	var_f6b31a0f = struct::get_array("powerhouse_generator", "targetname");
-	foreach(s_generator in var_f6b31a0f)
+	a_s_generators = struct::get_array("powerhouse_generator", "targetname");
+	foreach(s_generator in a_s_generators)
 	{
 		s_generator thread scene::play("Shot 2");
 	}

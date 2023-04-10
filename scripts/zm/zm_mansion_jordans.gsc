@@ -103,7 +103,7 @@ function function_653412f4(var_a276c861)
 {
 	level.var_46169cd9 = 0;
 	level.w_homunculus = getweapon(#"homunculus");
-	level.var_65397c04 = getweapon(#"mini_turret");
+	level.w_mini_turret = getweapon(#"mini_turret");
 	level.w_claymore = getweapon(#"claymore");
 	callback::on_connect(&function_dd162dbf);
 	level flagsys::wait_till("start_zombie_round_logic");
@@ -366,7 +366,7 @@ function grenade_throw_watcher()
 		var_be17187b = undefined;
 		var_be17187b = self waittill(#"grenade_fire");
 		e_grenade = var_be17187b.projectile;
-		if(e_grenade.weapon !== level.w_homunculus && e_grenade.weapon !== level.var_65397c04 && e_grenade.weapon !== level.w_claymore)
+		if(e_grenade.weapon !== level.w_homunculus && e_grenade.weapon !== level.w_mini_turret && e_grenade.weapon !== level.w_claymore)
 		{
 			self thread function_fefbf8c2(e_grenade);
 		}

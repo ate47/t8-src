@@ -82,7 +82,7 @@ class cct_shared_desc : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cct_shared_desc : cLUIelem
 	*/
 	function open(player, persistent = 0)
 	{
-		cLUIelem::function_8b8089ba(player, "ct_shared_desc", persistent);
+		cLUIelem::open_luielem(player, "ct_shared_desc", persistent);
 	}
 
 	/*

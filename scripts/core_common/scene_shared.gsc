@@ -694,9 +694,9 @@ function convert_to_new_format(s_scenedef)
 function get_all_shot_names(str_scenedef, var_8c4d2266 = 0)
 {
 	s_scenedef = get_scenedef(str_scenedef);
-	if(isdefined(s_scenedef.var_b5d05f70))
+	if(isdefined(s_scenedef.a_str_shot_names))
 	{
-		a_shots = arraycopy(s_scenedef.var_b5d05f70);
+		a_shots = arraycopy(s_scenedef.a_str_shot_names);
 		if(var_8c4d2266)
 		{
 			arrayremovevalue(a_shots, "init");
@@ -725,7 +725,7 @@ function get_all_shot_names(str_scenedef, var_8c4d2266 = 0)
 			}
 		}
 	}
-	s_scenedef.var_b5d05f70 = a_shots;
+	s_scenedef.a_str_shot_names = a_shots;
 	if(var_8c4d2266)
 	{
 		arrayremovevalue(a_shots, "init");

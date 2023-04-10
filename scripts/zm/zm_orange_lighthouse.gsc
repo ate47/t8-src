@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_orange_pap.gsc;
 #using script_5660bae5b402a1eb;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_6a3f43063dfd1bdc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;

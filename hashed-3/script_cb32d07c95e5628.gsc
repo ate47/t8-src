@@ -788,7 +788,7 @@ function private function_216a69d6(var_9f19fcb6, reset)
 */
 function private _spawn(reset)
 {
-	if(isdefined(self.var_b91441dd.var_f4cdfe08) && self.var_b91441dd.var_f4cdfe08)
+	if(isdefined(self.var_b91441dd.supplystash) && self.var_b91441dd.supplystash)
 	{
 		self function_216a69d6((isdefined(self.var_b91441dd.var_fde72c94) ? self.var_b91441dd.var_fde72c94 : 100), reset);
 	}
@@ -958,7 +958,7 @@ function private function_e25c9d12(var_8107154f, spawncount, stashitem = 0, var_
 		assert(!(isdefined(self.vehiclespawner) && self.vehiclespawner));
 	#/
 	/#
-		assert(!(isdefined(self.var_f4cdfe08) && self.var_f4cdfe08));
+		assert(!(isdefined(self.supplystash) && self.supplystash));
 	#/
 	if(spawncount <= 0)
 	{
@@ -1282,7 +1282,7 @@ function private function_c6477714(reset)
 	foreach(group in var_1d9375fc)
 	{
 		group.var_b91441dd = getscriptbundle(group.scriptbundlename);
-		if(isdefined(group.var_b91441dd.var_f4cdfe08) && group.var_b91441dd.var_f4cdfe08)
+		if(isdefined(group.var_b91441dd.supplystash) && group.var_b91441dd.supplystash)
 		{
 			dynents = getdynentarray(group.target, 1);
 			foreach(dynent in dynents)
@@ -1496,18 +1496,18 @@ function function_50a2c746(var_f38d5b52, reset = 1, var_87e9f374 = 0)
 		}
 		if(var_87e9f374)
 		{
-			if(!(isdefined(var_b91441dd.var_dc91e192) && var_b91441dd.var_dc91e192) || (!(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08)))
+			if(!(isdefined(var_b91441dd.var_dc91e192) && var_b91441dd.var_dc91e192) || (!(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash)))
 			{
 				continue;
 			}
 		}
-		else if(isdefined(var_b91441dd.var_dc91e192) && var_b91441dd.var_dc91e192 && (isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08))
+		else if(isdefined(var_b91441dd.var_dc91e192) && var_b91441dd.var_dc91e192 && (isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash))
 		{
 			continue;
 		}
 		if(isdefined(var_f38d5b52[group.target]))
 		{
-			if(!(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08))
+			if(!(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash))
 			{
 				continue;
 			}
@@ -1515,7 +1515,7 @@ function function_50a2c746(var_f38d5b52, reset = 1, var_87e9f374 = 0)
 		var_f38d5b52[group.target] = 1;
 		if(getdvarint(#"hash_424f2e897e67b1ba", 0))
 		{
-			if(!(isdefined(var_b91441dd.var_bb617d29) && var_b91441dd.var_bb617d29) && (!(isdefined(var_b91441dd.var_f4cdfe08) && var_b91441dd.var_f4cdfe08)) && (!(isdefined(var_b91441dd.vehiclespawner) && var_b91441dd.vehiclespawner)))
+			if(!(isdefined(var_b91441dd.var_bb617d29) && var_b91441dd.var_bb617d29) && (!(isdefined(var_b91441dd.supplystash) && var_b91441dd.supplystash)) && (!(isdefined(var_b91441dd.vehiclespawner) && var_b91441dd.vehiclespawner)))
 			{
 				continue;
 			}

@@ -1011,7 +1011,7 @@ function private function_6bc6995e(weapon_options)
 }
 
 /*
-	Name: function_297a521e
+	Name: get_weapon_options
 	Namespace: loadout
 	Checksum: 0xCF29DEB9
 	Offset: 0x3038
@@ -1019,7 +1019,7 @@ function private function_6bc6995e(weapon_options)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_297a521e(type_index)
+function private get_weapon_options(type_index)
 {
 	return self calcweaponoptions(self.class_num, type_index);
 }
@@ -1035,7 +1035,7 @@ function private function_297a521e(type_index)
 */
 function private function_f4042786(type_index)
 {
-	weapon_options = self function_297a521e(type_index);
+	weapon_options = self get_weapon_options(type_index);
 	return function_6bc6995e(weapon_options);
 }
 
@@ -1469,7 +1469,7 @@ function private give_weapons(previous_weapon)
 	self.primaryloadoutgunsmithvariantindex = self getloadoutgunsmithvariantindex(self.class_num, 0);
 	self.secondaryloadoutgunsmithvariantindex = self getloadoutgunsmithvariantindex(self.class_num, 1);
 	spawn_weapon = self function_68c2f1dc("primary", previous_weapon, level.weaponnull, 0, &function_f4042786);
-	spawn_weapon = self function_68c2f1dc("secondary", previous_weapon, spawn_weapon, 1, &function_297a521e);
+	spawn_weapon = self function_68c2f1dc("secondary", previous_weapon, spawn_weapon, 1, &get_weapon_options);
 	spawn_weapon = self function_286ee0b6(previous_weapon, spawn_weapon);
 	spawn_weapon = self function_cba7f33e("primarygrenade", previous_weapon, spawn_weapon, &function_8e961216);
 	spawn_weapon = self function_cba7f33e("specialgrenade", previous_weapon, spawn_weapon, &function_c3448ab0);
@@ -2096,7 +2096,7 @@ function function_d7c205b9(newclass, var_eead10f0 = #"unspecified")
 	{
 		return;
 	}
-	self function_ad20e845(loadoutindex);
+	self setloadoutindex(loadoutindex);
 	self setplayerstateloadoutweapons(loadoutindex);
 }
 

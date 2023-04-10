@@ -64,9 +64,9 @@ function private function_eaba72c9()
 	/#
 		while(true)
 		{
-			if(getdvarint(#"hash_7364440898cf4b76", 0) > 0)
+			if(getdvarint(#"wz_supply_drop", 0) > 0)
 			{
-				switch(getdvarint(#"hash_7364440898cf4b76", 0))
+				switch(getdvarint(#"wz_supply_drop", 0))
 				{
 					case 1:
 					{
@@ -80,7 +80,7 @@ function private function_eaba72c9()
 						break;
 					}
 				}
-				setdvar(#"hash_7364440898cf4b76", 0);
+				setdvar(#"wz_supply_drop", 0);
 			}
 			if(getdvarint(#"hash_41d51e6f2ca1b9b1", 0) > 0)
 			{
@@ -107,18 +107,18 @@ function private function_eaba72c9()
 					{
 						case 1:
 						{
-							level thread function_1b48df6d(players[0].origin);
+							level thread drop_supply_drop(players[0].origin);
 							break;
 						}
 						case 2:
 						{
-							level thread function_1b48df6d(players[0].origin, 1);
+							level thread drop_supply_drop(players[0].origin, 1);
 							break;
 						}
 						case 3:
 						{
 							vehicletypes = array(#"hash_54469210eb79f8fa", #"hash_2c40642bbbab460d", #"hash_2f8f41949bf9944b");
-							level thread function_1b48df6d(players[0].origin, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
+							level thread drop_supply_drop(players[0].origin, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
 							break;
 						}
 						case 4:
@@ -129,7 +129,7 @@ function private function_eaba72c9()
 						case 5:
 						{
 							vehicletypes = array(#"hash_660785b539889002", #"hash_54bf3cd56e8c5c4a", #"hash_6fdb3b0114439974", #"hash_327d1f9834b6b91e");
-							level thread function_1b48df6d(players[0].origin, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
+							level thread drop_supply_drop(players[0].origin, 1, 1, vehicletypes[randomint(vehicletypes.size)]);
 							break;
 						}
 					}
@@ -1351,7 +1351,7 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d = 0, ve
 }
 
 /*
-	Name: function_1b48df6d
+	Name: drop_supply_drop
 	Namespace: namespace_8f74625a
 	Checksum: 0x1FF3F868
 	Offset: 0x4F58
@@ -1359,7 +1359,7 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d = 0, ve
 	Parameters: 4
 	Flags: Linked
 */
-function function_1b48df6d(droppoint, helicopter = 0, var_d6388d1 = 0, vehicletype = undefined)
+function drop_supply_drop(droppoint, helicopter = 0, var_d6388d1 = 0, vehicletype = undefined)
 {
 	/#
 		assert(isvec(droppoint));

@@ -8,7 +8,7 @@
 #using script_41fe08c37d53a635;
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;

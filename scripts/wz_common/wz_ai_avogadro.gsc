@@ -2,11 +2,11 @@
 #using script_184abbae9afad370;
 #using script_3aa0f32b70d4f7cb;
 #using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_5b1c3d314b9c88fb;
 #using scripts\core_common\ai\archetype_avogadro.gsc;
-#using script_77dd41c80e39f62;
+#using scripts\wz_common\wz_ai_zombie.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -17,11 +17,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
-#namespace namespace_bc1fae7;
+#namespace wz_ai_avogadro;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x634B1DED
 	Offset: 0x1B8
 	Size: 0x54
@@ -30,12 +30,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_78bf0dc450091c57", &__init__, &__main__, #"archetype_avogadro");
+	system::register(#"wz_ai_avogadro", &__init__, &__main__, #"archetype_avogadro");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x9EDA2788
 	Offset: 0x218
 	Size: 0x164
@@ -60,7 +60,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x80F724D1
 	Offset: 0x388
 	Size: 0x4
@@ -73,7 +73,7 @@ function __main__()
 
 /*
 	Name: function_f34df3c
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x28D1D263
 	Offset: 0x398
 	Size: 0x25A
@@ -84,7 +84,7 @@ function private function_f34df3c()
 {
 	blackboard::createblackboardforentity(self);
 	ai::createinterfaceforentity(self);
-	self.cant_move_cb = &namespace_4ae2f15f::function_9c573bc6;
+	self.cant_move_cb = &wz_ai_zombie::function_9c573bc6;
 	self.var_31a789c0 = 1;
 	self.var_1c0eb62a = 180;
 	self.var_a0193213 = 50;
@@ -100,7 +100,7 @@ function private function_f34df3c()
 	self.var_8f61d7f4 = 1;
 	self namespace_b912c30b::function_9758722("walk");
 	self callback::function_d8abfc3d(#"on_ai_damage", &function_ce2bd83c);
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_4ae2f15f::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_7140c3848cbefaa1", &function_e44ef704);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
 	self function_5ff730c7();
@@ -111,7 +111,7 @@ function private function_f34df3c()
 	}
 	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
 	{
-		self thread namespace_4ae2f15f::function_e261b81d();
+		self thread wz_ai_zombie::function_e261b81d();
 	}
 	/#
 		self.var_6c408220 = &function_c698f66b;
@@ -120,7 +120,7 @@ function private function_f34df3c()
 
 /*
 	Name: function_c41e67c
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x844823AE
 	Offset: 0x600
 	Size: 0x8C
@@ -135,14 +135,14 @@ function private function_c41e67c()
 	}
 	if(getdvarint(#"hash_4cfef227405e3c46", 0))
 	{
-		self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &namespace_4ae2f15f::function_bb3c1175);
-		self namespace_4ae2f15f::function_b670d610();
+		self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &wz_ai_zombie::function_bb3c1175);
+		self wz_ai_zombie::function_b670d610();
 	}
 }
 
 /*
 	Name: function_5ff730c7
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x18CE3FC4
 	Offset: 0x698
 	Size: 0x2E
@@ -157,7 +157,7 @@ function function_5ff730c7()
 
 /*
 	Name: function_745e91e8
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xC3498926
 	Offset: 0x6D0
 	Size: 0x32
@@ -172,7 +172,7 @@ function private function_745e91e8(entity)
 
 /*
 	Name: function_d44ccb0a
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xF41A09F
 	Offset: 0x710
 	Size: 0x8
@@ -186,7 +186,7 @@ function function_d44ccb0a()
 
 /*
 	Name: function_905d3c1a
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x525CB0D1
 	Offset: 0x720
 	Size: 0x128
@@ -200,12 +200,12 @@ function function_905d3c1a(entity)
 	timeout = getanimlength("ai_t8_zm_avogadro_arrival");
 	new_origin = (entity.origin[0], entity.origin[1], entity.origin[2] - delta[2]);
 	entity animscripted("avogadro_arrival_finished", new_origin, (0, entity.angles[1], 0), "ai_t8_zm_avogadro_arrival", "normal", "root", 1, 0);
-	entity waittilltimeout(timeout, #"hash_10eac2bbf85bab17");
+	entity waittilltimeout(timeout, #"avogadro_arrival_finished");
 }
 
 /*
 	Name: function_98909da
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x41A74209
 	Offset: 0x850
 	Size: 0x24
@@ -219,7 +219,7 @@ function function_98909da(entity)
 
 /*
 	Name: function_ad2f1327
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x314F417F
 	Offset: 0x880
 	Size: 0x198
@@ -235,7 +235,7 @@ function function_ad2f1327(entity)
 	timeout = getanimlength("ai_t8_zm_avogadro_exit");
 	entity animscripted("avogadro_exit_finished", self.origin, self.angles, "ai_t8_zm_avogadro_exit", "normal", "root", 1, 0);
 	waitresult = undefined;
-	waitresult = entity waittilltimeout(timeout, #"hash_7f362d7c2b78b3ae");
+	waitresult = entity waittilltimeout(timeout, #"avogadro_exit_finished");
 	entity ghost();
 	entity notsolid();
 	entity val::set(#"hash_5dc24322003886a3", "ignoreall", 1);
@@ -245,7 +245,7 @@ function function_ad2f1327(entity)
 
 /*
 	Name: function_d392301
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x6308DF5B
 	Offset: 0xA20
 	Size: 0x24
@@ -259,7 +259,7 @@ function function_d392301(entity)
 
 /*
 	Name: function_edc8c459
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x17F1626F
 	Offset: 0xA50
 	Size: 0xF0
@@ -286,7 +286,7 @@ function function_edc8c459(entity)
 
 /*
 	Name: function_ce2bd83c
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xF7A168A5
 	Offset: 0xB48
 	Size: 0x2F2
@@ -343,7 +343,7 @@ function function_ce2bd83c(params)
 
 /*
 	Name: function_e44ef704
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xC5F6E4B
 	Offset: 0xE48
 	Size: 0x5C
@@ -361,7 +361,7 @@ function function_e44ef704(params)
 
 /*
 	Name: function_ac94df05
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xE2943104
 	Offset: 0xEB0
 	Size: 0xE2
@@ -379,7 +379,7 @@ function function_ac94df05(entity)
 
 /*
 	Name: function_7d5cf0e4
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0x774B342
 	Offset: 0xFA0
 	Size: 0x7E
@@ -397,7 +397,7 @@ function function_7d5cf0e4(entity)
 
 /*
 	Name: function_c698f66b
-	Namespace: namespace_bc1fae7
+	Namespace: wz_ai_avogadro
 	Checksum: 0xCF6A3788
 	Offset: 0x1028
 	Size: 0xAC

@@ -635,8 +635,8 @@ function function_84139b27()
 	zm_utility::function_c492c4d6("pig_lab", "s_destination_porcine_research_lab", array("labs_zone2"), array(#"server_room", #"conference_room", #"file_room", #"war_room_lower"), #"hash_2907e82c48b5143", #"hash_7b58f28c832606d");
 	zm_utility::function_c492c4d6("lab_halls", "s_destination_lab_hallways", array("labs_hallway1", "labs_hallway2"), array(#"server_room", #"offices", #"file_room", #"groom_lake"), #"hash_34055c0d60f4897b", #"hash_6889b45faad48255");
 	zm_utility::function_c492c4d6("conference_room", "s_destination_conference_room", array("conference_level1", "hallway_level1"), array(#"war_room_lower", #"lab_halls", #"morgue", #"groom_lake"), #"hash_53862ff7ab29a7fb", #"hash_1803a751f0a9f1d5");
-	a_str_keys = getarraykeys(level.var_f05f7e16);
-	foreach(s_defend_area in level.var_f05f7e16)
+	a_str_keys = getarraykeys(level.a_s_defend_areas);
+	foreach(s_defend_area in level.a_s_defend_areas)
 	{
 		foreach(str_index in s_defend_area.var_cc0c35ca)
 		{

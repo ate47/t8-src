@@ -145,8 +145,8 @@ function door_init()
 	self.type = undefined;
 	self.purchaser = undefined;
 	self._door_open = 0;
-	var_ecc45b8c = struct::get_array(self.target, "targetname");
-	foreach(s_symbol in var_ecc45b8c)
+	a_s_symbols = struct::get_array(self.target, "targetname");
+	foreach(s_symbol in a_s_symbols)
 	{
 		if(s_symbol.model === "p8_zm_door_buy_symbol_01" || s_symbol.model === "p8_zm_debris_buy_symbol_01" || s_symbol.model === "p8_zm_power_door_symbol_01")
 		{
@@ -415,8 +415,8 @@ function door_buy()
 */
 function function_db84b4f4()
 {
-	var_4506f72b = getentarray("zombie_door", "targetname");
-	level thread function_5989dd12(var_4506f72b);
+	a_zombie_doors = getentarray("zombie_door", "targetname");
+	level thread function_5989dd12(a_zombie_doors);
 	var_38a6b7d0 = getentarray("zombie_airlock_buy", "targetname");
 	level thread function_5989dd12(var_38a6b7d0);
 	a_zombie_debris = getentarray("zombie_debris", "targetname");
@@ -1393,8 +1393,8 @@ function debris_init()
 	{
 		level flag::init(self.script_flag);
 	}
-	var_ecc45b8c = struct::get_array(self.target, "targetname");
-	foreach(s_symbol in var_ecc45b8c)
+	a_s_symbols = struct::get_array(self.target, "targetname");
+	foreach(s_symbol in a_s_symbols)
 	{
 		s_symbol function_23cbcd8();
 	}
@@ -2229,8 +2229,8 @@ function blocker_init()
 		self.zbarrier delete();
 		return;
 	}
-	var_575ce9bb = struct::get_array(self.target);
-	foreach(s_part in var_575ce9bb)
+	a_s_parts = struct::get_array(self.target);
+	foreach(s_part in a_s_parts)
 	{
 		if(s_part.script_noteworthy === "trigger_location")
 		{
@@ -2266,12 +2266,12 @@ function should_delete_zbarriers()
 */
 function function_22642075()
 {
-	var_734c61ee = struct::get_array("exterior_goal", "targetname");
+	a_s_barriers = struct::get_array("exterior_goal", "targetname");
 	if(isdefined(level._additional_carpenter_nodes))
 	{
-		var_734c61ee = arraycombine(var_734c61ee, level._additional_carpenter_nodes, 0, 0);
+		a_s_barriers = arraycombine(a_s_barriers, level._additional_carpenter_nodes, 0, 0);
 	}
-	foreach(s_barrier in var_734c61ee)
+	foreach(s_barrier in a_s_barriers)
 	{
 		if(isdefined(s_barrier.zbarrier))
 		{
@@ -2341,8 +2341,8 @@ function destructible_glass_barricade(unbroken_section, node)
 function blocker_attack_spots()
 {
 	spots = [];
-	var_575ce9bb = struct::get_array(self.target);
-	foreach(s_part in var_575ce9bb)
+	a_s_parts = struct::get_array(self.target);
+	foreach(s_part in a_s_parts)
 	{
 		if(s_part.script_noteworthy === "attack_spots")
 		{
@@ -3381,25 +3381,25 @@ function open_all_zbarriers()
 */
 function function_6f01c3cf(str_value, str_key, b_hidden = 0)
 {
-	var_734c61ee = [];
+	a_s_barriers = [];
 	foreach(s_barrier in level.exterior_goals)
 	{
 		if(s_barrier.(str_key) === str_value && s_barrier.targetname === "exterior_goal")
 		{
-			if(!isdefined(var_734c61ee))
+			if(!isdefined(a_s_barriers))
 			{
-				var_734c61ee = [];
+				a_s_barriers = [];
 			}
-			else if(!isarray(var_734c61ee))
+			else if(!isarray(a_s_barriers))
 			{
-				var_734c61ee = array(var_734c61ee);
+				a_s_barriers = array(a_s_barriers);
 			}
-			var_734c61ee[var_734c61ee.size] = s_barrier;
+			a_s_barriers[a_s_barriers.size] = s_barrier;
 		}
 	}
-	for(i = 0; i < var_734c61ee.size; i++)
+	for(i = 0; i < a_s_barriers.size; i++)
 	{
-		barrier = var_734c61ee[i];
+		barrier = a_s_barriers[i];
 		if(isdefined(barrier.zbarrier))
 		{
 			a_pieces = barrier.zbarrier getzbarrierpieceindicesinstate("closed");

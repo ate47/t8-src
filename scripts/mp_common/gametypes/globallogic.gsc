@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\weapons\mp\weapons.gsc;
-#using script_1417f739c5b20576;
+#using scripts\core_common\globallogic\globallogic_shared.gsc;
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\player\player.gsc;
 #using scripts\mp_common\bots\mp_bot.gsc;
@@ -14,7 +14,7 @@
 #using script_457dc1cc11263d2b;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\map.gsc;
 #using script_66052559f4fc2bf9;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -925,7 +925,7 @@ function function_4b670b29()
 		params.var_f300b200 = [];
 		foreach(team in params.teams_forfeited)
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(platoon != #"none" && platoon != #"invalid")
 			{
 				if(!isdefined(params.var_f300b200))
@@ -945,7 +945,7 @@ function function_4b670b29()
 		params.var_b2ee6c67 = [];
 		foreach(team in params.var_6eb69269)
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(!isdefined(params.var_b2ee6c67))
 			{
 				params.var_b2ee6c67 = [];
@@ -1062,7 +1062,7 @@ function function_9c839e9()
 		params.platoons_alive = [];
 		foreach(team in params.teams_alive)
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(platoon != #"invalid")
 			{
 				if(!isdefined(params.platoons_alive))
@@ -1082,7 +1082,7 @@ function function_9c839e9()
 		params.var_eb1984d4 = [];
 		foreach(team in params.var_46a749a8)
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(platoon != #"invalid" && !isdefined(params.platoons_alive[platoon]))
 			{
 				if(!isdefined(params.var_eb1984d4))
@@ -1106,7 +1106,7 @@ function function_9c839e9()
 		var_6c4bfa17 = infection::function_76601b7d();
 		foreach(team in params.teams_alive)
 		{
-			if(function_22448d6c(team) != var_6c4bfa17)
+			if(getteamplatoon(team) != var_6c4bfa17)
 			{
 				params.var_dfa2cc2c[params.var_dfa2cc2c.size] = team;
 			}

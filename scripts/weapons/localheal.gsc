@@ -2,8 +2,8 @@
 #using script_23789ec11f581cd0;
 #using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_545a0bac37bda541;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\abilities\gadgets\gadget_hero_weapon.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -117,7 +117,7 @@ function zombie_blood_powerup(var_9c0bf2db, e_player)
 	}
 	e_player.zombie_vars[#"zombie_powerup_zombie_blood_time"] = var_9445281;
 	e_player.zombie_vars[#"zombie_powerup_zombie_blood_on"] = 1;
-	e_player function_8fd843dd(1);
+	e_player setcharacteroutfit(1);
 	level notify(#"player_zombie_blood", e_player);
 	e_player clientfield::set("" + #"player_zombie_blood_fx", 1);
 	level.a_zombie_blood_entities = array::remove_undefined(level.a_zombie_blood_entities);
@@ -139,7 +139,7 @@ function zombie_blood_powerup(var_9c0bf2db, e_player)
 		waitframe(1);
 		e_player.zombie_vars[#"zombie_powerup_zombie_blood_time"] = e_player.zombie_vars[#"zombie_powerup_zombie_blood_time"] - 0.05;
 	}
-	e_player function_8fd843dd(0);
+	e_player setcharacteroutfit(0);
 	e_player notify(#"zombie_blood_over");
 	if(isdefined(e_player.characterindex))
 	{

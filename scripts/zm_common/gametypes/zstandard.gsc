@@ -180,9 +180,9 @@ function function_6c2b3729()
 		adddebugcommand("");
 		waittillframeend();
 		level flag::wait_till("");
-		if(isdefined(level.var_f05f7e16))
+		if(isdefined(level.a_s_defend_areas))
 		{
-			var_f95f5bc7 = getarraykeys(level.var_f05f7e16);
+			var_f95f5bc7 = getarraykeys(level.a_s_defend_areas);
 			foreach(var_355646ad in var_f95f5bc7)
 			{
 				str_name = function_9e72a96(var_355646ad);
@@ -239,9 +239,9 @@ function function_2f63dc81(cmd)
 			}
 			default:
 			{
-				if(isdefined(level.var_f05f7e16))
+				if(isdefined(level.a_s_defend_areas))
 				{
-					var_f95f5bc7 = getarraykeys(level.var_f05f7e16);
+					var_f95f5bc7 = getarraykeys(level.a_s_defend_areas);
 					var_5e62c213 = strtok(cmd, "");
 					str_name = var_5e62c213[0];
 					var_19d45c79 = var_5e62c213[1];
@@ -363,8 +363,8 @@ function function_744ee8ce()
 {
 	if(isdefined(self.script_flag_wait))
 	{
-		var_af1bea51 = util::create_flags_and_return_tokens(self.script_flag_wait);
-		level flag::wait_till_any(var_af1bea51);
+		a_str_flags = util::create_flags_and_return_tokens(self.script_flag_wait);
+		level flag::wait_till_any(a_str_flags);
 	}
 	if(isdefined(self.script_delay))
 	{

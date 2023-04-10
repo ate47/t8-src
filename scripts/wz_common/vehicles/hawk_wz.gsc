@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\vehicles\hawk.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;

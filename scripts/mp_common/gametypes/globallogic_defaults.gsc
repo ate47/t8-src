@@ -434,7 +434,7 @@ function function_108c4b65()
 		{
 			return var_2927adba[0];
 		}
-		platoon = function_22448d6c(self.team);
+		platoon = getteamplatoon(self.team);
 		var_bf97e486 = platoons::function_a214d798(platoon);
 		return spectating::function_18b8b7e4(var_bf97e486, self.origin);
 	}

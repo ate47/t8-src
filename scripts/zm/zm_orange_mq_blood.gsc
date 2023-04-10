@@ -68,7 +68,7 @@ function main()
 	level.var_9928b94b[0] = array("docks_1", "docks_2", "boathouse", "frozen_crevasse", "ice_grotto", "lagoon");
 	level.var_9928b94b[1] = array("beach", "lighthouse_approach", "lighthouse_station", "lighthouse_cove", "hidden_path");
 	level.var_9928b94b[2] = array("main_entrance", "outer_walkway", "loading_platform", "specimen_storage", "decontamination", "security_lobby", "geological_processing", "upper_catwalk", "human_infusion");
-	level.var_16972e5c = array(#"snowball", #"snowball_upgraded", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d", #"tundragun", #"tundragun_upgraded");
+	level.var_16972e5c = array(#"snowball", #"snowball_upgraded", #"snowball_yellow", #"snowball_yellow_upgraded", #"tundragun", #"tundragun_upgraded");
 }
 
 /*

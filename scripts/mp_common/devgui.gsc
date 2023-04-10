@@ -232,10 +232,10 @@ function function_cb7cee87()
 		game.var_461b2589 = 1;
 		setdvar(#"hash_2abeb78ad3292aa1", "");
 		var_fca60300 = function_5e2d2d9b();
-		foreach(var_1a983da1, var_31863ee4 in var_fca60300)
+		foreach(var_1a983da1, boasts in var_fca60300)
 		{
 			var_64345a05 = (player_devgui_base + function_9e72a96(var_1a983da1)) + "";
-			foreach(boast in var_31863ee4)
+			foreach(boast in boasts)
 			{
 				util::add_devgui(var_64345a05 + function_9e72a96(boast), (("" + "") + "") + function_9e72a96(boast));
 			}

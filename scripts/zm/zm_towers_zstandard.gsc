@@ -232,8 +232,8 @@ function function_b03369f()
 */
 function function_bbbc20bf(var_a7bc1cee = 0)
 {
-	var_307566 = getentarray("mdl_pap_quest_head", "targetname");
-	foreach(mdl_head in var_307566)
+	a_mdl_heads = getentarray("mdl_pap_quest_head", "targetname");
+	foreach(mdl_head in a_mdl_heads)
 	{
 		mdl_head show();
 		if(var_a7bc1cee)
@@ -263,7 +263,7 @@ function function_b9cacd48()
 	/#
 		while(true)
 		{
-			foreach(str_index, s_defend_area in level.var_f05f7e16)
+			foreach(str_index, s_defend_area in level.a_s_defend_areas)
 			{
 				s_defend_area = zm_utility::function_a877cd10(str_index);
 				zm_utility::function_11101458(str_index);

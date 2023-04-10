@@ -986,7 +986,7 @@ function function_d0348c2c(var_69cbd99d = 0)
 	}
 	if(self isusingoffhand())
 	{
-		if(!isdefined(level.w_homunculus) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus) && (!isdefined(level.var_fefd572b) || !self zm_loadout::function_393977df("lethal_grenade", level.var_fefd572b)))
+		if(!isdefined(level.w_homunculus) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus) && (!isdefined(level.w_homunculus_upgraded) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus_upgraded)))
 		{
 			self forceoffhandend();
 		}
@@ -1122,12 +1122,12 @@ function function_dc0859e(var_b5434dd5 = 1)
 function function_3e209fb6()
 {
 	/#
-		var_4506f72b = getentarray("", "");
-		for(i = 0; i < var_4506f72b.size; i++)
+		a_zombie_doors = getentarray("", "");
+		for(i = 0; i < a_zombie_doors.size; i++)
 		{
-			if(!(isdefined(var_4506f72b[i].has_been_opened) && var_4506f72b[i].has_been_opened))
+			if(!(isdefined(a_zombie_doors[i].has_been_opened) && a_zombie_doors[i].has_been_opened))
 			{
-				var_4506f72b[i] notify(#"trigger", {#is_forced:1});
+				a_zombie_doors[i] notify(#"trigger", {#is_forced:1});
 			}
 			waitframe(1);
 		}

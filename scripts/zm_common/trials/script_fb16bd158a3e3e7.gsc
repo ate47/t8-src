@@ -516,7 +516,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 		}
 		case "snowballs":
 		{
-			var_e7beaa5 = array(#"snowball", #"snowball_upgraded", #"hash_7b1ab4354f6a9ef4", #"hash_4d50a2c4ff4e615d");
+			var_e7beaa5 = array(#"snowball", #"snowball_upgraded", #"snowball_yellow", #"snowball_yellow_upgraded");
 			level zm_trial::function_8e2a923(1);
 			level zm_trial::function_44200d07(1);
 			break;

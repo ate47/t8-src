@@ -189,12 +189,12 @@ function function_ad26976()
 	while(true)
 	{
 		vehicles = getentitiesinradius(self.origin, 1536, 12);
-		var_4ab0fd8c = getentitiesinradius(self.origin, 1536, 14);
+		vehicle_corpses = getentitiesinradius(self.origin, 1536, 14);
 		foreach(vehicle in vehicles)
 		{
 			vehicle launchvehicle((0, 0, 0), vehicle.origin, 0);
 		}
-		foreach(vehicle_corpse in var_4ab0fd8c)
+		foreach(vehicle_corpse in vehicle_corpses)
 		{
 			vehicle_corpse delete();
 		}

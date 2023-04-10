@@ -1558,10 +1558,10 @@ function create_flags_and_return_tokens(flags)
 	Parameters: 1
 	Flags: Linked
 */
-function function_aebdb74f(var_a8ca40f5)
+function function_aebdb74f(str_flags)
 {
-	var_af1bea51 = strtok(var_a8ca40f5, " ");
-	foreach(str_flag in var_af1bea51)
+	a_str_flags = strtok(str_flags, " ");
+	foreach(str_flag in a_str_flags)
 	{
 		level flag::set(str_flag);
 	}

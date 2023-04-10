@@ -44,7 +44,7 @@ function __init__()
 }
 
 /*
-	Name: function_ab5e18bb
+	Name: get_assigned_team
 	Namespace: teams
 	Checksum: 0xCA40355
 	Offset: 0x180
@@ -52,7 +52,7 @@ function __init__()
 	Parameters: 0
 	Flags: None
 */
-function function_ab5e18bb()
+function get_assigned_team()
 {
 	teamname = getassignedteamname(self);
 }
@@ -168,7 +168,7 @@ function function_efe5a681(team)
 	{
 		if(platoons::function_382a49e0())
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(platoon != #"invalid" && platoon != #"none")
 			{
 				player_counts = platoons::count_players();
@@ -785,7 +785,7 @@ function function_7d93567f()
 		{
 			continue;
 		}
-		platoon = function_22448d6c(team);
+		platoon = getteamplatoon(team);
 		if(platoon == #"invalid")
 		{
 			continue;
@@ -1052,7 +1052,7 @@ function private function_6c66cc64(team)
 		{
 			voip = voip + "";
 		}
-		platoon = function_22448d6c(team);
+		platoon = getteamplatoon(team);
 		platoon_name = "";
 		if(platoon == #"invalid")
 		{

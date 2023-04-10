@@ -112,14 +112,14 @@ function init_transformers()
 function function_6bd2a719()
 {
 	level.var_6b43507a = 3;
-	var_f6b31a0f = struct::get_array("little_bird", "targetname");
-	for(i = 0; i < var_f6b31a0f.size; i++)
+	a_s_generators = struct::get_array("little_bird", "targetname");
+	for(i = 0; i < a_s_generators.size; i++)
 	{
-		var_f6b31a0f[i].var_7944be4a = 0;
-		var_f6b31a0f[i].var_b9989e12 = hash(var_f6b31a0f[i].script_noteworthy);
-		var_f6b31a0f[i].e_vol = getent(var_f6b31a0f[i].target, "targetname");
+		a_s_generators[i].var_7944be4a = 0;
+		a_s_generators[i].var_b9989e12 = hash(a_s_generators[i].script_noteworthy);
+		a_s_generators[i].e_vol = getent(a_s_generators[i].target, "targetname");
 	}
-	level.var_f6b31a0f = var_f6b31a0f;
+	level.a_s_generators = a_s_generators;
 	var_ee92bf8c = getent("chicken_nugget", "targetname");
 	var_ee92bf8c playloopsound(#"hash_52058ae478647502");
 	var_ee92bf8c setscale(0.5);
@@ -381,7 +381,7 @@ function function_c723e684(var_a276c861)
 {
 	if(!var_a276c861)
 	{
-		foreach(var_b4602d24 in level.var_f6b31a0f)
+		foreach(var_b4602d24 in level.a_s_generators)
 		{
 			level thread namespace_617a54f4::function_3f808d3d(var_b4602d24.var_b9989e12);
 		}

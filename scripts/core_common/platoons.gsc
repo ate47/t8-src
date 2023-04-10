@@ -118,7 +118,7 @@ function function_596bfb16()
 	{
 		if(game.everexisted[team])
 		{
-			platoon = function_22448d6c(team);
+			platoon = getteamplatoon(team);
 			if(platoon != #"none" && platoon != #"invalid" && level.platoons[platoon].var_9dd75dad == 0)
 			{
 				level.platoons[platoon].var_9dd75dad = gettime();

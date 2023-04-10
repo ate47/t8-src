@@ -464,7 +464,7 @@ function function_bb184fed(localclientnum, oldval, newval, bnewent, binitialsnap
 				var_fe826f11 = level._effect[#"hash_110d9fbfd034c819"];
 				break;
 			}
-			case "hash_d0a02c268fb65bf":
+			case "p8_fxanim_zm_perk_vending_tonic_mod":
 			case "p8_fxanim_zm_vapor_altar_odin_mod":
 			{
 				n_slot = 3;

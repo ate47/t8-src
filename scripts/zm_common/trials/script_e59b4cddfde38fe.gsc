@@ -53,9 +53,9 @@ function __init__()
 */
 function private on_begin(var_a84ac7c8, str_archetype, n_kill_count, str_destination, str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9)
 {
-	var_1968096a = array::remove_undefined(array(str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9), 0);
+	str_zones = array::remove_undefined(array(str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9), 0);
 	level.var_8c6f70d0 = [];
-	foreach(str_zone in var_1968096a)
+	foreach(str_zone in str_zones)
 	{
 		if(!isdefined(level.var_8c6f70d0))
 		{

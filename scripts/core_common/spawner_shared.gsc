@@ -1069,16 +1069,16 @@ function get_goal(str_goal, str_key = "targetname")
 function function_fe02300()
 {
 	/#
-		var_e7463378 = [];
+		a_aigroups = [];
 		a_spawners = getspawnerarray();
 		foreach(spawner in a_spawners)
 		{
-			if(isdefined(spawner.script_aigroup) && !isinarray(var_e7463378, spawner.script_aigroup))
+			if(isdefined(spawner.script_aigroup) && !isinarray(a_aigroups, spawner.script_aigroup))
 			{
-				array::add(var_e7463378, spawner.script_aigroup, 0);
+				array::add(a_aigroups, spawner.script_aigroup, 0);
 			}
 		}
-		foreach(aigroup in var_e7463378)
+		foreach(aigroup in a_aigroups)
 		{
 			cmd = ((("" + aigroup) + "") + aigroup) + "";
 			adddebugcommand(cmd);

@@ -105,11 +105,11 @@ function function_6061a15(var_f4b807cb, maxdist, origin, angles, forward, var_4b
 		{
 			continue;
 		}
-		var_47684cd2 = itemdef.origin - origin;
+		toitem = itemdef.origin - origin;
 		var_abd887b5 = distance2dsquared(itemdef.origin, origin);
 		if(var_abd887b5 < var_66347f1f && (abs(itemdef.origin[2] - origin[2])) < 72)
 		{
-			dot = vectordot(forward, vectornormalize(var_47684cd2));
+			dot = vectordot(forward, vectornormalize(toitem));
 			if(dot >= 0.965 && var_abd887b5 < var_66347f1f && dot > var_9fd8216d)
 			{
 				if(!self can_pick_up(itemdef) || !function_2eb2c17c(origin, itemdef))
@@ -123,7 +123,7 @@ function function_6061a15(var_f4b807cb, maxdist, origin, angles, forward, var_4b
 			{
 				break;
 			}
-			var_1777205e = vectordot(var_75f6d739, vectornormalize((var_47684cd2[0], var_47684cd2[1], 0)));
+			var_1777205e = vectordot(var_75f6d739, vectornormalize((toitem[0], toitem[1], 0)));
 			var_c5722fe1 = 0;
 			if(var_4bd72bfe)
 			{
@@ -169,7 +169,7 @@ function function_6061a15(var_f4b807cb, maxdist, origin, angles, forward, var_4b
 		{
 			break;
 		}
-		var_1777205e = vectordot(var_75f6d739, vectornormalize((var_47684cd2[0], var_47684cd2[1], 0)));
+		var_1777205e = vectordot(var_75f6d739, vectornormalize((toitem[0], toitem[1], 0)));
 		if(var_1777205e >= 0.866 && var_abd887b5 < var_7cd624f6)
 		{
 			if(!self can_pick_up(itemdef) || !function_2eb2c17c(origin, itemdef))

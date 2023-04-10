@@ -4,11 +4,11 @@
 #using script_3aa0f32b70d4f7cb;
 #using script_4bf952f6ba31bb17;
 #using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using script_5b1c3d314b9c88fb;
 #using script_6809bf766eba194a;
-#using script_77dd41c80e39f62;
+#using scripts\wz_common\wz_ai_zombie.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -20,11 +20,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
-#namespace namespace_61feac76;
+#namespace wz_ai_zombie_dog;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xFD09461C
 	Offset: 0x230
 	Size: 0x3C
@@ -33,12 +33,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_3e908e1bf3ee5f53", &__init__, undefined, undefined);
+	system::register(#"wz_ai_zombie_dog", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x11A1D774
 	Offset: 0x278
 	Size: 0xA4
@@ -55,7 +55,7 @@ function __init__()
 
 /*
 	Name: function_cef412a7
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x8C54F564
 	Offset: 0x328
 	Size: 0x256
@@ -99,7 +99,7 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 
 /*
 	Name: function_b9d56970
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xF964826B
 	Offset: 0x588
 	Size: 0x274
@@ -108,7 +108,7 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 */
 function function_b9d56970()
 {
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_4ae2f15f::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_45b50cc48ee7f9d8", &function_69c3e2ac);
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_ae78134);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
@@ -116,7 +116,7 @@ function function_b9d56970()
 	aiutility::addaioverridedamagecallback(self, &function_cef412a7);
 	self.var_65e57a10 = 1;
 	self.var_872e52b0 = &function_30a35f51;
-	self.cant_move_cb = &namespace_4ae2f15f::function_9c573bc6;
+	self.cant_move_cb = &wz_ai_zombie::function_9c573bc6;
 	self.var_31a789c0 = 1;
 	self.var_1c0eb62a = 180;
 	self.var_a0193213 = 50;
@@ -132,12 +132,12 @@ function function_b9d56970()
 	{
 		if(!getdvarint(#"hash_4cfef227405e3c46", 0))
 		{
-			self thread namespace_4ae2f15f::function_e261b81d();
+			self thread wz_ai_zombie::function_e261b81d();
 		}
 		else
 		{
-			self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &namespace_4ae2f15f::function_bb3c1175);
-			self namespace_4ae2f15f::function_b670d610();
+			self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &wz_ai_zombie::function_bb3c1175);
+			self wz_ai_zombie::function_b670d610();
 		}
 		self thread function_6c308e81();
 	}
@@ -145,7 +145,7 @@ function function_b9d56970()
 
 /*
 	Name: function_8e13b81e
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xF0AF7320
 	Offset: 0x808
 	Size: 0x2E
@@ -160,7 +160,7 @@ function function_8e13b81e()
 
 /*
 	Name: function_8f5f431c
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x3CF25423
 	Offset: 0x840
 	Size: 0xC
@@ -173,7 +173,7 @@ function private function_8f5f431c(entity)
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x4C536738
 	Offset: 0x858
 	Size: 0x4CC
@@ -230,7 +230,7 @@ function registerbehaviorscriptfunctions()
 
 /*
 	Name: archetypezombiedogblackboardinit
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x38E4642
 	Offset: 0xD30
 	Size: 0x4A
@@ -246,7 +246,7 @@ function archetypezombiedogblackboardinit()
 
 /*
 	Name: archetypezombiedogonanimscriptedcallback
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x7B412340
 	Offset: 0xD88
 	Size: 0x2C
@@ -261,7 +261,7 @@ function private archetypezombiedogonanimscriptedcallback(entity)
 
 /*
 	Name: function_bfd55b1a
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x54A47B71
 	Offset: 0xDC0
 	Size: 0x324
@@ -305,7 +305,7 @@ function private function_bfd55b1a()
 
 /*
 	Name: function_ae78134
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xAF7D9B4C
 	Offset: 0x10F0
 	Size: 0xFC
@@ -327,7 +327,7 @@ function private function_ae78134(params)
 
 /*
 	Name: function_69c3e2ac
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xB4065CE4
 	Offset: 0x11F8
 	Size: 0x22
@@ -341,7 +341,7 @@ function private function_69c3e2ac()
 
 /*
 	Name: function_30a35f51
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xAA555B7F
 	Offset: 0x1228
 	Size: 0x8
@@ -355,7 +355,7 @@ function private function_30a35f51()
 
 /*
 	Name: bb_getshouldrunstatus
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xD3B5119C
 	Offset: 0x1238
 	Size: 0xEA
@@ -379,7 +379,7 @@ function bb_getshouldrunstatus()
 
 /*
 	Name: bb_getshouldhowlstatus
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x5FCFF2A3
 	Offset: 0x1330
 	Size: 0xC2
@@ -402,7 +402,7 @@ function bb_getshouldhowlstatus()
 
 /*
 	Name: zombiedogshouldwalk
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x2E986BAD
 	Offset: 0x1400
 	Size: 0x24
@@ -416,7 +416,7 @@ function zombiedogshouldwalk(behaviortreeentity)
 
 /*
 	Name: zombiedogshouldrun
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xD7398D76
 	Offset: 0x1430
 	Size: 0x24
@@ -430,7 +430,7 @@ function zombiedogshouldrun(behaviortreeentity)
 
 /*
 	Name: function_5bac75b6
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xF5046489
 	Offset: 0x1460
 	Size: 0x20
@@ -444,7 +444,7 @@ function function_5bac75b6(behaviortreeentity)
 
 /*
 	Name: function_4cc712c8
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x7C552AEA
 	Offset: 0x1488
 	Size: 0x20
@@ -458,7 +458,7 @@ function function_4cc712c8(behaviortreeentity)
 
 /*
 	Name: use_low_attack
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x94B38FCA
 	Offset: 0x14B0
 	Size: 0x16E
@@ -488,7 +488,7 @@ function use_low_attack()
 
 /*
 	Name: zombiedogmeleeaction
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xA7239503
 	Offset: 0x1628
 	Size: 0xA0
@@ -510,7 +510,7 @@ function zombiedogmeleeaction(behaviortreeentity, asmstatename)
 
 /*
 	Name: zombiedogmeleeactionterminate
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x96C2B9E3
 	Offset: 0x16D0
 	Size: 0x38
@@ -525,7 +525,7 @@ function zombiedogmeleeactionterminate(behaviortreeentity, asmstatename)
 
 /*
 	Name: function_648f6c9b
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xC8B6CB89
 	Offset: 0x1710
 	Size: 0xAC
@@ -544,7 +544,7 @@ function function_648f6c9b(behaviortreeentity)
 
 /*
 	Name: function_a5c4f83b
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x11A765A8
 	Offset: 0x17C8
 	Size: 0x20
@@ -558,7 +558,7 @@ function function_a5c4f83b(behaviortreeentity)
 
 /*
 	Name: function_47e1bdeb
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x9AF346AD
 	Offset: 0x17F0
 	Size: 0x2E
@@ -573,7 +573,7 @@ function function_47e1bdeb(behaviortreeentity)
 
 /*
 	Name: function_a5103696
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xC1FAD076
 	Offset: 0x1828
 	Size: 0x24
@@ -587,7 +587,7 @@ function function_a5103696(behaviortreeentity)
 
 /*
 	Name: function_1980a07a
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xCA7B7591
 	Offset: 0x1858
 	Size: 0x70
@@ -605,7 +605,7 @@ function private function_1980a07a(behaviortreeentity)
 
 /*
 	Name: function_90dbd41
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xD31516F5
 	Offset: 0x18D0
 	Size: 0x7C
@@ -621,7 +621,7 @@ function private function_90dbd41(entity, mocompanim, mocompanimblendouttime, mo
 
 /*
 	Name: function_2fa3612a
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xB695662F
 	Offset: 0x1958
 	Size: 0x2C
@@ -634,7 +634,7 @@ function private function_2fa3612a(entity, mocompanim, mocompanimblendouttime, m
 
 /*
 	Name: function_1f51eea3
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xD3F6AAAF
 	Offset: 0x1990
 	Size: 0xD4
@@ -652,7 +652,7 @@ function private function_1f51eea3(entity, mocompanim, mocompanimblendouttime, m
 
 /*
 	Name: function_6c308e81
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0xA3DB667
 	Offset: 0x1A70
 	Size: 0x34
@@ -667,7 +667,7 @@ function function_6c308e81()
 
 /*
 	Name: play_ambient_zombie_vocals
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x10DB3A50
 	Offset: 0x1AB0
 	Size: 0x110
@@ -699,7 +699,7 @@ function play_ambient_zombie_vocals()
 
 /*
 	Name: zmbaivox_playdeath
-	Namespace: namespace_61feac76
+	Namespace: wz_ai_zombie_dog
 	Checksum: 0x2728FE63
 	Offset: 0x1BC8
 	Size: 0x4E

@@ -859,7 +859,7 @@ function function_c8663dbc(weapon, player)
 			var_b3fe42a9 = 1;
 			break;
 		}
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			var_60d3002f = "ac130Hacked";
@@ -893,7 +893,7 @@ function function_c8663dbc(weapon, player)
 			break;
 		}
 		case "drone_squadron":
-		case "hash_3447a6457d26a42e":
+		case "inventory_drone_squadron":
 		{
 			var_60d3002f = "droneSquadHacked";
 			var_b3fe42a9 = 1;
@@ -918,12 +918,12 @@ function function_c8663dbc(weapon, player)
 			break;
 		}
 		case "overwatch_helicopter":
-		case "hash_74ea4af18853e9af":
+		case "inventory_overwatch_helicopter":
 		{
 			var_60d3002f = "overwatchHelicopterHacked";
 			break;
 		}
-		case "hash_4307d5aaa7ce21d4":
+		case "inventory_straferun":
 		case "straferun":
 		{
 			var_60d3002f = "strafeRunHacked";

@@ -192,7 +192,7 @@ function count_players()
 	var_6a39bbbd = self teams::count_players();
 	foreach(team, _ in var_6a39bbbd)
 	{
-		platoon = function_22448d6c(team);
+		platoon = getteamplatoon(team);
 		if(!isdefined(level.platoons[platoon]))
 		{
 			continue;
@@ -270,7 +270,7 @@ function function_4b016b57()
 		return;
 	}
 	team = self.pers[#"team"];
-	platoon = function_22448d6c(team);
+	platoon = getteamplatoon(team);
 	if(platoon != #"invalid" && platoon != #"none")
 	{
 		return;

@@ -246,7 +246,7 @@ function __main__()
 	{
 		level.var_e8ccb5b4 = array(level.var_e8ccb5b4);
 	}
-	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"hash_6fed6a04129cb670");
+	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"ww_hand_c_upgraded");
 	if(!isdefined(level.var_e8ccb5b4))
 	{
 		level.var_e8ccb5b4 = [];
@@ -255,7 +255,7 @@ function __main__()
 	{
 		level.var_e8ccb5b4 = array(level.var_e8ccb5b4);
 	}
-	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"hash_7d9d24e1aef966fc");
+	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"ww_hand_g_upgraded");
 	if(!isdefined(level.var_e8ccb5b4))
 	{
 		level.var_e8ccb5b4 = [];
@@ -264,7 +264,7 @@ function __main__()
 	{
 		level.var_e8ccb5b4 = array(level.var_e8ccb5b4);
 	}
-	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"hash_403bfa4250f7a743");
+	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"ww_hand_h_upgraded");
 	if(!isdefined(level.var_e8ccb5b4))
 	{
 		level.var_e8ccb5b4 = [];
@@ -273,7 +273,7 @@ function __main__()
 	{
 		level.var_e8ccb5b4 = array(level.var_e8ccb5b4);
 	}
-	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"hash_508ba13614577e04");
+	level.var_e8ccb5b4[level.var_e8ccb5b4.size] = getweapon(#"ww_hand_o_upgraded");
 	if(!isdefined(level.var_e8ccb5b4))
 	{
 		level.var_e8ccb5b4 = [];

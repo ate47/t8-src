@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1603,7 +1603,7 @@ function function_42bb8ac1(weapon, originalowner, newowner, var_53c10ed8)
 			break;
 		}
 		case "drone_squadron":
-		case "hash_3447a6457d26a42e":
+		case "inventory_drone_squadron":
 		{
 			leaderdialog = "enemyDroneSquadronHack";
 			break;
@@ -1683,7 +1683,7 @@ function function_d545fd0a(player, weapon)
 			var_d975dd49 = "hacked_hellstorm";
 			break;
 		}
-		case "hash_4307d5aaa7ce21d4":
+		case "inventory_straferun":
 		case "straferun":
 		{
 			var_d975dd49 = "hacked_warthog";
@@ -1696,7 +1696,7 @@ function function_d545fd0a(player, weapon)
 			break;
 		}
 		case "drone_squadron":
-		case "hash_3447a6457d26a42e":
+		case "inventory_drone_squadron":
 		{
 			var_d975dd49 = "hacked_drone_squad";
 			break;
@@ -1709,12 +1709,12 @@ function function_d545fd0a(player, weapon)
 			break;
 		}
 		case "overwatch_helicopter":
-		case "hash_74ea4af18853e9af":
+		case "inventory_overwatch_helicopter":
 		{
 			var_d975dd49 = "hacked_sniper_chopper";
 			break;
 		}
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			var_d975dd49 = "hacked_ac130";

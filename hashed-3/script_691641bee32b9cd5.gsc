@@ -139,7 +139,7 @@ function autoexec __init__system__()
 function private __init__()
 {
 	level.var_ca74a4bc = [];
-	level.var_a3688653 = [];
+	level.a_s_wave_managers = [];
 	/#
 		setdvar(#"hash_1feb7de8a9fa6573", -1);
 		level thread debug_think();
@@ -157,8 +157,8 @@ function private __init__()
 */
 function private __main__()
 {
-	level.var_a3688653 = struct::get_script_bundle_instances("wave_manager");
-	foreach(s_wave_manager in level.var_a3688653)
+	level.a_s_wave_managers = struct::get_script_bundle_instances("wave_manager");
+	foreach(s_wave_manager in level.a_s_wave_managers)
 	{
 		s_wave_manager flag::init("wave_manager_started");
 		s_wave_manager function_51ce850d();
@@ -451,7 +451,7 @@ function private function_374e4d47()
 	foreach(var_7418aa09 in trigger::get_all())
 	{
 		var_a40eadd = [];
-		foreach(s_wave_manager in level.var_a3688653)
+		foreach(s_wave_manager in level.a_s_wave_managers)
 		{
 			if(isdefined(var_7418aa09.target) && var_7418aa09.target === s_wave_manager.targetname)
 			{
@@ -495,7 +495,7 @@ function private function_be478e08(var_a40eadd)
 */
 function private function_ad40f5b3()
 {
-	foreach(s_wave_manager in level.var_a3688653)
+	foreach(s_wave_manager in level.a_s_wave_managers)
 	{
 		if(isdefined(level.skipto_current_objective) && isdefined(s_wave_manager.var_4053bf4d))
 		{
@@ -509,7 +509,7 @@ function private function_ad40f5b3()
 			}
 		}
 	}
-	foreach(s_wave_manager in level.var_a3688653)
+	foreach(s_wave_manager in level.a_s_wave_managers)
 	{
 		if(isdefined(s_wave_manager.script_enable_on_start) && s_wave_manager.script_enable_on_start && (!(isdefined(s_wave_manager.var_f50b617f) && s_wave_manager.var_f50b617f)))
 		{
@@ -1731,9 +1731,9 @@ function private function_32b947df(kvp)
 			str_key = kvp[0];
 			str_value = kvp[1];
 		}
-		var_a3688653 = struct::get_array(str_value, str_key);
-		var_a3688653 = array::filter(var_a3688653, 0, &function_5b3b889f);
-		foreach(s_wave_manager in var_a3688653)
+		a_s_wave_managers = struct::get_array(str_value, str_key);
+		a_s_wave_managers = array::filter(a_s_wave_managers, 0, &function_5b3b889f);
+		foreach(s_wave_manager in a_s_wave_managers)
 		{
 			if(isdefined(s_wave_manager.var_dcd6c23))
 			{
@@ -1752,7 +1752,7 @@ function private function_32b947df(kvp)
 			}
 		}
 		/#
-			assert(var_a3688653.size, ((("" + str_key) + "") + str_value) + "");
+			assert(a_s_wave_managers.size, ((("" + str_key) + "") + str_value) + "");
 		#/
 	}
 	else
@@ -1797,7 +1797,7 @@ function private function_32b947df(kvp)
 */
 function private function_63e08195(kvp, b_assert = 1)
 {
-	var_a3688653 = [];
+	a_s_wave_managers = [];
 	if(isdefined(kvp))
 	{
 		if(isarray(kvp))
@@ -1810,28 +1810,28 @@ function private function_63e08195(kvp, b_assert = 1)
 			str_value = kvp;
 			str_key = "targetname";
 		}
-		var_a3688653 = struct::get_array(str_value, str_key);
+		a_s_wave_managers = struct::get_array(str_value, str_key);
 	}
 	else
 	{
-		var_a3688653 = self;
-		if(!isdefined(var_a3688653))
+		a_s_wave_managers = self;
+		if(!isdefined(a_s_wave_managers))
 		{
-			var_a3688653 = [];
+			a_s_wave_managers = [];
 		}
-		else if(!isarray(var_a3688653))
+		else if(!isarray(a_s_wave_managers))
 		{
-			var_a3688653 = array(var_a3688653);
+			a_s_wave_managers = array(a_s_wave_managers);
 		}
 	}
-	var_a3688653 = array::filter(var_a3688653, 0, &function_5b3b889f);
+	a_s_wave_managers = array::filter(a_s_wave_managers, 0, &function_5b3b889f);
 	if(b_assert)
 	{
 		/#
-			assert(var_a3688653.size, (isdefined(kvp) ? ((("" + str_key) + "") + str_value) + "" : ""));
+			assert(a_s_wave_managers.size, (isdefined(kvp) ? ((("" + str_key) + "") + str_value) + "" : ""));
 		#/
 	}
-	return var_a3688653;
+	return a_s_wave_managers;
 }
 
 /*
@@ -1845,7 +1845,7 @@ function private function_63e08195(kvp, b_assert = 1)
 */
 function private function_fa056daa()
 {
-	if(isinarray(level.var_a3688653, self))
+	if(isinarray(level.a_s_wave_managers, self))
 	{
 		if(isdefined(self.var_dcd6c23))
 		{
@@ -1892,7 +1892,7 @@ function private function_e0bfee59()
 */
 function private function_5b3b889f(var_ac1d69cd)
 {
-	return isinarray(level.var_a3688653, var_ac1d69cd);
+	return isinarray(level.a_s_wave_managers, var_ac1d69cd);
 }
 
 /*
@@ -1948,8 +1948,8 @@ function private function_bf55c711(n_wave, var_bced2a83)
 */
 function start(kvp, var_964c77e1, vararg)
 {
-	var_a3688653 = self namespace_96ff9fb2::function_63e08195(kvp);
-	foreach(s_wave_manager in var_a3688653)
+	a_s_wave_managers = self namespace_96ff9fb2::function_63e08195(kvp);
+	foreach(s_wave_manager in a_s_wave_managers)
 	{
 		var_e8332bc1 = new class_8e39177();
 		var_e8332bc1.var_964c77e1 = var_964c77e1;
@@ -2270,10 +2270,10 @@ function function_77941ace(kvp, n_wave)
 */
 function function_6893f05b(kvp, n_wave, var_bced2a83 = 1)
 {
-	var_a3688653 = [];
-	var_a3688653 = self namespace_96ff9fb2::function_63e08195(kvp);
+	a_s_wave_managers = [];
+	a_s_wave_managers = self namespace_96ff9fb2::function_63e08195(kvp);
 	var_a1f4e09d = 0;
-	foreach(s_wave_manager in var_a3688653)
+	foreach(s_wave_manager in a_s_wave_managers)
 	{
 		if(isdefined(s_wave_manager.var_dcd6c23))
 		{
@@ -2299,10 +2299,10 @@ function add_spawn_function(kvp, var_964c77e1, vararg)
 	/#
 		assert(isdefined(var_964c77e1));
 	#/
-	var_a3688653 = self namespace_96ff9fb2::function_63e08195(kvp, 0);
-	if(var_a3688653.size)
+	a_s_wave_managers = self namespace_96ff9fb2::function_63e08195(kvp, 0);
+	if(a_s_wave_managers.size)
 	{
-		foreach(s_wave_manager in var_a3688653)
+		foreach(s_wave_manager in a_s_wave_managers)
 		{
 			var_e8332bc1 = new class_8e39177();
 			var_e8332bc1.var_964c77e1 = var_964c77e1;
@@ -2371,10 +2371,10 @@ function remove_spawn_function(kvp, var_964c77e1)
 	/#
 		assert(isdefined(var_964c77e1));
 	#/
-	var_a3688653 = self namespace_96ff9fb2::function_63e08195(kvp, 0);
-	if(var_a3688653.size)
+	a_s_wave_managers = self namespace_96ff9fb2::function_63e08195(kvp, 0);
+	if(a_s_wave_managers.size)
 	{
-		foreach(s_wave_manager in var_a3688653)
+		foreach(s_wave_manager in a_s_wave_managers)
 		{
 			if(isdefined(s_wave_manager.var_dcd6c23))
 			{

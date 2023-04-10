@@ -1385,8 +1385,8 @@ class csceneplayer : csceneobject
 							{
 								if(animhasnotetrack(var_efc540b6, "interactive_shot_marker"))
 								{
-									var_36e740de = getnotetracktimes(var_efc540b6, "interactive_shot_marker");
-									foreach(n_time in var_36e740de)
+									a_n_times = getnotetracktimes(var_efc540b6, "interactive_shot_marker");
+									foreach(n_time in a_n_times)
 									{
 										if(n_time > var_f667af2f)
 										{
@@ -1745,7 +1745,7 @@ class csceneplayer : csceneobject
 							if(var_322595c6.var_3cf2d21 === _s.model)
 							{
 								player setcharacterbodytype(var_2074c3ff);
-								player function_8fd843dd(var_6e0e2531);
+								player setcharacteroutfit(var_6e0e2531);
 								if(isdefined(_s.var_a5617859) && isarray(var_322595c6.presets))
 								{
 									var_a919ac81 = strtok(_s.var_a5617859, "");

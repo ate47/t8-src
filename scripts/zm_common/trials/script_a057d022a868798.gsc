@@ -65,7 +65,7 @@ function private on_begin(var_ff22cb62)
 function private on_end(round_reset)
 {
 	zm_trial_util::function_f3dbeda7();
-	foreach(s_portal in level.var_63fca02d)
+	foreach(s_portal in level.a_s_portals)
 	{
 		s_portal.var_5b12474a = undefined;
 	}

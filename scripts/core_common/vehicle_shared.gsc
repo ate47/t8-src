@@ -5854,13 +5854,13 @@ function function_ff77beb1(otherplayer = undefined)
 		var_9db4bbbe.var_b6233805 = player.tag_stowed_hip;
 		var_9db4bbbe.stowed_weapon = player getstowedweapon();
 		var_9db4bbbe.bodytype = player getcharacterbodytype();
-		var_9db4bbbe.outfit = player function_50a9aad5();
+		var_9db4bbbe.outfit = player getcharacteroutfit();
 		var_d8d89950 = spawnstruct();
 		var_d8d89950.tag_stowed_back_weapon = otherplayer.tag_stowed_back;
 		var_d8d89950.var_b6233805 = otherplayer.tag_stowed_hip;
 		var_d8d89950.stowed_weapon = otherplayer getstowedweapon();
 		var_d8d89950.bodytype = otherplayer getcharacterbodytype();
-		var_d8d89950.outfit = otherplayer function_50a9aad5();
+		var_d8d89950.outfit = otherplayer getcharacteroutfit();
 		if(!isdefined(player.var_19bc935c))
 		{
 			player.var_19bc935c = var_9db4bbbe;
@@ -5889,7 +5889,7 @@ function function_d4a848de(var_19bc935c)
 {
 	player = self;
 	player setcharacterbodytype(var_19bc935c.bodytype);
-	player function_8fd843dd(var_19bc935c.outfit);
+	player setcharacteroutfit(var_19bc935c.outfit);
 }
 
 /*

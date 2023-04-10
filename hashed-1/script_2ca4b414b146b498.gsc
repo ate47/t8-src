@@ -12,7 +12,7 @@
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_522aeb6ae906391e;
 #using script_52d2de9b438adc78;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;

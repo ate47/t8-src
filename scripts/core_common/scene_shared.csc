@@ -3830,19 +3830,19 @@ function convert_to_new_format(s_scenedef)
 	Parameters: 3
 	Flags: None
 */
-function function_8d8ec9b5(str_scenedef, var_b5d05f70, s_instance)
+function function_8d8ec9b5(str_scenedef, a_str_shot_names, s_instance)
 {
 	if(isdefined(s_instance))
 	{
-		s_instance.var_b5d05f70 = var_b5d05f70;
-		s_instance.var_418c40ac = var_b5d05f70[var_b5d05f70.size - 1];
+		s_instance.a_str_shot_names = a_str_shot_names;
+		s_instance.var_418c40ac = a_str_shot_names[a_str_shot_names.size - 1];
 	}
 	else
 	{
 		s_scenedef = get_scenedef(str_scenedef);
-		s_scenedef.var_b5d05f70 = var_b5d05f70;
-		level.var_1e798f4c[str_scenedef] = var_b5d05f70;
-		s_scenedef.var_418c40ac = var_b5d05f70[var_b5d05f70.size - 1];
+		s_scenedef.a_str_shot_names = a_str_shot_names;
+		level.var_1e798f4c[str_scenedef] = a_str_shot_names;
+		s_scenedef.var_418c40ac = a_str_shot_names[a_str_shot_names.size - 1];
 	}
 }
 
@@ -3857,9 +3857,9 @@ function function_8d8ec9b5(str_scenedef, var_b5d05f70, s_instance)
 */
 function get_all_shot_names(str_scenedef, s_instance, var_8c4d2266 = 0)
 {
-	if(isdefined(s_instance) && isdefined(s_instance.var_b5d05f70))
+	if(isdefined(s_instance) && isdefined(s_instance.a_str_shot_names))
 	{
-		a_shots = s_instance.var_b5d05f70;
+		a_shots = s_instance.a_str_shot_names;
 		if(var_8c4d2266)
 		{
 			arrayremovevalue(a_shots, "init");
@@ -3876,14 +3876,14 @@ function get_all_shot_names(str_scenedef, s_instance, var_8c4d2266 = 0)
 		return a_shots;
 	}
 	s_scenedef = get_scenedef(str_scenedef);
-	if(isdefined(s_scenedef.var_b5d05f70))
+	if(isdefined(s_scenedef.a_str_shot_names))
 	{
-		a_shots = s_scenedef.var_b5d05f70;
+		a_shots = s_scenedef.a_str_shot_names;
 		if(var_8c4d2266)
 		{
 			arrayremovevalue(a_shots, "init");
 		}
-		return s_scenedef.var_b5d05f70;
+		return s_scenedef.a_str_shot_names;
 	}
 	a_shots = [];
 	foreach(s_object in s_scenedef.objects)
@@ -3907,7 +3907,7 @@ function get_all_shot_names(str_scenedef, s_instance, var_8c4d2266 = 0)
 			}
 		}
 	}
-	s_scenedef.var_b5d05f70 = a_shots;
+	s_scenedef.a_str_shot_names = a_shots;
 	s_scenedef.var_418c40ac = a_shots[a_shots.size - 1];
 	if(var_8c4d2266)
 	{

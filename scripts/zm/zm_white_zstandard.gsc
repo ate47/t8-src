@@ -296,8 +296,8 @@ function function_7f933d39()
 {
 	level.s_portal_street_mid = struct::get("PORTAL_STREET_MID", "script_noteworthy");
 	level.s_portal_power = struct::get("PORTAL_POWER", "script_noteworthy");
-	var_63fca02d = struct::get_array("white_portal");
-	foreach(s_portal in var_63fca02d)
+	a_s_portals = struct::get_array("white_portal");
+	foreach(s_portal in a_s_portals)
 	{
 		s_portal zm_white_portals::portal_init();
 	}
@@ -603,8 +603,8 @@ function function_84139b27()
 	zm_utility::function_c492c4d6("beds", "s_destination_beds", array("zone_bunker_beds_1", "zone_bunker_beds_2"), array(#"apd_control", #"transfusion", #"entrance", #"apd"), #"hash_1b2c80095746520", #"hash_23056ec7ef2980d0");
 	zm_utility::function_c492c4d6("power_room", "s_destination_power", array("zone_bunker_power_1", "zone_bunker_power_2"), array(#"operations", #"apd", #"lounge", #"beds"), #"hash_6d1bafbffaf5eea3", #"hash_735edac51c5c590d");
 	zm_utility::function_c492c4d6("apd_control", "s_destination_apd_control", array("zone_bunker_apd"), array(#"diner", #"lounge", #"holding", #"yellow_backyard"), #"hash_1e1724de3db625e7", #"hash_73afea47172727f1");
-	a_str_keys = getarraykeys(level.var_f05f7e16);
-	foreach(s_defend_area in level.var_f05f7e16)
+	a_str_keys = getarraykeys(level.a_s_defend_areas);
+	foreach(s_defend_area in level.a_s_defend_areas)
 	{
 		foreach(str_index in s_defend_area.var_cc0c35ca)
 		{

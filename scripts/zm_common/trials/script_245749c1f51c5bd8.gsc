@@ -114,8 +114,8 @@ function function_58fc4e38(n_delay = 0)
 {
 	level endon(#"hash_7646638df88a3656");
 	wait(n_delay);
-	var_d2af5572 = struct::get_array("trials_door_lockdown_clip");
-	foreach(s_blocker in var_d2af5572)
+	a_s_blockers = struct::get_array("trials_door_lockdown_clip");
+	foreach(s_blocker in a_s_blockers)
 	{
 		if(!isdefined(s_blocker.mdl_blocker))
 		{
@@ -140,8 +140,8 @@ function function_92f23ef0(n_delay = 0)
 {
 	level endon(#"hash_7646638df88a3656");
 	wait(n_delay);
-	var_d2af5572 = struct::get_array("trials_door_lockdown_clip");
-	foreach(s_blocker in var_d2af5572)
+	a_s_blockers = struct::get_array("trials_door_lockdown_clip");
+	foreach(s_blocker in a_s_blockers)
 	{
 		if(isdefined(s_blocker.mdl_blocker))
 		{

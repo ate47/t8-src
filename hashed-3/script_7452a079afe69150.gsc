@@ -164,7 +164,7 @@ function function_1ae8059(params)
 	Parameters: 3
 	Flags: Linked
 */
-function function_ffda8476(var_c14ca2e6, var_9522ba0f, amount)
+function function_ffda8476(var_c14ca2e6, xpstat, amount)
 {
 	player = self;
 	/#
@@ -198,7 +198,7 @@ function function_ffda8476(var_c14ca2e6, var_9522ba0f, amount)
 		}
 	}
 	var_a402c6e3 = curxp - prevxp;
-	player stats::function_dad108fa(var_9522ba0f, var_a402c6e3);
+	player stats::function_dad108fa(xpstat, var_a402c6e3);
 	player.pers[#"hash_6344af0b142ed0b6"] = 1;
 }
 
@@ -649,7 +649,7 @@ function function_5648f82(team)
 			var_ced14f4b = level.var_db720da1.win;
 			if(util::function_5df4294() == "warzone_pandemic_quad")
 			{
-				if(function_22448d6c(team) == infection::function_76601b7d())
+				if(getteamplatoon(team) == infection::function_76601b7d())
 				{
 					var_ced14f4b = level.var_db720da1.infectedwin;
 				}
@@ -662,7 +662,7 @@ function function_5648f82(team)
 			{
 				player giveachievement("wz_not_a_fluke");
 			}
-			isinfected = util::function_5df4294() == "warzone_pandemic_quad" && function_22448d6c(team) == infection::function_76601b7d();
+			isinfected = util::function_5df4294() == "warzone_pandemic_quad" && getteamplatoon(team) == infection::function_76601b7d();
 			if(!isdefined(player.laststandcount) || player.laststandcount <= 0 && !isinfected)
 			{
 				player stats::function_d40764f3(#"wins_without_down", 1);

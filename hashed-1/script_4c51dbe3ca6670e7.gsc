@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_items.gsc;
 #using script_52c6c2d1a2ef1b46;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_6a3f43063dfd1bdc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\clientfield_shared.gsc;

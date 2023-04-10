@@ -805,7 +805,7 @@ function function_bf573b44()
 {
 	level endon(#"end_game");
 	var_8a88c4c8 = getent("mdl_narrative_payback", "targetname");
-	var_946f7f31 = getentarray("vol_narrative_payback", "targetname");
+	a_vol_statues = getentarray("vol_narrative_payback", "targetname");
 	if(!zm_utility::function_e51dc2d8())
 	{
 		var_8a88c4c8 delete();
@@ -813,14 +813,14 @@ function function_bf573b44()
 	else
 	{
 		level.var_1a87adb6 = 0;
-		level.var_4cc66ca4 = var_946f7f31.size;
+		level.var_4cc66ca4 = a_vol_statues.size;
 		callback::on_connect(&function_ca4e26c3);
 		array::thread_all(level.players, &function_ca4e26c3);
 		level flag::wait_till(#"hash_aab8ed14df98649");
 		callback::remove_on_connect(&function_ca4e26c3);
 		var_8a88c4c8 clientfield::set("" + #"hash_2407f687f7d24a83", 1);
 	}
-	array::delete_all(var_946f7f31);
+	array::delete_all(a_vol_statues);
 }
 
 /*
@@ -854,8 +854,8 @@ function function_ca4e26c3()
 			v_hit = a_trace[#"position"];
 			if(isdefined(v_hit))
 			{
-				var_946f7f31 = getentarray("vol_narrative_payback", "targetname");
-				foreach(vol_statue in var_946f7f31)
+				a_vol_statues = getentarray("vol_narrative_payback", "targetname");
+				foreach(vol_statue in a_vol_statues)
 				{
 					if(istouching(v_hit, vol_statue))
 					{

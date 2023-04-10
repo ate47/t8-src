@@ -16,7 +16,7 @@
 #using scripts\core_common\ai\archetype_stoker_interface.gsc;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_58c342edd81589fb;
 #using script_59f07c660e6710a5;
 #using script_6809bf766eba194a;
@@ -174,7 +174,7 @@ function __main__()
 */
 function init()
 {
-	level.var_411746bd = [];
+	level.a_sp_stoker = [];
 	level thread aat::register_immunity("zm_aat_brain_decay", #"stoker", 1, 1, 1);
 	level thread aat::register_immunity("zm_aat_frostbite", #"stoker", 1, 1, 1);
 	level thread aat::register_immunity("zm_aat_kill_o_watt", #"stoker", 1, 1, 1);
@@ -1371,7 +1371,7 @@ function private function_e2e5eebf(entity)
 */
 function function_72339619(spawner, s_spot, var_bc66d64b)
 {
-	ai_stoker = zombie_utility::spawn_zombie(level.var_411746bd[0], "stoker", s_spot, var_bc66d64b);
+	ai_stoker = zombie_utility::spawn_zombie(level.a_sp_stoker[0], "stoker", s_spot, var_bc66d64b);
 	if(isdefined(ai_stoker))
 	{
 		ai_stoker.check_point_in_enabled_zone = &zm_utility::check_point_in_playable_area;
@@ -1413,19 +1413,19 @@ function function_4c2cb763(s_spot)
 */
 function function_2170ee7a()
 {
-	level.var_411746bd = getentarray("zombie_stoker_spawner", "script_noteworthy");
-	if(level.var_411746bd.size == 0)
+	level.a_sp_stoker = getentarray("zombie_stoker_spawner", "script_noteworthy");
+	if(level.a_sp_stoker.size == 0)
 	{
 		/#
 			assertmsg("");
 		#/
 		return;
 	}
-	foreach(var_493d9bf8 in level.var_411746bd)
+	foreach(sp_stoker in level.a_sp_stoker)
 	{
-		var_493d9bf8.is_enabled = 1;
-		var_493d9bf8.script_forcespawn = 1;
-		var_493d9bf8 spawner::add_spawn_function(&stoker_init);
+		sp_stoker.is_enabled = 1;
+		sp_stoker.script_forcespawn = 1;
+		sp_stoker spawner::add_spawn_function(&stoker_init);
 	}
 }
 
@@ -1527,7 +1527,7 @@ function spawn_single(b_force_spawn = 0, var_eb3a8721, var_bc66d64b)
 		#/
 		return undefined;
 	}
-	ai = function_72339619(level.var_411746bd[0], undefined, var_bc66d64b);
+	ai = function_72339619(level.a_sp_stoker[0], undefined, var_bc66d64b);
 	if(isdefined(ai))
 	{
 		ai forceteleport(s_spawn_loc.origin, s_spawn_loc.angles);
