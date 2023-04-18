@@ -157,7 +157,7 @@ function on_player_killed()
 */
 function vehiclespawncontext()
 {
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self clientfield::set("sndSwitchVehicleContext", 1);
 	}
@@ -289,7 +289,7 @@ function unlockfrontendmusic(unlockname, allplayers = 1)
 */
 function function_30d4f8c4(attacker, smeansofdeath, weapon)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self playsoundtoplayer(#"hash_686fcf059a57de6f", self);
 		return;

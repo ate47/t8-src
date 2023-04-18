@@ -210,10 +210,10 @@ event main(eventstruct)
 	callback::function_74872db6(&play_avalanche);
 	if(!zm_utility::function_e51dc2d8())
 	{
-		var_47cef04a = getent("ee_ind", "targetname");
-		if(isdefined(var_47cef04a))
+		e_ind = getent("ee_ind", "targetname");
+		if(isdefined(e_ind))
 		{
-			var_47cef04a delete();
+			e_ind delete();
 		}
 	}
 	if(zm_utility::is_trials())

@@ -32,7 +32,7 @@ event main(eventstruct)
 		setdvar(#"hash_53f625ed150e7700", 6000);
 	}
 	util::waitforclient(0);
-	level.var_1bf85d03 = 1200;
+	level.sensor_dart_radius = 1200;
 	level thread function_e656c6cb();
 }
 

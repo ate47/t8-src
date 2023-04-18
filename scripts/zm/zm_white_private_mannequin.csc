@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_ba16273b;
+#namespace zm_white_private_mannequin;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x4A29C8F7
 	Offset: 0xC0
 	Size: 0x44
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_2a6a60ff4e0bd9d1", &__init__, &__main__, undefined);
+	system::register(#"zm_white_private_mannequin", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x488985FD
 	Offset: 0x110
 	Size: 0x5C
@@ -34,7 +34,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x80F724D1
 	Offset: 0x178
 	Size: 0x4
@@ -47,7 +47,7 @@ function __main__()
 
 /*
 	Name: function_a1ee0828
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xC41FB4C9
 	Offset: 0x188
 	Size: 0x7C

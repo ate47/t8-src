@@ -49,9 +49,9 @@ function preload()
 	clientfield::register("scriptmover", "fx8_reward_brazier_fire_blue", 24000, 1, "int");
 	clientfield::register("scriptmover", "fx8_snowpile_swap", 24000, 1, "int");
 	clientfield::register("toplayer", "spleen_carry_sound", 20000, 1, "int");
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_1", 24000, "snowball_campfire_1", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_2", 24000, "snowball_campfire_2", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_3", 24000, "snowball_campfire_3", &function_8598f0d4, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_1", 24000, "snowball_campfire_1", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_2", 24000, "snowball_campfire_2", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_3", 24000, "snowball_campfire_3", &is_soul_capture, &soul_captured, 1);
 	level flag::init(#"hash_5e095d53ae9513f5");
 	level flag::init(#"hash_2b7269d8e32bf3d7");
 }
@@ -69,15 +69,15 @@ function main()
 {
 	level function_47274b1e();
 	level function_19f2a68d();
-	zm_sq::register(#"hash_279b9e35956e1eed", #"step_1", #"hash_2ed342ae0266e20", &function_8ba3d474, &function_f5a84740);
-	zm_sq::register(#"hash_279b9e35956e1eed", #"step_2", #"hash_2ed342ae0266e20", &function_37507fb7, &function_6ad60943);
-	zm_sq::register(#"hash_279b9e35956e1eed", #"step_3", #"hash_2ed342ae0266e20", &function_80794c22, &function_2b9f7a47);
-	zm_sq::register(#"hash_279b9e35956e1eed", #"step_4", #"hash_2ed342ae0266e20", &function_985dbc38, &function_256ebdea);
+	zm_sq::register(#"yellow_snowballs", #"step_1", #"hash_2ed342ae0266e20", &function_8ba3d474, &function_f5a84740);
+	zm_sq::register(#"yellow_snowballs", #"step_2", #"hash_2ed342ae0266e20", &function_37507fb7, &function_6ad60943);
+	zm_sq::register(#"yellow_snowballs", #"step_3", #"hash_2ed342ae0266e20", &function_80794c22, &function_2b9f7a47);
+	zm_sq::register(#"yellow_snowballs", #"step_4", #"hash_2ed342ae0266e20", &function_985dbc38, &function_256ebdea);
 	level waittill(#"all_players_spawned");
 	level function_698e6ba();
 	if(!zm_utility::is_standard())
 	{
-		zm_sq::start(#"hash_279b9e35956e1eed", 1);
+		zm_sq::start(#"yellow_snowballs", 1);
 	}
 }
 
@@ -335,7 +335,7 @@ function function_37507fb7(var_a276c861)
 }
 
 /*
-	Name: function_8598f0d4
+	Name: is_soul_capture
 	Namespace: zm_orange_ee_yellow_snow
 	Checksum: 0x4FB8A3BE
 	Offset: 0x14A8
@@ -343,7 +343,7 @@ function function_37507fb7(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8598f0d4(var_88206a50, ent)
+function is_soul_capture(var_88206a50, ent)
 {
 	if(isdefined(ent))
 	{
@@ -355,7 +355,7 @@ function function_8598f0d4(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: zm_orange_ee_yellow_snow
 	Checksum: 0x719042AA
 	Offset: 0x1570
@@ -363,12 +363,12 @@ function function_8598f0d4(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	n_souls_required = 20;
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = n_souls_required;
 		}
@@ -578,7 +578,7 @@ function function_c0ee8171()
 	e_who = s_activation.e_who;
 	if(!level.var_27f2245a)
 	{
-		level thread function_50cd80d8(e_who);
+		level thread pickup_spleen_vo(e_who);
 		level.var_27f2245a = 1;
 	}
 	playsoundatposition(#"hash_16a225866d646305", level.var_3af3c634.origin);
@@ -591,7 +591,7 @@ function function_c0ee8171()
 }
 
 /*
-	Name: function_50cd80d8
+	Name: pickup_spleen_vo
 	Namespace: zm_orange_ee_yellow_snow
 	Checksum: 0x8051A931
 	Offset: 0x1DC0
@@ -599,7 +599,7 @@ function function_c0ee8171()
 	Parameters: 1
 	Flags: Linked
 */
-function function_50cd80d8(e_who)
+function pickup_spleen_vo(e_who)
 {
 	e_who thread zm_orange_util::function_51b752a9("vox_spleen_pickup", -1, 1, 0);
 	if(level.var_98138d6b > 1 && !level flag::get(#"hash_2b7269d8e32bf3d7"))

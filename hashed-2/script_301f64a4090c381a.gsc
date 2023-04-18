@@ -472,7 +472,7 @@ function on_player_connect()
 	/#
 		self endon(#"disconnect");
 		level flag::wait_till("");
-		self function_53bb2a5();
+		self devgui_player_menu();
 	#/
 }
 
@@ -497,7 +497,7 @@ function function_c1ccd7f3(var_fc09f1a3, n_player, vararg)
 }
 
 /*
-	Name: function_53bb2a5
+	Name: devgui_player_menu
 	Namespace: namespace_e38c57c1
 	Checksum: 0xF5799266
 	Offset: 0x10C0
@@ -505,7 +505,7 @@ function function_c1ccd7f3(var_fc09f1a3, n_player, vararg)
 	Parameters: 0
 	Flags: None
 */
-function function_53bb2a5()
+function devgui_player_menu()
 {
 	/#
 		self function_1c3ffffd();

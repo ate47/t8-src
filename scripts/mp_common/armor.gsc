@@ -201,8 +201,8 @@ function function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon
 		}
 		if(smeansofdeath != "MOD_FALLING" && !weapon_utils::ismeleemod(smeansofdeath) && !weapons::isheadshot(shitloc, smeansofdeath))
 		{
-			var_fa8901ee = idamage * self.var_98a174a7.var_cdeeec29;
-			self.var_98a174a7.amount = self.lightarmorhp - var_fa8901ee;
+			damage_to_armor = idamage * self.var_98a174a7.var_cdeeec29;
+			self.var_98a174a7.amount = self.lightarmorhp - damage_to_armor;
 			idamage = 0;
 			if(self.var_98a174a7.amount <= 0)
 			{
@@ -250,7 +250,7 @@ function get_armor()
 	Parameters: 13
 	Flags: Linked
 */
-function set_armor(amount, var_8814a91, armortier, var_2274e560 = 1, var_cdeeec29 = 1, var_5164d2e2 = 1, var_e6683a43 = 1, var_22c3ab38 = 1, var_9f307988 = 1, var_7a80f06e = 1, var_c899f877 = 1, var_35e3563e = 1, var_4aad1e44 = undefined)
+function set_armor(amount, max_armor, armortier, var_2274e560 = 1, var_cdeeec29 = 1, var_5164d2e2 = 1, var_e6683a43 = 1, var_22c3ab38 = 1, var_9f307988 = 1, var_7a80f06e = 1, var_c899f877 = 1, var_35e3563e = 1, var_4aad1e44 = undefined)
 {
 	/#
 		assert(isdefined(amount));
@@ -276,7 +276,7 @@ function set_armor(amount, var_8814a91, armortier, var_2274e560 = 1, var_cdeeec2
 		self.var_59a874a7.var_735ae1ee = getscriptbundle(var_4aad1e44);
 	}
 	self.armortier = armortier;
-	self.maxarmor = var_8814a91;
+	self.maxarmor = max_armor;
 	self.armor = amount;
 }
 
@@ -482,7 +482,7 @@ function private function_37f4e0e0(smeansofdeath, shitloc)
 			return true;
 		}
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(smeansofdeath == "MOD_BULLET" || smeansofdeath == "MOD_RIFLE_BULLET" || smeansofdeath == "MOD_PISTOL_BULLET" || smeansofdeath == "MOD_MELEE" || smeansofdeath == "MOD_MELEE_WEAPON_BUTT")
 		{

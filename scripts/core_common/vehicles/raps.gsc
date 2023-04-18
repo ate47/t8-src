@@ -163,11 +163,11 @@ function initsounds()
 	self.sndalias[#"spawn"] = #"veh_raps_spawn";
 	self.sndalias[#"direction"] = #"veh_raps_direction";
 	self.sndalias[#"jump_up"] = #"veh_raps_jump_up";
-	self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"veh_raps_close_250";
-	self.sndalias[#"hash_22b0b71c07ac7fea"] = #"veh_raps_close_1500";
-	self.sndalias[#"hash_26569720e0ae76f3"] = #"veh_raps_targeting";
-	self.sndalias[#"hash_2b3a22d457fba169"] = #"evt_raps_alarm";
-	self.sndalias[#"hash_56dd8cae01fc143c"] = #"veh_wasp_wall_imp";
+	self.sndalias[#"vehclose250"] = #"veh_raps_close_250";
+	self.sndalias[#"vehclose1500"] = #"veh_raps_close_1500";
+	self.sndalias[#"vehtargeting"] = #"veh_raps_targeting";
+	self.sndalias[#"vehalarm"] = #"evt_raps_alarm";
+	self.sndalias[#"vehcollision"] = #"veh_wasp_wall_imp";
 	if(isdefined(self.vehicletype) && (self.vehicletype == #"spawner_enemy_zombie_vehicle_raps_suicide" || self.vehicletype == #"spawner_zombietron_veh_meatball" || self.vehicletype == #"spawner_zombietron_veh_meatball_med" || self.vehicletype == #"spawner_zombietron_veh_meatball_small"))
 	{
 		self.sndalias[#"inair"] = #"zmb_meatball_in_air";
@@ -175,11 +175,11 @@ function initsounds()
 		self.sndalias[#"spawn"] = undefined;
 		self.sndalias[#"direction"] = undefined;
 		self.sndalias[#"jump_up"] = #"zmb_meatball_jump_up";
-		self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"zmb_meatball_close_250";
-		self.sndalias[#"hash_22b0b71c07ac7fea"] = undefined;
-		self.sndalias[#"hash_26569720e0ae76f3"] = #"zmb_meatball_targeting";
-		self.sndalias[#"hash_2b3a22d457fba169"] = undefined;
-		self.sndalias[#"hash_56dd8cae01fc143c"] = #"zmb_meatball_collision";
+		self.sndalias[#"vehclose250"] = #"zmb_meatball_close_250";
+		self.sndalias[#"vehclose1500"] = undefined;
+		self.sndalias[#"vehtargeting"] = #"zmb_meatball_targeting";
+		self.sndalias[#"vehalarm"] = undefined;
+		self.sndalias[#"vehcollision"] = #"zmb_meatball_collision";
 	}
 	if(isdefined(self.vehicletype) && self.vehicletype == #"hash_22f2770b0b570f88")
 	{
@@ -188,11 +188,11 @@ function initsounds()
 		self.sndalias[#"spawn"] = #"hash_220536a567c22f9d";
 		self.sndalias[#"direction"] = undefined;
 		self.sndalias[#"jump_up"] = #"hash_1182d9ecfe86442e";
-		self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"hash_4d4a13f08b063112";
-		self.sndalias[#"hash_22b0b71c07ac7fea"] = undefined;
-		self.sndalias[#"hash_26569720e0ae76f3"] = #"hash_57d3d8cf8a3cb109";
-		self.sndalias[#"hash_2b3a22d457fba169"] = #"hash_28033d94de922793";
-		self.sndalias[#"hash_56dd8cae01fc143c"] = #"hash_481f37c2ab12bdfe";
+		self.sndalias[#"vehclose250"] = #"hash_4d4a13f08b063112";
+		self.sndalias[#"vehclose1500"] = undefined;
+		self.sndalias[#"vehtargeting"] = #"hash_57d3d8cf8a3cb109";
+		self.sndalias[#"vehalarm"] = #"hash_28033d94de922793";
+		self.sndalias[#"vehcollision"] = #"hash_481f37c2ab12bdfe";
 	}
 }
 

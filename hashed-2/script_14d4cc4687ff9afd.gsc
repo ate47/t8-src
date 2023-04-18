@@ -501,7 +501,7 @@ function function_220a8687()
 function function_e82679f8(e_player)
 {
 	s_zipline_use = self.stub.related_parent;
-	if(level flag::get(#"hash_9cfd45106ac760d") && s_zipline_use.str_location !== "lighthouse_to_facility")
+	if(level flag::get(#"hell_on_earth") && s_zipline_use.str_location !== "lighthouse_to_facility")
 	{
 		self sethintstring(#"hash_2940c8be9ff1b294");
 		return true;
@@ -592,7 +592,7 @@ function function_d41f7e0e()
 		{
 			continue;
 		}
-		if(level flag::get(#"hash_9cfd45106ac760d") && self.str_location !== "lighthouse_to_facility")
+		if(level flag::get(#"hell_on_earth") && self.str_location !== "lighthouse_to_facility")
 		{
 			continue;
 		}

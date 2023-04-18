@@ -24,7 +24,7 @@
 */
 function setupattackproperties()
 {
-	self val::reset(#"hash_62fca810699077f3", "ignoreall");
+	self val::reset(#"attack_properties", "ignoreall");
 	self.meleeattackdist = 64;
 }
 

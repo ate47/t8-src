@@ -341,11 +341,11 @@ function on_player_spawned()
 {
 	self endon(#"death");
 	self thread function_8e0b371();
-	self thread zm_audio::function_713192b1(#"hash_7a784e915fb4da82", #"hash_46b1dc3f08952257");
-	self thread zm_audio::function_713192b1(#"hash_2a27c4b2d37ac547", #"hash_645754d1b8650c14");
+	self thread zm_audio::function_713192b1(#"hash_7a784e915fb4da82", #"body_pit");
+	self thread zm_audio::function_713192b1(#"hash_2a27c4b2d37ac547", #"odin_floor");
 	self thread zm_audio::function_713192b1(#"hash_f06f1d12b9e06bb", #"ra_base");
 	self thread zm_audio::function_713192b1(#"hash_54ab01103f8534bd", #"temple");
-	self thread zm_audio::function_713192b1(#"hash_3bf0a3cc4bf210d3", #"hash_70e9a458e0807d54");
+	self thread zm_audio::function_713192b1(#"hash_3bf0a3cc4bf210d3", #"zeus_base");
 	self thread zm_audio::function_713192b1(#"hash_397ee221838b64ee", #"danu");
 	self thread zm_audio::function_713192b1(#"hash_5c1dcbfe0b5001dd", #"danu");
 }

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_240ef62ff60b2694;
+#using scripts\core_common\player\player_stats.csc;
 #using script_5da9076b8e4f6d28;
 #using scripts\mp_common\item_world.csc;
 #using script_c1eebdc8cad5d78;
@@ -175,8 +175,8 @@ function private function_3fe6ef04(localclientnum)
 */
 function private function_88da0c8e(localclientnum)
 {
-	var_8b39f54e = stats::function_441050ca(localclientnum, #"items_paint_cans_collected");
-	return (isdefined(var_8b39f54e) ? var_8b39f54e : 0) >= 150;
+	paintcans = stats::get_stat_global(localclientnum, #"items_paint_cans_collected");
+	return (isdefined(paintcans) ? paintcans : 0) >= 150;
 }
 
 /*
@@ -346,14 +346,14 @@ function private function_e23e5e85(localclientnum)
 	{
 		return false;
 	}
-	var_344a1b3d = clientdata.inventory.items[11];
-	if(!isdefined(var_344a1b3d) || var_344a1b3d.var_bd027dd9 === 32767 || var_344a1b3d.var_a6762160.itemtype !== #"armor")
+	armoritem = clientdata.inventory.items[11];
+	if(!isdefined(armoritem) || armoritem.var_bd027dd9 === 32767 || armoritem.var_a6762160.itemtype !== #"armor")
 	{
 		return false;
 	}
 	var_35b0780f = getuimodelvalue(getuimodel(getuimodelforcontroller(localclientnum), "predictedClientModel"));
 	var_a4d193fa = getuimodel(var_35b0780f, "armor");
-	var_15663411 = getuimodel(var_344a1b3d.itemuimodel, "armorMax");
+	var_15663411 = getuimodel(armoritem.itemuimodel, "armorMax");
 	if(!isdefined(var_a4d193fa) || !isdefined(var_15663411) || getuimodelvalue(var_a4d193fa) == getuimodelvalue(var_15663411))
 	{
 		return false;
@@ -887,7 +887,7 @@ function private function_96ce9058(localclientnum, var_6c2b2289, inventoryitem, 
 			{
 				if(isdefined(item.var_a6762160.objectives[i]) && isdefined(item.var_a6762160.objectives[i].var_7e835304))
 				{
-					value = stats::function_441050ca(localclientnum, item.var_a6762160.objectives[i].var_7e835304);
+					value = stats::get_stat_global(localclientnum, item.var_a6762160.objectives[i].var_7e835304);
 					if(isdefined(value) && value != var_1ce96a13[i])
 					{
 						var_1ce96a13[i] = value;
@@ -1686,17 +1686,17 @@ function private function_5c2fff73(localclientnum)
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{
-		var_78d7ac4a = data.inventory.healthitems[index];
+		healthitem = data.inventory.healthitems[index];
 		inventoryitem = var_7007b688[index];
-		function_1a99656a(localclientnum, var_78d7ac4a, inventoryitem.var_bd027dd9, inventoryitem.id, inventoryitem.count, function_bba770de(localclientnum, inventoryitem.var_a6762160), inventoryitem.availableaction, undefined, 1);
-		setuimodelvalue(createuimodel(var_78d7ac4a.itemuimodel, "cycle"), 1);
-		function_9a227103(createuimodel(var_78d7ac4a.itemuimodel, "totalCount"));
+		function_1a99656a(localclientnum, healthitem, inventoryitem.var_bd027dd9, inventoryitem.id, inventoryitem.count, function_bba770de(localclientnum, inventoryitem.var_a6762160), inventoryitem.availableaction, undefined, 1);
+		setuimodelvalue(createuimodel(healthitem.itemuimodel, "cycle"), 1);
+		function_9a227103(createuimodel(healthitem.itemuimodel, "totalCount"));
 	}
 	for(index = var_7007b688.size; index < 2; index++)
 	{
-		var_78d7ac4a = data.inventory.healthitems[index];
-		function_1a99656a(localclientnum, var_78d7ac4a, 32767, 32767, 0, 0, 0, undefined, 1);
-		setuimodelvalue(createuimodel(var_78d7ac4a.itemuimodel, "cycle"), 0);
+		healthitem = data.inventory.healthitems[index];
+		function_1a99656a(localclientnum, healthitem, 32767, 32767, 0, 0, 0, undefined, 1);
+		setuimodelvalue(createuimodel(healthitem.itemuimodel, "cycle"), 0);
 	}
 }
 
@@ -1856,7 +1856,7 @@ function private function_39b663b7(localclientnum, inventoryitem, item)
 				var_2571317b = 0;
 				if(isdefined(item.var_a6762160.objectives[i].var_7e835304))
 				{
-					var_2571317b = setuimodelvalue(createuimodel(var_1bd2adc2, "unlockProgress"), stats::function_441050ca(localclientnum, item.var_a6762160.objectives[i].var_7e835304));
+					var_2571317b = setuimodelvalue(createuimodel(var_1bd2adc2, "unlockProgress"), stats::get_stat_global(localclientnum, item.var_a6762160.objectives[i].var_7e835304));
 				}
 				else
 				{
@@ -2075,15 +2075,15 @@ function function_daf3ebda(localclientnum, var_a6762160)
 		return undefined;
 	}
 	data = item_world::function_a7e98a1a(localclientnum);
-	var_590b4c51 = namespace_a0d533d1::function_cfa794ca(data.inventory.var_7658cbec, var_a6762160);
-	if(var_590b4c51 <= 1)
+	maxstack = namespace_a0d533d1::function_cfa794ca(data.inventory.var_7658cbec, var_a6762160);
+	if(maxstack <= 1)
 	{
 		return undefined;
 	}
 	clientdata = item_world::function_a7e98a1a(localclientnum);
 	if(var_a6762160.itemtype == #"resource")
 	{
-		if(namespace_ad5a0cd6::function_41f06d9d(var_a6762160) && clientdata.inventory.items[14].count < var_590b4c51)
+		if(namespace_ad5a0cd6::function_41f06d9d(var_a6762160) && clientdata.inventory.items[14].count < maxstack)
 		{
 			return 14;
 		}
@@ -2096,7 +2096,7 @@ function function_daf3ebda(localclientnum, var_a6762160)
 		{
 			return undefined;
 		}
-		if(var_ee79c3a4.count < var_590b4c51)
+		if(var_ee79c3a4.count < maxstack)
 		{
 			return 15;
 		}
@@ -2104,7 +2104,7 @@ function function_daf3ebda(localclientnum, var_a6762160)
 	}
 	if(var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
 	{
-		if(clientdata.inventory.items[16].count < var_590b4c51)
+		if(clientdata.inventory.items[16].count < maxstack)
 		{
 			return 16;
 		}
@@ -2125,7 +2125,7 @@ function function_daf3ebda(localclientnum, var_a6762160)
 		{
 			continue;
 		}
-		if(clientdata.inventory.items[i].count < var_590b4c51)
+		if(clientdata.inventory.items[i].count < maxstack)
 		{
 			return i;
 		}
@@ -3877,15 +3877,15 @@ function function_9116bb0e(localclientnum, closed = 0)
 			setuimodelvalue(createuimodel(itemmodel, "itemtype"), itemdef.var_a6762160.itemtype);
 			if(itemdef.var_a6762160.itemtype === #"ammo")
 			{
-				var_75c2784 = self function_e106cbe9(localclientnum, itemdef);
-				setuimodelvalue(createuimodel(itemmodel, "inventoryFull"), !var_75c2784);
+				canpickup = self function_e106cbe9(localclientnum, itemdef);
+				setuimodelvalue(createuimodel(itemmodel, "inventoryFull"), !canpickup);
 			}
 			else
 			{
 				if(itemdef.var_a6762160.itemtype === #"hash_56d6621e6c4caf07")
 				{
-					var_75c2784 = self function_ad4c6116(localclientnum, itemdef.var_a6762160);
-					setuimodelvalue(createuimodel(itemmodel, "inventoryFull"), !var_75c2784);
+					canpickup = self function_ad4c6116(localclientnum, itemdef.var_a6762160);
+					setuimodelvalue(createuimodel(itemmodel, "inventoryFull"), !canpickup);
 				}
 				else
 				{

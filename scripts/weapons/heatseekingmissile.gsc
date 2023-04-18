@@ -1754,7 +1754,7 @@ function missiletarget_proximitydetonate(missile, attacker, weapon, endon1, endo
 			newtarget = self missiletarget_deployflares(missile.origin, missile.angles);
 			missile missile_settarget(newtarget, (isdefined(target_getoffset(newtarget)) ? target_getoffset(newtarget) : (0, 0, 0)));
 			missiletarget = newtarget;
-			scoreevents::processscoreevent(#"hash_74973027b2bb47ef", attacker, undefined, weapon);
+			scoreevents::processscoreevent(#"flare_assist", attacker, undefined, weapon);
 			self notify(#"hash_63404ad70a51f8ca");
 			return;
 		}

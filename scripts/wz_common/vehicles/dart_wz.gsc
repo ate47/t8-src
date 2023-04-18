@@ -350,7 +350,7 @@ event function_ca9b286c(eventstruct)
 	vehicle thread watchownerdisconnect(self);
 	vehicle thread watchremotecontroldeactivate();
 	vehicle thread function_b35c5fa4();
-	vehicle callback::function_36aab2f3(&function_4e3ee6b6);
+	vehicle callback::function_36aab2f3(&dartcollision);
 	vehicle callback::function_d8abfc3d(#"on_vehicle_damage", &on_vehicle_damage);
 	vehicle callback::function_d8abfc3d(#"on_vehicle_killed", &on_vehicle_killed);
 }
@@ -630,7 +630,7 @@ function function_b35c5fa4()
 }
 
 /*
-	Name: function_4e3ee6b6
+	Name: dartcollision
 	Namespace: dart
 	Checksum: 0x22699F6D
 	Offset: 0x1A50
@@ -638,7 +638,7 @@ function function_b35c5fa4()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4e3ee6b6(params)
+function dartcollision(params)
 {
 	dart = self;
 	player = dart.owner;

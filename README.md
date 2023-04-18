@@ -19,3 +19,8 @@ Scobalula - Original T7 decompiler
 - [gamesettings.md](gamesettings.md) - the settings usable
 - [find.txt](find.txt) - the find hashes
 - [BOHashTool](https://github.com/ate47/BOHashTool) tool I'm using to search
+
+```powershell
+$m = @{}; gc .\dump\scripts.txt | % {$s = $_.Split(",");$m[$s[0]] = $s[1]}
+gc .\loaded.txt | % {"$_,$($m[$_])"} > loaded_lookup.txt
+```

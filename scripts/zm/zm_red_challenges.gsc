@@ -42,7 +42,7 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_74fc30de57a0657a", 16000, 3, "int");
 	clientfield::register("scriptmover", "" + #"hash_21f5fab6a3d22093", 16000, 3, "int");
 	clientfield::register("scriptmover", "" + #"keyline_model", 16000, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_565760e2c7c1e5cb", 16000, 1, "int");
+	clientfield::register("scriptmover", "" + #"pickup_glow", 16000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_8b48433c3fe40e4", 16000, 3, "int");
 	clientfield::register("toplayer", "" + #"hash_4bde11d71410ea67", 16000, 3, "int");
 	clientfield::register("world", "" + #"hash_34bdcd0feba3d912", 16000, 1, "int");
@@ -68,7 +68,7 @@ function init()
 	callback::on_connecting(&on_player_connect);
 	callback::on_ai_killed(&on_ai_killed);
 	level.var_857878e6 = &function_857878e6;
-	zm::register_actor_damage_callback(&function_43359b2f);
+	zm::register_actor_damage_callback(&actor_damage_callback);
 	level.var_45420301 = [];
 	level.var_45420301[level.var_45420301.size] = #"weapon_pistol";
 	level.var_45420301[level.var_45420301.size] = #"weapon_cqb";
@@ -192,7 +192,7 @@ function function_fddf3397()
 	self.var_9e09931e = 0;
 	n_index = self getentitynumber();
 	n_tribute = level.var_edbe6a7f[n_index];
-	namespace_f8f28e08::function_71c9ab64(n_tribute);
+	namespace_f8f28e08::set_tribute(n_tribute);
 	if(n_tribute > 0 || is_active())
 	{
 		util::wait_network_frame();
@@ -272,7 +272,7 @@ function player_death_watcher(a_params)
 }
 
 /*
-	Name: function_43359b2f
+	Name: actor_damage_callback
 	Namespace: zm_red_challenges
 	Checksum: 0xA5949FF5
 	Offset: 0x1558
@@ -280,7 +280,7 @@ function player_death_watcher(a_params)
 	Parameters: 12
 	Flags: Linked
 */
-function function_43359b2f(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
+function actor_damage_callback(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
 	if(zm_utility::is_player_valid(attacker, 0, 1))
 	{
@@ -315,7 +315,7 @@ function on_ai_killed(s_params)
 		{
 			if(e_player.var_53ce87a7 != level.round_number)
 			{
-				e_player thread zm_audio::create_and_play_dialog(#"hash_772ca93255e7605", #"kill");
+				e_player thread zm_audio::create_and_play_dialog(#"spear_throw", #"kill");
 				e_player.var_53ce87a7 = level.round_number;
 				e_player.var_822346e9++;
 			}
@@ -1692,7 +1692,7 @@ function function_94bdb104(s_struct, ai_killed)
 }
 
 /*
-	Name: function_305e672f
+	Name: soul_capture
 	Namespace: zm_red_challenges
 	Checksum: 0xB0E9C91D
 	Offset: 0x4F78
@@ -1700,7 +1700,7 @@ function function_94bdb104(s_struct, ai_killed)
 	Parameters: 2
 	Flags: None
 */
-function function_305e672f(s_struct, ai_killed)
+function soul_capture(s_struct, ai_killed)
 {
 	if(zm_utility::is_player_valid(ai_killed.attacker, 0, 1))
 	{

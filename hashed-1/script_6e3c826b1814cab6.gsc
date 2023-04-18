@@ -236,7 +236,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_box_guarantee_lmg":
 		{
-			if(!function_901b751c(#"hash_1b59bb7608355512") || !function_901b751c(#"hash_2f6740b518dbeb8f") || function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
+			if(!function_901b751c(#"hash_1b59bb7608355512") || !function_901b751c(#"zmweaponslmg") || function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
 			{
 				return false;
 			}
@@ -244,7 +244,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_coagulant":
 		{
-			if(!function_901b751c(#"hash_38a8f3cfef7b86d1"))
+			if(!function_901b751c(#"zmtalismancoagulant"))
 			{
 				return false;
 			}
@@ -252,7 +252,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_extra_claymore":
 		{
-			if(!function_901b751c(#"hash_17917e00de6b437"))
+			if(!function_901b751c(#"zmtalismanextraclaymore"))
 			{
 				return false;
 			}
@@ -260,7 +260,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_extra_frag":
 		{
-			if(!function_901b751c(#"hash_66a78ac345a3e2bb"))
+			if(!function_901b751c(#"zmtalismanextrafrag"))
 			{
 				return false;
 			}
@@ -268,7 +268,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_extra_miniturret":
 		{
-			if(!function_901b751c(#"hash_752eba9759a4a52a"))
+			if(!function_901b751c(#"zmtalismanextraminiturret"))
 			{
 				return false;
 			}
@@ -276,7 +276,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_extra_molotov":
 		{
-			if(!function_901b751c(#"hash_76943d48d878715f"))
+			if(!function_901b751c(#"zmtalismanextramolotov"))
 			{
 				return false;
 			}
@@ -284,7 +284,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_extra_semtex":
 		{
-			if(!function_901b751c(#"hash_7c61b02fb56f7f"))
+			if(!function_901b751c(#"zmtalismanextrasemtex"))
 			{
 				return false;
 			}
@@ -292,7 +292,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_impatient":
 		{
-			if(!function_901b751c(#"hash_2001987d25a3717a"))
+			if(!function_901b751c(#"zmtalismanimpatient"))
 			{
 				return false;
 			}
@@ -420,7 +420,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_shield_price":
 		{
-			if(!function_901b751c(#"hash_42c6d1ca5eab82ab") || !function_901b751c(#"zmshieldisenabled"))
+			if(!function_901b751c(#"zmtalismanshieldprice") || !function_901b751c(#"zmshieldisenabled"))
 			{
 				return false;
 			}
@@ -476,7 +476,7 @@ function function_ff4557dc(s_talisman)
 		}
 		case "talisman_weapon_reducepapcost":
 		{
-			if(!function_901b751c(#"hash_4c81f5aeddae88f"))
+			if(!function_901b751c(#"zmtalismanreducepapcost"))
 			{
 				return false;
 			}
@@ -585,7 +585,7 @@ function function_3ac936c6(var_ce5ed2e9)
 	{
 		case "zm_bgb_always_done_swiftly":
 		{
-			if(!function_901b751c(#"hash_4006dac21ea0736"))
+			if(!function_901b751c(#"zmelixiralwaysdoneswiftly"))
 			{
 				return false;
 			}
@@ -593,7 +593,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_anywhere_but_here":
 		{
-			if(!function_901b751c(#"hash_6230ef2b089aad7f"))
+			if(!function_901b751c(#"zmelixiranywherebuthere"))
 			{
 				return false;
 			}
@@ -601,7 +601,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_arsenal_accelerator":
 		{
-			if(!function_901b751c(#"hash_1ce5566dde9ed686") || !function_901b751c(#"hash_b066c34278e6394"))
+			if(!function_901b751c(#"zmelixirarsenalaccelerator") || !function_901b751c(#"hash_b066c34278e6394"))
 			{
 				return false;
 			}
@@ -609,7 +609,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_danger_closest":
 		{
-			if(!function_901b751c(#"hash_3a534a2a0f3eedd3"))
+			if(!function_901b751c(#"zmelixirdangerclosest"))
 			{
 				return false;
 			}
@@ -617,7 +617,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_in_plain_sight":
 		{
-			if(!function_901b751c(#"hash_3ee97a6ab720cc15"))
+			if(!function_901b751c(#"zmelixirinplainsight"))
 			{
 				return false;
 			}
@@ -625,7 +625,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_newtonian_negation":
 		{
-			if(!function_901b751c(#"hash_4f82e568f5e2c04f"))
+			if(!function_901b751c(#"zmelixirnewtoniannegation"))
 			{
 				return false;
 			}
@@ -633,7 +633,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_now_you_see_me":
 		{
-			if(!function_901b751c(#"hash_1a8ee5887f138e39"))
+			if(!function_901b751c(#"zmelixirnowyouseeme"))
 			{
 				return false;
 			}
@@ -641,7 +641,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_stock_option":
 		{
-			if(!function_901b751c(#"hash_3fecdaec6642d3ba"))
+			if(!function_901b751c(#"zmelixirstockoption"))
 			{
 				return false;
 			}
@@ -649,7 +649,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_board_games":
 		{
-			if(!function_901b751c(#"hash_4aa214604d696f70") || !function_901b751c(#"hash_3386caa315211c88"))
+			if(!function_901b751c(#"zmelixirboardgames") || !function_901b751c(#"hash_3386caa315211c88"))
 			{
 				return false;
 			}
@@ -657,7 +657,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_burned_out":
 		{
-			if(!function_901b751c(#"hash_41f269ab6574b3bd"))
+			if(!function_901b751c(#"zmelixirburnedout"))
 			{
 				return false;
 			}
@@ -665,7 +665,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_crawl_space":
 		{
-			if(!function_901b751c(#"hash_49b95e3ba4d2d2f8") || function_901b751c(#"hash_5946034af4372f2d") == 0)
+			if(!function_901b751c(#"zmelixircrawlspace") || function_901b751c(#"hash_5946034af4372f2d") == 0)
 			{
 				return false;
 			}
@@ -673,7 +673,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_pop_shocks":
 		{
-			if(!function_901b751c(#"hash_1929dd7083c365c5"))
+			if(!function_901b751c(#"zmelixirpopshocks"))
 			{
 				return false;
 			}
@@ -681,7 +681,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_temporal_gift":
 		{
-			if(!function_901b751c(#"hash_14aa3cb07d2c0db") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirtemporalgift") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -689,7 +689,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_point_drops":
 		{
-			if(!function_901b751c(#"hash_6d490d5a824c0d83") || !function_901b751c(#"zmpowerupchaospoints") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirpointdrops") || !function_901b751c(#"zmpowerupchaospoints") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -697,7 +697,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_alchemical_antithesis":
 		{
-			if(!function_901b751c(#"hash_7aff42262b4eee32") || function_901b751c(#"hash_1735a88a32111a1b"))
+			if(!function_901b751c(#"zmelixiralchemicalantithesis") || function_901b751c(#"hash_1735a88a32111a1b"))
 			{
 				return false;
 			}
@@ -705,7 +705,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_sword_flay":
 		{
-			if(!function_901b751c(#"hash_3a7bd9c02b9fce98") || !function_901b751c(#"hash_716db8c2d7fcacfb"))
+			if(!function_901b751c(#"zmelixirswordflay") || !function_901b751c(#"zmweaponsmelee"))
 			{
 				return false;
 			}
@@ -713,7 +713,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_dead_of_nuclear_winter":
 		{
-			if(!function_901b751c(#"hash_4ca897d3295f6257") || !function_901b751c(#"zmpowerupnuke") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirdeadofnuclearwinter") || !function_901b751c(#"zmpowerupnuke") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -721,7 +721,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_licensed_contractor":
 		{
-			if(!function_901b751c(#"hash_3197061ec31dc27d") || !function_901b751c(#"zmpowerupcarpenter") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirlicensedcontractor") || !function_901b751c(#"zmpowerupcarpenter") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -729,7 +729,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_undead_man_walking":
 		{
-			if(!function_901b751c(#"hash_7dadb18509506169"))
+			if(!function_901b751c(#"zmelixirundeadmanwalking"))
 			{
 				return false;
 			}
@@ -737,7 +737,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_whos_keeping_score":
 		{
-			if(!function_901b751c(#"hash_716d4768994b25a5") || !function_901b751c(#"zmpowerupdouble") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirwhoskeepingscore") || !function_901b751c(#"zmpowerupdouble") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -745,7 +745,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_aftertaste":
 		{
-			if(!function_901b751c(#"hash_26468de196046e72"))
+			if(!function_901b751c(#"zmelixiraftertaste"))
 			{
 				return false;
 			}
@@ -753,7 +753,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_extra_credit":
 		{
-			if(!function_901b751c(#"hash_ddf4eed89a60b8e") || !function_901b751c(#"zmpowerupchaospoints") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirextracredit") || !function_901b751c(#"zmpowerupchaospoints") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -761,7 +761,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_kill_joy":
 		{
-			if(!function_901b751c(#"hash_72581cab09b5c9f") || !function_901b751c(#"zmpowerupinstakill") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirkilljoy") || !function_901b751c(#"zmpowerupinstakill") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -769,7 +769,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_soda_fountain":
 		{
-			if(!function_901b751c(#"hash_7d1fb9161dddf722") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
+			if(!function_901b751c(#"zmelixirsodafountain") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
 			{
 				return false;
 			}
@@ -777,7 +777,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_ctrl_z":
 		{
-			if(!function_901b751c(#"hash_2a779251ef8c8568"))
+			if(!function_901b751c(#"zmelixirctrlz"))
 			{
 				return false;
 			}
@@ -785,7 +785,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_free_fire":
 		{
-			if(!function_901b751c(#"hash_7ae3c77e1ebdc90d"))
+			if(!function_901b751c(#"zmelixirfreefire"))
 			{
 				return false;
 			}
@@ -793,7 +793,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_cache_back":
 		{
-			if(!function_901b751c(#"hash_560c19249d1b9390") || !function_901b751c(#"zmpowerupmaxammo") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixircacheback") || !function_901b751c(#"zmpowerupmaxammo") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -801,7 +801,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_immolation_liquidation":
 		{
-			if(!function_901b751c(#"hash_78a2cab12f0c5a89") || !function_901b751c(#"zmpowerupfiresale") || !function_901b751c(#"zmpowerupsactive") || function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
+			if(!function_901b751c(#"zmelixirimmolationliquidation") || !function_901b751c(#"zmpowerupfiresale") || !function_901b751c(#"zmpowerupsactive") || function_901b751c(#"hash_4e0ec3fe56f08b47") == 0)
 			{
 				return false;
 			}
@@ -809,7 +809,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_phoenix_up":
 		{
-			if(!function_901b751c(#"hash_13ac6983716eb72b") || !function_901b751c(#"hash_70517c36d49b4ee0"))
+			if(!function_901b751c(#"zmelixirphoenixup") || !function_901b751c(#"hash_70517c36d49b4ee0"))
 			{
 				return false;
 			}
@@ -817,7 +817,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_power_keg":
 		{
-			if(!function_901b751c(#"hash_1dd3d19705899dbd") || !function_901b751c(#"hash_b066c34278e6394") || !function_901b751c(#"zmpowerupspecialweapon") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirpowerkeg") || !function_901b751c(#"hash_b066c34278e6394") || !function_901b751c(#"zmpowerupspecialweapon") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -833,7 +833,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_near_death_experience":
 		{
-			if(!function_901b751c(#"hash_77ff67c16576e231"))
+			if(!function_901b751c(#"zmelixirneardeathexperience"))
 			{
 				return false;
 			}
@@ -841,7 +841,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_perkaholic":
 		{
-			if(!function_901b751c(#"hash_6df1564c342c831") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
+			if(!function_901b751c(#"zmelixirperkaholic") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
 			{
 				return false;
 			}
@@ -849,7 +849,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_wall_power":
 		{
-			if(!function_901b751c(#"hash_33d900f7b3d14128") || function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+			if(!function_901b751c(#"zmelixirwallpower") || function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
 			{
 				return false;
 			}
@@ -857,7 +857,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_anti_entrapment":
 		{
-			if(!function_901b751c(#"hash_a0db64bb19e18af"))
+			if(!function_901b751c(#"zmelixirantientrapment"))
 			{
 				return false;
 			}
@@ -865,7 +865,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_equip_mint":
 		{
-			if(!function_901b751c(#"hash_3a9e56ae10cf58c9"))
+			if(!function_901b751c(#"zmelixirequipmint"))
 			{
 				return false;
 			}
@@ -873,7 +873,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_head_scan":
 		{
-			if(!function_901b751c(#"hash_792079610dfac24"))
+			if(!function_901b751c(#"zmelixirheadscan"))
 			{
 				return false;
 			}
@@ -881,7 +881,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_join_the_party":
 		{
-			if(!function_901b751c(#"hash_3e98c2376cacd382"))
+			if(!function_901b751c(#"zmelixirjointheparty"))
 			{
 				return false;
 			}
@@ -889,7 +889,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_nowhere_but_there":
 		{
-			if(!function_901b751c(#"hash_3b83acfd4b361e44"))
+			if(!function_901b751c(#"zmelixirnowherebutthere"))
 			{
 				return false;
 			}
@@ -897,7 +897,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_phantom_reload":
 		{
-			if(!function_901b751c(#"hash_5edb895e9d0880f9"))
+			if(!function_901b751c(#"zmelixirphantomreload"))
 			{
 				return false;
 			}
@@ -905,7 +905,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_shields_up":
 		{
-			if(!function_901b751c(#"hash_5d9ddfa547ec765e") || !function_901b751c("zmShieldIsEnabled"))
+			if(!function_901b751c(#"zmelixirshieldsup") || !function_901b751c("zmShieldIsEnabled"))
 			{
 				return false;
 			}
@@ -921,7 +921,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_conflagration_liquidation":
 		{
-			if(!function_901b751c(#"hash_448716023024b395") || function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+			if(!function_901b751c(#"zmelixirconflagrationliquidation") || function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
 			{
 				return false;
 			}
@@ -929,7 +929,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_perk_up":
 		{
-			if(!function_901b751c(#"hash_4b30109cd344258e") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
+			if(!function_901b751c(#"zmelixirperkup") || !function_901b751c(#"hash_3d18f84f48bd5d1f"))
 			{
 				return false;
 			}
@@ -937,7 +937,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_refresh_mint":
 		{
-			if(!function_901b751c(#"hash_eef480bd7662082") || (!function_901b751c(#"hash_65a1298089d361f1") && !function_901b751c(#"hash_b066c34278e6394")))
+			if(!function_901b751c(#"zmelixirrefreshmint") || (!function_901b751c(#"hash_65a1298089d361f1") && !function_901b751c(#"hash_b066c34278e6394")))
 			{
 				return false;
 			}
@@ -945,7 +945,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_dividend_yield":
 		{
-			if(!function_901b751c(#"hash_46436f50faf41689"))
+			if(!function_901b751c(#"zmelixirdividendyield"))
 			{
 				return false;
 			}
@@ -953,7 +953,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_suit_up":
 		{
-			if(!function_901b751c(#"hash_165ba2184c27828f"))
+			if(!function_901b751c(#"zmelixirsuitup"))
 			{
 				return false;
 			}
@@ -961,7 +961,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_talkin_bout_regeneration":
 		{
-			if(!function_901b751c(#"hash_16700855b131a427"))
+			if(!function_901b751c(#"zmelixirtalkinboutregeneration"))
 			{
 				return false;
 			}
@@ -969,7 +969,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_bullet_boost":
 		{
-			if(!function_901b751c(#"hash_1b74d1759bd25756"))
+			if(!function_901b751c(#"zmelixirbulletboost"))
 			{
 				return false;
 			}
@@ -985,7 +985,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_near_death_experience":
 		{
-			if(!function_901b751c(#"hash_77ff67c16576e231"))
+			if(!function_901b751c(#"zmelixirneardeathexperience"))
 			{
 				return false;
 			}
@@ -993,7 +993,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_shopping_free":
 		{
-			if(!function_901b751c(#"hash_6bec3890ea83d709"))
+			if(!function_901b751c(#"zmelixirshoppingfree"))
 			{
 				return false;
 			}
@@ -1001,7 +1001,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_phoenix_up":
 		{
-			if(!function_901b751c(#"hash_13ac6983716eb72b"))
+			if(!function_901b751c(#"zmelixirphoenixup"))
 			{
 				return false;
 			}
@@ -1009,7 +1009,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_perkaholic":
 		{
-			if(!function_901b751c(#"hash_6df1564c342c831"))
+			if(!function_901b751c(#"zmelixirperkaholic"))
 			{
 				return false;
 			}
@@ -1017,7 +1017,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_reign_drops":
 		{
-			if(!function_901b751c(#"hash_b0befcbac8aede6") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirreigndrops") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -1025,7 +1025,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_head_drama":
 		{
-			if(!function_901b751c(#"hash_25aabd057794561c"))
+			if(!function_901b751c(#"zmelixirheaddrama"))
 			{
 				return false;
 			}
@@ -1033,7 +1033,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_power_vacuum":
 		{
-			if(!function_901b751c(#"hash_24e500e1b323daf7") || !function_901b751c(#"zmpowerupsactive"))
+			if(!function_901b751c(#"zmelixirpowervacuum") || !function_901b751c(#"zmpowerupsactive"))
 			{
 				return false;
 			}
@@ -1041,7 +1041,7 @@ function function_3ac936c6(var_ce5ed2e9)
 		}
 		case "zm_bgb_secret_shopper":
 		{
-			if(!function_901b751c(#"hash_6821e81969996ece") || !function_901b751c(#"hash_51a2cf319e12d9ae"))
+			if(!function_901b751c(#"zmelixirsecretshopper") || !function_901b751c(#"hash_51a2cf319e12d9ae"))
 			{
 				return false;
 			}
@@ -1113,7 +1113,7 @@ function function_3ac936c6(var_ce5ed2e9)
 */
 function function_bce642a1(s_weap)
 {
-	if(s_weap.itemgroupname === "weapon_cqb" && !function_901b751c(#"hash_edfb07f798aaab5") || (s_weap.itemgroupname === "weapon_smg" && !function_901b751c(#"hash_1f6665b5581f6b6e")) || (s_weap.itemgroupname === "weapon_assault" && !function_901b751c(#"hash_1d5c8e6f0e20201a")) || (s_weap.itemgroupname === "weapon_tactical" && !function_901b751c(#"zmweaponstr")) || (s_weap.itemgroupname === "weapon_lmg" && !function_901b751c(#"hash_2f6740b518dbeb8f")) || (s_weap.itemgroupname === "weapon_sniper" && !function_901b751c(#"hash_5bfd047c58816496")))
+	if(s_weap.itemgroupname === "weapon_cqb" && !function_901b751c(#"hash_edfb07f798aaab5") || (s_weap.itemgroupname === "weapon_smg" && !function_901b751c(#"zmweaponssmg")) || (s_weap.itemgroupname === "weapon_assault" && !function_901b751c(#"zmweaponsar")) || (s_weap.itemgroupname === "weapon_tactical" && !function_901b751c(#"zmweaponstr")) || (s_weap.itemgroupname === "weapon_lmg" && !function_901b751c(#"zmweaponslmg")) || (s_weap.itemgroupname === "weapon_sniper" && !function_901b751c(#"zmweaponssniper")))
 	{
 		return false;
 	}
@@ -1171,7 +1171,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_staminup":
 		{
-			if(!function_901b751c(#"hash_3a15ddcc25d689f6"))
+			if(!function_901b751c(#"zmperksstaminup"))
 			{
 				return false;
 			}
@@ -1179,7 +1179,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_additionalprimaryweapon":
 		{
-			if(!function_901b751c(#"hash_5347ff402123307a"))
+			if(!function_901b751c(#"zmperksmulekick"))
 			{
 				return false;
 			}
@@ -1203,7 +1203,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_cooldown":
 		{
-			if(!function_901b751c(#"hash_1e9fb2463e6eee58"))
+			if(!function_901b751c(#"zmperkscooldown"))
 			{
 				return false;
 			}
@@ -1211,7 +1211,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "hash_5b141f82a55645a9":
 		{
-			if(!function_901b751c(#"hash_31b19618ca4f41"))
+			if(!function_901b751c(#"zmperksdyingwish"))
 			{
 				return false;
 			}
@@ -1219,7 +1219,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_phdflopper":
 		{
-			if(!function_901b751c(#"hash_402b9d6529500b72"))
+			if(!function_901b751c(#"zmperksphdslider"))
 			{
 				return false;
 			}
@@ -1267,7 +1267,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_etherealrazor":
 		{
-			if(!function_901b751c(#"hash_2635890f53e8633d"))
+			if(!function_901b751c(#"zmperksetherealrazor"))
 			{
 				return false;
 			}
@@ -1275,7 +1275,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_zombshell":
 		{
-			if(!function_901b751c(#"hash_49c28f0b2a623fa5"))
+			if(!function_901b751c(#"zmperkszombshell"))
 			{
 				return false;
 			}
@@ -1283,7 +1283,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_wolf_protector":
 		{
-			if(!function_901b751c(#"hash_75ec38c3f3487d5"))
+			if(!function_901b751c(#"zmperkswolfprotector"))
 			{
 				return false;
 			}
@@ -1291,7 +1291,7 @@ function function_d9f0defb(str_perk)
 		}
 		case "specialty_death_dash":
 		{
-			if(!function_901b751c(#"hash_544b157a9fa6573d"))
+			if(!function_901b751c(#"zmperksdeathdash"))
 			{
 				return false;
 			}
@@ -1403,7 +1403,7 @@ function function_928e94b9(a_str_archetypes)
 		{
 			return true;
 		}
-		if(isinarray(array(#"stoker", #"gladiator", #"gladiator_marauder", #"gladiator_destroyer", #"werewolf"), str_archetype) && function_901b751c(#"hash_54ad1bd87217ca80") == 0)
+		if(isinarray(array(#"stoker", #"gladiator", #"gladiator_marauder", #"gladiator_destroyer", #"werewolf"), str_archetype) && function_901b751c(#"zmheavystate") == 0)
 		{
 			return true;
 		}
@@ -1411,7 +1411,7 @@ function function_928e94b9(a_str_archetypes)
 		{
 			return true;
 		}
-		if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"), str_archetype) && function_901b751c(#"zmenhancedstate") == 0)
+		if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"), str_archetype) && function_901b751c(#"zmenhancedstate") == 0)
 		{
 			return true;
 		}
@@ -1750,7 +1750,7 @@ function private function_74b79f63()
 	}
 	foreach(s_weap in level.zombie_weapons)
 	{
-		if(s_weap.weapon_classname == "pistol" && !function_901b751c(#"hash_6f1440098d849316") || (s_weap.weapon_classname == "shotgun" && !function_901b751c(#"hash_edfb07f798aaab5")) || (s_weap.weapon_classname == "smg" && !function_901b751c(#"hash_1f6665b5581f6b6e")) || (s_weap.weapon_classname == "ar" && !function_901b751c(#"hash_1d5c8e6f0e20201a")) || (s_weap.weapon_classname == "tr" && !function_901b751c(#"zmweaponstr")) || (s_weap.weapon_classname == "lmg" && !function_901b751c(#"hash_2f6740b518dbeb8f")) || (s_weap.weapon_classname == "sniper" && !function_901b751c(#"hash_5bfd047c58816496")) || (s_weap.weapon_classname == "melee" && !function_901b751c(#"zmweaponsknife")) || (s_weap.weapon_classname == "equipment" && !function_901b751c(#"hash_65a1298089d361f1")))
+		if(s_weap.weapon_classname == "pistol" && !function_901b751c(#"zmweaponspistol") || (s_weap.weapon_classname == "shotgun" && !function_901b751c(#"hash_edfb07f798aaab5")) || (s_weap.weapon_classname == "smg" && !function_901b751c(#"zmweaponssmg")) || (s_weap.weapon_classname == "ar" && !function_901b751c(#"zmweaponsar")) || (s_weap.weapon_classname == "tr" && !function_901b751c(#"zmweaponstr")) || (s_weap.weapon_classname == "lmg" && !function_901b751c(#"zmweaponslmg")) || (s_weap.weapon_classname == "sniper" && !function_901b751c(#"zmweaponssniper")) || (s_weap.weapon_classname == "melee" && !function_901b751c(#"zmweaponsknife")) || (s_weap.weapon_classname == "equipment" && !function_901b751c(#"hash_65a1298089d361f1")))
 		{
 			if(!isdefined(level.var_cbc6587a))
 			{
@@ -1879,7 +1879,7 @@ function private function_34c2aeb5()
 	}
 	n_target = int(max(zombie_utility::function_d2dfacfd(#"player_base_health") + (50 * var_d75008e3), 1));
 	n_mod = math::clamp(n_target - player.var_66cb03ad, 0, n_target);
-	player player::function_2a67df65(#"hash_3d6fdba64710a6ae", n_mod);
+	player player::function_2a67df65(#"custom_settings", n_mod);
 	player.var_66cb03ad = n_target;
 	player setmaxhealth(player.var_66cb03ad);
 	player zm_utility::function_e0448fec();
@@ -2165,7 +2165,7 @@ function private function_c25113()
 */
 function private function_8abf3abd()
 {
-	if(!function_901b751c(#"hash_716db8c2d7fcacfb"))
+	if(!function_901b751c(#"zmweaponsmelee"))
 	{
 		self allowmelee(0);
 		self thread function_bfc2f3f1();
@@ -2380,7 +2380,7 @@ function private function_7a8180ae()
 */
 function private function_5b526135()
 {
-	kill_trip_mine_shocked_mountain_ = function_901b751c(#"hash_54ad1bd87217ca80");
+	kill_trip_mine_shocked_mountain_ = function_901b751c(#"zmheavystate");
 	var_4d7e8b66 = function_901b751c(#"hash_3ad1d9286ae70254");
 	var_1b0cc4f5 = function_901b751c(#"hash_785d86e04353c3b3");
 	var_123a3894 = function_901b751c(#"hash_aa498eca8149e1c");
@@ -2867,7 +2867,7 @@ function private function_401f18e6()
 */
 function private function_a8e9a6c7()
 {
-	return array({#default_val:1, #name:#"startround"}, {#default_val:0, #name:#"headshotsonly"}, {#default_val:0, #name:#"zmroundcap"}, {#default_val:0, #name:#"zmtimecap"}, {#default_val:0, #name:#"hash_2876dc918cc6666"}, {#default_val:0, #name:#"zmkillcap"}, {#default_val:1, #name:#"hash_2c6b5594940cc305"}, {#default_val:1, #name:#"hash_4deb3ae7a73c87f3"}, {#default_val:0, #name:#"hash_5277b3362aa77c72"}, {#default_val:2, #name:#"hash_4e0ec3fe56f08b47"}, {#default_val:0, #name:#"hash_5d65c0983698a539"}, {#default_val:0, #name:#"hash_1513b70c43495cc0"}, {#default_val:0, #name:#"hash_23fe21eb92ffbc2c"}, {#default_val:0, #name:#"hash_4ffb80b47c049c61"}, {#default_val:0, #name:#"hash_751384283abde22c"}, {#default_val:0, #name:#"hash_543954c3281a530f"}, {#default_val:1, #name:#"zmpowerstate"}, {#default_val:1, #name:#"hash_29004a67830922b6"}, {#default_val:1, #name:#"hash_3d18f84f48bd5d1f"}, {#default_val:1, #name:#"hash_7520ccdc8dcaee8d"}, {#default_val:1, #name:#"hash_8edd17a31990450"}, {#default_val:1, #name:#"zmperksquickrevive"}, {#default_val:1, #name:#"hash_557e3edd7fe168c3"}, {#default_val:1, #name:#"hash_3a15ddcc25d689f6"}, {#default_val:1, #name:#"hash_5347ff402123307a"}, {#default_val:1, #name:#"hash_77c5cc2d9b6ca16c"}, {#default_val:1, #name:#"zmperksdeadshot"}, {#default_val:1, #name:#"hash_1e9fb2463e6eee58"}, {#default_val:1, #name:#"hash_31b19618ca4f41"}, {#default_val:1, #name:#"hash_19d48a0d4490b0a2"}, {#default_val:1, #name:#"hash_57a5c7a9dcf94d61"}, {#default_val:1, #name:#"zmpowerupsactive"}, {#default_val:1, #name:#"zmpowerupnuke"}, {#default_val:1, #name:#"zmpowerupdouble"}, {#default_val:1, #name:#"zmpowerupinstakill"}, {#default_val:1, #name:#"zmpowerupchaospoints"}, {#default_val:1, #name:#"zmpowerupfiresale"}, {#default_val:1, #name:#"zmpowerupspecialweapon"}, {#default_val:1, #name:#"zmpowerupfreeperk"}, {#default_val:1, #name:#"zmpowerupmaxammo"}, {#default_val:1, #name:#"zmpowerupcarpenter"}, {#default_val:0, #name:#"zmpowerupsislimitedround"}, {#default_val:1, #name:#"hash_d46a4e7a41e005c"}, {#default_val:1, #name:#"hash_17aa8019b16bcb60"}, {#default_val:1, #name:#"hash_51a2cf319e12d9ae"}, {#default_val:0, #name:#"hash_120915b593862b66"}, {#default_val:1, #name:#"hash_137eb8d53913f781"}, {#default_val:1, #name:#"hash_3ea7e39b03dd4dd1"}, {#default_val:1, #name:#"hash_590749f63c2be0bb"}, {#default_val:1, #name:#"hash_3ab7cedcfef7eacc"}, {#default_val:1, #name:#"hash_5374d50efd1e6b59"}, {#default_val:1, #name:#"hash_5e1f08b8335a0ce0"}, {#default_val:1, #name:#"hash_7ea1426ffa93f34d"}, {#default_val:1, #name:#"hash_5746674cbab8264d"}, {#default_val:1, #name:#"hash_2d27d80d1acf8b31"}, {#default_val:1, #name:#"hash_5aef19a8668560b"}, {#default_val:1, #name:#"hash_47e07053890b9c29"}, {#default_val:1, #name:#"hash_587f074e4104cfb0"}, {#default_val:1, #name:#"hash_24ff1fa68e880afd"}, {#default_val:1, #name:#"hash_e6a46ef644c01bd"}, {#default_val:1, #name:#"hash_6f1440098d849316"}, {#default_val:1, #name:#"hash_edfb07f798aaab5"}, {#default_val:1, #name:#"hash_1f6665b5581f6b6e"}, {#default_val:1, #name:#"hash_1d5c8e6f0e20201a"}, {#default_val:1, #name:#"zmweaponstr"}, {#default_val:1, #name:#"hash_2f6740b518dbeb8f"}, {#default_val:1, #name:#"hash_5bfd047c58816496"}, {#default_val:1, #name:#"zmweaponsknife"}, {#default_val:1, #name:#"hash_716db8c2d7fcacfb"}, {#default_val:1, #name:#"hash_b066c34278e6394"}, {#default_val:1, #name:#"hash_2f03c6055447a6b1"}, {#default_val:1, #name:#"hash_541a4d5c476468f4"}, {#default_val:1, #name:#"hash_65a1298089d361f1"}, {#default_val:1, #name:#"hash_446d18ebd8d50be6"}, {#default_val:1, #name:#"zmshieldisenabled"}, {#default_val:1, #name:#"hash_7ee9177eb922ddfa"}, {#default_val:0, #name:#"hash_4cb15aed177a8ef5"}, {#default_val:0, #name:#"hash_2f18b6a3d10318ef"}, {#default_val:0, #name:#"hash_11a7d7a641d526ef"}, {#default_val:1, #name:#"hash_5946034af4372f2d"}, {#default_val:1, #name:#"hash_513e1dcaadea0269"}, {#default_val:0, #name:#"hash_7b14ee93b27576a9"}, {#default_val:3, #name:#"hash_58af4e73782aba2f"}, {#default_val:1, #name:#"hash_10457cddea07071"}, {#default_val:1, #name:#"hash_1f4a4976ecd7a486"}, {#default_val:1, #name:#"hash_5e30739150832bd3"}, {#default_val:1, #name:#"hash_3b558172d2c08a74"}, {#default_val:1, #name:#"hash_6a1243c4126c219a"}, {#default_val:1, #name:#"hash_54ad1bd87217ca80"}, {#default_val:1, #name:#"hash_3ad1d9286ae70254"}, {#default_val:1, #name:#"hash_785d86e04353c3b3"}, {#default_val:1, #name:#"hash_6cef8417a1e30c0b"}, {#default_val:1, #name:#"zmminibossstate"}, {#default_val:1, #name:#"hash_6e4de30418b7a575"}, {#default_val:1, #name:#"hash_670f45d5eb3fa542"}, {#default_val:1, #name:#"hash_5052e100a1b7db44"}, {#default_val:3, #name:#"hash_29d174e7d8ab76c8"}, {#default_val:1, #name:#"hash_5fbcaf0a1daae566"}, {#default_val:2, #name:#"hash_5c47775ddd2e17dd"}, {#default_val:0, #name:#"hash_525617f00a59d92f"}, {#default_val:0, #name:#"hash_54dfa988db5db24c"}, {#default_val:0, #name:#"hash_1735a88a32111a1b"}, {#default_val:5, #name:#"hash_1aefdca073b7d72b"}, {#default_val:0, #name:#"hash_5566698b97a6282e"}, {#default_val:0, #name:#"hash_3326ed4311c47268"}, {#default_val:1, #name:#"hash_696b8f3671d2baf1"}, {#default_val:100, #name:#"hash_3b279133f5b3371"}, {#default_val:2, #name:#"hash_70517c36d49b4ee0"}, {#default_val:0, #name:#"hash_12f776f6bc579bb4"}, {#default_val:0, #name:#"hash_2d34a5d9024db85f"}, {#default_val:1, #name:#"hash_3386caa315211c88"}, {#default_val:1, #name:#"hash_3c5363541b97ca3e"}, {#default_val:1, #name:#"hash_393fb6bd6c5874aa"}, {#default_val:1, #name:#"hash_453fcfbee32e3655"}, {#default_val:1, #name:#"hash_1b59bb7608355512"}, {#default_val:1, #name:#"hash_61695e52556ff2d1"}, {#default_val:1, #name:#"hash_38a8f3cfef7b86d1"}, {#default_val:1, #name:#"hash_17917e00de6b437"}, {#default_val:1, #name:#"hash_66a78ac345a3e2bb"}, {#default_val:1, #name:#"hash_752eba9759a4a52a"}, {#default_val:1, #name:#"hash_76943d48d878715f"}, {#default_val:1, #name:#"hash_7c61b02fb56f7f"}, {#default_val:1, #name:#"hash_2001987d25a3717a"}, {#default_val:1, #name:#"hash_63bf3e5a51cb8fad"}, {#default_val:1, #name:#"hash_2f51e04634dafe36"}, {#default_val:1, #name:#"hash_2f51df4634dafc83"}, {#default_val:1, #name:#"hash_2f51de4634dafad0"}, {#default_val:1, #name:#"hash_2f51e54634db06b5"}, {#default_val:1, #name:#"hash_56db42b55542ec33"}, {#default_val:1, #name:#"hash_56db43b55542ede6"}, {#default_val:1, #name:#"hash_56db44b55542ef99"}, {#default_val:1, #name:#"hash_56db45b55542f14c"}, {#default_val:1, #name:#"hash_6fe0ba92c67980e8"}, {#default_val:1, #name:#"hash_6fe0bd92c6798601"}, {#default_val:1, #name:#"hash_6fe0bc92c679844e"}, {#default_val:1, #name:#"hash_6fe0bf92c6798967"}, {#default_val:1, #name:#"hash_4f973a92562bc3b6"}, {#default_val:1, #name:#"hash_36d19199d37d4549"}, {#default_val:1, #name:#"hash_42c6d1ca5eab82ab"}, {#default_val:1, #name:#"hash_3efef475c9de052e"}, {#default_val:1, #name:#"hash_3efef575c9de06e1"}, {#default_val:1, #name:#"hash_e1f30cc8f6f3150"}, {#default_val:1, #name:#"hash_19a9d40272333762"}, {#default_val:1, #name:#"hash_711db227d86cc407"}, {#default_val:1, #name:#"hash_6a6e4728651aff36"}, {#default_val:1, #name:#"hash_4c81f5aeddae88f"}, {#default_val:1, #name:#"hash_2979ae0cd8913eaa"}, {#default_val:1, #name:#"hash_4006dac21ea0736"}, {#default_val:1, #name:#"hash_6230ef2b089aad7f"}, {#default_val:1, #name:#"hash_1ce5566dde9ed686"}, {#default_val:1, #name:#"hash_3a534a2a0f3eedd3"}, {#default_val:1, #name:#"hash_3ee97a6ab720cc15"}, {#default_val:1, #name:#"hash_4f82e568f5e2c04f"}, {#default_val:1, #name:#"hash_1a8ee5887f138e39"}, {#default_val:1, #name:#"hash_3fecdaec6642d3ba"}, {#default_val:1, #name:#"hash_4aa214604d696f70"}, {#default_val:1, #name:#"hash_41f269ab6574b3bd"}, {#default_val:1, #name:#"hash_49b95e3ba4d2d2f8"}, {#default_val:1, #name:#"hash_1929dd7083c365c5"}, {#default_val:1, #name:#"hash_14aa3cb07d2c0db"}, {#default_val:1, #name:#"hash_6d490d5a824c0d83"}, {#default_val:1, #name:#"hash_7aff42262b4eee32"}, {#default_val:1, #name:#"hash_3a7bd9c02b9fce98"}, {#default_val:1, #name:#"hash_4ca897d3295f6257"}, {#default_val:1, #name:#"hash_3197061ec31dc27d"}, {#default_val:1, #name:#"hash_7dadb18509506169"}, {#default_val:1, #name:#"hash_716d4768994b25a5"}, {#default_val:1, #name:#"hash_26468de196046e72"}, {#default_val:1, #name:#"hash_ddf4eed89a60b8e"}, {#default_val:1, #name:#"hash_72581cab09b5c9f"}, {#default_val:1, #name:#"hash_7d1fb9161dddf722"}, {#default_val:1, #name:#"hash_2a779251ef8c8568"}, {#default_val:1, #name:#"hash_7ae3c77e1ebdc90d"}, {#default_val:1, #name:#"hash_560c19249d1b9390"}, {#default_val:1, #name:#"hash_78a2cab12f0c5a89"}, {#default_val:1, #name:#"hash_13ac6983716eb72b"}, {#default_val:1, #name:#"hash_1dd3d19705899dbd"}, {#default_val:1, #name:#"hash_6e84a4012ddf8a24"}, {#default_val:1, #name:#"hash_77ff67c16576e231"}, {#default_val:1, #name:#"hash_6df1564c342c831"}, {#default_val:1, #name:#"hash_33d900f7b3d14128"}, {#default_val:0, #name:#"hash_429b520a87274afb"}, {#default_val:1, #name:#"hash_4b16b22d8a0d3301"}, {#default_val:1, #name:#"hash_7bc64c0823c87e41"}, {#default_val:1, #name:#"hash_aa498eca8149e1c"}, {#default_val:1, #name:#"hash_5261400ecb67c787"}, {#default_val:0, #name:#"hash_21ae4d5b707b063"}, {#default_val:1, #name:#"hash_5f8aca8340761fce"}, {#default_val:1, #name:#"hash_4149a5426a229656"}, {#default_val:1, #name:#"hash_2469c185ca99aaa9"}, {#default_val:1, #name:#"hash_1c31b8bc2b1996ca"}, {#default_val:1, #name:#"hash_589c0366b1458c7e"}, {#default_val:1, #name:#"hash_3ddb6198e7837062"}, {#default_val:0, #name:#"hash_2a5dc43e6de87347"}, {#default_val:0, #name:#"hash_1fed0d9afc0b0040"}, {#default_val:0, #name:#"hash_1158d006a3913ef6"}, {#default_val:0, #name:#"hash_64291919b16c489a"}, {#default_val:1, #name:#"hash_a0db64bb19e18af"}, {#default_val:1, #name:#"hash_3a9e56ae10cf58c9"}, {#default_val:1, #name:#"hash_792079610dfac24"}, {#default_val:1, #name:#"hash_3e98c2376cacd382"}, {#default_val:1, #name:#"hash_3b83acfd4b361e44"}, {#default_val:1, #name:#"hash_5edb895e9d0880f9"}, {#default_val:1, #name:#"hash_5d9ddfa547ec765e"}, {#default_val:1, #name:#"hash_45118b5f6d97c89a"}, {#default_val:1, #name:#"hash_1bdfb5736ad174a3"}, {#default_val:1, #name:#"zmperksdeathperception"}, {#default_val:1, #name:#"hash_402b9d6529500b72"}, {#default_val:1, #name:#"hash_179ae09979e80714"}, {#default_val:1, #name:#"hash_5690c4dcc61973ec"}, {#default_val:1, #name:#"hash_75ec38c3f3487d5"}, {#default_val:1, #name:#"hash_544b157a9fa6573d"}, {#default_val:1, #name:#"hash_2dd9d538ca5bc2d6"}, {#default_val:0, #name:#"hash_3f8f02e8109b6e93"}, {#default_val:1, #name:#"hash_448716023024b395"}, {#default_val:1, #name:#"hash_4b30109cd344258e"}, {#default_val:1, #name:#"hash_eef480bd7662082"}, {#default_val:1, #name:#"zmenhancedstate"}, {#default_val:1, #name:#"hash_1400ec3bdc33999"}, {#default_val:1, #name:#"hash_419385810c47590e"}, {#default_val:1, #name:#"hash_600fdf6bc4d21353"});
+	return array({#default_val:1, #name:#"startround"}, {#default_val:0, #name:#"headshotsonly"}, {#default_val:0, #name:#"zmroundcap"}, {#default_val:0, #name:#"zmtimecap"}, {#default_val:0, #name:#"hash_2876dc918cc6666"}, {#default_val:0, #name:#"zmkillcap"}, {#default_val:1, #name:#"hash_2c6b5594940cc305"}, {#default_val:1, #name:#"hash_4deb3ae7a73c87f3"}, {#default_val:0, #name:#"hash_5277b3362aa77c72"}, {#default_val:2, #name:#"hash_4e0ec3fe56f08b47"}, {#default_val:0, #name:#"hash_5d65c0983698a539"}, {#default_val:0, #name:#"hash_1513b70c43495cc0"}, {#default_val:0, #name:#"hash_23fe21eb92ffbc2c"}, {#default_val:0, #name:#"hash_4ffb80b47c049c61"}, {#default_val:0, #name:#"hash_751384283abde22c"}, {#default_val:0, #name:#"hash_543954c3281a530f"}, {#default_val:1, #name:#"zmpowerstate"}, {#default_val:1, #name:#"hash_29004a67830922b6"}, {#default_val:1, #name:#"hash_3d18f84f48bd5d1f"}, {#default_val:1, #name:#"hash_7520ccdc8dcaee8d"}, {#default_val:1, #name:#"hash_8edd17a31990450"}, {#default_val:1, #name:#"zmperksquickrevive"}, {#default_val:1, #name:#"hash_557e3edd7fe168c3"}, {#default_val:1, #name:#"zmperksstaminup"}, {#default_val:1, #name:#"zmperksmulekick"}, {#default_val:1, #name:#"hash_77c5cc2d9b6ca16c"}, {#default_val:1, #name:#"zmperksdeadshot"}, {#default_val:1, #name:#"zmperkscooldown"}, {#default_val:1, #name:#"zmperksdyingwish"}, {#default_val:1, #name:#"hash_19d48a0d4490b0a2"}, {#default_val:1, #name:#"hash_57a5c7a9dcf94d61"}, {#default_val:1, #name:#"zmpowerupsactive"}, {#default_val:1, #name:#"zmpowerupnuke"}, {#default_val:1, #name:#"zmpowerupdouble"}, {#default_val:1, #name:#"zmpowerupinstakill"}, {#default_val:1, #name:#"zmpowerupchaospoints"}, {#default_val:1, #name:#"zmpowerupfiresale"}, {#default_val:1, #name:#"zmpowerupspecialweapon"}, {#default_val:1, #name:#"zmpowerupfreeperk"}, {#default_val:1, #name:#"zmpowerupmaxammo"}, {#default_val:1, #name:#"zmpowerupcarpenter"}, {#default_val:0, #name:#"zmpowerupsislimitedround"}, {#default_val:1, #name:#"hash_d46a4e7a41e005c"}, {#default_val:1, #name:#"hash_17aa8019b16bcb60"}, {#default_val:1, #name:#"hash_51a2cf319e12d9ae"}, {#default_val:0, #name:#"hash_120915b593862b66"}, {#default_val:1, #name:#"hash_137eb8d53913f781"}, {#default_val:1, #name:#"hash_3ea7e39b03dd4dd1"}, {#default_val:1, #name:#"hash_590749f63c2be0bb"}, {#default_val:1, #name:#"hash_3ab7cedcfef7eacc"}, {#default_val:1, #name:#"hash_5374d50efd1e6b59"}, {#default_val:1, #name:#"hash_5e1f08b8335a0ce0"}, {#default_val:1, #name:#"hash_7ea1426ffa93f34d"}, {#default_val:1, #name:#"hash_5746674cbab8264d"}, {#default_val:1, #name:#"hash_2d27d80d1acf8b31"}, {#default_val:1, #name:#"hash_5aef19a8668560b"}, {#default_val:1, #name:#"hash_47e07053890b9c29"}, {#default_val:1, #name:#"hash_587f074e4104cfb0"}, {#default_val:1, #name:#"hash_24ff1fa68e880afd"}, {#default_val:1, #name:#"hash_e6a46ef644c01bd"}, {#default_val:1, #name:#"zmweaponspistol"}, {#default_val:1, #name:#"hash_edfb07f798aaab5"}, {#default_val:1, #name:#"zmweaponssmg"}, {#default_val:1, #name:#"zmweaponsar"}, {#default_val:1, #name:#"zmweaponstr"}, {#default_val:1, #name:#"zmweaponslmg"}, {#default_val:1, #name:#"zmweaponssniper"}, {#default_val:1, #name:#"zmweaponsknife"}, {#default_val:1, #name:#"zmweaponsmelee"}, {#default_val:1, #name:#"hash_b066c34278e6394"}, {#default_val:1, #name:#"hash_2f03c6055447a6b1"}, {#default_val:1, #name:#"hash_541a4d5c476468f4"}, {#default_val:1, #name:#"hash_65a1298089d361f1"}, {#default_val:1, #name:#"hash_446d18ebd8d50be6"}, {#default_val:1, #name:#"zmshieldisenabled"}, {#default_val:1, #name:#"hash_7ee9177eb922ddfa"}, {#default_val:0, #name:#"hash_4cb15aed177a8ef5"}, {#default_val:0, #name:#"hash_2f18b6a3d10318ef"}, {#default_val:0, #name:#"hash_11a7d7a641d526ef"}, {#default_val:1, #name:#"hash_5946034af4372f2d"}, {#default_val:1, #name:#"hash_513e1dcaadea0269"}, {#default_val:0, #name:#"hash_7b14ee93b27576a9"}, {#default_val:3, #name:#"hash_58af4e73782aba2f"}, {#default_val:1, #name:#"hash_10457cddea07071"}, {#default_val:1, #name:#"hash_1f4a4976ecd7a486"}, {#default_val:1, #name:#"hash_5e30739150832bd3"}, {#default_val:1, #name:#"hash_3b558172d2c08a74"}, {#default_val:1, #name:#"hash_6a1243c4126c219a"}, {#default_val:1, #name:#"zmheavystate"}, {#default_val:1, #name:#"hash_3ad1d9286ae70254"}, {#default_val:1, #name:#"hash_785d86e04353c3b3"}, {#default_val:1, #name:#"hash_6cef8417a1e30c0b"}, {#default_val:1, #name:#"zmminibossstate"}, {#default_val:1, #name:#"hash_6e4de30418b7a575"}, {#default_val:1, #name:#"hash_670f45d5eb3fa542"}, {#default_val:1, #name:#"hash_5052e100a1b7db44"}, {#default_val:3, #name:#"hash_29d174e7d8ab76c8"}, {#default_val:1, #name:#"hash_5fbcaf0a1daae566"}, {#default_val:2, #name:#"hash_5c47775ddd2e17dd"}, {#default_val:0, #name:#"hash_525617f00a59d92f"}, {#default_val:0, #name:#"hash_54dfa988db5db24c"}, {#default_val:0, #name:#"hash_1735a88a32111a1b"}, {#default_val:5, #name:#"hash_1aefdca073b7d72b"}, {#default_val:0, #name:#"hash_5566698b97a6282e"}, {#default_val:0, #name:#"hash_3326ed4311c47268"}, {#default_val:1, #name:#"hash_696b8f3671d2baf1"}, {#default_val:100, #name:#"hash_3b279133f5b3371"}, {#default_val:2, #name:#"hash_70517c36d49b4ee0"}, {#default_val:0, #name:#"hash_12f776f6bc579bb4"}, {#default_val:0, #name:#"hash_2d34a5d9024db85f"}, {#default_val:1, #name:#"hash_3386caa315211c88"}, {#default_val:1, #name:#"hash_3c5363541b97ca3e"}, {#default_val:1, #name:#"hash_393fb6bd6c5874aa"}, {#default_val:1, #name:#"hash_453fcfbee32e3655"}, {#default_val:1, #name:#"hash_1b59bb7608355512"}, {#default_val:1, #name:#"hash_61695e52556ff2d1"}, {#default_val:1, #name:#"zmtalismancoagulant"}, {#default_val:1, #name:#"zmtalismanextraclaymore"}, {#default_val:1, #name:#"zmtalismanextrafrag"}, {#default_val:1, #name:#"zmtalismanextraminiturret"}, {#default_val:1, #name:#"zmtalismanextramolotov"}, {#default_val:1, #name:#"zmtalismanextrasemtex"}, {#default_val:1, #name:#"zmtalismanimpatient"}, {#default_val:1, #name:#"hash_63bf3e5a51cb8fad"}, {#default_val:1, #name:#"hash_2f51e04634dafe36"}, {#default_val:1, #name:#"hash_2f51df4634dafc83"}, {#default_val:1, #name:#"hash_2f51de4634dafad0"}, {#default_val:1, #name:#"hash_2f51e54634db06b5"}, {#default_val:1, #name:#"hash_56db42b55542ec33"}, {#default_val:1, #name:#"hash_56db43b55542ede6"}, {#default_val:1, #name:#"hash_56db44b55542ef99"}, {#default_val:1, #name:#"hash_56db45b55542f14c"}, {#default_val:1, #name:#"hash_6fe0ba92c67980e8"}, {#default_val:1, #name:#"hash_6fe0bd92c6798601"}, {#default_val:1, #name:#"hash_6fe0bc92c679844e"}, {#default_val:1, #name:#"hash_6fe0bf92c6798967"}, {#default_val:1, #name:#"hash_4f973a92562bc3b6"}, {#default_val:1, #name:#"hash_36d19199d37d4549"}, {#default_val:1, #name:#"zmtalismanshieldprice"}, {#default_val:1, #name:#"hash_3efef475c9de052e"}, {#default_val:1, #name:#"hash_3efef575c9de06e1"}, {#default_val:1, #name:#"hash_e1f30cc8f6f3150"}, {#default_val:1, #name:#"hash_19a9d40272333762"}, {#default_val:1, #name:#"hash_711db227d86cc407"}, {#default_val:1, #name:#"hash_6a6e4728651aff36"}, {#default_val:1, #name:#"zmtalismanreducepapcost"}, {#default_val:1, #name:#"hash_2979ae0cd8913eaa"}, {#default_val:1, #name:#"zmelixiralwaysdoneswiftly"}, {#default_val:1, #name:#"zmelixiranywherebuthere"}, {#default_val:1, #name:#"zmelixirarsenalaccelerator"}, {#default_val:1, #name:#"zmelixirdangerclosest"}, {#default_val:1, #name:#"zmelixirinplainsight"}, {#default_val:1, #name:#"zmelixirnewtoniannegation"}, {#default_val:1, #name:#"zmelixirnowyouseeme"}, {#default_val:1, #name:#"zmelixirstockoption"}, {#default_val:1, #name:#"zmelixirboardgames"}, {#default_val:1, #name:#"zmelixirburnedout"}, {#default_val:1, #name:#"zmelixircrawlspace"}, {#default_val:1, #name:#"zmelixirpopshocks"}, {#default_val:1, #name:#"zmelixirtemporalgift"}, {#default_val:1, #name:#"zmelixirpointdrops"}, {#default_val:1, #name:#"zmelixiralchemicalantithesis"}, {#default_val:1, #name:#"zmelixirswordflay"}, {#default_val:1, #name:#"zmelixirdeadofnuclearwinter"}, {#default_val:1, #name:#"zmelixirlicensedcontractor"}, {#default_val:1, #name:#"zmelixirundeadmanwalking"}, {#default_val:1, #name:#"zmelixirwhoskeepingscore"}, {#default_val:1, #name:#"zmelixiraftertaste"}, {#default_val:1, #name:#"zmelixirextracredit"}, {#default_val:1, #name:#"zmelixirkilljoy"}, {#default_val:1, #name:#"zmelixirsodafountain"}, {#default_val:1, #name:#"zmelixirctrlz"}, {#default_val:1, #name:#"zmelixirfreefire"}, {#default_val:1, #name:#"zmelixircacheback"}, {#default_val:1, #name:#"zmelixirimmolationliquidation"}, {#default_val:1, #name:#"zmelixirphoenixup"}, {#default_val:1, #name:#"zmelixirpowerkeg"}, {#default_val:1, #name:#"hash_6e84a4012ddf8a24"}, {#default_val:1, #name:#"zmelixirneardeathexperience"}, {#default_val:1, #name:#"zmelixirperkaholic"}, {#default_val:1, #name:#"zmelixirwallpower"}, {#default_val:0, #name:#"hash_429b520a87274afb"}, {#default_val:1, #name:#"hash_4b16b22d8a0d3301"}, {#default_val:1, #name:#"hash_7bc64c0823c87e41"}, {#default_val:1, #name:#"hash_aa498eca8149e1c"}, {#default_val:1, #name:#"hash_5261400ecb67c787"}, {#default_val:0, #name:#"hash_21ae4d5b707b063"}, {#default_val:1, #name:#"hash_5f8aca8340761fce"}, {#default_val:1, #name:#"hash_4149a5426a229656"}, {#default_val:1, #name:#"hash_2469c185ca99aaa9"}, {#default_val:1, #name:#"hash_1c31b8bc2b1996ca"}, {#default_val:1, #name:#"hash_589c0366b1458c7e"}, {#default_val:1, #name:#"hash_3ddb6198e7837062"}, {#default_val:0, #name:#"hash_2a5dc43e6de87347"}, {#default_val:0, #name:#"hash_1fed0d9afc0b0040"}, {#default_val:0, #name:#"hash_1158d006a3913ef6"}, {#default_val:0, #name:#"hash_64291919b16c489a"}, {#default_val:1, #name:#"zmelixirantientrapment"}, {#default_val:1, #name:#"zmelixirequipmint"}, {#default_val:1, #name:#"zmelixirheadscan"}, {#default_val:1, #name:#"zmelixirjointheparty"}, {#default_val:1, #name:#"zmelixirnowherebutthere"}, {#default_val:1, #name:#"zmelixirphantomreload"}, {#default_val:1, #name:#"zmelixirshieldsup"}, {#default_val:1, #name:#"hash_45118b5f6d97c89a"}, {#default_val:1, #name:#"hash_1bdfb5736ad174a3"}, {#default_val:1, #name:#"zmperksdeathperception"}, {#default_val:1, #name:#"zmperksphdslider"}, {#default_val:1, #name:#"hash_179ae09979e80714"}, {#default_val:1, #name:#"hash_5690c4dcc61973ec"}, {#default_val:1, #name:#"zmperkswolfprotector"}, {#default_val:1, #name:#"zmperksdeathdash"}, {#default_val:1, #name:#"hash_2dd9d538ca5bc2d6"}, {#default_val:0, #name:#"hash_3f8f02e8109b6e93"}, {#default_val:1, #name:#"zmelixirconflagrationliquidation"}, {#default_val:1, #name:#"zmelixirperkup"}, {#default_val:1, #name:#"zmelixirrefreshmint"}, {#default_val:1, #name:#"zmenhancedstate"}, {#default_val:1, #name:#"hash_1400ec3bdc33999"}, {#default_val:1, #name:#"hash_419385810c47590e"}, {#default_val:1, #name:#"hash_600fdf6bc4d21353"});
 }
 
 /*

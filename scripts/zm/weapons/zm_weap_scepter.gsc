@@ -466,7 +466,7 @@ function function_5e2c9b64(e_target, weapon)
 }
 
 /*
-	Name: function_286a8d10
+	Name: melee_zombies
 	Namespace: zm_weap_scepter
 	Checksum: 0xD965BF7B
 	Offset: 0x18D0
@@ -474,7 +474,7 @@ function function_5e2c9b64(e_target, weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_286a8d10(weapon = level.weaponnone)
+function melee_zombies(weapon = level.weaponnone)
 {
 	view_pos = self getweaponmuzzlepoint();
 	forward_view_angles = self getweaponforwarddir();
@@ -536,7 +536,7 @@ function function_286a8d10(weapon = level.weaponnone)
 function function_6dfe361b(player)
 {
 	player thread scepter_rumble(2);
-	player thread function_286a8d10(self);
+	player thread melee_zombies(self);
 }
 
 /*
@@ -757,7 +757,7 @@ function private get_closest_tag(v_pos)
 	{
 		zombie_utility::init_gib_tags();
 	}
-	var_144ac6c7 = undefined;
+	tag_closest = undefined;
 	var_9aabd9de = arraycopy(level.gib_tags);
 	if(!isdefined(var_9aabd9de))
 	{
@@ -773,23 +773,23 @@ function private get_closest_tag(v_pos)
 	}
 	for(i = 0; i < var_9aabd9de.size; i++)
 	{
-		if(!isdefined(var_144ac6c7))
+		if(!isdefined(tag_closest))
 		{
-			var_144ac6c7 = var_9aabd9de[i];
+			tag_closest = var_9aabd9de[i];
 			continue;
 		}
 		var_abe265db = self gettagorigin(var_9aabd9de[i]);
-		var_2cd7818f = self gettagorigin(var_144ac6c7);
+		var_2cd7818f = self gettagorigin(tag_closest);
 		if(!isdefined(var_abe265db) || !isdefined(var_2cd7818f))
 		{
 			continue;
 		}
 		if(distancesquared(v_pos, var_abe265db) < distancesquared(v_pos, var_2cd7818f))
 		{
-			var_144ac6c7 = var_9aabd9de[i];
+			tag_closest = var_9aabd9de[i];
 		}
 	}
-	return tolower(var_144ac6c7);
+	return tolower(tag_closest);
 }
 
 /*

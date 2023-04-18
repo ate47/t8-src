@@ -44,7 +44,7 @@ function __init__()
 	if(getdvarint(#"hash_1c1a8ed8d0bf271c", 0))
 	{
 		function_27473e44();
-		namespace_9ff9f642::function_9d45c058(#"hash_773d5ce33dd7cde9", 1, 6);
+		namespace_9ff9f642::function_9d45c058(#"perk_death_dash", 1, 6);
 	}
 }
 
@@ -61,11 +61,11 @@ function function_27473e44()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_death_dash", #"hash_773d5ce33dd7cde9", 2000, #"hash_2f712a7c17494226", getweapon("zombie_perk_bottle_death_dash"), getweapon("zombie_perk_totem_death_dash"), #"hash_544b157a9fa6573d");
+		zm_perks::register_perk_basic_info(#"specialty_death_dash", #"perk_death_dash", 2000, #"hash_2f712a7c17494226", getweapon("zombie_perk_bottle_death_dash"), getweapon("zombie_perk_totem_death_dash"), #"zmperksdeathdash");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_death_dash", #"hash_773d5ce33dd7cde9", 2000, #"hash_3cadaccb6765492", getweapon("zombie_perk_bottle_death_dash"), getweapon("zombie_perk_totem_death_dash"), #"hash_544b157a9fa6573d");
+		zm_perks::register_perk_basic_info(#"specialty_death_dash", #"perk_death_dash", 2000, #"hash_3cadaccb6765492", getweapon("zombie_perk_bottle_death_dash"), getweapon("zombie_perk_totem_death_dash"), #"zmperksdeathdash");
 	}
 	zm_perks::register_perk_clientfields(#"specialty_death_dash", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_threads(#"specialty_death_dash", &give_perk, &take_perk, &function_9227a4d8);
@@ -439,7 +439,7 @@ function function_c1c51837(e_player)
 	self endon(#"hash_34c48ce219158e58", #"death", #"disconnect", #"bled_out");
 	self.var_48a548c1 = 1;
 	[[ e_player.var_72755c0 ]]->waitinqueue(self);
-	self namespace_9ff9f642::burn(#"hash_773d5ce33dd7cde9", e_player, undefined, undefined);
+	self namespace_9ff9f642::burn(#"perk_death_dash", e_player, undefined, undefined);
 	self.var_b364c165 = 1;
 	e_player.var_d675d730.n_kill_count++;
 	if(self.var_6f84b820 == #"basic" || self.var_6f84b820 == #"popcorn" || self.var_6f84b820 == #"enhanced")
@@ -527,7 +527,7 @@ function function_1dbd75d3(var_85dcb56c)
 	self.var_d675d730.var_d566ea4 = 1;
 	if(self hasperk(#"specialty_death_dash") && isdefined(self.var_d675d730.var_775a4a2a))
 	{
-		self zm_perks::function_2ac7579(self.var_d675d730.var_775a4a2a, 2, #"hash_773d5ce33dd7cde9");
+		self zm_perks::function_2ac7579(self.var_d675d730.var_775a4a2a, 2, #"perk_death_dash");
 	}
 	self thread function_7d72c6f9(var_85dcb56c);
 	wait(var_85dcb56c);
@@ -547,7 +547,7 @@ function function_7d72c6f9(var_85dcb56c)
 {
 	self endon(#"hash_21b3435b159fa349", #"disconnect");
 	self.var_d675d730.var_471d9402 = var_85dcb56c;
-	self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, 0, #"hash_e58ff2df5bfd9b3");
+	self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, 0, #"perk_dying_wish");
 	while(true)
 	{
 		wait(0.1);
@@ -557,7 +557,7 @@ function function_7d72c6f9(var_85dcb56c)
 		n_percentage = math::clamp(n_percentage, 0.02, var_85dcb56c);
 		if(self hasperk(#"specialty_death_dash") && isdefined(self.var_d675d730.var_775a4a2a))
 		{
-			self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, n_percentage, #"hash_773d5ce33dd7cde9");
+			self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, n_percentage, #"perk_death_dash");
 		}
 	}
 }
@@ -585,8 +585,8 @@ function function_9227a4d8()
 		#/
 		if(isdefined(self.var_d675d730.var_775a4a2a))
 		{
-			self zm_perks::function_2ac7579(self.var_d675d730.var_775a4a2a, 1, #"hash_773d5ce33dd7cde9");
-			self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, 1, #"hash_773d5ce33dd7cde9");
+			self zm_perks::function_2ac7579(self.var_d675d730.var_775a4a2a, 1, #"perk_death_dash");
+			self zm_perks::function_13880aa5(self.var_d675d730.var_775a4a2a, 1, #"perk_death_dash");
 		}
 	}
 }

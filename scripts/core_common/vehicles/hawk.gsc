@@ -128,7 +128,7 @@ function private function_a2270a7e(vehicle)
 	self endon("5137fb3aeff763b1");
 	self endon(#"death", #"disconnect");
 	vehicle endon(#"death", #"exit_vehicle");
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		str_mode = "wz";
 	}
@@ -193,11 +193,11 @@ function private on_vehicle_killed(params)
 			}
 		}
 	}
-	self function_4c1ea6ce();
+	self hawk_destroy();
 }
 
 /*
-	Name: function_4c1ea6ce
+	Name: hawk_destroy
 	Namespace: hawk
 	Checksum: 0xF38E139C
 	Offset: 0x828
@@ -205,7 +205,7 @@ function private on_vehicle_killed(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4c1ea6ce(var_bb2c398b = 0)
+function hawk_destroy(var_bb2c398b = 0)
 {
 	hawk = self;
 	if(hawk.being_destroyed === 1)

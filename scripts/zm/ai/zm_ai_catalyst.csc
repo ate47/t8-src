@@ -285,7 +285,7 @@ function private function_1578a764(localclientnum, oldvalue, newvalue, bnewent, 
 function private function_5c22755(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	self util::waittill_dobj(localclientnum);
-	if(newvalue && isdefined(self) && self.var_9fde8624 === #"hash_78ca8e8e6bdbc8ab")
+	if(newvalue && isdefined(self) && self.var_9fde8624 === #"catalyst_corrosive")
 	{
 		animname = self getprimarydeltaanim();
 		if(!isdefined(animname) || (animname != "ai_t8_zm_zod_catalyst_corrosive_death_01" && animname != "ai_t8_zm_zod_catalyst_corrosive_death_02"))

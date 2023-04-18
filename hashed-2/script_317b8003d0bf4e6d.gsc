@@ -837,7 +837,7 @@ function private function_cdd9b388()
 					var_dfebf4da = function_91b29d2a(#"hash_7e0f31597a8a30af");
 					heli_spawn = function_91b29d2a(#"heli_spawn");
 					var_56c17d74 = function_91b29d2a(#"hash_7f58537ca200b519");
-					var_77bdab14 = function_91b29d2a(#"hash_3392a8a72acc91d");
+					var_77bdab14 = function_91b29d2a(#"zodiac_spawn");
 					var_e8750c36 = function_91b29d2a(#"hash_187ecf3003e27fce");
 					var_1901b1fa = function_91b29d2a(#"hash_2d6fce71eb390d50");
 					var_453c640c = function_91b29d2a(#"hash_781a27d230f31faf");
@@ -1046,7 +1046,7 @@ function private function_cdd9b388()
 					{
 						if(itemtype == 12)
 						{
-							var_83f919af = function_91b29d2a(#"hash_77c7d3dc43202775");
+							var_83f919af = function_91b29d2a(#"world_stash");
 							foreach(point in var_83f919af)
 							{
 								player = level.players[0];

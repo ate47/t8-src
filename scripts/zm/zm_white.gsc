@@ -525,7 +525,7 @@ function function_d5d134ac()
 }
 
 /*
-	Name: function_1e56a591
+	Name: init_pap_quest
 	Namespace: zm_white
 	Checksum: 0x3ACC6408
 	Offset: 0x2370
@@ -533,7 +533,7 @@ function function_d5d134ac()
 	Parameters: 0
 	Flags: None
 */
-function function_1e56a591()
+function init_pap_quest()
 {
 	level.var_74c82857 = 0;
 	for(i = 1; i <= 4; i++)
@@ -1444,7 +1444,7 @@ function private white_devgui()
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
-		level flag::init(#"hash_6dcc421d5fbf8d22");
+		level flag::init(#"soul_fill");
 		level thread zm_white_util::function_e95d25();
 		while(true)
 		{
@@ -1457,7 +1457,7 @@ function private white_devgui()
 					level.var_e8d9c0d1 = 1;
 					break;
 				}
-				case "hash_152d10205d10c9c7":
+				case "start_lgt_exp":
 				{
 					level flag::set("");
 					break;
@@ -1480,20 +1480,20 @@ function private white_devgui()
 				case "hash_75c01ef1f8005214":
 				{
 					iprintln("");
-					level flag::set(#"hash_6dcc421d5fbf8d22");
+					level flag::set(#"soul_fill");
 					break;
 				}
 				case "hash_7db70cb23b9d2739":
 				{
 					iprintln("");
-					level flag::clear(#"hash_6dcc421d5fbf8d22");
+					level flag::clear(#"soul_fill");
 					break;
 				}
 				case "hash_708994ac8f2d6d5":
 				{
 					if(zm_utility::function_e51dc2d8())
 					{
-						zm_sq::function_87306f8a(#"hash_27806d08798eb77a", #"step_6");
+						zm_sq::function_87306f8a(#"insanity_mode", #"step_6");
 					}
 					else
 					{

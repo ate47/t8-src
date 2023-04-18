@@ -368,7 +368,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 			var_fda63ae3 = objective_struct.origin;
 			break;
 		}
-		case "hash_2d7eddbe7c839951":
+		case "burst_pistol":
 		{
 			var_e7beaa5 = array(#"pistol_burst_t8", #"pistol_burst_t8_upgraded");
 			objective_struct = struct::get("pistol_burst_t8", "zombie_weapon_upgrade");

@@ -59,12 +59,12 @@ function function_98a0917d()
 		}
 		if(var_65792f8b.var_aa91547b != 0 || var_65792f8b.var_eac026ad != 0)
 		{
-			level.oow.var_7a8196b2 = (isdefined(var_65792f8b.var_aa91547b) ? var_65792f8b.var_aa91547b : 0);
+			level.oow.height_min = (isdefined(var_65792f8b.var_aa91547b) ? var_65792f8b.var_aa91547b : 0);
 			level.oow.height_max = (isdefined(var_65792f8b.var_eac026ad) ? var_65792f8b.var_eac026ad : 0);
 			/#
-				assert(level.oow.var_7a8196b2 <= level.oow.height_max);
+				assert(level.oow.height_min <= level.oow.height_max);
 			#/
-			if(!level.oow.var_7a8196b2 <= level.oow.height_max)
+			if(!level.oow.height_min <= level.oow.height_max)
 			{
 				return;
 			}
@@ -126,7 +126,7 @@ function function_eb7eb3d4()
 		}
 	#/
 	height = self.origin[2];
-	if(level.oow.var_7a8196b2 > height || level.oow.height_max < height)
+	if(level.oow.height_min > height || level.oow.height_max < height)
 	{
 		return true;
 	}

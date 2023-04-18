@@ -34,8 +34,8 @@ event main(eventstruct)
 */
 function danger_pstfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	postfx::playpostfxbundle(#"hash_2582bf3c147b18a0");
+	postfx::playpostfxbundle(#"pstfx_danger");
 	wait(1);
-	postfx::stoppostfxbundle(#"hash_2582bf3c147b18a0");
+	postfx::stoppostfxbundle(#"pstfx_danger");
 }
 

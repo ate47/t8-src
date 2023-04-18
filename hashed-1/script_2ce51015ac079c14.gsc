@@ -47,7 +47,7 @@ class cplayer_insertion_choice : cLUIelem
 		}
 		else
 		{
-			if(#"hash_bcb68d30ea251e2" == state_name)
+			if(#"groundvehicle" == state_name)
 			{
 				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}

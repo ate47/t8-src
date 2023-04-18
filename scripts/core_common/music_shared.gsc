@@ -36,7 +36,7 @@ function __init__()
 	{
 		callback::on_spawned(&on_player_spawned);
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		callback::on_connect(&function_cbeeecf);
 	}

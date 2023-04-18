@@ -237,7 +237,7 @@ function private registerbehaviorscriptfunctions()
 	animationstatenetwork::registeranimationmocomp("mocomp_nfrtu_leap_attack", &function_1ad502a0, &function_3511ecd1, &function_b472ba3d);
 	animationstatenetwork::registeranimationmocomp("mocomp_nfrtu_latch_attack", &function_1ad502a0, &function_3511ecd1, &function_b472ba3d);
 	animationstatenetwork::registeranimationmocomp("mocomp_nfrtu_run_attack", &function_37d5cfc, undefined, &function_4b55eb0a);
-	animationstatenetwork::registernotetrackhandlerfunction("nosferatu_leap_attack_rumble", &function_270f7c3f);
+	animationstatenetwork::registernotetrackhandlerfunction("nosferatu_leap_attack_rumble", &nfrtuleaprumble);
 	animationstatenetwork::registernotetrackhandlerfunction("nosferatu_bite", &function_2e8014e);
 }
 
@@ -1157,11 +1157,11 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
 			zdiff = entity.var_cd8354e0.var_cb28f380[2] - entity.enemy.origin[2];
 			var_6738a702 = abs(zdiff) <= 64;
-			var_175919d1 = vectordot(var_beabc994, dirtoenemy) > cos(50);
-			var_7948b2f3 = var_6738a702 && var_175919d1;
+			withinfov = vectordot(var_beabc994, dirtoenemy) > cos(50);
+			var_7948b2f3 = var_6738a702 && withinfov;
 			var_425c4c8b = isvisible || var_535d098c && var_7948b2f3;
 			/#
-				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + var_175919d1;
+				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + withinfov;
 				if(var_425c4c8b)
 				{
 					record3dtext(reasons, entity.origin + vectorscale((0, 0, 1), 60), (0, 1, 0), "");
@@ -1234,7 +1234,7 @@ function function_b472ba3d(entity, mocompanim, mocompanimblendouttime, mocompani
 }
 
 /*
-	Name: function_270f7c3f
+	Name: nfrtuleaprumble
 	Namespace: archetypenosferatu
 	Checksum: 0xE1716C1
 	Offset: 0x3B50
@@ -1242,7 +1242,7 @@ function function_b472ba3d(entity, mocompanim, mocompanimblendouttime, mocompani
 	Parameters: 1
 	Flags: Linked
 */
-function function_270f7c3f(entity)
+function nfrtuleaprumble(entity)
 {
 	entity clientfield::increment("nfrtu_leap_melee_rumb");
 }

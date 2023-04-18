@@ -37,7 +37,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level._effect[#"hash_7dc0459342cedaa4"] = #"hash_3002526b7ff53cbf";
+	level._effect[#"zm_zone_edge_marker"] = #"hash_3002526b7ff53cbf";
 	clientfield::register("scriptmover", "zm_zone_edge_marker_count", 1, getminbitcountfornum(15), "int", &zm_zone_edge_marker_count, 0, 0);
 	clientfield::register("toplayer", "zm_zone_out_of_bounds", 1, 1, "int", &zm_zone_out_of_bounds, 0, 0);
 	clientfield::register("actor", "flame_corpse_fx", 1, 1, "int", &flame_corpse_fx, 0, 0);
@@ -678,7 +678,7 @@ function zm_zone_edge_marker_count(localclientnum, oldval, newval, bnewent, bini
 		self.origin = self.origin + (v_right * 6);
 		for(i = 1; i <= newval; i++)
 		{
-			var_a05a609b = playfx(localclientnum, level._effect[#"hash_7dc0459342cedaa4"], self.origin + v_spacing, v_forward);
+			var_a05a609b = playfx(localclientnum, level._effect[#"zm_zone_edge_marker"], self.origin + v_spacing, v_forward);
 			if(!isdefined(self.var_dd1709dd))
 			{
 				self.var_dd1709dd = [];

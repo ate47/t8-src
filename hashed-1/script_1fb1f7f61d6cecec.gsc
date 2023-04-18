@@ -452,7 +452,7 @@ function private devgui()
 			str_command = getdvarstring(#"hash_83ca4038b5f2453", "");
 			switch(str_command)
 			{
-				case "hash_105a2dba6c797c9f":
+				case "green_eyes":
 				{
 					level thread function_705afbf2();
 					break;

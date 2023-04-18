@@ -47,7 +47,7 @@ function __init__()
 function player_on_spawned(localclientnum)
 {
 	player = self;
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		if(!player function_21c0fa55())
 		{
@@ -163,7 +163,7 @@ function function_2297363d(localclientnum)
 		{
 			if(doearthquake)
 			{
-				player.var_8e03a0d4 = earthquake(localclientnum, level.var_1b2035de.var_1598129, 10000, player.origin, 0, 0);
+				player.grappleeq = earthquake(localclientnum, level.var_1b2035de.var_1598129, 10000, player.origin, 0, 0);
 				doearthquake = 0;
 			}
 			player mapshaderconstant(localclientnum, 0, "scriptVector1", var_30f9f328, 0, 0, 0);
@@ -179,10 +179,10 @@ function function_2297363d(localclientnum)
 			else
 			{
 				player mapshaderconstant(localclientnum, 0, "scriptVector1", 0, 0, 0, 0);
-				if(isdefined(player.var_8e03a0d4))
+				if(isdefined(player.grappleeq))
 				{
-					function_196e7c4b(localclientnum, player.var_8e03a0d4);
-					player.var_8e03a0d4 = undefined;
+					function_196e7c4b(localclientnum, player.grappleeq);
+					player.grappleeq = undefined;
 					doearthquake = 1;
 				}
 			}

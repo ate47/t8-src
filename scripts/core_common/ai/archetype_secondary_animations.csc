@@ -187,7 +187,7 @@ function private function_176c97f8(substate)
 	{
 		return 0;
 	}
-	return substate == #"pain" || substate == #"hash_7f95d783fb40e726" || substate == #"hash_2dfc6883f8726e18" || substate == #"hash_29ce220830069fad" || substate == #"hash_38b6db4d481c96d6" || substate == #"hash_544567ec9ed768d5";
+	return substate == #"pain" || substate == #"inplace_pain" || substate == #"hash_2dfc6883f8726e18" || substate == #"hash_29ce220830069fad" || substate == #"hash_38b6db4d481c96d6" || substate == #"hash_544567ec9ed768d5";
 }
 
 /*
@@ -205,7 +205,7 @@ function private function_f5dde44(substate)
 	{
 		return 0;
 	}
-	return substate == #"melee" || substate == #"hash_23b1ff37b0280a42" || substate == #"hash_48dda7ed88efe32f";
+	return substate == #"melee" || substate == #"charge_melee" || substate == #"hash_48dda7ed88efe32f";
 }
 
 /*

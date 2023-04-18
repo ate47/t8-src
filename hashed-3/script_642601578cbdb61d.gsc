@@ -159,7 +159,7 @@ function private function_c18360f6(var_11a83c3a, params)
 	var_8b745faa = getweapon(#"gadget_icepick");
 	if(isdefined(var_11a83c3a.var_e2131267) && var_11a83c3a.var_e2131267 == params.eattacker)
 	{
-		scoreevents::processscoreevent(#"hash_338be289e9131b56", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
+		scoreevents::processscoreevent(#"hacked_kill", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
 		params.eattacker function_be7a08a8(var_8b745faa, 1);
 		time = gettime();
 		if(!isdefined(params.eattacker.var_7b9616d6))
@@ -431,7 +431,7 @@ function onplayerdisconnect()
 }
 
 /*
-	Name: function_70ed4baf
+	Name: findweapon
 	Namespace: icepick
 	Checksum: 0x9997C464
 	Offset: 0x1438
@@ -439,7 +439,7 @@ function onplayerdisconnect()
 	Parameters: 1
 	Flags: Private
 */
-function private function_70ed4baf(entity)
+function private findweapon(entity)
 {
 	if(isdefined(entity.identifier_weapon))
 	{
@@ -472,7 +472,7 @@ function private function_70ed4baf(entity)
 function function_14151f16(entity, canhack)
 {
 	entity clientfield::set("cant_be_hacked", !canhack);
-	entity.var_52a68abf = !canhack;
+	entity.canthack = !canhack;
 }
 
 /*
@@ -486,7 +486,7 @@ function function_14151f16(entity, canhack)
 */
 function private function_808efdee(hacker, entity)
 {
-	entityweapon = function_70ed4baf(entity);
+	entityweapon = findweapon(entity);
 	if(!isdefined(entityweapon) || entityweapon == level.weaponnone && !isplayer(entity))
 	{
 		return false;
@@ -499,7 +499,7 @@ function private function_808efdee(hacker, entity)
 	{
 		return false;
 	}
-	if(isdefined(entity.var_52a68abf) && entity.var_52a68abf)
+	if(isdefined(entity.canthack) && entity.canthack)
 	{
 		return false;
 	}
@@ -525,13 +525,13 @@ function private function_808efdee(hacker, entity)
 */
 function function_8d50c205(left, right)
 {
-	var_93633a81 = function_70ed4baf(left);
-	var_84792f3e = function_70ed4baf(right);
-	if(isplayer(left) || isplayer(right) || var_93633a81.var_8134b209 == var_84792f3e.var_8134b209)
+	leftweapon = findweapon(left);
+	rightweapon = findweapon(right);
+	if(isplayer(left) || isplayer(right) || leftweapon.var_8134b209 == rightweapon.var_8134b209)
 	{
 		return left getentitynumber() < right getentitynumber();
 	}
-	return var_93633a81.var_8134b209 < var_84792f3e.var_8134b209;
+	return leftweapon.var_8134b209 < rightweapon.var_8134b209;
 }
 
 /*
@@ -545,7 +545,7 @@ function function_8d50c205(left, right)
 */
 function function_ab1f58d0(entity)
 {
-	entityweapon = function_70ed4baf(entity);
+	entityweapon = findweapon(entity);
 	if(isplayer(entity))
 	{
 		settingsbundle = function_13f4415c();
@@ -645,7 +645,7 @@ function private function_73d5db3b(player)
 	player.var_be9a0b4b[2] = [];
 	foreach(entity in function_c0757a13())
 	{
-		entityweapon = function_70ed4baf(entity);
+		entityweapon = findweapon(entity);
 		if(entityweapon.var_a8bd8bb2 > 0)
 		{
 			if(!isdefined(player.var_be9a0b4b[entityweapon.var_a8bd8bb2]))
@@ -707,7 +707,7 @@ function private sort_vehicles(array, sort_func)
 }
 
 /*
-	Name: function_7f0dadf5
+	Name: starthack
 	Namespace: icepick
 	Checksum: 0xF06C75C2
 	Offset: 0x1D58
@@ -715,7 +715,7 @@ function private sort_vehicles(array, sort_func)
 	Parameters: 1
 	Flags: Private
 */
-function private function_7f0dadf5(player)
+function private starthack(player)
 {
 	player endoncallback(&function_4802ca63, #"death", #"hash_7b4714f415b8f49e");
 	level.var_fdb0a658 = 1;
@@ -813,7 +813,7 @@ function private function_aaf0a382(entities, player, max)
 		}
 		if(!isplayer(entity))
 		{
-			entityweapon = function_70ed4baf(entity);
+			entityweapon = findweapon(entity);
 			var_e8e3cc00 = var_e8e3cc00 + entityweapon.var_df381b5d;
 		}
 		if(isdefined(max) && var_e8e3cc00 > max)
@@ -847,7 +847,7 @@ function private function_2b2ed159(entity, attackingplayer)
 	else
 	{
 		entity clientfield::set("hackStatus", 1);
-		entityweapon = function_70ed4baf(entity);
+		entityweapon = findweapon(entity);
 		if(!isdefined(entityweapon))
 		{
 			return;
@@ -888,7 +888,7 @@ function private function_2b2ed159(entity, attackingplayer)
 		waitframe(1);
 	}
 	var_e92132fd = gettime();
-	if(!isdefined(entity) || !isdefined(attackingplayer) || (isdefined(entity.var_52a68abf) && entity.var_52a68abf))
+	if(!isdefined(entity) || !isdefined(attackingplayer) || (isdefined(entity.canthack) && entity.canthack))
 	{
 		if(var_7570395)
 		{
@@ -918,7 +918,7 @@ function private function_2b2ed159(entity, attackingplayer)
 	}
 	else
 	{
-		entityweapon = function_70ed4baf(entity);
+		entityweapon = findweapon(entity);
 		if(isdefined(entityweapon) && isdefined(entityweapon.name) && isdefined(entity.owner) && entity.owner getentitynumber())
 		{
 			targetname = entityweapon.name;
@@ -1007,7 +1007,7 @@ function function_29f4ff02(attackingplayer, entity)
 	{
 		return;
 	}
-	entityweapon = function_70ed4baf(entity);
+	entityweapon = findweapon(entity);
 	if(!isdefined(entityweapon))
 	{
 		return;
@@ -1444,7 +1444,7 @@ function function_f1148c2c(player)
 	}
 	if(isdefined(player) && isplayer(player))
 	{
-		function_7f0dadf5(player);
+		starthack(player);
 	}
 }
 

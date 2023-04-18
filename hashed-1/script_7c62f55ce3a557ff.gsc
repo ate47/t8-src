@@ -268,7 +268,7 @@ function private function_f332f2b7(n_spawn, str_zone_name, var_dde9ff11, var_68f
 */
 function zombie_setup_attack_properties()
 {
-	self val::reset(#"hash_62fca810699077f3", "ignoreall");
+	self val::reset(#"attack_properties", "ignoreall");
 	self.meleeattackdist = 64;
 	self.maxsightdistsqrd = 16384;
 	self.disablearrivals = 1;

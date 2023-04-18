@@ -45,7 +45,7 @@ function __init__()
 	fishing_rocks = getdynentarray("fishing_rock");
 	if(level.var_99ca6467)
 	{
-		callback::function_1475a073(&function_7bf61c45);
+		callback::on_downed(&function_7bf61c45);
 		callback::function_f77ced93(&function_e2877ac6);
 		callback::function_7897dfe6(&function_57232538);
 		foreach(rock in fishing_rocks)

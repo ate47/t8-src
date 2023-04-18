@@ -4,7 +4,7 @@
 #using script_3a6e1cc57d28db61;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\mp_common\item_inventory.gsc;
-#using script_6b7c77b107c81e62;
+#using scripts\mp_common\dynent_world.gsc;
 #using script_6b993fdc7adc35ec;
 #using scripts\weapons\sensor_dart.gsc;
 #using scripts\weapons\weaponobjects.gsc;
@@ -171,7 +171,7 @@ function private function_f3b6e182(player)
 	function_dae4ab9b(usetrigger, player.var_207c9892);
 	player clientclaimtrigger(usetrigger);
 	player.var_19caeeea = usetrigger;
-	usetrigger callback::function_35a12f19(&function_ad7ad6ce);
+	usetrigger callback::on_trigger(&function_ad7ad6ce);
 }
 
 /*
@@ -492,7 +492,7 @@ function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, ite
 	if(item_inventory::function_57eac2ca() == 2)
 	{
 		stashitem = item.var_8e092725 === -1;
-		stashitem = stashitem & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
+		stashitem = stashitem & (~(isdefined(item.deathstash) ? item.deathstash : 0));
 		weaponitem = item_inventory::function_230ceec4(player.currentweapon);
 		if(!isdefined(weaponitem))
 		{
@@ -1563,11 +1563,11 @@ function function_248022d9()
 			time = gettime();
 			for(index = 0; index < level.var_37a4536d.size; index++)
 			{
-				var_3d2f8fc3 = level.var_37a4536d[index];
-				if((time - var_3d2f8fc3.var_8e092725) >= level.var_75dc9c49)
+				respawnitem = level.var_37a4536d[index];
+				if((time - respawnitem.var_8e092725) >= level.var_75dc9c49)
 				{
-					function_54ca5536(var_3d2f8fc3.id, 0);
-					function_bfc28859(3, var_3d2f8fc3.id, var_5610ded4, 1);
+					function_54ca5536(respawnitem.id, 0);
+					function_bfc28859(3, respawnitem.id, var_5610ded4, 1);
 					level.var_37a4536d[index] = undefined;
 					continue;
 				}
@@ -1784,12 +1784,12 @@ function private function_7c84312d(origin, angles)
 	if(isdefined(var_9b882d22) && !self isinvehicle())
 	{
 		self.var_f0f7e918 = [];
-		var_4f583f35 = self item_inventory::has_backpack();
+		hasbackpack = self item_inventory::has_backpack();
 		stashitem = var_9b882d22.var_8e092725 === -1;
 		var_52bfa6e5 = !stashitem && item_inventory::function_550fcb41(var_9b882d22);
 		var_f4b42fba = self item_inventory::has_armor() && var_9b882d22.var_a6762160.itemtype == #"armor";
 		isammo = var_9b882d22.var_a6762160.itemtype == #"ammo";
-		var_de41d336 = !var_4f583f35 && var_9b882d22.var_a6762160.itemtype == #"backpack";
+		var_de41d336 = !hasbackpack && var_9b882d22.var_a6762160.itemtype == #"backpack";
 		if(stashitem || (!isammo && !var_de41d336 && !var_52bfa6e5 && !var_f4b42fba))
 		{
 			var_433d429 = 14;
@@ -2041,10 +2041,10 @@ function function_7730442c(item)
 			function_54ca5536(item.id, gettime());
 			if(isdefined(item.var_a6762160) && (isdefined(item.var_a6762160.var_47f145b4) && item.var_a6762160.var_47f145b4))
 			{
-				var_3d2f8fc3 = spawnstruct();
-				var_3d2f8fc3.id = item.id;
-				var_3d2f8fc3.var_8e092725 = gettime();
-				level.var_37a4536d[level.var_37a4536d.size] = var_3d2f8fc3;
+				respawnitem = spawnstruct();
+				respawnitem.id = item.id;
+				respawnitem.var_8e092725 = gettime();
+				level.var_37a4536d[level.var_37a4536d.size] = respawnitem;
 			}
 			if(level flagsys::get(#"hash_38a387462f3a9ad"))
 			{
@@ -2325,7 +2325,7 @@ function pickup_item(item, var_22be503 = 1, var_26a492bc = 0)
 			return 0;
 		}
 	}
-	self namespace_b6ee49c3::function_7f2040e8();
+	self dynent_world::function_7f2040e8();
 	if(var_22be503)
 	{
 		var_fa3df96 = self item_inventory::function_e66dcff5(item, var_26a492bc);
@@ -2356,7 +2356,7 @@ function pickup_item(item, var_22be503 = 1, var_26a492bc = 0)
 		if(var_77e61fc6 < var_8cd447d8 && !isentity(item) && item.var_a6762160.itemtype != #"ammo")
 		{
 			stashitem = item.var_8e092725 === -1;
-			stashitem = stashitem & (~(isdefined(item.var_4961f577) ? item.var_4961f577 : 0));
+			stashitem = stashitem & (~(isdefined(item.deathstash) ? item.deathstash : 0));
 			dropitem = self item_drop::drop_item(item.var_a6762160.weapon, var_77e61fc6, item.amount, item.id, item.origin, item.angles, stashitem, undefined, (isdefined(item.var_67169c0b) ? item.var_67169c0b : item.targetname), undefined, undefined, 0);
 			if(isdefined(dropitem))
 			{
@@ -2453,7 +2453,7 @@ function function_83ddce0f(item, inventoryslot)
 	var_3d1f9df4 = 0;
 	var_8acbe1d0 = self item_inventory::function_550fcb41(item) || item.var_a6762160.itemtype == #"hash_56d6621e6c4caf07" || item.var_a6762160.itemtype == #"resource" || item.var_a6762160.itemtype == #"ammo" || (item.var_a6762160.itemtype == #"backpack" && !self item_inventory::has_backpack());
 	stashitem = item.var_8e092725 === -1;
-	var_a692c6d6 = (isdefined(item.var_4961f577) ? item.var_4961f577 : 0);
+	var_a692c6d6 = (isdefined(item.deathstash) ? item.deathstash : 0);
 	stashitem = stashitem & (~var_a692c6d6);
 	dropitem = undefined;
 	if(!var_8acbe1d0 && self item_inventory::function_f62713c3(inventoryslot))

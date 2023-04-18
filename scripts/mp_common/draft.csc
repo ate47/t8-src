@@ -73,11 +73,11 @@ function __init__()
 	level.var_a72b250f[#"allies"] = #"hash_e2e52f9cab15dce";
 	level.var_a72b250f[#"axis"] = #"hash_50c9ef9e41155cf9";
 	level.var_a72b250f[#"spectator"] = #"hash_e2e52f9cab15dce";
-	level.var_f7fb38f8 = [];
-	level.var_f7fb38f8[#"free"] = #"draft_team_struct";
-	level.var_f7fb38f8[#"allies"] = #"hash_4fb87afe0caa6177";
-	level.var_f7fb38f8[#"axis"] = #"hash_700492f71a083a7c";
-	level.var_f7fb38f8[#"spectator"] = #"hash_4fb87afe0caa6177";
+	level.draftstructs = [];
+	level.draftstructs[#"free"] = #"draft_team_struct";
+	level.draftstructs[#"allies"] = #"hash_4fb87afe0caa6177";
+	level.draftstructs[#"axis"] = #"hash_700492f71a083a7c";
+	level.draftstructs[#"spectator"] = #"hash_4fb87afe0caa6177";
 	level.var_1f0933dc = [];
 	level.var_1f0933dc[#"allies"] = "mp_draft_lights_allies";
 	level.var_1f0933dc[#"axis"] = "mp_draft_lights_axis";
@@ -230,12 +230,12 @@ function function_469f6fc7(localclientnum, xcam, animname, lerpduration)
 		lerpduration = 0;
 	}
 	team = function_c4dfe16e(localclientnum);
-	if(isdefined(level.var_f7fb38f8[team]))
+	if(isdefined(level.draftstructs[team]))
 	{
-		var_390a1a64 = struct::get(level.var_f7fb38f8[team], "targetname");
-		if(isdefined(var_390a1a64))
+		draftstruct = struct::get(level.draftstructs[team], "targetname");
+		if(isdefined(draftstruct))
 		{
-			playmaincamxcam(localclientnum, xcam, lerpduration, animname, "", var_390a1a64.origin, var_390a1a64.angles);
+			playmaincamxcam(localclientnum, xcam, lerpduration, animname, "", draftstruct.origin, draftstruct.angles);
 			level.var_368aaeb9[localclientnum] = animname;
 			level.var_df72fe54[localclientnum] = xcam;
 		}
@@ -813,7 +813,7 @@ function function_71a9fb67(localclientnum, var_d0c67621)
 }
 
 /*
-	Name: function_41c16f74
+	Name: update_team
 	Namespace: draft
 	Checksum: 0x7D2E19E
 	Offset: 0x76B0
@@ -821,7 +821,7 @@ function function_71a9fb67(localclientnum, var_d0c67621)
 	Parameters: 2
 	Flags: Linked
 */
-function function_41c16f74(localclientnum, var_4123f2c1)
+function update_team(localclientnum, var_4123f2c1)
 {
 	localplayer = function_5c10bd79(localclientnum);
 	team = function_c4dfe16e(localclientnum);
@@ -960,7 +960,7 @@ function function_20811f66(localclientnum)
 }
 
 /*
-	Name: function_5e495c81
+	Name: setup_team
 	Namespace: draft
 	Checksum: 0x674D06A0
 	Offset: 0x80C8
@@ -968,7 +968,7 @@ function function_20811f66(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5e495c81(localclientnum)
+function setup_team(localclientnum)
 {
 	function_20811f66(localclientnum);
 	teambased = function_b2272884();
@@ -1019,9 +1019,9 @@ function watchupdate(localclientnum)
 		{
 			if(shoutcaster::is_shoutcaster(localclientnum))
 			{
-				function_5e495c81(localclientnum);
+				setup_team(localclientnum);
 			}
-			function_41c16f74(localclientnum, 0);
+			update_team(localclientnum, 0);
 		}
 	}
 }
@@ -1044,14 +1044,14 @@ function watchteamchange(localclientnum)
 		waitresult = level waittill(#"team_changed");
 		if(localclientnum == waitresult.localclientnum)
 		{
-			function_5e495c81(localclientnum);
-			function_41c16f74(localclientnum, 1);
+			setup_team(localclientnum);
+			update_team(localclientnum, 1);
 		}
 	}
 }
 
 /*
-	Name: function_1b96cc80
+	Name: watchkillcam
 	Namespace: draft
 	Checksum: 0x76AFA385
 	Offset: 0x84E8
@@ -1059,7 +1059,7 @@ function watchteamchange(localclientnum)
 	Parameters: 0
 	Flags: Linked
 */
-function function_1b96cc80()
+function watchkillcam()
 {
 	self notify(#"hash_79dc7957d60fa25");
 	self endon(#"hash_79dc7957d60fa25", #"disconnect", #"hash_5d0cdc8933e4f6f9");
@@ -1089,7 +1089,7 @@ function function_9afd868e(localclientnum)
 	if(!(isdefined(level.draftactive[localclientnum]) && level.draftactive[localclientnum]))
 	{
 		level.draftactive[localclientnum] = 1;
-		function_5e495c81(localclientnum);
+		setup_team(localclientnum);
 		play_intro_cinematic(localclientnum);
 		function_1dccd222(localclientnum);
 		level thread watchupdate(localclientnum);
@@ -1097,9 +1097,9 @@ function function_9afd868e(localclientnum)
 		if(!(isdefined(level.var_f6501ae8) && level.var_f6501ae8))
 		{
 			level.var_f6501ae8 = 1;
-			level thread function_1b96cc80();
+			level thread watchkillcam();
 		}
-		function_41c16f74(localclientnum, 1);
+		update_team(localclientnum, 1);
 	}
 }
 

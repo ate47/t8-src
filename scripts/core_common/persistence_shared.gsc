@@ -304,16 +304,16 @@ function initialize_match_stats()
 	{
 		return;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		level waittill(#"hash_313ad43b34e74e96");
 		rankid = getrankforxp(self rank::getrankxp());
-		self stats::function_4db3fba1(#"rank", rankid);
-		self stats::function_4db3fba1(#"minxp", rank::getrankinfominxp(rankid));
-		self stats::function_4db3fba1(#"maxxp", rank::getrankinfomaxxp(rankid));
-		self stats::function_4db3fba1(#"lastxp", rank::getrankxpcapped(self.pers[#"rankxp"]));
+		self stats::set_stat_global(#"rank", rankid);
+		self stats::set_stat_global(#"minxp", rank::getrankinfominxp(rankid));
+		self stats::set_stat_global(#"maxxp", rank::getrankinfomaxxp(rankid));
+		self stats::set_stat_global(#"lastxp", rank::getrankxpcapped(self.pers[#"rankxp"]));
 	}
-	if(function_f99d2668() || sessionmodeismultiplayergame())
+	if(sessionmodeiswarzonegame() || sessionmodeismultiplayergame())
 	{
 		self stats::function_bb7eedf0(#"total_games_played", 1);
 		if(isdefined(level.hardcoremode) && level.hardcoremode)

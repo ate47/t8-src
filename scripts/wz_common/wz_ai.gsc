@@ -62,8 +62,8 @@ function function_41822a58()
 {
 	if(getdvarint(#"hash_20cd968623dbb8ef", 0))
 	{
-		var_838389e9 = struct::get_array("wz_patrol_loc", "targetname");
-		foreach(spot in var_838389e9)
+		patrolspawns = struct::get_array("wz_patrol_loc", "targetname");
+		foreach(spot in patrolspawns)
 		{
 			level thread function_afce0cdb(spot);
 		}

@@ -454,7 +454,7 @@ function function_791aef0d()
 	Parameters: 5
 	Flags: Linked
 */
-function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, var_7d1f0fee)
+function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, changedspecialist)
 {
 	slot = self gadgetgetslot(gadgetweapon);
 	if(slot >= 0 && slot < 3)
@@ -483,7 +483,7 @@ function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, var_7d
 		resetonfirstround = isfirstspawn && (!roundbased || firstround);
 		resetonroundswitch = roundbased && !firstround && gadgetweapon.gadget_power_reset_on_round_switch;
 		resetonteamchanged = !isfirstspawn && (isdefined(self.switchedteamsresetgadgets) && self.switchedteamsresetgadgets) && gadgetweapon.gadget_power_reset_on_team_change;
-		var_1a2cf487 = var_7d1f0fee && getdvarint(#"hash_256144ebda864b87", 0) && (!(isdefined(level.ingraceperiod) && level.ingraceperiod && (!(isdefined(self.hasdonecombat) && self.hasdonecombat))));
+		var_1a2cf487 = changedspecialist && getdvarint(#"hash_256144ebda864b87", 0) && (!(isdefined(level.ingraceperiod) && level.ingraceperiod && (!(isdefined(self.hasdonecombat) && self.hasdonecombat))));
 		var_9468eb59 = isdefined(self.switchedteamsresetgadgets) && self.switchedteamsresetgadgets && getdvarint(#"hash_8351525729015ab", 0);
 		deployed = 0;
 		if(isdefined(self.pers[#"hash_68cdf8807cfaabff"]) && (isdefined(self.pers[#"hash_68cdf8807cfaabff"][gadgetweapon]) && self.pers[#"hash_68cdf8807cfaabff"][gadgetweapon]))

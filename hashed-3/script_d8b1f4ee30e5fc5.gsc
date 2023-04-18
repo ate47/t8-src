@@ -1149,12 +1149,12 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
 			zdiff = self.var_cd8354e0.var_cb28f380[2] - entity.enemy.origin[2];
 			var_6738a702 = abs(zdiff) <= 30;
-			var_175919d1 = vectordot(var_beabc994, dirtoenemy) > cos(30);
-			var_7948b2f3 = var_6738a702 && var_175919d1;
+			withinfov = vectordot(var_beabc994, dirtoenemy) > cos(30);
+			var_7948b2f3 = var_6738a702 && withinfov;
 			isvisible = bullettracepassed(entity.origin, entity.enemy.origin, 0, self);
 			var_425c4c8b = isvisible && var_7948b2f3;
 			/#
-				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + var_175919d1;
+				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + withinfov;
 				if(var_425c4c8b)
 				{
 					record3dtext(reasons, entity.origin + vectorscale((0, 0, 1), 60), (0, 1, 0), "");

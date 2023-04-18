@@ -932,7 +932,7 @@ function function_f2c53bb2(curweapon)
 	{
 		return;
 	}
-	if(function_f99d2668() && game.state !== "playing")
+	if(sessionmodeiswarzonegame() && game.state !== "playing")
 	{
 		return;
 	}
@@ -1380,9 +1380,9 @@ function begin_grenade_tracking()
 			blackboxeventname = #"zmequipmentuses";
 			eventname = #"hash_637ce41bcec9842c";
 		}
-		else if(function_f99d2668())
+		else if(sessionmodeiswarzonegame())
 		{
-			blackboxeventname = #"hash_2915446894b7a6f4";
+			blackboxeventname = #"wzequipmentuses";
 			eventname = #"hash_4f877fbf665a36d8";
 		}
 	}

@@ -640,7 +640,7 @@ function warp_player()
 	self clientfield::increment_to_player("teleporter_transition", 1);
 	self thread zm_white_portals::function_c234a5ce();
 	self clientfield::increment_to_player("teleporter_arrive", 1);
-	playfx(level._effect[#"hash_51e5effc17815d68"], self.origin, (1, 0, 0), (0, 0, 1));
+	playfx(level._effect[#"portal_dest"], self.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_go", self.origin);
 	self playsoundtoplayer(#"hash_39876bf613387fef", self);
 	wait(0.5);

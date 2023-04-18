@@ -219,7 +219,7 @@ class csceneplayer : csceneobject
 	}
 
 	/*
-		Name: function_52b00538
+		Name: stop_camera
 		Namespace: csceneplayer
 		Checksum: 0x48562CD1
 		Offset: 0x5FE0
@@ -227,7 +227,7 @@ class csceneplayer : csceneobject
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_52b00538(player)
+	function stop_camera(player)
 	{
 		endcamanimscripted(player);
 	}
@@ -396,12 +396,12 @@ class csceneplayer : csceneobject
 		player notify(#"hash_375ad02201949a8d");
 		player endon(#"camanimscripted", #"hash_375ad02201949a8d", #"disconnect");
 		_o_scene waittilltimeout(0.1, #"scene_done", #"scene_stop", #"scene_skip_completed");
-		function_52b00538(player);
+		stop_camera(player);
 		/#
 			if(isdefined(_o_scene._b_testing) && _o_scene._b_testing)
 			{
 				p_host = util::gethostplayer();
-				function_52b00538(p_host);
+				stop_camera(p_host);
 			}
 		#/
 	}
@@ -485,7 +485,7 @@ class csceneplayer : csceneobject
 		player val::reset(#"scene", "hide");
 		player flagsys::clear(#"shared_igc");
 		player flagsys::clear(#"scene");
-		player flagsys::clear(#"hash_33908195984d5565");
+		player flagsys::clear(#"scene_interactive_shot");
 		player flagsys::clear(#"hash_2f30b24ec0e23830");
 		player flagsys::clear(#"hash_e2ce599b208682a");
 		player flagsys::clear(#"hash_f21f320f68c0457");
@@ -1145,7 +1145,7 @@ class csceneplayer : csceneobject
 		var_a3cc5416 = (isdefined(var_a3cc5416) ? var_a3cc5416 : 0.0001);
 		self.var_a3cc5416 = undefined;
 		var_ec50a0d3 = _s.shots[csceneobject::get_shot(_str_shot)];
-		player flagsys::set(#"hash_33908195984d5565");
+		player flagsys::set(#"scene_interactive_shot");
 		player.player_anim_look_enabled = 1;
 		player.player_anim_clamp_right = (isdefined(player.player_anim_clamp_right) ? player.player_anim_clamp_right : 75);
 		player.player_anim_clamp_left = (isdefined(player.player_anim_clamp_left) ? player.player_anim_clamp_left : 75);
@@ -1713,11 +1713,11 @@ class csceneplayer : csceneobject
 			player closemenu("mobile_armory_loadout");
 			params = {#intpayload:0, #response:"cancel", #menu:"mobile_armory_loadout"};
 			player notify(#"menuresponse", params);
-			player callback::callback(#"hash_4e1a50a35ec44bcc", params);
+			player callback::callback(#"menu_response", params);
 		}
 		if(player flagsys::get(#"mobile_armory_begin_use"))
 		{
-			player val::reset(#"hash_7d805ac79a31898e", "disable_weapons");
+			player val::reset(#"mobile_armory_use", "disable_weapons");
 			player flagsys::clear(#"mobile_armory_begin_use");
 		}
 		if(getdvarint(#"scene_hide_player", 0))
@@ -1804,7 +1804,7 @@ class csceneplayer : csceneobject
 		set_player_stance(player);
 		player flagsys::set(#"scene");
 		waitframe(0);
-		if(isdefined(var_55b4f21e.var_1bc28a87) && var_55b4f21e.var_1bc28a87)
+		if(isdefined(var_55b4f21e.interactiveshot) && var_55b4f21e.interactiveshot)
 		{
 			thread function_7d761e79(player);
 		}
@@ -1881,7 +1881,7 @@ class csceneplayer : csceneobject
 	*/
 	function function_d09b043()
 	{
-		if(isdefined(var_55b4f21e.var_1bc28a87) && var_55b4f21e.var_1bc28a87)
+		if(isdefined(var_55b4f21e.interactiveshot) && var_55b4f21e.interactiveshot)
 		{
 			return;
 		}
@@ -1945,7 +1945,7 @@ class csceneplayer : csceneobject
 		if(isalive(_e))
 		{
 			_e notify(#"scene_stop");
-			function_52b00538(_e);
+			stop_camera(_e);
 			_e flagsys::clear(#"hash_7cddd51e45d3ff3e");
 			if(!(isdefined(_s.diewhenfinished) && _s.diewhenfinished) || !b_finished)
 			{
@@ -2054,7 +2054,7 @@ class cscenesharedplayer : csceneobject, csceneplayer
 	{
 		foreach(player in [[_func_get]](_str_team))
 		{
-			csceneplayer::function_52b00538(player);
+			csceneplayer::stop_camera(player);
 			player animation::stop();
 			player thread scene::scene_enable_player_stuff(_o_scene._s, _s, _o_scene._e_root);
 		}
@@ -2152,7 +2152,7 @@ class cscenesharedplayer : csceneobject, csceneplayer
 		n_lerp = csceneobject::get_lerp_time();
 		if(!csceneplayer::function_6c1c67c1())
 		{
-			csceneplayer::function_52b00538(player);
+			csceneplayer::stop_camera(player);
 			n_camera_tween = csceneobject::get_camera_tween();
 			if(n_camera_tween > 0)
 			{
@@ -2183,9 +2183,9 @@ class cscenesharedplayer : csceneobject, csceneplayer
 			}
 			if(csceneobject::function_5c2a9efa())
 			{
-				player val::set(#"hash_268db5647c547679", "freezecontrols", 1);
+				player val::set(#"scene_player", "freezecontrols", 1);
 				csceneobject::function_5c082667();
-				player val::reset(#"hash_268db5647c547679", "freezecontrols");
+				player val::reset(#"scene_player", "freezecontrols");
 			}
 			else
 			{

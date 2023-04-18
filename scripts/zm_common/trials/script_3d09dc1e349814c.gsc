@@ -41,7 +41,7 @@ function __init__()
 	level._effect[#"hash_351debe7af1f588b"] = "maps/zm_escape/fx8_flame_wall_64x64";
 	level._effect[#"hash_257bf4ae70b5a852"] = "maps/zm_escape/fx8_flame_wall_128x128";
 	level._effect[#"hash_3ea271ae7eb7fdce"] = "maps/zm_escape/fx8_flame_wall_256x256";
-	zm_trial::register_challenge(#"hash_6f720e698e84015d", &on_begin, &on_end);
+	zm_trial::register_challenge(#"door_lockdown", &on_begin, &on_end);
 }
 
 /*

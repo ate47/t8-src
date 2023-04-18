@@ -97,7 +97,7 @@ function function_ae3420ca(var_81538b15, var_f28fb772, einflictor, var_50d1e41a,
 */
 function function_651a5f4(var_81538b15, einflictor)
 {
-	bookmark = potm::function_5b1e9ed4(game.var_e9714926, #"hash_23fbe94cfb952f6f", gettime(), var_81538b15, undefined, 0, einflictor);
+	bookmark = potm::function_5b1e9ed4(game.var_e9714926, #"object_destroy", gettime(), var_81538b15, undefined, 0, einflictor);
 	function_4ba58938(bookmark);
 }
 

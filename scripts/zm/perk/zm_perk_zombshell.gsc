@@ -61,11 +61,11 @@ function function_37c0d395()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_zombshell", #"perk_zombshell", 4000, #"hash_3d4a42f8dbfe314f", getweapon("zombie_perk_bottle_zombshell"), getweapon("zombie_perk_totem_zombshell"), #"hash_49c28f0b2a623fa5");
+		zm_perks::register_perk_basic_info(#"specialty_zombshell", #"perk_zombshell", 4000, #"hash_3d4a42f8dbfe314f", getweapon("zombie_perk_bottle_zombshell"), getweapon("zombie_perk_totem_zombshell"), #"zmperkszombshell");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_zombshell", #"perk_zombshell", 4000, #"zombie/perk_zombshell", getweapon("zombie_perk_bottle_zombshell"), getweapon("zombie_perk_totem_zombshell"), #"hash_49c28f0b2a623fa5");
+		zm_perks::register_perk_basic_info(#"specialty_zombshell", #"perk_zombshell", 4000, #"zombie/perk_zombshell", getweapon("zombie_perk_bottle_zombshell"), getweapon("zombie_perk_totem_zombshell"), #"zmperkszombshell");
 	}
 	zm_perks::register_perk_clientfields(#"specialty_zombshell", &function_137d1be7, &function_1ab3592a);
 	zm_perks::register_perk_threads(#"specialty_zombshell", &function_a639586f, &function_7328ce94, &function_9227a4d8);

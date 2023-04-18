@@ -34,10 +34,10 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("allplayers", "" + #"hash_38e20721589d1fdc", 1, 1, "counter", &function_37d03e44, 0, 0);
+	clientfield::register("allplayers", "" + #"lightning_bolt_fx", 1, 1, "counter", &function_37d03e44, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_61e96e3005ea1d49", 1, 1, "counter", &function_6765f5b4, 0, 0);
 	clientfield::register("scriptmover", "" + #"lightning_miss_fx", 1, 1, "int", &function_93d275f2, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_9e18cea0c11fb61", 1, 1, "int", &function_c03894bd, 0, 0);
+	clientfield::register("scriptmover", "" + #"hammer_storm", 1, 1, "int", &function_c03894bd, 0, 0);
 	clientfield::register("actor", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter", &function_e6845153, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter", &function_e6845153, 0, 0);
 	clientfield::register("actor", "" + #"lightning_impact_fx", 1, 1, "int", &function_54b0b1b, 0, 0);
@@ -47,7 +47,7 @@ function __init__()
 	clientfield::register("actor", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int", &function_cd968d6, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int", &function_cd968d6, 0, 0);
 	clientfield::register("toplayer", "" + #"hammer_rumble", 1, 1, "counter", &hammer_rumble, 0, 0);
-	level._effect[#"hash_9e18cea0c11fb61"] = #"hash_20c78a023629447a";
+	level._effect[#"hammer_storm"] = #"hash_20c78a023629447a";
 	level._effect[#"lightning_miss"] = #"hash_211c80023671737b";
 	level._effect[#"lightning_arc"] = #"hash_5bf3f1914a8ad11f";
 	level._effect[#"lightning_impact"] = #"hash_13721326cc2b0c0d";
@@ -127,7 +127,7 @@ function function_c03894bd(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			deletefx(localclientnum, self.n_beacon_fx, 1);
 		}
-		self.n_beacon_fx = util::playfxontag(localclientnum, level._effect[#"hash_9e18cea0c11fb61"], self, "tag_origin");
+		self.n_beacon_fx = util::playfxontag(localclientnum, level._effect[#"hammer_storm"], self, "tag_origin");
 		if(!isdefined(self.var_49f8e089))
 		{
 			self.var_49f8e089 = self playloopsound(#"hash_1fc7648098c65e92");

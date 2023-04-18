@@ -129,7 +129,7 @@ function init_clientfields()
 function init_fx()
 {
 	level._effect[#"portal_ready"] = #"maps/zm_office/fx8_teleporter_ready";
-	level._effect[#"hash_3095132b48d216f5"] = #"hash_7793c4c65b08e6ed";
+	level._effect[#"portal_cooldown"] = #"hash_7793c4c65b08e6ed";
 	level._effect[#"hash_32b0f959e6b81272"] = #"hash_4860741425dc1daa";
 	level._effect[#"hash_44687d6082f9a0a4"] = #"hash_a4954ed961d6327";
 	level._effect[#"hash_2e43973bc23c661d"] = #"hash_28fc28160d26395e";
@@ -235,7 +235,7 @@ function portal_ready_fx(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	}
 	else
 	{
-		var_dabe3ecb.effect_id = util::playfxontag(localclientnum, level._effect[#"hash_3095132b48d216f5"], var_dabe3ecb, "tag_origin");
+		var_dabe3ecb.effect_id = util::playfxontag(localclientnum, level._effect[#"portal_cooldown"], var_dabe3ecb, "tag_origin");
 	}
 }
 
@@ -349,7 +349,7 @@ function function_d522cf76(localclientnum, oldval, newval, bnewent, binitialsnap
 		fx_array = level.fxents[localclientnum];
 		for(i = 0; i < fx_array.size; i++)
 		{
-			if(fx_array[i].var_ea96157a === "portal_war_room")
+			if(fx_array[i].portal_id === "portal_war_room")
 			{
 				deletefx(localclientnum, fx_array[i].portalfx);
 				fx_array[i] = level.var_b657fc96;

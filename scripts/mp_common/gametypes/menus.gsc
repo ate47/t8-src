@@ -78,7 +78,7 @@ function init()
 function on_player_connect()
 {
 	self.menu_response_callbacks = [];
-	self callback::function_d8abfc3d(#"hash_4e1a50a35ec44bcc", &on_menu_response);
+	self callback::function_d8abfc3d(#"menu_response", &on_menu_response);
 	self thread function_8e00969();
 }
 
@@ -139,7 +139,7 @@ function on_menu_response(params)
 	}
 	if(response == "endround")
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			level.var_67a68459 = 1;
 		}
@@ -154,7 +154,7 @@ function on_menu_response(params)
 			{
 				self closeingamemenu();
 			}
-			if(function_f99d2668())
+			if(sessionmodeiswarzonegame())
 			{
 				level notify(#"hash_197c640e2f684a74");
 			}
@@ -373,7 +373,7 @@ function function_2d1eb0ec(intpayload)
 function function_8e00969()
 {
 	self endon(#"disconnect", #"death");
-	if(function_8b1a219a() && function_f99d2668())
+	if(function_8b1a219a() && sessionmodeiswarzonegame())
 	{
 		while(true)
 		{

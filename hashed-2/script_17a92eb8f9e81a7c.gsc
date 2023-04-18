@@ -35,7 +35,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_842831cf();
+	init_clientfield();
 	function_ec9e5cf2();
 	function_ecf4f527();
 }
@@ -57,7 +57,7 @@ function __main__()
 }
 
 /*
-	Name: function_842831cf
+	Name: init_clientfield
 	Namespace: namespace_d034654d
 	Checksum: 0x60FE506D
 	Offset: 0x240
@@ -65,7 +65,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_842831cf()
+function init_clientfield()
 {
 	clientfield::register("toplayer", "" + #"hash_f2d0b920043dbbd", 1, 1, "counter");
 	clientfield::register("world", "" + #"hash_5474fbb93aebbb65", 1, 1, "int");

@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1b6ebc56a697d63d", &on_begin, &on_end);
+	zm_trial::register_challenge(#"shoot_from_location", &on_begin, &on_end);
 }
 
 /*

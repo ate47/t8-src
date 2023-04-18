@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_255f4e566fd60bfb;
+#using scripts\core_common\ai\commander_util.gsc;
 #using script_31e56101095f174b;
 #using scripts\core_common\ai\planner_squad.gsc;
 #using script_522aeb6ae906391e;
@@ -397,12 +397,12 @@ function private function_9962ffd8(commander)
 		{
 			if(pause)
 			{
-				namespace_7095eb0c::function_a36c087f(team);
+				commander_util::function_a36c087f(team);
 				pause = 0;
 			}
 			else
 			{
-				namespace_7095eb0c::function_2c38e191(team);
+				commander_util::function_2c38e191(team);
 				pause = 1;
 			}
 		}
@@ -1085,9 +1085,9 @@ function private function_d8b8afde(commander, blackboard)
 			sortedtargets[target[#"type"]][size] = target;
 		}
 		combined = [];
-		foreach(var_ddf00fbd in priorities)
+		foreach(prioritykey in priorities)
 		{
-			combined = arraycombine(combined, sortedtargets[var_ddf00fbd], 0, 0);
+			combined = arraycombine(combined, sortedtargets[prioritykey], 0, 0);
 		}
 		targets[priority] = combined;
 		if(getrealtime() - commander.strategizestarttime > commander.maxframetime)

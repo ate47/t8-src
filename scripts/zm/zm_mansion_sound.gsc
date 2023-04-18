@@ -228,8 +228,8 @@ function private function_ad05f6f3()
 {
 	self notify(#"hash_2b02b5a5a9af36e0");
 	self endon(#"hash_2b02b5a5a9af36e0");
-	self val::set(#"hash_4a35aca1f4d4f559", "takedamage", 1);
-	self val::set(#"hash_4a35aca1f4d4f559", "allowdeath", 0);
+	self val::set(#"phono_roll", "takedamage", 1);
+	self val::set(#"phono_roll", "allowdeath", 0);
 	while(isdefined(self))
 	{
 		s_result = undefined;
@@ -886,7 +886,7 @@ function function_a3a92098()
 		s_result = var_39ef2390 waittill(#"trigger");
 		if(isalive(s_result.activator) && s_result.activator === self)
 		{
-			self thread zm_audio::create_and_play_dialog(#"hash_20b463357f4ae8f", #"hash_127ec0f7c94323e");
+			self thread zm_audio::create_and_play_dialog(#"hash_20b463357f4ae8f", #"wine_cellar");
 			level notify(#"hash_5c0a5172c4d5bee7");
 			callback::remove_on_spawned(&function_a3a92098);
 			return;

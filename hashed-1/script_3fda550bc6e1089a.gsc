@@ -2325,7 +2325,7 @@ function crashonnearestcrashpath(hardpointtype)
 	rateofspin = 45 + randomint(90);
 	self thread heli_spin(rateofspin);
 	self endon(#"death");
-	self waittill(#"hash_69f631648cf75ba");
+	self waittill(#"path start");
 	self waittilltimeout(5, #"destination reached");
 	self thread heli_explode();
 }
@@ -2897,7 +2897,7 @@ function heli_fly(currentnode, startwait, hardpointtype)
 			self setspeed(heli_speed, heli_accel);
 			self set_goal_pos(pos, stop);
 			self waittill(#"near_goal");
-			self notify(#"hash_69f631648cf75ba");
+			self notify(#"path start");
 		}
 		else
 		{
@@ -2910,7 +2910,7 @@ function heli_fly(currentnode, startwait, hardpointtype)
 			if(!isdefined(nextnode.script_delay) || isdefined(self.donotstop))
 			{
 				self waittill(#"near_goal");
-				self notify(#"hash_69f631648cf75ba");
+				self notify(#"path start");
 			}
 			else
 			{
@@ -3158,17 +3158,17 @@ function heli_get_protect_spot(protectdest, var_551cf1b9, heli_team)
 	/#
 		assert(isdefined(level.var_c2bbc18f >= level.var_17076139));
 	#/
-	var_783ce12c = level.var_17076139;
+	heightmin = level.var_17076139;
 	var_c4124b8e = level.var_c2bbc18f;
 	if(heli_team == #"axis")
 	{
 		/#
 			assert(isdefined(level.var_d9c77d70));
 		#/
-		var_783ce12c = var_783ce12c + level.var_d9c77d70;
+		heightmin = heightmin + level.var_d9c77d70;
 		var_c4124b8e = var_c4124b8e + level.var_d9c77d70;
 	}
-	hoverheight = var_783ce12c + ((var_c4124b8e - var_783ce12c) / 2);
+	hoverheight = heightmin + ((var_c4124b8e - heightmin) / 2);
 	radius = 10000;
 	if(isdefined(groundpos))
 	{
@@ -3187,12 +3187,12 @@ function heli_get_protect_spot(protectdest, var_551cf1b9, heli_team)
 		{
 			self.var_2c1a38eb = groundpos;
 			self.var_f9d38924 = protectdest;
-			halfheight = (var_c4124b8e - var_783ce12c) / 2;
+			halfheight = (var_c4124b8e - heightmin) / 2;
 			queryresult = positionquery_source_navigation(protectdest, min_radius, max_radius, halfheight, 50, self);
 			if(isdefined(queryresult.data) && queryresult.data.size)
 			{
 				validpoints = [];
-				var_7f378b0 = randomintrange(var_783ce12c, var_c4124b8e);
+				var_7f378b0 = randomintrange(heightmin, var_c4124b8e);
 				foreach(point in queryresult.data)
 				{
 					distsq = distancesquared(self.origin, point.origin);
@@ -3264,7 +3264,7 @@ function function_438e7b44(startnode, protectdest, hardpointtype, heli_team)
 		self thread updatespeedonlock();
 		self waittill(#"near_goal");
 		hostmigration::waittillhostmigrationdone();
-		self notify(#"hash_69f631648cf75ba");
+		self notify(#"path start");
 		if(self is_targeted())
 		{
 			if(isdefined(var_2ca2e589) && var_2ca2e589)
@@ -3451,7 +3451,7 @@ function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 			}
 		}
 		hostmigration::waittillhostmigrationdone();
-		self notify(#"hash_69f631648cf75ba");
+		self notify(#"path start");
 	}
 	self heli_set_active_camo_state(1);
 	self thread heli_leave();

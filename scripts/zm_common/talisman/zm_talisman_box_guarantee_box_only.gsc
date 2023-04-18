@@ -76,11 +76,11 @@ function function_543a48f0(a_keys)
 		w_wallbuy = getweapon(var_52fb84b5[i].zombie_weapon_upgrade);
 		array::add(a_wallbuys, w_wallbuy);
 	}
-	foreach(var_e64c7df8 in a_keys)
+	foreach(w_key in a_keys)
 	{
-		if(!zm_weapons::is_wonder_weapon(var_e64c7df8))
+		if(!zm_weapons::is_wonder_weapon(w_key))
 		{
-			array::add(a_valid, var_e64c7df8);
+			array::add(a_valid, w_key);
 		}
 	}
 	a_keys = array::exclude(a_valid, a_wallbuys);

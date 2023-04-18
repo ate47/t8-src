@@ -51,7 +51,7 @@ function __init__()
 	level._effect[#"hash_12f12714214cc841"] = "zm_ai/fx8_blightfather_maggot_spawn_burst";
 	level._effect[#"hash_1dad8364594fae5d"] = "zm_ai/fx8_blightfather_chaos_missle";
 	level._effect[#"hash_648523e9c72ac0c9"] = "zm_ai/fx8_blightfather_maggot_death_exp";
-	level.var_7e79839e = "zod_blight_father_grapple_beam";
+	level.grappler_beam = "zod_blight_father_grapple_beam";
 	footsteps::registeraitypefootstepcb(#"blight_father", &function_958ba8d1);
 	clientfield::register("actor", "blight_father_amb_sac_clientfield", 1, 1, "int", &function_192c82f8, 0, 0);
 	clientfield::register("actor", "blight_father_weakpoint_l_elbow_fx", 1, 1, "int", &function_c6aa29ea, 0, 0);
@@ -71,11 +71,11 @@ function __init__()
 	clientfield::register("toplayer", "blight_father_chaos_missile_rumble_clientfield", 1, 1, "counter", &function_7d5e27f4, 0, 0);
 	clientfield::register("toplayer", "blight_father_vomit_postfx_clientfield", 1, 1, "int", &function_2d7f68ab, 0, 0);
 	clientfield::register("scriptmover", "blight_father_gib_explosion", 1, 1, "int", &function_7d5fa1ae, 0, 0);
-	clientfield::register("actor", "blight_father_death_fx", 17000, 6, "int", &function_3c8d9343, 0, 0);
+	clientfield::register("actor", "blight_father_death_fx", 17000, 6, "int", &blightfatherdeathfx, 0, 0);
 }
 
 /*
-	Name: function_3c8d9343
+	Name: blightfatherdeathfx
 	Namespace: zm_ai_blight_father
 	Checksum: 0xA9071F3F
 	Offset: 0xF70
@@ -83,7 +83,7 @@ function __init__()
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_3c8d9343(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function private blightfatherdeathfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self util::waittill_dobj(localclientnum);
 	if(isdefined(self))

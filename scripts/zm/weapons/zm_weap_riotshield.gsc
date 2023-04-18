@@ -93,9 +93,9 @@ function __init__()
 	{
 		level.should_shield_absorb_damage = &should_shield_absorb_damage;
 	}
-	if(!isdefined(level.var_7509c7d8))
+	if(!isdefined(level.callbackplayershielddamageblocked))
 	{
-		level.var_7509c7d8 = &callback_playershielddamageblocked;
+		level.callbackplayershielddamageblocked = &callback_playershielddamageblocked;
 	}
 	if(!isdefined(level.var_2677b8bb))
 	{

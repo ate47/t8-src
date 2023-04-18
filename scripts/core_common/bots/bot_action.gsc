@@ -2,7 +2,7 @@
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\bots\bot_position.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -51,7 +51,7 @@ function __init__()
 function function_66dacac1()
 {
 	register_action(#"revive_player", &rank_priority, &revive_player_weight, &revive_player);
-	register_action(#"hash_70b84fb088f2cab0", &rank_priority, &function_3cb4c00e, &function_29904346);
+	register_action(#"use_gameobject", &rank_priority, &function_3cb4c00e, &use_gameobject);
 	register_action(#"switch_to_weapon", &best_stowed_primary_weapon_rank, &switch_to_weapon_weight, &switch_to_weapon);
 	register_action(#"hash_78881ac649c38041", &rank_priority, &function_5647e838, &function_40aa6f87);
 	register_action(#"hash_7a6c10e55fac2c60", &current_melee_weapon_rank, &function_abf40e98, &function_c8ae6981);
@@ -1724,18 +1724,18 @@ function scan_for_threats_weight(var_b594a2cd)
 */
 function scan_for_threats(var_b594a2cd)
 {
-	var_fdfb592e = self is_target_visible(var_b594a2cd);
-	var_b594a2cd.var_fdfb592e = var_fdfb592e;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.var_fdfb592e == var_fdfb592e)
+	targetvisible = self is_target_visible(var_b594a2cd);
+	var_b594a2cd.targetvisible = targetvisible;
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.targetvisible == targetvisible)
 	{
-		if(var_fdfb592e && self function_ee402bf6(var_b594a2cd))
+		if(targetvisible && self function_ee402bf6(var_b594a2cd))
 		{
 			self function_8a2b82ad(var_b594a2cd);
 			self function_e69a1e2e(var_b594a2cd);
 		}
 		else
 		{
-			if(!var_fdfb592e && self function_ee402bf6(var_b594a2cd))
+			if(!targetvisible && self function_ee402bf6(var_b594a2cd))
 			{
 				self function_8a2b82ad(var_b594a2cd);
 				self function_e69a1e2e(var_b594a2cd);
@@ -1748,7 +1748,7 @@ function scan_for_threats(var_b594a2cd)
 				}
 				else
 				{
-					if(var_fdfb592e)
+					if(targetvisible)
 					{
 						self function_8a2b82ad(var_b594a2cd);
 						self aim_at_target(var_b594a2cd);
@@ -1761,7 +1761,7 @@ function scan_for_threats(var_b594a2cd)
 			}
 		}
 		self waittill(#"hash_347a612b61067eb3");
-		var_fdfb592e = self is_target_visible(var_b594a2cd);
+		targetvisible = self is_target_visible(var_b594a2cd);
 	}
 }
 
@@ -1776,18 +1776,18 @@ function scan_for_threats(var_b594a2cd)
 */
 function function_9e1d8dfe(var_b594a2cd)
 {
-	var_fdfb592e = self is_target_visible(var_b594a2cd);
-	var_b594a2cd.var_fdfb592e = var_fdfb592e;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.var_fdfb592e == var_fdfb592e)
+	targetvisible = self is_target_visible(var_b594a2cd);
+	var_b594a2cd.targetvisible = targetvisible;
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.targetvisible == targetvisible)
 	{
-		if(var_fdfb592e && self function_ee402bf6(var_b594a2cd))
+		if(targetvisible && self function_ee402bf6(var_b594a2cd))
 		{
 			self function_8a2b82ad(var_b594a2cd);
 			self function_e69a1e2e(var_b594a2cd);
 		}
 		else
 		{
-			if(!var_fdfb592e && self function_ee402bf6(var_b594a2cd))
+			if(!targetvisible && self function_ee402bf6(var_b594a2cd))
 			{
 				self function_8a2b82ad(var_b594a2cd);
 				self function_e69a1e2e(var_b594a2cd);
@@ -1805,7 +1805,7 @@ function function_9e1d8dfe(var_b594a2cd)
 			}
 		}
 		self waittill(#"hash_347a612b61067eb3");
-		var_fdfb592e = self is_target_visible(var_b594a2cd);
+		targetvisible = self is_target_visible(var_b594a2cd);
 	}
 }
 
@@ -1960,13 +1960,13 @@ function revive_player(var_b594a2cd)
 			self botsetlookcurrent();
 			break;
 		}
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 		self waittill(#"hash_347a612b61067eb3");
 	}
 	while(isalive(player) && isdefined(player.revivetrigger) && self istouching(player.revivetrigger))
 	{
 		self look_at_point(player.revivetrigger.origin, "Revive Trigger", (1, 1, 1));
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 		self bottapbutton(3);
 		self waittill(#"hash_347a612b61067eb3");
 	}
@@ -1985,7 +1985,7 @@ function revive_player(var_b594a2cd)
 function function_e0c89027(notifyhash)
 {
 	self.attackeraccuracy = 1;
-	self namespace_9c817acd::reset();
+	self bot_stance::reset();
 }
 
 /*
@@ -2050,7 +2050,7 @@ function function_3cb4c00e(var_b594a2cd)
 }
 
 /*
-	Name: function_29904346
+	Name: use_gameobject
 	Namespace: bot_action
 	Checksum: 0xB822E114
 	Offset: 0x54B0
@@ -2058,7 +2058,7 @@ function function_3cb4c00e(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_29904346(var_b594a2cd)
+function use_gameobject(var_b594a2cd)
 {
 	gameobject = var_b594a2cd.gameobject;
 	lookpoint = gameobject.trigger.origin;
@@ -2659,7 +2659,7 @@ function function_36505c2d(var_b594a2cd)
 function function_a314673(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self function_e69a1e2e(var_b594a2cd);
@@ -2777,7 +2777,7 @@ function function_294f4909(var_b594a2cd)
 function function_e73c8946(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self aim_at_target(var_b594a2cd);
@@ -2810,7 +2810,7 @@ function function_22e2ba8c(var_b594a2cd)
 	/#
 		assert(weaponclass == #"weapon_sniper");
 	#/
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self aim_at_target(var_b594a2cd);
@@ -2937,7 +2937,7 @@ function function_36ca6d92(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
 	self function_b74c1de4();
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self aim_at_target(var_b594a2cd);
@@ -3068,7 +3068,7 @@ function registersndrampend_death(var_b594a2cd)
 function fire_grenade(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self function_a3dfc4aa(var_b594a2cd);
@@ -3177,7 +3177,7 @@ function fire_locked_rocketlauncher(var_b594a2cd)
 	target = var_b594a2cd.target;
 	weapon = var_b594a2cd.weapon;
 	lockedflag = 1 << self getentitynumber();
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self function_daa4968(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self function_daa4968(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_ab6b1fc9(var_b594a2cd);
 		self aim_at_target(var_b594a2cd);
@@ -3282,7 +3282,7 @@ function fire_rocketlauncher(var_b594a2cd)
 {
 	target = var_b594a2cd.target;
 	weapon = var_b594a2cd.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::function_828da7a9(weapon))
+	while(!self function_cf788c22() && self function_bb2a8f1b(var_b594a2cd) && self is_target_visible(var_b594a2cd) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(var_b594a2cd);
 		self aim_at_target(var_b594a2cd);
@@ -3611,7 +3611,7 @@ function function_d4102d11(var_b594a2cd)
 	Parameters: 2
 	Flags: Linked
 */
-function function_26c2bce7(var_b594a2cd, var_210136db)
+function function_26c2bce7(var_b594a2cd, aimtag)
 {
 	target = var_b594a2cd.target;
 	if(!isentity(target))
@@ -3620,20 +3620,20 @@ function function_26c2bce7(var_b594a2cd, var_210136db)
 	}
 	if(self.scriptenemy === target && isdefined(self.scriptenemytag))
 	{
-		var_b594a2cd.var_210136db = self.scriptenemytag;
+		var_b594a2cd.aimtag = self.scriptenemytag;
 	}
 	else
 	{
 		if(isdefined(target.shootattag))
 		{
-			var_b594a2cd.var_210136db = target.shootattag;
+			var_b594a2cd.aimtag = target.shootattag;
 		}
 		else
 		{
-			var_b594a2cd.var_210136db = var_210136db;
+			var_b594a2cd.aimtag = aimtag;
 		}
 	}
-	var_b594a2cd.var_5b865e5e = var_b594a2cd.var_210136db;
+	var_b594a2cd.var_5b865e5e = var_b594a2cd.aimtag;
 	if(isdefined(target.aimattag))
 	{
 		var_b594a2cd.var_5b865e5e = target.aimattag;
@@ -3694,7 +3694,7 @@ function function_8a2b82ad(var_b594a2cd)
 			else if(isentity(target))
 			{
 				centroid = target getcentroid();
-				var_b594a2cd.aimpoint = function_627e3d2c(var_b594a2cd.var_210136db, target, centroid);
+				var_b594a2cd.aimpoint = function_627e3d2c(var_b594a2cd.aimtag, target, centroid);
 				var_b594a2cd.var_97065630 = function_627e3d2c(var_b594a2cd.var_5b865e5e, target, centroid);
 			}
 		}
@@ -4924,7 +4924,7 @@ function function_5de4c088(var_b594a2cd)
 	Parameters: 2
 	Flags: Linked
 */
-function function_49161e05(var_b594a2cd, var_6813ed6a)
+function function_49161e05(var_b594a2cd, checkgrenade)
 {
 	weapon = var_b594a2cd.weapon;
 	if(!isdefined(weapon))
@@ -4936,7 +4936,7 @@ function function_49161e05(var_b594a2cd, var_6813ed6a)
 		return;
 	}
 	self function_ccdcc5d9(weapon);
-	while(isdefined(var_6813ed6a) && var_6813ed6a && self isthrowinggrenade() || !self function_a39f313c() || self getcurrentweapon() == level.weaponnone)
+	while(isdefined(checkgrenade) && checkgrenade && self isthrowinggrenade() || !self function_a39f313c() || self getcurrentweapon() == level.weaponnone)
 	{
 		self waittill(#"hash_347a612b61067eb3");
 	}

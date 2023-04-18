@@ -27,11 +27,11 @@ function init_shared()
 {
 	if(getgametypesetting(#"competitivesettings") === 1)
 	{
-		level.var_6712d3ab = getscriptbundle("radiation_field_custom_settings_comp");
+		level.radiationfield_bundle = getscriptbundle("radiation_field_custom_settings_comp");
 	}
 	else
 	{
-		level.var_6712d3ab = getscriptbundle("radiation_field_bundle");
+		level.radiationfield_bundle = getscriptbundle("radiation_field_bundle");
 	}
 	clientfield::register("scriptmover", "cf_overclock_fx", 1, 1, "int");
 	clientfield::register("scriptmover", "self_destruct_start", 1, 1, "int");
@@ -139,8 +139,8 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, mod, we
 	{
 		if(mod == "MOD_BULLET" || mod == "MOD_RIFLE_BULLET" || mod == "MOD_PISTOL_BULLET" || mod == "MOD_HEAD_SHOT")
 		{
-			idamage = idamage * (isdefined(level.var_6712d3ab.var_ebea02e3) ? level.var_6712d3ab.var_ebea02e3 : 1);
-			fx = level.var_6712d3ab.var_befbf4c5;
+			idamage = idamage * (isdefined(level.radiationfield_bundle.var_ebea02e3) ? level.radiationfield_bundle.var_ebea02e3 : 1);
+			fx = level.radiationfield_bundle.var_befbf4c5;
 			if(isdefined(fx))
 			{
 				fxhandle = playfx(fx, vpoint, vdir * -1);
@@ -163,14 +163,14 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, mod, we
 function sndonoverride_eye_()
 {
 	player = self;
-	player endon(#"death", #"disconnect", #"hash_3641dd31b8121bfb");
+	player endon(#"death", #"disconnect", #"radiation_shutdown");
 	rate = 0.15;
 	cur_time = 0;
 	if(isdefined(player.var_e9791ff9))
 	{
 		objective_setprogress(player.var_e9791ff9, 0);
 	}
-	total_time = level.var_6712d3ab.baseduration + level.var_6712d3ab.var_500496c9;
+	total_time = level.radiationfield_bundle.baseduration + level.radiationfield_bundle.var_500496c9;
 	var_9c4a70ee = 0.75;
 	player notify(#"hash_477083bb681cce64");
 	while(true)
@@ -265,7 +265,7 @@ function on_player_killed(s_params)
 		else if(isdefined(attacker) && isdefined(self) && util::function_fbce7263(attacker.team, self.team))
 		{
 			weapon = s_params.weapon;
-			scoreevents::processscoreevent(#"hash_6491c9bd18d32792", attacker, player, weapon);
+			scoreevents::processscoreevent(#"radiation_field_shutdown", attacker, player, weapon);
 		}
 	}
 	player callback::function_52ac9652(#"on_player_killed_with_params", &on_player_killed);
@@ -333,7 +333,7 @@ function function_1503c832(weapon)
 function function_748147c(var_89775279, time)
 {
 	player = self;
-	player endon(#"hash_3641dd31b8121bfb");
+	player endon(#"radiation_shutdown");
 	wait(time);
 	if(isdefined(player))
 	{
@@ -420,7 +420,7 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 	{
 		player thread function_748147c(var_89775279, duration);
 	}
-	player endon("state_done_" + var_89775279, #"hash_3641dd31b8121bfb", #"death", #"disconnect");
+	player endon("state_done_" + var_89775279, #"radiation_shutdown", #"death", #"disconnect");
 	var_adf90433 = getstatuseffect(var_32900164);
 	var_327bdee = undefined;
 	if(isdefined(var_d68ee2ab))
@@ -445,7 +445,7 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 	var_345ed991 = (max_radius - min_radius) / var_ccd505f8;
 	var_a9e00cb3 = (max_height - min_height) / var_ccd505f8;
 	player_radius = 10;
-	var_1d93ec08 = int(level.var_6712d3ab.var_533b6b6e * 1000);
+	var_1d93ec08 = int(level.radiationfield_bundle.var_533b6b6e * 1000);
 	while(true)
 	{
 		fwd = vecscale(vectornormalize(anglestoforward(player.angles)), 20);
@@ -532,14 +532,14 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 					}
 					var_a3ca7cb2.var_4dcf932b = player;
 					var_73d38846 = 1;
-					if(dist < level.var_6712d3ab.var_e914cf2b)
+					if(dist < level.radiationfield_bundle.var_e914cf2b)
 					{
-						t = 1 - (dist / level.var_6712d3ab.var_e914cf2b);
-						var_73d38846 = (1 - t) + (level.var_6712d3ab.var_c3e28ba8 * t);
+						t = 1 - (dist / level.radiationfield_bundle.var_e914cf2b);
+						var_73d38846 = (1 - t) + (level.radiationfield_bundle.var_c3e28ba8 * t);
 					}
 					if(level.hardcoremode)
 					{
-						var_73d38846 = var_73d38846 * (isdefined(level.var_6712d3ab.var_78c1e37b) ? level.var_6712d3ab.var_78c1e37b : 0.25);
+						var_73d38846 = var_73d38846 * (isdefined(level.radiationfield_bundle.var_78c1e37b) ? level.radiationfield_bundle.var_78c1e37b : 0.25);
 					}
 					if(isplayer(var_a3ca7cb2))
 					{
@@ -653,16 +653,16 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 function function_a1cc4c59(weapon, killcament)
 {
 	player = self;
-	player endon(#"hash_3641dd31b8121bfb", #"disconnect");
+	player endon(#"radiation_shutdown", #"disconnect");
 	player.var_5350f794 = undefined;
-	damage_state(1, weapon, level.var_6712d3ab.var_4d16c61f, level.var_6712d3ab.var_9c3a936e, level.var_6712d3ab.var_de0396ad, level.var_6712d3ab.var_c5085bcb, level.var_6712d3ab.baseduration, level.var_6712d3ab.var_1acd89e2, level.var_6712d3ab.var_e5a95fca, undefined, killcament);
-	damage_state(2, weapon, level.var_6712d3ab.var_9c3a936e, level.var_6712d3ab.var_2b4199b5, level.var_6712d3ab.var_c5085bcb, level.var_6712d3ab.var_bd31f6a5, level.var_6712d3ab.var_500496c9, level.var_6712d3ab.var_1acd89e2, level.var_6712d3ab.var_e5a95fca, undefined, killcament);
+	damage_state(1, weapon, level.radiationfield_bundle.var_4d16c61f, level.radiationfield_bundle.var_9c3a936e, level.radiationfield_bundle.var_de0396ad, level.radiationfield_bundle.var_c5085bcb, level.radiationfield_bundle.baseduration, level.radiationfield_bundle.var_1acd89e2, level.radiationfield_bundle.var_e5a95fca, undefined, killcament);
+	damage_state(2, weapon, level.radiationfield_bundle.var_9c3a936e, level.radiationfield_bundle.var_2b4199b5, level.radiationfield_bundle.var_c5085bcb, level.radiationfield_bundle.var_bd31f6a5, level.radiationfield_bundle.var_500496c9, level.radiationfield_bundle.var_1acd89e2, level.radiationfield_bundle.var_e5a95fca, undefined, killcament);
 	player playlocalsound(#"hash_352529c7ca9f6143");
-	player function_2cd893a5();
+	player hide_player();
 	player.var_d44d1214 clientfield::set("self_destruct_start", 1);
 	player function_6b83f6a9(1);
 	player function_ad7b9f4a("RAISEWEAPON", weapon, 0, 0, 1, 0);
-	damage_state(3, weapon, level.var_6712d3ab.var_2b4199b5, level.var_6712d3ab.var_cbe3d2b8, level.var_6712d3ab.var_bd31f6a5, level.var_6712d3ab.var_39410f07, level.var_6712d3ab.var_fcdf3d9e, level.var_6712d3ab.var_3ef39bc5, level.var_6712d3ab.var_d0e0a088, level.var_6712d3ab.var_8d1e6357, killcament);
+	damage_state(3, weapon, level.radiationfield_bundle.var_2b4199b5, level.radiationfield_bundle.var_cbe3d2b8, level.radiationfield_bundle.var_bd31f6a5, level.radiationfield_bundle.var_39410f07, level.radiationfield_bundle.var_fcdf3d9e, level.radiationfield_bundle.var_3ef39bc5, level.radiationfield_bundle.var_d0e0a088, level.radiationfield_bundle.var_8d1e6357, killcament);
 	player function_c5a2e918();
 }
 
@@ -700,7 +700,7 @@ function function_3cbab338(var_fb096220)
 function function_579fff1b()
 {
 	player = self;
-	player endon(#"death", #"disconnect", #"hash_3641dd31b8121bfb");
+	player endon(#"death", #"disconnect", #"radiation_shutdown");
 	wait((isdefined(player.gadget_weapon.gadget_weapon.var_1123a989 / 1000) ? player.gadget_weapon.var_1123a989 / 1000 : 0.5));
 	if(player function_d79b93e(player.gadget_weapon.var_44c79c09))
 	{
@@ -780,7 +780,7 @@ function shutdown(var_fb096220)
 			if(isdefined(var_a3ca7cb2))
 			{
 				var_a3ca7cb2.var_15359864 = undefined;
-				params = getstatuseffect(level.var_6712d3ab.var_1acd89e2);
+				params = getstatuseffect(level.radiationfield_bundle.var_1acd89e2);
 				var_a3ca7cb2 status_effect::function_408158ef(params.setype, params.var_18d16a6b);
 			}
 		}
@@ -792,7 +792,7 @@ function shutdown(var_fb096220)
 		player.var_e9791ff9 = undefined;
 	}
 	player.var_57e6a430 = undefined;
-	var_f52790de = getstatuseffect(level.var_6712d3ab.var_8d1e6357);
+	var_f52790de = getstatuseffect(level.radiationfield_bundle.var_8d1e6357);
 	player status_effect::function_408158ef(var_f52790de.setype, var_f52790de.var_18d16a6b);
 	if(isdefined(var_fb096220) && var_fb096220 && isdefined(level.heroplaydialog))
 	{
@@ -804,11 +804,11 @@ function shutdown(var_fb096220)
 		player thread [[level.heroplaydialog]]("exertRadiationSelfEnd", 30, buffer);
 	}
 	player function_c5a2e918();
-	player notify(#"hash_3641dd31b8121bfb");
+	player notify(#"radiation_shutdown");
 }
 
 /*
-	Name: function_2cd893a5
+	Name: hide_player
 	Namespace: gadget_radiation_field
 	Checksum: 0x2E98BE73
 	Offset: 0x2E60
@@ -816,7 +816,7 @@ function shutdown(var_fb096220)
 	Parameters: 0
 	Flags: Linked
 */
-function function_2cd893a5()
+function hide_player()
 {
 	player = self;
 	player.var_92dddb36 = 1;

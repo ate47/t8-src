@@ -58,7 +58,7 @@ function __init__()
 	callback::on_challenge_complete(&on_challenge_complete);
 	callback::function_ed93a653(&function_ed93a653);
 	callback::function_98a0917d(&function_98a0917d);
-	callback::function_1475a073(&function_a117c988);
+	callback::on_downed(&function_a117c988);
 	callback::on_player_killed_with_params(&on_player_killed);
 	callback::function_14dae612(&function_14dae612);
 	callback::function_1ae8059(&function_1ae8059);
@@ -177,22 +177,22 @@ function function_ffda8476(var_c14ca2e6, xpstat, amount)
 	}
 	if(isdefined(var_60a35182) && var_60a35182)
 	{
-		prevxp = player stats::function_441050ca("PARAGON_RANKXP");
+		prevxp = player stats::get_stat_global("PARAGON_RANKXP");
 		player addrankxpvalue(var_c14ca2e6, amount);
-		curxp = player stats::function_441050ca("PARAGON_RANKXP");
+		curxp = player stats::get_stat_global("PARAGON_RANKXP");
 	}
 	else
 	{
-		prevxp = player stats::function_441050ca("RANKXP");
+		prevxp = player stats::get_stat_global("RANKXP");
 		player addrankxpvalue(var_c14ca2e6, amount);
-		curxp = player stats::function_441050ca("RANKXP");
+		curxp = player stats::get_stat_global("RANKXP");
 		if(isdefined(player.pers) && isdefined(player.pers[#"plevel"]) && player.pers[#"plevel"] == (level.maxprestige - 1))
 		{
 			if(curxp == level.rankxpcap)
 			{
 				player.pers[#"plevel"] = level.maxprestige;
-				player stats::function_4db3fba1(#"plevel", level.maxprestige);
-				player stats::function_4db3fba1(#"paragon_rank", level.maxrank + 1);
+				player stats::set_stat_global(#"plevel", level.maxprestige);
+				player stats::set_stat_global(#"paragon_rank", level.maxrank + 1);
 				player stats::function_62b271d8(#"plevel", level.maxprestige);
 			}
 		}
@@ -253,7 +253,7 @@ function private function_f874ca5e(var_10e8ffc4)
 }
 
 /*
-	Name: function_456aacb1
+	Name: player_connected
 	Namespace: namespace_d3564fd8
 	Checksum: 0x62DF5AB
 	Offset: 0x1280
@@ -261,7 +261,7 @@ function private function_f874ca5e(var_10e8ffc4)
 	Parameters: 0
 	Flags: Linked
 */
-function function_456aacb1()
+function player_connected()
 {
 	/#
 		assert(isplayer(self));
@@ -657,7 +657,7 @@ function function_5648f82(team)
 			player function_ffda8476("win", #"winxp", var_ced14f4b);
 			player stats::function_dad108fa(#"wins_first", 1);
 			player giveachievement("wz_first_win");
-			var_4cf27874 = player stats::function_441050ca(#"wins");
+			var_4cf27874 = player stats::get_stat_global(#"wins");
 			if(var_4cf27874 >= 9)
 			{
 				player giveachievement("wz_not_a_fluke");
@@ -726,9 +726,9 @@ function function_66fe9481(vehicle, player, seatindex)
 		}
 		if(player.var_e081a4e5.size == 3)
 		{
-			if(!(isdefined(player.var_e081a4e5[#"hash_f42169f228206e4"]) && player.var_e081a4e5[#"hash_f42169f228206e4"]))
+			if(!(isdefined(player.var_e081a4e5[#"all_used"]) && player.var_e081a4e5[#"all_used"]))
 			{
-				player.var_e081a4e5[#"hash_f42169f228206e4"] = 1;
+				player.var_e081a4e5[#"all_used"] = 1;
 				player stats::function_d40764f3(#"vehicle_used_all", 1);
 			}
 		}
@@ -796,9 +796,9 @@ function function_f8072c71(player)
 				if(var_f03db647)
 				{
 					player stats::function_dad108fa(#"distance_traveled_vehicle_land", distancetraveled);
-					var_ae40ba19 = player stats::function_441050ca(#"distance_traveled_vehicle_land");
+					var_ae40ba19 = player stats::get_stat_global(#"distance_traveled_vehicle_land");
 					var_7f444a72 = int(var_ae40ba19 / 63360);
-					var_a7f485eb = player stats::function_441050ca(#"hash_83f7445bc09cd22");
+					var_a7f485eb = player stats::get_stat_global(#"hash_83f7445bc09cd22");
 					if(var_7f444a72 > var_a7f485eb)
 					{
 						diff = var_7f444a72 - var_a7f485eb;
@@ -808,9 +808,9 @@ function function_f8072c71(player)
 				if(var_b01d9212)
 				{
 					player stats::function_dad108fa(#"distance_traveled_vehicle_air", distancetraveled);
-					var_ae40ba19 = player stats::function_441050ca(#"distance_traveled_vehicle_air");
+					var_ae40ba19 = player stats::get_stat_global(#"distance_traveled_vehicle_air");
 					var_7f444a72 = int(var_ae40ba19 / 63360);
-					var_a7f485eb = player stats::function_441050ca(#"distance_traveled_vehicle_air_miles");
+					var_a7f485eb = player stats::get_stat_global(#"distance_traveled_vehicle_air_miles");
 					if(var_7f444a72 > var_a7f485eb)
 					{
 						diff = var_7f444a72 - var_a7f485eb;
@@ -820,9 +820,9 @@ function function_f8072c71(player)
 				if(var_7c6311c4)
 				{
 					player stats::function_dad108fa(#"distance_traveled_vehicle_water", distancetraveled);
-					var_ae40ba19 = player stats::function_441050ca(#"distance_traveled_vehicle_water");
+					var_ae40ba19 = player stats::get_stat_global(#"distance_traveled_vehicle_water");
 					var_7f444a72 = int(var_ae40ba19 / 63360);
-					var_a7f485eb = player stats::function_441050ca(#"distance_traveled_vehicle_water_miles");
+					var_a7f485eb = player stats::get_stat_global(#"distance_traveled_vehicle_water_miles");
 					if(var_7f444a72 > var_a7f485eb)
 					{
 						diff = var_7f444a72 - var_a7f485eb;
@@ -899,11 +899,11 @@ function function_da21a17c()
 			var_d98c5084 = self.origin;
 			if(distancetraveled > 1000)
 			{
-				self stats::function_dad108fa(#"hash_9914160f3260c69", distancetraveled);
+				self stats::function_dad108fa(#"distance_traveled_wingsuit", distancetraveled);
 				distancetraveled = 0;
-				var_ae40ba19 = self stats::function_441050ca(#"hash_9914160f3260c69");
+				var_ae40ba19 = self stats::get_stat_global(#"distance_traveled_wingsuit");
 				var_7f444a72 = int(var_ae40ba19 / 63360);
-				var_a7f485eb = self stats::function_441050ca(#"distance_traveled_wingsuit_miles");
+				var_a7f485eb = self stats::get_stat_global(#"distance_traveled_wingsuit_miles");
 				if(var_7f444a72 > var_a7f485eb)
 				{
 					diff = var_7f444a72 - var_a7f485eb;
@@ -1136,9 +1136,9 @@ function function_35ac33e1(attacker, victim, var_c5948a69 = {})
 		}
 		if(isdefined(victim))
 		{
-			if(isdefined(victim.var_e53a63ce))
+			if(isdefined(victim.playerskilled))
 			{
-				if(isdefined(victim.var_e53a63ce[attacker.team]) && victim.var_e53a63ce[attacker.team].size > 0)
+				if(isdefined(victim.playerskilled[attacker.team]) && victim.playerskilled[attacker.team].size > 0)
 				{
 					attacker.avenger = 1;
 				}
@@ -1146,25 +1146,25 @@ function function_35ac33e1(attacker, victim, var_c5948a69 = {})
 			if(isdefined(victim.team))
 			{
 				maxteamplayers = (isdefined(getgametypesetting(#"maxteamplayers")) ? getgametypesetting(#"maxteamplayers") : 1);
-				if(!isdefined(attacker.var_e53a63ce))
+				if(!isdefined(attacker.playerskilled))
 				{
-					attacker.var_e53a63ce = [];
+					attacker.playerskilled = [];
 				}
-				if(!isdefined(attacker.var_e53a63ce[victim.team]))
+				if(!isdefined(attacker.playerskilled[victim.team]))
 				{
-					attacker.var_e53a63ce[victim.team] = [];
+					attacker.playerskilled[victim.team] = [];
 				}
-				else if(!isarray(attacker.var_e53a63ce[victim.team]))
+				else if(!isarray(attacker.playerskilled[victim.team]))
 				{
-					attacker.var_e53a63ce[victim.team] = array(attacker.var_e53a63ce[victim.team]);
+					attacker.playerskilled[victim.team] = array(attacker.playerskilled[victim.team]);
 				}
-				if(!isinarray(attacker.var_e53a63ce[victim.team], victim))
+				if(!isinarray(attacker.playerskilled[victim.team], victim))
 				{
-					attacker.var_e53a63ce[victim.team][attacker.var_e53a63ce[victim.team].size] = victim;
+					attacker.playerskilled[victim.team][attacker.playerskilled[victim.team].size] = victim;
 				}
-				if(isdefined(attacker.var_e53a63ce[victim.team]))
+				if(isdefined(attacker.playerskilled[victim.team]))
 				{
-					switch(attacker.var_e53a63ce[victim.team].size)
+					switch(attacker.playerskilled[victim.team].size)
 					{
 						case 2:
 						{
@@ -1269,13 +1269,13 @@ function function_35ac33e1(attacker, victim, var_c5948a69 = {})
 				attacker stats::function_dad108fa(#"hash_35020c395a89befb", 1);
 				attacker callback::callback(#"hash_7a9bdd3ee0ae95af");
 			}
-			if(!isdefined(attacker.pers[#"hash_3641ea33357552c6"]) || dist_to_target > attacker.pers[#"hash_3641ea33357552c6"])
+			if(!isdefined(attacker.pers[#"longestdistancekill"]) || dist_to_target > attacker.pers[#"longestdistancekill"])
 			{
-				attacker.pers[#"hash_3641ea33357552c6"] = dist_to_target;
-				var_c5078529 = dist_to_target * 0.0254;
-				attacker.var_c5078529 = int(floor(var_c5078529 + 0.5));
+				attacker.pers[#"longestdistancekill"] = dist_to_target;
+				longestkill = dist_to_target * 0.0254;
+				attacker.longestkill = int(floor(longestkill + 0.5));
 				attacker stats::function_62b271d8(#"longest_distance_kill", int(dist_to_target));
-				attacker stats::function_7a850245(#"hash_3641ea33357552c6", int(attacker.pers[#"hash_3641ea33357552c6"]));
+				attacker stats::function_7a850245(#"longestdistancekill", int(attacker.pers[#"longestdistancekill"]));
 			}
 			var_c2d07ee0 = attacker stats::function_ed81f25e(#"longest_distance_kill");
 			if(isdefined(var_c2d07ee0))
@@ -1460,7 +1460,7 @@ event private function_4776caf4(eventstruct)
 	{
 		return;
 	}
-	if(function_f99d2668() && isplayer(self) && isalive(self) && isdefined(eventstruct) && isdefined(eventstruct.weapon))
+	if(sessionmodeiswarzonegame() && isplayer(self) && isalive(self) && isdefined(eventstruct) && isdefined(eventstruct.weapon))
 	{
 		if(eventstruct.weapon.name === #"basketball")
 		{

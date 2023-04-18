@@ -141,7 +141,7 @@ function on_player_spawned()
 */
 function function_ddfdddb1()
 {
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self clientfield::set_to_player("healthregen", 1);
 	}
@@ -186,7 +186,7 @@ function function_7993d50e()
 	self notify(#"healing_disabled");
 	self player::function_9080887a();
 	self clientfield::set_player_uimodel("hudItems.healingActive", 0);
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self clientfield::set_to_player("healthregen", 0);
 	}
@@ -283,7 +283,7 @@ function function_941ed5d6()
 */
 function gadget_health_regen_on(slot, weapon)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self.var_eedfcc6e = gettime();
 	}
@@ -304,7 +304,7 @@ function gadget_health_regen_on(slot, weapon)
 */
 function gadget_health_regen_off(slot, weapon)
 {
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 	}
 	else if(isdefined(self.var_eedfcc6e))
@@ -603,12 +603,12 @@ function private function_dafd9cd(attacker)
 */
 function function_831bf182()
 {
-	var_6b3b55da = isdefined(self.gadget_health_regen_slot);
-	if(!var_6b3b55da || "ammo" == self.gadget_health_regen_weapon.var_11389297)
+	can_set = isdefined(self.gadget_health_regen_slot);
+	if(!can_set || "ammo" == self.gadget_health_regen_weapon.var_11389297)
 	{
 		return 0;
 	}
-	return var_6b3b55da;
+	return can_set;
 }
 
 /*

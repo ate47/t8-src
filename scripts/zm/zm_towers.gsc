@@ -163,8 +163,8 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_57c08e5f4792690c", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_440f23773f551a48", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_4e5e2b411c997804", 1, 1, "int");
-	clientfield::register("toplayer", "" + #"hash_3b3d40b9e7427939", 1, 1, "counter");
-	clientfield::register("world", "" + #"hash_6bc33c82908d4d2c", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"maelstrom_initiate", 1, 1, "counter");
+	clientfield::register("world", "" + #"maelstrom_initiate_fx", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_4e7b1766cc26a866", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_1814d4cc1867739c", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_314d3a2e542805c0", 1, 1, "int");
@@ -358,7 +358,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 		var_6095c0b6 = zm_round_logic::function_4e8157cd(var_404e4288, var_8dd554ee);
 		if(isalive(var_6095c0b6.ai_spawned))
 		{
-			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2")));
+			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water")));
 		}
 	}
 	else

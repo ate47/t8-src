@@ -53,7 +53,7 @@ function private on_begin(str_flag, var_60bdad5f)
 	zm_trial_util::function_7d32b7d0(0);
 	level.var_5fccce01 = str_flag;
 	level.var_4ce2a315 = var_60bdad5f;
-	level thread function_3ed3d711(str_flag);
+	level thread monitor_flag(str_flag);
 }
 
 /*
@@ -78,7 +78,7 @@ function private on_end(round_reset)
 }
 
 /*
-	Name: function_3ed3d711
+	Name: monitor_flag
 	Namespace: namespace_7ceb3542
 	Checksum: 0xE7F06EC6
 	Offset: 0x220
@@ -86,7 +86,7 @@ function private on_end(round_reset)
 	Parameters: 1
 	Flags: Private
 */
-function private function_3ed3d711(str_flag)
+function private monitor_flag(str_flag)
 {
 	level endon(#"hash_7646638df88a3656");
 	while(true)

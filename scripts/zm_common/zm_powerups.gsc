@@ -508,7 +508,7 @@ function function_2ff352cc()
 	{
 		n_players = a_e_players.size;
 	}
-	n_kill_count = function_21a3a673(zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players), zombie_utility::function_d2dfacfd(#"hash_3f4e6b25f57677da" + n_players));
+	n_kill_count = function_21a3a673(zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players), zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + n_players));
 	if(zm_custom::function_901b751c(#"hash_393fb6bd6c5874aa") == 0)
 	{
 		n_kill_count = n_kill_count * 2;
@@ -542,7 +542,7 @@ function private function_a7a5570e()
 	for(i = 1; i <= 4; i++)
 	{
 		zombie_utility::set_zombie_var(#"hash_434b3261c607850" + i, int(min(990, (zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + i)) + 1)));
-		zombie_utility::set_zombie_var(#"hash_3f4e6b25f57677da" + i, int(min(999, (zombie_utility::function_d2dfacfd(#"hash_3f4e6b25f57677da" + i)) + 1)));
+		zombie_utility::set_zombie_var(#"zombie_powerup_drop_max_" + i, int(min(999, (zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + i)) + 1)));
 	}
 }
 

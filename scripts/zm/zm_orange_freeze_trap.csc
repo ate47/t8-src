@@ -113,8 +113,8 @@ function player_freeze_trap_post_fx(localclientnum, oldval, newval, bnewent, bin
 		self.var_f08ae416 = self playloopsound(#"hash_341a3fa00975f232");
 		self.var_b2ea9ecc = 0.825;
 		self thread function_4443ecea(localclientnum);
-		self thread postfx::playpostfxbundle(#"hash_2452bc36eee3f912");
-		self postfx::function_c8b5f318(#"hash_2452bc36eee3f912", #"hash_5f1523667e6fa863", 0.825);
+		self thread postfx::playpostfxbundle(#"pstfx_frost_loop_fullscreen");
+		self postfx::function_c8b5f318(#"pstfx_frost_loop_fullscreen", #"hash_5f1523667e6fa863", 0.825);
 	}
 	else
 	{
@@ -125,7 +125,7 @@ function player_freeze_trap_post_fx(localclientnum, oldval, newval, bnewent, bin
 			{
 				self.var_b2ea9ecc = 0.5;
 			}
-			self postfx::function_c8b5f318(#"hash_2452bc36eee3f912", #"hash_5f1523667e6fa863", self.var_b2ea9ecc);
+			self postfx::function_c8b5f318(#"pstfx_frost_loop_fullscreen", #"hash_5f1523667e6fa863", self.var_b2ea9ecc);
 			wait(0.05);
 		}
 		if(isdefined(self.var_f08ae416))
@@ -152,7 +152,7 @@ function function_4443ecea(localclientnum)
 	self waittill(#"player_freeze_trap_post_fx_complete");
 	if(isdefined(self))
 	{
-		self postfx::exitpostfxbundle(#"hash_2452bc36eee3f912");
+		self postfx::exitpostfxbundle(#"pstfx_frost_loop_fullscreen");
 		if(isdefined(self.var_f08ae416))
 		{
 			self stoploopsound(self.var_f08ae416);

@@ -114,9 +114,9 @@ function function_b540b576()
 	{
 		var_2e2b46e8 namespace_2e9c09b3::function_e8661563(&function_1792ae3, 1);
 	}
-	var_1ecdf017 = getent("projecter_screen_a", "targetname");
+	screen_a = getent("projecter_screen_a", "targetname");
 	screen_b = getent("projecter_screen_b", "targetname");
-	var_1ecdf017 show();
+	screen_a show();
 	screen_b hide();
 	if(zm_utility::function_e51dc2d8())
 	{
@@ -235,13 +235,13 @@ function function_8352562a()
 {
 	self endon(#"death");
 	var_e578920c = 0;
-	var_1ecdf017 = getent("projecter_screen_a", "targetname");
+	screen_a = getent("projecter_screen_a", "targetname");
 	screen_b = getent("projecter_screen_b", "targetname");
 	while(true)
 	{
 		self waittill(#"play_audio");
 		screen_b show();
-		var_1ecdf017 hide();
+		screen_a hide();
 		exploder::stop_exploder("fxexp_script_projector_off");
 		exploder::exploder("fxexp_script_projector_on");
 		level.var_94b00cff playsound(#"hash_7f70f5f71963f7f2");
@@ -265,7 +265,7 @@ function function_8352562a()
 			var_e578920c++;
 			level.var_94b00cff stoploopsound();
 			level.var_94b00cff playsound(#"hash_1f5fc24563134758");
-			var_1ecdf017 show();
+			screen_a show();
 			screen_b hide();
 			exploder::stop_exploder("fxexp_script_projector_on");
 			exploder::exploder("fxexp_script_projector_off");

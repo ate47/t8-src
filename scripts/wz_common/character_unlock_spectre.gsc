@@ -69,7 +69,7 @@ function function_1c4b5097(item)
 	{
 		if(self character_unlock::function_f0406288(#"spectre_unlock"))
 		{
-			if(self stats::function_441050ca(#"hash_41f134c3e727d877") >= 20)
+			if(self stats::get_stat_global(#"hash_41f134c3e727d877") >= 20)
 			{
 				self character_unlock::function_c8beca5e(#"spectre_unlock", #"hash_27023afb3f91aba5", 1);
 			}
@@ -90,7 +90,7 @@ function function_27709af9()
 {
 	if(self character_unlock::function_f0406288(#"spectre_unlock"))
 	{
-		if(self stats::function_441050ca(#"hash_41f134c3e727d877") >= 20)
+		if(self stats::get_stat_global(#"hash_41f134c3e727d877") >= 20)
 		{
 			self character_unlock::function_c8beca5e(#"spectre_unlock", #"hash_27023afb3f91aba5", 1);
 		}

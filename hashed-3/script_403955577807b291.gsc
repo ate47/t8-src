@@ -73,47 +73,47 @@ function function_b53fa4ba(entity)
 */
 function function_b2755499(weapon, entity)
 {
-	var_373a6acd = weapon;
+	returnweapon = weapon;
 	switch(weapon.name)
 	{
 		case "cobra_20mm_comlink":
 		{
-			var_373a6acd = getweapon("helicopter_comlink");
+			returnweapon = getweapon("helicopter_comlink");
 			break;
 		}
 		case "hash_36a6454f13b54f18":
 		{
-			var_373a6acd = getweapon("ultimate_turret");
+			returnweapon = getweapon("ultimate_turret");
 			break;
 		}
 		case "hash_17df39d53492b0bf":
 		{
-			var_373a6acd = getweapon("ac130");
+			returnweapon = getweapon("ac130");
 			break;
 		}
 		case "straferun_gun":
 		{
-			var_373a6acd = getweapon("straferun");
+			returnweapon = getweapon("straferun");
 			break;
 		}
 		case "hash_26ffb92552ae26be":
 		{
-			var_373a6acd = getweapon("drone_squadron");
+			returnweapon = getweapon("drone_squadron");
 			break;
 		}
 		case "hash_7eca6eae4128f3a0":
 		{
-			var_373a6acd = function_b53fa4ba(entity);
+			returnweapon = function_b53fa4ba(entity);
 			break;
 		}
 		case "hash_61b88900b127386a":
 		case "hash_71088fcd3aaa23fb":
 		{
-			var_373a6acd = getweapon("eq_hawk");
+			returnweapon = getweapon("eq_hawk");
 			break;
 		}
 	}
-	return var_373a6acd;
+	return returnweapon;
 }
 
 /*
@@ -324,13 +324,13 @@ function function_808efdee(hacker, entity, weapon)
 */
 function function_8d50c205(left, right)
 {
-	var_93633a81 = function_b2755499(left.weapon, left);
-	var_84792f3e = function_b2755499(right.weapon, right);
-	if(isplayer(left) || isplayer(right) || var_93633a81.var_8134b209 == var_84792f3e.var_8134b209)
+	leftweapon = function_b2755499(left.weapon, left);
+	rightweapon = function_b2755499(right.weapon, right);
+	if(isplayer(left) || isplayer(right) || leftweapon.var_8134b209 == rightweapon.var_8134b209)
 	{
 		return left getentitynumber() < right getentitynumber();
 	}
-	return var_93633a81.var_8134b209 < var_84792f3e.var_8134b209;
+	return leftweapon.var_8134b209 < rightweapon.var_8134b209;
 }
 
 /*
@@ -404,7 +404,7 @@ function function_adceefd(local_client_num, hacker)
 */
 function watchfordeath(local_client_num, entity, index)
 {
-	entity endon(#"hash_321e96994b3767cd");
+	entity endon(#"icepickhacked");
 	while(isdefined(entity) && (!(isdefined(entity.var_acee3911) && entity.var_acee3911)))
 	{
 		waitframe(1);
@@ -668,7 +668,7 @@ function private function_34aba8d8(local_client_num, targetid, newval)
 		}
 		else if(newval == 2)
 		{
-			self notify(#"hash_321e96994b3767cd");
+			self notify(#"icepickhacked");
 		}
 		setuimodelvalue(getuimodel(itemuimodel, "hackStatus"), newval);
 		break;

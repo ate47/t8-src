@@ -1262,7 +1262,7 @@ function function_379f6b5d(n_base_damage, var_177ec733 = 1, var_b68e56de = 1, va
 function function_e418901e()
 {
 	/#
-		setdvar(#"hash_2554cdbcc1e45023", "");
+		setdvar(#"give_equipment", "");
 		waitframe(1);
 		level flag::wait_till("");
 		waitframe(1);
@@ -1270,7 +1270,7 @@ function function_e418901e()
 		adddebugcommand(str_cmd);
 		while(true)
 		{
-			equipment_id = getdvarstring(#"hash_2554cdbcc1e45023");
+			equipment_id = getdvarstring(#"give_equipment");
 			if(equipment_id != "")
 			{
 				foreach(player in getplayers())
@@ -1285,7 +1285,7 @@ function function_e418901e()
 						player buy(equipment_id);
 					}
 				}
-				setdvar(#"hash_2554cdbcc1e45023", "");
+				setdvar(#"give_equipment", "");
 			}
 			waitframe(1);
 		}

@@ -82,7 +82,7 @@ function private function_53d906fd(localclientnum)
 		{
 			if(function_8a8a409b(stash))
 			{
-				if(stash.var_aa9f8f87 === #"hash_4bfbb656e63b17ae" || stash.var_aa9f8f87 === #"hash_1edbe1c283127e19")
+				if(stash.var_aa9f8f87 === #"hash_4bfbb656e63b17ae" || stash.var_aa9f8f87 === #"supply_stash_parent")
 				{
 					stash function_e2d53ad5(localclientnum, playfx, function_ffdbe8c2(stash));
 				}

@@ -63,7 +63,7 @@ function init_fx()
 function init_clientfields()
 {
 	clientfield::register("scriptmover", "" + #"hash_6d40a3f1944d81b2", 20000, 2, "int", &function_946acaec, 0, 0);
-	clientfield::register("actor", "" + #"electrocute_ai_fx", 20000, 1, "int", &function_3f09b130, 0, 0);
+	clientfield::register("actor", "" + #"electrocute_ai_fx", 20000, 1, "int", &electrocute_ai, 0, 0);
 }
 
 /*
@@ -95,7 +95,7 @@ function function_946acaec(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_3f09b130
+	Name: electrocute_ai
 	Namespace: namespace_a6437486
 	Checksum: 0xB11F1801
 	Offset: 0x408
@@ -103,7 +103,7 @@ function function_946acaec(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_3f09b130(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function electrocute_ai(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

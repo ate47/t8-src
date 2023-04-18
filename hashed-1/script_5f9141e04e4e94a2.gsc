@@ -433,7 +433,7 @@ function private function_fe82c566()
 		self.origin = var_838db546 - vectorscale((0, 0, 1), 64);
 		self moveto(var_838db546 + vectorscale((0, 0, 1), 64), 1);
 		wait(0.5);
-		playfx(level._effect[#"hash_51e5effc17815d68"], var_838db546, (1, 0, 0), (0, 0, 1));
+		playfx(level._effect[#"portal_dest"], var_838db546, (1, 0, 0), (0, 0, 1));
 		playsoundatposition(#"evt_teleporter_go", var_838db546);
 		self waittill(#"movedone");
 		/#

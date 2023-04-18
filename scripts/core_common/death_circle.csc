@@ -293,10 +293,10 @@ function private function_b8c979ec(localclientnum, intensity = 0)
 		deletefx(localclientnum, self.var_7e948a2d, 1);
 		self.var_7e948a2d = undefined;
 	}
-	var_1221e86b = level.var_7e948a2d[intensity];
-	if(isdefined(var_1221e86b))
+	camerafx = level.var_7e948a2d[intensity];
+	if(isdefined(camerafx))
 	{
-		self.var_7e948a2d = playfxoncamera(localclientnum, var_1221e86b, (0, 0, 0), (1, 0, 0), (0, 0, 1));
+		self.var_7e948a2d = playfxoncamera(localclientnum, camerafx, (0, 0, 0), (1, 0, 0), (0, 0, 1));
 	}
 }
 

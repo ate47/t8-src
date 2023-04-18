@@ -90,7 +90,7 @@ function commit_weapon_data(spawnid, currentweapon, time0)
 			blackboxeventname = #"zmweapons";
 			eventname = #"hash_67140d84a7660909";
 		}
-		else if(function_f99d2668())
+		else if(sessionmodeiswarzonegame())
 		{
 			blackboxeventname = #"wzweapons";
 			eventname = #"hash_63ec5305e1ef1335";

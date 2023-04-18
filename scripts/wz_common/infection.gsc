@@ -237,9 +237,9 @@ function function_89116a1e()
 	}
 	zones = level.var_6990c489;
 	var_3fe45e06 = [];
-	if(isdefined(level.deathcircle) && isdefined(level.deathcircle.var_7aec140c))
+	if(isdefined(level.deathcircle) && isdefined(level.deathcircle.nextcircle))
 	{
-		var_5b345622 = min(level.deathcircle.radius - level.deathcircle.var_7aec140c.radius, 10000);
+		var_5b345622 = min(level.deathcircle.radius - level.deathcircle.nextcircle.radius, 10000);
 		var_3fe45e06 = [];
 		var_89e77f16 = (level.deathcircle.radius - var_5b345622) * (level.deathcircle.radius - var_5b345622);
 		nextorigin = level.deathcircle.origin;
@@ -421,7 +421,7 @@ function private function_70f6e873(params)
 event private function_4776caf4(eventstruct)
 {
 	eventstruct.projectile endon(#"death");
-	if(function_f99d2668() && isplayer(self) && isalive(self))
+	if(sessionmodeiswarzonegame() && isplayer(self) && isalive(self))
 	{
 		weaponname = eventstruct.weapon.name;
 		if(weaponname != #"hash_351254cd4fc93d6e")
@@ -489,7 +489,7 @@ function function_ff850b97()
 */
 function function_16e24b6c()
 {
-	var_d05b667e = [#"p8_wz_door_01_frame_wooden_double":1, #"hash_6c99ba1916eb0091":1, #"hash_3044adfce9288deb":1, #"p8_wz_door_01_double_frame":1, #"hash_5ab15b04f91b09bf":1, #"hash_508d4a4298138acd":1, #"hash_20a46dc75ae6f72e":1, #"hash_798df3b536b0d16":1, #"p8_wz_door_barricade_01_sml":1, #"p8_wz_door_barricade_01_med":1, #"p8_wz_door_barricade_01_lrg":1, #"p8_wz_door_barricade_01":1, #"hash_1debd9bb0784f5f9":1, #"p8_wz_door_01_wood_plain":1, #"p8_wz_door_01_wood":1, #"p8_wz_door_01_turbine":1, #"p8_wz_door_01_train":1, #"hash_3f00c218be809b12":1, #"p8_wz_door_01_latch":1, #"p8_wz_door_01_frame_wooden_painted":1, #"p8_wz_door_01_frame_wooden":1, #"p8_wz_door_01_frame":1, #"hash_7c40a6297a29d7bd":1, #"hash_505006a36f471eaf":1, #"p8_wz_door_01_factory":1, #"hash_70294bd7c3b0e2ff":1, #"p8_wz_door_01_estate":1, #"p8_wz_door_01_diner":1, #"hash_6130912b218af142":1, #"hash_88b4d6deb60840d":1, #"p8_wz_door_01_assylum_double":1, #"p8_wz_door_01_assylum":1, #"p8_wz_door_01_array":1, #"p8_wz_door_01":1, #"p8_wz_door_01_frame_white":1];
+	var_d05b667e = [#"p8_wz_door_01_frame_wooden_double":1, #"hash_6c99ba1916eb0091":1, #"hash_3044adfce9288deb":1, #"p8_wz_door_01_double_frame":1, #"hash_5ab15b04f91b09bf":1, #"hash_508d4a4298138acd":1, #"p8_wz_door_01_double":1, #"hash_798df3b536b0d16":1, #"p8_wz_door_barricade_01_sml":1, #"p8_wz_door_barricade_01_med":1, #"p8_wz_door_barricade_01_lrg":1, #"p8_wz_door_barricade_01":1, #"hash_1debd9bb0784f5f9":1, #"p8_wz_door_01_wood_plain":1, #"p8_wz_door_01_wood":1, #"p8_wz_door_01_turbine":1, #"p8_wz_door_01_train":1, #"hash_3f00c218be809b12":1, #"p8_wz_door_01_latch":1, #"p8_wz_door_01_frame_wooden_painted":1, #"p8_wz_door_01_frame_wooden":1, #"p8_wz_door_01_frame":1, #"hash_7c40a6297a29d7bd":1, #"hash_505006a36f471eaf":1, #"p8_wz_door_01_factory":1, #"hash_70294bd7c3b0e2ff":1, #"p8_wz_door_01_estate":1, #"p8_wz_door_01_diner":1, #"hash_6130912b218af142":1, #"hash_88b4d6deb60840d":1, #"p8_wz_door_01_assylum_double":1, #"p8_wz_door_01_assylum":1, #"p8_wz_door_01_array":1, #"p8_wz_door_01":1, #"p8_wz_door_01_frame_white":1];
 	dynents = getdynentarray();
 	foreach(dynent in dynents)
 	{

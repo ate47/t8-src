@@ -52,8 +52,8 @@ function init_clientfields()
 function function_4989fd7e()
 {
 	level flag::init(#"hash_6019aeb57ae7e6b5");
-	level flag::init(#"hash_28ba359808d9a123");
-	level flag::init(#"hash_19272529ecde0188");
+	level flag::init(#"catwalk_event_completed");
+	level flag::init(#"catwalk_door_open");
 	var_40762d8a = getent("t_catwalk_door_open", "targetname");
 	var_40762d8a sethintstring(#"hash_71158766520dc432");
 	level.var_2ea46461 = getent("mdl_ca_l", "targetname");
@@ -102,7 +102,7 @@ function function_84f1c310()
 		}
 	}
 	var_40762d8a = getent("t_catwalk_door_open", "targetname");
-	var_325be437 = getent("door_model_west_side_exterior_to_catwalk", "target");
+	t_catwalk_door = getent("door_model_west_side_exterior_to_catwalk", "target");
 	var_f7076542 = getentarray("catwalk_event_triggers", "script_noteworthy");
 	foreach(var_9fe758bc in var_f7076542)
 	{
@@ -118,7 +118,7 @@ function function_84f1c310()
 		{
 			var_40762d8a sethintstring(#"hash_52803ee9fe3f2ea5");
 		}
-		var_325be437 sethintstring(#"");
+		t_catwalk_door sethintstring(#"");
 		level.var_2ea46461 setmodel(#"p8_zm_esc_catwalk_door_light_green");
 		if(function_8b1a219a())
 		{
@@ -128,17 +128,17 @@ function function_84f1c310()
 		{
 			var_40762d8a sethintstring(#"hash_52803ee9fe3f2ea5");
 		}
-		var_325be437 sethintstring(#"");
+		t_catwalk_door sethintstring(#"");
 		waitresult = undefined;
 		waitresult = var_40762d8a waittill(#"trigger");
-		level flag::set(#"hash_19272529ecde0188");
+		level flag::set(#"catwalk_door_open");
 		level thread scene::init_streamer(#"hash_5df6183c594ce5cc", #"allies", 0, 0);
 		if(isplayer(waitresult.activator))
 		{
 			waitresult.activator thread zm_audio::create_and_play_dialog(#"catwalk", #"open", undefined, 1);
 		}
 		var_40762d8a sethintstring(#"");
-		var_325be437 notify(#"power_on");
+		t_catwalk_door notify(#"power_on");
 		playsoundatposition(#"hash_97aff7905795396", (8223, 10111, 817));
 		level.musicsystemoverride = 1;
 		music::setmusicstate("escape_catwalk");
@@ -146,7 +146,7 @@ function function_84f1c310()
 		var_9e431d6d = util::spawn_model("tag_origin", s_sparks.origin, s_sparks.angles);
 		var_9e431d6d clientfield::set("" + #"hash_144c7c2895ed95c", 1);
 		mdl_gate = undefined;
-		foreach(mdl_door in var_325be437.doors)
+		foreach(mdl_door in t_catwalk_door.doors)
 		{
 			if(mdl_door.classname == "script_model")
 			{
@@ -164,9 +164,9 @@ function function_84f1c310()
 	else if(zm_custom::function_901b751c("zmPowerState") == 2 || zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 	{
 		var_40762d8a sethintstring(#"");
-		var_325be437 sethintstring(#"");
+		t_catwalk_door sethintstring(#"");
 		var_40762d8a setinvisibletoall();
-		var_325be437 setinvisibletoall();
+		t_catwalk_door setinvisibletoall();
 		if(isdefined(level.var_2ea46461))
 		{
 			level.var_2ea46461 delete();
@@ -239,7 +239,7 @@ function function_dc212e9f()
 	var_4947b277 = getent("catwalk_wires", "targetname");
 	bundle = #"p8_fxanim_zm_esc_wires_catwalk_bundle";
 	var_4947b277 thread scene::play(bundle, "LOOP", var_4947b277);
-	level flag::wait_till(#"hash_19272529ecde0188");
+	level flag::wait_till(#"catwalk_door_open");
 	var_4947b277 thread scene::play(bundle, "SHOCKED", var_4947b277);
 }
 
@@ -449,7 +449,7 @@ function function_17ccf041()
 {
 	self notify("132dac1db2bd93e0");
 	self endon("132dac1db2bd93e0");
-	level endon(#"hash_28ba359808d9a123", #"end_game");
+	level endon(#"catwalk_event_completed", #"end_game");
 	level.var_20cff6f0 = 0;
 	while(true)
 	{
@@ -914,7 +914,7 @@ function function_e11ac4f5()
 	callback::remove_on_connect(&function_ddadfe7);
 	music::setmusicstate("none");
 	level.musicsystemoverride = 0;
-	level flag::set(#"hash_28ba359808d9a123");
+	level flag::set(#"catwalk_event_completed");
 }
 
 /*
@@ -960,7 +960,7 @@ function function_ddadfe7()
 {
 	self endon(#"disconnect");
 	a_str_zones = array("zone_catwalk_01", "zone_catwalk_02", "zone_catwalk_03", "zone_catwalk_04");
-	while(!level flag::get(#"hash_28ba359808d9a123"))
+	while(!level flag::get(#"catwalk_event_completed"))
 	{
 		str_zone = self zm_zonemgr::get_player_zone();
 		if(isdefined(str_zone) && isinarray(a_str_zones, str_zone) && (!(isdefined(self.var_9235ac2d) && self.var_9235ac2d)))

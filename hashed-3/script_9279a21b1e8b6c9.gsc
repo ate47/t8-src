@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using script_d43f0658aa1a5e5;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -197,7 +197,7 @@ function function_d5d96302(center, radius)
 */
 function function_15e6e9ae(vehicle)
 {
-	camera = namespace_67838d10::function_57fe9b21(level.insertion, vehicle.origin);
+	camera = player_insertion::function_57fe9b21(level.insertion, vehicle.origin);
 	camera.origin = vehicle.origin;
 	camera.angles = vehicle.angles;
 	camera linkto(vehicle);
@@ -218,7 +218,7 @@ function private function_521bff14(center, goal, var_e294ac7d)
 	direction = goal - center;
 	steps = int(length(direction) / 5000);
 	direction = vectornormalize(direction);
-	var_3d4c4e94 = namespace_67838d10::function_f31cf3bb(center, direction, 5000, 0, steps);
+	var_3d4c4e94 = player_insertion::function_f31cf3bb(center, direction, 5000, 0, steps);
 	if(!isdefined(var_3d4c4e94))
 	{
 		var_3d4c4e94 = center;
@@ -231,14 +231,14 @@ function private function_521bff14(center, goal, var_e294ac7d)
 		new_point = center + (direction * (length * var_e294ac7d));
 		/#
 			var_ced865d2 = center + (direction * length);
-			thread namespace_67838d10::debug_line(center, new_point, (1, 0, 0), level.var_30813b9c.debug_duration);
-			thread namespace_67838d10::debug_line(new_point, var_ced865d2, (0, 1, 1), level.var_30813b9c.debug_duration);
-			thread namespace_67838d10::debug_line(var_ced865d2, goal, (1, 0, 1), level.var_30813b9c.debug_duration);
+			thread player_insertion::debug_line(center, new_point, (1, 0, 0), level.var_30813b9c.debug_duration);
+			thread player_insertion::debug_line(new_point, var_ced865d2, (0, 1, 1), level.var_30813b9c.debug_duration);
+			thread player_insertion::debug_line(var_ced865d2, goal, (1, 0, 1), level.var_30813b9c.debug_duration);
 		#/
 		return new_point;
 	}
 	/#
-		thread namespace_67838d10::debug_line(center, goal, (1, 0, 0), level.var_30813b9c.debug_duration);
+		thread player_insertion::debug_line(center, goal, (1, 0, 0), level.var_30813b9c.debug_duration);
 	#/
 	return goal;
 }
@@ -311,7 +311,7 @@ function private function_14f79b33(center, radius, height, var_e294ac7d)
 		}
 		/#
 			level.var_30813b9c.debug_duration = 1000;
-			thread namespace_67838d10::debug_line(var_c164cd96, level.var_30813b9c.vehicle.origin, (0, 0, 1), level.var_30813b9c.debug_duration);
+			thread player_insertion::debug_line(var_c164cd96, level.var_30813b9c.vehicle.origin, (0, 0, 1), level.var_30813b9c.debug_duration);
 		#/
 		var_9c068ab1 = vectornormalize(level.var_30813b9c.vehicle.origin - var_c164cd96);
 		var_c40f2e06 = vectortoangles(var_9c068ab1);
@@ -322,7 +322,7 @@ function private function_14f79b33(center, radius, height, var_e294ac7d)
 		goal = var_c164cd96 + (anglestoforward(new_angles) * circle_radius);
 		goal = function_521bff14(var_c164cd96, goal, var_e294ac7d);
 		/#
-			thread namespace_67838d10::debug_line(level.var_30813b9c.vehicle.origin, goal, (0, 1, 0), level.var_30813b9c.debug_duration);
+			thread player_insertion::debug_line(level.var_30813b9c.vehicle.origin, goal, (0, 1, 0), level.var_30813b9c.debug_duration);
 		#/
 		self function_a57c34b7(goal, 0, 0);
 		self waittill(#"goal", #"near_goal");
@@ -348,7 +348,7 @@ function private function_4f356be(start, end, offset, var_3a5f8906)
 	for(i = 1; i <= var_27dfb385; i++)
 	{
 		self pathvariableoffset((offset, offset, offset) * ((var_27dfb385 - i) + 1), var_3a5f8906);
-		self namespace_67838d10::function_85635daf(start, distance, (i * 5000) / distance);
+		self player_insertion::function_85635daf(start, distance, (i * 5000) / distance);
 	}
 	if(remainingdist > 0)
 	{
@@ -389,14 +389,14 @@ function function_b24f3a72(origin, radius, height)
 	Parameters: 2
 	Flags: None
 */
-function function_8655661f(var_555c9c6, height)
+function function_8655661f(radius_t, height)
 {
 	if(!isdefined(level.deathcircle))
 	{
-		return self function_b24f3a72((0, 0, height), 50000 * var_555c9c6, height);
+		return self function_b24f3a72((0, 0, height), 50000 * radius_t, height);
 	}
 	origin = (level.deathcircle.origin[0], level.deathcircle.origin[1], height);
-	goal = self function_b24f3a72(origin, level.deathcircle.radius * var_555c9c6, height);
+	goal = self function_b24f3a72(origin, level.deathcircle.radius * radius_t, height);
 	return goal;
 }
 
@@ -523,11 +523,11 @@ function private function_c62b5591()
 {
 	if(isdefined(level.var_30813b9c) && isdefined(level.var_30813b9c.cameraent))
 	{
-		level.var_30813b9c.cameraent clientfield::set("infiltration_plane", namespace_67838d10::function_1e4302d0(1, level.insertion.index));
-		level.var_30813b9c.cameraent clientfield::set("infiltration_ent", namespace_67838d10::function_1e4302d0(1, level.insertion.index));
+		level.var_30813b9c.cameraent clientfield::set("infiltration_plane", player_insertion::function_1e4302d0(1, level.insertion.index));
+		level.var_30813b9c.cameraent clientfield::set("infiltration_ent", player_insertion::function_1e4302d0(1, level.insertion.index));
 		level.var_30813b9c.cameraent setvisibletoplayer(self);
 	}
-	self namespace_67838d10::function_aa4e9db8();
+	self player_insertion::function_aa4e9db8();
 }
 
 /*
@@ -545,7 +545,7 @@ function private function_402101af()
 	{
 		level.var_30813b9c.cameraent setinvisibletoplayer(self);
 	}
-	self namespace_67838d10::function_af096637();
+	self player_insertion::function_af096637();
 }
 
 /*
@@ -561,7 +561,7 @@ function function_eb815c5()
 {
 	if(isdefined(level.var_30813b9c) && isdefined(level.var_30813b9c.cameraent))
 	{
-		level.var_30813b9c.cameraent clientfield::set("infiltration_camera", namespace_67838d10::function_1e4302d0(2, level.insertion.index));
+		level.var_30813b9c.cameraent clientfield::set("infiltration_camera", player_insertion::function_1e4302d0(2, level.insertion.index));
 	}
 	level callback::add_callback(#"hash_74b19f5972b0ee52", &function_6198f712);
 }
@@ -608,7 +608,7 @@ function function_218283c4()
 */
 function function_de24c569()
 {
-	namespace_67838d10::function_a5fd9aa8(level.insertion);
+	player_insertion::function_a5fd9aa8(level.insertion);
 	foreach(player in level.insertion.players)
 	{
 		player function_218283c4();
@@ -652,9 +652,9 @@ function function_f9348c1d()
 function function_39a51e47()
 {
 	self endon(#"disconnect");
-	if(!isdefined(level.var_fc14f773))
+	if(!isdefined(level.warp_portal_vehicles))
 	{
-		self thread namespace_67838d10::function_77132caf();
+		self thread player_insertion::function_77132caf();
 		self function_acdf637e();
 		return;
 	}
@@ -662,11 +662,11 @@ function function_39a51e47()
 	if(var_8c305d53)
 	{
 		self function_acdf637e();
-		self thread namespace_67838d10::function_f2867466();
+		self thread player_insertion::function_f2867466();
 	}
 	else
 	{
-		self thread namespace_67838d10::function_77132caf();
+		self thread player_insertion::function_77132caf();
 		self function_acdf637e();
 	}
 }
@@ -716,7 +716,7 @@ function function_3c4884f1(var_819e1b79)
 		fwd = anglestoforward(targetangles);
 		spawnorigin = (targetorigin - (fwd * 1000)) + vectorscale((0, 0, 1), 500);
 		self setorigin(spawnorigin);
-		self namespace_67838d10::start_freefall(fwd * 1000, 0);
+		self player_insertion::start_freefall(fwd * 1000, 0);
 	}
 	self function_acdf637e();
 }
@@ -741,12 +741,12 @@ function function_584c9f1()
 	#/
 	if(!isdefined(level.var_30813b9c.vehicle))
 	{
-		self thread namespace_67838d10::function_77132caf();
+		self thread player_insertion::function_77132caf();
 		return;
 	}
 	var_c40f2e06 = function_f9348c1d();
 	self function_564e0871();
-	self namespace_67838d10::function_f795bf83(level.insertion, level.var_30813b9c.vehicle, var_c40f2e06[1]);
+	self player_insertion::function_f795bf83(level.insertion, level.var_30813b9c.vehicle, var_c40f2e06[1]);
 	self setplayerangles(var_c40f2e06);
 	self function_acdf637e();
 }
@@ -806,20 +806,20 @@ function function_fec68e5c()
 		return;
 	}
 	level thread function_836fe662();
-	namespace_67838d10::function_ff107056(level.insertion);
+	player_insertion::function_ff107056(level.insertion);
 	level.insertion.players = arraycopy(function_b2df2693());
 	level thread function_de24c569();
 	wait(0.5 + 0.1);
-	namespace_67838d10::function_a5fd9aa8(level.insertion);
+	player_insertion::function_a5fd9aa8(level.insertion);
 	foreach(player in level.insertion.players)
 	{
 		player.var_c5134737 = 1;
 		player thread [[level.spawnclient]]();
-		player namespace_67838d10::function_b9a53f50();
+		player player_insertion::function_b9a53f50();
 	}
 	level.insertion flagsys::set(#"hash_5a3e17fbc33cdc86");
 	level.insertion flagsys::wait_till_timeout((1 + 2.5) + 0.5, #"hash_3dc9cb68998d9dfd");
-	level.var_30813b9c.vehicle namespace_67838d10::function_bc16f3b4(level.insertion);
+	level.var_30813b9c.vehicle player_insertion::function_bc16f3b4(level.insertion);
 	/#
 		assert(10 > 0);
 	#/
@@ -833,7 +833,7 @@ function function_fec68e5c()
 		player clientfield::set_to_player("infiltration_final_warning", 1);
 	}
 	wait(5);
-	namespace_67838d10::function_a5fd9aa8(level.insertion);
+	player_insertion::function_a5fd9aa8(level.insertion);
 	foreach(player in level.insertion.players)
 	{
 		if(!isdefined(player) || (isdefined(player.var_97b0977) && player.var_97b0977))
@@ -858,16 +858,16 @@ function function_fec68e5c()
 */
 function function_5425f45d()
 {
-	if(isdefined(level.deathcircle) && isdefined(level.var_fb91af8) && isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircle) && isdefined(level.deathcircles) && isdefined(level.var_52b56362))
 	{
-		var_d89a84b0 = level.var_fb91af8.size - 1;
+		var_d89a84b0 = level.deathcircles.size - 1;
 		step_height = 20000 / var_d89a84b0;
 		height_diff = level.var_52b56362 * step_height;
 		center = level.deathcircle.origin;
 		radius = level.deathcircle.radius * 0.5;
 		angle = 0;
-		var_180a7b48 = self namespace_67838d10::function_ec7cfdb();
-		portal = level.var_fc14f773[var_180a7b48];
+		var_180a7b48 = self player_insertion::function_ec7cfdb();
+		portal = level.warp_portal_vehicles[var_180a7b48];
 		if(isdefined(portal) && isdefined(portal.var_8c9cad0b))
 		{
 			angle = (isdefined(portal.var_8c9cad0b) ? portal.var_8c9cad0b : 0);
@@ -882,10 +882,10 @@ function function_5425f45d()
 			portal.origin = (x_pos, y_pos, z_pos);
 			var_10fdb78b = level.var_52b56362 + 1;
 			var_b0221a68 = math::clamp(var_10fdb78b, 0, var_d89a84b0);
-			var_7aec140c = level.var_fb91af8[var_b0221a68];
-			if(isdefined(var_7aec140c))
+			nextcircle = level.deathcircles[var_b0221a68];
+			if(isdefined(nextcircle))
 			{
-				target = var_7aec140c.origin - portal.origin;
+				target = nextcircle.origin - portal.origin;
 				target = vectornormalize(target);
 				angles = vectortoangles(target);
 				portal.angles = angles;

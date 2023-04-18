@@ -129,7 +129,7 @@ function function_8d43b840(var_5ea5c94d)
 		level.var_64f7b41e = 0;
 		level.var_9928b94b = array::randomize(level.var_9928b94b);
 		level.var_e70fa660 = array::randomize(level.var_e70fa660);
-		level.var_4adebdfc function_5a12b82();
+		level.var_4adebdfc blood_event();
 	}
 }
 
@@ -285,7 +285,7 @@ function function_15f8d6f0()
 }
 
 /*
-	Name: function_5a12b82
+	Name: blood_event
 	Namespace: zm_orange_mq_blood
 	Checksum: 0xCF2BC93A
 	Offset: 0x12D8
@@ -293,7 +293,7 @@ function function_15f8d6f0()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5a12b82()
+function blood_event()
 {
 	level endon(#"hash_1f0238cda598f6e9", #"end_game");
 	level waittill(#"hash_6fb77fda0e7419a6");

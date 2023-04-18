@@ -56,7 +56,7 @@ function function_d0ad09c5(effect)
 */
 function function_c9ff0dce()
 {
-	self.overrideplayerdamage = &function_6fb4cde7;
+	self.overrideplayerdamage = &callback_player_damage;
 	if(self.team == #"allies")
 	{
 		self ct_utils::player_reset();
@@ -147,7 +147,7 @@ function function_c9ff0dce()
 }
 
 /*
-	Name: function_6fb4cde7
+	Name: callback_player_damage
 	Namespace: ct_ajax_tutorial
 	Checksum: 0x8A058E2E
 	Offset: 0x1610
@@ -155,7 +155,7 @@ function function_c9ff0dce()
 	Parameters: 11
 	Flags: None
 */
-function function_6fb4cde7(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
+function callback_player_damage(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
 {
 	level notify(#"player_damaged");
 	if(!isdefined(level.var_ad7c0539))

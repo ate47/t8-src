@@ -2247,11 +2247,11 @@ function function_4f415d8e(params)
 	Parameters: 5
 	Flags: None
 */
-function function_1e9a761c(timeout, var_17488197, endcondition1, endcondition2, endcondition3)
+function function_1e9a761c(timeout, timeoutcallback, endcondition1, endcondition2, endcondition3)
 {
 	waitframe(1);
 	placeable = self;
-	placeable thread waitfortimeout(placeable.killstreakref, timeout, var_17488197, endcondition1, endcondition2);
+	placeable thread waitfortimeout(placeable.killstreakref, timeout, timeoutcallback, endcondition1, endcondition2);
 }
 
 /*

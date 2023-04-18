@@ -35,10 +35,10 @@
 */
 function preload()
 {
-	namespace_617a54f4::function_d8383812(#"sc_ww_screen1", 20000, "sc_ww_screen1", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_ww_screen2", 20000, "sc_ww_screen2", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_ww_screen3", 20000, "sc_ww_screen3", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_ww_screen4", 20000, "sc_ww_screen4", &function_8598f0d4, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"sc_ww_screen1", 20000, "sc_ww_screen1", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_ww_screen2", 20000, "sc_ww_screen2", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_ww_screen3", 20000, "sc_ww_screen3", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_ww_screen4", 20000, "sc_ww_screen4", &is_soul_capture, &soul_captured, 1);
 }
 
 /*
@@ -357,7 +357,7 @@ function function_56d2143b()
 }
 
 /*
-	Name: function_8598f0d4
+	Name: is_soul_capture
 	Namespace: namespace_a01a2431
 	Checksum: 0xC80E004
 	Offset: 0x13C8
@@ -365,7 +365,7 @@ function function_56d2143b()
 	Parameters: 2
 	Flags: Linked
 */
-function function_8598f0d4(var_88206a50, ent)
+function is_soul_capture(var_88206a50, ent)
 {
 	if(isdefined(ent))
 	{
@@ -377,7 +377,7 @@ function function_8598f0d4(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: namespace_a01a2431
 	Checksum: 0x7901E519
 	Offset: 0x1490
@@ -385,7 +385,7 @@ function function_8598f0d4(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	n_souls_required = 6;
 	if(getplayers().size > 2)
@@ -398,7 +398,7 @@ function function_3bdbb583(var_f0e6c7a2, ent)
 	}
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = n_souls_required;
 		}

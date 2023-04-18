@@ -1100,7 +1100,7 @@ function round_think(restart = 0)
 		#/
 		if(!(isdefined(level.var_ab84adee) && level.var_ab84adee))
 		{
-			level thread function_53d86042();
+			level thread round_timeout();
 		}
 		level thread [[level.round_spawn_func]]();
 		level notify(#"start_of_round", {#n_round_number:level.round_number});
@@ -1221,7 +1221,7 @@ function round_think(restart = 0)
 }
 
 /*
-	Name: function_53d86042
+	Name: round_timeout
 	Namespace: zm_round_logic
 	Checksum: 0x5FA83364
 	Offset: 0x3958
@@ -1229,7 +1229,7 @@ function round_think(restart = 0)
 	Parameters: 0
 	Flags: Linked
 */
-function function_53d86042()
+function round_timeout()
 {
 	level endon(#"end_of_round", #"end_game");
 	level waittill(#"zombie_total_set");

@@ -152,7 +152,7 @@ function function_9393f3df(var_b594a2cd)
 {
 	weapon = var_b594a2cd.weapon;
 	dualwieldweapon = weapon.dualwieldweapon;
-	while(!self bot_action::function_cf788c22() && self bot::function_828da7a9(dualwieldweapon))
+	while(!self bot_action::function_cf788c22() && self bot::weapon_loaded(dualwieldweapon))
 	{
 		self bot_action::function_8a2b82ad(var_b594a2cd);
 		self bot_action::function_e69a1e2e(var_b594a2cd);
@@ -698,30 +698,30 @@ function function_3c22de9a(var_b594a2cd)
 */
 function zombie_scan_for_threats(var_b594a2cd)
 {
-	var_fdfb592e = self bot_action::is_target_visible(var_b594a2cd);
-	var_b594a2cd.var_fdfb592e = var_fdfb592e;
-	while(!self bot_action::function_cf788c22() && self bot_action::function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.var_fdfb592e == var_fdfb592e)
+	targetvisible = self bot_action::is_target_visible(var_b594a2cd);
+	var_b594a2cd.targetvisible = targetvisible;
+	while(!self bot_action::function_cf788c22() && self bot_action::function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.targetvisible == targetvisible)
 	{
 		trigger = function_d41104ab(bot::function_f47bf51d());
 		if(isdefined(trigger) && self bot::function_914feddd() && function_f59547eb(trigger))
 		{
 			break;
 		}
-		if(var_fdfb592e && self bot_action::function_ee402bf6(var_b594a2cd))
+		if(targetvisible && self bot_action::function_ee402bf6(var_b594a2cd))
 		{
 			self bot_action::function_8a2b82ad(var_b594a2cd);
 			self bot_action::function_e69a1e2e(var_b594a2cd);
 		}
 		else
 		{
-			if(var_fdfb592e)
+			if(targetvisible)
 			{
 				self bot_action::function_8a2b82ad(var_b594a2cd);
 				self bot_action::aim_at_target(var_b594a2cd);
 			}
 			else
 			{
-				if(!var_fdfb592e && self bot_action::function_ee402bf6(var_b594a2cd) && self seerecently(var_b594a2cd.target, 4000))
+				if(!targetvisible && self bot_action::function_ee402bf6(var_b594a2cd) && self seerecently(var_b594a2cd.target, 4000))
 				{
 					self bot_action::function_8a2b82ad(var_b594a2cd);
 					self bot_action::function_e69a1e2e(var_b594a2cd);
@@ -747,7 +747,7 @@ function zombie_scan_for_threats(var_b594a2cd)
 			}
 		}
 		self waittill(#"hash_347a612b61067eb3");
-		var_fdfb592e = self bot_action::is_target_visible(var_b594a2cd);
+		targetvisible = self bot_action::is_target_visible(var_b594a2cd);
 	}
 }
 

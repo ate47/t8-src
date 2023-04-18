@@ -615,7 +615,7 @@ function private function_e13fa347()
 */
 function private toggle_think(powered_on)
 {
-	while(!clientfield::function_6b3b55da())
+	while(!clientfield::can_set())
 	{
 		waitframe(1);
 	}

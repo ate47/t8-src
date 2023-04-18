@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -48,7 +48,7 @@ function private function_b7de760d()
 {
 	foreach(insertion in level.insertions)
 	{
-		namespace_67838d10::function_a5fd9aa8(insertion);
+		player_insertion::function_a5fd9aa8(insertion);
 		foreach(player in insertion.players)
 		{
 			if(player == self)

@@ -878,7 +878,7 @@ function private function_b7fe306e(entity)
 		function_752a64b8("");
 	#/
 	entity.var_86f9cdcd = 0;
-	function_645a432b(entity);
+	stokerchargeattack(entity);
 }
 
 /*
@@ -1097,7 +1097,7 @@ function private function_394c6870(entity)
 }
 
 /*
-	Name: function_645a432b
+	Name: stokerchargeattack
 	Namespace: zm_ai_stoker
 	Checksum: 0xE3BC8FE5
 	Offset: 0x3188
@@ -1105,7 +1105,7 @@ function private function_394c6870(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_645a432b(entity)
+function private stokerchargeattack(entity)
 {
 	entity.var_5274eb5f = 1;
 	if(entity.var_d691409c)

@@ -745,7 +745,7 @@ function private function_d82de95f(entity)
 	var_d7c9d429 = spawnstruct();
 	var_d7c9d429.favoriteenemy = entity.locked_enemy;
 	blackboard::addblackboardevent("geg_shield_attack", var_d7c9d429, randomintrange(2000, 3000));
-	entity notify(#"hash_10501c0a873461f9");
+	entity notify(#"gegenees_shield_blast");
 	entity clientfield::increment("gegenees_shield_blast_effect");
 	if(isdefined(entity.locked_enemy))
 	{

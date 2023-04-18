@@ -93,7 +93,7 @@ function set_flag(flag)
 }
 
 /*
-	Name: function_5f24faac
+	Name: get_flag
 	Namespace: round
 	Checksum: 0x77A4974A
 	Offset: 0x360
@@ -101,13 +101,13 @@ function set_flag(flag)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5f24faac(flag)
+function get_flag(flag)
 {
-	return outcome::function_5f24faac(game.outcome.var_aefc8b8d, flag);
+	return outcome::get_flag(game.outcome.var_aefc8b8d, flag);
 }
 
 /*
-	Name: function_46cb766c
+	Name: clear_flag
 	Namespace: round
 	Checksum: 0x11384E49
 	Offset: 0x3A0
@@ -115,9 +115,9 @@ function function_5f24faac(flag)
 	Parameters: 1
 	Flags: None
 */
-function function_46cb766c(flag)
+function clear_flag(flag)
 {
-	return outcome::function_46cb766c(game.outcome.var_aefc8b8d, flag);
+	return outcome::clear_flag(game.outcome.var_aefc8b8d, flag);
 }
 
 /*

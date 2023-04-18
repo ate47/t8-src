@@ -1474,7 +1474,7 @@ function function_d89318a3(var_e818669b, var_13de0d8f)
 	/#
 		switch(var_13de0d8f)
 		{
-			case "hash_153549eef89a2cb":
+			case "acid trap":
 			{
 				switch(var_e818669b)
 				{
@@ -1516,7 +1516,7 @@ function function_d89318a3(var_e818669b, var_13de0d8f)
 				}
 				break;
 			}
-			case "hash_30df56340ab43d5":
+			case "fan trap":
 			{
 				switch(var_e818669b)
 				{

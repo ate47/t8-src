@@ -39,7 +39,7 @@ function __init__()
 	}
 	else
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			level.oob_timelimit_ms = getdvarint(#"oob_timelimit_ms", 10000);
 			level.oob_timekeep_ms = getdvarint(#"oob_timekeep_ms", 3000);

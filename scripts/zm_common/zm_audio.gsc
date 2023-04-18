@@ -683,9 +683,9 @@ function function_350fc8cc(weapon, zombie, mod, player)
 		}
 		str_weapon = #"raygun";
 		break;
-		str_weapon = #"hash_34540a6bb099133e";
+		str_weapon = #"raygun_mk2";
 		break;
-		str_weapon = #"hash_24c829c980982c1";
+		str_weapon = #"tempest";
 		break;
 		str_weapon = #"thundergun";
 		str_weapon = #"no_vox";
@@ -3085,7 +3085,7 @@ function sndannouncer_init()
 	sndannouncervoxadd(#"bonfire_sale", #"hash_554659b1fbc7a5bd");
 	sndannouncervoxadd(#"boxmove", #"hash_523d2f6c8930a8ee");
 	sndannouncervoxadd(#"dogstart", #"hash_12ca8e434ec4d884");
-	sndannouncervoxadd(#"hash_19b48fabd371ee3f", #"hash_1853f3e031b48c22");
+	sndannouncervoxadd(#"shield_upgrade", #"hash_1853f3e031b48c22");
 	if(zm_utility::is_standard())
 	{
 		sndannouncervoxadd(#"game_start", #"hash_7d784b195050f75f");
@@ -3093,7 +3093,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"hash_1da7eef4cc220ec9", #"hash_50b840aeb746403");
 		sndannouncervoxadd(#"hash_6805b30c4ae5c48e", #"hash_1a9b68e180865ba1");
 		sndannouncervoxadd(#"hash_67fea40c4adf8c63", #"hash_1a9b65e180865688");
-		sndannouncervoxadd(#"hash_387cfe32fb824ce", #"hash_1a9b66e18086583b");
+		sndannouncervoxadd(#"multiplier_100", #"hash_1a9b66e18086583b");
 		sndannouncervoxadd(#"hash_380c0e32fb1eca3", #"hash_1a9b6be1808660ba");
 		sndannouncervoxadd(#"hash_37d3de32faed833", #"hash_1a9b6ce18086626d");
 		sndannouncervoxadd(#"hash_6f8668b64fa3cfaf", #"hash_3867b4fd5932968a");
@@ -3115,7 +3115,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"specialty_wolf_protector", #"hash_10a34f0962908792");
 		sndannouncervoxadd(#"specialty_death_dash", #"hash_406c5704d041fd85");
 		sndannouncervoxadd(#"perk_generic", #"hash_43dafce207fa7ff4");
-		sndannouncervoxadd(#"hash_3fee8792a6abec06", #"hash_279b4769ea79b472");
+		sndannouncervoxadd(#"hero_weapon_ready", #"hash_279b4769ea79b472");
 		sndannouncervoxadd(#"extra_life", #"hash_788159511078e87f");
 		sndannouncervoxadd(#"hash_1abc3796d2516587", #"hash_639624432c8aa9a9");
 		sndannouncervoxadd(#"hash_554c3930bc5813d4", #"hash_5cc0ecbbf45f025d");

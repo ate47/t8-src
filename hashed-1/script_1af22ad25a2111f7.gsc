@@ -726,7 +726,7 @@ function function_2e6238c0(weapon, owner)
 	{
 		return;
 	}
-	var_60d3002f = undefined;
+	taacomdialog = undefined;
 	leaderdialog = undefined;
 	switch(weapon.name)
 	{
@@ -734,21 +734,21 @@ function function_2e6238c0(weapon, owner)
 		case "inventory_tank_robot":
 		case "ai_tank_marker":
 		{
-			var_60d3002f = "aiTankJammedStart";
+			taacomdialog = "aiTankJammedStart";
 			leaderdialog = "aiTankJammedStart";
 			break;
 		}
 		case "ultimate_turret":
 		case "inventory_ultimate_turret":
 		{
-			var_60d3002f = "ultTurretJammedStart";
+			taacomdialog = "ultTurretJammedStart";
 			leaderdialog = "ultTurretJammedStart";
 			break;
 		}
 		case "ability_smart_cover":
 		case "gadget_smart_cover":
 		{
-			var_60d3002f = "smartCoverJammedStart";
+			taacomdialog = "smartCoverJammedStart";
 			break;
 		}
 	}
@@ -762,9 +762,9 @@ function function_2e6238c0(weapon, owner)
 			}
 		}
 	}
-	if(isdefined(var_60d3002f) && isdefined(owner))
+	if(isdefined(taacomdialog) && isdefined(owner))
 	{
-		owner thread killstreaks::play_taacom_dialog(var_60d3002f);
+		owner thread killstreaks::play_taacom_dialog(taacomdialog);
 	}
 }
 
@@ -783,7 +783,7 @@ function function_2eb0a933(weapon, owner)
 	{
 		return;
 	}
-	var_60d3002f = undefined;
+	taacomdialog = undefined;
 	leaderdialog = undefined;
 	switch(weapon.name)
 	{
@@ -791,21 +791,21 @@ function function_2eb0a933(weapon, owner)
 		case "inventory_tank_robot":
 		case "ai_tank_marker":
 		{
-			var_60d3002f = "aiTankJammedEnd";
+			taacomdialog = "aiTankJammedEnd";
 			leaderdialog = "aiTankJammedEnd";
 			break;
 		}
 		case "ultimate_turret":
 		case "inventory_ultimate_turret":
 		{
-			var_60d3002f = "ultTurretJammedEnd";
+			taacomdialog = "ultTurretJammedEnd";
 			leaderdialog = "ultTurretJammedEnd";
 			break;
 		}
 		case "ability_smart_cover":
 		case "gadget_smart_cover":
 		{
-			var_60d3002f = "smartCoverJammedEnd";
+			taacomdialog = "smartCoverJammedEnd";
 			break;
 		}
 	}
@@ -819,9 +819,9 @@ function function_2eb0a933(weapon, owner)
 			}
 		}
 	}
-	if(isdefined(var_60d3002f) && isdefined(owner))
+	if(isdefined(taacomdialog) && isdefined(owner))
 	{
-		owner thread killstreaks::play_taacom_dialog(var_60d3002f);
+		owner thread killstreaks::play_taacom_dialog(taacomdialog);
 	}
 }
 

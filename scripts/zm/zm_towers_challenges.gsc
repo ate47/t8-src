@@ -97,7 +97,7 @@ function init()
 		return;
 	}
 	level flag::wait_till("all_players_spawned");
-	level._effect[#"hash_19dcb4c0d04c8e2b"] = #"hash_387c78244f5f45e5";
+	level._effect[#"brazier_fire"] = #"hash_387c78244f5f45e5";
 	level._effect[#"energy_soul"] = #"hash_24eb30a2d07ae5a9";
 	level._effect[#"energy_soul_target"] = #"hash_6f5f4eb9267613e3";
 	level.var_edaf085e = array(&function_15280d13, &function_75b0f76a, &function_2cf8fe6a);
@@ -210,9 +210,9 @@ function function_3e23c5c0(var_2a0eed37 = 1)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7e61f202(var_e73f578d)
+function function_7e61f202(mdl_banner)
 {
-	switch(var_e73f578d.targetname)
+	switch(mdl_banner.targetname)
 	{
 		case "hash_5485fa3ed2c27d5c":
 		{

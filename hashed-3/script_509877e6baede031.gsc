@@ -250,7 +250,7 @@ function function_a546fd97()
 				self thread function_7dbe8985();
 				wait(1);
 			}
-			self waittill(#"hash_3b08f8f9330c59ad");
+			self waittill(#"dialog_played");
 			self.var_a96a7dbd scene::play("blinking");
 			wait(1);
 		}
@@ -302,7 +302,7 @@ function function_72d3152()
 {
 	foreach(trigger in level.var_1c33dba2)
 	{
-		trigger notify(#"hash_3b08f8f9330c59ad");
+		trigger notify(#"dialog_played");
 	}
 }
 

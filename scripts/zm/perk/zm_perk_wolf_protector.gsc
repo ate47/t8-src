@@ -63,16 +63,16 @@ function function_27473e44()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_wolf_protector", #"perk_wolf_protector", 3000, #"hash_4cacb949ec1378", getweapon("zombie_perk_bottle_wolf_protector"), getweapon("zombie_perk_totem_wolf_protector"), #"hash_75ec38c3f3487d5");
+		zm_perks::register_perk_basic_info(#"specialty_wolf_protector", #"perk_wolf_protector", 3000, #"hash_4cacb949ec1378", getweapon("zombie_perk_bottle_wolf_protector"), getweapon("zombie_perk_totem_wolf_protector"), #"zmperkswolfprotector");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_wolf_protector", #"perk_wolf_protector", 3000, #"hash_5b2099ef891bc954", getweapon("zombie_perk_bottle_wolf_protector"), getweapon("zombie_perk_totem_wolf_protector"), #"hash_75ec38c3f3487d5");
+		zm_perks::register_perk_basic_info(#"specialty_wolf_protector", #"perk_wolf_protector", 3000, #"hash_5b2099ef891bc954", getweapon("zombie_perk_bottle_wolf_protector"), getweapon("zombie_perk_totem_wolf_protector"), #"zmperkswolfprotector");
 	}
 	zm_perks::register_perk_clientfields(#"specialty_wolf_protector", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_threads(#"specialty_wolf_protector", &give_perk, &take_perk, &function_9227a4d8);
 	callback::on_ai_killed(&on_ai_killed);
-	callback::on_ai_damage(&function_6374f751);
+	callback::on_ai_damage(&on_ai_damaged);
 	callback::on_disconnect(&on_disconnect);
 }
 
@@ -206,7 +206,7 @@ function on_ai_killed(s_params)
 }
 
 /*
-	Name: function_6374f751
+	Name: on_ai_damaged
 	Namespace: zm_perk_wolf_protector
 	Checksum: 0xDE2B0C41
 	Offset: 0x870
@@ -214,7 +214,7 @@ function on_ai_killed(s_params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6374f751(s_params)
+function on_ai_damaged(s_params)
 {
 	player = s_params.eattacker;
 	if(isplayer(player) && player hasperk(#"specialty_wolf_protector") && isdefined(s_params.weapon) && player.var_6577c75d === 0 && player.var_815af0c3 === 0)
@@ -507,7 +507,7 @@ function function_6d80c359()
 	self.var_815af0c3 = 0;
 	if(isdefined(self.var_5e8ff98e))
 	{
-		self zm_perks::function_f0ac059f(self.var_7d46fb46, self.var_815af0c3, #"hash_e58ff2df5bfd9b3");
+		self zm_perks::function_f0ac059f(self.var_7d46fb46, self.var_815af0c3, #"perk_dying_wish");
 		self thread function_166fb685(self.var_9a054c95);
 		self.var_5e8ff98e val::reset(#"wolf_protector", "takedamage");
 		self.var_5e8ff98e clientfield::set("wolf_protector_fx", 0);

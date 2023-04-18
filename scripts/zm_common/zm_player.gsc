@@ -632,7 +632,7 @@ function function_182d09fd(eattacker, idamage)
 	{
 		idamage = idamage * level.var_5db2341c;
 	}
-	if(isdefined(eattacker.archetype) && isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"), eattacker.archetype) && isdefined(level.var_53c7ca1d))
+	if(isdefined(eattacker.archetype) && isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"), eattacker.archetype) && isdefined(level.var_53c7ca1d))
 	{
 		idamage = idamage * level.var_53c7ca1d;
 	}

@@ -474,7 +474,7 @@ function teleport_player(user)
 	var_298e4578 thread cooldown_portal_timer(user);
 	user thread function_c234a5ce();
 	user clientfield::increment_to_player("teleporter_arrive", 1);
-	playfx(level._effect[#"hash_51e5effc17815d68"], var_298e4578.origin, (1, 0, 0), (0, 0, 1));
+	playfx(level._effect[#"portal_dest"], var_298e4578.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_go", var_298e4578.origin);
 	user playsoundtoplayer(#"hash_39876bf613387fef", user);
 	wait(0.5);
@@ -911,7 +911,7 @@ function function_71be28e1(zombie, start_portal, end_portal)
 	zombie forceteleport(end_portal.origin + (anglestoforward(end_portal.angles) * randomfloatrange(0, 32)), end_target.angles);
 	zombie function_1f034d46();
 	playfx(level._effect[#"hash_692bbec56d4f9a18"], zombie.origin);
-	playfx(level._effect[#"hash_51e5effc17815d68"], end_portal.origin, (1, 0, 0), (0, 0, 1));
+	playfx(level._effect[#"portal_dest"], end_portal.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_go", zombie.origin);
 	self.b_ignore_cleanup = self.var_693b80bb;
 }

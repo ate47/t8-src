@@ -35,7 +35,7 @@ function __init__()
 	level.var_b9d2a7a9 = getweapon(#"hash_17f9f60ce4ea5074");
 	level.var_f1ab9c51 = getweapon(#"hash_24840aebcc206215");
 	level.var_69aaf8f = getdvarfloat(#"hash_27445ccf68d30520", 5);
-	ability_player::register_gadget_activation_callbacks(11, &function_e31bc59d, &function_7fbddc72);
+	ability_player::register_gadget_activation_callbacks(11, &function_e31bc59d, &linkcable_off_tele);
 }
 
 /*
@@ -70,7 +70,7 @@ function function_e31bc59d(var_3245778e, weapon)
 }
 
 /*
-	Name: function_7fbddc72
+	Name: linkcable_off_tele
 	Namespace: battleshield
 	Checksum: 0xEFC7823B
 	Offset: 0x2D8
@@ -78,7 +78,7 @@ function function_e31bc59d(var_3245778e, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7fbddc72(var_3245778e, weapon)
+function linkcable_off_tele(var_3245778e, weapon)
 {
 	self.var_4233f7e5 = 0;
 }

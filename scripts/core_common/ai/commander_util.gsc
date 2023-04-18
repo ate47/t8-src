@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\ai\planner_commander.gsc;
 
-#namespace namespace_7095eb0c;
+#namespace commander_util;
 
 /*
 	Name: function_2c38e191
-	Namespace: namespace_7095eb0c
+	Namespace: commander_util
 	Checksum: 0x7A013708
 	Offset: 0x70
 	Size: 0x9A
@@ -37,7 +37,7 @@ function function_2c38e191(team)
 
 /*
 	Name: function_a36c087f
-	Namespace: namespace_7095eb0c
+	Namespace: commander_util
 	Checksum: 0x93CBAE75
 	Offset: 0x118
 	Size: 0x9A

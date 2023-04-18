@@ -1487,8 +1487,8 @@ function private function_5ca48510(helicopter, var_1c996690)
 	helicopter endon(#"death", #"heli_leave");
 	level endon(#"game_ended");
 	var_88a01f7c = var_1c996690;
-	var_27668b46 = max(((helicopter.origin[2] - var_1c996690[2]) - 600) / 625, 0.8);
-	helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", var_88a01f7c, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, var_27668b46);
+	lerp_duration = max(((helicopter.origin[2] - var_1c996690[2]) - 600) / 625, 0.8);
+	helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", var_88a01f7c, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, lerp_duration);
 	while(true)
 	{
 		helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", var_88a01f7c, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, 0.8);
@@ -3156,8 +3156,8 @@ function private function_2d44c54f(var_eca4744a, var_56bd1bef, nodes)
 	tacpoint = function_ad6356f5(var_56bd1bef);
 	foreach(node in nodes)
 	{
-		var_175919d1 = vectordot(var_eca4744a, (vectornormalize(node.origin - var_56bd1bef)) > cos(30));
-		if(var_175919d1 && function_96c81b85(tacpoint, node.origin))
+		withinfov = vectordot(var_eca4744a, (vectornormalize(node.origin - var_56bd1bef)) > cos(30));
+		if(withinfov && function_96c81b85(tacpoint, node.origin))
 		{
 			node.score = 100;
 			continue;
@@ -3668,7 +3668,7 @@ function start_swat_team_leave()
 		{
 			self.owner notify(#"hash_71a1db99eb99dcff");
 		}
-		self.swat_team[i] thread function_131630a();
+		self.swat_team[i] thread swat_leave();
 	}
 }
 
@@ -3708,7 +3708,7 @@ function function_ac0e6696()
 }
 
 /*
-	Name: function_131630a
+	Name: swat_leave
 	Namespace: swat_team
 	Checksum: 0x93C432B7
 	Offset: 0xABB0
@@ -3716,7 +3716,7 @@ function function_ac0e6696()
 	Parameters: 0
 	Flags: Linked
 */
-function function_131630a()
+function swat_leave()
 {
 	self endon(#"death");
 	level endon(#"game_ended");

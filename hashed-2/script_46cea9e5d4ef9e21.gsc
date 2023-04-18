@@ -158,7 +158,7 @@ function function_89f2ec87()
 function function_e5c8fd1d()
 {
 	level endon(#"hash_7ebd1255a2e91e3e");
-	self waittill(#"hash_6fd7f8e1f00deffe");
+	self waittill(#"blast_attack");
 	self thread clientfield::set("" + #"hash_4ccf2ce25e0dc836", 1);
 	level notify(#"hash_dfac532bccdb293");
 }
@@ -213,7 +213,7 @@ function function_ca5612ce(var_32823664)
 	e_closest_player = arraygetclosest(var_3c04def5.origin, level.players);
 	if(isalive(e_closest_player))
 	{
-		e_closest_player thread zm_audio::create_and_play_dialog(#"hash_3410b64051803abd", #"generic");
+		e_closest_player thread zm_audio::create_and_play_dialog(#"negative_resp", #"generic");
 	}
 	level notify(#"hash_59db65b924f851e4");
 }

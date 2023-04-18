@@ -331,7 +331,7 @@ function getscoreeventtablename(gametype)
 		{
 			prefix = #"hash_5f114025234e912f";
 		}
-		else if(function_f99d2668())
+		else if(sessionmodeiswarzonegame())
 		{
 			prefix = #"hash_2bedaa060f1bcc0f";
 		}

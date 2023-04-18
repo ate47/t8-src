@@ -353,7 +353,7 @@ function function_9f2ab302()
 */
 function function_af2eff2e()
 {
-	level endon(#"end_game", #"hash_9cfd45106ac760d", #"hash_198bc172b5af7f25");
+	level endon(#"end_game", #"hell_on_earth", #"hash_198bc172b5af7f25");
 	self endon(#"hash_7a82343959085c17");
 	while(true)
 	{
@@ -580,7 +580,7 @@ function function_561fda29()
 {
 	var_16c37c7f = struct::get("reward_crate_thunder", "targetname");
 	var_16c37c7f.var_9dd10753 = getent(var_16c37c7f.var_c8166135, "targetname");
-	var_16c37c7f.var_82e1ca26 = getent(var_16c37c7f.var_861b2304, "targetname");
+	var_16c37c7f.e_lock = getent(var_16c37c7f.target_lock, "targetname");
 	var_16c37c7f.e_weapon = getent(var_16c37c7f.target_weapon, "targetname");
 	var_16c37c7f zm_unitrigger::create(&function_54e8826c, 64);
 	var_16c37c7f thread function_400a7216();
@@ -636,9 +636,9 @@ function function_400a7216()
 function function_735037d4()
 {
 	level endon(#"end_game");
-	if(isdefined(self.var_82e1ca26))
+	if(isdefined(self.e_lock))
 	{
-		self.var_82e1ca26 delete();
+		self.e_lock delete();
 	}
 	wait(0.5);
 	self.var_9dd10753 rotatepitch(-95, 2, 0, 0.6666667);

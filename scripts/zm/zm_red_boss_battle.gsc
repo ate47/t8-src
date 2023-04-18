@@ -408,12 +408,12 @@ function function_3de660a0()
 	level zm_audio::function_6191af93(#"general", #"gib", "", "");
 	level zm_audio::function_6191af93(#"elixir", #"drink", "", "");
 	level zm_audio::function_6191af93(#"blight_father", #"hash_4e07b77652d2af45", "", "");
-	level zm_audio::function_6191af93(#"hash_3a2923869483d05", #"react", "", "");
-	level zm_audio::function_6191af93(#"hash_5d6b55906fc82ff2", #"react", "", "");
-	level zm_audio::function_6191af93(#"hash_266b62e342076a90", #"react", "", "");
-	level zm_audio::function_6191af93(#"hash_5cfa99582cc66c59", #"react", "", "");
-	level zm_audio::function_6191af93(#"hash_78ca8e8e6bdbc8ab", #"react", "", "");
-	level zm_audio::function_6191af93(#"hash_78ca8e8e6bdbc8ab", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_transform", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_water", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_electric", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_plasma", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_corrosive", #"react", "", "");
+	level zm_audio::function_6191af93(#"catalyst_corrosive", #"react", "", "");
 }
 
 /*
@@ -2448,9 +2448,9 @@ function private function_14833fc2()
 	Parameters: 2
 	Flags: Linked
 */
-function function_d899c62c(var_88f4c6ec, round_number)
+function function_d899c62c(base_health, round_number)
 {
-	var_d082c739 = var_88f4c6ec;
+	var_d082c739 = base_health;
 	round_number = level.var_d6f059f7;
 	for(i = 2; i <= round_number; i++)
 	{

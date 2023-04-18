@@ -55,11 +55,11 @@ function preload()
 	s_lounge = struct::get("cp_toast_lounge", "script_noteworthy");
 	s_storage = struct::get("cp_toast_storage", "script_noteworthy");
 	s_beds = struct::get("cp_toast_beds", "script_noteworthy");
-	namespace_617a54f4::function_d8383812(#"sc_toast_apd", 8000, s_apd, &function_cdcaffd1, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"hash_79bfedd79fde9574", 8000, s_diner, &function_cdcaffd1, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"hash_6de0dca7b8c02116", 8000, s_lounge, &function_cdcaffd1, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"hash_63c249049e8fab1d", 8000, s_storage, &function_cdcaffd1, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"hash_65c89350fbe358b0", 8000, s_beds, &function_cdcaffd1, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"sc_toast_apd", 8000, s_apd, &function_cdcaffd1, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"hash_79bfedd79fde9574", 8000, s_diner, &function_cdcaffd1, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"hash_6de0dca7b8c02116", 8000, s_lounge, &function_cdcaffd1, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"hash_63c249049e8fab1d", 8000, s_storage, &function_cdcaffd1, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"hash_65c89350fbe358b0", 8000, s_beds, &function_cdcaffd1, &soul_captured, 1);
 	clientfield::register("scriptmover", "soul_capture_filled", 1, 1, "int");
 	clientfield::register("scriptmover", "soul_capture_depleted", 1, 1, "int");
 	clientfield::register("zbarrier", "discharge_pap", 1, 1, "int");
@@ -370,7 +370,7 @@ function function_ca3759b1()
 	zm_white_util::function_364cd8c0("apd_lockdown");
 	level flag::clear("world_is_paused");
 	level.var_f8fdb172 function_3ea7f25d();
-	level thread function_4a73d084();
+	level thread canister_instruct();
 	level thread function_abb0b62();
 	level thread function_1cc4b08e();
 	level thread function_927c0f2e();
@@ -648,7 +648,7 @@ function function_1e689ec8()
 }
 
 /*
-	Name: function_4a73d084
+	Name: canister_instruct
 	Namespace: zm_white_toast
 	Checksum: 0x3ECEA551
 	Offset: 0x34B0
@@ -656,7 +656,7 @@ function function_1e689ec8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_4a73d084()
+function canister_instruct()
 {
 	level endon(#"hash_56dcbeaf295dd09e");
 	namespace_509a75d1::function_3c173d37();
@@ -1489,10 +1489,10 @@ function function_b58e5865()
 	{
 		e_part hide();
 	}
-	if(isdefined(level.var_8943f7db))
+	if(isdefined(level.mannequin_ally))
 	{
-		util::stop_magic_bullet_shield(level.var_8943f7db);
-		level.var_8943f7db kill();
+		util::stop_magic_bullet_shield(level.mannequin_ally);
+		level.mannequin_ally kill();
 	}
 	level.var_5da5aff4 = 0;
 	if(level flag::get(#"hash_398e4b1e72edb4ee"))
@@ -1628,7 +1628,7 @@ function function_cdcaffd1(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: zm_white_toast
 	Checksum: 0xD9F452B8
 	Offset: 0x6418
@@ -1636,11 +1636,11 @@ function function_cdcaffd1(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	var_f0e6c7a2.n_captured++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.n_captured = 28;
 		}

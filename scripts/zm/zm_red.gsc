@@ -133,7 +133,7 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "" + #"hash_683dadf18a45365f", 16000, 1, "int");
 	clientfield::register("actor", "" + #"hash_2856f87ecdfaf62", 16000, 1, "counter");
 	clientfield::register("actor", "" + #"hash_1bdce857fd614cef", 16000, 1, "counter");
-	clientfield::register("world", "" + #"hash_52ea7c8de217bcb4", 16000, 2, "int");
+	clientfield::register("world", "" + #"postfx_play", 16000, 2, "int");
 	clientfield::register("world", "" + #"hash_71f9fcfb2cd84a9c", 16000, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_28d246204c6189b9", 16000, 1, "int");
 	level._effect[#"headshot"] = #"zombie/fx_bul_flesh_head_fatal_zmb";
@@ -217,7 +217,7 @@ event main(eventstruct)
 		t_kill_ai = getent("", "");
 		if(isdefined(t_kill_ai))
 		{
-			t_kill_ai callback::function_35a12f19(&function_d4ff1dd6);
+			t_kill_ai callback::on_trigger(&function_d4ff1dd6);
 		}
 	#/
 	if(zm_custom::function_901b751c(#"hash_4e0ec3fe56f08b47") == 2)
@@ -292,9 +292,9 @@ function private function_269f27a9()
 	level.var_ab5b85bf = "bonus_points_team";
 	n_players = getplayers().size;
 	var_b67b53e8 = zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players);
-	var_ee327079 = zombie_utility::function_d2dfacfd(#"hash_3f4e6b25f57677da" + n_players);
+	var_ee327079 = zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + n_players);
 	zombie_utility::set_zombie_var(#"hash_434b3261c607850" + n_players, n_players * 5);
-	zombie_utility::set_zombie_var(#"hash_3f4e6b25f57677da" + n_players, n_players * 5);
+	zombie_utility::set_zombie_var(#"zombie_powerup_drop_max_" + n_players, n_players * 5);
 	level.var_1dce56cc = n_players * 5;
 	while(isdefined(level.var_ab5b85bf))
 	{
@@ -310,7 +310,7 @@ function private function_269f27a9()
 	}
 	zm_utility::function_fdb0368(4);
 	zombie_utility::set_zombie_var(#"hash_434b3261c607850" + n_players, var_b67b53e8 + 3);
-	zombie_utility::set_zombie_var(#"hash_3f4e6b25f57677da" + n_players, var_ee327079 + 3);
+	zombie_utility::set_zombie_var(#"zombie_powerup_drop_max_" + n_players, var_ee327079 + 3);
 }
 
 /*
@@ -366,7 +366,7 @@ function private function_a47f80af()
 		mdl_blocker setinvisibletoall();
 	}
 	exploder::stop_exploder("Fxexp_barrier_pap");
-	level waittill(#"hash_69ea277008a20dbf");
+	level waittill(#"pap_defend");
 	exploder::exploder("Fxexp_barrier_pap");
 }
 
@@ -1626,7 +1626,7 @@ function function_b648a6d9(a_ents)
 function function_5b984671(a_ents)
 {
 	zm_utility::function_9ad5aeb1(0, 1, 1, 0);
-	level clientfield::set("" + #"hash_52ea7c8de217bcb4", 1);
+	level clientfield::set("" + #"postfx_play", 1);
 	zm_red_challenges::function_304fb042();
 	foreach(e_player in util::get_active_players())
 	{
@@ -1666,7 +1666,7 @@ function function_75ef7b1f(a_ents)
 {
 	level scene::function_f81475ae(#"hash_649bf4517c6d8d25");
 	level scene::function_27f5972e(#"hash_29e067a70818e229");
-	level clientfield::set("" + #"hash_52ea7c8de217bcb4", 2);
+	level clientfield::set("" + #"postfx_play", 2);
 	foreach(e_player in util::get_active_players())
 	{
 		e_player val::reset(#"outro", "freezecontrols");
@@ -1684,7 +1684,7 @@ function function_75ef7b1f(a_ents)
 */
 function function_883a1fb8(a_ents)
 {
-	level clientfield::set("" + #"hash_52ea7c8de217bcb4", 3);
+	level clientfield::set("" + #"postfx_play", 3);
 	foreach(e_player in util::get_active_players())
 	{
 		e_player val::reset(#"outro", "freezecontrols");
@@ -1702,7 +1702,7 @@ function function_883a1fb8(a_ents)
 */
 function function_ea8d45ef(a_ents)
 {
-	level clientfield::set("" + #"hash_52ea7c8de217bcb4", 0);
+	level clientfield::set("" + #"postfx_play", 0);
 }
 
 /*
@@ -1907,7 +1907,7 @@ function function_c02e63(var_2753f06a)
 				}
 				else
 				{
-					level.host zm_vo::function_a2bd5a0c(#"hash_2f99f466b2830fbd" + var_7ce59f05, 0, 1);
+					level.host zm_vo::function_a2bd5a0c(#"vox_solo_game_start_" + var_7ce59f05, 0, 1);
 				}
 				break;
 			}
@@ -1920,7 +1920,7 @@ function function_c02e63(var_2753f06a)
 				}
 				else
 				{
-					level.host zm_vo::function_a2bd5a0c(#"hash_7b4f239a7949c5ed" + var_7ce59f05, 0, 1);
+					level.host zm_vo::function_a2bd5a0c(#"vox_solo_end_round1_" + var_7ce59f05, 0, 1);
 				}
 				break;
 			}
@@ -1933,7 +1933,7 @@ function function_c02e63(var_2753f06a)
 				}
 				else
 				{
-					level.host zm_vo::function_a2bd5a0c(#"hash_7b59239a79521a72" + var_7ce59f05, 0, 1);
+					level.host zm_vo::function_a2bd5a0c(#"vox_solo_end_round2_" + var_7ce59f05, 0, 1);
 				}
 				break;
 			}
@@ -2133,7 +2133,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 		var_6095c0b6 = zm_round_logic::function_4e8157cd(var_404e4288, var_8dd554ee);
 		if(isalive(var_6095c0b6.ai_spawned))
 		{
-			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2")));
+			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water")));
 		}
 	}
 	else
@@ -2458,9 +2458,9 @@ function function_76dc48b8(cmd)
 				return true;
 				break;
 			}
-			case "hash_76be9d1cd9c6b6e4":
+			case "complete_pap":
 			{
-				level thread function_125c9449();
+				level thread complete_pap();
 				return true;
 				break;
 			}
@@ -2824,19 +2824,19 @@ function function_76dc48b8(cmd)
 				}
 				break;
 			}
-			case "hash_74529fd3dd98db66":
+			case "challenge_phase_1":
 			{
 				level.var_6e5099bb = 1;
 				iprintlnbold("");
 				break;
 			}
-			case "hash_74529ed3dd98d9b3":
+			case "challenge_phase_2":
 			{
 				level.var_6e5099bb = 2;
 				iprintlnbold("");
 				break;
 			}
-			case "hash_74529dd3dd98d800":
+			case "challenge_phase_3":
 			{
 				level.var_6e5099bb = 3;
 				iprintlnbold("");
@@ -2994,7 +2994,7 @@ function function_71a6c3ea()
 	/#
 		zm_devgui::zombie_devgui_open_sesame();
 		scene::init("");
-		level function_125c9449();
+		level complete_pap();
 	#/
 }
 
@@ -3105,7 +3105,7 @@ function function_cf69caa3()
 }
 
 /*
-	Name: function_125c9449
+	Name: complete_pap
 	Namespace: zm_red
 	Checksum: 0x351062A0
 	Offset: 0x9AA0
@@ -3113,7 +3113,7 @@ function function_cf69caa3()
 	Parameters: 0
 	Flags: None
 */
-function function_125c9449()
+function complete_pap()
 {
 	/#
 		level.b_skip = 1;

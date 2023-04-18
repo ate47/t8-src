@@ -48,7 +48,7 @@ function __init__()
 function __main__()
 {
 	/#
-		function_2085db3b();
+		init_devgui();
 	#/
 	function_2cdcf5c3();
 }
@@ -100,7 +100,7 @@ function function_2cdcf5c3()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_1261609
 	Checksum: 0x6A46A7AE
 	Offset: 0x2E0
@@ -108,7 +108,7 @@ function function_2cdcf5c3()
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		mapname = util::get_map_name();

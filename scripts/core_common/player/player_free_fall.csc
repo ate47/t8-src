@@ -10,11 +10,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_4b76712;
+#namespace player_free_fall;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xDE2270ED
 	Offset: 0x1C0
 	Size: 0x3C
@@ -23,12 +23,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_698dcdb18ce4f995", &__init__, undefined, undefined);
+	system::register(#"player_free_fall", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x49A6984B
 	Offset: 0x208
 	Size: 0x13E
@@ -47,7 +47,7 @@ function __init__()
 
 /*
 	Name: function_6aac1790
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xD54F748A
 	Offset: 0x350
 	Size: 0x5C
@@ -64,7 +64,7 @@ function private function_6aac1790(var_dbb94a)
 
 /*
 	Name: function_a43054a8
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x77C0DEB1
 	Offset: 0x3B8
 	Size: 0x64
@@ -83,7 +83,7 @@ function private function_a43054a8()
 
 /*
 	Name: function_1c10540b
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x5B9F0711
 	Offset: 0x428
 	Size: 0x64
@@ -102,7 +102,7 @@ function private function_1c10540b()
 
 /*
 	Name: function_40635b9a
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xA7D7D57E
 	Offset: 0x498
 	Size: 0x74
@@ -120,7 +120,7 @@ function private function_40635b9a(var_dbb94a)
 
 /*
 	Name: function_26d46af3
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xEB1722F5
 	Offset: 0x518
 	Size: 0x32C
@@ -173,7 +173,7 @@ function private function_26d46af3(eventstruct)
 		/#
 			println(self.name + "");
 		#/
-		self callback::add_entity_callback(#"death", &function_5d6b77ae);
+		self callback::add_entity_callback(#"death", &cleanup_player);
 		self function_fb8d00bf();
 	}
 	else
@@ -181,13 +181,13 @@ function private function_26d46af3(eventstruct)
 		/#
 			println(self.name + "");
 		#/
-		self callback::function_52ac9652(#"death", &function_5d6b77ae);
+		self callback::function_52ac9652(#"death", &cleanup_player);
 	}
 }
 
 /*
 	Name: function_c9a18304
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x474947F5
 	Offset: 0x850
 	Size: 0xEC
@@ -219,7 +219,7 @@ function private function_c9a18304(eventstruct)
 
 /*
 	Name: function_3f6dfc34
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xA093F4F
 	Offset: 0x948
 	Size: 0x1C0
@@ -249,7 +249,7 @@ function function_3f6dfc34(localclientnum)
 
 /*
 	Name: function_cc5ed6ff
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x79B91A83
 	Offset: 0xB10
 	Size: 0x4E
@@ -263,7 +263,7 @@ function function_cc5ed6ff(pitch, min_pitch, max_pitch, var_2ff50798, var_9988e8
 
 /*
 	Name: function_9a3dbe71
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x24059925
 	Offset: 0xB68
 	Size: 0xBE
@@ -286,7 +286,7 @@ function function_9a3dbe71(var_80943462)
 
 /*
 	Name: function_ec3388e3
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xC11D4EDE
 	Offset: 0xC30
 	Size: 0x134
@@ -305,30 +305,30 @@ function function_ec3388e3(localclientnum, var_695a7111)
 	/#
 		println((self.name + "") + var_695a7111);
 	#/
-	self callback::add_entity_callback(#"death", &function_5d6b77ae);
+	self callback::add_entity_callback(#"death", &cleanup_player);
 	self thread function_e8a9e948(localclientnum, var_695a7111);
 	self function_975ebf4d(localclientnum, var_695a7111);
 }
 
 /*
-	Name: function_5d6b77ae
-	Namespace: namespace_4b76712
+	Name: cleanup_player
+	Namespace: player_free_fall
 	Checksum: 0xEABC98CF
 	Offset: 0xD70
 	Size: 0x5C
 	Parameters: 1
 	Flags: Linked
 */
-function function_5d6b77ae(params)
+function cleanup_player(params)
 {
 	function_1c6573a4();
 	function_f404a4cc();
-	self callback::function_52ac9652(#"death", &function_5d6b77ae);
+	self callback::function_52ac9652(#"death", &cleanup_player);
 }
 
 /*
 	Name: function_1eeb50a5
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x694B46DE
 	Offset: 0xDD8
 	Size: 0xCC
@@ -357,7 +357,7 @@ function function_1eeb50a5(local_client_num, params)
 
 /*
 	Name: function_7c653916
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x93E218F3
 	Offset: 0xEB0
 	Size: 0x3C
@@ -373,7 +373,7 @@ function function_7c653916(timesec)
 
 /*
 	Name: function_e8a9e948
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x408323C2
 	Offset: 0xEF8
 	Size: 0x3B4
@@ -450,7 +450,7 @@ function function_e8a9e948(localclientnum, var_695a7111)
 
 /*
 	Name: play_fx_on_tag
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x404FBDA1
 	Offset: 0x12B8
 	Size: 0x4A
@@ -464,7 +464,7 @@ function play_fx_on_tag(localclientnum, fx, tag = "tag_origin")
 
 /*
 	Name: function_a993866
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xFD9116D6
 	Offset: 0x1310
 	Size: 0x18A
@@ -505,7 +505,7 @@ function function_a993866(localclientnum, var_9a17b15c)
 
 /*
 	Name: function_975ebf4d
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xCCB5329D
 	Offset: 0x14A8
 	Size: 0x6C
@@ -523,7 +523,7 @@ function function_975ebf4d(localclientnum, var_695a7111)
 
 /*
 	Name: function_1c6573a4
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xCA6F5A1E
 	Offset: 0x1520
 	Size: 0x106
@@ -559,7 +559,7 @@ function function_1c6573a4(notifyhash)
 
 /*
 	Name: function_ba7365ff
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x769D9771
 	Offset: 0x1630
 	Size: 0x80
@@ -582,7 +582,7 @@ function function_ba7365ff(localclientnum, height, fxid)
 
 /*
 	Name: function_3a56fe1b
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x8C911F77
 	Offset: 0x16B8
 	Size: 0xEC
@@ -605,7 +605,7 @@ function function_3a56fe1b(localclientnum)
 
 /*
 	Name: function_ada640c5
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xD1229BFE
 	Offset: 0x17B0
 	Size: 0x34
@@ -622,7 +622,7 @@ function function_ada640c5(localclientnum, fxid)
 
 /*
 	Name: function_fe726f7
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xC8A23ECF
 	Offset: 0x17F0
 	Size: 0x5E
@@ -639,7 +639,7 @@ function function_fe726f7(localclientnum)
 
 /*
 	Name: function_2bdd64a4
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x46FCA4F2
 	Offset: 0x1858
 	Size: 0xA4
@@ -662,7 +662,7 @@ function function_2bdd64a4(localclientnum)
 
 /*
 	Name: function_577c7bd0
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x87F6F667
 	Offset: 0x1908
 	Size: 0x3E
@@ -680,7 +680,7 @@ function function_577c7bd0(localclientnum)
 
 /*
 	Name: function_a097fe21
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x1ECAF860
 	Offset: 0x1950
 	Size: 0x19C
@@ -693,7 +693,7 @@ function function_a097fe21(localclientnum)
 	/#
 		println(self.name + "");
 	#/
-	self callback::function_52ac9652(#"death", &function_5d6b77ae);
+	self callback::function_52ac9652(#"death", &cleanup_player);
 	function_f404a4cc();
 	if(self function_21c0fa55())
 	{
@@ -712,7 +712,7 @@ function function_a097fe21(localclientnum)
 
 /*
 	Name: function_57738ae7
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x5BDEB0C0
 	Offset: 0x1AF8
 	Size: 0xBE
@@ -742,7 +742,7 @@ function function_57738ae7(localclientnum, parachute)
 
 /*
 	Name: ground_trace
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x49447F0E
 	Offset: 0x1BC0
 	Size: 0x6A
@@ -758,7 +758,7 @@ function ground_trace(startpos, owner)
 
 /*
 	Name: function_5789287a
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xB9C7D2A1
 	Offset: 0x1C38
 	Size: 0x44
@@ -774,7 +774,7 @@ function function_5789287a()
 
 /*
 	Name: function_fb8d00bf
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x2563DED8
 	Offset: 0x1C88
 	Size: 0x84
@@ -796,7 +796,7 @@ function function_fb8d00bf()
 
 /*
 	Name: parachute_detach
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xDDACE2EC
 	Offset: 0x1D18
 	Size: 0x134
@@ -822,7 +822,7 @@ function parachute_detach()
 
 /*
 	Name: function_f404a4cc
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xC7AC6DC3
 	Offset: 0x1E58
 	Size: 0xC6

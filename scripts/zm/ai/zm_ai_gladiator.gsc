@@ -131,7 +131,7 @@ function __init__()
 		spawner::add_archetype_spawn_function(#"gladiator", &zombie_utility::function_27ba8249);
 	#/
 	animationstatenetwork::registernotetrackhandlerfunction("dropgun_left", &function_ce148f14);
-	animationstatenetwork::registernotetrackhandlerfunction("dropgun_right", &function_80a0580b);
+	animationstatenetwork::registernotetrackhandlerfunction("dropgun_right", &detachright);
 }
 
 /*
@@ -152,7 +152,7 @@ function function_ce148f14(entity)
 }
 
 /*
-	Name: function_80a0580b
+	Name: detachright
 	Namespace: zm_ai_gladiator
 	Checksum: 0xBD191EBB
 	Offset: 0xAC0
@@ -160,7 +160,7 @@ function function_ce148f14(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_80a0580b(entity)
+function detachright(entity)
 {
 	if(isdefined(self.var_88d88318) && self.var_88d88318)
 	{
@@ -474,11 +474,11 @@ function private gladiatortargetservice(entity)
 				gladiator_right = (gladiator_right[0], gladiator_right[1], 0);
 				to_enemy = entity.favoriteenemy.origin - entity.origin;
 				to_enemy = (to_enemy[0], to_enemy[1], 0);
-				var_f67f7d03 = vectordot(var_2ddabcd3, to_enemy);
+				dot_forward = vectordot(var_2ddabcd3, to_enemy);
 				dot_right = vectordot(gladiator_right, to_enemy);
-				if(abs(var_f67f7d03) > abs(dot_right))
+				if(abs(dot_forward) > abs(dot_right))
 				{
-					dot = var_f67f7d03;
+					dot = dot_forward;
 					directions = array("front", "back");
 				}
 				else
@@ -642,7 +642,7 @@ function private function_edd0777f(entity)
 	{
 		return false;
 	}
-	if(!entity.var_d9b1cc0e || !entity.var_4e00bc1)
+	if(!entity.has_left_arm || !entity.has_right_arm)
 	{
 		return false;
 	}
@@ -819,7 +819,7 @@ function function_13f886a2(entity)
 	{
 		return false;
 	}
-	if(!self.var_d9b1cc0e || !self.var_4e00bc1)
+	if(!self.has_left_arm || !self.has_right_arm)
 	{
 		return false;
 	}
@@ -905,7 +905,7 @@ function function_61e7d5f5(entity)
 	{
 		return false;
 	}
-	if(self.var_d9b1cc0e && self.var_4e00bc1)
+	if(self.has_left_arm && self.has_right_arm)
 	{
 		return false;
 	}
@@ -1327,12 +1327,12 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
 			zdiff = self.var_cd8354e0.var_cb28f380[2] - entity.favoriteenemy.origin[2];
 			var_6738a702 = abs(zdiff) <= 45;
-			var_175919d1 = vectordot(var_beabc994, dirtoenemy) > cos(30);
-			var_7948b2f3 = var_6738a702 && var_175919d1;
+			withinfov = vectordot(var_beabc994, dirtoenemy) > cos(30);
+			var_7948b2f3 = var_6738a702 && withinfov;
 			isvisible = bullettracepassed(entity.origin, entity.favoriteenemy.origin, 0, self);
 			var_425c4c8b = isvisible && var_7948b2f3;
 			/#
-				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + var_175919d1;
+				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + withinfov;
 				if(var_425c4c8b)
 				{
 					record3dtext(reasons, entity.origin + vectorscale((0, 0, 1), 60), (0, 1, 0), "");
@@ -1630,8 +1630,8 @@ function private function_caed4d61()
 	}
 	self function_104b8cc1();
 	self.var_844453ff = gettime() + 3000;
-	self.var_d9b1cc0e = 1;
-	self.var_4e00bc1 = 1;
+	self.has_left_arm = 1;
+	self.has_right_arm = 1;
 	self.var_ba481973 = 0;
 	self.var_8c28b842 = 1;
 	self.var_7672fb41 = 1;
@@ -1761,8 +1761,8 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 						{
 							if(var_dd54fdb1.hitloc == "left_arm_lower")
 							{
-								self.var_d9b1cc0e = 0;
-								if(!self.var_4e00bc1)
+								self.has_left_arm = 0;
+								if(!self.has_right_arm)
 								{
 									if(!(isdefined(self.allowdeath) && self.allowdeath))
 									{
@@ -1789,8 +1789,8 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 							}
 							else if(var_dd54fdb1.hitloc == "right_arm_lower")
 							{
-								self.var_4e00bc1 = 0;
-								if(!self.var_d9b1cc0e)
+								self.has_right_arm = 0;
+								if(!self.has_left_arm)
 								{
 									if(!(isdefined(self.allowdeath) && self.allowdeath))
 									{
@@ -2189,7 +2189,7 @@ function private function_5be18f96(display = 1)
 	{
 		if(display)
 		{
-			if(self.var_d9b1cc0e && self.var_fe593357)
+			if(self.has_left_arm && self.var_fe593357)
 			{
 				if(self isattached("c_t8_zmb_dlc0_zombie_destroyer_axe1", "tag_weapon_left"))
 				{
@@ -2199,7 +2199,7 @@ function private function_5be18f96(display = 1)
 			}
 			self attach("c_t8_zmb_dlc0_zombie_destroyer_axe1", "tag_weapon_right");
 			self.var_88d88318 = 1;
-			if(self.var_d9b1cc0e)
+			if(self.has_left_arm)
 			{
 				self attach("c_t8_zmb_dlc0_zombie_destroyer_axe1", "tag_weapon_left");
 				self.var_fe593357 = 1;
@@ -2517,7 +2517,7 @@ function private function_24a38427()
 						}
 						break;
 					}
-					case "hash_740a35d058f71a4c":
+					case "attach_left":
 					{
 						break;
 					}

@@ -75,7 +75,7 @@ function function_fcd28111(params)
 	{
 		return;
 	}
-	if(self.var_ed175c5 === 1)
+	if(self.stash_type === 1)
 	{
 		activator character_unlock::function_c8beca5e(#"ix_scarlett_unlock", #"hash_74fceff1a255277d", 1);
 	}

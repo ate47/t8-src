@@ -32,7 +32,7 @@ function init_shared()
 	}
 	else
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			level.var_5101157d.bundle = getscriptbundle(#"hash_25e448b3e889dd9d");
 		}
@@ -41,11 +41,11 @@ function init_shared()
 			level.var_5101157d.bundle = getscriptbundle(#"hash_25a046b3e8500d6b");
 		}
 	}
-	function_8434338d();
+	setupdvars();
 }
 
 /*
-	Name: function_8434338d
+	Name: setupdvars
 	Namespace: smart_cover
 	Checksum: 0x219A8E38
 	Offset: 0x4B0
@@ -53,7 +53,7 @@ function init_shared()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8434338d()
+function setupdvars()
 {
 	setdvar(#"hash_25f7092e7c7b66f2", 0);
 	setdvar(#"hash_4332205cbf1cc384", 0);

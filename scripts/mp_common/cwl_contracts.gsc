@@ -336,7 +336,7 @@ function private function_902ef0de(var_38280f2f, delta)
 	if(old_progress < target_value && target_value <= new_progress)
 	{
 		var_9d12108c = (isdefined(self.timeplayed[self.team]) ? self.timeplayed[self.team] : 0);
-		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = (self stats::function_441050ca(#"time_played_total") - self.pers[#"hash_5651f00c6c1790a4"]) + var_9d12108c;
+		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = (self stats::get_stat_global(#"time_played_total") - self.pers[#"hash_5651f00c6c1790a4"]) + var_9d12108c;
 		if(isdefined(level.var_90031a39[var_38280f2f]))
 		{
 			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.var_90031a39[var_38280f2f]);
@@ -424,7 +424,7 @@ function contract_win(winner)
 {
 	winner function_9defb976(#"hash_d693aab50d25b96");
 	winner function_9defb976(#"hash_2809e14b0f3b4c5e");
-	var_15b1abd9 = winner stats::function_441050ca(#"hash_a06075423336d9c");
+	var_15b1abd9 = winner stats::get_stat_global(#"hash_a06075423336d9c");
 	if(var_15b1abd9 > 0)
 	{
 		if((var_15b1abd9 % 4) == 0)

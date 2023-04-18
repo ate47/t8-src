@@ -159,14 +159,14 @@ function function_7635afee(var_a276c861)
 */
 function function_ef88a022()
 {
-	level endon(#"end_game", #"hash_9cfd45106ac760d", #"hash_198bc172b5af7f25", #"hash_50e35eeb800b7a13");
+	level endon(#"end_game", #"hell_on_earth", #"hash_198bc172b5af7f25", #"hash_50e35eeb800b7a13");
 	self endon(#"death");
-	var_4c0be1cb = undefined;
+	pap_lock = undefined;
 	foreach(pap in level.var_4d8e32c8)
 	{
 		if(pap.script_noteworthy === self.script_noteworthy)
 		{
-			var_4c0be1cb = pap;
+			pap_lock = pap;
 			continue;
 		}
 	}
@@ -175,7 +175,7 @@ function function_ef88a022()
 		s_notify = undefined;
 		s_notify = self waittill(#"trigger_activated");
 		e_who = s_notify.e_who;
-		if(var_4c0be1cb flag::get("Pack_A_Punch_on"))
+		if(pap_lock flag::get("Pack_A_Punch_on"))
 		{
 			level.var_b4b3ecd1.var_f9ae8dab[self.script_int].b_pickedup = 1;
 			self playsound("zmb_trinket_pickup");
@@ -198,7 +198,7 @@ function function_ef88a022()
 */
 function function_abf8d5ce()
 {
-	level endon(#"end_game", #"hash_9cfd45106ac760d", #"hash_50e35eeb800b7a13", #"hash_198bc172b5af7f25");
+	level endon(#"end_game", #"hell_on_earth", #"hash_50e35eeb800b7a13", #"hash_198bc172b5af7f25");
 	while(true)
 	{
 		s_notify = undefined;
@@ -538,20 +538,20 @@ function function_a589e722(var_5ea5c94d)
 	if(!var_5ea5c94d)
 	{
 		level waittill(#"power_on2");
-		var_3fae43ee = struct::get("sq_flinger_boat", "targetname");
-		var_3fae43ee zm_unitrigger::create(&function_301c7dca);
-		var_3fae43ee.b_picked_up = 0;
-		var_3fae43ee function_a2993671();
-		var_3fae43ee.b_picked_up = undefined;
+		gearbox = struct::get("sq_flinger_boat", "targetname");
+		gearbox zm_unitrigger::create(&function_301c7dca);
+		gearbox.b_picked_up = 0;
+		gearbox function_a2993671();
+		gearbox.b_picked_up = undefined;
 		namespace_85e029d3::register_drop_off(13, #"hash_15b81856e839fed9", #"hash_eb543cd4ec82ae7", &function_bfb15d08);
 		namespace_85e029d3::function_d83490c5(13);
 		level waittill(#"hash_50e54529f8a671a1");
 		namespace_85e029d3::function_3f9e02b8(5, #"hash_4ed14fd62a0c189c", #"hash_b9eef4c2cef38d0", &function_130c65ff);
 		namespace_85e029d3::function_d83490c5(5);
 		level waittill(#"hash_3cbe96c6150e208c");
-		var_3fae43ee.b_picked_up = 1;
-		var_3fae43ee.var_db053a52 = 1;
-		var_3fae43ee function_1856c416();
+		gearbox.b_picked_up = 1;
+		gearbox.var_db053a52 = 1;
+		gearbox function_1856c416();
 	}
 }
 
@@ -712,20 +712,20 @@ function function_594f2c26(var_5ea5c94d)
 	if(!var_5ea5c94d)
 	{
 		level waittill(#"power_on3");
-		var_3fae43ee = struct::get("sq_flinger_facility", "targetname");
-		var_3fae43ee zm_unitrigger::create(&function_ab759b3a);
-		var_3fae43ee.b_picked_up = 0;
-		var_3fae43ee function_a2993671();
-		var_3fae43ee.b_picked_up = undefined;
+		gearbox = struct::get("sq_flinger_facility", "targetname");
+		gearbox zm_unitrigger::create(&function_ab759b3a);
+		gearbox.b_picked_up = 0;
+		gearbox function_a2993671();
+		gearbox.b_picked_up = undefined;
 		namespace_85e029d3::register_drop_off(14, #"hash_494d7fc0d10e2ff6", #"hash_9af968cebf182d2", &function_b37bdeb4);
 		namespace_85e029d3::function_d83490c5(14);
 		level waittill(#"hash_3070e882982e5a46");
 		namespace_85e029d3::function_3f9e02b8(4, #"hash_3b3769bc56dab413", #"hash_28eeceb083aa7339", &function_7619040c);
 		namespace_85e029d3::function_d83490c5(4);
 		level waittill(#"hash_3b6b392c9f59fe4b");
-		var_3fae43ee.b_picked_up = 1;
-		var_3fae43ee.var_cbf64bca = 1;
-		var_3fae43ee function_1856c416();
+		gearbox.b_picked_up = 1;
+		gearbox.var_cbf64bca = 1;
+		gearbox function_1856c416();
 	}
 }
 
@@ -1179,7 +1179,7 @@ function function_bc1ff036()
 */
 function function_8bc27fd3(var_5ea5c94d)
 {
-	level endon(#"end_game", #"hash_9cfd45106ac760d", #"hash_198bc172b5af7f25");
+	level endon(#"end_game", #"hell_on_earth", #"hash_198bc172b5af7f25");
 	if(!var_5ea5c94d)
 	{
 		if(getplayers().size == 1)

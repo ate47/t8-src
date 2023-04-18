@@ -1727,7 +1727,7 @@ function function_bbea98ae(localclientnum, b_igc_active)
 */
 function function_92f0c63(localclientnum)
 {
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_5d0631b016d4fe26", #"hash_60913f86a5a5a3f1");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly", #"hash_60913f86a5a5a3f1");
 	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_7c0db17218fac872", #"hash_60913f86a5a5a3f1");
 }
 

@@ -95,10 +95,10 @@ function init_weapons_locker()
 	}
 	callback::on_connect(&on_player_connect);
 	level flag::wait_till(#"hash_25d9ccebd2bdecd9");
-	var_89ea5336 = getent("e_sarge_l", "targetname");
+	e_door_l = getent("e_sarge_l", "targetname");
 	var_ff82be75 = getent("e_sarge_r", "targetname");
-	var_89ea5336 playsound(#"hash_75410a9cb6086f34");
-	var_89ea5336 rotateyaw(185, 0.85, 0.1, 0.1);
+	e_door_l playsound(#"hash_75410a9cb6086f34");
+	e_door_l rotateyaw(185, 0.85, 0.1, 0.1);
 	var_ff82be75 rotateyaw(-220, 1, 0.05, 0.05);
 	level.s_weapons_locker zm_unitrigger::create(&function_9d485d13, 64);
 	level.s_weapons_locker thread function_4ef09c7a();

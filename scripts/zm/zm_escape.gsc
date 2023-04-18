@@ -121,8 +121,8 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_29fea4571b8649a0", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_cd028842e18845e", 1, 1, "counter");
 	clientfield::register("allplayers", "" + #"hash_500a87b29014ef02", 1, 1, "int");
-	clientfield::register("toplayer", "" + #"hash_237e298fc7414687", 1, 1, "int");
-	clientfield::register("vehicle", "" + #"hash_4fe04b8fa56a05c6", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"player_pbg_bank", 1, 1, "int");
+	clientfield::register("vehicle", "" + #"gondola_light", 1, 1, "int");
 	namespace_f2502da8::init_clientfields();
 	namespace_9d58c1cd::init_clientfields();
 	zm_escape_util::init_clientfields();
@@ -526,11 +526,11 @@ function function_7e67379d()
 				{
 					if(level flag::get("power_on2"))
 					{
-						self clientfield::set_to_player("" + #"hash_237e298fc7414687", 1);
+						self clientfield::set_to_player("" + #"player_pbg_bank", 1);
 					}
 					else
 					{
-						self clientfield::set_to_player("" + #"hash_237e298fc7414687", 0);
+						self clientfield::set_to_player("" + #"player_pbg_bank", 0);
 					}
 					break;
 				}
@@ -538,24 +538,24 @@ function function_7e67379d()
 				{
 					if(level flag::get("power_on1"))
 					{
-						self clientfield::set_to_player("" + #"hash_237e298fc7414687", 1);
+						self clientfield::set_to_player("" + #"player_pbg_bank", 1);
 					}
 					else
 					{
-						self clientfield::set_to_player("" + #"hash_237e298fc7414687", 0);
+						self clientfield::set_to_player("" + #"player_pbg_bank", 0);
 					}
 					break;
 				}
 				default:
 				{
-					self clientfield::set_to_player("" + #"hash_237e298fc7414687", 0);
+					self clientfield::set_to_player("" + #"player_pbg_bank", 0);
 					break;
 				}
 			}
 		}
 		else
 		{
-			self clientfield::set_to_player("" + #"hash_237e298fc7414687", 0);
+			self clientfield::set_to_player("" + #"player_pbg_bank", 0);
 		}
 		wait(1);
 	}
@@ -1527,7 +1527,7 @@ function function_71a6c3ea()
 		level thread namespace_f2502da8::function_e11ac4f5();
 		namespace_9d58c1cd::function_7101d54f();
 		var_ccc575d7 = getent("", "");
-		var_ccc575d7 notify(#"hash_6fd7f8e1f00deffe");
+		var_ccc575d7 notify(#"blast_attack");
 		level.var_af325495 = 1;
 	#/
 }

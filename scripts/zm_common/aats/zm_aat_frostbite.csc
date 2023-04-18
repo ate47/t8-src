@@ -39,10 +39,10 @@ function __init__()
 	aat::register("zm_aat_frostbite", #"hash_5386c3e338c1b314", "t7_icon_zm_aat_thunder_wall");
 	clientfield::register("actor", "zm_aat_frostbite_trail_clientfield", 1, 1, "int", &function_bad6b477, 1, 0);
 	clientfield::register("vehicle", "zm_aat_frostbite_trail_clientfield", 1, 1, "int", &function_bad6b477, 1, 0);
-	clientfield::register("actor", "zm_aat_frostbite_explosion_clientfield", 1, 1, "counter", &function_3fc593cb, 1, 0);
-	clientfield::register("vehicle", "zm_aat_frostbite_explosion_clientfield", 1, 1, "counter", &function_3fc593cb, 1, 0);
+	clientfield::register("actor", "zm_aat_frostbite_explosion_clientfield", 1, 1, "counter", &aat_frostbite_explosion, 1, 0);
+	clientfield::register("vehicle", "zm_aat_frostbite_explosion_clientfield", 1, 1, "counter", &aat_frostbite_explosion, 1, 0);
 	level._effect[#"hash_139ac9f86d1a96cd"] = "zm_weapons/fx8_aat_water_torso";
-	level._effect[#"hash_3fe83e6067198346"] = "zm_weapons/fx8_aat_water_exp";
+	level._effect[#"aat_frostbite_explosion"] = "zm_weapons/fx8_aat_water_exp";
 }
 
 /*
@@ -158,7 +158,7 @@ function function_b8cda358(localclientnum)
 }
 
 /*
-	Name: function_3fc593cb
+	Name: aat_frostbite_explosion
 	Namespace: zm_aat_frostbite
 	Checksum: 0x836279DA
 	Offset: 0x7D0
@@ -166,7 +166,7 @@ function function_b8cda358(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_3fc593cb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function aat_frostbite_explosion(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(isdefined(self))
 	{
@@ -175,7 +175,7 @@ function function_3fc593cb(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			v_fx_origin = self.origin;
 		}
-		playfx(localclientnum, level._effect[#"hash_3fe83e6067198346"], v_fx_origin);
+		playfx(localclientnum, level._effect[#"aat_frostbite_explosion"], v_fx_origin);
 		self playsound(localclientnum, #"hash_7de1026336539baa");
 	}
 }

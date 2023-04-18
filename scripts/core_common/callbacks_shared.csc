@@ -576,7 +576,7 @@ function on_melee(func, obj)
 }
 
 /*
-	Name: function_35a12f19
+	Name: on_trigger
 	Namespace: callback
 	Checksum: 0x9414E5C5
 	Offset: 0x1000
@@ -584,9 +584,9 @@ function on_melee(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_35a12f19(func, obj)
+function on_trigger(func, obj)
 {
-	add_entity_callback(#"hash_1bd0411eb5169b", func, obj);
+	add_entity_callback(#"on_trigger", func, obj);
 }
 
 /*
@@ -600,7 +600,7 @@ function function_35a12f19(func, obj)
 */
 function function_b74bf3e(func, obj)
 {
-	function_52ac9652(#"hash_1bd0411eb5169b", func, obj);
+	function_52ac9652(#"on_trigger", func, obj);
 }
 
 /*
@@ -1844,7 +1844,7 @@ event function_6eb09118(eventstruct)
 {
 	if(isdefined(level.var_a6c75fcb))
 	{
-		self callback(#"hash_1bd0411eb5169b", eventstruct);
+		self callback(#"on_trigger", eventstruct);
 		self callback(#"hash_46d459e3750a3345", eventstruct);
 		self function_3507ed1f("all");
 	}

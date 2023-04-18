@@ -207,7 +207,7 @@ function function_436d9a24(t_damage)
 function ai_damage(e_trap)
 {
 	self endon(#"death");
-	if(self.var_9fde8624 === #"hash_266b62e342076a90")
+	if(self.var_9fde8624 === #"catalyst_electric")
 	{
 		return;
 	}

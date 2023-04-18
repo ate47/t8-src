@@ -179,7 +179,7 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_7fcdc47572bdbafa", 8000, 1, "int");
 	clientfield::register("scriptmover", "" + #"force_stream_model", 8000, 1, "int");
 	clientfield::register("world", "" + #"hash_458d10e70473adfd", 8000, 1, "int");
-	zm_sq::register(#"zm_mansion_pap_quest", #"hash_12a37f2c621d1245", #"hash_55d5dabec89c9272", &mansion_pap::init, &mansion_pap::cleanup);
+	zm_sq::register(#"zm_mansion_pap_quest", #"hash_12a37f2c621d1245", #"capture_souls", &mansion_pap::init, &mansion_pap::cleanup);
 	zm_sq::register(#"zm_mansion_silver_bullet", #"hash_5460ffe3987d805f", #"silver_bullet", &mansion_silver_bullet::init, &mansion_silver_bullet::cleanup);
 	level._effect[#"headshot"] = #"zombie/fx_bul_flesh_head_fatal_zmb";
 	level._effect[#"headshot_nochunks"] = #"zombie/fx_bul_flesh_head_nochunks_zmb";
@@ -205,7 +205,7 @@ event main(eventstruct)
 	level._allow_melee_weapon_switching = 1;
 	level.zombiemode_reusing_pack_a_punch = 1;
 	level.custom_spawner_entry[#"crawl"] = &zm_spawner::function_45bb11e4;
-	level.custom_spawner_entry[#"hash_1c3a866a84cdb52a"] = &function_4b4b59ed;
+	level.custom_spawner_entry[#"zombie_jump_in"] = &function_4b4b59ed;
 	level.custom_spawner_entry[#"hash_21e32c4c500397a2"] = &function_d05b12f;
 	level thread function_fc9d7a1f();
 	callback::on_spawned(&on_player_spawned);
@@ -293,7 +293,7 @@ event main(eventstruct)
 	scene::add_scene_func("p_zm_seer_stone_s_out_male", &function_48276a5e, "play");
 	/#
 		t_kill_ai = getent("", "");
-		t_kill_ai callback::function_35a12f19(&function_d4ff1dd6);
+		t_kill_ai callback::on_trigger(&function_d4ff1dd6);
 	#/
 }
 
@@ -1414,9 +1414,9 @@ function function_2d164b86()
 	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 	{
 		level waittill(#"all_players_spawned");
-		level thread function_6f4dc4ad("debris_to_dining_room_upper_scene", "connect_bedroom_to_dining_room", "Shot 1", "Shot 2");
-		level thread function_6f4dc4ad("debris_cemetery_entrance_scene", "connect_library_to_cemetery_entrance", "Shot 1", "Shot 2");
-		level thread function_6f4dc4ad("debris_cemetery_scene", "connect_cemetery_entrance_to_cemetery_graveyard", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_to_dining_room_upper_scene", "connect_bedroom_to_dining_room", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_cemetery_entrance_scene", "connect_library_to_cemetery_entrance", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_cemetery_scene", "connect_cemetery_entrance_to_cemetery_graveyard", "Shot 1", "Shot 2");
 		level thread scene::play("entrance_hall_exploding_door", "targetname");
 		var_fdbbb780 = 1;
 	}
@@ -1434,9 +1434,9 @@ function function_2d164b86()
 	}
 	if(!var_fdbbb780)
 	{
-		level thread function_6f4dc4ad("debris_to_dining_room_upper_scene", "connect_bedroom_to_dining_room", "Shot 1", "Shot 2");
-		level thread function_6f4dc4ad("debris_cemetery_entrance_scene", "connect_library_to_cemetery_entrance", "Shot 1", "Shot 2");
-		level thread function_6f4dc4ad("debris_cemetery_scene", "connect_cemetery_entrance_to_cemetery_graveyard", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_to_dining_room_upper_scene", "connect_bedroom_to_dining_room", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_cemetery_entrance_scene", "connect_library_to_cemetery_entrance", "Shot 1", "Shot 2");
+		level thread debris_scene("debris_cemetery_scene", "connect_cemetery_entrance_to_cemetery_graveyard", "Shot 1", "Shot 2");
 	}
 	var_c712b3e9 playsound(#"hash_75b9c9ad6ebe8af2");
 	if(isalive(var_d11a4648))
@@ -1466,7 +1466,7 @@ function function_2d164b86()
 	{
 		e_active_player playrumbleonentity("zm_power_on_rumble");
 	}
-	fx_holder notify(#"hash_d46f768bfeb3aeb");
+	fx_holder notify(#"stop_glow");
 	fx_holder delete();
 	playsoundatposition(#"hash_3d8fef5997663b17", (0, 0, 0));
 	var_5314bd63 = getent("veh_power_on_projectile", "targetname");
@@ -1751,7 +1751,7 @@ function power_on_impact()
 }
 
 /*
-	Name: function_6f4dc4ad
+	Name: debris_scene
 	Namespace: zm_mansion
 	Checksum: 0xE25A330D
 	Offset: 0x6610
@@ -1759,7 +1759,7 @@ function power_on_impact()
 	Parameters: 4
 	Flags: Linked
 */
-function function_6f4dc4ad(str_targetname, str_script_flag, var_d46cd47, var_d6d5180b)
+function debris_scene(str_targetname, str_script_flag, var_d46cd47, var_d6d5180b)
 {
 	level thread scene::play(str_targetname, var_d46cd47);
 	level flag::wait_till(str_script_flag);
@@ -2195,7 +2195,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 		var_6095c0b6 = zm_round_logic::function_4e8157cd(var_404e4288, var_8dd554ee);
 		if(isalive(var_6095c0b6.ai_spawned))
 		{
-			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2")));
+			zm_transform::function_d2374144(var_6095c0b6.ai_spawned, array::random(array(#"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water")));
 		}
 		return true;
 	}
@@ -3149,13 +3149,13 @@ function function_3f147b12(cmd)
 				level flag::set("");
 				break;
 			}
-			case "hash_77191ec75f0d58a9":
+			case "igc_play_outro":
 			{
 				level scene::init_streamer(#"hash_3f0bec2bc9216cd4", #"allies", 0, 0);
 				level thread play_outro_igc();
 				break;
 			}
-			case "hash_100d3e9a512de314":
+			case "special_round_fog":
 			case "hash_2b5e2a1e2bb301d1":
 			{
 				function_d7bc714e(cmd);

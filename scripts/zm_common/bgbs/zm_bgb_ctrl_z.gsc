@@ -94,7 +94,7 @@ function enable()
 		{
 			a_ai_targets[x].var_b518759e = undefined;
 			a_ai_targets[x] zombie_utility::set_zombie_run_cycle_restore_from_override();
-			a_ai_targets[x] thread function_22a84404(self);
+			a_ai_targets[x] thread turn_z(self);
 		}
 	}
 }
@@ -133,7 +133,7 @@ function validation()
 }
 
 /*
-	Name: function_22a84404
+	Name: turn_z
 	Namespace: zm_bgb_ctrl_z
 	Checksum: 0xE85B04E1
 	Offset: 0x4A8
@@ -141,7 +141,7 @@ function validation()
 	Parameters: 1
 	Flags: Linked
 */
-function function_22a84404(player)
+function turn_z(player)
 {
 	if(player.var_89221e7d < 2)
 	{

@@ -40,7 +40,7 @@
 */
 function init()
 {
-	clientfield::register("allplayers", "" + #"hash_6e7b9ac29b5ccee1", 8000, 1, "int");
+	clientfield::register("allplayers", "" + #"shield_fire", 8000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_14f3f35558fd380b", 8000, getminbitcountfornum(3), "int");
 	clientfield::register("scriptmover", "" + #"wisp_fx", 8000, 2, "int");
 	clientfield::register("scriptmover", "" + #"hash_2108935a0c33f89a", 8000, getminbitcountfornum(3), "int");
@@ -266,7 +266,7 @@ function function_cdfe68a2(var_a276c861)
 	{
 		level flag::wait_till(#"gazed_main_hall");
 		level namespace_6747c550::function_7df6bb60(#"hash_7b00754a8b214587", 1);
-		level thread function_3207f433();
+		level thread kp_fireplace();
 		level flag::wait_till_all(array(#"kp_upg_main", #"kp_upg_dead", #"kp_upg_green"));
 	}
 }
@@ -464,20 +464,20 @@ function function_bafa7a2b(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_3a7ba7e53fa848e9");
 	level flag::set(#"hash_4751f59c00375059");
-	if(isdefined(level.var_5453910))
+	if(isdefined(level.kp1))
 	{
-		level.var_5453910 clientfield::set("" + #"hash_14f3f35558fd380b", 0);
-		level.var_5453910 thread function_aea7ad83();
+		level.kp1 clientfield::set("" + #"hash_14f3f35558fd380b", 0);
+		level.kp1 thread function_aea7ad83();
 	}
-	if(isdefined(level.var_8607bacb))
+	if(isdefined(level.kp2))
 	{
-		level.var_8607bacb clientfield::set("" + #"hash_14f3f35558fd380b", 0);
-		level.var_8607bacb thread function_aea7ad83();
+		level.kp2 clientfield::set("" + #"hash_14f3f35558fd380b", 0);
+		level.kp2 thread function_aea7ad83();
 	}
-	if(isdefined(level.var_8bb8c62d))
+	if(isdefined(level.kp3))
 	{
-		level.var_8bb8c62d clientfield::set("" + #"hash_14f3f35558fd380b", 0);
-		level.var_8bb8c62d thread function_aea7ad83();
+		level.kp3 clientfield::set("" + #"hash_14f3f35558fd380b", 0);
+		level.kp3 thread function_aea7ad83();
 	}
 	var_4eed727b = getent("stone_forest", "targetname");
 	var_4eed727b playsound(#"hash_224d8c48960f71ee");
@@ -540,7 +540,7 @@ function function_bafa7a2b(var_5ea5c94d, ended_early)
 */
 function function_86e35a69(var_a276c861)
 {
-	level thread function_3dab6861();
+	level thread forest_stone();
 	level thread function_6b0caad3();
 	level thread function_52529102();
 	level thread function_68a397a0();
@@ -686,7 +686,7 @@ function function_a8de7aeb(player)
 }
 
 /*
-	Name: function_3207f433
+	Name: kp_fireplace
 	Namespace: mansion_triad
 	Checksum: 0xC87EC476
 	Offset: 0x3290
@@ -694,7 +694,7 @@ function function_a8de7aeb(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3207f433()
+function kp_fireplace()
 {
 	a_s_locs = struct::get_array("fireplace_location");
 	foreach(s_loc in a_s_locs)
@@ -1061,7 +1061,7 @@ function function_fb54ddba()
 	self endon(#"disconnect");
 	self notify(#"hash_4916b386e0478580");
 	self thread function_4c8574b3();
-	self clientfield::set("" + #"hash_6e7b9ac29b5ccee1", 1);
+	self clientfield::set("" + #"shield_fire", 1);
 	while(isdefined(self.is_blue) && self.is_blue)
 	{
 		s_result = undefined;
@@ -1087,7 +1087,7 @@ function function_4c8574b3()
 	self endon(#"disconnect");
 	self waittilltimeout(55, #"hash_4916b386e0478580", #"hash_459246e5bfcc3713", #"destroy_riotshield");
 	self.is_blue = 0;
-	self clientfield::set("" + #"hash_6e7b9ac29b5ccee1", 0);
+	self clientfield::set("" + #"shield_fire", 0);
 	self notify(#"hash_4916b386e0478580");
 }
 
@@ -1857,16 +1857,16 @@ function function_444d9cf8()
 	level endon(#"hash_3a7ba7e53fa848e9");
 	level flag::wait_till_all(array(#"hash_59379e190111ef24", #"hash_6e8014ad2f5a3a5", #"hash_d491aae3ed3bc7e"));
 	wait(0.5);
-	var_2e679877 = struct::get("kp1_line_source");
-	level.var_5453910 = util::spawn_model("tag_origin", var_2e679877.origin, var_2e679877.angles);
-	var_61257df2 = struct::get("kp2_line_source");
-	level.var_8607bacb = util::spawn_model("tag_origin", var_61257df2.origin, var_61257df2.angles);
-	var_9409e3ba = struct::get("kp3_line_source");
-	level.var_8bb8c62d = util::spawn_model("tag_origin", var_9409e3ba.origin, var_9409e3ba.angles);
+	s_kp1 = struct::get("kp1_line_source");
+	level.kp1 = util::spawn_model("tag_origin", s_kp1.origin, s_kp1.angles);
+	s_kp2 = struct::get("kp2_line_source");
+	level.kp2 = util::spawn_model("tag_origin", s_kp2.origin, s_kp2.angles);
+	s_kp3 = struct::get("kp3_line_source");
+	level.kp3 = util::spawn_model("tag_origin", s_kp3.origin, s_kp3.angles);
 	util::wait_network_frame();
-	level.var_5453910 clientfield::set("" + #"hash_14f3f35558fd380b", 1);
-	level.var_8607bacb clientfield::set("" + #"hash_14f3f35558fd380b", 2);
-	level.var_8bb8c62d clientfield::set("" + #"hash_14f3f35558fd380b", 3);
+	level.kp1 clientfield::set("" + #"hash_14f3f35558fd380b", 1);
+	level.kp2 clientfield::set("" + #"hash_14f3f35558fd380b", 2);
+	level.kp3 clientfield::set("" + #"hash_14f3f35558fd380b", 3);
 	var_4eed727b = getent("stone_forest", "targetname");
 	var_4eed727b playsound(#"hash_7736e4287bd3440b");
 	var_4eed727b playloopsound(#"hash_22739fd2435ae7bd");
@@ -2007,7 +2007,7 @@ function teleporter_digger_hacked_before_breached_imp(params)
 }
 
 /*
-	Name: function_3dab6861
+	Name: forest_stone
 	Namespace: mansion_triad
 	Checksum: 0x4E766A4C
 	Offset: 0x6FE0
@@ -2015,7 +2015,7 @@ function teleporter_digger_hacked_before_breached_imp(params)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3dab6861()
+function forest_stone()
 {
 	level endon(#"hash_106bb5214b1fb1e6");
 	level flag::wait_till(#"hash_4751f59c00375059");
@@ -2085,7 +2085,7 @@ function function_31e641f5()
 		}
 		wait(0.1);
 	}
-	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"hash_73a4abf07bc65bc3", 1);
+	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
 	level flag::set(#"hash_1b9ecc7979b0fcfb");
 	level clientfield::set("fasttravel_exploder", 0);
 	exploder::exploder("fxexp_barrier_gameplay_forest");
@@ -2774,7 +2774,7 @@ function function_a112ed5e()
 	array::run_all(util::get_active_players(), &val::set, "boss_door_opening", "ignoreme", 1);
 	array::run_all(util::get_active_players(), &val::set, "boss_door_opening", "takedamage", 0);
 	wait(1);
-	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"hash_73a4abf07bc65bc3", 1);
+	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
 	var_3f81f68b = getent("relic_greenhouse", "targetname");
 	var_b32bc0a = getent("relic_cemetery", "targetname");
 	var_d73febbe = getent("relic_forest", "targetname");
@@ -2868,7 +2868,7 @@ function function_724b3e30(n_health)
 	self.var_12745932 = 1;
 	level.var_8a64ef3a++;
 	level thread function_83ad8f65(self);
-	if(self.var_62e81e47 == 1)
+	if(self.catalyst_type == 1)
 	{
 		self zombie_utility::set_zombie_run_cycle("sprint");
 	}

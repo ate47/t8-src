@@ -46,7 +46,7 @@ class class_726d8173
 	{
 		self.origin = undefined;
 		self.mover = undefined;
-		self.var_f11f68fb = undefined;
+		self.healthmultiplier = undefined;
 	}
 
 	/*
@@ -449,7 +449,7 @@ function private function_1b029905()
 		if(waitresult.id === #"hash_791d597ac0457860" && isdefined(waitresult.data))
 		{
 			newai = waitresult.var_944250d2[0];
-			newai.maxhealth = newai.maxhealth * waitresult.data.var_f11f68fb;
+			newai.maxhealth = newai.maxhealth * waitresult.data.healthmultiplier;
 			newai.health = newai.maxhealth;
 		}
 		wait(0.1);
@@ -605,7 +605,7 @@ function function_47c795bc(params)
 	/#
 		assert(isdefined(self.ai.var_15916e52));
 	#/
-	self.ai.var_15916e52.var_f11f68fb = self.var_b008e588;
+	self.ai.var_15916e52.healthmultiplier = self.var_b008e588;
 	var_d1ba5d77 = self.ai.var_15916e52.pos;
 	mover = self.ai.var_15916e52.mover;
 	tagorigin = self.origin;
@@ -669,7 +669,7 @@ function state_death_update(params)
 		self.var_c4e19d3.hunted_by--;
 	}
 	self vehicle_death::death_fx();
-	self val::set(#"hash_cee3dc3b4fd296b", #"hide", 2);
+	self val::set(#"zm_ai_bat", #"hide", 2);
 	wait(1);
 	self delete();
 }

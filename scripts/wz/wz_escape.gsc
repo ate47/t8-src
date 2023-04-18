@@ -56,7 +56,7 @@ event main(eventstruct)
 	}
 	compass::setupminimap("");
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 	level namespace_51010f55::init();
 	level.var_18bf5e98 = &function_d075b84e;
@@ -192,7 +192,7 @@ function function_74ee36be()
 */
 function function_69e60a10(var_e4204b3)
 {
-	var_8e3c3c5b = level.var_fb91af8[level.var_fb91af8.size - 1];
+	var_8e3c3c5b = level.deathcircles[level.deathcircles.size - 1];
 	hint = struct::get(var_e4204b3);
 	var_8e3c3c5b.var_3b9f4abf = hint.origin;
 	var_8e3c3c5b.var_66b35636 = 1024;
@@ -200,7 +200,7 @@ function function_69e60a10(var_e4204b3)
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: wz_escape
 	Checksum: 0x497143ED
 	Offset: 0x780
@@ -208,7 +208,7 @@ function function_69e60a10(var_e4204b3)
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		mapname = util::get_map_name();

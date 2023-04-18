@@ -75,7 +75,7 @@ function function_2613aeec(enabled)
 		trigger function_4bf6de9a(1);
 		trigger usetriggerrequirelookat();
 		trigger sethintstring(#"hash_5082ca83a4dd1416");
-		trigger callback::function_35a12f19(&function_2043936c);
+		trigger callback::on_trigger(&function_2043936c);
 		trigger thread update_trigger_visibility();
 	}
 }
@@ -246,7 +246,7 @@ function function_2043936c(trigger_struct)
 			forward = anglestoforward(player.angles);
 			droppos = player function_1188c2e8();
 			dropitem = player item_drop::drop_item(point.var_a6762160.weapon, 1, point.var_a6762160.amount, point.id, droppos, player.angles);
-			player item_inventory::function_5852cb7b(item.var_bd027dd9);
+			player item_inventory::remove_inventory_item(item.var_bd027dd9);
 			var_129fa609 = player function_80635b6f();
 			player.var_b60fee90 = 1;
 			if(!isdefined(var_129fa609))

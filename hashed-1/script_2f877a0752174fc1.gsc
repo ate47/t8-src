@@ -1076,13 +1076,13 @@ function function_74174ce1(str_state)
 			self showpart("tag_screen_off");
 			break;
 		}
-		case "hash_4f0b13362f02aa46":
+		case "screen_on_noise":
 		{
 			self function_35e95fba();
 			self showpart("tag_screen_on_noise");
 			break;
 		}
-		case "hash_31366a4d9da7d1a4":
+		case "screen_on_tone":
 		{
 			self function_35e95fba();
 			self showpart("tag_screen_on_tone");

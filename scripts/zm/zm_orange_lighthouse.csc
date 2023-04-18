@@ -64,7 +64,7 @@ function init_clientfields()
 */
 function init_fx()
 {
-	level._effect[#"hash_1d70527739c796e5"] = #"hash_5549637de48b4ff5";
+	level._effect[#"lighthouse_beam"] = #"hash_5549637de48b4ff5";
 	level._effect[#"hash_4eeea3cde4956976"] = #"hash_52b7a2fb71b00d26";
 	level._effect[#"hash_33dbdabd23d73303"] = #"hash_1806470e7079c133";
 	level._effect[#"hash_21a180bd19425da5"] = #"hash_5cd0d0e65e6d535";
@@ -102,7 +102,7 @@ function function_6a10478(localclientnum, oldval, newval, bnewent, binitialsnap,
 				self.var_190322ee stoploopsound(1);
 				self.var_190322ee delete();
 			}
-			self.fx_id = util::playfxontag(localclientnum, level._effect[#"hash_1d70527739c796e5"], self, "tag_origin");
+			self.fx_id = util::playfxontag(localclientnum, level._effect[#"lighthouse_beam"], self, "tag_origin");
 			self playsound(localclientnum, #"hash_c28cead5117620");
 			self.var_190322ee = spawn(0, self.origin, "script_origin");
 			self.var_190322ee playloopsound(#"hash_6181b0e69ec35a3b");

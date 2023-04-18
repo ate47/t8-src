@@ -72,7 +72,7 @@ function private function_c94723bd()
 	if(!(isdefined(getgametypesetting(#"hash_1d02e28ba907a343")) ? getgametypesetting(#"hash_1d02e28ba907a343") : 0))
 	{
 		namespace_b0722f43::function_96ff7b88(#"hash_3c5ee4ad37d65f4e");
-		namespace_b0722f43::function_63bfe27(#"hash_3c5ee4ad37d65f4e");
+		namespace_b0722f43::remove_item(#"hash_3c5ee4ad37d65f4e");
 	}
 }
 
@@ -97,7 +97,7 @@ function private function_9b8d4d02(prematch = 0)
 				namespace_b0722f43::function_96ff7b88(var_1461de43);
 				continue;
 			}
-			namespace_b0722f43::function_63bfe27(var_1461de43);
+			namespace_b0722f43::remove_item(var_1461de43);
 		}
 	}
 }
@@ -114,7 +114,7 @@ function private function_9b8d4d02(prematch = 0)
 function private function_d0dc6619()
 {
 	namespace_b0722f43::function_96ff7b88(#"hash_35f5430256d9c158");
-	namespace_b0722f43::function_63bfe27(#"hash_35f5430256d9c158");
+	namespace_b0722f43::remove_item(#"hash_35f5430256d9c158");
 }
 
 /*

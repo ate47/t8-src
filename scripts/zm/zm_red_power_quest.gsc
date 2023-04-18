@@ -122,9 +122,9 @@ function function_bda82828()
 		return;
 	}
 	var_71da3f5a = getentarray("mdl_power_skeleton", "targetname");
-	foreach(var_5c688ad6 in var_71da3f5a)
+	foreach(mdl_skel in var_71da3f5a)
 	{
-		mdl_clip = getent(var_5c688ad6.target, "targetname");
+		mdl_clip = getent(mdl_skel.target, "targetname");
 		mdl_clip notsolid();
 	}
 	callback::on_connect(&function_8efba1b4);
@@ -265,10 +265,10 @@ function private function_d1435bda(player, var_feed7374)
 function function_e8a7948d()
 {
 	var_71da3f5a = getentarray("mdl_power_skeleton", "targetname");
-	foreach(var_5c688ad6 in var_71da3f5a)
+	foreach(mdl_skel in var_71da3f5a)
 	{
-		var_5c688ad6 ghost();
-		mdl_clip = getent(var_5c688ad6.target, "targetname");
+		mdl_skel ghost();
+		mdl_clip = getent(mdl_skel.target, "targetname");
 		mdl_clip delete();
 	}
 }
@@ -286,10 +286,10 @@ function function_77dd379a()
 {
 	level endon(#"end_game");
 	var_71da3f5a = getentarray("mdl_power_skeleton", "targetname");
-	foreach(var_5c688ad6 in var_71da3f5a)
+	foreach(mdl_skel in var_71da3f5a)
 	{
-		var_5c688ad6 ghost();
-		mdl_clip = getent(var_5c688ad6.target, "targetname");
+		mdl_skel ghost();
+		mdl_clip = getent(mdl_skel.target, "targetname");
 		mdl_clip ghost();
 	}
 	var_3cd87194 = getentarray("mdl_power_blocker_glyph", "targetname");

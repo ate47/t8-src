@@ -8,7 +8,7 @@
 #using scripts\weapons\sensor_dart.gsc;
 #using script_7f988b980dd872d4;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -53,7 +53,7 @@ function function_c9ff0dce()
 	if(self.team == #"allies")
 	{
 		self ct_utils::player_reset();
-		self.overrideplayerdamage = &function_6fb4cde7;
+		self.overrideplayerdamage = &callback_player_damage;
 		if(!isbot(self))
 		{
 			ct_utils::function_8f04870f();
@@ -128,7 +128,7 @@ function function_c9ff0dce()
 }
 
 /*
-	Name: function_6fb4cde7
+	Name: callback_player_damage
 	Namespace: ct_recon_tutorial
 	Checksum: 0xD9822C18
 	Offset: 0x1118
@@ -136,7 +136,7 @@ function function_c9ff0dce()
 	Parameters: 11
 	Flags: None
 */
-function function_6fb4cde7(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
+function callback_player_damage(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
 {
 	if(!isdefined(level.var_ad7c0539))
 	{
@@ -1046,7 +1046,7 @@ function function_39f9d433()
 		e_player = getplayers()[0];
 		if(!isalive(e_player))
 		{
-			level notify(#"hash_47c589e3f9abe85");
+			level notify(#"stop_zombies");
 			while(!isalive(e_player))
 			{
 				waitframe(1);
@@ -1070,7 +1070,7 @@ function function_39f9d433()
 		}
 		waitframe(1);
 	}
-	level notify(#"hash_47c589e3f9abe85");
+	level notify(#"stop_zombies");
 	waitframe(1);
 	level thread kill_all_zombies();
 	ct_utils::function_c2a10fc();
@@ -1175,7 +1175,7 @@ function kill_all_zombies()
 */
 function function_bb44f289(var_7e6c18d7, var_d8036031, var_8a787b15)
 {
-	level endon(#"combattraining_logic_finished", #"hash_47c589e3f9abe85");
+	level endon(#"combattraining_logic_finished", #"stop_zombies");
 	level.var_6cd64bc3 = 0;
 	var_856f9e3e = struct::get_array("s_zombie_spawn_loc", "targetname");
 	var_856f9e3e = array::randomize(var_856f9e3e);
@@ -1324,7 +1324,7 @@ function function_79d4c106()
 		n_time = gettime() / 1000;
 		if(n_time >= var_6256b329)
 		{
-			level endon(#"hash_47c589e3f9abe85");
+			level endon(#"stop_zombies");
 			break;
 		}
 		waitframe(1);
@@ -1367,7 +1367,7 @@ function function_79d4c106()
 	e_player = getplayers()[0];
 	e_player ct_bots::function_26d45f32(1, 1, 1);
 	level flag::set("ct_player_success");
-	level notify(#"hash_47c589e3f9abe85");
+	level notify(#"stop_zombies");
 	ct_utils::function_9aca2fa0("ct_endgame");
 	ct_utils::function_c2a10fc();
 	ct_vo::function_831e0584(array(#"hash_398e7ff7d4d056d5"), 1);
@@ -1430,7 +1430,7 @@ function function_58c62280(n_goal_radius, b_ignoreall, b_keyline)
 			self clientfield::set("enemy_keyline_render", 1);
 		}
 	}
-	self.overrideplayerdamage = &function_6fb4cde7;
+	self.overrideplayerdamage = &callback_player_damage;
 	if(isdefined(s_loc.script_noteworthy))
 	{
 		self.script_noteworthy = s_loc.script_noteworthy;
@@ -1504,13 +1504,13 @@ function function_1d2b336(s_start_loc)
 	{
 		wait(0.5);
 		b_crouched = 1;
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 	}
 	level waittill(#"hash_60c1587995518e92");
 	self val::reset(#"ai_vp", "ignoreall");
 	if(isdefined(b_crouched) && b_crouched)
 	{
-		self namespace_9c817acd::stand();
+		self bot_stance::stand();
 	}
 	var_f0bbde5 = struct::get(s_start_loc.target, "targetname");
 	self thread ct_utils::function_5b59f3b7(var_f0bbde5.origin, var_f0bbde5.angles, 32);
@@ -1528,7 +1528,7 @@ function function_1d2b336(s_start_loc)
 	if(isdefined(var_f0bbde5.script_noteworthy) && var_f0bbde5.script_noteworthy == "crouch")
 	{
 		b_crouched = 1;
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 	}
 	s_loc = struct::get("s_vp_friendly_look_at_pos", "targetname");
 	self.var_2925fedc = s_loc.origin;
@@ -1607,7 +1607,7 @@ function function_9b0a398a(s_loc)
 	self val::set(#"bot", "ignoreme", 1);
 	s_path = struct::get(s_loc.target, "targetname");
 	self thread ct_utils::function_f3b02850(s_loc, 48);
-	self namespace_9c817acd::crouch();
+	self bot_stance::crouch();
 	wait(0.5);
 	n_start_time = gettime() / 1000;
 	var_3a9de7bb = 0;
@@ -1680,7 +1680,7 @@ function function_9b0a398a(s_loc)
 		waitframe(1);
 	}
 	level.var_823fa371 = 1;
-	self namespace_9c817acd::stand();
+	self bot_stance::stand();
 	self val::reset(#"bot", "ignoreall");
 	self.var_2925fedc = undefined;
 	s_path = level.var_271da9fa[level.var_acc24708];

@@ -129,7 +129,7 @@ function testenemy(team)
 		{
 			params = {#intpayload:0, #response:level.teams[team], #menu:game.menu[#"menu_team"]};
 			self notify(#"menuresponse", params);
-			self callback::callback(#"hash_4e1a50a35ec44bcc", params);
+			self callback::callback(#"menu_response", params);
 		}
 	#/
 }

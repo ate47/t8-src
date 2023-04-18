@@ -85,7 +85,7 @@ function function_c5343206(eattacker, einflictor, idamage, smeansofdeath, weapon
 		var_d72bd991.sensordarts = (isdefined(eattacker.sensor_darts) ? arraycopy(eattacker.sensor_darts) : undefined);
 		var_d72bd991.var_85997af0 = distance2dsquared(self.origin, eattacker.origin);
 		var_d72bd991.var_53611a9c = eattacker function_d210981e(self.origin);
-		var_d72bd991.var_9a5c07a = self.var_15b42025 === 1;
+		var_d72bd991.var_9a5c07a = self.ispulsed === 1;
 		var_d72bd991.var_79eb9a59 = self.var_5379bee8;
 		var_d72bd991.var_2acdce3e = (isdefined(self.var_121392a1) ? arraycopy(self.var_121392a1) : undefined);
 		var_d72bd991.var_b535f1ea = self.lastconcussedby;
@@ -214,7 +214,7 @@ function function_9f942458(var_6ba44c6, var_fbbdf63c)
 		{
 			continue;
 		}
-		if(distancesquared(var_6ba44c6.origin, sensor.origin) < ((function_f99d2668() ? 2400 : 800) + 50) * ((function_f99d2668() ? 2400 : 800) + 50))
+		if(distancesquared(var_6ba44c6.origin, sensor.origin) < ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) * ((sessionmodeiswarzonegame() ? 2400 : 800) + 50))
 		{
 			return true;
 		}

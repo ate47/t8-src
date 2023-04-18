@@ -90,7 +90,7 @@ function set(str_field_name, n_value)
 }
 
 /*
-	Name: function_6b3b55da
+	Name: can_set
 	Namespace: clientfield
 	Checksum: 0xF8B41E42
 	Offset: 0x2C8
@@ -98,7 +98,7 @@ function set(str_field_name, n_value)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6b3b55da(str_field_name, n_value)
+function can_set(str_field_name, n_value)
 {
 	return function_26b3a620();
 }

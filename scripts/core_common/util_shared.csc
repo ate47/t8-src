@@ -2362,7 +2362,7 @@ function waittill_down_button_pressed()
 */
 function function_4c1656d5()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return getdvarfloat(#"hash_4e7a02edee964bf9", 250);
 	}
@@ -2380,7 +2380,7 @@ function function_4c1656d5()
 */
 function function_16fb0a3b()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(getdvarint(#"hash_23a1d3a9139af42b", 0) > 0)
 		{
@@ -2518,7 +2518,7 @@ function preload_frontend(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval == 1)
 	{
-		function_223e25d3();
+		preloadfrontend();
 	}
 }
 

@@ -180,7 +180,7 @@ function callback_vehicledamage(einflictor, eattacker, idamage, idflags, smeanso
 	}
 	if(gamestate::is_game_over())
 	{
-		avoid_damage_in_postgame = !sessionmodeismultiplayergame() && !function_f99d2668();
+		avoid_damage_in_postgame = !sessionmodeismultiplayergame() && !sessionmodeiswarzonegame();
 		if(avoid_damage_in_postgame)
 		{
 			return;

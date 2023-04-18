@@ -329,17 +329,17 @@ function function_63226f88(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 0)
 	{
-		self.var_ed175c5 = 0;
+		self.stash_type = 0;
 	}
 	else
 	{
 		if(newval == 1)
 		{
-			self.var_ed175c5 = 1;
+			self.stash_type = 1;
 		}
 		else if(newval == 2)
 		{
-			self.var_ed175c5 = 2;
+			self.stash_type = 2;
 		}
 	}
 }

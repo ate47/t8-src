@@ -140,8 +140,8 @@ function function_81eaae89(e_player)
 */
 function function_40935801()
 {
-	self notify(#"hash_4c60ab5ca6d3899");
-	self endon(#"hash_4c60ab5ca6d3899", #"death", #"bled_out");
+	self notify(#"picked_up_pap");
+	self endon(#"picked_up_pap", #"death", #"bled_out");
 	wait(30);
 	self function_ad31c153();
 	var_e8145621 = self getweaponslistprimaries();

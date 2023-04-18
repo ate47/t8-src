@@ -322,7 +322,7 @@ function function_c8d97b8e(local_client_num, flag, var_166900a8)
 	{
 		self flag::init(flag);
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(self.type === "actor_corpse" || self.type === "player_corpse")
 		{
@@ -461,8 +461,8 @@ function function_fac25f84(local_client_num, bundle)
 function function_ee77bff9(local_client_num, field_name, bundle, var_d9c61b9c)
 {
 	local_player = function_5c10bd79(local_client_num);
-	var_657eb40b = (isdefined(local_player) ? local_player clientfield::get_to_player(field_name) : 0);
-	self function_f4eab437(local_client_num, var_657eb40b, bundle, var_d9c61b9c);
+	should_play = (isdefined(local_player) ? local_player clientfield::get_to_player(field_name) : 0);
+	self function_f4eab437(local_client_num, should_play, bundle, var_d9c61b9c);
 }
 
 /*
@@ -474,14 +474,14 @@ function function_ee77bff9(local_client_num, field_name, bundle, var_d9c61b9c)
 	Parameters: 4
 	Flags: Linked
 */
-function function_f4eab437(local_client_num, var_657eb40b, bundle, var_d9c61b9c)
+function function_f4eab437(local_client_num, should_play, bundle, var_d9c61b9c)
 {
 	if(isdefined(var_d9c61b9c))
 	{
-		var_657eb40b = self [[var_d9c61b9c]](local_client_num, var_657eb40b);
+		should_play = self [[var_d9c61b9c]](local_client_num, should_play);
 	}
 	is_playing = self function_d2503806(bundle);
-	if(var_657eb40b)
+	if(should_play)
 	{
 		if(!is_playing)
 		{

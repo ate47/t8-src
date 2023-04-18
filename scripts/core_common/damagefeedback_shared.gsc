@@ -99,7 +99,7 @@ function play_hit_alert_sfx(mod, inflictor, perkfeedback, weapon, victim, psoffs
 	{
 		hitalias = hit_alert_sfx_cp(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shitloc);
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		hitalias = hit_alert_sfx_mp(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shitloc, fatal, idflags);
 	}
@@ -248,7 +248,7 @@ function hit_alert_sfx_mp(mod, inflictor, perkfeedback, weapon, victim, psoffset
 												}
 												else
 												{
-													if(function_f99d2668())
+													if(sessionmodeiswarzonegame())
 													{
 														hitalias = #"hash_2248618b48085ce5";
 													}

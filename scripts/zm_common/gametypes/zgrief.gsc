@@ -34,7 +34,7 @@ event main(eventstruct)
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
 	level._round_start_func = &zm_round_logic::round_start;
-	zm_player::register_player_damage_callback(&function_567c449a);
+	zm_player::register_player_damage_callback(&playerdamagecallback);
 	callback::on_spawned(&onplayerspawned);
 }
 
@@ -110,7 +110,7 @@ function onscorelimit()
 }
 
 /*
-	Name: function_567c449a
+	Name: playerdamagecallback
 	Namespace: zgrief
 	Checksum: 0xB80BC2BF
 	Offset: 0x550
@@ -118,7 +118,7 @@ function onscorelimit()
 	Parameters: 10
 	Flags: None
 */
-function function_567c449a(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
+function playerdamagecallback(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
 {
 	if(isdefined(eattacker) && isplayer(eattacker))
 	{

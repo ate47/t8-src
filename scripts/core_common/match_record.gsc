@@ -15,8 +15,8 @@
 function function_d92cb558(result, vararg)
 {
 	/#
-		var_2f3fa528 = "";
-		return var_2f3fa528;
+		pathstr = "";
+		return pathstr;
 	#/
 }
 

@@ -4,11 +4,11 @@
 #using scripts\core_common\gestures.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_b6ee49c3;
+#namespace dynent_world;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xB8D4CB0B
 	Offset: 0xF8
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_442c4eb4e72ecbe2", &__init__, undefined, undefined);
+	system::register(#"dynent_world", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x6D861B2F
 	Offset: 0x140
 	Size: 0x114
@@ -37,7 +37,7 @@ function __init__()
 	}
 	clientfield::function_a8bbc967("hudItems.dynentUseHoldProgress", 13000, 5, "float", 0);
 	/#
-		level thread function_5f747d5a();
+		level thread devgui_loop();
 	#/
 	level thread update_loop();
 	callback::on_connect(&on_player_connect);
@@ -47,7 +47,7 @@ function __init__()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x16177ECA
 	Offset: 0x260
 	Size: 0x74
@@ -69,7 +69,7 @@ function private on_player_connect()
 
 /*
 	Name: on_player_disconnect
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xBA04C288
 	Offset: 0x2E0
 	Size: 0x2C
@@ -86,7 +86,7 @@ function private on_player_disconnect()
 
 /*
 	Name: on_player_killed
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xEA13EF91
 	Offset: 0x318
 	Size: 0x24
@@ -100,7 +100,7 @@ function private on_player_killed()
 
 /*
 	Name: function_938bdf98
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x954CBF42
 	Offset: 0x348
 	Size: 0x190
@@ -127,7 +127,7 @@ function private function_938bdf98()
 
 /*
 	Name: update_loop
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xA88BF5BC
 	Offset: 0x4E0
 	Size: 0x18E
@@ -163,7 +163,7 @@ function private update_loop()
 
 /*
 	Name: function_2f394f36
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x664CE89E
 	Offset: 0x678
 	Size: 0x6D4
@@ -265,7 +265,7 @@ function private function_2f394f36()
 
 /*
 	Name: function_836af3b3
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x40171696
 	Offset: 0xD58
 	Size: 0xB4
@@ -284,7 +284,7 @@ function function_836af3b3(bundle, state)
 
 /*
 	Name: function_46502841
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x3358FD97
 	Offset: 0xE18
 	Size: 0x132
@@ -313,7 +313,7 @@ function private function_46502841(trigger_struct)
 
 /*
 	Name: function_2b9e2224
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x158B1256
 	Offset: 0xF58
 	Size: 0x358
@@ -363,9 +363,9 @@ function private function_2b9e2224(trigger)
 			}
 			waitframe(1);
 		}
-		if(isdefined(dynent.var_45f1d6af) && !success)
+		if(isdefined(dynent.onusecancel) && !success)
 		{
-			dynent thread [[dynent.var_45f1d6af]](self);
+			dynent thread [[dynent.onusecancel]](self);
 		}
 	}
 	self clientfield::set_player_uimodel("hudItems.dynentUseHoldProgress", 0);
@@ -375,7 +375,7 @@ function private function_2b9e2224(trigger)
 
 /*
 	Name: function_e882de59
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xC13247C2
 	Offset: 0x12B8
 	Size: 0xC4
@@ -401,7 +401,7 @@ function private function_e882de59(trigger)
 
 /*
 	Name: function_7f2040e8
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x5C8E07E0
 	Offset: 0x1388
 	Size: 0x5C
@@ -420,7 +420,7 @@ function function_7f2040e8()
 
 /*
 	Name: function_bf7b8a27
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x225709EE
 	Offset: 0x13F0
 	Size: 0x288
@@ -469,7 +469,7 @@ function function_bf7b8a27(dynent, activator)
 
 /*
 	Name: function_3981d015
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x83F25AF7
 	Offset: 0x1680
 	Size: 0x55C
@@ -543,7 +543,7 @@ event private function_3981d015(eventstruct)
 
 /*
 	Name: function_ff8b3908
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xBFEB6D4
 	Offset: 0x1BE8
 	Size: 0x10C
@@ -567,7 +567,7 @@ event private function_ff8b3908(eventstruct)
 
 /*
 	Name: function_209450ae
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xFDFFB4F1
 	Offset: 0x1D00
 	Size: 0x48
@@ -584,15 +584,15 @@ event function_209450ae(eventstruct)
 }
 
 /*
-	Name: function_5f747d5a
-	Namespace: namespace_b6ee49c3
+	Name: devgui_loop
+	Namespace: dynent_world
 	Checksum: 0x7AECB662
 	Offset: 0x1D50
 	Size: 0x176
 	Parameters: 0
 	Flags: Private
 */
-function private function_5f747d5a()
+function private devgui_loop()
 {
 	/#
 		level endon(#"game_ended");
@@ -627,7 +627,7 @@ function private function_5f747d5a()
 
 /*
 	Name: function_6b66543a
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x4E860E39
 	Offset: 0x1ED0
 	Size: 0x290

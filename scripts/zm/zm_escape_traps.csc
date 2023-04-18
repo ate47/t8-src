@@ -51,7 +51,7 @@ function __init__()
 	level._effect[#"hash_4391e5c4b43c63c9"] = #"hash_215c779c48fd6856";
 	level._effect[#"hash_5647f8e593893bce"] = #"hash_4d61168f93739083";
 	level._effect[#"hash_13b6f9efa3cf588a"] = #"hash_526060b70ce93d7e";
-	level._effect[#"hash_1a3aa0422b5a92a4"] = #"hash_358533e8293f131d";
+	level._effect[#"spinning_blood"] = #"hash_358533e8293f131d";
 }
 
 /*
@@ -195,7 +195,7 @@ function player_acid_trap_post_fx(localclientnum, oldval, newval, bnewent, binit
 		self notify(#"player_acid_trap_post_fx_complete");
 		self.var_431ddde9 = self playloopsound(#"hash_341a3fa00975f232");
 		self thread function_17956e93(localclientnum);
-		self thread postfx::playpostfxbundle(#"hash_f9e59806209b8dd");
+		self thread postfx::playpostfxbundle(#"pstfx_zm_acid_dmg");
 		self.var_b1409d8f = playfxoncamera(localclientnum, level._effect[#"hash_4391e5c4b43c63c9"]);
 		self function_bf9d3071(#"hash_6efc465a2da0373a");
 		if(self zm_utility::function_f8796df3(localclientnum))
@@ -229,7 +229,7 @@ function function_17956e93(localclientnum)
 	self waittill(#"player_acid_trap_post_fx_complete");
 	if(isdefined(self))
 	{
-		self postfx::exitpostfxbundle(#"hash_f9e59806209b8dd");
+		self postfx::exitpostfxbundle(#"pstfx_zm_acid_dmg");
 		if(isdefined(localclientnum) && isdefined(self.var_b1409d8f))
 		{
 			stopfx(localclientnum, self.var_b1409d8f);
@@ -263,9 +263,9 @@ function function_502136a5(str_notify)
 	if(isdefined(self))
 	{
 		localclientnum = self getlocalclientnumber();
-		if(self postfx::function_556665f2(#"hash_f9e59806209b8dd"))
+		if(self postfx::function_556665f2(#"pstfx_zm_acid_dmg"))
 		{
-			self postfx::exitpostfxbundle(#"hash_f9e59806209b8dd");
+			self postfx::exitpostfxbundle(#"pstfx_zm_acid_dmg");
 		}
 		if(isdefined(self.var_431ddde9))
 		{
@@ -309,7 +309,7 @@ function spinning_trap_blood_fx(localclientnum, oldval, newval, bnewent, binitia
 		{
 			var_1f694afe = "j_spine1";
 		}
-		self.n_spinning_trap_blood_fx = util::playfxontag(localclientnum, level._effect[#"hash_1a3aa0422b5a92a4"], self, var_1f694afe);
+		self.n_spinning_trap_blood_fx = util::playfxontag(localclientnum, level._effect[#"spinning_blood"], self, var_1f694afe);
 		playsound(localclientnum, #"hash_5840ac12dd5f08cd", self.origin);
 	}
 }

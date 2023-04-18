@@ -374,7 +374,7 @@ function function_3be2d17f(watcher, player)
 	player gadgetpowerset(slot, 0);
 	self weaponobjects::onspawnuseweaponobject(watcher, player);
 	self hide();
-	self.var_52a68abf = 1;
+	self.canthack = 1;
 	self.var_24d0abd1 = 1;
 	var_83ed455 = 0;
 	if(var_83ed455 && isdefined(player))
@@ -1282,7 +1282,7 @@ function function_c524c4c8()
 }
 
 /*
-	Name: function_4bbdb418
+	Name: get_target_offset
 	Namespace: ultimate_turret
 	Checksum: 0xC21563DE
 	Offset: 0x41E0
@@ -1290,7 +1290,7 @@ function function_c524c4c8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4bbdb418(target)
+function get_target_offset(target)
 {
 	var_8134d046 = -12;
 	stance = target getstance();
@@ -1320,7 +1320,7 @@ function function_b8952a40(turret_index)
 		var_559acfe = veh.enemy getvelocity() * getdvarfloat(#"hash_3a25aaa27558e77b", 0.075);
 		if(isplayer(veh.enemy))
 		{
-			target_offset = function_4bbdb418(veh.enemy);
+			target_offset = get_target_offset(veh.enemy);
 			veh turretsettarget(turret_index, veh.enemy, target_offset + var_559acfe);
 		}
 		else

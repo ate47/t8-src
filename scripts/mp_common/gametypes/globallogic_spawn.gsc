@@ -478,7 +478,7 @@ function private function_68312709()
 	{
 		if(spawnteam == "all")
 		{
-			if(function_f99d2668())
+			if(sessionmodeiswarzonegame())
 			{
 				addspawnpoints("free", spawnstoadd[spawnteam], "auto_normal");
 				addspawnpoints(#"axis", spawnstoadd[spawnteam], "fallback");
@@ -1090,7 +1090,7 @@ function spawnplayer()
 		self loadout::function_53b62db1(self.curclass);
 	}
 	self loadout::give_loadout(self.team, self.curclass);
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		specialist = function_b14806c6(role, currentsessionmode());
 		if(isdefined(specialist))
@@ -1807,7 +1807,7 @@ function waitandspawnclient(timealreadypassed)
 	}
 	if(timeuntilspawn > 0)
 	{
-		if(!function_f99d2668())
+		if(!sessionmodeiswarzonegame())
 		{
 			if(level.playerqueuedrespawn)
 			{
@@ -1834,7 +1834,7 @@ function waitandspawnclient(timealreadypassed)
 			self thread respawn_asspectator(spawnorigin, spawnangles);
 		}
 		spawnedasspectator = 1;
-		if(!function_f99d2668())
+		if(!sessionmodeiswarzonegame())
 		{
 			self function_6c23d45b(timeuntilspawn, "force_spawn");
 		}

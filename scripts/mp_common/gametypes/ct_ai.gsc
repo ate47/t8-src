@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\values_shared.gsc;
@@ -389,7 +389,7 @@ function function_8e0db9e6(s_loc, var_feefa8d9, var_ecf349de, var_3fc5d539)
 	self endon(#"death");
 	if(isdefined(var_3fc5d539) && var_3fc5d539)
 	{
-		self namespace_9c817acd::stand();
+		self bot_stance::stand();
 	}
 	self thread ct_utils::function_5b59f3b7(s_loc.origin, s_loc.angles, var_feefa8d9);
 	while(true)
@@ -403,7 +403,7 @@ function function_8e0db9e6(s_loc, var_feefa8d9, var_ecf349de, var_3fc5d539)
 	}
 	if(isdefined(s_loc.script_noteworthy) && s_loc.script_noteworthy == #"crouch")
 	{
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 	}
 	self thread ct_utils::function_5b59f3b7(s_loc.origin, s_loc.angles, var_ecf349de);
 }

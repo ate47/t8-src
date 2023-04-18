@@ -458,11 +458,11 @@ function function_123bcbcf()
 		self thread function_3165516b(self.s_tribute_bowl.var_e668d197, self.var_9e09931e);
 		self thread function_6c62f074(self.var_9e09931e);
 	}
-	self function_71c9ab64(0);
+	self set_tribute(0);
 }
 
 /*
-	Name: function_71c9ab64
+	Name: set_tribute
 	Namespace: namespace_f8f28e08
 	Checksum: 0x746EA457
 	Offset: 0x1670
@@ -470,7 +470,7 @@ function function_123bcbcf()
 	Parameters: 1
 	Flags: Linked
 */
-function function_71c9ab64(n_amount)
+function set_tribute(n_amount)
 {
 	self.n_tribute = n_amount;
 	n_index = self getentitynumber();
@@ -681,7 +681,7 @@ function function_f152b354(str_bgb, var_6c9485fc = 15)
 	b_taken = self function_dcda5d87(var_4d0b3b87, 1, 0, 1);
 	if(b_taken)
 	{
-		self thread function_276ff65f(str_bgb);
+		self thread give_bgb(str_bgb);
 	}
 }
 
@@ -790,7 +790,7 @@ function function_53a333a8(var_ecffa2a8, var_41f9c5ff = undefined, var_893baaf =
 		if(!(isdefined(self.var_4373c66b) && self.var_4373c66b))
 		{
 			var_41f9c5ff = self function_73fda38e(var_41f9c5ff);
-			self function_71c9ab64(self.n_tribute + var_41f9c5ff);
+			self set_tribute(self.n_tribute + var_41f9c5ff);
 			self.var_6b3806e8 = self.var_6b3806e8 + (var_41f9c5ff / level.var_8b7ab859);
 			self playsoundtoplayer(#"hash_51923ec42cdda138", self);
 		}
@@ -804,7 +804,7 @@ function function_53a333a8(var_ecffa2a8, var_41f9c5ff = undefined, var_893baaf =
 		}
 		else
 		{
-			function_71c9ab64(self.n_tribute + n_amount);
+			set_tribute(self.n_tribute + n_amount);
 			self.var_6b3806e8 = self.var_6b3806e8 + (n_amount / level.var_8b7ab859);
 			self playsoundtoplayer(#"hash_51923ec42cdda138", self);
 		}
@@ -1053,7 +1053,7 @@ function function_ae2c0ba5()
 	n_step = level.var_8b7ab859 / 4;
 	if(self.n_tribute >= (n_step * 4))
 	{
-		function_71c9ab64(level.var_8b7ab859);
+		set_tribute(level.var_8b7ab859);
 		self.var_9e09931e = 4;
 	}
 	else
@@ -1112,14 +1112,14 @@ function function_a8243f37()
 	level.var_30641602 = [];
 	level.var_30641602[level.var_30641602.size] = #"pistol_standard_t8";
 	level.var_30641602[level.var_30641602.size] = #"pistol_burst_t8";
-	if(zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e"))
+	if(zm_custom::function_901b751c(#"zmweaponssmg"))
 	{
 		level.var_30641602[level.var_30641602.size] = #"smg_drum_pistol_t8";
 	}
 	level.var_30641602 = array::randomize(level.var_30641602);
 	level.var_8e5c4768 = 0;
 	level.var_fc2d4a2 = [];
-	if(zm_custom::function_901b751c(#"hash_1d5c8e6f0e20201a"))
+	if(zm_custom::function_901b751c(#"zmweaponsar"))
 	{
 		level.var_fc2d4a2[level.var_fc2d4a2.size] = #"ar_galil_t8";
 	}
@@ -1127,21 +1127,21 @@ function function_a8243f37()
 	{
 		level.var_fc2d4a2[level.var_fc2d4a2.size] = #"shotgun_fullauto_t8";
 	}
-	if(zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e"))
+	if(zm_custom::function_901b751c(#"zmweaponssmg"))
 	{
 		level.var_fc2d4a2[level.var_fc2d4a2.size] = #"smg_folding_t8";
 	}
 	level.var_e3d39f70 = 0;
 	level.var_24b50714 = [];
-	if(zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e"))
+	if(zm_custom::function_901b751c(#"zmweaponssmg"))
 	{
 		level.var_24b50714[level.var_24b50714.size] = #"smg_fastburst_t8";
 	}
-	if(zm_custom::function_901b751c(#"hash_1d5c8e6f0e20201a"))
+	if(zm_custom::function_901b751c(#"zmweaponsar"))
 	{
 		level.var_24b50714[level.var_24b50714.size] = #"ar_standard_t8";
 	}
-	if(zm_custom::function_901b751c(#"hash_5bfd047c58816496"))
+	if(zm_custom::function_901b751c(#"zmweaponssniper"))
 	{
 		level.var_24b50714[level.var_24b50714.size] = #"sniper_powersemi_t8";
 	}
@@ -1782,13 +1782,13 @@ function function_e08e4c9c(str_bgb, var_8b84b3ce)
 	e_player = level function_c45635c7(var_4d0b3b87, 1, 1, 1);
 	if(isplayer(e_player))
 	{
-		e_player thread function_276ff65f(str_bgb);
+		e_player thread give_bgb(str_bgb);
 		e_player playsound(#"hash_1c696244a9a3dbbf");
 	}
 }
 
 /*
-	Name: function_276ff65f
+	Name: give_bgb
 	Namespace: namespace_f8f28e08
 	Checksum: 0xA9D36AEF
 	Offset: 0x49C0
@@ -1796,7 +1796,7 @@ function function_e08e4c9c(str_bgb, var_8b84b3ce)
 	Parameters: 1
 	Flags: Linked
 */
-function function_276ff65f(var_de21c97b)
+function give_bgb(var_de21c97b)
 {
 	if(isdefined(level.bgb[var_de21c97b].activation_func))
 	{

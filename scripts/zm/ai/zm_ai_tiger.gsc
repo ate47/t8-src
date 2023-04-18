@@ -246,8 +246,8 @@ function private function_4703be8a()
 	var_b4a11ac2 = getclosestpointonnavmesh(var_9b0fde6d, 128, self getpathfindingradius());
 	if(isdefined(var_b4a11ac2))
 	{
-		var_3af6337 = self findpath(self.origin, var_b4a11ac2, 1, 0);
-		if(var_3af6337)
+		path_success = self findpath(self.origin, var_b4a11ac2, 1, 0);
+		if(path_success)
 		{
 			self.var_826049b6 = var_b4a11ac2;
 			self.var_cc94acec = 1;

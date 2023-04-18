@@ -980,7 +980,7 @@ function remove_on_vehicle_damage(func, obj)
 }
 
 /*
-	Name: function_1475a073
+	Name: on_downed
 	Namespace: callback
 	Checksum: 0x454AC3AD
 	Offset: 0x1978
@@ -988,7 +988,7 @@ function remove_on_vehicle_damage(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_1475a073(func, obj)
+function on_downed(func, obj)
 {
 	add_callback(#"on_player_downed", func, obj);
 }
@@ -1330,7 +1330,7 @@ function function_27d9ab8(func, obj)
 }
 
 /*
-	Name: function_35a12f19
+	Name: on_trigger
 	Namespace: callback
 	Checksum: 0xAD8DDD2F
 	Offset: 0x2080
@@ -1338,9 +1338,9 @@ function function_27d9ab8(func, obj)
 	Parameters: 3
 	Flags: Linked, Variadic
 */
-function function_35a12f19(func, obj, vararg)
+function on_trigger(func, obj, vararg)
 {
-	function_d8abfc3d(#"hash_1bd0411eb5169b", func, obj, vararg);
+	function_d8abfc3d(#"on_trigger", func, obj, vararg);
 }
 
 /*
@@ -1354,7 +1354,7 @@ function function_35a12f19(func, obj, vararg)
 */
 function function_b74bf3e(func, obj)
 {
-	function_52ac9652(#"hash_1bd0411eb5169b", func, obj);
+	function_52ac9652(#"on_trigger", func, obj);
 }
 
 /*
@@ -1898,7 +1898,7 @@ event function_73e8e3f9(eventstruct)
 event function_323548ba(eventstruct)
 {
 	self endon(#"disconnect");
-	[[level.var_7509c7d8]](eventstruct.damage);
+	[[level.callbackplayershielddamageblocked]](eventstruct.damage);
 }
 
 /*
@@ -2314,7 +2314,7 @@ function menu_response_queue_pump()
 			if(isdefined(level.menuresponsequeue[0].ent))
 			{
 				level.menuresponsequeue[0].ent notify(#"menuresponse", level.menuresponsequeue[0].eventstruct);
-				level.menuresponsequeue[0].ent callback(#"hash_4e1a50a35ec44bcc", level.menuresponsequeue[0].eventstruct);
+				level.menuresponsequeue[0].ent callback(#"menu_response", level.menuresponsequeue[0].eventstruct);
 			}
 			arrayremoveindex(level.menuresponsequeue, 0, 0);
 			waitframe(1);
@@ -2621,7 +2621,7 @@ event function_6eb09118(eventstruct, look_trigger = 0)
 	if(look_trigger || !trigger::is_look_trigger())
 	{
 		self util::script_delay();
-		self callback(#"hash_1bd0411eb5169b", eventstruct);
+		self callback(#"on_trigger", eventstruct);
 		self callback(#"hash_46d459e3750a3345", eventstruct);
 		self function_3507ed1f("all");
 	}

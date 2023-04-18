@@ -50,11 +50,11 @@ function function_a7cdda99()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"hash_1e8ce5bc6963fb34", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"hash_2635890f53e8633d");
+		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"hash_1e8ce5bc6963fb34", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"zmperksetherealrazor");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"hash_55639ef5b1f0bbf8", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"hash_2635890f53e8633d");
+		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"hash_55639ef5b1f0bbf8", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"zmperksetherealrazor");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_etherealrazor", &function_ee114cab);
 	zm_perks::register_perk_clientfields(#"specialty_etherealrazor", &function_f20b4260, &function_f3043027);

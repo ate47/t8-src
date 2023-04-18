@@ -39,7 +39,7 @@ function __init__()
 	/#
 		level thread devgui_think();
 	#/
-	if(!sessionmodeismultiplayergame() || !function_f99d2668())
+	if(!sessionmodeismultiplayergame() || !sessionmodeiswarzonegame())
 	{
 		callback::on_joined_team(&on_joined_team);
 		callback::on_spawned(&on_player_spawned);
@@ -111,7 +111,7 @@ function __init__()
 		count_keys(keycounts, bundle, "killSpectre");
 	}
 	level.var_f53efe5c = keycounts;
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		level.var_f53efe5c = undefined;
 	}

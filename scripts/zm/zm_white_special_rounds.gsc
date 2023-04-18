@@ -532,37 +532,37 @@ function function_a5b37c69(str_identifier)
 {
 	switch(str_identifier)
 	{
-		case "hash_25be9190acbc94af":
+		case "green_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_green");
 			wait(0.1);
 			break;
 		}
-		case "hash_7a8b4e50820270d2":
+		case "yellow_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_yellow");
 			wait(0.1);
 			break;
 		}
-		case "hash_a673b6d22213365":
+		case "obrien_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_obrien");
 			wait(0.1);
 			break;
 		}
-		case "hash_472f084dd231c176":
+		case "reinsel_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_reinsel");
 			wait(0.1);
 			break;
 		}
-		case "hash_488591c68794105c":
+		case "hammond_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_hammond");
 			wait(0.1);
 			break;
 		}
-		case "hash_43a1e2c04be12ea6":
+		case "hoggatt_house":
 		{
 			exploder::exploder("fxexp_toxic_gas_house_hoggatt");
 			wait(0.1);
@@ -587,32 +587,32 @@ function function_3be5a506(str_identifier)
 	clientfield::set("portal_map_gas_indicator_" + str_identifier, 0);
 	switch(str_identifier)
 	{
-		case "hash_25be9190acbc94af":
+		case "green_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_green");
 			break;
 		}
-		case "hash_7a8b4e50820270d2":
+		case "yellow_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_yellow");
 			break;
 		}
-		case "hash_a673b6d22213365":
+		case "obrien_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_obrien");
 			break;
 		}
-		case "hash_472f084dd231c176":
+		case "reinsel_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_reinsel");
 			break;
 		}
-		case "hash_488591c68794105c":
+		case "hammond_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_hammond");
 			break;
 		}
-		case "hash_43a1e2c04be12ea6":
+		case "hoggatt_house":
 		{
 			exploder::stop_exploder("fxexp_toxic_gas_house_hoggatt");
 			break;
@@ -840,32 +840,32 @@ function function_b822e13(str_identifier)
 {
 	switch(str_identifier)
 	{
-		case "hash_7a8b4e50820270d2":
+		case "yellow_house":
 		{
 			return "Yellow House";
 			break;
 		}
-		case "hash_25be9190acbc94af":
+		case "green_house":
 		{
 			return "Green House";
 			break;
 		}
-		case "hash_43a1e2c04be12ea6":
+		case "hoggatt_house":
 		{
 			return "Transfusion Facility";
 			break;
 		}
-		case "hash_488591c68794105c":
+		case "hammond_house":
 		{
 			return "Prisoner Holding";
 			break;
 		}
-		case "hash_472f084dd231c176":
+		case "reinsel_house":
 		{
 			return "APD Interrogation";
 			break;
 		}
-		case "hash_a673b6d22213365":
+		case "obrien_house":
 		{
 			return "Broken Arrow Operations";
 			break;
@@ -3084,7 +3084,7 @@ function function_45bb11e4(spot)
 	}
 	else
 	{
-		if(isdefined(self.has_legs) && !self.has_legs || (isdefined(self.var_eb91c296) && self.var_eb91c296))
+		if(isdefined(self.has_legs) && !self.has_legs || (isdefined(self.missing_legs) && self.missing_legs))
 		{
 			if(isinarray(scene::get_all_shot_names(spot.scriptbundlename), "crawler"))
 			{

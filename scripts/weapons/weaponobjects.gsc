@@ -166,20 +166,20 @@ function on_player_spawned()
 */
 function function_e6400478(name, func, var_8411d55d)
 {
-	if(!isdefined(level.var_e1b654ee))
+	if(!isdefined(level.watcherregisters))
 	{
-		level.var_e1b654ee = [];
+		level.watcherregisters = [];
 	}
 	if(isdefined(name))
 	{
-		struct = level.var_e1b654ee[name];
+		struct = level.watcherregisters[name];
 		if(isdefined(struct))
 		{
 			if(isdefined(var_8411d55d) && var_8411d55d != 2)
 			{
 				struct.func = func;
 				struct.var_8411d55d = var_8411d55d;
-				level.var_e1b654ee[name] = struct;
+				level.watcherregisters[name] = struct;
 			}
 		}
 		else
@@ -187,7 +187,7 @@ function function_e6400478(name, func, var_8411d55d)
 			struct = spawnstruct();
 			struct.func = func;
 			struct.type = var_8411d55d;
-			level.var_e1b654ee[name] = struct;
+			level.watcherregisters[name] = struct;
 		}
 	}
 }
@@ -203,7 +203,7 @@ function function_e6400478(name, func, var_8411d55d)
 */
 function function_dcc8b5d5(name, var_80e51919, var_7bd83b52)
 {
-	struct = level.var_e1b654ee[name];
+	struct = level.watcherregisters[name];
 	if(!isdefined(struct))
 	{
 		return;
@@ -246,9 +246,9 @@ event loadout_changed(eventstruct)
 */
 function private snipinterfaceattributes(weapon)
 {
-	if(isdefined(level.var_e1b654ee))
+	if(isdefined(level.watcherregisters))
 	{
-		struct = level.var_e1b654ee[weapon.name];
+		struct = level.watcherregisters[weapon.name];
 		if(isdefined(struct))
 		{
 			self function_9d7ae85f(weapon.name, struct.func, struct.type);
@@ -3127,7 +3127,7 @@ function private function_c9fc5521(player, weapon)
 }
 
 /*
-	Name: function_3847e88b
+	Name: get_ammo
 	Namespace: weaponobjects
 	Checksum: 0xF8113D71
 	Offset: 0x7358
@@ -3135,7 +3135,7 @@ function private function_c9fc5521(player, weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_3847e88b(player, weapon)
+function private get_ammo(player, weapon)
 {
 	ammo = player getweaponammoclip(weapon);
 	if(!weapon.iscliponly)
@@ -3161,7 +3161,7 @@ function private function_e0093db1(player, weapon)
 	{
 		return false;
 	}
-	ammo = function_3847e88b(player, weapon);
+	ammo = get_ammo(player, weapon);
 	if(ammo >= maxammo)
 	{
 		return false;
@@ -3611,7 +3611,7 @@ function destroyent()
 }
 
 /*
-	Name: function_452dcb49
+	Name: add_ammo
 	Namespace: weaponobjects
 	Checksum: 0x58102D1C
 	Offset: 0x8368
@@ -3619,7 +3619,7 @@ function destroyent()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_452dcb49(player, weapon)
+function private add_ammo(player, weapon)
 {
 	if(weapon.iscliponly || weapon.var_d98594b2 == "Clip Then Ammo")
 	{
@@ -3655,7 +3655,7 @@ function function_a6616b9c(player, heldweapon)
 	{
 		return;
 	}
-	var_e8c9ea25 = self.weapon;
+	pickedweapon = self.weapon;
 	if(self.weapon.ammocountequipment > 0 && isdefined(self.ammo))
 	{
 		ammoleftequipment = self.ammo;
@@ -3668,7 +3668,7 @@ function function_a6616b9c(player, heldweapon)
 	}
 	if(isdefined(ammoleftequipment))
 	{
-		if(var_e8c9ea25.rootweapon == getweapon(#"trophy_system"))
+		if(pickedweapon.rootweapon == getweapon(#"trophy_system"))
 		{
 			player trophy_system::ammo_weapon_pickup(ammoleftequipment);
 		}
@@ -3683,7 +3683,7 @@ function function_a6616b9c(player, heldweapon)
 	{
 		return;
 	}
-	function_452dcb49(player, heldweapon);
+	add_ammo(player, heldweapon);
 }
 
 /*
@@ -3706,17 +3706,17 @@ function function_d9219ce2(player, weapon)
 			clipsize = player function_b7f1fd2c(weapon);
 			if(clipsize && weapon.var_ce34bb7e)
 			{
-				var_34d6b5e3 = weapon.var_7d70a9f / clipsize;
+				powergain = weapon.var_7d70a9f / clipsize;
 			}
 			else
 			{
-				var_34d6b5e3 = weapon.var_7d70a9f;
+				powergain = weapon.var_7d70a9f;
 			}
-			player gadgetpowerchange(slot, var_34d6b5e3);
+			player gadgetpowerchange(slot, powergain);
 			return;
 		}
 	}
-	function_452dcb49(player, weapon);
+	add_ammo(player, weapon);
 }
 
 /*

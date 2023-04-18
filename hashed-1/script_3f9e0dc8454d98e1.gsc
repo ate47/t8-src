@@ -1108,7 +1108,7 @@ function getnodeoffset(node)
 	switch(node.type)
 	{
 		case "hash_4767a02d3b3b87cc":
-		case "hash_63cbb4767da2a801":
+		case "cover left":
 		{
 			if(node isnodedontstand() && !node isnodedontcrouch())
 			{
@@ -1120,7 +1120,7 @@ function getnodeoffset(node)
 			}
 			break;
 		}
-		case "hash_2a7b1ca393696762":
+		case "cover right":
 		case "hash_3aeea178f890eb31":
 		{
 			if(node isnodedontstand() && !node isnodedontcrouch())
@@ -1135,14 +1135,14 @@ function getnodeoffset(node)
 		}
 		case "hash_1bb444d857814e92":
 		case "turret":
-		case "hash_581529fff05853f0":
+		case "cover stand":
 		{
 			nodeoffset = calculatenodeoffset(right, forward, cover_stand_offset);
 			break;
 		}
 		case "hash_171465527444ed14":
 		case "hash_280d1247a6abdbae":
-		case "hash_6d8019ab9d39bf96":
+		case "cover crouch":
 		{
 			nodeoffset = calculatenodeoffset(right, forward, cover_crouch_offset);
 			break;
@@ -1180,7 +1180,7 @@ function checkpitchvisibility(frompoint, topoint, atnode)
 	pitch = angleclamp180(vectortoangles(topoint - frompoint)[0]);
 	if(abs(pitch) > 45)
 	{
-		if(isdefined(atnode) && atnode.type != #"hash_6d8019ab9d39bf96" && atnode.type != #"hash_171465527444ed14")
+		if(isdefined(atnode) && atnode.type != #"cover crouch" && atnode.type != #"hash_171465527444ed14")
 		{
 			return false;
 		}
@@ -2669,11 +2669,11 @@ function round_spawn_failsafe()
 	Parameters: 2
 	Flags: Linked
 */
-function ai_calculate_health(var_88f4c6ec, round_number)
+function ai_calculate_health(base_health, round_number)
 {
 	if(isdefined(level.var_5d1805c4))
 	{
-		var_d082c739 = [[level.var_5d1805c4]](var_88f4c6ec, round_number);
+		var_d082c739 = [[level.var_5d1805c4]](base_health, round_number);
 		if(var_d082c739 >= 0)
 		{
 			return var_d082c739;
@@ -2683,7 +2683,7 @@ function ai_calculate_health(var_88f4c6ec, round_number)
 	{
 		round_number = 35;
 	}
-	var_d082c739 = var_88f4c6ec;
+	var_d082c739 = base_health;
 	for(i = 2; i <= round_number; i++)
 	{
 		if(i >= 10 && (!(isdefined(level.var_50dd0ec5) && level.var_50dd0ec5)))
@@ -3997,7 +3997,7 @@ function zombie_head_gib(attacker, means_of_death)
 }
 
 /*
-	Name: function_3ab2b4eb
+	Name: gib_random_part
 	Namespace: zombie_utility
 	Checksum: 0xCFAB0765
 	Offset: 0x7A80
@@ -4005,7 +4005,7 @@ function zombie_head_gib(attacker, means_of_death)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3ab2b4eb()
+function gib_random_part()
 {
 	if(isdefined(self.no_gib) && self.no_gib)
 	{

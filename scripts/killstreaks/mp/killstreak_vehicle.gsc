@@ -21,11 +21,11 @@
 #using scripts\core_common\visionset_mgr_shared.gsc;
 #using scripts\mp_common\gametypes\battlechatter.gsc;
 
-#namespace namespace_231aa29a;
+#namespace killstreak_vehicle;
 
 /*
 	Name: init
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x4E2C5766
 	Offset: 0x228
 	Size: 0x34
@@ -38,17 +38,17 @@ function init()
 }
 
 /*
-	Name: function_155de655
-	Namespace: namespace_231aa29a
+	Name: init_killstreak
+	Namespace: killstreak_vehicle
 	Checksum: 0x713F3AC5
 	Offset: 0x268
 	Size: 0x14C
 	Parameters: 1
 	Flags: None
 */
-function function_155de655(bundle)
+function init_killstreak(bundle)
 {
-	killstreaks::register_bundle(bundle, &function_79942f1f);
+	killstreaks::register_bundle(bundle, &activate_vehicle);
 	killstreaks::allow_assists(bundle.var_d3413870, 1);
 	remote_weapons::registerremoteweapon(bundle.var_1ab696c6.name, #"", &function_c9aa9ee5, &function_8cb72281, 0);
 	vehicle::add_main_callback(bundle.ksvehicle, &init_vehicle);
@@ -62,7 +62,7 @@ function function_155de655(bundle)
 
 /*
 	Name: init_vehicle
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xAC9E3204
 	Offset: 0x3C0
 	Size: 0x11C
@@ -88,7 +88,7 @@ function init_vehicle()
 
 /*
 	Name: function_3c6cec8b
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x4C73E9F7
 	Offset: 0x4E8
 	Size: 0xDA
@@ -119,7 +119,7 @@ function function_3c6cec8b()
 
 /*
 	Name: function_aba709c3
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x6C52B285
 	Offset: 0x5D0
 	Size: 0xA4
@@ -138,7 +138,7 @@ function function_aba709c3(hacker)
 
 /*
 	Name: function_2df6e3bf
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xF973AB09
 	Offset: 0x680
 	Size: 0xC4
@@ -158,7 +158,7 @@ function function_2df6e3bf(hacker)
 
 /*
 	Name: function_fff56140
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x27B2A1B0
 	Offset: 0x750
 	Size: 0x4C
@@ -173,7 +173,7 @@ function function_fff56140(owner)
 
 /*
 	Name: function_5e2ea3ef
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x57398E73
 	Offset: 0x7A8
 	Size: 0x2C
@@ -187,7 +187,7 @@ function function_5e2ea3ef(owner, ishacked)
 
 /*
 	Name: function_c9ef365d
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x7356C107
 	Offset: 0x7E0
 	Size: 0x7E
@@ -220,15 +220,15 @@ function function_c9ef365d(placement)
 }
 
 /*
-	Name: function_79942f1f
-	Namespace: namespace_231aa29a
+	Name: activate_vehicle
+	Namespace: killstreak_vehicle
 	Checksum: 0x4373F091
 	Offset: 0x868
 	Size: 0x508
 	Parameters: 1
 	Flags: Linked
 */
-function function_79942f1f(type)
+function activate_vehicle(type)
 {
 	/#
 		assert(isplayer(self));
@@ -300,7 +300,7 @@ function function_79942f1f(type)
 
 /*
 	Name: function_f07460c5
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x717BCEA3
 	Offset: 0xD78
 	Size: 0x4E
@@ -318,7 +318,7 @@ function function_f07460c5(hacker)
 
 /*
 	Name: function_c9aa9ee5
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x119C2BC7
 	Offset: 0xDD0
 	Size: 0x1D4
@@ -351,7 +351,7 @@ function function_c9aa9ee5(vehicle)
 
 /*
 	Name: function_88d23aaa
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x48BD3598
 	Offset: 0xFB0
 	Size: 0x6A
@@ -368,7 +368,7 @@ function function_88d23aaa(vehicle)
 
 /*
 	Name: function_8cb72281
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x56662E66
 	Offset: 0x1028
 	Size: 0xE4
@@ -392,7 +392,7 @@ function function_8cb72281(vehicle, exitrequestedbyowner)
 
 /*
 	Name: function_2cee4434
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x63B0AE37
 	Offset: 0x1118
 	Size: 0xD4
@@ -416,7 +416,7 @@ function function_2cee4434()
 
 /*
 	Name: function_2ff466f
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xD91199A3
 	Offset: 0x11F8
 	Size: 0xBA
@@ -446,7 +446,7 @@ function function_2ff466f()
 
 /*
 	Name: function_e99d09a3
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x8D855933
 	Offset: 0x12C0
 	Size: 0xD4
@@ -468,7 +468,7 @@ function function_e99d09a3()
 
 /*
 	Name: function_73cb1549
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x59187379
 	Offset: 0x13A0
 	Size: 0xA4
@@ -491,7 +491,7 @@ function function_73cb1549()
 
 /*
 	Name: watch_timeout
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xFC7558A
 	Offset: 0x1450
 	Size: 0x6C
@@ -507,7 +507,7 @@ function watch_timeout()
 
 /*
 	Name: function_822e1f64
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xB3D36362
 	Offset: 0x14C8
 	Size: 0x34
@@ -523,7 +523,7 @@ function function_822e1f64()
 
 /*
 	Name: function_1f46c433
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xCCD21CF4
 	Offset: 0x1508
 	Size: 0x28
@@ -538,7 +538,7 @@ function function_1f46c433()
 
 /*
 	Name: function_68a07849
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x5C5D4653
 	Offset: 0x1538
 	Size: 0x4C
@@ -556,7 +556,7 @@ function function_68a07849(bundle, driver)
 
 /*
 	Name: watch_shutdown
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xBC51023E
 	Offset: 0x1590
 	Size: 0x144
@@ -586,7 +586,7 @@ function watch_shutdown(driver)
 
 /*
 	Name: function_584fb7a3
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xC75BE474
 	Offset: 0x16E0
 	Size: 0xFC
@@ -607,7 +607,7 @@ function function_584fb7a3()
 
 /*
 	Name: function_22528515
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x5C1F7D16
 	Offset: 0x17E8
 	Size: 0xD0
@@ -632,7 +632,7 @@ function function_22528515()
 
 /*
 	Name: on_damage
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x99BA9500
 	Offset: 0x18C0
 	Size: 0x19C
@@ -664,7 +664,7 @@ function on_damage(einflictor, eattacker, idamage, idflags, smeansofdeath, weapo
 
 /*
 	Name: on_death
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x5C33C65B
 	Offset: 0x1A68
 	Size: 0x29C
@@ -711,7 +711,7 @@ function on_death(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, s
 
 /*
 	Name: watch_game_ended
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x53F4575A
 	Offset: 0x1D10
 	Size: 0x64
@@ -729,7 +729,7 @@ function watch_game_ended()
 
 /*
 	Name: function_de865657
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xB3902931
 	Offset: 0x1D80
 	Size: 0x4A
@@ -746,7 +746,7 @@ function function_de865657(waittime)
 
 /*
 	Name: vehicle_death
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xDEED9F44
 	Offset: 0x1DD8
 	Size: 0xBC
@@ -766,7 +766,7 @@ function vehicle_death()
 
 /*
 	Name: explode
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xBD9EA4F7
 	Offset: 0x1EA0
 	Size: 0x310
@@ -792,7 +792,7 @@ function explode(attacker, weapon)
 		{
 			if(isdefined(bundle))
 			{
-				attacker challenges::function_1d2c16bb(weapon, self, bundle.var_ebc402ca);
+				attacker challenges::destroy_killstreak_vehicle(weapon, self, bundle.var_ebc402ca);
 			}
 			var_d3213f00 = 1;
 			if(isdefined(bundle))
@@ -822,7 +822,7 @@ function explode(attacker, weapon)
 
 /*
 	Name: function_e9da8b7d
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xBF165E65
 	Offset: 0x21B8
 	Size: 0x70
@@ -844,7 +844,7 @@ function function_e9da8b7d(einflictor, eattacker, smeansofdeath, weapon)
 
 /*
 	Name: function_e94c2667
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x7BC32050
 	Offset: 0x2230
 	Size: 0x76
@@ -872,7 +872,7 @@ function function_e94c2667()
 
 /*
 	Name: function_d75fbe15
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x8CB7E069
 	Offset: 0x22B0
 	Size: 0x4A0
@@ -955,7 +955,7 @@ function function_d75fbe15(origin, angles)
 
 /*
 	Name: function_c82e14d2
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x3E35AF1E
 	Offset: 0x2758
 	Size: 0x1EC
@@ -991,7 +991,7 @@ function function_c82e14d2(origin, angles, heightoffset)
 
 /*
 	Name: function_b4682bd6
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xD6BA4EEC
 	Offset: 0x2950
 	Size: 0x208

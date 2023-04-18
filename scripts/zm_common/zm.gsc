@@ -160,7 +160,7 @@ function autoexec ignore_systems()
 	system::ignore(#"amws");
 	system::ignore(#"gadget_health_regen");
 	system::ignore(#"influencers_shared");
-	system::ignore(#"hash_2ce2e438ecd6b2d2");
+	system::ignore(#"mute_smoke");
 }
 
 /*
@@ -1037,7 +1037,7 @@ function function_1442d44f()
 	zombie_utility::set_zombie_var(#"hash_376905ad360fc2e8", var_c6ceb446[#"zomcatalyststartsolo"], 0);
 	zombie_utility::set_zombie_var(#"hash_3b4ad7449c039d1b", var_c6ceb446[#"zomstokerstart"], 0);
 	zombie_utility::set_zombie_var(#"hash_2374f3ef775ac2c3", var_c6ceb446[#"zomstokerstartsolo"], 0);
-	level flagsys::set(#"hash_55d385069aec3065");
+	level flagsys::set(#"zombie_vars_init");
 }
 
 /*
@@ -2219,7 +2219,7 @@ function end_game()
 	}
 	zm_stats::update_players_stats_at_match_end(players);
 	zm_stats::update_global_counters_on_match_end();
-	zm_stats::function_42677837("gameLength", var_7da9f0c);
+	zm_stats::set_match_stat("gameLength", var_7da9f0c);
 	foreach(player in getplayers())
 	{
 		player zm_stats::function_9daadcaa("gameLength", var_7da9f0c);

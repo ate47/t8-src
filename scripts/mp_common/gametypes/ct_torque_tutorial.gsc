@@ -11,7 +11,7 @@
 #using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -211,7 +211,7 @@ function function_c9ff0dce()
 	self thread ct_utils::player_reset();
 	if(!isbot(self))
 	{
-		self.overrideplayerdamage = &function_36885db0;
+		self.overrideplayerdamage = &overridedamage_player;
 		if(isdefined(level.var_8ca3c62))
 		{
 			if(level.var_8ca3c62 === 1)
@@ -462,7 +462,7 @@ function function_2823bfa7()
 	level notify(#"hash_4c9c5fbc89779e64");
 	waitframe(1);
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag", 30, 15);
-	self ct_utils::function_1a3c644e("s_torque_tut_1_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_1_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	do
 	{
@@ -559,7 +559,7 @@ function function_3068d031()
 	self ct_vo::function_831e0584(array("vox_tvoi_tutor_torq_two_razor_wire_1"));
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag");
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0");
-	self ct_utils::function_1a3c644e("s_torque_tut_2_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_2_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	do
 	{
@@ -771,7 +771,7 @@ function function_b2770e99()
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag", 30, 15);
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0");
 	self thread ct_vo::function_831e0584(array("vox_tvoi_tutor_torq_razor_wire_window_1"));
-	self ct_utils::function_1a3c644e("s_torque_tut_3_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_3_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	level notify(#"colbounds_tut_3_on");
 	self ct_vo::function_3ca1b77d(1);
@@ -852,7 +852,7 @@ function function_4aa64c88()
 	level.var_e72728b8 = array(#"ability_smart_cover", #"eq_concertina_wire");
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag", 30, 15);
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0", array("vox_tvoi_tutor_torq_smrt_cvr_0", "vox_tvoi_tutor_torq_smrt_cvr_1"));
-	self ct_utils::function_1a3c644e("s_torque_tut_4_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_4_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	level notify(#"hash_777ed15e2c354712");
 	level notify(#"colbounds_tut_windows_block_on");
@@ -953,7 +953,7 @@ function function_f29fcec6(s_loc)
 	if(isdefined(s_dest.script_stance))
 	{
 		self waittill(#"goal");
-		self namespace_9c817acd::crouch();
+		self bot_stance::crouch();
 	}
 }
 
@@ -1021,7 +1021,7 @@ function function_d27e566()
 	self setlowready(1);
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0", array("vox_tvoi_tutor_torq_rad_field_3"));
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag");
-	self ct_utils::function_1a3c644e("s_torque_tut_5_goto", undefined, 48);
+	self ct_utils::tutorial_goto("s_torque_tut_5_goto", undefined, 48);
 	level notify(#"hash_60e26e14a51c5211");
 	level notify(#"colbounds_tut_4_5_doorway_on");
 	waitframe(1);
@@ -1253,7 +1253,7 @@ function function_5d93aa8a()
 	self thread ct_vo::function_831e0584(array("vox_tvoi_tutor_torq_enemy_razor_success"));
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag");
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0");
-	self ct_utils::function_1a3c644e("s_torque_tut_6_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_6_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	self ct_vo::function_3ca1b77d(1);
 	do
@@ -1540,7 +1540,7 @@ function function_fac42259()
 	self thread function_222141a5();
 	self thread ct_vo::function_261ed63c("vox_tvoi_tutor_torq_slide_2_nag");
 	self thread ct_utils::function_61c3d59c(#"hash_15262616ac3924f0");
-	self ct_utils::function_1a3c644e("s_torque_tut_fin1_goto");
+	self ct_utils::tutorial_goto("s_torque_tut_fin1_goto");
 	level notify(#"hash_60e26e14a51c5211");
 	level notify(#"colbounds_tut_4_5_doorway_on");
 	self ct_vo::function_3ca1b77d(1);
@@ -1560,7 +1560,7 @@ function function_fac42259()
 	self ct_utils::function_61c3d59c(#"hash_69bea6d7bb16646a");
 	self ct_vo::function_3ca1b77d(1);
 	self ct_vo::function_831e0584(array("vox_tvoi_tutor_torq_final_event_1_arrive"));
-	self function_56f5031f();
+	self fin1_enemies_spawn();
 	level.var_e3b5a41e = 1;
 }
 
@@ -1724,11 +1724,11 @@ function function_4740cfb1(s_loc)
 	{
 		if(randomint(100) > 50)
 		{
-			self namespace_9c817acd::crouch();
+			self bot_stance::crouch();
 		}
 		else
 		{
-			self namespace_9c817acd::stand();
+			self bot_stance::stand();
 		}
 		wait(randomintrange(2, 4));
 	}
@@ -1832,7 +1832,7 @@ function function_1633d58c()
 }
 
 /*
-	Name: function_56f5031f
+	Name: fin1_enemies_spawn
 	Namespace: ct_torque_tutorial
 	Checksum: 0xFAC34B23
 	Offset: 0x7A40
@@ -1840,7 +1840,7 @@ function function_1633d58c()
 	Parameters: 0
 	Flags: None
 */
-function function_56f5031f()
+function fin1_enemies_spawn()
 {
 	level endoncallback(&function_fd2b7387, #"combattraining_logic_finished");
 	self endoncallback(&function_fd2b7387, #"death");
@@ -2157,13 +2157,13 @@ function function_e32e98c9(s_loc)
 		var_c481f7e6 = randomfloatrange(0, 100);
 		if(isdefined(s_loc.script_noteworthy) && s_loc.script_noteworthy == #"crouch" || var_c481f7e6 < 50)
 		{
-			self namespace_9c817acd::crouch();
+			self bot_stance::crouch();
 		}
 		n_wait = randomfloatrange(2, 4);
 		wait(n_wait);
 		if(randomint(100) > 50)
 		{
-			self namespace_9c817acd::stand();
+			self bot_stance::stand();
 		}
 	}
 }
@@ -2969,11 +2969,11 @@ function _enemy_razorwire_flounder(e_inflictor)
 				s_flounder = struct::get(s_flounder.target, "targetname");
 				if(randomfloat(100) > 50)
 				{
-					self namespace_9c817acd::crouch();
+					self bot_stance::crouch();
 				}
 				else
 				{
-					self namespace_9c817acd::stand();
+					self bot_stance::stand();
 				}
 				self setgoal(s_flounder.origin, 1, 1);
 				self ct_bots::function_911f9e8f(e_player, 0.85);
@@ -3661,7 +3661,7 @@ function function_a9832377(_hash)
 }
 
 /*
-	Name: function_36885db0
+	Name: overridedamage_player
 	Namespace: ct_torque_tutorial
 	Checksum: 0xB42BD121
 	Offset: 0xD488
@@ -3669,7 +3669,7 @@ function function_a9832377(_hash)
 	Parameters: 11
 	Flags: None
 */
-function function_36885db0(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
+function overridedamage_player(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
 {
 	return int(n_damage / 5);
 }

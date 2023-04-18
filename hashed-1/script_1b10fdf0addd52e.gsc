@@ -1238,18 +1238,18 @@ function private setup_status()
 		foreach(id, transformation in level.var_b175714d)
 		{
 			y = y + 10;
-			var_f225e659 = colors[i % colors.size];
+			current_color = colors[i % colors.size];
 			id_elem = create_hudelem(y);
 			id_elem settext(function_9e72a96(id));
-			id_elem.color = var_f225e659;
+			id_elem.color = current_color;
 			id_elem.fontscale = 1.2;
 			var_83db7237 = create_hudelem(y, 160);
 			var_83db7237 settext(0);
-			var_83db7237.color = var_f225e659;
+			var_83db7237.color = current_color;
 			var_83db7237.fontscale = 1.2;
 			var_82f71158 = create_hudelem(y, 220);
 			var_82f71158 settext(0);
-			var_82f71158.color = var_f225e659;
+			var_82f71158.color = current_color;
 			var_82f71158.fontscale = 1.2;
 			if(!isdefined(level.var_deb567a8))
 			{
@@ -1259,7 +1259,7 @@ function private setup_status()
 			{
 				level.var_deb567a8 = array(level.var_deb567a8);
 			}
-			level.var_deb567a8[level.var_deb567a8.size] = {#color:var_f225e659, #id:id, #hash_b99573ec:var_82f71158, #hash_d189697d:var_83db7237, #title:id_elem};
+			level.var_deb567a8[level.var_deb567a8.size] = {#color:current_color, #id:id, #hash_b99573ec:var_82f71158, #hash_d189697d:var_83db7237, #title:id_elem};
 			i++;
 		}
 	#/
@@ -1383,9 +1383,9 @@ function private function_dfd1a1c0()
 			var_b010a959 = 100;
 			debug2dtext((var_c2624dfc, var_b010a959, 0), "", (1, 1, 0), 1, (0, 0, 0), 0.8, 1);
 			var_b010a959 = var_b010a959 + 25;
-			foreach(var_e2af3c2d in level.var_50f7dbd5)
+			foreach(pauser in level.var_50f7dbd5)
 			{
-				debug2dtext((var_c2624dfc, var_b010a959, 0), function_9e72a96(var_e2af3c2d), (1, 1, 1), 1, (0, 0, 0), 0.8, 1);
+				debug2dtext((var_c2624dfc, var_b010a959, 0), function_9e72a96(pauser), (1, 1, 1), 1, (0, 0, 0), 0.8, 1);
 				var_b010a959 = var_b010a959 + 25;
 			}
 			waitframe(1);

@@ -113,13 +113,13 @@ function private devgui()
 				case "hash_75c01ef1f8005214":
 				{
 					iprintln("");
-					level flag::set(#"hash_6dcc421d5fbf8d22");
+					level flag::set(#"soul_fill");
 					break;
 				}
 				case "hash_7db70cb23b9d2739":
 				{
 					iprintln("");
-					level flag::clear(#"hash_6dcc421d5fbf8d22");
+					level flag::clear(#"soul_fill");
 					break;
 				}
 				case "hash_58843c67593e2cfe":
@@ -210,7 +210,7 @@ function private devgui()
 					zm_devgui::zombie_devgui_open_sesame();
 					namespace_99a6629b::function_80a9077f();
 					zm_orange_zones::function_3b77181c(1);
-					level thread zm_sq::function_f2dd8601(#"hash_5e9262eb6796af0a", 1);
+					level thread zm_sq::function_f2dd8601(#"pap_rock", 1);
 					break;
 				}
 				case "hash_2918cc0fd8ab72cd":

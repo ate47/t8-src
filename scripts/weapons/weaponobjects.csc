@@ -18,7 +18,7 @@
 	Parameters: 2
 	Flags: Linked
 */
-function init_shared(var_e6fe7a6f, var_4885f19e)
+function init_shared(friendly_rob, var_4885f19e)
 {
 	callback::on_localplayer_spawned(&on_localplayer_spawned);
 	clientfield::register("toplayer", "proximity_alarm", 1, 3, "int", &proximity_alarm_changed, 0, 1);
@@ -33,7 +33,7 @@ function init_shared(var_e6fe7a6f, var_4885f19e)
 	level._effect[#"powerlight"] = #"weapon/fx8_equip_light_os";
 	if(getgametypesetting(#"hash_48670d9509071424"))
 	{
-		level.var_58253868 = var_e6fe7a6f;
+		level.var_58253868 = friendly_rob;
 	}
 	level.var_420d7d7e = var_4885f19e;
 	level.var_4de4699b = #"rob_sonar_set_enemy";
@@ -281,7 +281,7 @@ function function_232f3acf(local_client_num, bundle)
 	{
 		return false;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(function_5778f82(local_client_num, #"specialty_showenemyequipment") && (isdefined(self.var_f19b4afd) && self.var_f19b4afd))
 		{

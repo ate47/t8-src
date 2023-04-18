@@ -279,8 +279,8 @@ function function_452a76a8(elephant)
 	elephant endon(#"death");
 	while(isdefined(1))
 	{
-		var_f9086199 = elephant animmappingsearch(#"hash_45e1ac151f9ea53c");
-		elephant animation::play(var_f9086199, elephant.origin, elephant.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
+		deathloop = elephant animmappingsearch(#"hash_45e1ac151f9ea53c");
+		elephant animation::play(deathloop, elephant.origin, elephant.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
 	}
 }
 
@@ -345,19 +345,19 @@ function elephantstartdeath(elephant)
 	level thread function_106b6b29();
 	if(var_55ec4bbf)
 	{
-		var_88b1c7ca = spawnvehicle(#"hash_2db015dc967ccf56", origin, angles, "soul_ball_ai");
-		if(isdefined(var_88b1c7ca))
+		soulball = spawnvehicle(#"hash_2db015dc967ccf56", origin, angles, "soul_ball_ai");
+		if(isdefined(soulball))
 		{
-			var_88b1c7ca.var_6353e3f1 = 1;
-			var_88b1c7ca.b_ignore_cleanup = 1;
-			var_88b1c7ca.ignore_nuke = 1;
-			var_88b1c7ca.lightning_chain_immune = 1;
-			var_88b1c7ca.var_dd6fe31f = 1;
+			soulball.var_6353e3f1 = 1;
+			soulball.b_ignore_cleanup = 1;
+			soulball.ignore_nuke = 1;
+			soulball.lightning_chain_immune = 1;
+			soulball.var_dd6fe31f = 1;
 			var_1801a239 = struct::get("soul_exit", "targetname");
 			pos = getclosestpointonnavmesh(var_1801a239.origin, 500, 30);
 			wait(1);
-			var_88b1c7ca vehicle_ai::set_state("soul");
-			var_88b1c7ca.ai.var_a38db64f = pos;
+			soulball vehicle_ai::set_state("soul");
+			soulball.ai.var_a38db64f = pos;
 		}
 	}
 }
@@ -456,12 +456,12 @@ function function_4b28fc8c(entity)
 	{
 		landpos = entity.favoriteenemy.origin;
 	}
-	var_f5022ab9 = spawn("script_model", launchpos);
-	var_f5022ab9 setmodel("tag_origin");
+	headproj = spawn("script_model", launchpos);
+	headproj setmodel("tag_origin");
 	vectorfromenemy = vectornormalize(entity.origin - landpos);
 	vectorfromenemy = vectorscale(vectorfromenemy, 250);
 	targetpos = (landpos + vectorfromenemy) + vectorscale((0, 0, 1), 200);
-	var_f5022ab9 clientfield::set("towers_boss_head_proj_fx_cf", 1);
+	headproj clientfield::set("towers_boss_head_proj_fx_cf", 1);
 	trajectory = [];
 	dirtotarget = targetpos - launchpos;
 	var_f1c85329 = vectorscale((0, 0, 1), 30);
@@ -476,14 +476,14 @@ function function_4b28fc8c(entity)
 	var_10b732dc = 0.3;
 	foreach(point in trajectory)
 	{
-		var_f5022ab9 moveto(point, var_10b732dc);
-		var_f5022ab9 waittill(#"movedone");
+		headproj moveto(point, var_10b732dc);
+		headproj waittill(#"movedone");
 	}
 	self playsound(#"hash_62894125ab280b62");
 	self notify(#"hash_79e095919e415a70");
 	if(isdefined(entity.ai.var_502d9d0d))
 	{
-		[[entity.ai.var_502d9d0d]](entity, var_f5022ab9);
+		[[entity.ai.var_502d9d0d]](entity, headproj);
 	}
 }
 
@@ -686,9 +686,9 @@ function function_48f6761d(elephant, waittime = 0)
 	{
 		elephant detach(#"c_t8_zmb_dlc0_elephant_chain3_evil", "tag_origin");
 	}
-	if(elephant isattached(#"hash_ffe4c9fe62b4c26", "tag_origin"))
+	if(elephant isattached(#"c_t8_zmb_dlc0_elephant_chain4_evil", "tag_origin"))
 	{
-		elephant detach(#"hash_ffe4c9fe62b4c26", "tag_origin");
+		elephant detach(#"c_t8_zmb_dlc0_elephant_chain4_evil", "tag_origin");
 	}
 	if(elephant isattached(#"c_t8_zmb_dlc0_elephant_chain5_evil", "tag_origin"))
 	{
@@ -739,7 +739,7 @@ function private function_423390f2()
 		self attach(#"c_t8_zmb_dlc0_elephant_chain1_evil", "tag_origin");
 		self attach(#"c_t8_zmb_dlc0_elephant_chain2_evil", "tag_origin");
 		self attach(#"c_t8_zmb_dlc0_elephant_chain3_evil", "tag_origin");
-		self attach(#"hash_ffe4c9fe62b4c26", "tag_origin");
+		self attach(#"c_t8_zmb_dlc0_elephant_chain4_evil", "tag_origin");
 		self attach(#"c_t8_zmb_dlc0_elephant_chain5_evil", "tag_origin");
 		self attach(#"c_t8_zmb_dlc0_elephant_chain6_evil", "tag_origin");
 	}
@@ -1444,9 +1444,9 @@ function function_74fba881(elephant)
 				elephant attach(#"hash_4f282785ef50ec6d", "tag_origin");
 				elephant playsound(#"hash_55bac56f7a46775c");
 			}
-			else if(elephant isattached(#"hash_ffe4c9fe62b4c26", "tag_origin"))
+			else if(elephant isattached(#"c_t8_zmb_dlc0_elephant_chain4_evil", "tag_origin"))
 			{
-				elephant detach(#"hash_ffe4c9fe62b4c26", "tag_origin");
+				elephant detach(#"c_t8_zmb_dlc0_elephant_chain4_evil", "tag_origin");
 				elephant detach(#"c_t8_zmb_dlc0_elephant_chain5_evil", "tag_origin");
 				elephant attach(#"hash_85f1a2ad4a8a800", "tag_origin");
 				elephant playsound(#"hash_55bac56f7a46775c");

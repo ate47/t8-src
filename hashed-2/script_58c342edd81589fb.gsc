@@ -1033,7 +1033,7 @@ function function_6e064f4c(str_archetype)
 			{
 				var_148cc603 = var_148cc603 * (isdefined(level.var_9d9b2113) ? level.var_9d9b2113 : 1);
 			}
-			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"), hash(str_archetype)))
+			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"), hash(str_archetype)))
 			{
 				var_148cc603 = var_148cc603 * (isdefined(level.var_71bc2e8f) ? level.var_71bc2e8f : 1);
 			}
@@ -1721,7 +1721,7 @@ function private function_9eefccc1(var_148cc603, str_archetype)
 			{
 				var_148cc603 = var_148cc603 * (isdefined(level.var_9d9b2113) ? level.var_9d9b2113 : 1);
 			}
-			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"), hash(str_archetype)))
+			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"), hash(str_archetype)))
 			{
 				var_148cc603 = var_148cc603 * (isdefined(level.var_71bc2e8f) ? level.var_71bc2e8f : 1);
 			}
@@ -1761,7 +1761,7 @@ function private function_f2bdfd5a(str_archetype, var_376db024)
 			{
 				var_376db024 = var_376db024 / (isdefined(level.var_9d9b2113) ? level.var_9d9b2113 : 1);
 			}
-			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"), hash(str_archetype)))
+			else if(isinarray(array(#"nosferatu", #"skeleton", #"nova_crawler", #"tiger", #"catalyst", #"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"), hash(str_archetype)))
 			{
 				var_376db024 = var_376db024 / (isdefined(level.var_71bc2e8f) ? level.var_71bc2e8f : 1);
 			}

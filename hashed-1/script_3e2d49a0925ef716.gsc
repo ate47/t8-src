@@ -647,7 +647,7 @@ function private function_f7c7a416(entity)
 				{
 					if(randomfloat(1) <= 0.8)
 					{
-						hit_enemy zombie_utility::function_3ab2b4eb();
+						hit_enemy zombie_utility::gib_random_part();
 					}
 					force = vectornormalize((hit_enemy.origin - entity.origin) * (1, 1, 0));
 					if(isdefined(entity.var_cd8354e0))
@@ -955,11 +955,11 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
 			zdiff = entity.var_cd8354e0.var_cb28f380[2] - entity.enemy.origin[2];
 			var_6738a702 = abs(zdiff) <= 45;
-			var_175919d1 = vectordot(var_beabc994, dirtoenemy) > cos(30);
-			var_7948b2f3 = var_6738a702 && var_175919d1;
+			withinfov = vectordot(var_beabc994, dirtoenemy) > cos(30);
+			var_7948b2f3 = var_6738a702 && withinfov;
 			var_425c4c8b = isvisible || var_535d098c && var_7948b2f3;
 			/#
-				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + var_175919d1;
+				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + withinfov;
 				if(var_425c4c8b)
 				{
 					record3dtext(reasons, entity.origin + vectorscale((0, 0, 1), 60), (0, 1, 0), "");

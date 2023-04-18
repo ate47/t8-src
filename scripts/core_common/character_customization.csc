@@ -784,9 +784,9 @@ class class_7da27482
 			}
 			else
 			{
-				if(isdefined(params.var_256a9f5f))
+				if(isdefined(params.scene_shot))
 				{
-					var_a287debe thread scene::play(var_54430cb6, params.var_256a9f5f);
+					var_a287debe thread scene::play(var_54430cb6, params.scene_shot);
 				}
 				else
 				{
@@ -1426,17 +1426,17 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function set_character_mode(var_8065b05)
+	function set_character_mode(character_mode)
 	{
 		/#
 			/#
-				assert(isdefined(var_8065b05));
+				assert(isdefined(character_mode));
 			#/
 		#/
-		if(_i_mode != var_8065b05)
+		if(_i_mode != character_mode)
 		{
 			self.var_b627749c = 1;
-			self._i_mode = var_8065b05;
+			self._i_mode = character_mode;
 		}
 	}
 
@@ -1449,10 +1449,10 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_617a9ce4(var_8065b05)
+	function function_617a9ce4(character_mode)
 	{
 		/#
-			assert(var_8065b05 === _i_mode);
+			assert(character_mode === _i_mode);
 		#/
 	}
 
@@ -1644,7 +1644,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_a5861a97
+		Name: get_angles
 		Namespace: namespace_7da27482
 		Checksum: 0x836CDACF
 		Offset: 0xF30
@@ -1652,7 +1652,7 @@ class class_7da27482
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_a5861a97()
+	function get_angles()
 	{
 		return _angles;
 	}
@@ -2502,7 +2502,7 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 				[[ var_d0b01271 ]]->function_e08bf4f2(waitresult.local_client_num);
 				break;
 			}
-			case "hash_75f94233f30e66bf":
+			case "update_locked":
 			{
 				[[ var_d0b01271 ]]->function_7792df22(waitresult.locked);
 				break;
@@ -2635,7 +2635,7 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 				thread [[ var_d0b01271 ]]->function_81d84c71();
 				break;
 			}
-			case "hash_c1b79705509feb":
+			case "previewshop":
 			case "previewshopface":
 			{
 				[[ var_d0b01271 ]]->set_character_mode(waitresult.mode);

@@ -37,7 +37,7 @@ function __init__()
 		zm_perks::register_perk_clientfields(#"specialty_zombshell", &function_9e1d9985, &function_d0ba0d3);
 		zm_perks::register_perk_effects(#"specialty_zombshell", "zombshell_light");
 		zm_perks::register_perk_init_thread(#"specialty_zombshell", &function_efe56acb);
-		zm_perks::function_b60f4a9f(#"specialty_zombshell", #"p8_zm_vapor_altar_icon_01_zombshell", "zombie/fx8_perk_altar_symbol_ambient_zombshell", #"hash_49c28f0b2a623fa5");
+		zm_perks::function_b60f4a9f(#"specialty_zombshell", #"p8_zm_vapor_altar_icon_01_zombshell", "zombie/fx8_perk_altar_symbol_ambient_zombshell", #"zmperkszombshell");
 		zm_perks::function_f3c80d73("zombie_perk_bottle_zombshell", "zombie_perk_totem_zombshell");
 		clientfield::register("scriptmover", "" + #"hash_7199d465a80b4f59", 15000, 1, "int", &function_f420a36b, 0, 0);
 		clientfield::register("toplayer", "" + #"hash_5f545b88ba3e2938", 15000, 1, "int", &function_1e112e5f, 0, 1);

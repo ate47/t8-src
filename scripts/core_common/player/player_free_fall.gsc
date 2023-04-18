@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_4b76712;
+#namespace player_free_fall;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x2F5540DF
 	Offset: 0xD8
 	Size: 0x3C
@@ -18,12 +18,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_698dcdb18ce4f995", &__init__, undefined, undefined);
+	system::register(#"player_free_fall", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x57B1FBCA
 	Offset: 0x120
 	Size: 0xDC
@@ -43,7 +43,7 @@ function __init__()
 
 /*
 	Name: function_d2a1520c
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x77085261
 	Offset: 0x208
 	Size: 0x56
@@ -62,7 +62,7 @@ function function_d2a1520c()
 
 /*
 	Name: function_c9a18304
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xAAC5184E
 	Offset: 0x268
 	Size: 0x204
@@ -117,7 +117,7 @@ function private function_c9a18304(eventstruct)
 
 /*
 	Name: function_6aac1790
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x293771BD
 	Offset: 0x478
 	Size: 0x3A
@@ -130,7 +130,7 @@ function private function_6aac1790(var_dbb94a)
 
 /*
 	Name: function_b6e83203
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xD8867FCF
 	Offset: 0x4C0
 	Size: 0x8C
@@ -151,7 +151,7 @@ function private function_b6e83203(delay)
 
 /*
 	Name: function_26d46af3
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x1E40B82E
 	Offset: 0x558
 	Size: 0xAC
@@ -178,7 +178,7 @@ function private function_26d46af3(eventstruct)
 
 /*
 	Name: function_a7e644f6
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0xA076007C
 	Offset: 0x610
 	Size: 0xD4
@@ -200,7 +200,7 @@ function private function_a7e644f6(eventstruct)
 
 /*
 	Name: function_1fc427dc
-	Namespace: namespace_4b76712
+	Namespace: player_free_fall
 	Checksum: 0x9C550484
 	Offset: 0x6F0
 	Size: 0x124

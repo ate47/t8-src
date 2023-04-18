@@ -635,7 +635,7 @@ function function_dde2edd8()
 	while(isdefined(self.var_91e24690) && self.var_91e24690)
 	{
 		s_info = undefined;
-		s_info = self waittill(#"hash_6fd7f8e1f00deffe");
+		s_info = self waittill(#"blast_attack");
 		if(self.script_string == "crane_shock_box")
 		{
 			level.var_a29d2d8 = s_info.e_player;

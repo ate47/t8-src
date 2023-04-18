@@ -881,7 +881,7 @@ function private get_closest_tag(v_pos)
 	{
 		zombie_utility::init_gib_tags();
 	}
-	var_144ac6c7 = undefined;
+	tag_closest = undefined;
 	var_9aabd9de = arraycopy(level.gib_tags);
 	if(!isdefined(var_9aabd9de))
 	{
@@ -897,17 +897,17 @@ function private get_closest_tag(v_pos)
 	}
 	for(i = 0; i < var_9aabd9de.size; i++)
 	{
-		if(!isdefined(var_144ac6c7))
+		if(!isdefined(tag_closest))
 		{
-			var_144ac6c7 = var_9aabd9de[i];
+			tag_closest = var_9aabd9de[i];
 			continue;
 		}
-		if(distancesquared(v_pos, self gettagorigin(var_9aabd9de[i])) < distancesquared(v_pos, self gettagorigin(var_144ac6c7)))
+		if(distancesquared(v_pos, self gettagorigin(var_9aabd9de[i])) < distancesquared(v_pos, self gettagorigin(tag_closest)))
 		{
-			var_144ac6c7 = var_9aabd9de[i];
+			tag_closest = var_9aabd9de[i];
 		}
 	}
-	return tolower(var_144ac6c7);
+	return tolower(tag_closest);
 }
 
 /*

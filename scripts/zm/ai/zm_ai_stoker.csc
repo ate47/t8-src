@@ -40,9 +40,9 @@ function __init__()
 {
 	if(ai::shouldregisterclientfieldforarchetype(#"stoker"))
 	{
-		clientfield::register("actor", "crit_spot_reveal_clientfield", 1, getminbitcountfornum(4), "int", &function_268e0945, 0, 0);
-		clientfield::register("actor", "stoker_fx_start_clientfield", 1, 3, "int", &function_8178b190, 0, 0);
-		clientfield::register("actor", "stoker_fx_stop_clientfield", 1, 3, "int", &function_6942a7f6, 0, 0);
+		clientfield::register("actor", "crit_spot_reveal_clientfield", 1, getminbitcountfornum(4), "int", &crit_spot_reveal, 0, 0);
+		clientfield::register("actor", "stoker_fx_start_clientfield", 1, 3, "int", &stoker_fx_start, 0, 0);
+		clientfield::register("actor", "stoker_fx_stop_clientfield", 1, 3, "int", &stoker_fx_stop, 0, 0);
 		clientfield::register("actor", "stoker_death_explosion", 1, 2, "int", &stoker_death_explosion, 0, 0);
 	}
 	ai::add_archetype_spawn_function(#"stoker", &stoker_spawn_init);
@@ -81,7 +81,7 @@ function on_entity_shutdown(localclientnum)
 }
 
 /*
-	Name: function_268e0945
+	Name: crit_spot_reveal
 	Namespace: zm_ai_stoker
 	Checksum: 0x12BF7CD7
 	Offset: 0x5D0
@@ -89,7 +89,7 @@ function on_entity_shutdown(localclientnum)
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_268e0945(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private crit_spot_reveal(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	if(newvalue)
 	{
@@ -99,7 +99,7 @@ function private function_268e0945(localclientnum, oldvalue, newvalue, bnewent, 
 }
 
 /*
-	Name: function_8178b190
+	Name: stoker_fx_start
 	Namespace: zm_ai_stoker
 	Checksum: 0x2103A2C2
 	Offset: 0x678
@@ -107,7 +107,7 @@ function private function_268e0945(localclientnum, oldvalue, newvalue, bnewent, 
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_8178b190(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private stoker_fx_start(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	if(!isdefined(self.currentfx))
 	{
@@ -181,7 +181,7 @@ function private function_8178b190(localclientnum, oldvalue, newvalue, bnewent, 
 }
 
 /*
-	Name: function_6942a7f6
+	Name: stoker_fx_stop
 	Namespace: zm_ai_stoker
 	Checksum: 0x2BAA33EF
 	Offset: 0xA60
@@ -189,7 +189,7 @@ function private function_8178b190(localclientnum, oldvalue, newvalue, bnewent, 
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_6942a7f6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private stoker_fx_stop(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	if(!isdefined(self.currentfx))
 	{

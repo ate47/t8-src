@@ -593,9 +593,9 @@ function private function_4ee74b24()
 		var_4bd2cffc = vectornormalize(var_4bd2cffc * (1, 1, 0));
 		var_7453ab4f = vectornormalize(var_7453ab4f * (1, 1, 0));
 		dot = vectordot(var_7453ab4f, var_4bd2cffc);
-		var_eccdfa66 = cos(3);
+		cosine_angle = cos(3);
 		self.var_6d5a7a2d = gettime() + 50;
-		if(dot >= var_eccdfa66)
+		if(dot >= cosine_angle)
 		{
 			self.var_4ee74b24 = 1;
 		}

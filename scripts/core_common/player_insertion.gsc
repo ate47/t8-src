@@ -23,11 +23,11 @@
 #using scripts\core_common\values_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic_audio.gsc;
 
-#namespace namespace_67838d10;
+#namespace player_insertion;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x450A1EF3
 	Offset: 0x638
 	Size: 0x3C
@@ -36,12 +36,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_75440eb9162352b6", &__init__, undefined, undefined);
+	system::register(#"player_insertion", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xCBEA1FA5
 	Offset: 0x680
 	Size: 0x4FC
@@ -92,7 +92,7 @@ function __init__()
 
 /*
 	Name: function_1e4302d0
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4C22AD63
 	Offset: 0xB88
 	Size: 0x5A
@@ -110,7 +110,7 @@ function function_1e4302d0(value, index)
 
 /*
 	Name: function_3ca86964
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xCC6C4D5B
 	Offset: 0xBF0
 	Size: 0x17A
@@ -135,7 +135,7 @@ function function_3ca86964(var_1d83d08d)
 
 /*
 	Name: on_finalize_initialization
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x2E2EB5E1
 	Offset: 0xD78
 	Size: 0x23C
@@ -177,7 +177,7 @@ function private on_finalize_initialization()
 
 /*
 	Name: function_fd3c1bcc
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE78994B8
 	Offset: 0xFC0
 	Size: 0x7A
@@ -196,7 +196,7 @@ function private function_fd3c1bcc(start, end, default_val)
 
 /*
 	Name: function_d53a8c5b
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xA10DE5FA
 	Offset: 0x1048
 	Size: 0x28C
@@ -231,7 +231,7 @@ function function_d53a8c5b(insertion, fly_over_point, var_59526dd5, offset)
 
 /*
 	Name: function_9ddb4115
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE790E68E
 	Offset: 0x12E0
 	Size: 0x28A
@@ -249,9 +249,9 @@ function private function_9ddb4115(var_1d83d08d)
 	/#
 		assert(isdefined(var_1d83d08d.end));
 	#/
-	if(isdefined(level.var_fb91af8) && level.var_fb91af8.size > 0)
+	if(isdefined(level.deathcircles) && level.deathcircles.size > 0)
 	{
-		initcircle = level.var_fb91af8[0];
+		initcircle = level.deathcircles[0];
 		var_ddab8e6c = var_1d83d08d.start;
 		var_dd00b78e = vectornormalize(var_1d83d08d.end - var_1d83d08d.start);
 		var_164fe5c9 = distance2dsquared(var_ddab8e6c, initcircle.origin);
@@ -285,7 +285,7 @@ function private function_9ddb4115(var_1d83d08d)
 
 /*
 	Name: fly_path
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xF54D3E4B
 	Offset: 0x1578
 	Size: 0x74C
@@ -344,9 +344,9 @@ function fly_path(insertion, var_1d83d08d, fly_over_point, var_59526dd5)
 	if(max((isdefined(getgametypesetting(#"hash_731988b03dc6ee17")) ? getgametypesetting(#"hash_731988b03dc6ee17") : 1), 1) > 1)
 	{
 		util::wait_network_frame();
-		insertion.var_ef59e360 = spawn("script_model", (0, 0, 0));
-		insertion.var_ef59e360.targetname = "infil_team_ent";
-		insertion.var_ef59e360 setinvisibletoall();
+		insertion.infilteament = spawn("script_model", (0, 0, 0));
+		insertion.infilteament.targetname = "infil_team_ent";
+		insertion.infilteament setinvisibletoall();
 		activeplayers = util::get_active_players();
 		foreach(player in activeplayers)
 		{
@@ -361,7 +361,7 @@ function fly_path(insertion, var_1d83d08d, fly_over_point, var_59526dd5)
 
 /*
 	Name: function_1db63266
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x22479F3A
 	Offset: 0x1CD0
 	Size: 0x9C
@@ -375,7 +375,7 @@ function function_1db63266()
 	#/
 	var_5ed0195b = function_20cba65e(self);
 	insertion = level.insertions[var_5ed0195b];
-	if(isdefined(insertion) && isdefined(insertion.var_ef59e360))
+	if(isdefined(insertion) && isdefined(insertion.infilteament))
 	{
 		function_9368af66(insertion, self);
 	}
@@ -383,7 +383,7 @@ function function_1db63266()
 
 /*
 	Name: function_9368af66
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7A3A349B
 	Offset: 0x1D78
 	Size: 0xC4
@@ -398,13 +398,13 @@ function function_9368af66(insertion, player)
 	/#
 		assert(isplayer(player));
 	#/
-	insertion.var_ef59e360 setvisibletoplayer(player);
-	insertion.var_ef59e360 clientfield::set("infiltration_ent", function_1e4302d0(1, insertion.index));
+	insertion.infilteament setvisibletoplayer(player);
+	insertion.infilteament clientfield::set("infiltration_ent", function_1e4302d0(1, insertion.index));
 }
 
 /*
 	Name: function_20cba65e
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC78CB01B
 	Offset: 0x1E48
 	Size: 0x17E
@@ -439,7 +439,7 @@ function function_20cba65e(player)
 
 /*
 	Name: function_ea1ad421
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4C5BE4FD
 	Offset: 0x1FD0
 	Size: 0xC0
@@ -466,7 +466,7 @@ function function_ea1ad421(insertion, start, end)
 
 /*
 	Name: function_f31cf3bb
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7E5E517E
 	Offset: 0x2098
 	Size: 0xE8
@@ -497,7 +497,7 @@ function function_f31cf3bb(point, direction, step, depth, var_94a1d56d = 10)
 
 /*
 	Name: function_bb2c2f4d
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8A34174
 	Offset: 0x2188
 	Size: 0x108
@@ -529,7 +529,7 @@ function function_bb2c2f4d(point, direction, step, depth)
 
 /*
 	Name: function_abd3bc1a
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xCFA861A1
 	Offset: 0x2298
 	Size: 0x1BC
@@ -547,8 +547,8 @@ function private function_abd3bc1a()
 	self setclientuivisibilityflag("weapon_hud_visible", 0);
 	self flagsys::clear(#"hash_224cb97b8f682317");
 	self flagsys::clear(#"hash_287397edba8966f9");
-	self val::set(#"hash_75440eb9162352b6", "freezecontrols", 1);
-	self val::set(#"hash_75440eb9162352b6", "disablegadgets", 1);
+	self val::set(#"player_insertion", "freezecontrols", 1);
+	self val::set(#"player_insertion", "disablegadgets", 1);
 	self val::set(#"hash_37b74f87edd2df20", "show_hud", 0);
 	self val::set(#"hash_ce6d3e6ece6e18d", "show_weapon_hud", 0);
 	self death_circle::function_b57e3cde(1);
@@ -560,7 +560,7 @@ function private function_abd3bc1a()
 
 /*
 	Name: function_baf204f5
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7B47CA23
 	Offset: 0x2460
 	Size: 0xD4
@@ -583,7 +583,7 @@ function function_baf204f5()
 
 /*
 	Name: function_7a4c1517
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x25299E6F
 	Offset: 0x2540
 	Size: 0xA4
@@ -592,15 +592,15 @@ function function_baf204f5()
 */
 function private function_7a4c1517()
 {
-	self val::reset(#"hash_75440eb9162352b6", "freezecontrols");
-	self val::reset(#"hash_75440eb9162352b6", "disablegadgets");
+	self val::reset(#"player_insertion", "freezecontrols");
+	self val::reset(#"player_insertion", "disablegadgets");
 	self val::reset(#"hash_37b74f87edd2df20", "show_hud");
 	self val::reset(#"hash_ce6d3e6ece6e18d", "show_weapon_hud");
 }
 
 /*
 	Name: function_b9a53f50
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC6E7A6DF
 	Offset: 0x25F0
 	Size: 0x5C
@@ -611,14 +611,14 @@ function function_b9a53f50()
 {
 	if(!function_8b1a219a())
 	{
-		self val::set(#"hash_75440eb9162352b6", "freezecontrols_allowlook", 1);
+		self val::set(#"player_insertion", "freezecontrols_allowlook", 1);
 	}
 	self disableweapons();
 }
 
 /*
 	Name: function_3354a054
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x3A3A59CD
 	Offset: 0x2658
 	Size: 0x54
@@ -629,14 +629,14 @@ function function_3354a054()
 {
 	if(!function_8b1a219a())
 	{
-		self val::reset(#"hash_75440eb9162352b6", "freezecontrols_allowlook");
+		self val::reset(#"player_insertion", "freezecontrols_allowlook");
 	}
 	self enableweapons();
 }
 
 /*
 	Name: function_bc824660
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7D7C2052
 	Offset: 0x26B8
 	Size: 0x138
@@ -666,7 +666,7 @@ function private function_bc824660(insertion)
 
 /*
 	Name: function_948ac812
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xF8F1ADC5
 	Offset: 0x27F8
 	Size: 0xC8
@@ -687,7 +687,7 @@ function private function_948ac812(insertion)
 
 /*
 	Name: function_ff107056
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x9EC8A7E1
 	Offset: 0x28C8
 	Size: 0x4C
@@ -702,7 +702,7 @@ function function_ff107056(insertion)
 
 /*
 	Name: function_8dcd8623
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7741E86E
 	Offset: 0x2920
 	Size: 0x234
@@ -755,7 +755,7 @@ function function_8dcd8623()
 
 /*
 	Name: function_82c73974
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xFC9F5302
 	Offset: 0x2B60
 	Size: 0x3D4
@@ -770,8 +770,8 @@ function function_82c73974(insertion)
 	insertion flagsys::clear(#"hash_60fcdd11812a0134");
 	insertion flagsys::clear(#"hash_122f326d72f4c884");
 	function_ff107056(insertion);
-	var_f90ae72e = (isdefined(getgametypesetting(#"hash_731988b03dc6ee17")) ? getgametypesetting(#"hash_731988b03dc6ee17") : 1);
-	if(var_f90ae72e > 0)
+	insertioncount = (isdefined(getgametypesetting(#"hash_731988b03dc6ee17")) ? getgametypesetting(#"hash_731988b03dc6ee17") : 1);
+	if(insertioncount > 0)
 	{
 		activeplayers = util::get_active_players();
 		var_2c34761b = [];
@@ -807,7 +807,7 @@ function function_82c73974(insertion)
 
 /*
 	Name: function_dd34168c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x2C963DBD
 	Offset: 0x2F40
 	Size: 0x5C
@@ -825,7 +825,7 @@ function function_dd34168c(insertion, flag)
 
 /*
 	Name: function_df47b31b
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x28885463
 	Offset: 0x2FA8
 	Size: 0x78
@@ -847,7 +847,7 @@ function function_df47b31b(flag)
 
 /*
 	Name: function_35742117
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x6B91B748
 	Offset: 0x3028
 	Size: 0x4E0
@@ -865,8 +865,8 @@ function function_35742117(insertion)
 	insertion.players = arraycopy(util::get_active_players());
 	foreach(player in insertion.players)
 	{
-		player val::set(#"hash_75440eb9162352b6", "freezecontrols", 1);
-		player val::set(#"hash_75440eb9162352b6", "disablegadgets", 1);
+		player val::set(#"player_insertion", "freezecontrols", 1);
+		player val::set(#"player_insertion", "disablegadgets", 1);
 	}
 	insertion thread function_c71552d0(insertion, 2, 5, 5, 0);
 	wait(2 + 0.1);
@@ -896,15 +896,15 @@ function function_35742117(insertion)
 		{
 			continue;
 		}
-		player val::reset(#"hash_75440eb9162352b6", "freezecontrols");
-		player val::reset(#"hash_75440eb9162352b6", "disablegadgets");
+		player val::reset(#"player_insertion", "freezecontrols");
+		player val::reset(#"player_insertion", "disablegadgets");
 		player clientfield::set_to_player("realtime_multiplay", 1);
 	}
 }
 
 /*
 	Name: function_51c5f95f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xAAFD4F49
 	Offset: 0x3510
 	Size: 0x3A4
@@ -955,7 +955,7 @@ function function_51c5f95f(insertion)
 
 /*
 	Name: function_26fbfab4
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xEEF33C8F
 	Offset: 0x38C0
 	Size: 0x15E
@@ -989,7 +989,7 @@ function function_26fbfab4(insertion)
 
 /*
 	Name: function_135ed50e
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xAACD85F3
 	Offset: 0x3A28
 	Size: 0xBC
@@ -1013,7 +1013,7 @@ function function_135ed50e()
 
 /*
 	Name: function_57d4a011
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x6F07E215
 	Offset: 0x3AF0
 	Size: 0x6C4
@@ -1042,7 +1042,7 @@ function function_57d4a011(insertion)
 				numteams++;
 			}
 		}
-		level.var_fc14f773 = [];
+		level.warp_portal_vehicles = [];
 		count = 1;
 		foreach(var_e1dd0f66 in var_719e741e)
 		{
@@ -1050,15 +1050,15 @@ function function_57d4a011(insertion)
 			var_7cac53bf = var_e1dd0f66 spawnfromspawner(var_b06f2346, 1, 1);
 			var_7cac53bf.takedamage = 0;
 			var_7cac53bf ghost();
-			if(!isdefined(level.var_fc14f773))
+			if(!isdefined(level.warp_portal_vehicles))
 			{
-				level.var_fc14f773 = [];
+				level.warp_portal_vehicles = [];
 			}
-			else if(!isarray(level.var_fc14f773))
+			else if(!isarray(level.warp_portal_vehicles))
 			{
-				level.var_fc14f773 = array(level.var_fc14f773);
+				level.warp_portal_vehicles = array(level.warp_portal_vehicles);
 			}
-			level.var_fc14f773[level.var_fc14f773.size] = var_7cac53bf;
+			level.warp_portal_vehicles[level.warp_portal_vehicles.size] = var_7cac53bf;
 			if(count >= numteams)
 			{
 				break;
@@ -1069,15 +1069,15 @@ function function_57d4a011(insertion)
 		step_size = 360 / numteams;
 		if(isdefined(var_8a2c40d0))
 		{
-			if(level.var_fc14f773.size > 0)
+			if(level.warp_portal_vehicles.size > 0)
 			{
-				insertion.start_point = level.var_fc14f773[0].origin;
+				insertion.start_point = level.warp_portal_vehicles[0].origin;
 				insertion.end_point = var_8a2c40d0.origin;
 			}
 			center = var_8a2c40d0.origin;
 			radius = 9000;
 			angle = 0;
-			foreach(var_9fac9726 in level.var_fc14f773)
+			foreach(var_9fac9726 in level.warp_portal_vehicles)
 			{
 				x_pos = center[0] + (radius * cos(angle));
 				y_pos = center[1] + (radius * sin(angle));
@@ -1119,7 +1119,7 @@ function function_57d4a011(insertion)
 
 /*
 	Name: function_adc8cff4
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x603CBE84
 	Offset: 0x41C0
 	Size: 0x164
@@ -1135,7 +1135,7 @@ function function_adc8cff4(var_107b6cf5 = 0)
 	self solid();
 	self setclientthirdperson(0);
 	self death_circle::function_b57e3cde(0);
-	self val::set(#"hash_75440eb9162352b6", "disable_oob", 0);
+	self val::set(#"player_insertion", "disable_oob", 0);
 	self clientfield::set_to_player("realtime_multiplay", 1);
 	self thread function_7bf9c38f(var_107b6cf5);
 	level callback::callback(#"hash_74b19f5972b0ee52", {#player:self});
@@ -1143,7 +1143,7 @@ function function_adc8cff4(var_107b6cf5 = 0)
 
 /*
 	Name: getmapcenter
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xD2F65B78
 	Offset: 0x4330
 	Size: 0x70
@@ -1162,7 +1162,7 @@ function getmapcenter()
 
 /*
 	Name: function_7bf9c38f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8904D435
 	Offset: 0x43A8
 	Size: 0x31C
@@ -1196,13 +1196,13 @@ function function_7bf9c38f(var_107b6cf5)
 	{
 		var_180a7b48 = 0;
 	}
-	if(!isdefined(level.var_fc14f773))
+	if(!isdefined(level.warp_portal_vehicles))
 	{
-		level.var_fc14f773 = [];
+		level.warp_portal_vehicles = [];
 	}
-	if(level.var_fc14f773.size)
+	if(level.warp_portal_vehicles.size)
 	{
-		portal = level.var_fc14f773[var_180a7b48];
+		portal = level.warp_portal_vehicles[var_180a7b48];
 	}
 	/#
 		assert(isdefined(portal), "");
@@ -1235,7 +1235,7 @@ function function_7bf9c38f(var_107b6cf5)
 
 /*
 	Name: function_a25e421c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x960901FF
 	Offset: 0x46D0
 	Size: 0x424
@@ -1249,7 +1249,7 @@ function function_a25e421c()
 	{
 		self thread status_effect::function_6519f95f();
 		self death_circle::function_b57e3cde(1);
-		self val::set(#"hash_75440eb9162352b6", "disable_oob", 1);
+		self val::set(#"player_insertion", "disable_oob", 1);
 		self stopanimscripted();
 		self unlink();
 		self setstance("stand");
@@ -1260,23 +1260,23 @@ function function_a25e421c()
 				var_180a7b48 = getdvarint(#"hash_37b6eccbe31b5875", 1);
 			}
 		#/
-		if(isdefined(level.var_fc14f773))
+		if(isdefined(level.warp_portal_vehicles))
 		{
-			portal = level.var_fc14f773[var_180a7b48];
+			portal = level.warp_portal_vehicles[var_180a7b48];
 			if(isdefined(portal))
 			{
-				self setorigin(level.var_fc14f773[var_180a7b48].origin);
-				self function_648c1f6(level.var_fc14f773[var_180a7b48], undefined, 0, 180, 180, 180, 180, 0);
-				if(isdefined(level.deathcircle) && isdefined(level.var_52b56362) && isdefined(level.var_fb91af8))
+				self setorigin(level.warp_portal_vehicles[var_180a7b48].origin);
+				self function_648c1f6(level.warp_portal_vehicles[var_180a7b48], undefined, 0, 180, 180, 180, 180, 0);
+				if(isdefined(level.deathcircle) && isdefined(level.var_52b56362) && isdefined(level.deathcircles))
 				{
 					target = level.deathcircle.origin;
 					target = (target[0], target[1], -4000);
 					currentindex = level.var_52b56362 + 1;
-					if(currentindex >= level.var_fb91af8.size)
+					if(currentindex >= level.deathcircles.size)
 					{
-						currentindex = level.var_fb91af8.size - 1;
+						currentindex = level.deathcircles.size - 1;
 					}
-					target = level.var_fb91af8[currentindex].origin - self.origin;
+					target = level.deathcircles[currentindex].origin - self.origin;
 					target = vectornormalize(target);
 					angles = vectortoangles(target);
 					self setplayerangles(angles);
@@ -1302,7 +1302,7 @@ function function_a25e421c()
 
 /*
 	Name: function_f2867466
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7EF0AE2
 	Offset: 0x4B00
 	Size: 0x14C
@@ -1334,7 +1334,7 @@ function function_f2867466()
 
 /*
 	Name: function_a5fd9aa8
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE35009BD
 	Offset: 0x4C58
 	Size: 0x84
@@ -1355,7 +1355,7 @@ function function_a5fd9aa8(insertion)
 
 /*
 	Name: function_bcde1e07
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x2467F1B2
 	Offset: 0x4CE8
 	Size: 0x34
@@ -1370,7 +1370,7 @@ function function_bcde1e07()
 
 /*
 	Name: function_c62b5591
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x38017CF7
 	Offset: 0x4D28
 	Size: 0x194
@@ -1410,7 +1410,7 @@ function private function_c62b5591(insertion)
 
 /*
 	Name: function_57fe9b21
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB51FBADB
 	Offset: 0x4EC8
 	Size: 0x60
@@ -1427,7 +1427,7 @@ function function_57fe9b21(insertion, origin)
 
 /*
 	Name: function_ca5b6591
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x5FF5376A
 	Offset: 0x4F30
 	Size: 0xDE8
@@ -1601,7 +1601,7 @@ function function_ca5b6591(insertion, startorigin, endorigin, var_872f085f)
 
 /*
 	Name: function_77132caf
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE7304C61
 	Offset: 0x5D20
 	Size: 0x144
@@ -1627,7 +1627,7 @@ function function_77132caf()
 
 /*
 	Name: function_ec7cfdb
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1BD2606
 	Offset: 0x5E70
 	Size: 0x1A
@@ -1645,7 +1645,7 @@ function function_ec7cfdb()
 
 /*
 	Name: function_c4f5c468
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xEB79DF59
 	Offset: 0x5E98
 	Size: 0xB8
@@ -1670,7 +1670,7 @@ function function_c4f5c468(insertion)
 
 /*
 	Name: function_f795bf83
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x630861F6
 	Offset: 0x5F58
 	Size: 0x2DC
@@ -1693,11 +1693,11 @@ function function_f795bf83(insertion, vehicle, yaw)
 		return;
 	}
 	self notify(#"hash_6b2be5fc7a5ce34f");
-	if(!isdefined(insertion.var_1f124d72))
+	if(!isdefined(insertion.passengercount))
 	{
-		insertion.var_1f124d72 = 0;
+		insertion.passengercount = 0;
 	}
-	insertion.var_1f124d72++;
+	insertion.passengercount++;
 	self stopanimscripted();
 	self unlink();
 	self setstance("stand");
@@ -1711,7 +1711,7 @@ function function_f795bf83(insertion, vehicle, yaw)
 	self ghost();
 	self notsolid();
 	self thread status_effect::function_6519f95f();
-	self val::set(#"hash_75440eb9162352b6", "disable_oob", 1);
+	self val::set(#"player_insertion", "disable_oob", 1);
 	self clientfield::set_to_player("inside_infiltration_vehicle", 1);
 	self clientfield::set_player_uimodel("hudItems.showReinsertionPassengerCount", 0);
 	level thread function_2e54d73e(insertion, self, vehicle);
@@ -1720,7 +1720,7 @@ function function_f795bf83(insertion, vehicle, yaw)
 
 /*
 	Name: function_e3f18577
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xF2FA1D28
 	Offset: 0x6240
 	Size: 0x76
@@ -1742,7 +1742,7 @@ function private function_e3f18577()
 
 /*
 	Name: function_7d880672
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xA99F6571
 	Offset: 0x62C0
 	Size: 0x30A
@@ -1815,7 +1815,7 @@ function function_7d880672(original_origin, var_9f8395cb, var_6a19d5de)
 
 /*
 	Name: function_aa3a20fb
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x691768D1
 	Offset: 0x65D8
 	Size: 0x44
@@ -1824,7 +1824,7 @@ function function_7d880672(original_origin, var_9f8395cb, var_6a19d5de)
 */
 function function_aa3a20fb()
 {
-	if(!isdefined(level.var_fc14f773))
+	if(!isdefined(level.warp_portal_vehicles))
 	{
 		self thread function_77132caf();
 		return;
@@ -1834,7 +1834,7 @@ function function_aa3a20fb()
 
 /*
 	Name: function_80c60f66
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xA7A82A26
 	Offset: 0x6628
 	Size: 0x1B4
@@ -1871,7 +1871,7 @@ function function_80c60f66(player)
 
 /*
 	Name: function_e59d879f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x381AEC57
 	Offset: 0x67E8
 	Size: 0xBA0
@@ -1927,7 +1927,7 @@ function private function_e59d879f(insertion, var_6ad01bed, var_cf46aa72)
 	insertion.leadplane.takedamage = 0;
 	insertion.leadplane.origin = startpoint;
 	insertion.leadplane.angles = var_872f085f;
-	insertion.var_1f124d72 = 0;
+	insertion.passengercount = 0;
 	insertion.var_ef5094f9 = undefined;
 	insertion.var_dfaba736 = [];
 	insertion.var_27d17f06 = [];
@@ -2038,7 +2038,7 @@ function private function_e59d879f(insertion, var_6ad01bed, var_cf46aa72)
 
 /*
 	Name: function_e04b0ea8
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4FF3EDE4
 	Offset: 0x7390
 	Size: 0x1CC
@@ -2064,7 +2064,7 @@ function function_e04b0ea8(insertion, start_point, var_872f085f, var_37362e08, v
 
 /*
 	Name: function_43cc81fc
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xD2B2D9D4
 	Offset: 0x7568
 	Size: 0x8C
@@ -2079,7 +2079,7 @@ function function_43cc81fc()
 
 /*
 	Name: function_d9dfa25
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7D79D737
 	Offset: 0x7600
 	Size: 0xAD2
@@ -2153,7 +2153,7 @@ function function_d9dfa25()
 
 /*
 	Name: function_45b56b0a
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x83498796
 	Offset: 0x80E0
 	Size: 0x25A
@@ -2190,7 +2190,7 @@ function function_45b56b0a(insertion, startpoint, endpoint, var_872f085f, vehicl
 
 /*
 	Name: function_f87ddcf0
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB47EDF97
 	Offset: 0x8348
 	Size: 0x38E
@@ -2237,7 +2237,7 @@ function function_f87ddcf0(insertion, startpoint, endpoint, var_872f085f, vehicl
 
 /*
 	Name: function_700e474f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8A49F5A3
 	Offset: 0x86E0
 	Size: 0x33C
@@ -2282,7 +2282,7 @@ function function_700e474f(startorigin, endorigin, var_872f085f, goal, index)
 
 /*
 	Name: function_71da60d1
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xBF88D4A5
 	Offset: 0x8A28
 	Size: 0x3C
@@ -2298,7 +2298,7 @@ function function_71da60d1()
 
 /*
 	Name: function_84898b3f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x703C60D7
 	Offset: 0x8A70
 	Size: 0x126
@@ -2324,7 +2324,7 @@ function function_84898b3f(var_e8ab2c6b, var_9fa20618, endorigin, index)
 
 /*
 	Name: function_ea6a4f96
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7E65D99F
 	Offset: 0x8BA0
 	Size: 0x244
@@ -2361,7 +2361,7 @@ function function_ea6a4f96(startorigin, endorigin, var_872f085f, offsetvec, var_
 
 /*
 	Name: function_15945f95
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE581E7F0
 	Offset: 0x8DF0
 	Size: 0x70
@@ -2380,7 +2380,7 @@ function function_15945f95()
 
 /*
 	Name: function_ab6af198
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x686981F2
 	Offset: 0x8E68
 	Size: 0x118
@@ -2403,7 +2403,7 @@ function function_ab6af198()
 
 /*
 	Name: function_6671872c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC6D24649
 	Offset: 0x8F88
 	Size: 0x46E
@@ -2415,9 +2415,9 @@ function function_6671872c()
 	if(isdefined(getgametypesetting(#"hash_7d3d69a0fd97862d")) && getgametypesetting(#"hash_7d3d69a0fd97862d"))
 	{
 		circleindex = (isdefined(getgametypesetting(#"hash_567a288b2ca685f3")) ? getgametypesetting(#"hash_567a288b2ca685f3") : 0);
-		if(isdefined(level.var_fb91af8) && level.var_fb91af8.size > 0 && circleindex < level.var_fb91af8.size)
+		if(isdefined(level.deathcircles) && level.deathcircles.size > 0 && circleindex < level.deathcircles.size)
 		{
-			center = level.var_fb91af8[circleindex].origin;
+			center = level.deathcircles[circleindex].origin;
 			return (center[0], center[1], function_e3f18577());
 		}
 	}
@@ -2446,7 +2446,7 @@ function function_6671872c()
 
 /*
 	Name: function_45644b08
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC49ECF50
 	Offset: 0x9400
 	Size: 0x1C2
@@ -2458,12 +2458,12 @@ function function_45644b08()
 	if(isdefined(getgametypesetting(#"hash_7d3d69a0fd97862d")) && getgametypesetting(#"hash_7d3d69a0fd97862d"))
 	{
 		circleindex = (isdefined(getgametypesetting(#"hash_567a288b2ca685f3")) ? getgametypesetting(#"hash_567a288b2ca685f3") : 0);
-		if(isdefined(level.var_fb91af8) && level.var_fb91af8.size > 0 && circleindex < level.var_fb91af8.size)
+		if(isdefined(level.deathcircles) && level.deathcircles.size > 0 && circleindex < level.deathcircles.size)
 		{
-			center = level.var_fb91af8[circleindex].origin;
+			center = level.deathcircles[circleindex].origin;
 			if(circleindex > 0)
 			{
-				var_6bf489f1 = level.var_fb91af8[0].origin;
+				var_6bf489f1 = level.deathcircles[0].origin;
 				var_1ce870a0 = vectornormalize(center - var_6bf489f1);
 				var_6e3e0ad7 = vectortoangles(var_1ce870a0);
 				if(math::cointoss())
@@ -2479,7 +2479,7 @@ function function_45644b08()
 
 /*
 	Name: function_63793dbe
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE01DC168
 	Offset: 0x95D0
 	Size: 0xC8
@@ -2503,7 +2503,7 @@ function private function_63793dbe()
 
 /*
 	Name: function_85635daf
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x5ED11290
 	Offset: 0x96A0
 	Size: 0x7C
@@ -2526,7 +2526,7 @@ function function_85635daf(startpoint, total_distance, delta_t)
 
 /*
 	Name: function_afdad0c8
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x13363648
 	Offset: 0x9728
 	Size: 0x63C
@@ -2606,9 +2606,9 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 	{
 		insertion.var_d908905e delete();
 	}
-	if(isdefined(insertion.var_ef59e360))
+	if(isdefined(insertion.infilteament))
 	{
-		insertion.var_ef59e360 delete();
+		insertion.infilteament delete();
 	}
 	wait(5);
 	currentvalue = level clientfield::get("infiltration_compass");
@@ -2618,7 +2618,7 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 
 /*
 	Name: function_6da3daa0
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x9F7B6C0A
 	Offset: 0x9D70
 	Size: 0x2EC
@@ -2666,7 +2666,7 @@ function private function_6da3daa0(insertion, plane, startpoint, endpoint, var_6
 
 /*
 	Name: function_bc16f3b4
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC44B1B49
 	Offset: 0xA068
 	Size: 0x108
@@ -2691,7 +2691,7 @@ function function_bc16f3b4(insertion)
 
 /*
 	Name: function_d11a5f0c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE61D99DE
 	Offset: 0xA178
 	Size: 0x1F8
@@ -2725,7 +2725,7 @@ function function_d11a5f0c(insertion)
 
 /*
 	Name: function_b80277f7
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xA41B72CB
 	Offset: 0xA378
 	Size: 0x178
@@ -2745,7 +2745,7 @@ function function_b80277f7()
 		if(self flagsys::get(#"hash_287397edba8966f9") && isdefined(level.var_a2915a68) && isdefined(level.var_f3320ad2) && isdefined(level.var_a3c0d635) && isdefined(level.var_ce84dde9) && !level.var_a2915a68 [[level.var_a3c0d635]](self))
 		{
 			level.var_a2915a68 [[level.var_f3320ad2]](self, 0);
-			level.var_a2915a68 [[level.var_ce84dde9]](self, level.insertion.var_1f124d72);
+			level.var_a2915a68 [[level.var_ce84dde9]](self, level.insertion.passengercount);
 		}
 		if(self flagsys::get(#"hash_224cb97b8f682317") || (self flagsys::get(#"hash_287397edba8966f9") && self usebuttonpressed()))
 		{
@@ -2756,7 +2756,7 @@ function function_b80277f7()
 
 /*
 	Name: function_1c06c249
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x9ECFB394
 	Offset: 0xA4F8
 	Size: 0xBC
@@ -2775,7 +2775,7 @@ function function_1c06c249(plane)
 
 /*
 	Name: function_25facefd
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC440CBB8
 	Offset: 0xA5C0
 	Size: 0xF0
@@ -2798,7 +2798,7 @@ function function_25facefd(count, ignore_player)
 
 /*
 	Name: function_2e54d73e
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7538F8CA
 	Offset: 0xA6B8
 	Size: 0xCC
@@ -2816,16 +2816,16 @@ function function_2e54d73e(insertion, passenger, vehicle)
 	}
 	waitresult = undefined;
 	waitresult = passenger waittill(#"disconnect", #"player_jumped");
-	if(isdefined(insertion.var_1f124d72))
+	if(isdefined(insertion.passengercount))
 	{
-		insertion.var_1f124d72--;
-		function_25facefd(insertion.var_1f124d72);
+		insertion.passengercount--;
+		function_25facefd(insertion.passengercount);
 	}
 }
 
 /*
 	Name: function_ced05c63
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x79820C09
 	Offset: 0xA790
 	Size: 0xB2
@@ -2847,7 +2847,7 @@ function private function_ced05c63(note, payload)
 
 /*
 	Name: function_2d683dc2
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xADAE5F56
 	Offset: 0xA850
 	Size: 0x24C
@@ -2883,7 +2883,7 @@ function function_2d683dc2(aircraft)
 
 /*
 	Name: function_ba904ee2
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1A41CD22
 	Offset: 0xAAA8
 	Size: 0x58
@@ -2899,7 +2899,7 @@ function function_ba904ee2(velocity)
 
 /*
 	Name: player_freefall
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1D80D2E6
 	Offset: 0xAB08
 	Size: 0x1C4
@@ -2925,7 +2925,7 @@ function player_freefall(aircraft)
 
 /*
 	Name: start_freefall
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x9EA06C28
 	Offset: 0xACD8
 	Size: 0x104
@@ -2938,7 +2938,7 @@ function start_freefall(velocity, parachute)
 	self function_2ffa8aaf(1, velocity, parachute);
 	self.var_97b0977 = 1;
 	self hud_message::clearlowermessage();
-	self val::set(#"hash_75440eb9162352b6", "disable_oob", 0);
+	self val::set(#"player_insertion", "disable_oob", 0);
 	self function_3354a054();
 	if(isdefined(level.var_ec375172))
 	{
@@ -2949,7 +2949,7 @@ function start_freefall(velocity, parachute)
 
 /*
 	Name: function_4630bf0a
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1109508
 	Offset: 0xADE8
 	Size: 0x6E
@@ -2968,7 +2968,7 @@ function function_4630bf0a()
 
 /*
 	Name: function_4eb0c560
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xAA1E575B
 	Offset: 0xAE60
 	Size: 0x11C
@@ -2978,7 +2978,7 @@ function function_4630bf0a()
 function function_4eb0c560()
 {
 	[[ level.wingsuit_hud ]]->close(self);
-	self val::reset(#"hash_75440eb9162352b6", "disablegadgets");
+	self val::reset(#"player_insertion", "disablegadgets");
 	self val::reset(#"hash_37b74f87edd2df20", "show_hud");
 	self val::reset(#"hash_ce6d3e6ece6e18d", "show_weapon_hud");
 	self setclientuivisibilityflag("weapon_hud_visible", 1);
@@ -2990,7 +2990,7 @@ function function_4eb0c560()
 
 /*
 	Name: function_3b9bcf85
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7F5F48C5
 	Offset: 0xAF88
 	Size: 0x64
@@ -3007,7 +3007,7 @@ function function_3b9bcf85(args)
 
 /*
 	Name: function_916470ec
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB7062CE2
 	Offset: 0xAFF8
 	Size: 0x1C
@@ -3021,7 +3021,7 @@ function function_916470ec(args)
 
 /*
 	Name: function_4feecc32
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x652FCC6B
 	Offset: 0xB020
 	Size: 0xFC
@@ -3033,16 +3033,16 @@ function function_4feecc32()
 	self setclientthirdperson(0);
 	self show();
 	self solid();
-	self val::reset(#"hash_75440eb9162352b6", "takedamage");
+	self val::reset(#"player_insertion", "takedamage");
 	self val::reset(#"hash_2c372a1c55b534a4", "takedamage");
 	self death_circle::function_b57e3cde(0);
-	self val::set(#"hash_75440eb9162352b6", "disable_oob", 0);
+	self val::set(#"player_insertion", "disable_oob", 0);
 	self clientfield::set_to_player("realtime_multiplay", 1);
 }
 
 /*
 	Name: function_2b276ae0
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x5CC10BEA
 	Offset: 0xB128
 	Size: 0x10C
@@ -3054,7 +3054,7 @@ function function_2b276ae0()
 	self endon(#"disconnect", #"death");
 	wait(1);
 	self setclientuivisibilityflag("weapon_hud_visible", 0);
-	self val::reset(#"hash_75440eb9162352b6", "freezecontrols");
+	self val::reset(#"player_insertion", "freezecontrols");
 	self function_4feecc32();
 	[[ level.wingsuit_hud ]]->open(self);
 	callback::function_d8abfc3d(#"parachute", &function_66c91693);
@@ -3064,7 +3064,7 @@ function function_2b276ae0()
 
 /*
 	Name: function_712f9f52
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x45A3E9FD
 	Offset: 0xB240
 	Size: 0xAC
@@ -3082,7 +3082,7 @@ function function_712f9f52()
 
 /*
 	Name: function_66c91693
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7AD298D1
 	Offset: 0xB2F8
 	Size: 0x94
@@ -3102,7 +3102,7 @@ function private function_66c91693(eventstruct)
 
 /*
 	Name: function_c71552d0
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB54EE925
 	Offset: 0xB398
 	Size: 0x3A4
@@ -3159,7 +3159,7 @@ function function_c71552d0(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 
 /*
 	Name: function_d7f18e8f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1F4105B0
 	Offset: 0xB748
 	Size: 0x88
@@ -3179,7 +3179,7 @@ function private function_d7f18e8f(players)
 
 /*
 	Name: function_6660c1f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8E8F9FED
 	Offset: 0xB7D8
 	Size: 0x78
@@ -3201,7 +3201,7 @@ function function_6660c1f()
 
 /*
 	Name: function_e5d4df1c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xDB02C9F3
 	Offset: 0xB858
 	Size: 0x78
@@ -3223,7 +3223,7 @@ function function_e5d4df1c()
 
 /*
 	Name: function_a4deb676
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4F9CC16F
 	Offset: 0xB8D8
 	Size: 0xDA
@@ -3246,7 +3246,7 @@ function private function_a4deb676()
 
 /*
 	Name: function_aa4e9db8
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x6FF9E827
 	Offset: 0xB9C0
 	Size: 0x24
@@ -3260,7 +3260,7 @@ function function_aa4e9db8()
 
 /*
 	Name: function_af096637
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x752B264B
 	Offset: 0xB9F0
 	Size: 0x24
@@ -3274,7 +3274,7 @@ function function_af096637()
 
 /*
 	Name: function_75488834
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7EC62520
 	Offset: 0xBA20
 	Size: 0x24
@@ -3288,7 +3288,7 @@ function function_75488834()
 
 /*
 	Name: function_3a77bd05
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB800A808
 	Offset: 0xBA50
 	Size: 0x24
@@ -3302,7 +3302,7 @@ function function_3a77bd05()
 
 /*
 	Name: function_723d686d
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x59B6A128
 	Offset: 0xBA80
 	Size: 0x24
@@ -3316,7 +3316,7 @@ function function_723d686d()
 
 /*
 	Name: function_808b3790
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x3C4310BF
 	Offset: 0xBAB0
 	Size: 0x24
@@ -3330,7 +3330,7 @@ function function_808b3790()
 
 /*
 	Name: function_8fc2a69e
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB9E7680D
 	Offset: 0xBAE0
 	Size: 0x24
@@ -3344,7 +3344,7 @@ function function_8fc2a69e()
 
 /*
 	Name: debug_sphere
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x95507272
 	Offset: 0xBB10
 	Size: 0xFC
@@ -3376,7 +3376,7 @@ function private debug_sphere(origin, radius, color, alpha, time)
 
 /*
 	Name: debug_line
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x1FF7128F
 	Offset: 0xBC18
 	Size: 0xCC
@@ -3407,7 +3407,7 @@ function debug_line(from, to, color, time, depthtest)
 
 /*
 	Name: function_943c98fb
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE982E5C4
 	Offset: 0xBCF0
 	Size: 0x2A0
@@ -3467,7 +3467,7 @@ function private function_943c98fb(insertion)
 
 /*
 	Name: function_4910c182
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x5FA0AB53
 	Offset: 0xBF98
 	Size: 0x31C

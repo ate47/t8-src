@@ -1086,7 +1086,7 @@ function private function_b1b3bfc5(event, var_50c26ba)
 					/#
 						assert(params.events.size > 0);
 					#/
-					var_d0382a1f = params.events[0].var_27668b46;
+					var_d0382a1f = params.events[0].lerp_duration;
 					var_fe39cea0 = params.events[0].duration;
 					if(var_d0382a1f < 0)
 					{
@@ -1104,7 +1104,7 @@ function private function_b1b3bfc5(event, var_50c26ba)
 							var_bbc632fa = var_fe39cea0;
 							for(eventindex = 1; eventindex < params.events.size; eventindex++)
 							{
-								var_7acd420d = params.events[eventindex].var_27668b46;
+								var_7acd420d = params.events[eventindex].lerp_duration;
 								if(var_7acd420d < 0)
 								{
 									params.events[eventindex - 1].duration = abs((var_bbc632fa - params.events[eventindex].duration) - var_7acd420d);
@@ -1292,7 +1292,7 @@ function function_b6a5e7fa(var_a7f35e6d = 1)
 	visionsetnaked("default", 0);
 	setmatchflag("potm", 1);
 	luinotifyevent(#"pre_potm_transition");
-	level notify(#"hash_2f4afe1cb9b6de05");
+	level notify(#"pre_potm");
 	wait(0.25);
 	exit = 0;
 	count = 0;
@@ -1446,7 +1446,7 @@ function function_ede9fbc1()
 */
 function function_d1cb3471()
 {
-	if(function_f99d2668() || sessionmodeismultiplayergame())
+	if(sessionmodeiswarzonegame() || sessionmodeismultiplayergame())
 	{
 		if(isdefined(game.musicset))
 		{
@@ -2318,7 +2318,7 @@ function function_651a5f4(var_81538b15, einflictor = var_81538b15)
 		#/
 		return;
 	}
-	bookmark = function_5b1e9ed4(game.var_8ea529d1, #"hash_23fbe94cfb952f6f", gettime(), var_81538b15, undefined, 0, einflictor);
+	bookmark = function_5b1e9ed4(game.var_8ea529d1, #"object_destroy", gettime(), var_81538b15, undefined, 0, einflictor);
 	function_47a69b74(bookmark);
 }
 

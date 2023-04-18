@@ -1444,7 +1444,7 @@ function init(vehicle)
 	}
 	else
 	{
-		if(vehicle.var_46439e18 && !function_f99d2668())
+		if(vehicle.var_46439e18 && !sessionmodeiswarzonegame())
 		{
 			vehicle.disconnectpathonstop = 1;
 			vehicle.disconnectpathdetail = 2;
@@ -5343,7 +5343,7 @@ function function_a29610b6(x, k)
 	Parameters: 5
 	Flags: None
 */
-function update_flare_ability(player, var_55716d54, active_time = 5, cooldown_time = 10, var_f69e2d1 = undefined)
+function update_flare_ability(player, var_55716d54, active_time = 5, cooldown_time = 10, flare_tag = undefined)
 {
 	var_a86d6798 = "update_flare_ability";
 	self notify(var_a86d6798);
@@ -5374,7 +5374,7 @@ function update_flare_ability(player, var_55716d54, active_time = 5, cooldown_ti
 			self flag::clear("flares_available");
 			self.var_40d7d1f2 = 1;
 			player playsoundtoplayer(#"hash_35af2f72517d10ab", player);
-			self fire_flares(player, var_f69e2d1, active_time);
+			self fire_flares(player, flare_tag, active_time);
 			player clientfield::set_player_uimodel(("vehicle.bindingCooldown" + var_55716d54) + ".cooldown", 0);
 			wait(var_bca5c6c1);
 			self.var_40d7d1f2 = 0;
@@ -5464,13 +5464,13 @@ function private function_1eab63e3(flare_lifetime = 3)
 	Parameters: 3
 	Flags: Linked
 */
-function fire_flares(player, var_f69e2d1 = undefined, flare_lifetime = undefined)
+function fire_flares(player, flare_tag = undefined, flare_lifetime = undefined)
 {
 	var_f9a2afb9 = function_1eab63e3(flare_lifetime);
 	for(var_558d81a6 = 0; var_558d81a6 < 4; var_558d81a6++)
 	{
 		model = "tag_origin";
-		if(!isdefined(var_f69e2d1))
+		if(!isdefined(flare_tag))
 		{
 			self.var_70eddc3b = !(isdefined(self.var_70eddc3b) && self.var_70eddc3b);
 			start_tag = (self.var_70eddc3b ? "tag_fx_flare_left" : "tag_fx_flare_right");
@@ -5478,15 +5478,15 @@ function fire_flares(player, var_f69e2d1 = undefined, flare_lifetime = undefined
 		}
 		else
 		{
-			start_origin = self gettagorigin(var_f69e2d1);
+			start_origin = self gettagorigin(flare_tag);
 		}
 		if(!isdefined(start_origin))
 		{
 			start_origin = self gettagorigin("tag_origin") + vectorscale((0, 0, 1), 128);
 		}
-		if(isdefined(var_f69e2d1))
+		if(isdefined(flare_tag))
 		{
-			var_ac3aef54 = self gettagangles(var_f69e2d1);
+			var_ac3aef54 = self gettagangles(flare_tag);
 		}
 		if(!isdefined(var_ac3aef54))
 		{
@@ -5495,7 +5495,7 @@ function fire_flares(player, var_f69e2d1 = undefined, flare_lifetime = undefined
 		flare = util::spawn_model(model, start_origin, var_ac3aef54);
 		flare clientfield::set("play_flare_fx", 1);
 		flare_lifetime = max(var_f9a2afb9[var_558d81a6] - (var_558d81a6 * 0.15), 0.5);
-		flare thread move_flare(self, vectorscale((0, 0, -1), 200), 0.5, 0.25, flare_lifetime, var_f69e2d1);
+		flare thread move_flare(self, vectorscale((0, 0, -1), 200), 0.5, 0.25, flare_lifetime, flare_tag);
 		flare thread function_9ff1a886(self);
 		wait(0.15);
 	}
@@ -5560,15 +5560,15 @@ function function_7786cb5e(var_95d2171d, vector)
 	Parameters: 6
 	Flags: Linked
 */
-function move_flare(owner, gravity, var_2434a7ac, var_2d0d8b66, max_time, var_f69e2d1 = undefined)
+function move_flare(owner, gravity, var_2434a7ac, var_2d0d8b66, max_time, flare_tag = undefined)
 {
 	self endon(#"death");
 	start_time = gettime();
 	var_6de53efa = start_time + (var_2434a7ac * 1000);
 	end_time = start_time + (max_time * 1000);
-	if(isdefined(var_f69e2d1))
+	if(isdefined(flare_tag))
 	{
-		var_4626a28f = owner gettagangles(var_f69e2d1);
+		var_4626a28f = owner gettagangles(flare_tag);
 		var_abfdfad5 = 1;
 	}
 	else

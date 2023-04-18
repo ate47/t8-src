@@ -388,16 +388,16 @@ function function_c676c423()
 */
 function onroundendgame(var_ea2932d6)
 {
-	var_1b574851 = var_ea2932d6;
+	gamewinner = var_ea2932d6;
 	if(level.gameended)
 	{
-		var_1b574851 = function_cdcbe19(var_1b574851, 1);
+		gamewinner = function_cdcbe19(gamewinner, 1);
 	}
-	if(var_1b574851 == "allies" || var_1b574851 == "axis")
+	if(gamewinner == "allies" || gamewinner == "axis")
 	{
-		ph_setfinalkillcamwinner(var_1b574851);
+		ph_setfinalkillcamwinner(gamewinner);
 	}
-	return var_1b574851;
+	return gamewinner;
 }
 
 /*
@@ -425,7 +425,7 @@ function determinewinner(roundwinner)
 */
 function function_cdcbe19(roundwinner, var_2cd61e6c)
 {
-	var_1b574851 = roundwinner;
+	gamewinner = roundwinner;
 	var_41886d38 = "roundswon";
 	level.proptiebreaker = "none";
 	if(game.stat[var_41886d38][#"allies"] == game.stat[var_41886d38][#"axis"])
@@ -437,17 +437,17 @@ function function_cdcbe19(roundwinner, var_2cd61e6c)
 			if(game.hunterkilltime[#"axis"] == game.hunterkilltime[#"allies"])
 			{
 				level.proptiebreaker = "tie";
-				var_1b574851 = "tie";
+				gamewinner = "tie";
 			}
 			else
 			{
 				if(game.hunterkilltime[#"axis"] < game.hunterkilltime[#"allies"])
 				{
-					var_1b574851 = "axis";
+					gamewinner = "axis";
 				}
 				else
 				{
-					var_1b574851 = "allies";
+					gamewinner = "allies";
 				}
 			}
 		}
@@ -455,30 +455,30 @@ function function_cdcbe19(roundwinner, var_2cd61e6c)
 		{
 			if(game.propscore[#"axis"] > game.propscore[#"allies"])
 			{
-				var_1b574851 = "axis";
+				gamewinner = "axis";
 			}
 			else
 			{
-				var_1b574851 = "allies";
+				gamewinner = "allies";
 			}
 		}
-		if(var_1b574851 != "tie" && var_2cd61e6c)
+		if(gamewinner != "tie" && var_2cd61e6c)
 		{
-			globallogic_score::giveteamscoreforobjective_delaypostprocessing(var_1b574851, 1);
+			globallogic_score::giveteamscoreforobjective_delaypostprocessing(gamewinner, 1);
 		}
 	}
 	else
 	{
 		if(game.stat[var_41886d38][#"axis"] > game.stat[var_41886d38][#"allies"])
 		{
-			var_1b574851 = "axis";
+			gamewinner = "axis";
 		}
 		else
 		{
-			var_1b574851 = "allies";
+			gamewinner = "allies";
 		}
 	}
-	return var_1b574851;
+	return gamewinner;
 }
 
 /*
@@ -890,7 +890,7 @@ function givecustomloadout()
 		}
 	}
 	self giveweapon(level.weaponbasemelee);
-	self notify(#"hash_492fdea00c40222d");
+	self notify(#"applyloadout");
 	return weapon;
 }
 
@@ -1195,16 +1195,16 @@ function function_71a55567()
 	if(isdefined(self))
 	{
 		var_9ba0a68f = int(level.phsettings.propchangecount);
-		var_484b4cdc = undefined;
+		abilitycount = undefined;
 		var_3a346a8 = undefined;
 		if(isdefined(self.spawnedonce) && isdefined(self.changesleft))
 		{
 			var_9ba0a68f = self.changesleft;
-			var_484b4cdc = self.abilityleft;
+			abilitycount = self.abilityleft;
 			var_3a346a8 = self.clonesleft;
 		}
 		self prop_controls::propsetchangesleft(var_9ba0a68f);
-		self prop_controls::setnewabilitycount(self.currentability, var_484b4cdc);
+		self prop_controls::setnewabilitycount(self.currentability, abilitycount);
 		self prop_controls::setnewabilitycount("CLONE", var_3a346a8);
 		self clientfield::set_to_player("realtime_multiplay", 1);
 	}
@@ -1385,7 +1385,7 @@ function handleprop()
 {
 	level endon(#"game_ended");
 	self endon(#"disconnect", #"death");
-	self waittill(#"hash_492fdea00c40222d");
+	self waittill(#"applyloadout");
 	self allowprone(0);
 	self allowcrouch(0);
 	self allowsprint(0);
@@ -2136,9 +2136,9 @@ function populateproplist()
 		offsetx = int(tablelookupbyrow(var_a01224f2, rowindex, 3));
 		offsety = int(tablelookupbyrow(var_a01224f2, rowindex, 4));
 		offsetz = int(tablelookupbyrow(var_a01224f2, rowindex, 5));
-		var_f16633ee = int(tablelookupbyrow(var_a01224f2, rowindex, 6));
+		rotationx = int(tablelookupbyrow(var_a01224f2, rowindex, 6));
 		rotationy = int(tablelookupbyrow(var_a01224f2, rowindex, 7));
-		var_f16733fc = int(tablelookupbyrow(var_a01224f2, rowindex, 8));
+		rotationz = int(tablelookupbyrow(var_a01224f2, rowindex, 8));
 		propheight = tablelookupbyrow(var_a01224f2, rowindex, 9);
 		proprange = tablelookupbyrow(var_a01224f2, rowindex, 10);
 		offset = undefined;
@@ -2147,9 +2147,9 @@ function populateproplist()
 			offset = (offsetx, offsety, offsetz);
 		}
 		rotation = undefined;
-		if(isdefined(var_f16633ee) && isdefined(rotationy) && isdefined(var_f16733fc))
+		if(isdefined(rotationx) && isdefined(rotationy) && isdefined(rotationz))
 		{
-			rotation = (var_f16633ee, rotationy, var_f16733fc);
+			rotation = (rotationx, rotationy, rotationz);
 		}
 		if(!isdefined(var_9846ca56) || var_9846ca56 == 0)
 		{
@@ -2750,7 +2750,7 @@ function ontimelimit()
 			{
 				if(isdefined(1) && 1)
 				{
-					potm::bookmark(#"hash_1b2c9f8864e884c5", gettime(), player);
+					potm::bookmark(#"prop_survive", gettime(), player);
 				}
 				scoreevents::processscoreevent("prop_survived_entire_round", player);
 			}

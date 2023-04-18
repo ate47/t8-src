@@ -255,7 +255,7 @@ function defaultrole()
 {
 	statemachine = self vehicle_ai::init_state_machine_for_role("default");
 	statemachine statemachine::add_state("seek", &function_9ddc7275, &function_3e16dec3, &function_64f7393f);
-	statemachine statemachine::add_state("chase", &function_404bbbe2, &function_391d5d90, &function_24465583);
+	statemachine statemachine::add_state("chase", &state_chase_start, &function_391d5d90, &function_24465583);
 	statemachine statemachine::add_state("discharge", &function_c23ecb2, &function_fb89ba8a, &function_32e99568);
 	self vehicle_ai::get_state_callbacks("death").update_func = &state_death_update;
 	self vehicle_ai::call_custom_add_state_callbacks();
@@ -340,7 +340,7 @@ function function_9e38a14a(einflictor, eattacker, idamage, idflags, smeansofdeat
 }
 
 /*
-	Name: function_404bbbe2
+	Name: state_chase_start
 	Namespace: seeker_mine
 	Checksum: 0xBFF061B1
 	Offset: 0xFB8
@@ -348,7 +348,7 @@ function function_9e38a14a(einflictor, eattacker, idamage, idflags, smeansofdeat
 	Parameters: 1
 	Flags: None
 */
-function function_404bbbe2(params)
+function state_chase_start(params)
 {
 	self clientfield::set("seeker_mine_light_fx", 1);
 	self.var_3a0564e = gettime();
@@ -656,7 +656,7 @@ function function_fb89ba8a(params)
 				self.var_8a74f7fc = level.var_8a74f7fc[self.var_c43010fc];
 				if(!isdefined(self.var_d8d780c1) || self.var_d8d780c1.size < level.var_8a74f7fc[self.var_c43010fc].var_755593b1)
 				{
-					arc::function_5272e51b(level.var_8a74f7fc[self.var_c43010fc], self.owner, self, self function_d3a9800e(), 0, 0);
+					arc::find_arc_targets(level.var_8a74f7fc[self.var_c43010fc], self.owner, self, self function_d3a9800e(), 0, 0);
 				}
 			}
 			if(!(isdefined(self.var_52ed036d) && self.var_52ed036d))

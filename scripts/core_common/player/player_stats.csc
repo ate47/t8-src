@@ -15,16 +15,16 @@ function function_d92cb558(result, vararg)
 	/#
 		if(!isdefined(result))
 		{
-			var_2f3fa528 = (function_7a600918(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
-			if(!isdefined(var_2f3fa528))
+			pathstr = (function_7a600918(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
+			if(!isdefined(pathstr))
 			{
 				return;
 			}
 			for(i = 1; i < vararg.size; i++)
 			{
-				var_2f3fa528 = (var_2f3fa528 + "") + (function_7a600918(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
+				pathstr = (pathstr + "") + (function_7a600918(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
 			}
-			println("" + var_2f3fa528);
+			println("" + pathstr);
 		}
 	#/
 }
@@ -66,7 +66,7 @@ function function_842e069e(localclientnum, sessionmode, vararg)
 }
 
 /*
-	Name: function_441050ca
+	Name: get_stat_global
 	Namespace: stats
 	Checksum: 0xBA83D867
 	Offset: 0x278
@@ -74,7 +74,7 @@ function function_842e069e(localclientnum, sessionmode, vararg)
 	Parameters: 2
 	Flags: Linked
 */
-function function_441050ca(localclientnum, statname)
+function get_stat_global(localclientnum, statname)
 {
 	return get_stat(localclientnum, #"playerstatslist", statname, #"statvalue");
 }

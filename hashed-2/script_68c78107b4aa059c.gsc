@@ -603,12 +603,12 @@ function private function_216a69d6(var_9f19fcb6, reset)
 		level.var_5862f2ce[level.var_5862f2ce.size] = dynent;
 		dynent.var_1ed4b650 = self.var_b91441dd.var_1ed4b650;
 		randint = function_d59c2d03(100);
-		var_42abd8e = randint <= var_9f19fcb6;
+		shouldspawn = randint <= var_9f19fcb6;
 		if(var_a31ad4de > -1 && var_418a2e03.size >= var_a31ad4de)
 		{
-			var_42abd8e = 0;
+			shouldspawn = 0;
 		}
-		if(var_42abd8e && reset)
+		if(shouldspawn && reset)
 		{
 			var_418a2e03[var_418a2e03.size] = dynent;
 			continue;

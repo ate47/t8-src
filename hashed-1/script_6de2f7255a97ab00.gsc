@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_39bd5b6b799b1c9c;
 #using scripts\mp_common\item_drop.gsc;
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -186,9 +186,9 @@ function private function_a88ee653()
 		if(isdefined(level.var_b2513722))
 		{
 			var_52b56362 = (isdefined(level.var_52b56362) ? level.var_52b56362 : 0);
-			deathcircle = level.var_fb91af8[var_52b56362];
-			var_448914c2 = (isdefined(level.var_fb91af8[var_52b56362 + 1]) ? level.var_fb91af8[var_52b56362 + 1] : deathcircle);
-			height = var_448914c2.origin[2];
+			deathcircle = level.deathcircles[var_52b56362];
+			nextdeathcircle = (isdefined(level.deathcircles[var_52b56362 + 1]) ? level.deathcircles[var_52b56362 + 1] : deathcircle);
+			height = nextdeathcircle.origin[2];
 			radius = 200;
 			sphere(level.var_d1c35a7a, radius, (1, 0, 0));
 			sphere(level.var_ebe9f3de, radius, (1, 0, 0));
@@ -325,7 +325,7 @@ function private function_13339b58(var_d4bce8be)
 	{
 		self animscripted("parachute_idle", self.origin, self.angles, idle_anim, "normal", "root", 1, 0);
 	}
-	self waittill(#"hash_6c4de390ac1cb3d7");
+	self waittill(#"parachute_close");
 	self unlink();
 	self animscripted("parachute_closed", self.origin, self.angles, var_e1c31bea, "normal", "root", 1, 0);
 	animlength = getanimlength("parachute_closed");
@@ -417,7 +417,7 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 		}
 		if(isdefined(var_81b62996))
 		{
-			var_81b62996 notify(#"hash_6c4de390ac1cb3d7");
+			var_81b62996 notify(#"parachute_close");
 			var_81b62996.var_b702030d = 1;
 		}
 		if(isdefined(supplydrop.var_abd32694) && supplydrop.var_abd32694)
@@ -594,7 +594,7 @@ function private function_67d7d040(var_d91c179d)
 	supplydrop.targetname = (supplydrop getentitynumber() + "_stash_") + randomint(2147483647);
 	supplydrop clientfield::set("dynamic_stash", 1);
 	supplydrop clientfield::set("dynamic_stash_type", 1);
-	supplydrop.var_ed175c5 = 1;
+	supplydrop.stash_type = 1;
 	supplydrop.var_b2513722 = var_d91c179d;
 	return supplydrop;
 }
@@ -685,8 +685,8 @@ function private function_16bbdd8b(point)
 		maxz = 10;
 		level.var_ae7f6100 = (maxx, maxy, maxz);
 	}
-	var_fa52306b = (point[0], point[1], 0);
-	return function_fc3f770b(level.var_3e5e898c, level.var_ae7f6100, var_fa52306b);
+	testpoint = (point[0], point[1], 0);
+	return function_fc3f770b(level.var_3e5e898c, level.var_ae7f6100, testpoint);
 }
 
 /*
@@ -1089,23 +1089,23 @@ function function_7d4a448f(var_47d17dcb = 0)
 	{
 		return;
 	}
-	if(!isdefined(level.var_fb91af8) || level.var_fb91af8.size <= 0)
+	if(!isdefined(level.deathcircles) || level.deathcircles.size <= 0)
 	{
 		return;
 	}
 	var_52b56362 = (isdefined(level.var_52b56362) ? level.var_52b56362 : 0);
-	deathcircle = level.var_fb91af8[var_52b56362];
-	var_448914c2 = (isdefined(level.var_fb91af8[var_52b56362 + 1]) ? level.var_fb91af8[var_52b56362 + 1] : deathcircle);
+	deathcircle = level.deathcircles[var_52b56362];
+	nextdeathcircle = (isdefined(level.deathcircles[var_52b56362 + 1]) ? level.deathcircles[var_52b56362 + 1] : deathcircle);
 	if(var_47d17dcb)
 	{
-		var_448914c2 = level.var_fb91af8[level.var_fb91af8.size - 1];
+		nextdeathcircle = level.deathcircles[level.deathcircles.size - 1];
 	}
 	var_94f13d8b = 18000;
-	mapcenter = namespace_67838d10::function_15945f95();
-	var_66b35636 = namespace_67838d10::function_ab6af198();
-	var_e1ae630e = var_448914c2.origin;
+	mapcenter = player_insertion::function_15945f95();
+	var_66b35636 = player_insertion::function_ab6af198();
+	var_e1ae630e = nextdeathcircle.origin;
 	var_e1ae630e = (var_e1ae630e[0], var_e1ae630e[1], var_94f13d8b);
-	var_4f59c30d = var_448914c2.radius;
+	var_4f59c30d = nextdeathcircle.radius;
 	if(!function_16bbdd8b(var_e1ae630e))
 	{
 		return;
@@ -1165,14 +1165,14 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca282
 	{
 		return;
 	}
-	if(!isdefined(level.var_fb91af8) || level.var_fb91af8.size <= 0)
+	if(!isdefined(level.deathcircles) || level.deathcircles.size <= 0)
 	{
 		return;
 	}
 	var_f5f2246e = (helicopter ? 10000 : 35000);
 	var_52b56362 = (isdefined(level.var_52b56362) ? level.var_52b56362 : 0);
-	deathcircle = level.var_fb91af8[var_52b56362];
-	var_448914c2 = (isdefined(level.var_fb91af8[var_52b56362 + 1]) ? level.var_fb91af8[var_52b56362 + 1] : deathcircle);
+	deathcircle = level.deathcircles[var_52b56362];
+	nextdeathcircle = (isdefined(level.deathcircles[var_52b56362 + 1]) ? level.deathcircles[var_52b56362 + 1] : deathcircle);
 	if(helicopter)
 	{
 		var_729c4495 = 5000;
@@ -1183,11 +1183,11 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca282
 	}
 	var_729c4495 = var_729c4495 + var_541c190b;
 	var_94f13d8b = 2000 + var_729c4495;
-	mapcenter = namespace_67838d10::function_15945f95();
-	var_66b35636 = namespace_67838d10::function_ab6af198();
-	var_e1ae630e = var_448914c2.origin;
+	mapcenter = player_insertion::function_15945f95();
+	var_66b35636 = player_insertion::function_ab6af198();
+	var_e1ae630e = nextdeathcircle.origin;
 	var_e1ae630e = (var_e1ae630e[0], var_e1ae630e[1], var_94f13d8b);
-	var_4f59c30d = var_448914c2.radius;
+	var_4f59c30d = nextdeathcircle.radius;
 	if(!function_16bbdd8b(var_e1ae630e))
 	{
 		return;

@@ -37,7 +37,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e") || !zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
+	if(!zm_custom::function_901b751c(#"zmweaponssmg") || !zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
 	{
 		return;
 	}

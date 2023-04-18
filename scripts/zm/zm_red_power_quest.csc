@@ -56,7 +56,7 @@ function init()
 	level._effect[#"hash_67277cc8e292f521"] = #"hash_16460aa383cf7354";
 	level._effect[#"hash_33d5355e9824552e"] = #"hash_4368d718964d6faf";
 	level._effect[#"hash_33d51f5e98242fcc"] = #"hash_4362bf189648db39";
-	level._effect[#"hash_47128b68c7cfdeb8"] = #"hash_1807ad62ba867a20";
+	level._effect[#"shield_gegenees"] = #"hash_1807ad62ba867a20";
 }
 
 /*
@@ -72,7 +72,7 @@ function function_ee7e8a00(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_47128b68c7cfdeb8"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"shield_gegenees"], self, "tag_origin");
 	}
 }
 

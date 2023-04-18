@@ -232,7 +232,7 @@ function setup_player_contracts(max_contract_slots, var_1b3f5772)
 	{
 		player.pers[#"contracts"] = [];
 	}
-	player.pers[#"hash_5651f00c6c1790a4"] = self stats::function_441050ca(#"time_played_total");
+	player.pers[#"hash_5651f00c6c1790a4"] = self stats::get_stat_global(#"time_played_total");
 	for(slot = 0; slot < max_contract_slots; slot++)
 	{
 		var_5ceb23d0 = player [[var_1b3f5772]](slot);
@@ -702,7 +702,7 @@ function function_78083139()
 						var_ad6e6421 = player.var_56bd2c02 - player.pers[#"hash_5651f00c6c1790a4"];
 					}
 				}
-				time_played_total = player stats::function_441050ca(#"time_played_total");
+				time_played_total = player stats::get_stat_global(#"time_played_total");
 				var_9d12108c = 0;
 				if(isdefined(player) && isdefined(player.team) && isdefined(player.timeplayed) && isdefined(player.timeplayed[player.team]))
 				{

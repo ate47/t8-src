@@ -63,7 +63,7 @@ function private function_582a3075(localclientnum)
 		{
 			self._effect[#"hash_219e13e8868d7af4"] = "zm_ai/fx8_nova_crawler_mq_explode";
 		}
-		else if(self.var_9fde8624 == #"hash_3a67e595e19f61b2")
+		else if(self.var_9fde8624 == #"ranged_nova_crawler")
 		{
 			self._effect[#"hash_219e13e8868d7af4"] = "zm_ai/fx8_nova_crawler_elec_explode";
 			self._effect[#"nova_crawler_phase_teleport_end_fx"] = "zm_ai/fx8_nova_crawler_elec_teleport_appear";

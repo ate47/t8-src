@@ -12,7 +12,7 @@
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\infection.gsc;
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using scripts\wz_common\wz_ai.gsc;
 #using script_5ebc70029e06b264;
 #using script_64176e152a2cbf82;
@@ -658,7 +658,7 @@ function function_d81f6eb7()
 function function_bcde1e07()
 {
 	level flagsys::clear(#"spawning_allowed");
-	namespace_67838d10::function_bcde1e07();
+	player_insertion::function_bcde1e07();
 }
 
 /*
@@ -724,7 +724,7 @@ function private function_272029d0()
 		}
 	#/
 	level flagsys::set(#"spawning_allowed");
-	level namespace_67838d10::function_8dcd8623();
+	level player_insertion::function_8dcd8623();
 }
 
 /*
@@ -843,7 +843,7 @@ function on_player_connect()
 	self.var_63af7f75 = -1;
 	self.var_c5134737 = 1;
 	level function_22df4165();
-	self namespace_d3564fd8::function_456aacb1();
+	self namespace_d3564fd8::player_connected();
 }
 
 /*
@@ -2072,7 +2072,7 @@ function function_47851c07()
 	Parameters: 2
 	Flags: Linked
 */
-function function_de15dc32(killed_player, var_67bb0009)
+function function_de15dc32(killed_player, disconnected_player)
 {
 	player_count = {#hash_85587598:[], #alive:0, #total:0};
 	var_77cfc33d = game.state == "pregame" || function_47851c07();
@@ -2088,7 +2088,7 @@ function function_de15dc32(killed_player, var_67bb0009)
 		var_ead60f69 = 0;
 		foreach(player in players)
 		{
-			if(var_67bb0009 === player)
+			if(disconnected_player === player)
 			{
 				continue;
 			}
@@ -2425,12 +2425,12 @@ function function_511245ae(takeoldweapon = 0)
 	{
 		function_2f66bc37();
 	}
-	var_2b15e2fe = getweapon(#"gadget_health_regen");
-	self giveweapon(var_2b15e2fe);
-	self setweaponammoclip(var_2b15e2fe, 0);
-	self switchtooffhand(var_2b15e2fe);
-	level.var_ef61b4b5 = var_2b15e2fe;
-	var_fb6490c8 = self gadgetgetslot(var_2b15e2fe);
+	healthgadget = getweapon(#"gadget_health_regen");
+	self giveweapon(healthgadget);
+	self setweaponammoclip(healthgadget, 0);
+	self switchtooffhand(healthgadget);
+	level.var_ef61b4b5 = healthgadget;
+	var_fb6490c8 = self gadgetgetslot(healthgadget);
 	self gadgetpowerset(var_fb6490c8, 0);
 	bare_hands = getweapon(#"bare_hands");
 	self giveweapon(bare_hands);
@@ -2516,7 +2516,7 @@ function private function_8e7ae35(event, params)
 */
 function function_a3e209ba()
 {
-	if(namespace_67838d10::function_6660c1f())
+	if(player_insertion::function_6660c1f())
 	{
 		return false;
 	}
@@ -2539,7 +2539,7 @@ function function_aaa24662()
 	{
 		return;
 	}
-	var_c013a394 callback::function_35a12f19(&function_3c8be2d2);
+	var_c013a394 callback::on_trigger(&function_3c8be2d2);
 }
 
 /*

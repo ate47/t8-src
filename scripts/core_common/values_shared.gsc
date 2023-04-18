@@ -579,7 +579,7 @@ function private set_disablegestures(b_value = 1)
 {
 	if(isplayer(self))
 	{
-		self.var_89b32012 = b_value;
+		self.disablegestures = b_value;
 	}
 }
 

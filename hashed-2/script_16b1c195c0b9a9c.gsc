@@ -145,10 +145,10 @@ function private function_3ecc52d9(var_d3547bb1, var_d108dac6)
 {
 	if(isdefined(self.bot.var_6369695a))
 	{
-		var_81b61f1c = self.bot.var_6369695a.path;
-		if(var_81b61f1c.size > 0)
+		soundsgunnerplay = self.bot.var_6369695a.path;
+		if(soundsgunnerplay.size > 0)
 		{
-			var_3ebdf257 = var_81b61f1c[var_81b61f1c.size - 1];
+			var_3ebdf257 = soundsgunnerplay[soundsgunnerplay.size - 1];
 			if(var_3ebdf257 === var_d3547bb1)
 			{
 				return self.bot.var_6369695a;
@@ -1280,7 +1280,7 @@ function private function_bb791fc6(planner, params)
 			goal = params.sdbombzone;
 			bot setgoal(goal);
 			bot.goalradius = 128;
-			bot bot::function_7a6eea9c(params.sdbombzone);
+			bot bot::set_interact(params.sdbombzone);
 		}
 	}
 	return 1;
@@ -1375,7 +1375,7 @@ function private function_e7a81528(planner, params)
 			bot bot::function_6c280dfe();
 			bot setgoal(params.sddefuseobj);
 			bot.goalradius = 128;
-			bot bot::function_7a6eea9c(params.sddefuseobj);
+			bot bot::set_interact(params.sddefuseobj);
 		}
 	}
 	return 1;

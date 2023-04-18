@@ -46,10 +46,10 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("allplayers", "" + #"hash_38e20721589d1fdc", 1, 1, "counter");
+	clientfield::register("allplayers", "" + #"lightning_bolt_fx", 1, 1, "counter");
 	clientfield::register("toplayer", "" + #"hash_61e96e3005ea1d49", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"lightning_miss_fx", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_9e18cea0c11fb61", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"hammer_storm", 1, 1, "int");
 	clientfield::register("actor", "" + #"lightning_impact_fx", 1, 1, "int");
 	clientfield::register("vehicle", "" + #"lightning_impact_fx", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter");
@@ -265,15 +265,15 @@ function function_6275aed3()
 	self notify(#"hash_51ba139f52797f7d");
 	self endon(#"hash_51ba139f52797f7d");
 	waitframe(3);
-	if(self.var_4618dc52 clientfield::get("" + #"hash_9e18cea0c11fb61"))
+	if(self.var_4618dc52 clientfield::get("" + #"hammer_storm"))
 	{
-		self.var_4618dc52 clientfield::set("" + #"hash_9e18cea0c11fb61", 0);
+		self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
 		util::wait_network_frame();
 	}
-	self.var_4618dc52 clientfield::set("" + #"hash_9e18cea0c11fb61", 1);
+	self.var_4618dc52 clientfield::set("" + #"hammer_storm", 1);
 	self thread function_fd8e3604();
 	wait(10);
-	self.var_4618dc52 clientfield::set("" + #"hash_9e18cea0c11fb61", 0);
+	self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
 	util::wait_network_frame();
 	self.var_4618dc52 delete();
 }
@@ -681,7 +681,7 @@ function function_5ae28f27(player)
 	{
 		return;
 	}
-	if(self function_51caa467(var_75ccefac, 96, var_359c1a94))
+	if(self check_for_range(var_75ccefac, 96, var_359c1a94))
 	{
 		self.var_74558e5 = 1;
 		if(isalive(self))
@@ -745,7 +745,7 @@ function function_97429d68()
 }
 
 /*
-	Name: function_51caa467
+	Name: check_for_range
 	Namespace: zm_weap_hammer
 	Checksum: 0xFD098394
 	Offset: 0x2628
@@ -753,7 +753,7 @@ function function_97429d68()
 	Parameters: 3
 	Flags: Linked
 */
-function function_51caa467(v_attack_source, n_allowed_z_diff, n_radius_sq)
+function check_for_range(v_attack_source, n_allowed_z_diff, n_radius_sq)
 {
 	if(isalive(self))
 	{
@@ -1182,7 +1182,7 @@ function function_371c585a()
 {
 	if(isdefined(self.var_4618dc52))
 	{
-		self.var_4618dc52 clientfield::set("" + #"hash_9e18cea0c11fb61", 0);
+		self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
 		self.var_4618dc52 delete();
 	}
 }

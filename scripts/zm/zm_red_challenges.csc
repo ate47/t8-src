@@ -26,7 +26,7 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_74fc30de57a0657a", 16000, 3, "int", &function_de1bffd6, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_21f5fab6a3d22093", 16000, 3, "int", &function_9ed71eeb, 0, 0);
 	clientfield::register("scriptmover", "" + #"keyline_model", 16000, 1, "int", &keyline_model, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_565760e2c7c1e5cb", 16000, 1, "int", &function_a7ee082f, 0, 0);
+	clientfield::register("scriptmover", "" + #"pickup_glow", 16000, 1, "int", &function_a7ee082f, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_8b48433c3fe40e4", 16000, 3, "int", &function_75ac8f21, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_4bde11d71410ea67", 16000, 3, "int", &function_250bbf4e, 0, 0);
 	clientfield::register("world", "" + #"hash_34bdcd0feba3d912", 16000, 1, "int", &function_4b8846c3, 0, 0);
@@ -51,7 +51,7 @@ function init()
 	level._effect[#"hash_eafc8632695ccef"][3] = #"maps/zm_red/fx8_soul_charge_purple";
 	level._effect[#"hash_fa374812e6016c9"][4] = #"hash_6cfbd6f08cfc2656";
 	level._effect[#"hash_eafc8632695ccef"][4] = #"hash_17bb97645fa8148b";
-	level._effect[#"hash_565760e2c7c1e5cb"] = #"zm_weapons/fx8_cymbal_monkey_light";
+	level._effect[#"pickup_glow"] = #"zm_weapons/fx8_cymbal_monkey_light";
 	namespace_f8f28e08::init();
 	level.var_7987392b = undefined;
 }
@@ -227,7 +227,7 @@ function keyline_model(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function function_a7ee082f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	util::playfxontag(localclientnum, level._effect[#"hash_565760e2c7c1e5cb"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"pickup_glow"], self, "tag_origin");
 }
 
 /*

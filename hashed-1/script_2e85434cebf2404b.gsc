@@ -365,11 +365,11 @@ function function_2a48bf1c(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval)
 	{
-		self thread postfx::playpostfxbundle(#"hash_7859457bbea5aa02");
+		self thread postfx::playpostfxbundle(#"pstfx_zm_man_targeted");
 	}
 	else
 	{
-		self thread postfx::exitpostfxbundle(#"hash_7859457bbea5aa02");
+		self thread postfx::exitpostfxbundle(#"pstfx_zm_man_targeted");
 	}
 }
 

@@ -93,7 +93,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	}
 	if(shitloc == "riotshield")
 	{
-		function_29b3ff22(einflictor, eattacker, idamage, smeansofdeath, weapon, attackerishittingteammate, vdir);
+		riotshield_hit(einflictor, eattacker, idamage, smeansofdeath, weapon, attackerishittingteammate, vdir);
 		if(isdefined(eattacker) && !attackerishittingself && (isalive(eattacker) || eattacker util::isusingremote()))
 		{
 			if(damagefeedback::dodamagefeedback(weapon, einflictor, idamage, smeansofdeath))
@@ -128,7 +128,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		self notify(#"laststand_damage", params);
 		self.health++;
-		self.var_4b4f2ce3 = idamage;
+		self.laststanddamage = idamage;
 		idamage = 1;
 	}
 	if(shitloc == "riotshield")
@@ -257,7 +257,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 */
 function function_f5cfe2b4(einflictor, eattacker, idamage, idflags)
 {
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -446,7 +446,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 			eattacker contracts::player_contract_event(#"damagedone", damagedone);
 			eattacker stats::function_bb7eedf0(#"total_damage", int(damagedone));
 			eattacker stats::function_b7f80d87(#"total_damage", int(damagedone));
-			if(!function_f99d2668())
+			if(!sessionmodeiswarzonegame())
 			{
 				if(isarenamode())
 				{
@@ -582,10 +582,10 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 	}
 	if(isdefined(self.laststand) && self.laststand)
 	{
-		if(isdefined(level.var_b1ad0b64) && isdefined(self.var_4b4f2ce3))
+		if(isdefined(level.var_b1ad0b64) && isdefined(self.laststanddamage))
 		{
-			fatal = self [[level.var_b1ad0b64]](self.var_4b4f2ce3, smeansofdeath);
-			self.var_4b4f2ce3 = undefined;
+			fatal = self [[level.var_b1ad0b64]](self.laststanddamage, smeansofdeath);
+			self.laststanddamage = undefined;
 		}
 		else
 		{
@@ -607,7 +607,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 */
 function private player_damage_log(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex)
 {
-	pixbeginevent(#"hash_2819fdb5a403fe3");
+	pixbeginevent(#"playerdamage log");
 	/#
 		if(getdvarint(#"g_debugdamage", 0))
 		{
@@ -862,9 +862,9 @@ function private does_player_completely_avoid_damage(idflags, shitloc, weapon, f
 			var_a0c3f41d = (isdefined(self.currentweapon.var_e2b40cd5) ? self.currentweapon.var_e2b40cd5 : 0);
 			if(var_a0c3f41d > 0)
 			{
-				var_709ce886 = idamage;
-				var_709ce886 = var_709ce886 * (1 - var_a0c3f41d);
-				function_56dc620b(einflictor, eattacker, int(var_709ce886), weapon, getscriptbundle(self.currentweapon.customsettings));
+				blockeddamage = idamage;
+				blockeddamage = blockeddamage * (1 - var_a0c3f41d);
+				function_56dc620b(einflictor, eattacker, int(blockeddamage), weapon, getscriptbundle(self.currentweapon.customsettings));
 				idamage = idamage * var_a0c3f41d;
 				return int(idamage);
 			}
@@ -930,7 +930,7 @@ function function_56dc620b(einflictor, eattacker, idamage, weapon, customsetting
 }
 
 /*
-	Name: function_29b3ff22
+	Name: riotshield_hit
 	Namespace: player
 	Checksum: 0xCD1FDD8
 	Offset: 0x3BE8
@@ -938,7 +938,7 @@ function function_56dc620b(einflictor, eattacker, idamage, weapon, customsetting
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_29b3ff22(einflictor, eattacker, idamage, smeansofdeath, weapon, attackerishittingteammate, vdir)
+function private riotshield_hit(einflictor, eattacker, idamage, smeansofdeath, weapon, attackerishittingteammate, vdir)
 {
 	if(smeansofdeath == "MOD_PISTOL_BULLET" || smeansofdeath == "MOD_RIFLE_BULLET" || smeansofdeath == "MOD_IMPACT" && !attackerishittingteammate)
 	{
@@ -1695,7 +1695,7 @@ function private function_a774b4ed(eattacker, einflictor, weapon, smeansofdeath,
 	self thread weapons::on_damage(eattacker, einflictor, weapon, smeansofdeath, idamage);
 	if(!self util::isusingremote())
 	{
-		if(function_f99d2668() && smeansofdeath == "MOD_DEATH_CIRCLE")
+		if(sessionmodeiswarzonegame() && smeansofdeath == "MOD_DEATH_CIRCLE")
 		{
 			if(!isdefined(self.var_2f5355a6) || gettime() > self.var_2f5355a6)
 			{
@@ -1705,7 +1705,7 @@ function private function_a774b4ed(eattacker, einflictor, weapon, smeansofdeath,
 		}
 		else
 		{
-			if(function_f99d2668() && smeansofdeath == "MOD_BLED_OUT")
+			if(sessionmodeiswarzonegame() && smeansofdeath == "MOD_BLED_OUT")
 			{
 				if(!isdefined(self.var_2c725854) || gettime() > self.var_2c725854)
 				{

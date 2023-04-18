@@ -35,7 +35,7 @@ function init_clientfields()
 	clientfield::register("scriptmover", "" + #"hash_141bb928b3d09e20", 8000, 1, "int", &function_6628d887, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_34c5ab29531f15f0", 8000, 1, "int", &crystal_fx, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_546e7612359187c3", 8000, 1, "counter", &function_a0d4ae11, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_73a4abf07bc65bc3", 8000, 1, "counter", &function_b479829c, 0, 0);
+	clientfield::register("toplayer", "" + #"mansion_mq_rumble", 8000, 1, "counter", &function_b479829c, 0, 0);
 	clientfield::register("world", "" + #"hash_557a1703971f074c", 8000, 1, "int", &function_bca55d4e, 0, 0);
 	level._effect[#"red_ray"] = #"hash_7046110ad3c65161";
 	level._effect[#"hash_709c03abf1a2e08b"] = #"hash_532ac819595d9bb5";
@@ -139,11 +139,11 @@ function function_6628d887(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self.n_soul_fx = util::playfxontag(localclientnum, level._effect[#"hash_51c7bc3539ed5540"], self, "tag_origin");
+		self.n_soul_fx = util::playfxontag(localclientnum, level._effect[#"pap_projectile"], self, "tag_origin");
 	}
 	else
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_68213763a7707b92"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"pap_projectile_end"], self, "tag_origin");
 		if(isdefined(self.n_soul_fx))
 		{
 			stopfx(localclientnum, self.n_soul_fx);

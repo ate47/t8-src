@@ -56,7 +56,7 @@ function init()
 	level.finalkillcam = getgametypesetting(#"allowfinalkillcam");
 	level.killcamtime = getgametypesetting(#"killcamtime");
 	level.var_a95350da = getgametypesetting(#"hash_154db5a1b2e9d757");
-	level.var_7abccc83 = !function_f99d2668();
+	level.var_7abccc83 = !sessionmodeiswarzonegame();
 	init_final_killcam();
 }
 

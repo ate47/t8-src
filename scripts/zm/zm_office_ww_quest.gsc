@@ -1068,8 +1068,8 @@ function function_c056a0ad()
 */
 function function_81ed41a8()
 {
-	level._effect[#"hash_794e2b6112c311b8"] = #"hash_10d93d34c24f01bd";
-	level.var_c2f35c64 = level._effect[#"hash_794e2b6112c311b8"];
+	level._effect[#"panic_room_monitor_light"] = #"hash_10d93d34c24f01bd";
+	level.var_c2f35c64 = level._effect[#"panic_room_monitor_light"];
 	level.var_497a573d = getent("sadako_mover", "targetname");
 	level.var_b2786b6b = getent("panic_room_monitor_light_origin", "targetname");
 	level.var_b2786b6b.fx_ent = util::spawn_model("tag_origin", level.var_b2786b6b.origin);

@@ -37,8 +37,8 @@ function private __init__()
 {
 	callback::on_connect(&onconnect);
 	callback::on_spawned(&onspawned);
-	ability_player::register_gadget_activation_callbacks(23, &function_368c92b1, &function_6dd64ede);
-	level.var_ad24980b = &function_6dd64ede;
+	ability_player::register_gadget_activation_callbacks(23, &onhealthregen, &offhealthregen);
+	level.var_ad24980b = &offhealthregen;
 	level.var_99a34951 = getgametypesetting(#"hash_712f4c2a96bca56e");
 	level.var_33a3ef40 = getgametypesetting(#"hash_647310a2fe3554f7");
 	level.var_aff59367 = getgametypesetting(#"hash_44533f4f290c5e77");
@@ -140,7 +140,7 @@ function function_3fbb0e22()
 }
 
 /*
-	Name: function_368c92b1
+	Name: onhealthregen
 	Namespace: pickup_health
 	Checksum: 0x51456269
 	Offset: 0x620
@@ -148,13 +148,13 @@ function function_3fbb0e22()
 	Parameters: 2
 	Flags: Private
 */
-function private function_368c92b1(slot, weapon)
+function private onhealthregen(slot, weapon)
 {
 	self.pers[#"pickup_health"]--;
 }
 
 /*
-	Name: function_6dd64ede
+	Name: offhealthregen
 	Namespace: pickup_health
 	Checksum: 0x823707F1
 	Offset: 0x658
@@ -162,7 +162,7 @@ function private function_368c92b1(slot, weapon)
 	Parameters: 2
 	Flags: Private
 */
-function private function_6dd64ede(slot, weapon)
+function private offhealthregen(slot, weapon)
 {
 	self gadgetdeactivate(self.gadget_health_regen_slot, self.gadget_health_regen_weapon);
 	thread function_a01a8a21();

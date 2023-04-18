@@ -53,11 +53,11 @@ function enable_staminup_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_staminup", #"perk_staminup", 2000, #"hash_26af21c3b4413875", getweapon("zombie_perk_bottle_marathon"), getweapon("zombie_perk_totem_staminup"), #"hash_3a15ddcc25d689f6");
+		zm_perks::register_perk_basic_info(#"specialty_staminup", #"perk_staminup", 2000, #"hash_26af21c3b4413875", getweapon("zombie_perk_bottle_marathon"), getweapon("zombie_perk_totem_staminup"), #"zmperksstaminup");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_staminup", #"perk_staminup", 2000, #"hash_7ef29d7842460907", getweapon("zombie_perk_bottle_marathon"), getweapon("zombie_perk_totem_staminup"), #"hash_3a15ddcc25d689f6");
+		zm_perks::register_perk_basic_info(#"specialty_staminup", #"perk_staminup", 2000, #"zombie/perk_marathon", getweapon("zombie_perk_bottle_marathon"), getweapon("zombie_perk_totem_staminup"), #"zmperksstaminup");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_staminup", &staminup_precache);
 	zm_perks::register_perk_clientfields(#"specialty_staminup", &staminup_register_clientfield, &staminup_set_clientfield);

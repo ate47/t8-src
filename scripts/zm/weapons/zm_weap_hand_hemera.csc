@@ -35,7 +35,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("scriptmover", "hemera_shoot", 16000, 1, "counter", &hemera_shoot_fx, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_47f6efd679c0437d", 16000, 1, "int", &function_70e72eac, 0, 0);
+	clientfield::register("scriptmover", "" + #"hemera_beam", 16000, 1, "int", &function_70e72eac, 0, 0);
 	clientfield::register("scriptmover", "" + #"hemera_impact", 16000, 1, "counter", &hemera_impact_fx, 0, 0);
 	clientfield::register("allplayers", "hemera_proj_flash", 16000, 1, "int", &function_c6d1bdb0, 0, 0);
 	clientfield::register("allplayers", "hemera_beam_flash", 16000, 1, "int", &function_68e9fdbb, 0, 0);

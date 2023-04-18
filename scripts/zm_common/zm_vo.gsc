@@ -580,11 +580,11 @@ function private function_d74752d8(var_2753f06a)
 			e_player = a_players[0];
 			if(var_2753f06a == 0)
 			{
-				str_suffix = #"hash_7722be2c5fbf9090";
+				str_suffix = #"vox_solo_game_start";
 			}
 			else
 			{
-				str_suffix = #"hash_353c8321de1d10b1" + var_2753f06a;
+				str_suffix = #"vox_solo_end_round" + var_2753f06a;
 			}
 			if(isdefined(e_player.var_ab7bf755))
 			{

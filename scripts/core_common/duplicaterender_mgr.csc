@@ -405,7 +405,7 @@ function _update_dr_filters(localclientnum)
 			self apply_filter(localclientnum, filter, key);
 		}
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self thread disable_all_filters_on_game_ended();
 	}

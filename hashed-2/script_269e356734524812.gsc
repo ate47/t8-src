@@ -234,9 +234,9 @@ function function_f0b81b80(var_14d21c2b)
 			}
 		}
 		flags = [];
-		foreach(flag, var_f90db79c in flagset)
+		foreach(flag, isset in flagset)
 		{
-			if(var_f90db79c)
+			if(isset)
 			{
 				if(!isdefined(flags))
 				{

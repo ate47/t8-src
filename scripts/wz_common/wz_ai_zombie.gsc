@@ -95,7 +95,7 @@ function private __init__()
 		level thread function_cb2c8fea();
 		callback::on_spawned(&function_25b61968);
 	}
-	function_74e6d564();
+	initzombiebehaviors();
 	if(getdvarint(#"hash_4cfef227405e3c46", 0) || getdvarint(#"hash_6e86098ccb2a7c2b", 0))
 	{
 		function_d2106375();
@@ -335,8 +335,8 @@ function function_847ab632()
 */
 function function_cdc822b()
 {
-	self.var_37f16e2e = ispointonnavmesh(self.origin, self getpathfindingradius() / 1.0125);
-	if(isdefined(self.ai_zone) || (isdefined(self.var_37f16e2e) && self.var_37f16e2e))
+	self.isonnavmesh = ispointonnavmesh(self.origin, self getpathfindingradius() / 1.0125);
+	if(isdefined(self.ai_zone) || (isdefined(self.isonnavmesh) && self.isonnavmesh))
 	{
 		return true;
 	}
@@ -400,9 +400,9 @@ function drawdebugcross(atpoint, radius, color, durationframes)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a6a84389(var_fab0ffd6)
+function function_a6a84389(playerradius)
 {
-	position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 100), 100, var_fab0ffd6);
+	position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 100), 100, playerradius);
 	if(isdefined(position))
 	{
 		player_position = self.origin + vectorscale((0, 0, 1), 20);
@@ -414,7 +414,7 @@ function function_a6a84389(var_fab0ffd6)
 	}
 	else
 	{
-		position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 100), 200, var_fab0ffd6);
+		position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 100), 200, playerradius);
 		if(isdefined(position))
 		{
 			player_position = self.origin + vectorscale((0, 0, 1), 20);
@@ -472,7 +472,7 @@ function attackable_callback(entity)
 }
 
 /*
-	Name: function_74e6d564
+	Name: initzombiebehaviors
 	Namespace: wz_ai_zombie
 	Checksum: 0x8379B0E2
 	Offset: 0x1EC0
@@ -480,7 +480,7 @@ function attackable_callback(entity)
 	Parameters: 0
 	Flags: Linked
 */
-function function_74e6d564()
+function initzombiebehaviors()
 {
 	/#
 		assert(isscriptfunctionptr(&function_e91d8371));
@@ -1080,7 +1080,7 @@ function private zombieshouldmelee(entity)
 		entity.var_1b250399 = entity.origin;
 		return true;
 	}
-	if(!function_f41ded83(entity.enemy) && (isdefined(self.var_37f16e2e) && self.var_37f16e2e) && !tracepassedonnavmesh(entity.origin, (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin), entity.enemy getpathfindingradius()))
+	if(!function_f41ded83(entity.enemy) && (isdefined(self.isonnavmesh) && self.isonnavmesh) && !tracepassedonnavmesh(entity.origin, (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin), entity.enemy getpathfindingradius()))
 	{
 		return false;
 	}
@@ -1791,7 +1791,7 @@ function function_e261b81d()
 	self setgoal(self.origin);
 	while(true)
 	{
-		self.var_37f16e2e = ispointonnavmesh(self.origin, self getpathfindingradius() / 1.0125);
+		self.isonnavmesh = ispointonnavmesh(self.origin, self getpathfindingradius() / 1.0125);
 		self.var_6e3313ab = 0;
 		if(isdefined(self.ai_zone) && self istouching(self.ai_zone.def))
 		{
@@ -1805,7 +1805,7 @@ function function_e261b81d()
 		/#
 			self function_173e098f();
 		#/
-		if(!self.var_6e3313ab || (!self.var_37f16e2e && self.allowoffnavmesh))
+		if(!self.var_6e3313ab || (!self.isonnavmesh && self.allowoffnavmesh))
 		{
 			if(!isdefined(self.var_6bcb6977))
 			{
@@ -1872,7 +1872,7 @@ function function_e261b81d()
 		{
 			if((self getentitynumber() & 1) == (function_8168c82a() & 1))
 			{
-				self.clamptonavmesh = !self.var_37f16e2e && isdefined(self.ai_zone) && self istouching(self.ai_zone.def);
+				self.clamptonavmesh = !self.isonnavmesh && isdefined(self.ai_zone) && self istouching(self.ai_zone.def);
 			}
 		}
 		else
@@ -1904,9 +1904,9 @@ function private function_eea7a68a(entity)
 	{
 		entity.attackable = namespace_b912c30b::get_attackable(entity, 1);
 	}
-	if(isdefined(entity.current_state) && isdefined(entity.current_state.var_1bef5880))
+	if(isdefined(entity.current_state) && isdefined(entity.current_state.target_func))
 	{
-		[[entity.current_state.var_1bef5880]](entity);
+		[[entity.current_state.target_func]](entity);
 	}
 }
 
@@ -2762,7 +2762,7 @@ function private function_d3a12e63()
 {
 	if(isdefined(self.var_80780af2))
 	{
-		if(!self.allowoffnavmesh && self.var_37f16e2e)
+		if(!self.allowoffnavmesh && self.isonnavmesh)
 		{
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
@@ -2791,7 +2791,7 @@ function private function_2ae5a795()
 {
 	if(isdefined(self.var_80780af2) && (isinarray(level.var_8de0b84e, self getentitynumber()) || self.archetype == #"blight_father"))
 	{
-		if(!self.allowoffnavmesh && self.var_37f16e2e)
+		if(!self.allowoffnavmesh && self.isonnavmesh)
 		{
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
@@ -3137,9 +3137,9 @@ function private function_b8eff92a(state)
 		}
 		case 5:
 		{
-			self function_d1e55248(#"hash_5780e28b762b831a", !self.var_37f16e2e);
+			self function_d1e55248(#"hash_5780e28b762b831a", !self.isonnavmesh);
 			val::set(#"hash_5780e28b762b831a", "ignoreall", 1);
-			if(!self.var_37f16e2e)
+			if(!self.isonnavmesh)
 			{
 				self pathmode("dont move", 1);
 			}
@@ -3176,18 +3176,18 @@ function private function_36151fe3()
 	if(isdefined(self.enemy_override))
 	{
 		var_31e67a12 = ispointonnavmesh(self.enemy_override.origin, self);
-		if(var_31e67a12 && self.var_37f16e2e)
+		if(var_31e67a12 && self.isonnavmesh)
 		{
 			self function_d1e55248(#"hash_6e6d6ff06622efa4", 0);
 			self.var_80780af2 = self.enemy_override.origin;
 		}
 		else
 		{
-			if(self.var_37f16e2e && isdefined(self.enemy_override.var_acdc8d71) && !self isingoal(self.enemy_override.var_acdc8d71))
+			if(self.isonnavmesh && isdefined(self.enemy_override.var_acdc8d71) && !self isingoal(self.enemy_override.var_acdc8d71))
 			{
 				self.var_80780af2 = self.enemy_override.var_acdc8d71;
 			}
-			else if(!self.var_37f16e2e || self isatgoal())
+			else if(!self.isonnavmesh || self isatgoal())
 			{
 				self function_d1e55248(#"hash_6e6d6ff06622efa4", 1);
 				self pathmode("dont move", 1);
@@ -3204,7 +3204,7 @@ function private function_36151fe3()
 			/#
 				drawdebugcross(self.favoriteenemy.last_valid_position, 3, (0, 1, 0), 1);
 			#/
-			if(self.var_37f16e2e)
+			if(self.isonnavmesh)
 			{
 				self function_d1e55248(#"hash_6e6d6ff06622efa4", 0);
 			}
@@ -3213,7 +3213,7 @@ function private function_36151fe3()
 		{
 			if(!ispointonnavmesh(self.favoriteenemy.origin, self))
 			{
-				if(!self.var_37f16e2e && !self function_dd070839() || self isatgoal())
+				if(!self.isonnavmesh && !self function_dd070839() || self isatgoal())
 				{
 					self pathmode("dont move", 1);
 					self function_d1e55248(#"hash_6e6d6ff06622efa4", 1);
@@ -3225,7 +3225,7 @@ function private function_36151fe3()
 				/#
 					drawdebugcross(self.favoriteenemy.last_valid_position, 3, (0, 1, 0), 1);
 				#/
-				if(self.var_37f16e2e)
+				if(self.isonnavmesh)
 				{
 					self function_d1e55248(#"hash_6e6d6ff06622efa4", 0);
 				}
@@ -3245,7 +3245,7 @@ function private function_36151fe3()
 	}
 	else
 	{
-		if(self.var_37f16e2e && isdefined(self.attackable) && isdefined(self.var_b238ef38) && (self.var_b238ef38.slot.var_bb075e37 || (isdefined(self.var_b238ef38.slot.var_acdc8d71) && !self isingoal(self.var_b238ef38.slot.var_acdc8d71))))
+		if(self.isonnavmesh && isdefined(self.attackable) && isdefined(self.var_b238ef38) && (self.var_b238ef38.slot.var_bb075e37 || (isdefined(self.var_b238ef38.slot.var_acdc8d71) && !self isingoal(self.var_b238ef38.slot.var_acdc8d71))))
 		{
 			if(!isinarray(level.var_8de0b84e, self getentitynumber()))
 			{
@@ -3292,7 +3292,7 @@ function private function_36151fe3()
 				self.var_80780af2 = var_bc4c0533[0];
 			}
 		}
-		else if(isdefined(self.var_b238ef38) && (self isatgoal() || !self.var_37f16e2e))
+		else if(isdefined(self.var_b238ef38) && (self isatgoal() || !self.isonnavmesh))
 		{
 			self function_d1e55248(#"hash_6e6d6ff06622efa4", 1);
 			self pathmode("dont move", 1);
@@ -3405,7 +3405,7 @@ function private function_34eacecd()
 	}
 	if(isdefined(level.var_3140c814) && level.var_3140c814 && (isdefined(self.var_721a3dbd) && self.var_721a3dbd))
 	{
-		if(!self.var_37f16e2e && !self function_dd070839())
+		if(!self.isonnavmesh && !self function_dd070839())
 		{
 			if(!isdefined(self.var_4e5539eb))
 			{

@@ -33,7 +33,7 @@ function autoexec __init__system__()
 function private __init__()
 {
 	gametype = util::function_5df4294();
-	if(gametype !== #"warzone_hot_pursuit" && gametype !== #"hash_77edb49e5314223" && gametype !== #"hash_753fcf1725358921" && gametype !== #"warzone_heavy_metal_heroes")
+	if(gametype !== #"warzone_hot_pursuit" && gametype !== #"warzone_heavy_metal" && gametype !== #"hash_753fcf1725358921" && gametype !== #"warzone_heavy_metal_heroes")
 	{
 		return;
 	}
@@ -251,10 +251,10 @@ function function_9de0644f()
 				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				var_dd88a936 = function_ba18c3e5(#"hash_2e33ce38d6cda617");
-				var_dd88a936.count = 5;
-				var_fa3df96 = self item_inventory::function_e66dcff5(var_dd88a936);
-				self item_world::function_de2018e3(var_dd88a936, self, var_fa3df96);
+				armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
+				armorShard.count = 5;
+				var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
+				self item_world::function_de2018e3(armorShard, self, var_fa3df96);
 				grapple = function_ba18c3e5(#"hash_68b64725de40edae");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
@@ -295,10 +295,10 @@ function function_9de0644f()
 				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				var_dd88a936 = function_ba18c3e5(#"hash_2e33ce38d6cda617");
-				var_dd88a936.count = 5;
-				var_fa3df96 = self item_inventory::function_e66dcff5(var_dd88a936);
-				self item_world::function_de2018e3(var_dd88a936, self, var_fa3df96);
+				armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
+				armorShard.count = 5;
+				var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
+				self item_world::function_de2018e3(armorShard, self, var_fa3df96);
 				grapple = function_ba18c3e5(#"hash_68b64725de40edae");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
@@ -462,7 +462,7 @@ function private function_58190f52()
 	}
 	else
 	{
-		if(gametype == #"hash_77edb49e5314223")
+		if(gametype == #"warzone_heavy_metal")
 		{
 			weapon = function_ba18c3e5(#"hash_15f30a19a23c0190");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
@@ -521,7 +521,7 @@ function private function_6667abef()
 	}
 	else
 	{
-		if(gametype == #"hash_77edb49e5314223")
+		if(gametype == #"warzone_heavy_metal")
 		{
 			weapon = function_ba18c3e5(#"hash_15f30a19a23c0190");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
@@ -583,7 +583,7 @@ function private function_7376c60d()
 	}
 	else
 	{
-		if(gametype == #"hash_77edb49e5314223")
+		if(gametype == #"warzone_heavy_metal")
 		{
 			weapon = function_ba18c3e5(#"hash_36978e3a9321b430");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
@@ -633,14 +633,14 @@ function private function_1f091d2f()
 		armor = function_ba18c3e5(#"hash_6f80136c3b79d9e");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
-		var_dd88a936 = function_ba18c3e5(#"hash_2e33ce38d6cda617");
-		var_dd88a936.count = 5;
-		var_fa3df96 = self item_inventory::function_e66dcff5(var_dd88a936);
-		self item_world::function_de2018e3(var_dd88a936, self, var_fa3df96);
+		armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
+		armorShard.count = 5;
+		var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
+		self item_world::function_de2018e3(armorShard, self, var_fa3df96);
 	}
 	else
 	{
-		if(gametype == #"hash_77edb49e5314223")
+		if(gametype == #"warzone_heavy_metal")
 		{
 			weapon = function_ba18c3e5(#"hash_36978e3a9321b430");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
@@ -715,14 +715,14 @@ function private function_2d31b980()
 		armor = function_ba18c3e5(#"hash_8578856a247ab60");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
-		var_dd88a936 = function_ba18c3e5(#"hash_2e33ce38d6cda617");
-		var_dd88a936.count = 5;
-		var_fa3df96 = self item_inventory::function_e66dcff5(var_dd88a936);
-		self item_world::function_de2018e3(var_dd88a936, self, var_fa3df96);
+		armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
+		armorShard.count = 5;
+		var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
+		self item_world::function_de2018e3(armorShard, self, var_fa3df96);
 	}
 	else
 	{
-		if(gametype == #"hash_77edb49e5314223")
+		if(gametype == #"warzone_heavy_metal")
 		{
 			weapon = function_ba18c3e5(#"hash_36978e3a9321b430");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
@@ -760,10 +760,10 @@ function private function_2d31b980()
 			armor = function_ba18c3e5(#"hash_568173e016d45c2a");
 			var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 			self item_world::function_de2018e3(armor, self, var_fa3df96);
-			var_dd88a936 = function_ba18c3e5(#"hash_2e33ce38d6cda617");
-			var_dd88a936.count = 5;
-			var_fa3df96 = self item_inventory::function_e66dcff5(var_dd88a936);
-			self item_world::function_de2018e3(var_dd88a936, self, var_fa3df96);
+			armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
+			armorShard.count = 5;
+			var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
+			self item_world::function_de2018e3(armorShard, self, var_fa3df96);
 		}
 		else if(gametype == #"hash_135cf8c5c6396f04")
 		{

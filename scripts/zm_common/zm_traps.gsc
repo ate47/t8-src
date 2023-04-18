@@ -1248,7 +1248,7 @@ function trap_disable(var_ccf895cc = #"hash_2276db2c26ee907a")
 	if(self._trap_in_use)
 	{
 		self notify(#"trap_done");
-		self notify(#"hash_2133afbbd7534561");
+		self notify(#"trap_finished");
 		self._trap_cooldown_time = 0.05;
 		self waittill(#"available");
 	}

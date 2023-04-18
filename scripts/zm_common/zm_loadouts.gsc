@@ -915,7 +915,7 @@ function set_player_hero_weapon(weapon)
 */
 function init_player_hero_weapon()
 {
-	self zm_hero_weapon::function_21c786cf();
+	self zm_hero_weapon::hero_weapon_player_init();
 }
 
 /*

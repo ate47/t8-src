@@ -550,7 +550,7 @@ function bb_getparametrictraversaltype()
 	entity = self;
 	startposition = entity.traversalstartpos;
 	endposition = entity.traversalendpos;
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		entity.traveseheightoverride = undefined;
 	}
@@ -565,7 +565,7 @@ function bb_getparametrictraversaltype()
 	if(isdefined(entity.traversestartnode) && isdefined(entity.traversemantlenode))
 	{
 		function_a0d0fc27(entity, entity.traversestartnode, entity.traverseendnode, entity.traversemantlenode);
-		if(function_f99d2668() && (isdefined(entity.traversemantlenode.var_d2a62948) && entity.traversemantlenode.var_d2a62948))
+		if(sessionmodeiswarzonegame() && (isdefined(entity.traversemantlenode.var_d2a62948) && entity.traversemantlenode.var_d2a62948))
 		{
 			entity.traveseheightoverride = abs(function_b882ba71(entity, entity.traversestartnode, entity.traverseendnode, entity.traversemantlenode));
 		}
@@ -577,7 +577,7 @@ function bb_getparametrictraversaltype()
 			{
 				traversaltype = "jump_up_mantle_traversal";
 			}
-			if(function_f99d2668())
+			if(sessionmodeiswarzonegame())
 			{
 				entity.traveseheightoverride = function_b882ba71(entity, entity.traversestartnode, entity.traverseendnode, entity.traversemantlenode);
 				if(traversaltype == "jump_down_mantle_traversal")
@@ -1177,7 +1177,7 @@ function wasatcovernode()
 {
 	if(isdefined(self.prevnode))
 	{
-		if(self.prevnode.type == #"hash_63cbb4767da2a801" || self.prevnode.type == #"hash_2a7b1ca393696762" || self.prevnode.type == #"hash_7a0e62fbbe3989d4" || (self.prevnode.type == #"hash_581529fff05853f0" || self.prevnode.type == #"hash_1bb444d857814e92") || (self.prevnode.type == #"hash_6d8019ab9d39bf96" || self.prevnode.type == #"hash_280d1247a6abdbae" || self.prevnode.type == #"hash_171465527444ed14"))
+		if(self.prevnode.type == #"cover left" || self.prevnode.type == #"cover right" || self.prevnode.type == #"cover pillar" || (self.prevnode.type == #"cover stand" || self.prevnode.type == #"hash_1bb444d857814e92") || (self.prevnode.type == #"cover crouch" || self.prevnode.type == #"hash_280d1247a6abdbae" || self.prevnode.type == #"hash_171465527444ed14"))
 		{
 			return true;
 		}
@@ -2312,23 +2312,23 @@ function getcovertype(node)
 {
 	if(isdefined(node))
 	{
-		if(node.type == #"hash_7a0e62fbbe3989d4")
+		if(node.type == #"cover pillar")
 		{
 			return "cover_pillar";
 		}
-		if(node.type == #"hash_63cbb4767da2a801")
+		if(node.type == #"cover left")
 		{
 			return "cover_left";
 		}
-		if(node.type == #"hash_2a7b1ca393696762")
+		if(node.type == #"cover right")
 		{
 			return "cover_right";
 		}
-		if(node.type == #"hash_581529fff05853f0" || node.type == #"hash_1bb444d857814e92")
+		if(node.type == #"cover stand" || node.type == #"hash_1bb444d857814e92")
 		{
 			return "cover_stand";
 		}
-		if(node.type == #"hash_6d8019ab9d39bf96" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+		if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
 		{
 			return "cover_crouch";
 		}
@@ -2380,7 +2380,7 @@ function canseeenemywrapper()
 	node = self.node;
 	enemyeye = self.enemy geteye();
 	yawtoenemy = angleclamp180(node.angles[1] - (vectortoangles(enemyeye - node.origin)[1]));
-	if(node.type == #"hash_63cbb4767da2a801" || node.type == #"hash_2a7b1ca393696762")
+	if(node.type == #"cover left" || node.type == #"cover right")
 	{
 		if(yawtoenemy > 60 || yawtoenemy < -60)
 		{
@@ -2388,18 +2388,18 @@ function canseeenemywrapper()
 		}
 		if(isdefined(node.spawnflags) && (node.spawnflags & 4) == 4)
 		{
-			if(node.type == #"hash_63cbb4767da2a801" && yawtoenemy > 10)
+			if(node.type == #"cover left" && yawtoenemy > 10)
 			{
 				return 0;
 			}
-			if(node.type == #"hash_2a7b1ca393696762" && yawtoenemy < -10)
+			if(node.type == #"cover right" && yawtoenemy < -10)
 			{
 				return 0;
 			}
 		}
 	}
 	nodeoffset = (0, 0, 0);
-	if(node.type == #"hash_7a0e62fbbe3989d4")
+	if(node.type == #"cover pillar")
 	{
 		/#
 			assert(!(isdefined(node.spawnflags) && (node.spawnflags & 2048) == 2048) || (!(isdefined(node.spawnflags) && (node.spawnflags & 1024) == 1024)));
@@ -2414,23 +2414,23 @@ function canseeenemywrapper()
 		canseefromright = sighttracepassed(lookfrompoint, enemyeye, 0, undefined);
 		return canseefromright || canseefromleft;
 	}
-	if(node.type == #"hash_63cbb4767da2a801")
+	if(node.type == #"cover left")
 	{
 		nodeoffset = (-36, 7, 63);
 	}
 	else
 	{
-		if(node.type == #"hash_2a7b1ca393696762")
+		if(node.type == #"cover right")
 		{
 			nodeoffset = (36, 7, 63);
 		}
 		else
 		{
-			if(node.type == #"hash_581529fff05853f0" || node.type == #"hash_1bb444d857814e92")
+			if(node.type == #"cover stand" || node.type == #"hash_1bb444d857814e92")
 			{
 				nodeoffset = (-3.7, -22, 63);
 			}
-			else if(node.type == #"hash_6d8019ab9d39bf96" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+			else if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
 			{
 				nodeoffset = (3.5, -12.5, 45);
 			}
@@ -2489,7 +2489,7 @@ function gethighestnodestance(node)
 	/#
 		errormsg(((node.type + "") + node.origin) + "");
 	#/
-	if(node.type == #"hash_6d8019ab9d39bf96" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+	if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
 	{
 		return "crouch";
 	}

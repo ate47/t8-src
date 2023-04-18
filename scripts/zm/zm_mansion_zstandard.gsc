@@ -53,12 +53,12 @@
 function function_84139b27()
 {
 	zm_utility::function_c492c4d6(#"cellar", #"hash_1b5f923615231b33", array(#"zone_cellar"), array(#"hash_413cdf3a155d7eb5", #"library", #"greenhouse", #"cemetery"), #"hash_d991d688c218647", #"hash_2b2357a02d83b291");
-	zm_utility::function_c492c4d6(#"main_hall", #"hash_7a9b6ecf9efe213d", array(#"zone_main_hall"), array(#"library", #"dining_room", #"hash_242faf74ae7224d7"), #"hash_23e3f0727cf654e1", #"hash_56ee5965eeb986f7");
-	zm_utility::function_c492c4d6(#"hash_242faf74ae7224d7", #"hash_385f3c24f5a215a0", array(#"zone_grand_staircase", #"zone_entrance_hall"), array(#"hash_413cdf3a155d7eb5", #"greenhouse", #"dining_room", #"library"), #"hash_17eb32ca84395d46", #"hash_63182288b2fa8fe2");
-	zm_utility::function_c492c4d6(#"library", #"hash_1ed56b51775c6337", array(#"zone_library"), array(#"hash_242faf74ae7224d7", #"main_hall", #"cemetery"), #"hash_18ccedb519d08fdb", #"hash_3d3024b021773e75");
-	zm_utility::function_c492c4d6(#"greenhouse", #"hash_6ca6299c59dc3611", array(#"zone_greenhouse_lab"), array(#"main_hall", #"cellar", #"hash_242faf74ae7224d7", #"dining_room"), #"hash_1eab9450a8098785", #"hash_11659cb4f681fe2b");
+	zm_utility::function_c492c4d6(#"main_hall", #"hash_7a9b6ecf9efe213d", array(#"zone_main_hall"), array(#"library", #"dining_room", #"grand_staircase"), #"hash_23e3f0727cf654e1", #"hash_56ee5965eeb986f7");
+	zm_utility::function_c492c4d6(#"grand_staircase", #"hash_385f3c24f5a215a0", array(#"zone_grand_staircase", #"zone_entrance_hall"), array(#"hash_413cdf3a155d7eb5", #"greenhouse", #"dining_room", #"library"), #"hash_17eb32ca84395d46", #"hash_63182288b2fa8fe2");
+	zm_utility::function_c492c4d6(#"library", #"hash_1ed56b51775c6337", array(#"zone_library"), array(#"grand_staircase", #"main_hall", #"cemetery"), #"hash_18ccedb519d08fdb", #"hash_3d3024b021773e75");
+	zm_utility::function_c492c4d6(#"greenhouse", #"hash_6ca6299c59dc3611", array(#"zone_greenhouse_lab"), array(#"main_hall", #"cellar", #"grand_staircase", #"dining_room"), #"hash_1eab9450a8098785", #"hash_11659cb4f681fe2b");
 	zm_utility::function_c492c4d6(#"dining_room", #"hash_630110b8f5ec36d9", array(#"zone_dining_room"), array(#"greenhouse", #"cellar", #"cemetery"), #"hash_59f4621f89897419", #"hash_9374fbb3272c53f");
-	zm_utility::function_c492c4d6(#"hash_413cdf3a155d7eb5", #"hash_1d07f6440958f050", array(#"zone_library_hallway_upper", #"zone_foyer_westend"), array(#"cemetery", #"hash_242faf74ae7224d7", #"greenhouse"), #"hash_3d69c72a393f3836", #"hash_3d83f27f0bfd3a72");
+	zm_utility::function_c492c4d6(#"hash_413cdf3a155d7eb5", #"hash_1d07f6440958f050", array(#"zone_library_hallway_upper", #"zone_foyer_westend"), array(#"cemetery", #"grand_staircase", #"greenhouse"), #"hash_3d69c72a393f3836", #"hash_3d83f27f0bfd3a72");
 	zm_utility::function_c492c4d6(#"cemetery", #"hash_551b339e17319aa0", array(#"zone_cemetery_mausoleum"), array(#"library", #"hash_413cdf3a155d7eb5", #"main_hall", #"cellar"), #"hash_2b4478e34d38202", #"hash_a3797801599641e");
 	/#
 		zm_utility::function_1e856719();
@@ -220,7 +220,7 @@ function function_a97f7327()
 */
 function function_40dfd00b(n_round_number)
 {
-	var_c66743a5 = array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"));
+	var_c66743a5 = array::random(array(#"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"));
 	zm_utility::function_9b7bc715(#"catalyst", 1);
 	zm_transform::function_bdd8aba6(var_c66743a5);
 }
@@ -300,7 +300,7 @@ function function_ca35fa36()
 	zm_utility::function_fdb0368(4);
 	zm_utility::open_door(array("door_hallend_to_grand_staircase", "door_to_entrance_hall"), undefined, undefined, 1);
 	level thread scene::play("entrance_hall_exploding_door", "targetname");
-	var_f79ff5ec = #"hash_242faf74ae7224d7";
+	var_f79ff5ec = #"grand_staircase";
 	wait(5);
 	zm_utility::function_11101458(var_f79ff5ec);
 	wait(10);

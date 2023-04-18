@@ -432,11 +432,11 @@ function function_294c9ea7(var_d7a9a6d6)
 	{
 		return;
 	}
-	var_3520f942 = trigger::wait_till(var_d7a9a6d6, "targetname", self);
+	t_entrance = trigger::wait_till(var_d7a9a6d6, "targetname", self);
 	while(true)
 	{
 		t_exit = trigger::wait_till(var_d7a9a6d6, "targetname", self);
-		if(t_exit != var_3520f942 && (!(isdefined(self.var_62b59590) && self.var_62b59590)) && zm_utility::is_player_valid(self, 0, 0))
+		if(t_exit != t_entrance && (!(isdefined(self.var_62b59590) && self.var_62b59590)) && zm_utility::is_player_valid(self, 0, 0))
 		{
 			self flag::set(#"hash_481ca29c700e04dd");
 			break;

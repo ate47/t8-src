@@ -48,7 +48,7 @@ function function_2613aeec(enabled)
 {
 	if(enabled)
 	{
-		callback::function_1475a073(&on_player_downed);
+		callback::on_downed(&on_player_downed);
 	}
 }
 

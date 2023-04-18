@@ -222,11 +222,11 @@ function private function_485e3421()
 		self function_51a2c3b3(self.pers[#"hash_50251e63e4a703b5"].armor);
 		self function_2b71fd3(self.pers[#"hash_50251e63e4a703b5"].armor);
 	}
-	self function_22096d8e();
+	self removearmor();
 }
 
 /*
-	Name: function_22096d8e
+	Name: removearmor
 	Namespace: namespace_8fdcbe8b
 	Checksum: 0xE71BD587
 	Offset: 0xF30
@@ -234,7 +234,7 @@ function private function_485e3421()
 	Parameters: 0
 	Flags: None
 */
-function function_22096d8e()
+function removearmor()
 {
 	self.pers[#"hash_50251e63e4a703b5"].armor = undefined;
 	self function_ff8ef46b(5, "luielement.BountyHunterLoadout.armor", 0);
@@ -680,7 +680,7 @@ function private function_7a836986(slot, package, var_e120a933)
 	Parameters: 2
 	Flags: Private
 */
-function private function_738575c4(takeoldweapon, var_86bf0b36 = 1)
+function private function_738575c4(takeoldweapon, givestreak = 1)
 {
 	self loadout::init_player(1);
 	weapons = self getweaponslist();
@@ -692,7 +692,7 @@ function private function_738575c4(takeoldweapon, var_86bf0b36 = 1)
 	self function_f14e5ee3();
 	self function_422164cd();
 	self function_6a829089();
-	if(var_86bf0b36)
+	if(givestreak)
 	{
 		self function_8d5ede64();
 	}
@@ -937,13 +937,13 @@ function private function_c1932ad3(weap, data)
 */
 function private function_6a829089()
 {
-	var_2b15e2fe = getweapon(#"hash_76d1218de27081f6");
+	healthgadget = getweapon(#"hash_76d1218de27081f6");
 	if(isdefined(self.var_c7e6d7c7) && self.var_c7e6d7c7)
 	{
-		var_2b15e2fe = getweapon(#"gadget_medicalinjectiongun");
+		healthgadget = getweapon(#"gadget_medicalinjectiongun");
 	}
-	self giveweapon(var_2b15e2fe);
-	self loadout::function_442539("specialgrenade", var_2b15e2fe);
+	self giveweapon(healthgadget);
+	self loadout::function_442539("specialgrenade", healthgadget);
 }
 
 /*

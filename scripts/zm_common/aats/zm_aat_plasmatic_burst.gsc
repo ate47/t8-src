@@ -81,7 +81,7 @@ function function_988b8f91(e_attacker, w_weapon)
 		}
 	}
 	self thread clientfield::increment("zm_aat_plasmatic_burst" + "_explosion");
-	level notify(#"hash_576f142820151cd0", {#hash_ac85a15f:self});
+	level notify(#"plasmatic_burst", {#hash_ac85a15f:self});
 	a_e_blasted_zombies = array::get_all_closest(self.origin, getaiteamarray(#"axis"), undefined, undefined, 120);
 	if(a_e_blasted_zombies.size > 0)
 	{

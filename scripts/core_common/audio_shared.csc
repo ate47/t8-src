@@ -89,7 +89,7 @@ function local_player_spawn(localclientnum)
 		return;
 	}
 	setsoundcontext("foley", "normal");
-	if(!sessionmodeismultiplayergame() && !function_f99d2668())
+	if(!sessionmodeismultiplayergame() && !sessionmodeiswarzonegame())
 	{
 		self thread sndmusicdeathwatcher();
 	}
@@ -1763,7 +1763,7 @@ function set_sound_context_defaults()
 */
 function sndmatchsnapshot(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -2119,7 +2119,7 @@ function sndchyronloop(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 function sndsprintbreath(localclientnum)
 {
 	self endon(#"death");
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self.var_29054134 = 0;
 		var_63112f76 = self dialog_shared::get_player_dialog_alias("exertBreatheSprinting");

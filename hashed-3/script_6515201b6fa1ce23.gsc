@@ -293,7 +293,7 @@ function spawn_dog(bundle, owner)
 	dog setentityowner(owner);
 	dog setteam(owner.team);
 	dog callback::function_d8abfc3d(#"on_ai_killed", &function_d86da2e8);
-	dog callback::function_d8abfc3d(#"hash_1c99870b7a855dd0", &function_64247932);
+	dog callback::function_d8abfc3d(#"on_killed_player", &function_64247932);
 	dog.ai.var_b1248bd1 = 1;
 	dog set_state(1, 1);
 	owner thread function_458bc8de(dog);

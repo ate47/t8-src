@@ -35,11 +35,11 @@ function private __init__()
 		return;
 	}
 	clientfield::register("scriptmover", "supply_drop_fx", 1, 1, "int", &supply_drop_fx, 0, 0);
-	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int", &function_6567bf42, 0, 0);
+	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int", &supply_drop_parachute, 0, 0);
 }
 
 /*
-	Name: function_6567bf42
+	Name: supply_drop_parachute
 	Namespace: namespace_8f74625a
 	Checksum: 0xC42D3E62
 	Offset: 0x278
@@ -47,7 +47,7 @@ function private __init__()
 	Parameters: 7
 	Flags: Linked
 */
-function function_6567bf42(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function supply_drop_parachute(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval == 1)
 	{
@@ -78,11 +78,11 @@ function supply_drop_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		var_96514d8b = (isdefined(getgametypesetting(#"hash_2e25d475b271a700")) ? getgametypesetting(#"hash_2e25d475b271a700") : 0);
 		if(var_96514d8b)
 		{
-			fxent.var_4a630a3f = function_239993de(localclientnum, "smoke/fx8_column_md_green", fxent, "tag_origin");
+			fxent.supplydropfx = function_239993de(localclientnum, "smoke/fx8_column_md_green", fxent, "tag_origin");
 		}
 		else
 		{
-			fxent.var_4a630a3f = function_239993de(localclientnum, "smoke/fx8_column_md_red", fxent, "tag_origin");
+			fxent.supplydropfx = function_239993de(localclientnum, "smoke/fx8_column_md_red", fxent, "tag_origin");
 		}
 		self.fxent = fxent;
 		playfx(localclientnum, "killstreaks/fx8_agr_drop_box_wz", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
@@ -91,9 +91,9 @@ function supply_drop_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	}
 	else if(isdefined(self.fxent))
 	{
-		if(isdefined(self.fxent.var_4a630a3f))
+		if(isdefined(self.fxent.supplydropfx))
 		{
-			stopfx(localclientnum, self.fxent.var_4a630a3f);
+			stopfx(localclientnum, self.fxent.supplydropfx);
 		}
 		self.fxent delete();
 	}

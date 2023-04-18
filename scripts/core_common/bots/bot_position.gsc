@@ -88,7 +88,7 @@ function on_player_spawned()
 */
 function start()
 {
-	self thread function_66667f8e();
+	self thread handle_goal();
 	self thread handle_goal_changed();
 	self thread handle_path_success();
 	self thread handle_path_failed();
@@ -219,7 +219,7 @@ function private function_e027100a()
 }
 
 /*
-	Name: function_66667f8e
+	Name: handle_goal
 	Namespace: bot_position
 	Checksum: 0x843EB9CE
 	Offset: 0x960
@@ -227,7 +227,7 @@ function private function_e027100a()
 	Parameters: 0
 	Flags: Linked
 */
-function function_66667f8e()
+function handle_goal()
 {
 	self endon(#"death", #"hash_6cefc75b9a427c7d");
 	level endon(#"game_ended");

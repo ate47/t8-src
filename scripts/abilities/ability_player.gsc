@@ -872,7 +872,7 @@ function give_gadget(slot, weapon)
 			}
 		}
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self.heroabilityname = (isdefined(weapon) ? weapon.name : undefined);
 	}
@@ -1706,7 +1706,7 @@ function abilities_devgui_add_power(add_cmd_with_root, pid, menu_index)
 function function_2e0162e9(add_cmd_with_root, pid, menu_index)
 {
 	/#
-		if(sessionmodeiszombiesgame() || function_f99d2668())
+		if(sessionmodeiszombiesgame() || sessionmodeiswarzonegame())
 		{
 			return;
 		}
@@ -2624,7 +2624,7 @@ function function_b4f43681(var_a5c8eb94)
 		self function_c9b950e3();
 		self function_c2d9d3e1();
 		self player_role::set(index);
-		if(sessionmodeismultiplayergame() || function_f99d2668())
+		if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 		{
 			spawnselect = level.spawnselectenabled;
 			level.spawnselectenabled = 0;

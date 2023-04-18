@@ -356,7 +356,7 @@ function private function_66cc90a(planner, params)
 		{
 			altar = params.altar[#"__unsafe__"][#"altar"];
 			var_8d32cef2 = getclosestpointonnavmesh(params.altar[#"origin"], 200, bot getpathfindingradius());
-			bot bot::function_7a6eea9c(altar);
+			bot bot::set_interact(altar);
 			bot setgoal(var_8d32cef2);
 			bot.goalradius = 512;
 		}
@@ -435,8 +435,8 @@ function private function_14c67eb3(planner, constants)
 			{
 				continue;
 			}
-			var_40f1a26c = level._custom_perks[perk];
-			cost = var_40f1a26c.cost;
+			customperk = level._custom_perks[perk];
+			cost = customperk.cost;
 			if(isfunctionptr(level._custom_perks[perk].cost))
 			{
 				cost = [[level._custom_perks[perk].cost]]();
@@ -513,7 +513,7 @@ function private function_e442b780(planner, params)
 		{
 			blocker = params.blocker[#"__unsafe__"][#"blocker"];
 			var_9b096a0b = getclosestpointonnavmesh(params.blocker[#"origin"], 200, bot getpathfindingradius());
-			bot bot::function_7a6eea9c(blocker);
+			bot bot::set_interact(blocker);
 			bot setgoal(var_9b096a0b);
 			bot.goalradius = 512;
 		}
@@ -668,7 +668,7 @@ function private function_73f656f5(planner, params)
 		{
 			chest = params.chest[#"__unsafe__"][#"chest"];
 			var_9b3def7 = getclosestpointonnavmesh(params.chest[#"origin"], 200, bot getpathfindingradius());
-			bot bot::function_7a6eea9c(chest);
+			bot bot::set_interact(chest);
 			bot setgoal(var_9b3def7);
 			bot.goalradius = 512;
 		}
@@ -1080,7 +1080,7 @@ function private function_967b74c1(planner, params)
 		if(strategiccommandutility::isvalidbot(bot))
 		{
 			var_bd055918 = getclosestpointonnavmesh(var_5ef756b8.origin, 200, bot getpathfindingradius());
-			bot bot::function_7a6eea9c(var_5ef756b8);
+			bot bot::set_interact(var_5ef756b8);
 			bot setgoal(var_bd055918);
 			bot.goalradius = 512;
 		}
@@ -1132,7 +1132,7 @@ function private function_6fe73720(planner, params)
 		{
 			wallbuy = params.wallbuy[#"__unsafe__"][#"wallbuy"];
 			var_141550e2 = getclosestpointonnavmesh(params.wallbuy[#"origin"], 200, bot getpathfindingradius());
-			bot bot::function_7a6eea9c(wallbuy);
+			bot bot::set_interact(wallbuy);
 			bot setgoal(var_141550e2);
 			bot.goalradius = 512;
 		}
@@ -1160,7 +1160,7 @@ function private function_393b9c76(planner, constants)
 	/#
 		assert(isint(constants[#"hash_357612272d0dca05"]) || isfloat(constants[#"hash_357612272d0dca05"]), ("" + "") + "");
 	#/
-	var_66c1c955 = isdefined(constants[#"hash_4149860c20496820"]) && constants[#"hash_4149860c20496820"];
+	var_66c1c955 = isdefined(constants[#"highcost"]) && constants[#"highcost"];
 	var_45bdcccb = isdefined(constants[#"hash_5011e8f2767fd1f"]) && constants[#"hash_5011e8f2767fd1f"];
 	if(var_45bdcccb)
 	{

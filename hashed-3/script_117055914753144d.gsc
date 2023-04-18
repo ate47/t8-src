@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\lui_shared.csc;
 
-class class_8305f378 : cLUIelem
+class cct_shared_aar : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x458129F0
 		Offset: 0x330
 		Size: 0x14
@@ -19,7 +19,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: destructor
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x86FA6254
 		Offset: 0x970
 		Size: 0x14
@@ -32,7 +32,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: set_medalThresholds
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0xCF225402
 		Offset: 0x938
 		Size: 0x30
@@ -46,7 +46,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: set_missionResultMsg
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x1EA2A59B
 		Offset: 0x900
 		Size: 0x30
@@ -60,7 +60,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: set_bestTimeMilliseconds
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x2315508B
 		Offset: 0x8C8
 		Size: 0x30
@@ -74,7 +74,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: set_timeMilliseconds
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0xD5A20EE6
 		Offset: 0x890
 		Size: 0x30
@@ -88,7 +88,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: set_state
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x2C98A537
 		Offset: 0x5A8
 		Size: 0x2DC
@@ -190,7 +190,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: open
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x1F7F7E7D
 		Offset: 0x570
 		Size: 0x2C
@@ -199,12 +199,12 @@ class class_8305f378 : cLUIelem
 	*/
 	function open(localclientnum)
 	{
-		cLUIelem::open(localclientnum, #"hash_68dbe5296e5fce65");
+		cLUIelem::open(localclientnum, #"ct_shared_aar");
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x903C3B6E
 		Offset: 0x498
 		Size: 0xCC
@@ -223,7 +223,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0xAB58DEE
 		Offset: 0x468
 		Size: 0x24
@@ -237,7 +237,7 @@ class class_8305f378 : cLUIelem
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_8305f378
+		Namespace: cct_shared_aar
 		Checksum: 0x12FFBB4F
 		Offset: 0x350
 		Size: 0x10C
@@ -256,11 +256,11 @@ class class_8305f378 : cLUIelem
 
 }
 
-#namespace namespace_5cb8426f;
+#namespace ct_shared_aar;
 
 /*
 	Name: register
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0x6BAF0A55
 	Offset: 0x108
 	Size: 0x70
@@ -269,14 +269,14 @@ class class_8305f378 : cLUIelem
 */
 function register(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 {
-	elem = new class_8305f378();
+	elem = new cct_shared_aar();
 	[[ elem ]]->setup_clientfields(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be);
 	return elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0x2039AF39
 	Offset: 0x180
 	Size: 0x40
@@ -285,14 +285,14 @@ function register(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 */
 function function_5c1bb138(uid)
 {
-	elem = new class_8305f378();
+	elem = new cct_shared_aar();
 	[[ elem ]]->function_5c1bb138(uid);
 	return elem;
 }
 
 /*
 	Name: open
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0xAECA93D2
 	Offset: 0x1C8
 	Size: 0x1C
@@ -306,7 +306,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0xBEF23E4
 	Offset: 0x1F0
 	Size: 0x1C
@@ -320,7 +320,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0x8E64B0E8
 	Offset: 0x218
 	Size: 0x1A
@@ -334,7 +334,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_state
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0xD6875125
 	Offset: 0x240
 	Size: 0x28
@@ -348,7 +348,7 @@ function set_state(localclientnum, state_name)
 
 /*
 	Name: set_timeMilliseconds
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0xF036B1C2
 	Offset: 0x270
 	Size: 0x28
@@ -362,7 +362,7 @@ function set_timeMilliseconds(localclientnum, value)
 
 /*
 	Name: set_bestTimeMilliseconds
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0x75089D9
 	Offset: 0x2A0
 	Size: 0x28
@@ -376,7 +376,7 @@ function set_bestTimeMilliseconds(localclientnum, value)
 
 /*
 	Name: set_missionResultMsg
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0x4B732412
 	Offset: 0x2D0
 	Size: 0x28
@@ -390,7 +390,7 @@ function set_missionResultMsg(localclientnum, value)
 
 /*
 	Name: set_medalThresholds
-	Namespace: namespace_5cb8426f
+	Namespace: ct_shared_aar
 	Checksum: 0xCBDEC09
 	Offset: 0x300
 	Size: 0x28

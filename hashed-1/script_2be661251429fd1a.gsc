@@ -82,7 +82,7 @@ function function_66dacac1()
 	bot_action::register_action(#"hash_63c5000998c406e2", &bot_action::weapon_rank, &bot_action::function_39317d6e, &bot_action::test_gadget);
 	bot_action::register_action(#"hash_7f17997c50415cb7", &bot_action::weapon_rank, &bot_action::function_30636b1c, &bot_action::test_gadget);
 	bot_action::register_action(#"hash_291f02a64600bb72", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::test_gadget);
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		self function_938667bd();
 		self function_d47799c8();
@@ -150,7 +150,7 @@ function function_938667bd()
 	bot_action::register_action(#"hash_2ca8b8806f95285b", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_79f1bffaa4e2fbd8", &bot_action::weapon_rank, &function_554a6177, &function_65bade);
 	bot_action::register_action(#"hash_6b075b8b88b1cef", &bot_action::weapon_rank, &function_97e7772c, &bot_action::function_94f96101);
-	bot_action::register_action(#"hash_43d2b48fb33f50f2", &bot_action::weapon_rank, &function_9a0eb4f0, &bot_action::function_49161e05);
+	bot_action::register_action(#"deploy_spawnbeacon", &bot_action::weapon_rank, &function_9a0eb4f0, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_17f1a25f8c10e1cd", &bot_action::weapon_rank, &function_4a95cdaf, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_5d6b13cfb592ee04", &bot_action::weapon_rank, &function_e43892c4, &function_79988b4b);
 	bot_action::register_action(#"hash_7d4b6d8a21219335", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &function_9553fd90);
@@ -308,7 +308,7 @@ function function_aaede90c()
 	bot_action::function_7e847a84(#"gadget_vision_pulse", #"hash_2ca8b8806f95285b");
 	bot_action::function_7e847a84(#"eq_grapple", #"hash_79f1bffaa4e2fbd8");
 	bot_action::function_7e847a84(#"eq_gravityslam", #"hash_6b075b8b88b1cef");
-	bot_action::function_7e847a84(#"gadget_spawnbeacon", #"hash_43d2b48fb33f50f2");
+	bot_action::function_7e847a84(#"gadget_spawnbeacon", #"deploy_spawnbeacon");
 	bot_action::function_7e847a84(#"hero_annihilator", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"hero_annihilator", #"hash_7aaeac32a4e1bf84");
 	bot_action::function_a2c83569(#"hero_annihilator", #"hash_434716893aa869f3");

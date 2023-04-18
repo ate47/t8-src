@@ -617,7 +617,7 @@ function private splatter_postfx(localclientnum, player, damage, var_cd141ca2, d
 	}
 	else if(function_b51756a0(localclientnum, splatter, damage))
 	{
-		for(i = level.blood.var_de10c136.var_58f1f80e - 1; i >= 0; i--)
+		for(i = level.blood.var_de10c136.damage_ranges - 1; i >= 0; i--)
 		{
 			if(damage > level.blood.var_de10c136.range[i].start || ((level.blood.scriptbundle.var_3e1e9389 - 1) == i && death))
 			{
@@ -942,7 +942,7 @@ function private function_56419db8(stage)
 {
 	for(pulse = 0; pulse < 2; pulse++)
 	{
-		level.blood.var_f2de135e.var_562c41de[pulse] = level.blood.var_f2de135e.var_621835b4[pulse][stage];
+		level.blood.var_f2de135e.var_562c41de[pulse] = level.blood.var_f2de135e.time_in[pulse][stage];
 		level.blood.var_f2de135e.var_18f673f1[pulse] = level.blood.var_f2de135e.var_a79aba98[pulse][stage];
 		level.blood.var_f2de135e.var_92fc0d45[pulse] = level.blood.var_f2de135e.time_out[pulse][stage];
 		level.blood.var_f2de135e.var_5b5500f7[pulse] = level.blood.var_f2de135e.var_97aa6fd2[pulse][stage];
@@ -1167,7 +1167,7 @@ function private function_dd830dee()
 {
 	level.blood = spawnstruct();
 	level.blood.scriptbundle = (getgametypesetting(#"hardcoremode") ? getscriptbundle("hardcore_blood_settings") : getscriptbundle("blood_settings"));
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		level.blood.scriptbundle = getscriptbundle("wz_blood_settings");
 	}
@@ -1419,9 +1419,9 @@ function private function_b0e51f43()
 	{
 		level.blood.var_de10c136.enabled = (isdefined(level.blood.scriptbundle.var_f70c3e8d) ? level.blood.scriptbundle.var_f70c3e8d : 0);
 	}
-	if(!isdefined(level.blood.var_de10c136.var_58f1f80e))
+	if(!isdefined(level.blood.var_de10c136.damage_ranges))
 	{
-		level.blood.var_de10c136.var_58f1f80e = (isdefined(level.blood.scriptbundle.var_58f1f80e) ? level.blood.scriptbundle.var_58f1f80e : 1);
+		level.blood.var_de10c136.damage_ranges = (isdefined(level.blood.scriptbundle.damage_ranges) ? level.blood.scriptbundle.damage_ranges : 1);
 	}
 	if(!isdefined(level.blood.var_de10c136.var_3e1e9389))
 	{
@@ -1431,7 +1431,7 @@ function private function_b0e51f43()
 	level.blood.var_de10c136.var_587ce5b0 = [];
 	level.blood.var_de10c136.var_49774f1 = [];
 	level.blood.var_de10c136.hold_time = [];
-	for(i = 0; i < level.blood.var_de10c136.var_58f1f80e; i++)
+	for(i = 0; i < level.blood.var_de10c136.damage_ranges; i++)
 	{
 		level.blood.var_de10c136.range[i] = spawnstruct();
 		if(i > 0)
@@ -1509,7 +1509,7 @@ function private function_b0e51f43()
 function private function_f50652a9()
 {
 	level.blood.var_f2de135e = spawnstruct();
-	level.blood.var_f2de135e.var_621835b4 = [];
+	level.blood.var_f2de135e.time_in = [];
 	level.blood.var_f2de135e.var_a79aba98 = [];
 	level.blood.var_f2de135e.time_out = [];
 	level.blood.var_f2de135e.var_97aa6fd2 = [];
@@ -1517,55 +1517,55 @@ function private function_f50652a9()
 	level.blood.var_f2de135e.var_18f673f1 = [];
 	level.blood.var_f2de135e.var_92fc0d45 = [];
 	level.blood.var_f2de135e.var_5b5500f7 = [];
-	level.blood.var_f2de135e.var_621835b4[0] = [];
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[0][0]))
+	level.blood.var_f2de135e.time_in[0] = [];
+	if(!isdefined(level.blood.var_f2de135e.time_in[0][0]))
 	{
-		level.blood.var_f2de135e.var_621835b4[0][0] = (isdefined(level.blood.scriptbundle.var_b3272558) ? level.blood.scriptbundle.var_b3272558 : 0);
+		level.blood.var_f2de135e.time_in[0][0] = (isdefined(level.blood.scriptbundle.var_b3272558) ? level.blood.scriptbundle.var_b3272558 : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[0][1]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[0][1]))
 	{
-		level.blood.var_f2de135e.var_621835b4[0][1] = (isdefined(level.blood.scriptbundle.var_d014df1f) ? level.blood.scriptbundle.var_d014df1f : 0);
+		level.blood.var_f2de135e.time_in[0][1] = (isdefined(level.blood.scriptbundle.var_d014df1f) ? level.blood.scriptbundle.var_d014df1f : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[0][2]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[0][2]))
 	{
-		level.blood.var_f2de135e.var_621835b4[0][2] = (isdefined(level.blood.scriptbundle.var_bdca3a8a) ? level.blood.scriptbundle.var_bdca3a8a : 0);
+		level.blood.var_f2de135e.time_in[0][2] = (isdefined(level.blood.scriptbundle.var_bdca3a8a) ? level.blood.scriptbundle.var_bdca3a8a : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[0][3]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[0][3]))
 	{
-		level.blood.var_f2de135e.var_621835b4[0][3] = (isdefined(level.blood.scriptbundle.var_ab891608) ? level.blood.scriptbundle.var_ab891608 : 0);
+		level.blood.var_f2de135e.time_in[0][3] = (isdefined(level.blood.scriptbundle.var_ab891608) ? level.blood.scriptbundle.var_ab891608 : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[0][4]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[0][4]))
 	{
-		level.blood.var_f2de135e.var_621835b4[0][4] = (isdefined(level.blood.scriptbundle.var_996371bd) ? level.blood.scriptbundle.var_996371bd : 0);
+		level.blood.var_f2de135e.time_in[0][4] = (isdefined(level.blood.scriptbundle.var_996371bd) ? level.blood.scriptbundle.var_996371bd : 0);
 	}
 	if(!isdefined(level.blood.var_f2de135e.var_562c41de[0]))
 	{
-		level.blood.var_f2de135e.var_562c41de[0] = level.blood.var_f2de135e.var_621835b4[0][0];
+		level.blood.var_f2de135e.var_562c41de[0] = level.blood.var_f2de135e.time_in[0][0];
 	}
-	level.blood.var_f2de135e.var_621835b4[1] = [];
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[1][0]))
+	level.blood.var_f2de135e.time_in[1] = [];
+	if(!isdefined(level.blood.var_f2de135e.time_in[1][0]))
 	{
-		level.blood.var_f2de135e.var_621835b4[1][0] = (isdefined(level.blood.scriptbundle.var_8623b2d2) ? level.blood.scriptbundle.var_8623b2d2 : 0);
+		level.blood.var_f2de135e.time_in[1][0] = (isdefined(level.blood.scriptbundle.var_8623b2d2) ? level.blood.scriptbundle.var_8623b2d2 : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[1][1]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[1][1]))
 	{
-		level.blood.var_f2de135e.var_621835b4[1][1] = (isdefined(level.blood.scriptbundle.var_7862174f) ? level.blood.scriptbundle.var_7862174f : 0);
+		level.blood.var_f2de135e.time_in[1][1] = (isdefined(level.blood.scriptbundle.var_7862174f) ? level.blood.scriptbundle.var_7862174f : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[1][2]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[1][2]))
 	{
-		level.blood.var_f2de135e.var_621835b4[1][2] = (isdefined(level.blood.scriptbundle.var_d2b4cbf3) ? level.blood.scriptbundle.var_d2b4cbf3 : 0);
+		level.blood.var_f2de135e.time_in[1][2] = (isdefined(level.blood.scriptbundle.var_d2b4cbf3) ? level.blood.scriptbundle.var_d2b4cbf3 : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[1][3]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[1][3]))
 	{
-		level.blood.var_f2de135e.var_621835b4[1][3] = (isdefined(level.blood.scriptbundle.var_bcf6a077) ? level.blood.scriptbundle.var_bcf6a077 : 0);
+		level.blood.var_f2de135e.time_in[1][3] = (isdefined(level.blood.scriptbundle.var_bcf6a077) ? level.blood.scriptbundle.var_bcf6a077 : 0);
 	}
-	if(!isdefined(level.blood.var_f2de135e.var_621835b4[1][4]))
+	if(!isdefined(level.blood.var_f2de135e.time_in[1][4]))
 	{
-		level.blood.var_f2de135e.var_621835b4[1][4] = (isdefined(level.blood.scriptbundle.var_af1f04c8) ? level.blood.scriptbundle.var_af1f04c8 : 0);
+		level.blood.var_f2de135e.time_in[1][4] = (isdefined(level.blood.scriptbundle.var_af1f04c8) ? level.blood.scriptbundle.var_af1f04c8 : 0);
 	}
 	if(!isdefined(level.blood.var_f2de135e.var_562c41de[1]))
 	{
-		level.blood.var_f2de135e.var_562c41de[1] = level.blood.var_f2de135e.var_621835b4[1][0];
+		level.blood.var_f2de135e.var_562c41de[1] = level.blood.var_f2de135e.time_in[1][0];
 	}
 	level.blood.var_f2de135e.var_a79aba98[0] = [];
 	if(!isdefined(level.blood.var_f2de135e.var_a79aba98[0][0]))

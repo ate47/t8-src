@@ -383,7 +383,7 @@ function update_players_stats_at_match_end(players)
 			player set_global_stat("total_points", player.score_total);
 		}
 		player function_1b763e4("HIGHEST_TEAM_SCORE", level.score_total);
-		function_42677837("TEAM_SCORE", level.score_total);
+		set_match_stat("TEAM_SCORE", level.score_total);
 		player function_9daadcaa("team_score", level.score_total);
 		player set_global_stat("rounds", level.round_number);
 		player function_9daadcaa("rounds", level.round_number);
@@ -1288,7 +1288,7 @@ function increment_challenge_stat(stat_name, amount = 1, var_b68b08b1 = 0)
 	}
 	self stats::function_dad108fa(stat_name, amount);
 	/#
-		var_ba1fb8c1 = self stats::function_441050ca(stat_name);
+		var_ba1fb8c1 = self stats::get_stat_global(stat_name);
 		if(isdefined(self.entity_num))
 		{
 			println(((("" + self.entity_num) + "") + function_9e72a96(stat_name) + "") + var_ba1fb8c1);
@@ -1319,7 +1319,7 @@ function function_c9d32eb9(stat_name)
 }
 
 /*
-	Name: function_42677837
+	Name: set_match_stat
 	Namespace: zm_stats
 	Checksum: 0x2C19C195
 	Offset: 0x4D80
@@ -1327,7 +1327,7 @@ function function_c9d32eb9(stat_name)
 	Parameters: 2
 	Flags: Linked
 */
-function function_42677837(stat_name, value)
+function set_match_stat(stat_name, value)
 {
 	if(isdefined(level.zm_disable_recording_stats) && level.zm_disable_recording_stats)
 	{
@@ -1337,7 +1337,7 @@ function function_42677837(stat_name, value)
 }
 
 /*
-	Name: function_4be7186e
+	Name: add_match_stat
 	Namespace: zm_stats
 	Checksum: 0xD2219B7A
 	Offset: 0x4DD8
@@ -1345,7 +1345,7 @@ function function_42677837(stat_name, value)
 	Parameters: 2
 	Flags: None
 */
-function function_4be7186e(stat_name, value)
+function add_match_stat(stat_name, value)
 {
 	if(isdefined(level.zm_disable_recording_stats) && level.zm_disable_recording_stats)
 	{
@@ -1385,7 +1385,7 @@ function function_57febe39(stat_name, value)
 {
 	if(value > function_c9d32eb9(stat_name))
 	{
-		function_42677837(stat_name, value);
+		set_match_stat(stat_name, value);
 	}
 }
 
@@ -1614,28 +1614,28 @@ function handle_death(einflictor, eattacker, weapon, smeansofdeath)
 				entity function_8f10788e("boas_killed_by_catalyst");
 				switch(eattacker.var_9fde8624)
 				{
-					case "hash_266b62e342076a90":
+					case "catalyst_electric":
 					{
 						entity increment_client_stat("killed_by_catalyst_electric");
 						entity increment_player_stat("killed_by_catalyst_electric");
 						entity function_8f10788e("boas_killed_by_catalyst_electric");
 						break;
 					}
-					case "hash_5d6b55906fc82ff2":
+					case "catalyst_water":
 					{
 						entity increment_client_stat("killed_by_catalyst_water");
 						entity increment_player_stat("killed_by_catalyst_water");
 						entity function_8f10788e("boas_killed_by_catalyst_water");
 						break;
 					}
-					case "hash_5cfa99582cc66c59":
+					case "catalyst_plasma":
 					{
 						entity increment_client_stat("killed_by_catalyst_plasma");
 						entity increment_player_stat("killed_by_catalyst_plasma");
 						entity function_8f10788e("boas_killed_by_catalyst_plasma");
 						break;
 					}
-					case "hash_78ca8e8e6bdbc8ab":
+					case "catalyst_corrosive":
 					{
 						entity increment_client_stat("killed_by_catalyst_corrosive");
 						entity increment_player_stat("killed_by_catalyst_corrosive");
@@ -1732,28 +1732,28 @@ function handle_death(einflictor, eattacker, weapon, smeansofdeath)
 					eattacker function_8f10788e("boas_catalysts_killed");
 					switch(entity.var_9fde8624)
 					{
-						case "hash_266b62e342076a90":
+						case "catalyst_electric":
 						{
 							eattacker increment_client_stat("catalyst_electrics_killed");
 							eattacker increment_player_stat("catalyst_electrics_killed");
 							eattacker function_8f10788e("boas_catalyst_electrics_killed");
 							break;
 						}
-						case "hash_5d6b55906fc82ff2":
+						case "catalyst_water":
 						{
 							eattacker increment_client_stat("catalyst_waters_killed");
 							eattacker increment_player_stat("catalyst_waters_killed");
 							eattacker function_8f10788e("boas_catalyst_waters_killed");
 							break;
 						}
-						case "hash_5cfa99582cc66c59":
+						case "catalyst_plasma":
 						{
 							eattacker increment_client_stat("catalyst_plasmas_killed");
 							eattacker increment_player_stat("catalyst_plasmas_killed");
 							eattacker function_8f10788e("boas_catalyst_plasmas_killed");
 							break;
 						}
-						case "hash_78ca8e8e6bdbc8ab":
+						case "catalyst_corrosive":
 						{
 							eattacker increment_client_stat("catalyst_corrosives_killed");
 							eattacker increment_player_stat("catalyst_corrosives_killed");

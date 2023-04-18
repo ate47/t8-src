@@ -634,7 +634,7 @@ function decrement(timeremaining)
 }
 
 /*
-	Name: function_2c9af4b9
+	Name: pause_draft
 	Namespace: draft
 	Checksum: 0xDD8FEBCE
 	Offset: 0x1828
@@ -642,7 +642,7 @@ function decrement(timeremaining)
 	Parameters: 0
 	Flags: None
 */
-function function_2c9af4b9()
+function pause_draft()
 {
 	level.var_297320a8 = 1;
 }
@@ -1083,10 +1083,10 @@ function draft_finalize()
 			player enableweapons();
 			player val::reset(#"spawn_player", "freezecontrols");
 			player val::reset(#"spawn_player", "disablegadgets");
-			player callback::callback(#"hash_1303178bdaf337b5");
+			player callback::callback(#"prematch_end");
 		}
 	}
-	level callback::callback(#"hash_1303178bdaf337b5");
+	level callback::callback(#"prematch_end");
 	foreach(player in level.players)
 	{
 		player clientfield::set_player_uimodel("PositionDraft.autoSelected", 0);

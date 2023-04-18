@@ -434,7 +434,7 @@ function private function_27476e09(deployable_weapon, sethintstring = 0)
 	{
 		results.isvalid = 0;
 	}
-	results.origin = results.var_e8995ec9;
+	results.origin = results.waterbottom;
 	results.isvalid = results.isvalid && !oob::chr_party(results.origin);
 	results.isvalid = results.isvalid && !function_89d64a2c(results.origin);
 	results.isvalid = results.isvalid && !function_54267517(results.origin);
@@ -687,7 +687,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	trace_result = bullettrace(trace_start, trace_start + forward_vector, 0, ignore_entity);
 	hit_location = trace_start + forward_vector;
 	var_db3ce012 = (0, 0, 1);
-	var_79483ca0 = 10;
+	hit_distance = 10;
 	var_def28dc4 = previs_weapon.var_9111ccc0;
 	hitent = undefined;
 	var_d22ba639 = 0;
@@ -696,7 +696,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 		hit_location = trace_result[#"position"];
 		var_db3ce012 = trace_result[#"normal"];
 		var_6165e0de = var_db3ce012[2] < 0.7;
-		var_79483ca0 = trace_result[#"fraction"] * trace_distance;
+		hit_distance = trace_result[#"fraction"] * trace_distance;
 		if(distance2dsquared(var_503cdc82, hit_location) < previs_weapon.var_f7e67f28 * previs_weapon.var_f7e67f28)
 		{
 			var_caa96e8a = 1;
@@ -726,7 +726,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 			{
 				var_a7bfb = 1;
 			}
-			out_of_range = var_79483ca0 > previs_weapon.var_f7e67f28;
+			out_of_range = hit_distance > previs_weapon.var_f7e67f28;
 			if(out_of_range)
 			{
 				var_d22ba639 = 1;
@@ -764,13 +764,13 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 			{
 				hit_location = var_4bc118b9[#"position"];
 				var_db3ce012 = var_4bc118b9[#"normal"];
-				var_79483ca0 = var_4bc118b9[#"fraction"] * var_f7e67f28;
+				hit_distance = var_4bc118b9[#"fraction"] * var_f7e67f28;
 				var_caa96e8a = 1;
 				var_a7bfb = 1;
 				if(isdefined(var_4bc118b9[#"waterdepth"]))
 				{
 					var_c84f4998 = var_4bc118b9[#"waterdepth"];
-					water_bottom = var_4bc118b9[#"hash_39a59135a2292e13"];
+					water_bottom = var_4bc118b9[#"waterbottom"];
 				}
 			}
 		}
@@ -809,7 +809,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	results.angles = var_4c59d56;
 	results.hitent = hitent;
 	results.waterdepth = var_c84f4998;
-	results.var_e8995ec9 = water_bottom;
+	results.waterbottom = water_bottom;
 	return results;
 }
 

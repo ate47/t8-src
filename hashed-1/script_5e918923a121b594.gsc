@@ -310,7 +310,7 @@ function function_94d884e4(var_9033671b)
 }
 
 /*
-	Name: function_7b48c3fc
+	Name: is_debugging
 	Namespace: ai_patrol
 	Checksum: 0x84B4779
 	Offset: 0xBF0
@@ -318,7 +318,7 @@ function function_94d884e4(var_9033671b)
 	Parameters: 1
 	Flags: Private
 */
-function private function_7b48c3fc(dvar)
+function private is_debugging(dvar)
 {
 	/#
 		if(getdvarint(dvar, 0))

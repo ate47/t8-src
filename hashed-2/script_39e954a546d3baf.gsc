@@ -578,7 +578,7 @@ function function_9dc9326c(player)
 		arrayremoveindex(level.var_eaaa1d75, 0);
 	}
 	function_511ee23e(1);
-	player playsound(#"hash_5f6f892266eca77");
+	player playsound(#"zmb_key_pickup");
 	if(!(isdefined(level.var_77f262b9) && level.var_77f262b9) && get_story() === 2)
 	{
 		level.var_77f262b9 = 1;
@@ -1938,25 +1938,25 @@ function function_9b7bc715(str_archetype, var_f6e469ad = 1)
 			level thread zm_audio::sndannouncerplayvox(#"catalyst", undefined, undefined, undefined, 1);
 			break;
 		}
-		case "hash_78ca8e8e6bdbc8ab":
+		case "catalyst_corrosive":
 		{
 			level function_e64ac3b6(1, #"hash_7641ba4524584595");
 			level thread zm_audio::sndannouncerplayvox(#"catalyst", undefined, undefined, undefined, 1);
 			break;
 		}
-		case "hash_266b62e342076a90":
+		case "catalyst_electric":
 		{
 			level function_e64ac3b6(1, #"hash_70c3cc5975b6ae66");
 			level thread zm_audio::sndannouncerplayvox(#"catalyst", undefined, undefined, undefined, 1);
 			break;
 		}
-		case "hash_5cfa99582cc66c59":
+		case "catalyst_plasma":
 		{
 			level function_e64ac3b6(1, #"hash_462ab08cca184367");
 			level thread zm_audio::sndannouncerplayvox(#"catalyst", undefined, undefined, undefined, 1);
 			break;
 		}
-		case "hash_5d6b55906fc82ff2":
+		case "catalyst_water":
 		{
 			level function_e64ac3b6(1, #"hash_44038d25e4255a68");
 			level thread zm_audio::sndannouncerplayvox(#"catalyst", undefined, undefined, undefined, 1);

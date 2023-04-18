@@ -27,20 +27,20 @@ function monitor()
 			self thread breadcrumbs();
 		}
 	}
-	else if(function_f99d2668())
+	else if(sessionmodeiswarzonegame())
 	{
 		if(!isbot(self) && getdvarint(#"hash_6d5a49354d02940d", 0) == 1)
 		{
 			self thread breadcrumbs();
 		}
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self thread function_fa444840();
-		self thread function_729bf68e();
+		self thread travel_dist();
 		return;
 	}
-	self thread function_729bf68e();
+	self thread travel_dist();
 	self thread wall_run();
 	self thread swimming();
 	self thread slide();
@@ -240,7 +240,7 @@ function private breadcrumbs()
 		}
 		waittime = getdvarfloat(#"hash_78606296733432c4", 2);
 	}
-	else if(function_f99d2668())
+	else if(sessionmodeiswarzonegame())
 	{
 		level waittill(#"hash_313ad43b34e74e96");
 		waittime = getdvarfloat(#"hash_2872d2b12241500c", 4);
@@ -256,7 +256,7 @@ function private breadcrumbs()
 }
 
 /*
-	Name: function_729bf68e
+	Name: travel_dist
 	Namespace: player_monitor
 	Checksum: 0xBD5A05FC
 	Offset: 0xBE0
@@ -264,7 +264,7 @@ function private breadcrumbs()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_729bf68e()
+function private travel_dist()
 {
 	self endon(#"death", #"disconnect");
 	waittime = 1;

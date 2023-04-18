@@ -61,7 +61,7 @@ function __init__()
 	}
 	if(sessionmodeismultiplayergame())
 	{
-		level.var_e2b2396a = getgametypesetting(#"specialisthealspeed_allies_1");
+		level.specialisthealspeed = getgametypesetting(#"specialisthealspeed_allies_1");
 	}
 	level thread function_b506b922();
 }
@@ -445,27 +445,27 @@ function private function_8ca62ae3()
 	{
 		return 0;
 	}
-	var_d12d33e7 = self.heal.rate;
-	if(var_d12d33e7 == 0)
+	regen_rate = self.heal.rate;
+	if(regen_rate == 0)
 	{
-		var_d12d33e7 = (isdefined(self.n_regen_rate) ? self.n_regen_rate : self.playerrole.healthhealrate);
+		regen_rate = (isdefined(self.n_regen_rate) ? self.n_regen_rate : self.playerrole.healthhealrate);
 		if(self hasperk(#"specialty_quickrevive"))
 		{
-			var_d12d33e7 = var_d12d33e7 * 1.5;
+			regen_rate = regen_rate * 1.5;
 		}
 		if(isdefined(self.var_5762241e))
 		{
-			var_d12d33e7 = var_d12d33e7 + self.var_5762241e;
+			regen_rate = regen_rate + self.var_5762241e;
 		}
-		var_d12d33e7 = var_d12d33e7 * self function_4e64ede5();
+		regen_rate = regen_rate * self function_4e64ede5();
 	}
-	if(isdefined(level.var_e2b2396a))
+	if(isdefined(level.specialisthealspeed))
 	{
-		switch(level.var_e2b2396a)
+		switch(level.specialisthealspeed)
 		{
 			case 0:
 			{
-				var_d12d33e7 = var_d12d33e7 * 0.5;
+				regen_rate = regen_rate * 0.5;
 				break;
 			}
 			case 1:
@@ -475,17 +475,17 @@ function private function_8ca62ae3()
 			}
 			case 2:
 			{
-				var_d12d33e7 = var_d12d33e7 * 2;
+				regen_rate = regen_rate * 2;
 				break;
 			}
 			case 3:
 			{
-				var_d12d33e7 = 2147483647;
+				regen_rate = 2147483647;
 				break;
 			}
 		}
 	}
-	return var_d12d33e7;
+	return regen_rate;
 }
 
 /*
@@ -564,8 +564,8 @@ function private heal(var_dc77251f)
 	}
 	else
 	{
-		var_d12d33e7 = player function_8ca62ae3();
-		regen_amount = (var_d12d33e7 * (float(var_dc77251f.time_elapsed) / 1000)) / var_bc840360;
+		regen_rate = player function_8ca62ae3();
+		regen_amount = (regen_rate * (float(var_dc77251f.time_elapsed) / 1000)) / var_bc840360;
 	}
 	if(regen_amount == 0)
 	{

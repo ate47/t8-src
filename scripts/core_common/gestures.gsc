@@ -203,7 +203,7 @@ function function_8cc27b6d(var_ee58f129)
 		return false;
 	}
 	weapon = self getcurrentweapon();
-	if(isdefined(self.var_89b32012) && self.var_89b32012)
+	if(isdefined(self.disablegestures) && self.disablegestures)
 	{
 		return false;
 	}
@@ -264,7 +264,7 @@ function function_c77349d4(var_851342cf)
 	Parameters: 7
 	Flags: Linked
 */
-function function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436)
+function function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
 {
 	if(!isdefined(self))
 	{
@@ -272,7 +272,7 @@ function function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, startt
 	}
 	if(self function_8cc27b6d(var_ee58f129))
 	{
-		return self function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436);
+		return self function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
 	}
 	return 0;
 }
@@ -286,9 +286,9 @@ function function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, startt
 	Parameters: 7
 	Flags: Linked
 */
-function function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436)
+function function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
 {
-	return self playgestureviewmodel(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436);
+	return self playgestureviewmodel(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
 }
 
 /*
@@ -300,14 +300,14 @@ function function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, startt
 	Parameters: 7
 	Flags: None
 */
-function function_56e00fbf(var_851342cf, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436)
+function function_56e00fbf(var_851342cf, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
 {
 	if(!isdefined(self))
 	{
 		return 0;
 	}
 	var_ee58f129 = self function_c77349d4(var_851342cf);
-	return function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436);
+	return function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
 }
 
 /*
@@ -319,14 +319,14 @@ function function_56e00fbf(var_851342cf, target, var_a085312c, blendtime, startt
 	Parameters: 7
 	Flags: None
 */
-function function_e62f6dde(var_851342cf, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436)
+function function_e62f6dde(var_851342cf, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
 {
 	if(!isdefined(self))
 	{
 		return 0;
 	}
 	var_ee58f129 = self function_c77349d4(var_851342cf);
-	return function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, var_e67d2436);
+	return function_b6cc48ed(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
 }
 
 /*

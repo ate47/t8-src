@@ -1328,7 +1328,7 @@ function private function_cbf3f034(s_objective)
 }
 
 /*
-	Name: function_215b60ea
+	Name: set_pvp_objective
 	Namespace: hud
 	Checksum: 0x67C64370
 	Offset: 0x3B90
@@ -1336,7 +1336,7 @@ function private function_cbf3f034(s_objective)
 	Parameters: 6
 	Flags: None
 */
-function function_215b60ea(str_identifier, n_obj_id, n_widget, var_48d81699, var_94fe5aa5, var_23b4190)
+function set_pvp_objective(str_identifier, n_obj_id, n_widget, var_48d81699, var_94fe5aa5, var_23b4190)
 {
 	foreach(str_flag in array("pvp_objective_set_allies", "pvp_objective_set_axis"))
 	{

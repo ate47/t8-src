@@ -360,7 +360,7 @@ function private run_step(ee, step, var_5ea5c94d)
 					}
 				}
 			}
-			zm_stats::function_42677837(#"hash_4b00aa230ebbe82b", 1);
+			zm_stats::set_match_stat(#"hash_4b00aa230ebbe82b", 1);
 			zm_stats::function_ea5b4947();
 		}
 		/#

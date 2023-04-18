@@ -410,7 +410,7 @@ function function_38184bf8()
 			if(var_c635168c >= 0 && isdefined(level.var_5ef1a72c[var_c635168c]))
 			{
 				var_5ef1a72c = level.var_5ef1a72c[var_c635168c];
-				foreach(var_375627f0, var_e2414b1b in var_5ef1a72c)
+				foreach(var_375627f0, zone_path in var_5ef1a72c)
 				{
 					zone = level.zones[var_375627f0];
 					print_origin = undefined;
@@ -423,20 +423,20 @@ function function_38184bf8()
 						print_origin = zone.volumes[0].origin;
 					}
 					color = (1, 0, 0);
-					if(var_e2414b1b.cost < 4)
+					if(zone_path.cost < 4)
 					{
 						color = (0, 1, 0);
 					}
-					else if(var_e2414b1b.cost < 8)
+					else if(zone_path.cost < 8)
 					{
 						color = (1, 0.5, 0);
 					}
 					circle(print_origin, 30, color);
 					print3d(print_origin, function_9e72a96(var_375627f0), color, 1, 0.5);
-					print3d(print_origin + (vectorscale((0, 0, -1), 10)), "" + var_e2414b1b.cost, color, 1, 0.5);
-					if(isdefined(var_e2414b1b.to_zone))
+					print3d(print_origin + (vectorscale((0, 0, -1), 10)), "" + zone_path.cost, color, 1, 0.5);
+					if(isdefined(zone_path.to_zone))
 					{
-						to_zone = level.zones[var_e2414b1b.to_zone];
+						to_zone = level.zones[zone_path.to_zone];
 						if(isdefined(to_zone.nodes[0]))
 						{
 							var_fbe06d06 = to_zone.nodes[0].origin;
@@ -485,21 +485,21 @@ function function_38184bf8()
 function zombie_devgui_validation_commands()
 {
 	/#
-		setdvar(#"hash_669f83ead88a11c3", "");
+		setdvar(#"validation_devgui_command", "");
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
 		while(true)
 		{
-			cmd = getdvarstring(#"hash_669f83ead88a11c3");
+			cmd = getdvarstring(#"validation_devgui_command");
 			if(cmd != "")
 			{
 				switch(cmd)
 				{
 					case "structs":
 					{
-						thread function_5cfae413();
+						thread bunker_entrance_zoned();
 						break;
 					}
 					case "spawner":
@@ -507,7 +507,7 @@ function zombie_devgui_validation_commands()
 						zombie_spawner_validation();
 						break;
 					}
-					case "hash_760db9f74f819e35":
+					case "zone_adj":
 					{
 						if(!isdefined(level.toggle_zone_adjacencies_validation))
 						{
@@ -533,7 +533,7 @@ function zombie_devgui_validation_commands()
 						break;
 					}
 				}
-				setdvar(#"hash_669f83ead88a11c3", "");
+				setdvar(#"validation_devgui_command", "");
 			}
 			util::wait_network_frame();
 		}
@@ -2540,7 +2540,7 @@ function zombie_devgui_think()
 					array::thread_all(getplayers(), &zombie_devgui_give_monkey);
 					break;
 				}
-				case "hash_6c8b16d136a534ab":
+				case "give_bhb":
 				{
 					array::thread_all(getplayers(), &zombie_devgui_give_bhb);
 					break;
@@ -2805,7 +2805,7 @@ function zombie_devgui_think()
 					function_f12b8a34();
 					break;
 				}
-				case "hash_3aa426e2698f6962":
+				case "keyline_always":
 				{
 					zombie_devgui_keyline_always();
 					break;
@@ -6940,7 +6940,7 @@ function function_7c9dd642()
 }
 
 /*
-	Name: function_5cfae413
+	Name: bunker_entrance_zoned
 	Namespace: zm_devgui
 	Checksum: 0x417EC1E8
 	Offset: 0x10D08
@@ -6948,7 +6948,7 @@ function function_7c9dd642()
 	Parameters: 0
 	Flags: None
 */
-function function_5cfae413()
+function bunker_entrance_zoned()
 {
 	/#
 		self notify("");

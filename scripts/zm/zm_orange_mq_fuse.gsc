@@ -44,9 +44,9 @@
 */
 function preload()
 {
-	namespace_617a54f4::function_d8383812(#"little_bird_1", 24000, "little_bird_1", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"little_bird_2", 24000, "little_bird_2", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"little_bird_3", 24000, "little_bird_3", &function_8598f0d4, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"little_bird_1", 24000, "little_bird_1", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"little_bird_2", 24000, "little_bird_2", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"little_bird_3", 24000, "little_bird_3", &is_soul_capture, &soul_captured, 1);
 	clientfield::register("scriptmover", "elemental_shard_glow", 24000, 1, "int");
 	level flag::init(#"hash_4923165da58bf5cf");
 }
@@ -285,11 +285,11 @@ function function_c303e169()
 	s_activation = self waittill(#"trigger_activated");
 	playsoundatposition(#"hash_2e9ec816b70bb70e", self.origin);
 	self delete();
-	level function_7512675b(s_activation.e_who);
+	level shard_vo(s_activation.e_who);
 }
 
 /*
-	Name: function_7512675b
+	Name: shard_vo
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0xF7A0805B
 	Offset: 0xDC8
@@ -297,7 +297,7 @@ function function_c303e169()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7512675b(e_who)
+function shard_vo(e_who)
 {
 	e_who zm_orange_util::function_51b752a9("vox_shard_place", -1, 1, 0);
 }
@@ -403,7 +403,7 @@ function function_c723e684(var_a276c861)
 }
 
 /*
-	Name: function_8598f0d4
+	Name: is_soul_capture
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0xB07D2C04
 	Offset: 0x1258
@@ -411,7 +411,7 @@ function function_c723e684(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8598f0d4(var_88206a50, ent)
+function is_soul_capture(var_88206a50, ent)
 {
 	if(isdefined(ent) && ent.var_9fde8624 === #"zombie_electric")
 	{
@@ -423,7 +423,7 @@ function function_8598f0d4(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0xB3ED4B54
 	Offset: 0x1340
@@ -431,12 +431,12 @@ function function_8598f0d4(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	n_souls_required = 1;
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = n_souls_required;
 		}

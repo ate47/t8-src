@@ -57,7 +57,7 @@ function private __init__()
 	level.var_9ee73630[#"super_sprint"][#"down"] = 1;
 	level.var_9ee73630[#"super_sprint"][#"up"] = 1;
 	spawner::add_archetype_spawn_function(#"zombie", &function_cf051788);
-	function_74e6d564();
+	initzombiebehaviors();
 	val::register("allowoffnavmesh", 1);
 	val::default_value("allowoffnavmesh", 0);
 	level.attackablecallback = &attackable_callback;
@@ -113,9 +113,9 @@ function function_cdc822b()
 	Parameters: 1
 	Flags: None
 */
-function function_a6a84389(var_fab0ffd6)
+function function_a6a84389(playerradius)
 {
-	position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 60), 200, var_fab0ffd6);
+	position = getclosestpointonnavmesh(self.origin - vectorscale((0, 0, 1), 60), 200, playerradius);
 	if(isdefined(position))
 	{
 		self.last_valid_position = position;
@@ -158,7 +158,7 @@ function attackable_callback(entity)
 }
 
 /*
-	Name: function_74e6d564
+	Name: initzombiebehaviors
 	Namespace: namespace_b4c4089b
 	Checksum: 0xE4664DCA
 	Offset: 0xA28
@@ -166,7 +166,7 @@ function attackable_callback(entity)
 	Parameters: 0
 	Flags: None
 */
-function function_74e6d564()
+function initzombiebehaviors()
 {
 	/#
 		assert(isscriptfunctionptr(&function_e91d8371));
@@ -452,7 +452,7 @@ function private zombieshouldmelee(entity)
 		entity.is_at_attackable = 1;
 		return true;
 	}
-	if(isdefined(self.var_37f16e2e) && self.var_37f16e2e && !tracepassedonnavmesh(entity.origin, (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin), entity.enemy getpathfindingradius()))
+	if(isdefined(self.isonnavmesh) && self.isonnavmesh && !tracepassedonnavmesh(entity.origin, (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin), entity.enemy getpathfindingradius()))
 	{
 		return false;
 	}
@@ -872,9 +872,9 @@ function function_e261b81d()
 	self setgoal(self.origin);
 	while(true)
 	{
-		self.var_37f16e2e = ispointonnavmesh(self.origin, self);
+		self.isonnavmesh = ispointonnavmesh(self.origin, self);
 		self function_bf21ead1();
-		if(!self.var_37f16e2e && self.allowoffnavmesh)
+		if(!self.isonnavmesh && self.allowoffnavmesh)
 		{
 			if(!isdefined(self.var_6bcb6977))
 			{
@@ -950,7 +950,7 @@ function private function_2ae5a795()
 {
 	if(isdefined(self.var_80780af2) && (level.var_8de0b84e === self getentitynumber() || self.archetype == #"blight_father"))
 	{
-		if(!self.allowoffnavmesh && self.var_37f16e2e)
+		if(!self.allowoffnavmesh && self.isonnavmesh)
 		{
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
@@ -1043,7 +1043,7 @@ function function_f10600c(enemy)
 }
 
 /*
-	Name: function_17b598de
+	Name: ai_can_see
 	Namespace: namespace_b4c4089b
 	Checksum: 0x280811FD
 	Offset: 0x2998
@@ -1051,7 +1051,7 @@ function function_f10600c(enemy)
 	Parameters: 0
 	Flags: None
 */
-function function_17b598de()
+function ai_can_see()
 {
 	players_in_zone = getplayers();
 	var_13324143 = arraysortclosest(players_in_zone, self.origin, 4);
@@ -1084,7 +1084,7 @@ function private function_bf21ead1()
 	}
 	else
 	{
-		var_293b2af1 = function_17b598de();
+		var_293b2af1 = ai_can_see();
 		if(isdefined(var_293b2af1))
 		{
 			self.favoriteenemy = var_293b2af1;
@@ -1138,7 +1138,7 @@ function private function_827edb6()
 	}
 	if(!isdefined(self.enemy_override) && !isdefined(self.favoriteenemy))
 	{
-		self.favoriteenemy = function_17b598de();
+		self.favoriteenemy = ai_can_see();
 	}
 	if(var_f5acb8b9 !== self.favoriteenemy)
 	{
@@ -1229,9 +1229,9 @@ function private function_b8eff92a(state)
 		}
 		case 5:
 		{
-			self function_d1e55248(#"hash_5780e28b762b831a", !self.var_37f16e2e);
+			self function_d1e55248(#"hash_5780e28b762b831a", !self.isonnavmesh);
 			val::set(#"hash_5780e28b762b831a", "ignoreall", 1);
-			if(!self.var_37f16e2e)
+			if(!self.isonnavmesh)
 			{
 				self pathmode("dont move", 1);
 			}
@@ -1261,18 +1261,18 @@ function private function_36151fe3()
 	if(isdefined(self.enemy_override))
 	{
 		var_31e67a12 = ispointonnavmesh(self.enemy_override.origin, self);
-		if(var_31e67a12 && self.var_37f16e2e)
+		if(var_31e67a12 && self.isonnavmesh)
 		{
 			self function_d1e55248(#"hash_6e6d6ff06622efa4", 0);
 			self.var_80780af2 = self.enemy_override.origin;
 		}
 		else
 		{
-			if(self.var_37f16e2e && isdefined(self.enemy_override.var_acdc8d71) && !self isingoal(self.enemy_override.var_acdc8d71))
+			if(self.isonnavmesh && isdefined(self.enemy_override.var_acdc8d71) && !self isingoal(self.enemy_override.var_acdc8d71))
 			{
 				self.var_80780af2 = self.enemy_override.var_acdc8d71;
 			}
-			else if(!self.var_37f16e2e || self isatgoal())
+			else if(!self.isonnavmesh || self isatgoal())
 			{
 				self function_d1e55248(#"hash_6e6d6ff06622efa4", 1);
 				self pathmode("dont move", 1);
@@ -1286,7 +1286,7 @@ function private function_36151fe3()
 		if(isdefined(self.favoriteenemy.last_valid_position) && self.favoriteenemy.ai_zone === self.ai_zone)
 		{
 			self.var_80780af2 = self.favoriteenemy.last_valid_position;
-			if(self.var_37f16e2e)
+			if(self.isonnavmesh)
 			{
 				self function_d1e55248(#"hash_6e6d6ff06622efa4", 0);
 			}
@@ -1294,7 +1294,7 @@ function private function_36151fe3()
 		}
 		if(isdefined(self.favoriteenemy.last_valid_position) && !ispointonnavmesh(self.favoriteenemy.origin, self))
 		{
-			if(!self.var_37f16e2e && !self function_dd070839() || self isatgoal())
+			if(!self.isonnavmesh && !self function_dd070839() || self isatgoal())
 			{
 				self pathmode("dont move", 1);
 				self function_d1e55248(#"hash_6e6d6ff06622efa4", 1);

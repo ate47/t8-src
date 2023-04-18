@@ -89,7 +89,7 @@ function init()
 function function_c739f755()
 {
 	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_1", #"hash_6be882382480789d", &function_ff75fde6, &function_ff3b1efd);
-	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_2", #"hash_6be87f3824807384", &function_39e0636, &function_4fccc01f);
+	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_2", #"a_skeet_fink_step_2", &function_39e0636, &function_4fccc01f);
 	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_3", #"hash_6be8803824807537", &function_15c82a8a, &function_62856590);
 	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_4", #"hash_6be87d382480701e", &function_2879cfed, &function_354f0b24);
 }

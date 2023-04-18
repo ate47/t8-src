@@ -93,8 +93,8 @@ function function_155ab49c(params)
 		return;
 	}
 	var_a6762160 = params.item.var_a6762160;
-	var_4961f577 = params.item.var_4961f577;
-	if(isdefined(var_4961f577) && var_4961f577)
+	deathstash = params.item.deathstash;
+	if(isdefined(deathstash) && deathstash)
 	{
 		return;
 	}

@@ -814,62 +814,62 @@ function function_c8663dbc(weapon, player)
 	{
 		case "eq_emp_grenade":
 		{
-			var_60d3002f = "jammerWeaponHacked";
+			taacomdialog = "jammerWeaponHacked";
 			break;
 		}
 		case "eq_tripwire":
 		{
-			var_60d3002f = "meshMineWeaponHacked";
+			taacomdialog = "meshMineWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "eq_seeker_mine":
 		{
-			var_60d3002f = "seekerMineWeaponHacked";
+			taacomdialog = "seekerMineWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "eq_sensor":
 		{
-			var_60d3002f = "sensorDartHacked";
+			taacomdialog = "sensorDartHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "ability_smart_cover":
 		case "gadget_smart_cover":
 		{
-			var_60d3002f = "smartCoverHacked";
+			taacomdialog = "smartCoverHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "gadget_spawnbeacon":
 		{
-			var_60d3002f = "spawnBeaconHacked";
+			taacomdialog = "spawnBeaconHacked";
 			break;
 		}
 		case "gadget_supplypod":
 		{
-			var_60d3002f = "supplyPodHacked";
+			taacomdialog = "supplyPodHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "trophy_system":
 		{
-			var_60d3002f = "trophyWeaponHacked";
+			taacomdialog = "trophyWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "inventory_ac130":
 		case "ac130":
 		{
-			var_60d3002f = "ac130Hacked";
+			taacomdialog = "ac130Hacked";
 			break;
 		}
 		case "tank_robot":
 		case "inventory_tank_robot":
 		case "ai_tank_marker":
 		{
-			var_60d3002f = "aiTankHacked";
+			taacomdialog = "aiTankHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
@@ -877,83 +877,83 @@ function function_c8663dbc(weapon, player)
 		case "helicopter_comlink":
 		case "inventory_helicopter_comlink":
 		{
-			var_60d3002f = "attackChopperHacked";
+			taacomdialog = "attackChopperHacked";
 			break;
 		}
 		case "counteruav":
 		{
-			var_60d3002f = "cuavHacked";
+			taacomdialog = "cuavHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "dart":
 		case "inventory_dart":
 		{
-			var_60d3002f = "dartHacked";
+			taacomdialog = "dartHacked";
 			break;
 		}
 		case "drone_squadron":
 		case "inventory_drone_squadron":
 		{
-			var_60d3002f = "droneSquadHacked";
+			taacomdialog = "droneSquadHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "recon_car":
 		case "inventory_recon_car":
 		{
-			var_60d3002f = "reconCarHacked";
+			taacomdialog = "reconCarHacked";
 			break;
 		}
 		case "remote_missile":
 		case "inventory_remote_missile":
 		{
-			var_60d3002f = "hellstormHacked";
+			taacomdialog = "hellstormHacked";
 			break;
 		}
 		case "inventory_planemortar":
 		case "planemortar":
 		{
-			var_60d3002f = "lightningStrikeHacked";
+			taacomdialog = "lightningStrikeHacked";
 			break;
 		}
 		case "overwatch_helicopter":
 		case "inventory_overwatch_helicopter":
 		{
-			var_60d3002f = "overwatchHelicopterHacked";
+			taacomdialog = "overwatchHelicopterHacked";
 			break;
 		}
 		case "inventory_straferun":
 		case "straferun":
 		{
-			var_60d3002f = "strafeRunHacked";
+			taacomdialog = "strafeRunHacked";
 			break;
 		}
 		case "supplydrop":
 		{
-			var_60d3002f = "supplyDropHacked";
+			taacomdialog = "supplyDropHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "uav":
 		{
-			var_60d3002f = "uavHacked";
+			taacomdialog = "uavHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "ultimate_turret":
 		case "inventory_ultimate_turret":
 		{
-			var_60d3002f = "sentryHacked";
+			taacomdialog = "sentryHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 	}
-	if(!isdefined(var_60d3002f))
+	if(!isdefined(taacomdialog))
 	{
 		return undefined;
 	}
-	dialogalias = taacombundle.(var_60d3002f);
+	dialogalias = taacombundle.(taacomdialog);
 	return dialogalias;
 }
 

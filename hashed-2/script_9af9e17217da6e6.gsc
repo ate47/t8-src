@@ -52,7 +52,7 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_141bb928b3d09e20", 8000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_34c5ab29531f15f0", 8000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_546e7612359187c3", 8000, 1, "counter");
-	clientfield::register("toplayer", "" + #"hash_73a4abf07bc65bc3", 8000, 1, "counter");
+	clientfield::register("toplayer", "" + #"mansion_mq_rumble", 8000, 1, "counter");
 	clientfield::register("world", "" + #"hash_557a1703971f074c", 8000, 1, "int");
 	function_c739f755();
 	init_flags();
@@ -184,7 +184,7 @@ function init_flags()
 	level flag::init(#"hash_546b9278e651129a");
 	level flag::init(#"ley_start");
 	level flag::init(#"hash_4e13220b07971761");
-	level flag::init(#"hash_9e03a22668d24b");
+	level flag::init(#"ring_rotate");
 	level flag::init(#"hash_76ea4b1b1c7ac757");
 	level flag::init(#"hash_3e3ae137d6c07f8d");
 	level flag::init(#"hash_426c0f5a9e34edc2");
@@ -943,7 +943,7 @@ function function_f856cc2()
 */
 function function_604f9d73(a_ents)
 {
-	level.var_fbeb7c7f = a_ents[getfirstarraykey(a_ents)];
+	level.mdl_telescope = a_ents[getfirstarraykey(a_ents)];
 	scene::remove_scene_func(#"p8_fxanim_zm_man_telescope_bundle", &function_604f9d73, "init");
 }
 
@@ -1539,7 +1539,7 @@ function combo_watcher()
 		{
 			if(isalive(level.var_ee0a344c))
 			{
-				level.var_ee0a344c zm_audio::create_and_play_dialog(#"hash_75a60d33a7026673", #"hash_7a3eeda80ea92423");
+				level.var_ee0a344c zm_audio::create_and_play_dialog(#"telescope", #"hash_7a3eeda80ea92423");
 				level.var_ee0a344c = undefined;
 			}
 			var_da3daf09 playsound(#"hash_68988cab9fa84ad5");
@@ -1584,9 +1584,9 @@ function function_d8162064()
 	level flag::wait_till(#"hash_426c0f5a9e34edc2");
 	mdl_door_right = getent("mdl_telescope_observatory_door_right", "targetname");
 	mdl_door_left = getent("mdl_telescope_observatory_door_left", "targetname");
-	mdl_door_right linkto(level.var_fbeb7c7f, "p8_zm_man_greenhouse_ext_dome_01_link_jnt");
-	mdl_door_left linkto(level.var_fbeb7c7f, "p8_zm_man_greenhouse_ext_dome_01_link_jnt");
-	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"hash_73a4abf07bc65bc3", 1);
+	mdl_door_right linkto(level.mdl_telescope, "p8_zm_man_greenhouse_ext_dome_01_link_jnt");
+	mdl_door_left linkto(level.mdl_telescope, "p8_zm_man_greenhouse_ext_dome_01_link_jnt");
+	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
 	level scene::play(#"p8_fxanim_zm_man_telescope_bundle");
 	level flag::set(#"hash_702dbaf6695a5607");
 }
@@ -1817,9 +1817,9 @@ function function_53577dc7()
 function tube_shoot()
 {
 	level flag::wait_till(#"hash_702dbaf6695a5607");
-	level.var_fbeb7c7f clientfield::set("" + #"hash_15af8e35c0c1f344", 2);
-	level.var_fbeb7c7f playsound(#"hash_7602966ff564e065");
-	level.var_fbeb7c7f playloopsound(#"hash_69b6d00136d35f2b");
+	level.mdl_telescope clientfield::set("" + #"hash_15af8e35c0c1f344", 2);
+	level.mdl_telescope playsound(#"hash_7602966ff564e065");
+	level.mdl_telescope playloopsound(#"hash_69b6d00136d35f2b");
 	wait(5.3);
 	level thread zm_utility::function_9ad5aeb1(0, 1, 0, 1, 0);
 	foreach(player in getplayers())
@@ -1827,17 +1827,17 @@ function tube_shoot()
 		player setlightingstate(1);
 	}
 	level util::delay(5, undefined, &clientfield::set, "" + #"hash_557a1703971f074c", 0);
-	player = level.var_fbeb7c7f mansion_util::get_closest_valid_player();
+	player = level.mdl_telescope mansion_util::get_closest_valid_player();
 	if(isdefined(player))
 	{
 		player zm_audio::create_and_play_dialog(#"hash_65f40b8325b149b4", #"react_first");
 	}
 	getent("beam_man", "targetname") clientfield::set("" + #"hash_42b6c982eeb59c79", 0);
 	getent("beam_obs", "targetname") clientfield::set("" + #"hash_42b6c982eeb59c79", 3);
-	level.var_fbeb7c7f clientfield::set("" + #"hash_15af8e35c0c1f344", 0);
-	level.var_fbeb7c7f stoploopsound();
-	level.var_fbeb7c7f playsound(#"hash_79e81e464a483017");
-	level.var_fbeb7c7f = undefined;
+	level.mdl_telescope clientfield::set("" + #"hash_15af8e35c0c1f344", 0);
+	level.mdl_telescope stoploopsound();
+	level.mdl_telescope playsound(#"hash_79e81e464a483017");
+	level.mdl_telescope = undefined;
 }
 
 /*
@@ -1881,7 +1881,7 @@ function function_c888f1f4()
 	}
 	mdl_door = getent("mdl_telescope_base_door", "targetname");
 	s_moveto = struct::get(mdl_door.target);
-	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"hash_73a4abf07bc65bc3", 1);
+	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
 	mdl_door moveto(s_moveto.origin, 3, 0.1, 1.5);
 	mdl_door playsound(#"hash_34b16f03c4ce4b97");
 	mdl_door waittill(#"movedone");
@@ -1942,7 +1942,7 @@ function function_31e641f5()
 		}
 		wait(0.1);
 	}
-	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"hash_73a4abf07bc65bc3", 1);
+	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
 	level flag::set(#"hash_1b9ecc7979b0fcfb");
 	level clientfield::set("fasttravel_exploder", 0);
 	exploder::exploder("fxexp_barrier_gameplay_observatory");

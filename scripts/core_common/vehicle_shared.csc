@@ -1344,7 +1344,7 @@ function lights_off(localclientnum)
 }
 
 /*
-	Name: function_44729756
+	Name: lights_flicker
 	Namespace: vehicle
 	Checksum: 0xD72702C7
 	Offset: 0x4480
@@ -1352,7 +1352,7 @@ function lights_off(localclientnum)
 	Parameters: 3
 	Flags: Linked
 */
-function function_44729756(localclientnum, duration = 8, var_5db078ba = 1)
+function lights_flicker(localclientnum, duration = 8, var_5db078ba = 1)
 {
 	self notify("15457a87e1f08c8e");
 	self endon("15457a87e1f08c8e");
@@ -1472,13 +1472,13 @@ function flicker_lights(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	{
 		if(newval == 1)
 		{
-			self thread function_44729756(localclientnum);
+			self thread lights_flicker(localclientnum);
 		}
 		else
 		{
 			if(newval == 2)
 			{
-				self thread function_44729756(localclientnum, 20);
+				self thread lights_flicker(localclientnum, 20);
 			}
 			else if(newval == 3)
 			{
@@ -1969,7 +1969,7 @@ function field_use_engine_damage_sounds(localclientnum, oldval, newval, bnewent,
 */
 function private function_a29f490a()
 {
-	self.var_76660b3a = self playloopsound(self.var_f0885951);
+	self.var_76660b3a = self playloopsound(self.hornsound);
 }
 
 /*
@@ -2035,7 +2035,7 @@ function private function_2d24296(localclientnum, oldval, newval, bnewent, binit
 	{
 		return;
 	}
-	if(!isdefined(self.var_f0885951))
+	if(!isdefined(self.hornsound))
 	{
 		return;
 	}
@@ -2043,7 +2043,7 @@ function private function_2d24296(localclientnum, oldval, newval, bnewent, binit
 	{
 		if(self.vehicleclass === "helicopter" && (!(isdefined(self.var_304cf9da) && self.var_304cf9da)))
 		{
-			self playsound(localclientnum, self.var_f0885951);
+			self playsound(localclientnum, self.hornsound);
 		}
 		else
 		{

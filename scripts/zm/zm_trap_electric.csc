@@ -37,7 +37,7 @@ function __init__()
 	{
 		clientfield::register("world", trap.script_noteworthy, 1, 1, "int", &trap_fx_monitor, 0, 0);
 	}
-	clientfield::register("actor", "electrocute_ai_fx", 1, 1, "int", &function_3f09b130, 0, 0);
+	clientfield::register("actor", "electrocute_ai_fx", 1, 1, "int", &electrocute_ai, 0, 0);
 	level._effect[#"hash_6a97de5de4ae14a"] = #"zombie/fx_tesla_shock_zmb";
 	level._effect[#"hash_21e93d9faa37cad"] = #"zombie/fx_tesla_shock_eyes_zmb";
 }
@@ -65,7 +65,7 @@ function trap_fx_monitor(localclientnum, oldval, newval, bnewent, binitialsnap, 
 }
 
 /*
-	Name: function_3f09b130
+	Name: electrocute_ai
 	Namespace: zm_trap_electric
 	Checksum: 0xF1227C65
 	Offset: 0x378
@@ -73,7 +73,7 @@ function trap_fx_monitor(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	Parameters: 7
 	Flags: Linked
 */
-function function_3f09b130(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function electrocute_ai(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

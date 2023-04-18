@@ -106,7 +106,7 @@ function createhatchetwatcher(watcher)
 	watcher.onspawn = &onspawnhatchet;
 	watcher.ondamage = &voidondamage;
 	watcher.onspawnretrievetriggers = &function_23b0aea9;
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		watcher.timeout = 120;
 	}

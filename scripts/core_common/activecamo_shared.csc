@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_240ef62ff60b2694;
+#using scripts\core_common\player\player_stats.csc;
 #using script_474309807eb94f34;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -223,7 +223,7 @@ function function_3d96ad48(var_6f2ae9c0)
 */
 function function_451a49f4(localclientnum, activecamoinfo, weapon, stagenum)
 {
-	activecamo = self function_6f08b691(activecamoinfo);
+	activecamo = self init_activecamo(activecamoinfo);
 	if(isdefined(activecamo))
 	{
 		if(!isdefined(activecamo.var_fe56592))
@@ -261,7 +261,7 @@ function function_130e0542(localclientnum, weapon, camoindex)
 {
 	init_stage = 0;
 	activecamoinfo = function_ae141bf2(camoindex);
-	activecamo = self function_6f08b691(activecamoinfo);
+	activecamo = self init_activecamo(activecamoinfo);
 	if(isdefined(activecamo))
 	{
 		if(isdefined(activecamo.info.stages))
@@ -271,7 +271,7 @@ function function_130e0542(localclientnum, weapon, camoindex)
 			{
 				if(isdefined(stage.var_d2eac588))
 				{
-					var_b4b21bd = stats::function_441050ca(localclientnum, stage.var_d2eac588);
+					var_b4b21bd = stats::get_stat_global(localclientnum, stage.var_d2eac588);
 					if(isdefined(var_b4b21bd) && var_b4b21bd >= stage.var_e2dbd42d)
 					{
 						var_f8bf269c = 1;
@@ -341,7 +341,7 @@ function function_19a5d7e7(localclientnum, weapon, tagname, stagenum, impulse, v
 		function_3e27a7cb(localclientnum, tagname);
 		return;
 	}
-	activecamo = self function_6f08b691(activecamoinfo);
+	activecamo = self init_activecamo(activecamoinfo);
 	if(!isdefined(activecamo) || !isdefined(activecamo.info) || !isdefined(activecamo.info.stages))
 	{
 		function_3e27a7cb(localclientnum, tagname);
@@ -772,7 +772,7 @@ function function_3aa81e0e(activecamoinfo)
 }
 
 /*
-	Name: function_6f08b691
+	Name: init_activecamo
 	Namespace: activecamo
 	Checksum: 0xC67FCE19
 	Offset: 0x2668
@@ -780,7 +780,7 @@ function function_3aa81e0e(activecamoinfo)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6f08b691(activecamoinfo)
+function init_activecamo(activecamoinfo)
 {
 	if(isdefined(activecamoinfo))
 	{
@@ -927,7 +927,7 @@ function function_6efb762c(localclientnum, camoweapon, weaponoptions)
 	if(isdefined(activecamoinfo))
 	{
 		player = function_27673a7(localclientnum);
-		activecamo = player function_6f08b691(activecamoinfo);
+		activecamo = player init_activecamo(activecamoinfo);
 		baseweapon = function_c14cb514(camoweapon);
 		if(isdefined(activecamo))
 		{

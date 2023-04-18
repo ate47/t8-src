@@ -129,7 +129,7 @@ function function_f3393d6a()
 	if(zm_utility::is_classic() || zm_utility::is_standard())
 	{
 		self.var_d0b65bbe = hash(self stats::get_stat(#"hash_5ae679fef1e88988", #"hash_34814ea44bc6fed6"));
-		var_3afde5e2 = hash(self stats::get_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", self.var_e06cb519, #"hash_7e597fbe41270a4d"));
+		var_3afde5e2 = hash(self stats::get_stat(#"hash_5ae679fef1e88988", #"seasons", self.var_e06cb519, #"hash_7e597fbe41270a4d"));
 		var_51fe014e = level.var_314051a1.var_2e61f0ce[self.var_e06cb519].var_ecb4fc1[var_3afde5e2].var_642e4919 - 1;
 		var_51fe014e = var_51fe014e + self.var_bf6f8ec3;
 		var_51fe014e = var_51fe014e % level.var_314051a1.var_742e4106.size;
@@ -181,9 +181,9 @@ function private function_10a1ac3c(var_d1017f27, var_e06cb519, var_bf6f8ec3)
 	{
 		if(isdefined(var_d1017f27.var_52ac6e9c) && var_d1017f27.var_52ac6e9c)
 		{
-			return self stats::get_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress");
+			return self stats::get_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress");
 		}
-		return self stats::get_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress");
+		return self stats::get_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress");
 	}
 	if(!isdefined(var_d1017f27.var_1020847d))
 	{
@@ -207,11 +207,11 @@ function private function_66714869(var_d1017f27, var_e06cb519, var_bf6f8ec3, n_i
 	{
 		if(isdefined(var_d1017f27.var_52ac6e9c) && var_d1017f27.var_52ac6e9c)
 		{
-			self stats::inc_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress", n_inc);
+			self stats::inc_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress", n_inc);
 		}
 		else
 		{
-			self stats::inc_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress", n_inc);
+			self stats::inc_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress", n_inc);
 		}
 	}
 	else
@@ -243,11 +243,11 @@ function private function_a6a40735(var_d1017f27, var_e06cb519, var_bf6f8ec3, n_v
 	{
 		if(isdefined(var_d1017f27.var_52ac6e9c) && var_d1017f27.var_52ac6e9c)
 		{
-			self stats::set_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress", n_value);
+			self stats::set_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, var_d1017f27.var_4a01cb77, #"progress", n_value);
 		}
 		else
 		{
-			self stats::set_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress", n_value);
+			self stats::set_stat(#"hash_5ae679fef1e88988", #"seasons", var_e06cb519, #"callings", var_bf6f8ec3, var_d1017f27.var_30c47a21, #"progress", n_value);
 		}
 	}
 }
@@ -303,7 +303,7 @@ function private function_104c5d35()
 		if(isdefined(var_1e9f2834) && var_1e9f2834 && (isdefined(var_ed9fe2be) && var_ed9fe2be))
 		{
 			self luinotifyevent(#"hash_675b38b81564449", 4, 3, function_7b01d125(self.var_e06cb519, self.var_d0b65bbe) + 1, self.var_e06cb519 + 1, self getentitynumber());
-			self stats::inc_stat(#"hash_5ae679fef1e88988", #"hash_ffbfacdd776e531", self.var_e06cb519, #"factions", self.var_d0b65bbe, #"hash_7a54171ce10db54f", 1);
+			self stats::inc_stat(#"hash_5ae679fef1e88988", #"seasons", self.var_e06cb519, #"factions", self.var_d0b65bbe, #"hash_7a54171ce10db54f", 1);
 			/#
 				iprintln((("" + function_9e72a96(var_acbd7392)) + "") + function_9e72a96(self.var_d0b65bbe));
 			#/

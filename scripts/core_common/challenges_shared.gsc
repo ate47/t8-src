@@ -131,7 +131,7 @@ function destroyedequipment(weapon)
 		self stats::function_dad108fa(#"destroy_equipment_engineer", 1);
 	}
 	self stats::function_dad108fa(#"destroy_equipment", 1);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		callback::callback(#"hash_67dd51a5d529c64c");
 	}
@@ -1061,7 +1061,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 		#/
 		if(!isdefined(player.pers[#"participation"]) || player.pers[#"participation"] < 1)
 		{
-			if(!function_f99d2668())
+			if(!sessionmodeiswarzonegame())
 			{
 				/#
 					println(player.name + "");
@@ -1069,7 +1069,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 				return;
 			}
 		}
-		if(!function_f99d2668() && isdefined(player.pers[#"controllerparticipation"]))
+		if(!sessionmodeiswarzonegame() && isdefined(player.pers[#"controllerparticipation"]))
 		{
 			if(isdefined(player.pers[#"controllerparticipationchecks"]) && player.pers[#"controllerparticipationchecks"])
 			{
@@ -1132,7 +1132,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 				var_1ed920ee = getdvarint(#"hash_3bccd5b062faadee", 1000);
 				var_5f508856 = getdvarint(#"hash_3ded794ceefdb21d", 1000);
 			}
-			else if(function_f99d2668())
+			else if(sessionmodeiswarzonegame())
 			{
 				var_1ed920ee = getdvarint(#"hash_3be0d3b0630b5392", 1000);
 				var_5f508856 = getdvarint(#"hash_3e456f4cef4816f5", 1000);
@@ -1140,7 +1140,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 			credits = min(credits, var_1ed920ee);
 			var_e1020153 = min(var_e1020153, var_5f508856);
 			var_9d1040e4 = 1;
-			if(function_f99d2668())
+			if(sessionmodeiswarzonegame())
 			{
 				var_9d1040e4 = 2;
 			}
@@ -1157,7 +1157,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 						player function_cce105c8(#"hash_53d1279e51b610a9", 1, 1, 2, var_9d1040e4);
 					}
 				}
-				if(sessionmodeismultiplayergame() && getdvarint(#"hash_ed47eb88ebf25b2", 1) || (function_f99d2668() && getdvarint(#"hash_eb27cb88ea23be6", 1)))
+				if(sessionmodeismultiplayergame() && getdvarint(#"hash_ed47eb88ebf25b2", 1) || (sessionmodeiswarzonegame() && getdvarint(#"hash_eb27cb88ea23be6", 1)))
 				{
 					/#
 						println("" + credits);
@@ -1167,7 +1167,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 			}
 			if(var_e1020153 > 0)
 			{
-				if(sessionmodeismultiplayergame() && getdvarint(#"hash_107f9b52b0455b54", 1) || (function_f99d2668() && getdvarint(#"hash_10d78d52b08fb960", 1)))
+				if(sessionmodeismultiplayergame() && getdvarint(#"hash_107f9b52b0455b54", 1) || (sessionmodeiswarzonegame() && getdvarint(#"hash_10d78d52b08fb960", 1)))
 				{
 					var_ae857992 = getdvarint(#"hash_60d812bef0f782fb", 2);
 					/#
@@ -1305,7 +1305,7 @@ function function_1e064861(type, var_a7674114)
 }
 
 /*
-	Name: function_354f257f
+	Name: controllerParticipationCheck
 	Namespace: challenges
 	Checksum: 0xA0DA4A8C
 	Offset: 0x3700
@@ -1313,7 +1313,7 @@ function function_1e064861(type, var_a7674114)
 	Parameters: 0
 	Flags: Linked
 */
-function function_354f257f()
+function controllerParticipationCheck()
 {
 	if(!isdefined(self))
 	{
@@ -1404,7 +1404,7 @@ function function_57d8515c()
 			{
 				continue;
 			}
-			if(player function_354f257f())
+			if(player controllerParticipationCheck())
 			{
 				var_a3b5975e++;
 			}
@@ -1434,7 +1434,7 @@ function getfinalkill(player)
 }
 
 /*
-	Name: function_1d2c16bb
+	Name: destroy_killstreak_vehicle
 	Namespace: challenges
 	Checksum: 0x4D0F80D6
 	Offset: 0x3DD0
@@ -1442,7 +1442,7 @@ function getfinalkill(player)
 	Parameters: 3
 	Flags: None
 */
-function function_1d2c16bb(weapon, vehicle, var_734a4410)
+function destroy_killstreak_vehicle(weapon, vehicle, var_734a4410)
 {
 	if(!isplayer(self) || !isdefined(weapon))
 	{
@@ -1644,12 +1644,12 @@ function function_24db0c33(weapon, destroyedobject)
 	}
 	if(destroyedobject.var_76ce72e8 === 1)
 	{
-		if(isdefined(weapon) && weapon.isbulletweapon && (sessionmodeismultiplayergame() || function_f99d2668()))
+		if(isdefined(weapon) && weapon.isbulletweapon && (sessionmodeismultiplayergame() || sessionmodeiswarzonegame()))
 		{
 			self stats::function_dad108fa(#"destroy_equipment_with_bullet", 1);
 		}
 	}
-	if(function_f99d2668() && !destroyedobject.name === #"eq_sensor")
+	if(sessionmodeiswarzonegame() && !destroyedobject.name === #"eq_sensor")
 	{
 		self stats::function_dad108fa(#"destroy_equipment", 1);
 		callback::callback(#"hash_67dd51a5d529c64c");
@@ -2030,7 +2030,7 @@ function challengegameend(data)
 */
 function multikill(killcount, weapon)
 {
-	if(!sessionmodeismultiplayergame() && !function_f99d2668())
+	if(!sessionmodeismultiplayergame() && !sessionmodeiswarzonegame())
 	{
 		return;
 	}

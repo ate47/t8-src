@@ -877,7 +877,7 @@ function function_ea089392()
 */
 function function_2ad3b642(s_trap)
 {
-	self thread zm_audio::create_and_play_dialog(#"hash_4ae4c7201edb7f07", #"activate");
+	self thread zm_audio::create_and_play_dialog(#"trap_lighthouse", #"activate");
 	level.var_ab11c23d.var_223285b1 = s_trap.var_223285b1;
 	level.var_ab11c23d.var_3f813eec = s_trap.travel_speed;
 	level.var_ab11c23d.var_d9ae30d6 = self;

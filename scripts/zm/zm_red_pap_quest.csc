@@ -10,7 +10,7 @@
 #namespace zm_red_pap_quest;
 
 /*
-	Name: function_842831cf
+	Name: init_clientfield
 	Namespace: zm_red_pap_quest
 	Checksum: 0x2D5016C6
 	Offset: 0xF0
@@ -18,7 +18,7 @@
 	Parameters: 0
 	Flags: Linked
 */
-function function_842831cf()
+function init_clientfield()
 {
 	clientfield::register("scriptmover", "" + #"hash_38dbf4f346c0b609", -15000, 1, "counter", &function_56b9111c, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_9055852bfeb9f00", -15000, 1, "counter", &function_f2332be2, 0, 0);

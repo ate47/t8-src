@@ -300,7 +300,7 @@ function function_73e08cca(surface)
 }
 
 /*
-	Name: function_5bc32dcd
+	Name: stop_postfx_on_exit
 	Namespace: driving_fx
 	Checksum: 0x52E1961
 	Offset: 0xC28
@@ -308,7 +308,7 @@ function function_73e08cca(surface)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5bc32dcd(var_89ae88b4)
+function stop_postfx_on_exit(var_89ae88b4)
 {
 	self notify("stop_postfx_on_exit_" + var_89ae88b4);
 	self endon("stop_postfx_on_exit_" + var_89ae88b4);
@@ -342,7 +342,7 @@ function function_ace6c248(var_89ae88b4)
 	if(self.var_8e45c356[var_89ae88b4].exiting && !self postfx::function_556665f2(var_89ae88b4))
 	{
 		self postfx::playpostfxbundle(var_89ae88b4);
-		self thread function_5bc32dcd(var_89ae88b4);
+		self thread stop_postfx_on_exit(var_89ae88b4);
 		self.var_8e45c356[var_89ae88b4].exiting = 0;
 	}
 	self.var_8e45c356[var_89ae88b4].endtime = gettime() + 1000;

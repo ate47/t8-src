@@ -20,11 +20,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_81c2da86;
+#namespace ww_lvl2_quest;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xD1544470
 	Offset: 0x3D8
 	Size: 0x44
@@ -33,12 +33,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5e3499ddc3965135", &__init__, &__main__, undefined);
+	system::register(#"ww_lvl2_quest", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x7C077159
 	Offset: 0x428
 	Size: 0x134
@@ -61,7 +61,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x18D2476A
 	Offset: 0x568
 	Size: 0x144
@@ -76,7 +76,7 @@ function __main__()
 		level thread function_c9e23896();
 		var_35da56ee = zm_crafting::function_b18074d0(#"zblueprint_mansion_ww_lvl2");
 		var_35da56ee.var_670f9944.var_62a98b13 = #"hash_5b861e557c672a2b";
-		var_35da56ee.var_2e0a273a.var_62a98b13 = #"hash_42e3673730d13c20";
+		var_35da56ee.var_2e0a273a.var_62a98b13 = #"prima_materia";
 		zm_crafting::function_d1f16587(#"zblueprint_mansion_ww_lvl2", &function_1d1da682);
 		callback::on_connect(&function_27b91fdb);
 	}
@@ -86,7 +86,7 @@ function __main__()
 
 /*
 	Name: function_27b91fdb
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xFB02938B
 	Offset: 0x6B8
 	Size: 0x1B8
@@ -124,7 +124,7 @@ function function_27b91fdb()
 
 /*
 	Name: function_6b6712e3
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x5106F972
 	Offset: 0x878
 	Size: 0x21C
@@ -152,7 +152,7 @@ function function_6b6712e3()
 
 /*
 	Name: function_4a81e337
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xD49D0911
 	Offset: 0xAA0
 	Size: 0xDE
@@ -185,7 +185,7 @@ function function_4a81e337()
 
 /*
 	Name: function_292dd34f
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x3E526549
 	Offset: 0xB88
 	Size: 0x5C
@@ -201,7 +201,7 @@ function function_292dd34f(b_right)
 
 /*
 	Name: function_216d0545
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x665C82A3
 	Offset: 0xBF0
 	Size: 0x9C
@@ -221,7 +221,7 @@ function function_216d0545(s_notify)
 
 /*
 	Name: function_c9e23896
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xAB6235E2
 	Offset: 0xC98
 	Size: 0x94
@@ -239,7 +239,7 @@ function function_c9e23896()
 
 /*
 	Name: function_6231b511
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x1572AEE8
 	Offset: 0xD38
 	Size: 0xD8
@@ -263,7 +263,7 @@ function function_6231b511()
 
 /*
 	Name: function_514a3f80
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xC0B4F669
 	Offset: 0xE18
 	Size: 0x22C
@@ -298,7 +298,7 @@ function function_514a3f80()
 
 /*
 	Name: function_32573d2a
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x3A526E5
 	Offset: 0x1050
 	Size: 0x118
@@ -320,7 +320,7 @@ function function_32573d2a(player)
 
 /*
 	Name: function_ea6f56ee
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xCEDD132C
 	Offset: 0x1170
 	Size: 0x334
@@ -374,7 +374,7 @@ function function_ea6f56ee()
 
 /*
 	Name: function_29f66f1a
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x86A878F9
 	Offset: 0x14B0
 	Size: 0x1BC
@@ -401,7 +401,7 @@ function private function_29f66f1a(var_21839a96, var_57ec466d)
 
 /*
 	Name: function_6f29b131
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x961394C0
 	Offset: 0x1678
 	Size: 0x3C
@@ -420,7 +420,7 @@ function function_6f29b131()
 
 /*
 	Name: function_672eb1dc
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0xB578B76D
 	Offset: 0x16C0
 	Size: 0xA0
@@ -438,7 +438,7 @@ function function_672eb1dc(var_21839a96, var_57ec466d)
 
 /*
 	Name: function_b9cbdac6
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x5B5507A9
 	Offset: 0x1768
 	Size: 0x214
@@ -480,7 +480,7 @@ function function_b9cbdac6(e_holder, w_item)
 
 /*
 	Name: function_1d1da682
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x220D98A0
 	Offset: 0x1988
 	Size: 0x12E
@@ -503,7 +503,7 @@ function function_1d1da682(e_player)
 
 /*
 	Name: function_7aa50bb7
-	Namespace: namespace_81c2da86
+	Namespace: ww_lvl2_quest
 	Checksum: 0x3B886936
 	Offset: 0x1AC0
 	Size: 0x108

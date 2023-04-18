@@ -222,14 +222,14 @@ function _fire(lifeid, player, team, killstreak_id)
 		targetpos = player.origin + (forward * targetdist);
 	}
 	self util::setusingremote("remote_missile");
-	self val::set(#"hash_2eb933ec367f456d", "freezecontrols");
+	self val::set(#"remote_missile_fire", "freezecontrols");
 	player disableweaponcycling();
 	result = self killstreaks::init_ride_killstreak("remote_missile");
 	if(result != "success" || level.gameended)
 	{
 		if(result != "disconnect")
 		{
-			player val::reset(#"hash_2eb933ec367f456d", "freezecontrols");
+			player val::reset(#"remote_missile_fire", "freezecontrols");
 			player killstreaks::clear_using_remote();
 			player killstreaks::thermal_glow(0);
 			player enableweaponcycling();
@@ -350,7 +350,7 @@ function _fire(lifeid, player, team, killstreak_id)
 	self clientfield::set("operating_predator", 1);
 	self stats::function_e24eec31(getweapon(#"remote_missile"), #"used", 1);
 	player.var_a8c5fe4e = 1;
-	player val::reset(#"hash_2eb933ec367f456d", "freezecontrols");
+	player val::reset(#"remote_missile_fire", "freezecontrols");
 	player thread create_missile_hud(rocket);
 	rocket thread function_9761dd1d();
 	rocket function_17485b5(veh, 0, 0);
@@ -388,7 +388,7 @@ function _fire(lifeid, player, team, killstreak_id)
 function remote_missile_game_end_think(rocket, team, killstreak_id)
 {
 	self endon(#"remotemissle_killstreak_done");
-	level waittill(#"game_ended", #"hash_2f4afe1cb9b6de05");
+	level waittill(#"game_ended", #"pre_potm");
 	self thread function_97f822ec(rocket, 1, 1, team, killstreak_id);
 	self notify(#"remotemissle_killstreak_done");
 }
@@ -755,7 +755,7 @@ function function_97f822ec(rocket, performplayerkillstreakend, unlink, team, kil
 			self unlinkfrommissile();
 		}
 		self notify(#"remotemissile_done");
-		self val::reset(#"hash_2eb933ec367f456d", "freezecontrols");
+		self val::reset(#"remote_missile_fire", "freezecontrols");
 		self killstreaks::clear_using_remote();
 		self killstreaks::thermal_glow(0);
 		self enableweaponcycling();

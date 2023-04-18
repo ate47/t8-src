@@ -195,7 +195,7 @@ function match_end()
 		player = level.players[index];
 		if(isdefined(player.pers[#"arenainit"]) && player.pers[#"arenainit"] == 1)
 		{
-			if(match::function_5f24faac("tie"))
+			if(match::get_flag("tie"))
 			{
 				player arenaendmatch(0);
 			}
@@ -216,7 +216,7 @@ function match_end()
 			}
 		}
 	}
-	if(match::function_5f24faac("tie") || !isdefined(game.outcome.team))
+	if(match::get_flag("tie") || !isdefined(game.outcome.team))
 	{
 		function_a357a2b8(0);
 	}

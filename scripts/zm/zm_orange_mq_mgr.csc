@@ -5,7 +5,7 @@
 #using scripts\zm\zm_orange_mq_fuse.csc;
 #using scripts\zm\perk\zm_perk_death_perception.csc;
 #using script_6fdaa897ed596805;
-#using script_763e5f4b26b4d8ce;
+#using scripts\zm\zm_orange_mq_campfire.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\exploder_shared.csc;
 #using scripts\zm_common\zm.csc;

@@ -11,7 +11,7 @@
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
-#using script_7aca7971e9ec6712;
+#using scripts\killstreaks\mp\killstreak_vehicle.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -747,7 +747,7 @@ function function_560c5174(currentnode, startwait, hardpointtype)
 		if(!isdefined(nextnode.script_delay) || isdefined(self.donotstop))
 		{
 			self waittill(#"near_goal");
-			self notify(#"hash_69f631648cf75ba");
+			self notify(#"path start");
 		}
 		else
 		{
@@ -980,7 +980,7 @@ function function_4293d37b(einflictor, eattacker, idamage, smeansofdeath, weapon
 {
 	self clientfield::set("enemy_vehicle_keyline_render", 0);
 	self notify(#"death");
-	self namespace_231aa29a::vehicle_death();
+	self killstreak_vehicle::vehicle_death();
 	self vehicle::remove_from_target_group(self);
 	e_player = ct_utils::get_player();
 	if(isdefined(self.waypoint))
@@ -1224,13 +1224,13 @@ function function_72e84e64()
 	e_player thread function_78aff698();
 	e_player thread ct_utils::function_329f9ba6(#"hash_3e63055cff392ca5", 10, "grey", 1);
 	e_player thread ct_utils::function_61c3d59c(#"hash_789ced07ae5c9a0b", undefined);
-	e_player function_56e0d37e(1);
+	e_player wave_enemy_bot(1);
 	wait(1);
 	e_player thread ct_utils::function_329f9ba6(#"hash_5949f76edc389803", 4, "red", 1);
-	e_player function_56e0d37e(2);
+	e_player wave_enemy_bot(2);
 	wait(1);
 	e_player thread ct_utils::function_329f9ba6(#"hash_5949f76edc389803", 4, "red", 1);
-	e_player function_56e0d37e(3);
+	e_player wave_enemy_bot(3);
 	e_player thread function_9be2d75f();
 	e_player thread ct_utils::function_61c3d59c(#"hash_233aafc8172fead1", undefined);
 	e_player function_701302a8();
@@ -1382,7 +1382,7 @@ function function_4674d2e7()
 }
 
 /*
-	Name: function_56e0d37e
+	Name: wave_enemy_bot
 	Namespace: ct_battery
 	Checksum: 0x24F9B45E
 	Offset: 0x4220
@@ -1390,7 +1390,7 @@ function function_4674d2e7()
 	Parameters: 1
 	Flags: None
 */
-function function_56e0d37e(var_764a1fa0)
+function wave_enemy_bot(var_764a1fa0)
 {
 	level endon(#"combattraining_logic_finished");
 	var_5c91700c = [];

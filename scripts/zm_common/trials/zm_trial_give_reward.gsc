@@ -131,7 +131,7 @@ function private function_e7254828()
 		best_time = zm_stats::function_c9d32eb9(self.var_c2964c77);
 		if(best_time == 0 || curr_time < best_time)
 		{
-			zm_stats::function_42677837(self.var_c2964c77, curr_time);
+			zm_stats::set_match_stat(self.var_c2964c77, curr_time);
 		}
 		best_time = player zm_stats::function_e4358abd(self.var_c2964c77);
 		if(best_time == 0 || curr_time < best_time)

@@ -80,7 +80,7 @@ function function_ea6a4006()
 	self zm_audio::function_6191af93(#"surrounded", #"self", #"oh", #"shit", 100);
 	self zm_audio::function_6191af93(#"magicbox", #"homunculus", #"magicbox", #"monkey", 100);
 	self zm_audio::function_6191af93(#"kill", #"homunculus", #"kill", #"monkey", 100);
-	self zm_audio::function_6191af93(#"kill", #"ray_gun_mk2", #"kill", #"hash_34540a6bb099133e", 100);
+	self zm_audio::function_6191af93(#"kill", #"ray_gun_mk2", #"kill", #"raygun_mk2", 100);
 	self zm_audio::function_87714659(&function_e08cd7b, #"roundstart", #"special");
 }
 
@@ -126,11 +126,11 @@ function function_5d7d0c85(var_2753f06a)
 		e_player = a_players[0];
 		if(var_2753f06a == 0)
 		{
-			str_suffix = #"hash_2f99f466b2830fbd" + var_5316ea7d;
+			str_suffix = #"vox_solo_game_start_" + var_5316ea7d;
 		}
 		else
 		{
-			str_suffix = ((#"hash_353c8321de1d10b1" + var_2753f06a) + "_") + var_5316ea7d;
+			str_suffix = ((#"vox_solo_end_round" + var_2753f06a) + "_") + var_5316ea7d;
 		}
 		b_played = e_player zm_vo::function_a2bd5a0c(str_suffix, 0, 1);
 	}

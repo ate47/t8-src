@@ -189,7 +189,7 @@ function callback_playerconnect()
 	self.deathtime = 0;
 	self.lastgrenadesuicidetime = -1;
 	self.teamkillsthisround = 0;
-	player::function_5ae8566b(1, 1);
+	player::init_heal(1, 1);
 	if(!isdefined(level.livesdonotreset) || !level.livesdonotreset || !isdefined(self.pers[#"lives"]))
 	{
 		self.pers[#"lives"] = level.numlives;

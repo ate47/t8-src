@@ -1220,7 +1220,7 @@ function function_b8eff92a(var_edab5327)
 }
 
 /*
-	Name: function_6b59fe6b
+	Name: checkfortimeout
 	Namespace: ct_bots
 	Checksum: 0x538537E1
 	Offset: 0x3198
@@ -1228,7 +1228,7 @@ function function_b8eff92a(var_edab5327)
 	Parameters: 1
 	Flags: None
 */
-function function_6b59fe6b(waittime)
+function checkfortimeout(waittime)
 {
 	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_795f82c293077362");
 	if(isdefined(waittime))
@@ -1374,7 +1374,7 @@ function function_eca43db6()
 	{
 		self.navmeshpoint = self.origin;
 		self setgoal(self.navmeshpoint, 1);
-		self thread function_6b59fe6b(self.var_daa4b90a);
+		self thread checkfortimeout(self.var_daa4b90a);
 		self thread function_6c89913a(self.var_daa4b90a);
 	}
 	enemy = self get_enemy();
@@ -1678,7 +1678,7 @@ function function_9125af5f()
 				self.navmeshpoint = level.var_986d14aa.origin;
 				self setgoal(self.navmeshpoint, 1);
 				self thread function_eff20434();
-				self bot::function_7a6eea9c(level.var_986d14aa);
+				self bot::set_interact(level.var_986d14aa);
 				self thread function_f83f2862();
 			}
 			else if(!(isdefined(self.var_9f73d035) && self.var_9f73d035))

@@ -99,7 +99,7 @@ function init()
 function function_3d4e24ea()
 {
 	level._effect[#"hash_4a38c13e2040d160"] = #"hash_11e609d597dcebf2";
-	level.var_fecdcdc4 = level._effect[#"hash_4a38c13e2040d160"];
+	level.fx_elevator_light = level._effect[#"hash_4a38c13e2040d160"];
 	level._effect[#"hash_336249bfea00c9ea"] = #"hash_48ec8658075edc9d";
 	level.var_dca712ff = level._effect[#"hash_336249bfea00c9ea"];
 	level._effect[#"hash_3718db938f7babf7"] = #"hash_142b1b8f881ae741";
@@ -128,7 +128,7 @@ function registergondola_moving_watcher()
 	var_844f2ba7 = getent("fx_light_elevator_origin", "targetname");
 	var_844f2ba7.fx_ent = util::spawn_model("tag_origin", var_844f2ba7.origin);
 	var_844f2ba7.fx_ent.angles = var_844f2ba7.angles;
-	var_844f2ba7.var_d54159c9 = playfxontag(level.var_fecdcdc4, var_844f2ba7.fx_ent, "tag_origin");
+	var_844f2ba7.var_d54159c9 = playfxontag(level.fx_elevator_light, var_844f2ba7.fx_ent, "tag_origin");
 	var_844f2ba7.var_d54159c9 linkto(level.var_d8a093b8[0]);
 	var_428c7836 = getent("fx_light_elevator1_origin", "targetname");
 	var_428c7836.fx_ent = util::spawn_model("tag_origin", var_428c7836.origin);
@@ -1536,7 +1536,7 @@ function function_1576e092()
 	var_844f2ba7 = getent("fx_light_elevator_origin", "targetname");
 	if(isdefined(var_844f2ba7.fx_ent))
 	{
-		var_844f2ba7.var_d54159c9 = playfxontag(level.var_fecdcdc4, var_844f2ba7.fx_ent, "tag_origin");
+		var_844f2ba7.var_d54159c9 = playfxontag(level.fx_elevator_light, var_844f2ba7.fx_ent, "tag_origin");
 		var_844f2ba7.var_d54159c9 linkto(level.var_d8a093b8[0]);
 	}
 	var_428c7836 = getent("fx_light_elevator1_origin", "targetname");

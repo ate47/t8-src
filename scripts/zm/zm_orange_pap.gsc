@@ -80,9 +80,9 @@ function main()
 		t_pap_rock_damage delete();
 	}
 	level.t_pap_rock_damage.var_5d8f658e = getent(level.t_pap_rock_damage.target, "targetname");
-	zm_sq::register(#"hash_5e9262eb6796af0a", #"step_1", #"hash_57c2f2030917f2e4", &function_f279da41, &function_45f8440b);
-	zm_sq::register(#"hash_5e9262eb6796af0a", #"step_2", #"hash_57c2f5030917f7fd", &function_b70e1954, &function_21b093ce);
-	zm_sq::start(#"hash_5e9262eb6796af0a", !zm_utility::is_standard());
+	zm_sq::register(#"pap_rock", #"step_1", #"hash_57c2f2030917f2e4", &function_f279da41, &function_45f8440b);
+	zm_sq::register(#"pap_rock", #"step_2", #"hash_57c2f5030917f7fd", &function_b70e1954, &function_21b093ce);
+	zm_sq::start(#"pap_rock", !zm_utility::is_standard());
 	namespace_85e029d3::register_drop_off(11, #"hash_1e1bf447950e7c92", #"hash_611a8728e3043a26", &function_f001370f);
 	while(!isdefined(level.var_f7c50c66))
 	{

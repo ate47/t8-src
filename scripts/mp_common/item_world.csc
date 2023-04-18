@@ -141,11 +141,11 @@ function private function_37175e73(var_fee74908)
 	level flagsys::wait_till(#"hash_51daecff754729dc");
 	for(var_5473c308 = 0; var_5473c308 < var_fee74908.size - 1; var_5473c308++)
 	{
-		for(var_82402c2 = 0; var_82402c2 < 32; var_82402c2++)
+		for(shaderanimopacity_opacity = 0; shaderanimopacity_opacity < 32; shaderanimopacity_opacity++)
 		{
-			if(var_fee74908[var_5473c308] & (1 << var_82402c2))
+			if(var_fee74908[var_5473c308] & (1 << shaderanimopacity_opacity))
 			{
-				itemindex = (var_5473c308 * 32) + var_82402c2;
+				itemindex = (var_5473c308 * 32) + shaderanimopacity_opacity;
 				function_222205a3(-1, itemindex);
 			}
 		}
@@ -762,9 +762,9 @@ function private _draw(localclientnum, draworigin)
 		}
 		waitframe(1);
 		var_8f6dbb2 = arraysortclosest(level.var_624588d5, draworigin, undefined, maxdist);
-		foreach(var_4961f577 in var_8f6dbb2)
+		foreach(deathstash in var_8f6dbb2)
 		{
-			function_3ee12d25(localclientnum, var_4961f577);
+			function_3ee12d25(localclientnum, deathstash);
 		}
 		waitframe(1);
 		var_6665e24 = arraysortclosest(level.var_a4a4012e, draworigin, level.var_927fd418, 0, maxdist);
@@ -967,7 +967,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 			function_b78a9820(localclientnum);
 			item = function_b1702735(var_bd027dd9);
 			item_inventory::function_31868137(localclientnum, item);
-			function_3de69770(localclientnum, item);
+			play_pickup_fx(localclientnum, item);
 			break;
 		}
 		case 2:
@@ -978,14 +978,14 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 			function_b78a9820(localclientnum);
 			item = function_b1702735(var_bd027dd9);
 			item_inventory::function_31868137(localclientnum, item);
-			function_3de69770(localclientnum, item);
+			play_pickup_fx(localclientnum, item);
 			break;
 		}
 		case 3:
 		{
 			var_bd027dd9 = eventdata;
 			var_5a0fa544 = isdefined(var_c5a66313) && var_c5a66313;
-			var_7ba775ef = isdefined(var_567004a8) && var_567004a8;
+			showitem = isdefined(var_567004a8) && var_567004a8;
 			if(var_5a0fa544)
 			{
 				function_4de3ca98();
@@ -995,7 +995,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 			{
 				return;
 			}
-			show_item(localclientnum, var_bd027dd9, var_7ba775ef);
+			show_item(localclientnum, var_bd027dd9, showitem);
 			function_b78a9820(localclientnum);
 			clientdata = function_a7e98a1a(localclientnum);
 			model = function_61f5d33a(localclientnum, clientdata, var_bd027dd9);
@@ -1915,7 +1915,7 @@ function private function_802915bc(localclientnum)
 		hinttext = #"wz/supply_stash";
 		if(var_1ba7b9c8.size > 0)
 		{
-			var_d8c17bc2 = var_1ba7b9c8[0].var_ed175c5 === 2;
+			var_d8c17bc2 = var_1ba7b9c8[0].stash_type === 2;
 			hinttext = (var_d8c17bc2 ? #"hash_7b3fd580a423c4ef" : #"wz/supply_drop");
 		}
 		else
@@ -2715,7 +2715,7 @@ function play_spawn_fx(localclientnum, var_bd027dd9)
 }
 
 /*
-	Name: function_3de69770
+	Name: play_pickup_fx
 	Namespace: item_world
 	Checksum: 0x1C303496
 	Offset: 0x8CC0
@@ -2723,7 +2723,7 @@ function play_spawn_fx(localclientnum, var_bd027dd9)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3de69770(localclientnum, item)
+function play_pickup_fx(localclientnum, item)
 {
 	if(!isdefined(item) || !isdefined(item.var_a6762160) || !isdefined(item.var_a6762160.var_37cd55af))
 	{
@@ -2934,7 +2934,7 @@ function function_222205a3(localclientnum, var_bd027dd9)
 	Parameters: 3
 	Flags: Linked
 */
-function show_item(localclientnum, var_bd027dd9, var_7ba775ef)
+function show_item(localclientnum, var_bd027dd9, showitem)
 {
 	item = undefined;
 	if(namespace_ad5a0cd6::function_2c7fc531(var_bd027dd9))
@@ -2943,7 +2943,7 @@ function show_item(localclientnum, var_bd027dd9, var_7ba775ef)
 		{
 			level.var_5b2a8d88[var_bd027dd9] = 1;
 		}
-		function_54ca5536(var_bd027dd9, (var_7ba775ef ? 0 : -1));
+		function_54ca5536(var_bd027dd9, (showitem ? 0 : -1));
 		player = function_5c10bd79(localclientnum);
 		item = function_b1702735(var_bd027dd9);
 		var_6369afab = function_963d3f6e();

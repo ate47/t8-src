@@ -17,7 +17,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_3a7ac32272007c6d", &__init__, undefined, undefined);
+	system::register(#"high_value_operative", &__init__, undefined, undefined);
 }
 
 /*
@@ -85,13 +85,13 @@ function function_2ce5cb7e()
 						{
 							break;
 						}
-						self.pers[#"hvo"][#"base"][stat.var_82670522] = self stats::function_441050ca(stat.var_82670522);
-						self.pers[#"hvo"][#"current"][stat.var_82670522] = self stats::function_441050ca(stat.var_82670522);
+						self.pers[#"hvo"][#"base"][stat.var_82670522] = self stats::get_stat_global(stat.var_82670522);
+						self.pers[#"hvo"][#"current"][stat.var_82670522] = self stats::get_stat_global(stat.var_82670522);
 						break;
 					}
 					case "razorwireekia":
 					{
-						razorwireekia = self stats::function_441050ca(#"stats_concertina_wire_snared_kill") + self stats::function_441050ca(#"stats_concertina_wire_kill");
+						razorwireekia = self stats::get_stat_global(#"stats_concertina_wire_snared_kill") + self stats::get_stat_global(#"stats_concertina_wire_kill");
 						self.pers[#"hvo"][#"base"][stat.stattype] = razorwireekia;
 						self.pers[#"hvo"][#"current"][stat.stattype] = razorwireekia;
 						break;
@@ -175,7 +175,7 @@ function function_59d3154f()
 				}
 				case "razorwireekia":
 				{
-					razorwireekia = self stats::function_441050ca(#"stats_concertina_wire_snared_kill") + self stats::function_441050ca(#"stats_concertina_wire_kill");
+					razorwireekia = self stats::get_stat_global(#"stats_concertina_wire_snared_kill") + self stats::get_stat_global(#"stats_concertina_wire_kill");
 					self function_b535c32e(stat, razorwireekia, var_aa1fbd8c);
 					var_d6155829[stat.stattype] = razorwireekia;
 					break;
@@ -276,7 +276,7 @@ function function_323c6715()
 					}
 					case "razorwireekia":
 					{
-						razorwireekia = player stats::function_441050ca(#"stats_concertina_wire_snared_kill") + player stats::function_441050ca(#"stats_concertina_wire_kill");
+						razorwireekia = player stats::get_stat_global(#"stats_concertina_wire_snared_kill") + player stats::get_stat_global(#"stats_concertina_wire_kill");
 						score = player function_1fa30a47(stat, razorwireekia, var_9b4eeccc);
 						break;
 					}

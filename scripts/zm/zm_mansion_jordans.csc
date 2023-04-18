@@ -87,7 +87,7 @@ function function_bb6fcc6a(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		if(newval)
 		{
-			self.var_a0a8631e = util::playfxontag(localclientnum, level._effect[#"hash_51c7bc3539ed5540"], self, "");
+			self.var_a0a8631e = util::playfxontag(localclientnum, level._effect[#"pap_projectile"], self, "");
 		}
 	#/
 }

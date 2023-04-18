@@ -1623,7 +1623,7 @@ function function_b00fd241()
 			}
 			if(e_part.script_noteworthy === "lock")
 			{
-				var_f4539b2e.var_82e1ca26 = e_part;
+				var_f4539b2e.e_lock = e_part;
 				continue;
 			}
 			if(e_part.script_noteworthy === "item_part")
@@ -1676,7 +1676,7 @@ function function_48c915fa()
 		if(level flag::get(#"hash_7039457b1cc827de"))
 		{
 			t_door delete();
-			self.var_82e1ca26 delete();
+			self.e_lock delete();
 			foreach(e_door in self.a_e_doors)
 			{
 				if(isdefined(e_door.script_vector))

@@ -50,7 +50,7 @@ function __init__()
 	level._effect[#"hash_54ead9bf14ce3f2c"] = #"hash_17756eb35aac3766";
 	level._effect[#"hash_4c17911c3aed59ae"] = #"hash_15d8d928da3054a8";
 	level._effect[#"hash_47a7d03689c68789"] = #"hash_7bf95975cc22d9e3";
-	level._effect[#"hash_3897b1568835a037"] = #"hash_7247f41820f6a4ac";
+	level._effect[#"scepter_revive"] = #"hash_7247f41820f6a4ac";
 	level._effect[#"hash_3409a93fe945050c"] = #"zombie/fx_bgb_near_death_3p";
 	level._effect[#"hash_5a1d977ed6c0bfbc"] = #"hash_7e8ecb7f481f27c1";
 	level._effect[#"hash_5a24a37ed6c6f2ce"] = #"hash_7e95b77f48252473";
@@ -451,7 +451,7 @@ function revive_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldn
 	{
 		if(!isdefined(self.var_a776839a))
 		{
-			self.var_a776839a = util::playfxontag(localclientnum, level._effect[#"hash_3897b1568835a037"], self, "tag_eye");
+			self.var_a776839a = util::playfxontag(localclientnum, level._effect[#"scepter_revive"], self, "tag_eye");
 			sndorigin = self gettagorigin("J_Eyeball_LE");
 			self playsound(localclientnum, #"hash_29c60da797dd7b3");
 		}

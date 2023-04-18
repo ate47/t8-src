@@ -69,7 +69,7 @@ function init_clientfields()
 */
 function init_fx()
 {
-	level._effect[#"hash_714f14fd267445b8"] = #"hash_2f54a4439f3a1dbf";
+	level._effect[#"fasttravel_start"] = #"hash_2f54a4439f3a1dbf";
 	level._effect[#"fasttravel_end"] = #"hash_4ab05aa1282b9bb7";
 	level._effect[#"fasttravel_rail_1p"] = #"hash_259bb7806d596ed3";
 	level._effect[#"fasttravel_break_1p"] = #"hash_37257517a8fd29e";
@@ -264,7 +264,7 @@ function fasttravel_start_fx(localclientnum, oldval, newval, bnewent, binitialsn
 			v_angles = vectortoangles(var_4d611aa2.origin - self.origin);
 			mdl_fx = util::spawn_model(localclientnum, "tag_origin", self.origin, v_angles);
 			waitframe(1);
-			util::playfxontag(localclientnum, level._effect[#"hash_714f14fd267445b8"], mdl_fx, "tag_origin");
+			util::playfxontag(localclientnum, level._effect[#"fasttravel_start"], mdl_fx, "tag_origin");
 			wait(1.5);
 			mdl_fx delete();
 		}

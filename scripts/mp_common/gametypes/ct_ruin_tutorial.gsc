@@ -15,7 +15,7 @@
 #using script_7dd6557e89e9840b;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\killstreaks\killstreak_detect.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -67,7 +67,7 @@ function function_c9ff0dce()
 {
 	if(self.team == #"allies")
 	{
-		self.overrideplayerdamage = &function_6fb4cde7;
+		self.overrideplayerdamage = &callback_player_damage;
 		self ct_utils::player_reset();
 		self thread function_523dd7be();
 		if(isdefined(level.var_ad7c0539))
@@ -147,7 +147,7 @@ function function_c9ff0dce()
 }
 
 /*
-	Name: function_6fb4cde7
+	Name: callback_player_damage
 	Namespace: ct_ruin_tutorial
 	Checksum: 0x89B3851C
 	Offset: 0x1780
@@ -155,7 +155,7 @@ function function_c9ff0dce()
 	Parameters: 11
 	Flags: None
 */
-function function_6fb4cde7(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
+function callback_player_damage(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
 {
 	if(!isdefined(level.var_ad7c0539))
 	{
@@ -1107,7 +1107,7 @@ function function_8678055f()
 			waitframe(1);
 		}
 		waitframe(1);
-		level.var_6b1458ad namespace_9c817acd::stand();
+		level.var_6b1458ad bot_stance::stand();
 		level.var_6b1458ad thread function_cf09b04d();
 		level.var_eb5015e6 = 1;
 		level.var_7cab580 = var_9e9cfef1;
@@ -1441,7 +1441,7 @@ function function_3857a1fb()
 {
 	level endon(#"combattraining_logic_finished");
 	level endoncallback(&function_b57b281a, #"hash_56fb6ae4bbd573d9");
-	level ct_utils::function_1a3c644e("s_hellstorm_end_obj");
+	level ct_utils::tutorial_goto("s_hellstorm_end_obj");
 	level notify(#"dodge_the_hellstorm_objective_success");
 }
 
@@ -2045,7 +2045,7 @@ function function_4150d677(n_goal_radius, b_ignoreall, b_keyline, var_4d39247d)
 		self ct_utils::function_61d750d4(s_loc.origin, s_loc.angles);
 	}
 	self thread ct_utils::function_5b59f3b7(s_loc.origin, s_loc.angles, n_goal_radius);
-	self.overrideplayerdamage = &function_6fb4cde7;
+	self.overrideplayerdamage = &callback_player_damage;
 	if(isdefined(level.b_hide_ai) && level.b_hide_ai)
 	{
 		self ghost();

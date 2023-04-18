@@ -108,7 +108,7 @@ function __init__()
 	level thread function_7b0c014e();
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_killed_with_params(&on_player_killed);
-	callback::function_1475a073(&on_player_downed);
+	callback::on_downed(&on_player_downed);
 	level.var_dabf85eb = 0;
 	level.var_392ea96a = 0;
 	level.var_3140c814 = 1;
@@ -372,7 +372,7 @@ function function_d0055419()
 								level.var_e066667d = 1;
 								break;
 							}
-							case "hash_145e0963f5fed38a":
+							case "debug_off":
 							{
 								level.var_e066667d = 0;
 								break;
@@ -505,7 +505,7 @@ function function_dc16557c()
 			match_record::set_stat(#"ai_zones", i, #"death_circle", ai_zone.death_circle);
 			match_record::set_stat(#"ai_zones", i, #"hash_759f179e2ec44d27", ai_zone.var_dd3d8d74);
 			match_record::set_stat(#"ai_zones", i, #"hash_2c1d2ef7c2781980", ai_zone.var_da0adf34);
-			match_record::set_stat(#"ai_zones", i, #"hash_41943bf9f8b85749", ai_zone.var_6cd24451);
+			match_record::set_stat(#"ai_zones", i, #"zone_brutus", ai_zone.zone_brutus);
 			match_record::set_stat(#"ai_zones", i, #"hash_6dc78ff24e7705b8", ai_zone.var_e16382e4);
 			match_record::set_stat(#"ai_zones", i, #"hash_46c66659061c4df6", ai_zone.var_7bf9c18e);
 			match_record::set_stat(#"ai_zones", i, #"hash_2778c481a1f0f691", ai_zone.var_7c620997);
@@ -558,8 +558,8 @@ function function_83dc6d93(ai_zone)
 	var_63cce199 = 0;
 	if(isdefined(level.var_5fe6aef) && level.var_5fe6aef)
 	{
-		var_42abd8e = randomint(100) <= level.var_b4e7b849;
-		if(var_42abd8e && level.var_392ea96a < level.var_f3aeca10)
+		shouldspawn = randomint(100) <= level.var_b4e7b849;
+		if(shouldspawn && level.var_392ea96a < level.var_f3aeca10)
 		{
 			if(isdefined(level.deathcircle) && isdefined(level.var_52b56362))
 			{
@@ -714,7 +714,7 @@ function function_a82cad64(ai_zone)
 			wait(1);
 			if(isdefined(ai_zone.var_18bccc89))
 			{
-				ai_zone.var_18bccc89 thread function_1681ec29(3.2, 200);
+				ai_zone.var_18bccc89 thread move_box(3.2, 200);
 			}
 			wait(5);
 			ai_zone.var_7f923f43 = 0;
@@ -769,7 +769,7 @@ function function_63375576(ai_zone)
 }
 
 /*
-	Name: function_1681ec29
+	Name: move_box
 	Namespace: namespace_bf3feaf0
 	Checksum: 0x8DB285EF
 	Offset: 0x2ED8
@@ -777,7 +777,7 @@ function function_63375576(ai_zone)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1681ec29(n_duration, n_dist)
+function move_box(n_duration, n_dist)
 {
 	self endon(#"delete");
 	end_point = self.origin + (0, 0, n_dist);
@@ -866,7 +866,7 @@ function function_bbad9099(ai_zone, var_c0d8ceca)
 	if(isdefined(ai_zone.var_18bccc89))
 	{
 		ai_zone.var_18bccc89 show();
-		ai_zone.var_18bccc89 thread function_1681ec29(3.2, 200);
+		ai_zone.var_18bccc89 thread move_box(3.2, 200);
 	}
 	wait(5);
 	ai_zone.var_7f923f43 = 0;
@@ -984,7 +984,7 @@ function function_bd19c3a8()
 	{
 		return;
 	}
-	var_78f75d63 = level.var_fb91af8.size - 2;
+	var_78f75d63 = level.deathcircles.size - 2;
 	var_14ee6c7f = 1;
 	if(isdefined(level.var_86c18344) && level.var_86c18344 && isdefined(level.deathcircle) && isdefined(level.var_52b56362))
 	{
@@ -1278,11 +1278,11 @@ function function_71d1b294()
 							endpt = spawn_point.origin + (nodeforward * 20);
 							line(spawn_point.origin, endpt, (1, 0, 0), 0);
 						}
-						if(isdefined(ai_zone.var_85e9c359))
+						if(isdefined(ai_zone.hide_points))
 						{
-							foreach(var_f1c5956e in ai_zone.var_85e9c359)
+							foreach(hide_point in ai_zone.hide_points)
 							{
-								circle(var_f1c5956e.origin + (0, 0, 1), 10, (0, 0, 1), 0, 1);
+								circle(hide_point.origin + (0, 0, 1), 10, (0, 0, 1), 0, 1);
 							}
 						}
 						if(ai_zone.is_active)
@@ -1635,7 +1635,7 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	var_a59ba023.var_7bf9c18e = 0;
 	var_a59ba023.var_dd3d8d74 = 0;
 	var_a59ba023.var_da0adf34 = 0;
-	var_a59ba023.var_6cd24451 = 0;
+	var_a59ba023.zone_brutus = 0;
 	var_a59ba023.var_e16382e4 = 0;
 	var_a59ba023.var_7c620997 = 0;
 	var_a59ba023.var_58ba2ab7 = 0;
@@ -2429,7 +2429,7 @@ function function_41101f23(zone, var_d42412dc)
 	}
 	if(zone.var_cafac64a == #"spawner_boct_brutus_wz")
 	{
-		zone.var_6cd24451++;
+		zone.zone_brutus++;
 	}
 	if(zone.var_cafac64a == #"spawner_boct_zombie_dog_wz")
 	{

@@ -190,7 +190,7 @@ function function_4d8676af(attacker, victim, weapon, attackerweapon, meansofdeat
 	{
 		foreach(dart in attacker.sensor_darts)
 		{
-			if(isdefined(dart) && distancesquared(victim.origin, dart.origin) < ((function_f99d2668() ? 2400 : 800) + 50) * ((function_f99d2668() ? 2400 : 800) + 50) && weapon != attackerweapon)
+			if(isdefined(dart) && distancesquared(victim.origin, dart.origin) < ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) * ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) && weapon != attackerweapon)
 			{
 				dart.killcount = (isdefined(dart.killcount) ? dart.killcount : 0) + 1;
 				if(!isdefined(dart.var_cbca1a8f) && isdefined(level.var_ac6052e9) && dart.killcount >= [[level.var_ac6052e9]]("sensorDartSuccessKillCount", 0) && isdefined(level.playgadgetsuccess) && isdefined(dart.owner))
@@ -464,7 +464,7 @@ function function_55de888f(watcher)
 		damage = weapons::function_74bbb3fa(damage, weapon, self.weapon);
 		attacker = self [[level.figure_out_attacker]](waitresult.attacker);
 		attackerisplayer = isplayer(attacker);
-		if(level.teambased && !function_f99d2668())
+		if(level.teambased && !sessionmodeiswarzonegame())
 		{
 			if(attackerisplayer && (!(isdefined(level.hardcoremode) && level.hardcoremode)) && !util::function_fbce7263(self.owner.team, attacker.pers[#"team"]) && self.owner != attacker)
 			{

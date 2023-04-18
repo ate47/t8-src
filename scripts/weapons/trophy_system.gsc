@@ -380,7 +380,7 @@ function trophyactive(owner)
 					continue;
 				}
 			}
-			if(!isdefined(grenade.owner) && function_7799e14b(grenade))
+			if(!isdefined(grenade.owner) && ismissile(grenade))
 			{
 				grenade.owner = getmissileowner(grenade);
 			}
@@ -671,7 +671,7 @@ function watchtrophysystemdamage(watcher)
 		}
 		if(level.teambased)
 		{
-			if(!function_f99d2668() && !level.hardcoremode && isdefined(self.owner) && !attacker util::isenemyteam(self.owner.team) && self.owner != attacker)
+			if(!sessionmodeiswarzonegame() && !level.hardcoremode && isdefined(self.owner) && !attacker util::isenemyteam(self.owner.team) && self.owner != attacker)
 			{
 				continue;
 			}

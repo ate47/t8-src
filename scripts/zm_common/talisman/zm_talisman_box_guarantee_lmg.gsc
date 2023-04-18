@@ -66,11 +66,11 @@ function activate_talisman()
 function function_8d50b46a(a_keys)
 {
 	a_valid = array();
-	foreach(var_e64c7df8 in a_keys)
+	foreach(w_key in a_keys)
 	{
-		if(var_e64c7df8.weapclass == "mg")
+		if(w_key.weapclass == "mg")
 		{
-			array::add(a_valid, var_e64c7df8);
+			array::add(a_valid, w_key);
 		}
 	}
 	if(a_valid.size == 0)

@@ -47,8 +47,8 @@ function function_27473e44()
 {
 	zm_perks::register_perk_basic_info(#"specialty_extraammo", #"perk_bandolier", 3000, #"zombie/perk_bandolier", getweapon("zombie_perk_bottle_bandolier"), getweapon("zombie_perk_totem_bandolier"), #"hash_1bdfb5736ad174a3");
 	zm_perks::register_perk_precache_func(#"specialty_extraammo", &function_8c3e9b8b);
-	zm_perks::register_perk_clientfields(#"specialty_extraammo", &function_707be238, &function_3a84d8a0);
-	zm_perks::register_perk_machine(#"specialty_extraammo", &function_1fe63170);
+	zm_perks::register_perk_clientfields(#"specialty_extraammo", &perk_register_clientfield, &perk_set_clientfield);
+	zm_perks::register_perk_machine(#"specialty_extraammo", &perk_machine_setup);
 	zm_perks::register_perk_host_migration_params(#"specialty_extraammo", "vending_bandolier", "sleight_light");
 	zm_perks::register_perk_threads(#"specialty_extraammo", &give_perk, &take_perk);
 }
@@ -76,7 +76,7 @@ function function_8c3e9b8b()
 }
 
 /*
-	Name: function_707be238
+	Name: perk_register_clientfield
 	Namespace: zm_perk_bandolier
 	Checksum: 0x80F724D1
 	Offset: 0x448
@@ -84,12 +84,12 @@ function function_8c3e9b8b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_707be238()
+function perk_register_clientfield()
 {
 }
 
 /*
-	Name: function_3a84d8a0
+	Name: perk_set_clientfield
 	Namespace: zm_perk_bandolier
 	Checksum: 0x93608F67
 	Offset: 0x458
@@ -97,12 +97,12 @@ function function_707be238()
 	Parameters: 1
 	Flags: Linked
 */
-function function_3a84d8a0(state)
+function perk_set_clientfield(state)
 {
 }
 
 /*
-	Name: function_1fe63170
+	Name: perk_machine_setup
 	Namespace: zm_perk_bandolier
 	Checksum: 0x9D0ADBF2
 	Offset: 0x470
@@ -110,7 +110,7 @@ function function_3a84d8a0(state)
 	Parameters: 4
 	Flags: Linked
 */
-function function_1fe63170(use_trigger, perk_machine, bump_trigger, collision)
+function perk_machine_setup(use_trigger, perk_machine, bump_trigger, collision)
 {
 	use_trigger.script_sound = "mus_perks_speed_jingle";
 	use_trigger.script_string = "bandolier_perk";

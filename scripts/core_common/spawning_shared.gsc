@@ -583,7 +583,7 @@ function onspawnplayer(predictedspawn = 0)
 */
 function private getspawnpoint(player_entity, predictedspawn = 0)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		point_team = "free";
 		influencer_team = player_entity.pers[#"team"];

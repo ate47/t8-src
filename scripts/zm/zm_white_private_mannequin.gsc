@@ -17,11 +17,11 @@
 #using scripts\zm_common\zm_unitrigger.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_ba16273b;
+#namespace zm_white_private_mannequin;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xDFF9E1C5
 	Offset: 0x3A8
 	Size: 0x44
@@ -30,12 +30,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_2a6a60ff4e0bd9d1", &__init__, &__main__, undefined);
+	system::register(#"zm_white_private_mannequin", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x8336A981
 	Offset: 0x3F8
 	Size: 0x44
@@ -49,7 +49,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xB02375FA
 	Offset: 0x448
 	Size: 0x64
@@ -70,7 +70,7 @@ function __main__()
 
 /*
 	Name: init_vo
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x7A11D4CC
 	Offset: 0x4B8
 	Size: 0x11C
@@ -91,7 +91,7 @@ function init_vo()
 
 /*
 	Name: init_flags
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xD7845537
 	Offset: 0x5E0
 	Size: 0xE4
@@ -111,7 +111,7 @@ function init_flags()
 
 /*
 	Name: function_88d1bd71
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xF04A855F
 	Offset: 0x6D0
 	Size: 0x2F4
@@ -140,14 +140,14 @@ function function_88d1bd71()
 	}
 	level.mannequin_ally_spawner = getent("mannequin_ally_spawner", "targetname");
 	level.var_777acf92 = level.mannequin_ally_spawner;
-	zm_sq::register(#"hash_5209f17dc73f0224", #"step_1", #"hash_5c83380ff7db3131", &function_cff5f83, &function_aceec77a);
-	zm_sq::register(#"hash_5209f17dc73f0224", #"step_2", #"hash_5c83350ff7db2c18", &function_20c4e844, &function_9101a54d);
-	zm_sq::start(#"hash_5209f17dc73f0224");
+	zm_sq::register(#"private_mannequin_program", #"step_1", #"hash_5c83380ff7db3131", &function_cff5f83, &function_aceec77a);
+	zm_sq::register(#"private_mannequin_program", #"step_2", #"hash_5c83350ff7db2c18", &function_20c4e844, &function_9101a54d);
+	zm_sq::start(#"private_mannequin_program");
 }
 
 /*
 	Name: delete_entities
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xB4270231
 	Offset: 0x9D0
 	Size: 0x3AC
@@ -191,7 +191,7 @@ function delete_entities()
 
 /*
 	Name: function_cff5f83
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xAB4778C3
 	Offset: 0xD88
 	Size: 0x3FC
@@ -208,8 +208,8 @@ function function_cff5f83(var_5ea5c94d)
 			/#
 				iprintlnbold("");
 			#/
-			level function_79248781();
-			level thread function_2ef7822a();
+			level play_start_vo();
+			level thread timer_countdown();
 			level clientfield::set("" + #"hash_681de2aa531ffcd0", 1);
 			a_flags = array(#"hash_315d0bf1d50724f0", #"hash_7524c96c167377ef");
 			level flag::wait_till_any(a_flags);
@@ -221,7 +221,7 @@ function function_cff5f83(var_5ea5c94d)
 				level flag::set(#"hash_7524c96c167377ef");
 				level.countdown_clock namespace_7d8e6ec3::function_9b1511fa();
 				level function_d1086c12();
-				level thread function_2ef7822a();
+				level thread timer_countdown();
 			}
 			else
 			{
@@ -238,7 +238,7 @@ function function_cff5f83(var_5ea5c94d)
 				level flag::set(#"hash_7524c96c167377ef");
 				level.countdown_clock namespace_7d8e6ec3::function_9b1511fa();
 				level function_5de15b91();
-				level thread function_2ef7822a();
+				level thread timer_countdown();
 			}
 			else
 			{
@@ -267,7 +267,7 @@ function function_cff5f83(var_5ea5c94d)
 
 /*
 	Name: function_aceec77a
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xB5300F80
 	Offset: 0x1190
 	Size: 0xA4
@@ -286,15 +286,15 @@ function function_aceec77a(var_5ea5c94d, ended_early)
 }
 
 /*
-	Name: function_2ef7822a
-	Namespace: namespace_ba16273b
+	Name: timer_countdown
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xE3254D02
 	Offset: 0x1240
 	Size: 0x94
 	Parameters: 0
 	Flags: Linked
 */
-function function_2ef7822a()
+function timer_countdown()
 {
 	level flag::clear(#"hash_7524c96c167377ef");
 	self endon(#"hash_7524c96c167377ef");
@@ -307,7 +307,7 @@ function function_2ef7822a()
 
 /*
 	Name: function_7d470210
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x35B2E841
 	Offset: 0x12E0
 	Size: 0x166
@@ -331,7 +331,7 @@ function function_7d470210()
 
 /*
 	Name: function_eb06b83
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x60C5A567
 	Offset: 0x1450
 	Size: 0x16C
@@ -360,7 +360,7 @@ function function_eb06b83()
 
 /*
 	Name: function_65066810
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xD10CD870
 	Offset: 0x15C8
 	Size: 0x14C
@@ -385,15 +385,15 @@ function function_65066810()
 }
 
 /*
-	Name: function_79248781
-	Namespace: namespace_ba16273b
+	Name: play_start_vo
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x1BB97B23
 	Offset: 0x1720
 	Size: 0xA4
 	Parameters: 0
 	Flags: Linked
 */
-function function_79248781()
+function play_start_vo()
 {
 	self endon(#"hash_78e2cadb25129fa2");
 	level namespace_509a75d1::function_3c173d37();
@@ -404,7 +404,7 @@ function function_79248781()
 
 /*
 	Name: function_d1086c12
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xD1012689
 	Offset: 0x17D0
 	Size: 0xB4
@@ -423,7 +423,7 @@ function function_d1086c12()
 
 /*
 	Name: function_5de15b91
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x5E4F79F8
 	Offset: 0x1890
 	Size: 0xB4
@@ -442,7 +442,7 @@ function function_5de15b91()
 
 /*
 	Name: visit_prototype_minigun
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xF8CF5EE4
 	Offset: 0x1950
 	Size: 0xBC
@@ -461,7 +461,7 @@ function visit_prototype_minigun()
 
 /*
 	Name: function_20c4e844
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xD0191F98
 	Offset: 0x1A18
 	Size: 0x4C
@@ -479,7 +479,7 @@ function function_20c4e844(var_5ea5c94d)
 
 /*
 	Name: function_9101a54d
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x7D598BE7
 	Offset: 0x1A70
 	Size: 0x4C
@@ -499,7 +499,7 @@ function function_9101a54d(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_a51b6403
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x4B055986
 	Offset: 0x1AC8
 	Size: 0xCC
@@ -526,7 +526,7 @@ function function_a51b6403(is_opening)
 
 /*
 	Name: function_11862a9b
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x7AFA9B5A
 	Offset: 0x1BA0
 	Size: 0x68
@@ -548,7 +548,7 @@ function function_11862a9b(e_player)
 
 /*
 	Name: function_1e88595a
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x5E4B7EA
 	Offset: 0x1C10
 	Size: 0x154
@@ -583,7 +583,7 @@ function function_1e88595a()
 
 /*
 	Name: function_eaa63f5b
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x395DCAC9
 	Offset: 0x1D70
 	Size: 0x174
@@ -603,9 +603,9 @@ function function_eaa63f5b(n_minutes = 1)
 		{
 			if(isdefined(self) && isalive(self))
 			{
-				util::stop_magic_bullet_shield(level.var_8943f7db);
+				util::stop_magic_bullet_shield(level.mannequin_ally);
 				self kill();
-				level.var_8943f7db = undefined;
+				level.mannequin_ally = undefined;
 			}
 			level flag::clear(#"hash_1b68ccd211cab219");
 			/#
@@ -619,7 +619,7 @@ function function_eaa63f5b(n_minutes = 1)
 
 /*
 	Name: function_88265619
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x22AB6345
 	Offset: 0x1EF0
 	Size: 0x470
@@ -668,25 +668,25 @@ function function_88265619()
 		level.var_1a612d42.eligible_leader = 1;
 		if(isdefined(level.mannequin_ally_spawner))
 		{
-			level.var_8943f7db = level.mannequin_ally_spawner spawnfromspawner();
-			level.var_8943f7db.name = "adam";
-			level.var_8943f7db.isspeaking = 0;
-			level.var_8943f7db.var_5b6ebfd0 = 0;
-			util::magic_bullet_shield(level.var_8943f7db);
-			level.var_8943f7db.aioverridedamage = array(&function_26edbcdc);
-			level.var_8943f7db thread function_eaa63f5b(3);
+			level.mannequin_ally = level.mannequin_ally_spawner spawnfromspawner();
+			level.mannequin_ally.name = "adam";
+			level.mannequin_ally.isspeaking = 0;
+			level.mannequin_ally.var_5b6ebfd0 = 0;
+			util::magic_bullet_shield(level.mannequin_ally);
+			level.mannequin_ally.aioverridedamage = array(&function_26edbcdc);
+			level.mannequin_ally thread function_eaa63f5b(3);
 			level.var_f5746584++;
-			level.var_8943f7db thread function_e29e2b0b();
+			level.mannequin_ally thread function_e29e2b0b();
 		}
 		wait(1.5);
-		level.var_8943f7db thread namespace_509a75d1::function_6a0d675d("vox_adam_activated");
+		level.mannequin_ally thread namespace_509a75d1::function_6a0d675d("vox_adam_activated");
 		var_a2c75164 function_a51b6403(0);
 	}
 }
 
 /*
 	Name: function_e4459089
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x2AFC20C1
 	Offset: 0x2368
 	Size: 0x24
@@ -700,7 +700,7 @@ function function_e4459089()
 
 /*
 	Name: function_26edbcdc
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x2F07EBA8
 	Offset: 0x2398
 	Size: 0x66
@@ -714,7 +714,7 @@ function function_26edbcdc(inflictor, attacker, damage, flags, meansofdeath, wea
 
 /*
 	Name: function_8527738e
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x1A2FE3
 	Offset: 0x2408
 	Size: 0x1CC
@@ -740,7 +740,7 @@ function function_8527738e()
 
 /*
 	Name: function_d5faedec
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x601CC04E
 	Offset: 0x25E0
 	Size: 0x58
@@ -750,7 +750,7 @@ function function_8527738e()
 function function_d5faedec(params)
 {
 	e_attacker = params.eattacker;
-	if(isdefined(level.var_8943f7db) && e_attacker === level.var_8943f7db)
+	if(isdefined(level.mannequin_ally) && e_attacker === level.mannequin_ally)
 	{
 		e_attacker notify(#"zom_kill");
 	}
@@ -758,7 +758,7 @@ function function_d5faedec(params)
 
 /*
 	Name: function_e29e2b0b
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x6EC3DA20
 	Offset: 0x2640
 	Size: 0xE0
@@ -791,7 +791,7 @@ function function_e29e2b0b()
 
 /*
 	Name: timer_actual
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xFB117152
 	Offset: 0x2728
 	Size: 0x20A
@@ -806,9 +806,9 @@ function timer_actual(kills, time)
 	{
 		if(self.killcounter > kills)
 		{
-			if(isdefined(level.var_8943f7db))
+			if(isdefined(level.mannequin_ally))
 			{
-				level.var_8943f7db namespace_509a75d1::function_6a0d675d("vox_adam_multi_kill", function_f20dfe6a(), 0, 1);
+				level.mannequin_ally namespace_509a75d1::function_6a0d675d("vox_adam_multi_kill", function_f20dfe6a(), 0, 1);
 			}
 			if(math::cointoss())
 			{
@@ -838,7 +838,7 @@ function timer_actual(kills, time)
 
 /*
 	Name: function_f20dfe6a
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0xF1458203
 	Offset: 0x2940
 	Size: 0x82
@@ -859,7 +859,7 @@ function function_f20dfe6a()
 
 /*
 	Name: function_e453faa6
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x2396E231
 	Offset: 0x29D0
 	Size: 0xF0
@@ -873,9 +873,9 @@ function function_e453faa6(e_reviver)
 	{
 		results = undefined;
 		results = self waittill(#"player_revived");
-		if(isdefined(level.var_8943f7db) && results.reviver === level.var_8943f7db)
+		if(isdefined(level.mannequin_ally) && results.reviver === level.mannequin_ally)
 		{
-			level.var_8943f7db namespace_509a75d1::function_6a0d675d("vox_adam_revive", function_9368a51d(), 0, 1);
+			level.mannequin_ally namespace_509a75d1::function_6a0d675d("vox_adam_revive", function_9368a51d(), 0, 1);
 			self thread zm_audio::create_and_play_dialog(#"revive", #"adam", undefined, 1);
 		}
 	}
@@ -883,7 +883,7 @@ function function_e453faa6(e_reviver)
 
 /*
 	Name: function_9368a51d
-	Namespace: namespace_ba16273b
+	Namespace: zm_white_private_mannequin
 	Checksum: 0x24D68CDB
 	Offset: 0x2AC8
 	Size: 0x82

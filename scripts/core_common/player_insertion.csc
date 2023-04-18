@@ -6,11 +6,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_67838d10;
+#namespace player_insertion;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8997D7B0
 	Offset: 0x3D8
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_75440eb9162352b6", &__init__, undefined, undefined);
+	system::register(#"player_insertion", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x626FDFA3
 	Offset: 0x420
 	Size: 0x104
@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_d3909b95 = 1;
+	level.playerinsertion = 1;
 	spawnpoints = struct::get_array("infil_spawn", "targetname");
 	/#
 		if(spawnpoints.size == 0)
@@ -53,7 +53,7 @@ function __init__()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4E939638
 	Offset: 0x530
 	Size: 0x54C
@@ -72,7 +72,7 @@ function init_clientfields()
 	clientfield::register("scriptmover", "infiltration_camera", 1, 2, "int", &function_a67b1f40, 0, 0);
 	clientfield::register("scriptmover", "infiltration_camera", 16000, 3, "int", &function_7bac6764, 0, 0);
 	clientfield::register("scriptmover", "infiltration_plane", 16000, 2, "int", &function_1f7ab61a, 0, 0);
-	clientfield::register("scriptmover", "infiltration_ent", 16000, 2, "int", &function_20c7ffc9, 0, 0);
+	clientfield::register("scriptmover", "infiltration_ent", 16000, 2, "int", &infil_ent, 0, 0);
 	clientfield::register("scriptmover", "infiltration_jump_point", 1, 1, "int", &function_81ac0c1, 0, 0);
 	clientfield::register("scriptmover", "infiltration_jump_point", 16000, 2, "int", &function_73a03a18, 0, 0);
 	clientfield::register("scriptmover", "infiltration_force_drop_point", 1, 1, "int", &function_35aed89d, 0, 0);
@@ -85,7 +85,7 @@ function init_clientfields()
 
 /*
 	Name: on_localclient_connect
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xCDA4CE1D
 	Offset: 0xA88
 	Size: 0x8C
@@ -103,7 +103,7 @@ function on_localclient_connect(localclientnum)
 
 /*
 	Name: function_a4c14f8c
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x7F1ACB3E
 	Offset: 0xB20
 	Size: 0x16
@@ -117,7 +117,7 @@ function private function_a4c14f8c(value)
 
 /*
 	Name: function_ff16ec5f
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x93A1FDDD
 	Offset: 0xB40
 	Size: 0x18
@@ -131,7 +131,7 @@ function private function_ff16ec5f(value)
 
 /*
 	Name: function_76a4b21e
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x222E4C4B
 	Offset: 0xB60
 	Size: 0x16
@@ -145,7 +145,7 @@ function private function_76a4b21e(value)
 
 /*
 	Name: function_6c4ae982
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x3C8B53CB
 	Offset: 0xB80
 	Size: 0x1AC
@@ -195,7 +195,7 @@ function private function_6c4ae982(localclientnum)
 
 /*
 	Name: function_ed1567cc
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8C78CCDA
 	Offset: 0xD38
 	Size: 0x19C
@@ -236,7 +236,7 @@ function function_ed1567cc(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ba7d9848
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x2C27231D
 	Offset: 0xEE0
 	Size: 0x8C
@@ -260,7 +260,7 @@ function function_ba7d9848(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ded53cc6
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xC0882FE7
 	Offset: 0xF78
 	Size: 0x7C
@@ -277,7 +277,7 @@ function function_ded53cc6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ea3cc318
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xA4660A0B
 	Offset: 0x1000
 	Size: 0x94
@@ -297,7 +297,7 @@ function function_ea3cc318(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_8c515e6
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xEEED1FD6
 	Offset: 0x10A0
 	Size: 0x6C
@@ -317,7 +317,7 @@ function private function_8c515e6(player)
 
 /*
 	Name: function_a67b1f40
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xE2C4DD3B
 	Offset: 0x1118
 	Size: 0x17C
@@ -356,7 +356,7 @@ function function_a67b1f40(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7bac6764
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x4D7CE365
 	Offset: 0x12A0
 	Size: 0x154
@@ -394,7 +394,7 @@ function function_7bac6764(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1f7ab61a
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8CE427D6
 	Offset: 0x1400
 	Size: 0x84
@@ -408,15 +408,15 @@ function function_1f7ab61a(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_20c7ffc9
-	Namespace: namespace_67838d10
+	Name: infil_ent
+	Namespace: player_insertion
 	Checksum: 0xACFC63CE
 	Offset: 0x1490
 	Size: 0xBC
 	Parameters: 7
 	Flags: Linked
 */
-function function_20c7ffc9(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function infil_ent(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	var_1e7db62f = function_a4c14f8c(newval);
 	var_36f945fe = function_ff16ec5f(newval);
@@ -426,7 +426,7 @@ function function_20c7ffc9(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_cbe63de1
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x27856247
 	Offset: 0x1558
 	Size: 0x1A4
@@ -467,7 +467,7 @@ function function_cbe63de1(localclientnum, delta_t)
 
 /*
 	Name: function_c8ea4bcc
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xDF7937FB
 	Offset: 0x1708
 	Size: 0x21C
@@ -509,7 +509,7 @@ function function_c8ea4bcc(localclientnum, delta_t)
 
 /*
 	Name: function_84ba1c41
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x33444006
 	Offset: 0x1930
 	Size: 0x3C
@@ -526,7 +526,7 @@ function function_84ba1c41(local_client_num, eventstruct)
 
 /*
 	Name: function_f9e5d4d3
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8AD0A71F
 	Offset: 0x1978
 	Size: 0x94
@@ -545,7 +545,7 @@ function function_f9e5d4d3(local_client_num, eventstruct)
 
 /*
 	Name: function_ec94346
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB410683F
 	Offset: 0x1A18
 	Size: 0x74
@@ -561,7 +561,7 @@ function function_ec94346()
 
 /*
 	Name: function_c9a18304
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xECB9981
 	Offset: 0x1A98
 	Size: 0x6C
@@ -579,7 +579,7 @@ function function_c9a18304(local_client_num, eventstruct)
 
 /*
 	Name: function_81ac0c1
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x8A4109DB
 	Offset: 0x1B10
 	Size: 0xBA
@@ -601,7 +601,7 @@ function function_81ac0c1(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_73a03a18
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB92CC1D0
 	Offset: 0x1BD8
 	Size: 0xDA
@@ -624,7 +624,7 @@ function function_73a03a18(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_35aed89d
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xBBF34631
 	Offset: 0x1CC0
 	Size: 0xBA
@@ -646,7 +646,7 @@ function function_35aed89d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f1c37912
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x19AD8DD3
 	Offset: 0x1D88
 	Size: 0xDA
@@ -669,7 +669,7 @@ function function_f1c37912(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_65cca2e1
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB289453A
 	Offset: 0x1E70
 	Size: 0x23C
@@ -688,23 +688,23 @@ function function_65cca2e1(localclientnum, var_1e7db62f)
 		}
 		waitframe(1);
 	}
-	var_2cbd1af = level.var_a3ede655[var_1e7db62f].origin;
+	jump_point = level.var_a3ede655[var_1e7db62f].origin;
 	var_b286938d = level.var_697988b1[var_1e7db62f].origin;
 	direction = anglestoforward(level.var_a3ede655[var_1e7db62f].angles);
-	start_point = var_2cbd1af - (direction * 150000);
+	start_point = jump_point - (direction * 150000);
 	end_point = var_b286938d + (direction * 150000);
 	var_5a20cc9d = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.freeFallStartAltitude");
-	setuimodelvalue(var_5a20cc9d, var_2cbd1af[2]);
+	setuimodelvalue(var_5a20cc9d, jump_point[2]);
 	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
 	if(var_7eb8f61a == 0)
 	{
-		function_4dfe3112(localclientnum, var_1e7db62f, start_point, end_point, var_2cbd1af, var_b286938d);
+		function_4dfe3112(localclientnum, var_1e7db62f, start_point, end_point, jump_point, var_b286938d);
 	}
 }
 
 /*
 	Name: function_2d2fc272
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x9249D699
 	Offset: 0x20B8
 	Size: 0xD4
@@ -728,7 +728,7 @@ function function_2d2fc272(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4da7bee9
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xFF9152FC
 	Offset: 0x2198
 	Size: 0x14E
@@ -760,7 +760,7 @@ function function_4da7bee9(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: inside_infiltration_vehicle
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x754EF2E8
 	Offset: 0x22F0
 	Size: 0xF8
@@ -785,7 +785,7 @@ function inside_infiltration_vehicle(localclientnum, oldval, newval, bnewent, bi
 
 /*
 	Name: function_c9851cb
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xAA5F99EF
 	Offset: 0x23F0
 	Size: 0x84
@@ -806,7 +806,7 @@ function private function_c9851cb(localclientnum, oldval, newval, bnewent, binit
 
 /*
 	Name: function_9767bbd8
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0xB0E7AED2
 	Offset: 0x2480
 	Size: 0x64
@@ -820,7 +820,7 @@ function private function_9767bbd8(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_c0c7c219
-	Namespace: namespace_67838d10
+	Namespace: player_insertion
 	Checksum: 0x698CC300
 	Offset: 0x24F0
 	Size: 0x132

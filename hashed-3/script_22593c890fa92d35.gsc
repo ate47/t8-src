@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using script_6de2f7255a97ab00;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -62,7 +62,7 @@ function function_d53a8c5b()
 		var_69f123e5 = function_9dc0fa01();
 		if(isdefined(var_69f123e5))
 		{
-			var_69f123e5 namespace_67838d10::function_723d686d();
+			var_69f123e5 player_insertion::function_723d686d();
 			zombie_plane_flight_goal = struct::get("zombie_plane_flight_goal", "targetname");
 			if(isdefined(zombie_plane_flight_goal))
 			{
@@ -93,7 +93,7 @@ function function_3e59cbbb(goal)
 	self endon(#"death");
 	self function_a57c34b7(goal.origin, 0, 0);
 	self waittill(#"goal", #"near_goal");
-	self namespace_67838d10::function_723d686d();
+	self player_insertion::function_723d686d();
 	waitframe(1);
 	self ghost();
 	wait(1);
@@ -207,7 +207,7 @@ function function_37401a52()
 				var_69f123e5 = function_de4b0705();
 				if(isdefined(var_69f123e5))
 				{
-					var_69f123e5 namespace_67838d10::function_723d686d();
+					var_69f123e5 player_insertion::function_723d686d();
 					zombie_plane_flight_goal = struct::get("", "");
 					if(isdefined(zombie_plane_flight_goal))
 					{

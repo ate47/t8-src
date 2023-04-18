@@ -149,7 +149,7 @@ function function_6408c105()
 }
 
 /*
-	Name: function_1008e277
+	Name: show_zbarriers
 	Namespace: zm_towers_util
 	Checksum: 0x52838612
 	Offset: 0x820
@@ -157,7 +157,7 @@ function function_6408c105()
 	Parameters: 0
 	Flags: Linked
 */
-function function_1008e277()
+function show_zbarriers()
 {
 	/#
 		assert(isdefined(level._spawned_wallbuys));

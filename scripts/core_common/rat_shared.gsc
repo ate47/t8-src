@@ -23,7 +23,7 @@ function init()
 			level.rat = spawnstruct();
 			level.rat.common = spawnstruct();
 			level.rat.script_command_list = [];
-			level.rat.var_e53a63ce = 0;
+			level.rat.playerskilled = 0;
 			level.rat.var_cd4fd549 = 0;
 			callback::on_player_killed(&function_cecf7c3d);
 			addratscriptcmd("", &function_5fd1a95b);
@@ -552,7 +552,7 @@ function function_cecf7c3d()
 		}
 		else
 		{
-			level.rat.var_e53a63ce = level.rat.var_e53a63ce + 1;
+			level.rat.playerskilled = level.rat.playerskilled + 1;
 		}
 	#/
 }
@@ -569,7 +569,7 @@ function function_cecf7c3d()
 function function_d197a150(params)
 {
 	/#
-		return level.rat.var_e53a63ce;
+		return level.rat.playerskilled;
 	#/
 }
 

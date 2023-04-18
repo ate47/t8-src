@@ -515,7 +515,7 @@ function function_fc58f46f()
 }
 
 /*
-	Name: function_4bbdb418
+	Name: get_target_offset
 	Namespace: ultimate_turret
 	Checksum: 0xDE4E2E04
 	Offset: 0x1A68
@@ -523,7 +523,7 @@ function function_fc58f46f()
 	Parameters: 1
 	Flags: None
 */
-function function_4bbdb418(target)
+function get_target_offset(target)
 {
 	var_8134d046 = -12;
 	stance = target getstance();

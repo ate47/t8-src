@@ -872,7 +872,7 @@ function private function_94478182(distribution)
 	Parameters: 4
 	Flags: Linked
 */
-function function_b25f48bf(var_dfb0e355, var_a9ab69de, var_d9438b7, var_ed0a1ecc)
+function function_b25f48bf(for_team, var_a9ab69de, var_d9438b7, var_ed0a1ecc)
 {
 	foreach(var_a787dfe7, var_75aa1f3c in var_ed0a1ecc)
 	{
@@ -890,7 +890,7 @@ function function_b25f48bf(var_dfb0e355, var_a9ab69de, var_d9438b7, var_ed0a1ecc
 			{
 				continue;
 			}
-			if(team == var_dfb0e355)
+			if(team == for_team)
 			{
 				continue;
 			}
@@ -1038,10 +1038,10 @@ function private function_6c66cc64(team)
 		{
 			return;
 		}
-		var_54e8d52e = string(team);
+		team_str = string(team);
 		if(isdefined(level.teams[team]))
 		{
-			var_54e8d52e = level.teams[team];
+			team_str = level.teams[team];
 		}
 		voip = "";
 		if(isdefined(level.var_75dffa9f[team]))
@@ -1069,7 +1069,7 @@ function private function_6c66cc64(team)
 				platoon_name = platoon_name + level.platoons[platoon].name;
 			}
 		}
-		println(((((("" + "") + platoon_name) + "") + var_54e8d52e) + "") + voip);
+		println(((((("" + "") + platoon_name) + "") + team_str) + "") + voip);
 		foreach(player in players)
 		{
 			party = player getparty();

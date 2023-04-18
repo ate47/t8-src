@@ -29,7 +29,7 @@ function init_shared()
 */
 function private registerclientfields()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		clientfield::register("clientuimodel", "eliminated_postfx", 12000, 1, "int", &function_c73ec9a, 0, 0);
 	}

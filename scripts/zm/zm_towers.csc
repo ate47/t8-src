@@ -121,8 +121,8 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_57c08e5f4792690c", 1, 1, "int", &function_339af7bd, 0, 0);
 	clientfield::register("world", "" + #"hash_440f23773f551a48", 1, 1, "int", &function_e131f9b8, 0, 0);
 	clientfield::register("world", "" + #"hash_4e5e2b411c997804", 1, 1, "int", &function_98d53b6b, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_3b3d40b9e7427939", 1, 1, "counter", &function_a2128708, 0, 0);
-	clientfield::register("world", "" + #"hash_6bc33c82908d4d2c", 1, 1, "int", &function_f7102023, 0, 0);
+	clientfield::register("toplayer", "" + #"maelstrom_initiate", 1, 1, "counter", &function_a2128708, 0, 0);
+	clientfield::register("world", "" + #"maelstrom_initiate_fx", 1, 1, "int", &function_f7102023, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_4e7b1766cc26a866", 1, 1, "int", &function_9d72720a, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_1814d4cc1867739c", 1, 1, "int", &function_e21e7dbe, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_314d3a2e542805c0", 1, 1, "int", &function_4a9243dc, 0, 0);
@@ -189,7 +189,7 @@ event main(eventstruct)
 	level._effect[#"hash_5a3e1454226ef7a4"] = #"hash_62ef4090559ca8c8";
 	level._effect[#"hash_1f7bfd354d2472e3"] = #"hash_153286962fe0c0c5";
 	level._effect[#"hash_1f7511354d1e7631"] = #"hash_153992962fe6f3d7";
-	level._effect[#"hash_3b3d40b9e7427939"] = #"hash_223c6a623adb13fb";
+	level._effect[#"maelstrom_initiate"] = #"hash_223c6a623adb13fb";
 	level._effect[#"hash_504ad50f841882fe"] = #"hash_26b672f2c1c8a570";
 	level._effect[#"hash_2cf77bcee904664d"] = #"hash_50ce930e4dd4bc12";
 	level._effect[#"hash_2cf75dcee9043353"] = #"hash_50c7bb0e4dcee15c";
@@ -2801,7 +2801,7 @@ function function_f7102023(localclientnum, oldval, newval, bnewent, binitialsnap
 	a_s_fx = struct::get_array("s_maelstrom_initiate_fx");
 	foreach(s_fx in a_s_fx)
 	{
-		playfx(localclientnum, level._effect[#"hash_3b3d40b9e7427939"], s_fx.origin, anglestoforward(s_fx.angles));
+		playfx(localclientnum, level._effect[#"maelstrom_initiate"], s_fx.origin, anglestoforward(s_fx.angles));
 		playsound(localclientnum, #"hash_44163603295b2408", s_fx.origin);
 	}
 }

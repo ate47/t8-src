@@ -36,16 +36,16 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("scriptmover", "grappler_beam_source", 1, getminbitcountfornum(5), "int", &function_3adb9228, 1, 0);
-	clientfield::register("scriptmover", "grappler_beam_target", 1, getminbitcountfornum(5), "int", &function_7e79839e, 1, 0);
-	if(!isdefined(level.var_7e79839e))
+	clientfield::register("scriptmover", "grappler_beam_source", 1, getminbitcountfornum(5), "int", &grappler_source, 1, 0);
+	clientfield::register("scriptmover", "grappler_beam_target", 1, getminbitcountfornum(5), "int", &grappler_beam, 1, 0);
+	if(!isdefined(level.grappler_beam))
 	{
-		level.var_7e79839e = "zod_beast_grapple_beam";
+		level.grappler_beam = "zod_beast_grapple_beam";
 	}
 }
 
 /*
-	Name: function_3adb9228
+	Name: grappler_source
 	Namespace: zm_grappler
 	Checksum: 0x13D83088
 	Offset: 0x250
@@ -53,7 +53,7 @@ function __init__()
 	Parameters: 7
 	Flags: Linked
 */
-function function_3adb9228(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(!isdefined(level.var_da8e7aa4))
 	{
@@ -67,7 +67,7 @@ function function_3adb9228(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_7e79839e
+	Name: grappler_beam
 	Namespace: zm_grappler
 	Checksum: 0x5387DE38
 	Offset: 0x308
@@ -75,7 +75,7 @@ function function_3adb9228(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_7e79839e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function grappler_beam(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	if(!isdefined(level.var_da8e7aa4))
@@ -132,7 +132,7 @@ function function_34e3f163(player, tag, pivot, delay)
 */
 function function_f4b9c325(notifyhash)
 {
-	level beam::kill(self.player, self.tag, self.pivot, "tag_origin", level.var_7e79839e);
+	level beam::kill(self.player, self.tag, self.pivot, "tag_origin", level.grappler_beam);
 }
 
 /*
@@ -150,8 +150,8 @@ function grapple_beam(player, tag, pivot)
 	self.player = player;
 	self.tag = tag;
 	self.pivot = pivot;
-	level beam::launch(player, tag, pivot, "tag_origin", level.var_7e79839e, 1);
+	level beam::launch(player, tag, pivot, "tag_origin", level.grappler_beam, 1);
 	player waittill(#"hash_1550b3a3e9b816f3");
-	level beam::kill(player, tag, pivot, "tag_origin", level.var_7e79839e);
+	level beam::kill(player, tag, pivot, "tag_origin", level.grappler_beam);
 }
 

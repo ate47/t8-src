@@ -227,7 +227,7 @@ function function_49ef5263()
 }
 
 /*
-	Name: function_1e64d41
+	Name: hintobjectivehint_updat
 	Namespace: supplypod
 	Checksum: 0xF92B096F
 	Offset: 0xC98
@@ -235,7 +235,7 @@ function function_49ef5263()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1e64d41(weapon)
+function hintobjectivehint_updat(weapon)
 {
 	if(!isdefined(self) || !isplayer(self) || !self function_49ef5263() || !isdefined(weapon) || weapon.name != "launcher_standard_t8")
 	{
@@ -349,7 +349,7 @@ function function_37a2d89d(watcher, owner)
 	self endon(#"death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
 	self hide();
-	self.var_52a68abf = 1;
+	self.canthack = 1;
 	self.var_24d0abd1 = 1;
 	if(!(isdefined(self.previouslyhacked) && self.previouslyhacked))
 	{
@@ -1444,8 +1444,8 @@ function function_bcf0dd99()
 	foreach(weapon in primary_weapons)
 	{
 		var_831b3584 = player getweaponammostock(weapon);
-		var_6e175b4f = (isdefined(level.var_934fb97.bundle.var_8e002961) ? level.var_934fb97.bundle.var_8e002961 : 0) * weapon.clipsize;
-		player setweaponammostock(weapon, int(var_831b3584 + var_6e175b4f));
+		bonusammo = (isdefined(level.var_934fb97.bundle.var_8e002961) ? level.var_934fb97.bundle.var_8e002961 : 0) * weapon.clipsize;
+		player setweaponammostock(weapon, int(var_831b3584 + bonusammo));
 	}
 	player clientfield::set_player_uimodel("hudItems.goldenBullet", 1);
 }

@@ -26,7 +26,7 @@
 function autoexec main()
 {
 	vehicle::add_vehicletype_callback("bat", &function_9b3fe343);
-	clientfield::register("vehicle", "bat_transform_fx", 8000, 1, "int", &function_17da5dde, 0, 0);
+	clientfield::register("vehicle", "bat_transform_fx", 8000, 1, "int", &battransformfx, 0, 0);
 }
 
 /*
@@ -50,7 +50,7 @@ function private function_9b3fe343(localclientnum)
 }
 
 /*
-	Name: function_17da5dde
+	Name: battransformfx
 	Namespace: bat
 	Checksum: 0xCCFDA227
 	Offset: 0x270
@@ -58,7 +58,7 @@ function private function_9b3fe343(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_17da5dde(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function battransformfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

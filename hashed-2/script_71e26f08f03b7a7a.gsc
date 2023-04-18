@@ -222,7 +222,7 @@ function start(supplydrops = 1, minwaittime = 20, var_fe6b2eab = 20)
 		{
 			return;
 		}
-		deathcircle = level.var_fb91af8[level.var_52b56362];
+		deathcircle = level.deathcircles[level.var_52b56362];
 		var_caba78c2 = minwaittime;
 		if(isarray(minwaittime))
 		{
@@ -367,7 +367,7 @@ function function_9d6e1370(vehicletype, supplydrops = 1, minwaittime = 20, var_f
 		{
 			return;
 		}
-		deathcircle = level.var_fb91af8[level.var_52b56362];
+		deathcircle = level.deathcircles[level.var_52b56362];
 		var_caba78c2 = minwaittime;
 		if(isarray(minwaittime))
 		{

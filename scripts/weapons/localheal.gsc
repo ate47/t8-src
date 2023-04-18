@@ -47,8 +47,8 @@ function init_shared()
 	clientfield::register("allplayers", "tak_5_heal", 1, 1, "counter");
 	callback::on_death(&function_d58bf295);
 	callback::on_spawned(&function_a5b7c42d);
-	callback::on_actor_damage(&function_1c0720fc);
-	callback::on_player_damage(&function_1c0720fc);
+	callback::on_actor_damage(&on_player_damaged);
+	callback::on_player_damage(&on_player_damaged);
 	callback::on_player_killed_with_params(&on_player_killed);
 	weapon = getweapon("eq_localheal");
 	if(isdefined(weapon) && weapon.name != #"none")
@@ -141,7 +141,7 @@ function function_4afb5c9d(attacker, victim, weapon, attackerweapon)
 }
 
 /*
-	Name: function_1c0720fc
+	Name: on_player_damaged
 	Namespace: locaheal
 	Checksum: 0xA00E04DC
 	Offset: 0x708
@@ -149,7 +149,7 @@ function function_4afb5c9d(attacker, victim, weapon, attackerweapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1c0720fc(params)
+function on_player_damaged(params)
 {
 	player = self;
 	if(!isdefined(player.localheal) || (isdefined(player.localheal.localheal.var_21de13e3) ? player.localheal.var_21de13e3 : 0) == 0)

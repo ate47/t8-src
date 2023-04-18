@@ -18,7 +18,7 @@
 function init()
 {
 	var_fa0bcfcc = getent("ice_slide", "targetname");
-	var_fa0bcfcc callback::function_35a12f19(&function_a8fc3bf1);
+	var_fa0bcfcc callback::on_trigger(&function_a8fc3bf1);
 	var_fa0bcfcc.var_80360a02 = 0;
 }
 

@@ -569,7 +569,7 @@ function private function_3c3e6f4a(entity)
 	}
 	entity.var_d646708c = var_801b2d64;
 	namespace_cb42c6c0::function_50ba1eb0(entity, stub);
-	entity setblackboardattribute("_lockdown_type", namespace_cb42c6c0::function_22aeb4e9(stub.var_895b6b));
+	entity setblackboardattribute("_lockdown_type", namespace_cb42c6c0::function_22aeb4e9(stub.lockdowntype));
 	/#
 		namespace_cb42c6c0::function_f3cff6ff(entity);
 	#/
@@ -953,7 +953,7 @@ function private function_32551326()
 		level notify(#"hash_6a9b254ddc7d0e93", {#s_stub:self.stub});
 		if(!isdefined(self.stub.var_6f08706b))
 		{
-			if(self.stub.var_895b6b == "lockdown_stub_type_magic_box")
+			if(self.stub.lockdowntype == "lockdown_stub_type_magic_box")
 			{
 				self.stub.trigger_target.zbarrier thread zm_magicbox::set_magic_box_zbarrier_state("unlocking");
 			}
@@ -982,13 +982,13 @@ function private function_ebaa334b(entity)
 			entity.var_d646708c = undefined;
 			return;
 		}
-		if(stub.var_895b6b == "lockdown_stub_type_magic_box")
+		if(stub.lockdowntype == "lockdown_stub_type_magic_box")
 		{
 			stub.trigger_target.zbarrier zm_magicbox::set_magic_box_zbarrier_state("locking");
 		}
-		if(isdefined(stub.var_895b6b))
+		if(isdefined(stub.lockdowntype))
 		{
-			var_80f22b97 = function_30afd2be(stub.var_895b6b, stub);
+			var_80f22b97 = function_30afd2be(stub.lockdowntype, stub);
 		}
 		else
 		{

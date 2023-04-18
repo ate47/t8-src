@@ -57,7 +57,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_842831cf();
+	init_clientfield();
 	init_flags();
 	function_ec9e5cf2();
 }
@@ -79,7 +79,7 @@ function __main__()
 	if(zm_utility::function_e51dc2d8())
 	{
 		zm_sq::start(#"hash_306a7f142403b7c6");
-		zm_sq::start(#"hash_11b42c4f95b60662");
+		zm_sq::start(#"drawings");
 		zm_sq::start(#"hash_5474fbb93aebbb65");
 		zm_sq::start(#"laundry_day");
 		level thread function_90dac8fa();
@@ -105,7 +105,7 @@ function __main__()
 }
 
 /*
-	Name: function_842831cf
+	Name: init_clientfield
 	Namespace: pebble
 	Checksum: 0x3C28FAF2
 	Offset: 0x900
@@ -113,7 +113,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_842831cf()
+function init_clientfield()
 {
 	clientfield::register("actor", "" + #"hash_7792af358100c735", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_f2d0b920043dbbd", 1, 1, "counter");
@@ -149,7 +149,7 @@ function init_flags()
 function function_ec9e5cf2()
 {
 	zm_sq::register(#"hash_306a7f142403b7c6", #"1", #"hash_3203b932029a4e0b", &function_4d029800, &function_e3a2a8ab);
-	zm_sq::register(#"hash_11b42c4f95b60662", #"1", #"hash_4f409d159ce41d57", &function_cb19e12a, &function_a4810c2);
+	zm_sq::register(#"drawings", #"1", #"hash_4f409d159ce41d57", &function_cb19e12a, &function_a4810c2);
 	zm_sq::register(#"hash_5474fbb93aebbb65", #"1", #"hash_64d6af5ddc324d26", &function_6f55d670, &function_13c87ace);
 	zm_sq::register(#"hash_5474fbb93aebbb65", #"2", #"hash_3f567f217222e5b2", &function_e6ce9708, &function_4f6285d0);
 	zm_sq::register(#"hash_e1a54725ab6e00b", #"hash_66e936afdcdd5d4d", #"hash_574005386f679cf6", &function_21d4e9e9, &function_e7aa5f07);
@@ -869,7 +869,7 @@ function function_68a561a5(e_grenade, n_grenade_charge_power)
 		var_f67ecd64.var_3d3748c4 = 1;
 		var_f67ecd64 ghost();
 		level notify(#"hash_5002eab927d4056d");
-		level thread zm_audio::sndannouncerplayvox(#"hash_19b48fabd371ee3f", undefined, undefined, 2);
+		level thread zm_audio::sndannouncerplayvox(#"shield_upgrade", undefined, undefined, 2);
 		var_6e6ec518 = zm_weap_tomahawk::tomahawk_spawn(e_grenade.origin);
 		var_6e6ec518.n_grenade_charge_power = n_grenade_charge_power;
 		var_8f83b2f6 = util::spawn_model(level.chest_joker_model, e_grenade.origin, var_f67ecd64.angles);
@@ -1716,7 +1716,7 @@ function function_ef5a3a9d()
 	while(true)
 	{
 		s_result = undefined;
-		s_result = self waittill(#"hash_6fd7f8e1f00deffe");
+		s_result = self waittill(#"blast_attack");
 		e_attacker = s_result.e_player;
 		if(isplayer(e_attacker) && isalive(e_attacker) && e_attacker == self.e_owner && e_attacker flag::get(#"hash_120fbb364796cd32") && !e_attacker flag::get(#"hash_11ab20934759ebc3"))
 		{
@@ -2305,7 +2305,7 @@ function private audio_log()
 	{
 		return;
 	}
-	if(self.var_64c09f7f stats::function_441050ca(#"hash_ad3a508a80a0e6e"))
+	if(self.var_64c09f7f stats::get_stat_global(#"hash_ad3a508a80a0e6e"))
 	{
 		level.var_a0ddc1d0 = 1;
 	}

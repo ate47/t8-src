@@ -5,7 +5,7 @@
 #using script_59f07c660e6710a5;
 #using scripts\core_common\bots\bot_position.gsc;
 #using scripts\core_common\bots\bot_interface.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
@@ -714,14 +714,14 @@ function update_loop()
 	}
 	self bot_action::start();
 	self bot_position::start();
-	self namespace_9c817acd::start();
+	self bot_stance::start();
 	while(isdefined(self.bot))
 	{
 		if(!isbot(self) || !self initialized())
 		{
 			self bot_action::stop();
 			self bot_position::stop();
-			self namespace_9c817acd::stop();
+			self bot_stance::stop();
 			return;
 		}
 		tacbundle = self function_d473f7de();
@@ -751,14 +751,14 @@ function update_loop()
 		{
 			self bot_action::update();
 			self thread bot_position::update(tacbundle);
-			self namespace_9c817acd::update(tacbundle);
+			self bot_stance::update(tacbundle);
 			self update_swim();
 		}
 		else
 		{
 			self bot_action::reset();
 			self bot_position::reset();
-			self namespace_9c817acd::reset();
+			self bot_stance::reset();
 			if(self function_dd750ead())
 			{
 				gameobject = self function_f47bf51d();
@@ -1094,7 +1094,7 @@ function function_d473f7de()
 }
 
 /*
-	Name: function_7a6eea9c
+	Name: set_interact
 	Namespace: bot
 	Checksum: 0xAC3C2021
 	Offset: 0x2978
@@ -1102,7 +1102,7 @@ function function_d473f7de()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7a6eea9c(interact)
+function set_interact(interact)
 {
 	self.bot.interact = interact;
 }
@@ -1763,7 +1763,7 @@ function get_current_weapon(lefthand = 0)
 }
 
 /*
-	Name: function_828da7a9
+	Name: weapon_loaded
 	Namespace: bot
 	Checksum: 0xE08646E1
 	Offset: 0x3C80
@@ -1771,7 +1771,7 @@ function get_current_weapon(lefthand = 0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_828da7a9(weapon)
+function weapon_loaded(weapon)
 {
 	return self getweaponammoclip(weapon) > 0 || self getweaponammoclip(weapon.dualwieldweapon) > 0;
 }
@@ -1897,7 +1897,7 @@ function devgui_bot_loop()
 					level function_c96c865c(host, "", args[1], int(args[2]));
 					break;
 				}
-				case "hash_13fac3b0e66afef0":
+				case "usegadget":
 				{
 					level function_62c047e4(host, args[1], int(args[2]));
 					break;

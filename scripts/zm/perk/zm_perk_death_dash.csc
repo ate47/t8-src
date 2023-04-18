@@ -50,9 +50,9 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"specialty_death_dash", &function_37236662, &function_6705773b);
+	zm_perks::register_perk_clientfields(#"specialty_death_dash", &client_field_func, &code_callback_func);
 	zm_perks::register_perk_init_thread(#"specialty_death_dash", &init);
-	zm_perks::function_b60f4a9f(#"specialty_death_dash", #"p8_zm_vapor_altar_icon_01_blaze_phase", "zombie/fx8_perk_altar_symbol_ambient_blaze_phase", #"hash_544b157a9fa6573d");
+	zm_perks::function_b60f4a9f(#"specialty_death_dash", #"p8_zm_vapor_altar_icon_01_blaze_phase", "zombie/fx8_perk_altar_symbol_ambient_blaze_phase", #"zmperksdeathdash");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_death_dash", "zombie_perk_totem_death_dash");
 }
 
@@ -70,7 +70,7 @@ function init()
 }
 
 /*
-	Name: function_37236662
+	Name: client_field_func
 	Namespace: zm_perk_death_dash
 	Checksum: 0x83901AFD
 	Offset: 0x470
@@ -78,7 +78,7 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37236662()
+function client_field_func()
 {
 	clientfield::register("allplayers", "death_dash_charging", 24000, 1, "int", &function_bfd817c1, 0, 0);
 	clientfield::register("allplayers", "death_dash_charged", 24000, 1, "int", &function_fe2634b2, 0, 0);
@@ -90,7 +90,7 @@ function function_37236662()
 }
 
 /*
-	Name: function_6705773b
+	Name: code_callback_func
 	Namespace: zm_perk_death_dash
 	Checksum: 0x80F724D1
 	Offset: 0x678
@@ -98,7 +98,7 @@ function function_37236662()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6705773b()
+function code_callback_func()
 {
 }
 

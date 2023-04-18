@@ -42,7 +42,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1c600f8141a34a9", &on_begin, &on_end);
+	zm_trial::register_challenge(#"red_boss_fight", &on_begin, &on_end);
 }
 
 /*

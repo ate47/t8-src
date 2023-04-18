@@ -82,8 +82,8 @@ event main(eventstruct)
 	level._effect[#"bloodspurt"] = #"zombie/fx_bul_flesh_neck_spurt_zmb";
 	level._effect[#"animscript_gib_fx"] = #"zombie/fx_blood_torso_explo_zmb";
 	level._effect[#"animscript_gibtrail_fx"] = #"blood/fx_blood_gib_limb_trail";
-	level._effect[#"hash_51c7bc3539ed5540"] = #"hash_6009053e911b946a";
-	level._effect[#"hash_68213763a7707b92"] = #"hash_6c0eb029adb5f6c6";
+	level._effect[#"pap_projectile"] = #"hash_6009053e911b946a";
+	level._effect[#"pap_projectile_end"] = #"hash_6c0eb029adb5f6c6";
 	level.var_24cb6ae8 = findvolumedecalindexarray("cargo_hold_water_puddles");
 	level.var_ec4c3b67 = findvolumedecalindexarray("engine_room_water_puddles");
 	level.var_59d3631c = #"hash_129339f4a4da8ea2";
@@ -503,7 +503,7 @@ function update_wave_water_height(localclientnum, oldval, newval, bnewent, binit
 	}
 	if(self flag::get("update_water"))
 	{
-		self thread function_6749eef5(localclientnum);
+		self thread update_wave_water(localclientnum);
 	}
 	else
 	{
@@ -536,7 +536,7 @@ function change_wave_water_height(localclientnum, oldval, newval, bnewent, binit
 		{
 			self flag::init("water_drained");
 		}
-		self function_6749eef5(localclientnum);
+		self update_wave_water(localclientnum);
 		if(!self flag::get("water_drained"))
 		{
 			self flag::set("water_drained");
@@ -553,7 +553,7 @@ function change_wave_water_height(localclientnum, oldval, newval, bnewent, binit
 }
 
 /*
-	Name: function_6749eef5
+	Name: update_wave_water
 	Namespace: zm_zodt8
 	Checksum: 0x16AB2EBE
 	Offset: 0x21C0
@@ -561,7 +561,7 @@ function change_wave_water_height(localclientnum, oldval, newval, bnewent, binit
 	Parameters: 1
 	Flags: Linked
 */
-function function_6749eef5(localclientnum)
+function update_wave_water(localclientnum)
 {
 	self notify("318e077d5d5c0461");
 	self endon("318e077d5d5c0461");
@@ -746,7 +746,7 @@ function pap_projectile_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(!isdefined(self.var_4b7a5b1b))
 		{
-			self.var_4b7a5b1b = util::playfxontag(localclientnum, level._effect[#"hash_51c7bc3539ed5540"], self, "tag_origin");
+			self.var_4b7a5b1b = util::playfxontag(localclientnum, level._effect[#"pap_projectile"], self, "tag_origin");
 		}
 		if(!isdefined(self.var_353ff2a))
 		{
@@ -779,7 +779,7 @@ function pap_projectile_end_fx(localclientnum, oldval, newval, bnewent, binitial
 {
 	if(newval == 1)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_68213763a7707b92"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"pap_projectile_end"], self, "tag_origin");
 	}
 }
 

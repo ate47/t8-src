@@ -786,7 +786,7 @@ function function_9f6a9379()
 {
 	var_8656a4f1 = getent(self.target, "targetname");
 	self.var_8656a4f1 = var_8656a4f1;
-	var_8656a4f1 callback::function_35a12f19(&function_11a5f9cf);
+	var_8656a4f1 callback::on_trigger(&function_11a5f9cf);
 }
 
 /*
@@ -1321,7 +1321,7 @@ function function_7e04b65f()
 				/#
 					iprintlnbold(((("" + e_player getentnum()) + "") + e_player.var_c859fa3a) + "");
 				#/
-				e_player thread zm_magicbox::function_830b7ecd(level.w_homunculus);
+				e_player thread zm_magicbox::give_offhand_weapon(level.w_homunculus);
 				e_player thread function_1704df5e();
 			}
 			e_player thread function_70d155c5();

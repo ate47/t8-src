@@ -771,8 +771,8 @@ function tomahawk_pickup_trigger()
 */
 function function_f0ef3897(e_player)
 {
-	e_player notify(#"hash_78d7f70251d51f7c");
-	e_player endon(#"hash_78d7f70251d51f7c", #"disconnect");
+	e_player notify(#"obtained_tomahawk");
+	e_player endon(#"obtained_tomahawk", #"disconnect");
 	var_fd22f9df = struct::get("tom_pil");
 	var_6e6ec518 = var_fd22f9df.scene_ents[#"prop 2"];
 	var_6e6ec518 setinvisibletoplayer(e_player);

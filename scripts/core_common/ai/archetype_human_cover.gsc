@@ -162,7 +162,7 @@ function shouldthrowgrenadeatcovercondition(entity, throwifpossible = 0)
 		return false;
 	}
 	entityangles = entity.angles;
-	if(isdefined(entity.node) && (entity.node.type == #"hash_63cbb4767da2a801" || entity.node.type == #"hash_2a7b1ca393696762" || entity.node.type == #"hash_7a0e62fbbe3989d4" || (entity.node.type == #"hash_581529fff05853f0" || entity.node.type == #"hash_1bb444d857814e92") || (entity.node.type == #"hash_6d8019ab9d39bf96" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")) && entity isatcovernodestrict())
+	if(isdefined(entity.node) && (entity.node.type == #"cover left" || entity.node.type == #"cover right" || entity.node.type == #"cover pillar" || (entity.node.type == #"cover stand" || entity.node.type == #"hash_1bb444d857814e92") || (entity.node.type == #"cover crouch" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")) && entity isatcovernodestrict())
 	{
 		entityangles = entity.node.angles;
 	}
@@ -653,7 +653,7 @@ function temp_get_arm_offset(entity, throwposition)
 	}
 	if(isdefined(entity.node) && entity isatcovernodestrict())
 	{
-		if(entity.node.type == #"hash_63cbb4767da2a801")
+		if(entity.node.type == #"cover left")
 		{
 			if(stance == "crouch")
 			{
@@ -666,7 +666,7 @@ function temp_get_arm_offset(entity, throwposition)
 		}
 		else
 		{
-			if(entity.node.type == #"hash_2a7b1ca393696762")
+			if(entity.node.type == #"cover right")
 			{
 				if(stance == "crouch")
 				{
@@ -679,17 +679,17 @@ function temp_get_arm_offset(entity, throwposition)
 			}
 			else
 			{
-				if(entity.node.type == #"hash_581529fff05853f0" || entity.node.type == #"hash_1bb444d857814e92")
+				if(entity.node.type == #"cover stand" || entity.node.type == #"hash_1bb444d857814e92")
 				{
 					arm_offset = (10, 7, 77);
 				}
 				else
 				{
-					if(entity.node.type == #"hash_6d8019ab9d39bf96" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")
+					if(entity.node.type == #"cover crouch" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")
 					{
 						arm_offset = (19, 5, 60);
 					}
-					else if(entity.node.type == #"hash_7a0e62fbbe3989d4")
+					else if(entity.node.type == #"cover pillar")
 					{
 						leftoffset = undefined;
 						rightoffset = undefined;

@@ -1,11 +1,11 @@
 id,mode,type,desc
-hash_6f1440098d849316,zm,boolean,allow to buy pistol
+zmweaponspistol,zm,boolean,allow to buy pistol
 hash_edfb07f798aaab5,zm,boolean,allow to buy cqb
-hash_1f6665b5581f6b6e,zm,boolean,allow to buy smg
-hash_1d5c8e6f0e20201a,zm,boolean,allow to buy assault
+zmweaponssmg,zm,boolean,allow to buy smg
+zmweaponsar,zm,boolean,allow to buy assault
 zmweaponstr,zm,boolean,allow to buy tactical
-hash_2f6740b518dbeb8f,zm,boolean,allow to buy lmg
-hash_5bfd047c58816496,zm,boolean,allow to buy sniper
+zmweaponslmg,zm,boolean,allow to buy lmg
+zmweaponssniper,zm,boolean,allow to buy sniper
 zmweaponsknife,zm,boolean,allow to buy knife
 zmdifficulty,zm,int[0-3],difficulty 0 = easy; 1 = normal; 2 = hard; 3 = insane
 zmtrialsvariant,zm,int,variant of a trials; 0 = default; 1 = hard?
@@ -69,6 +69,8 @@ hash_709b7e506f5d3775,wz,int,xp per infected win (pandemic)
 hash_35c2d850e39fa704,wz,int,max player count
 magic,zm,boolean,enable magic
 hash_7695bdd7b20cdda,wz,boolean,allow to convert the replacer's muscle car
+hash_3e2d2cf6b1cc6c68,wz,boolean,Quaknarok
+hash_701bac755292fab2,wz,boolean,spawn icarus
 
 voipkillershearvictim,unknown,unknown,unknown
 voipeveryonehearseveryone,unknown,unknown,unknown
@@ -225,7 +227,6 @@ hash_71b2b43696e16252,unknown,unknown,unknown
 hash_7148b13c0ace2cd7,unknown,unknown,unknown
 hash_712f4c2a96bca56e,unknown,unknown,unknown
 hash_70517c36d49b4ee0,unknown,unknown,unknown
-hash_701bac755292fab2,unknown,unknown,unknown
 hash_70072ee20a43ae21,unknown,unknown,unknown
 hash_6fd3b6b84cd7c91f,unknown,unknown,unknown
 hash_6fbf57e2af153e5f,unknown,unknown,unknown
@@ -366,7 +367,6 @@ hash_3e8ed24e99b27614,unknown,unknown,unknown
 hash_3e882b80b421ca7d,unknown,unknown,unknown
 hash_3e62d9528eca0a13,unknown,unknown,unknown
 hash_3e59b47ddcff2734,unknown,unknown,unknown
-hash_3e2d2cf6b1cc6c68,unknown,unknown,unknown
 hash_3e13b420d6773b4c,unknown,unknown,unknown
 hash_3e111be61438fd22,unknown,unknown,unknown
 hash_3da025c068c34bcb,unknown,unknown,unknown

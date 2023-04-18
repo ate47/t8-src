@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_49c434794684964a;
+#using scripts\core_common\player\player_shared.csc;
 #using scripts\core_common\animation_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -548,7 +548,7 @@ function do_vision_local_pulse(localclientnum)
 {
 	self endon(#"death");
 	self endon(#"vision_pulse_owner_death");
-	self notify(#"hash_7441a36d549ebd4e");
+	self notify(#"local_pulse");
 	self endon(#"startlocalpulse");
 	self thread watch_vision_pulse_owner_death(localclientnum);
 	self function_bf9d3071(#"hash_1978eff2ac047e65");

@@ -65,7 +65,7 @@ function deployed_off(slot, weapon)
 */
 function is_pulsed(attacker, victim, weapon, attackerweapon, meansofdeath)
 {
-	return isdefined(attacker._pulse_ent) && (isdefined(victim.var_15b42025) && victim.var_15b42025);
+	return isdefined(attacker._pulse_ent) && (isdefined(victim.ispulsed) && victim.ispulsed);
 }
 
 /*

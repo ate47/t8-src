@@ -666,7 +666,7 @@ function private function_92a54dac()
 			n_dot = vectordot(var_ee5864e0, v_normal);
 			if(n_dot > 0.61)
 			{
-				var_afdaa400 notify(#"hash_6fd7f8e1f00deffe", {#e_player:self});
+				var_afdaa400 notify(#"blast_attack", {#e_player:self});
 			}
 		}
 	}

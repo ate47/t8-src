@@ -145,11 +145,11 @@ function function_96d38b95(result)
 	killstreakstr = function_685505ce(player.killstreak);
 	gamelength = float(game.timepassed) / 1000;
 	timeplayed = player globallogic::gettotaltimeplayed(gamelength);
-	totalkills = player stats::function_441050ca(#"kills");
-	totalhits = player stats::function_441050ca(#"hits");
-	totaldeaths = player stats::function_441050ca(#"deaths");
-	totalwins = player stats::function_441050ca(#"wins");
-	totalxp = player stats::function_441050ca(#"rankxp");
+	totalkills = player stats::get_stat_global(#"kills");
+	totalhits = player stats::get_stat_global(#"hits");
+	totaldeaths = player stats::get_stat_global(#"deaths");
+	totalwins = player stats::get_stat_global(#"wins");
+	totalxp = player stats::get_stat_global(#"rankxp");
 	killcount = 0;
 	hitcount = 0;
 	if(level.mpcustommatch)
@@ -336,17 +336,17 @@ function record_global_mp_stats_for_player_at_match_start()
 	{
 		return;
 	}
-	startkills = self stats::function_441050ca(#"kills");
-	startdeaths = self stats::function_441050ca(#"deaths");
-	startwins = self stats::function_441050ca(#"wins");
-	startlosses = self stats::function_441050ca(#"losses");
-	starthits = self stats::function_441050ca(#"hits");
-	startmisses = self stats::function_441050ca(#"misses");
-	starttimeplayedtotal = self stats::function_441050ca(#"time_played_total");
-	startscore = self stats::function_441050ca(#"score");
-	startprestige = self stats::function_441050ca(#"plevel");
+	startkills = self stats::get_stat_global(#"kills");
+	startdeaths = self stats::get_stat_global(#"deaths");
+	startwins = self stats::get_stat_global(#"wins");
+	startlosses = self stats::get_stat_global(#"losses");
+	starthits = self stats::get_stat_global(#"hits");
+	startmisses = self stats::get_stat_global(#"misses");
+	starttimeplayedtotal = self stats::get_stat_global(#"time_played_total");
+	startscore = self stats::get_stat_global(#"score");
+	startprestige = self stats::get_stat_global(#"plevel");
 	startunlockpoints = self stats::get_stat(#"unlocks", 0);
-	ties = self stats::function_441050ca(#"ties");
+	ties = self stats::get_stat_global(#"ties");
 	startgamesplayed = (startwins + startlosses) + ties;
 	self.startkills = startkills;
 	self.starthits = starthits;
@@ -379,17 +379,17 @@ function record_global_mp_stats_for_player_at_match_end()
 	{
 		return;
 	}
-	endkills = self stats::function_441050ca(#"kills");
-	enddeaths = self stats::function_441050ca(#"deaths");
-	endwins = self stats::function_441050ca(#"wins");
-	endlosses = self stats::function_441050ca(#"losses");
-	endhits = self stats::function_441050ca(#"hits");
-	endmisses = self stats::function_441050ca(#"misses");
-	endtimeplayedtotal = self stats::function_441050ca(#"time_played_total");
-	endscore = self stats::function_441050ca(#"score");
-	endprestige = self stats::function_441050ca(#"plevel");
+	endkills = self stats::get_stat_global(#"kills");
+	enddeaths = self stats::get_stat_global(#"deaths");
+	endwins = self stats::get_stat_global(#"wins");
+	endlosses = self stats::get_stat_global(#"losses");
+	endhits = self stats::get_stat_global(#"hits");
+	endmisses = self stats::get_stat_global(#"misses");
+	endtimeplayedtotal = self stats::get_stat_global(#"time_played_total");
+	endscore = self stats::get_stat_global(#"score");
+	endprestige = self stats::get_stat_global(#"plevel");
 	endunlockpoints = self stats::get_stat(#"unlocks", 0);
-	ties = self stats::function_441050ca(#"ties");
+	ties = self stats::get_stat_global(#"ties");
 	endgamesplayed = (endwins + endlosses) + ties;
 	recordplayerstats(self, "end_kills", endkills);
 	recordplayerstats(self, "end_deaths", enddeaths);
@@ -467,7 +467,7 @@ function function_ea5da381()
 	{
 		self persistence::function_acac764e();
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self persistence::set_recent_stat(0, 0, #"hash_95906bc03912ac4", self.pers[#"hash_95906bc03912ac4"]);
 		self persistence::set_recent_stat(0, 0, #"hash_50ee08d8d2973448", self.pers[#"hash_50ee08d8d2973448"]);

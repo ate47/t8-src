@@ -427,11 +427,11 @@ function private debug_think()
 */
 function private function_51ce850d()
 {
-	self namespace_2e6206f9::function_278f9455("script_enable_on_success", &wave_manager::start);
-	self namespace_2e6206f9::function_278f9455("script_enable_on_failure", &wave_manager::start);
-	self namespace_2e6206f9::function_278f9455("script_enable_no_specialist", &wave_manager::start);
-	self namespace_2e6206f9::function_278f9455("script_disable_on_success", &wave_manager::stop);
-	self namespace_2e6206f9::function_278f9455("script_disable_on_failure", &wave_manager::stop);
+	self namespace_2e6206f9::register_callback("script_enable_on_success", &wave_manager::start);
+	self namespace_2e6206f9::register_callback("script_enable_on_failure", &wave_manager::start);
+	self namespace_2e6206f9::register_callback("script_enable_no_specialist", &wave_manager::start);
+	self namespace_2e6206f9::register_callback("script_disable_on_success", &wave_manager::stop);
+	self namespace_2e6206f9::register_callback("script_disable_on_failure", &wave_manager::stop);
 	self namespace_2e6206f9::function_c6dbc898("breadcrumb", "script_enable_on_success", &function_710cbc75);
 	self namespace_2e6206f9::function_c6dbc898("breadcrumb", "script_enable_on_failure", &function_710cbc75);
 	self namespace_2e6206f9::function_c6dbc898("breadcrumb", "script_enable_no_specialist", &function_710cbc75);
@@ -1256,7 +1256,7 @@ function private function_60fa5e02(var_c21b798e)
 }
 
 /*
-	Name: function_8726b97d
+	Name: complete_spawn_set
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x9E26B265
 	Offset: 0x39E0
@@ -1264,7 +1264,7 @@ function private function_60fa5e02(var_c21b798e)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_8726b97d(var_c21b798e)
+function private complete_spawn_set(var_c21b798e)
 {
 	var_c21b798e flag::set(("spawn_set_" + var_c21b798e.m_n_index) + "_complete");
 }
@@ -1592,7 +1592,7 @@ function private function_8f5ed189(var_dcd6c23, var_c21b798e)
 		}
 		wait(0.1);
 	}
-	function_8726b97d(var_c21b798e);
+	complete_spawn_set(var_c21b798e);
 	while(true)
 	{
 		var_c21b798e.var_bb290b79 = array::remove_dead(var_c21b798e.var_bb290b79);

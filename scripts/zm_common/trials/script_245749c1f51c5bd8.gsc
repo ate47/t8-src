@@ -45,7 +45,7 @@ function __init__()
 		return;
 	}
 	clientfield::register("scriptmover", "" + #"hash_530f1e3dbb50b5f6", 16000, 1, "int");
-	zm_trial::register_challenge(#"hash_6f720e698e84015d", &on_begin, &on_end);
+	zm_trial::register_challenge(#"door_lockdown", &on_begin, &on_end);
 }
 
 /*
@@ -97,7 +97,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	s_challenge = zm_trial::function_a36e8c38(#"hash_6f720e698e84015d");
+	s_challenge = zm_trial::function_a36e8c38(#"door_lockdown");
 	return isdefined(s_challenge);
 }
 

@@ -104,7 +104,7 @@ function function_c3452ef9(params)
 	self.traverseendnode = params.endnode;
 	self.traversalendpos = params.endpos;
 	self.traversemantlenode = params.mantlenode;
-	namespace_26186a83::play_animation("parametric_traverse@traversal");
+	bot_animation::play_animation("parametric_traverse@traversal");
 	self.traversestartnode = undefined;
 	self.traversalstartpos = undefined;
 	self.traverseendnode = undefined;

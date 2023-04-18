@@ -3,11 +3,11 @@
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_9c817acd;
+#namespace bot_stance;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x75F1303C
 	Offset: 0xD0
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_54c6c44493a304a7", &__init__, undefined, undefined);
+	system::register(#"bot_stance", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x2428F69D
 	Offset: 0x118
 	Size: 0x31C
@@ -31,7 +31,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.var_17a3a139 = [];
-	level.var_4381b72a = [];
+	level.botstances = [];
 	register_handler(#"default", &function_51cc7d9a);
 	register_handler(#"hash_2405aec12988c1f7", &function_7857357b);
 	register_handler(#"hash_ca2f8909b847c6f", &function_f1b497ec);
@@ -52,7 +52,7 @@ function __init__()
 
 /*
 	Name: start
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xB1B010E7
 	Offset: 0x440
 	Size: 0x42
@@ -68,7 +68,7 @@ function start()
 
 /*
 	Name: stop
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xB39C8A71
 	Offset: 0x490
 	Size: 0x16
@@ -82,7 +82,7 @@ function stop()
 
 /*
 	Name: reset
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x77301EDC
 	Offset: 0x4B0
 	Size: 0x16
@@ -96,7 +96,7 @@ function reset()
 
 /*
 	Name: update
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x93236B1A
 	Offset: 0x4D0
 	Size: 0x92
@@ -118,7 +118,7 @@ function update(tacbundle)
 
 /*
 	Name: handle_path_success
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xAF4F1C92
 	Offset: 0x570
 	Size: 0x86
@@ -142,7 +142,7 @@ function handle_path_success()
 
 /*
 	Name: handle_goal_reached
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x2240F145
 	Offset: 0x600
 	Size: 0x86
@@ -166,7 +166,7 @@ function handle_goal_reached()
 
 /*
 	Name: register_handler
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x32F7C8C8
 	Offset: 0x690
 	Size: 0x2A
@@ -180,7 +180,7 @@ function register_handler(name, func)
 
 /*
 	Name: register_stance
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xC9504E68
 	Offset: 0x6C8
 	Size: 0x2A
@@ -189,12 +189,12 @@ function register_handler(name, func)
 */
 function register_stance(name, func)
 {
-	level.var_4381b72a[name] = func;
+	level.botstances[name] = func;
 }
 
 /*
 	Name: function_7beea81f
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xFE238835
 	Offset: 0x700
 	Size: 0x1A4
@@ -234,7 +234,7 @@ function function_7beea81f(tacbundle)
 
 /*
 	Name: function_ab5be907
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x45BAFE56
 	Offset: 0x8B0
 	Size: 0x168
@@ -268,7 +268,7 @@ function function_ab5be907(tacbundle, params, node)
 
 /*
 	Name: g_stop_player_too_many_weapons_monitor
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x13B1B17D
 	Offset: 0xA20
 	Size: 0xBE
@@ -281,7 +281,7 @@ function g_stop_player_too_many_weapons_monitor(name)
 	{
 		return false;
 	}
-	func = level.var_4381b72a[name];
+	func = level.botstances[name];
 	if(!isdefined(func))
 	{
 		/#
@@ -298,7 +298,7 @@ function g_stop_player_too_many_weapons_monitor(name)
 
 /*
 	Name: function_51cc7d9a
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x1E1F5F2C
 	Offset: 0xAE8
 	Size: 0x3A
@@ -312,7 +312,7 @@ function function_51cc7d9a(tacbundle, params, node)
 
 /*
 	Name: function_7857357b
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x1A77624D
 	Offset: 0xB30
 	Size: 0x11A
@@ -346,7 +346,7 @@ function function_7857357b(tacbundle, params, node)
 
 /*
 	Name: function_f1b497ec
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xFFC1FAC5
 	Offset: 0xC58
 	Size: 0x11A
@@ -381,7 +381,7 @@ function function_f1b497ec(tacbundle, params, node)
 
 /*
 	Name: function_41d967fe
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xE0351493
 	Offset: 0xD80
 	Size: 0x11A
@@ -416,7 +416,7 @@ function function_41d967fe(tacbundle, params, node)
 
 /*
 	Name: function_f71302f4
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xA5A903AC
 	Offset: 0xEA8
 	Size: 0x182
@@ -462,7 +462,7 @@ function function_f71302f4(tacbundle, params, node)
 
 /*
 	Name: function_821cce69
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x398A6BA8
 	Offset: 0x1038
 	Size: 0x162
@@ -504,7 +504,7 @@ function function_821cce69(tacbundle, params, node)
 
 /*
 	Name: function_5485fc7b
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x9661FAB9
 	Offset: 0x11A8
 	Size: 0xDA
@@ -532,7 +532,7 @@ function function_5485fc7b(tacbundle, params, node)
 
 /*
 	Name: function_e4f752b9
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xD7FE67FB
 	Offset: 0x1290
 	Size: 0x212
@@ -583,7 +583,7 @@ function function_e4f752b9(tacbundle, params, node)
 
 /*
 	Name: function_d22ff818
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x65E04662
 	Offset: 0x14B0
 	Size: 0x31A
@@ -656,7 +656,7 @@ function function_d22ff818(tacbundle, params, node)
 
 /*
 	Name: function_1989cfaf
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xC5B30D43
 	Offset: 0x17D8
 	Size: 0x39A
@@ -733,7 +733,7 @@ function function_1989cfaf(tacbundle, params, node)
 
 /*
 	Name: sprint
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x7F313680
 	Offset: 0x1B80
 	Size: 0x64
@@ -750,7 +750,7 @@ function sprint()
 
 /*
 	Name: stand
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x8D004F98
 	Offset: 0x1BF0
 	Size: 0x64
@@ -767,7 +767,7 @@ function stand()
 
 /*
 	Name: crouch
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x1452A7FC
 	Offset: 0x1C60
 	Size: 0x64
@@ -784,7 +784,7 @@ function crouch()
 
 /*
 	Name: prone
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0xB89449C2
 	Offset: 0x1CD0
 	Size: 0x64
@@ -801,7 +801,7 @@ function prone()
 
 /*
 	Name: slide
-	Namespace: namespace_9c817acd
+	Namespace: bot_stance
 	Checksum: 0x604FFB37
 	Offset: 0x1D40
 	Size: 0x64

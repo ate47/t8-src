@@ -257,7 +257,7 @@ function proximitydetonate(attacker, weapon, target)
 		{
 			if(self.owner util::isenemyplayer(attacker))
 			{
-				if(sessionmodeismultiplayergame() || function_f99d2668())
+				if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 				{
 					attacker challenges::destroyedexplosive(weapon);
 					scoreevents::processscoreevent(#"destroyed_claymore", attacker, self.owner, weapon);

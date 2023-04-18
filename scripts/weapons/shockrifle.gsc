@@ -7,7 +7,7 @@
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\abilities\ability_power.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -395,7 +395,7 @@ function function_13c7b967(owner)
 		return;
 	}
 	obj_id = gameobjects::get_next_obj_id();
-	objective_add(obj_id, "invisible", self.origin, #"hash_6c3f4903a7f04ff5");
+	objective_add(obj_id, "invisible", self.origin, #"shockrifle_shocked");
 	objective_onentity(obj_id, self);
 	objective_setvisibletoall(obj_id);
 	objective_setteam(obj_id, owner getteam());
@@ -434,16 +434,16 @@ function function_3474c820()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5439aa67(var_197afafd)
+function function_5439aa67(shockcharge)
 {
 	self endon(#"death", #"hash_171a421886825497");
 	while(isdefined(self))
 	{
 		if(self isplayerswimming())
 		{
-			if(isdefined(var_197afafd))
+			if(isdefined(shockcharge))
 			{
-				self dodamage(10000, var_197afafd.origin, var_197afafd.owner, var_197afafd, undefined, "MOD_UNKNOWN", 0, level.var_1b72f911);
+				self dodamage(10000, shockcharge.origin, shockcharge.owner, shockcharge, undefined, "MOD_UNKNOWN", 0, level.var_1b72f911);
 			}
 			else
 			{
@@ -479,13 +479,13 @@ function watchfordeath()
 	Parameters: 3
 	Flags: Linked
 */
-function function_c80bac1f(var_197afafd, var_51415470, var_3ee2edfa)
+function function_c80bac1f(shockcharge, var_51415470, var_3ee2edfa)
 {
 	self endon(#"death");
 	self ability_player::function_fc4dc54(1);
 	self.var_21f48975 = gettime();
-	owner = var_197afafd.owner;
-	damagepos = var_197afafd.origin;
+	owner = shockcharge.owner;
+	damagepos = shockcharge.origin;
 	var_40aed931 = 0;
 	if(var_40aed931)
 	{
@@ -494,7 +494,7 @@ function function_c80bac1f(var_197afafd, var_51415470, var_3ee2edfa)
 	self playsound("wpn_shockrifle_bounce");
 	if(isplayer(self))
 	{
-		self thread function_5439aa67(var_197afafd);
+		self thread function_5439aa67(shockcharge);
 		self freezecontrolsallowlook(1);
 	}
 	var_fdc63b5e = getweapon(#"hash_740692024876c999");
@@ -564,7 +564,7 @@ function function_c80bac1f(var_197afafd, var_51415470, var_3ee2edfa)
 */
 function function_e0141557(ent, var_51415470)
 {
-	damage = (var_51415470 ? level.var_a5ff950.var_2c5ddff9 : level.var_a5ff950.var_e9661593);
+	damage = (var_51415470 ? level.var_a5ff950.var_2c5ddff9 : level.var_a5ff950.shockdamage);
 	isplayer = isplayer(ent);
 	if(isdefined(ent.var_beee9523) && ent.var_beee9523)
 	{

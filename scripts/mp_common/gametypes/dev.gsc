@@ -1508,7 +1508,7 @@ function function_e88bdbcf(score)
 		{
 			if(isdefined(player) && isalive(player) && player.sessionstate == "")
 			{
-				player globallogic_score::function_49c10afe();
+				player globallogic_score::resetplayermomentum();
 			}
 		}
 	#/

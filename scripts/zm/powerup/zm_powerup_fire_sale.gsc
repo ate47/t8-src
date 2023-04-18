@@ -44,7 +44,7 @@ function __init__()
 	zm_powerups::register_powerup("fire_sale", &grab_fire_sale);
 	if(zm_powerups::function_cc33adc8())
 	{
-		zm_powerups::add_zombie_powerup("fire_sale", "p7_zm_power_up_firesale", #"hash_460ca52bf94f19c0", &func_should_drop_fire_sale, 0, 0, 0, undefined, "powerup_fire_sale", "zombie_powerup_fire_sale_time", "zombie_powerup_fire_sale_on");
+		zm_powerups::add_zombie_powerup("fire_sale", "p7_zm_power_up_firesale", #"zombie/powerup_max_ammo", &func_should_drop_fire_sale, 0, 0, 0, undefined, "powerup_fire_sale", "zombie_powerup_fire_sale_time", "zombie_powerup_fire_sale_on");
 	}
 }
 

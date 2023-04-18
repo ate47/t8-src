@@ -304,7 +304,7 @@ function status_effects_devgui_think()
 					status_effects_give_grenade(pid);
 					break;
 				}
-				case "hash_5ef5fa93b3352722":
+				case "clear_all":
 				{
 					function_64ba1c7e(pid);
 				}

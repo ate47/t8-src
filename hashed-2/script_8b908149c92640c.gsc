@@ -37,8 +37,8 @@ function init_shared(bundlename)
 		level.var_400ded61._ai_tank_fx[#"immobile"] = "killstreaks/fx8_drone_tank_stun";
 		level.var_400ded61._ai_tank_fx[#"stun"] = "killstreaks/fx_agr_emp_stun";
 		clientfield::register("vehicle", "ai_tank_death", 1, 1, "int", &death, 0, 0);
-		clientfield::register("vehicle", "ai_tank_immobile", 1, 1, "int", &function_942c857, 0, 0);
-		clientfield::register("vehicle", "ai_tank_change_control", 1, 1, "int", &function_77f17280, 0, 0);
+		clientfield::register("vehicle", "ai_tank_immobile", 1, 1, "int", &tank_immobile, 0, 0);
+		clientfield::register("vehicle", "ai_tank_change_control", 1, 1, "int", &tank_change_control, 0, 0);
 		clientfield::register("toplayer", "ai_tank_update_hud", 1, 1, "counter", &update_hud, 0, 0);
 		clientfield::register("clientuimodel", "hudItems.tankState", 1, 3, "int", undefined, 0, 0);
 		clientfield::register("toplayer", "ai_tank_jam_hud", 9000, 1, "int", &function_aedc4c37, 0, 1);
@@ -179,7 +179,7 @@ function update_ui_model_ammo_count(localclientnum, missiles_loaded)
 }
 
 /*
-	Name: function_942c857
+	Name: tank_immobile
 	Namespace: ai_tank
 	Checksum: 0xD1742647
 	Offset: 0xBB8
@@ -187,7 +187,7 @@ function update_ui_model_ammo_count(localclientnum, missiles_loaded)
 	Parameters: 7
 	Flags: None
 */
-function function_942c857(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function tank_immobile(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	if(newval)
@@ -203,7 +203,7 @@ function function_942c857(localclientnum, oldval, newval, bnewent, binitialsnap,
 }
 
 /*
-	Name: function_77f17280
+	Name: tank_change_control
 	Namespace: ai_tank
 	Checksum: 0x94064129
 	Offset: 0xC78
@@ -211,7 +211,7 @@ function function_942c857(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 7
 	Flags: None
 */
-function function_77f17280(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function tank_change_control(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	if(newval)

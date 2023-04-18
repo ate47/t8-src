@@ -76,20 +76,20 @@ function __main__()
 */
 function function_6bb82ac9()
 {
-	level.var_58143890 = [];
+	level.avogadrobolts = [];
 	for(i = 0; i < 3; i++)
 	{
 		bolt = spawn("script_model", (0, 0, 0));
 		bolt setmodel("tag_origin");
-		if(!isdefined(level.var_58143890))
+		if(!isdefined(level.avogadrobolts))
 		{
-			level.var_58143890 = [];
+			level.avogadrobolts = [];
 		}
-		else if(!isarray(level.var_58143890))
+		else if(!isarray(level.avogadrobolts))
 		{
-			level.var_58143890 = array(level.var_58143890);
+			level.avogadrobolts = array(level.avogadrobolts);
 		}
-		level.var_58143890[level.var_58143890.size] = bolt;
+		level.avogadrobolts[level.avogadrobolts.size] = bolt;
 	}
 }
 
@@ -322,7 +322,7 @@ function function_80fc1a78(time)
 */
 function private function_66dd488a()
 {
-	foreach(bolt in level.var_58143890)
+	foreach(bolt in level.avogadrobolts)
 	{
 		if(isalive(bolt.owner) || (bolt clientfield::get("" + #"hash_699d5bb1a9339a93")) == 1)
 		{

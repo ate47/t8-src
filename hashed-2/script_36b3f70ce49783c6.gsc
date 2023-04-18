@@ -59,7 +59,7 @@ function private _cleanup()
 			foreach(func in var_314770d8)
 			{
 				util::wait_network_frame(1);
-				[[func]](level.deathcircle, level.var_fb91af8[level.var_52b56362 - 1]);
+				[[func]](level.deathcircle, level.deathcircles[level.var_52b56362 - 1]);
 			}
 		}
 		wait(1);
@@ -82,15 +82,15 @@ function private function_b465b436(deathcircle, var_898879a6)
 		return;
 	}
 	var_3aeceeac = arraycopy(level.var_ace9fb52);
-	foreach(var_4961f577 in var_3aeceeac)
+	foreach(deathstash in var_3aeceeac)
 	{
-		if(!isdefined(var_4961f577))
+		if(!isdefined(deathstash))
 		{
 			continue;
 		}
-		if(function_3703bc36(var_4961f577, var_898879a6, 1))
+		if(function_3703bc36(deathstash, var_898879a6, 1))
 		{
-			var_4961f577 delete();
+			deathstash delete();
 			waitframe(1);
 		}
 	}

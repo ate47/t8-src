@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_4c956dd41c112703;
+#using scripts\zm\zm_white_private_mannequin.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
@@ -54,22 +54,22 @@ function __init__()
 function private on_begin()
 {
 	var_a2c75164 = getent("mannequin_ally_door", "targetname");
-	var_a2c75164 namespace_ba16273b::function_a51b6403(1);
+	var_a2c75164 zm_white_private_mannequin::function_a51b6403(1);
 	wait(1);
 	level.var_1a612d42 = getplayers()[0];
 	level.var_1a612d42.eligible_leader = 1;
 	mannequin_ally_spawner = getent("mannequin_american_spawner", "targetname");
 	if(isdefined(mannequin_ally_spawner))
 	{
-		level.var_8943f7db = mannequin_ally_spawner spawnfromspawner();
-		util::magic_bullet_shield(level.var_8943f7db);
-		level.var_8943f7db.aioverridedamage = array(&function_26edbcdc);
-		level thread function_7532e17c(level.var_8943f7db);
+		level.mannequin_ally = mannequin_ally_spawner spawnfromspawner();
+		util::magic_bullet_shield(level.mannequin_ally);
+		level.mannequin_ally.aioverridedamage = array(&function_26edbcdc);
+		level thread function_7532e17c(level.mannequin_ally);
 	}
-	var_a2c75164 namespace_ba16273b::function_a51b6403(0);
+	var_a2c75164 zm_white_private_mannequin::function_a51b6403(0);
 	callback::function_33f0ddd3(&function_33f0ddd3);
 	level zm_trial::function_25ee130(1);
-	if(isdefined(level.var_8943f7db))
+	if(isdefined(level.mannequin_ally))
 	{
 		foreach(player in getplayers())
 		{
@@ -95,11 +95,11 @@ function private on_end(round_reset)
 	{
 		player thread zm_trial_util::function_dc0859e();
 	}
-	if(isdefined(level.var_8943f7db) && isalive(level.var_8943f7db))
+	if(isdefined(level.mannequin_ally) && isalive(level.mannequin_ally))
 	{
-		level.var_8943f7db notify(#"revive_terminated");
-		util::stop_magic_bullet_shield(level.var_8943f7db);
-		level.var_8943f7db kill();
+		level.mannequin_ally notify(#"revive_terminated");
+		util::stop_magic_bullet_shield(level.mannequin_ally);
+		level.mannequin_ally kill();
 	}
 }
 
@@ -134,7 +134,7 @@ function private function_545d53bf()
 	while(true)
 	{
 		var_972e1f84 = 0;
-		dist = distancesquared(self.origin, level.var_8943f7db.origin);
+		dist = distancesquared(self.origin, level.mannequin_ally.origin);
 		if(dist <= 40000)
 		{
 			var_972e1f84 = 1;
@@ -167,7 +167,7 @@ function private function_33f0ddd3(s_event)
 	if(s_event.event === "give_weapon")
 	{
 		var_972e1f84 = 0;
-		dist = distancesquared(self.origin, level.var_8943f7db.origin);
+		dist = distancesquared(self.origin, level.mannequin_ally.origin);
 		if(dist <= 40000)
 		{
 			var_972e1f84 = 1;

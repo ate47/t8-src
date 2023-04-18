@@ -142,10 +142,10 @@ function private function_ba459d03(team)
 	/#
 		if(isdefined(level.var_ba13fb7a) && level.var_ba13fb7a)
 		{
-			var_54e8d52e = string(team);
+			team_str = string(team);
 			if(isdefined(level.teams[team]))
 			{
-				var_54e8d52e = level.teams[team];
+				team_str = level.teams[team];
 			}
 			voip = "";
 			if(isdefined(level.var_75dffa9f[team]))
@@ -156,7 +156,7 @@ function private function_ba459d03(team)
 			{
 				voip = voip + "";
 			}
-			println(((((("" + "") + self.name) + "") + var_54e8d52e) + "") + voip);
+			println(((((("" + "") + self.name) + "") + team_str) + "") + voip);
 		}
 	#/
 }

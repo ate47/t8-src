@@ -2,7 +2,7 @@
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\item_inventory.gsc;
-#using script_6b7c77b107c81e62;
+#using scripts\mp_common\dynent_world.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -172,12 +172,12 @@ function private function_af4c6c9b(targetname, count)
 function private function_fb346efb()
 {
 	level flagsys::wait_till(#"hash_405e46788e83af41");
-	var_c88d9756 = level.var_fb91af8.size - 1;
+	var_c88d9756 = level.deathcircles.size - 1;
 	while(level.var_52b56362 < var_c88d9756)
 	{
 		wait(1);
 	}
-	var_8e3c3c5b = level.var_fb91af8[level.var_52b56362];
+	var_8e3c3c5b = level.deathcircles[level.var_52b56362];
 	level.var_590e0497 = [];
 	foreach(targetname, count in level.var_a6a3e12a)
 	{
@@ -226,7 +226,7 @@ function private function_fcf5be67()
 	self.onbeginuse = &function_97eb71f0;
 	self.var_263c4ded = &function_3d49217f;
 	self.onuse = &function_7c5a1e82;
-	self.var_45f1d6af = &function_368adf4f;
+	self.onusecancel = &function_368adf4f;
 	level.var_590e0497[level.var_590e0497.size] = self;
 }
 
@@ -395,7 +395,7 @@ function private function_651e50d9(activator)
 {
 	bundle = function_489009c1(self);
 	state = function_ffdbe8c2(self);
-	activator.var_8a022726 namespace_b6ee49c3::function_836af3b3(bundle, state);
+	activator.var_8a022726 dynent_world::function_836af3b3(bundle, state);
 	activator clientfield::set_player_uimodel("hudItems.depositing", 0);
 }
 
@@ -419,7 +419,7 @@ function private function_a6eac3b7()
 			{
 				continue;
 			}
-			setdvar(#"hash_2ffb520615032eca", "");
+			setdvar(#"devgui_deathcircle", "");
 			args = strtok(dvarstr, "");
 			if(args.size == 2)
 			{

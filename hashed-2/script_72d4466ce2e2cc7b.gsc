@@ -61,7 +61,7 @@ function localclient_connect(localclientnum)
 		thread function_ba24f324(localclientnum);
 		thread function_1d13e2db(localclientnum);
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		thread function_1d13e2db(localclientnum);
 	}
@@ -91,7 +91,7 @@ function function_9ac87769(localclientnum)
 	player thread function_161106e1(localclientnum);
 	player thread function_a78bbf22(localclientnum);
 	player thread function_1183b860(localclientnum);
-	if(!function_f99d2668() && !sessionmodeiszombiesgame())
+	if(!sessionmodeiswarzonegame() && !sessionmodeiszombiesgame())
 	{
 		player thread function_af712255(localclientnum);
 	}
@@ -99,7 +99,7 @@ function function_9ac87769(localclientnum)
 	{
 		player thread function_88dc3170(localclientnum);
 	}
-	if(isdefined(level.var_d3909b95) && level.var_d3909b95)
+	if(isdefined(level.playerinsertion) && level.playerinsertion)
 	{
 		if(!isdefined(level.var_51e99b46) || level.var_51e99b46 != 2)
 		{
@@ -130,7 +130,7 @@ function function_43a84577()
 		function_b4c6383f(self function_c2a5ba97(key), 1, 16777215);
 	}
 	function_b4c6383f(self function_c2a5ba97("chatmodelast"), 1, 16187136);
-	if(isdefined(level.var_d3909b95) && level.var_d3909b95)
+	if(isdefined(level.playerinsertion) && level.playerinsertion)
 	{
 		var_81fa6e00 = array("togglemap", "+map", "+inventory", "toggleinventory");
 		foreach(key in var_81fa6e00)
@@ -322,7 +322,7 @@ function function_a78bbf22(localclientnum)
 {
 	self endon(#"death");
 	level endon(#"hash_5f10014535621f84");
-	if(isdefined(level.var_d3909b95) && level.var_d3909b95)
+	if(isdefined(level.playerinsertion) && level.playerinsertion)
 	{
 		a_keys = array(self function_c2a5ba97("+frag"), self function_c2a5ba97("+smoke"));
 		self.var_9623f1d5 = array(0, 0);
@@ -424,7 +424,7 @@ function function_ba24f324(localclientnum)
 		player = function_27673a7(localclientnum);
 		player function_43a84577();
 		player thread function_a78bbf22(localclientnum);
-		if(!function_f99d2668() && !sessionmodeiszombiesgame())
+		if(!sessionmodeiswarzonegame() && !sessionmodeiszombiesgame())
 		{
 			player thread function_af712255(localclientnum);
 		}
@@ -432,7 +432,7 @@ function function_ba24f324(localclientnum)
 		{
 			player thread function_88dc3170(localclientnum);
 		}
-		if(isdefined(level.var_d3909b95) && level.var_d3909b95)
+		if(isdefined(level.playerinsertion) && level.playerinsertion)
 		{
 			if(!isdefined(level.var_51e99b46) || level.var_51e99b46 != 2)
 			{
@@ -517,14 +517,14 @@ function function_1d13e2db(localclientnum)
 		{
 			if(_town_mansion_primary_weapons == 6 && var_20ef87f3 != previoustime)
 			{
-				if(!function_f99d2668())
+				if(!sessionmodeiswarzonegame())
 				{
 					function_d9a960f2(1, 12, 8698);
 					function_815076cb(var_1953ea4a, 0);
 				}
 				if(var_20ef87f3 == 5)
 				{
-					if(function_f99d2668())
+					if(sessionmodeiswarzonegame())
 					{
 						function_d9a960f2(1, 12, 8698);
 						function_815076cb(var_1953ea4a, 0);

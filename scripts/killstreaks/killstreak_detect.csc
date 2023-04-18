@@ -179,8 +179,8 @@ function function_d859c344(local_client_num, newval)
 	}
 	if(isdefined(bundle))
 	{
-		var_872807f = bundle.("ksROBShowFriendly");
-		if(isdefined(var_872807f) && var_872807f)
+		show_friendly = bundle.("ksROBShowFriendly");
+		if(isdefined(show_friendly) && show_friendly)
 		{
 			self renderoverridebundle::function_c8d97b8e(local_client_num, #"friendly", bundle.var_d3413870 + "friendly");
 		}
@@ -543,8 +543,8 @@ function checkteammissiles(localclientnum)
 */
 function function_8ac48939(bundle)
 {
-	var_872807f = bundle.("ksROBShowFriendly");
-	if(isdefined(var_872807f) && var_872807f)
+	show_friendly = bundle.("ksROBShowFriendly");
+	if(isdefined(show_friendly) && show_friendly)
 	{
 		renderoverridebundle::function_f72f089c(bundle.var_d3413870 + "friendly", bundle.("ksROBFriendly"), &function_95f96f3e);
 	}

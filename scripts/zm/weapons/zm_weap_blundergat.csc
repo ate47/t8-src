@@ -40,7 +40,7 @@ function __init__()
 	level._effect[#"dart_light"] = #"hash_64a1305d0a32ab5c";
 	level._effect[#"hash_246bcda21a086519"] = #"hash_43a0a5d1ff9073d1";
 	level._effect[#"hash_1ac90f7b38a61c4f"] = #"hash_209f1d5520f6f4aa";
-	level._effect[#"hash_33ce6e4535444787"] = #"hash_8b3391780a4489a";
+	level._effect[#"magma_fire_explosion"] = #"hash_8b3391780a4489a";
 	level._effect[#"zombie_fire_fx_head"] = #"hash_6b19659fd76f81c6";
 	level._effect[#"zombie_fire_fx_arm_left"] = #"hash_119076c138c439de";
 	level._effect[#"zombie_fire_fx_arm_right"] = #"hash_657f3202e3b4b33";
@@ -161,7 +161,7 @@ function zombie_magma_fire_explosion(localclientnum, oldval, newval, bnewent, bi
 		{
 			str_tag = "j_spine1";
 		}
-		self.var_4a4174e9 = util::playfxontag(localclientnum, level._effect[#"hash_33ce6e4535444787"], self, str_tag);
+		self.var_4a4174e9 = util::playfxontag(localclientnum, level._effect[#"magma_fire_explosion"], self, str_tag);
 		self playsound(localclientnum, #"hash_7ddaece972d0ba7f");
 	}
 }

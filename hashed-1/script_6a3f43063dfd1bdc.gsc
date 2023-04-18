@@ -411,9 +411,9 @@ function function_dc51a40(var_2a7487f4, str_key)
 	Parameters: 3
 	Flags: Linked
 */
-function function_bffcedde(var_4f07f125, var_3f89038a, var_333f876e)
+function function_bffcedde(var_4f07f125, get_key, var_333f876e)
 {
-	temp_array = getentarray(var_4f07f125, var_3f89038a);
+	temp_array = getentarray(var_4f07f125, get_key);
 	temp_array = function_dc51a40(temp_array, var_333f876e);
 	return temp_array;
 }
@@ -427,9 +427,9 @@ function function_bffcedde(var_4f07f125, var_3f89038a, var_333f876e)
 	Parameters: 3
 	Flags: Linked
 */
-function function_2719d4c0(var_4f07f125, var_3f89038a, var_333f876e)
+function function_2719d4c0(var_4f07f125, get_key, var_333f876e)
 {
-	temp_array = struct::get_array(var_4f07f125, var_3f89038a);
+	temp_array = struct::get_array(var_4f07f125, get_key);
 	temp_array = function_dc51a40(temp_array, var_333f876e);
 	return temp_array;
 }
@@ -817,7 +817,7 @@ function function_45bb11e4(spot)
 			}
 		}
 	}
-	if(str_shot_name == "default" && (self.has_legs === 0 || self.var_eb91c296 === 1))
+	if(str_shot_name == "default" && (self.has_legs === 0 || self.missing_legs === 1))
 	{
 		str_shot_name = "crawler";
 	}

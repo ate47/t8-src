@@ -427,7 +427,7 @@ function private initzmbehaviorsandasm()
 	/#
 		assert(!isdefined(&zombiestunactionend) || isscriptfunctionptr(&zombiestunactionend));
 	#/
-	behaviortreenetworkutility::registerbehaviortreeaction(#"hash_ef9eec310fdc751", &zombiestunactionstart, &function_4e52c07, &zombiestunactionend);
+	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiestunaction", &zombiestunactionstart, &function_4e52c07, &zombiestunactionend);
 	/#
 		assert(isscriptfunctionptr(&function_bdedea72));
 	#/
@@ -739,7 +739,7 @@ function zombiefindflesh(behaviortreeentity)
 			else if(isdefined(behaviortreeentity.favoriteenemy))
 			{
 				behaviortreeentity.has_exit_point = undefined;
-				behaviortreeentity val::reset(#"hash_62fca810699077f3", "ignoreall");
+				behaviortreeentity val::reset(#"attack_properties", "ignoreall");
 				if(isdefined(level.enemy_location_override_func))
 				{
 					goalpos = [[level.enemy_location_override_func]](behaviortreeentity, behaviortreeentity.favoriteenemy);

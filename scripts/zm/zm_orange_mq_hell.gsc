@@ -63,7 +63,7 @@ function preload()
 	namespace_617a54f4::function_d8383812(#"sc_lantern_3", 24000, "sc_lantern_3", &function_36eb3c96, &function_defd8c26, 1);
 	namespace_617a54f4::function_d8383812(#"sc_lantern_4", 24000, "sc_lantern_4", &function_36eb3c96, &function_defd8c26, 1);
 	namespace_617a54f4::function_d8383812(#"sc_lantern_end", 24000, "sc_lantern_end", &function_36eb3c96, &function_f578fb22, 1);
-	level flag::init(#"hash_9cfd45106ac760d");
+	level flag::init(#"hell_on_earth");
 	init_2();
 }
 
@@ -463,7 +463,7 @@ function function_a340f5a2()
 	namespace_c3287616::function_c1571721(&function_a31d9184);
 	function_cb00d0e9();
 	level flag::set(#"infinite_round_spawning");
-	level flag::set(#"hash_9cfd45106ac760d");
+	level flag::set(#"hell_on_earth");
 	level flag::set(#"hash_69a9d00e65ee6c40");
 	level.musicsystemoverride = 1;
 	music::setmusicstate("hell_on_earth_1");
@@ -618,7 +618,7 @@ function function_87b541aa()
 	self endon(#"death");
 	self.var_8ec9550d = 1;
 	self clientfield::set_to_player("" + #"hash_78b8d89d34b32241", 2);
-	self zm_audio::create_and_play_dialog(#"hash_9cfd45106ac760d", #"circle");
+	self zm_audio::create_and_play_dialog(#"hell_on_earth", #"circle");
 	while(self.var_8ec9550d)
 	{
 		self dodamage(10, self.origin);
@@ -701,7 +701,7 @@ function function_defd8c26(var_f0e6c7a2, ent)
 	}
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = n_souls_required;
 		}
@@ -895,7 +895,7 @@ function function_3c3bee91()
 	music::setmusicstate("none");
 	playsoundatposition(#"hash_2b86a75118ae1608", (0, 0, 0));
 	level.var_5d5b7e8e.var_a41818b5.e_ring delete();
-	level flag::clear(#"hash_9cfd45106ac760d");
+	level flag::clear(#"hell_on_earth");
 	level.var_5d5b7e8e.var_a41818b5 setspeed(2);
 	level.var_857878e6 = undefined;
 	wait(1);
@@ -1212,7 +1212,7 @@ function test_hell()
 		level.var_5d5b7e8e.var_5ca15e11 show();
 		level.var_5d5b7e8e.var_5ca15e11 solid();
 		array::thread_all(level.var_35e33dbe, &function_a8fd16d0);
-		level flag::set(#"hash_9cfd45106ac760d");
+		level flag::set(#"hell_on_earth");
 		level.musicsystemoverride = 1;
 		music::setmusicstate("");
 		level clientfield::set("" + #"hash_5e69ee96304ec40b", 1);

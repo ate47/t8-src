@@ -2,11 +2,11 @@
 #using script_480b4ef11b7c73ec;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_81cf3c7f;
+#namespace mute_smoke;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_81cf3c7f
+	Namespace: mute_smoke
 	Checksum: 0xFFD81B72
 	Offset: 0x78
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_2ce2e438ecd6b2d2", &__init__, undefined, undefined);
+	system::register(#"mute_smoke", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_81cf3c7f
+	Namespace: mute_smoke
 	Checksum: 0xE53EE743
 	Offset: 0xC0
 	Size: 0x14

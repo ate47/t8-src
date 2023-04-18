@@ -36,7 +36,7 @@ function __init__()
 {
 	if((isdefined(getgametypesetting(#"hash_6fb11b1e304d533c")) ? getgametypesetting(#"hash_6fb11b1e304d533c") : 0))
 	{
-		namespace_b0722f43::function_e70fa91c(#"hash_1edbe1c283127e19", #"hash_122a0d1e67363704", 3);
+		namespace_b0722f43::function_e70fa91c(#"supply_stash_parent", #"hash_122a0d1e67363704", 3);
 		namespace_3d2704b3::function_f0297225(#"hash_122a0d1e67363704", 1, 3);
 	}
 }

@@ -1145,8 +1145,8 @@ function private function_90af2101(planner, constants)
 	#/
 	bots = planner::getblackboardattribute(planner, "doppelbots", squadindex);
 	kothzone = planner::getblackboardattribute(planner, "mp_kothZone");
-	var_e6d8d153 = function_c0e398c4(bots, kothzone, "kothZone");
-	planner::setblackboardattribute(planner, "mp_pathable_kothZone", var_e6d8d153, squadindex);
+	pathablekothZone = function_c0e398c4(bots, kothzone, "kothZone");
+	planner::setblackboardattribute(planner, "mp_pathable_kothZone", pathablekothZone, squadindex);
 	return spawnstruct();
 }
 
@@ -1165,12 +1165,12 @@ function private function_bca7d900(planner, constants)
 	/#
 		assert(squadindex >= 0, "");
 	#/
-	var_e6d8d153 = planner::getblackboardattribute(planner, "mp_pathable_kothZone", squadindex);
-	if(!isarray(var_e6d8d153) || var_e6d8d153.size <= 0)
+	pathablekothZone = planner::getblackboardattribute(planner, "mp_pathable_kothZone", squadindex);
+	if(!isarray(pathablekothZone) || pathablekothZone.size <= 0)
 	{
 		return spawnstruct();
 	}
-	planner::setblackboardattribute(planner, "mp_kothZone", array(var_e6d8d153[0][#"kothzone"]), squadindex);
+	planner::setblackboardattribute(planner, "mp_kothZone", array(pathablekothZone[0][#"kothzone"]), squadindex);
 	return spawnstruct();
 }
 
@@ -1223,12 +1223,12 @@ function private function_f192ef84(planner, constants)
 	/#
 		assert(squadindex >= 0, "");
 	#/
-	var_480dfc45 = planner::getblackboardattribute(planner, "mp_pathable_sdBomb", squadindex);
-	if(!isarray(var_480dfc45) || var_480dfc45.size <= 0)
+	pathablesdBomb = planner::getblackboardattribute(planner, "mp_pathable_sdBomb", squadindex);
+	if(!isarray(pathablesdBomb) || pathablesdBomb.size <= 0)
 	{
 		return spawnstruct();
 	}
-	planner::setblackboardattribute(planner, "mp_sdBomb", array(var_480dfc45[0][#"sdbomb"]), squadindex);
+	planner::setblackboardattribute(planner, "mp_sdBomb", array(pathablesdBomb[0][#"sdbomb"]), squadindex);
 	return spawnstruct();
 }
 

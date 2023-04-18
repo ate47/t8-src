@@ -161,7 +161,7 @@ function private get_zombie_count_for_round(round_number, player_count)
 */
 function private spawn_enemy()
 {
-	var_f63f3454 = zm_trial::function_a36e8c38(#"hash_a0e875894ebc5ff");
+	var_f63f3454 = zm_trial::function_a36e8c38(#"defend_area");
 	if(isdefined(var_f63f3454))
 	{
 		var_47ab7d31 = util::get_active_players().size;

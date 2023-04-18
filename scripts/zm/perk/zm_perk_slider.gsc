@@ -68,11 +68,11 @@ function function_481123c()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_phdflopper", #"perk_slider", 4000, #"hash_1434e75516b9654c", getweapon("zombie_perk_bottle_slider"), getweapon("zombie_perk_totem_slider"), #"hash_402b9d6529500b72");
+		zm_perks::register_perk_basic_info(#"specialty_phdflopper", #"perk_slider", 4000, #"hash_1434e75516b9654c", getweapon("zombie_perk_bottle_slider"), getweapon("zombie_perk_totem_slider"), #"zmperksphdslider");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_phdflopper", #"perk_slider", 4000, #"zombie/perk_slider", getweapon("zombie_perk_bottle_slider"), getweapon("zombie_perk_totem_slider"), #"hash_402b9d6529500b72");
+		zm_perks::register_perk_basic_info(#"specialty_phdflopper", #"perk_slider", 4000, #"zombie/perk_slider", getweapon("zombie_perk_bottle_slider"), getweapon("zombie_perk_totem_slider"), #"zmperksphdslider");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_phdflopper", &function_1781c013);
 	zm_perks::register_perk_clientfields(#"specialty_phdflopper", &function_5ba17a72, &function_90f58801);

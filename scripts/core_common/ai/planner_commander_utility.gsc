@@ -1680,8 +1680,8 @@ function private function_14c766b3(planner, constant)
 	var_8769837e = !var_bb89f65e || target[#"strategy"].("doppelbotsinteractions") == #"hash_7fa10febd2862b4a";
 	var_f75536ec = !var_bb89f65e || target[#"strategy"].("companionsinteractions") == #"hash_7fa10febd2862b4a";
 	var_f22aefd = strategiccommandutility::function_698a5382(target[#"strategy"]);
-	var_e6966cf8 = strategiccommandutility::function_54032f13(target[#"strategy"]);
-	var_eda803e5 = var_e6966cf8;
+	groundvehicles = strategiccommandutility::function_54032f13(target[#"strategy"]);
+	var_eda803e5 = groundvehicles;
 	validsquads = [];
 	foreach(squad in var_3d32e488)
 	{
@@ -1706,7 +1706,7 @@ function private function_14c766b3(planner, constant)
 				break;
 				continue;
 			}
-			if(var_e6966cf8 && member[#"type"] == "ground")
+			if(groundvehicles && member[#"type"] == "ground")
 			{
 				validsquads[validsquads.size] = squad;
 				break;

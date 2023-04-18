@@ -73,7 +73,7 @@ function function_2d1ff9c7(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self thread function_542f0394(localclientnum);
+		self thread dart_static_postfx(localclientnum);
 	}
 	else
 	{
@@ -106,7 +106,7 @@ function private function_32a729d9(localclientnum, value)
 }
 
 /*
-	Name: function_542f0394
+	Name: dart_static_postfx
 	Namespace: dart_wz
 	Checksum: 0xEDCE0DD4
 	Offset: 0x448
@@ -114,7 +114,7 @@ function private function_32a729d9(localclientnum, value)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_542f0394(localclientnum)
+function private dart_static_postfx(localclientnum)
 {
 	self notify("3edfd3cf94760371");
 	self endon("3edfd3cf94760371");

@@ -1729,13 +1729,13 @@ function debug_unitriggers()
 							{
 								foreach(var_becdb9c in triggerstub.playertrigger)
 								{
-									function_3fdbe6d3(var_becdb9c, origin, color);
+									debug_trigger(var_becdb9c, origin, color);
 								}
 							}
 						}
 						else
 						{
-							function_3fdbe6d3(triggerstub.trigger, origin, color);
+							debug_trigger(triggerstub.trigger, origin, color);
 						}
 						continue;
 					}
@@ -1770,7 +1770,7 @@ function debug_unitriggers()
 }
 
 /*
-	Name: function_3fdbe6d3
+	Name: debug_trigger
 	Namespace: zm_unitrigger
 	Checksum: 0xF20FEF69
 	Offset: 0x4290
@@ -1778,7 +1778,7 @@ function debug_unitriggers()
 	Parameters: 3
 	Flags: None
 */
-function function_3fdbe6d3(trigger, var_5ca10e3c, color)
+function debug_trigger(trigger, var_5ca10e3c, color)
 {
 	if(isdefined(trigger))
 	{

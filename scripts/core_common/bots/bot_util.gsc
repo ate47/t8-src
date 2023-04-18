@@ -97,7 +97,7 @@ function function_e449b57(gameobject)
 	{
 		return;
 	}
-	self bot::function_7a6eea9c(gameobject);
+	self bot::set_interact(gameobject);
 }
 
 /*

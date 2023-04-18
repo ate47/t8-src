@@ -286,7 +286,7 @@ function private registerbehaviorscriptfunctions()
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_1d036f310bd792ad", &function_e523fa0d);
 	animationstatenetwork::registernotetrackhandlerfunction("summon_wolves", &function_aa43003c);
 	animationstatenetwork::registernotetrackhandlerfunction("werewolf_leap_melee", &function_fca0332e);
-	animationstatenetwork::registernotetrackhandlerfunction("werewolf_disable_pain", &function_8690f1e9);
+	animationstatenetwork::registernotetrackhandlerfunction("werewolf_disable_pain", &werewolfdisablepain);
 	animationstatenetwork::registernotetrackhandlerfunction("wrwlf_silver_death_fx", &function_b74b9f01);
 	animationstatenetwork::registernotetrackhandlerfunction("werewolf_leap_rumble", &function_e980911c);
 	animationstatenetwork::registernotetrackhandlerfunction("start_breakout", &function_dc05cd83);
@@ -902,7 +902,7 @@ function private function_1917d76d(entity)
 }
 
 /*
-	Name: function_8690f1e9
+	Name: werewolfdisablepain
 	Namespace: zm_ai_werewolf
 	Checksum: 0x6455C417
 	Offset: 0x2AB0
@@ -910,7 +910,7 @@ function private function_1917d76d(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_8690f1e9(entity)
+function private werewolfdisablepain(entity)
 {
 	entity.var_e9ed8a62 = 1;
 }
@@ -1666,11 +1666,11 @@ function function_8b63ee0e(entity, mocompanim, mocompanimblendouttime, mocompani
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
 			zdiff = entity.var_cd8354e0.var_cb28f380[2] - var_856465ed[2];
 			var_6738a702 = abs(zdiff) <= entity ai::function_9139c839().var_3c41cb92;
-			var_175919d1 = vectordot(var_beabc994, dirtoenemy) > entity ai::function_9139c839().var_e2b09972;
-			var_7948b2f3 = var_6738a702 && var_175919d1;
+			withinfov = vectordot(var_beabc994, dirtoenemy) > entity ai::function_9139c839().var_e2b09972;
+			var_7948b2f3 = var_6738a702 && withinfov;
 			var_425c4c8b = isvisible || var_535d098c && var_7948b2f3;
 			/#
-				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + var_175919d1;
+				reasons = (((("" + isvisible) + "") + var_6738a702) + "") + withinfov;
 				if(var_425c4c8b)
 				{
 					record3dtext(reasons, entity.origin + vectorscale((0, 0, 1), 60), (0, 1, 0), "");
@@ -2087,7 +2087,7 @@ function function_96640dc5(eventstruct)
 			level thread zm_audio::zmbaivox_playvox(self, "growl", 1, 3, 1);
 			break;
 		}
-		case "hash_206533d6520b0f50":
+		case "attack_leap":
 		case "attack_melee":
 		{
 			level thread zm_audio::zmbaivox_playvox(self, "attack", 1, 2, 1);

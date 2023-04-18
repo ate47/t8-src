@@ -36,7 +36,7 @@ function init()
 {
 	init_flags();
 	clientfield::register("scriptmover", "vril_device_glow", 24000, 1, "int");
-	namespace_617a54f4::function_d8383812(#"sc_ww_quest", 24000, "sc_ww_quest", &function_8598f0d4, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"sc_ww_quest", 24000, "sc_ww_quest", &is_soul_capture, &soul_captured, 1);
 }
 
 /*
@@ -63,7 +63,7 @@ function init_flags()
 	level flag::init(#"hash_44512b5e960df8f0");
 	level flag::init(#"hash_65f4eac55edea07f");
 	/#
-		level flag::init(#"hash_6dcc421d5fbf8d22");
+		level flag::init(#"soul_fill");
 	#/
 }
 
@@ -575,7 +575,7 @@ function function_6bf68fa5(var_5ea5c94d, ended_early)
 }
 
 /*
-	Name: function_8598f0d4
+	Name: is_soul_capture
 	Namespace: zm_orange_ww_quest
 	Checksum: 0x44D92715
 	Offset: 0x1D00
@@ -583,7 +583,7 @@ function function_6bf68fa5(var_5ea5c94d, ended_early)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8598f0d4(var_88206a50, ent)
+function is_soul_capture(var_88206a50, ent)
 {
 	if(isdefined(ent))
 	{
@@ -595,7 +595,7 @@ function function_8598f0d4(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: zm_orange_ww_quest
 	Checksum: 0x38ED2124
 	Offset: 0x1DA0
@@ -603,7 +603,7 @@ function function_8598f0d4(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	n_souls_required = 10;
 	if(getplayers().size > 2)
@@ -616,7 +616,7 @@ function function_3bdbb583(var_f0e6c7a2, ent)
 	}
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = n_souls_required;
 		}
@@ -855,7 +855,7 @@ function function_f9410272(var_5ea5c94d)
 	level.s_ww_quest.var_16c37c7f = struct::get("reward_crate_dg1", "targetname");
 	var_16c37c7f = level.s_ww_quest.var_16c37c7f;
 	var_16c37c7f.var_9dd10753 = getent(var_16c37c7f.var_c8166135, "targetname");
-	var_16c37c7f.var_82e1ca26 = getent(var_16c37c7f.var_861b2304, "targetname");
+	var_16c37c7f.e_lock = getent(var_16c37c7f.target_lock, "targetname");
 	var_16c37c7f.e_weapon = getent(var_16c37c7f.target_weapon, "targetname");
 	if(!var_5ea5c94d)
 	{
@@ -935,9 +935,9 @@ function function_735037d4()
 {
 	level endon(#"end_game");
 	self zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
-	if(isdefined(self.var_82e1ca26))
+	if(isdefined(self.e_lock))
 	{
-		self.var_82e1ca26 delete();
+		self.e_lock delete();
 	}
 	wait(0.5);
 	self.var_9dd10753 rotatepitch(-90, 2, 0, 0.6666667);
@@ -946,7 +946,7 @@ function function_735037d4()
 	self.e_weapon movez(24, 2);
 	if(!level.pablo_npc.isspeaking)
 	{
-		level namespace_85e029d3::function_e44c7c0c(#"hash_1989b382bf707abe");
+		level namespace_85e029d3::function_e44c7c0c(#"vox_ww_pickup");
 	}
 }
 

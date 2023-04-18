@@ -260,10 +260,10 @@ function function_ec73770b(local_client_num)
 		trace_result = bullettrace(trace_start, trace_end, 0, player);
 		if(trace_result[#"fraction"] < 1 && trace_result[#"normal"][2] < 0.7)
 		{
-			var_79483ca0 = trace_result[#"fraction"] * trace_distance;
+			hit_distance = trace_result[#"fraction"] * trace_distance;
 			player_radius = 15;
 			var_91900283 = 100;
-			var_3083dd99 = trace_start + (vectorscale(forward, var_79483ca0 - player_radius));
+			var_3083dd99 = trace_start + (vectorscale(forward, hit_distance - player_radius));
 			var_1ddb7a9a = var_3083dd99 + (0, 0, var_91900283 * -1);
 			ground_trace = bullettrace(var_3083dd99, var_1ddb7a9a, 0, player);
 			if(ground_trace[#"fraction"] < 1)
@@ -287,7 +287,7 @@ function function_ec73770b(local_client_num)
 				var_53dceb67 = (trace_result[#"position"][0], trace_result[#"position"][1], var_1b1c8c9f);
 				if(var_8e35a928)
 				{
-					if(var_79483ca0 < current_weapon.var_cddb5cd0 + player_radius)
+					if(hit_distance < current_weapon.var_cddb5cd0 + player_radius)
 					{
 						var_982f06c8 = 1;
 					}

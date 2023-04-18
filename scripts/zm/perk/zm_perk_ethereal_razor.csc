@@ -36,7 +36,7 @@ function __init__()
 	zm_perks::register_perk_clientfields(#"specialty_etherealrazor", &function_e4d3a447, &function_82460430);
 	zm_perks::register_perk_effects(#"specialty_etherealrazor", "ethereal_razor_light");
 	zm_perks::register_perk_init_thread(#"specialty_etherealrazor", &function_32981481);
-	zm_perks::function_b60f4a9f(#"specialty_etherealrazor", #"p8_zm_vapor_altar_icon_01_etherealrazor", "zombie/fx8_perk_altar_symbol_ambient_ethereal_razor", #"hash_2635890f53e8633d");
+	zm_perks::function_b60f4a9f(#"specialty_etherealrazor", #"p8_zm_vapor_altar_icon_01_etherealrazor", "zombie/fx8_perk_altar_symbol_ambient_ethereal_razor", #"zmperksetherealrazor");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_ethereal_razor", "zombie_perk_totem_ethereal_razor");
 	clientfield::register("actor", "" + #"hash_29c26fb019da89f3", 13000, 1, "counter", &function_f041176c, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_450d9f824068dcc2", 13000, 1, "counter", &function_8f9318d5, 0, 0);

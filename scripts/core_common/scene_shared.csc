@@ -73,7 +73,7 @@ class csceneplayer : cscriptbundleobjectbase, csceneobject
 	}
 
 	/*
-		Name: function_35a524cf
+		Name: _play_camera_anim
 		Namespace: csceneplayer
 		Checksum: 0xEFE5E5B3
 		Offset: 0xA08
@@ -81,7 +81,7 @@ class csceneplayer : cscriptbundleobjectbase, csceneobject
 		Parameters: 3
 		Flags: Linked
 	*/
-	function function_35a524cf(clientnum, animation, n_start_time = 0)
+	function _play_camera_anim(clientnum, animation, n_start_time = 0)
 	{
 		var_8395d6f1 = (isdefined(_s.lerptime) ? _s.lerptime : 0);
 		align = csceneobject::get_align_ent(clientnum);
@@ -948,7 +948,7 @@ class csceneobject : cscriptbundleobjectbase
 					{
 						case "cameraswitcher":
 						{
-							thread [[ self ]]->function_35a524cf(clientnum, entry, n_start_time);
+							thread [[ self ]]->_play_camera_anim(clientnum, entry, n_start_time);
 							break;
 						}
 						case "anim":

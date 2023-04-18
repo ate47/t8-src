@@ -17,7 +17,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_58e2298d0db8b6aa", &__init__, undefined, undefined);
+	system::register(#"kill_with_special", &__init__, undefined, undefined);
 }
 
 /*
@@ -35,7 +35,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_58e2298d0db8b6aa", &on_begin, &on_end);
+	zm_trial::register_challenge(#"kill_with_special", &on_begin, &on_end);
 }
 
 /*

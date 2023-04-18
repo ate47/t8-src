@@ -794,7 +794,7 @@ function private shouldtacticalarrivecondition(behaviortreeentity)
 	{
 		return false;
 	}
-	if(!behaviortreeentity.node.type == #"hash_63cbb4767da2a801")
+	if(!behaviortreeentity.node.type == #"cover left")
 	{
 		return false;
 	}
@@ -925,7 +925,7 @@ function private planhumanarrivalatcover(behaviortreeentity, arrivalanim)
 		}
 		if(isdefined(arrivalanim))
 		{
-			isright = behaviortreeentity.node.type == #"hash_2a7b1ca393696762";
+			isright = behaviortreeentity.node.type == #"cover right";
 			splittime = getarrivalsplittime(arrivalanim, isright);
 			issplitarrival = splittime < 1;
 			nodeapproachyaw = behaviortreeentity getnodeoffsetangles(behaviortreeentity.node)[1];

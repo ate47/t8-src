@@ -248,8 +248,8 @@ function last_valid_position()
 			wait(1);
 			continue;
 		}
-		var_fab0ffd6 = self getpathfindingradius();
-		if(distance2dsquared(origin, self.last_valid_position) < (var_fab0ffd6 * var_fab0ffd6) && (origin[2] - self.last_valid_position[2]) * (origin[2] - self.last_valid_position[2]) < (16 * 16))
+		playerradius = self getpathfindingradius();
+		if(distance2dsquared(origin, self.last_valid_position) < (playerradius * playerradius) && (origin[2] - self.last_valid_position[2]) * (origin[2] - self.last_valid_position[2]) < (16 * 16))
 		{
 			wait(0.1);
 			continue;
@@ -267,7 +267,7 @@ function last_valid_position()
 			}
 			else
 			{
-				position = getclosestpointonnavmesh(origin, 100, var_fab0ffd6);
+				position = getclosestpointonnavmesh(origin, 100, playerradius);
 				if(isdefined(position))
 				{
 					self.last_valid_position = position;

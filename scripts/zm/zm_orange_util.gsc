@@ -76,11 +76,11 @@ function function_583cad13(var_2753f06a)
 		e_player = a_players[0];
 		if(var_2753f06a == 0)
 		{
-			str_suffix = #"hash_2f99f466b2830fbd" + var_5316ea7d;
+			str_suffix = #"vox_solo_game_start_" + var_5316ea7d;
 		}
 		else
 		{
-			str_suffix = ((#"hash_353c8321de1d10b1" + var_2753f06a) + "_") + var_5316ea7d;
+			str_suffix = ((#"vox_solo_end_round" + var_2753f06a) + "_") + var_5316ea7d;
 		}
 		b_played = e_player zm_vo::function_a2bd5a0c(str_suffix, 0, 1);
 		if(var_2753f06a == 0 && var_5316ea7d == "stuh" && (!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f)))
@@ -185,7 +185,7 @@ function private on_connect()
 	self zm_audio::function_6191af93(#"kill", #"homunculus", #"kill", #"monkey", 100);
 	self zm_audio::function_87714659(&function_e08cd7b, #"roundstart", #"special");
 	level flag::wait_till(#"hash_621d31a87bd6d05b");
-	self zm_audio::function_6191af93(#"kill", #"music_box", #"hash_425b5ddae83ca6a8", #"music_box", 100);
+	self zm_audio::function_6191af93(#"kill", #"music_box", #"post_kill", #"music_box", 100);
 }
 
 /*
@@ -401,7 +401,7 @@ function function_fd24e47f(str_alias, n_variant = int(-1), b_wait_if_busy = 0, v
 function function_865209df(category, flag, delay = 2, var_ba54b77d = -1, n_range = 800, var_618a04 = 0)
 {
 	subcategory = #"react";
-	self endon(#"death", #"hash_63017bebd33d7316");
+	self endon(#"death", #"dynamited");
 	b_flag = level flag::get(flag);
 	if(b_flag)
 	{
@@ -520,7 +520,7 @@ function function_e162fac3(weapon, str_vo_line)
 {
 	if(weapon === getweapon(#"ww_tesla_sniper_t8"))
 	{
-		return #"hash_24c829c980982c1";
+		return #"tempest";
 	}
 	if(weapon === getweapon(#"thundergun"))
 	{
@@ -554,7 +554,7 @@ function function_cda40569(n_delay, str_alias, n_variant, str_endon)
 }
 
 /*
-	Name: function_67b3a43
+	Name: docks_power
 	Namespace: zm_orange_util
 	Checksum: 0x311CCFAE
 	Offset: 0x1A48
@@ -562,7 +562,7 @@ function function_cda40569(n_delay, str_alias, n_variant, str_endon)
 	Parameters: 0
 	Flags: None
 */
-function function_67b3a43()
+function docks_power()
 {
 	level endon(#"end_game");
 	level waittill(#"start_of_round");

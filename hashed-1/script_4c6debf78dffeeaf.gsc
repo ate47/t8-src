@@ -70,7 +70,7 @@ function callback_playerconnect()
 	}
 	if(!level.splitscreen && !isdefined(self.pers[#"score"]))
 	{
-		if(!function_f99d2668())
+		if(!sessionmodeiswarzonegame())
 		{
 			iprintln(#"hash_2bff59245c345d80", self);
 		}
@@ -143,7 +143,7 @@ function callback_playerconnect()
 	if(level.onlinegame && (!(isdefined(level.freerun) && level.freerun)))
 	{
 		self.gametype_kill_streak = self stats::function_ed81f25e(#"kill_streak");
-		self.var_b6f732c0 = self stats::function_441050ca(#"longest_killstreak");
+		self.var_b6f732c0 = self stats::get_stat_global(#"longest_killstreak");
 		if(!isdefined(self.gametype_kill_streak))
 		{
 			self.gametype_kill_streak = 0;
@@ -163,7 +163,7 @@ function callback_playerconnect()
 	{
 		self.pers[#"team"] = undefined;
 	}
-	function_5ae8566b(1, 0);
+	init_heal(1, 0);
 	self.hasspawned = 0;
 	self.waitingtospawn = 0;
 	self.wantsafespawn = 0;
@@ -346,7 +346,7 @@ function callback_playerconnect()
 		level flag::set("all_players_connected");
 	}
 	globallogic_score::updateweaponcontractstart(self);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self callback::function_d8abfc3d(#"on_end_game", &player_monitor::function_36185795);
 	}
@@ -368,7 +368,7 @@ function private function_db0c0406()
 		self thread persistence::adjust_recent_stats();
 		self stats::function_7a850245(#"valid", 0);
 	}
-	if(level.rankedmatch || level.leaguematch && !isdefined(self.pers[#"matchesplayedstatstracked"]) && !function_f99d2668())
+	if(level.rankedmatch || level.leaguematch && !isdefined(self.pers[#"matchesplayedstatstracked"]) && !sessionmodeiswarzonegame())
 	{
 		gamemode = util::getcurrentgamemode();
 		self globallogic::incrementmatchcompletionstat(gamemode, "played", "started");
@@ -519,7 +519,7 @@ function private init_character_index()
 		}
 		else
 		{
-			if(function_f99d2668())
+			if(sessionmodeiswarzonegame())
 			{
 				var_72964a59 = self stats::function_6d50f14b(#"cacloadouts", #"charactercontext", #"characterindex");
 				if(var_72964a59 != 0 && (isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising")))

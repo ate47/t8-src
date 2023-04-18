@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1d29de500c266470;
-#using script_348ce871561476c9;
+#using scripts\core_common\player\player_free_fall.gsc;
 #using scripts\wz_common\infection.gsc;
-#using script_55e622b35104ba68;
+#using scripts\core_common\player_insertion.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -294,7 +294,7 @@ function on_spawn_player(predictedspawn)
 	}
 	if(self.pers[#"spawns"] == 1)
 	{
-		if(isdefined(self.var_7070a94c) && self.var_7070a94c && !namespace_67838d10::function_e5d4df1c())
+		if(isdefined(self.var_7070a94c) && self.var_7070a94c && !player_insertion::function_e5d4df1c())
 		{
 			self thread function_c263fd97();
 		}
@@ -393,7 +393,7 @@ function private function_c263fd97()
 	var_4fcc3493 = (starttime + var_ffa47239) + var_2ee361bf;
 	var_8cd82180 = getdvarint(#"hash_723f28907e9e4cd0", 3);
 	var_45d7d746 = 0;
-	var_ccb4a8be = namespace_4b76712::function_d2a1520c();
+	var_ccb4a8be = player_free_fall::function_d2a1520c();
 	streamermodelhint(var_ccb4a8be, (float(var_ffa47239 + var_2ee361bf)) / 1000);
 	while(true)
 	{

@@ -51,9 +51,9 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"specialty_wolf_protector", &function_37236662, &function_6705773b);
+	zm_perks::register_perk_clientfields(#"specialty_wolf_protector", &client_field_func, &code_callback_func);
 	zm_perks::register_perk_init_thread(#"specialty_wolf_protector", &init);
-	zm_perks::function_b60f4a9f(#"specialty_wolf_protector", #"p8_zm_vapor_altar_icon_01_bloodwolf", "zombie/fx8_perk_altar_symbol_ambient_blood_wolf", #"hash_75ec38c3f3487d5");
+	zm_perks::function_b60f4a9f(#"specialty_wolf_protector", #"p8_zm_vapor_altar_icon_01_bloodwolf", "zombie/fx8_perk_altar_symbol_ambient_blood_wolf", #"zmperkswolfprotector");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_wolf_protector", "zombie_perk_totem_wolf_protector");
 }
 
@@ -74,7 +74,7 @@ function init()
 }
 
 /*
-	Name: function_37236662
+	Name: client_field_func
 	Namespace: zm_perk_wolf_protector
 	Checksum: 0xF6688075
 	Offset: 0x3A0
@@ -82,14 +82,14 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37236662()
+function client_field_func()
 {
 	clientfield::register("actor", "wolf_protector_fx", 20000, 1, "int", &wolf_protector_fx, 0, 0);
 	clientfield::register("actor", "wolf_protector_spawn_fx", 20000, 1, "counter", &wolf_protector_spawn_fx, 0, 0);
 }
 
 /*
-	Name: function_6705773b
+	Name: code_callback_func
 	Namespace: zm_perk_wolf_protector
 	Checksum: 0x80F724D1
 	Offset: 0x440
@@ -97,7 +97,7 @@ function function_37236662()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6705773b()
+function code_callback_func()
 {
 }
 
@@ -117,7 +117,7 @@ function wolf_protector_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		return;
 	}
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_5d0631b016d4fe26", #"hash_5afb2d74423459bf");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly", #"hash_5afb2d74423459bf");
 	forcestreamxmodel(self.model);
 	if(newval === 1)
 	{

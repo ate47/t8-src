@@ -152,7 +152,7 @@ function init_spawnable_weapon_upgrade()
 		spawnable_weapon = spawnable_weapon_spawns[i];
 		spawnable_weapon.weapon = getweapon(spawnable_weapon.zombie_weapon_upgrade);
 		weapon_group = zm_utility::getweaponclasszm(spawnable_weapon.weapon);
-		if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"hash_6f1440098d849316") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"hash_1d5c8e6f0e20201a")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"hash_2f6740b518dbeb8f")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"hash_5bfd047c58816496")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
+		if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"zmweaponspistol") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"zmweaponssmg")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"zmweaponsar")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"zmweaponslmg")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"zmweaponssniper")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
 		{
 			continue;
 		}

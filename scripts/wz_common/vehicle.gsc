@@ -420,7 +420,7 @@ function is_staircase_up(attackingplayer = undefined, jammer = undefined)
 	params.param2 = jammer;
 	if(isplayer(attackingplayer))
 	{
-		level callback::callback(#"hash_69ec922777c59153", {#vehicle:self, #attacker:attackingplayer});
+		level callback::callback(#"vehicle_emped", {#vehicle:self, #attacker:attackingplayer});
 	}
 	if(isdefined(self.is_staircase_up))
 	{
@@ -1057,7 +1057,7 @@ function on_player_killed(params)
 		{
 			if(params.smeansofdeath == "MOD_CRUSH")
 			{
-				vehicle.session.var_865ffc35++;
+				vehicle.session.vehicle_kills++;
 			}
 			else
 			{
@@ -1258,7 +1258,7 @@ event function_ca9b286c(eventstruct)
 	{
 		return;
 	}
-	vehicle.var_4a479473 = gettime();
+	vehicle.last_enter = gettime();
 	if(isdefined(vehicle.isphysicsvehicle) && vehicle.isphysicsvehicle)
 	{
 		vehicle setbrake(0);
@@ -3632,24 +3632,24 @@ function function_6c8cff7e(normal, origin = self.origin, offset = 0)
 	{
 		return false;
 	}
-	if(isdefined(self.var_2390d88))
+	if(isdefined(self.rotatemover))
 	{
-		self.var_2390d88 delete();
-		self.var_2390d88 = undefined;
+		self.rotatemover delete();
+		self.rotatemover = undefined;
 	}
-	self.var_2390d88 = spawn("script_model", origin);
-	self.var_2390d88.targetname = "heli_rotatemover";
-	if(isdefined(self.var_2390d88))
+	self.rotatemover = spawn("script_model", origin);
+	self.rotatemover.targetname = "heli_rotatemover";
+	if(isdefined(self.rotatemover))
 	{
-		self.var_2390d88 thread deletemeonnotify(self, "death");
-		self.var_2390d88.angles = self.angles;
-		targetangles = function_c1fa62a2(self.var_2390d88.angles, normal);
-		self linkto(self.var_2390d88);
-		self.var_2390d88 rotateto(targetangles, 0.5, 0, 0.5);
-		self.var_2390d88 moveto(origin + (0, 0, offset), 0.5, 0, 0.5);
-		self.var_2390d88 waittill(#"rotatedone");
-		self.var_2390d88 delete();
-		self.var_2390d88 = undefined;
+		self.rotatemover thread deletemeonnotify(self, "death");
+		self.rotatemover.angles = self.angles;
+		targetangles = function_c1fa62a2(self.rotatemover.angles, normal);
+		self linkto(self.rotatemover);
+		self.rotatemover rotateto(targetangles, 0.5, 0, 0.5);
+		self.rotatemover moveto(origin + (0, 0, offset), 0.5, 0, 0.5);
+		self.rotatemover waittill(#"rotatedone");
+		self.rotatemover delete();
+		self.rotatemover = undefined;
 	}
 	self setvehvelocity((0, 0, 0));
 	self setangularvelocity((0, 0, 0));
@@ -4214,10 +4214,10 @@ function function_7db28345(params)
 	{
 		self notify(#"hash_7f30c56005fe2b32");
 		self returnplayercontrol();
-		if(isdefined(self.var_2390d88))
+		if(isdefined(self.rotatemover))
 		{
-			self.var_2390d88 delete();
-			self.var_2390d88 = undefined;
+			self.rotatemover delete();
+			self.rotatemover = undefined;
 		}
 	}
 	self function_f4d358df();
@@ -4244,12 +4244,12 @@ function private function_479389f3()
 	#/
 	var_33a206d0 = [];
 	var_33a206d0[#"hash_64b97ae77785a7ee"] = self gettagorigin("tag_ground_contact_left_rear");
-	var_33a206d0[#"hash_349199d2ecdec815"] = self gettagorigin("tag_ground_contact_left_middle");
-	var_33a206d0[#"hash_29fc8d2eb0114b77"] = self gettagorigin("tag_ground_contact_left_front");
+	var_33a206d0[#"leftmiddle"] = self gettagorigin("tag_ground_contact_left_middle");
+	var_33a206d0[#"leftfront"] = self gettagorigin("tag_ground_contact_left_front");
 	var_8fc02d3b = [];
 	var_8fc02d3b[#"hash_3e2b39e8efce03e3"] = self gettagorigin("tag_ground_contact_right_rear");
-	var_8fc02d3b[#"hash_6d1b048369aa0658"] = self gettagorigin("tag_ground_contact_right_middle");
-	var_8fc02d3b[#"hash_3baad632e39e1598"] = self gettagorigin("tag_ground_contact_right_front");
+	var_8fc02d3b[#"rightmiddle"] = self gettagorigin("tag_ground_contact_right_middle");
+	var_8fc02d3b[#"rightfront"] = self gettagorigin("tag_ground_contact_right_front");
 	var_df47b913 = [];
 	foreach(tag, origin in var_33a206d0)
 	{
@@ -4553,7 +4553,7 @@ function function_32607cfc(vehicle)
 	{
 		return 1;
 	}
-	distancetraveled = self stats::function_441050ca(#"distance_traveled_vehicle_air");
+	distancetraveled = self stats::get_stat_global(#"distance_traveled_vehicle_air");
 	if(!isdefined(distancetraveled))
 	{
 		return 0;
@@ -4856,7 +4856,7 @@ function function_33a25ecf(owner)
 						var_cd148a81 = (0, 0, 1);
 					}
 					playfx("weapon/fx_trophy_flash", self.origin + vectorscale((0, 0, 1), 15), var_84c1f04c, var_cd148a81);
-					owner thread function_4885de67(grenade);
+					owner thread projectile_explode(grenade);
 					index--;
 					self playsound(#"wpn_trophy_alert");
 				}
@@ -4866,7 +4866,7 @@ function function_33a25ecf(owner)
 }
 
 /*
-	Name: function_4885de67
+	Name: projectile_explode
 	Namespace: wz_vehicle
 	Checksum: 0x21B06AF8
 	Offset: 0xCDC0
@@ -4874,7 +4874,7 @@ function function_33a25ecf(owner)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4885de67(projectile)
+function projectile_explode(projectile)
 {
 	self endon(#"death");
 	projposition = projectile.origin;
@@ -4925,21 +4925,21 @@ function function_4ead318d()
 		{
 			waitframe(1);
 			var_9072f5ef = self gettagorigin("");
-			var_2ce6c735 = self gettagorigin("");
-			var_2704b6f = self gettagorigin("");
+			leftmiddle = self gettagorigin("");
+			leftfront = self gettagorigin("");
 			var_dbe8006b = self gettagorigin("");
-			var_b74b6469 = self gettagorigin("");
-			var_3db5bf71 = self gettagorigin("");
+			rightmiddle = self gettagorigin("");
+			rightfront = self gettagorigin("");
 			if(!isdefined(var_9072f5ef))
 			{
 				break;
 			}
 			line(var_9072f5ef + vectorscale((0, 0, 1), 25), var_9072f5ef - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
-			line(var_2ce6c735 + vectorscale((0, 0, 1), 25), var_2ce6c735 - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
-			line(var_2704b6f + vectorscale((0, 0, 1), 25), var_2704b6f - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(leftmiddle + vectorscale((0, 0, 1), 25), leftmiddle - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(leftfront + vectorscale((0, 0, 1), 25), leftfront - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 			line(var_dbe8006b + vectorscale((0, 0, 1), 25), var_dbe8006b - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
-			line(var_b74b6469 + vectorscale((0, 0, 1), 25), var_b74b6469 - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
-			line(var_3db5bf71 + vectorscale((0, 0, 1), 25), var_3db5bf71 - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(rightmiddle + vectorscale((0, 0, 1), 25), rightmiddle - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(rightfront + vectorscale((0, 0, 1), 25), rightfront - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 		}
 	#/
 }

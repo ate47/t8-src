@@ -7,11 +7,11 @@
 #using scripts\core_common\visionset_mgr_shared.csc;
 #using scripts\mp_common\callbacks.csc;
 
-#namespace namespace_231aa29a;
+#namespace killstreak_vehicle;
 
 /*
 	Name: init
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xE0A671B8
 	Offset: 0x128
 	Size: 0x134
@@ -29,15 +29,15 @@ function init()
 }
 
 /*
-	Name: function_155de655
-	Namespace: namespace_231aa29a
+	Name: init_killstreak
+	Namespace: killstreak_vehicle
 	Checksum: 0x9DEBE69
 	Offset: 0x268
 	Size: 0x84
 	Parameters: 1
 	Flags: None
 */
-function function_155de655(bundle)
+function init_killstreak(bundle)
 {
 	if(isdefined(bundle.ksvehicle))
 	{
@@ -51,7 +51,7 @@ function function_155de655(bundle)
 
 /*
 	Name: spawned
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x73591017
 	Offset: 0x2F8
 	Size: 0xBC
@@ -71,7 +71,7 @@ function spawned(localclientnum, bundle)
 
 /*
 	Name: demo_think
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xD7B76CE
 	Offset: 0x3C0
 	Size: 0x78
@@ -94,7 +94,7 @@ function demo_think(localclientnum)
 
 /*
 	Name: boost_blur
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x82532E1A
 	Offset: 0x440
 	Size: 0x114
@@ -114,7 +114,7 @@ function boost_blur(localclientnum)
 
 /*
 	Name: boost_think
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x6745F869
 	Offset: 0x560
 	Size: 0x50
@@ -133,7 +133,7 @@ function boost_think(localclientnum)
 
 /*
 	Name: shutdown_think
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x6CBEEB4C
 	Offset: 0x5B8
 	Size: 0x34
@@ -148,7 +148,7 @@ function shutdown_think(localclientnum)
 
 /*
 	Name: play_boost_fx
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x5067A8BC
 	Offset: 0x5F8
 	Size: 0xA0
@@ -172,7 +172,7 @@ function play_boost_fx(localclientnum)
 
 /*
 	Name: stunnedhandler
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xE3BEF2B9
 	Offset: 0x6A0
 	Size: 0xA0
@@ -194,7 +194,7 @@ function stunnedhandler(localclientnum)
 
 /*
 	Name: notstunnedhandler
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x7BAEB94C
 	Offset: 0x748
 	Size: 0x5C
@@ -211,7 +211,7 @@ function notstunnedhandler(localclientnum)
 
 /*
 	Name: play_stunned_fx_handler
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xBB5EDDA3
 	Offset: 0x7B0
 	Size: 0x90
@@ -232,7 +232,7 @@ function play_stunned_fx_handler(localclientnum)
 
 /*
 	Name: enginestutterhandler
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0x9CA28FCA
 	Offset: 0x848
 	Size: 0x70
@@ -254,7 +254,7 @@ function enginestutterhandler(localclientnum)
 
 /*
 	Name: ondrivingfxcollision
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xB5EC124A
 	Offset: 0x8C0
 	Size: 0x11C
@@ -282,7 +282,7 @@ function ondrivingfxcollision(localclientnum, player, hip, hitn, hit_intensity)
 
 /*
 	Name: ondrivingfxjumplanding
-	Namespace: namespace_231aa29a
+	Namespace: killstreak_vehicle
 	Checksum: 0xF5BCB5BE
 	Offset: 0x9E8
 	Size: 0x14

@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_4bf952f6ba31bb17;
 
-#namespace namespace_26186a83;
+#namespace bot_animation;
 
 /*
 	Name: play_animation
-	Namespace: namespace_26186a83
+	Namespace: bot_animation
 	Checksum: 0x4BC044E0
 	Offset: 0x98
 	Size: 0x124
@@ -30,7 +30,7 @@ function play_animation(var_f6550bae)
 
 /*
 	Name: function_33f98f4
-	Namespace: namespace_26186a83
+	Namespace: bot_animation
 	Checksum: 0x169EA4FF
 	Offset: 0x1C8
 	Size: 0x1F4

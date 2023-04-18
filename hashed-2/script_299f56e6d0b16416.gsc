@@ -653,11 +653,11 @@ function function_1dbfb733(type, name, condition, text_func)
 		{
 			level.var_fb3f2839[type] = [];
 		}
-		var_892eac5e = spawnstruct();
-		var_892eac5e.name = name;
-		var_892eac5e.type = type;
-		var_892eac5e.condition = condition;
-		var_892eac5e.text_func = text_func;
+		debug_info = spawnstruct();
+		debug_info.name = name;
+		debug_info.type = type;
+		debug_info.condition = condition;
+		debug_info.text_func = text_func;
 		if(!isdefined(level.var_fb3f2839[type]))
 		{
 			level.var_fb3f2839[type] = [];
@@ -666,7 +666,7 @@ function function_1dbfb733(type, name, condition, text_func)
 		{
 			level.var_fb3f2839[type] = array(level.var_fb3f2839[type]);
 		}
-		level.var_fb3f2839[type][level.var_fb3f2839[type].size] = var_892eac5e;
+		level.var_fb3f2839[type][level.var_fb3f2839[type].size] = debug_info;
 	#/
 }
 
@@ -706,10 +706,10 @@ function private create_hudelem(y, x)
 	Parameters: 1
 	Flags: None
 */
-function function_af42554f(var_892eac5e)
+function function_af42554f(debug_info)
 {
 	/#
-		return (var_892eac5e.name + "") + (isdefined(self [[var_892eac5e.condition]]()) && (self [[var_892eac5e.condition]]() ? "" : ""));
+		return (debug_info.name + "") + (isdefined(self [[debug_info.condition]]()) && (self [[debug_info.condition]]() ? "" : ""));
 	#/
 }
 
@@ -722,10 +722,10 @@ function function_af42554f(var_892eac5e)
 	Parameters: 1
 	Flags: None
 */
-function function_bc774350(var_892eac5e)
+function function_bc774350(debug_info)
 {
 	/#
-		return (var_892eac5e.name + "") + level.var_d4a79133;
+		return (debug_info.name + "") + level.var_d4a79133;
 	#/
 }
 
@@ -738,15 +738,15 @@ function function_bc774350(var_892eac5e)
 	Parameters: 1
 	Flags: None
 */
-function function_766c006e(var_892eac5e)
+function function_766c006e(debug_info)
 {
 	/#
 		if(!isdefined(self.var_d18573c9))
 		{
-			return var_892eac5e.name + "";
+			return debug_info.name + "";
 		}
 		time_left = max(self.var_d18573c9 - gettime(), 0);
-		var_7c831c6e = (var_892eac5e.name + "") + (time_left > 0 ? "" : "");
+		var_7c831c6e = (debug_info.name + "") + (time_left > 0 ? "" : "");
 		var_7c831c6e = var_7c831c6e + time_left;
 		return var_7c831c6e;
 	#/
@@ -832,7 +832,7 @@ function function_af31614c()
 							foreach(player in level.players)
 							{
 								var_aa917a22 = create_hudelem(current_y, current_x);
-								var_aa917a22.var_892eac5e = var_dc66eccb;
+								var_aa917a22.debug_info = var_dc66eccb;
 								var_aa917a22.target = player;
 								if(!isdefined(level.var_3d62686d))
 								{
@@ -849,7 +849,7 @@ function function_af31614c()
 						else
 						{
 							var_aa917a22 = create_hudelem(current_y);
-							var_aa917a22.var_892eac5e = var_dc66eccb;
+							var_aa917a22.debug_info = var_dc66eccb;
 							var_aa917a22.target = level;
 							if(!isdefined(level.var_3d62686d))
 							{
@@ -867,11 +867,11 @@ function function_af31614c()
 			}
 			foreach(hudelem in level.var_3d62686d)
 			{
-				if(!isdefined(hudelem.var_892eac5e))
+				if(!isdefined(hudelem.debug_info))
 				{
 					continue;
 				}
-				hudelem settext(hudelem.target [[hudelem.var_892eac5e.text_func]](hudelem.var_892eac5e));
+				hudelem settext(hudelem.target [[hudelem.debug_info.text_func]](hudelem.debug_info));
 			}
 		}
 	#/

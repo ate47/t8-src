@@ -111,15 +111,17 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 ## Item spawns
 
-- `"hash_33d1ac5e99fb0584"` - Spawn water balloon, can't be used with `"hash_3e2d2cf6b1cc6c68"`
+- `"hash_33d1ac5e99fb0584"` - Spawn water balloon, can't be used with `"hash_3e2d2cf6b1cc6c68"` (Quaknarok)
 - `"hash_437b759bd6885560"` - Spawn snowballs
 
 ## Zombies
 
 - `"wzzombies"` - Spawn zombies (true|false)
 - `"wzbrutus"` - Spawn brutus (true|false)
-- `"wzblightfather"` spawn blight father (true|false)
-- `"wzavogadro"` spawn avogadro (true|false)
+- `"wzblightfather"` - Spawn blight father (true|false)
+- `"wzavogadro"` - Spawn avogadro (true|false)
+- `"hash_3e2d2cf6b1cc6c68"` - Quaknarok (true|false), can't be used with `"hash_33d1ac5e99fb0584"` (water ballons)
+- `"hash_701bac755292fab2"` - Spawn Icarus (true|false)
 
 # Zombies (zm)
 
@@ -139,11 +141,11 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 Boolean values to allow wallbuy of a weapon category
 
-- `"hash_6f1440098d849316"` - Allow pistols
+- `"zmweaponspistol"` - Allow pistols
 - `"hash_edfb07f798aaab5"` - Allow CQB
-- `"hash_1f6665b5581f6b6e"` - Allow SMG
-- `"hash_1d5c8e6f0e20201a"` - Allow AR
+- `"zmweaponssmg"` - Allow SMG
+- `"zmweaponsar"` - Allow AR
 - `"zmweaponstr"` - Allow tacticals
-- `"hash_2f6740b518dbeb8f"` - Allow LMG
-- `"hash_5bfd047c58816496"` - Allow snipers
+- `"zmweaponslmg"` - Allow LMG
+- `"zmweaponssniper"` - Allow snipers
 - `"zmweaponsknife"` - Allow knifes

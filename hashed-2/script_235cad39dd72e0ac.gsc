@@ -151,11 +151,11 @@ function function_15dea507(aoeid, type, var_5ff737c1)
 	level.var_400ae143[type] = var_46f1b5eb;
 	var_46f1b5eb.startfx = var_6ec6e01.start_effect;
 	var_46f1b5eb.endfx = var_6ec6e01.end_effect;
-	var_46f1b5eb.loopfx = var_6ec6e01.var_102fffc4;
+	var_46f1b5eb.loopfx = var_6ec6e01.loop_effect;
 	var_46f1b5eb.startsound = var_6ec6e01.var_e41627fe;
-	var_46f1b5eb.var_7404e5a0 = var_6ec6e01.var_99ec7d60;
+	var_46f1b5eb.endsound = var_6ec6e01.var_99ec7d60;
 	var_46f1b5eb.loopsound = var_6ec6e01.var_1ee49376;
-	var_46f1b5eb.var_fbd0f7e5 = var_6ec6e01.var_fbd0f7e5;
+	var_46f1b5eb.startrumble = var_6ec6e01.startrumble;
 	var_46f1b5eb.var_d791c45 = var_6ec6e01.var_d791c45;
 	var_46f1b5eb.var_a8609f98 = var_6ec6e01.var_a8609f98;
 	var_46f1b5eb.earthquakescale = var_6ec6e01.earthquakescale;
@@ -204,9 +204,9 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 			{
 				earthquake(localclientnum, var_46f1b5eb.earthquakescale, var_46f1b5eb.var_e4c85a5f, self.origin, var_46f1b5eb.effectradius);
 			}
-			if(isdefined(var_46f1b5eb.var_fbd0f7e5))
+			if(isdefined(var_46f1b5eb.startrumble))
 			{
-				function_36e4ebd4(localclientnum, var_46f1b5eb.var_fbd0f7e5);
+				function_36e4ebd4(localclientnum, var_46f1b5eb.startrumble);
 			}
 		}
 	}
@@ -216,7 +216,7 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 		{
 			if(isdefined(var_46f1b5eb.loopfx))
 			{
-				self.var_40907d55 = playfx(localclientnum, var_46f1b5eb.loopfx, self.origin, (0, 0, 1));
+				self.aoefx = playfx(localclientnum, var_46f1b5eb.loopfx, self.origin, (0, 0, 1));
 			}
 			if(isdefined(var_46f1b5eb.loopsound))
 			{
@@ -225,9 +225,9 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 		}
 		else if(newval == 3 || newval == 4)
 		{
-			if(isdefined(self.var_40907d55))
+			if(isdefined(self.aoefx))
 			{
-				stopfx(localclientnum, self.var_40907d55);
+				stopfx(localclientnum, self.aoefx);
 			}
 			if(isdefined(self.var_e0952422))
 			{
@@ -238,13 +238,13 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 			{
 				playfx(localclientnum, var_46f1b5eb.endfx, self.origin, (0, 0, 1));
 			}
-			if(isdefined(var_46f1b5eb.var_7404e5a0))
+			if(isdefined(var_46f1b5eb.endsound))
 			{
-				playsound(localclientnum, var_46f1b5eb.var_7404e5a0, self.origin);
+				playsound(localclientnum, var_46f1b5eb.endsound, self.origin);
 			}
 			if(isdefined(var_46f1b5eb.effectradius) && distsq <= (var_46f1b5eb.effectradius * var_46f1b5eb.effectradius))
 			{
-				if(isdefined(var_46f1b5eb.var_fbd0f7e5))
+				if(isdefined(var_46f1b5eb.startrumble))
 				{
 					function_36e4ebd4(localclientnum, var_46f1b5eb.var_d791c45);
 				}

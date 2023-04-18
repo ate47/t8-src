@@ -114,7 +114,7 @@ function private function_900bb4f5(params)
 {
 	if(isdefined(self))
 	{
-		self thread hawk::function_4c1ea6ce();
+		self thread hawk::hawk_destroy();
 	}
 }
 
@@ -132,7 +132,7 @@ function function_7dfe3289(var_d8138db2)
 	self endon(#"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist", #"changed_specialist_death");
 	if(isdefined(self.hawk) && isdefined(self.hawk.vehicle))
 	{
-		self.hawk.vehicle hawk::function_4c1ea6ce(1);
+		self.hawk.vehicle hawk::hawk_destroy(1);
 	}
 	self.hawk = spawnstruct();
 	vehicletype = "veh_hawk_player_wz";
@@ -217,7 +217,7 @@ function function_7dfe3289(var_d8138db2)
 		self thread function_76da409d(vehicle);
 		self thread function_df5590b(vehicle);
 		self create_missile_hud(vehicle, var_a33bcd86);
-		self thread function_6777d6d9(vehicle);
+		self thread watch_team_change(vehicle);
 		self thread oob::function_c5278cb0(vehicle);
 	}
 }
@@ -316,7 +316,7 @@ function function_ed9fa4fc(vehicle, playerorigin)
 				var_a71a8383 = gettime() - vehicle.var_3de57a77;
 				if((int(1 * 1000)) <= var_a71a8383)
 				{
-					vehicle hawk::function_4c1ea6ce();
+					vehicle hawk::hawk_destroy();
 				}
 			}
 			else
@@ -586,7 +586,7 @@ function function_c4770b46(vehicle)
 }
 
 /*
-	Name: function_6777d6d9
+	Name: watch_team_change
 	Namespace: hawk_wz
 	Checksum: 0x7DE5E03E
 	Offset: 0x1B30
@@ -594,7 +594,7 @@ function function_c4770b46(vehicle)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6777d6d9(hawk)
+function watch_team_change(hawk)
 {
 	hawk endon(#"death");
 	waitresult = undefined;

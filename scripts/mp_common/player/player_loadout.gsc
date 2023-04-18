@@ -41,7 +41,7 @@ function autoexec function_313e9d31()
 {
 	callback::on_start_gametype(&function_dd840c5f);
 	level.var_660101f = getgametypesetting(#"specialisthealingenabled_allies_1");
-	level.var_f4ca32db = getgametypesetting(#"specialistabilityenabled_allies_1");
+	level.specialistabilityenabled = getgametypesetting(#"specialistabilityenabled_allies_1");
 	level.var_9c086117 = getgametypesetting(#"specialistequipmentenabled_allies_1");
 	level.var_50e97365 = getgametypesetting(#"hash_7684a70eb68f1ebb");
 	level.var_aaf688d = getgametypesetting(#"specialistabilityreadyonrespawn_allies_1");
@@ -293,7 +293,7 @@ function mp_init()
 	callback::on_connecting(&on_player_connecting);
 	if(isdefined(level.var_660101f) && !level.var_660101f)
 	{
-		ability_player::register_gadget_activation_callbacks(23, undefined, &function_6dd64ede);
+		ability_player::register_gadget_activation_callbacks(23, undefined, &offhealthregen);
 	}
 }
 
@@ -597,7 +597,7 @@ function function_8881abec()
 }
 
 /*
-	Name: function_51dceab7
+	Name: give_killstreaks
 	Namespace: loadout
 	Checksum: 0x67D63ABB
 	Offset: 0x2160
@@ -605,7 +605,7 @@ function function_8881abec()
 	Parameters: 0
 	Flags: Linked
 */
-function function_51dceab7()
+function give_killstreaks()
 {
 	self function_8881abec();
 	if(!level.loadoutkillstreaksenabled)
@@ -1091,11 +1091,11 @@ function private give_weapon(weapon, slot, var_a6a8156, var_bc218695)
 		{
 			self givemaxammo(weapon);
 		}
-		var_7d1f0fee = 0;
-		var_7d1f0fee = self.pers[#"changed_specialist"];
+		changedspecialist = 0;
+		changedspecialist = self.pers[#"changed_specialist"];
 		if(weapon.isgadget)
 		{
-			self ability_util::gadget_reset(weapon, self.pers[#"changed_class"], !util::isoneround(), util::isfirstround(), var_7d1f0fee);
+			self ability_util::gadget_reset(weapon, self.pers[#"changed_class"], !util::isoneround(), util::isfirstround(), changedspecialist);
 		}
 		self function_3fb8b14(weapon, self function_9b237966(self.class_num, "primary" == slot));
 		self function_a85d2581(weapon, self function_73182cb6(self.class_num, "primary" == slot));
@@ -1473,7 +1473,7 @@ function private give_weapons(previous_weapon)
 	spawn_weapon = self function_286ee0b6(previous_weapon, spawn_weapon);
 	spawn_weapon = self function_cba7f33e("primarygrenade", previous_weapon, spawn_weapon, &function_8e961216);
 	spawn_weapon = self function_cba7f33e("specialgrenade", previous_weapon, spawn_weapon, &function_c3448ab0);
-	if(!(isdefined(level.var_f4ca32db) && !level.var_f4ca32db))
+	if(!(isdefined(level.specialistabilityenabled) && !level.specialistabilityenabled))
 	{
 		spawn_weapon = self give_hero_gadget(previous_weapon, spawn_weapon, &function_215f4f21);
 	}
@@ -1551,7 +1551,7 @@ function private function_8e961216(slot, previous_weapon)
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	primaryoffhand = level.weaponnone;
 	var_46119dfa = 0;
 	primaryoffhandcount = 0;
@@ -1596,7 +1596,7 @@ function private function_8e961216(slot, previous_weapon)
 		loadout = self function_e27dc453(slot);
 		loadout.weapon = primaryoffhand;
 		loadout.count = primaryoffhandcount;
-		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, changedspecialist);
 		if(isdefined(level.var_3c9de4f) && level.var_3c9de4f)
 		{
 			self ability_util::function_36a15b60(primaryoffhand);
@@ -1620,7 +1620,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	secondaryoffhand = level.weaponnone;
 	secondaryoffhandcount = 0;
 	if(getdvarint(#"equipmentasgadgets", 0) == 1)
@@ -1682,7 +1682,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 		}
 		else
 		{
-			self ability_util::gadget_reset(secondaryoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+			self ability_util::gadget_reset(secondaryoffhand, changedclass, roundbased, firstround, changedspecialist);
 		}
 	}
 	pixendevent();
@@ -1703,7 +1703,7 @@ function private function_215f4f21(slot, previous_weapon)
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	classnum = self.class_num_for_global_weapons;
 	specialoffhand = level.weaponnone;
 	specialoffhandcount = 0;
@@ -1715,11 +1715,11 @@ function private function_215f4f21(slot, previous_weapon)
 	/#
 		if(getdvarstring(#"scr_herogadgetname_debug") != "")
 		{
-			var_fad4166e = getdvarstring(#"scr_herogadgetname_debug");
+			herogadgetname = getdvarstring(#"scr_herogadgetname_debug");
 			specialoffhand = level.weaponnone;
-			if(var_fad4166e != "")
+			if(herogadgetname != "")
 			{
-				specialoffhand = getweapon(var_fad4166e);
+				specialoffhand = getweapon(herogadgetname);
 			}
 		}
 	#/
@@ -1747,7 +1747,7 @@ function private function_215f4f21(slot, previous_weapon)
 		loadout = self function_e27dc453("specialgrenade");
 		loadout.weapon = specialoffhand;
 		loadout.count = specialoffhandcount;
-		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, changedspecialist);
 		if(isdefined(level.var_aaf688d) && level.var_aaf688d)
 		{
 			self ability_util::function_36a15b60(specialoffhand);
@@ -1778,7 +1778,7 @@ function private function_c4d5300a(slot, previous_weapon)
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	classnum = self.class_num_for_global_weapons;
 	ultimate = level.weaponnone;
 	var_36aac800 = 0;
@@ -1815,7 +1815,7 @@ function private function_c4d5300a(slot, previous_weapon)
 		loadout = self function_e27dc453("ultimate");
 		loadout.weapon = ultimate;
 		loadout.count = var_36aac800;
-		self ability_util::gadget_reset(ultimate, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(ultimate, changedclass, roundbased, firstround, changedspecialist);
 		self function_442539(slot, ultimate);
 	}
 	pixendevent();
@@ -1912,7 +1912,7 @@ function give_loadout(team, weaponclass)
 			give_weapons(current_weapon);
 			function_5536bd9e();
 			function_f8ae6f87();
-			function_51dceab7();
+			give_killstreaks();
 			self.attackeraccuracy = self function_968b6c6a();
 		}
 	}
@@ -2324,7 +2324,7 @@ function private grenade_stuck(inflictor)
 }
 
 /*
-	Name: function_6dd64ede
+	Name: offhealthregen
 	Namespace: loadout
 	Checksum: 0x69182725
 	Offset: 0x6B30
@@ -2332,7 +2332,7 @@ function private grenade_stuck(inflictor)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_6dd64ede(slot, weapon)
+function private offhealthregen(slot, weapon)
 {
 	self gadgetdeactivate(self.gadget_health_regen_slot, self.gadget_health_regen_weapon);
 	thread function_c57586b8();

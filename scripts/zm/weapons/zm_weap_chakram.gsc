@@ -63,9 +63,9 @@ function __init__()
 	level.var_30d2c56e[#"chakram"][#"delay_start"][0] = 0.25;
 	level.var_30d2c56e[#"chakram"][#"delay_start"][1] = 0.15;
 	level.var_30d2c56e[#"chakram"][#"delay_start"][2] = 0.1;
-	level.var_30d2c56e[#"chakram"][#"hash_12951899eba4bd6a"][0] = 0.4;
-	level.var_30d2c56e[#"chakram"][#"hash_12951899eba4bd6a"][1] = 0.25;
-	level.var_30d2c56e[#"chakram"][#"hash_12951899eba4bd6a"][2] = 0.12;
+	level.var_30d2c56e[#"chakram"][#"delay_end"][0] = 0.4;
+	level.var_30d2c56e[#"chakram"][#"delay_end"][1] = 0.25;
+	level.var_30d2c56e[#"chakram"][#"delay_end"][2] = 0.12;
 	level.var_30d2c56e[#"chakram"][#"kill_limit"][0] = 4;
 	level.var_30d2c56e[#"chakram"][#"kill_limit"][1] = 4;
 	level.var_30d2c56e[#"chakram"][#"kill_limit"][2] = 4;
@@ -495,7 +495,7 @@ function private function_dc7f8e67(player)
 	player endon(#"death", #"hash_5d6141fda69070db");
 	player.var_30cbff55 = 1;
 	var_e9ada947 = level.var_30d2c56e[#"chakram"][#"delay_start"][player.var_72d6f15d];
-	var_9884ff29 = level.var_30d2c56e[#"chakram"][#"hash_12951899eba4bd6a"][player.var_72d6f15d];
+	var_9884ff29 = level.var_30d2c56e[#"chakram"][#"delay_end"][player.var_72d6f15d];
 	var_fc51fa3d = level.var_30d2c56e[#"chakram"][#"kill_limit"][player.var_72d6f15d];
 	var_e68de849 = level.var_30d2c56e[#"chakram"][#"max_range"][player.var_72d6f15d];
 	var_931acaa7 = level.var_30d2c56e[#"chakram"][#"hash_5fc489e6007a6457"][player.var_72d6f15d];

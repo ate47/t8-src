@@ -906,8 +906,8 @@ function function_a9311397()
 			}
 			e_attacker playsoundtoplayer(#"hash_64323339bdb3dfdf", e_attacker);
 			self playsound("zmb_bull_hit_ping");
-			var_2634b46 = getent(self.target, "targetname");
-			var_2634b46 clientfield::set("" + #"hash_333e3741e6552db3", 1);
+			mdl_bull = getent(self.target, "targetname");
+			mdl_bull clientfield::set("" + #"hash_333e3741e6552db3", 1);
 			if(e_attacker.var_12c9426e.size >= 3)
 			{
 				e_attacker flag::set(#"hash_320a1da5bf925c8b");

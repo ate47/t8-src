@@ -1801,12 +1801,12 @@ function private function_96f5d05a(entity, var_4c0587b)
 		return;
 	}
 	entity endoncallback(&function_e0b3baff, #"death", #"hash_2fb2eddfa6a0ef3f");
-	var_ded8c89 = zm_grappler::function_6be863a(entity gettagorigin("tag_jaw"), entity.angles);
+	grapple_start = zm_grappler::function_6be863a(entity gettagorigin("tag_jaw"), entity.angles);
 	grapple_end = zm_grappler::function_6be863a(entity gettagorigin("tag_jaw"), entity.angles * -1);
 	grapple_end.prone_2_run_roll = entity;
-	var_ded8c89 linkto(entity, "tag_jaw");
-	entity.var_54c1950f = {#hash_5273e1a0:[], #status:0, #hash_65bf647c:grapple_end, #hash_a733d0aa:var_ded8c89};
-	thread zm_grappler::function_30a5f5c1(var_ded8c89, grapple_end);
+	grapple_start linkto(entity, "tag_jaw");
+	entity.var_54c1950f = {#hash_5273e1a0:[], #status:0, #hash_65bf647c:grapple_end, #hash_a733d0aa:grapple_start};
+	thread zm_grappler::function_30a5f5c1(grapple_start, grapple_end);
 	util::wait_network_frame();
 	n_time = distance(grapple_end.origin, var_4c0587b) / entity ai::function_9139c839().var_4a5ffac;
 	n_time = max(0.1, n_time);
@@ -3015,7 +3015,7 @@ function private function_7055b26(entity)
 		return;
 	}
 	namespace_cb42c6c0::function_50ba1eb0(entity, stub);
-	entity setblackboardattribute("_lockdown_type", namespace_cb42c6c0::function_22aeb4e9(stub.var_895b6b));
+	entity setblackboardattribute("_lockdown_type", namespace_cb42c6c0::function_22aeb4e9(stub.lockdowntype));
 	entity.var_ca0d8389 = entity.b_ignore_cleanup;
 	entity.b_ignore_cleanup = 1;
 	entity.var_3acacb18 = start_origin;
@@ -3173,7 +3173,7 @@ function private function_a0edafd0(entity)
 		{
 			return;
 		}
-		switch(stub.var_895b6b)
+		switch(stub.lockdowntype)
 		{
 			case "lockdown_stub_type_perks":
 			{
@@ -3201,7 +3201,7 @@ function private function_a0edafd0(entity)
 			var_680c2eca = 1;
 			break;
 		}
-		if(stub.var_895b6b === "lockdown_stub_type_crafting_tables" && stub.script_string === "its_a_trap")
+		if(stub.lockdowntype === "lockdown_stub_type_crafting_tables" && stub.script_string === "its_a_trap")
 		{
 			var_680c2eca = 3;
 		}

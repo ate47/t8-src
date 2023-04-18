@@ -105,7 +105,7 @@ function private _assigngameobject(bot, gameobject)
 		{
 			if(!isdefined(bot.owner) || isbot(bot.owner) || !strategiccommandutility::isvalidplayer(bot.owner))
 			{
-				bot bot::function_7a6eea9c(gameobject);
+				bot bot::set_interact(gameobject);
 			}
 		}
 	}
@@ -1767,25 +1767,25 @@ function private function_942e45dc(planner, params)
 			}
 		}
 		component = crumb.var_36f0c06d;
-		var_3b4a9d6d = undefined;
+		targetvol = undefined;
 		if(isdefined(component))
 		{
 			if(isdefined(component.var_2956bff4))
 			{
-				var_3b4a9d6d = component.var_2956bff4;
+				targetvol = component.var_2956bff4;
 			}
 			else if(isdefined(component.var_abc3ef9) && isdefined(component.var_abc3ef9.mdl_gameobject))
 			{
-				var_3b4a9d6d = component.var_abc3ef9.mdl_gameobject.trigger;
+				targetvol = component.var_abc3ef9.mdl_gameobject.trigger;
 			}
 		}
 		else if(isdefined(crumb.trigger))
 		{
-			var_3b4a9d6d = crumb.trigger;
+			targetvol = crumb.trigger;
 		}
-		if(isdefined(var_3b4a9d6d))
+		if(isdefined(targetvol))
 		{
-			bot setgoal(var_3b4a9d6d);
+			bot setgoal(targetvol);
 			continue;
 		}
 	}

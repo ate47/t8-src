@@ -51,8 +51,8 @@ function init_clientfields()
 */
 function init_fx()
 {
-	level._effect[#"hash_51c7bc3539ed5540"] = #"hash_59977c4c851916e0";
-	level._effect[#"hash_68213763a7707b92"] = #"hash_1a06427eff8dfe13";
+	level._effect[#"pap_projectile"] = #"hash_59977c4c851916e0";
+	level._effect[#"pap_projectile_end"] = #"hash_1a06427eff8dfe13";
 	level._effect[#"fx_steam_lab_dry_ice"] = "_t7/steam/fx_steam_lab_dry_ice";
 	level._effect[#"hash_675f4b19e646ca6c"] = #"hash_4310e1cb3f897c7c";
 	level._effect[#"fx8_power_wisp_lg"] = "maps/zm_white/fx8_power_wisp_lg";
@@ -231,11 +231,11 @@ function soul_release(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 {
 	if(newval)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_51c7bc3539ed5540"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"pap_projectile"], self, "tag_origin");
 	}
 	else
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_68213763a7707b92"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"pap_projectile_end"], self, "tag_origin");
 	}
 }
 

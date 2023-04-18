@@ -39,7 +39,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_68f514af0bd7872c", &on_begin, &on_end);
+	zm_trial::register_challenge(#"red_tribute", &on_begin, &on_end);
 }
 
 /*
@@ -140,7 +140,7 @@ function private function_29bcf2f8()
 	{
 		self.s_tribute_bowl.var_9d32404 clientfield::set("" + #"hash_21f5fab6a3d22093", 0);
 	}
-	self namespace_f8f28e08::function_71c9ab64(0);
+	self namespace_f8f28e08::set_tribute(0);
 	self namespace_f8f28e08::function_ae2c0ba5();
 	self zm_trial_util::function_63060af4(0);
 	while(true)
@@ -255,7 +255,7 @@ function on_ai_killed(params)
 */
 function is_active()
 {
-	s_challenge = zm_trial::function_a36e8c38(#"hash_68f514af0bd7872c");
+	s_challenge = zm_trial::function_a36e8c38(#"red_tribute");
 	return isdefined(s_challenge);
 }
 

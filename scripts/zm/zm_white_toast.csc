@@ -50,7 +50,7 @@ function init_clientfields()
 */
 function init_fx()
 {
-	level._effect[#"hash_62bdaf9239d8b792"] = #"hash_693e2eb4c3684fe3";
+	level._effect[#"hash_62bdaf9239d8b792"] = #"maps/zm_white/fx8_power_wisp";
 	level._effect[#"hash_50817e52341b2129"] = #"maps/zm_white/fx8_power_wisp_lg";
 	level._effect[#"hash_2ccbbf521f943fc4"] = #"hash_4b9c72e8053cbd1e";
 	level._effect[#"hash_6a86077d83942719"] = #"hash_51c50bab95b10eb4";

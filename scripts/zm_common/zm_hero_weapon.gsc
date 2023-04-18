@@ -339,7 +339,7 @@ function function_56d2c5d0(n_points)
 }
 
 /*
-	Name: function_21c786cf
+	Name: hero_weapon_player_init
 	Namespace: zm_hero_weapon
 	Checksum: 0x68FC3AA3
 	Offset: 0xF78
@@ -347,7 +347,7 @@ function function_56d2c5d0(n_points)
 	Parameters: 0
 	Flags: Linked
 */
-function function_21c786cf()
+function hero_weapon_player_init()
 {
 	if(!isdefined(self.var_fd05e363))
 	{
@@ -492,12 +492,12 @@ function function_fecb38dd(n_level = 3)
 */
 function function_23978edd()
 {
-	foreach(var_809d5856, a_weaponlist in level.hero_weapon)
+	foreach(h_key, a_weaponlist in level.hero_weapon)
 	{
 		if(isinarray(a_weaponlist, self.var_fd05e363))
 		{
 			self.var_fd05e363 = a_weaponlist[self.var_72d6f15d];
-			self.var_b708af7b = var_809d5856;
+			self.var_b708af7b = h_key;
 			return;
 		}
 	}
@@ -701,7 +701,7 @@ function function_dec6d32d(n_slot, w_hero)
 	}
 	if(zm_utility::is_standard())
 	{
-		level thread zm_audio::sndannouncerplayvox(#"hash_3fee8792a6abec06", self, undefined, undefined, 1);
+		level thread zm_audio::sndannouncerplayvox(#"hero_weapon_ready", self, undefined, undefined, 1);
 	}
 }
 

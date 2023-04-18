@@ -1137,7 +1137,7 @@ function function_6a24e58f()
 				{
 					var_14f1a63 = 0;
 				}
-				setdvar(#"hash_5424bc2a81bcb188", var_14f1a63);
+				setdvar(#"timelimit_override", var_14f1a63);
 				setdvar(#"hash_3a3f995b08f2b9b8", -1);
 			}
 			if((getdvarint(#"hash_2aab28ebf600b8c7", -1)) != -1)
@@ -1225,12 +1225,12 @@ function function_46b22d99()
 			{
 				continue;
 			}
-			var_7442b0e6 = getdvarint(#"hash_410a22566f5a0b32", 0);
+			var_7442b0e6 = getdvarint(#"scr_end_round", 0);
 			if(var_7442b0e6 == 0)
 			{
 				continue;
 			}
-			setdvar(#"hash_410a22566f5a0b32", 0);
+			setdvar(#"scr_end_round", 0);
 			var_53b4c3ae = getgametypesetting(#"timelimit");
 			var_c585681e = 0.25;
 			setgametypesetting("", var_c585681e);

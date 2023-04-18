@@ -43,8 +43,8 @@ function init()
 	game.strings[#"time_limit_reached"] = #"mp/time_limit_reached";
 	game.strings[#"players_forfeited"] = #"mp/players_forfeited";
 	game.strings[#"other_teams_forfeited"] = #"mp_other_teams_forfeited";
-	game.strings[#"hash_d79f1c697d6bc1b"] = #"hash_115339e33ac1efcb";
-	game.strings[#"hash_5f818a6c2853a7c"] = #"hash_cd63faed592da03";
+	game.strings[#"host_sucks"] = #"hash_115339e33ac1efcb";
+	game.strings[#"host_ended"] = #"hash_cd63faed592da03";
 	game.strings[#"game_ended"] = #"mp/ended_game";
 	level.var_c3abe983 = [];
 	function_5d9d54a9(0, game.strings[#"tie"]);
@@ -55,8 +55,8 @@ function init()
 	function_36419c2(5, game.strings[#"round_limit_reached"], game.strings[#"round_limit_reached"]);
 	function_36419c2(6, game.strings[#"enemies_eliminated"], game.strings[#"team_eliminated"]);
 	function_5d9d54a9(8, game.strings[#"game_ended"]);
-	function_2b2308c6(9, game.strings[#"hash_5f818a6c2853a7c"], game.strings[#"game_ended"]);
-	function_5d9d54a9(10, game.strings[#"hash_d79f1c697d6bc1b"]);
+	function_2b2308c6(9, game.strings[#"host_ended"], game.strings[#"game_ended"]);
+	function_5d9d54a9(10, game.strings[#"host_sucks"]);
 }
 
 /*
@@ -175,7 +175,7 @@ function function_a2f30ab4(var_68c25772, var_c1e98979, game_end, outcome)
 					}
 					else
 					{
-						if(outcome::function_5f24faac(outcome, "tie"))
+						if(outcome::get_flag(outcome, "tie"))
 						{
 							result.var_14f94126 = function_460b0309(game_end);
 						}
@@ -254,13 +254,13 @@ function teamoutcomenotify(outcome)
 	outcometext = function_5b0c08ec(self, outcome);
 	if(level.gametype == "ctf" || level.gametype == "escort" || level.gametype == "ball" && overtime::is_overtime_round())
 	{
-		if(outcome::function_5f24faac(outcome, "overtime"))
+		if(outcome::get_flag(outcome, "overtime"))
 		{
 			if(isdefined(game.overtime_first_winner))
 			{
 				winner = game.overtime_first_winner;
 			}
-			if(!outcome::function_5f24faac(outcome, "tie"))
+			if(!outcome::get_flag(outcome, "tie"))
 			{
 				winningtime = game.overtime_time_to_beat[level.gametype];
 			}
@@ -274,7 +274,7 @@ function teamoutcomenotify(outcome)
 			else
 			{
 				winningtime = undefined;
-				if(outcome::function_5f24faac(outcome, "tie") && isdefined(game.overtime_first_winner))
+				if(outcome::get_flag(outcome, "tie") && isdefined(game.overtime_first_winner))
 				{
 					if(game.overtime_first_winner == #"allies")
 					{
@@ -302,7 +302,7 @@ function teamoutcomenotify(outcome)
 					}
 				}
 			}
-			if(level.gametype == "escort" && outcome::function_5f24faac(outcome, "tie"))
+			if(level.gametype == "escort" && outcome::get_flag(outcome, "tie"))
 			{
 				winnerenum = 0;
 				if(!(isdefined(level.finalgameend) && level.finalgameend))
@@ -339,7 +339,7 @@ function teamoutcomenotify(outcome)
 	}
 	else
 	{
-		if(level.gametype == "ball" && !outcome::function_5f24faac(outcome, "tie") && game.roundsplayed < level.roundlimit && isdefined(game.round_time_to_beat) && !overtime::is_overtime_round())
+		if(level.gametype == "ball" && !outcome::get_flag(outcome, "tie") && game.roundsplayed < level.roundlimit && isdefined(game.round_time_to_beat) && !overtime::is_overtime_round())
 		{
 			winningtime = game.round_time_to_beat;
 			if(!isdefined(losingtime))
@@ -488,7 +488,7 @@ function function_5b0c08ec(player, outcome)
 	/#
 		assert(isdefined(level.var_c3abe983[outcome.var_c1e98979]));
 	#/
-	if(outcome::function_5f24faac(outcome, "tie") && !function_82f36142(outcome.var_c1e98979))
+	if(outcome::get_flag(outcome, "tie") && !function_82f36142(outcome.var_c1e98979))
 	{
 		return game.strings[#"tie"];
 	}

@@ -32,7 +32,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		return;
 	}

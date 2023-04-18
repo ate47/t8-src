@@ -17,11 +17,11 @@
 */
 function autoexec init_shared()
 {
-	if(isdefined(level.var_2868525a))
+	if(isdefined(level.stokerinit))
 	{
 		return;
 	}
-	level.var_2868525a = 1;
+	level.stokerinit = 1;
 	function_3f70d4b7();
 	spawner::add_archetype_spawn_function(#"stoker", &function_d30d1f3);
 	stokerinterface::registerstokerinterfaceattributes();

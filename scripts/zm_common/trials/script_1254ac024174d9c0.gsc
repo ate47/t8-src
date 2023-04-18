@@ -51,7 +51,7 @@ function __init__()
 	{
 		level.var_b5079c7c = array("exp_lgt_ar_accurate_t8", "exp_lgt_ar_fastfire_t8", "exp_lgt_ar_modular_t8", "exp_lgt_ar_stealth_t8", "exp_lgt_ar_stealth_t8_2", "exp_lgt_bowie", "exp_lgt_bowie_2", "exp_lgt_lmg_standard_t8", "exp_lgt_pistol_burst_t8", "exp_lgt_pistol_standard_t8", "exp_lgt_shotgun_pump_t8", "exp_lgt_shotgun_trenchgun_t8", "exp_lgt_smg_accurate_t8", "exp_lgt_smg_accurate_t8_2", "exp_lgt_smg_drum_pistol_t8", "exp_lgt_smg_fastfire_t8", "exp_lgt_smg_handling_t8", "exp_lgt_smg_standard_t8", "exp_lgt_sniper_quickscope_t8", "exp_lgt_tr_leveraction_t8", "exp_lgt_tr_longburst_t8", "exp_lgt_tr_powersemi_t8");
 	}
-	zm_trial::register_challenge(#"hash_347b44dd26e1875", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_buys", &on_begin, &on_end);
 }
 
 /*
@@ -68,7 +68,7 @@ function private on_begin(var_a29299fb)
 	if(!(isdefined(level.var_9d606cae) && level.var_9d606cae))
 	{
 		level.var_9d606cae = 1;
-		level notify(#"hash_347b44dd26e1875");
+		level notify(#"disable_buys");
 		function_6fd56055();
 		function_a4284cb4();
 		function_47c81160();
@@ -121,7 +121,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_347b44dd26e1875");
+	challenge = zm_trial::function_a36e8c38(#"disable_buys");
 	return isdefined(challenge);
 }
 
@@ -146,7 +146,7 @@ function function_8327d26e()
 	{
 		self.zbarrier.var_7672d70d = 0;
 	}
-	level waittill(#"hash_347b44dd26e1875");
+	level waittill(#"disable_buys");
 	if(level flag::get("moving_chest_now"))
 	{
 		return;

@@ -67,7 +67,7 @@ function __init__()
 	level._effect[#"hash_5856a36e375deb6e"] = #"hash_3408a29da555383b";
 	level._effect[#"hash_5ddc1914159f22e0"] = #"hash_17ae3c34b5b4f5d9";
 	level._effect[#"hash_369669eba0e9cba3"] = #"hash_6536e7e0d7d0819c";
-	level._effect[#"hash_29ae11b5e8fb1ea2"] = #"hash_5b008f23ef5f92b5";
+	level._effect[#"portal_loop"] = #"hash_5b008f23ef5f92b5";
 	level._effect[#"hash_3cc9a53627295469"] = #"hash_356339c6b1b6cfa7";
 	level._effect[#"portal_activate"] = #"hash_141455232c8efbcf";
 	level._effect[#"hash_1e033a5d335f9c80"] = #"hash_23bccae9728cc69";
@@ -121,7 +121,7 @@ function function_f968291b(localclientnum, oldval, newval, bnewent, binitialsnap
 			s_result = self waittill(#"hash_593064545176ab53", #"hash_23e33f0aec28e476", #"hash_6ab654a4c018818c");
 			if(s_result._notify == #"hash_6ab654a4c018818c")
 			{
-				self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"hash_29ae11b5e8fb1ea2"], self, "tag_origin");
+				self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"portal_loop"], self, "tag_origin");
 				self.var_767d572c = util::playfxontag(localclientnum, level._effect[#"hash_3cc9a53627295469"], self, "tag_origin");
 				if(!isdefined(self.var_6bcee88f))
 				{
@@ -132,7 +132,7 @@ function function_f968291b(localclientnum, oldval, newval, bnewent, binitialsnap
 			}
 			if(s_result._notify == #"hash_593064545176ab53")
 			{
-				self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"hash_29ae11b5e8fb1ea2"], self, "tag_origin");
+				self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"portal_loop"], self, "tag_origin");
 				self.var_767d572c = util::playfxontag(localclientnum, level._effect[#"hash_3cc9a53627295469"], self, "tag_origin");
 				if(!isdefined(self.var_6bcee88f))
 				{
@@ -165,7 +165,7 @@ function function_f968291b(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(!isdefined(self.var_b55b7d2c))
 		{
-			self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"hash_29ae11b5e8fb1ea2"], self, "tag_origin");
+			self.var_b55b7d2c = util::playfxontag(localclientnum, level._effect[#"portal_loop"], self, "tag_origin");
 		}
 		self.var_7a00469e = util::playfxontag(localclientnum, level._effect[#"portal_activate"], self, "tag_origin");
 		self playsound(localclientnum, #"hash_4941fd3f3fa17a5e");

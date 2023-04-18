@@ -57,7 +57,7 @@ function __init__()
 */
 function function_791e18ed(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_5d0631b016d4fe26", #"hash_5afb2d74423459bf");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly", #"hash_5afb2d74423459bf");
 	if(newval)
 	{
 		self setdrawname(#"hash_3a9d51a39880facd", 1);

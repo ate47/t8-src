@@ -1065,12 +1065,12 @@ function set_perk_clientfield(perk, state)
 */
 function perk_give_bottle_begin(str_perk)
 {
-	weapon = function_6dc1382(str_perk);
+	weapon = get_perk_weapon(str_perk);
 	self thread gestures::function_f3e2696f(self, weapon, undefined, 2.5, undefined, undefined, undefined);
 }
 
 /*
-	Name: function_6dc1382
+	Name: get_perk_weapon
 	Namespace: zm_perks
 	Checksum: 0x2596D9E1
 	Offset: 0x32C0
@@ -1078,7 +1078,7 @@ function perk_give_bottle_begin(str_perk)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6dc1382(str_perk)
+function get_perk_weapon(str_perk)
 {
 	weapon = "";
 	/#
@@ -1117,7 +1117,7 @@ function function_6dc1382(str_perk)
 */
 function get_perk_weapon_model(str_perk)
 {
-	weapon = function_6dc1382(str_perk);
+	weapon = get_perk_weapon(str_perk);
 	/#
 		assert(isdefined(weapon), "" + str_perk);
 	#/
@@ -3452,7 +3452,7 @@ function function_b2ac6ee7()
 	{
 		util::wait_network_frame();
 	}
-	self.hint_string = #"hash_49331a6cb288079d";
+	self.hint_string = #"zombie/usealtar";
 	self.hint_parm1 = self.cost;
 }
 

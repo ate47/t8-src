@@ -32,12 +32,12 @@ function function_b01adb59()
 	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
 	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
 	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::function_63bfe27;
+	var_87d0eef8 = &namespace_b0722f43::remove_item;
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	if(isdefined(getgametypesetting(#"hash_3083d02ea0f5761c")) && getgametypesetting(#"hash_3083d02ea0f5761c"))
 	{
-		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_157da59e7a4b1f80", #"hash_3a8a0438d42ca57d");
+		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"equipment_list_good", #"hash_3a8a0438d42ca57d");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_610716711c6bf258", #"hash_74cdb6ca983d3aca");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_3f8034fc64c31ee1", #"hash_797c130a680817a3");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_60da8dc472901c8d", #"hash_33c658398f3aa905");

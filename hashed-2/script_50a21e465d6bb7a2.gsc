@@ -144,15 +144,15 @@ function function_88d1bd71()
 			var_ef55363f enablelinkto();
 			var_ef55363f linkto(vh_wisp);
 			vh_wisp.var_ef55363f = var_ef55363f;
-			vh_wisp val::set(#"hash_159845592f9ea040", "takedamage", 0);
+			vh_wisp val::set(#"insanity_mode_wisp", "takedamage", 0);
 			level.var_d416f0ff.vh_wisp = vh_wisp;
 		}
 		function_69a6d31a(0);
-		zm_sq::register(#"hash_27806d08798eb77a", #"step_1", #"hash_1ac340ed59970ef4", &function_e62b987d, &function_899db485);
-		zm_sq::register(#"hash_27806d08798eb77a", #"step_2", #"hash_1ac343ed5997140d", &function_77a0aab6, &function_e78c6006);
-		zm_sq::register(#"hash_27806d08798eb77a", #"step_3", #"hash_1ac342ed5997125a", &function_6699867f, &function_a885d87a);
-		zm_sq::register(#"hash_27806d08798eb77a", #"step_4", #"hash_1ac33ded599709db", &function_21b9d36d, &function_6932bc46);
-		zm_sq::start(#"hash_27806d08798eb77a");
+		zm_sq::register(#"insanity_mode", #"step_1", #"hash_1ac340ed59970ef4", &function_e62b987d, &function_899db485);
+		zm_sq::register(#"insanity_mode", #"step_2", #"hash_1ac343ed5997140d", &function_77a0aab6, &function_e78c6006);
+		zm_sq::register(#"insanity_mode", #"step_3", #"hash_1ac342ed5997125a", &function_6699867f, &function_a885d87a);
+		zm_sq::register(#"insanity_mode", #"step_4", #"hash_1ac33ded599709db", &function_21b9d36d, &function_6932bc46);
+		zm_sq::start(#"insanity_mode");
 	}
 	else
 	{
@@ -490,7 +490,7 @@ function function_6699867f(var_5ea5c94d)
 			s_insanity_mode_confirmation zm_unitrigger::create(str_hint, 96);
 			zm_unitrigger::function_89380dda(s_insanity_mode_confirmation.s_unitrigger, 1);
 			s_insanity_mode_confirmation thread function_3d4b148b();
-			level thread function_2ef7822a();
+			level thread timer_countdown();
 			zm_white_main_quest::function_63e4838b(1);
 			a_flags = array(#"hash_7cd09ec15b9808a9", #"hash_12b747be855cc622");
 			level flag::wait_till_any(a_flags);
@@ -523,7 +523,7 @@ function function_a885d87a(var_5ea5c94d, ended_early)
 }
 
 /*
-	Name: function_2ef7822a
+	Name: timer_countdown
 	Namespace: namespace_29f39efb
 	Checksum: 0xF2AE3C7C
 	Offset: 0x1968
@@ -531,7 +531,7 @@ function function_a885d87a(var_5ea5c94d, ended_early)
 	Parameters: 0
 	Flags: Linked
 */
-function function_2ef7822a()
+function timer_countdown()
 {
 	level flag::clear(#"hash_12b747be855cc622");
 	level endon(#"hash_12b747be855cc622");

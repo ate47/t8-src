@@ -132,7 +132,7 @@ function init_clientfields()
 function init_fx()
 {
 	level._effect[#"portal_ready"] = #"maps/zm_office/fx8_teleporter_ready";
-	level._effect[#"hash_3095132b48d216f5"] = #"hash_7793c4c65b08e6ed";
+	level._effect[#"portal_cooldown"] = #"hash_7793c4c65b08e6ed";
 	level._effect[#"hash_32b0f959e6b81272"] = #"hash_4860741425dc1daa";
 	level._effect[#"hash_44687d6082f9a0a4"] = #"hash_a4954ed961d6327";
 	level._effect[#"hash_2e43973bc23c661d"] = #"hash_28fc28160d26395e";
@@ -142,7 +142,7 @@ function init_fx()
 	level._effect[#"hash_3ae2cb0d50ae8e3e"] = #"hash_2cafcfa899f12c0";
 	level._effect[#"hash_61fb06e6b1e29b45"] = #"hash_1a6b5072e162ccd4";
 	level._effect[#"hash_692bbec56d4f9a18"] = #"hash_50655ac7dc942305";
-	level._effect[#"hash_60f315ee53fe374f"] = #"hash_62d58a4d86948967";
+	level._effect[#"map_indicator"] = #"hash_62d58a4d86948967";
 }
 
 /*
@@ -293,7 +293,7 @@ function portal_ready_fx(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	}
 	else if(newval == 1)
 	{
-		var_dabe3ecb.effect_id = util::playfxontag(localclientnum, level._effect[#"hash_3095132b48d216f5"], var_dabe3ecb, "tag_origin");
+		var_dabe3ecb.effect_id = util::playfxontag(localclientnum, level._effect[#"portal_cooldown"], var_dabe3ecb, "tag_origin");
 	}
 }
 

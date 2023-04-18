@@ -51,7 +51,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("scriptmover", "hemera_shoot", 16000, 1, "counter");
-	clientfield::register("scriptmover", "" + #"hash_47f6efd679c0437d", 16000, 1, "int");
+	clientfield::register("scriptmover", "" + #"hemera_beam", 16000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hemera_impact", 16000, 1, "counter");
 	clientfield::register("allplayers", "hemera_proj_flash", 16000, 1, "int");
 	clientfield::register("allplayers", "hemera_beam_flash", 16000, 1, "int");
@@ -122,7 +122,7 @@ function function_3f8da82c()
 			}
 			else if(isdefined(self.var_8999a4bf))
 			{
-				self.var_8999a4bf clientfield::set("" + #"hash_47f6efd679c0437d", 0);
+				self.var_8999a4bf clientfield::set("" + #"hemera_beam", 0);
 				self.var_8999a4bf delete();
 			}
 		}
@@ -853,7 +853,7 @@ function function_b27148c8(weapon)
 	}
 	self notify(#"hash_4969a839c4e666dc");
 	self clientfield::set("hemera_beam_flash", 1);
-	self.var_8999a4bf clientfield::set("" + #"hash_47f6efd679c0437d", 1);
+	self.var_8999a4bf clientfield::set("" + #"hemera_beam", 1);
 	self playsound(#"hash_1f3a25ed02b0fb5f");
 	self thread function_1e39fbc5(weapon);
 	self thread function_8bf301a6();
@@ -876,7 +876,7 @@ function function_b27148c8(weapon)
 	self clientfield::set("hemera_beam_flash", 0);
 	if(isdefined(self.var_8999a4bf))
 	{
-		self.var_8999a4bf clientfield::set("" + #"hash_47f6efd679c0437d", 0);
+		self.var_8999a4bf clientfield::set("" + #"hemera_beam", 0);
 		self.var_8999a4bf delete();
 	}
 	self notify(#"hash_609518a5a35564bf");
@@ -898,7 +898,7 @@ function function_8a56ed15(s_notify)
 	if(isdefined(self.var_8999a4bf))
 	{
 		self playsound(#"hash_7aeea3d29c1624a");
-		self.var_8999a4bf clientfield::set("" + #"hash_47f6efd679c0437d", 0);
+		self.var_8999a4bf clientfield::set("" + #"hemera_beam", 0);
 		self.var_8999a4bf delete();
 	}
 	wait(0.1);

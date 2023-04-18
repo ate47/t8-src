@@ -58,11 +58,11 @@ function function_10006d25(func, obj)
 {
 	if(self == level)
 	{
-		add_callback(#"hash_1303178bdaf337b5", func, obj);
+		add_callback(#"prematch_end", func, obj);
 	}
 	else
 	{
-		function_d8abfc3d(#"hash_1303178bdaf337b5", func, obj);
+		function_d8abfc3d(#"prematch_end", func, obj);
 	}
 }
 
@@ -97,7 +97,7 @@ function set_default_callbacks()
 	level.callbackplayerdamage = &player::callback_playerdamage;
 	level.callbackplayerkilled = &player::callback_playerkilled;
 	level.var_3a9881cb = &player::function_74b6d714;
-	level.var_7509c7d8 = &player::callback_playershielddamageblocked;
+	level.callbackplayershielddamageblocked = &player::callback_playershielddamageblocked;
 	level.callbackplayermelee = &player::callback_playermelee;
 	level.callbackplayerlaststand = &player::callback_playerlaststand;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using scripts\abilities\gadgets\gadget_tripwire.gsc;
-#using script_6b7c77b107c81e62;
+#using scripts\mp_common\dynent_world.gsc;
 #using scripts\weapons\sensor_dart.gsc;
 #using scripts\weapons\trophy_system.gsc;
 #using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
@@ -142,7 +142,7 @@ function init_elevator(var_fd98a47c)
 			button setcursorhint("HINT_NOICON");
 			button sethintstring(#"hash_29965b65bca9cd7b");
 			button usetriggerignoreuseholdtime();
-			button callback::function_35a12f19(&function_af088c90);
+			button callback::on_trigger(&function_af088c90);
 			button.elevator = elevator;
 			elevator.button = button;
 			elevator.var_e87f4c9 = button.origin - elevator.origin;
@@ -699,7 +699,7 @@ function private function_724a2fa5(eventstruct)
 	{
 		return;
 	}
-	var_a852a7dd = namespace_b6ee49c3::function_bf7b8a27(dynent);
+	var_a852a7dd = dynent_world::function_bf7b8a27(dynent);
 	dynent.var_a548ec11 = gettime() + (var_a852a7dd * 1000);
 }
 

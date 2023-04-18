@@ -66,20 +66,20 @@ event private function_4776caf4(eventstruct)
 	{
 		return;
 	}
-	var_5fd6ce38 = getent("poster_ee_trigger", "targetname");
-	if(!isdefined(var_5fd6ce38))
+	poster_trigger = getent("poster_ee_trigger", "targetname");
+	if(!isdefined(poster_trigger))
 	{
 		return;
 	}
-	if(function_f99d2668() && isplayer(self) && isalive(self) && isdefined(eventstruct) && isdefined(eventstruct.weapon) && isdefined(var_5fd6ce38))
+	if(sessionmodeiswarzonegame() && isplayer(self) && isalive(self) && isdefined(eventstruct) && isdefined(eventstruct.weapon) && isdefined(poster_trigger))
 	{
 		if(isdefined(eventstruct.projectile))
 		{
 			projectile = eventstruct.projectile;
-			player_dist = distance(var_5fd6ce38.origin, self.origin);
+			player_dist = distance(poster_trigger.origin, self.origin);
 			if(player_dist < 5000)
 			{
-				projectile thread function_3383b382(self, var_5fd6ce38);
+				projectile thread function_3383b382(self, poster_trigger);
 			}
 		}
 	}
@@ -94,16 +94,16 @@ event private function_4776caf4(eventstruct)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3383b382(player, var_5fd6ce38)
+function function_3383b382(player, poster_trigger)
 {
-	if(!isdefined(player) || !isdefined(self) || !isdefined(var_5fd6ce38))
+	if(!isdefined(player) || !isdefined(self) || !isdefined(poster_trigger))
 	{
 		return;
 	}
 	level endon(#"game_ended");
 	self endon(#"stationary");
 	player endon(#"death");
-	var_5fd6ce38 endon(#"death");
+	poster_trigger endon(#"death");
 	var_bd332bd5 = 0;
 	var_f94ce854 = self getvelocity();
 	if(!isdefined(var_f94ce854))
@@ -113,11 +113,11 @@ function function_3383b382(player, var_5fd6ce38)
 	while(isdefined(self) && !var_bd332bd5 && abs(var_f94ce854[0]) > 0 && abs(var_f94ce854[1]) > 0)
 	{
 		var_f94ce854 = self getvelocity();
-		if(self istouching(var_5fd6ce38))
+		if(self istouching(poster_trigger))
 		{
-			if(isdefined(var_5fd6ce38.target))
+			if(isdefined(poster_trigger.target))
 			{
-				var_b721e8a9 = var_5fd6ce38.target;
+				var_b721e8a9 = poster_trigger.target;
 			}
 			var_bd332bd5 = 1;
 			break;
@@ -128,12 +128,12 @@ function function_3383b382(player, var_5fd6ce38)
 	{
 		hidemiscmodels("poster_pristine");
 		showmiscmodels("poster_damaged");
-		playsoundatposition(#"hash_102a20c25b442146", var_5fd6ce38.origin);
+		playsoundatposition(#"hash_102a20c25b442146", poster_trigger.origin);
 		if(isdefined(var_b721e8a9))
 		{
-			var_5fd6ce38 function_79c8b708(var_b721e8a9);
+			poster_trigger function_79c8b708(var_b721e8a9);
 		}
-		var_5fd6ce38 delete();
+		poster_trigger delete();
 	}
 }
 

@@ -358,7 +358,7 @@ function function_ea0c7ed8()
 {
 	self notify("4c2bcc084cb1ca9b");
 	self endon("4c2bcc084cb1ca9b");
-	level endon(#"end_game", #"hash_507adabe6ce05360");
+	level endon(#"end_game", #"freeze_mode");
 	self endon(#"death", #"player_frozen");
 	while(true)
 	{
@@ -477,7 +477,7 @@ function function_6cf1cc01()
 	self endon(#"death", #"player_frozen");
 	self.b_in_water = 0;
 	self notify(#"hash_668824b34b3076bc");
-	if(!level flag::get(#"hash_9cfd45106ac760d") && !level flag::get(#"hash_198bc172b5af7f25"))
+	if(!level flag::get(#"hell_on_earth") && !level flag::get(#"hash_198bc172b5af7f25"))
 	{
 		self allowsprint(1);
 		self allowslide(1);

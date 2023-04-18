@@ -214,7 +214,7 @@ function function_a97f7327()
 */
 function function_40dfd00b(n_round_number)
 {
-	var_c66743a5 = array::random(array(#"hash_78ca8e8e6bdbc8ab", #"hash_266b62e342076a90", #"hash_5cfa99582cc66c59", #"hash_5d6b55906fc82ff2"));
+	var_c66743a5 = array::random(array(#"catalyst_corrosive", #"catalyst_electric", #"catalyst_plasma", #"catalyst_water"));
 	zm_utility::function_9b7bc715(#"catalyst", 1);
 	zm_transform::function_bdd8aba6(var_c66743a5);
 }

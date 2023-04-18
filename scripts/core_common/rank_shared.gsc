@@ -198,7 +198,7 @@ function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_
 	{
 		level.scoreinfo[type][#"sp"] = sp;
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		level.scoreinfo[type][#"row"] = row;
 		if(isdefined(lp) && lp)
@@ -610,7 +610,7 @@ function shouldkickbyrank()
 */
 function getrankxpstat()
 {
-	rankxp = self stats::function_441050ca(#"rankxp", 1);
+	rankxp = self stats::get_stat_global(#"rankxp", 1);
 	if(!isdefined(rankxp))
 	{
 		return 0;
@@ -618,7 +618,7 @@ function getrankxpstat()
 	rankxpcapped = getrankxpcapped(rankxp);
 	if(rankxp > rankxpcapped)
 	{
-		self stats::function_4db3fba1(#"rankxp", rankxpcapped, 1);
+		self stats::set_stat_global(#"rankxp", rankxpcapped, 1);
 	}
 	return rankxpcapped;
 }
@@ -653,7 +653,7 @@ function on_player_connect()
 	self.pers[#"rankxp"] = self getrankxpstat();
 	rankid = getrankforxp(self getrankxp());
 	self.pers[#"rank"] = rankid;
-	self.pers[#"plevel"] = self stats::function_441050ca(#"plevel", 1);
+	self.pers[#"plevel"] = self stats::get_stat_global(#"plevel", 1);
 	if(!isdefined(self.pers[#"plevel"]))
 	{
 		self.pers[#"plevel"] = 0;
@@ -712,7 +712,7 @@ function on_player_connect()
 	/#
 		assert(isdefined(self.cur_ranknum), ("" + rankid) + "");
 	#/
-	prestige = self stats::function_441050ca(#"plevel", 1);
+	prestige = self stats::get_stat_global(#"plevel", 1);
 	if(!isdefined(prestige))
 	{
 		prestige = 0;
@@ -721,7 +721,7 @@ function on_player_connect()
 	self.pers[#"prestige"] = prestige;
 	if(sessionmodeismultiplayergame() && gamemodeisusingstats() || (sessionmodeiszombiesgame() && sessionmodeisonlinegame()))
 	{
-		paragonrank = self stats::function_441050ca(#"paragon_rank", 1);
+		paragonrank = self stats::get_stat_global(#"paragon_rank", 1);
 		if(!isdefined(paragonrank))
 		{
 			paragonrank = 0;
@@ -729,7 +729,7 @@ function on_player_connect()
 		paragonrank = int(min(paragonrank, 1000));
 		self setparagonrank(paragonrank);
 		self.pers[#"paragonrank"] = paragonrank;
-		paragoniconid = self stats::function_441050ca(#"paragon_icon_id", 1);
+		paragoniconid = self stats::get_stat_global(#"paragon_icon_id", 1);
 		if(!isdefined(paragoniconid))
 		{
 			paragoniconid = 0;
@@ -737,7 +737,7 @@ function on_player_connect()
 		self setparagoniconid(paragoniconid);
 		self.pers[#"paragoniconid"] = paragoniconid;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self setparagonrank(0);
 		self.pers[#"paragonrank"] = 0;
@@ -763,12 +763,12 @@ function on_player_connect()
 	self.explosivekills[0] = 0;
 	if(level.rankedmatch)
 	{
-		if(!function_f99d2668())
+		if(!sessionmodeiswarzonegame())
 		{
-			self stats::function_4db3fba1(#"rank", rankid, 1);
-			self stats::function_4db3fba1(#"minxp", getrankinfominxp(rankid), 1);
-			self stats::function_4db3fba1(#"maxxp", getrankinfomaxxp(rankid), 1);
-			self stats::function_4db3fba1(#"lastxp", getrankxpcapped(self.pers[#"rankxp"]), 1);
+			self stats::set_stat_global(#"rank", rankid, 1);
+			self stats::set_stat_global(#"minxp", getrankinfominxp(rankid), 1);
+			self stats::set_stat_global(#"maxxp", getrankinfomaxxp(rankid), 1);
+			self stats::set_stat_global(#"lastxp", getrankxpcapped(self.pers[#"rankxp"]), 1);
 		}
 	}
 }
@@ -830,13 +830,13 @@ function updaterank()
 	self.pers[#"rank"] = newrankid;
 	while(rankid <= newrankid)
 	{
-		self stats::function_4db3fba1(#"rank", rankid, 1);
-		self stats::function_4db3fba1(#"minxp", int(self getrankinfominxp(rankid)), 1);
-		self stats::function_4db3fba1(#"maxxp", int(self getrankinfomaxxp(rankid)), 1);
+		self stats::set_stat_global(#"rank", rankid, 1);
+		self stats::set_stat_global(#"minxp", int(self getrankinfominxp(rankid)), 1);
+		self stats::set_stat_global(#"maxxp", int(self getrankinfomaxxp(rankid)), 1);
 		rankid++;
 	}
 	/#
-		print((((("" + oldrank) + "") + newrankid) + "") + self stats::function_441050ca(#"time_played_total"));
+		print((((("" + oldrank) + "") + newrankid) + "") + self stats::get_stat_global(#"time_played_total"));
 	#/
 	self setrank(newrankid);
 	return true;
@@ -865,7 +865,7 @@ event codecallback_rankup(eventstruct)
 		}
 	}
 	self.pers[#"rank"] = eventstruct.rank;
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self stats::function_62b271d8(#"rank", self.pers[#"rank"]);
 		self stats::function_62b271d8(#"plevel", self.pers[#"plevel"]);

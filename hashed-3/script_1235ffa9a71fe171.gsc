@@ -857,7 +857,7 @@ function private function_4b103bc4()
 */
 function private function_abfcd61e(entity)
 {
-	return entity.var_5ee91cf < gettime() && (isdefined(self.var_37f16e2e) && self.var_37f16e2e) && isdefined(self.favoriteenemy) && (!(isdefined(entity.var_c8f98f87) && entity.var_c8f98f87));
+	return entity.var_5ee91cf < gettime() && (isdefined(self.isonnavmesh) && self.isonnavmesh) && isdefined(self.favoriteenemy) && (!(isdefined(entity.var_c8f98f87) && entity.var_c8f98f87));
 }
 
 /*

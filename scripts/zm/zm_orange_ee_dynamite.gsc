@@ -318,7 +318,7 @@ function private function_e3203a2()
 */
 function function_8427e524()
 {
-	self notify(#"hash_63017bebd33d7316");
+	self notify(#"dynamited");
 	self thread zm_orange_util::function_865209df(#"hash_1366f89544cefb99", #"hash_c38f82bacfe540c");
 	level.var_1daa43ee = 0;
 	level flag::clear(#"hash_98e32feb5b8ac79");
@@ -571,7 +571,7 @@ function function_170afe2c(b_main_quest = 0)
 	function_6ecfea46();
 	if(!b_main_quest)
 	{
-		self thread function_65026f4d();
+		self thread place_dynamite_bomb();
 		s_result.e_who zm_audio::create_and_play_dialog(#"explosive", #"plant");
 	}
 	else
@@ -623,7 +623,7 @@ function function_2e1427a3()
 }
 
 /*
-	Name: function_65026f4d
+	Name: place_dynamite_bomb
 	Namespace: zm_orange_ee_dynamite
 	Checksum: 0x8BEC2020
 	Offset: 0x1D88
@@ -631,7 +631,7 @@ function function_2e1427a3()
 	Parameters: 0
 	Flags: Linked
 */
-function function_65026f4d()
+function place_dynamite_bomb()
 {
 	self endon(#"death");
 	var_b3e4b8b8 = level.var_b3e4b8b8[self.script_int];

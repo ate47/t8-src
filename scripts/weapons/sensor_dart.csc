@@ -203,12 +203,12 @@ function private function_e3a084cd(localclientnum)
 	self setcompassicon("minimap_sensor_dart");
 	self function_8e04481f();
 	self function_5e00861(0.62);
-	var_d199bf4f = (function_f99d2668() ? 2400 : 800);
-	if(isdefined(level.var_1bf85d03))
+	dart_radius = (sessionmodeiswarzonegame() ? 2400 : 800);
+	if(isdefined(level.sensor_dart_radius))
 	{
-		var_d199bf4f = level.var_1bf85d03;
+		dart_radius = level.sensor_dart_radius;
 	}
-	self function_5db470de(localclientnum, var_d199bf4f, 1);
+	self function_5db470de(localclientnum, dart_radius, 1);
 	self thread function_6527a2e9(localclientnum, "o_recon_sensor_gun_projectile_open", "o_recon_sensor_gun_projectile_closed_idle");
 	self thread function_e140ca2b(localclientnum);
 }

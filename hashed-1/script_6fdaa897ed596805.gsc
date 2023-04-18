@@ -21,7 +21,7 @@ function preload()
 	level._effect[#"hash_1dee7be0bae904ec"] = #"hash_59977c4c851916e0";
 	level._effect[#"hash_1549a7f7c4a3d66e"] = #"hash_1a06427eff8dfe13";
 	level._effect[#"pap_explosion"] = #"hash_c25bcbc2422f364";
-	level._effect[#"hash_430c8a8704e0d2af"] = #"hash_4847c0d5a4c9cd6";
+	level._effect[#"pap_fire"] = #"hash_4847c0d5a4c9cd6";
 	init_clientfields();
 }
 
@@ -88,7 +88,7 @@ function function_e183e043(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self.fx_fire = util::playfxontag(localclientnum, level._effect[#"hash_430c8a8704e0d2af"], self, "tag_origin");
+		self.fx_fire = util::playfxontag(localclientnum, level._effect[#"pap_fire"], self, "tag_origin");
 	}
 }
 

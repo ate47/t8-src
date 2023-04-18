@@ -81,8 +81,8 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_29fea4571b8649a0", 1, 1, "int", &function_d8b90aba, 0, 0);
 	clientfield::register("world", "" + #"hash_cd028842e18845e", 1, 1, "counter", &function_a104a4cb, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_500a87b29014ef02", 1, 1, "int", &function_5e901c8c, 0, 1);
-	clientfield::register("toplayer", "" + #"hash_237e298fc7414687", 1, 1, "int", &function_b06125f0, 0, 1);
-	clientfield::register("vehicle", "" + #"hash_4fe04b8fa56a05c6", 1, 1, "int", &function_4b10227f, 0, 1);
+	clientfield::register("toplayer", "" + #"player_pbg_bank", 1, 1, "int", &function_b06125f0, 0, 1);
+	clientfield::register("vehicle", "" + #"gondola_light", 1, 1, "int", &gondola_light, 0, 1);
 	namespace_f2502da8::init_clientfields();
 	namespace_9d58c1cd::init_clientfields();
 	zm_escape_util::init_clientfields();
@@ -96,7 +96,7 @@ event main(eventstruct)
 	level._effect[#"animscript_gibtrail_fx"] = #"blood/fx_blood_gib_limb_trail";
 	level._effect[#"hash_4d2e5c87bde94856"] = #"hash_4948d849a833ddd5";
 	level._effect[#"hash_6dcb1f6ae15079d5"] = #"hash_52f9d9bb5648c0f3";
-	level._effect[#"hash_4fe04b8fa56a05c6"] = #"hash_45dbe6888cf8a19c";
+	level._effect[#"gondola_light"] = #"hash_45dbe6888cf8a19c";
 	namespace_f2502da8::init_fx();
 	level._uses_default_wallbuy_fx = 1;
 	level._uses_sticky_grenades = 1;
@@ -105,7 +105,7 @@ event main(eventstruct)
 	level._effect[#"hash_2bba72fdcc5508b5"] = #"hash_2ac7ec38d265c496";
 	level._effect[#"chest_light_closed"] = #"hash_5b118cefec864e37";
 	level._effect[#"hash_9d26763cbe16490"] = #"hash_5a9159bef624d260";
-	level._effect[#"hash_3f4d31da2ef72dbe"] = #"hash_2b008afec3e70add";
+	level._effect[#"magic_box_leave"] = #"hash_2b008afec3e70add";
 	level._effect[#"switch_sparks"] = #"hash_26f37488feec03c3";
 	level.var_5603a802 = "pstfx_zm_hellhole";
 	namespace_9d58c1cd::init();
@@ -505,7 +505,7 @@ function setup_personality_character_exerts()
 }
 
 /*
-	Name: function_4b10227f
+	Name: gondola_light
 	Namespace: zm_escape
 	Checksum: 0xE00E6FE1
 	Offset: 0x1BA0
@@ -513,8 +513,8 @@ function setup_personality_character_exerts()
 	Parameters: 7
 	Flags: Linked
 */
-function function_4b10227f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function gondola_light(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	self.var_c4c53839 = util::playfxontag(localclientnum, level._effect[#"hash_4fe04b8fa56a05c6"], self, "tag_origin");
+	self.var_c4c53839 = util::playfxontag(localclientnum, level._effect[#"gondola_light"], self, "tag_origin");
 }
 

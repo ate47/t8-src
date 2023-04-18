@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_b6ee49c3;
+#namespace dynent_world;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x6F8946D5
 	Offset: 0xB8
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_442c4eb4e72ecbe2", &__init__, undefined, undefined);
+	system::register(#"dynent_world", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0xB4888501
 	Offset: 0x100
 	Size: 0x8C
@@ -38,7 +38,7 @@ function __init__()
 
 /*
 	Name: function_3981d015
-	Namespace: namespace_b6ee49c3
+	Namespace: dynent_world
 	Checksum: 0x2FACDA2C
 	Offset: 0x198
 	Size: 0x724

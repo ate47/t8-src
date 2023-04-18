@@ -2503,7 +2503,7 @@ class csceneobject
 										}
 									}
 									var_aa49b05f = 1;
-									play_anim(entry, 0, isdefined(var_55b4f21e.var_1bc28a87) && var_55b4f21e.var_1bc28a87, n_start_time);
+									play_anim(entry, 0, isdefined(var_55b4f21e.interactiveshot) && var_55b4f21e.interactiveshot, n_start_time);
 									break;
 								}
 								default:
@@ -2661,7 +2661,7 @@ class csceneobject
 	{
 		if(isdefined(n_shot))
 		{
-			if(isdefined(_s.shots[n_shot].var_1bc28a87) && _s.shots[n_shot].var_1bc28a87)
+			if(isdefined(_s.shots[n_shot].interactiveshot) && _s.shots[n_shot].interactiveshot)
 			{
 				return true;
 			}

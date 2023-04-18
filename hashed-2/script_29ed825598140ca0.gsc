@@ -181,7 +181,7 @@ function function_ca27b62b(attacker, player)
 */
 function function_284c61bd(attacker, meansofdeath, bledout = 0)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -325,7 +325,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		start_generator_captureshouldshowpain();
 	}
 	self callback::callback(#"on_player_killed");
-	attacker callback::callback(#"hash_1c99870b7a855dd0");
+	attacker callback::callback(#"on_killed_player");
 	self thread globallogic_audio::flush_leader_dialog_key_on_player("equipmentDestroyed");
 	weapon = update_weapon(einflictor, weapon);
 	pixbeginevent(#"hash_47eb123ec5413349");
@@ -962,7 +962,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	}
 	keep_deathcam = 0;
 	self.respawntimerstarttime = gettime();
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self.var_686890d5 = undefined;
 		if(!gamestate::is_game_over())
@@ -1030,7 +1030,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		timeuntilspawn = globallogic_spawn::timeuntilspawn(1);
 		willrespawnimmediately = livesleft && timeuntilspawn <= 0 && !level.playerqueuedrespawn && !userspawnselection::isspawnselectenabled();
 		self killcam::killcam(lpattacknum, self getentitynumber(), killcam_entity_info, weapon, smeansofdeath, self.deathtime, deathtimeoffset, psoffsettime, willrespawnimmediately, globallogic_utils::timeuntilroundend(), perks, killstreaks, attacker, keep_deathcam);
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			self luinotifyevent(#"hash_5b2d65a026de792d", 0);
 		}
@@ -1092,7 +1092,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 */
 function function_d5c8119d()
 {
-	var_8e3c3c5b = level.var_fb91af8.size - 1;
+	var_8e3c3c5b = level.deathcircles.size - 1;
 	if(var_8e3c3c5b < 0)
 	{
 		return 0;
@@ -1115,7 +1115,7 @@ function function_d5c8119d()
 */
 function function_9956f107()
 {
-	if(isdefined(level.deathcircle) && !isdefined(level.deathcircle.var_7aec140c))
+	if(isdefined(level.deathcircle) && !isdefined(level.deathcircle.nextcircle))
 	{
 		return true;
 	}
@@ -1524,7 +1524,7 @@ function private function_abbc84ad(attacker, weapon, smeansofdeath, inflictor)
 */
 function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee367e6 = undefined)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -2364,13 +2364,13 @@ function private function_dd602974()
 	playlistbanpenalty = tweakables::gettweakablevalue("team", "teamkillerplaylistbanpenalty");
 	if(playlistbanquantum > 0 && playlistbanpenalty > 0)
 	{
-		timeplayedtotal = self stats::function_441050ca(#"time_played_total");
+		timeplayedtotal = self stats::get_stat_global(#"time_played_total");
 		minutesplayed = timeplayedtotal / 60;
 		freebees = 2;
 		banallowance = (int(floor(minutesplayed / playlistbanquantum))) + freebees;
 		if(self.sessionbans > banallowance)
 		{
-			self stats::function_4db3fba1(#"gametypeban", timeplayedtotal + (playlistbanpenalty * 60));
+			self stats::set_stat_global(#"gametypeban", timeplayedtotal + (playlistbanpenalty * 60));
 		}
 	}
 	globallogic::gamehistoryplayerkicked();
@@ -2876,7 +2876,7 @@ function function_ed2725ad(einflictor, attacker, weapon)
 	}
 	if(isdefined(attacker.var_b6f732c0) && attacker.pers[#"cur_kill_streak"] > attacker.var_b6f732c0)
 	{
-		attacker stats::function_4db3fba1(#"longest_killstreak", attacker.pers[#"cur_kill_streak"]);
+		attacker stats::set_stat_global(#"longest_killstreak", attacker.pers[#"cur_kill_streak"]);
 		attacker.var_b6f732c0 = attacker.pers[#"cur_kill_streak"];
 	}
 }

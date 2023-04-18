@@ -200,9 +200,9 @@ function on_player_spawned()
 		{
 			continue;
 		}
-		if(isdefined(player.var_70b38cd0))
+		if(isdefined(player.ai_tank_drone))
 		{
-			player.var_70b38cd0 respectnottargetedbyaitankperk(self);
+			player.ai_tank_drone respectnottargetedbyaitankperk(self);
 		}
 	}
 	cleanup_targeting(self);
@@ -292,11 +292,11 @@ function watchforentervehicle()
 {
 	self endon(#"emp_jammed", #"emp_grenaded", #"disconnect", #"confirm_location", #"cancel_location");
 	self waittill(#"enter_vehicle");
-	if(self remote_weapons::allowremotestart(1) && isdefined(self.var_70b38cd0))
+	if(self remote_weapons::allowremotestart(1) && isdefined(self.ai_tank_drone))
 	{
 		thread function_203098f4(3);
 		lui::screen_fade_out(0.1);
-		self thread remote_weapons::useremoteweapon(self.var_70b38cd0, "killstreak_ai_tank", 1, 1, 1);
+		self thread remote_weapons::useremoteweapon(self.ai_tank_drone, "killstreak_ai_tank", 1, 1, 1);
 	}
 }
 
@@ -1029,7 +1029,7 @@ function ai_tank_killstreak_start(owner, origin, killstreak_id, category, var_d8
 		drone [[level.var_4b38c02b]]();
 	}
 	drone playloopsound(#"hash_aa65b39680b8d1b");
-	owner.var_70b38cd0 = drone;
+	owner.ai_tank_drone = drone;
 	foreach(player in level.players)
 	{
 		drone respectnottargetedbyaitankperk(player);
@@ -2366,7 +2366,7 @@ function tank_timeout_callback()
 	player = self.owner;
 	if(isdefined(player) && isalive(player))
 	{
-		player.var_70b38cd0 = undefined;
+		player.ai_tank_drone = undefined;
 		if(isdefined(self.controlled) && self.controlled)
 		{
 			player stop_remote();
@@ -2611,13 +2611,13 @@ function function_aa61ec2b(weapon_damage)
 		if(self.var_cff05bbd >= 1000)
 		{
 			self.var_cff05bbd = 0;
-			self thread function_942c857();
+			self thread tank_immobile();
 		}
 	}
 }
 
 /*
-	Name: function_942c857
+	Name: tank_immobile
 	Namespace: ai_tank
 	Checksum: 0xB5794BFB
 	Offset: 0x7CD0
@@ -2625,7 +2625,7 @@ function function_aa61ec2b(weapon_damage)
 	Parameters: 0
 	Flags: None
 */
-function function_942c857()
+function tank_immobile()
 {
 	self notify(#"immobile");
 	self.var_b61a6415 = 1;
@@ -2635,7 +2635,7 @@ function function_942c857()
 	owner = self.owner;
 	if(controlled && isdefined(owner))
 	{
-		owner val::set(#"hash_7389d6bfc8231f8e", "freezecontrols_allowlook", 1);
+		owner val::set(#"tank_immobile", "freezecontrols_allowlook", 1);
 	}
 	self clientfield::set("ai_tank_immobile", 1);
 	if(controlled && isdefined(owner))
@@ -2655,7 +2655,7 @@ function function_942c857()
 		{
 			owner clientfield::set_to_player("static_postfx", 0);
 		}
-		owner val::reset(#"hash_7389d6bfc8231f8e", "freezecontrols_allowlook");
+		owner val::reset(#"tank_immobile", "freezecontrols_allowlook");
 	}
 }
 

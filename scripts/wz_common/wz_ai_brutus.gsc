@@ -235,7 +235,7 @@ function function_6090f71a()
 	}
 	self clientfield::set("brutus_spawn_clientfield", 1);
 	var_7dd9d338 = "c_t8_zmb_mob_brutus_baton";
-	if(self.var_9fde8624 === #"hash_273dea5b2e3044c0")
+	if(self.var_9fde8624 === #"brutus_special")
 	{
 		var_7dd9d338 = "c_t8_zmb_mob_brutus_boss_baton";
 	}

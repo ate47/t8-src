@@ -84,7 +84,7 @@ function local_player_spawn(localclientnum)
 */
 function on_player_spawned(localclientnum)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}

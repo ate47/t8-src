@@ -32,7 +32,7 @@ function function_62cd02cc()
 	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
 	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
 	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::function_63bfe27;
+	var_87d0eef8 = &namespace_b0722f43::remove_item;
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	var_edfbccd0 = &namespace_b0722f43::function_e70fa91c;
@@ -50,8 +50,8 @@ function function_62cd02cc()
 		}
 		else
 		{
-			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_157da59e7a4b1f80", #"hash_5bd1324b19fc827a");
-			namespace_da5c04c3::function_149cbc84(var_edfbccd0, undefined, #"hash_1edbe1c283127e19", #"hash_229b26f37060a5c3");
+			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"equipment_list_good", #"hash_5bd1324b19fc827a");
+			namespace_da5c04c3::function_149cbc84(var_edfbccd0, undefined, #"supply_stash_parent", #"hash_229b26f37060a5c3");
 			namespace_da5c04c3::function_149cbc84(var_edfbccd0, undefined, #"hash_4bfbb656e63b17ae", #"hash_229b26f37060a5c3");
 			namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_30dcaca16025cb02", #"hash_71bfd39dd3312198");
 			str_list = #"hash_5b59c601969f4bb2";
@@ -71,11 +71,11 @@ function function_62cd02cc()
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_4be238cfa4c911b7", #"hash_53e812893205cbc5");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_58959191442a7ad4", #"hash_53e80b893205bfe0");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_3ea2902b7908e871", #"hash_53e80c893205c193");
-		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_56de9a2fafe83d34", str_list + "_supply_stash_slot1");
-		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_56de9d2fafe8424d", str_list + "_supply_stash_slot2");
-		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_56de9c2fafe8409a", #"hash_53e812893205cbc5");
-		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_56de972fafe8381b", #"hash_53e80b893205bfe0");
-		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_56de962fafe83668", #"hash_53e80c893205c193");
+		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"supply_stash_slot1", str_list + "_supply_stash_slot1");
+		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"supply_stash_slot2", str_list + "_supply_stash_slot2");
+		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"supply_stash_slot3", #"hash_53e812893205cbc5");
+		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"supply_stash_slot4", #"hash_53e80b893205bfe0");
+		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"supply_stash_slot5", #"hash_53e80c893205c193");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_166d47d063a39440", #"hash_3d02f5c56a6ca079");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_7f70b6e5eca04933", str_list + "_guns_gold");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_7eaaa233311733c6", #"hash_761df57ee1afd730");

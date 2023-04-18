@@ -54,7 +54,7 @@ function __init__()
 function private on_begin(var_a84ac7c8)
 {
 	self.var_a84ac7c8 = var_a84ac7c8;
-	zm_towers_pap_quest::function_57d79cac();
+	zm_towers_pap_quest::pap_quest_restart();
 	self thread function_8cd2421c();
 }
 

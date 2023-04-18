@@ -103,7 +103,7 @@ function function_b07539aa()
 	{
 		self influencers::create_influencer_generic("enemy", self.origin, self.team, 1);
 	}
-	if(isdefined(self.settings.var_668fd77a) && self.settings.var_668fd77a)
+	if(isdefined(self.settings.keylinerender) && self.settings.keylinerender)
 	{
 		self clientfield::set("turret_keyline_render", 1);
 	}
@@ -211,7 +211,7 @@ function state_death_update(params)
 	self.turretrotscale = 2;
 	self rest_turret(params.resting_pitch);
 	self vehicle_ai::defaultstate_death_update(params);
-	if(isdefined(self.settings.var_668fd77a) && self.settings.var_668fd77a)
+	if(isdefined(self.settings.keylinerender) && self.settings.keylinerender)
 	{
 		self clientfield::set("turret_keyline_render", 0);
 	}

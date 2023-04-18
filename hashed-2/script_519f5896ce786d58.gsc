@@ -13,11 +13,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_776ab8d4;
+#namespace ww_lvl1_quest;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xB04072D9
 	Offset: 0x1C8
 	Size: 0x44
@@ -26,12 +26,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5303b5bf03fb20bc", &__init__, &__main__, undefined);
+	system::register(#"ww_lvl1_quest", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x80F724D1
 	Offset: 0x218
 	Size: 0x4
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x9237D419
 	Offset: 0x228
 	Size: 0x8C
@@ -69,7 +69,7 @@ function __main__()
 
 /*
 	Name: function_716f2019
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x38523E2E
 	Offset: 0x2C0
 	Size: 0x1FC
@@ -97,7 +97,7 @@ function function_716f2019()
 
 /*
 	Name: function_5d870c2c
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xF9A31FD
 	Offset: 0x4C8
 	Size: 0x5C
@@ -112,7 +112,7 @@ function function_5d870c2c()
 
 /*
 	Name: function_20d38ac0
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xFCA42825
 	Offset: 0x530
 	Size: 0x4C
@@ -130,7 +130,7 @@ function function_20d38ac0(a_ents)
 
 /*
 	Name: function_53e45f4e
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x26CD0CBE
 	Offset: 0x588
 	Size: 0x244
@@ -167,7 +167,7 @@ function function_53e45f4e()
 
 /*
 	Name: function_688bcac2
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xA2084780
 	Offset: 0x7D8
 	Size: 0x15E
@@ -195,7 +195,7 @@ function function_688bcac2()
 
 /*
 	Name: function_7706457d
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xF0FAAA95
 	Offset: 0x940
 	Size: 0x208
@@ -206,9 +206,9 @@ function function_7706457d(e_player)
 {
 	if(!level flag::get(#"hash_4c1f880bcc6be2d0"))
 	{
-		foreach(var_82e1ca26 in level.var_79f3b34b)
+		foreach(e_lock in level.var_79f3b34b)
 		{
-			if(zombie_utility::is_player_valid(e_player) && e_player function_8b4cc6ae(var_82e1ca26.origin, 10, 1, var_82e1ca26))
+			if(zombie_utility::is_player_valid(e_player) && e_player function_8b4cc6ae(e_lock.origin, 10, 1, e_lock))
 			{
 				str_prompt = zm_utility::function_d6046228(#"hash_170f427c6f774cc6", #"hash_182213d7353c3062");
 				self sethintstringforplayer(e_player, str_prompt);
@@ -228,7 +228,7 @@ function function_7706457d(e_player)
 
 /*
 	Name: function_7310e1e0
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x8F5C2DF7
 	Offset: 0xB50
 	Size: 0x1CC
@@ -245,11 +245,11 @@ function function_7310e1e0()
 		e_player = waitresult.activator;
 		if(!level flag::get(#"hash_4c1f880bcc6be2d0"))
 		{
-			foreach(var_82e1ca26 in level.var_79f3b34b)
+			foreach(e_lock in level.var_79f3b34b)
 			{
-				if(zombie_utility::is_player_valid(e_player) && e_player function_8b4cc6ae(var_82e1ca26.origin, 10, 1, var_82e1ca26) && (!(isdefined(self.var_86dbb82b) && self.var_86dbb82b)))
+				if(zombie_utility::is_player_valid(e_player) && e_player function_8b4cc6ae(e_lock.origin, 10, 1, e_lock) && (!(isdefined(self.var_86dbb82b) && self.var_86dbb82b)))
 				{
-					var_82e1ca26 function_f4ae6e44();
+					e_lock function_f4ae6e44();
 					break;
 				}
 			}
@@ -263,7 +263,7 @@ function function_7310e1e0()
 
 /*
 	Name: function_f4ae6e44
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xC6F046DE
 	Offset: 0xD28
 	Size: 0xC6
@@ -284,7 +284,7 @@ function function_f4ae6e44()
 
 /*
 	Name: function_8b4cc6ae
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xC48F6E2
 	Offset: 0xDF8
 	Size: 0xAA
@@ -304,7 +304,7 @@ function function_8b4cc6ae(origin, arc_angle_degrees = 90, do_trace, e_ignore)
 
 /*
 	Name: function_2325482e
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x958D9AAF
 	Offset: 0xEB0
 	Size: 0x1BC
@@ -332,7 +332,7 @@ function function_2325482e()
 
 /*
 	Name: function_7e7626b5
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xE204B7E4
 	Offset: 0x1078
 	Size: 0xC6
@@ -359,7 +359,7 @@ function function_7e7626b5()
 
 /*
 	Name: function_9ffdf1be
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xAC6263F1
 	Offset: 0x1148
 	Size: 0xC0
@@ -382,7 +382,7 @@ function function_9ffdf1be(e_player)
 
 /*
 	Name: function_f4f7650b
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x8504BC93
 	Offset: 0x1218
 	Size: 0xE0
@@ -408,7 +408,7 @@ function function_f4f7650b()
 
 /*
 	Name: function_8bb2971c
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x6C99B0B
 	Offset: 0x1300
 	Size: 0x1B4
@@ -453,7 +453,7 @@ function function_8bb2971c()
 
 /*
 	Name: function_229f868f
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0xE522FCF1
 	Offset: 0x14C0
 	Size: 0xEE
@@ -476,7 +476,7 @@ function function_229f868f(var_3aadd17)
 
 /*
 	Name: function_175e4696
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x486CA92B
 	Offset: 0x15B8
 	Size: 0x120
@@ -508,7 +508,7 @@ function function_175e4696(var_1e30344b)
 
 /*
 	Name: function_8476e19
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x7B0878E4
 	Offset: 0x16E0
 	Size: 0x1C8
@@ -528,9 +528,9 @@ function function_8476e19()
 		}
 		else
 		{
-			foreach(var_82e1ca26 in level.var_79f3b34b)
+			foreach(e_lock in level.var_79f3b34b)
 			{
-				var_82e1ca26 thread function_229f868f(function_21a3a673(1, 4));
+				e_lock thread function_229f868f(function_21a3a673(1, 4));
 			}
 			level util::waittill_multiple("ww_lock_scrambled_0", "ww_lock_scrambled_1", "ww_lock_scrambled_2", "ww_lock_scrambled_3");
 			level flag::clear(#"hash_4c1f880bcc6be2d0");
@@ -540,7 +540,7 @@ function function_8476e19()
 
 /*
 	Name: function_4e833729
-	Namespace: namespace_776ab8d4
+	Namespace: ww_lvl1_quest
 	Checksum: 0x11C8218F
 	Offset: 0x18B0
 	Size: 0x12C

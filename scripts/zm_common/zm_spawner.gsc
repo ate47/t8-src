@@ -784,7 +784,7 @@ function window_notetracks(msg)
 		{
 			if(self.ignoreall)
 			{
-				self val::reset(#"hash_62fca810699077f3", "ignoreall");
+				self val::reset(#"attack_properties", "ignoreall");
 			}
 			if(isdefined(self.first_node))
 			{
@@ -2760,7 +2760,7 @@ function function_45bb11e4(spot)
 	}
 	self pushplayer(1);
 	e_align = (isdefined(self.mdl_anchor) ? self.mdl_anchor : spot);
-	if(isdefined(self.has_legs) && !self.has_legs || (isdefined(self.var_eb91c296) && self.var_eb91c296))
+	if(isdefined(self.has_legs) && !self.has_legs || (isdefined(self.missing_legs) && self.missing_legs))
 	{
 		if(isinarray(scene::get_all_shot_names(spot.scriptbundlename), "crawler"))
 		{

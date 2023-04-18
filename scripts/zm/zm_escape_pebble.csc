@@ -41,7 +41,7 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"hash_ce418c45d804842", 1, 1, "counter", &function_2f00e842, 0, 0);
 	level._effect[#"hash_7184fc7d78dcf1c0"] = #"hash_73000f9a6abd5658";
 	level._effect[#"hash_20080a107a8533e"] = #"hash_7965ec9e0938553f";
-	level._effect[#"hash_693856e4806af4dc"] = #"hash_2844b7026fd0f451";
+	level._effect[#"walnut_teleport"] = #"hash_2844b7026fd0f451";
 	level._effect[#"hash_7792af358100c735"] = #"hash_3d18884453d39646";
 	level._effect[#"light_red"] = #"hash_6fdf0d26a4ab7a7";
 }
@@ -185,6 +185,6 @@ function function_db9b47b5(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_2f00e842(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	util::playfxontag(localclientnum, level._effect[#"hash_693856e4806af4dc"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"walnut_teleport"], self, "tag_origin");
 }
 

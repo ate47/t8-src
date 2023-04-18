@@ -66,7 +66,7 @@ function function_2a798d57()
 {
 	if(self character_unlock::function_f0406288(#"zero_unlock"))
 	{
-		if(self stats::function_441050ca(#"destroy_equipment") >= 50)
+		if(self stats::get_stat_global(#"destroy_equipment") >= 50)
 		{
 			self character_unlock::function_c8beca5e(#"zero_unlock", #"hash_178b421c5b67b4d5", 1);
 		}
@@ -89,7 +89,7 @@ function function_1c4b5097(item)
 	{
 		if(self character_unlock::function_f0406288(#"zero_unlock"))
 		{
-			if(self stats::function_441050ca(#"destroy_equipment") >= 50)
+			if(self stats::get_stat_global(#"destroy_equipment") >= 50)
 			{
 				self character_unlock::function_c8beca5e(#"zero_unlock", #"hash_178b421c5b67b4d5", 1);
 			}

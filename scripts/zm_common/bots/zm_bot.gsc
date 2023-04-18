@@ -301,7 +301,7 @@ function order_bot(bot)
 		/#
 			iprintlnbold((bot.name + "") + target.zombie_weapon_upgrade);
 		#/
-		bot bot::function_7a6eea9c(target);
+		bot bot::set_interact(target);
 		return;
 	}
 	doors = getentarray("zombie_door", "targetname");
@@ -335,7 +335,7 @@ function order_bot(bot)
 		/#
 			iprintlnbold(bot.name + "");
 		#/
-		bot bot::function_7a6eea9c(target);
+		bot bot::set_interact(target);
 		return;
 	}
 }

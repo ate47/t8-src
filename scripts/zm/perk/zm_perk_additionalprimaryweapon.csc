@@ -51,7 +51,7 @@ function enable_additional_primary_weapon_perk_for_level()
 	zm_perks::register_perk_clientfields(#"specialty_additionalprimaryweapon", &additional_primary_weapon_client_field_func, &additional_primary_weapon_code_callback_func);
 	zm_perks::register_perk_effects(#"specialty_additionalprimaryweapon", "additionalprimaryweapon_light");
 	zm_perks::register_perk_init_thread(#"specialty_additionalprimaryweapon", &init_additional_primary_weapon);
-	zm_perks::function_b60f4a9f(#"specialty_additionalprimaryweapon", #"p8_zm_vapor_altar_icon_01_mulekick", "zombie/fx8_perk_altar_symbol_ambient_mule_kick", #"hash_5347ff402123307a");
+	zm_perks::function_b60f4a9f(#"specialty_additionalprimaryweapon", #"p8_zm_vapor_altar_icon_01_mulekick", "zombie/fx8_perk_altar_symbol_ambient_mule_kick", #"zmperksmulekick");
 }
 
 /*

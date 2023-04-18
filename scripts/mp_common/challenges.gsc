@@ -49,7 +49,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -611,9 +611,9 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		{
 			var_2d4a24ea = self.var_ef9b6f0b === 1;
 			var_6c5ba24c = self.lastflashedby === victim;
-			if(isdefined(self.var_121392a1) && isdefined(self.var_121392a1[#"hash_4c34823a58987bed"]))
+			if(isdefined(self.var_121392a1) && isdefined(self.var_121392a1[#"shock_seeker_mine"]))
 			{
-				if(self.var_121392a1[#"hash_4c34823a58987bed"].var_4b22e697 === victim)
+				if(self.var_121392a1[#"shock_seeker_mine"].var_4b22e697 === victim)
 				{
 					var_ba9c5900 = 1;
 				}
@@ -2237,7 +2237,7 @@ function function_b6d44fd9()
 */
 function force_challenge_stat(stat_name, stat_value)
 {
-	self stats::function_4db3fba1(stat_name, stat_value);
+	self stats::set_stat_global(stat_name, stat_value);
 	self stats::function_efbbc38f(stat_name, stat_value);
 }
 
@@ -2377,7 +2377,7 @@ function function_bd5db926()
 {
 	if(!self stats::get_stat(#"extrabools", 1) === 1)
 	{
-		var_5d157945 = self stats::function_441050ca(#"stats_rcxd_kill");
+		var_5d157945 = self stats::get_stat_global(#"stats_rcxd_kill");
 		recon_car = getweapon(#"hash_38ffd09564931482");
 		self stats::function_e24eec31(recon_car, #"kills", var_5d157945);
 		self stats::set_stat(#"extrabools", 1, 1);
@@ -2694,7 +2694,7 @@ function challengegameendmp(data)
 	{
 		return;
 	}
-	if(endedearly(winner, match::function_5f24faac("tie")))
+	if(endedearly(winner, match::get_flag("tie")))
 	{
 		return;
 	}
@@ -3637,7 +3637,7 @@ function private function_861fe993(slot_index)
 */
 function function_3ee91387(weapon, playercontrolled, groundbased, countaskillstreakvehicle)
 {
-	self supplypod::function_1e64d41(weapon);
+	self supplypod::hintobjectivehint_updat(weapon);
 }
 
 /*

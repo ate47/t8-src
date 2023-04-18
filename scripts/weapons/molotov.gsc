@@ -477,8 +477,8 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 	locations[#"distsqrd"] = [];
 	locations[#"fxtoplay"] = [];
 	locations[#"radius"] = [];
-	locations[#"hash_33059ac06a23beca"] = [];
-	locations[#"hash_7852e39f75c4b5c0"] = [];
+	locations[#"tallfire"] = [];
+	locations[#"smallfire"] = [];
 	locations[#"steam"] = [];
 	fxcount = customsettings.var_b650dc43;
 	var_33ad9452 = (isdefined(customsettings.var_bc24d9d3) ? customsettings.var_bc24d9d3 : 0);
@@ -513,7 +513,7 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 			locations[#"normal"][count] = trace[#"normal"];
 			if(var_1cac1ca8)
 			{
-				locations[#"hash_33059ac06a23beca"][count] = 1;
+				locations[#"tallfire"][count] = 1;
 			}
 			hitsomething = 1;
 		}
@@ -534,7 +534,7 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 				else
 				{
 					locations[#"normal"][count] = var_e5d1793d[#"normal"];
-					locations[#"hash_7852e39f75c4b5c0"][count] = 1;
+					locations[#"smallfire"][count] = 1;
 				}
 			}
 		}
@@ -602,32 +602,32 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 	thread damageeffectarea(owner, startpos, killcament, normal, var_aecaaa11, customsettings, multiplier, var_e76400c0, wallnormal, var_693f108f, var_4b424bc1.var_46ee5246);
 	thread function_9464e4ad(owner, startpos, killcament, normal, var_aecaaa11, customsettings, multiplier, var_e76400c0, wallnormal, var_693f108f, var_4b424bc1.var_46ee5246);
 	var_b1dd2ca0 = getarraykeys(locations[#"loc"]);
-	foreach(var_7ee5c69b in var_b1dd2ca0)
+	foreach(lockey in var_b1dd2ca0)
 	{
-		if(!isdefined(var_7ee5c69b))
+		if(!isdefined(lockey))
 		{
 			continue;
 		}
-		if(function_f4e48434(locations[#"loc"][var_7ee5c69b]))
+		if(function_f4e48434(locations[#"loc"][lockey]))
 		{
 			continue;
 		}
-		if(isdefined(locations[#"hash_7852e39f75c4b5c0"][var_7ee5c69b]))
+		if(isdefined(locations[#"smallfire"][lockey]))
 		{
 			fireweapon = var_4a1b9411;
 		}
 		else
 		{
-			if(isdefined(locations[#"steam"][var_7ee5c69b]))
+			if(isdefined(locations[#"steam"][lockey]))
 			{
 				fireweapon = var_7bf146f2;
 			}
 			else
 			{
-				fireweapon = (isdefined(locations[#"hash_33059ac06a23beca"][var_7ee5c69b]) ? var_3cbce009 : var_aecaaa11);
+				fireweapon = (isdefined(locations[#"tallfire"][lockey]) ? var_3cbce009 : var_aecaaa11);
 			}
 		}
-		level thread function_42b9fdbe(fireweapon, locations[#"loc"][var_7ee5c69b], locations[#"normal"][var_7ee5c69b], int(customsettings.var_b79d64a9), team);
+		level thread function_42b9fdbe(fireweapon, locations[#"loc"][lockey], locations[#"normal"][lockey], int(customsettings.var_b79d64a9), team);
 	}
 }
 

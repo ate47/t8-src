@@ -903,10 +903,10 @@ function limited_weapon_below_quota(weapon, ignore_player)
 {
 	if(isdefined(level.limited_weapons[weapon]))
 	{
-		var_83916b6 = undefined;
-		if(!isdefined(var_83916b6))
+		pap_machines = undefined;
+		if(!isdefined(pap_machines))
 		{
-			var_83916b6 = getentarray("zm_pack_a_punch", "targetname");
+			pap_machines = getentarray("zm_pack_a_punch", "targetname");
 		}
 		if(isdefined(level.no_limited_weapons) && level.no_limited_weapons)
 		{
@@ -935,7 +935,7 @@ function limited_weapon_below_quota(weapon, ignore_player)
 				}
 			}
 		}
-		foreach(machine in var_83916b6)
+		foreach(machine in pap_machines)
 		{
 			if(!isdefined(machine))
 			{

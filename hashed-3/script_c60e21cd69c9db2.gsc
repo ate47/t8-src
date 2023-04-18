@@ -8,11 +8,11 @@
 #using scripts\core_common\vehicle_ai_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_2670769;
+#namespace wz_ai_vehicle;
 
 /*
 	Name: function_e1a09b01
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0xF81C4171
 	Offset: 0x118
 	Size: 0x44
@@ -31,7 +31,7 @@ function function_e1a09b01()
 
 /*
 	Name: state_combat_enter
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0x9B3C7CB1
 	Offset: 0x168
 	Size: 0x24
@@ -45,7 +45,7 @@ function state_combat_enter(params)
 
 /*
 	Name: path_update_interrupt_by_attacker
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0xC010113D
 	Offset: 0x198
 	Size: 0x126
@@ -76,7 +76,7 @@ function path_update_interrupt_by_attacker()
 
 /*
 	Name: path_update_interrupt
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0x9DFE9006
 	Offset: 0x2C8
 	Size: 0x224
@@ -116,7 +116,7 @@ function path_update_interrupt()
 
 /*
 	Name: state_combat_update
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0xEA45B74A
 	Offset: 0x4F8
 	Size: 0x368
@@ -173,7 +173,7 @@ function state_combat_update(params)
 
 /*
 	Name: function_de11ece
-	Namespace: namespace_2670769
+	Namespace: wz_ai_vehicle
 	Checksum: 0xAE3ADFEE
 	Offset: 0x868
 	Size: 0x32C

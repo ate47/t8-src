@@ -92,7 +92,7 @@ function error(msg)
 {
 	/#
 		println("", msg);
-		if(!sessionmodeismultiplayergame() && !function_f99d2668())
+		if(!sessionmodeismultiplayergame() && !sessionmodeiswarzonegame())
 		{
 			waitframe(1);
 		}
@@ -570,8 +570,8 @@ function draw_arrow(start, end, color)
 function debugorigin()
 {
 	/#
-		self notify(#"hash_45a5e6185b1b69aa");
-		self endon(#"hash_45a5e6185b1b69aa", #"death");
+		self notify(#"debug origin");
+		self endon(#"debug origin", #"death");
 		for(;;)
 		{
 			forward = anglestoforward(self.angles);
@@ -4677,7 +4677,7 @@ function function_2146bd83(weapon)
 */
 function function_4c1656d5()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return getdvarfloat(#"hash_4e7a02edee964bf9", 250);
 	}
@@ -4695,7 +4695,7 @@ function function_4c1656d5()
 */
 function function_16fb0a3b()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(getdvarint(#"hash_23a1d3a9139af42b", 0) > 0)
 		{
@@ -6468,10 +6468,10 @@ function set_team_mapping(var_b0dd114d, var_54495823)
 	#/
 	level.team_mapping[0] = var_b0dd114d;
 	level.team_mapping[1] = var_54495823;
-	flagsys::set(#"hash_6d0b534ae9b670d2");
+	flagsys::set(#"team_mapping_set");
 	game.attackers = var_b0dd114d;
 	game.defenders = var_54495823;
-	if(clientfield::function_6b3b55da())
+	if(clientfield::can_set())
 	{
 		function_3cb7a62d();
 	}
@@ -7376,7 +7376,7 @@ function function_22bf0a4a()
 #namespace namespace_2e6206f9;
 
 /*
-	Name: function_278f9455
+	Name: register_callback
 	Namespace: namespace_2e6206f9
 	Checksum: 0x5D00A5E6
 	Offset: 0xDED0
@@ -7384,7 +7384,7 @@ function function_22bf0a4a()
 	Parameters: 3
 	Flags: Linked, Variadic
 */
-function function_278f9455(str_kvp, func, vararg)
+function register_callback(str_kvp, func, vararg)
 {
 	var_a12e87bd = hash(str_kvp);
 	var_bcb861f = self.(str_kvp + "_target");
@@ -7573,7 +7573,7 @@ function callback(str_kvp)
 }
 
 /*
-	Name: function_2b1cab26
+	Name: custom_callback
 	Namespace: namespace_2e6206f9
 	Checksum: 0xE9A80F99
 	Offset: 0xE8A8
@@ -7581,7 +7581,7 @@ function callback(str_kvp)
 	Parameters: 3
 	Flags: Variadic
 */
-function function_2b1cab26(str_name, str_kvp, vararg)
+function custom_callback(str_name, str_kvp, vararg)
 {
 	var_e028d750 = function_7ed1d198(str_kvp, str_name);
 	if(var_e028d750.size)

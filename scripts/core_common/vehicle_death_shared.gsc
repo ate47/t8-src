@@ -2400,12 +2400,12 @@ function function_933d48a2()
 		waitresult = self waittill(#"veh_predictedcollision");
 		if(isdefined(waitresult.target))
 		{
-			var_e2031bd1 = waitresult.target;
-			if(!vehicle::is_corpse(var_e2031bd1) || (isdefined(var_e2031bd1.var_3acf1c07) && var_e2031bd1.var_3acf1c07))
+			vehiclecorpse = waitresult.target;
+			if(!vehicle::is_corpse(vehiclecorpse) || (isdefined(vehiclecorpse.var_3acf1c07) && vehiclecorpse.var_3acf1c07))
 			{
 				continue;
 			}
-			if(!isdefined(var_e2031bd1.settings) || (!(isdefined(var_e2031bd1.settings.var_3a42a4d9) && var_e2031bd1.settings.var_3a42a4d9)))
+			if(!isdefined(vehiclecorpse.settings) || (!(isdefined(vehiclecorpse.settings.var_3a42a4d9) && vehiclecorpse.settings.var_3a42a4d9)))
 			{
 				continue;
 			}
@@ -2415,10 +2415,10 @@ function function_933d48a2()
 			{
 				continue;
 			}
-			var_e2031bd1.var_3acf1c07 = 1;
-			var_e2031bd1 corpse_explode_fx();
-			var_e2031bd1 vehicle::do_death_dynents();
-			var_e2031bd1 deletewhensafe();
+			vehiclecorpse.var_3acf1c07 = 1;
+			vehiclecorpse corpse_explode_fx();
+			vehiclecorpse vehicle::do_death_dynents();
+			vehiclecorpse deletewhensafe();
 		}
 	}
 }

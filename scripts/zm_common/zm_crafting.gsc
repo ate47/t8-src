@@ -1087,21 +1087,21 @@ function function_d1f16587(var_55426150, func)
 	}
 	foreach(trigger in level.var_4fe2f84d[var_55426150])
 	{
-		if(!isdefined(trigger.craftfoundry.var_ffe774be))
+		if(!isdefined(trigger.craftfoundry.callback_funcs))
 		{
-			trigger.craftfoundry.var_ffe774be = [];
+			trigger.craftfoundry.callback_funcs = [];
 		}
-		if(!isdefined(trigger.craftfoundry.var_ffe774be))
+		if(!isdefined(trigger.craftfoundry.callback_funcs))
 		{
-			trigger.craftfoundry.var_ffe774be = [];
+			trigger.craftfoundry.callback_funcs = [];
 		}
-		else if(!isarray(trigger.craftfoundry.var_ffe774be))
+		else if(!isarray(trigger.craftfoundry.callback_funcs))
 		{
-			trigger.craftfoundry.var_ffe774be = array(trigger.craftfoundry.var_ffe774be);
+			trigger.craftfoundry.callback_funcs = array(trigger.craftfoundry.callback_funcs);
 		}
-		if(!isinarray(trigger.craftfoundry.var_ffe774be, func))
+		if(!isinarray(trigger.craftfoundry.callback_funcs, func))
 		{
-			trigger.craftfoundry.var_ffe774be[trigger.craftfoundry.var_ffe774be.size] = func;
+			trigger.craftfoundry.callback_funcs[trigger.craftfoundry.callback_funcs.size] = func;
 		}
 	}
 }
@@ -1540,9 +1540,9 @@ function private function_f37c4bb5(player)
 				player_crafted thread zm_audio::create_and_play_dialog(#"build_complete", self.stub.blueprint.name);
 			}
 		}
-		if(isdefined(self.stub.craftfoundry.var_ffe774be))
+		if(isdefined(self.stub.craftfoundry.callback_funcs))
 		{
-			foreach(func in self.stub.craftfoundry.var_ffe774be)
+			foreach(func in self.stub.craftfoundry.callback_funcs)
 			{
 				self thread [[func]](player);
 			}
@@ -1595,9 +1595,9 @@ function function_a187b293(player)
 	{
 		function_987a472(self.blueprint.var_54a97edd.worldmodel, self.blueprint);
 	}
-	if(isdefined(self.craftfoundry.var_ffe774be))
+	if(isdefined(self.craftfoundry.callback_funcs))
 	{
-		foreach(func in self.craftfoundry.var_ffe774be)
+		foreach(func in self.craftfoundry.callback_funcs)
 		{
 			self thread [[func]](player);
 		}
@@ -1727,9 +1727,9 @@ function private function_9693e041(player)
 			self.cost = function_ceac3bf9(player, 1);
 			str = self.blueprint.var_1238231a;
 			var_e7ed2264 = function_c9163c5d(str);
-			var_868b4fdd = zm_utility::function_d6046228(str, var_e7ed2264);
+			hint_str = zm_utility::function_d6046228(str, var_e7ed2264);
 			var_495e9cd = zm_utility::function_d6046228(#"hash_38222048e6736323", #"hash_197687e8f04962c9");
-			self.hint_string = (isdefined(var_868b4fdd) ? var_868b4fdd : var_495e9cd);
+			self.hint_string = (isdefined(hint_str) ? hint_str : var_495e9cd);
 			_shad_turret_debug_server = 1;
 		}
 		else
@@ -1745,8 +1745,8 @@ function private function_9693e041(player)
 		{
 			str = self.blueprint.var_abd9b2d0;
 			var_e7ed2264 = function_c9163c5d(str);
-			var_868b4fdd = zm_utility::function_d6046228(str, var_e7ed2264);
-			self.hint_string = (isdefined(var_868b4fdd) ? var_868b4fdd : "");
+			hint_str = zm_utility::function_d6046228(str, var_e7ed2264);
+			self.hint_string = (isdefined(hint_str) ? hint_str : "");
 			self.cost = undefined;
 		}
 		else
@@ -1768,8 +1768,8 @@ function private function_9693e041(player)
 				{
 					str = self.blueprint.var_abd9b2d0;
 					var_e7ed2264 = function_c9163c5d(str);
-					var_868b4fdd = zm_utility::function_d6046228(str, var_e7ed2264);
-					self.hint_string = (isdefined(var_868b4fdd) ? var_868b4fdd : "");
+					hint_str = zm_utility::function_d6046228(str, var_e7ed2264);
+					self.hint_string = (isdefined(hint_str) ? hint_str : "");
 					self.cost = undefined;
 				}
 			}

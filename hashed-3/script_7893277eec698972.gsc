@@ -297,7 +297,7 @@ function private function_fee02008(var_a276c861)
 		}
 		if(isalive(var_64c09f7f))
 		{
-			var_64c09f7f zm_audio::create_and_play_dialog(#"hash_7187d8b61fbf7f1a", #"activate_1");
+			var_64c09f7f zm_audio::create_and_play_dialog(#"treasure_chest", #"activate_1");
 		}
 	}
 }
@@ -514,7 +514,7 @@ function function_9eba13c0(var_39acfdda)
 {
 	foreach(player in util::get_array_of_closest(level.var_f9f50915.origin, util::get_active_players(), undefined, undefined, 512))
 	{
-		b_result = player zm_audio::create_and_play_dialog(#"hash_7187d8b61fbf7f1a", var_39acfdda);
+		b_result = player zm_audio::create_and_play_dialog(#"treasure_chest", var_39acfdda);
 		if(isdefined(b_result) && b_result)
 		{
 			level.var_f9f50915.b_vo_played = 1;
@@ -1174,7 +1174,7 @@ function private function_f4a7fd49(params)
 			if(level.var_ab242e52 < 4 && randomint(100) <= 50)
 			{
 				level.var_ab242e52++;
-				switch(self.var_62e81e47)
+				switch(self.catalyst_type)
 				{
 					case 1:
 					{

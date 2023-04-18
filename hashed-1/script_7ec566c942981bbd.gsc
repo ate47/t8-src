@@ -32,7 +32,7 @@ function function_6df391ab()
 	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
 	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
 	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::function_63bfe27;
+	var_87d0eef8 = &namespace_b0722f43::remove_item;
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	if(!(isdefined(getgametypesetting(#"hash_3cb1f3806a9e6b40")) && getgametypesetting(#"hash_3cb1f3806a9e6b40")))

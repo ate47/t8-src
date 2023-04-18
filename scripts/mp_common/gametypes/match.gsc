@@ -133,7 +133,7 @@ function set_flag(flag)
 }
 
 /*
-	Name: function_5f24faac
+	Name: get_flag
 	Namespace: match
 	Checksum: 0x9FBA52B9
 	Offset: 0x2A0
@@ -141,13 +141,13 @@ function set_flag(flag)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5f24faac(flag)
+function get_flag(flag)
 {
-	return outcome::function_5f24faac(game.outcome, flag);
+	return outcome::get_flag(game.outcome, flag);
 }
 
 /*
-	Name: function_46cb766c
+	Name: clear_flag
 	Namespace: match
 	Checksum: 0x74B29B9B
 	Offset: 0x2D8
@@ -155,9 +155,9 @@ function function_5f24faac(flag)
 	Parameters: 1
 	Flags: None
 */
-function function_46cb766c(flag)
+function clear_flag(flag)
 {
-	return outcome::function_46cb766c(game.outcome, flag);
+	return outcome::clear_flag(game.outcome, flag);
 }
 
 /*
@@ -424,9 +424,9 @@ function function_6d0354e3()
 	winner = round::function_9b24638f();
 	if(game.outcome.var_aefc8b8d.var_c1e98979 != 7)
 	{
-		if(level.teambased && function_5f24faac("overtime"))
+		if(level.teambased && get_flag("overtime"))
 		{
-			if(!(isdefined(level.doubleovertime) && level.doubleovertime) || round::function_5f24faac("tie"))
+			if(!(isdefined(level.doubleovertime) && level.doubleovertime) || round::get_flag("tie"))
 			{
 				winner = globallogic::determineteamwinnerbygamestat("overtimeroundswon");
 			}

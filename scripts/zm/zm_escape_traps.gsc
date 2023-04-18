@@ -215,7 +215,7 @@ function activate_zm_fan_trap()
 	self.var_6dead4d5 thread scene::init(#"p8_fxanim_zm_esc_trap_fan_play", self.var_6dead4d5);
 	self thread fan_trap_timeout();
 	self thread fan_trap_rumble_think();
-	self waittill(#"hash_2133afbbd7534561");
+	self waittill(#"trap_finished");
 	self.in_use = undefined;
 	self.var_6dead4d5 thread scene::play(#"p8_fxanim_zm_esc_trap_fan_play", self.var_6dead4d5);
 	a_players = getplayers();
@@ -294,7 +294,7 @@ function function_9c2d463d(t_damage)
 	}
 	if(self.var_6f84b820 == #"miniboss" || self.var_6f84b820 == #"boss")
 	{
-		t_damage notify(#"hash_2133afbbd7534561");
+		t_damage notify(#"trap_finished");
 		return;
 	}
 	if(isdefined(self.var_238b3806) && self.var_238b3806)
@@ -403,14 +403,14 @@ function private function_1395e596()
 */
 function fan_trap_timeout()
 {
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	n_duration = 0;
 	while(n_duration < 25)
 	{
 		wait(0.05);
 		n_duration = n_duration + 0.05;
 	}
-	self notify(#"hash_2133afbbd7534561");
+	self notify(#"trap_finished");
 }
 
 /*
@@ -424,7 +424,7 @@ function fan_trap_timeout()
 */
 function fan_trap_rumble_think()
 {
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	while(true)
 	{
 		s_result = undefined;
@@ -451,7 +451,7 @@ function fan_trap_rumble_think()
 function fan_trap_rumble(e_player)
 {
 	e_player endon(#"death", #"disconnect");
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	while(true)
 	{
 		if(e_player istouching(self.t_rumble))
@@ -498,7 +498,7 @@ function fan_trap_damage()
 		{
 			if(isdefined(s_result.activator.is_brutus) && s_result.activator.is_brutus)
 			{
-				self notify(#"hash_2133afbbd7534561");
+				self notify(#"trap_finished");
 				return;
 			}
 			if(isdefined(self.var_238b3806) && self.var_238b3806)
@@ -727,7 +727,7 @@ function activate_zm_acid_trap()
 	}
 	self.in_use = 1;
 	self thread zm_traps::trap_damage();
-	self waittilltimeout(25, #"hash_2133afbbd7534561");
+	self waittilltimeout(25, #"trap_finished");
 	self.in_use = undefined;
 	self notify(#"trap_done");
 	self waittill(#"available");
@@ -882,7 +882,7 @@ function acid_trap_fx(e_trap)
 {
 	mdl_fx = util::spawn_model("tag_origin", self.origin, self.angles);
 	mdl_fx clientfield::set("acid_trap_fx", 1);
-	e_trap waittilltimeout(25, #"hash_2133afbbd7534561");
+	e_trap waittilltimeout(25, #"trap_finished");
 	mdl_fx clientfield::set("acid_trap_fx", 0);
 	waitframe(1);
 	mdl_fx delete();
@@ -1060,7 +1060,7 @@ function activate_zm_spinning_trap()
 	self thread function_c3ac9950();
 	wait(1.2);
 	self thread zm_traps::trap_damage();
-	self waittill(#"hash_2133afbbd7534561");
+	self waittill(#"trap_finished");
 	self.in_use = undefined;
 	self.var_db919ceb thread scene::play(#"p8_fxanim_zm_esc_trap_spinning_bundle", self.var_db919ceb);
 	a_players = getplayers();
@@ -1137,7 +1137,7 @@ function function_1f7e661f(t_damage)
 	}
 	if(self.var_6f84b820 === #"miniboss" || self.var_6f84b820 === #"boss")
 	{
-		t_damage notify(#"hash_2133afbbd7534561");
+		t_damage notify(#"trap_finished");
 		return;
 	}
 	if(isdefined(self.var_238b3806) && self.var_238b3806 || (isdefined(self.var_bd4627e1) && self.var_bd4627e1))
@@ -1302,14 +1302,14 @@ function private function_c846fd12()
 */
 function function_4a15e725()
 {
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	n_duration = 0;
 	while(n_duration < 25)
 	{
 		wait(0.05);
 		n_duration = n_duration + 0.05;
 	}
-	self notify(#"hash_2133afbbd7534561");
+	self notify(#"trap_finished");
 }
 
 /*
@@ -1323,7 +1323,7 @@ function function_4a15e725()
 */
 function function_c3ac9950()
 {
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	while(true)
 	{
 		s_result = undefined;
@@ -1350,7 +1350,7 @@ function function_c3ac9950()
 function spinning_trap_rumble(e_player)
 {
 	e_player endon(#"death", #"disconnect");
-	self endon(#"hash_2133afbbd7534561");
+	self endon(#"trap_finished");
 	while(true)
 	{
 		if(e_player istouching(self.t_rumble))
@@ -1406,7 +1406,7 @@ function function_864365ef(t_damage, var_e72c9959)
 	self zombie_utility::makezombiecrawler(1);
 	var_e72c9959 thread scene::init(#"hash_6a81729051de85ac", self);
 	playsoundatposition(#"hash_42c6cc2204b7fbbd", self.origin);
-	t_damage waittill(#"hash_2133afbbd7534561");
+	t_damage waittill(#"trap_finished");
 	var_44342e79 = var_e72c9959 scene::function_8582657c(#"p8_fxanim_zm_esc_trap_fan_play", "Shot 2");
 	var_e72c9959 scene::play(#"hash_6a81729051de85ac", self);
 	if(isdefined(self))
@@ -1456,7 +1456,7 @@ function private function_61791b8b(s_pos = self)
 			ai_zombie thread zm_utility::add_poi_to_ignore_list(var_dd239d21);
 		}
 	}
-	self waittill(#"hash_2133afbbd7534561");
+	self waittill(#"trap_finished");
 	var_dd239d21 delete();
 }
 
@@ -1595,7 +1595,7 @@ function zapper_light_green()
 }
 
 /*
-	Name: function_80ac9e32
+	Name: trap_move_switch
 	Namespace: zm_escape_traps
 	Checksum: 0xEC372C61
 	Offset: 0x4C10
@@ -1603,7 +1603,7 @@ function zapper_light_green()
 	Parameters: 0
 	Flags: None
 */
-function function_80ac9e32()
+function trap_move_switch()
 {
 	self zapper_light_red();
 	foreach(var_fe043be4 in self.var_e7bb2f7b)

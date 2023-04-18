@@ -570,18 +570,18 @@ function function_a2e8fd7b(entity, player, var_3f120c4d = 4)
 	#/
 	if(getdvarint(#"hash_576f5cfc006ef831", 1))
 	{
-		var_e2414b1b = zm_zonemgr::function_54fc7938(player, entity);
-		if(isdefined(var_e2414b1b) && var_e2414b1b.cost >= var_3f120c4d)
+		zone_path = zm_zonemgr::function_54fc7938(player, entity);
+		if(isdefined(zone_path) && zone_path.cost >= var_3f120c4d)
 		{
-			to_zone = level.zones[var_e2414b1b.to_zone];
+			to_zone = level.zones[zone_path.to_zone];
 			for(var_3a38abb0 = 0; isdefined(to_zone.var_458fe8a) && to_zone.var_458fe8a && var_3a38abb0 < 4; var_3a38abb0++)
 			{
-				var_e2414b1b = zm_zonemgr::function_54fc7938(player, var_e2414b1b.to_zone);
-				if(!isdefined(var_e2414b1b))
+				zone_path = zm_zonemgr::function_54fc7938(player, zone_path.to_zone);
+				if(!isdefined(zone_path))
 				{
 					return player;
 				}
-				to_zone = level.zones[var_e2414b1b.to_zone];
+				to_zone = level.zones[zone_path.to_zone];
 			}
 			if(isdefined(to_zone) && to_zone.nodes.size > 0)
 			{

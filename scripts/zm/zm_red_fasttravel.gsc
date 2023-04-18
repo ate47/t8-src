@@ -485,7 +485,7 @@ function function_c52e8ba(e_player, var_8d5d092c)
 							}
 							break;
 						}
-						case "hash_6d6a06be42c04c18":
+						case "river_of_sorrow":
 						{
 							if(zm_utility::is_standard())
 							{

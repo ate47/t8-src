@@ -684,7 +684,7 @@ function function_24d66e59(inflictor, meansofdeath, victim, attacker, weapon, va
 					return;
 				}
 			}
-			function_4d412da8(inflictor, meansofdeath, victim, attacker, scoreevents, effect.var_3d1ed4bd, weapon, effect, time);
+			updatemultikill(inflictor, meansofdeath, victim, attacker, scoreevents, effect.var_3d1ed4bd, weapon, effect, time);
 		}
 	}
 }
@@ -726,7 +726,7 @@ function function_f7f7b14e(data)
 			{
 				var_a6f160ea = var_25f92d1d.weapon;
 				var_b6f366b = function_3cbc4c6c(var_a6f160ea.var_2e4a8800);
-				attacker function_4d412da8(inflictor, meansofdeath, victim, attacker, var_b6f366b, var_a6f160ea, weapon, var_a6f160ea, time);
+				attacker updatemultikill(inflictor, meansofdeath, victim, attacker, var_b6f366b, var_a6f160ea, weapon, var_a6f160ea, time);
 			}
 		}
 	}
@@ -759,7 +759,7 @@ function function_f7f7b14e(data)
 		attacker contracts::function_a54e2068(#"hash_26f8726bc08d080c");
 	}
 	baseweapon = weapons::getbaseweapon(weapon);
-	attacker function_4d412da8(inflictor, meansofdeath, victim, attacker, function_3cbc4c6c(weapon.var_2e4a8800), weapon, weapon, baseweapon, time);
+	attacker updatemultikill(inflictor, meansofdeath, victim, attacker, function_3cbc4c6c(weapon.var_2e4a8800), weapon, weapon, baseweapon, time);
 }
 
 /*
@@ -926,7 +926,7 @@ function private function_d68ae402(inflictor, meansofdeath, victim, attacker, sc
 }
 
 /*
-	Name: function_4d412da8
+	Name: updatemultikill
 	Namespace: globallogic_score
 	Checksum: 0x952CCFA9
 	Offset: 0x2BF8
@@ -934,7 +934,7 @@ function private function_d68ae402(inflictor, meansofdeath, victim, attacker, sc
 	Parameters: 9
 	Flags: Linked, Private
 */
-function private function_4d412da8(inflictor, meansofdeath, victim, attacker, scoreevents, weapon, attackerweapon, var_f801f37e, time)
+function private updatemultikill(inflictor, meansofdeath, victim, attacker, scoreevents, weapon, attackerweapon, var_f801f37e, time)
 {
 	self function_662aaa65(var_f801f37e);
 	if(!isdefined(inflictor))
@@ -1019,16 +1019,16 @@ function specialistmedalachievement(weapon, scoreevents)
 	baseweapon = weapons::getbaseweapon(weapon);
 	if(isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09)
 	{
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_battle_shield_x2_multikill_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_war_machine_x2_multikill_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_tak5_multikill_x2_multikill_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_purifier_x2_multikill_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_8e1be3c09f208ce");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_a299f1dbd0c1c7d");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_vision_pulse_x2_multikill_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_gravity_slam_multikill_x2");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_305bd298951fd742");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_deployable_cover_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_battle_shield_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_war_machine_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_tak5_multikill_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_purifier_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_8e1be3c09f208ce");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_a299f1dbd0c1c7d");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_vision_pulse_x2_multikill_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_gravity_slam_multikill_x2");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_305bd298951fd742");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_deployable_cover_x2_multikill_summary");
 		if(var_e716a62e >= 10)
 		{
 			self giveachievement("mp_trophy_special_issue_weaponry");
@@ -1036,16 +1036,16 @@ function specialistmedalachievement(weapon, scoreevents)
 	}
 	else if(isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8 && isdefined(scoreevents) && (isdefined(scoreevents.var_fcd2ff3a) && scoreevents.var_fcd2ff3a))
 	{
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_swat_grenade_multikill_x2_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_caa3df31fb4d23c");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_3427f2d4181d570");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_radiation_field_multikill_x2_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_23697882250026c");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_seeker_shock_mine_paralyzed_headshot");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_sensor_dart_multikill_x2_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_grapple_gun_multikill_x2_summary");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"hash_13133901e76182d");
-		var_e716a62e = var_e716a62e + self stats::function_441050ca(#"stats_concertina_wire_multikill_x2_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_swat_grenade_multikill_x2_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_caa3df31fb4d23c");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_3427f2d4181d570");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_radiation_field_multikill_x2_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_23697882250026c");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_seeker_shock_mine_paralyzed_headshot");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_sensor_dart_multikill_x2_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_grapple_gun_multikill_x2_summary");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"hash_13133901e76182d");
+		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_concertina_wire_multikill_x2_summary");
 		if(var_e716a62e >= 10)
 		{
 			self giveachievement("mp_trophy_special_issue_equipment");
@@ -1064,7 +1064,7 @@ function specialistmedalachievement(weapon, scoreevents)
 */
 function function_8279d8bf(weapon, scoreevents)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}

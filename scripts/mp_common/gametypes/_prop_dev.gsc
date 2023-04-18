@@ -33,9 +33,9 @@
 function adddevguicommand(path, var_c669188)
 {
 	/#
-		var_2f3fa528 = ("" + path) + "";
+		pathstr = ("" + path) + "";
 		var_f71fadd = ("" + var_c669188) + "";
-		debugcommand = (("" + var_2f3fa528) + "") + var_f71fadd;
+		debugcommand = (("" + pathstr) + "") + var_f71fadd;
 		adddebugcommand(debugcommand);
 	#/
 }
@@ -1420,19 +1420,19 @@ function function_77511c75()
 		}
 		if(isdefined(level.players[1]))
 		{
-			var_3473cb36 = level.players[1];
+			enemybot = level.players[1];
 		}
 		else
 		{
-			var_3473cb36 = bot::add_bot(util::getotherteam(player.team));
+			enemybot = bot::add_bot(util::getotherteam(player.team));
 		}
-		if(!isdefined(var_3473cb36.pers[#"participation"]))
+		if(!isdefined(enemybot.pers[#"participation"]))
 		{
-			var_3473cb36.pers[#"participation"] = 0;
+			enemybot.pers[#"participation"] = 0;
 		}
-		if(!isdefined(var_3473cb36.hits))
+		if(!isdefined(enemybot.hits))
 		{
-			var_3473cb36.hits = 0;
+			enemybot.hits = 0;
 		}
 		setdvar(#"hash_3835bf18bc27fe80", 0);
 		setdvar(#"bot_allowmovement", 0);
@@ -1441,18 +1441,18 @@ function function_77511c75()
 		end = player.origin;
 		dir = anglestoforward(player.angles);
 		start = (end + (dir * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		var_9b67aa0b = -1 * dir;
 		start = (end + (var_9b67aa0b * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		var_70d65e57 = anglestoright(player.angles);
 		start = (end + (var_70d65e57 * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		var_3d34e352 = -1 * var_70d65e57;
 		start = (end + (var_3d34e352 * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		start = end + vectorscale((0, 0, 1), 100);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		player waittilltimeout(0.3, #"damage");
 		wait(0.05);
 		player.health = player.maxhealth;

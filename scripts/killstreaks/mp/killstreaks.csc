@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5a44cd71d81b3f86;
+#using scripts\killstreaks\mp\killstreak_vehicle.csc;
 #using scripts\killstreaks\killstreaks_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
@@ -31,6 +31,6 @@ function autoexec __init__system__()
 function __init__()
 {
 	init_shared();
-	namespace_231aa29a::init();
+	killstreak_vehicle::init();
 }
 

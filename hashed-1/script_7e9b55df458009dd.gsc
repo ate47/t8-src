@@ -56,7 +56,7 @@ function __main__()
 */
 function function_7186a3aa()
 {
-	zm_perks::function_7f42e14e(#"hash_48255a3b086a9bea", "mod_dying_wish", #"hash_e58ff2df5bfd9b3", #"hash_5b141f82a55645a9", 5000);
+	zm_perks::function_7f42e14e(#"hash_48255a3b086a9bea", "mod_dying_wish", #"perk_dying_wish", #"hash_5b141f82a55645a9", 5000);
 	zm_perks::register_perk_threads(#"hash_48255a3b086a9bea", &function_fb91d1a, &function_63f21c1e);
 }
 

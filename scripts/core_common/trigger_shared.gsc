@@ -60,7 +60,7 @@ function function_cbf8fb6b(var_60ffbed2, func_handler, func_init, var_114fa26c =
 			}
 			else
 			{
-				self callback::function_35a12f19(func_handler);
+				self callback::on_trigger(func_handler);
 			}
 		}
 		if(isfunctionptr(func_init))
@@ -1332,7 +1332,7 @@ function run(func, vararg)
 		{
 			if(trig.target === self.targetname)
 			{
-				trig callback::function_35a12f19(&function_996dfbe2, undefined, self, func, vararg);
+				trig callback::on_trigger(&function_996dfbe2, undefined, self, func, vararg);
 				var_3bdd90c2 = 1;
 			}
 		}

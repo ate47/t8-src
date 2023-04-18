@@ -89,7 +89,7 @@ function set_flag(outcome, flag)
 }
 
 /*
-	Name: function_5f24faac
+	Name: get_flag
 	Namespace: outcome
 	Checksum: 0xDA160E79
 	Offset: 0x370
@@ -97,13 +97,13 @@ function set_flag(outcome, flag)
 	Parameters: 2
 	Flags: Linked
 */
-function function_5f24faac(outcome, flag)
+function get_flag(outcome, flag)
 {
 	return outcome flagsys::get(flag);
 }
 
 /*
-	Name: function_46cb766c
+	Name: clear_flag
 	Namespace: outcome
 	Checksum: 0x5457B92B
 	Offset: 0x3A8
@@ -111,7 +111,7 @@ function function_5f24faac(outcome, flag)
 	Parameters: 2
 	Flags: Linked
 */
-function function_46cb766c(outcome, flag)
+function clear_flag(outcome, flag)
 {
 	return outcome flagsys::clear(flag);
 }

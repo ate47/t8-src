@@ -9,7 +9,7 @@
 #namespace arc;
 
 /*
-	Name: function_4e219272
+	Name: init_arc
 	Namespace: arc
 	Checksum: 0xC7FD1335
 	Offset: 0x98
@@ -17,7 +17,7 @@
 	Parameters: 2
 	Flags: None
 */
-function function_4e219272(weapon, var_26b2b1bb)
+function init_arc(weapon, var_26b2b1bb)
 {
 	/#
 		level thread update_dvars();
@@ -142,7 +142,7 @@ function function_9b14bec4(eattacker, einflictor, weapon, meansofdeath, damage, 
 		arc_source_origin = self.body.origin;
 		arc_source_pos = self.body gettagorigin(var_26b2b1bb.fx_tag);
 	}
-	self function_5272e51b(var_26b2b1bb, eattacker, arc_source, arc_source_origin, 0);
+	self find_arc_targets(var_26b2b1bb, eattacker, arc_source, arc_source_origin, 0);
 }
 
 /*
@@ -271,7 +271,7 @@ function function_33d5b9a6(var_26b2b1bb, eattacker, arc_source, arc_source_origi
 }
 
 /*
-	Name: function_5272e51b
+	Name: find_arc_targets
 	Namespace: arc
 	Checksum: 0x70132C1
 	Offset: 0x8E0
@@ -279,7 +279,7 @@ function function_33d5b9a6(var_26b2b1bb, eattacker, arc_source, arc_source_origi
 	Parameters: 6
 	Flags: None
 */
-function function_5272e51b(var_26b2b1bb, eattacker, arc_source, arc_source_origin, depth, var_4d3cc1a7 = 1)
+function find_arc_targets(var_26b2b1bb, eattacker, arc_source, arc_source_origin, depth, var_4d3cc1a7 = 1)
 {
 	/#
 		if(level.var_6d3af47)
@@ -330,7 +330,7 @@ function function_30a9a6c1(var_26b2b1bb, delay, eattacker, arc_source, var_9a099
 	function_41827934(arc_source, arc_target);
 	if(depth < (isdefined(var_26b2b1bb.depth) ? var_26b2b1bb.depth : 0) && isdefined(arc_source))
 	{
-		arc_target function_5272e51b(level.var_8a74f7fc[arc_source.var_c43010fc], arc_source.owner, arc_source, arc_source_origin, depth + 1, var_4d3cc1a7);
+		arc_target find_arc_targets(level.var_8a74f7fc[arc_source.var_c43010fc], arc_source.owner, arc_source, arc_source_origin, depth + 1, var_4d3cc1a7);
 	}
 	if(isdefined(arc_source) && isdefined(arc_source.var_16d479de))
 	{

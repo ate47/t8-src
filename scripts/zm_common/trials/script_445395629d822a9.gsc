@@ -47,7 +47,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1d70527739c796e5", &on_begin, &on_end);
+	zm_trial::register_challenge(#"lighthouse_beam", &on_begin, &on_end);
 }
 
 /*

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2a1b4621c4186335;
-#using script_31f976b33c4eb6dc;
+#using scripts\core_common\player_insertion.csc;
 #using script_3575fbea89393aba;
 #using scripts\wz_common\wz_ai.csc;
 #using scripts\core_common\map.csc;

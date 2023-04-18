@@ -92,7 +92,7 @@ function init_elevator(var_fd98a47c)
 			button setcursorhint("HINT_NOICON");
 			button sethintstring(#"hash_29965b65bca9cd7b");
 			button usetriggerignoreuseholdtime();
-			button callback::function_35a12f19(&function_af088c90);
+			button callback::on_trigger(&function_af088c90);
 			button.elevator = elevator;
 			elevator.button = button;
 			elevator.var_e87f4c9 = button.origin - elevator.origin;

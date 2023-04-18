@@ -321,7 +321,7 @@ function announce_game_winner(outcome)
 	wait(battlechatter::mpdialog_value("announceWinnerDelay", 0));
 	if(level.teambased)
 	{
-		if(outcome::function_5f24faac(outcome, "tie") || !match::function_c10174e7())
+		if(outcome::get_flag(outcome, "tie") || !match::function_c10174e7())
 		{
 			leader_dialog("gameDraw");
 		}
@@ -1553,7 +1553,7 @@ function set_music_on_player(state, wait_time = 0, save_state = 0, return_state 
 	{
 		return;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -1587,7 +1587,7 @@ function set_music_global(state, wait_time = 0, save_state = 0, return_state = 0
 	{
 		return;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}

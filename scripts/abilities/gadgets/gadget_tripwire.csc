@@ -285,11 +285,11 @@ function function_9233eb94(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		self endon(#"death");
 		self util::waittill_dobj(localclientnum);
-		self.var_808217fb = util::playfxontag(localclientnum, #"hash_253c31a9114d6029", self, "tag_origin");
+		self.beam_fx = util::playfxontag(localclientnum, #"hash_253c31a9114d6029", self, "tag_origin");
 	}
-	else if(isdefined(self.var_808217fb))
+	else if(isdefined(self.beam_fx))
 	{
-		killfx(localclientnum, self.var_808217fb);
+		killfx(localclientnum, self.beam_fx);
 	}
 }
 
@@ -441,7 +441,7 @@ function function_95d56693()
 {
 	for(i = 0; i < level.var_77cae643.size; i++)
 	{
-		if(level.var_77cae643[i].var_5fe52b5a == 0)
+		if(level.var_77cae643[i].shoulddraw == 0)
 		{
 			return i;
 		}
@@ -579,13 +579,13 @@ function function_adb3eb2c(localclientnum)
 				var_b92e175e = spawnstruct();
 				var_b92e175e.ent1 = self;
 				var_b92e175e.ent2 = tripwire;
-				var_b92e175e.var_5fe52b5a = 1;
+				var_b92e175e.shoulddraw = 1;
 				var_b92e175e.beam_id = undefined;
 				level.var_77cae643[function_95d56693()] = var_b92e175e;
 			}
-			else if(isdefined(var_1eb381e1) && !var_1eb381e1.var_5fe52b5a)
+			else if(isdefined(var_1eb381e1) && !var_1eb381e1.shoulddraw)
 			{
-				var_1eb381e1.var_5fe52b5a = 1;
+				var_1eb381e1.shoulddraw = 1;
 			}
 			if(isdefined(self.var_2045ae5c))
 			{
@@ -596,7 +596,7 @@ function function_adb3eb2c(localclientnum)
 		}
 		if(isdefined(var_1eb381e1))
 		{
-			var_1eb381e1.var_5fe52b5a = 0;
+			var_1eb381e1.shoulddraw = 0;
 		}
 	}
 	if(!isdefined(self.var_2045ae5c) && !self.var_c2f0f6da)
@@ -619,12 +619,12 @@ function function_dc76d0d0(localclientnum)
 	for(i = 0; i < level.var_77cae643.size; i++)
 	{
 		beam = level.var_77cae643[i];
-		if(beam.var_5fe52b5a && !isdefined(beam.beam_id) && isdefined(beam.ent1) && isdefined(beam.ent2))
+		if(beam.shoulddraw && !isdefined(beam.beam_id) && isdefined(beam.ent1) && isdefined(beam.ent2))
 		{
 			level.var_77cae643[i].beam_id = level beam::function_cfb2f62a(localclientnum, beam.ent1, "tag_fx", beam.ent2, "tag_fx", "beam8_plyr_equip_ied_previs");
 			continue;
 		}
-		if(beam.var_5fe52b5a == 0 && isdefined(beam.beam_id))
+		if(beam.shoulddraw == 0 && isdefined(beam.beam_id))
 		{
 			beam::function_47deed80(localclientnum, beam.beam_id);
 			level.var_77cae643[i].beam_id = undefined;
@@ -648,7 +648,7 @@ function function_c51a3b22()
 		beam = level.var_77cae643[i];
 		if(!isdefined(beam) || !isdefined(beam.ent1) || !isdefined(beam.ent2))
 		{
-			level.var_77cae643[i].var_5fe52b5a = 0;
+			level.var_77cae643[i].shoulddraw = 0;
 		}
 	}
 }
@@ -666,7 +666,7 @@ function function_6b69576b()
 {
 	for(i = 0; i < level.var_77cae643.size; i++)
 	{
-		level.var_77cae643[i].var_5fe52b5a = 0;
+		level.var_77cae643[i].shoulddraw = 0;
 	}
 }
 

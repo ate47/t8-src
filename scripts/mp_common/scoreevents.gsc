@@ -88,7 +88,7 @@ function function_4013aee1(status_effect, var_3bc85d80)
 			{
 				if(status_effect.var_3d1ed4bd == getweapon(#"concussion_grenade"))
 				{
-					processscoreevent(#"hash_67b2c6329cd728cf", status_effect.var_4b22e697, status_effect.owner, status_effect.var_3d1ed4bd);
+					processscoreevent(#"concussed_enemy", status_effect.var_4b22e697, status_effect.owner, status_effect.var_3d1ed4bd);
 					status_effect.var_4b22e697.var_9d19aa30 = (isdefined(status_effect.var_4b22e697.var_4b22e697.var_9d19aa30) ? status_effect.var_4b22e697.var_9d19aa30 : 0) + 1;
 					if(status_effect.var_4b22e697.var_9d19aa30 == 2 && isdefined(level.playgadgetsuccess))
 					{
@@ -385,7 +385,7 @@ function scoreeventplayerkill(data, time)
 			{
 				if(attacker == attacker.var_3febb1e9)
 				{
-					processscoreevent(#"hash_78ffd98403577905", attacker, victim, getweapon(#"eq_localheal"));
+					processscoreevent(#"stim_kill", attacker, victim, getweapon(#"eq_localheal"));
 				}
 				else
 				{
@@ -509,7 +509,7 @@ function scoreeventplayerkill(data, time)
 				{
 					continue;
 				}
-				if(effect.var_3d1ed4bd == getweapon(#"hash_3f62a872201cd1ce") || effect.var_3d1ed4bd == getweapon(#"hash_638e1f0905f293cf") || effect.var_3d1ed4bd == getweapon(#"eq_slow_grenade"))
+				if(effect.var_3d1ed4bd == getweapon(#"hash_3f62a872201cd1ce") || effect.var_3d1ed4bd == getweapon(#"seeker_mine_arc") || effect.var_3d1ed4bd == getweapon(#"eq_slow_grenade"))
 				{
 					processscoreevent(#"hash_61640bd6bb7451ad", attacker, victim, effect.var_3d1ed4bd);
 					break;
@@ -642,7 +642,7 @@ function scoreeventplayerkill(data, time)
 		{
 			foreach(var_69162b32 in victim._gadgets_player)
 			{
-				if(var_69162b32 == getweapon(#"hash_2ce2e438ecd6b2d2"))
+				if(var_69162b32 == getweapon(#"mute_smoke"))
 				{
 					processscoreevent(#"hash_438160ef75ca2ea", attacker, victim, weapon);
 					break;
@@ -656,7 +656,7 @@ function scoreeventplayerkill(data, time)
 			{
 				if(var_7006e4f4 == attacker)
 				{
-					processscoreevent(#"hash_3d3467f13cf43727", attacker, victim, getweapon(#"hash_2ce2e438ecd6b2d2"));
+					processscoreevent(#"hash_3d3467f13cf43727", attacker, victim, getweapon(#"mute_smoke"));
 				}
 				else
 				{
@@ -879,12 +879,12 @@ function scoreeventplayerkill(data, time)
 				victim recordkillmodifier("longshot");
 				if(isdefined(attacker.var_ea1458aa))
 				{
-					if(!isdefined(attacker.var_ea1458aa.var_eb577364))
+					if(!isdefined(attacker.var_ea1458aa.longshot_kills))
 					{
-						attacker.var_ea1458aa.var_eb577364 = 0;
+						attacker.var_ea1458aa.longshot_kills = 0;
 					}
-					attacker.var_ea1458aa.var_eb577364++;
-					if((attacker.var_ea1458aa.var_eb577364 % 3) == 0)
+					attacker.var_ea1458aa.longshot_kills++;
+					if((attacker.var_ea1458aa.longshot_kills % 3) == 0)
 					{
 						attacker stats::function_dad108fa(#"longshot_3_onelife", 1);
 					}
@@ -1368,7 +1368,7 @@ function function_8fe4629e(killcount, weapon)
 	var_d781da3d = int(killcount / 4);
 	if(var_d781da3d > 0)
 	{
-		self activecamo::function_896ac347(weapon, #"hash_7f19a53e1e4e0f95", var_d781da3d);
+		self activecamo::function_896ac347(weapon, #"furykill", var_d781da3d);
 	}
 	var_22016f22 = int(killcount / 5);
 	if(var_22016f22 > 0)
@@ -1986,7 +1986,7 @@ function updateoneshotmultikills(victim, weapon, firsttimedamaged, meansofdeath)
 		}
 		if(meansofdeath == "MOD_HEAD_SHOT")
 		{
-			var_f9d69b3b = self stats::function_441050ca(#"kill_enemy_one_bullet_headshot");
+			var_f9d69b3b = self stats::get_stat_global(#"kill_enemy_one_bullet_headshot");
 			var_35635206 = self stats::function_af5584ca(#"kill_enemy_one_bullet_headshot");
 			var_413c3e61 = 1;
 			if(isdefined(var_35635206))
@@ -2124,7 +2124,7 @@ function ongameend(data)
 	{
 		if(level.teambased)
 		{
-			if(!match::function_5f24faac("tie") && player.team == winner)
+			if(!match::get_flag("tie") && player.team == winner)
 			{
 				player.pers[#"hash_6344af0b142ed0b6"] = 1;
 				processscoreevent(#"won_match", player, undefined, undefined);
@@ -2304,7 +2304,7 @@ function function_c28e2c05(var_152c14d0, sensor_darts, var_e13a103a)
 		{
 			continue;
 		}
-		if(distancesquared(var_152c14d0, sensor.origin) < ((function_f99d2668() ? 2400 : 800) + 50) * ((function_f99d2668() ? 2400 : 800) + 50))
+		if(distancesquared(var_152c14d0, sensor.origin) < ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) * ((sessionmodeiswarzonegame() ? 2400 : 800) + 50))
 		{
 			return sensor;
 		}

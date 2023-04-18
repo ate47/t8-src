@@ -59,11 +59,11 @@ function __init__()
 	scene::add_scene_func(#"hash_41fada5e44b023a9", &function_86f1ed70, "play");
 	scene::add_scene_func(#"hash_c09d814252d9522", &function_8d3078dc, "play");
 	scene::add_scene_func(#"hash_7cc7d9f749a02418", &registeree_command_heart_, "play");
-	function_842831cf();
+	init_clientfield();
 }
 
 /*
-	Name: function_842831cf
+	Name: init_clientfield
 	Namespace: pap_quest
 	Checksum: 0xD927866A
 	Offset: 0x578
@@ -71,7 +71,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_842831cf()
+function private init_clientfield()
 {
 	clientfield::register("world", "" + #"hash_3fcd3bbe36f86e4b", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"lightning_near", 1, 1, "counter");

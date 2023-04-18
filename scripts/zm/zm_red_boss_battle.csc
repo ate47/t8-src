@@ -62,7 +62,7 @@ function function_6e3ecc82(localclientnum, oldval, newval, bnewent, binitialsnap
 		case 3:
 		{
 			self util::waittill_dobj(localclientnum);
-			self.fx = util::playfxontag(localclientnum, level._effect[#"hash_57e8678ca1730874" + newval], self, "tag_origin");
+			self.fx = util::playfxontag(localclientnum, level._effect[#"chaos_bolt_" + newval], self, "tag_origin");
 			break;
 		}
 	}

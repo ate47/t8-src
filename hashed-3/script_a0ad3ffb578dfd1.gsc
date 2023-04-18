@@ -406,8 +406,8 @@ function function_ea0460f4()
 			zm_unitrigger::function_47625e58(s_unitrigger, var_c597d89a.origin);
 		}
 		var_255658de thread function_aba430c2(s_unitrigger);
-		var_255658de val::set(#"hash_4a35aca1f4d4f559", "takedamage", 1);
-		var_255658de val::set(#"hash_4a35aca1f4d4f559", "allowdeath", 0);
+		var_255658de val::set(#"phono_roll", "takedamage", 1);
+		var_255658de val::set(#"phono_roll", "allowdeath", 0);
 	}
 	var_b27c3401 = struct::get_array(#"hash_44ff0c493e2791eb");
 	foreach(var_66a89e74 in var_b27c3401)

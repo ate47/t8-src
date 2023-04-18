@@ -120,14 +120,14 @@ function function_931e4ab1()
 */
 function function_84139b27()
 {
-	zm_utility::function_c492c4d6(#"danu", #"hash_692e7036aa28a86e", array(#"zone_danu_top_floor", #"zone_danu_ground_floor"), array(#"temple", #"arena", #"hash_564e150d01ecfb65", #"pit"), #"hash_39a5e0978d0efd73", #"hash_78b1d1196746763d");
-	zm_utility::function_c492c4d6(#"ra", #"hash_15c014d044ca67c1", array(#"zone_ra_top_floor", #"zone_ra_ground_floor"), array(#"arena", #"temple", #"hash_564e150d01ecfb65", #"pit"), #"hash_7d572184f439180a", #"hash_298247685ea80656");
-	zm_utility::function_c492c4d6(#"odin", #"hash_644b220d0ab22c0c", array(#"zone_odin_top_floor", #"zone_odin_ground_floor"), array(#"temple", #"hash_564e150d01ecfb65", #"pit", #"arena"), #"hash_ed407098b77bc91", #"hash_5e203d11381c57c7");
-	zm_utility::function_c492c4d6(#"zeus", #"hash_76fbf2acafa2c1b9", array(#"zone_zeus_ground_floor", #"zone_zeus_top_floor"), array(#"arena", #"hash_564e150d01ecfb65", #"pit", #"temple"), #"hash_417a5feff0cb56ea", #"hash_74941e980968cff6");
+	zm_utility::function_c492c4d6(#"danu", #"hash_692e7036aa28a86e", array(#"zone_danu_top_floor", #"zone_danu_ground_floor"), array(#"temple", #"arena", #"flooded_crypt", #"pit"), #"hash_39a5e0978d0efd73", #"hash_78b1d1196746763d");
+	zm_utility::function_c492c4d6(#"ra", #"hash_15c014d044ca67c1", array(#"zone_ra_top_floor", #"zone_ra_ground_floor"), array(#"arena", #"temple", #"flooded_crypt", #"pit"), #"hash_7d572184f439180a", #"hash_298247685ea80656");
+	zm_utility::function_c492c4d6(#"odin", #"hash_644b220d0ab22c0c", array(#"zone_odin_top_floor", #"zone_odin_ground_floor"), array(#"temple", #"flooded_crypt", #"pit", #"arena"), #"hash_ed407098b77bc91", #"hash_5e203d11381c57c7");
+	zm_utility::function_c492c4d6(#"zeus", #"hash_76fbf2acafa2c1b9", array(#"zone_zeus_ground_floor", #"zone_zeus_top_floor"), array(#"arena", #"flooded_crypt", #"pit", #"temple"), #"hash_417a5feff0cb56ea", #"hash_74941e980968cff6");
 	zm_utility::function_c492c4d6(#"temple", #"hash_8117ce3b24d5287", array(#"zone_pap_room", #"zone_pap_room_balcony_flooded_crypt"), array(#"ra", #"danu", #"odin", #"zeus"), #"hash_75add73ac9df6bbc", #"hash_468014d28365550c");
 	zm_utility::function_c492c4d6(#"arena", #"hash_67ff9fcb1f12e52d", array(#"zone_starting_area_center"), array(#"ra", #"danu", #"odin", #"zeus"), #"hash_4d59f666d8b7f20c", #"hash_c641ebe32c2d1fc");
 	zm_utility::function_c492c4d6(#"pit", #"hash_2db9c4e4d97c7ca9", array(#"zone_body_pit", #"zone_fallen_hero"), array(#"ra", #"danu", #"odin", #"zeus"), #"hash_6880f6ff86cde47e", #"hash_30733dec2e9e228a");
-	zm_utility::function_c492c4d6(#"hash_564e150d01ecfb65", #"hash_68baa2a5397d37da", array(#"zone_flooded_crypt", #"zone_cursed_room"), array(#"ra", #"danu", #"odin", #"zeus"), #"hash_107cd70abcec1413", #"hash_3235c0f8ff21201d");
+	zm_utility::function_c492c4d6(#"flooded_crypt", #"hash_68baa2a5397d37da", array(#"zone_flooded_crypt", #"zone_cursed_room"), array(#"ra", #"danu", #"odin", #"zeus"), #"hash_107cd70abcec1413", #"hash_3235c0f8ff21201d");
 }
 
 /*
@@ -354,7 +354,7 @@ function function_ca35fa36()
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 20);
 	var_69e6a669 = var_f79ff5ec;
-	var_f79ff5ec = array::random(array(#"pit", #"hash_564e150d01ecfb65"));
+	var_f79ff5ec = array::random(array(#"pit", #"flooded_crypt"));
 	var_381c9eeb = var_f79ff5ec;
 	var_420e4589 = [];
 	if(var_69e6a669 == #"danu")
@@ -449,7 +449,7 @@ function function_ca35fa36()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	if(var_381c9eeb == #"pit")
 	{
-		var_f79ff5ec = #"hash_564e150d01ecfb65";
+		var_f79ff5ec = #"flooded_crypt";
 		var_420e4589 = array("door_zeus_tunnel_to_flooded_crypt");
 	}
 	else

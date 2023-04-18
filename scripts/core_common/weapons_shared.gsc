@@ -361,7 +361,7 @@ function function_e870d33d()
 				}
 			}
 			var_394fad2b = 1;
-			var_94e17956 = 0;
+			vehicle_used = 0;
 			player thread function_18a9a4e4(settings);
 			ads_fraction = player playerads();
 			var_4308b3d8 = gettime() + ((1 - ads_fraction) * current_weapon.var_e5db3b95);
@@ -390,7 +390,7 @@ function function_e870d33d()
 				vehicle show();
 				vehicle clientfield::set("enemyvehicle", 0);
 				vehicle usevehicle(player, 0);
-				var_94e17956 = 1;
+				vehicle_used = 1;
 				vehicle turretsettargetangles(0, var_a3a6eba5 - player_angles);
 				player.var_ca876b0f = 1;
 				player.var_e7e2e3e5 = 1;
@@ -417,7 +417,7 @@ function function_e870d33d()
 			}
 			vehicle delete();
 			vehicle = undefined;
-			if(var_94e17956)
+			if(vehicle_used)
 			{
 				player setorigin(exit_origin);
 			}
@@ -438,7 +438,7 @@ function function_e870d33d()
 					break;
 				}
 			}
-			else if(var_94e17956)
+			else if(vehicle_used)
 			{
 				wait(0.4);
 			}

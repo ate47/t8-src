@@ -34,7 +34,7 @@ function init()
 	level._effect[#"hash_4391e5c4b43c63c9"] = #"hash_709cca7d0048aa72";
 	level._effect[#"hash_5647f8e593893bce"] = #"hash_69af1783a31b44f7";
 	level._effect[#"hash_13b6f9efa3cf588a"] = #"hash_526060b70ce93d7e";
-	level._effect[#"hash_1a3aa0422b5a92a4"] = #"hash_358533e8293f131d";
+	level._effect[#"spinning_blood"] = #"hash_358533e8293f131d";
 	level._effect[#"hash_44ccd33973542202"] = #"hash_5fdb13b4843bc710";
 }
 
@@ -337,7 +337,7 @@ function spinning_trap_blood_fx(localclientnum, oldval, newval, bnewent, binitia
 		{
 			var_1f694afe = "j_spine1";
 		}
-		self.n_spinning_trap_blood_fx = util::playfxontag(localclientnum, level._effect[#"hash_1a3aa0422b5a92a4"], self, var_1f694afe);
+		self.n_spinning_trap_blood_fx = util::playfxontag(localclientnum, level._effect[#"spinning_blood"], self, var_1f694afe);
 		playsound(localclientnum, #"hash_5840ac12dd5f08cd", self.origin);
 	}
 }

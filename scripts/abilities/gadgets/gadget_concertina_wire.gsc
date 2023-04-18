@@ -573,7 +573,7 @@ function function_fc4df41e(watcher, owner)
 {
 	self endon(#"death");
 	player = owner;
-	self.var_52a68abf = 1;
+	self.canthack = 1;
 	self hide();
 	if(!isdefined(player.concertinawire.var_add809de) || !player.concertinawire.var_add809de.isvalid)
 	{
@@ -761,7 +761,7 @@ function function_4ee7d46a(isselfdestruct)
 	{
 		playfx(level.var_87226c31.bundle.var_bb6c29b4, concertinawire.origin);
 	}
-	var_28eaeb22 = -1;
+	removeindex = -1;
 	for(index = 0; index < level.var_87226c31.var_925bbb2.size; index++)
 	{
 		if(level.var_87226c31.var_925bbb2[index] == concertinawire)
@@ -1318,7 +1318,7 @@ function function_34d706ae(watcher, var_db52b808, origin, angles, var_796be15d, 
 		objective_setteam(var_bf8e4260.objectiveid, player.team);
 	}
 	var_35c2e583 = player gadgetgetslot(level.var_87226c31.var_3e7344ee);
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		self gadgetpowerset(var_35c2e583, 0);
 	}

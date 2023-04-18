@@ -50,7 +50,7 @@ function function_481123c()
 	zm_perks::register_perk_clientfields(#"specialty_phdflopper", &function_4bb29d61, &function_90b5e96c);
 	zm_perks::register_perk_effects(#"specialty_phdflopper", "divetonuke_light");
 	zm_perks::register_perk_init_thread(#"specialty_phdflopper", &function_15d03600);
-	zm_perks::function_b60f4a9f(#"specialty_phdflopper", #"p8_zm_vapor_altar_icon_01_phdslider", "zombie/fx8_perk_altar_symbol_ambient_slider", #"hash_402b9d6529500b72");
+	zm_perks::function_b60f4a9f(#"specialty_phdflopper", #"p8_zm_vapor_altar_icon_01_phdslider", "zombie/fx8_perk_altar_symbol_ambient_slider", #"zmperksphdslider");
 }
 
 /*

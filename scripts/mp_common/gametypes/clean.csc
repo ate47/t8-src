@@ -23,7 +23,7 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "taco_player_entnum", 14000, 4, "int", &function_568727a2, 0, 0);
 	level.var_aaaae0b = "ui/fx8_fracture_plyr_marker";
 	level.var_5844252c = "ui/fx8_fracture_drop_marker";
-	level.var_ce64ea3e = #"hash_77d505035209b8d6";
+	level.var_ce64ea3e = #"clean_taco";
 	if(isdefined(getgametypesetting(#"hash_5cc4c3042b7d4935")) && getgametypesetting(#"hash_5cc4c3042b7d4935"))
 	{
 		level.var_aaaae0b = "ui/fx8_fracture_plyr_marker_shamrock";
@@ -219,7 +219,7 @@ function function_d91ca1f1(localclientnum)
 		level.var_ccb8d7fb[localclientnum][i] = spawnstruct();
 		objid = util::getnextobjid(localclientnum);
 		level.var_ccb8d7fb[localclientnum][i].id = objid;
-		level.var_ccb8d7fb[localclientnum][i].var_336f0669 = undefined;
+		level.var_ccb8d7fb[localclientnum][i].tacoentnum = undefined;
 		objective_add(localclientnum, objid, "invisible", level.var_ce64ea3e);
 	}
 }
@@ -233,13 +233,13 @@ function function_d91ca1f1(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_5d02c098(localclientnum, var_336f0669)
+function function_5d02c098(localclientnum, tacoentnum)
 {
 	for(i = 0; i < 16; i++)
 	{
-		if(!isdefined(level.var_ccb8d7fb[localclientnum][i].var_336f0669))
+		if(!isdefined(level.var_ccb8d7fb[localclientnum][i].tacoentnum))
 		{
-			level.var_ccb8d7fb[localclientnum][i].var_336f0669 = var_336f0669;
+			level.var_ccb8d7fb[localclientnum][i].tacoentnum = tacoentnum;
 			return level.var_ccb8d7fb[localclientnum][i].id;
 		}
 	}
@@ -255,13 +255,13 @@ function function_5d02c098(localclientnum, var_336f0669)
 	Parameters: 2
 	Flags: None
 */
-function function_53576950(localclientnum, var_336f0669)
+function function_53576950(localclientnum, tacoentnum)
 {
 	for(i = 0; i < 16; i++)
 	{
-		if(level.var_ccb8d7fb[localclientnum][i].var_336f0669 === var_336f0669)
+		if(level.var_ccb8d7fb[localclientnum][i].tacoentnum === tacoentnum)
 		{
-			level.var_ccb8d7fb[localclientnum][i].var_336f0669 = undefined;
+			level.var_ccb8d7fb[localclientnum][i].tacoentnum = undefined;
 			return level.var_ccb8d7fb[localclientnum][i].id;
 		}
 	}

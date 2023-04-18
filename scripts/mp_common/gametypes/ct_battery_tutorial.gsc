@@ -12,7 +12,7 @@
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -95,7 +95,7 @@ function function_c9ff0dce()
 	if(!isbot(self))
 	{
 		self callback::function_20263b9e(&function_20263b9e);
-		self.overrideplayerdamage = &function_6fb4cde7;
+		self.overrideplayerdamage = &callback_player_damage;
 		self thread function_8486a84b();
 		ct_utils::delete_corpses();
 		waitframe(1);
@@ -229,7 +229,7 @@ function function_753148fe()
 }
 
 /*
-	Name: function_6fb4cde7
+	Name: callback_player_damage
 	Namespace: ct_battery_tutorial
 	Checksum: 0xE215EA6F
 	Offset: 0x17A8
@@ -237,7 +237,7 @@ function function_753148fe()
 	Parameters: 11
 	Flags: None
 */
-function function_6fb4cde7(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
+function callback_player_damage(e_inflictor, e_attacker, n_damage, n_dflags, str_means_of_death, weapon, v_point, v_dir, str_hit_loc, n_psoffsettime, var_8b69d5cf)
 {
 	level notify(#"player_damaged");
 	if(!(isdefined(level.var_a600ce76) && level.var_a600ce76 && str_means_of_death == "MOD_GRENADE_SPLASH"))
@@ -854,7 +854,7 @@ function function_8d7d4d37()
 	ct_utils::function_9aca2fa0("ct_action2");
 	while(!level flag::get("patrol_dead"))
 	{
-		level.players[0] thread function_2804d387();
+		level.players[0] thread window_barriers();
 		ct_vo::function_3ca1b77d();
 		level.players[0] thread ct_utils::function_61c3d59c(#"hash_4343701e06ee1033", undefined);
 		s_loc = struct::get("s_war_machine_wall_bounce_target");
@@ -1104,7 +1104,7 @@ function function_be0b44be()
 	level.var_32ae304 = &ct_bots::function_32ae304;
 	ct_utils::function_e9ab1003("s_war_machine_mantis_goto");
 	level.players[0] thread function_753148fe();
-	level.players[0] notify(#"hash_526132995cf20df8");
+	level.players[0] notify(#"stop_ammo");
 	level notify(#"stop_swimming_collision");
 	level.var_d4668c34 = undefined;
 	function_8e068518();
@@ -1272,7 +1272,7 @@ function function_86610592()
 	{
 		level.var_51ff7a58 = 1;
 		level.players[0] ct_utils::function_1bb93418();
-		level notify(#"hash_3fcfe72e5a06b79f");
+		level notify(#"killstreak_ready");
 		level.players[0] notify(#"hash_d492b9f291b1e7b");
 	}
 	if(level.var_ff7ed5c8 > 700)
@@ -1646,7 +1646,7 @@ function function_58c62280(b_keyline, b_ignoreall)
 		self thread function_25dcfd55();
 	}
 	self ct_utils::function_61d750d4(s_loc.origin, s_loc.angles);
-	self.overrideplayerdamage = &function_6fb4cde7;
+	self.overrideplayerdamage = &callback_player_damage;
 	if(isdefined(b_ignoreall) && b_ignoreall)
 	{
 		if(level.var_ad7c0539 != 4 && level.var_ad7c0539 != 6 && level.var_ad7c0539 != 7)
@@ -1710,7 +1710,7 @@ function function_58c62280(b_keyline, b_ignoreall)
 					if(isdefined(s_goal.script_noteworthy))
 					{
 						self waittill(#"goal");
-						self namespace_9c817acd::crouch();
+						self bot_stance::crouch();
 					}
 				}
 				else
@@ -2017,7 +2017,7 @@ function function_d91a23c7()
 */
 function function_8486a84b()
 {
-	self endon(#"death", #"hash_526132995cf20df8");
+	self endon(#"death", #"stop_ammo");
 	if(level.var_ad7c0539 === 10)
 	{
 		return;
@@ -2478,7 +2478,7 @@ function function_f47cc92a()
 }
 
 /*
-	Name: function_2804d387
+	Name: window_barriers
 	Namespace: ct_battery_tutorial
 	Checksum: 0x15EEB8CD
 	Offset: 0x92F0
@@ -2486,7 +2486,7 @@ function function_f47cc92a()
 	Parameters: 0
 	Flags: None
 */
-function function_2804d387()
+function window_barriers()
 {
 	self endon(#"death");
 	while(true)

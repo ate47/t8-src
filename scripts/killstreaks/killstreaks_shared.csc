@@ -133,14 +133,14 @@ function function_c66f053(localclientnum, oldval, newval, bnewent, binitialsnap,
 	local_player = self;
 	var_c86e6ba8 = self.team;
 	players = getplayers(localclientnum);
-	var_657eb40b = newval == 1;
+	should_play = newval == 1;
 	foreach(player in players)
 	{
 		if(!isdefined(player))
 		{
 			continue;
 		}
-		player renderoverridebundle::function_f4eab437(localclientnum, var_657eb40b, #"hash_53798044d9a468d7", &function_e56218ab);
+		player renderoverridebundle::function_f4eab437(localclientnum, should_play, #"hash_53798044d9a468d7", &function_e56218ab);
 	}
 }
 
@@ -153,9 +153,9 @@ function function_c66f053(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 2
 	Flags: None
 */
-function function_429c452(localclientnum, var_657eb40b)
+function function_429c452(localclientnum, should_play)
 {
-	if(!var_657eb40b)
+	if(!should_play)
 	{
 		return 0;
 	}
@@ -165,7 +165,7 @@ function function_429c452(localclientnum, var_657eb40b)
 	}
 	if(!isplayer(self))
 	{
-		return var_657eb40b;
+		return should_play;
 	}
 	localplayer = function_5c10bd79(localclientnum);
 	if(isdefined(localplayer) && !localplayer util::isenemyteam(self.team))
@@ -200,9 +200,9 @@ function function_429c452(localclientnum, var_657eb40b)
 	Parameters: 2
 	Flags: None
 */
-function function_e56218ab(localclientnum, var_657eb40b)
+function function_e56218ab(localclientnum, should_play)
 {
-	if(!var_657eb40b)
+	if(!should_play)
 	{
 		return 0;
 	}
@@ -212,7 +212,7 @@ function function_e56218ab(localclientnum, var_657eb40b)
 	}
 	if(!isplayer(self))
 	{
-		return var_657eb40b;
+		return should_play;
 	}
 	localplayer = function_5c10bd79(localclientnum);
 	if(isdefined(localplayer) && localplayer.team == self.team)

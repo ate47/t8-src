@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\mp\killstreakrules.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_7aca7971e9ec6712;
+#using scripts\killstreaks\mp\killstreak_vehicle.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -36,7 +36,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	init_shared();
-	namespace_231aa29a::init();
+	killstreak_vehicle::init();
 	killstreakrules::init();
 	callback::on_start_gametype(&init);
 	level.var_1492d026 = &play_killstreak_start_dialog;

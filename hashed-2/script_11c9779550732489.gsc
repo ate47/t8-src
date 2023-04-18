@@ -47,7 +47,7 @@ function __init__()
 	level._effect[#"hash_7cdfc8f4819bab2e"] = #"hash_e1bfaf62712f587";
 	level._effect[#"hash_61ed2f45564d54f9"] = #"hash_5531980ba0ce0b70";
 	level._effect[#"hash_596ba88c81d4f0e5"] = #"hash_56628b3f5bc6da0d";
-	level._effect[#"hash_19d0799118280a77"] = #"hash_4d27fd6de25c639b";
+	level._effect[#"blood_splash"] = #"hash_4d27fd6de25c639b";
 }
 
 /*
@@ -273,7 +273,7 @@ function function_85aab97f(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		var_3bda41ab = struct::get("s_white_metal_splash");
 		self.var_f383d0c1 = util::playfxontag(localclientnum, level._effect[#"hash_596ba88c81d4f0e5"], self, "tag_spork");
-		self.var_53b18c8d = playfx(localclientnum, level._effect[#"hash_19d0799118280a77"], var_3bda41ab.origin);
+		self.var_53b18c8d = playfx(localclientnum, level._effect[#"blood_splash"], var_3bda41ab.origin);
 	}
 }
 

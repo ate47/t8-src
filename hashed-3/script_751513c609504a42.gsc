@@ -64,8 +64,8 @@ function function_7e1a12ce(radius)
 			}
 			if(isdefined(info.var_d1e06a5f[entnum]))
 			{
-				var_5bf85ac5 = int(max(enemy function_348ab5dd(), 250));
-				if(gettime() - info.var_d1e06a5f[entnum] > var_5bf85ac5)
+				resettime = int(max(enemy function_348ab5dd(), 250));
+				if(gettime() - info.var_d1e06a5f[entnum] > resettime)
 				{
 					info.var_d1e06a5f[entnum] = undefined;
 					info.var_2fae95e[entnum] = undefined;

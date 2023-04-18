@@ -16,7 +16,7 @@ function function_e9b061a8(state, start, var_2ae5a795, end, var_5d31deb6, var_ed
 }
 
 /*
-	Name: function_7c534b09
+	Name: callback_start
 	Namespace: ai_state
 	Checksum: 0xD21C5E2
 	Offset: 0x148
@@ -24,7 +24,7 @@ function function_e9b061a8(state, start, var_2ae5a795, end, var_5d31deb6, var_ed
 	Parameters: 0
 	Flags: None
 */
-function function_7c534b09()
+function callback_start()
 {
 	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].start))
 	{
@@ -141,7 +141,7 @@ function set_state(state)
 			function_4e845c24();
 		}
 		self.ai.state = state;
-		function_7c534b09();
+		callback_start();
 		self notify(#"state_changed", state);
 		/#
 			self thread function_3a57bb58();

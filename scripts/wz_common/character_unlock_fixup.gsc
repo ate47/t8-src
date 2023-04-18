@@ -254,7 +254,7 @@ function function_c67a5089()
 			var_a6762160 = getscriptbundle(item_name);
 			if(isdefined(var_a6762160))
 			{
-				namespace_b0722f43::function_63bfe27(item_name);
+				namespace_b0722f43::remove_item(item_name);
 			}
 		}
 		if(isdefined(var_9ba1646c.activation_func))

@@ -85,7 +85,7 @@ event main(eventstruct)
 	level._effect[#"bloodspurt"] = #"zombie/fx_bul_flesh_neck_spurt_zmb";
 	level._effect[#"animscript_gib_fx"] = #"zombie/fx_blood_torso_explo_zmb";
 	level._effect[#"animscript_gibtrail_fx"] = #"blood/fx_blood_gib_limb_trail";
-	level._effect[#"hash_6afea56d1e14f1c8"] = #"hash_6009053e911b946a";
+	level._effect[#"power_on_projectile"] = #"hash_6009053e911b946a";
 	level._effect[#"hash_50da8a1de7ce18da"] = #"hash_6c0eb029adb5f6c6";
 	level._effect[#"clock_zombie"] = #"hash_52239162cbb1d01f";
 	level._effect[#"clock_zombie_le"] = #"hash_5a3bedd0f4e1fb20";
@@ -101,7 +101,7 @@ event main(eventstruct)
 	level._effect[#"hash_6f8a5a3faaac0b2d"] = #"hash_531e5c5efe735df0";
 	level._effect[#"hash_6e809770685a03ce"] = #"hash_57e793068bee3c8e";
 	level._effect[#"hash_5b93caeacd0dbde4"] = #"hash_37a3c4156a246da4";
-	level._effect[#"hash_6afea56d1e14f1c8"] = #"hash_6009053e911b946a";
+	level._effect[#"power_on_projectile"] = #"hash_6009053e911b946a";
 	level._effect[#"hash_50da8a1de7ce18da"] = #"hash_6c0eb029adb5f6c6";
 	level._effect[#"hash_55cc40c5ca8b259d"] = #"zombie/fx_ritual_sacrafice_glow_head_zod_zmb";
 	level._effect[#"hash_679e221c06d83988"] = #"hash_3c61e7e3069ee8a7";
@@ -318,7 +318,7 @@ function function_94cf8d37(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(!isdefined(self.var_4b7a5b1b))
 		{
-			self.var_4b7a5b1b = util::playfxontag(localclientnum, level._effect[#"hash_6afea56d1e14f1c8"], self, "tag_origin");
+			self.var_4b7a5b1b = util::playfxontag(localclientnum, level._effect[#"power_on_projectile"], self, "tag_origin");
 		}
 		if(!isdefined(self.var_353ff2a))
 		{

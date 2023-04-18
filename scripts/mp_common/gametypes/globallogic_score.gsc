@@ -174,9 +174,9 @@ function function_c9de50a6(player)
 */
 function function_78e7b549(scale, type, var_7da9f0c)
 {
-	var_f6ecfcf0 = self function_61f303f5(var_7da9f0c);
+	total_time_played = self function_61f303f5(var_7da9f0c);
 	spm = self rank::getspm();
-	playerscore = int((scale * ((var_7da9f0c / 60) * spm)) * (var_f6ecfcf0 / var_7da9f0c));
+	playerscore = int((scale * ((var_7da9f0c / 60) * spm)) * (total_time_played / var_7da9f0c));
 	self thread givematchbonus(type, playerscore);
 	self.matchbonus = playerscore;
 }
@@ -202,7 +202,7 @@ function updatematchbonusscores(outcome)
 		return;
 	}
 	gamelength = function_eaa4e6f7();
-	tie = outcome::function_5f24faac(outcome, "tie");
+	tie = outcome::get_flag(outcome, "tie");
 	if(tie)
 	{
 		winnerscale = 0.75;
@@ -283,7 +283,7 @@ function updatecustomgamewinner(outcome)
 		return;
 	}
 	var_6f86cba9 = outcome::get_winning_team(outcome);
-	tie = outcome::function_5f24faac(outcome, "tie");
+	tie = outcome::get_flag(outcome, "tie");
 	foreach(player in level.players)
 	{
 		if(!isdefined(var_6f86cba9))
@@ -345,7 +345,7 @@ function givematchbonus(scoretype, score)
 	{
 		return;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -571,7 +571,7 @@ function giveplayermomentumnotification(score, label, descvalue, countstowardram
 }
 
 /*
-	Name: function_49c10afe
+	Name: resetplayermomentum
 	Namespace: globallogic_score
 	Checksum: 0x6DC212AB
 	Offset: 0x1798
@@ -579,7 +579,7 @@ function giveplayermomentumnotification(score, label, descvalue, countstowardram
 	Parameters: 0
 	Flags: None
 */
-function function_49c10afe()
+function resetplayermomentum()
 {
 	if(isdefined(level.usingscorestreaks) && level.usingscorestreaks)
 	{
@@ -1006,15 +1006,15 @@ function function_17a678b7(player, scoresub)
 	Parameters: 4
 	Flags: Linked
 */
-function function_889ed975(player, var_6de41559, var_252f7989, var_f8258842)
+function function_889ed975(player, score_add, var_252f7989, var_f8258842)
 {
 	/#
 		var_1eb7c454 = getdvarfloat(#"hash_eae9a8ee387705d", 1);
-		var_6de41559 = int(var_6de41559 * var_1eb7c454);
+		score_add = int(score_add * var_1eb7c454);
 		var_252f7989 = int(var_252f7989 * var_1eb7c454);
 		var_f8258842 = int(var_f8258842 * var_1eb7c454);
 	#/
-	score = player.pers[#"score"] + var_6de41559;
+	score = player.pers[#"score"] + score_add;
 	var_e21e8076 = player.pers[#"hash_6061882505788180"];
 	if(isdefined(var_252f7989))
 	{
@@ -1818,7 +1818,7 @@ function updatewinstats(winner)
 	winner stats::function_bb7eedf0(#"wins", 1);
 	if(level.rankedmatch && !level.disablestattracking && sessionmodeismultiplayergame())
 	{
-		if(winner stats::function_441050ca(#"wins") > 49)
+		if(winner stats::get_stat_global(#"wins") > 49)
 		{
 			winner giveachievement("mp_trophy_vanquisher");
 		}
@@ -1846,7 +1846,7 @@ function updatewinstats(winner)
 	winner.lootxpmultiplier = 1;
 	cur_gamemode_win_streak = winner stats::function_ed81f25e(#"cur_win_streak");
 	gamemode_win_streak = winner stats::function_ed81f25e(#"win_streak");
-	cur_win_streak = winner stats::function_441050ca(#"cur_win_streak");
+	cur_win_streak = winner stats::get_stat_global(#"cur_win_streak");
 	if(isdefined(cur_gamemode_win_streak) && isdefined(gamemode_win_streak) && cur_gamemode_win_streak > gamemode_win_streak)
 	{
 		winner stats::function_baa25a23(#"win_streak", cur_gamemode_win_streak);
@@ -1883,7 +1883,7 @@ function canupdateweaponcontractstats()
 	{
 		return false;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return false;
 	}
@@ -2069,10 +2069,10 @@ function updatetiestats(loser)
 	loser updatestatratio("wlratio", "wins", "losses");
 	if(!level.disablestattracking)
 	{
-		loser stats::function_4db3fba1(#"cur_win_streak", 0);
+		loser stats::set_stat_global(#"cur_win_streak", 0);
 		if(level.var_aa5e6547 === 1)
 		{
-			loser stats::function_4db3fba1(#"hash_a06075423336d9c", 0);
+			loser stats::set_stat_global(#"hash_a06075423336d9c", 0);
 		}
 	}
 	loser notify(#"tie");
@@ -2138,7 +2138,7 @@ function updatewinlossstats()
 	}
 	else
 	{
-		if(match::function_5f24faac("tie"))
+		if(match::get_flag("tie"))
 		{
 			foreach(player in players)
 			{
@@ -2165,7 +2165,7 @@ function updatewinlossstats()
 				{
 					continue;
 				}
-				if(match::function_5f24faac("tie"))
+				if(match::get_flag("tie"))
 				{
 					updatetiestats(player);
 					continue;
@@ -2181,10 +2181,10 @@ function updatewinlossstats()
 				}
 				if(!level.disablestattracking)
 				{
-					player stats::function_4db3fba1(#"cur_win_streak", 0);
+					player stats::set_stat_global(#"cur_win_streak", 0);
 					if(level.var_aa5e6547 === 1)
 					{
-						player stats::function_4db3fba1(#"hash_a06075423336d9c", 0);
+						player stats::set_stat_global(#"hash_a06075423336d9c", 0);
 					}
 				}
 			}
@@ -2207,14 +2207,14 @@ function backupandclearwinstreaks()
 	{
 		return;
 	}
-	self.pers[#"winstreak"] = self stats::function_441050ca(#"cur_win_streak");
+	self.pers[#"winstreak"] = self stats::get_stat_global(#"cur_win_streak");
 	if(!level.disablestattracking)
 	{
-		self stats::function_4db3fba1(#"cur_win_streak", 0);
+		self stats::set_stat_global(#"cur_win_streak", 0);
 		if(level.var_aa5e6547 === 1)
 		{
-			self.pers[#"hash_1346f22553899977"] = self stats::function_441050ca(#"hash_a06075423336d9c");
-			self stats::function_4db3fba1(#"hash_a06075423336d9c", 0);
+			self.pers[#"hash_1346f22553899977"] = self stats::get_stat_global(#"hash_a06075423336d9c");
+			self stats::set_stat_global(#"hash_a06075423336d9c", 0);
 		}
 	}
 	self.pers[#"winstreakforgametype"] = self stats::function_ed81f25e(#"cur_win_streak");
@@ -2234,10 +2234,10 @@ function restorewinstreaks(winner)
 {
 	if(!level.disablestattracking)
 	{
-		winner stats::function_4db3fba1(#"cur_win_streak", winner.pers[#"winstreak"]);
+		winner stats::set_stat_global(#"cur_win_streak", winner.pers[#"winstreak"]);
 		if(level.var_aa5e6547 === 1)
 		{
-			winner stats::function_4db3fba1(#"hash_a06075423336d9c", winner.pers[#"hash_1346f22553899977"]);
+			winner stats::set_stat_global(#"hash_a06075423336d9c", winner.pers[#"hash_1346f22553899977"]);
 		}
 	}
 	winner stats::function_baa25a23(#"cur_win_streak", (isdefined(winner.pers[#"winstreakforgametype"]) ? winner.pers[#"winstreakforgametype"] : 0));

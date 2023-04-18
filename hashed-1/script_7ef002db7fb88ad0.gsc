@@ -49,7 +49,7 @@ function __init__()
 */
 function init_clientfields()
 {
-	clientfield::register("scriptmover", "" + #"hash_1a4cf85bba32ee41", 8000, 2, "int", &function_1d5b8b9f, 0, 0);
+	clientfield::register("scriptmover", "" + #"trap_light", 8000, 2, "int", &function_1d5b8b9f, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_17df66ef5f71c0de", 8000, 2, "int", &function_b3f0f5cd, 0, 0);
 }
 

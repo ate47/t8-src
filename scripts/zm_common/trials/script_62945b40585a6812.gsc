@@ -54,7 +54,7 @@ function __init__()
 function private on_begin(n_timer)
 {
 	level.var_d39baced = level.zombie_total_set_func;
-	level.zombie_total_set_func = &function_60845be6;
+	level.zombie_total_set_func = &set_zombie_total;
 	zm_trial_util::function_2976fa44(function_d2a5d1f0());
 	zm_trial_util::function_2976fa44(function_e242d7a8());
 	level thread function_b2fa4678();
@@ -98,7 +98,7 @@ function private on_end(round_reset)
 }
 
 /*
-	Name: function_60845be6
+	Name: set_zombie_total
 	Namespace: namespace_4b4f4cd9
 	Checksum: 0xF8469D44
 	Offset: 0x440
@@ -106,7 +106,7 @@ function private on_end(round_reset)
 	Parameters: 0
 	Flags: Linked
 */
-function function_60845be6()
+function set_zombie_total()
 {
 	var_92217b88 = (level.var_a0f5e369 + level.var_3a748490) * 10;
 	level.zombie_total = int(max(level.zombie_total, var_92217b88));

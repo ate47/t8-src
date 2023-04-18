@@ -2647,9 +2647,9 @@ function treasure_chest_give_weapon(weapon, var_75c86f89, e_chest)
 	{
 		playsoundatposition(#"mus_raygun_stinger", (0, 0, 0));
 		str_vo_line = #"raygun";
-		if(weapon.name == #"ray_gun_mk2" && zm_audio::function_63f85f39(#"magicbox", #"hash_34540a6bb099133e"))
+		if(weapon.name == #"ray_gun_mk2" && zm_audio::function_63f85f39(#"magicbox", #"raygun_mk2"))
 		{
-			str_vo_line = #"hash_34540a6bb099133e";
+			str_vo_line = #"raygun_mk2";
 		}
 	}
 	else
@@ -2774,7 +2774,7 @@ function treasure_chest_give_weapon(weapon, var_75c86f89, e_chest)
 	{
 		if(zm_loadout::is_offhand_weapon(weapon))
 		{
-			self function_830b7ecd(weapon);
+			self give_offhand_weapon(weapon);
 		}
 		else
 		{
@@ -2822,7 +2822,7 @@ function give_hero_weapon(weapon)
 }
 
 /*
-	Name: function_830b7ecd
+	Name: give_offhand_weapon
 	Namespace: zm_magicbox
 	Checksum: 0xA3401E08
 	Offset: 0x7D58
@@ -2830,7 +2830,7 @@ function give_hero_weapon(weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_830b7ecd(weapon)
+function give_offhand_weapon(weapon)
 {
 	offhandslot = 0;
 	if(isdefined(self._gadgets_player[offhandslot]))

@@ -833,7 +833,7 @@ function laststand_bleedout_damage()
 			self.var_1cc38de0 = 1;
 			vattacker = (isdefined(waitresult.eattacker) ? waitresult.eattacker : self);
 			self.var_a1d415ee = {#hash_10d87328:function_f8d53445(), #shitloc:waitresult.shitloc, #vdir:waitresult.vdir, #sweapon:waitresult.weapon, #smeansofdeath:waitresult.smeansofdeath, #idamage:waitresult.idamage, #hash_83634238:(isplayer(vattacker) ? vattacker getplayerangles() : vattacker.angles), #attackerorigin:vattacker.origin, #attacker:waitresult.eattacker, #einflictor:waitresult.einflictor};
-			self notify(#"hash_5b5b14bba3930da1");
+			self notify(#"update_bleedout");
 		}
 		if(isdefined(self.var_d75a6ff5))
 		{
@@ -854,7 +854,7 @@ function laststand_bleedout_damage()
 */
 function laststand_bleedout(bleedouttime, var_969fabf4)
 {
-	self endon(#"player_revived", #"hash_5e936c6d9b46e0b5", #"death");
+	self endon(#"player_revived", #"player_bleedout", #"death");
 	self.var_84c0402e = bleedouttime;
 	self.bleedout_time = bleedouttime;
 	self.var_969fabf4 = var_969fabf4;
@@ -873,7 +873,7 @@ function laststand_bleedout(bleedouttime, var_969fabf4)
 				self clientfield::set_player_uimodel("hudItems.laststand.progress", self.var_2d19ce3c);
 				var_9da219f5 = time + 1000;
 			}
-			self waittilltimeout((float(var_9da219f5 - time)) / 1000, #"hash_5b5b14bba3930da1");
+			self waittilltimeout((float(var_9da219f5 - time)) / 1000, #"update_bleedout");
 		}
 		while(self.var_969fabf4 > 0 && isdefined(self.revivetrigger) && isdefined(self.revivetrigger.beingrevived) && self.revivetrigger.beingrevived == 1)
 		{
@@ -945,7 +945,7 @@ function bleed_out()
 	demo::bookmark(#"player_bledout", gettime(), self, undefined, 1);
 	potm::bookmark(#"player_bledout", gettime(), self, undefined, 1);
 	level notify(#"bleed_out", {#character_index:self.characterindex});
-	self notify(#"hash_5e936c6d9b46e0b5");
+	self notify(#"player_bleedout");
 	callback::callback(#"on_player_bleedout");
 	self undolaststand();
 	self.uselaststandparams = 1;
@@ -1187,13 +1187,13 @@ function function_356caede(team)
 			break;
 		}
 	}
-	foreach(var_f7cfe7ee in players)
+	foreach(finisher in players)
 	{
-		if(self == var_f7cfe7ee || !var_f7cfe7ee is_reviving(self, 0, height) || var_f7cfe7ee is_reviving_any() || (isdefined(var_f7cfe7ee.var_5c574004) && var_f7cfe7ee.var_5c574004))
+		if(self == finisher || !finisher is_reviving(self, 0, height) || finisher is_reviving_any() || (isdefined(finisher.var_5c574004) && finisher.var_5c574004))
 		{
 			continue;
 		}
-		var_f7cfe7ee function_684a5394();
+		finisher function_684a5394();
 		var_c9c35e60 = randomintrange(1, level.var_91c33dcb.finishers.size - 1);
 		/#
 			assert(level.var_91c33dcb.finishers.size >= var_c9c35e60);
@@ -1202,35 +1202,35 @@ function function_356caede(team)
 		var_d1d9820d = getscriptbundle(var_abdbed5a);
 		if(isdefined(var_d1d9820d.("attacker_gesture")))
 		{
-			var_f7cfe7ee function_c6775cf9(var_d1d9820d.("attacker_gesture"));
+			finisher function_c6775cf9(var_d1d9820d.("attacker_gesture"));
 		}
 		if(isdefined(var_d1d9820d.("victim_gesture")))
 		{
 			self function_c6775cf9(var_d1d9820d.("victim_gesture"));
 		}
-		self function_fab0e07e(var_f7cfe7ee);
-		if(!isdefined(var_f7cfe7ee))
+		self function_fab0e07e(finisher);
+		if(!isdefined(finisher))
 		{
 			return false;
 		}
-		if(!isdefined(self) || !isalive(self) || !isalive(var_f7cfe7ee))
+		if(!isdefined(self) || !isalive(self) || !isalive(finisher))
 		{
-			var_f7cfe7ee function_b16f016a();
+			finisher function_b16f016a();
 			return false;
 		}
-		var_f7cfe7ee disableweaponcycling();
-		var_f7cfe7ee disableusability();
-		var_f7cfe7ee disableoffhandweapons();
+		finisher disableweaponcycling();
+		finisher disableusability();
+		finisher disableoffhandweapons();
 		self flagsys::clear(#"hash_40e3b09bdbcdac81");
-		var_62728357 = var_f7cfe7ee function_1c8cab15(self);
-		if(isdefined(var_f7cfe7ee))
+		var_62728357 = finisher function_1c8cab15(self);
+		if(isdefined(finisher))
 		{
-			var_f7cfe7ee function_b16f016a();
-			var_f7cfe7ee enableweaponcycling();
-			var_f7cfe7ee enableusability();
-			var_f7cfe7ee enableoffhandweapons();
-			var_e24d6046 = var_f7cfe7ee gettagangles("tag_sync");
-			kill_origin = var_f7cfe7ee gettagorigin("tag_sync");
+			finisher function_b16f016a();
+			finisher enableweaponcycling();
+			finisher enableusability();
+			finisher enableoffhandweapons();
+			var_e24d6046 = finisher gettagangles("tag_sync");
+			kill_origin = finisher gettagorigin("tag_sync");
 			if(isdefined(self))
 			{
 				if(isdefined(var_62728357) && var_62728357)
@@ -1238,14 +1238,14 @@ function function_356caede(team)
 					self function_516a3bef(0);
 					self setplayerangles(var_e24d6046);
 					self setorigin(kill_origin);
-					self dodamage(self.var_969fabf4, self.origin, var_f7cfe7ee, undefined, "none", "MOD_MELEE_ASSASSINATE", 8192);
+					self dodamage(self.var_969fabf4, self.origin, finisher, undefined, "none", "MOD_MELEE_ASSASSINATE", 8192);
 					self function_2907ce7a();
 					return true;
 				}
 				self function_516a3bef(1);
 				self function_7c685040();
 			}
-			var_f7cfe7ee function_7c685040();
+			finisher function_7c685040();
 		}
 	}
 	return false;
@@ -1300,16 +1300,16 @@ function function_b16f016a()
 	Parameters: 1
 	Flags: None
 */
-function function_fab0e07e(var_f7cfe7ee)
+function function_fab0e07e(finisher)
 {
 	self endon(#"disconnect");
-	var_f7cfe7ee endon(#"disconnect");
+	finisher endon(#"disconnect");
 	waitframe(1);
-	if(isdefined(self) && isdefined(var_f7cfe7ee) && isalive(self) && isalive(var_f7cfe7ee))
+	if(isdefined(self) && isdefined(finisher) && isalive(self) && isalive(finisher))
 	{
 		self.laststandparams.var_3f57b6a0 = self.origin;
 		self.laststandparams.savedangles = self.angles;
-		self playerlinkto(var_f7cfe7ee, "tag_sync");
+		self playerlinkto(finisher, "tag_sync");
 	}
 }
 
@@ -1343,10 +1343,10 @@ function function_516a3bef(replace)
 	Parameters: 1
 	Flags: None
 */
-function function_c82a14d1(var_f7cfe7ee)
+function function_c82a14d1(finisher)
 {
 	self endon(#"death", #"disconnect", #"hash_4db4d01d577965eb");
-	var_f7cfe7ee endon(#"death", #"disconnect");
+	finisher endon(#"death", #"disconnect");
 	waitresult = undefined;
 	waitresult = self waittill(#"contact");
 	self flagsys::set(#"hash_40e3b09bdbcdac81");
@@ -1989,13 +1989,13 @@ function function_7afe7d1e(attacker, victim)
 		attacker.var_d292d803.downs[victim.entnum] = array(attacker.var_d292d803.downs[victim.entnum]);
 	}
 	attacker.var_d292d803.downs[victim.entnum][attacker.var_d292d803.downs[victim.entnum].size] = gettime();
-	var_1fb8db26 = attacker.var_d292d803.downs[victim.entnum].size;
-	if(var_1fb8db26 < level.var_57e7d5a)
+	numdowns = attacker.var_d292d803.downs[victim.entnum].size;
+	if(numdowns < level.var_57e7d5a)
 	{
 		return 0;
 	}
-	var_1053d9e9 = attacker.var_d292d803.downs[victim.entnum][var_1fb8db26 - 1];
-	var_6ab74732 = attacker.var_d292d803.downs[victim.entnum][var_1fb8db26 - level.var_57e7d5a];
+	var_1053d9e9 = attacker.var_d292d803.downs[victim.entnum][numdowns - 1];
+	var_6ab74732 = attacker.var_d292d803.downs[victim.entnum][numdowns - level.var_57e7d5a];
 	if((var_1053d9e9 - var_6ab74732) <= (int(60 * 1000)))
 	{
 		attacker.var_d292d803.cheating = 1;

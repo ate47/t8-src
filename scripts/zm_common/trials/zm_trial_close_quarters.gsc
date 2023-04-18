@@ -51,7 +51,7 @@ function __init__()
 */
 function private on_begin()
 {
-	zm::register_actor_damage_callback(&function_306332df);
+	zm::register_actor_damage_callback(&range_check);
 }
 
 /*
@@ -65,9 +65,9 @@ function private on_begin()
 */
 function private on_end(round_reset)
 {
-	if(isinarray(level.actor_damage_callbacks, &function_306332df))
+	if(isinarray(level.actor_damage_callbacks, &range_check))
 	{
-		arrayremovevalue(level.actor_damage_callbacks, &function_306332df, 0);
+		arrayremovevalue(level.actor_damage_callbacks, &range_check, 0);
 	}
 }
 
@@ -87,7 +87,7 @@ function is_active()
 }
 
 /*
-	Name: function_306332df
+	Name: range_check
 	Namespace: zm_trial_close_quarters
 	Checksum: 0xC61B8F08
 	Offset: 0x228
@@ -95,7 +95,7 @@ function is_active()
 	Parameters: 12
 	Flags: Private
 */
-function private function_306332df(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
+function private range_check(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
 	if(!isplayer(attacker) && !isplayer(inflictor))
 	{

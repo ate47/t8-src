@@ -38,11 +38,11 @@
 */
 function preload()
 {
-	namespace_617a54f4::function_d8383812(#"sc_pap_beach", 24000, "sc_pap_beach", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_pap_boathouse", 24000, "sc_pap_boathouse", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_pap_ship", 24000, "sc_pap_ship", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_pap_lagoon", 24000, "sc_pap_lagoon", &function_8598f0d4, &function_3bdbb583, 1);
-	namespace_617a54f4::function_d8383812(#"sc_pap_island", 24000, "sc_pap_island", &function_8598f0d4, &function_3bdbb583, 1);
+	namespace_617a54f4::function_d8383812(#"sc_pap_beach", 24000, "sc_pap_beach", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_pap_boathouse", 24000, "sc_pap_boathouse", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_pap_ship", 24000, "sc_pap_ship", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_pap_lagoon", 24000, "sc_pap_lagoon", &is_soul_capture, &soul_captured, 1);
+	namespace_617a54f4::function_d8383812(#"sc_pap_island", 24000, "sc_pap_island", &is_soul_capture, &soul_captured, 1);
 	clientfield::register("scriptmover", "" + #"hash_411947cf11cffb69", 24000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_249c83f6060ea7ba", 24000, 1, "int");
 }
@@ -611,7 +611,7 @@ function function_d584f1a8()
 }
 
 /*
-	Name: function_8598f0d4
+	Name: is_soul_capture
 	Namespace: namespace_4b68b2b3
 	Checksum: 0x98E0687B
 	Offset: 0x20D0
@@ -619,7 +619,7 @@ function function_d584f1a8()
 	Parameters: 2
 	Flags: Linked
 */
-function function_8598f0d4(var_88206a50, ent)
+function is_soul_capture(var_88206a50, ent)
 {
 	b_killed_by_player = isdefined(ent.attacker) && isplayer(ent.attacker) || (isdefined(ent.damageinflictor) && isplayer(ent.damageinflictor));
 	var_a743812b = b_killed_by_player && distance(ent.origin, var_88206a50.origin) < 500;
@@ -627,7 +627,7 @@ function function_8598f0d4(var_88206a50, ent)
 }
 
 /*
-	Name: function_3bdbb583
+	Name: soul_captured
 	Namespace: namespace_4b68b2b3
 	Checksum: 0xC2FA0674
 	Offset: 0x21A0
@@ -635,11 +635,11 @@ function function_8598f0d4(var_88206a50, ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3bdbb583(var_f0e6c7a2, ent)
+function soul_captured(var_f0e6c7a2, ent)
 {
 	var_f0e6c7a2.var_7944be4a++;
 	/#
-		if(level flag::get(#"hash_6dcc421d5fbf8d22"))
+		if(level flag::get(#"soul_fill"))
 		{
 			var_f0e6c7a2.var_7944be4a = var_f0e6c7a2.n_souls_required;
 		}

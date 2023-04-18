@@ -92,7 +92,7 @@ function __main__()
 */
 function init_clientfields()
 {
-	clientfield::register("scriptmover", "" + #"hash_1a4cf85bba32ee41", 8000, 2, "int");
+	clientfield::register("scriptmover", "" + #"trap_light", 8000, 2, "int");
 	clientfield::register("scriptmover", "" + #"hash_17df66ef5f71c0de", 8000, 2, "int");
 }
 
@@ -802,7 +802,7 @@ function function_5ad19000(e_trap)
 	{
 		return;
 	}
-	if(self.var_9fde8624 === #"hash_5cfa99582cc66c59" && e_trap flag::get(#"friendly") == 0)
+	if(self.var_9fde8624 === #"catalyst_plasma" && e_trap flag::get(#"friendly") == 0)
 	{
 		return;
 	}
@@ -981,7 +981,7 @@ function private function_e714e3a8(str_state = "off")
 		}
 		case "green":
 		{
-			self clientfield::set("" + #"hash_1a4cf85bba32ee41", 1);
+			self clientfield::set("" + #"trap_light", 1);
 			self hidepart("light_off");
 			self hidepart("light_red");
 			self showpart("light_green");
@@ -989,7 +989,7 @@ function private function_e714e3a8(str_state = "off")
 		}
 		case "red":
 		{
-			self clientfield::set("" + #"hash_1a4cf85bba32ee41", 2);
+			self clientfield::set("" + #"trap_light", 2);
 			self hidepart("light_green");
 			self hidepart("light_off");
 			self showpart("light_red");

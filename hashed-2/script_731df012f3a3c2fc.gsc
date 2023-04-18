@@ -222,7 +222,7 @@ function function_261ab7f5(itemname, var_44ed74a7)
 }
 
 /*
-	Name: function_636d607c
+	Name: add_spawn_point
 	Namespace: namespace_b0722f43
 	Checksum: 0xC4B4C06
 	Offset: 0x4F0
@@ -230,7 +230,7 @@ function function_261ab7f5(itemname, var_44ed74a7)
 	Parameters: 3
 	Flags: None
 */
-function function_636d607c(origin, targetname, angles = (0, 0, 0))
+function add_spawn_point(origin, targetname, angles = (0, 0, 0))
 {
 	if(!function_bbc0b67f(1))
 	{
@@ -337,7 +337,7 @@ function function_96ff7b88(itemname)
 }
 
 /*
-	Name: function_63bfe27
+	Name: remove_item
 	Namespace: namespace_b0722f43
 	Checksum: 0xA18B8B77
 	Offset: 0x930
@@ -345,7 +345,7 @@ function function_96ff7b88(itemname)
 	Parameters: 1
 	Flags: Linked
 */
-function function_63bfe27(itemname)
+function remove_item(itemname)
 {
 	if(!function_bbc0b67f(0))
 	{

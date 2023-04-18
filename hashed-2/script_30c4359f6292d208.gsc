@@ -32,7 +32,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("toplayer", "audio_log_ball_fx", 1, 3, "int", &function_50865dc7, 0, 0);
-	level._effect[#"hash_660550377f6cb3e3"] = #"hash_445f04139d92c61b";
+	level._effect[#"audio_ball"] = #"hash_445f04139d92c61b";
 }
 
 /*
@@ -55,6 +55,6 @@ function function_50865dc7(localclientnum, oldval, newval, bnewent, binitialsnap
 			break;
 		}
 	}
-	util::playfxontag(localclientnum, level._effect[#"hash_660550377f6cb3e3"], var_a1cf77d2, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"audio_ball"], var_a1cf77d2, "tag_origin");
 }
 

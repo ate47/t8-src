@@ -44,7 +44,7 @@ function init_shared()
 */
 function private registerclientfields()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		clientfield::register("clientuimodel", "eliminated_postfx", 12000, 1, "int");
 	}
@@ -61,7 +61,7 @@ function private registerclientfields()
 */
 function private function_a5ce91f1(val)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		self clientfield::set_player_uimodel("eliminated_postfx", val);
 	}
@@ -226,7 +226,7 @@ function function_61d01718(transitions, lui_event)
 		player function_b797319e(lui_event, index + 1);
 		if((isdefined(transition.time) ? transition.time : 0) != 0)
 		{
-			function_3dc5df3b(float(transition.time) / 1000);
+			round_end_wait(float(transition.time) / 1000);
 			continue;
 		}
 		if((isdefined(transition.var_bda115b5) ? transition.var_bda115b5 : 0) != 0)
@@ -492,7 +492,7 @@ function private function_654c0030(transition, outcome)
 {
 	player::function_2f80d95b(&function_d7b5082e);
 	thread globallogic_audio::announce_game_winner(outcome);
-	player::function_2f80d95b(&globallogic_audio::function_6374b97e, outcome::function_5f24faac(outcome, "tie"));
+	player::function_2f80d95b(&globallogic_audio::function_6374b97e, outcome::get_flag(outcome, "tie"));
 }
 
 /*
@@ -964,7 +964,7 @@ function function_7e8f8c47(transitions, outcome, lui_event)
 		function_81c567a8(transition, index, outcome, lui_event);
 		if((isdefined(transition.time) ? transition.time : 0) != 0)
 		{
-			function_3dc5df3b(float(transition.time) / 1000);
+			round_end_wait(float(transition.time) / 1000);
 		}
 		function_f2ffece2(transition, outcome, transitions[index + 1]);
 	}
@@ -1012,7 +1012,7 @@ function function_cf3d556b(outcome)
 }
 
 /*
-	Name: function_3dc5df3b
+	Name: round_end_wait
 	Namespace: namespace_81c567a8
 	Checksum: 0x2D3C244B
 	Offset: 0x21F0
@@ -1020,7 +1020,7 @@ function function_cf3d556b(outcome)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3dc5df3b(time)
+function round_end_wait(time)
 {
 	if(time <= 0)
 	{

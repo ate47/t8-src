@@ -35,7 +35,7 @@ function __init__()
 	clientfield::register("scriptmover", "magicboxflag", 1, 3, "int", &function_7e5339f3, 0, 0);
 	clientfield::register("scriptmover", "soultransfer", 14000, 2, "int", &function_88a28ed1, 0, 0);
 	clientfield::register("actor", "zombie_died", 17000, 1, "int", &function_46c950, 1, 0);
-	level._effect[#"hash_2ff87d61167ea531"] = #"hash_1127495f599a3db4";
+	level._effect[#"hash_2ff87d61167ea531"] = #"wz/fx8_zm_box_marker";
 	level._effect[#"hash_1e5c0bbc60604949"] = #"wz/fx8_zm_box_marker_red";
 	level._effect[#"hash_7fe086085cbbacac"] = #"hash_4bd4c9b0fb97f425";
 	level._effect[#"hash_4048cb4967032c4a"] = #"hash_1e43d43c6586fcb5";

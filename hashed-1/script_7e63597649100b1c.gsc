@@ -474,7 +474,7 @@ function handlenotetrack(note, flagname, customfunction, var1)
 			self thread sound::play_in_space("fly_gear_enemy_large", self gettagorigin("TAG_WEAPON_RIGHT"));
 			break;
 		}
-		case "hash_1c88a07f5d53a11c":
+		case "no death":
 		{
 			self.a.nodeath = 1;
 			break;

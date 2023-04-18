@@ -40,8 +40,8 @@ function __init__()
 	level._effect[#"doorbuy_bought_fx"] = "zombie/fx8_doorbuy_death";
 	level._effect[#"debrisbuy_ambient_fx"] = "zombie/fx8_debrisbuy_amb";
 	level._effect[#"debrisbuy_bought_fx"] = "zombie/fx8_debrisbuy_death";
-	level._effect[#"hash_69c64db3e88de22c"] = "zombie/fx8_power_door_amb";
-	level._effect[#"hash_2599f6b58bd6457"] = "zombie/fx8_power_door_death";
+	level._effect[#"powerdoor_ambient_fx"] = "zombie/fx8_power_door_amb";
+	level._effect[#"powerdoor_bought_fx"] = "zombie/fx8_power_door_death";
 	level._effect[#"power_debris_ambient_fx"] = "zombie/fx8_power_debris_amb";
 	level._effect[#"power_debris_bought_fx"] = "zombie/fx8_power_debris_death";
 	clientfield::register("scriptmover", "doorbuy_ambient_fx", 1, 1, "int", &doorbuy_ambient_fx, 0, 0);
@@ -106,7 +106,7 @@ function debrisbuy_ambient_fx(localclientnum, oldval, newval, bnewent, binitials
 */
 function power_door_ambient_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_aa07bb71(level._effect[#"hash_69c64db3e88de22c"], "zmb_blocker_powerdoor_lp", localclientnum, newval);
+	self function_aa07bb71(level._effect[#"powerdoor_ambient_fx"], "zmb_blocker_powerdoor_lp", localclientnum, newval);
 }
 
 /*
@@ -162,7 +162,7 @@ function debrisbuy_bought_fx(localclientnum, oldval, newval, bnewent, binitialsn
 */
 function power_door_bought_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_e6eed4fe(level._effect[#"hash_2599f6b58bd6457"], #"hash_5dcb54d98c9787b1", localclientnum, newval);
+	self function_e6eed4fe(level._effect[#"powerdoor_bought_fx"], #"hash_5dcb54d98c9787b1", localclientnum, newval);
 }
 
 /*

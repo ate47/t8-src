@@ -472,7 +472,7 @@ function private gravityspikes_stuck_above_zombie_watcher()
 */
 function gravityspikes_altfire_watcher(var_4052dd74)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"gravity_spike_expired", #"hash_236d4842e92ff523");
+	self endon(#"disconnect", #"bled_out", #"death", #"gravity_spike_expired", #"gravity_spike_planted");
 	while(true)
 	{
 		s_result = undefined;
@@ -499,7 +499,7 @@ function gravityspikes_altfire_watcher(var_4052dd74)
 */
 function private function_26a4b7f5(var_4052dd74)
 {
-	self endon(#"disconnect", #"gravity_spike_expired", #"hash_236d4842e92ff523");
+	self endon(#"disconnect", #"gravity_spike_expired", #"gravity_spike_planted");
 	self clientfield::set("gravity_shock_wave_fx", 1);
 	while(isdefined(self.var_de01b5c2) && self.var_de01b5c2)
 	{
@@ -1824,7 +1824,7 @@ function private gravity_spike_melee_kill(v_position, player, var_52b14308)
 */
 function function_478a4910(var_4052dd74)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"gravity_spike_expired", #"hash_236d4842e92ff523");
+	self endon(#"disconnect", #"bled_out", #"death", #"gravity_spike_expired", #"gravity_spike_planted");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee_power_left");
 	if(s_result.weapon == var_4052dd74)

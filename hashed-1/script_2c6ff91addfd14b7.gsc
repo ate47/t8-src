@@ -579,13 +579,13 @@ function function_ded83def(lastenemy)
 		}
 		if(!isdefined(self.looping_targeting_sound))
 		{
-			if(isdefined(self.sndalias[#"hash_2b3a22d457fba169"]))
+			if(isdefined(self.sndalias[#"vehalarm"]))
 			{
 				self.looping_targeting_sound = spawn("script_origin", self.origin);
 				self.looping_targeting_sound linkto(self);
 				self.looping_targeting_sound setinvisibletoall();
 				self.looping_targeting_sound setvisibletoplayer(self.enemy);
-				self.looping_targeting_sound playloopsound(self.sndalias[#"hash_2b3a22d457fba169"]);
+				self.looping_targeting_sound playloopsound(self.sndalias[#"vehalarm"]);
 				self.looping_targeting_sound thread function_47dbd72(self);
 			}
 		}
@@ -602,25 +602,25 @@ function function_ded83def(lastenemy)
 		disttoenemysquared = distancesquared(self.origin, enemy_origin);
 		if(disttoenemysquared < 250 * 250)
 		{
-			if(lastdisttoenemysquared > (250 * 250) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"hash_6dacc5a8faf1b6f3"]))
+			if(lastdisttoenemysquared > (250 * 250) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"vehclose250"]))
 			{
-				self playsoundtoplayer(self.sndalias[#"hash_6dacc5a8faf1b6f3"], self.enemy);
+				self playsoundtoplayer(self.sndalias[#"vehclose250"], self.enemy);
 			}
 		}
 		else
 		{
 			if(disttoenemysquared < 750 * 750)
 			{
-				if(lastdisttoenemysquared > (750 * 750) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"hash_26569720e0ae76f3"]))
+				if(lastdisttoenemysquared > (750 * 750) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"vehtargeting"]))
 				{
-					self playsoundtoplayer(self.sndalias[#"hash_26569720e0ae76f3"], self.enemy);
+					self playsoundtoplayer(self.sndalias[#"vehtargeting"], self.enemy);
 				}
 			}
 			else if(disttoenemysquared < 1500 * 1500)
 			{
-				if(lastdisttoenemysquared > (1500 * 1500) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"hash_22b0b71c07ac7fea"]))
+				if(lastdisttoenemysquared > (1500 * 1500) && (!(isdefined(self.servershortout) && self.servershortout)) && isdefined(self.sndalias[#"vehclose1500"]))
 				{
-					self playsoundtoplayer(self.sndalias[#"hash_22b0b71c07ac7fea"], self.enemy);
+					self playsoundtoplayer(self.sndalias[#"vehclose1500"], self.enemy);
 				}
 			}
 		}

@@ -412,7 +412,7 @@ function function_2d074f7d(params)
 		}
 		case "tiger":
 		{
-			str_event = #"hash_35af3a06fde7a8d9";
+			str_event = #"tiger_kill";
 			break;
 		}
 		case "blight_father":
@@ -465,7 +465,7 @@ function function_2d074f7d(params)
 		}
 		else
 		{
-			if(str_event === #"hash_35af3a06fde7a8d9")
+			if(str_event === #"tiger_kill")
 			{
 				if(!player.var_7df228aa.var_c2b08a)
 				{

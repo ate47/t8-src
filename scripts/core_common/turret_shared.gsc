@@ -1732,7 +1732,7 @@ function trace_test(e_target, v_offset = (0, 0, 0), n_index)
 	s_turret = _get_turret_data(n_index);
 	v_start_org = self gettagorigin(s_turret.str_tag_pivot);
 	v_target = e_target.origin + v_offset;
-	if(sessionmodeismultiplayergame() || function_f99d2668() && isplayer(e_target))
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame() && isplayer(e_target))
 	{
 		v_target = e_target getshootatpos();
 	}

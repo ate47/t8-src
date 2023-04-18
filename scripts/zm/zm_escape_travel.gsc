@@ -82,13 +82,13 @@ function init_alcatraz_zipline()
 	var_ba1d5d90 = getentarray("gondola_powered_on", "script_string");
 	foreach(var_751f2904 in var_ba1d5d90)
 	{
-		var_751f2904 notify(#"hash_6fd7f8e1f00deffe");
+		var_751f2904 notify(#"blast_attack");
 	}
 	level flag::set("gondola_at_roof");
 	e_gondola gondola_doors_move("roof", 1);
 	level flag::set("gondola_initialized");
 	gondola_lights_green();
-	e_gondola clientfield::set("" + #"hash_4fe04b8fa56a05c6", 1);
+	e_gondola clientfield::set("" + #"gondola_light", 1);
 	level.var_b9656485 = 0;
 	level.var_cf10ac23 = 0;
 	level.var_b5f05d46 = 0;
@@ -803,7 +803,7 @@ function move_gondola(b_suppress_doors_close = 0)
 	playsoundatposition(#"hash_7039f3801f51d75e", (878, 5659, 327));
 	level util::clientnotify("gondola_cable_wheels");
 	e_gondola playsound(#"zmb_gondola_start");
-	e_gondola playloopsound(#"hash_7a155b03c4946b88", 1);
+	e_gondola playloopsound(#"zmb_gondola_lp", 1);
 	e_gondola thread gondola_physics_explosion(10);
 	level flag::set("gondola_in_motion");
 	e_gondola thread function_de1be51e();

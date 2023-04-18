@@ -51,7 +51,7 @@ function function_707471ee()
 	zm_perks::register_perk_clientfields(#"hash_5b141f82a55645a9", &function_6e5c87d, &function_36db14fb);
 	zm_perks::register_perk_effects(#"hash_5b141f82a55645a9", "divetonuke_light");
 	zm_perks::register_perk_init_thread(#"hash_5b141f82a55645a9", &function_536f842f);
-	zm_perks::function_b60f4a9f(#"hash_5b141f82a55645a9", #"p8_zm_vapor_altar_icon_01_dyingwish", "zombie/fx8_perk_altar_symbol_ambient_dying_wish", #"hash_31b19618ca4f41");
+	zm_perks::function_b60f4a9f(#"hash_5b141f82a55645a9", #"p8_zm_vapor_altar_icon_01_dyingwish", "zombie/fx8_perk_altar_symbol_ambient_dying_wish", #"zmperksdyingwish");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_dying_wish", "zombie_perk_totem_dying_wish");
 	level._effect[#"hash_481f130cd5e53b7f"] = #"hash_620000088d4c3f79";
 	callback::on_spawned(&on_spawned);
