@@ -3,7 +3,7 @@
 #using scripts\core_common\player\player_shared.gsc;
 #using script_29ed825598140ca0;
 #using scripts\core_common\player\player_role.gsc;
-#using script_457dc1cc11263d2b;
+#using scripts\core_common\high_value_operative.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\player\player_monitor.gsc;
 #using scripts\mp_common\player\player_record.gsc;

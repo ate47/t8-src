@@ -1148,7 +1148,7 @@ function function_7e4562d7(var_3505e2ee, var_604e94aa = [], b_wait_if_busy = 0, 
 {
 	b_played = 0;
 	var_cd5bda0c = [];
-	if(isstring(var_3505e2ee) || function_7a600918(var_3505e2ee))
+	if(isstring(var_3505e2ee) || ishash(var_3505e2ee))
 	{
 		for(p = 1; p <= 16; p++)
 		{

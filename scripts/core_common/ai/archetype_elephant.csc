@@ -56,17 +56,17 @@ function function_624041b1(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self.var_d62cdc72 = util::playfxontag(localclientnum, "maps/zm_towers/fx8_boss_eye_glow", self, "tag_eye");
+		self.eyefx = util::playfxontag(localclientnum, "maps/zm_towers/fx8_boss_eye_glow", self, "tag_eye");
 	}
 	else
 	{
 		if(newval == 2)
 		{
-			self.var_d62cdc72 = util::playfxontag(localclientnum, "maps/zm_towers/fx8_boss_eye_glow_alt", self, "tag_eye");
+			self.eyefx = util::playfxontag(localclientnum, "maps/zm_towers/fx8_boss_eye_glow_alt", self, "tag_eye");
 		}
-		else if(isdefined(self.var_d62cdc72))
+		else if(isdefined(self.eyefx))
 		{
-			stopfx(localclientnum, self.var_d62cdc72);
+			stopfx(localclientnum, self.eyefx);
 		}
 	}
 }

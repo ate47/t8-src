@@ -3,7 +3,7 @@
 #using scripts\zm_common\talisman\zm_talisman_extra_molotov.gsc;
 #using script_190d6b82bcca0908;
 #using scripts\zm_common\talisman\zm_talisman_perk_start_3.gsc;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm_common\talisman\zm_talisman_start_weapon_smg.gsc;
 #using scripts\zm_common\talisman\zm_talisman_start_weapon_ar.gsc;
 #using script_20ac552ee498eb9d;
@@ -24,7 +24,7 @@
 #using script_35598499769dbb3d;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_3688d332e17e9ac1;
-#using script_3743c984969444fd;
+#using scripts\zm\weapons\zm_weap_proximity_grenade.gsc;
 #using scripts\zm_common\talisman\zm_talisman_coagulant.gsc;
 #using scripts\zm_common\talisman\zm_talisman_extra_frag.gsc;
 #using scripts\zm_common\talisman\zm_talisman_shield_durability_rare.gsc;

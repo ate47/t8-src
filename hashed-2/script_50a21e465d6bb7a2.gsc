@@ -71,7 +71,7 @@ function __init__()
 function __main__()
 {
 	init_flags();
-	function_88d1bd71();
+	init_quest();
 }
 
 /*
@@ -113,7 +113,7 @@ function init_flags()
 }
 
 /*
-	Name: function_88d1bd71
+	Name: init_quest
 	Namespace: namespace_29f39efb
 	Checksum: 0x7C7AA29
 	Offset: 0x530
@@ -121,7 +121,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_88d1bd71()
+function init_quest()
 {
 	if(zm_utility::function_e51dc2d8())
 	{

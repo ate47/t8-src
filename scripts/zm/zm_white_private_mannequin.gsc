@@ -64,7 +64,7 @@ function __main__()
 		return;
 	}
 	init_flags();
-	function_88d1bd71();
+	init_quest();
 	init_vo();
 }
 
@@ -110,7 +110,7 @@ function init_flags()
 }
 
 /*
-	Name: function_88d1bd71
+	Name: init_quest
 	Namespace: zm_white_private_mannequin
 	Checksum: 0xF04A855F
 	Offset: 0x6D0
@@ -118,7 +118,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_88d1bd71()
+function init_quest()
 {
 	var_e3d10631 = getentarray("private_mannequin_parts", "targetname");
 	foreach(e_part in var_e3d10631)

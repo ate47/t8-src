@@ -692,7 +692,7 @@ function brutus_death()
 	}
 	s_result = undefined;
 	s_result = self waittill(#"death");
-	if(isdefined(s_result.weapon) && (s_result.weapon == getweapon(#"ww_blundergat_t8") || s_result.weapon == getweapon(#"hash_cb1cdb5b47f0226") || s_result.weapon == getweapon(#"hash_23882a5729dceca") || s_result.weapon == getweapon(#"hash_1b5092cccdb3d65b") || s_result.weapon == getweapon(#"hash_25a13b6f6232a985") || s_result.weapon == getweapon(#"hash_4c157b1aeefae09e") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9")) && isplayer(s_result.attacker))
+	if(isdefined(s_result.weapon) && (s_result.weapon == getweapon(#"ww_blundergat_t8") || s_result.weapon == getweapon(#"ww_blundergat_t8_upgraded") || s_result.weapon == getweapon(#"ww_blundergat_fire_t8") || s_result.weapon == getweapon(#"ww_blundergat_fire_t8_upgraded") || s_result.weapon == getweapon(#"ww_blundergat_acid_t8") || s_result.weapon == getweapon(#"ww_blundergat_acid_t8_upgraded") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9")) && isplayer(s_result.attacker))
 	{
 		s_result.attacker notify(#"hash_2e36f5f4d9622bb3", {#weapon:s_result.weapon});
 	}

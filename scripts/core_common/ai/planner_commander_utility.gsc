@@ -1450,7 +1450,7 @@ function private daemonupdateobjective(commander)
 function function_790fb743(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"key"]) || function_7a600918(constants[#"key"]), ("" + "") + "");
+		assert(isstring(constants[#"key"]) || ishash(constants[#"key"]), ("" + "") + "");
 	#/
 	attribute = planner::getblackboardattribute(planner, constants[#"key"]);
 	if(isdefined(attribute) && isarray(attribute))
@@ -1472,7 +1472,7 @@ function function_790fb743(planner, constants)
 function private function_a05a08bf(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"key"]) || function_7a600918(constants[#"key"]), ("" + "") + "");
+		assert(isstring(constants[#"key"]) || ishash(constants[#"key"]), ("" + "") + "");
 	#/
 	return isdefined(planner::getblackboardattribute(planner, constants[#"key"]));
 }
@@ -1489,7 +1489,7 @@ function private function_a05a08bf(planner, constants)
 function private strategyblackboardvalueistrue(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"key"]) || function_7a600918(constants[#"key"]), ("" + "") + "");
+		assert(isstring(constants[#"key"]) || ishash(constants[#"key"]), ("" + "") + "");
 	#/
 	return planner::getblackboardattribute(planner, constants[#"key"]) == 1;
 }
@@ -1506,7 +1506,7 @@ function private strategyblackboardvalueistrue(planner, constants)
 function private function_a75b29d8(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"focus"]) || function_7a600918(constants[#"focus"]), ("" + "") + "");
+		assert(isstring(constants[#"focus"]) || ishash(constants[#"focus"]), ("" + "") + "");
 	#/
 	target = planner::getblackboardattribute(planner, #"current_target");
 	/#
@@ -1897,7 +1897,7 @@ function private strategyincrementblackboardvalue(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"name"]) || function_7a600918(constants[#"name"]));
+		assert(isstring(constants[#"name"]) || ishash(constants[#"name"]));
 	#/
 	planner::setblackboardattribute(planner, constants[#"name"], planner::getblackboardattribute(planner, constants[#"name"]) + 1);
 }
@@ -2006,7 +2006,7 @@ function private strategysetblackboardvalue(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"name"]) || function_7a600918(constants[#"name"]));
+		assert(isstring(constants[#"name"]) || ishash(constants[#"name"]));
 	#/
 	planner::setblackboardattribute(planner, constants[#"name"], constants[#"value"]);
 }
@@ -2026,7 +2026,7 @@ function private function_20de0d52(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"name"]) || function_7a600918(constants[#"name"]));
+		assert(isstring(constants[#"name"]) || ishash(constants[#"name"]));
 	#/
 	planner::setblackboardattribute(planner, constants[#"name"], array());
 }
@@ -2121,7 +2121,7 @@ function private strategysquadorderparam(planner, constants)
 		assert(squadindex >= 0, "");
 	#/
 	/#
-		assert(isstring(constants[#"order"]) || function_7a600918(constants[#"order"]), ("" + "") + "");
+		assert(isstring(constants[#"order"]) || ishash(constants[#"order"]), ("" + "") + "");
 	#/
 	planner::setblackboardattribute(planner, "order", constants[#"order"], squadindex);
 	return spawnstruct();
@@ -2395,10 +2395,10 @@ function private strategysquadclaimobjectparam(planner, constants)
 function private strategysquadcopyblackboardvalue(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"from"]) || function_7a600918(constants[#"from"]), ("" + "") + "");
+		assert(isstring(constants[#"from"]) || ishash(constants[#"from"]), ("" + "") + "");
 	#/
 	/#
-		assert(isstring(constants[#"to"]) || function_7a600918(constants[#"to"]), ("" + "") + "");
+		assert(isstring(constants[#"to"]) || ishash(constants[#"to"]), ("" + "") + "");
 	#/
 	squadindex = planner::getblackboardattribute(planner, #"current_squad");
 	/#
@@ -2420,10 +2420,10 @@ function private strategysquadcopyblackboardvalue(planner, constants)
 function private function_86c0732e(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"from"]) || function_7a600918(constants[#"from"]), ("" + "") + "");
+		assert(isstring(constants[#"from"]) || ishash(constants[#"from"]), ("" + "") + "");
 	#/
 	/#
-		assert(isstring(constants[#"to"]) || function_7a600918(constants[#"to"]), ("" + "") + "");
+		assert(isstring(constants[#"to"]) || ishash(constants[#"to"]), ("" + "") + "");
 	#/
 	value = planner::getblackboardattribute(planner, constants[#"from"]);
 	squadindex = planner::getblackboardattribute(planner, #"current_squad");
@@ -2777,7 +2777,7 @@ function private bunker_exposure_scale(planner, constants)
 		assert(squadindex >= 0, "");
 	#/
 	/#
-		assert(isstring(constants[#"key"]) || function_7a600918(constants[#"key"]), ("" + "") + "");
+		assert(isstring(constants[#"key"]) || ishash(constants[#"key"]), ("" + "") + "");
 	#/
 	attribute = planner::getblackboardattribute(planner, constants[#"key"], squadindex);
 	if(isdefined(attribute) && isarray(attribute))

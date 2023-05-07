@@ -89,11 +89,11 @@ function register_weapons()
 	bot_action::function_ab03ca93(#"pistol_topbreak_t8");
 	bot_action::function_ab03ca93(#"shotgun_trenchgun_t8");
 	bot_action::function_ab03ca93(#"smg_drum_pistol_t8");
-	bot_action::function_ab03ca93(#"hash_5b8d1ff4b772bd85");
-	bot_action::function_ab03ca93(#"hash_7d7f0dbb00201240");
-	bot_action::function_ab03ca93(#"hash_95dd69e40d99560");
-	bot_action::function_ab03ca93(#"hash_539f784146391d2");
-	bot_action::function_ab03ca93(#"hash_5004e2171c2be97d");
+	bot_action::function_ab03ca93(#"ww_tricannon_t8");
+	bot_action::function_ab03ca93(#"ww_tricannon_air_t8");
+	bot_action::function_ab03ca93(#"ww_tricannon_earth_t8");
+	bot_action::function_ab03ca93(#"ww_tricannon_fire_t8");
+	bot_action::function_ab03ca93(#"ww_tricannon_water_t8");
 	self function_c31a5c42();
 }
 

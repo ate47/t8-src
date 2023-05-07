@@ -506,7 +506,7 @@ function function_bb0565d0(var_de58f286)
 			if(weapon_group == #"")
 			{
 				var_e78b2a99 = "brawler";
-				dualwield = getweapon(#"hash_1b055fadc5573c29");
+				dualwield = getweapon(#"smg_handling_t8_dw");
 				if(weapon.name == dualwield.name)
 				{
 					var_e78b2a99 = "pistol";

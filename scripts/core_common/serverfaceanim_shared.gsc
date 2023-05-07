@@ -53,7 +53,7 @@ function init_serverfaceanim()
 		level.face_event_handler = spawnstruct();
 		level.face_event_handler.events = [];
 		level.face_event_handler.events[#"death"] = "face_death";
-		level.face_event_handler.events[#"hash_70bb20cec150f744"] = "face_alert";
+		level.face_event_handler.events[#"grenade danger"] = "face_alert";
 		level.face_event_handler.events[#"bulletwhizby"] = "face_alert";
 		level.face_event_handler.events[#"projectile_impact"] = "face_alert";
 		level.face_event_handler.events[#"explode"] = "face_alert";

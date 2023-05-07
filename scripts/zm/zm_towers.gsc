@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_1781ac145d783f87;
 #using script_18e21a7011416ce0;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\zm_towers_shield.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_2affe92664ace48d;
@@ -379,12 +379,12 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 */
 function function_f6e12f01()
 {
-	var_9581be99 = struct::get_array("s_ww_quest_acid_trap_unitrigger");
+	a_s_acid_traps = struct::get_array("s_ww_quest_acid_trap_unitrigger");
 	var_7eb95af0 = arraycopy(level.var_4fe2f84d[#"zblueprint_trap_hellpools"]);
 	var_7eb95af0 = array::randomize(var_7eb95af0);
-	foreach(var_dca0e32e in var_9581be99)
+	foreach(s_acid_trap in a_s_acid_traps)
 	{
-		var_dca0e32e zm_towers_ww_quest::function_a58dfad4();
+		s_acid_trap zm_towers_ww_quest::function_a58dfad4();
 	}
 	foreach(var_eea6b8f1 in var_7eb95af0)
 	{

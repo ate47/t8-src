@@ -95,7 +95,7 @@ function function_95a5b5c2(var_daec1817, label, team, origin, player)
 {
 	if(sessionmodeismultiplayergame())
 	{
-		var_cfad67d4 = (function_7a600918(team) ? team : hash(team));
+		var_cfad67d4 = (ishash(team) ? team : hash(team));
 		clientid = isdefined(player) && (isdefined(player.clientid) ? player.clientid : -1);
 		function_92d1707f(#"hash_d424efe4db1dff7", {#clientid:clientid, #playerz:origin[2], #playery:origin[1], #playerx:origin[0], #team:var_cfad67d4, #label:label, #objtype:var_daec1817, #gametime:function_f8d53445()});
 	}
@@ -231,10 +231,10 @@ function function_6661621a()
 	mploadout.killstreak3 = (self.killstreak.size > 2 ? hash(self.killstreak[2]) : 0);
 	talents = self function_4a9f1384(self.class_num);
 	mploadout.var_942f949 = (talents.size > 0 ? talents[0] : 0);
-	mploadout.var_f788d5d5 = (talents.size > 1 ? talents[1] : 0);
+	mploadout.talent1 = (talents.size > 1 ? talents[1] : 0);
 	mploadout.var_9e81a3e0 = (talents.size > 2 ? talents[2] : 0);
 	mploadout.var_9c409f5e = (talents.size > 3 ? talents[3] : 0);
-	mploadout.var_e56631ac = (talents.size > 4 ? talents[4] : 0);
+	mploadout.talent4 = (talents.size > 4 ? talents[4] : 0);
 	mploadout.var_432fed3e = (talents.size > 5 ? talents[5] : 0);
 	wildcards = self function_6f2c0492(self.class_num);
 	mploadout.var_bd1c86b8 = (wildcards.size > 0 ? wildcards[0] : 0);

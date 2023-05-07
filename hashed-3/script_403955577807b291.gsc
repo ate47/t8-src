@@ -81,7 +81,7 @@ function function_b2755499(weapon, entity)
 			returnweapon = getweapon("helicopter_comlink");
 			break;
 		}
-		case "hash_36a6454f13b54f18":
+		case "gun_ultimate_turret":
 		{
 			returnweapon = getweapon("ultimate_turret");
 			break;

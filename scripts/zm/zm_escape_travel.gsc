@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_245749c1f51c5bd8;
+#using scripts\zm_common\trials\zm_trial_door_lockdown.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -574,7 +574,7 @@ function zipline_move_trigger_think()
 		{
 			continue;
 		}
-		if(namespace_6f53a9bb::is_active())
+		if(zm_trial_door_lockdown::is_active())
 		{
 			continue;
 		}
@@ -670,7 +670,7 @@ function zipline_call_trigger_think()
 		{
 			continue;
 		}
-		if(namespace_6f53a9bb::is_active())
+		if(zm_trial_door_lockdown::is_active())
 		{
 			continue;
 		}

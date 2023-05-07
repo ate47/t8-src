@@ -51,7 +51,7 @@ function open_door(a_str_door_names, var_47eb646a = 0, var_91ccb2d7, b_play_audi
 			level waittill(#"player_grabbed_key");
 		}
 	}
-	if(isstring(var_91ccb2d7) || function_7a600918(var_91ccb2d7))
+	if(isstring(var_91ccb2d7) || ishash(var_91ccb2d7))
 	{
 		self waittill(var_91ccb2d7);
 	}

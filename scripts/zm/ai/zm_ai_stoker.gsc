@@ -392,7 +392,7 @@ function function_2df052bb()
 {
 	self.maxhealth = int(self zm_ai_utility::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_1b0cc4f5) ? level.var_1b0cc4f5 : 1));
 	self.health = self.maxhealth;
-	namespace_81245006::initweakpoints(self, #"hash_3d1befac390ef735");
+	namespace_81245006::initweakpoints(self, #"c_t8_zmb_stoker_weakpoint_def");
 }
 
 /*

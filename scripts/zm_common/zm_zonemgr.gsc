@@ -1829,7 +1829,7 @@ function function_54fc7938(player_ent, var_5d02daa5)
 		assert(isplayer(player_ent));
 	#/
 	/#
-		assert(isentity(var_5d02daa5) || function_7a600918(var_5d02daa5) || isstring(var_5d02daa5));
+		assert(isentity(var_5d02daa5) || ishash(var_5d02daa5) || isstring(var_5d02daa5));
 	#/
 	if(isplayer(player_ent))
 	{
@@ -1840,7 +1840,7 @@ function function_54fc7938(player_ent, var_5d02daa5)
 		}
 		else
 		{
-			if(function_7a600918(var_5d02daa5) || isstring(var_5d02daa5))
+			if(ishash(var_5d02daa5) || isstring(var_5d02daa5))
 			{
 				zone_name = var_5d02daa5;
 			}

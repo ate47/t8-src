@@ -123,7 +123,7 @@ function function_ca35fa36()
 	level flag::init(#"hash_40856b65dff0f6eb");
 	level flag::init(#"hash_50990d5b9376f50d");
 	level flag::init(#"hash_3bb140702c2b1323");
-	level.var_d6538eef = 0;
+	level.defend_spawns = 0;
 	level flag::wait_till("start_zombie_round_logic");
 	zm_white_util::function_985c08e7();
 	zm_utility::enable_power_switch(0);
@@ -543,7 +543,7 @@ function function_a39e7a56()
 {
 	if(level flag::get(#"infinite_round_spawning"))
 	{
-		if(level flag::get(#"hash_3bb140702c2b1323") && level.var_d6538eef == 4)
+		if(level flag::get(#"hash_3bb140702c2b1323") && level.defend_spawns == 4)
 		{
 			ai = zm_white_special_rounds::function_dd836251();
 			if(isdefined(ai))
@@ -551,9 +551,9 @@ function function_a39e7a56()
 				return true;
 			}
 		}
-		if(level.var_d6538eef > 8)
+		if(level.defend_spawns > 8)
 		{
-			level.var_d6538eef = 0;
+			level.defend_spawns = 0;
 			if(level flag::get(#"hash_50990d5b9376f50d"))
 			{
 				ai = namespace_c402654::function_62db7b1c(0);
@@ -570,7 +570,7 @@ function function_a39e7a56()
 			if(isdefined(ai))
 			{
 				n_delay = (isdefined(zombie_utility::function_d2dfacfd(#"zombie_spawn_delay")) ? zombie_utility::function_d2dfacfd(#"zombie_spawn_delay") : zombie_utility::function_d2dfacfd(#"hash_7d5a25e2463f7fc5"));
-				level.var_d6538eef++;
+				level.defend_spawns++;
 			}
 			wait(n_delay);
 			return true;

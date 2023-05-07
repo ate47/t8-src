@@ -283,7 +283,7 @@ function fixup_scenedef(s_scenedef)
 	}
 	s_scenedef.editaction = undefined;
 	s_scenedef.newobject = undefined;
-	if(isstring(s_scenedef.femalebundle) || function_7a600918(s_scenedef.femalebundle))
+	if(isstring(s_scenedef.femalebundle) || ishash(s_scenedef.femalebundle))
 	{
 		s_female_bundle = struct::get_script_bundle("scene", s_scenedef.femalebundle);
 		s_female_bundle.malebundle = s_scenedef.name;
@@ -310,7 +310,7 @@ function fixup_scenedef(s_scenedef)
 	{
 		level.scene_streamer_ignore[s_scenedef.name] = 1;
 	}
-	if(isstring(s_scenedef.nextscenebundle) || function_7a600918(s_scenedef.nextscenebundle))
+	if(isstring(s_scenedef.nextscenebundle) || ishash(s_scenedef.nextscenebundle))
 	{
 		s_next_bundle = s_scenedef;
 		while(isdefined(s_next_bundle))
@@ -389,7 +389,7 @@ function fixup_scenedef(s_scenedef)
 			s_object.type = "fakeplayer";
 		}
 	}
-	if(isstring(s_scenedef.cameraswitcher) || function_7a600918(s_scenedef.cameraswitcher))
+	if(isstring(s_scenedef.cameraswitcher) || ishash(s_scenedef.cameraswitcher))
 	{
 		s_scenedef.igc = 1;
 	}
@@ -1503,7 +1503,7 @@ function function_cef06dcb()
 function init_streamer(str_scenedef, var_1b38cf1d, var_b6213032 = 0, b_invulnerable = 1)
 {
 	s_scenedef = get_scenedef(str_scenedef);
-	if(isstring(var_1b38cf1d) || function_7a600918(var_1b38cf1d))
+	if(isstring(var_1b38cf1d) || ishash(var_1b38cf1d))
 	{
 		var_1b38cf1d = util::get_team_mapping(var_1b38cf1d);
 	}
@@ -1804,7 +1804,7 @@ function play(arg1, arg2, arg3, b_test_run = 0, str_mode = "", n_time, var_f7d56
 	/#
 		if(getdvarint(#"debug_scene", 0) > 0)
 		{
-			if(isdefined(arg1) && (isstring(arg1) || function_7a600918(arg1)))
+			if(isdefined(arg1) && (isstring(arg1) || ishash(arg1)))
 			{
 				printtoprightln("" + function_9e72a96(arg1));
 			}
@@ -1819,7 +1819,7 @@ function play(arg1, arg2, arg3, b_test_run = 0, str_mode = "", n_time, var_f7d56
 	if(self == level)
 	{
 		a_instances = [];
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg1) && issubstr(arg1, ","))
 			{
@@ -1991,7 +1991,7 @@ function function_1d2f3816(arg1, arg2, arg3, var_f7d56e76)
 function function_845e67f0(var_b93683c = 0, var_3667c53d = 4, var_f7d56e76 = array())
 {
 	self thread play("breach_init");
-	if(isstring(var_b93683c) || function_7a600918(var_b93683c))
+	if(isstring(var_b93683c) || ishash(var_b93683c))
 	{
 		level waittill(var_b93683c);
 	}
@@ -2039,7 +2039,7 @@ function breach_slow_time(var_3667c53d)
 		e_player setmovespeedscale(0.3);
 	}
 	wait(0.3);
-	if(isstring(var_3667c53d) || function_7a600918(var_3667c53d))
+	if(isstring(var_3667c53d) || ishash(var_3667c53d))
 	{
 		util::waittill_any_ents(self, "breach_cleared", level, var_3667c53d);
 	}
@@ -2169,7 +2169,7 @@ function function_cae579da(str_team)
 */
 function _play_on_self(s_tracker, arg1, arg2, arg3, b_test_run = 0, str_mode = "", n_time)
 {
-	if(isstring(arg1) || function_7a600918(arg1))
+	if(isstring(arg1) || ishash(arg1))
 	{
 		if(isinarray(level.scenedefs, hash(arg1)))
 		{
@@ -2379,7 +2379,7 @@ function delete_scene_spawned_ents(arg1)
 	if(self == level)
 	{
 		a_instances = [];
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg1) && issubstr(arg1, ","))
 			{
@@ -2411,7 +2411,7 @@ function delete_scene_spawned_ents(arg1)
 	}
 	else
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			str_scenedef = arg1;
 		}
@@ -2661,7 +2661,7 @@ function function_dde5f483(str_scenedef, n_elapsed_time)
 */
 function function_8582657c(var_b9a72490, str_shot)
 {
-	if(isstring(var_b9a72490) || function_7a600918(var_b9a72490))
+	if(isstring(var_b9a72490) || ishash(var_b9a72490))
 	{
 		s_scenedef = get_scenedef(var_b9a72490);
 	}
@@ -2730,7 +2730,7 @@ function stop(arg1, arg2, arg3)
 {
 	if(self == level)
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg2))
 			{
@@ -2776,7 +2776,7 @@ function stop(arg1, arg2, arg3)
 	}
 	else
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			_stop_instance(arg2, arg1);
 		}
@@ -3157,7 +3157,7 @@ function delete_scene_data(str_scenename)
 */
 function is_igc()
 {
-	return isdefined(self.igc) && self.igc || isstring(self.cameraswitcher) || function_7a600918(self.cameraswitcher);
+	return isdefined(self.igc) && self.igc || isstring(self.cameraswitcher) || ishash(self.cameraswitcher);
 }
 
 /*
@@ -3322,7 +3322,7 @@ function set_igc_active(b_in_igc, str_scene_name)
 	if(b_in_igc)
 	{
 		n_players_in_igc_field = n_players_in_igc_field | (1 << n_ent_num);
-		self notify(#"hash_57d4f53c12705eac", {#str_scene:str_scene_name});
+		self notify(#"scene_igc_shot_started", {#str_scene:str_scene_name});
 	}
 	else
 	{

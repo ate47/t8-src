@@ -192,9 +192,9 @@ function private function_ccf7ac87()
 		{
 			continue;
 		}
-		foreach(var_d59d25cc in trap._trap_use_trigs)
+		foreach(trap_trig in trap._trap_use_trigs)
 		{
-			if(!isdefined(var_d59d25cc._trap))
+			if(!isdefined(trap_trig._trap))
 			{
 				continue;
 			}
@@ -206,7 +206,7 @@ function private function_ccf7ac87()
 			{
 				level.var_2510f3e4 = array(level.var_2510f3e4);
 			}
-			level.var_2510f3e4[level.var_2510f3e4.size] = var_d59d25cc;
+			level.var_2510f3e4[level.var_2510f3e4.size] = trap_trig;
 		}
 	}
 }
@@ -1212,12 +1212,12 @@ function private function_8850974b(entity, registerlotus_right, range)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_387fd27e(entity, var_d59d25cc)
+function private function_387fd27e(entity, trap_trig)
 {
-	if(!var_d59d25cc._trap._trap_in_use || !var_d59d25cc._trap istriggerenabled())
+	if(!trap_trig._trap._trap_in_use || !trap_trig._trap istriggerenabled())
 	{
 		/#
-			function_78eae22a(entity, var_d59d25cc, 16);
+			function_78eae22a(entity, trap_trig, 16);
 		#/
 		return false;
 	}
@@ -1236,20 +1236,20 @@ function private function_387fd27e(entity, var_d59d25cc)
 function private function_d2ce5ac1(entity, registerlotus_right, range)
 {
 	trap_trigs = arraysortclosest(level.var_2510f3e4, entity.origin, undefined, 0, range);
-	foreach(var_d59d25cc in trap_trigs)
+	foreach(trap_trig in trap_trigs)
 	{
-		if(function_55d2ad24(var_d59d25cc, entity))
+		if(function_55d2ad24(trap_trig, entity))
 		{
 			/#
-				function_78eae22a(entity, var_d59d25cc, 1);
+				function_78eae22a(entity, trap_trig, 1);
 			#/
 			continue;
 		}
-		if(!function_387fd27e(entity, var_d59d25cc))
+		if(!function_387fd27e(entity, trap_trig))
 		{
 			continue;
 		}
-		var_d59d25cc.lockdowntype = "lockdown_stub_type_traps";
+		trap_trig.lockdowntype = "lockdown_stub_type_traps";
 		if(!isdefined(registerlotus_right))
 		{
 			registerlotus_right = [];
@@ -1258,9 +1258,9 @@ function private function_d2ce5ac1(entity, registerlotus_right, range)
 		{
 			registerlotus_right = array(registerlotus_right);
 		}
-		if(!isinarray(registerlotus_right, var_d59d25cc))
+		if(!isinarray(registerlotus_right, trap_trig))
 		{
-			registerlotus_right[registerlotus_right.size] = var_d59d25cc;
+			registerlotus_right[registerlotus_right.size] = trap_trig;
 		}
 	}
 }

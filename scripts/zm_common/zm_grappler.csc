@@ -55,14 +55,14 @@ function __init__()
 */
 function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(!isdefined(level.var_da8e7aa4))
+	if(!isdefined(level.grappler_sources))
 	{
-		level.var_da8e7aa4 = [];
+		level.grappler_sources = [];
 	}
 	/#
-		assert(!isdefined(level.var_da8e7aa4[newval]));
+		assert(!isdefined(level.grappler_sources[newval]));
 	#/
-	level.var_da8e7aa4[newval] = self;
+	level.grappler_sources[newval] = self;
 	level notify("grapple_id_" + newval);
 }
 
@@ -78,18 +78,18 @@ function grappler_source(localclientnum, oldval, newval, bnewent, binitialsnap, 
 function grappler_beam(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
-	if(!isdefined(level.var_da8e7aa4))
+	if(!isdefined(level.grappler_sources))
 	{
-		level.var_da8e7aa4 = [];
+		level.grappler_sources = [];
 	}
-	if(!isdefined(level.var_da8e7aa4[newval]))
+	if(!isdefined(level.grappler_sources[newval]))
 	{
 		level waittilltimeout(1, "grapple_id_" + newval);
 	}
 	/#
-		assert(isdefined(level.var_da8e7aa4[newval]));
+		assert(isdefined(level.grappler_sources[newval]));
 	#/
-	pivot = level.var_da8e7aa4[newval];
+	pivot = level.grappler_sources[newval];
 	if(!isdefined(pivot))
 	{
 		return;

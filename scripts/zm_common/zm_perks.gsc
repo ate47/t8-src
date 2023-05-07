@@ -3220,7 +3220,7 @@ function function_f5da744e()
 		{
 			perkhash = level._custom_perks[perk].alias;
 		}
-		if(!function_7a600918(perkhash))
+		if(!ishash(perkhash))
 		{
 			/#
 				assertmsg("");

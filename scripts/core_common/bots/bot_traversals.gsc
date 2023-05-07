@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\bots\bot.gsc;
-#using script_7510e6cc8220a052;
+#using scripts\core_common\bots\bot_animation.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 
 #namespace bot;

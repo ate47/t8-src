@@ -1,10 +1,15 @@
 all the settings: [gamesettings.csv](gamesettings.csv)
 
+You can get the value using `GetGametypeSetting(setting)` in a GSC script, you can set the value using `SetGametypeSetting(setting, value)`.
+
+In zombies, the `zm_custom::function_901b751c(setting)` can be used to find settings, if the setting is `""`, it will return `undefined`.
+
 - [All (core)](#all-core)
   - [Modes](#modes)
 - [Multiplayer (mp)](#multiplayer-mp)
-- [Blackout (Warzone/wz)](#blackout-warzonewz)
   - [General](#general)
+- [Blackout (Warzone/wz)](#blackout-warzonewz)
+  - [General](#general-1)
   - [XP](#xp)
   - [Characters](#characters)
     - [Multiplayer](#multiplayer)
@@ -13,7 +18,12 @@ all the settings: [gamesettings.csv](gamesettings.csv)
   - [Item spawns](#item-spawns)
   - [Zombies](#zombies-1)
 - [Zombies (zm)](#zombies-zm)
-  - [General](#general-1)
+  - [General](#general-2)
+  - [Entities](#entities)
+  - [Powerups](#powerups)
+  - [Elixir](#elixir)
+  - [Perks](#perks)
+  - [Rounds](#rounds)
   - [Allow weapon wallbuy](#allow-weapon-wallbuy)
 
 # All (core)
@@ -25,6 +35,10 @@ all the settings: [gamesettings.csv](gamesettings.csv)
 
 # Multiplayer (mp)
 
+## General
+
+- `"drafttime"` - time to select specialist
+
 # Blackout (Warzone/wz)
 
 ## General
@@ -32,6 +46,15 @@ all the settings: [gamesettings.csv](gamesettings.csv)
 - `"waverespawndelay"` - respawn wave delay (seconds)
 - `"hash_35c2d850e39fa704"` - max player count
 - `"hash_7695bdd7b20cdda"` - allow to convert the muscle car to the replacer's muscle car
+- `"hash_3e2d2cf6b1cc6c68"` - Spawn zombies with duck floats ([you read right](https://www.youtube.com/watch?v=XphuwHYtSjk))
+- `"hash_3a73deb0ca8c9aea"` - disable crosshair
+- `"hash_5f842714fa80e5a9"` - wz_escape poster EE
+- `"hash_11b79ec2ffb886c8"` - wz_escape nixie tube EE
+- `"hash_30b11d064f146fcc"` - wz_escape spoon EE
+- `"hash_473fee16f796c84e"` - wz_escape fishing EE
+- `"hash_697d65a68cc6c6f1"` - wz_escape enable enable some ee (nixie, spoon, icarus)
+- `"hash_6fbf57e2af153e5f"` - spawn homunculus
+- `"hash_53b5887dea69a320"` - enable spring homunculus
 
 ## XP
 
@@ -111,17 +134,20 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 ## Item spawns
 
-- `"hash_33d1ac5e99fb0584"` - Spawn water balloon, can't be used with `"hash_3e2d2cf6b1cc6c68"` (Quaknarok)
+- `"hash_33d1ac5e99fb0584"` - Spawn water balloon, can't be used with `"hash_3e2d2cf6b1cc6c68"`
 - `"hash_437b759bd6885560"` - Spawn snowballs
 
 ## Zombies
 
 - `"wzzombies"` - Spawn zombies (true|false)
-- `"wzbrutus"` - Spawn brutus (true|false)
-- `"wzblightfather"` - Spawn blight father (true|false)
-- `"wzavogadro"` - Spawn avogadro (true|false)
-- `"hash_3e2d2cf6b1cc6c68"` - Quaknarok (true|false), can't be used with `"hash_33d1ac5e99fb0584"` (water ballons)
-- `"hash_701bac755292fab2"` - Spawn Icarus (true|false)
+
+You can set which type of zombies can spawn
+
+- `hash_36c4caf5bc327807` and `wzbrutus` - spawn brutus
+- `hash_64b6849360a2bc86` and `hash_2f1217d530d06c4c` - spawn brutus boss
+- `hash_29a8b0865154e079` and `wzavogadro` - spawn avogadro (with health set to 150, I suggest using a `spawner::add_archetype_spawn_function` gsc script to set its life to 6000 (brutus' health))
+- `hash_7dd54269f48d6047` and `wzblightfather` - spawn blight father only for the core map **(bugged, will crash the game)**
+- `hash_530fdf750e69c0d6` and `hash_6c65796bd239e3c` - **spawn dogs (bugged, will spawn brutus boss)**
 
 # Zombies (zm)
 
@@ -132,20 +158,155 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
   - 1 = normal
   - 2 = hard
   - 3 = insane
+- `"hash_7b14ee93b27576a9"` - Set the zombies' min speed
+  - 0 = walk
+  - 1 = run
+  - 2 = sprint
+  - 3 = super sprint
+- `"hash_58af4e73782aba2f"` - Set the zombies' max speed
+  - 0 = walk
+  - 1 = run
+  - 2 = sprint
+  - 3 = super sprint
 - `"zmtrialsvariant"` - Variant of a trials (gauntlet), default = 0, hard = 1
 - `"waverespawndelay"` - respawn wave delay (seconds)
 - `"magic"` - enable magic
 - `"hash_4cb15aed177a8ef5"` and `"headshotsonly"` - headshots only
+- `"startround"` - Start round
+- `"zmroundcap"` - Max round
+- `"zmtimecap"` - Max time (minutes?)
+- `"zmpowerupsactive"` - Allow powerups
+- `"hash_137eb8d53913f781"` - Allow elixirs
+  - `"hash_3ab7cedcfef7eacc"` - Allow elixir type 1
+  - `"hash_5374d50efd1e6b59"` - Allow elixir type 2
+  - `"hash_5e1f08b8335a0ce0"` - Allow elixir type 3
+  - `"hash_7ea1426ffa93f34d"` - Allow elixir type 4
+  - `"hash_5746674cbab8264d"` - Allow elixir type 5
+- `"hash_3d18f84f48bd5d1f"` - Allow perks
+- `"hash_4b16b22d8a0d3301"` - Allow traps
+- `"hash_2a5dc43e6de87347"` - Highlight craftables items
+- `"hash_3386caa315211c88"` - no repair
+- `"hash_3ddb6198e7837062"` - decay the perks
+- `"hash_3d18f84f48bd5d1f"` - allow magic
+- `"hash_3f8f02e8109b6e93"` - allow friendly fire
+- `"hash_57a5c7a9dcf94d61"` - allow AATs
+- `"hash_589c0366b1458c7e"` - allow loadouts
+- `"hash_1fed0d9afc0b0040"` - points percentage lost per down
+- `"hash_1158d006a3913ef6"` - points percentage lost per death
+- `"hash_b066c34278e6394"` - allow hero weapon
+
+## Entities
+
+- `"zmminibossstate"` - allow miniboss entity
+- `"zmheavystate"` - allow heavy entity
+- `"hash_5f8aca8340761fce"` - allow dog/tiger entity
+- `"zmenhancedstate"` - allow enhanced entity
+
+## Powerups
+
+- `"zmpowerupnuke"` - allow powerup nuke
+- `"zmpowerupdouble"` - allow powerup double
+- `"zmpowerupinstakill"` - allow powerup instakill
+- `"zmpowerupchaospoints"` - allow powerup chaospoints
+- `"zmpowerupfiresale"` - allow powerup firesale
+- `"zmpowerupspecialweapon"` - allow powerup specialweapon
+- `"zmpowerupfreeperk"` - allow powerup freeperk
+- `"zmpowerupmaxammo"` - allow powerup maxammo
+- `"zmpowerupcarpenter"` - allow powerup carpenter
+
+## Elixir
+
+- `"zmelixiraftertaste"` allow elixir aftertaste
+- `"zmelixiralchemicalantithesis"` allow elixir alchemicalantithesis
+- `"zmelixiralwaysdoneswiftly"` allow elixir alwaysdoneswiftly
+- `"zmelixirantientrapment"` allow elixir antientrapment
+- `"zmelixiranywherebuthere"` allow elixir anywherebuthere
+- `"zmelixirarsenalaccelerator"` allow elixir arsenalaccelerator
+- `"zmelixirboardgames"` allow elixir boardgames
+- `"zmelixirbulletboost"` allow elixir bulletboost
+- `"zmelixirburnedout"` allow elixir burnedout
+- `"zmelixircacheback"` allow elixir cacheback
+- `"zmelixirconflagrationliquidation"` allow elixir conflagrationliquidation
+- `"zmelixircrawlspace"` allow elixir crawlspace
+- `"zmelixirctrlz"` allow elixir ctrlz
+- `"zmelixirdangerclosest"` allow elixir dangerclosest
+- `"zmelixirdeadofnuclearwinter"` allow elixir deadofnuclearwinter
+- `"zmelixirdividendyield"` allow elixir dividendyield
+- `"zmelixirequipmint"` allow elixir equipmint
+- `"zmelixirextracredit"` allow elixir extracredit
+- `"zmelixirfreefire"` allow elixir freefire
+- `"zmelixirheaddrama"` allow elixir headdrama
+- `"zmelixirheadscan"` allow elixir headscan
+- `"zmelixirimmolationliquidation"` allow elixir immolationliquidation
+- `"zmelixirinplainsight"` allow elixir inplainsight
+- `"zmelixirjointheparty"` allow elixir jointheparty
+- `"zmelixirkilljoy"` allow elixir killjoy
+- `"zmelixirlicensedcontractor"` allow elixir licensedcontractor
+- `"zmelixirneardeathexperience"` allow elixir neardeathexperience
+- `"zmelixirnewtoniannegation"` allow elixir newtoniannegation
+- `"zmelixirnowyouseeme"` allow elixir nowyouseeme
+- `"zmelixirnowherebutthere"` allow elixir nowherebutthere
+- `"zmelixirperkup"` allow elixir perkup
+- `"zmelixirperkaholic"` allow elixir perkaholic
+- `"zmelixirphantomreload"` allow elixir phantomreload
+- `"zmelixirphoenixup"` allow elixir phoenixup
+- `"zmelixirpointdrops"` allow elixir pointdrops
+- `"zmelixirpopshocks"` allow elixir popshocks
+- `"zmelixirpowerkeg"` allow elixir powerkeg
+- `"zmelixirpowervacuum"` allow elixir powervacuum
+- `"zmelixirrefreshmint"` allow elixir refreshmint
+- `"zmelixirreigndrops"` allow elixir reigndrops
+- `"zmelixirsecretshopper"` allow elixir secretshopper
+- `"zmelixirshieldsup"` allow elixir shieldsup
+- `"zmelixirshoppingfree"` allow elixir shoppingfree
+- `"zmelixirsodafountain"` allow elixir sodafountain
+- `"zmelixirstockoption"` allow elixir stockoption
+- `"zmelixirsuitup"` allow elixir suitup
+- `"zmelixirswordflay"` allow elixir swordflay
+- `"zmelixirtalkinboutregeneration"` allow elixir talkinboutregeneration
+- `"zmelixirtemporalgift"` allow elixir temporalgift
+- `"zmelixirundeadmanwalking"` allow elixir undeadmanwalking
+- `"zmelixirwallpower"` allow elixir wallpower
+- `"zmelixirwhoskeepingscore"` allow elixir whoskeepingscore
+
+## Perks
+
+- `"hash_7520ccdc8dcaee8d"` allow perk armorvest
+- `"hash_8edd17a31990450"` allow perk fastreload
+- `"zmperksquickrevive"` allow perk quickrevive
+- `"hash_557e3edd7fe168c3"` allow perk widowswine
+- `"zmperksstaminup"` allow perk staminup
+- `"zmperksmulekick"` allow perk additionalprimaryweapon
+- `"hash_77c5cc2d9b6ca16c"` allow perk electriccherry
+- `"zmperksdeadshot"` allow perk deadshot
+- `"zmperkscooldown"` allow perk cooldown
+- `"zmperksdyingwish"` allow perk dying_wish
+- `"zmperksphdslider"` allow perk phdflopper
+- `"hash_5690c4dcc61973ec"` allow perk stronghold
+- `"hash_1bdfb5736ad174a3"` allow perk extraammo
+- `"zmperksdeathperception"` allow perk awareness
+- `"hash_2dd9d538ca5bc2d6"` allow perk shield
+- `"hash_179ae09979e80714"` allow perk mystery
+- `"zmperksetherealrazor"` allow perk etherealrazor
+- `"zmperkszombshell"` allow perk zombshell
+- `"zmperkswolfprotector"` allow perk wolf_protector
+- `"zmperksdeathdash"` allow perk death_dash
+
+## Rounds
+
+- `"zombie_health_increase_multiplier"` - The multiplier to apply to the zombies' health
+- `"zombie_health_increase"` - The increase to add after the multipler
+- `"zombie_health_start"` - The start health
 
 ## Allow weapon wallbuy
 
 Boolean values to allow wallbuy of a weapon category
 
-- `"zmweaponspistol"` - Allow pistols
+- `"hash_6f1440098d849316"` - Allow pistols
 - `"hash_edfb07f798aaab5"` - Allow CQB
-- `"zmweaponssmg"` - Allow SMG
-- `"zmweaponsar"` - Allow AR
+- `"hash_1f6665b5581f6b6e"` - Allow SMG
+- `"hash_1d5c8e6f0e20201a"` - Allow AR
 - `"zmweaponstr"` - Allow tacticals
-- `"zmweaponslmg"` - Allow LMG
-- `"zmweaponssniper"` - Allow snipers
+- `"hash_2f6740b518dbeb8f"` - Allow LMG
+- `"hash_5bfd047c58816496"` - Allow snipers
 - `"zmweaponsknife"` - Allow knifes

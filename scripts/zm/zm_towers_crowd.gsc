@@ -1247,7 +1247,7 @@ function function_b8dfa139(str_event)
 function function_f3e454c1(str_text)
 {
 	/#
-		if(function_7a600918(str_text))
+		if(ishash(str_text))
 		{
 			if(isplayer(self))
 			{

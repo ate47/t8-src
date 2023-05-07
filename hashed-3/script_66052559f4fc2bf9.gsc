@@ -563,7 +563,7 @@ function private function_8feabee3(transition, outcome)
 function private function_26bbb839(transition, outcome)
 {
 	thread function_b8e20f5f(transition, outcome, transition.slowdown, transition.var_d7f20c92, &function_9185f489);
-	thread function_b8e20f5f(transition, outcome, transition.var_e2699dc7, transition.var_5f190d97, &function_a3b4d41d);
+	thread function_b8e20f5f(transition, outcome, transition.freezeplayers, transition.var_5f190d97, &function_a3b4d41d);
 	thread function_b8e20f5f(transition, outcome, transition.var_b0bc6ae0, transition.var_8d7c57a2, &function_8feabee3);
 	thread function_b8e20f5f(transition, outcome, transition.var_619875ca, transition.var_73f860db, &function_b7fec738);
 	thread function_b8e20f5f(transition, outcome, transition.var_7a712c7, transition.var_a803fe51, &function_66713ac);

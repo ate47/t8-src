@@ -97,7 +97,7 @@ function function_ca35fa36()
 {
 	level endon(#"end_game");
 	function_84139b27();
-	level.var_d6538eef = 0;
+	level.defend_spawns = 0;
 	level flag::wait_till("start_zombie_round_logic");
 	level thread function_80a9077f();
 	zm_utility::enable_power_switch(0);
@@ -453,9 +453,9 @@ function function_a39e7a56()
 {
 	if(level flag::get(#"infinite_round_spawning"))
 	{
-		if(level.var_d6538eef > 8)
+		if(level.defend_spawns > 8)
 		{
-			level.var_d6538eef = 0;
+			level.defend_spawns = 0;
 			if(level flag::get(#"hash_50990d5b9376f50d"))
 			{
 				ai = namespace_c402654::function_62db7b1c(0);
@@ -463,7 +463,7 @@ function function_a39e7a56()
 		}
 		else
 		{
-			if(level.var_d6538eef == 4)
+			if(level.defend_spawns == 4)
 			{
 				if(level flag::get(#"hash_13bc135937af9be2"))
 				{
@@ -479,7 +479,7 @@ function function_a39e7a56()
 		if(isdefined(ai))
 		{
 			n_delay = (isdefined(zombie_utility::function_d2dfacfd(#"zombie_spawn_delay")) ? zombie_utility::function_d2dfacfd(#"zombie_spawn_delay") : zombie_utility::function_d2dfacfd(#"hash_7d5a25e2463f7fc5"));
-			level.var_d6538eef++;
+			level.defend_spawns++;
 			wait(n_delay);
 			return true;
 		}

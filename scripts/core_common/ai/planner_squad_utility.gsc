@@ -1324,7 +1324,7 @@ function private strategyhasescort(planner, constants)
 		return false;
 	}
 	var_3ba94a7e = constants[#"key"];
-	if(!isstring(var_3ba94a7e) && !function_7a600918(var_3ba94a7e) || var_3ba94a7e == "")
+	if(!isstring(var_3ba94a7e) && !ishash(var_3ba94a7e) || var_3ba94a7e == "")
 	{
 		return true;
 	}
@@ -1380,7 +1380,7 @@ function private strategyhasforcegoal(planner, constants)
 function private function_790fb743(planner, constants)
 {
 	/#
-		assert(isstring(constants[#"key"]) || function_7a600918(constants[#"key"]), ("" + "") + "");
+		assert(isstring(constants[#"key"]) || ishash(constants[#"key"]), ("" + "") + "");
 	#/
 	attribute = planner::getblackboardattribute(planner, constants[#"key"]);
 	if(isdefined(attribute) && isarray(attribute))
@@ -1490,7 +1490,7 @@ function private strategyhasblackboardvalue(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"name"]) || function_7a600918(constants[#"name"]));
+		assert(isstring(constants[#"name"]) || ishash(constants[#"name"]));
 	#/
 	value = planner::getblackboardattribute(planner, constants[#"name"]);
 	return value == constants[#"value"];
@@ -2338,7 +2338,7 @@ function private function_e96dd96b(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"focus"]) || function_7a600918(constants[#"focus"]));
+		assert(isstring(constants[#"focus"]) || ishash(constants[#"focus"]));
 	#/
 	target = planner::getblackboardattribute(planner, "target");
 	if(isdefined(target))
@@ -2380,7 +2380,7 @@ function private function_50c7bd5a(planner, constants)
 		assert(isarray(constants));
 	#/
 	/#
-		assert(isstring(constants[#"tactics"]) || function_7a600918(constants[#"tactics"]));
+		assert(isstring(constants[#"tactics"]) || ishash(constants[#"tactics"]));
 	#/
 	var_e67e6f95 = constants[#"tactics"];
 	target = planner::getblackboardattribute(planner, "target");

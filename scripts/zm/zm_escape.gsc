@@ -1123,15 +1123,15 @@ function function_45b0f2f3(str_weapon_name)
 	str_weapon = undefined;
 	switch(str_weapon_name)
 	{
-		case "hash_cb1cdb5b47f0226":
+		case "ww_blundergat_t8_upgraded":
 		case "ww_blundergat_t8":
 		{
 			str_weapon = "wonder";
 			break;
 		}
-		case "hash_25a13b6f6232a985":
+		case "ww_blundergat_acid_t8":
 		case "hash_494f5501b3f8e1e9":
-		case "hash_4c157b1aeefae09e":
+		case "ww_blundergat_acid_t8_upgraded":
 		{
 			str_weapon = "novox";
 			break;
@@ -1314,7 +1314,7 @@ function function_adac5e49(a_keys)
 	{
 		self.var_ee09b3bf = 0;
 	}
-	if(randomint(100) <= n_chance && zm_magicbox::function_db355791(self, getweapon(#"ww_blundergat_t8")) && !self hasweapon(getweapon(#"hash_cb1cdb5b47f0226")))
+	if(randomint(100) <= n_chance && zm_magicbox::function_db355791(self, getweapon(#"ww_blundergat_t8")) && !self hasweapon(getweapon(#"ww_blundergat_t8_upgraded")))
 	{
 		arrayinsert(a_keys, getweapon(#"ww_blundergat_t8"), 0);
 		self.var_ee09b3bf = 0;
@@ -1333,7 +1333,7 @@ function function_adac5e49(a_keys)
 */
 function function_3511e2af(w_weapon, e_player)
 {
-	if(w_weapon == getweapon(#"ww_blundergat_t8") && (e_player hasweapon(getweapon(#"ww_blundergat_t8")) || e_player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")) || e_player hasweapon(getweapon(#"hash_25a13b6f6232a985")) || e_player hasweapon(getweapon(#"hash_4c157b1aeefae09e")) || e_player hasweapon(getweapon(#"hash_23882a5729dceca")) || e_player hasweapon(getweapon(#"hash_1b5092cccdb3d65b")) || e_player hasweapon(getweapon(#"hash_617dcc39334959ce"))))
+	if(w_weapon == getweapon(#"ww_blundergat_t8") && (e_player hasweapon(getweapon(#"ww_blundergat_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_upgraded")) || e_player hasweapon(getweapon(#"hash_617dcc39334959ce"))))
 	{
 		return false;
 	}

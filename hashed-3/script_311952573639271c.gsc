@@ -2081,7 +2081,7 @@ function function_f80bde48(player)
 				}
 				else if(level.round_number === 9 && level flag::get(#"hash_2d1cd18f39ac5fa7"))
 				{
-					player giveweapon(getweapon(#"hash_5b8d1ff4b772bd85"));
+					player giveweapon(getweapon(#"ww_tricannon_t8"));
 					player giveweapon(getweapon(#"homunculus"));
 				}
 			}

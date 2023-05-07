@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using script_30ba61ad5559c51d;
 #using script_35598499769dbb3d;
 #using script_387eab232fe22983;
@@ -73,7 +73,7 @@ function init()
 	clientfield::register("world", "" + #"hash_5f0c4b68b2a6a75d", 16000, 1, "int");
 	namespace_617a54f4::function_d8383812("ee_asf_altar", 8000, #"a_skeet_fink_charge", &function_123eb361, &function_9bb74431, 1);
 	function_c739f755();
-	level.var_6d66c4ba = getweapon(#"hash_19a4271a5452dc0b");
+	level.var_6d66c4ba = getweapon(#"stake_knife");
 	level thread function_93bd3e32();
 }
 
@@ -179,8 +179,8 @@ function function_f2971bfd(b_respawn = 0)
 */
 function function_ff75fde6(var_a276c861)
 {
-	zm_melee_weapon::init(#"hash_19a4271a5452dc0b", #"hash_5e3608222071b688", undefined, "", undefined, "bowie", undefined);
-	zm_loadout::register_melee_weapon_for_level(#"hash_19a4271a5452dc0b");
+	zm_melee_weapon::init(#"stake_knife", #"hash_5e3608222071b688", undefined, "", undefined, "bowie", undefined);
+	zm_loadout::register_melee_weapon_for_level(#"stake_knife");
 	clientfield::set("" + #"hash_300ef0a8a2afdab9", level.var_5e01899a[0]);
 	clientfield::set("" + #"hash_300eefa8a2afd906", level.var_5e01899a[1]);
 	clientfield::set("" + #"hash_300eeea8a2afd753", level.var_5e01899a[2]);
@@ -581,7 +581,7 @@ function function_15c82a8a(var_a276c861)
 function private function_eb6f728f()
 {
 	self endon(#"hash_20911f4af4e75472");
-	var_6d66c4ba = getweapon(#"hash_19a4271a5452dc0b");
+	var_6d66c4ba = getweapon(#"stake_knife");
 	while(true)
 	{
 		if(level flag::get("round_reset"))
@@ -712,7 +712,7 @@ function function_2879cfed(var_a276c861)
 		{
 			s_unitrigger_stub.locked = undefined;
 		}
-		zm::function_84d343d(#"hash_19a4271a5452dc0b", &zm_mansion::function_78f60fd5);
+		zm::function_84d343d(#"stake_knife", &zm_mansion::function_78f60fd5);
 		zm::register_vehicle_damage_callback(&zm_mansion::function_293e7d89);
 		zm_crafting::function_d1f16587(#"zblueprint_mansion_a_skeet_fink", &function_36194a5f);
 	}
@@ -812,6 +812,6 @@ function function_7aa50bb7(e_player)
 function function_db526700()
 {
 	self thread zm_vo::function_a2bd5a0c(#"hash_445d4e233806a7cf", 1);
-	self zm_melee_weapon::award_melee_weapon(#"hash_19a4271a5452dc0b");
+	self zm_melee_weapon::award_melee_weapon(#"stake_knife");
 }
 

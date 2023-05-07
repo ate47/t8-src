@@ -498,7 +498,7 @@ function function_2bcdf566()
 	while(isdefined(self.bot))
 	{
 		params = undefined;
-		params = self waittill(#"hash_70bb20cec150f744");
+		params = self waittill(#"grenade danger");
 		if(isdefined(params.projectile) && util::function_fbce7263(params.projectile.team, self.team))
 		{
 			self reset();

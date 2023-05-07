@@ -1270,14 +1270,14 @@ function create_missile_hud(rocket)
 	{
 		player.var_bbe80eed[ti] = spawnstruct();
 		player.var_bbe80eed[ti].state = 0;
-		var_be788bba = level.var_aac98621[ti];
-		if(!var_be788bba remote_missile_target_lockon::is_open(player))
+		uifield = level.var_aac98621[ti];
+		if(!uifield remote_missile_target_lockon::is_open(player))
 		{
-			var_be788bba remote_missile_target_lockon::open(player, 1);
+			uifield remote_missile_target_lockon::open(player, 1);
 		}
-		var_be788bba remote_missile_target_lockon::set_clientnum(player, player_entnum);
-		var_be788bba remote_missile_target_lockon::set_target_locked(player, 0);
-		var_be788bba remote_missile_target_lockon::set_isHawkTag(player, 0);
+		uifield remote_missile_target_lockon::set_clientnum(player, player_entnum);
+		uifield remote_missile_target_lockon::set_target_locked(player, 0);
+		uifield remote_missile_target_lockon::set_isHawkTag(player, 0);
 	}
 	enemies = getplayers();
 	ti = 0;

@@ -4,11 +4,11 @@
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_5507dc3;
+#namespace zm_trial_disable_hud;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x9D7B1CB
 	Offset: 0xC0
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_6eed28033e443596", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_hud", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x1AFACF61
 	Offset: 0x108
 	Size: 0x5C
@@ -35,12 +35,12 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_hud", &on_begin, &on_end);
 }
 
 /*
 	Name: on_begin
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x7D36DD88
 	Offset: 0x170
 	Size: 0x1C
@@ -54,7 +54,7 @@ function private on_begin()
 
 /*
 	Name: function_afe4a356
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x6B437454
 	Offset: 0x198
 	Size: 0x100
@@ -76,7 +76,7 @@ function function_afe4a356()
 
 /*
 	Name: on_end
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x2251729D
 	Offset: 0x2A0
 	Size: 0x120

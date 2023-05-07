@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\ai\zm_ai_bat.gsc;
 #using script_387eab232fe22983;
 #using script_52c6c2d1a2ef1b46;
@@ -138,9 +138,9 @@ function start_stick_man()
 */
 function function_c739f755()
 {
-	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_1", #"hash_6e38611b5382ee7f", &function_cdfe68a2, &function_c5868f47);
-	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_2", #"hash_6e38621b5382f032", &function_a03f8d25, &function_f05be4f1);
-	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_3", #"hash_6e38631b5382f1e5", &function_aa79a199, &function_bafa7a2b);
+	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_1", #"hash_6e38611b5382ee7f", &function_cdfe68a2, &cleanup_step_1);
+	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_2", #"hash_6e38621b5382f032", &function_a03f8d25, &cleanup_step_2);
+	zm_sq::register(#"hash_578d0d7709a00e6e", #"step_3", #"hash_6e38631b5382f1e5", &function_aa79a199, &cleanup_step_3);
 }
 
 /*
@@ -173,7 +173,7 @@ function function_cdfe68a2(var_a276c861)
 }
 
 /*
-	Name: function_c5868f47
+	Name: cleanup_step_1
 	Namespace: namespace_b6ca3ccc
 	Checksum: 0xDADE489E
 	Offset: 0xEC0
@@ -181,7 +181,7 @@ function function_cdfe68a2(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c5868f47(var_a276c861, var_19e802fa)
+function cleanup_step_1(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"gazed_greenhouse");
 	level flag::set(#"hash_bf7b1766e2b0f58");
@@ -461,7 +461,7 @@ function function_a03f8d25(var_a276c861)
 }
 
 /*
-	Name: function_f05be4f1
+	Name: cleanup_step_2
 	Namespace: namespace_b6ca3ccc
 	Checksum: 0x9F73E9BA
 	Offset: 0x1D70
@@ -469,7 +469,7 @@ function function_a03f8d25(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_f05be4f1(var_5ea5c94d, ended_early)
+function cleanup_step_2(var_5ea5c94d, ended_early)
 {
 	level flag::set(#"hash_7db49be86c73fd65");
 	level flag::set(#"hash_445e2c5cadd58523");
@@ -1881,7 +1881,7 @@ function function_aa79a199(var_a276c861)
 }
 
 /*
-	Name: function_bafa7a2b
+	Name: cleanup_step_3
 	Namespace: namespace_b6ca3ccc
 	Checksum: 0xCD4C886
 	Offset: 0x6A88
@@ -1889,7 +1889,7 @@ function function_aa79a199(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bafa7a2b(var_5ea5c94d, ended_early)
+function cleanup_step_3(var_5ea5c94d, ended_early)
 {
 	level flag::set(#"hash_1abd4da28f5bc572");
 	level flag::set(#"hash_22d91ef3831a3f86");

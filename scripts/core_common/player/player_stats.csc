@@ -15,14 +15,14 @@ function function_d92cb558(result, vararg)
 	/#
 		if(!isdefined(result))
 		{
-			pathstr = (function_7a600918(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
+			pathstr = (ishash(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
 			if(!isdefined(pathstr))
 			{
 				return;
 			}
 			for(i = 1; i < vararg.size; i++)
 			{
-				pathstr = (pathstr + "") + (function_7a600918(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
+				pathstr = (pathstr + "") + (ishash(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
 			}
 			println("" + pathstr);
 		}

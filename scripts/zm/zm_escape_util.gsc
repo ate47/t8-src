@@ -335,7 +335,7 @@ function function_817220a9(a_ents)
 		break;
 	}
 	level waittill(#"between_round_over");
-	self.var_47d0d442 setvisibletoall();
+	self.t_arm setvisibletoall();
 }
 
 /*
@@ -376,15 +376,15 @@ function function_1abf5396(var_cba19e17)
 */
 function function_b5ac159d()
 {
-	self.var_47d0d442 = spawn("trigger_radius_new", self.origin, 0, 256, 96);
+	self.t_arm = spawn("trigger_radius_new", self.origin, 0, 256, 96);
 	while(true)
 	{
 		s_result = undefined;
-		s_result = self.var_47d0d442 waittill(#"trigger");
+		s_result = self.t_arm waittill(#"trigger");
 		if(isplayer(s_result.activator))
 		{
 			self thread scene::init();
-			self.var_47d0d442 setinvisibletoall();
+			self.t_arm setinvisibletoall();
 		}
 	}
 }

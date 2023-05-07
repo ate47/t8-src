@@ -66,8 +66,8 @@ function __init__()
 	level flag::init(#"hash_72c4671390c83158");
 	level flag::init(#"hash_634424410f574c1c");
 	weaponobjects::function_e6400478(#"hash_617dcc39334959ce", &function_38eaed4c, 0);
-	weaponobjects::function_e6400478(#"hash_23882a5729dceca", &function_38eaed4c, 0);
-	weaponobjects::function_e6400478(#"hash_1b5092cccdb3d65b", &function_38eaed4c, 0);
+	weaponobjects::function_e6400478(#"ww_blundergat_fire_t8", &function_38eaed4c, 0);
+	weaponobjects::function_e6400478(#"ww_blundergat_fire_t8_upgraded", &function_38eaed4c, 0);
 	namespace_9ff9f642::register_slowdown(#"hash_716657b9842cfd1b", 0.6, 1);
 	if(!isdefined(level.var_214f6204))
 	{
@@ -303,8 +303,8 @@ function function_efefda46(willbekilled, einflictor, eattacker, idamage, flags, 
 		}
 		return idamage;
 	}
-	var_3845b34a = getweapon(#"hash_23882a5729dceca");
-	var_474adcfd = getweapon(#"hash_1b5092cccdb3d65b");
+	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
+	var_474adcfd = getweapon(#"ww_blundergat_fire_t8_upgraded");
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
 	if(weapon == var_3845b34a || weapon == var_474adcfd || weapon == var_e97d8c2c)
 	{
@@ -343,7 +343,7 @@ function function_efefda46(willbekilled, einflictor, eattacker, idamage, flags, 
 		return idamage;
 	}
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	w_blundergat_upgraded = getweapon(#"hash_cb1cdb5b47f0226");
+	w_blundergat_upgraded = getweapon(#"ww_blundergat_t8_upgraded");
 	if(weapon == w_blundergat || weapon == w_blundergat_upgraded)
 	{
 		if(self.var_6f84b820 == #"basic" || self.var_6f84b820 == #"enhanced" && self.archetype !== #"ghost")
@@ -377,11 +377,11 @@ function private function_eaa9c593()
 		waitresult = self waittill(#"weapon_change");
 		wpn_cur = waitresult.weapon;
 		wpn_prev = waitresult.last_weapon;
-		if(wpn_cur == getweapon(#"hash_25a13b6f6232a985") || wpn_cur == getweapon(#"hash_4c157b1aeefae09e"))
+		if(wpn_cur == getweapon(#"ww_blundergat_acid_t8") || wpn_cur == getweapon(#"ww_blundergat_acid_t8_upgraded"))
 		{
 			self thread function_d72c4a61();
 		}
-		else if(wpn_prev == getweapon(#"hash_25a13b6f6232a985") || wpn_prev == getweapon(#"hash_4c157b1aeefae09e"))
+		else if(wpn_prev == getweapon(#"ww_blundergat_acid_t8") || wpn_prev == getweapon(#"ww_blundergat_acid_t8_upgraded"))
 		{
 			self notify(#"hash_20e403096a8af3b7");
 		}
@@ -405,7 +405,7 @@ function private function_d72c4a61()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_fired");
-		if(s_result.weapon == getweapon(#"hash_25a13b6f6232a985") || s_result.weapon == getweapon(#"hash_4c157b1aeefae09e"))
+		if(s_result.weapon == getweapon(#"ww_blundergat_acid_t8") || s_result.weapon == getweapon(#"ww_blundergat_acid_t8_upgraded"))
 		{
 			util::wait_network_frame();
 			function_d82e684c(1);
@@ -731,7 +731,7 @@ function private function_7b25328b(e_player)
 		var_dd239d21 delete();
 		return;
 	}
-	if(isdefined(w_current) && (w_current === getweapon(#"hash_1b5092cccdb3d65b") || w_current === getweapon(#"hash_4c157b1aeefae09e")))
+	if(isdefined(w_current) && (w_current === getweapon(#"ww_blundergat_fire_t8_upgraded") || w_current === getweapon(#"ww_blundergat_acid_t8_upgraded")))
 	{
 		var_dd239d21 zm_utility::create_zombie_point_of_interest(256, 6, 10000);
 		var_dd239d21 zm_utility::create_zombie_point_of_interest_attractor_positions(undefined, undefined, 128);
@@ -923,11 +923,11 @@ function function_89bde454(weapon)
 {
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	var_44dea58e = getweapon(#"hash_cb1cdb5b47f0226");
-	var_25836e3e = getweapon(#"hash_25a13b6f6232a985");
-	var_e6343dc3 = getweapon(#"hash_4c157b1aeefae09e");
-	var_3845b34a = getweapon(#"hash_23882a5729dceca");
-	var_5749016f = getweapon(#"hash_1b5092cccdb3d65b");
+	var_44dea58e = getweapon(#"ww_blundergat_t8_upgraded");
+	var_25836e3e = getweapon(#"ww_blundergat_acid_t8");
+	var_e6343dc3 = getweapon(#"ww_blundergat_acid_t8_upgraded");
+	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
+	var_5749016f = getweapon(#"ww_blundergat_fire_t8_upgraded");
 	var_e30eba14 = array(var_e97d8c2c, w_blundergat, var_44dea58e, var_25836e3e, var_e6343dc3, var_3845b34a, var_5749016f);
 	if(isinarray(var_e30eba14, weapon))
 	{
@@ -954,11 +954,11 @@ function function_bd27d397(oldweapondata, newweapondata)
 {
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	var_44dea58e = getweapon(#"hash_cb1cdb5b47f0226");
-	var_25836e3e = getweapon(#"hash_25a13b6f6232a985");
-	var_e6343dc3 = getweapon(#"hash_4c157b1aeefae09e");
-	var_3845b34a = getweapon(#"hash_23882a5729dceca");
-	var_5749016f = getweapon(#"hash_1b5092cccdb3d65b");
+	var_44dea58e = getweapon(#"ww_blundergat_t8_upgraded");
+	var_25836e3e = getweapon(#"ww_blundergat_acid_t8");
+	var_e6343dc3 = getweapon(#"ww_blundergat_acid_t8_upgraded");
+	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
+	var_5749016f = getweapon(#"ww_blundergat_fire_t8_upgraded");
 	if(oldweapondata[#"weapon"] === var_e97d8c2c || oldweapondata[#"weapon"] === w_blundergat || oldweapondata[#"weapon"] === var_44dea58e || oldweapondata[#"weapon"] === var_25836e3e || oldweapondata[#"weapon"] === var_e6343dc3 || oldweapondata[#"weapon"] === var_3845b34a || oldweapondata[#"weapon"] === var_5749016f && (newweapondata[#"weapon"] === var_e97d8c2c || newweapondata[#"weapon"] === w_blundergat || newweapondata[#"weapon"] === var_44dea58e || newweapondata[#"weapon"] === var_25836e3e || newweapondata[#"weapon"] === var_e6343dc3 || newweapondata[#"weapon"] === var_3845b34a || newweapondata[#"weapon"] === var_5749016f))
 	{
 		weapondata = [];
@@ -1531,7 +1531,7 @@ function function_e33adfe0(player)
 			}
 			return true;
 		}
-		if(player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")))
+		if(player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")))
 		{
 			if(function_8b1a219a())
 			{
@@ -1543,7 +1543,7 @@ function function_e33adfe0(player)
 			}
 			return true;
 		}
-		if(player hasweapon(getweapon(#"hash_23882a5729dceca")))
+		if(player hasweapon(getweapon(#"ww_blundergat_fire_t8")))
 		{
 			if(function_8b1a219a())
 			{
@@ -1555,7 +1555,7 @@ function function_e33adfe0(player)
 			}
 			return true;
 		}
-		if(player hasweapon(getweapon(#"hash_1b5092cccdb3d65b")))
+		if(player hasweapon(getweapon(#"ww_blundergat_fire_t8_upgraded")))
 		{
 			if(function_8b1a219a())
 			{
@@ -1645,24 +1645,24 @@ function function_b1347a6()
 			}
 			else
 			{
-				if(e_player hasweapon(getweapon(#"hash_cb1cdb5b47f0226")))
+				if(e_player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")))
 				{
-					var_fc074136 = #"hash_cb1cdb5b47f0226";
+					var_fc074136 = #"ww_blundergat_t8_upgraded";
 					var_87cbf0eb = 1;
 				}
 				else
 				{
-					if(e_player hasweapon(getweapon(#"hash_23882a5729dceca")))
+					if(e_player hasweapon(getweapon(#"ww_blundergat_fire_t8")))
 					{
-						var_fc074136 = #"hash_23882a5729dceca";
+						var_fc074136 = #"ww_blundergat_fire_t8";
 						var_87cbf0eb = 0;
-						var_da887cb9 = getweapon(#"hash_23882a5729dceca");
+						var_da887cb9 = getweapon(#"ww_blundergat_fire_t8");
 					}
-					else if(e_player hasweapon(getweapon(#"hash_1b5092cccdb3d65b")))
+					else if(e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_upgraded")))
 					{
-						var_fc074136 = #"hash_1b5092cccdb3d65b";
+						var_fc074136 = #"ww_blundergat_fire_t8_upgraded";
 						var_87cbf0eb = 1;
-						var_da887cb9 = getweapon(#"hash_1b5092cccdb3d65b");
+						var_da887cb9 = getweapon(#"ww_blundergat_fire_t8_upgraded");
 					}
 				}
 			}
@@ -1701,15 +1701,15 @@ function function_b1347a6()
 				{
 					e_player takeweapon(e_player.currentweapon);
 				}
-				if(e_player hasweapon(getweapon(#"hash_25a13b6f6232a985")))
+				if(e_player hasweapon(getweapon(#"ww_blundergat_acid_t8")))
 				{
-					e_player givemaxammo(getweapon(#"hash_25a13b6f6232a985"));
+					e_player givemaxammo(getweapon(#"ww_blundergat_acid_t8"));
 				}
 				else
 				{
-					if(e_player hasweapon(getweapon(#"hash_4c157b1aeefae09e")))
+					if(e_player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")))
 					{
-						e_player givemaxammo(getweapon(#"hash_4c157b1aeefae09e"));
+						e_player givemaxammo(getweapon(#"ww_blundergat_acid_t8_upgraded"));
 					}
 					else
 					{
@@ -1719,7 +1719,7 @@ function function_b1347a6()
 						}
 						else
 						{
-							var_f2fae71a = getweapon(#"hash_25a13b6f6232a985");
+							var_f2fae71a = getweapon(#"ww_blundergat_acid_t8");
 						}
 						e_player giveweapon(var_f2fae71a);
 						e_player switchtoweapon(var_f2fae71a);
@@ -1791,13 +1791,13 @@ function blundergat_upgrade_station_inject(var_f2528cbc, e_player)
 	{
 		self.worldgun delete();
 	}
-	if(var_f2528cbc == #"ww_blundergat_t8" || var_f2528cbc == #"hash_23882a5729dceca")
+	if(var_f2528cbc == #"ww_blundergat_t8" || var_f2528cbc == #"ww_blundergat_fire_t8")
 	{
-		self.worldgun = zm_utility::spawn_weapon_model(getweapon(#"hash_25a13b6f6232a985"), undefined, self.v_weapon_origin, self.v_weapon_angles);
+		self.worldgun = zm_utility::spawn_weapon_model(getweapon(#"ww_blundergat_acid_t8"), undefined, self.v_weapon_origin, self.v_weapon_angles);
 	}
 	else
 	{
-		self.worldgun = zm_utility::spawn_weapon_model(getweapon(#"hash_4c157b1aeefae09e"), undefined, self.v_weapon_origin, self.v_weapon_angles);
+		self.worldgun = zm_utility::spawn_weapon_model(getweapon(#"ww_blundergat_acid_t8_upgraded"), undefined, self.v_weapon_origin, self.v_weapon_angles);
 	}
 	self thread scene::play(#"p8_fxanim_zm_esc_packasplat_bundle", self);
 	wait(1);

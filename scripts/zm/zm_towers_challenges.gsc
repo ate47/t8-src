@@ -1761,7 +1761,7 @@ function function_b3114574(weapon_type)
 		case "hash_237b6756a81881cb":
 		case "zhield_zword_dw":
 		case "hash_2f351450f2e936dc":
-		case "hash_68bfa6918dc2eb81":
+		case "zhield_zword_dw_upgraded":
 		{
 			return true;
 			break;

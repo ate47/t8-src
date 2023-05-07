@@ -2466,7 +2466,7 @@ class csceneobject
 										error(!isassetloaded("", entry), ("" + function_9e72a96(entry)) + "");
 										error(!isassetloaded("", entry), ("" + entry) + "");
 									#/
-									if(function_7a600918(entry))
+									if(ishash(entry))
 									{
 									}
 									else
@@ -2486,7 +2486,7 @@ class csceneobject
 									#/
 									if(isdefined(_s.issiege) && _s.issiege)
 									{
-										if(function_7a600918(entry))
+										if(ishash(entry))
 										{
 										}
 										else
@@ -2495,7 +2495,7 @@ class csceneobject
 									}
 									else
 									{
-										if(function_7a600918(entry))
+										if(ishash(entry))
 										{
 										}
 										else
@@ -4309,7 +4309,7 @@ class cscene
 	function _stop_camera_anim_on_player(player)
 	{
 		player endon(#"disconnect");
-		if(isstring(_s.cameraswitcher) || function_7a600918(_s.cameraswitcher))
+		if(isstring(_s.cameraswitcher) || ishash(_s.cameraswitcher))
 		{
 			player endon(#"new_camera_switcher");
 			player dontinterpolate();
@@ -4419,7 +4419,7 @@ class cscene
 		}
 		v_origin = (isdefined(e_align.origin) ? e_align.origin : (0, 0, 0));
 		v_angles = (isdefined(e_align.angles) ? e_align.angles : (0, 0, 0));
-		if(isstring(_s.cameraswitcher) || function_7a600918(_s.cameraswitcher))
+		if(isstring(_s.cameraswitcher) || ishash(_s.cameraswitcher))
 		{
 			callback::on_loadout(&_play_camera_anim_on_player_callback, self);
 			self.camera_v_origin = v_origin;
@@ -4683,7 +4683,7 @@ class cscene
 		}
 		if(_s scene::is_igc())
 		{
-			if(isstring(_s.cameraswitcher) || function_7a600918(_s.cameraswitcher))
+			if(isstring(_s.cameraswitcher) || ishash(_s.cameraswitcher))
 			{
 				_wait_for_camera_animation(_s.cameraswitcher, var_79584e08);
 			}
@@ -5044,7 +5044,7 @@ class cscene
 			/#
 				foreach(i, ent in a_ents)
 				{
-					error(isstring(i) || function_7a600918(i), ("" + i) + "");
+					error(isstring(i) || ishash(i), ("" + i) + "");
 				}
 			#/
 		}
@@ -5749,7 +5749,7 @@ class cscene
 		self._str_team = util::get_team_mapping(_s.team);
 		self._a_streamer_hint[#"allies"] = (isdefined(_s.var_a6da2039) ? _s.var_a6da2039 : _s.streamerhintteama);
 		self._a_streamer_hint[#"axis"] = (isdefined(_s.var_991a84ba) ? _s.var_991a84ba : _s.streamerhintteamb);
-		self._str_notify_name = isstring(_s.malebundle) || (function_7a600918(_s.malebundle) ? _s.malebundle : _str_name);
+		self._str_notify_name = isstring(_s.malebundle) || (ishash(_s.malebundle) ? _s.malebundle : _str_name);
 		if(!isdefined(a_ents))
 		{
 			a_ents = [];

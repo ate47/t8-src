@@ -9,11 +9,11 @@
 #using scripts\zm_common\zm_utility.csc;
 #using scripts\zm_common\zm_weapons.csc;
 
-#namespace namespace_738ed435;
+#namespace zm_weap_tricannon;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x5C794A04
 	Offset: 0x170
 	Size: 0x3C
@@ -22,12 +22,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_32255dd0e99b44ef", &__init__, undefined, undefined);
+	system::register(#"zm_weap_tricannon", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xD53C7177
 	Offset: 0x1B8
 	Size: 0x22A
@@ -50,7 +50,7 @@ function __init__()
 
 /*
 	Name: function_4c32ce00
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xD5EB2F20
 	Offset: 0x3F0
 	Size: 0x84
@@ -71,7 +71,7 @@ function function_4c32ce00(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_af90fb8c
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x2EA973A5
 	Offset: 0x480
 	Size: 0x11C
@@ -100,7 +100,7 @@ function function_af90fb8c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_39fb4ba9
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x532AF67E
 	Offset: 0x5A8
 	Size: 0x1A4
@@ -111,7 +111,7 @@ function function_39fb4ba9(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		if(self.weapon === getweapon(#"hash_3b5823adc79b4e56"))
+		if(self.weapon === getweapon(#"ww_tricannon_water_t8_upgraded"))
 		{
 			b_packed = 1;
 		}

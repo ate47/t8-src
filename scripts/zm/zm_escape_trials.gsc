@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_112484f657ccd8b7;
 #using script_1d1e3c193b0a51d;
-#using script_245749c1f51c5bd8;
+#using scripts\zm_common\trials\zm_trial_door_lockdown.gsc;
 #using script_2cbdf0fe879d9488;
 #using script_2f9a68261f6a17be;
 #using script_30ba61ad5559c51d;

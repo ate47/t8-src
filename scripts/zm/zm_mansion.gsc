@@ -4,7 +4,7 @@
 #using script_18e21a7011416ce0;
 #using script_18eb520705898614;
 #using script_190d6b82bcca0908;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using script_1ef0852930d362dc;
 #using scripts\zm\zm_mansion_trials.gsc;
 #using scripts\zm\weapons\zm_weap_bowie.gsc;
@@ -19,12 +19,12 @@
 #using scripts\zm_common\zm_items.gsc;
 #using script_4ce221fa76511ddd;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_519f5896ce786d58;
+#using scripts\zm\zm_mansion_ww_lvl1_quest.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_56827ded777071f1;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5e6956db6de5b044;
-#using script_67bf0b64dcb873b1;
+#using scripts\zm\zm_mansion_ww_lvl2_quest.gsc;
 #using script_68b63ff01433d9ea;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -39,7 +39,7 @@
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\zm\zm_mansion_silver_bullet.gsc;
-#using script_c54399dcca098ce;
+#using scripts\zm\zm_mansion_ww_lvl3_quest.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

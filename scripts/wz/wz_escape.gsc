@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b150f8ff0495a20;
 #using script_2c2d166441e0da0f;
-#using script_4b828d814e8e03a1;
+#using scripts\wz_common\wz_ee_poster.gsc;
 #using scripts\wz_common\wz_loadouts.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using script_6aa2128e9d9956a2;

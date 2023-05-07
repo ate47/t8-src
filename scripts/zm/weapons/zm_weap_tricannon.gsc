@@ -9,11 +9,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_738ed435;
+#namespace zm_weap_tricannon;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x9985DAA8
 	Offset: 0x188
 	Size: 0x3C
@@ -22,12 +22,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_32255dd0e99b44ef", &__init__, undefined, undefined);
+	system::register(#"zm_weap_tricannon", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x65B2AADF
 	Offset: 0x1D0
 	Size: 0x516
@@ -37,16 +37,16 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_ai_damage(&function_79f6f273);
-	callback::function_34dea974(getweapon(#"hash_5b8d1ff4b772bd85"), &function_68e4ed32);
-	callback::function_34dea974(getweapon(#"hash_5b8d1ff4b772bd85" + "_upgraded"), &function_68e4ed32);
-	callback::function_34dea974(getweapon(#"hash_95dd69e40d99560"), &function_8ef8873e);
-	callback::function_34dea974(getweapon(#"hash_95dd69e40d99560" + "_upgraded"), &function_8ef8873e);
-	callback::function_34dea974(getweapon(#"hash_7d7f0dbb00201240"), &function_4f2ea5e7);
-	callback::function_34dea974(getweapon(#"hash_7d7f0dbb00201240" + "_upgraded"), &function_c8912144);
-	callback::function_34dea974(getweapon(#"hash_539f784146391d2"), &function_5a24e804);
-	callback::function_34dea974(getweapon(#"hash_539f784146391d2" + "_upgraded"), &function_5a24e804);
-	callback::function_34dea974(getweapon(#"hash_5004e2171c2be97d"), &function_14d49bd7);
-	callback::function_34dea974(getweapon(#"hash_5004e2171c2be97d" + "_upgraded"), &function_14d49bd7);
+	callback::function_34dea974(getweapon(#"ww_tricannon_t8"), &function_68e4ed32);
+	callback::function_34dea974(getweapon(#"ww_tricannon_t8" + "_upgraded"), &function_68e4ed32);
+	callback::function_34dea974(getweapon(#"ww_tricannon_earth_t8"), &function_8ef8873e);
+	callback::function_34dea974(getweapon(#"ww_tricannon_earth_t8" + "_upgraded"), &function_8ef8873e);
+	callback::function_34dea974(getweapon(#"ww_tricannon_air_t8"), &function_4f2ea5e7);
+	callback::function_34dea974(getweapon(#"ww_tricannon_air_t8" + "_upgraded"), &function_c8912144);
+	callback::function_34dea974(getweapon(#"ww_tricannon_fire_t8"), &function_5a24e804);
+	callback::function_34dea974(getweapon(#"ww_tricannon_fire_t8" + "_upgraded"), &function_5a24e804);
+	callback::function_34dea974(getweapon(#"ww_tricannon_water_t8"), &function_14d49bd7);
+	callback::function_34dea974(getweapon(#"ww_tricannon_water_t8" + "_upgraded"), &function_14d49bd7);
 	namespace_9ff9f642::register_slowdown(#"hash_7dd6cbed104dd8bd", 0.75, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_7eece5e5a5f9cc4d", 0.85, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_64aafe3cc04860be", 0.65, 1);
@@ -65,7 +65,7 @@ function __init__()
 
 /*
 	Name: function_79f6f273
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x1D0340F4
 	Offset: 0x6F0
 	Size: 0x13C
@@ -74,11 +74,11 @@ function __init__()
 */
 function function_79f6f273(params)
 {
-	if(params.weapon == getweapon(#"hash_95dd69e40d99560") || params.weapon == (getweapon(#"hash_95dd69e40d99560" + "_upgraded")))
+	if(params.weapon == getweapon(#"ww_tricannon_earth_t8") || params.weapon == (getweapon(#"ww_tricannon_earth_t8" + "_upgraded")))
 	{
 		self function_71233d37(params);
 	}
-	else if(params.weapon == getweapon(#"hash_539f784146391d2") || params.weapon == (getweapon(#"hash_539f784146391d2" + "_upgraded")))
+	else if(params.weapon == getweapon(#"ww_tricannon_fire_t8") || params.weapon == (getweapon(#"ww_tricannon_fire_t8" + "_upgraded")))
 	{
 		var_88fd6852 = self function_3e2e539(params);
 		if(var_88fd6852)
@@ -90,7 +90,7 @@ function function_79f6f273(params)
 
 /*
 	Name: function_a543db40
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x1F3D22CB
 	Offset: 0x838
 	Size: 0x17E
@@ -99,25 +99,25 @@ function function_79f6f273(params)
 */
 function function_a543db40(w_weapon, e_player)
 {
-	if(w_weapon === getweapon(#"hash_5b8d1ff4b772bd85"))
+	if(w_weapon === getweapon(#"ww_tricannon_t8"))
 	{
-		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"hash_5b8d1ff4b772bd85")))
+		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"ww_tricannon_t8")))
 		{
 			return false;
 		}
-		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"hash_7d7f0dbb00201240")))
+		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"ww_tricannon_air_t8")))
 		{
 			return false;
 		}
-		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"hash_95dd69e40d99560")))
+		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"ww_tricannon_earth_t8")))
 		{
 			return false;
 		}
-		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"hash_539f784146391d2")))
+		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"ww_tricannon_fire_t8")))
 		{
 			return false;
 		}
-		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"hash_5004e2171c2be97d")))
+		if(e_player zm_weapons::has_weapon_or_upgrade(getweapon(#"ww_tricannon_water_t8")))
 		{
 			return false;
 		}
@@ -127,7 +127,7 @@ function function_a543db40(w_weapon, e_player)
 
 /*
 	Name: function_68e4ed32
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x50369747
 	Offset: 0x9C0
 	Size: 0x2A0
@@ -169,7 +169,7 @@ function function_68e4ed32(weapon)
 
 /*
 	Name: function_321f468b
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x3DA63AD6
 	Offset: 0xC68
 	Size: 0x1BE
@@ -202,7 +202,7 @@ function function_321f468b()
 
 /*
 	Name: function_c8912144
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xD536BF0E
 	Offset: 0xE30
 	Size: 0x44
@@ -217,7 +217,7 @@ function function_c8912144(weapon)
 
 /*
 	Name: function_4f2ea5e7
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xF0934ED5
 	Offset: 0xE80
 	Size: 0x3C
@@ -232,7 +232,7 @@ function function_4f2ea5e7(weapon)
 
 /*
 	Name: function_54d03fdd
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xA446F815
 	Offset: 0xEC8
 	Size: 0x588
@@ -339,7 +339,7 @@ function function_54d03fdd(weapon, b_packed)
 
 /*
 	Name: function_8ef8873e
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x4479FB57
 	Offset: 0x1458
 	Size: 0x8C
@@ -364,7 +364,7 @@ function function_8ef8873e(weapon)
 
 /*
 	Name: function_71233d37
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xC65B0BDC
 	Offset: 0x14F0
 	Size: 0x12C
@@ -401,7 +401,7 @@ function function_71233d37(params)
 
 /*
 	Name: function_14d49bd7
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x4F1ED64
 	Offset: 0x1628
 	Size: 0x1D4
@@ -429,7 +429,7 @@ function function_14d49bd7(weapon)
 	results = undefined;
 	results = self waittill(#"projectile_impact");
 	v_impact = results.position;
-	if(weapon == (getweapon(#"hash_5004e2171c2be97d" + "_upgraded")))
+	if(weapon == (getweapon(#"ww_tricannon_water_t8" + "_upgraded")))
 	{
 		var_bdbde2d2 = #"hash_64aafe3cc04860be";
 		n_duration = 5;
@@ -444,7 +444,7 @@ function function_14d49bd7(weapon)
 
 /*
 	Name: function_2d6e2fb
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x592E19FC
 	Offset: 0x1808
 	Size: 0x48
@@ -466,7 +466,7 @@ function function_2d6e2fb(e_shot)
 
 /*
 	Name: function_cee7424b
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x41B540B9
 	Offset: 0x1858
 	Size: 0x1FC
@@ -507,7 +507,7 @@ function function_cee7424b(v_impact, var_bdbde2d2, n_duration)
 
 /*
 	Name: function_16149496
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x57016C64
 	Offset: 0x1A60
 	Size: 0xD4
@@ -529,7 +529,7 @@ function function_16149496()
 
 /*
 	Name: function_5a24e804
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x5412CF13
 	Offset: 0x1B40
 	Size: 0xAC
@@ -555,7 +555,7 @@ function function_5a24e804(weapon)
 
 /*
 	Name: function_3e2e539
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x89000FF4
 	Offset: 0x1BF8
 	Size: 0x2AC
@@ -611,7 +611,7 @@ function function_3e2e539(params)
 
 /*
 	Name: function_aa1a2228
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0xA26FC9D7
 	Offset: 0x1EB0
 	Size: 0xD4
@@ -624,7 +624,7 @@ function function_aa1a2228(params)
 	{
 		return;
 	}
-	if(params.weapon === (getweapon(#"hash_539f784146391d2" + "_upgraded")))
+	if(params.weapon === (getweapon(#"ww_tricannon_fire_t8" + "_upgraded")))
 	{
 		self namespace_9ff9f642::burn(#"hash_474208b088fd5b3d", params.eattacker, params.weapon);
 	}
@@ -636,7 +636,7 @@ function function_aa1a2228(params)
 
 /*
 	Name: function_689d923b
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x91044EFE
 	Offset: 0x1F90
 	Size: 0x298
@@ -645,24 +645,24 @@ function function_aa1a2228(params)
 */
 function function_689d923b(weapon)
 {
-	var_c713c910 = getweapon(#"hash_5b8d1ff4b772bd85");
-	var_fd8edc1d = getweapon(#"hash_5b8d1ff4b772bd85" + "_upgraded");
-	var_1255446b = getweapon(#"hash_95dd69e40d99560");
-	var_2e5cd323 = getweapon(#"hash_95dd69e40d99560" + "_upgraded");
-	var_36fc4957 = getweapon(#"hash_7d7f0dbb00201240");
-	var_5c582d9a = getweapon(#"hash_7d7f0dbb00201240" + "_upgraded");
-	var_2e998842 = getweapon(#"hash_539f784146391d2");
-	var_e95ae897 = getweapon(#"hash_539f784146391d2" + "_upgraded");
-	var_e62dfd5a = getweapon(#"hash_5004e2171c2be97d");
-	var_25c5df74 = getweapon(#"hash_5004e2171c2be97d" + "_upgraded");
-	var_62b4bdef = array(var_c713c910, var_fd8edc1d, var_1255446b, var_2e5cd323, var_36fc4957, var_5c582d9a, var_2e998842, var_e95ae897, var_e62dfd5a, var_25c5df74);
+	w_tricannon = getweapon(#"ww_tricannon_t8");
+	var_fd8edc1d = getweapon(#"ww_tricannon_t8" + "_upgraded");
+	var_1255446b = getweapon(#"ww_tricannon_earth_t8");
+	var_2e5cd323 = getweapon(#"ww_tricannon_earth_t8" + "_upgraded");
+	var_36fc4957 = getweapon(#"ww_tricannon_air_t8");
+	var_5c582d9a = getweapon(#"ww_tricannon_air_t8" + "_upgraded");
+	var_2e998842 = getweapon(#"ww_tricannon_fire_t8");
+	var_e95ae897 = getweapon(#"ww_tricannon_fire_t8" + "_upgraded");
+	var_e62dfd5a = getweapon(#"ww_tricannon_water_t8");
+	var_25c5df74 = getweapon(#"ww_tricannon_water_t8" + "_upgraded");
+	var_62b4bdef = array(w_tricannon, var_fd8edc1d, var_1255446b, var_2e5cd323, var_36fc4957, var_5c582d9a, var_2e998842, var_e95ae897, var_e62dfd5a, var_25c5df74);
 	if(isinarray(var_62b4bdef, weapon))
 	{
-		foreach(var_c713c910 in var_62b4bdef)
+		foreach(w_tricannon in var_62b4bdef)
 		{
-			if(self hasweapon(var_c713c910, 1))
+			if(self hasweapon(w_tricannon, 1))
 			{
-				return var_c713c910;
+				return w_tricannon;
 			}
 		}
 	}
@@ -670,7 +670,7 @@ function function_689d923b(weapon)
 
 /*
 	Name: function_73a498c8
-	Namespace: namespace_738ed435
+	Namespace: zm_weap_tricannon
 	Checksum: 0x29D746B
 	Offset: 0x2230
 	Size: 0x8E8
@@ -679,17 +679,17 @@ function function_689d923b(weapon)
 */
 function function_73a498c8(oldweapondata, newweapondata)
 {
-	var_c713c910 = getweapon(#"hash_5b8d1ff4b772bd85");
-	var_fd8edc1d = getweapon(#"hash_5b8d1ff4b772bd85" + "_upgraded");
-	var_1255446b = getweapon(#"hash_95dd69e40d99560");
-	var_2e5cd323 = getweapon(#"hash_95dd69e40d99560" + "_upgraded");
-	var_36fc4957 = getweapon(#"hash_7d7f0dbb00201240");
-	var_5c582d9a = getweapon(#"hash_7d7f0dbb00201240" + "_upgraded");
-	var_2e998842 = getweapon(#"hash_539f784146391d2");
-	var_e95ae897 = getweapon(#"hash_539f784146391d2" + "_upgraded");
-	var_e62dfd5a = getweapon(#"hash_5004e2171c2be97d");
-	var_25c5df74 = getweapon(#"hash_5004e2171c2be97d" + "_upgraded");
-	var_62b4bdef = array(var_c713c910, var_fd8edc1d, var_1255446b, var_2e5cd323, var_36fc4957, var_5c582d9a, var_2e998842, var_e95ae897, var_e62dfd5a, var_25c5df74);
+	w_tricannon = getweapon(#"ww_tricannon_t8");
+	var_fd8edc1d = getweapon(#"ww_tricannon_t8" + "_upgraded");
+	var_1255446b = getweapon(#"ww_tricannon_earth_t8");
+	var_2e5cd323 = getweapon(#"ww_tricannon_earth_t8" + "_upgraded");
+	var_36fc4957 = getweapon(#"ww_tricannon_air_t8");
+	var_5c582d9a = getweapon(#"ww_tricannon_air_t8" + "_upgraded");
+	var_2e998842 = getweapon(#"ww_tricannon_fire_t8");
+	var_e95ae897 = getweapon(#"ww_tricannon_fire_t8" + "_upgraded");
+	var_e62dfd5a = getweapon(#"ww_tricannon_water_t8");
+	var_25c5df74 = getweapon(#"ww_tricannon_water_t8" + "_upgraded");
+	var_62b4bdef = array(w_tricannon, var_fd8edc1d, var_1255446b, var_2e5cd323, var_36fc4957, var_5c582d9a, var_2e998842, var_e95ae897, var_e62dfd5a, var_25c5df74);
 	if(isinarray(var_62b4bdef, oldweapondata[#"weapon"]) && isinarray(var_62b4bdef, newweapondata[#"weapon"]))
 	{
 		weapondata = [];
@@ -747,7 +747,7 @@ function function_73a498c8(oldweapondata, newweapondata)
 										}
 										else
 										{
-											weapondata[#"weapon"] = var_c713c910;
+											weapondata[#"weapon"] = w_tricannon;
 										}
 									}
 								}

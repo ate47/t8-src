@@ -7,11 +7,11 @@
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_dfdf035c;
+#namespace wz_ee_poster;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0xC4BD8EA
 	Offset: 0xE8
 	Size: 0x3C
@@ -20,12 +20,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_76cd7d750456ec41", &__init__, undefined, undefined);
+	system::register(#"wz_ee_poster", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0xB7B2BDB1
 	Offset: 0x130
 	Size: 0x5A
@@ -39,7 +39,7 @@ function autoexec __init()
 
 /*
 	Name: __init__
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0xB8BA93B
 	Offset: 0x198
 	Size: 0x1C
@@ -53,7 +53,7 @@ function __init__()
 
 /*
 	Name: function_4776caf4
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0xA115F08
 	Offset: 0x1C0
 	Size: 0x154
@@ -87,7 +87,7 @@ event private function_4776caf4(eventstruct)
 
 /*
 	Name: function_3383b382
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0x273061E5
 	Offset: 0x320
 	Size: 0x224
@@ -139,7 +139,7 @@ function function_3383b382(player, poster_trigger)
 
 /*
 	Name: function_79c8b708
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0xDB61AD64
 	Offset: 0x550
 	Size: 0x110
@@ -169,7 +169,7 @@ function function_79c8b708(var_b721e8a9)
 
 /*
 	Name: function_7a1e21a9
-	Namespace: namespace_dfdf035c
+	Namespace: wz_ee_poster
 	Checksum: 0x3FF55F6B
 	Offset: 0x668
 	Size: 0x11A

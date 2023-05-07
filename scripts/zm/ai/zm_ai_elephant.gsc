@@ -5,7 +5,7 @@
 #using script_3aa0f32b70d4f7cb;
 #using script_3f9e0dc8454d98e1;
 #using scripts\core_common\ai\archetype_elephant.gsc;
-#using script_47495939f228e438;
+#using scripts\zm_common\zm_aoe.gsc;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;

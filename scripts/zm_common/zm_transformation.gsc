@@ -61,7 +61,7 @@ function __init__()
 function function_4da8230b(var_736940b3)
 {
 	/#
-		assert(function_7a600918(var_736940b3), "");
+		assert(ishash(var_736940b3), "");
 	#/
 	if(!isdefined(level.var_50f7dbd5))
 	{
@@ -91,7 +91,7 @@ function function_4da8230b(var_736940b3)
 function function_6b183c78(var_736940b3)
 {
 	/#
-		assert(function_7a600918(var_736940b3), "");
+		assert(ishash(var_736940b3), "");
 	#/
 	foreach(index, var_8aa9ab80 in level.var_50f7dbd5)
 	{
@@ -182,7 +182,7 @@ function function_cfca77a7(var_42de336c, id, condition_func, cooldown_time, intr
 		}
 		if(!isentity(var_42de336c) && !isassetloaded("", var_42de336c))
 		{
-			println((("" + id) + "") + (function_7a600918(var_42de336c) ? function_9e72a96(var_42de336c) : var_42de336c) + "");
+			println((("" + id) + "") + (ishash(var_42de336c) ? function_9e72a96(var_42de336c) : var_42de336c) + "");
 			return;
 		}
 	#/

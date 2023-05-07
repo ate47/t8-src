@@ -355,7 +355,7 @@ function function_5a5a742a(slot)
 */
 function function_e884e095(slot, weapon)
 {
-	if(isstring(weapon) || function_7a600918(weapon))
+	if(isstring(weapon) || ishash(weapon))
 	{
 		weapon = getweapon(weapon);
 	}

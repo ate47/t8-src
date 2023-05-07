@@ -8,7 +8,7 @@
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_c54399dcca098ce;
+#using scripts\zm\zm_mansion_ww_lvl3_quest.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -327,8 +327,8 @@ function function_5b8a557f()
 		{
 			e_player thread function_1bcb6813();
 			e_trap.var_23aecef0 = 1;
-			var_db919ceb = arraygetclosest(self.stub.origin, level.var_ba53c5c5);
-			var_db919ceb flag::set(#"enabled");
+			mdl_trap = arraygetclosest(self.stub.origin, level.var_ba53c5c5);
+			mdl_trap flag::set(#"enabled");
 			level.var_940ee624--;
 			level.var_bdcd506f++;
 			level thread function_7b170638(level.var_bdcd506f, 0);

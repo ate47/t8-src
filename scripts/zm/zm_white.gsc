@@ -118,7 +118,7 @@ event main(eventstruct)
 	level.var_61afcb81 = 64;
 	namespace_9efb8d22::init_fx();
 	level.var_ef785c4c = 0;
-	level thread function_dcf267cf();
+	level thread init_pap();
 	clientfield::register("scriptmover", "" + #"hash_28b770e7e782837", 1, 1, "int");
 	clientfield::register("world", "portal_map_magicbox_lights_init", 1, 1, "int");
 	clientfield::register("world", "portal_map_start_chest1", 1, 1, "int");
@@ -287,7 +287,7 @@ function function_814cda18()
 }
 
 /*
-	Name: function_dcf267cf
+	Name: init_pap
 	Namespace: zm_white
 	Checksum: 0x8D52B9EC
 	Offset: 0x1AF0
@@ -295,7 +295,7 @@ function function_814cda18()
 	Parameters: 0
 	Flags: Linked
 */
-function function_dcf267cf()
+function init_pap()
 {
 	level flag::init(#"pap_power_ready");
 	level flag::init(#"power_on1");

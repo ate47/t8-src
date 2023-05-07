@@ -353,12 +353,12 @@ function function_3bc828f8(weapon_type)
 {
 	switch(weapon_type.name)
 	{
-		case "hash_23882a5729dceca":
-		case "hash_1b5092cccdb3d65b":
-		case "hash_25a13b6f6232a985":
+		case "ww_blundergat_fire_t8":
+		case "ww_blundergat_fire_t8_upgraded":
+		case "ww_blundergat_acid_t8":
 		case "hash_3de0926b89369160":
 		case "hash_494f5501b3f8e1e9":
-		case "hash_4c157b1aeefae09e":
+		case "ww_blundergat_acid_t8_upgraded":
 		{
 			return true;
 		}

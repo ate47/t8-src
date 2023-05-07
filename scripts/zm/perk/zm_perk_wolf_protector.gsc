@@ -489,7 +489,7 @@ function function_163853f(var_e31f9259)
 		self zm_perks::function_f0ac059f(self.var_7d46fb46, self.var_815af0c3, #"perk_wolf_protector");
 	}
 	self thread function_eb6d99d7(var_e31f9259);
-	self waittilltimeout(var_e31f9259, #"hash_57d4f53c12705eac", #"fake_death");
+	self waittilltimeout(var_e31f9259, #"scene_igc_shot_started", #"fake_death");
 	self function_6d80c359();
 }
 
@@ -527,7 +527,7 @@ function function_6d80c359()
 */
 function function_eb6d99d7(var_1483b30b)
 {
-	self endon(#"disconnect", #"specialty_wolf_protector" + "_take", #"hash_57d4f53c12705eac");
+	self endon(#"disconnect", #"specialty_wolf_protector" + "_take", #"scene_igc_shot_started");
 	n_time_left = var_1483b30b;
 	self zm_perks::function_13880aa5(self.var_7d46fb46, 1, #"perk_wolf_protector");
 	while(n_time_left > 0)

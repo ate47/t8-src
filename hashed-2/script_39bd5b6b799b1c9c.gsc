@@ -521,7 +521,7 @@ function can_pick_up(item, servertime = undefined)
 function function_4cbb6617(inventory, itemtype, var_da328e7b, var_bcc2655a)
 {
 	/#
-		assert(function_7a600918(itemtype));
+		assert(ishash(itemtype));
 	#/
 	/#
 		assert(isarray(var_da328e7b));

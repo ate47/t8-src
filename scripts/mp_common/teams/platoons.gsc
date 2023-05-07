@@ -81,9 +81,9 @@ function function_a1d82bd3()
 		{
 			continue;
 		}
-		var_3c12db95 = function_37d3bfcb(var_b6173883);
+		platoon_teams = function_37d3bfcb(var_b6173883);
 		var_87a87094 = [];
-		foreach(team in var_3c12db95)
+		foreach(team in platoon_teams)
 		{
 			if(teams::function_9dd75dad(team) && level.teameliminated[team] == 0)
 			{

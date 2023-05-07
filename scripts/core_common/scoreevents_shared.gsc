@@ -65,7 +65,7 @@ function processscoreevent(event, player, victim, weapon, var_36f23f1f)
 			{
 				level.var_10cd7193 = [];
 			}
-			eventstr = (function_7a600918(event) ? function_9e72a96(event) : event);
+			eventstr = (ishash(event) ? function_9e72a96(event) : event);
 			if(!isdefined(level.var_10cd7193))
 			{
 				level.var_10cd7193 = [];

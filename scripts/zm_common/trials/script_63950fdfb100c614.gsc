@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_47495939f228e438;
+#using scripts\zm_common\zm_aoe.gsc;
 #using scripts\zm\zm_red_boss_battle.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm\zm_red_fasttravel.gsc;

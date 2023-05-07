@@ -39,13 +39,13 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 {
 	/#
 		/#
-			assert(function_7a600918(name), "");
+			assert(ishash(name), "");
 		#/
 		/#
-			assert(function_7a600918(step_name), "");
+			assert(ishash(step_name), "");
 		#/
 		/#
-			assert(function_7a600918(var_e788cdd7), "");
+			assert(ishash(var_e788cdd7), "");
 		#/
 		if(!isdefined(name))
 		{
@@ -83,7 +83,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			}
 			return;
 		}
-		if(isdefined(level.var_ec84950b) && isdefined(level.var_ec84950b[name]) && isdefined(var_d6ca4caf) && isdefined(level.var_ec84950b[name].var_bd7d9ebf))
+		if(isdefined(level._ee) && isdefined(level._ee[name]) && isdefined(var_d6ca4caf) && isdefined(level._ee[name].var_bd7d9ebf))
 		{
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
 			{
@@ -93,13 +93,13 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			return;
 		}
 	#/
-	if(!isdefined(level.var_ec84950b))
+	if(!isdefined(level._ee))
 	{
-		level.var_ec84950b = [];
+		level._ee = [];
 	}
-	if(!isdefined(level.var_ec84950b[name]))
+	if(!isdefined(level._ee[name]))
 	{
-		level.var_ec84950b[name] = {#skip_to_step:-1, #started:0, #current_step:0, #steps:[], #completed:0, #name:name};
+		level._ee[name] = {#skip_to_step:-1, #started:0, #current_step:0, #steps:[], #completed:0, #name:name};
 		/#
 			if(getdvarint(#"hash_11ad6a9695943217", 0))
 			{
@@ -107,7 +107,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			}
 		#/
 	}
-	ee = level.var_ec84950b[name];
+	ee = level._ee[name];
 	if(!isdefined(ee.var_bd7d9ebf))
 	{
 		ee.var_bd7d9ebf = var_d6ca4caf;
@@ -117,7 +117,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 		ee.var_35ccab99 = var_27465eb4;
 	}
 	new_step = {#hash_24e42ded:0, #completed:0, #started:0, #cleanup_func:cleanup_func, #setup_func:setup_func, #hash_e788cdd7:var_e788cdd7, #ee:ee, #name:step_name};
-	previous_step = ee.steps[level.var_ec84950b[name].steps.size - 1];
+	previous_step = ee.steps[level._ee[name].steps.size - 1];
 	if(isdefined(previous_step))
 	{
 		previous_step.next_step = new_step;
@@ -161,14 +161,14 @@ function start(name, var_9d8cf7f = 0)
 		return;
 	}
 	/#
-		assert(function_7a600918(name), "");
+		assert(ishash(name), "");
 	#/
 	/#
 		/#
-			assert(isdefined(level.var_ec84950b[name]), ("" + function_9e72a96(name)) + "");
+			assert(isdefined(level._ee[name]), ("" + function_9e72a96(name)) + "");
 		#/
 	#/
-	if(level.var_ec84950b[name].started)
+	if(level._ee[name].started)
 	{
 		/#
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -179,7 +179,7 @@ function start(name, var_9d8cf7f = 0)
 		#/
 		return;
 	}
-	ee = level.var_ec84950b[name];
+	ee = level._ee[name];
 	var_5ea5c94d = 0;
 	/#
 		if(ee.skip_to_step > -1)
@@ -212,14 +212,14 @@ function start(name, var_9d8cf7f = 0)
 function is_complete(name)
 {
 	/#
-		assert(function_7a600918(name), "");
+		assert(ishash(name), "");
 	#/
 	/#
 		/#
-			assert(isdefined(level.var_ec84950b[name]), ("" + function_9e72a96(name)) + "");
+			assert(isdefined(level._ee[name]), ("" + function_9e72a96(name)) + "");
 		#/
 	#/
-	return level.var_ec84950b[name].completed;
+	return level._ee[name].completed;
 }
 
 /*
@@ -234,15 +234,15 @@ function is_complete(name)
 function function_9212ff4d(ee_name, step_name)
 {
 	/#
-		assert(function_7a600918(ee_name), "");
+		assert(ishash(ee_name), "");
 	#/
 	/#
-		assert(function_7a600918(step_name), "");
+		assert(ishash(step_name), "");
 	#/
 	/#
-		assert(isdefined(level.var_ec84950b[ee_name]), ("" + ee_name) + "");
+		assert(isdefined(level._ee[ee_name]), ("" + ee_name) + "");
 	#/
-	foreach(ee_index, ee_step in level.var_ec84950b[ee_name].steps)
+	foreach(ee_index, ee_step in level._ee[ee_name].steps)
 	{
 		if(step_name == ee_step.name)
 		{
@@ -348,9 +348,9 @@ function private run_step(ee, step, var_5ea5c94d)
 			{
 				if(isdefined(player.var_897fa11b) && player.var_897fa11b)
 				{
-					player zm_stats::set_map_stat(#"hash_4b00aa230ebbe82b", 1);
-					player zm_stats::function_a6efb963(#"hash_4b00aa230ebbe82b", 1);
-					player zm_stats::function_9288c79b(#"hash_4b00aa230ebbe82b", 1);
+					player zm_stats::set_map_stat(#"main_quest_completed", 1);
+					player zm_stats::function_a6efb963(#"main_quest_completed", 1);
+					player zm_stats::function_9288c79b(#"main_quest_completed", 1);
 					n_time_elapsed = gettime() - level.var_21e22beb;
 					player zm_stats::function_366b6fb9("FASTEST_QUEST_COMPLETION_TIME", n_time_elapsed);
 					scoreevents::processscoreevent(#"main_ee", player);
@@ -360,7 +360,7 @@ function private run_step(ee, step, var_5ea5c94d)
 					}
 				}
 			}
-			zm_stats::set_match_stat(#"hash_4b00aa230ebbe82b", 1);
+			zm_stats::set_match_stat(#"main_quest_completed", 1);
 			zm_stats::function_ea5b4947();
 		}
 		/#
@@ -428,10 +428,10 @@ function function_f09763fd(ee_name, step_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		/#
-			assert(isdefined(level.var_ec84950b[ee_name]), ("" + ee_name) + "");
+			assert(isdefined(level._ee[ee_name]), ("" + ee_name) + "");
 		#/
 		var_da601d7f = function_44e256d8(ee_name);
 		index = function_9212ff4d(ee_name, step_name);
@@ -461,7 +461,7 @@ function function_44e256d8(ee_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		return ("" + function_9e72a96(ee_name)) + "";
 	#/
@@ -480,7 +480,7 @@ function function_28aee167(ee_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		var_1863e990 = function_44e256d8(ee_name);
 		util::waittill_can_add_debug_command();
@@ -501,10 +501,10 @@ function function_b3da1a16(ee_name, step_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		/#
-			assert(function_7a600918(step_name), "");
+			assert(ishash(step_name), "");
 		#/
 		var_e73bf583 = function_f09763fd(ee_name, step_name);
 		index = function_9212ff4d(ee_name, step_name);
@@ -526,7 +526,7 @@ function function_b3da1a16(ee_name, step_name)
 function function_87306f8a(ee_name, step_name)
 {
 	/#
-		ee = level.var_ec84950b[ee_name];
+		ee = level._ee[ee_name];
 		var_90adfb76 = function_9212ff4d(ee_name, step_name);
 		if(ee.started && var_90adfb76 <= ee.current_step)
 		{
@@ -557,7 +557,7 @@ function function_87306f8a(ee_name, step_name)
 function function_614612f(ee_name)
 {
 	/#
-		ee = level.var_ec84950b[ee_name];
+		ee = level._ee[ee_name];
 		if(ee.started)
 		{
 			ee.steps[ee.current_step] notify(#"end_early");
@@ -583,7 +583,7 @@ function function_f2dd8601(ee_name, var_f2c264bb)
 {
 	/#
 		level endon(#"game_ended");
-		ee = level.var_ec84950b[ee_name];
+		ee = level._ee[ee_name];
 		step = ee.steps[var_f2c264bb];
 		if(function_87306f8a(ee_name, step.name))
 		{
@@ -641,7 +641,7 @@ function devgui_think()
 			{
 				case "skip_to":
 				{
-					ee = level.var_ec84950b[cmd[1]];
+					ee = level._ee[cmd[1]];
 					if(!isdefined(ee))
 					{
 						continue;
@@ -680,7 +680,7 @@ function devgui_think()
 				}
 				case "complete":
 				{
-					ee = level.var_ec84950b[cmd[1]];
+					ee = level._ee[cmd[1]];
 					if(!isdefined(ee))
 					{
 						continue;
@@ -702,7 +702,7 @@ function devgui_think()
 				}
 				case "start":
 				{
-					if(isdefined(level.var_ec84950b[cmd[1]]))
+					if(isdefined(level._ee[cmd[1]]))
 					{
 						start(hash(cmd[1]));
 					}
@@ -723,11 +723,11 @@ function devgui_think()
 				}
 				case "outro":
 				{
-					if(cmd.size < 2 || !isdefined(level.var_ec84950b[cmd[1]]))
+					if(cmd.size < 2 || !isdefined(level._ee[cmd[1]]))
 					{
 						break;
 					}
-					ee = level.var_ec84950b[cmd[1]];
+					ee = level._ee[cmd[1]];
 					if(isdefined(ee))
 					{
 						level waittill(#"start_zombie_round_logic");
@@ -781,7 +781,7 @@ function function_5df75220()
 {
 	/#
 		current_y = 30;
-		foreach(ee in level.var_ec84950b)
+		foreach(ee in level._ee)
 		{
 			current_x = 30;
 			if(!isdefined(ee.debug_hudelem))
@@ -821,7 +821,7 @@ function function_c1d3567c()
 {
 	/#
 		level notify(#"hash_21c0567b0010f696");
-		foreach(ee in level.var_ec84950b)
+		foreach(ee in level._ee)
 		{
 			if(isdefined(ee.debug_hudelem))
 			{
@@ -857,7 +857,7 @@ function function_9bee49bf()
 		while(true)
 		{
 			waitframe(1);
-			foreach(ee in level.var_ec84950b)
+			foreach(ee in level._ee)
 			{
 				ee.debug_hudelem.color = function_1091b2a0(ee);
 				foreach(step in ee.steps)

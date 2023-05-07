@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_178024232e91b0a1;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using script_24c32478acf44108;
 #using script_2c5daa95f8fec03c;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;
@@ -299,7 +299,7 @@ function private function_95a6fbef()
 {
 	self.maxhealth = int(self zm_ai_utility::function_8d44707e(1, self._starting_round_number) * (isdefined(level.var_9503486c) ? level.var_9503486c : 1));
 	self.health = self.maxhealth;
-	namespace_81245006::initweakpoints(self, #"hash_403f3bb3fd75a9c7");
+	namespace_81245006::initweakpoints(self, #"c_t8_zmb_blightfather_weakpoint_def");
 	zm_score::function_e5d6e6dd(#"blight_father", self ai::function_9139c839().var_bd058b07);
 	self zm_score::function_82732ced();
 	/#
@@ -1512,7 +1512,7 @@ function private function_afce1cf(inflictor, attacker, damage, flags, meansofdam
 	registerzombie_bgb_used_reinforce = var_786d7e06.registerzombie_bgb_used_reinforce;
 	if(zm_utility::is_explosive_damage(meansofdamage))
 	{
-		damage_scale = max(damage_scale, entity ai::function_9139c839().var_da5a2805);
+		damage_scale = max(damage_scale, entity ai::function_9139c839().explosivedamagescale);
 		final_damage = int(damage * damage_scale);
 		if(meansofdamage === "MOD_PROJECTILE" && isdefined(var_84ed9a13) && registerzombie_bgb_used_reinforce)
 		{
@@ -4190,9 +4190,9 @@ function function_a24ee603()
 	{
 		return [[level.var_95c10956]]();
 	}
-	var_2d23a7ee = getaiarchetypearray(#"blight_father");
-	var_2d23a7ee = array::remove_dead(var_2d23a7ee);
-	var_8e350fd9 = var_2d23a7ee.size;
+	a_ai_blight_father = getaiarchetypearray(#"blight_father");
+	a_ai_blight_father = array::remove_dead(a_ai_blight_father);
+	var_8e350fd9 = a_ai_blight_father.size;
 	if(isarray(level.var_b175714d) && isdefined(level.var_b175714d[#"blight_father"]) && isdefined(level.var_b175714d[#"blight_father"].var_33e393a7))
 	{
 		var_8e350fd9 = var_8e350fd9 + level.var_b175714d[#"blight_father"].var_33e393a7;

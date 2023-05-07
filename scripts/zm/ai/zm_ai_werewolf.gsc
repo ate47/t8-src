@@ -583,7 +583,7 @@ function private function_eaceec8b()
 	self zm_score::function_82732ced();
 	self.deathfunction = &zm_spawner::zombie_death_animscript;
 	level thread zm_spawner::zombie_death_event(self);
-	namespace_81245006::initweakpoints(self, #"hash_7e7141864755b912");
+	namespace_81245006::initweakpoints(self, #"c_t8_zmb_werewolf_weakpoint_def");
 }
 
 /*
@@ -1918,7 +1918,7 @@ function private function_bb9fe466()
 function private function_91180121()
 {
 	/#
-		var_d480edb7 = getscriptbundle(#"hash_7e7141864755b912");
+		var_d480edb7 = getscriptbundle(#"c_t8_zmb_werewolf_weakpoint_def");
 		foreach(var_dd54fdb1 in var_d480edb7.weakpoints)
 		{
 			var_f16c2276 = (isdefined(var_dd54fdb1.var_51e8b151) ? var_dd54fdb1.var_51e8b151 : var_dd54fdb1.var_910e2f9b);

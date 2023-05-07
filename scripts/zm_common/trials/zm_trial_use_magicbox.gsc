@@ -51,7 +51,7 @@ function __init__()
 function private on_begin(var_519131bc = 1)
 {
 	callback::function_b3c9adb7(&function_b3c9adb7);
-	if(function_7a600918(var_519131bc))
+	if(ishash(var_519131bc))
 	{
 		level.var_519131bc = zm_trial::function_5769f26a(var_519131bc);
 	}

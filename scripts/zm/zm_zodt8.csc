@@ -388,7 +388,7 @@ function function_5b0384a(localclientnum, oldval, newval, bnewent, binitialsnap,
 function function_53da552d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	var_a1b31107 = #"hash_d3b7cb6eb2177fb";
-	ww_base = getweapon(#"hash_5b8d1ff4b772bd85");
+	ww_base = getweapon(#"ww_tricannon_t8");
 	addzombieboxweapon(ww_base, var_a1b31107, 0);
 }
 

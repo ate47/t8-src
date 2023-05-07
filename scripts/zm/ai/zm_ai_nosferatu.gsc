@@ -2,7 +2,7 @@
 #using scripts\core_common\ai\archetype_nosferatu.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_178024232e91b0a1;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\powerup\zm_powerup_nuke.gsc;
 #using script_1f0e83e43bf9c3b9;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;

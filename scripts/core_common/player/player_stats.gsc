@@ -18,14 +18,14 @@ function function_d92cb558(result, vararg)
 	/#
 		if(!isdefined(result))
 		{
-			pathstr = (function_7a600918(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
+			pathstr = (ishash(vararg[0]) ? function_9e72a96(vararg[0]) : vararg[0]);
 			if(!isdefined(pathstr))
 			{
 				return;
 			}
 			for(i = 1; i < vararg.size; i++)
 			{
-				pathstr = (pathstr + "") + (function_7a600918(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
+				pathstr = (pathstr + "") + (ishash(vararg[i]) ? function_9e72a96(vararg[i]) : vararg[i]);
 			}
 			println("" + pathstr);
 		}
@@ -626,7 +626,7 @@ function function_bb7eedf0(statname, value)
 	{
 		return self function_1d354b96(statname, value);
 	}
-	var_d9f57650 = self function_dad108fa(statname, value);
+	setglobal = self function_dad108fa(statname, value);
 	return self addgametypestat(statname, value);
 }
 

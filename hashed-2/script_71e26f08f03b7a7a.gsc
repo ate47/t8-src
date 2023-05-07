@@ -80,7 +80,7 @@ function private function_2d47ee1e(var_6ed927a6, var_caba78c2, waittime, var_ef5
 */
 function function_f0297225(var_2ab9d3bd, var_f532cd9f, var_3afaa57b)
 {
-	if(!function_7a600918(var_2ab9d3bd) || !isint(var_f532cd9f) || !isint(var_3afaa57b))
+	if(!ishash(var_2ab9d3bd) || !isint(var_f532cd9f) || !isint(var_3afaa57b))
 	{
 		/#
 			assert(0);

@@ -1994,7 +1994,7 @@ function _delay(time_or_notify, str_endon, func, arg1, arg2, arg3, arg4, arg5, a
 	{
 		self endon(str_endon);
 	}
-	if(function_7a600918(time_or_notify) || isstring(time_or_notify))
+	if(ishash(time_or_notify) || isstring(time_or_notify))
 	{
 		self waittill(time_or_notify);
 	}
@@ -2069,7 +2069,7 @@ function _delay_notify(time_or_notify, str_notify, str_endon, arg1)
 	{
 		self endon(str_endon);
 	}
-	if(function_7a600918(time_or_notify) || isstring(time_or_notify))
+	if(ishash(time_or_notify) || isstring(time_or_notify))
 	{
 		self waittill(time_or_notify);
 	}

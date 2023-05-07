@@ -72,11 +72,11 @@ function __main__()
 	{
 		return;
 	}
-	function_d8d095d5();
+	register_bot_weapons();
 }
 
 /*
-	Name: function_d8d095d5
+	Name: register_bot_weapons
 	Namespace: zm_trial_friendly_fire
 	Checksum: 0xC8826201
 	Offset: 0x240
@@ -84,7 +84,7 @@ function __main__()
 	Parameters: 0
 	Flags: None
 */
-function function_d8d095d5()
+function register_bot_weapons()
 {
 	bot_action::function_ab03ca93(#"ar_accurate_t8_upgraded");
 	bot_action::function_ab03ca93(#"ar_fastfire_t8_upgraded");
@@ -106,7 +106,7 @@ function function_d8d095d5()
 function private on_begin(var_9e0a2a85 = 1)
 {
 	level endon(#"hash_7646638df88a3656");
-	if(function_7a600918(var_9e0a2a85))
+	if(ishash(var_9e0a2a85))
 	{
 		var_9e0a2a85 = zm_trial::function_5769f26a(var_9e0a2a85);
 	}

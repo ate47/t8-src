@@ -47,9 +47,9 @@ function __init__()
 	level.var_8dfa7ed7 = [];
 	for(ti = 0; ti < level.hawk_settings.bundle.var_48e78794; ti++)
 	{
-		var_be788bba = remote_missile_target_lockon::function_5c1bb138(hash("remote_missile_target_lockon" + ti));
-		level.var_aac98621[ti] = var_be788bba;
-		level.var_8dfa7ed7[var_be788bba.var_47e79fc] = ti;
+		uifield = remote_missile_target_lockon::function_5c1bb138(hash("remote_missile_target_lockon" + ti));
+		level.var_aac98621[ti] = uifield;
+		level.var_8dfa7ed7[uifield.var_47e79fc] = ti;
 	}
 	clientfield::register("vehicle", "hawk_range", 13000, 1, "int", &function_6701affc, 0, 1);
 	vehicle::add_vehicletype_callback("veh_hawk_player_wz", &hawk_spawned);
@@ -168,8 +168,8 @@ function private function_25b776e2(localclientnum, ti, entnum)
 {
 	if(!isdefined(self.var_e4102217[ti]) || self.var_e4102217[ti] != entnum)
 	{
-		var_be788bba = level.var_aac98621[ti];
-		var_be788bba remote_missile_target_lockon::set_clientnum(localclientnum, entnum);
+		uifield = level.var_aac98621[ti];
+		uifield remote_missile_target_lockon::set_clientnum(localclientnum, entnum);
 		self.var_e4102217[ti] = entnum;
 	}
 }
@@ -201,8 +201,8 @@ function private set_target_locked(localclientnum, ti, var_3c5beee7)
 {
 	if(!isdefined(self.var_6a09a180[ti]) || self.var_6a09a180[ti] != var_3c5beee7)
 	{
-		var_be788bba = level.var_aac98621[ti];
-		var_be788bba remote_missile_target_lockon::set_target_locked(localclientnum, var_3c5beee7);
+		uifield = level.var_aac98621[ti];
+		uifield remote_missile_target_lockon::set_target_locked(localclientnum, var_3c5beee7);
 		self.var_6a09a180[ti] = var_3c5beee7;
 	}
 }
@@ -236,10 +236,10 @@ function private function_ec2a2906(localclientnum)
 	player_entnum = self getentitynumber();
 	for(ti = 0; ti < level.hawk_settings.bundle.var_48e78794; ti++)
 	{
-		var_be788bba = level.var_aac98621[ti];
-		if(!var_be788bba remote_missile_target_lockon::is_open(localclientnum))
+		uifield = level.var_aac98621[ti];
+		if(!uifield remote_missile_target_lockon::is_open(localclientnum))
 		{
-			var_be788bba remote_missile_target_lockon::open(localclientnum);
+			uifield remote_missile_target_lockon::open(localclientnum);
 		}
 		var_9935a809 = "client_luielems.remote_missile_target_lockon.remote_missile_target_lockon" + ti;
 		var_24a98e1f = var_9935a809 + ".target_locked";
@@ -252,7 +252,7 @@ function private function_ec2a2906(localclientnum)
 		self.var_fad86c46[ti] = createuimodel(controllermodel, var_907cb130);
 		self function_25b776e2(localclientnum, ti, player_entnum);
 		self set_target_locked(localclientnum, ti, 0);
-		var_be788bba remote_missile_target_lockon::set_isHawkTag(localclientnum, 1);
+		uifield remote_missile_target_lockon::set_isHawkTag(localclientnum, 1);
 	}
 	self.var_89285548 = 1;
 }
@@ -270,10 +270,10 @@ function private function_3c760dfe(localclientnum)
 {
 	for(ti = 0; ti < level.hawk_settings.bundle.var_48e78794; ti++)
 	{
-		var_be788bba = level.var_aac98621[ti];
-		if(var_be788bba remote_missile_target_lockon::is_open(localclientnum))
+		uifield = level.var_aac98621[ti];
+		if(uifield remote_missile_target_lockon::is_open(localclientnum))
 		{
-			var_be788bba remote_missile_target_lockon::close(localclientnum);
+			uifield remote_missile_target_lockon::close(localclientnum);
 		}
 	}
 	self.var_e4102217 = [];
@@ -566,14 +566,14 @@ function private function_d53feb8c(localclientnum, targets)
 	var_97e92766 = [];
 	for(ti = 0; ti < level.hawk_settings.bundle.var_48e78794; ti++)
 	{
-		var_be788bba = level.var_aac98621[ti];
+		uifield = level.var_aac98621[ti];
 		entnum = self function_bbb5186f(ti);
 		if(entnum == var_b3f5ea99)
 		{
-			var_97e92766[var_97e92766.size] = var_be788bba;
+			var_97e92766[var_97e92766.size] = uifield;
 			continue;
 		}
-		var_1dcaad7e[entnum] = var_be788bba;
+		var_1dcaad7e[entnum] = uifield;
 	}
 	controllermodel = getuimodelforcontroller(localclientnum);
 	bundle = level.hawk_settings.bundle;
@@ -586,20 +586,20 @@ function private function_d53feb8c(localclientnum, targets)
 	foreach(target in targets)
 	{
 		var_4ef4e267 = target getentitynumber();
-		var_be788bba = undefined;
+		uifield = undefined;
 		if(isdefined(var_1dcaad7e[var_4ef4e267]))
 		{
-			var_be788bba = var_1dcaad7e[var_4ef4e267];
+			uifield = var_1dcaad7e[var_4ef4e267];
 		}
 		else if(var_97e92766.size > 0)
 		{
-			var_be788bba = var_97e92766[0];
+			uifield = var_97e92766[0];
 			arrayremoveindex(var_97e92766, 0, 0);
-			var_1dcaad7e[var_4ef4e267] = var_be788bba;
+			var_1dcaad7e[var_4ef4e267] = uifield;
 		}
-		if(isdefined(var_be788bba))
+		if(isdefined(uifield))
 		{
-			ti = level.var_8dfa7ed7[var_be788bba.var_47e79fc];
+			ti = level.var_8dfa7ed7[uifield.var_47e79fc];
 			var_5044f28d[ti] = 1;
 			self function_25b776e2(localclientnum, ti, var_4ef4e267);
 			var_e06385a3 = 0;

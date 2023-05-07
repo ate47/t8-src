@@ -62,9 +62,9 @@ function init()
 	level.var_c13ed74d = array::sort_by_script_int(var_c13ed74d, 1);
 	level thread function_dd535733();
 	level.var_87b50e64 = array(getweapon("ray_gun"), getweapon("ray_gun_mk2v"), getweapon("ray_gun_mk2x"), getweapon("ray_gun_mk2y"), getweapon("ray_gun_mk2z"));
-	var_38d35cb5 = struct::get_array("ww_quest_tv");
-	array::run_all(var_38d35cb5, &function_101f9dc0);
-	level.var_2fc3a917 = array::sort_by_script_int(var_38d35cb5, 1);
+	a_s_screens = struct::get_array("ww_quest_tv");
+	array::run_all(a_s_screens, &function_101f9dc0);
+	level.var_2fc3a917 = array::sort_by_script_int(a_s_screens, 1);
 	var_668332c4 = randomint(level.var_2fc3a917.size - 1);
 	for(i = 0; i < var_668332c4; i++)
 	{
@@ -448,15 +448,15 @@ function function_6d5a79fe(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
-		foreach(var_d9ee8daa in level.var_2fc3a917)
+		foreach(s_screen in level.var_2fc3a917)
 		{
-			if(var_d9ee8daa.var_53d39cb3 == 1)
+			if(s_screen.var_53d39cb3 == 1)
 			{
-				var_d9ee8daa function_56d2143b();
+				s_screen function_56d2143b();
 			}
-			if(var_d9ee8daa.var_53d39cb3 == 2)
+			if(s_screen.var_53d39cb3 == 2)
 			{
-				var_d9ee8daa function_a66f0de2();
+				s_screen function_a66f0de2();
 			}
 		}
 		/#
@@ -479,8 +479,8 @@ function function_cbeb9a33()
 	if(zm_utility::function_e51dc2d8())
 	{
 		level flag::wait_till("insanity_mode_triggered");
-		var_38d35cb5 = struct::get_array("ww_quest_tv");
-		array::run_all(var_38d35cb5, &function_dc4f41f7);
+		a_s_screens = struct::get_array("ww_quest_tv");
+		array::run_all(a_s_screens, &function_dc4f41f7);
 	}
 }
 

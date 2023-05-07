@@ -420,7 +420,7 @@ class cdoor
 		}
 		else
 		{
-			if(isdefined(m_s_bundle.var_d6de7a25))
+			if(isdefined(m_s_bundle.door_interact))
 			{
 				thread function_323b4378();
 			}
@@ -513,7 +513,7 @@ class cdoor
 		level flagsys::wait_till("radiant_gameobjects_initialized");
 		m_e_door.func_custom_gameobject_position = &function_4fe7d9d5;
 		m_e_door.v_trigger_offset = m_s_bundle.v_trigger_offset;
-		m_e_door gameobjects::init_game_objects(m_s_bundle.var_d6de7a25);
+		m_e_door gameobjects::init_game_objects(m_s_bundle.door_interact);
 		m_e_door.mdl_gameobject.t_interact usetriggerrequirelookat();
 		thread function_2190a0ee(isdefined(m_s_bundle.door_closes) && m_s_bundle.door_closes, 1);
 	}
@@ -1360,7 +1360,7 @@ class cdoor
 	*/
 	function init_hint_trigger()
 	{
-		if(isdefined(m_s_bundle.var_d6de7a25))
+		if(isdefined(m_s_bundle.door_interact))
 		{
 			return;
 		}

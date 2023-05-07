@@ -422,9 +422,9 @@ function private function_5ae5fabe()
 	{
 		self stats::function_dad108fa(#"weapons_mastery_sniper", 1);
 	}
-	if(self stats::get_stat_global(#"hash_2beef836a4fd6a3c") == 0 && self stats::get_stat(#"hash_37d1fc7f168f221a", #"weapon_tactical", #"challenges", #"statvalue") >= 28)
+	if(self stats::get_stat_global(#"weapons_mastery_tactical") == 0 && self stats::get_stat(#"hash_37d1fc7f168f221a", #"weapon_tactical", #"challenges", #"statvalue") >= 28)
 	{
-		self stats::function_dad108fa(#"hash_2beef836a4fd6a3c", 1);
+		self stats::function_dad108fa(#"weapons_mastery_tactical", 1);
 	}
 	if(self stats::get_stat_global(#"secondary_mastery") == 4)
 	{

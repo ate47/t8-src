@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using script_24c32478acf44108;
 #using script_35598499769dbb3d;
@@ -188,9 +188,9 @@ function init_flags()
 {
 	level flag::init(#"hash_288dea8dd196ef3");
 	level flag::init(#"hash_4e74b4172497a14a");
-	level flag::init(#"hash_5ea3c73090a7e665");
+	level flag::init(#"oil_completed");
 	level flag::init(#"hash_70a5801e57336554");
-	level flag::init(#"hash_e12ab4b5304a50d");
+	level flag::init(#"split_completed");
 	level flag::init(#"hash_6b77f898f5d70f1c");
 	level flag::init(#"hash_79fd5851173fd4f6");
 	level flag::init(#"hash_f38b18eaf7b063b");
@@ -257,7 +257,7 @@ function function_e4dadb03(b_skipped)
 	{
 		level thread function_881659b(i, b_skipped);
 	}
-	level flag::wait_till(#"hash_5ea3c73090a7e665");
+	level flag::wait_till(#"oil_completed");
 }
 
 /*
@@ -387,7 +387,7 @@ function function_e9af1fc4(s_target, var_7d07543f, var_a0d128c8 = 1, str_notify)
 */
 function function_eebc7e40(s_target, str_notify)
 {
-	level endon(#"hash_5ea3c73090a7e665");
+	level endon(#"oil_completed");
 	if(!isdefined(s_target.t_damage))
 	{
 		s_target.t_damage = spawn("trigger_damage_new", s_target.origin, 0, 61, 61);
@@ -593,7 +593,7 @@ function function_630766ac()
 */
 function function_881659b(n_index, b_skipped)
 {
-	level endon(#"hash_5ea3c73090a7e665");
+	level endon(#"oil_completed");
 	var_782728a8 = getent("rune_" + n_index, "targetname");
 	var_e13b91f9 = struct::get(var_782728a8.target);
 	if(!b_skipped)
@@ -642,7 +642,7 @@ function function_881659b(n_index, b_skipped)
 	}
 	if(var_2df64d67 == 3)
 	{
-		level flag::set(#"hash_5ea3c73090a7e665");
+		level flag::set(#"oil_completed");
 	}
 }
 
@@ -663,7 +663,7 @@ function function_bda20d06(b_skipped, var_19e802fa)
 		{
 			function_40b663e7();
 		}
-		if(!level flag::get(#"hash_5ea3c73090a7e665"))
+		if(!level flag::get(#"oil_completed"))
 		{
 			for(i = 1; i <= 3; i++)
 			{
@@ -760,7 +760,7 @@ function function_8da2802b(b_skipped)
 */
 function function_9388cf21()
 {
-	level flag::wait_till(#"hash_5ea3c73090a7e665");
+	level flag::wait_till(#"oil_completed");
 	level thread function_cad81195();
 	level thread function_a9bde51();
 	array::thread_all(getplayers(), &function_e64c55ea);
@@ -1441,7 +1441,7 @@ function function_fa377cf7(b_skipped)
 		{
 			var_32644c5b thread function_8b20a029();
 		}
-		level flag::wait_till(#"hash_e12ab4b5304a50d");
+		level flag::wait_till(#"split_completed");
 	}
 }
 
@@ -1689,7 +1689,7 @@ function function_8b20a029()
 		}
 		level util::delay("reflect_reflected", "end_game", &clientfield::set, "" + #"hash_2b05d4c6217bac22", 2);
 		level scene::play(#"hash_61b2bae95d706f3f");
-		level flag::set(#"hash_e12ab4b5304a50d");
+		level flag::set(#"split_completed");
 	}
 	else
 	{
@@ -2222,7 +2222,7 @@ function function_2ee0f84b()
 */
 function function_bb660b8a()
 {
-	level endon(#"hash_b8ac6bada03e328");
+	level endon(#"shoot_roots_completed");
 	s_result = undefined;
 	s_result = level waittill(#"hash_22f69672129581f6");
 	if(isplayer(s_result.e_player))
@@ -2282,7 +2282,7 @@ function function_593e3d1f(b_skipped, var_19e802fa)
 	}
 	level.var_5b7d4d8d = undefined;
 	level.var_f521216c = undefined;
-	level notify(#"hash_b8ac6bada03e328");
+	level notify(#"shoot_roots_completed");
 }
 
 /*
@@ -4084,9 +4084,9 @@ function function_202bd7b8()
 	{
 		if(!zm_transform::function_abf1dcb4(#"blight_father"))
 		{
-			var_2d23a7ee = getaiarchetypearray(#"blight_father");
-			var_2d23a7ee = arraysortclosest(var_2d23a7ee, v_ra, undefined, 0, 1024);
-			if(var_2d23a7ee.size == 0)
+			a_ai_blight_father = getaiarchetypearray(#"blight_father");
+			a_ai_blight_father = arraysortclosest(a_ai_blight_father, v_ra, undefined, 0, 1024);
+			if(a_ai_blight_father.size == 0)
 			{
 				a_ai_zombies = getaiarchetypearray(#"zombie");
 				a_ai_zombies = arraysortclosest(a_ai_zombies, v_ra, undefined, 0, 1024);
@@ -4921,7 +4921,7 @@ function function_488a4eb2(b_skipped, var_19e802fa)
 			a_str_steps = array(#"prophecy", #"light");
 			foreach(str_step in a_str_steps)
 			{
-				s_ee = level.var_ec84950b[str_step];
+				s_ee = level._ee[str_step];
 				var_1c9b219a = s_ee.steps.size - 1;
 				zm_sq::function_f2dd8601(str_step, var_1c9b219a);
 			}
@@ -7951,7 +7951,7 @@ function function_ce32cc66(b_skipped)
 		e_bruno init_bot();
 	}
 	w_shield = getweapon(#"zhield_zpear_dw");
-	var_2d23a7ee = getaiarchetypearray(#"blight_father");
+	a_ai_blight_father = getaiarchetypearray(#"blight_father");
 	foreach(e_actor in array(var_5e0ce220, e_bruno))
 	{
 		if(!isplayer(e_actor))
@@ -7965,7 +7965,7 @@ function function_ce32cc66(b_skipped)
 		e_actor.var_f4e33249 = 1;
 		e_actor.var_6b830459 = 1;
 		e_actor notify(#"hash_46064b6c2cb5cf20");
-		foreach(ai_blight_father in var_2d23a7ee)
+		foreach(ai_blight_father in a_ai_blight_father)
 		{
 			var_beb2295 = ai_blight_father.var_beb2295;
 			if(var_beb2295 === e_actor)

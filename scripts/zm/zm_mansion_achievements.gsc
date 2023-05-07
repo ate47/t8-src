@@ -90,7 +90,7 @@ function on_ai_killed(params)
 			{
 				str_weapon = params.weapon.name;
 			}
-			if(str_zone === "zone_dining_room" && str_weapon === #"hash_19a4271a5452dc0b")
+			if(str_zone === "zone_dining_room" && str_weapon === #"stake_knife")
 			{
 				e_attacker notify(#"hash_4505abb76e48700a");
 			}

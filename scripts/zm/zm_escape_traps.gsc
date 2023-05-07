@@ -959,7 +959,7 @@ function function_6dbbc97()
 				}
 				if(a_e_targets[i].script_string == "fxanim_spinning_trap")
 				{
-					var_fe861167.var_db919ceb = a_e_targets[i];
+					var_fe861167.mdl_trap = a_e_targets[i];
 					continue;
 				}
 				if(a_e_targets[i].script_string == "trap_control_panel")
@@ -1001,7 +1001,7 @@ function function_6dbbc97()
 				}
 			}
 		}
-		var_fe861167.var_db919ceb thread scene::play(#"p8_fxanim_zm_esc_trap_spinning_bundle", var_fe861167.var_db919ceb);
+		var_fe861167.mdl_trap thread scene::play(#"p8_fxanim_zm_esc_trap_spinning_bundle", var_fe861167.mdl_trap);
 	}
 	zm_traps::register_trap_basic_info("zm_spinning_trap", &activate_zm_spinning_trap, &function_ffe09b75);
 	zm_traps::register_trap_damage("zm_spinning_trap", &function_7e74aa5, &function_1f7e661f);
@@ -1053,7 +1053,7 @@ function activate_zm_spinning_trap()
 {
 	level.trapped_track[#"fan"] = 1;
 	self.in_use = 1;
-	self.var_db919ceb thread scene::init(#"p8_fxanim_zm_esc_trap_spinning_bundle", self.var_db919ceb);
+	self.mdl_trap thread scene::init(#"p8_fxanim_zm_esc_trap_spinning_bundle", self.mdl_trap);
 	var_a5fa009d = struct::get("spinning_trap_poi", "targetname");
 	self thread function_61791b8b(var_a5fa009d);
 	self thread function_4a15e725();
@@ -1062,7 +1062,7 @@ function activate_zm_spinning_trap()
 	self thread zm_traps::trap_damage();
 	self waittill(#"trap_finished");
 	self.in_use = undefined;
-	self.var_db919ceb thread scene::play(#"p8_fxanim_zm_esc_trap_spinning_bundle", self.var_db919ceb);
+	self.mdl_trap thread scene::play(#"p8_fxanim_zm_esc_trap_spinning_bundle", self.mdl_trap);
 	a_players = getplayers();
 	foreach(e_player in a_players)
 	{
@@ -1154,15 +1154,15 @@ function function_1f7e661f(t_damage)
 		self clientfield::set("spinning_trap_blood_fx", 1);
 	}
 	self playsound(#"hash_42c6cc2204b7fbbd");
-	v_hook = t_damage.var_db919ceb gettagorigin("tag_weapon_3");
+	v_hook = t_damage.mdl_trap gettagorigin("tag_weapon_3");
 	n_dist = distance2d(self.origin, v_hook);
 	if(!(isdefined(t_damage.var_705682df) && t_damage.var_705682df) && self.var_6f84b820 === #"basic" && n_dist <= 128 && self.team != #"allies")
 	{
 		t_damage.var_705682df = 1;
 		self.var_bd4627e1 = 1;
 		self clientfield::set("spinning_trap_eye_fx", 1);
-		var_e72c9959 = util::spawn_model("tag_origin", t_damage.var_db919ceb gettagorigin("tag_weapon_3"), t_damage.var_db919ceb gettagangles("tag_weapon_3"));
-		var_e72c9959 linkto(t_damage.var_db919ceb, "tag_weapon_3");
+		var_e72c9959 = util::spawn_model("tag_origin", t_damage.mdl_trap gettagorigin("tag_weapon_3"), t_damage.mdl_trap gettagangles("tag_weapon_3"));
+		var_e72c9959 linkto(t_damage.mdl_trap, "tag_weapon_3");
 		self thread function_864365ef(t_damage, var_e72c9959);
 		a_e_players = util::get_array_of_closest(self.origin, getplayers());
 		if(isdefined(a_e_players[0]) && distance2dsquared(a_e_players[0].origin, self.origin) < (400 * 400))
@@ -1178,7 +1178,7 @@ function function_1f7e661f(t_damage)
 		}
 		if(self.var_6f84b820 === #"basic" && !isvehicle(self))
 		{
-			str_tag = t_damage.var_db919ceb get_closest_tag(self.origin);
+			str_tag = t_damage.mdl_trap get_closest_tag(self.origin);
 			if(str_tag === "tag_weapon_1")
 			{
 				self zombie_utility::makezombiecrawler(1);

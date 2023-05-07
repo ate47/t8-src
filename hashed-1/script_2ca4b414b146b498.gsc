@@ -1077,13 +1077,13 @@ function function_9868e24e(player)
 	{
 		player.var_6b2d5c29[ti] = spawnstruct();
 		player.var_6b2d5c29[ti].state = 0;
-		var_be788bba = level.var_aca462a0[ti];
-		if(!var_be788bba multi_stage_target_lockon::is_open(player))
+		uifield = level.var_aca462a0[ti];
+		if(!uifield multi_stage_target_lockon::is_open(player))
 		{
-			var_be788bba multi_stage_target_lockon::open(player, 1);
+			uifield multi_stage_target_lockon::open(player, 1);
 		}
-		var_be788bba multi_stage_target_lockon::set_entNum(player, player.clientid);
-		var_be788bba multi_stage_target_lockon::set_targetState(player, 0);
+		uifield multi_stage_target_lockon::set_entNum(player, player.clientid);
+		uifield multi_stage_target_lockon::set_targetState(player, 0);
 	}
 	enemies = getplayers();
 	ti = 0;
@@ -1125,7 +1125,7 @@ function function_9868e24e(player)
 			{
 				continue;
 			}
-			var_be788bba = level.var_aca462a0[ti];
+			uifield = level.var_aca462a0[ti];
 			var_8712c5b8 = player.var_6b2d5c29[ti];
 			if(target.ignoreme === 1 || !isalive(target) || self.isjammed === 1)
 			{
@@ -1174,8 +1174,8 @@ function function_9868e24e(player)
 					}
 				}
 			}
-			var_be788bba multi_stage_target_lockon::set_entNum(player, var_4ef4e267);
-			var_be788bba multi_stage_target_lockon::set_targetState(player, var_8712c5b8.state);
+			uifield multi_stage_target_lockon::set_entNum(player, var_4ef4e267);
+			uifield multi_stage_target_lockon::set_targetState(player, var_8712c5b8.state);
 		}
 		foreach(target in enemies)
 		{
@@ -2334,11 +2334,11 @@ function cleanup_targeting(player)
 		{
 			if(isdefined(level.var_aca462a0[ti]))
 			{
-				var_be788bba = level.var_aca462a0[ti];
-				var_be788bba multi_stage_target_lockon::set_targetState(player, 0);
-				if(var_be788bba multi_stage_target_lockon::is_open(player))
+				uifield = level.var_aca462a0[ti];
+				uifield multi_stage_target_lockon::set_targetState(player, 0);
+				if(uifield multi_stage_target_lockon::is_open(player))
 				{
-					var_be788bba multi_stage_target_lockon::close(player);
+					uifield multi_stage_target_lockon::close(player);
 				}
 			}
 			if(isdefined(player.var_6b2d5c29) && isdefined(player.var_6b2d5c29[ti]))

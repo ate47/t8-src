@@ -29,7 +29,7 @@ function init()
 	game.strings[#"overtime"] = #"hash_19d325d8d1bfd3de";
 	game.strings[#"roundend"] = #"hash_62af47ae5592dbf8";
 	game.strings[#"intermission"] = #"hash_24bb668f17a9cc67";
-	game.strings[#"match_bonus"] = #"hash_57a8d1440d2cb4c7";
+	game.strings[#"match_bonus"] = #"mp/match_bonus_is";
 	game.strings[#"codpoints_match_bonus"] = #"mp_codpoints_match_bonus_is";
 	game.strings[#"cod_caster_team_wins"] = #"mp/wins";
 	game.strings[#"cod_caster_team_eliminated"] = #"mp/team_eliminated";

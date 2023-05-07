@@ -1290,7 +1290,7 @@ function addsquadevaluator(commander, evaluatorname, constants = [])
 		assert(isstruct(commander));
 	#/
 	/#
-		assert(isstring(evaluatorname) || function_7a600918(evaluatorname));
+		assert(isstring(evaluatorname) || ishash(evaluatorname));
 	#/
 	commander.squadevaluators[commander.squadevaluators.size] = array(evaluatorname, constants);
 }
@@ -1409,7 +1409,7 @@ function initializeenemythrottle(commander, enemycommander, upperbound, lowerbou
 function getdaemonapifunction(functionname)
 {
 	/#
-		assert(isstring(functionname) || function_7a600918(functionname) && functionname != "", "");
+		assert(isstring(functionname) || ishash(functionname) && functionname != "", "");
 	#/
 	/#
 		assert(isdefined(level._daemonscriptfunctions[#"api"][functionname]), ("" + functionname) + "");
@@ -1429,7 +1429,7 @@ function getdaemonapifunction(functionname)
 function getutilityapifunction(functionname)
 {
 	/#
-		assert(isstring(functionname) || function_7a600918(functionname) && functionname != "", "");
+		assert(isstring(functionname) || ishash(functionname) && functionname != "", "");
 	#/
 	/#
 		assert(isdefined(level._squadutilityscriptfunctions[#"api"][functionname]), ("" + functionname) + "");
@@ -1473,7 +1473,7 @@ function function_b822982(commander)
 function registerdaemonapi(functionname, functionptr)
 {
 	/#
-		assert(isstring(functionname) || function_7a600918(functionname) && functionname != "", "");
+		assert(isstring(functionname) || ishash(functionname) && functionname != "", "");
 	#/
 	/#
 		assert(isfunctionptr(functionptr), "");
@@ -1497,7 +1497,7 @@ function registerdaemonapi(functionname, functionptr)
 function registerutilityapi(functionname, functionptr)
 {
 	/#
-		assert(isstring(functionname) || function_7a600918(functionname) && functionname != "", "");
+		assert(isstring(functionname) || ishash(functionname) && functionname != "", "");
 	#/
 	/#
 		assert(isfunctionptr(functionptr), "");

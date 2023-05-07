@@ -47,9 +47,9 @@ function _init_()
 	gondola_button = getent("gondola_button", "targetname");
 	gondola = getent("gondola", "targetname");
 	gondola_button linkto(gondola);
-	var_579c6e1 = getent("gondola_kill_trig_player", "targetname");
-	var_579c6e1 enablelinkto();
-	var_579c6e1 linkto(gondola);
+	gondola_kill_trig = getent("gondola_kill_trig_player", "targetname");
+	gondola_kill_trig enablelinkto();
+	gondola_kill_trig linkto(gondola);
 	level thread init_elevator("dynent_gondola_button_top");
 	level thread init_elevator("dynent_gondola_button_bottom");
 }

@@ -6,11 +6,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_6f53a9bb;
+#namespace zm_trial_door_lockdown;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x9CA5C7C3
 	Offset: 0x128
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_530f1e3dbb50b5f6", &__init__, undefined, undefined);
+	system::register(#"zm_trial_door_lockdown", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0xD7889D34
 	Offset: 0x170
 	Size: 0x124
@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "" + #"hash_530f1e3dbb50b5f6", 16000, 1, "int", &function_6f53a9bb, 0, 0);
+	clientfield::register("scriptmover", "" + #"zm_trial_door_lockdown", 16000, 1, "int", &zm_trial_door_lockdown, 0, 0);
 	level._effect[#"hash_351debe7af1f588b"] = "maps/zm_escape/fx8_flame_wall_64x64";
 	level._effect[#"hash_257bf4ae70b5a852"] = "maps/zm_escape/fx8_flame_wall_128x128";
 	level._effect[#"hash_3ea271ae7eb7fdce"] = "maps/zm_escape/fx8_flame_wall_256x256";
@@ -46,7 +46,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x52CAAEAA
 	Offset: 0x2A0
 	Size: 0x14
@@ -59,7 +59,7 @@ function private on_begin(localclientnum, a_params)
 
 /*
 	Name: on_end
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0xF594C3AB
 	Offset: 0x2C0
 	Size: 0xC
@@ -71,15 +71,15 @@ function private on_end(localclientnum)
 }
 
 /*
-	Name: function_6f53a9bb
-	Namespace: namespace_6f53a9bb
+	Name: zm_trial_door_lockdown
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0xBE5D08EB
 	Offset: 0x2D8
 	Size: 0x1B6
 	Parameters: 7
 	Flags: Private
 */
-function private function_6f53a9bb(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function private zm_trial_door_lockdown(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

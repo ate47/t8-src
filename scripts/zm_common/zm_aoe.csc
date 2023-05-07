@@ -156,7 +156,7 @@ function function_15dea507(aoeid, type, var_5ff737c1)
 	var_46f1b5eb.endsound = var_6ec6e01.var_99ec7d60;
 	var_46f1b5eb.loopsound = var_6ec6e01.var_1ee49376;
 	var_46f1b5eb.startrumble = var_6ec6e01.startrumble;
-	var_46f1b5eb.var_d791c45 = var_6ec6e01.var_d791c45;
+	var_46f1b5eb.endrumble = var_6ec6e01.endrumble;
 	var_46f1b5eb.var_a8609f98 = var_6ec6e01.var_a8609f98;
 	var_46f1b5eb.earthquakescale = var_6ec6e01.earthquakescale;
 	var_46f1b5eb.var_e4c85a5f = var_6ec6e01.var_e4c85a5f;
@@ -246,7 +246,7 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 			{
 				if(isdefined(var_46f1b5eb.startrumble))
 				{
-					function_36e4ebd4(localclientnum, var_46f1b5eb.var_d791c45);
+					function_36e4ebd4(localclientnum, var_46f1b5eb.endrumble);
 				}
 			}
 		}

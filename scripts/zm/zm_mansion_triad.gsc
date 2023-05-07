@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using script_387eab232fe22983;
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
@@ -47,9 +47,9 @@ function init()
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp1", 8000, #"kp_1", &function_4175b958, &function_138b784e, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp2", 8000, #"kp_2", &function_53e85e3d, &function_25d21cdb, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp3", 8000, #"kp_3", &function_5e8b7383, &function_28082147, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"hash_5ff0996978af5e05", &function_a23300bc, &function_3d90aae2, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"hash_2e71806f86ca448c", &function_ecb921f0, &function_49798eb9, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"hash_11f38acf5e773a0b", &function_ba203e13, &function_60bda2cf, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"kp_1_halfway", &function_a23300bc, &function_3d90aae2, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"kp_2_halfway", &function_ecb921f0, &function_49798eb9, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"kp_3_halfway", &function_ba203e13, &function_60bda2cf, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_forest", 8000, #"kp_forest", &is_soul_capture_forest, &function_b570f926, 1);
 	init_flags();
 	function_c739f755();
@@ -207,7 +207,7 @@ function init_flags()
 	level flag::init(#"forest_complete");
 	level flag::init(#"hash_2d21160da504fb1");
 	level flag::init(#"hash_6402d013069eb3a");
-	level flag::init(#"hash_4b00aa230ebbe82b");
+	level flag::init(#"main_quest_completed");
 	level flag::init(#"hash_775ff2ad49f494a7");
 	level flag::init(#"hash_7583b516d2aab62e");
 	level flag::init(#"hash_4ee2d51615eadbb");
@@ -224,10 +224,10 @@ function init_flags()
 */
 function function_c739f755()
 {
-	zm_sq::register(#"zm_mansion_triad", #"step_1", #"triad_step_1", &function_cdfe68a2, &function_c5868f47);
-	zm_sq::register(#"zm_mansion_triad", #"step_2", #"triad_step_2", &function_a03f8d25, &function_f05be4f1);
-	zm_sq::register(#"zm_mansion_triad", #"step_3", #"triad_step_3", &function_aa79a199, &function_bafa7a2b);
-	zm_sq::register(#"zm_mansion_triad", #"step_4", #"triad_step_4", &function_86e35a69, &function_a93d56b1);
+	zm_sq::register(#"zm_mansion_triad", #"step_1", #"triad_step_1", &function_cdfe68a2, &cleanup_step_1);
+	zm_sq::register(#"zm_mansion_triad", #"step_2", #"triad_step_2", &function_a03f8d25, &cleanup_step_2);
+	zm_sq::register(#"zm_mansion_triad", #"step_3", #"triad_step_3", &function_aa79a199, &cleanup_step_3);
+	zm_sq::register(#"zm_mansion_triad", #"step_4", #"triad_step_4", &function_86e35a69, &cleanup_step_4);
 }
 
 /*
@@ -272,7 +272,7 @@ function function_cdfe68a2(var_a276c861)
 }
 
 /*
-	Name: function_c5868f47
+	Name: cleanup_step_1
 	Namespace: mansion_triad
 	Checksum: 0x744216CC
 	Offset: 0x1A78
@@ -280,7 +280,7 @@ function function_cdfe68a2(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c5868f47(var_5ea5c94d, ended_early)
+function cleanup_step_1(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_12cb63ce83e1c017");
 	level flag::set(#"gazed_main_hall");
@@ -359,7 +359,7 @@ function function_97dd9a16()
 }
 
 /*
-	Name: function_f05be4f1
+	Name: cleanup_step_2
 	Namespace: mansion_triad
 	Checksum: 0xB77A4099
 	Offset: 0x1ED8
@@ -367,7 +367,7 @@ function function_97dd9a16()
 	Parameters: 2
 	Flags: Linked
 */
-function function_f05be4f1(var_5ea5c94d, ended_early)
+function cleanup_step_2(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_75774dc13775a414");
 	level flag::set(#"knight_main_hall_stationed");
@@ -452,7 +452,7 @@ function function_aa79a199(var_a276c861)
 }
 
 /*
-	Name: function_bafa7a2b
+	Name: cleanup_step_3
 	Namespace: mansion_triad
 	Checksum: 0x36E002B9
 	Offset: 0x2488
@@ -460,7 +460,7 @@ function function_aa79a199(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bafa7a2b(var_5ea5c94d, ended_early)
+function cleanup_step_3(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_3a7ba7e53fa848e9");
 	level flag::set(#"hash_4751f59c00375059");
@@ -577,7 +577,7 @@ function function_86e35a69(var_a276c861)
 }
 
 /*
-	Name: function_a93d56b1
+	Name: cleanup_step_4
 	Namespace: mansion_triad
 	Checksum: 0x1798AA71
 	Offset: 0x2DD8
@@ -585,7 +585,7 @@ function function_86e35a69(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_a93d56b1(var_5ea5c94d, ended_early)
+function cleanup_step_4(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_106bb5214b1fb1e6");
 	level flag::set(#"hash_2d21160da504fb1");
@@ -2796,7 +2796,7 @@ function function_a112ed5e()
 	level scene::play(#"p8_fxanim_zm_man_druid_door_bundle");
 	wait(2.5);
 	zm_sq::start(#"zm_mansion_ww");
-	level flag::set(#"hash_4b00aa230ebbe82b");
+	level flag::set(#"main_quest_completed");
 	wait(2);
 	array::run_all(util::get_active_players(), &freezecontrolsallowlook, 0);
 	array::run_all(util::get_active_players(), &val::reset, "boss_door_opening", "ignoreme");

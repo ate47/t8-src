@@ -309,7 +309,7 @@ function function_d752a094()
 	self zm_perks::function_f0ac059f(self.var_95df0a1b, self.var_eb319d10, #"perk_dying_wish");
 	self thread function_eeb3bf92(10);
 	self clientfield::set("" + #"hash_10f459edea6b3eb", 1);
-	self waittilltimeout(10, #"fake_death", #"hash_57d4f53c12705eac");
+	self waittilltimeout(10, #"fake_death", #"scene_igc_shot_started");
 	self function_2ca96414();
 	if(self hasperk(#"hash_48255a3b086a9bea"))
 	{

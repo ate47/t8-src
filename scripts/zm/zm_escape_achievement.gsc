@@ -104,7 +104,7 @@ function private function_4f363fd4()
 {
 	self endon(#"disconnect");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	w_blundergat_upgraded = getweapon(#"hash_cb1cdb5b47f0226");
+	w_blundergat_upgraded = getweapon(#"ww_blundergat_t8_upgraded");
 	w_tomahawk = getweapon(#"tomahawk_t8");
 	var_b7c4015f = getweapon(#"tomahawk_t8_upgraded");
 	w_spoon = getweapon(#"spoon_alcatraz");
@@ -229,15 +229,15 @@ function private function_8b752e69()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"hash_2e36f5f4d9622bb3");
-		if(s_result.weapon == getweapon(#"ww_blundergat_t8") || s_result.weapon == getweapon(#"hash_cb1cdb5b47f0226"))
+		if(s_result.weapon == getweapon(#"ww_blundergat_t8") || s_result.weapon == getweapon(#"ww_blundergat_t8_upgraded"))
 		{
 			self.var_cd7cfb60 = 1;
 		}
-		if(s_result.weapon == getweapon(#"hash_23882a5729dceca") || s_result.weapon == getweapon(#"hash_1b5092cccdb3d65b"))
+		if(s_result.weapon == getweapon(#"ww_blundergat_fire_t8") || s_result.weapon == getweapon(#"ww_blundergat_fire_t8_upgraded"))
 		{
 			self.var_8179ae74 = 1;
 		}
-		if(s_result.weapon == getweapon(#"hash_25a13b6f6232a985") || s_result.weapon == getweapon(#"hash_4c157b1aeefae09e") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9"))
+		if(s_result.weapon == getweapon(#"ww_blundergat_acid_t8") || s_result.weapon == getweapon(#"ww_blundergat_acid_t8_upgraded") || s_result.weapon == getweapon(#"hash_494f5501b3f8e1e9"))
 		{
 			self.footprint_warning_vobreadcrumbs = 1;
 		}

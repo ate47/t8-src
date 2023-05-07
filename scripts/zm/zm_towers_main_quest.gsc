@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\zm_towers_shield.gsc;
 #using script_27a3bb6bb72e6f1a;
 #using script_2affe92664ace48d;
@@ -8,7 +8,7 @@
 #using script_35598499769dbb3d;
 #using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_47495939f228e438;
+#using scripts\zm_common\zm_aoe.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
@@ -5967,9 +5967,9 @@ function function_6378f02b(e_trig)
 	/#
 		if(getdvarint(#"hash_11ad6a9695943217", 0))
 		{
-			ee = level.var_ec84950b[#"main_quest"];
+			ee = level._ee[#"main_quest"];
 			ee.skip_to_step = 15;
-			if(ee.started && level.var_ec84950b[#"main_quest"].current_step != 15)
+			if(ee.started && level._ee[#"main_quest"].current_step != 15)
 			{
 				zm_sq::function_614612f(#"main_quest");
 			}

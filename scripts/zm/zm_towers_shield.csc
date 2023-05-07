@@ -198,7 +198,7 @@ function function_8a2b203b(localclientnum, oldval, newval, bnewent, binitialsnap
 		self.var_dc255e3b = undefined;
 	}
 	var_515e20e6 = 0;
-	if(self.weapon == getweapon(#"hash_68bfa6918dc2eb81"))
+	if(self.weapon == getweapon(#"zhield_zword_dw_upgraded"))
 	{
 		var_515e20e6 = 1;
 	}

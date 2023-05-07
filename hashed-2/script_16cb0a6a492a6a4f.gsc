@@ -823,7 +823,7 @@ function function_7d93567f()
 function private function_94478182(distribution)
 {
 	var_dd3d17c1 = [];
-	foreach(platoon, var_3c12db95 in distribution)
+	foreach(platoon, platoon_teams in distribution)
 	{
 		if(!isdefined(var_dd3d17c1[platoon]))
 		{
@@ -834,13 +834,13 @@ function private function_94478182(distribution)
 			var_dd3d17c1[platoon][i] = [];
 		}
 	}
-	foreach(platoon, var_3c12db95 in distribution)
+	foreach(platoon, platoon_teams in distribution)
 	{
 		if(!isdefined(var_dd3d17c1[platoon]))
 		{
 			var_dd3d17c1[platoon] = [];
 		}
-		foreach(team, team_players in var_3c12db95)
+		foreach(team, team_players in platoon_teams)
 		{
 			if(team_players.size < level.maxteamplayers)
 			{
@@ -944,12 +944,12 @@ function function_a9822793()
 			println("" + "");
 		}
 	#/
-	foreach(platoon, var_3c12db95 in var_ed0a1ecc)
+	foreach(platoon, platoon_teams in var_ed0a1ecc)
 	{
 		/#
 			println("" + platoon);
 		#/
-		foreach(var_a787dfe7, var_75aa1f3c in var_3c12db95)
+		foreach(var_a787dfe7, var_75aa1f3c in platoon_teams)
 		{
 			foreach(index, team in var_75aa1f3c)
 			{
@@ -1105,7 +1105,7 @@ function function_58b6d2c9()
 						var_f554d31e = (((var_f554d31e + player.name) + "") + party.party_id) + "";
 					}
 					/#
-						assertmsg(((((((("" + self.name) + "") + (function_7a600918(team) ? function_9e72a96(team) : team) + "") + var_dcbb8617.size) + "") + level.maxteamplayers) + "") + var_f554d31e);
+						assertmsg(((((((("" + self.name) + "") + (ishash(team) ? function_9e72a96(team) : team) + "") + var_dcbb8617.size) + "") + level.maxteamplayers) + "") + var_f554d31e);
 					#/
 				}
 			}

@@ -504,7 +504,7 @@ function function_dc16557c()
 			match_record::set_stat(#"ai_zones", i, #"name", var_c2b80e0c);
 			match_record::set_stat(#"ai_zones", i, #"death_circle", ai_zone.death_circle);
 			match_record::set_stat(#"ai_zones", i, #"hash_759f179e2ec44d27", ai_zone.var_dd3d8d74);
-			match_record::set_stat(#"ai_zones", i, #"hash_2c1d2ef7c2781980", ai_zone.var_da0adf34);
+			match_record::set_stat(#"ai_zones", i, #"zone_blightfather", ai_zone.zone_blightfather);
 			match_record::set_stat(#"ai_zones", i, #"zone_brutus", ai_zone.zone_brutus);
 			match_record::set_stat(#"ai_zones", i, #"hash_6dc78ff24e7705b8", ai_zone.var_e16382e4);
 			match_record::set_stat(#"ai_zones", i, #"hash_46c66659061c4df6", ai_zone.var_7bf9c18e);
@@ -1634,7 +1634,7 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	var_a59ba023.death_circle = 0;
 	var_a59ba023.var_7bf9c18e = 0;
 	var_a59ba023.var_dd3d8d74 = 0;
-	var_a59ba023.var_da0adf34 = 0;
+	var_a59ba023.zone_blightfather = 0;
 	var_a59ba023.zone_brutus = 0;
 	var_a59ba023.var_e16382e4 = 0;
 	var_a59ba023.var_7c620997 = 0;
@@ -2425,7 +2425,7 @@ function function_41101f23(zone, var_d42412dc)
 	}
 	if(zone.var_cafac64a == #"hash_50c4ae7eab84983b")
 	{
-		zone.var_da0adf34++;
+		zone.zone_blightfather++;
 	}
 	if(zone.var_cafac64a == #"spawner_boct_brutus_wz")
 	{

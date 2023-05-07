@@ -131,7 +131,7 @@ function private __main__()
 		callback::add_callback(#"hash_15858698313c5f32", &function_b0503d98);
 		callback::add_callback(#"hash_6d9bdacc6c29cfa5", &function_68cc8bce);
 		callback::add_callback(#"hash_782232ec47cbd89b", &function_ff5fd6b8);
-		turretweapon = getweapon(#"hash_36a6454f13b54f18");
+		turretweapon = getweapon(#"gun_ultimate_turret");
 		if(isdefined(turretweapon))
 		{
 			turretweapon = turretweapon.rootweapon;
@@ -2125,7 +2125,7 @@ function private set_state(entity, state_name)
 {
 	/#
 		/#
-			assert(isdefined(level.var_6082a6e3[state_name]), "" + (function_7a600918(state_name) ? function_9e72a96(state_name) : state_name));
+			assert(isdefined(level.var_6082a6e3[state_name]), "" + (ishash(state_name) ? function_9e72a96(state_name) : state_name));
 		#/
 	#/
 	state = level.var_6082a6e3[state_name];

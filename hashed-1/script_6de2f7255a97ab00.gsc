@@ -390,35 +390,35 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 		supplydrop playsound("evt_supply_drop");
 		var_f6dfa3da = isdefined(supplydrop.var_abd32694) && (supplydrop.var_abd32694 ? 0.25 : 1);
 		wait(var_f6dfa3da);
-		var_81b62996 = spawn("script_model", (0, 0, 0));
-		var_81b62996.targetname = "supply_drop_chute";
-		var_81b62996.origin = supplydrop.origin;
-		var_81b62996.angles = supplydrop.angles;
-		var_81b62996 setforcenocull();
+		supplydropparachute = spawn("script_model", (0, 0, 0));
+		supplydropparachute.targetname = "supply_drop_chute";
+		supplydropparachute.origin = supplydrop.origin;
+		supplydropparachute.angles = supplydrop.angles;
+		supplydropparachute setforcenocull();
 		if(isdefined(supplydrop.var_abd32694) && supplydrop.var_abd32694 && isdefined(supplydrop.var_d5552131) && supplydrop.var_d5552131.scriptvehicletype === "player_tank")
 		{
-			var_81b62996 setmodel("p8_fxanim_wz_parachute_supplydrop_tank_fade");
-			var_81b62996 clientfield::set("supply_drop_parachute_rob", 1);
-			var_81b62996 useanimtree("generic");
-			var_81b62996 linkto(supplydrop, "tag_origin", (0, 0, 0));
-			var_81b62996 thread function_13339b58(1);
+			supplydropparachute setmodel("p8_fxanim_wz_parachute_supplydrop_tank_fade");
+			supplydropparachute clientfield::set("supply_drop_parachute_rob", 1);
+			supplydropparachute useanimtree("generic");
+			supplydropparachute linkto(supplydrop, "tag_origin", (0, 0, 0));
+			supplydropparachute thread function_13339b58(1);
 		}
 		else
 		{
-			var_81b62996 setmodel("p8_fxanim_wz_parachute_supplydrop_fade");
-			var_81b62996 clientfield::set("supply_drop_parachute_rob", 1);
-			var_81b62996 useanimtree("generic");
-			var_81b62996 linkto(supplydrop, "tag_origin", (0, 0, 0));
-			var_81b62996 thread function_13339b58();
+			supplydropparachute setmodel("p8_fxanim_wz_parachute_supplydrop_fade");
+			supplydropparachute clientfield::set("supply_drop_parachute_rob", 1);
+			supplydropparachute useanimtree("generic");
+			supplydropparachute linkto(supplydrop, "tag_origin", (0, 0, 0));
+			supplydropparachute thread function_13339b58();
 		}
 		if(!(isdefined(supplydrop.var_7bea4af0) && supplydrop.var_7bea4af0))
 		{
 			supplydrop waittill(#"movedone", #"hash_6ade3db3c3188274");
 		}
-		if(isdefined(var_81b62996))
+		if(isdefined(supplydropparachute))
 		{
-			var_81b62996 notify(#"parachute_close");
-			var_81b62996.var_b702030d = 1;
+			supplydropparachute notify(#"parachute_close");
+			supplydropparachute.var_b702030d = 1;
 		}
 		if(isdefined(supplydrop.var_abd32694) && supplydrop.var_abd32694)
 		{

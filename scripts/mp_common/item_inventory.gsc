@@ -681,7 +681,7 @@ function private function_434d0c2b(itemtype, var_da328e7b, var_ab9610ad = undefi
 		assert(isplayer(self));
 	#/
 	/#
-		assert(function_7a600918(itemtype));
+		assert(ishash(itemtype));
 	#/
 	/#
 		assert(isarray(var_da328e7b));
@@ -743,7 +743,7 @@ function private _cycle_item(itemtype, var_da328e7b, var_bcc2655a)
 		assert(isplayer(self));
 	#/
 	/#
-		assert(function_7a600918(itemtype));
+		assert(ishash(itemtype));
 	#/
 	/#
 		assert(isarray(var_da328e7b));
@@ -817,7 +817,7 @@ function private function_9da31874(itemtype)
 		assert(isplayer(self));
 	#/
 	/#
-		assert(function_7a600918(itemtype));
+		assert(ishash(itemtype));
 	#/
 	items = [];
 	foreach(index, item in self.inventory.items)
@@ -939,7 +939,7 @@ function private function_9d805044(itemtype, var_ab9610ad = undefined)
 		assert(isplayer(self));
 	#/
 	/#
-		assert(isstring(itemtype) || function_7a600918(itemtype));
+		assert(isstring(itemtype) || ishash(itemtype));
 	#/
 	if(function_fe402108())
 	{
@@ -2475,7 +2475,7 @@ function equip_armor(item)
 	loc_000077BC:
 	loc_000077E4:
 	loc_00007808:
-	self armor::set_armor(inventoryitem.amount, (isdefined(var_a6762160.amount) ? var_a6762160.amount : 0), (isdefined(var_a6762160.armortier) ? var_a6762160.armortier : 1), (isdefined(var_a6762160.var_99c0cb08) ? var_a6762160.var_99c0cb08 : 1), (isdefined(var_a6762160.var_2ee21ae6) ? var_a6762160.var_2ee21ae6 : 1), (isdefined(var_a6762160.var_c690c73d) ? var_a6762160.var_c690c73d : 1), (isdefined(var_a6762160.var_99edb6a3) ? var_a6762160.var_99edb6a3 : 1), (isdefined(var_a6762160.var_22c3ab38) ? var_a6762160.var_22c3ab38 : 1), (isdefined(var_a6762160.var_9f307988) ? var_a6762160.var_9f307988 : 1), (isdefined(var_a6762160.var_7a80f06e) ? var_a6762160.var_7a80f06e : 1), (isdefined(var_a6762160.var_da5a2805) ? var_a6762160.var_da5a2805 : 1), (isdefined(var_a6762160.var_f2902d7b) ? var_a6762160.var_f2902d7b : 1), var_a6762160.var_19f48bbe);
+	self armor::set_armor(inventoryitem.amount, (isdefined(var_a6762160.amount) ? var_a6762160.amount : 0), (isdefined(var_a6762160.armortier) ? var_a6762160.armortier : 1), (isdefined(var_a6762160.var_99c0cb08) ? var_a6762160.var_99c0cb08 : 1), (isdefined(var_a6762160.var_2ee21ae6) ? var_a6762160.var_2ee21ae6 : 1), (isdefined(var_a6762160.var_c690c73d) ? var_a6762160.var_c690c73d : 1), (isdefined(var_a6762160.var_99edb6a3) ? var_a6762160.var_99edb6a3 : 1), (isdefined(var_a6762160.var_22c3ab38) ? var_a6762160.var_22c3ab38 : 1), (isdefined(var_a6762160.var_9f307988) ? var_a6762160.var_9f307988 : 1), (isdefined(var_a6762160.var_7a80f06e) ? var_a6762160.var_7a80f06e : 1), (isdefined(var_a6762160.explosivedamagescale) ? var_a6762160.explosivedamagescale : 1), (isdefined(var_a6762160.var_f2902d7b) ? var_a6762160.var_f2902d7b : 1), var_a6762160.var_19f48bbe);
 	self function_4cde30fa(inventoryitem, var_a6762160);
 	self.inventory.items[11] = inventoryitem;
 	self function_b00db06(6, item.var_bd027dd9);

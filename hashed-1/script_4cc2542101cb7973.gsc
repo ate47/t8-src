@@ -165,7 +165,7 @@ function init_flags()
 {
 	level flag::init(#"hash_379fc22ed85f0dbc");
 	level flag::init(#"hash_68a1656980e771da");
-	level flag::init(#"hash_4b00aa230ebbe82b");
+	level flag::init(#"main_quest_completed");
 	level flag::init(#"hash_4fac802bd5dcebf4");
 	level flag::init(#"hash_40e9ad323fe8402a");
 	level flag::init(#"hash_36138b6e1d539829");
@@ -210,13 +210,13 @@ function function_3335f286()
 	zm_vo::function_577efa88(5);
 	zm_vo::function_577efa88(6);
 	zm_vo::function_577efa88(7);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"1", #"hash_53dd4dd26004594b", &step_1, &function_64809180);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"2", #"hash_53dd4ed260045afe", &step_2, &function_bb332956);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"3", #"hash_53dd4fd260045cb1", &step_3, &function_8a5e22a9);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"4", #"hash_53dd50d260045e64", &step_4, &function_d332dd57);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"5", #"hash_53dd51d260046017", &step_5, &function_2aa0f2b7);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"6", #"hash_53dd52d2600461ca", &step_6, &function_618ac765);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"7", #"hash_53dd53d26004637d", &step_7, &function_bb4eb989);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"1", #"hash_53dd4dd26004594b", &step_1, &step_1_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"2", #"hash_53dd4ed260045afe", &step_2, &step_2_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"3", #"hash_53dd4fd260045cb1", &step_3, &step_3_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"4", #"hash_53dd50d260045e64", &step_4, &step_4_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"5", #"hash_53dd51d260046017", &step_5, &step_5_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"6", #"hash_53dd52d2600461ca", &step_6, &step_6_cleanup);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"7", #"hash_53dd53d26004637d", &step_7, &step_7_cleanup);
 	zm_sq::register(#"hash_62ca600e9c6f07c0", #"outro", #"hash_4b2d3fa2839cfcf8", &outro, &outro_cleanup, 1, &function_f7a9d7c4);
 }
 
@@ -329,7 +329,7 @@ function step_1(var_a276c861)
 }
 
 /*
-	Name: function_64809180
+	Name: step_1_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0x5047BF2F
 	Offset: 0x2968
@@ -337,7 +337,7 @@ function step_1(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_64809180(var_a276c861, var_19e802fa)
+function step_1_cleanup(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"hash_40e9ad323fe8402a");
 	var_ebdd41e3 = struct::get("s_p_s1_w_b");
@@ -865,7 +865,7 @@ function step_2(var_a276c861)
 }
 
 /*
-	Name: function_bb332956
+	Name: step_2_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0xCBEFF76A
 	Offset: 0x4720
@@ -873,7 +873,7 @@ function step_2(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bb332956(var_a276c861, var_19e802fa)
+function step_2_cleanup(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"hash_36138b6e1d539829");
 	level thread function_314447b(0);
@@ -2362,7 +2362,7 @@ function step_3(var_a276c861)
 }
 
 /*
-	Name: function_8a5e22a9
+	Name: step_3_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0xB5AA1F
 	Offset: 0x9808
@@ -2370,7 +2370,7 @@ function step_3(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8a5e22a9(var_a276c861, var_19e802fa)
+function step_3_cleanup(var_a276c861, var_19e802fa)
 {
 	level notify(#"hash_54eae43edf7f08cd");
 }
@@ -2440,7 +2440,7 @@ function step_4(var_a276c861)
 }
 
 /*
-	Name: function_d332dd57
+	Name: step_4_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0xCFFC9DAD
 	Offset: 0x9BC8
@@ -2448,7 +2448,7 @@ function step_4(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d332dd57(var_a276c861, var_19e802fa)
+function step_4_cleanup(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"hash_6048c3f423fd987");
 	level flag::clear("pause_round_timeout");
@@ -5057,7 +5057,7 @@ function function_4ff97a71(var_386f3ef3)
 }
 
 /*
-	Name: function_2aa0f2b7
+	Name: step_5_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0x25C288C7
 	Offset: 0x12630
@@ -5065,7 +5065,7 @@ function function_4ff97a71(var_386f3ef3)
 	Parameters: 2
 	Flags: Linked
 */
-function function_2aa0f2b7(var_a276c861, var_19e802fa)
+function step_5_cleanup(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"activate_west_side_exterior_stairs");
 	level flag::set(#"hash_4fac802bd5dcebf4");
@@ -5860,7 +5860,7 @@ function function_f1eda79e()
 	var_3ded86ce val::reset(#"boss_special", "takedamage");
 	var_3ded86ce waittill(#"death");
 	level.var_dcff743c = 0;
-	level flag::set(#"hash_4b00aa230ebbe82b");
+	level flag::set(#"main_quest_completed");
 }
 
 /*
@@ -6157,7 +6157,7 @@ function function_dc59c134(a_ents)
 	a_ents[#"hash_28f5980b6bfa881b"] ghost();
 	level flag::wait_till(#"hash_233bb105ee83c609");
 	a_ents[#"hash_28f5980b6bfa881b"] show();
-	level flag::wait_till(#"hash_4b00aa230ebbe82b");
+	level flag::wait_till(#"main_quest_completed");
 	level scene::stop(#"hash_25e7b4fd0113745e", 1);
 }
 
@@ -6756,7 +6756,7 @@ function function_75a41e37()
 }
 
 /*
-	Name: function_618ac765
+	Name: step_6_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0x5D6327E5
 	Offset: 0x176A8
@@ -6764,7 +6764,7 @@ function function_75a41e37()
 	Parameters: 2
 	Flags: Linked
 */
-function function_618ac765(var_a276c861, var_19e802fa)
+function step_6_cleanup(var_a276c861, var_19e802fa)
 {
 	if(var_a276c861 || var_19e802fa)
 	{
@@ -6797,12 +6797,12 @@ function step_7(var_a276c861)
 		music::setmusicstate("boss");
 		level thread function_108ff870();
 		level thread function_37d4f9(2, -1, 3, 1);
-		level flag::wait_till(#"hash_4b00aa230ebbe82b");
+		level flag::wait_till(#"main_quest_completed");
 	}
 }
 
 /*
-	Name: function_bb4eb989
+	Name: step_7_cleanup
 	Namespace: namespace_69ddf44f
 	Checksum: 0x33348708
 	Offset: 0x17890
@@ -6810,7 +6810,7 @@ function step_7(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bb4eb989(var_a276c861, var_19e802fa)
+function step_7_cleanup(var_a276c861, var_19e802fa)
 {
 	a_ai_brutus = getaiarchetypearray(#"brutus");
 	foreach(ai_brutus in a_ai_brutus)
@@ -7024,7 +7024,7 @@ function function_5b5fc6fb(var_813c2299, str_endon_notify, n_speed = 300, b_skip
 {
 	level notify(#"hash_285625151f04bcb0");
 	level endon(#"hash_285625151f04bcb0");
-	if(isdefined(str_endon_notify) && (isstring(str_endon_notify) || function_7a600918(str_endon_notify)))
+	if(isdefined(str_endon_notify) && (isstring(str_endon_notify) || ishash(str_endon_notify)))
 	{
 		self endon(str_endon_notify);
 		level endon(str_endon_notify);

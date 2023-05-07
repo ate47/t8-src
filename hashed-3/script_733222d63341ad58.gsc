@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\zm_zodt8_eye.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3e5ec44cfab7a201;
@@ -2714,8 +2714,8 @@ function function_9b60ef24()
 {
 	wait(1);
 	trigger = spawn("trigger_damage", self.origin, 0, 12, 24);
-	var_542eec4d = getweapon(#"hash_95dd69e40d99560");
-	var_15b49ebc = getweapon(#"hash_337a0bfc51449d31");
+	var_542eec4d = getweapon(#"ww_tricannon_earth_t8");
+	var_15b49ebc = getweapon(#"ww_tricannon_earth_t8_upgraded");
 	while(true)
 	{
 		s_result = undefined;
@@ -5064,7 +5064,7 @@ function function_7b4cd474()
 	level scene::stop("p8_fxanim_zm_zod_skybox_bundle");
 	for(i = 0; i < var_f7d93bcb.size; i++)
 	{
-		if(!isdefined(a_names[i]) || !isdefined(var_f7d93bcb[a_names[i]]) || !function_7a600918(a_names[i]) || a_names[i] === #"skybox_water")
+		if(!isdefined(a_names[i]) || !isdefined(var_f7d93bcb[a_names[i]]) || !ishash(a_names[i]) || a_names[i] === #"skybox_water")
 		{
 			arrayremovevalue(var_f7d93bcb, var_f7d93bcb[a_names[i]], 0);
 		}
@@ -5980,8 +5980,8 @@ function gear_up(b_packed, var_5b901c1)
 			var_5b901c1 = 1;
 		}
 		players = getplayers();
-		var_c9612d27 = array(#"hash_5004e2171c2be97d", #"hash_7d7f0dbb00201240", #"hash_539f784146391d2");
-		var_2ebde1ac = array::randomize(array(#"shotgun_semiauto_t8", #"hash_95dd69e40d99560", array::random(var_c9612d27), array::random(var_c9612d27)));
+		var_c9612d27 = array(#"ww_tricannon_water_t8", #"ww_tricannon_air_t8", #"ww_tricannon_fire_t8");
+		var_2ebde1ac = array::randomize(array(#"shotgun_semiauto_t8", #"ww_tricannon_earth_t8", array::random(var_c9612d27), array::random(var_c9612d27)));
 		var_dd063e3e = array::randomize(array(#"lmg_spray_t8", #"ar_mg1909_t8", #"lmg_heavy_t8", #"lmg_double_t8"));
 		foreach(player in players)
 		{

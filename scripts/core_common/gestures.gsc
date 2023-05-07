@@ -112,7 +112,7 @@ function function_e198bde3(var_ee58f129)
 		return 0;
 	}
 	var_45e6768d = var_ee58f129;
-	if(!function_7a600918(var_45e6768d))
+	if(!ishash(var_45e6768d))
 	{
 		var_45e6768d = hash(var_45e6768d);
 	}
@@ -135,7 +135,7 @@ function function_a5202150(var_ee58f129, weaponname)
 		level.var_5ccfbb37 = [];
 	}
 	var_45e6768d = function_e198bde3(var_ee58f129);
-	if(!function_7a600918(var_45e6768d))
+	if(!ishash(var_45e6768d))
 	{
 		return;
 	}
@@ -175,7 +175,7 @@ function function_ba4529d4(var_ee58f129)
 		level.var_5ccfbb37 = [];
 	}
 	var_45e6768d = function_e198bde3(var_ee58f129);
-	if(!function_7a600918(var_45e6768d))
+	if(!ishash(var_45e6768d))
 	{
 		return;
 	}
@@ -198,7 +198,7 @@ function function_ba4529d4(var_ee58f129)
 function function_8cc27b6d(var_ee58f129)
 {
 	var_45e6768d = function_e198bde3(var_ee58f129);
-	if(!function_7a600918(var_45e6768d))
+	if(!ishash(var_45e6768d))
 	{
 		return false;
 	}

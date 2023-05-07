@@ -3651,7 +3651,7 @@ function get_current_zone(return_zone = 0)
 				self.cached_zone = level.zones[self.var_3b65cdd7.targetname];
 				self.cached_zone_name = self.cached_zone.name;
 				self.cached_zone_volume = undefined;
-				self notify(#"hash_2d4daa9e80b86b60", {#zone_name:self.cached_zone_name, #zone:self.cached_zone});
+				self notify(#"zone_change", {#zone_name:self.cached_zone_name, #zone:self.cached_zone});
 			}
 			if(return_zone)
 			{
@@ -3674,7 +3674,7 @@ function get_current_zone(return_zone = 0)
 						self.cached_zone_name = zone.name;
 						self.cached_zone_volume = i;
 						self.var_3b65cdd7 = undefined;
-						self notify(#"hash_2d4daa9e80b86b60", {#zone_name:zone.name, #zone:zone});
+						self notify(#"zone_change", {#zone_name:zone.name, #zone:zone});
 					}
 					if(isdefined(return_zone) && return_zone)
 					{
@@ -6144,7 +6144,7 @@ function function_13cc9756()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_2d4daa9e80b86b60");
+		waitresult = self waittill(#"zone_change");
 		if(isdefined(waitresult.zone))
 		{
 			self.inner_zigzag_radius = waitresult.zone.inner_zigzag_radius;

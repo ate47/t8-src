@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\ai\zm_ai_stoker.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm\ai\zm_ai_blight_father.gsc;
@@ -4055,9 +4055,9 @@ function function_776c95e2(var_61e1a92c, var_dbb23c7)
 		do
 		{
 			wait(2);
-			var_b036ebfb = getaiarchetypearray(#"blight_father");
+			a_ai_blightfather = getaiarchetypearray(#"blight_father");
 		}
-		while(var_b036ebfb.size > 0);
+		while(a_ai_blightfather.size > 0);
 		var_24b27265++;
 	}
 	function_98198f98(#"blight_father");
@@ -4095,11 +4095,11 @@ function function_770486e1(var_61e1a92c)
 		{
 			wait(0.2);
 		}
-		var_b036ebfb = getaiarchetypearray(#"blight_father");
-		var_791efa17 = var_b036ebfb.size;
+		a_ai_blightfather = getaiarchetypearray(#"blight_father");
+		var_791efa17 = a_ai_blightfather.size;
 		while(var_791efa17 > 0)
 		{
-			foreach(ai_blightfather in var_b036ebfb)
+			foreach(ai_blightfather in a_ai_blightfather)
 			{
 				if(!isalive(ai_blightfather))
 				{
@@ -4288,7 +4288,7 @@ function function_435a7941(var_c1051599)
 		}
 		if(isdefined(var_c1051599))
 		{
-			level.var_ec84950b[#"boss_fight"].skip_to_step = var_c1051599;
+			level._ee[#"boss_fight"].skip_to_step = var_c1051599;
 		}
 		zm_sq::start(#"boss_fight");
 		level waittill(#"hash_fbdf766a8b47229");

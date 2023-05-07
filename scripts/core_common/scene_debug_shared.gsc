@@ -1017,7 +1017,7 @@ function debug_display(debug_frames)
 			}
 			else if(isdefined(self.scriptbundlename))
 			{
-				if(function_7a600918(self.scriptbundlename))
+				if(ishash(self.scriptbundlename))
 				{
 					str_scene = function_9e72a96(self.scriptbundlename);
 				}

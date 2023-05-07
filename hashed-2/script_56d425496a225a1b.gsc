@@ -40,7 +40,7 @@ function init_shared()
 		killstreaks::register_killstreak("killstreak_ultimate_turret", &activateturret);
 		killstreaks::register_alt_weapon("ultimate_turret", getweapon("ultimate_turret_deploy"));
 		killstreaks::function_b013c2d3("ultimate_turret", getweapon("ultimate_turret_deploy"));
-		killstreaks::register_alt_weapon("ultimate_turret", getweapon(#"hash_36a6454f13b54f18"));
+		killstreaks::register_alt_weapon("ultimate_turret", getweapon(#"gun_ultimate_turret"));
 		killstreaks::allow_assists("ultimate_turret", 1);
 		level.killstreaks[#"ultimate_turret"].threatonkill = 1;
 		clientfield::register("vehicle", "ultimate_turret_open", 1, 1, "int");
@@ -1101,7 +1101,7 @@ function get_killstreak_bundle()
 	Parameters: 2
 	Flags: Linked
 */
-function is_valid_target(potential_target, var_db0d39fa)
+function is_valid_target(potential_target, friendly_team)
 {
 	if(isdefined(potential_target))
 	{
@@ -1109,7 +1109,7 @@ function is_valid_target(potential_target, var_db0d39fa)
 		{
 			return false;
 		}
-		if(!isdefined(potential_target.team) || potential_target.team == var_db0d39fa)
+		if(!isdefined(potential_target.team) || potential_target.team == friendly_team)
 		{
 			return false;
 		}

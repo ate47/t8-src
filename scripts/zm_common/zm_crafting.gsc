@@ -349,7 +349,7 @@ function function_b18074d0(name)
 */
 function get_component(component, blueprint)
 {
-	if(isstring(component) || function_7a600918(component))
+	if(isstring(component) || ishash(component))
 	{
 		component = getweapon(component);
 	}
@@ -1234,7 +1234,7 @@ function private function_35f5c90b(state)
 	if(!isdefined(level.var_b87dee47[self.var_90dfb0bf]))
 	{
 		/#
-			if(function_7a600918(state))
+			if(ishash(state))
 			{
 				state = "" + function_9e72a96(state);
 			}

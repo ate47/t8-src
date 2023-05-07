@@ -210,7 +210,7 @@ function function_d4147875(var_5ea5c94d)
 	/#
 		println("");
 	#/
-	function_b0fc5631();
+	hud_disable();
 	veh_start = getvehiclenode("mq_gehen_01", "targetname");
 	veh_end = getvehiclenode("mq_gehen_02", "targetname");
 	/#
@@ -351,7 +351,7 @@ function function_74963add()
 }
 
 /*
-	Name: function_b0fc5631
+	Name: hud_disable
 	Namespace: zm_orange_mq_mgr
 	Checksum: 0xE5427B87
 	Offset: 0x1580
@@ -359,7 +359,7 @@ function function_74963add()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b0fc5631()
+function hud_disable()
 {
 	foreach(player in getplayers())
 	{
@@ -372,7 +372,7 @@ function function_b0fc5631()
 }
 
 /*
-	Name: function_33e15dfb
+	Name: hud_enable
 	Namespace: zm_orange_mq_mgr
 	Checksum: 0x60208315
 	Offset: 0x16A8
@@ -380,7 +380,7 @@ function function_b0fc5631()
 	Parameters: 0
 	Flags: None
 */
-function function_33e15dfb()
+function hud_enable()
 {
 	foreach(player in getplayers())
 	{

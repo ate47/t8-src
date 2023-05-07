@@ -13,7 +13,7 @@
 #using script_31269d866b68c549;
 #using script_353a51b7e1ebe2ae;
 #using script_366b8782ff72bb1d;
-#using script_376472e560f76517;
+#using scripts\abilities\mp\gadgets\gadget_jammer.csc;
 #using script_388632816e11681e;
 #using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_39c5022612b91841;
@@ -68,7 +68,7 @@
 #using script_57a969d1bbaa9518;
 #using script_57ca89596de41abb;
 #using script_57e42d69de1e635e;
-#using script_57eb1ee572ca3fa3;
+#using scripts\abilities\mp\gadgets\gadget_jammer.gsc;
 #using script_586f006b8e79a251;
 #using script_59157d6c8f781088;
 #using script_5978de81803f618a;
@@ -82,7 +82,7 @@
 #using script_5c75166c8dc468d4;
 #using script_5c8d7d98cc9b256a;
 #using script_5ce7e9d1829d57dc;
-#using script_5d0937e3a179df6b;
+#using scripts\abilities\mp\gadgets\gadget_concertina_wire.csc;
 #using script_5d6f53cc2af6d30a;
 #using script_5db1ae26276f1bcd;
 #using script_5e3177aa65840786;
@@ -125,7 +125,7 @@
 #using script_71d7bd36b5430a7d;
 #using script_721dfb4b0bb9c380;
 #using script_724b9c7ba249cd62;
-#using script_7532c0fda252cfc1;
+#using scripts\weapons\mp\proximity_grenade.csc;
 #using script_7567e234a3e0abb4;
 #using script_78f4ac6ba04ac9dd;
 #using script_791a764e667807c0;

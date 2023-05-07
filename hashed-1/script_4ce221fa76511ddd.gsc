@@ -4,7 +4,7 @@
 #using scripts\zm_common\zm_items.gsc;
 #using script_5660bae5b402a1eb;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_67bf0b64dcb873b1;
+#using scripts\zm\zm_mansion_ww_lvl2_quest.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;

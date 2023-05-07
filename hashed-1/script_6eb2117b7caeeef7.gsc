@@ -360,7 +360,7 @@ function get_killstreak_bundle()
 	Parameters: 2
 	Flags: Linked
 */
-function is_valid_target(potential_target, var_db0d39fa)
+function is_valid_target(potential_target, friendly_team)
 {
 	if(isdefined(potential_target))
 	{
@@ -372,7 +372,7 @@ function is_valid_target(potential_target, var_db0d39fa)
 		{
 			return false;
 		}
-		if(!isdefined(potential_target.team) || !util::function_fbce7263(potential_target.team, var_db0d39fa))
+		if(!isdefined(potential_target.team) || !util::function_fbce7263(potential_target.team, friendly_team))
 		{
 			return false;
 		}

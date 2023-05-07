@@ -1531,7 +1531,7 @@ function function_fc4dc54(var_6fcde3b6 = 0)
 function function_374c4352(str)
 {
 	/#
-		if(function_7a600918(str))
+		if(ishash(str))
 		{
 			str = function_9e72a96(str);
 		}

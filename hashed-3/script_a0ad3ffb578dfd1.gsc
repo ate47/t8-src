@@ -246,8 +246,8 @@ function function_c3a5f1fe(a_ents)
 	var_e96b5d4f = a_ents[getfirstarraykey(a_ents)];
 	var_e96b5d4f val::set(#"hash_6917ff944158c40d", "takedamage", 1);
 	var_e96b5d4f val::set(#"hash_6917ff944158c40d", "allowdeath", 0);
-	w_weapon = getweapon(#"hash_95dd69e40d99560");
-	var_eb115bf1 = getweapon(#"hash_337a0bfc51449d31");
+	w_weapon = getweapon(#"ww_tricannon_earth_t8");
+	var_eb115bf1 = getweapon(#"ww_tricannon_earth_t8_upgraded");
 	while(true)
 	{
 		s_result = undefined;

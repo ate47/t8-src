@@ -833,11 +833,11 @@ function display_value(index, str_name, str_id, value, b_valid, on_hud)
 		{
 			on_hud = 0;
 		}
-		if(function_7a600918(str_name))
+		if(ishash(str_name))
 		{
 			str_name = function_9e72a96(str_name);
 		}
-		if(function_7a600918(str_id))
+		if(ishash(str_id))
 		{
 			str_id = function_9e72a96(str_id);
 		}

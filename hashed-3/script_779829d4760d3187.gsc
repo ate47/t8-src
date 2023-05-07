@@ -37,7 +37,7 @@ function __init__()
 {
 	init_flags();
 	init_clientfields();
-	function_88d1bd71();
+	init_quest();
 }
 
 /*
@@ -73,7 +73,7 @@ function init_clientfields()
 }
 
 /*
-	Name: function_88d1bd71
+	Name: init_quest
 	Namespace: namespace_ba52581a
 	Checksum: 0x89075C23
 	Offset: 0x258
@@ -81,7 +81,7 @@ function init_clientfields()
 	Parameters: 0
 	Flags: Linked
 */
-function function_88d1bd71()
+function init_quest()
 {
 	level.var_774c21fa = struct::get(#"hash_117cb1e7c329e0ad");
 	level.mcnamara = spawn("script_model", level.var_774c21fa.origin);

@@ -441,9 +441,9 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 	dt = 0.1;
 	radius = min_radius;
 	half_height = min_height;
-	var_ccd505f8 = duration / dt;
-	var_345ed991 = (max_radius - min_radius) / var_ccd505f8;
-	var_a9e00cb3 = (max_height - min_height) / var_ccd505f8;
+	nsteps = duration / dt;
+	var_345ed991 = (max_radius - min_radius) / nsteps;
+	var_a9e00cb3 = (max_height - min_height) / nsteps;
 	player_radius = 10;
 	var_1d93ec08 = int(level.radiationfield_bundle.var_533b6b6e * 1000);
 	while(true)

@@ -46,17 +46,17 @@ function init()
 	}
 	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
 	{
-		zm_sq::register(#"hash_1222a3e832bad772", #"hash_2725edd09b4bb1b6", #"hash_13b316981d67e1ad", &function_e4b33b89, &function_64809180);
-		zm_sq::register(#"hash_1222a3e832bad772", #"hash_6cc4f52e0ed36f92", #"hash_13b313981d67dc94", &function_fee02008, &function_bb332956);
-		zm_sq::register(#"hash_1222a3e832bad772", #"hash_575b4d3faca8bf2e", #"hash_13b314981d67de47", &function_aed5650e, &function_8a5e22a9);
-		zm_sq::register(#"hash_1222a3e832bad772", #"hash_1d89a5560669ab60", #"hash_13b311981d67d92e", &function_fb4f668c, &function_d332dd57);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_2725edd09b4bb1b6", #"hash_13b316981d67e1ad", &function_e4b33b89, &step_1_cleanup);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_6cc4f52e0ed36f92", #"hash_13b313981d67dc94", &function_fee02008, &step_2_cleanup);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_575b4d3faca8bf2e", #"hash_13b314981d67de47", &function_aed5650e, &step_3_cleanup);
+		zm_sq::register(#"hash_1222a3e832bad772", #"hash_1d89a5560669ab60", #"hash_13b311981d67d92e", &function_fb4f668c, &step_4_cleanup);
 		level flag::init(#"hash_1562cc6d96b2bc4");
 		level flag::init(#"hash_635fa9d7a8be6607");
 		level flag::init(#"hash_2889330d50a4cc38");
 		level flag::init(#"hash_35ab49975b4cc894");
 		level flag::init(#"hash_477e8ec5d0789334");
 		callback::on_spawned(&function_58269323);
-		level.var_1cf75f1d = getweapon(#"hash_5b8d1ff4b772bd85");
+		level.var_1cf75f1d = getweapon(#"ww_tricannon_t8");
 		zm_weapons::include_zombie_weapon(#"hash_41a492d8cc5893f9", 0);
 		zm_weapons::add_zombie_weapon(#"hash_41a492d8cc5893f9", "", 0, 0, undefined, undefined, 0, "", "", 0, undefined, 0);
 		level.n_kill_count = 0;
@@ -156,7 +156,7 @@ function private function_e4b33b89(var_a276c861)
 }
 
 /*
-	Name: function_64809180
+	Name: step_1_cleanup
 	Namespace: namespace_4a807bff
 	Checksum: 0x45054112
 	Offset: 0xBA8
@@ -164,7 +164,7 @@ function private function_e4b33b89(var_a276c861)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_64809180(var_a276c861, var_19e802fa)
+function private step_1_cleanup(var_a276c861, var_19e802fa)
 {
 	if(!var_a276c861)
 	{
@@ -303,7 +303,7 @@ function private function_fee02008(var_a276c861)
 }
 
 /*
-	Name: function_bb332956
+	Name: step_2_cleanup
 	Namespace: namespace_4a807bff
 	Checksum: 0x82931BDC
 	Offset: 0x12C0
@@ -311,7 +311,7 @@ function private function_fee02008(var_a276c861)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_bb332956(var_a276c861, var_19e802fa)
+function private step_2_cleanup(var_a276c861, var_19e802fa)
 {
 	if(!var_a276c861)
 	{
@@ -369,7 +369,7 @@ function private function_aed5650e(var_a276c861)
 }
 
 /*
-	Name: function_8a5e22a9
+	Name: step_3_cleanup
 	Namespace: namespace_4a807bff
 	Checksum: 0x423EB647
 	Offset: 0x16E8
@@ -377,7 +377,7 @@ function private function_aed5650e(var_a276c861)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_8a5e22a9(var_a276c861, var_19e802fa)
+function private step_3_cleanup(var_a276c861, var_19e802fa)
 {
 	if(var_19e802fa)
 	{
@@ -544,7 +544,7 @@ function private function_fb4f668c(var_a276c861)
 }
 
 /*
-	Name: function_d332dd57
+	Name: step_4_cleanup
 	Namespace: namespace_4a807bff
 	Checksum: 0xA113C1E3
 	Offset: 0x1D90
@@ -552,7 +552,7 @@ function private function_fb4f668c(var_a276c861)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_d332dd57(var_a276c861, var_19e802fa)
+function private step_4_cleanup(var_a276c861, var_19e802fa)
 {
 	scene::add_scene_func(#"p8_fxanim_zm_zod_tentacle_bundle", &spawn_tricannon);
 	scene::add_scene_func(#"p8_fxanim_zm_zod_tentacle_bundle", &function_d3351bf7, "done");
@@ -804,7 +804,7 @@ function private registerblinkingshouldshowpain(e_player)
 		{
 			case "decay":
 			{
-				if(var_9102824b.name == #"hash_95dd69e40d99560" || var_9102824b.name == #"hash_337a0bfc51449d31")
+				if(var_9102824b.name == #"ww_tricannon_earth_t8" || var_9102824b.name == #"ww_tricannon_earth_t8_upgraded")
 				{
 					if(zm_utility::is_standard())
 					{
@@ -858,7 +858,7 @@ function private registerblinkingshouldshowpain(e_player)
 			}
 			case "plasma":
 			{
-				if(var_9102824b.name == #"hash_539f784146391d2" || var_9102824b.name == #"hash_34415d7a97a7d783")
+				if(var_9102824b.name == #"ww_tricannon_fire_t8" || var_9102824b.name == #"ww_tricannon_fire_t8_upgraded")
 				{
 					if(zm_utility::is_standard())
 					{
@@ -912,7 +912,7 @@ function private registerblinkingshouldshowpain(e_player)
 			}
 			case "purity":
 			{
-				if(var_9102824b.name == #"hash_5004e2171c2be97d" || var_9102824b.name == #"hash_3b5823adc79b4e56")
+				if(var_9102824b.name == #"ww_tricannon_water_t8" || var_9102824b.name == #"ww_tricannon_water_t8_upgraded")
 				{
 					if(zm_utility::is_standard())
 					{
@@ -966,7 +966,7 @@ function private registerblinkingshouldshowpain(e_player)
 			}
 			case "radiance":
 			{
-				if(var_9102824b.name == #"hash_7d7f0dbb00201240" || var_9102824b.name == #"hash_2909dcf2d0d6eed1")
+				if(var_9102824b.name == #"ww_tricannon_air_t8" || var_9102824b.name == #"ww_tricannon_air_t8_upgraded")
 				{
 					if(zm_utility::is_standard())
 					{
@@ -1072,12 +1072,12 @@ function function_ae6c3cf2()
 		{
 			continue;
 		}
-		var_c713c910 = user function_8f59b576();
-		if(!isdefined(var_c713c910))
+		w_tricannon = user function_8f59b576();
+		if(!isdefined(w_tricannon))
 		{
 			continue;
 		}
-		n_cost = function_9b8016f1(var_c713c910);
+		n_cost = function_9b8016f1(w_tricannon);
 		if(user zm_score::can_player_purchase(n_cost))
 		{
 			level thread function_e00eae6(user);
@@ -1105,25 +1105,25 @@ function private function_e00eae6(e_player)
 		{
 			case "decay":
 			{
-				var_be9badbc = #"hash_95dd69e40d99560";
+				var_be9badbc = #"ww_tricannon_earth_t8";
 				var_73d97896 = 2;
 				break;
 			}
 			case "plasma":
 			{
-				var_be9badbc = #"hash_539f784146391d2";
+				var_be9badbc = #"ww_tricannon_fire_t8";
 				var_73d97896 = 3;
 				break;
 			}
 			case "purity":
 			{
-				var_be9badbc = #"hash_5004e2171c2be97d";
+				var_be9badbc = #"ww_tricannon_water_t8";
 				var_73d97896 = 1;
 				break;
 			}
 			case "radiance":
 			{
-				var_be9badbc = #"hash_7d7f0dbb00201240";
+				var_be9badbc = #"ww_tricannon_air_t8";
 				var_73d97896 = 4;
 				break;
 			}
@@ -1132,7 +1132,7 @@ function private function_e00eae6(e_player)
 				/#
 					assert(0, "");
 				#/
-				var_be9badbc = #"hash_5b8d1ff4b772bd85";
+				var_be9badbc = #"ww_tricannon_t8";
 				break;
 			}
 		}
@@ -1478,16 +1478,16 @@ function private function_d37acf8a()
 	{
 		switch(weapon.name)
 		{
-			case "hash_539f784146391d2":
-			case "hash_95dd69e40d99560":
-			case "hash_e992907ddf45c9e":
-			case "hash_2909dcf2d0d6eed1":
-			case "hash_337a0bfc51449d31":
-			case "hash_34415d7a97a7d783":
-			case "hash_3b5823adc79b4e56":
-			case "hash_5004e2171c2be97d":
-			case "hash_5b8d1ff4b772bd85":
-			case "hash_7d7f0dbb00201240":
+			case "ww_tricannon_fire_t8":
+			case "ww_tricannon_earth_t8":
+			case "ww_tricannon_t8_upgraded":
+			case "ww_tricannon_air_t8_upgraded":
+			case "ww_tricannon_earth_t8_upgraded":
+			case "ww_tricannon_fire_t8_upgraded":
+			case "ww_tricannon_water_t8_upgraded":
+			case "ww_tricannon_water_t8":
+			case "ww_tricannon_t8":
+			case "ww_tricannon_air_t8":
 			{
 				return true;
 			}
@@ -1512,16 +1512,16 @@ function private function_8f59b576()
 	{
 		switch(weapon.name)
 		{
-			case "hash_539f784146391d2":
-			case "hash_95dd69e40d99560":
-			case "hash_e992907ddf45c9e":
-			case "hash_2909dcf2d0d6eed1":
-			case "hash_337a0bfc51449d31":
-			case "hash_34415d7a97a7d783":
-			case "hash_3b5823adc79b4e56":
-			case "hash_5004e2171c2be97d":
-			case "hash_5b8d1ff4b772bd85":
-			case "hash_7d7f0dbb00201240":
+			case "ww_tricannon_fire_t8":
+			case "ww_tricannon_earth_t8":
+			case "ww_tricannon_t8_upgraded":
+			case "ww_tricannon_air_t8_upgraded":
+			case "ww_tricannon_earth_t8_upgraded":
+			case "ww_tricannon_fire_t8_upgraded":
+			case "ww_tricannon_water_t8_upgraded":
+			case "ww_tricannon_water_t8":
+			case "ww_tricannon_t8":
+			case "ww_tricannon_air_t8":
 			{
 				return weapon;
 			}
@@ -1545,16 +1545,16 @@ function private is_tricannon(weapon)
 	{
 		switch(weapon.name)
 		{
-			case "hash_539f784146391d2":
-			case "hash_95dd69e40d99560":
-			case "hash_e992907ddf45c9e":
-			case "hash_2909dcf2d0d6eed1":
-			case "hash_337a0bfc51449d31":
-			case "hash_34415d7a97a7d783":
-			case "hash_3b5823adc79b4e56":
-			case "hash_5004e2171c2be97d":
-			case "hash_5b8d1ff4b772bd85":
-			case "hash_7d7f0dbb00201240":
+			case "ww_tricannon_fire_t8":
+			case "ww_tricannon_earth_t8":
+			case "ww_tricannon_t8_upgraded":
+			case "ww_tricannon_air_t8_upgraded":
+			case "ww_tricannon_earth_t8_upgraded":
+			case "ww_tricannon_fire_t8_upgraded":
+			case "ww_tricannon_water_t8_upgraded":
+			case "ww_tricannon_water_t8":
+			case "ww_tricannon_t8":
+			case "ww_tricannon_air_t8":
 			{
 				return true;
 			}
@@ -1585,11 +1585,11 @@ function private function_81d8403b(weapon)
 	{
 		switch(weapon.name)
 		{
-			case "hash_e992907ddf45c9e":
-			case "hash_2909dcf2d0d6eed1":
-			case "hash_337a0bfc51449d31":
-			case "hash_34415d7a97a7d783":
-			case "hash_3b5823adc79b4e56":
+			case "ww_tricannon_t8_upgraded":
+			case "ww_tricannon_air_t8_upgraded":
+			case "ww_tricannon_earth_t8_upgraded":
+			case "ww_tricannon_fire_t8_upgraded":
+			case "ww_tricannon_water_t8_upgraded":
 			{
 				return true;
 			}

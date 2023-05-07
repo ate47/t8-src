@@ -670,7 +670,7 @@ function traverseactionstart(behaviortreeentity, asmstatename)
 		}
 		else
 		{
-			record3dtext("" + (function_7a600918(result[#"animation"]) ? function_9e72a96(result[#"animation"]) : result[#"animation"]), self.origin + vectorscale((0, 0, 1), 16), (1, 0, 0), "");
+			record3dtext("" + (ishash(result[#"animation"]) ? function_9e72a96(result[#"animation"]) : result[#"animation"]), self.origin + vectorscale((0, 0, 1), 16), (1, 0, 0), "");
 		}
 	#/
 	animationstatenetworkutility::requeststate(behaviortreeentity, asmstatename);

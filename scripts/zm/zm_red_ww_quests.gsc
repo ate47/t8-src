@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\ai\archetype_catalyst.gsc;
 #using script_35598499769dbb3d;
 #using script_3aa54d3cb36ea43f;
@@ -3566,10 +3566,10 @@ function function_29022c99()
 	level.var_46c8296a.var_80d10658 = getent("ouranos_arrow_center_clip", "targetname");
 	level.var_46c8296a.var_688d8a36 = 1;
 	self.var_267d1e6 = 0;
-	var_d8d81b7 = getent("mdl_shrine_feathers_complete", "targetname");
-	var_d8d81b7 hidepart("tag_feather_01");
-	var_d8d81b7 hidepart("tag_feather_02");
-	var_d8d81b7 hidepart("tag_feather_03");
+	mdl_shrine_feathers = getent("mdl_shrine_feathers_complete", "targetname");
+	mdl_shrine_feathers hidepart("tag_feather_01");
+	mdl_shrine_feathers hidepart("tag_feather_02");
+	mdl_shrine_feathers hidepart("tag_feather_03");
 }
 
 /*
@@ -3809,8 +3809,8 @@ function function_6d466962(var_8290a028, s_original, var_9bf51af3, e_player = un
 		s_original.var_c96a48c3 thread scene::play(var_511277e5, "break", s_original.var_c96a48c3);
 		s_original.var_688d8a36 = 0;
 		var_8290a028 scene::play(var_e3ed6c41, var_8806d469, var_9bf51af3);
-		var_d8d81b7 = getent("mdl_shrine_feathers_complete", "targetname");
-		var_d8d81b7 showpart(var_adcf0d98);
+		mdl_shrine_feathers = getent("mdl_shrine_feathers_complete", "targetname");
+		mdl_shrine_feathers showpart(var_adcf0d98);
 		var_8290a028 delete();
 		var_9bf51af3 delete();
 		if(isdefined(s_original.var_80d10658))

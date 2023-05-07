@@ -13,11 +13,11 @@
 #using scripts\zm_common\zm_blockers.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_6f53a9bb;
+#namespace zm_trial_door_lockdown;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x3A373AE6
 	Offset: 0x140
 	Size: 0x3C
@@ -26,12 +26,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_530f1e3dbb50b5f6", &__init__, undefined, undefined);
+	system::register(#"zm_trial_door_lockdown", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0xB95E9AFC
 	Offset: 0x188
 	Size: 0x9C
@@ -44,13 +44,13 @@ function __init__()
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "" + #"hash_530f1e3dbb50b5f6", 16000, 1, "int");
+	clientfield::register("scriptmover", "" + #"zm_trial_door_lockdown", 16000, 1, "int");
 	zm_trial::register_challenge(#"door_lockdown", &on_begin, &on_end);
 }
 
 /*
 	Name: on_begin
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x7FD88030
 	Offset: 0x230
 	Size: 0xCC
@@ -69,7 +69,7 @@ function private on_begin()
 
 /*
 	Name: on_end
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0xBBDA85B5
 	Offset: 0x308
 	Size: 0xCC
@@ -88,7 +88,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x5B00F1B1
 	Offset: 0x3E0
 	Size: 0x32
@@ -103,7 +103,7 @@ function is_active()
 
 /*
 	Name: function_58fc4e38
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x9A4938D3
 	Offset: 0x420
 	Size: 0x190
@@ -123,13 +123,13 @@ function function_58fc4e38(n_delay = 0)
 		}
 		s_blocker.mdl_blocker ghost();
 		util::wait_network_frame();
-		s_blocker.mdl_blocker clientfield::set("" + #"hash_530f1e3dbb50b5f6", 1);
+		s_blocker.mdl_blocker clientfield::set("" + #"zm_trial_door_lockdown", 1);
 	}
 }
 
 /*
 	Name: function_92f23ef0
-	Namespace: namespace_6f53a9bb
+	Namespace: zm_trial_door_lockdown
 	Checksum: 0x6CAC6F61
 	Offset: 0x5B8
 	Size: 0x128
@@ -145,7 +145,7 @@ function function_92f23ef0(n_delay = 0)
 	{
 		if(isdefined(s_blocker.mdl_blocker))
 		{
-			s_blocker.mdl_blocker clientfield::set("" + #"hash_530f1e3dbb50b5f6", 0);
+			s_blocker.mdl_blocker clientfield::set("" + #"zm_trial_door_lockdown", 0);
 			util::wait_network_frame();
 			s_blocker.mdl_blocker delete();
 		}

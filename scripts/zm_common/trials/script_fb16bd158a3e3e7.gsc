@@ -434,9 +434,9 @@ function private on_begin(var_e097dc07, var_f5300808)
 			level zm_trial::function_25ee130(1);
 			break;
 		}
-		case "hash_19a4271a5452dc0b":
+		case "stake_knife":
 		{
-			var_e7beaa5 = array(#"hash_19a4271a5452dc0b", #"zhield_dw", #"knife", #"bowie_knife");
+			var_e7beaa5 = array(#"stake_knife", #"zhield_dw", #"knife", #"bowie_knife");
 			level zm_trial::function_25ee130(1);
 			break;
 		}
@@ -456,7 +456,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 		}
 		case "shield":
 		{
-			var_e7beaa5 = array(#"zhield_zword_dw", #"hash_68bfa6918dc2eb81", #"hash_2421d32eb1a6a4a5", #"hash_6dc04683a260fcfe", #"hash_237b6756a81881cb", #"hash_2f351450f2e936dc");
+			var_e7beaa5 = array(#"zhield_zword_dw", #"zhield_zword_dw_upgraded", #"hash_2421d32eb1a6a4a5", #"hash_6dc04683a260fcfe", #"hash_237b6756a81881cb", #"hash_2f351450f2e936dc");
 			level zm_trial::function_25ee130(1);
 			break;
 		}

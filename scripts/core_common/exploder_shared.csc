@@ -361,7 +361,7 @@ function activate_radiant_exploder(string)
 */
 function stop_exploder(exploder_id)
 {
-	if(isstring(exploder_id) || function_7a600918(exploder_id))
+	if(isstring(exploder_id) || ishash(exploder_id))
 	{
 		for(localclientnum = 0; localclientnum < level.localplayers.size; localclientnum++)
 		{
@@ -402,7 +402,7 @@ function stop_exploder(exploder_id)
 */
 function kill_exploder(exploder_id)
 {
-	if(isstring(exploder_id) || function_7a600918(exploder_id))
+	if(isstring(exploder_id) || ishash(exploder_id))
 	{
 		for(localclientnum = 0; localclientnum < level.localplayers.size; localclientnum++)
 		{

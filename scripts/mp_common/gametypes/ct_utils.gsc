@@ -4381,7 +4381,7 @@ function function_2daf1983(str_weapon, b_immediate = 1, n_delay)
 */
 function give_weapon(the_weapon, b_immediate = 1, var_738b1542 = 0)
 {
-	if(isstring(the_weapon) || function_7a600918(the_weapon))
+	if(isstring(the_weapon) || ishash(the_weapon))
 	{
 		weapon = getweapon(the_weapon);
 	}

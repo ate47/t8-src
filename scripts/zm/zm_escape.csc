@@ -10,7 +10,7 @@
 #using scripts\zm\weapons\zm_weap_minigun.csc;
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
 #using script_3c345dd878d144b7;
-#using script_3d09dc1e349814c;
+#using scripts\zm_common\trials\zm_trial_door_lockdown.csc;
 #using script_43de70169069c6ab;
 #using script_4f8f41168a7c3ea8;
 #using script_5db30ea2f37108d;

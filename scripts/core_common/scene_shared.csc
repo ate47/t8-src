@@ -1986,7 +1986,7 @@ class cscene : cscriptbundlebase
 	*/
 	function function_1013fc5b()
 	{
-		if(isstring(_s.cameraswitcher) || function_7a600918(_s.cameraswitcher))
+		if(isstring(_s.cameraswitcher) || ishash(_s.cameraswitcher))
 		{
 			a_players = getlocalplayers();
 			foreach(player in a_players)
@@ -3422,7 +3422,7 @@ function fixup_scenedef(s_scenedef)
 	}
 	s_scenedef.editaction = undefined;
 	s_scenedef.newobject = undefined;
-	if(isstring(s_scenedef.femalebundle) || function_7a600918(s_scenedef.femalebundle))
+	if(isstring(s_scenedef.femalebundle) || ishash(s_scenedef.femalebundle))
 	{
 		s_female_bundle = struct::get_script_bundle("scene", s_scenedef.femalebundle);
 		s_female_bundle.malebundle = s_scenedef.name;
@@ -3449,7 +3449,7 @@ function fixup_scenedef(s_scenedef)
 	{
 		level.scene_streamer_ignore[s_scenedef.name] = 1;
 	}
-	if(isstring(s_scenedef.nextscenebundle) || function_7a600918(s_scenedef.nextscenebundle))
+	if(isstring(s_scenedef.nextscenebundle) || ishash(s_scenedef.nextscenebundle))
 	{
 		s_next_bundle = s_scenedef;
 		while(isdefined(s_next_bundle))
@@ -4225,7 +4225,7 @@ function function_dde5f483(str_scenedef, n_elapsed_time)
 */
 function function_8582657c(var_b9a72490, str_shot)
 {
-	if(isstring(var_b9a72490) || function_7a600918(var_b9a72490))
+	if(isstring(var_b9a72490) || ishash(var_b9a72490))
 	{
 		s_scenedef = get_scenedef(var_b9a72490);
 	}
@@ -4302,7 +4302,7 @@ function play(arg1, arg2, arg3, b_test_run = 0, str_mode = "", n_time)
 	if(self == level)
 	{
 		a_instances = [];
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg1) && issubstr(arg1, ","))
 			{
@@ -4442,7 +4442,7 @@ function function_46546b5c(s_tracker, str_scenedef)
 */
 function _play_on_self(s_tracker, arg1, arg2, arg3, b_test_run = 0, str_mode = "", n_time)
 {
-	if(isstring(arg1) || function_7a600918(arg1))
+	if(isstring(arg1) || ishash(arg1))
 	{
 		if(isinarray(level.scenedefs, hash(arg1)))
 		{
@@ -4613,7 +4613,7 @@ function stop(arg1, arg2, arg3, b_cancel, b_no_assert = 0)
 {
 	if(self == level)
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg2))
 			{
@@ -4659,7 +4659,7 @@ function stop(arg1, arg2, arg3, b_cancel, b_no_assert = 0)
 	}
 	else
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			_stop_instance(arg2, arg1, b_cancel);
 		}
@@ -4722,7 +4722,7 @@ function delete_scene_spawned_ents(localclientnum, arg1)
 	if(self == level)
 	{
 		a_instances = [];
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			if(isstring(arg1) && issubstr(arg1, ","))
 			{
@@ -4754,7 +4754,7 @@ function delete_scene_spawned_ents(localclientnum, arg1)
 	}
 	else
 	{
-		if(isstring(arg1) || function_7a600918(arg1))
+		if(isstring(arg1) || ishash(arg1))
 		{
 			str_scenedef = arg1;
 		}

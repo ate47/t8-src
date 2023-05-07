@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\zm_common\zm.csc;
 
-#namespace namespace_5507dc3;
+#namespace zm_trial_disable_hud;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0xF7B74A4
 	Offset: 0x88
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_6eed28033e443596", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_hud", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x60F54E8E
 	Offset: 0xD0
 	Size: 0x5C
@@ -35,12 +35,12 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_hud", &on_begin, &on_end);
 }
 
 /*
 	Name: on_begin
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0x2FA80FF9
 	Offset: 0x138
 	Size: 0x2C
@@ -54,7 +54,7 @@ function private on_begin(local_client_num, params)
 
 /*
 	Name: function_40349f7c
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0xB04260E7
 	Offset: 0x170
 	Size: 0x1A2
@@ -85,7 +85,7 @@ function function_40349f7c(localclientnum)
 
 /*
 	Name: on_end
-	Namespace: namespace_5507dc3
+	Namespace: zm_trial_disable_hud
 	Checksum: 0xF81C5BDC
 	Offset: 0x320
 	Size: 0x18A

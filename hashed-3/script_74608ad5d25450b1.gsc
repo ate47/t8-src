@@ -555,7 +555,7 @@ function private function_6f437b06()
 }
 
 /*
-	Name: function_f05be4f1
+	Name: cleanup_step_2
 	Namespace: namespace_3b2b9e06
 	Checksum: 0x23375439
 	Offset: 0x1830
@@ -563,7 +563,7 @@ function private function_6f437b06()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_f05be4f1()
+function private cleanup_step_2()
 {
 	function_6f437b06();
 	var_5a7b8007 = getentarray("mk2x_goo", "targetname");
@@ -733,7 +733,7 @@ function private function_2ac1278b()
 }
 
 /*
-	Name: function_bafa7a2b
+	Name: cleanup_step_3
 	Namespace: namespace_3b2b9e06
 	Checksum: 0xAC9028E8
 	Offset: 0x1E78
@@ -741,7 +741,7 @@ function private function_2ac1278b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bafa7a2b()
+function cleanup_step_3()
 {
 	if(isdefined(level.var_ae5fb719.var_fead3ae9))
 	{
@@ -869,12 +869,12 @@ function private function_ac5deb51(var_e19b7aed = 1)
 		}
 		case 2:
 		{
-			function_f05be4f1();
+			cleanup_step_2();
 			break;
 		}
 		case 3:
 		{
-			function_bafa7a2b();
+			cleanup_step_3();
 			break;
 		}
 	}

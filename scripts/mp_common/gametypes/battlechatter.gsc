@@ -947,7 +947,7 @@ function function_7139078d()
 		{
 			if(isdefined(result.suppressor.turretweapon))
 			{
-				if(result.suppressor.turretweapon.name == #"hash_36a6454f13b54f18")
+				if(result.suppressor.turretweapon.name == #"gun_ultimate_turret")
 				{
 					result.suppressor.var_87b1ba00 = 1;
 					self play_killstreak_threat(result.suppressor.killstreaktype);

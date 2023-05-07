@@ -1333,7 +1333,7 @@ function private function_d126318c(slot, weapon)
 	rootweaponname = weapon.rootweapon.name;
 	if(weapon.isdualwield)
 	{
-		if(#"hash_1b055fadc5573c29" == rootweaponname)
+		if(#"smg_handling_t8_dw" == rootweaponname)
 		{
 			rootweaponname = #"smg_handling_t8";
 		}

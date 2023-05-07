@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1793e0dffb81a6c8;
-#using script_31ae83578c48a594;
+#using scripts\zm_common\trials\zm_trial_disable_hud.csc;
 #using scripts\zm_common\zm_trial.csc;
 #using scripts\zm_common\zm_trial_util.csc;
 #using script_45657e86e8f90414;

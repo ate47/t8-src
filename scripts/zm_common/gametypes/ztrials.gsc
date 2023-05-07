@@ -14,7 +14,7 @@
 #using script_4aeb3279b6b23a91;
 #using script_512d27609721ec85;
 #using script_536485e2fdf72e34;
-#using script_559aef57a0fe3c60;
+#using scripts\zm_common\trials\zm_trial_disable_hud.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\trials\zm_trial_timeout.gsc;
 #using script_6951ea86fdae9ae0;

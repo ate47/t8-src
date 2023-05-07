@@ -45,7 +45,7 @@ function init()
 {
 	init_clientfields();
 	init_flags();
-	function_88d1bd71();
+	init_quest();
 }
 
 /*
@@ -84,7 +84,7 @@ function init_flags()
 }
 
 /*
-	Name: function_88d1bd71
+	Name: init_quest
 	Namespace: namespace_87e11242
 	Checksum: 0x9F8E0249
 	Offset: 0x468
@@ -92,7 +92,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_88d1bd71()
+function init_quest()
 {
 	level.s_fix_server = struct::get("fix_server", "targetname");
 	level.s_fix_server_spark_fx = struct::get("fix_server_spark_fx", "targetname");

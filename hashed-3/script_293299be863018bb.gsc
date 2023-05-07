@@ -18,7 +18,7 @@
 function init()
 {
 	init_flags();
-	function_88d1bd71();
+	init_quest();
 }
 
 /*
@@ -40,7 +40,7 @@ function init_flags()
 }
 
 /*
-	Name: function_88d1bd71
+	Name: init_quest
 	Namespace: namespace_6f62781f
 	Checksum: 0x8024A27B
 	Offset: 0x1A0
@@ -48,7 +48,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_88d1bd71()
+function init_quest()
 {
 	level.var_51acdb19 = getent("dempsey_grenade", "targetname");
 	level.var_a7a99ef1 = struct::get(#"hash_5720572540b41747");
@@ -286,7 +286,7 @@ function function_2c09c7d2(var_5ea5c94d, ended_early)
 function grenade_watcher()
 {
 	level endon(#"end_game");
-	self endon(#"hash_6bd75ef75b59f0b9");
+	self endon(#"step_completed");
 	while(true)
 	{
 		waitresult = undefined;
@@ -298,27 +298,27 @@ function grenade_watcher()
 				case 0:
 				{
 					level flag::set(#"hash_3e2d063d97c06905");
-					self notify(#"hash_6bd75ef75b59f0b9");
+					self notify(#"step_completed");
 				}
 				case 1:
 				{
 					level flag::set(#"hash_8987a45b2eda7c4");
-					self notify(#"hash_6bd75ef75b59f0b9");
+					self notify(#"step_completed");
 				}
 				case 2:
 				{
 					level flag::set(#"hash_743603caa0ee0976");
-					self notify(#"hash_6bd75ef75b59f0b9");
+					self notify(#"step_completed");
 				}
 				case 3:
 				{
 					level flag::set(#"hash_370781d7705e4e18");
-					self notify(#"hash_6bd75ef75b59f0b9");
+					self notify(#"step_completed");
 				}
 				case 4:
 				{
 					level flag::set(#"hash_3b152242499836c8");
-					self notify(#"hash_6bd75ef75b59f0b9");
+					self notify(#"step_completed");
 				}
 			}
 			level.var_440b230b = level.round_number;

@@ -67,7 +67,7 @@ function __init__()
 	level.var_c9d375dc.firestorm_weapon = getweapon(#"hash_237b6756a81881cb");
 	level.var_c9d375dc.melee_weapon = getweapon(#"zhield_zword_dw");
 	level.var_c9d375dc.var_e9ffbbed = getweapon(#"hash_2f351450f2e936dc");
-	level.var_c9d375dc.var_2039b8da = getweapon(#"hash_68bfa6918dc2eb81");
+	level.var_c9d375dc.var_2039b8da = getweapon(#"zhield_zword_dw_upgraded");
 	level.var_70f7eb75 = level.var_c9d375dc.var_2039b8da;
 	callback::on_connect(&player_init);
 	level.riotshield_melee = &function_fbe77fa4;
@@ -202,7 +202,7 @@ function player_init()
 */
 function function_28f576a9(player)
 {
-	var_710873d9 = getweapon(#"hash_68bfa6918dc2eb81");
+	var_710873d9 = getweapon(#"zhield_zword_dw_upgraded");
 	if(!player hasweapon(var_710873d9) && (isdefined(player.var_5ba94c1e) && player.var_5ba94c1e))
 	{
 		self.hint_string = zm_utility::function_d6046228(#"hash_33e05a25f080d845", #"hash_c69465e0b5ec27b");
@@ -249,7 +249,7 @@ function function_22d79d55(player)
 		return true;
 	}
 	w_shield = getweapon(#"zhield_zword_dw");
-	var_710873d9 = getweapon(#"hash_68bfa6918dc2eb81");
+	var_710873d9 = getweapon(#"zhield_zword_dw_upgraded");
 	if(player != self.parent_player)
 	{
 		return false;

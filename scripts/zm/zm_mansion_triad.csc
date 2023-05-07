@@ -39,9 +39,9 @@ function init_clientfields()
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp1", 8000, #"kp_1", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp2", 8000, #"kp_2", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp3", 8000, #"kp_3", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"hash_5ff0996978af5e05", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"hash_2e71806f86ca448c", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"hash_11f38acf5e773a0b", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"kp_1_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"kp_2_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"kp_3_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_forest", 8000, #"kp_forest", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
 }
 

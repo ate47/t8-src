@@ -242,8 +242,8 @@ function function_3f6dfc34(localclientnum)
 		self function_116b95e5("pstfx_speedblur_wz", #"blur", blur.blur);
 		self function_116b95e5("pstfx_speedblur_wz", #"hash_77259d33b3998de9", blur.innermask);
 		self function_116b95e5("pstfx_speedblur_wz", #"hash_1a3ba6e8a0732aac", blur.outermask);
-		self function_116b95e5("pstfx_speedblur_wz", #"hash_76234e080252eaea", blur.xoffset);
-		self function_116b95e5("pstfx_speedblur_wz", #"hash_13914e9a081eb747", blur.yoffset);
+		self function_116b95e5("pstfx_speedblur_wz", #"x offset", blur.xoffset);
+		self function_116b95e5("pstfx_speedblur_wz", #"y offset", blur.yoffset);
 	}
 }
 

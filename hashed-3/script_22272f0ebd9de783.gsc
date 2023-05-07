@@ -174,9 +174,9 @@ function function_8fe2d903()
 		if(t_trap.script_string === self.script_string)
 		{
 			var_deed061f = getentarray(t_trap.target, "targetname");
-			var_db919ceb = getent(var_deed061f[0].target, "targetname");
-			var_db919ceb scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 1", var_db919ceb);
-			var_db919ceb thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 2", var_db919ceb);
+			mdl_trap = getent(var_deed061f[0].target, "targetname");
+			mdl_trap scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 1", mdl_trap);
+			mdl_trap thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 2", mdl_trap);
 			t_trap thread zm_traps::trap_damage();
 		}
 	}
@@ -186,8 +186,8 @@ function function_8fe2d903()
 		if(t_trap.script_string === self.script_string)
 		{
 			var_deed061f = getentarray(t_trap.target, "targetname");
-			var_db919ceb = getent(var_deed061f[0].target, "targetname");
-			var_db919ceb thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 3", var_db919ceb);
+			mdl_trap = getent(var_deed061f[0].target, "targetname");
+			mdl_trap thread scene::play("p8_fxanim_zm_towers_trap_blade_01_bundle", "Shot 3", mdl_trap);
 			t_trap notify(#"trap_done");
 		}
 	}

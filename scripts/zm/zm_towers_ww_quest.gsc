@@ -87,8 +87,8 @@ function init()
 	v_angles = var_1fd4478b.angles;
 	var_1fd4478b struct::delete();
 	level.var_240da80 = util::spawn_model(#"p8_zm_gla_spile_serket_head_01", v_origin, v_angles);
-	var_9581be99 = struct::get_array("s_ww_quest_acid_trap_unitrigger");
-	array::thread_all(var_9581be99, &function_a58dfad4);
+	a_s_acid_traps = struct::get_array("s_ww_quest_acid_trap_unitrigger");
+	array::thread_all(a_s_acid_traps, &function_a58dfad4);
 	zm_crafting::function_d1f16587(#"zblueprint_trap_hellpools", &function_b4bc6524);
 }
 
@@ -404,13 +404,13 @@ function function_c4e5bf05(b_skipped, var_19e802fa)
 	arrayremovevalue(var_70d5933e, level.var_708e0925);
 	foreach(var_f4dad7ae in var_70d5933e)
 	{
-		var_dca0e32e = struct::get(var_f4dad7ae, "script_ww_quest_acid_trap_unitrigger");
-		a_s_parts = struct::get_array(var_dca0e32e.target);
+		s_acid_trap = struct::get(var_f4dad7ae, "script_ww_quest_acid_trap_unitrigger");
+		a_s_parts = struct::get_array(s_acid_trap.target);
 		foreach(s_part in a_s_parts)
 		{
 			s_part struct::delete();
 		}
-		var_dca0e32e struct::delete();
+		s_acid_trap struct::delete();
 	}
 	level flag::set(#"hash_57454e59c155098d");
 	level thread function_d7f0e50e();

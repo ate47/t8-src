@@ -178,11 +178,11 @@ function private function_b60df00d()
 	s_cabinet = level.var_74170866.s_cabinet;
 	var_5760bda2 = util::spawn_model(s_cabinet.model, s_cabinet.origin, s_cabinet.angles);
 	s_cabinet.var_5760bda2 = var_5760bda2;
-	level thread function_a36bdf11();
+	level thread run_step_1();
 }
 
 /*
-	Name: function_a36bdf11
+	Name: run_step_1
 	Namespace: namespace_90b0490e
 	Checksum: 0xF0520C83
 	Offset: 0xB08
@@ -190,7 +190,7 @@ function private function_b60df00d()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a36bdf11()
+function private run_step_1()
 {
 	level endon(#"end_game", #"insanity_mode_triggered");
 	if(isdefined(level.var_74170866.s_cabinet.a_e_doors[0]))
@@ -324,11 +324,11 @@ function private function_87e09347()
 	}
 	exploder::exploder(("fxexp_mk2_Z_smoke_chimney_" + level.var_74170866.s_fireplace.script_string) + "_house");
 	level.var_74170866.n_step = 2;
-	level thread function_91563ae6();
+	level thread run_step_2();
 }
 
 /*
-	Name: function_91563ae6
+	Name: run_step_2
 	Namespace: namespace_90b0490e
 	Checksum: 0xE6B70604
 	Offset: 0x12C8
@@ -336,7 +336,7 @@ function private function_87e09347()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_91563ae6()
+function private run_step_2()
 {
 	level endon(#"end_game", #"hash_7456b125dbebe41c");
 	pixbeginevent(#"hash_2573979b6db7cb52");
@@ -360,7 +360,7 @@ function private function_91563ae6()
 }
 
 /*
-	Name: function_f05be4f1
+	Name: cleanup_step_2
 	Namespace: namespace_90b0490e
 	Checksum: 0x3644276E
 	Offset: 0x1510
@@ -368,7 +368,7 @@ function private function_91563ae6()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_f05be4f1()
+function private cleanup_step_2()
 {
 	exploder::stop_exploder(("fxexp_mk2_Z_smoke_chimney_" + level.var_74170866.s_fireplace.script_string) + "_house");
 }
@@ -587,7 +587,7 @@ function private function_2ac1278b()
 }
 
 /*
-	Name: function_bafa7a2b
+	Name: cleanup_step_3
 	Namespace: namespace_90b0490e
 	Checksum: 0x934C8ACE
 	Offset: 0x1DA0
@@ -595,7 +595,7 @@ function private function_2ac1278b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bafa7a2b()
+function cleanup_step_3()
 {
 	exploder::stop_exploder(("fxexp_mk2_Z_fire_chimney_" + level.var_74170866.s_fireplace.script_string) + "_house");
 	if(isdefined(level.var_74170866.var_fead3ae9))
@@ -710,12 +710,12 @@ function private function_ac5deb51(var_e19b7aed = 1)
 		}
 		case 2:
 		{
-			function_f05be4f1();
+			cleanup_step_2();
 			break;
 		}
 		case 3:
 		{
-			function_bafa7a2b();
+			cleanup_step_3();
 			break;
 		}
 	}

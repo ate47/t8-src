@@ -879,12 +879,12 @@ function function_150a8541()
 	while(true)
 	{
 		self.owner waittill(#"loadout_given");
-		var_db4f9c48 = self.owner function_3c54ae98(self.setype);
+		newres = self.owner function_3c54ae98(self.setype);
 		currtime = level.time;
-		if(var_db4f9c48 != var_eff9d37f)
+		if(newres != var_eff9d37f)
 		{
 			timeremaining = self.endtime - currtime;
-			timeremaining = timeremaining * var_db4f9c48;
+			timeremaining = timeremaining * newres;
 			self.endtime = int(currtime + timeremaining);
 			self.duration = int(timeremaining);
 		}

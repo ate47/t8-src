@@ -9,9 +9,9 @@
 #using scripts\killstreaks\mp\killstreaks.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
-#using script_2d050f995be06579;
+#using scripts\mp_common\gametypes\radar_sweeps.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_457dc1cc11263d2b;
+#using scripts\core_common\high_value_operative.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;

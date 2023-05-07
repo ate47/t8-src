@@ -1218,7 +1218,7 @@ function private function_358a2fc7()
 	while(isdefined(self))
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_2d4daa9e80b86b60");
+		waitresult = self waittill(#"zone_change");
 		self thread function_d7eef1bc(waitresult.zone, waitresult.zone_name);
 	}
 }
@@ -1260,7 +1260,7 @@ function private function_5b353bb7()
 */
 function private function_d7eef1bc(zone, zone_name)
 {
-	self endon(#"hash_2d4daa9e80b86b60");
+	self endon(#"zone_change");
 	function_5b353bb7();
 	candidate_list = level.zones[zone_name].unitrigger_stubs;
 	if(isarray(candidate_list))

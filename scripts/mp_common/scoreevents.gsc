@@ -1365,10 +1365,10 @@ function function_8fe4629e(killcount, weapon)
 	{
 		self activecamo::function_896ac347(weapon, #"triplekill", triplekill);
 	}
-	var_d781da3d = int(killcount / 4);
-	if(var_d781da3d > 0)
+	furykill = int(killcount / 4);
+	if(furykill > 0)
 	{
-		self activecamo::function_896ac347(weapon, #"furykill", var_d781da3d);
+		self activecamo::function_896ac347(weapon, #"furykill", furykill);
 	}
 	var_22016f22 = int(killcount / 5);
 	if(var_22016f22 > 0)

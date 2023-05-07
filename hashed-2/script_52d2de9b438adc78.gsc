@@ -526,7 +526,7 @@ function function_d5ca3f62(player)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_2cbae477(var_babebdbc = #"hash_2742656099567e1e", var_76361c1a = "tag_flash")
+function private function_2cbae477(var_babebdbc = #"weapon/fx8_equip_swat_smk_signal", var_76361c1a = "tag_flash")
 {
 	playfxontag(var_babebdbc, self, var_76361c1a);
 	self playsound(#"hash_6c91edfde8408dad");

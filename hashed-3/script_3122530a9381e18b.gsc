@@ -414,7 +414,7 @@ function private function_6d765bb3()
 }
 
 /*
-	Name: function_f05be4f1
+	Name: cleanup_step_2
 	Namespace: namespace_ca03bbb4
 	Checksum: 0x60DC2412
 	Offset: 0x1260
@@ -422,7 +422,7 @@ function private function_6d765bb3()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f05be4f1()
+function cleanup_step_2()
 {
 	foreach(var_5c805707 in level.var_9eccff99.var_685c8f1e)
 	{
@@ -565,7 +565,7 @@ function function_e09a7418()
 {
 	exploder::stop_exploder("fxexp_quest_raygun_m2_v_stage_5_active");
 	exploder::stop_exploder("fxexp_quest_raygun_m2_v_stage_6_active");
-	function_f05be4f1();
+	cleanup_step_2();
 }
 
 /*
@@ -637,7 +637,7 @@ function private function_2ac1278b()
 }
 
 /*
-	Name: function_bafa7a2b
+	Name: cleanup_step_3
 	Namespace: namespace_ca03bbb4
 	Checksum: 0x49A69DD
 	Offset: 0x1A58
@@ -645,7 +645,7 @@ function private function_2ac1278b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bafa7a2b()
+function cleanup_step_3()
 {
 	function_e09a7418();
 	if(isdefined(level.var_9eccff99.var_fead3ae9))
@@ -775,12 +775,12 @@ function private function_ac5deb51(var_e19b7aed = 1)
 		}
 		case 2:
 		{
-			function_f05be4f1();
+			cleanup_step_2();
 			break;
 		}
 		case 3:
 		{
-			function_bafa7a2b();
+			cleanup_step_3();
 			break;
 		}
 	}

@@ -6086,7 +6086,7 @@ function function_fb482cad()
 				debug_text = "";
 			}
 			self.var_d35d1d3d settext(debug_text);
-			self waittill(#"hash_2d4daa9e80b86b60");
+			self waittill(#"zone_change");
 		}
 	#/
 }
@@ -6313,7 +6313,7 @@ function function_3a5618f8()
 		var_a6f3b62c = getdvarint(#"hash_1e8ebf0a767981dd", 0);
 		timescale = getdvarint(#"hash_7438b7c847f3c0", 0);
 		var_59ed21fc = function_29dcbd58();
-		setdvar(#"hash_5f4ab31dca8bb404", timescale);
+		setdvar(#"runtime_time_scale", timescale);
 		while(level.round_number < var_a6f3b62c)
 		{
 			foreach(var_48c6ec2e in var_59ed21fc)
@@ -6332,7 +6332,7 @@ function function_3a5618f8()
 			adddebugcommand("");
 			wait(0.2);
 		}
-		setdvar(#"hash_5f4ab31dca8bb404", 1);
+		setdvar(#"runtime_time_scale", 1);
 	#/
 }
 
@@ -6349,7 +6349,7 @@ function function_21f1fbf1()
 {
 	/#
 		self notify(#"hash_63ae1cb168b8e0d7");
-		setdvar(#"hash_5f4ab31dca8bb404", 1);
+		setdvar(#"runtime_time_scale", 1);
 	#/
 }
 

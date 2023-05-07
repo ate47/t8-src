@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_13581d8481dff471;
+#using scripts\zm\weapons\zm_weap_proximity_grenade.csc;
 #using scripts\zm_common\zm_wallbuy.csc;
 #using scripts\core_common\status_effects\status_effects.csc;
 #using scripts\zm_common\aats\zm_aat_brain_decay.csc;

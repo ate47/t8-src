@@ -46,7 +46,7 @@ function function_930e5d42(localclientnum)
 {
 	if(self function_da43934d())
 	{
-		var_369be743 = self hasperk(localclientnum, #"hash_48d89fda4346187f");
+		var_369be743 = self hasperk(localclientnum, #"specialty_paranoia");
 		var_7c49d38b = self.var_369be743 !== var_369be743;
 		if(var_7c49d38b)
 		{
@@ -125,7 +125,7 @@ function private function_3e9077b(localclientnum)
 	self endon(#"disconnect", #"shutdown", #"death");
 	self notify("1cd9d4f64a9f9459");
 	self endon("1cd9d4f64a9f9459");
-	if(!self hasperk(localclientnum, #"hash_48d89fda4346187f"))
+	if(!self hasperk(localclientnum, #"specialty_paranoia"))
 	{
 		return;
 	}

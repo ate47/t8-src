@@ -8,7 +8,7 @@
 #using scripts\zm_common\zm_characters.csc;
 #using script_2d9c4a173633aa72;
 #using script_2e85434cebf2404b;
-#using script_30ace59de1b1bb3a;
+#using scripts\zm\zm_mansion_ww_lvl3_quest.csc;
 #using script_3cd7be071a3f1ce0;
 #using script_42dd312945896668;
 #using script_47c293f002042d7e;
@@ -125,13 +125,13 @@ event main(eventstruct)
 	namespace_a8113e97::init_clientfields();
 	namespace_b6ca3ccc::init_clientfields();
 	mansion_triad::init_clientfields();
-	namespace_bfa7c2ed::init_clientfields();
-	namespace_c2ad41c5::init();
+	namespace_bfa7c2ed::init_clientfields(); // ww_crossbow_impaler_t8 quests
+	namespace_c2ad41c5::init(); // billiard balls
 	mansion_pap::init_fx();
 	mansion_pap::init_clientfields();
-	namespace_1bf74f9e::init();
+	namespace_1bf74f9e::init(); // ww lvl3 quest
 	mansion_silver_bullet::init();
-	namespace_59d4913f::init();
+	namespace_59d4913f::init(); // stake knife
 	mansion_jordans::init();
 	namespace_8f39dfb1::init();
 	ai::add_archetype_spawn_function(#"zombie_dog", &zombie_dog_spawned);

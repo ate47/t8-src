@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\ai\archetype_brutus_interface.gsc;
 #using scripts\zm\powerup\zm_powerup_nuke.gsc;
 #using script_24c32478acf44108;
@@ -213,7 +213,7 @@ function function_f2f4ced8()
 		return;
 	}
 	playsoundatposition(#"zmb_ai_brutus_spawn", self.origin);
-	if(!isdefined(level.var_b491030) || level flag::get(#"hash_4b00aa230ebbe82b"))
+	if(!isdefined(level.var_b491030) || level flag::get(#"main_quest_completed"))
 	{
 		self playsound(#"hash_5d69a47fd8c0e9e5");
 	}

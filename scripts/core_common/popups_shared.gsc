@@ -159,13 +159,13 @@ function devgui_notif_getchallengestablename(tableid)
 	/#
 		if(sessionmodeiscampaigngame())
 		{
-			return (#"hash_929b58638c59880" + tableid) + "";
+			return (#"gamedata/stats/cp/statsmilestones" + tableid) + "";
 		}
 		if(sessionmodeiszombiesgame())
 		{
-			return (#"hash_34a621a5800b5b4a" + tableid) + "";
+			return (#"gamedata/stats/zm/statsmilestones" + tableid) + "";
 		}
-		return (#"hash_287cf26422669b76" + tableid) + "";
+		return (#"gamedata/stats/mp/statsmilestones" + tableid) + "";
 	#/
 }
 

@@ -450,7 +450,7 @@ function player_zombie_kill_vox(params)
 {
 	death = undefined;
 	player = undefined;
-	if(isstring(params) || function_7a600918(params))
+	if(isstring(params) || ishash(params))
 	{
 		death = params;
 		player = self;
@@ -1990,7 +1990,7 @@ function do_player_or_npc_playvox(sound_to_play, var_8dd99641 = 0, category, sub
 */
 function play_vo_internal(str_sound, e_to_player)
 {
-	if(isstring(str_sound) || function_7a600918(str_sound))
+	if(isstring(str_sound) || ishash(str_sound))
 	{
 		self.str_vo_being_spoken = str_sound;
 		self.var_4377124 = undefined;
@@ -3091,11 +3091,11 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"game_start", #"hash_7d784b195050f75f");
 		sndannouncervoxadd(#"hash_1ec72233df59f732", #"hash_646845f33ad513ae");
 		sndannouncervoxadd(#"hash_1da7eef4cc220ec9", #"hash_50b840aeb746403");
-		sndannouncervoxadd(#"hash_6805b30c4ae5c48e", #"hash_1a9b68e180865ba1");
-		sndannouncervoxadd(#"hash_67fea40c4adf8c63", #"hash_1a9b65e180865688");
+		sndannouncervoxadd(#"multiplier_50", #"hash_1a9b68e180865ba1");
+		sndannouncervoxadd(#"multiplier_75", #"hash_1a9b65e180865688");
 		sndannouncervoxadd(#"multiplier_100", #"hash_1a9b66e18086583b");
-		sndannouncervoxadd(#"hash_380c0e32fb1eca3", #"hash_1a9b6be1808660ba");
-		sndannouncervoxadd(#"hash_37d3de32faed833", #"hash_1a9b6ce18086626d");
+		sndannouncervoxadd(#"multiplier_125", #"hash_1a9b6be1808660ba");
+		sndannouncervoxadd(#"multiplier_150", #"hash_1a9b6ce18086626d");
 		sndannouncervoxadd(#"hash_6f8668b64fa3cfaf", #"hash_3867b4fd5932968a");
 		sndannouncervoxadd(#"hash_5b141f82a55645a9", #"hash_70503fc906187e02");
 		sndannouncervoxadd(#"specialty_phdflopper", #"hash_7b66342b9cdb1b0d");
@@ -3129,7 +3129,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"player_out", #"hash_46140c2ff7ed0028");
 		sndannouncervoxadd(#"hash_1e0175fdcfa89dbb", #"hash_445a8d6ac36b6ce4");
 		sndannouncervoxadd(#"player_respawn", #"hash_2c7fcf9c80b61898");
-		sndannouncervoxadd(#"hash_5dea50269df90336", #"hash_12d38add4b1b4225");
+		sndannouncervoxadd(#"timer_10", #"hash_12d38add4b1b4225");
 		sndannouncervoxadd(#"timer_9", #"hash_75115605ce26435f");
 		sndannouncervoxadd(#"timer_8", #"hash_75115505ce2641ac");
 		sndannouncervoxadd(#"timer_7", #"hash_75115c05ce264d91");
