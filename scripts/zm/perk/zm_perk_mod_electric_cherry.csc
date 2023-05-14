@@ -29,8 +29,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	zm_perks::register_perk_clientfields(#"hash_3eac84d6fe51944b", &function_a58eb885, &function_aa41af78);
-	zm_perks::register_perk_init_thread(#"hash_3eac84d6fe51944b", &function_5aa2ffe6);
+	zm_perks::register_perk_clientfields(#"specialty_mod_electriccherry", &function_a58eb885, &function_aa41af78);
+	zm_perks::register_perk_init_thread(#"specialty_mod_electriccherry", &function_5aa2ffe6);
 }
 
 /*

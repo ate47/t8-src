@@ -4612,8 +4612,8 @@ function enable_laser(b_enable, n_index)
 function vehicle_spawner_tool()
 {
 	/#
-		var_b75d0d00 = function_951b4205();
-		if(var_b75d0d00.size == 0)
+		vehicleassets = function_951b4205();
+		if(vehicleassets.size == 0)
 		{
 			return;
 		}
@@ -4636,7 +4636,7 @@ function vehicle_spawner_tool()
 					if(player usebuttonpressed())
 					{
 						dynamic_spawn_dummy_model hide();
-						vehicle = spawnvehicle(var_b75d0d00[type_index].name, origin, player.angles, "");
+						vehicle = spawnvehicle(vehicleassets[type_index].name, origin, player.angles, "");
 						vehicle makevehicleusable();
 						if(getdvarint(#"debug_vehicle_spawn", 0) == 1)
 						{
@@ -4649,7 +4649,7 @@ function vehicle_spawner_tool()
 					{
 						dynamic_spawn_dummy_model hide();
 						type_index++;
-						if(type_index >= var_b75d0d00.size)
+						if(type_index >= vehicleassets.size)
 						{
 							type_index = 0;
 						}
@@ -4661,12 +4661,12 @@ function vehicle_spawner_tool()
 						type_index--;
 						if(type_index < 0)
 						{
-							type_index = var_b75d0d00.size - 1;
+							type_index = vehicleassets.size - 1;
 						}
 						wait(0.3);
 					}
-					dynamic_spawn_hud settext("" + function_9e72a96(var_b75d0d00[type_index].name));
-					dynamic_spawn_dummy_model setmodel(var_b75d0d00[type_index].model);
+					dynamic_spawn_hud settext("" + function_9e72a96(vehicleassets[type_index].name));
+					dynamic_spawn_dummy_model setmodel(vehicleassets[type_index].model);
 					dynamic_spawn_dummy_model show();
 					dynamic_spawn_dummy_model notsolid();
 					dynamic_spawn_dummy_model.origin = origin;

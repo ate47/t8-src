@@ -344,28 +344,28 @@ function function_db89c38f(localclientnum, var_70b80ca6, allyradiussq)
 	Parameters: 6
 	Flags: None
 */
-function function_d2f35e13(localclientnum, var_c1a2172e, weapon, var_6ac148bc, var_5d738b56, seed)
+function function_d2f35e13(localclientnum, successplayer, weapon, var_6ac148bc, var_5d738b56, seed)
 {
 	while(isdefined(var_6ac148bc) && soundplaying(var_6ac148bc))
 	{
 		waitframe(1);
 	}
 	wait(0.4);
-	if(!isdefined(var_c1a2172e))
+	if(!isdefined(successplayer))
 	{
 		return;
 	}
 	successreactionradius = mpdialog_value("SuccessReactionRadius", 500);
 	if(function_506f762f(weapon) && isdefined(var_5d738b56) && isplayer(var_5d738b56))
 	{
-		if(function_d804d2f0(localclientnum, var_c1a2172e, var_5d738b56, successreactionradius * successreactionradius))
+		if(function_d804d2f0(localclientnum, successplayer, var_5d738b56, successreactionradius * successreactionradius))
 		{
 			var_8a6b001a = var_5d738b56;
 		}
 	}
 	else
 	{
-		var_8a6b001a = function_db89c38f(localclientnum, var_c1a2172e, successreactionradius * successreactionradius);
+		var_8a6b001a = function_db89c38f(localclientnum, successplayer, successreactionradius * successreactionradius);
 	}
 	if(!isdefined(var_8a6b001a))
 	{

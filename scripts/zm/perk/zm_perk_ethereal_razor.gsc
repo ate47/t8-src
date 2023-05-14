@@ -34,11 +34,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_a7cdda99();
+	enable_ethereal_razor_perk_for_level();
 }
 
 /*
-	Name: function_a7cdda99
+	Name: enable_ethereal_razor_perk_for_level
 	Namespace: zm_perk_ethereal_razor
 	Checksum: 0xF0A0ED45
 	Offset: 0x1D0
@@ -46,7 +46,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a7cdda99()
+function enable_ethereal_razor_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
@@ -54,7 +54,7 @@ function function_a7cdda99()
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"hash_55639ef5b1f0bbf8", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"zmperksetherealrazor");
+		zm_perks::register_perk_basic_info(#"specialty_etherealrazor", #"perk_ethereal_razor", 4000, #"zombie/perk_ethereal_razor", getweapon("zombie_perk_bottle_ethereal_razor"), getweapon("zombie_perk_totem_ethereal_razor"), #"zmperksetherealrazor");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_etherealrazor", &function_ee114cab);
 	zm_perks::register_perk_clientfields(#"specialty_etherealrazor", &function_f20b4260, &function_f3043027);
@@ -271,13 +271,13 @@ function function_1f7c6bb9(w_melee, var_2b9d3880, var_48e9b3cc, is_lunge = 0)
 		}
 		if(is_lunge)
 		{
-			if(self hasperk(#"hash_7036ce8dafbf1f81") && (e_target.var_6f84b820 === #"basic" || e_target.var_6f84b820 === #"popcorn" || e_target.var_6f84b820 === #"enhanced"))
+			if(self hasperk(#"specialty_mod_etherealrazor") && (e_target.var_6f84b820 === #"basic" || e_target.var_6f84b820 === #"popcorn" || e_target.var_6f84b820 === #"enhanced"))
 			{
 				n_total_damage = e_target.health + 666;
 			}
 			else
 			{
-				if(self hasperk(#"hash_7036ce8dafbf1f81"))
+				if(self hasperk(#"specialty_mod_etherealrazor"))
 				{
 					n_total_damage = n_total_damage + 4000;
 				}

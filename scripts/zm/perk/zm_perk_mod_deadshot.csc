@@ -33,11 +33,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_e52f65ea();
+	enable_mod_deadshot_perk_for_level();
 }
 
 /*
-	Name: function_e52f65ea
+	Name: enable_mod_deadshot_perk_for_level
 	Namespace: zm_perk_mod_deadshot
 	Checksum: 0x4EBED977
 	Offset: 0x100
@@ -45,10 +45,10 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e52f65ea()
+function enable_mod_deadshot_perk_for_level()
 {
-	zm_perks::register_perk_clientfields(#"hash_300c4e868f92134b", &function_7252aedc, &function_8357e1f3);
-	zm_perks::register_perk_init_thread(#"hash_300c4e868f92134b", &function_85402de1);
+	zm_perks::register_perk_clientfields(#"specialty_mod_deadshot", &function_7252aedc, &function_8357e1f3);
+	zm_perks::register_perk_init_thread(#"specialty_mod_deadshot", &function_85402de1);
 }
 
 /*

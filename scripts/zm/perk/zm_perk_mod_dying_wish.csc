@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\zm_common\zm_perks.csc;
 
-#namespace namespace_4fc83677;
+#namespace zm_perk_mod_dying_wish;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0xB7692BC2
 	Offset: 0x78
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_16f1bc78a3808406", &__init__, undefined, undefined);
+	system::register(#"zm_perk_mod_dying_wish", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0xD228E987
 	Offset: 0xC0
 	Size: 0x14
@@ -34,7 +34,7 @@ function __init__()
 
 /*
 	Name: function_7186a3aa
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x17119C81
 	Offset: 0xE0
 	Size: 0x74
@@ -49,7 +49,7 @@ function function_7186a3aa()
 
 /*
 	Name: function_4e184775
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x80F724D1
 	Offset: 0x160
 	Size: 0x4
@@ -62,7 +62,7 @@ function function_4e184775()
 
 /*
 	Name: function_974d4ee2
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x80F724D1
 	Offset: 0x170
 	Size: 0x4
@@ -75,7 +75,7 @@ function function_974d4ee2()
 
 /*
 	Name: function_992358e3
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x80F724D1
 	Offset: 0x180
 	Size: 0x4

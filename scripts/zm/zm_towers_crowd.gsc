@@ -696,7 +696,7 @@ function function_5d6119de()
 					e_target_player flag::set(#"crowd_item_thrown_out_for_round_bad");
 				}
 			}
-			e_target_player thread function_fce0d3b3(var_2bd26cff);
+			e_target_player thread crowd_throw_item(var_2bd26cff);
 		}
 		level flag::clear(#"crowd_throw_item_immediate");
 	}
@@ -787,7 +787,7 @@ function function_74872db6()
 }
 
 /*
-	Name: function_fce0d3b3
+	Name: crowd_throw_item
 	Namespace: zm_towers_crowd
 	Checksum: 0x165261FD
 	Offset: 0x2630
@@ -795,7 +795,7 @@ function function_74872db6()
 	Parameters: 1
 	Flags: Linked
 */
-function function_fce0d3b3(var_2bd26cff)
+function crowd_throw_item(var_2bd26cff)
 {
 	self endon(#"death");
 	var_15230439 = struct::get_array("s_crowd_item_start");
@@ -1818,7 +1818,7 @@ function function_8e83be5d()
 				{
 					continue;
 				}
-				if(waitresult.weapon === level.var_3891e803 || waitresult.weapon === level.var_d7f4cb84)
+				if(waitresult.weapon === level.w_crossbow || waitresult.weapon === level.w_crossbow_upgraded)
 				{
 					str_event = #"hash_689abcb17111463";
 				}

@@ -641,16 +641,16 @@ function function_51ca9c38(origin, team)
 */
 function function_6153484f(team)
 {
-	if(!isdefined(level._traps_deployable.var_c54d6e52))
+	if(!isdefined(level._traps_deployable.team_owners))
 	{
-		level._traps_deployable.var_c54d6e52 = [];
+		level._traps_deployable.team_owners = [];
 	}
-	if(!isdefined(level._traps_deployable.var_c54d6e52[team]))
+	if(!isdefined(level._traps_deployable.team_owners[team]))
 	{
-		level._traps_deployable.var_c54d6e52[team] = spawn("script_origin", (0, 0, 0));
+		level._traps_deployable.team_owners[team] = spawn("script_origin", (0, 0, 0));
 	}
-	level._traps_deployable.var_c54d6e52[team].team = team;
-	return level._traps_deployable.var_c54d6e52[team];
+	level._traps_deployable.team_owners[team].team = team;
+	return level._traps_deployable.team_owners[team];
 }
 
 /*
@@ -1070,7 +1070,7 @@ function function_b501ff0b(damagecallback, var_b6f10e7c, var_1891d3cd, var_2053f
 	Parameters: 5
 	Flags: None
 */
-function function_59a79a68(var_3af54106, var_ab5af093, destroyed_callback, emp_damage, emp_callback)
+function function_59a79a68(var_3af54106, damage_callback, destroyed_callback, emp_damage, emp_callback)
 {
 	self endon(#"death", #"delete");
 	/#

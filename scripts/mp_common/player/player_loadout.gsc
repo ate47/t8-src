@@ -87,7 +87,7 @@ function function_dd840c5f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_9f888e75(var_b918343e)
+function function_9f888e75(weapons_table)
 {
 	level.weapon_sig_minigun = getweapon(#"sig_minigun");
 	level.weapon_hero_annihilator = getweapon(#"hero_annihilator");

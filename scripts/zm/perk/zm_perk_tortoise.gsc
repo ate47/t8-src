@@ -34,7 +34,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_9c732a0a();
+	enable_tortoise_perk_for_level();
 }
 
 /*
@@ -51,7 +51,7 @@ function __main__()
 }
 
 /*
-	Name: function_9c732a0a
+	Name: enable_tortoise_perk_for_level
 	Namespace: zm_perk_tortoise
 	Checksum: 0x36033FD5
 	Offset: 0x220
@@ -59,7 +59,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9c732a0a()
+function enable_tortoise_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

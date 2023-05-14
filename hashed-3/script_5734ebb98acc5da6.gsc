@@ -549,7 +549,7 @@ function function_a5d20d9b(str_code)
 	{
 		case "115":
 		{
-			self thread function_74244cfa();
+			self thread music_ee();
 			break;
 		}
 		case "872":
@@ -569,7 +569,7 @@ function function_a5d20d9b(str_code)
 }
 
 /*
-	Name: function_74244cfa
+	Name: music_ee
 	Namespace: namespace_68b18f4c
 	Checksum: 0xCDCA2424
 	Offset: 0x23C0
@@ -577,7 +577,7 @@ function function_a5d20d9b(str_code)
 	Parameters: 0
 	Flags: Linked
 */
-function function_74244cfa()
+function music_ee()
 {
 	self notify("43e9d9fe0bc4c9a6");
 	self endon("43e9d9fe0bc4c9a6");

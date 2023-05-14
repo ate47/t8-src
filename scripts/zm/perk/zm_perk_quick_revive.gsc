@@ -60,7 +60,7 @@ function enable_quick_revive_perk_for_level()
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_quickrevive", #"perk_quick_revive", 2000, #"hash_8f2aa407d227799", getweapon("zombie_perk_bottle_revive"), getweapon("zombie_perk_totem_quick_revive"), #"zmperksquickrevive");
+		zm_perks::register_perk_basic_info(#"specialty_quickrevive", #"perk_quick_revive", 2000, #"zombie/perk_quickrevive", getweapon("zombie_perk_bottle_revive"), getweapon("zombie_perk_totem_quick_revive"), #"zmperksquickrevive");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_quickrevive", &quick_revive_precache);
 	zm_perks::register_perk_clientfields(#"specialty_quickrevive", &quick_revive_register_clientfield, &quick_revive_set_clientfield);

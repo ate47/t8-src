@@ -1048,7 +1048,7 @@ function function_c056a0ad()
 	while(true)
 	{
 		self hide();
-		level.var_b2786b6b.fx delete();
+		level.panic_room_monitor_light.fx delete();
 		level.var_dc646e84 waittill(#"hash_74fd82df195e029c");
 		self show();
 		function_81ed41a8();
@@ -1071,12 +1071,12 @@ function function_81ed41a8()
 	level._effect[#"panic_room_monitor_light"] = #"hash_10d93d34c24f01bd";
 	level.var_c2f35c64 = level._effect[#"panic_room_monitor_light"];
 	level.var_497a573d = getent("sadako_mover", "targetname");
-	level.var_b2786b6b = getent("panic_room_monitor_light_origin", "targetname");
-	level.var_b2786b6b.fx_ent = util::spawn_model("tag_origin", level.var_b2786b6b.origin);
-	level.var_b2786b6b.fx_ent.angles = level.var_b2786b6b.angles;
-	level.var_b2786b6b = getent("panic_room_monitor_light_origin", "targetname");
-	level.var_b2786b6b.fx = playfxontag(level.var_c2f35c64, level.var_b2786b6b.fx_ent, "tag_origin");
-	level.var_b2786b6b.fx linkto(level.var_497a573d);
+	level.panic_room_monitor_light = getent("panic_room_monitor_light_origin", "targetname");
+	level.panic_room_monitor_light.fx_ent = util::spawn_model("tag_origin", level.panic_room_monitor_light.origin);
+	level.panic_room_monitor_light.fx_ent.angles = level.panic_room_monitor_light.angles;
+	level.panic_room_monitor_light = getent("panic_room_monitor_light_origin", "targetname");
+	level.panic_room_monitor_light.fx = playfxontag(level.var_c2f35c64, level.panic_room_monitor_light.fx_ent, "tag_origin");
+	level.panic_room_monitor_light.fx linkto(level.var_497a573d);
 }
 
 /*

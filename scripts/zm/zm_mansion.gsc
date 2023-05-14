@@ -840,7 +840,7 @@ function offhand_weapon_give_override(str_weapon)
 */
 function function_78f60fd5(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
-	if(isplayer(attacker) && isdefined(self.archetype) && (self.archetype == #"nosferatu" || self.archetype == #"crimson_nosferatu") && attacker hasweapon(level.var_6d66c4ba))
+	if(isplayer(attacker) && isdefined(self.archetype) && (self.archetype == #"nosferatu" || self.archetype == #"crimson_nosferatu") && attacker hasweapon(level.w_stake_knife))
 	{
 		if(!(isdefined(attacker.var_594a3318) && attacker.var_594a3318))
 		{
@@ -866,7 +866,7 @@ function function_78f60fd5(inflictor, attacker, damage, flags, meansofdeath, wea
 */
 function function_293e7d89(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal)
 {
-	if(isplayer(eattacker) && smeansofdeath === "MOD_MELEE" && eattacker hasweapon(level.var_6d66c4ba))
+	if(isplayer(eattacker) && smeansofdeath === "MOD_MELEE" && eattacker hasweapon(level.w_stake_knife))
 	{
 		self clientfield::set("" + #"hash_7a260c02e8c345c2", 1);
 		return self.health + 666;
@@ -1397,14 +1397,14 @@ function function_2d164b86()
 	{
 		level.var_229f30cd = &function_d9848d71;
 	}
-	var_c712b3e9 = getent("artifact_mind", "script_noteworthy");
+	mdl_artifact = getent("artifact_mind", "script_noteworthy");
 	var_3f772556 = getent("artifact_mind_card", "targetname");
-	var_3f772556 linkto(var_c712b3e9);
-	var_c712b3e9 clientfield::set("" + #"hash_65180cdab951d111", 1);
+	var_3f772556 linkto(mdl_artifact);
+	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 1);
 	var_3f772556 clientfield::set("" + #"hash_44ee99a6591fe600", 1);
-	var_c712b3e9 notsolid();
-	var_c712b3e9 bobbing((0, 0, 1), 0.5, 5);
-	fx_holder = util::spawn_model("tag_origin", var_c712b3e9.origin, var_c712b3e9.angles);
+	mdl_artifact notsolid();
+	mdl_artifact bobbing((0, 0, 1), 0.5, 5);
+	fx_holder = util::spawn_model("tag_origin", mdl_artifact.origin, mdl_artifact.angles);
 	if(zm_utility::is_standard())
 	{
 		var_6152b664 = getent("use_elec_switch", "targetname");
@@ -1438,30 +1438,30 @@ function function_2d164b86()
 		level thread debris_scene("debris_cemetery_entrance_scene", "connect_library_to_cemetery_entrance", "Shot 1", "Shot 2");
 		level thread debris_scene("debris_cemetery_scene", "connect_cemetery_entrance_to_cemetery_graveyard", "Shot 1", "Shot 2");
 	}
-	var_c712b3e9 playsound(#"hash_75b9c9ad6ebe8af2");
+	mdl_artifact playsound(#"hash_75b9c9ad6ebe8af2");
 	if(isalive(var_d11a4648))
 	{
 		var_d11a4648 val::set("artifact_pickup", "takedamage", 0);
 		var_d11a4648 val::set("artifact_pickup", "ignoreme", 1);
 	}
-	var_c712b3e9 clientfield::set("" + #"hash_65180cdab951d111", 2);
+	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 2);
 	var_3f772556 clientfield::set("" + #"hash_44ee99a6591fe600", 0);
 	wait(3);
 	var_3f772556 delete();
-	var_c712b3e9 setmodel(#"hash_57d5802b9383f9c7");
-	var_c712b3e9 clientfield::set("" + #"hash_65180cdab951d111", 3);
+	mdl_artifact setmodel(#"hash_57d5802b9383f9c7");
+	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 3);
 	var_8a281f69 = getvehiclenode("power_on_projectile_path_1", "targetname");
 	v_pos = var_8a281f69.origin + (vectorscale((0, 0, -1), 16));
-	var_c712b3e9 moveto(v_pos, 1.5, 1, 0.5);
-	var_c712b3e9 waittill(#"movedone");
+	mdl_artifact moveto(v_pos, 1.5, 1, 0.5);
+	mdl_artifact waittill(#"movedone");
 	if(isalive(var_d11a4648))
 	{
 		var_d11a4648 val::reset("artifact_pickup", "takedamage");
 		var_d11a4648 val::reset("artifact_pickup", "ignoreme");
 	}
 	exploder::exploder("fxexp_power_artifact_burst");
-	var_c712b3e9 clientfield::set("" + #"hash_65180cdab951d111", 0);
-	var_c712b3e9 delete();
+	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 0);
+	mdl_artifact delete();
 	foreach(e_active_player in util::get_active_players())
 	{
 		e_active_player playrumbleonentity("zm_power_on_rumble");
@@ -2666,14 +2666,14 @@ function function_3f147b12(cmd)
 			}
 			case "hash_9d9c5e54ae57d6":
 			{
-				level.players[0] giveweapon(level.var_3891e803);
+				level.players[0] giveweapon(level.w_crossbow);
 				break;
 			}
 			case "hash_77792be9b7f894df":
 			{
 				foreach(player in level.players)
 				{
-					player giveweapon(level.var_3891e803);
+					player giveweapon(level.w_crossbow);
 				}
 				break;
 			}

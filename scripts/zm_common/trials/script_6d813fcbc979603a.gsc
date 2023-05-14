@@ -247,8 +247,8 @@ function private function_1802ad1e(challenge, var_2d5ebf67, var_530e040f, timeou
 	var_2bf2b5dd = level.time + (timeout * 1000);
 	while(true)
 	{
-		var_a5096cb5 = self function_2191cc5d();
-		if(var_a5096cb5)
+		zone_valid = self function_2191cc5d();
+		if(zone_valid)
 		{
 			level notify(#"hash_715188521b564b16", {#player:self});
 			self.var_4cb0b91f = 1;
@@ -269,7 +269,7 @@ function private function_1802ad1e(challenge, var_2d5ebf67, var_530e040f, timeou
 				self zm_utility::function_ba39d198(challenge.var_df62490a, 1);
 			}
 		}
-		if(isdefined(self.var_4cb0b91f) && self.var_4cb0b91f && !var_a5096cb5 && isalive(self) && !self laststand::player_is_in_laststand() && (!(isdefined(level.intermission) && level.intermission)))
+		if(isdefined(self.var_4cb0b91f) && self.var_4cb0b91f && !zone_valid && isalive(self) && !self laststand::player_is_in_laststand() && (!(isdefined(level.intermission) && level.intermission)))
 		{
 			self clientfield::set_to_player("zm_zone_out_of_bounds", 1);
 			self.var_ccee13fc = undefined;

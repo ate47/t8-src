@@ -14,7 +14,7 @@
 #using scripts\wz_common\infection.gsc;
 #using scripts\core_common\player_insertion.gsc;
 #using scripts\wz_common\wz_ai.gsc;
-#using script_5ebc70029e06b264;
+#using scripts\wz_common\wz_ignore_systems.gsc;
 #using script_64176e152a2cbf82;
 #using scripts\wz_common\spawn.gsc;
 #using script_66052559f4fc2bf9;
@@ -111,7 +111,7 @@ event main(eventstruct)
 	level.var_3d984b4c = 0;
 	level.var_36a111f3 = &function_10dc43bc;
 	level.disableweapondrop = 1;
-	level.var_a2915a68 = insertion_passenger_count::register("insertionPassengerElem");
+	level.insertionpassenger = insertion_passenger_count::register("insertionPassengerElem");
 	level.var_a3c0d635 = &insertion_passenger_count::is_open;
 	level.var_f3320ad2 = &insertion_passenger_count::open;
 	level.var_81b39a59 = &insertion_passenger_count::close;
@@ -742,8 +742,8 @@ function function_a9822793()
 	{
 		return;
 	}
-	var_3ff328e2 = gamemodeismode(1) || gamemodeismode(7);
-	if(var_3ff328e2)
+	customgame = gamemodeismode(1) || gamemodeismode(7);
+	if(customgame)
 	{
 		return;
 	}
@@ -1395,11 +1395,11 @@ function function_40843d72(team)
 		var_d72df62 = function_c7eae573();
 		winning_team = function_c2f2fb84(var_d72df62);
 		count = 2;
-		foreach(var_b524076f in var_d72df62)
+		foreach(final_team in var_d72df62)
 		{
-			if(!isdefined(winning_team) || util::function_fbce7263(winning_team, var_b524076f.team))
+			if(!isdefined(winning_team) || util::function_fbce7263(winning_team, final_team.team))
 			{
-				team_eliminated(var_b524076f.team, count);
+				team_eliminated(final_team.team, count);
 				count++;
 			}
 		}
@@ -2534,12 +2534,12 @@ function function_a3e209ba()
 */
 function function_aaa24662()
 {
-	var_c013a394 = getent("below_world_trigger", "targetname");
-	if(!isentity(var_c013a394))
+	belowworldtrigger = getent("below_world_trigger", "targetname");
+	if(!isentity(belowworldtrigger))
 	{
 		return;
 	}
-	var_c013a394 callback::on_trigger(&function_3c8be2d2);
+	belowworldtrigger callback::on_trigger(&function_3c8be2d2);
 }
 
 /*
@@ -2807,11 +2807,11 @@ function private function_b777ff94(entity)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_6ee52dd0(damage, var_c71fc4f4)
+function private function_6ee52dd0(damage, damageinterval)
 {
 	level flagsys::wait_till(#"hash_5a3e17fbc33cdc86");
 	var_366959 = 0;
-	var_1b5e849 = int(var_c71fc4f4 * 1000);
+	var_1b5e849 = int(damageinterval * 1000);
 	while(!(isdefined(level.gameended) && level.gameended))
 	{
 		time = gettime();

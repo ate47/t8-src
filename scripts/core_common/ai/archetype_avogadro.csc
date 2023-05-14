@@ -101,12 +101,12 @@ function function_9452b8f1(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval)
 	{
-		self.var_b85f4206 = function_239993de(localclientnum, "zm_ai/fx8_avo_elec_projectile", self, "tag_origin");
+		self.boltfx = function_239993de(localclientnum, "zm_ai/fx8_avo_elec_projectile", self, "tag_origin");
 	}
-	else if(isdefined(self.var_b85f4206))
+	else if(isdefined(self.boltfx))
 	{
-		stopfx(localclientnum, self.var_b85f4206);
-		self.var_b85f4206 = undefined;
+		stopfx(localclientnum, self.boltfx);
+		self.boltfx = undefined;
 	}
 }
 

@@ -39,7 +39,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_c6d3e860();
+	enable_stronghold_perk_for_level();
 	zm_armor::register(#"hash_56a6e63a38d904e3", 0);
 }
 
@@ -57,7 +57,7 @@ function __main__()
 }
 
 /*
-	Name: function_c6d3e860
+	Name: enable_stronghold_perk_for_level
 	Namespace: zm_perk_stronghold
 	Checksum: 0x6CB78A41
 	Offset: 0x240
@@ -65,7 +65,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c6d3e860()
+function enable_stronghold_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

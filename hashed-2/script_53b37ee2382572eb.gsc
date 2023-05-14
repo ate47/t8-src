@@ -53,10 +53,10 @@ function function_9fe18733()
 	Parameters: 3
 	Flags: None
 */
-function function_a129ecda(startpos, endpos, var_d108dac6)
+function function_a129ecda(startpos, endpos, laneNum)
 {
 	function_871ecf05();
-	volumes = function_8373f930(var_d108dac6);
+	volumes = function_8373f930(laneNum);
 	function_c5b9e623(volumes, 0.2);
 	return function_e86822f4(startpos, endpos);
 }
@@ -70,10 +70,10 @@ function function_a129ecda(startpos, endpos, var_d108dac6)
 	Parameters: 3
 	Flags: None
 */
-function function_b0f112ca(var_55e8adf1, var_d3547bb1, var_d108dac6)
+function function_b0f112ca(var_55e8adf1, var_d3547bb1, laneNum)
 {
 	function_871ecf05();
-	volumes = function_8373f930(var_d108dac6);
+	volumes = function_8373f930(laneNum);
 	function_c5b9e623(volumes, 0.2);
 	return function_afd64b51(var_55e8adf1, var_d3547bb1);
 }
@@ -109,9 +109,9 @@ function private function_871ecf05()
 	Parameters: 1
 	Flags: Private
 */
-function private function_8373f930(var_d108dac6)
+function private function_8373f930(laneNum)
 {
-	return level.var_1a7a3f05.var_23e0aef1[var_d108dac6];
+	return level.var_1a7a3f05.var_23e0aef1[laneNum];
 }
 
 /*

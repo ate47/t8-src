@@ -576,12 +576,12 @@ function function_adb3eb2c(localclientnum)
 			self.var_c2f0f6da = 1;
 			if(!isdefined(var_1eb381e1))
 			{
-				var_b92e175e = spawnstruct();
-				var_b92e175e.ent1 = self;
-				var_b92e175e.ent2 = tripwire;
-				var_b92e175e.shoulddraw = 1;
-				var_b92e175e.beam_id = undefined;
-				level.var_77cae643[function_95d56693()] = var_b92e175e;
+				newbeam = spawnstruct();
+				newbeam.ent1 = self;
+				newbeam.ent2 = tripwire;
+				newbeam.shoulddraw = 1;
+				newbeam.beam_id = undefined;
+				level.var_77cae643[function_95d56693()] = newbeam;
 			}
 			else if(isdefined(var_1eb381e1) && !var_1eb381e1.shoulddraw)
 			{

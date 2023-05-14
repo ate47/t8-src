@@ -347,8 +347,8 @@ function giveteamscore(event, team, player, victim)
 	[[level.onteamscore]](event, team);
 	pixendevent();
 	newscore = game.stat[#"teamscores"][team];
-	var_c5fef2b3 = {#score:newscore, #diff:newscore - teamscore, #team:team, #event:event, #gametime:function_f8d53445()};
-	function_92d1707f(#"hash_6823717ff11a304a", var_c5fef2b3);
+	zmteamscores = {#score:newscore, #diff:newscore - teamscore, #team:team, #event:event, #gametime:function_f8d53445()};
+	function_92d1707f(#"hash_6823717ff11a304a", zmteamscores);
 	if(teamscore == newscore)
 	{
 		return;

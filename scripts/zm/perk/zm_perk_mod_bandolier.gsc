@@ -44,12 +44,12 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"specialty_mod_extraammo", "mod_bandolier", #"perk_bandolier", #"specialty_extraammo", 3500);
-	zm_perks::register_perk_threads(#"specialty_mod_extraammo", &function_dde8cedc, &function_3781ff37);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_extraammo", "mod_bandolier", #"perk_bandolier", #"specialty_extraammo", 3500);
+	zm_perks::register_perk_threads(#"specialty_mod_extraammo", &give_mod_perk, &function_3781ff37);
 }
 
 /*
-	Name: function_dde8cedc
+	Name: give_mod_perk
 	Namespace: zm_perk_mod_bandolier
 	Checksum: 0xBCAE9E91
 	Offset: 0x1A0
@@ -57,7 +57,7 @@ function function_27473e44()
 	Parameters: 0
 	Flags: Linked
 */
-function function_dde8cedc()
+function give_mod_perk()
 {
 	self thread function_9335851();
 }

@@ -141,7 +141,7 @@ function private function_61be4b2c(bot, gameobject)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_3ecc52d9(var_d3547bb1, var_d108dac6)
+function private function_3ecc52d9(var_d3547bb1, laneNum)
 {
 	if(isdefined(self.bot.var_6369695a))
 	{
@@ -168,7 +168,7 @@ function private function_3ecc52d9(var_d3547bb1, var_d108dac6)
 	{
 		var_55e8adf1 = tpoint.region;
 		var_8c8aa14d = spawnstruct();
-		var_8c8aa14d.path = self namespace_cb7fdaf1::function_b0f112ca(var_55e8adf1, var_d3547bb1, var_d108dac6);
+		var_8c8aa14d.path = self namespace_cb7fdaf1::function_b0f112ca(var_55e8adf1, var_d3547bb1, laneNum);
 		var_8c8aa14d.var_91fc28f4 = 0;
 		if(var_8c8aa14d.path.size == 0)
 		{
@@ -593,8 +593,8 @@ function private function_b6cc50c3(planner, constants)
 */
 function private function_5d508101(planner, constants)
 {
-	var_d108dac6 = planner::getblackboardattribute(planner, "mp_laneNum");
-	if(!isdefined(var_d108dac6) || var_d108dac6.size == 0)
+	laneNum = planner::getblackboardattribute(planner, "mp_laneNum");
+	if(!isdefined(laneNum) || laneNum.size == 0)
 	{
 		return false;
 	}
@@ -1016,7 +1016,7 @@ function private function_e32ce201(planner, constants)
 	params.var_46b70ee6 = function_ad6356f5(params.kothzone.gameobject.origin).region;
 	if(isdefined(params.kothzone))
 	{
-		if(isdefined(params.var_d108dac6))
+		if(isdefined(params.laneNum))
 		{
 			params.var_bb5fa5a7 = [];
 			for(i = 0; i < bots.size; i++)

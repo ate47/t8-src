@@ -176,11 +176,11 @@ function shouldthrowgrenadeatcovercondition(entity, throwifpossible = 0)
 	}
 	if(!throwifpossible)
 	{
-		var_a2badbc3 = getplayers(entity.team);
+		friendlyplayers = getplayers(entity.team);
 		allplayers = getplayers();
-		if(isdefined(var_a2badbc3) && var_a2badbc3.size)
+		if(isdefined(friendlyplayers) && friendlyplayers.size)
 		{
-			foreach(player in var_a2badbc3)
+			foreach(player in friendlyplayers)
 			{
 				if(distancesquared(entity.enemy.origin, player.origin) <= 640000)
 				{

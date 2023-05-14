@@ -61,9 +61,9 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"hash_4723e346254cb334", "mod_wolf_protector", #"perk_wolf_protector", #"specialty_wolf_protector", 4000);
-	zm_perks::register_perk_clientfields(#"hash_4723e346254cb334", &register_clientfield, &set_clientfield);
-	zm_perks::register_perk_threads(#"hash_4723e346254cb334", &give_perk, &take_perk);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_wolf_protector", "mod_wolf_protector", #"perk_wolf_protector", #"specialty_wolf_protector", 4000);
+	zm_perks::register_perk_clientfields(#"specialty_mod_wolf_protector", &register_clientfield, &set_clientfield);
+	zm_perks::register_perk_threads(#"specialty_mod_wolf_protector", &give_perk, &take_perk);
 	callback::on_ai_killed(&on_ai_killed);
 	zm_powerups::register_powerup("wolf_bonus_points", &function_5517e41a);
 	zm_powerups::register_powerup("wolf_bonus_ammo", &zm_powerup_small_ammo::function_81558cdf);
@@ -154,7 +154,7 @@ function function_5517e41a(player)
 function on_ai_killed(s_params)
 {
 	e_attacker = s_params.einflictor;
-	if(isdefined(e_attacker) && isplayer(e_attacker.player_owner) && e_attacker.player_owner hasperk(#"hash_4723e346254cb334"))
+	if(isdefined(e_attacker) && isplayer(e_attacker.player_owner) && e_attacker.player_owner hasperk(#"specialty_mod_wolf_protector"))
 	{
 		if(level.active_powerups.size < 75)
 		{

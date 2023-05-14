@@ -172,14 +172,14 @@ function function_8a977b42(weapon)
 */
 function function_bfbef8cc(weapon)
 {
-	var_e4bacb96 = function_60365a28(weapon);
-	n_clip_ammo = self getweaponammoclip(var_e4bacb96);
-	if(n_clip_ammo < var_e4bacb96.clipsize)
+	w_uncharged = function_60365a28(weapon);
+	n_clip_ammo = self getweaponammoclip(w_uncharged);
+	if(n_clip_ammo < w_uncharged.clipsize)
 	{
-		n_ammo_diff = var_e4bacb96.clipsize - n_clip_ammo;
-		n_stock_ammo = self getweaponammostock(var_e4bacb96);
-		self setweaponammostock(var_e4bacb96, n_stock_ammo - n_ammo_diff);
-		self setweaponammoclip(var_e4bacb96, var_e4bacb96.clipsize);
+		n_ammo_diff = w_uncharged.clipsize - n_clip_ammo;
+		n_stock_ammo = self getweaponammostock(w_uncharged);
+		self setweaponammostock(w_uncharged, n_stock_ammo - n_ammo_diff);
+		self setweaponammoclip(w_uncharged, w_uncharged.clipsize);
 	}
 }
 

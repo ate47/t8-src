@@ -40,9 +40,9 @@ function function_a8bbc967(str_name, n_version, n_bits, str_type, var_59f69872)
 	Parameters: 6
 	Flags: Linked
 */
-function register_luielem(var_a832fdfa, field_name, n_version, n_bits, str_type, var_59f69872)
+function register_luielem(unique_name, field_name, n_version, n_bits, str_type, var_59f69872)
 {
-	registerclientfield("clientuimodel", (("luielement." + var_a832fdfa) + ".") + field_name, n_version, n_bits, str_type, var_59f69872);
+	registerclientfield("clientuimodel", (("luielement." + unique_name) + ".") + field_name, n_version, n_bits, str_type, var_59f69872);
 }
 
 /*
@@ -148,9 +148,9 @@ function set_player_uimodel(str_field_name, n_value)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9bf78ef8(var_a832fdfa, str_field_name, n_value)
+function function_9bf78ef8(unique_name, str_field_name, n_value)
 {
-	codesetuimodelclientfield(self, (("luielement." + var_a832fdfa) + ".") + str_field_name, n_value);
+	codesetuimodelclientfield(self, (("luielement." + unique_name) + ".") + str_field_name, n_value);
 }
 
 /*
@@ -162,9 +162,9 @@ function function_9bf78ef8(var_a832fdfa, str_field_name, n_value)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bb878fc3(var_a832fdfa, str_field_name)
+function function_bb878fc3(unique_name, str_field_name)
 {
-	codeincrementuimodelclientfield(self, (("luielement." + var_a832fdfa) + ".") + str_field_name);
+	codeincrementuimodelclientfield(self, (("luielement." + unique_name) + ".") + str_field_name);
 }
 
 /*
@@ -190,9 +190,9 @@ function get_player_uimodel(str_field_name)
 	Parameters: 2
 	Flags: None
 */
-function function_f7ae6994(var_a832fdfa, str_field_name)
+function function_f7ae6994(unique_name, str_field_name)
 {
-	return codegetuimodelclientfield(self, (("luielement." + var_a832fdfa) + ".") + str_field_name);
+	return codegetuimodelclientfield(self, (("luielement." + unique_name) + ".") + str_field_name);
 }
 
 /*

@@ -1689,10 +1689,10 @@ function function_e0dcb8c1(var_b594a2cd)
 */
 function function_728212e8(var_b594a2cd)
 {
-	var_cfb25645 = self current_weapon_rank(var_b594a2cd);
-	if(isdefined(var_cfb25645))
+	currentweaponrank = self current_weapon_rank(var_b594a2cd);
+	if(isdefined(currentweaponrank))
 	{
-		return var_cfb25645;
+		return currentweaponrank;
 	}
 	return -1000;
 }
@@ -2173,8 +2173,8 @@ function function_40aa6f87(var_b594a2cd)
 function switch_to_weapon_weight(var_b594a2cd)
 {
 	currentweapon = self getcurrentweapon();
-	var_cfb25645 = self function_30e579d5(currentweapon);
-	if(isdefined(var_cfb25645) && var_b594a2cd.rank <= var_cfb25645)
+	currentweaponrank = self function_30e579d5(currentweapon);
+	if(isdefined(currentweaponrank) && var_b594a2cd.rank <= currentweaponrank)
 	{
 		/#
 			if(!isdefined(var_b594a2cd.debug))
@@ -2185,7 +2185,7 @@ function switch_to_weapon_weight(var_b594a2cd)
 			{
 				var_b594a2cd.debug = array(var_b594a2cd.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "" + var_cfb25645;
+			var_b594a2cd.debug[var_b594a2cd.debug.size] = "" + currentweaponrank;
 		#/
 		return undefined;
 	}

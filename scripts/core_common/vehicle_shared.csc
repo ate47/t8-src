@@ -953,12 +953,12 @@ function function_34105b89(localclientnum, groupid, ison)
 	}
 	self endon(#"death");
 	util::waittill_dobj(localclientnum);
-	var_babd059c = function_7927d9b1(settings, groupid);
-	if(!isarray(var_babd059c))
+	bone_group = function_7927d9b1(settings, groupid);
+	if(!isarray(bone_group))
 	{
 		return;
 	}
-	foreach(var_b969bea7 in var_babd059c)
+	foreach(var_b969bea7 in bone_group)
 	{
 		if(isdefined(var_b969bea7) && isdefined(var_b969bea7.var_f08513a))
 		{

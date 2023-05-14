@@ -30,8 +30,8 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.blackjackstash = (isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0);
-	var_3ff328e2 = gamemodeismode(1) || gamemodeismode(7);
-	if(var_3ff328e2 || !level.blackjackstash)
+	customgame = gamemodeismode(1) || gamemodeismode(7);
+	if(customgame || !level.blackjackstash)
 	{
 		level thread function_e973becc();
 	}

@@ -148,9 +148,9 @@ function private function_b595044c()
 	{
 		level.var_f17bdf53 = [];
 	}
-	if(!isdefined(level.var_9eb62765))
+	if(!isdefined(level.pap_lockdown_stubs))
 	{
-		level.var_9eb62765 = [];
+		level.pap_lockdown_stubs = [];
 	}
 	if(!isdefined(level.var_9235b607))
 	{
@@ -250,21 +250,21 @@ function function_d67bafb5(stub, category)
 		}
 		case "lockdown_stub_type_pap":
 		{
-			if(!isdefined(level.var_9eb62765))
+			if(!isdefined(level.pap_lockdown_stubs))
 			{
-				level.var_9eb62765 = [];
+				level.pap_lockdown_stubs = [];
 			}
-			if(!isinarray(level.var_9eb62765, stub))
+			if(!isinarray(level.pap_lockdown_stubs, stub))
 			{
-				if(!isdefined(level.var_9eb62765))
+				if(!isdefined(level.pap_lockdown_stubs))
 				{
-					level.var_9eb62765 = [];
+					level.pap_lockdown_stubs = [];
 				}
-				else if(!isarray(level.var_9eb62765))
+				else if(!isarray(level.pap_lockdown_stubs))
 				{
-					level.var_9eb62765 = array(level.var_9eb62765);
+					level.pap_lockdown_stubs = array(level.pap_lockdown_stubs);
 				}
-				level.var_9eb62765[level.var_9eb62765.size] = stub;
+				level.pap_lockdown_stubs[level.pap_lockdown_stubs.size] = stub;
 			}
 			break;
 		}
@@ -327,9 +327,9 @@ function function_6b9e848(stub)
 	{
 		arrayremovevalue(level.var_f17bdf53, stub);
 	}
-	if(isdefined(level.var_9eb62765) && isinarray(level.var_9eb62765, stub))
+	if(isdefined(level.pap_lockdown_stubs) && isinarray(level.pap_lockdown_stubs, stub))
 	{
-		arrayremovevalue(level.var_9eb62765, stub);
+		arrayremovevalue(level.pap_lockdown_stubs, stub);
 	}
 	if(isdefined(level.var_9235b607) && isinarray(level.var_9235b607, stub))
 	{
@@ -1095,7 +1095,7 @@ function private function_165e2bd6(entity, registerlotus_right, range)
 	{
 		return;
 	}
-	foreach(stub in level.var_9eb62765)
+	foreach(stub in level.pap_lockdown_stubs)
 	{
 		if(function_55d2ad24(stub, entity))
 		{
@@ -1879,7 +1879,7 @@ function private function_6e1690d5()
 		self endon("");
 		level endon(#"hash_52b90374b27fcb8a");
 		stubs = arraycombine(level.exterior_goals, level.var_16cfe3ef, 0, 0);
-		stubs = arraycombine(stubs, level.var_9eb62765, 0, 0);
+		stubs = arraycombine(stubs, level.pap_lockdown_stubs, 0, 0);
 		stubs = arraycombine(stubs, level.var_9235b607, 0, 0);
 		stubs = arraycombine(stubs, level.var_2510f3e4, 0, 0);
 		stubs = arraycombine(stubs, level.var_f17bdf53, 0, 0);

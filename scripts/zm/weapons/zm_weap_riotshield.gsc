@@ -754,7 +754,7 @@ function riotshield_get_enemies_in_range(riotshield_knockdown_range, riotshield_
 			case "heavy":
 			case "miniboss":
 			{
-				if(self hasperk(#"hash_4262dc5dc4acb784"))
+				if(self hasperk(#"specialty_mod_shield"))
 				{
 					level.riotshield_knockdown_enemies[level.riotshield_knockdown_enemies.size] = e_target;
 					level.riotshield_knockdown_gib[level.riotshield_knockdown_gib.size] = 0;
@@ -836,7 +836,7 @@ function riotshield_melee(weapon, riotshield_knockdown_range, riotshield_gib_ran
 		{
 			level.riotshield_fling_enemies[i] thread riotshield_fling_zombie(self, level.riotshield_fling_vecs[i], i);
 			var_d3f92d4d = zombie_utility::function_d2dfacfd(#"riotshield_fling_damage_shield");
-			if(self hasperk(#"hash_4262dc5dc4acb784"))
+			if(self hasperk(#"specialty_mod_shield"))
 			{
 				var_d3f92d4d = var_d3f92d4d * 0.66;
 			}
@@ -869,7 +869,7 @@ function riotshield_melee(weapon, riotshield_knockdown_range, riotshield_gib_ran
 				var_d3f92d4d = zombie_utility::function_d2dfacfd(#"hash_6835f7c5524585f3");
 			}
 		}
-		if(self hasperk(#"hash_4262dc5dc4acb784"))
+		if(self hasperk(#"specialty_mod_shield"))
 		{
 			var_d3f92d4d = var_d3f92d4d * 0.66;
 		}

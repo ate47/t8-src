@@ -52,6 +52,6 @@ function function_27473e44()
 	{
 		zm_perks::register_perk_basic_info(#"specialty_mystery", #"perk_mystery", 1500, #"zombie/perk_mystery", getweapon("zombie_perk_bottle_mystery"), getweapon("zombie_perk_vapor_juggernaut"), #"hash_179ae09979e80714");
 	}
-	zm_perks::function_7f42e14e(#"hash_23c63c9a3acb397", "perk_mod_mystery", #"perk_mystery", #"specialty_mystery", 2500);
+	zm_perks::register_perk_mod_basic_info(#"hash_23c63c9a3acb397", "perk_mod_mystery", #"perk_mystery", #"specialty_mystery", 2500);
 }
 

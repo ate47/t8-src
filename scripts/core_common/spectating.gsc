@@ -521,23 +521,23 @@ function function_b7c8d984(attacker, var_1178af52)
 		return undefined;
 	}
 	teammate = function_7ad5ad8();
-	var_be8a6dc7 = undefined;
+	spectate_player = undefined;
 	if(var_1178af52 && attacker.team == self.team)
 	{
-		var_be8a6dc7 = attacker;
+		spectate_player = attacker;
 	}
 	else
 	{
 		if(isdefined(teammate))
 		{
-			var_be8a6dc7 = teammate;
+			spectate_player = teammate;
 		}
 		else if(var_1178af52)
 		{
-			var_be8a6dc7 = attacker;
+			spectate_player = attacker;
 		}
 	}
-	return var_be8a6dc7;
+	return spectate_player;
 }
 
 /*

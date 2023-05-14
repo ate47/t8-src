@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_e7bd6188;
+#namespace wz_ignore_systems;
 
 /*
 	Name: ignore_systems
-	Namespace: namespace_e7bd6188
+	Namespace: wz_ignore_systems
 	Checksum: 0x6C6D7792
 	Offset: 0x70
 	Size: 0x104

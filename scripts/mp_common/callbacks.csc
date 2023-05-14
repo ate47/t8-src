@@ -458,9 +458,9 @@ function callback_stunned(localclientnum, oldval, newval, bnewent, binitialsnap,
 	{
 		self notify(#"not_stunned");
 	}
-	if(isdefined(self.var_ba36f5d))
+	if(isdefined(self.stunnedcallback))
 	{
-		self [[self.var_ba36f5d]](localclientnum, newval);
+		self [[self.stunnedcallback]](localclientnum, newval);
 	}
 }
 

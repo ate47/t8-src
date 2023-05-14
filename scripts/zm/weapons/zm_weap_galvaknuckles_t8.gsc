@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_melee_weapon.gsc;
 
-#namespace namespace_bf08ec2;
+#namespace zm_weap_galvaknuckles_t8;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_bf08ec2
+	Namespace: zm_weap_galvaknuckles_t8
 	Checksum: 0x6CCD1399
 	Offset: 0xA0
 	Size: 0x44
@@ -22,7 +22,7 @@ function autoexec __init__system__()
 
 /*
 	Name: __init__
-	Namespace: namespace_bf08ec2
+	Namespace: zm_weap_galvaknuckles_t8
 	Checksum: 0x60CD2C99
 	Offset: 0xF0
 	Size: 0x6C
@@ -38,7 +38,7 @@ function private __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_bf08ec2
+	Namespace: zm_weap_galvaknuckles_t8
 	Checksum: 0x1392D2A5
 	Offset: 0x168
 	Size: 0x54
@@ -47,12 +47,12 @@ function private __init__()
 */
 function private __main__()
 {
-	zm_melee_weapon::init(#"galvaknuckles_t8", #"hash_c994e1032879502", 5000, "tazer_upgrade", #"hash_60606b68e93a29c8", "galva", undefined);
+	zm_melee_weapon::init(#"galvaknuckles_t8", #"galvaknuckles_t8_flourish", 5000, "tazer_upgrade", #"hash_60606b68e93a29c8", "galva", undefined);
 }
 
 /*
 	Name: on_ai_killed
-	Namespace: namespace_bf08ec2
+	Namespace: zm_weap_galvaknuckles_t8
 	Checksum: 0xF4CE94C6
 	Offset: 0x1C8
 	Size: 0x104

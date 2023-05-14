@@ -129,7 +129,7 @@ event codecallback_medal(eventstruct)
 	if(isdefined(eventstruct) && isdefined(eventstruct.var_7fcb97e3) && isdefined(level.scoreinfo) && isdefined(level.scoreinfo[eventstruct.var_7fcb97e3]))
 	{
 		medalinfo = level.scoreinfo[eventstruct.var_7fcb97e3];
-		self function_ffda8476("medal", #"medalxp", medalinfo[#"xp"]);
+		self give_xp("medal", #"medalxp", medalinfo[#"xp"]);
 	}
 }
 
@@ -150,13 +150,13 @@ function function_1ae8059(params)
 		contract = player.pers[#"contracts"][params.var_38280f2f];
 		if(isdefined(contract) && isdefined(contract.xp) && contract.xp > 0)
 		{
-			player function_ffda8476("contract", #"hash_48abd9fc5ca1d7a3", contract.xp);
+			player give_xp("contract", #"hash_48abd9fc5ca1d7a3", contract.xp);
 		}
 	}
 }
 
 /*
-	Name: function_ffda8476
+	Name: give_xp
 	Namespace: namespace_d3564fd8
 	Checksum: 0x4BD25048
 	Offset: 0xDE0
@@ -164,7 +164,7 @@ function function_1ae8059(params)
 	Parameters: 3
 	Flags: Linked
 */
-function function_ffda8476(var_c14ca2e6, xpstat, amount)
+function give_xp(var_c14ca2e6, xpstat, amount)
 {
 	player = self;
 	/#
@@ -430,53 +430,53 @@ function private function_51cae91b(placement)
 	player = self;
 	if(placement <= 5 && level.var_db720da1.top5 > 0)
 	{
-		player function_ffda8476("top5", #"hash_1c5941725865ae68", level.var_db720da1.top5);
+		player give_xp("top5", #"hash_1c5941725865ae68", level.var_db720da1.top5);
 	}
 	else
 	{
 		if(placement <= 10 && level.var_db720da1.top10 > 0)
 		{
-			player function_ffda8476("top10", #"hash_1c5941725865ae68", level.var_db720da1.top10);
+			player give_xp("top10", #"hash_1c5941725865ae68", level.var_db720da1.top10);
 		}
 		else
 		{
 			if(placement <= 15 && level.var_db720da1.top15 > 0)
 			{
-				player function_ffda8476("top15", #"hash_1c5941725865ae68", level.var_db720da1.top15);
+				player give_xp("top15", #"hash_1c5941725865ae68", level.var_db720da1.top15);
 			}
 			else
 			{
 				if(placement <= 20 && level.var_db720da1.top20 > 0)
 				{
-					player function_ffda8476("top20", #"hash_1c5941725865ae68", level.var_db720da1.top20);
+					player give_xp("top20", #"hash_1c5941725865ae68", level.var_db720da1.top20);
 				}
 				else
 				{
 					if(placement <= 25 && level.var_db720da1.top25 > 0)
 					{
-						player function_ffda8476("top25", #"hash_1c5941725865ae68", level.var_db720da1.top25);
+						player give_xp("top25", #"hash_1c5941725865ae68", level.var_db720da1.top25);
 					}
 					else
 					{
 						if(placement <= 30 && level.var_db720da1.top30 > 0)
 						{
-							player function_ffda8476("top30", #"hash_1c5941725865ae68", level.var_db720da1.top30);
+							player give_xp("top30", #"hash_1c5941725865ae68", level.var_db720da1.top30);
 						}
 						else
 						{
 							if(placement <= 50 && level.var_db720da1.top50 > 0)
 							{
-								player function_ffda8476("top50", #"hash_1c5941725865ae68", level.var_db720da1.top50);
+								player give_xp("top50", #"hash_1c5941725865ae68", level.var_db720da1.top50);
 							}
 							else
 							{
 								if(placement <= 60 && level.var_db720da1.top60 > 0)
 								{
-									player function_ffda8476("top60", #"hash_1c5941725865ae68", level.var_db720da1.top60);
+									player give_xp("top60", #"hash_1c5941725865ae68", level.var_db720da1.top60);
 								}
 								else if(placement <= 75 && level.var_db720da1.top75 > 0)
 								{
-									player function_ffda8476("top75", #"hash_1c5941725865ae68", level.var_db720da1.top75);
+									player give_xp("top75", #"hash_1c5941725865ae68", level.var_db720da1.top75);
 								}
 							}
 						}
@@ -654,7 +654,7 @@ function function_5648f82(team)
 					var_ced14f4b = level.var_db720da1.infectedwin;
 				}
 			}
-			player function_ffda8476("win", #"winxp", var_ced14f4b);
+			player give_xp("win", #"winxp", var_ced14f4b);
 			player stats::function_dad108fa(#"wins_first", 1);
 			player giveachievement("wz_first_win");
 			var_4cf27874 = player stats::get_stat_global(#"wins");
@@ -1109,7 +1109,7 @@ function function_35ac33e1(attacker, victim, var_c5948a69 = {})
 				}
 			}
 		}
-		attacker function_ffda8476("kill", #"killxp", var_ced14f4b);
+		attacker give_xp("kill", #"killxp", var_ced14f4b);
 		attacker stats::function_b7f80d87(#"kills", 1);
 		if(isdefined(attacker.pers[#"timesrevived"]) && attacker.pers[#"timesrevived"] > 0)
 		{

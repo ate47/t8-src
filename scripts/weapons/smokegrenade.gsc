@@ -448,7 +448,7 @@ function function_87d0a127(grenadeent, smokeweapon)
 	{
 		return;
 	}
-	var_ce7665b1 = grenadeent.team;
+	grenadeteam = grenadeent.team;
 	owner = grenadeent.var_b999539c.owner;
 	while(true)
 	{
@@ -487,7 +487,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 	{
 		return;
 	}
-	var_ce7665b1 = grenadeent.team;
+	grenadeteam = grenadeent.team;
 	while(true)
 	{
 		waitresult = undefined;
@@ -497,7 +497,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 			curval = player clientfield::get("insmoke");
 			if(isdefined(grenadeent) && isdefined(grenadeent.var_b999539c) && player istouching(grenadeent.var_b999539c) && waitresult._notify == #"timeout")
 			{
-				if(player util::isenemyteam(var_ce7665b1))
+				if(player util::isenemyteam(grenadeteam))
 				{
 					player clientfield::set("insmoke", curval | 1);
 				}
@@ -507,7 +507,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				}
 				continue;
 			}
-			if(player util::isenemyteam(var_ce7665b1))
+			if(player util::isenemyteam(grenadeteam))
 			{
 				mask = 1;
 			}
@@ -520,7 +520,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				trig = undefined;
 				if(isdefined(grenadeent))
 				{
-					trig = function_4cc4db89(var_ce7665b1, grenadeent.var_b999539c);
+					trig = function_4cc4db89(grenadeteam, grenadeent.var_b999539c);
 				}
 				if(!isdefined(trig))
 				{

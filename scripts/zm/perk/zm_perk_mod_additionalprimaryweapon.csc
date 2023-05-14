@@ -46,8 +46,8 @@ function __init__()
 */
 function function_c0deb38d()
 {
-	zm_perks::register_perk_clientfields(#"hash_5266c7139f9acf56", &function_40cb6d31, &function_90e7d3be);
-	zm_perks::register_perk_init_thread(#"hash_5266c7139f9acf56", &function_a850540);
+	zm_perks::register_perk_clientfields(#"specialty_mod_additionalprimaryweapon", &function_40cb6d31, &function_90e7d3be);
+	zm_perks::register_perk_init_thread(#"specialty_mod_additionalprimaryweapon", &function_a850540);
 }
 
 /*

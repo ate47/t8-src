@@ -29,11 +29,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_ce65aae8();
+	enable_mod_staminup_perk_for_level();
 }
 
 /*
-	Name: function_ce65aae8
+	Name: enable_mod_staminup_perk_for_level
 	Namespace: zm_perk_mod_staminup
 	Checksum: 0x77B03C2F
 	Offset: 0xF0
@@ -41,9 +41,9 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ce65aae8()
+function enable_mod_staminup_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_3e2f955cd85b5532", "mod_marathon", #"perk_staminup", #"specialty_staminup", 2500);
-	zm_perks::function_2ae97a14(#"hash_3e2f955cd85b5532", array(#"specialty_unlimitedsprint", #"specialty_sprintfire"));
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_staminup", "mod_marathon", #"perk_staminup", #"specialty_staminup", 2500);
+	zm_perks::function_2ae97a14(#"specialty_mod_staminup", array(#"specialty_unlimitedsprint", #"specialty_sprintfire"));
 }
 

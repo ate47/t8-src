@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_7a04ad0d();
+	enable_death_perception_perk_for_level();
 	level.var_1c1febec = [];
 	for(i = 0; i < getmaxlocalclients(); i++)
 	{
@@ -45,7 +45,7 @@ function __init__()
 }
 
 /*
-	Name: function_7a04ad0d
+	Name: enable_death_perception_perk_for_level
 	Namespace: zm_perk_death_perception
 	Checksum: 0xD4B9274A
 	Offset: 0x290
@@ -53,7 +53,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a04ad0d()
+function enable_death_perception_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"specialty_awareness", &function_6e0b6101, &function_95ed7b4a);
 	zm_perks::register_perk_effects(#"specialty_awareness", "divetonuke_light");

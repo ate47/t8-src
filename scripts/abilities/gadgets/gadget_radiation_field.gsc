@@ -545,15 +545,15 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 					{
 						var_73d38846 = var_73d38846 * var_a3ca7cb2 function_4e7b9eed();
 					}
-					var_65939bc3 = var_adf90433.var_9f648d82;
+					var_65939bc3 = var_adf90433.dotdamage;
 					var_a2755834 = var_adf90433.var_44ff1a4;
-					var_adf90433.var_9f648d82 = int(var_adf90433.var_9f648d82 * var_73d38846);
+					var_adf90433.dotdamage = int(var_adf90433.dotdamage * var_73d38846);
 					var_adf90433.var_44ff1a4 = int(var_adf90433.var_44ff1a4 * var_73d38846);
-					if(!isdefined(player.var_b3da9e24))
+					if(!isdefined(player.radiationDamage))
 					{
-						player.var_b3da9e24 = 0;
+						player.radiationDamage = 0;
 					}
-					player.var_b3da9e24 = player.var_b3da9e24 + var_adf90433.var_9f648d82;
+					player.radiationDamage = player.radiationDamage + var_adf90433.dotdamage;
 					var_adf90433.killcament = killcament;
 					var_a3ca7cb2 thread status_effect::status_effect_apply(var_adf90433, weapon, player, 0);
 					if(isdefined(level.var_ac6052e9))
@@ -564,7 +564,7 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 							var_a3ca7cb2.var_a267ce8 = gettime();
 						}
 					}
-					var_adf90433.var_9f648d82 = var_65939bc3;
+					var_adf90433.dotdamage = var_65939bc3;
 					var_adf90433.var_44ff1a4 = var_a2755834;
 					var_a3ca7cb2.var_ba5b487b = 1;
 				}
@@ -615,13 +615,13 @@ function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, 
 				scoreevents::processscoreevent(#"hash_19a9c949aa35bd2", player, undefined, weapon, var_7ba94ed3);
 			}
 		}
-		if(isdefined(level.playgadgetsuccess) && isdefined(player.var_b3da9e24))
+		if(isdefined(level.playgadgetsuccess) && isdefined(player.radiationDamage))
 		{
 			if(isdefined(level.var_ac6052e9))
 			{
 				var_9194a036 = [[level.var_ac6052e9]]("RadiationFieldSuccessLineCount", 0) * 25;
 			}
-			if(player.var_b3da9e24 > (isdefined(var_9194a036) ? var_9194a036 : 0) && (!(isdefined(player.var_25db02aa) && player.var_25db02aa)))
+			if(player.radiationDamage > (isdefined(var_9194a036) ? var_9194a036 : 0) && (!(isdefined(player.var_25db02aa) && player.var_25db02aa)))
 			{
 				player.var_25db02aa = 1;
 				player [[level.playgadgetsuccess]](weapon, undefined, undefined, undefined);
@@ -758,7 +758,7 @@ function shutdown(var_fb096220)
 		player function_a8d8842e();
 	}
 	player clientfield::set_player_uimodel("hudItems.abilityHintIndex", 0);
-	player.var_b3da9e24 = 0;
+	player.radiationDamage = 0;
 	player.var_25db02aa = 0;
 	if(isdefined(player.var_d44d1214))
 	{

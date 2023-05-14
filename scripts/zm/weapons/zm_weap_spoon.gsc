@@ -30,7 +30,7 @@ function autoexec __init__system__()
 */
 function private __init__()
 {
-	zm_melee_weapon::init(#"spoon_alcatraz", #"hash_62fb373e0f485710", 1000, "spoon", undefined, "spoon", undefined);
+	zm_melee_weapon::init(#"spoon_alcatraz", #"spoon_alcatraz_flourish", 1000, "spoon", undefined, "spoon", undefined);
 }
 
 /*

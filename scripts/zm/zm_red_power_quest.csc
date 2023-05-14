@@ -380,13 +380,13 @@ function function_cca9b50e(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 1
 	Flags: Linked
 */
-function function_7152ba7c(var_c712b3e9)
+function function_7152ba7c(mdl_artifact)
 {
 	self endon(#"death");
-	var_c712b3e9 endon(#"death");
+	mdl_artifact endon(#"death");
 	while(true)
 	{
-		self.origin = var_c712b3e9.origin;
+		self.origin = mdl_artifact.origin;
 		waitframe(1);
 	}
 }

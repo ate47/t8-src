@@ -5,7 +5,7 @@
 #using scripts\wz_common\wz_ai.csc;
 #using scripts\core_common\map.csc;
 #using script_71f2f8a6fc184b69;
-#using script_7f431c02afd98cf0;
+#using scripts\wz_common\wz_ignore_systems.csc;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -614,15 +614,15 @@ function private function_7e3a43c3(localclientnum)
 	self endon("2dfbcba8182d1332");
 	while(true)
 	{
-		var_d017e788 = function_5c10bd79(localclientnum);
-		if(!isdefined(var_d017e788))
+		currentplayer = function_5c10bd79(localclientnum);
+		if(!isdefined(currentplayer))
 		{
 			waitframe(1);
 			continue;
 		}
-		if(!var_d017e788 postfx::function_556665f2(#"hash_13defe66b6177d0b"))
+		if(!currentplayer postfx::function_556665f2(#"hash_13defe66b6177d0b"))
 		{
-			var_d017e788 postfx::playpostfxbundle(#"hash_13defe66b6177d0b");
+			currentplayer postfx::playpostfxbundle(#"hash_13defe66b6177d0b");
 		}
 		waitframe(1);
 	}

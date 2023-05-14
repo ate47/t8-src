@@ -30,7 +30,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_7a04ad0d();
+	enable_death_perception_perk_for_level();
 }
 
 /*
@@ -47,7 +47,7 @@ function __main__()
 }
 
 /*
-	Name: function_7a04ad0d
+	Name: enable_death_perception_perk_for_level
 	Namespace: zm_perk_death_perception
 	Checksum: 0x6234173C
 	Offset: 0x1F8
@@ -55,7 +55,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a04ad0d()
+function enable_death_perception_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

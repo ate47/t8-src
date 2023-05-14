@@ -1377,7 +1377,7 @@ function trap_model_type_init()
 */
 function function_3f401e8d(e_player)
 {
-	if(e_player hasperk(#"hash_6ca140703a87cd09") || (isdefined(self.var_efc76c5d) && self.var_efc76c5d) || (isdefined(e_player.var_c09a076a) && e_player.var_c09a076a))
+	if(e_player hasperk(#"specialty_mod_phdflopper") || (isdefined(self.var_efc76c5d) && self.var_efc76c5d) || (isdefined(e_player.var_c09a076a) && e_player.var_c09a076a))
 	{
 		if(e_player issliding())
 		{

@@ -3,11 +3,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_56e9194e;
+#namespace zm_weap_tesla_gun_t8;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xC5144699
 	Offset: 0xB0
 	Size: 0x3C
@@ -21,7 +21,7 @@ function autoexec __init__system__()
 
 /*
 	Name: __init__
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xACB759A6
 	Offset: 0xF8
 	Size: 0x1FC
@@ -30,7 +30,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_669e5aa1 = getweapon(#"ww_tesla_gun_t8_upgraded");
+	level.w_tesla_gun_t8_upgraded = getweapon(#"ww_tesla_gun_t8_upgraded");
 	level._effect[#"tesla_viewmodel_rail"] = #"zombie/fx_tesla_rail_view_zmb";
 	level._effect[#"tesla_viewmodel_tube"] = #"zombie/fx_tesla_tube_view_zmb";
 	level._effect[#"tesla_viewmodel_tube2"] = #"zombie/fx_tesla_tube_view2_zmb";
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: function_4dfaa84c
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xB0AC28F9
 	Offset: 0x300
 	Size: 0xA4
@@ -67,7 +67,7 @@ function function_4dfaa84c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: tesla_fx_rail
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xFAAAB8F7
 	Offset: 0x3B0
 	Size: 0x160
@@ -85,7 +85,7 @@ function tesla_fx_rail(localclientnum)
 		if(getweaponammoclip(localclientnum, w_current) > 0 && !ismeleeing(localclientnum))
 		{
 			str_fx = level._effect[#"tesla_viewmodel_rail"];
-			if(w_current == level.var_669e5aa1)
+			if(w_current == level.w_tesla_gun_t8_upgraded)
 			{
 				str_fx = level._effect[#"tesla_viewmodel_rail_upgraded"];
 			}
@@ -97,7 +97,7 @@ function tesla_fx_rail(localclientnum)
 
 /*
 	Name: tesla_fx_tube
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xF814E4BB
 	Offset: 0x518
 	Size: 0x320
@@ -118,7 +118,7 @@ function tesla_fx_tube(localclientnum)
 			continue;
 		}
 		str_fx = level._effect[#"tesla_viewmodel_tube"];
-		if(w_current == level.var_669e5aa1)
+		if(w_current == level.w_tesla_gun_t8_upgraded)
 		{
 			switch(n_ammo)
 			{
@@ -182,7 +182,7 @@ function tesla_fx_tube(localclientnum)
 
 /*
 	Name: clear_tesla_tube_effect
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x2B7CF2D2
 	Offset: 0x840
 	Size: 0x7C

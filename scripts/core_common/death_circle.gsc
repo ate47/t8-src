@@ -149,7 +149,7 @@ function function_114f128a(var_12be3b68)
 	Parameters: 14
 	Flags: Linked
 */
-function function_3e8742fe(var_3b9f4abf, var_66b35636 = 0, var_3b4ad673 = 0, radius = 0, damage = 0, var_c71fc4f4 = 0, var_edd69b13 = 0, var_fdd51794 = 0, var_227b1773 = 0, var_42682706 = 0, var_83c673f5 = 0, var_55ad5e4 = 0, var_c3bf31b = 0, var_18fa918d = 0)
+function function_3e8742fe(var_3b9f4abf, var_66b35636 = 0, var_3b4ad673 = 0, radius = 0, damage = 0, damageinterval = 0, var_edd69b13 = 0, var_fdd51794 = 0, var_227b1773 = 0, var_42682706 = 0, var_83c673f5 = 0, var_55ad5e4 = 0, var_c3bf31b = 0, var_18fa918d = 0)
 {
 	/#
 		assert(radius <= 150000, ((("" + "") + radius) + "") + 150000);
@@ -158,7 +158,7 @@ function function_3e8742fe(var_3b9f4abf, var_66b35636 = 0, var_3b4ad673 = 0, rad
 	var_c3bf31b = int(var_c3bf31b * 1000);
 	var_edd69b13 = var_edd69b13 * level.var_326f5774;
 	var_fdd51794 = var_fdd51794 * level.var_8d8322b4;
-	circle = {#hash_18fa918d:var_18fa918d, #hash_c3bf31b:var_c3bf31b, #hash_55ad5e4:var_55ad5e4, #hash_83c673f5:var_83c673f5, #hash_42682706:var_42682706, #hash_227b1773:var_227b1773, #hash_fdd51794:var_fdd51794, #hash_edd69b13:var_edd69b13, #hash_c71fc4f4:var_c71fc4f4, #damage:damage, #radiussq:radius * radius, #radius:radius, #origin:var_3b9f4abf, #hash_3b4ad673:var_3b4ad673, #hash_66b35636:var_66b35636, #hash_3b9f4abf:var_3b9f4abf};
+	circle = {#hash_18fa918d:var_18fa918d, #hash_c3bf31b:var_c3bf31b, #hash_55ad5e4:var_55ad5e4, #hash_83c673f5:var_83c673f5, #hash_42682706:var_42682706, #hash_227b1773:var_227b1773, #hash_fdd51794:var_fdd51794, #hash_edd69b13:var_edd69b13, #hash_c71fc4f4:damageinterval, #damage:damage, #radiussq:radius * radius, #radius:radius, #origin:var_3b9f4abf, #hash_3b4ad673:var_3b4ad673, #hash_66b35636:var_66b35636, #hash_3b9f4abf:var_3b9f4abf};
 	level.deathcircles[level.deathcircles.size] = circle;
 	level thread function_b36ed270();
 	return circle;
@@ -528,7 +528,7 @@ function start()
 	level.deathcircle.radius = initcircle.radius;
 	level.deathcircle clientfield::set("deathcircleflag", 1);
 	level.deathcircle.damage = initcircle.damage;
-	level.deathcircle.var_c71fc4f4 = initcircle.var_c71fc4f4;
+	level.deathcircle.damageinterval = initcircle.damageinterval;
 	level.deathcircle.var_18fa918d = initcircle.var_18fa918d;
 	level.deathcircle.var_55ad5e4 = initcircle.var_55ad5e4;
 	level.deathcircle.var_c3bf31b = initcircle.var_c3bf31b;
@@ -613,7 +613,7 @@ function start()
 		setmatchflag("bomb_timer_a", 0);
 		level clientfield::set_world_uimodel("hudItems.warzone.collapseTimerState", 2);
 		level.deathcircle.damage = circle.damage;
-		level.deathcircle.var_c71fc4f4 = circle.var_c71fc4f4;
+		level.deathcircle.damageinterval = circle.damageinterval;
 		level.deathcircle.var_18fa918d = circle.var_18fa918d;
 		level.deathcircle.var_55ad5e4 = circle.var_55ad5e4;
 		level.deathcircle.var_c3bf31b = circle.var_c3bf31b;
@@ -885,7 +885,7 @@ function private function_dc15ad60()
 	{
 		waitframe(1);
 	}
-	var_f4d9a132 = gettime() + (int(level.deathcircle.var_c71fc4f4 * 1000));
+	var_f4d9a132 = gettime() + (int(level.deathcircle.damageinterval * 1000));
 	var_1a1c0d86 = 0;
 	while(isdefined(level.deathcircle))
 	{
@@ -934,14 +934,14 @@ function private function_dc15ad60()
 					player.var_6cd69660 = player.var_6cd69660 + level.deathcircle.var_18fa918d;
 					player.var_b8328141 = time + level.deathcircle.var_c3bf31b;
 				}
-				player.var_d2bc9ac0 = damage + player.var_6cd69660;
-				if(player.var_d2bc9ac0 >= level.var_ab9cd581)
+				player.deathcircledamage = damage + player.var_6cd69660;
+				if(player.deathcircledamage >= level.var_ab9cd581)
 				{
 					intensity = 3;
 				}
 				else
 				{
-					if(player.var_d2bc9ac0 >= level.var_6c870a00)
+					if(player.deathcircledamage >= level.var_6c870a00)
 					{
 						intensity = 2;
 					}
@@ -956,7 +956,7 @@ function private function_dc15ad60()
 				player function_8bd303cc();
 				if(dodamage)
 				{
-					damage = player.var_d2bc9ac0;
+					damage = player.deathcircledamage;
 					if(player hasperk(#"hash_559086ccb08f32ba"))
 					{
 						damage = int(ceil(damage * 0.5));
@@ -980,7 +980,7 @@ function private function_dc15ad60()
 		}
 		if(dodamage)
 		{
-			var_f4d9a132 = gettime() + (int(level.deathcircle.var_c71fc4f4 * 1000));
+			var_f4d9a132 = gettime() + (int(level.deathcircle.damageinterval * 1000));
 		}
 		var_1a1c0d86 = (var_1a1c0d86 + 1) % 5;
 		waitframe(1);
@@ -1156,7 +1156,7 @@ function function_27d5d349()
 		match_record::function_7a93acec(#"death_circle", i, #"origin", circle.origin);
 		match_record::set_stat(#"death_circle", i, #"radius", int(circle.radius));
 		match_record::set_stat(#"death_circle", i, #"damage", int(circle.damage));
-		match_record::set_stat(#"death_circle", i, #"damage_interval", circle.var_c71fc4f4);
+		match_record::set_stat(#"death_circle", i, #"damage_interval", circle.damageinterval);
 		match_record::set_stat(#"death_circle", i, #"hash_253edb095a1521ea", (isdefined(circle.var_23216f37) ? circle.var_23216f37 : circle.var_edd69b13));
 		match_record::set_stat(#"death_circle", i, #"hash_69da5ce7650a101b", (isdefined(circle.var_a301393a) ? circle.var_a301393a : circle.var_fdd51794));
 		match_record::set_stat(#"death_circle", i, #"final", 0);
@@ -1166,7 +1166,7 @@ function function_27d5d349()
 			match_record::function_7a93acec(#"death_circle", i, #"origin", level.deathcircle.origin);
 			match_record::set_stat(#"death_circle", i, #"radius", level.deathcircle.radius);
 			match_record::set_stat(#"death_circle", i, #"damage", level.deathcircle.damage);
-			match_record::set_stat(#"death_circle", i, #"damage_interval", level.deathcircle.var_c71fc4f4);
+			match_record::set_stat(#"death_circle", i, #"damage_interval", level.deathcircle.damageinterval);
 			match_record::set_stat(#"death_circle", i, #"hash_253edb095a1521ea", (isdefined(circle.var_23216f37) ? circle.var_23216f37 : circle.var_edd69b13));
 			match_record::set_stat(#"death_circle", i, #"hash_69da5ce7650a101b", (isdefined(circle.var_a301393a) ? circle.var_a301393a : circle.var_fdd51794));
 			match_record::set_stat(#"death_circle", i, #"final", 1);
@@ -1451,7 +1451,7 @@ function private function_ded40950()
 			level.var_a425ed89 = 0;
 			var_db6547d = getdvarstring(#"hash_76b26d6e696b82e8", "");
 			damage = getdvarint(#"hash_5675659e1a445164", 0);
-			var_c71fc4f4 = getdvarint(#"hash_700ae39acbcd84e5", 60);
+			damageinterval = getdvarint(#"hash_700ae39acbcd84e5", 60);
 			var_edd69b13 = getdvarint(#"hash_5779bb38cf5f61a9", 36000);
 			var_fdd51794 = getdvarint(#"hash_537f05a2ad3b9d7a", 60);
 			intensity = getdvarint(#"hash_16271dbe4d00b41e", 1);
@@ -1461,7 +1461,7 @@ function private function_ded40950()
 				var_ad7b95c0 = strtok(var_db6547d, "");
 				center = (float(var_ad7b95c0[0]), float(var_ad7b95c0[1]), 0);
 			}
-			function_3e8742fe(center, 0, 0, var_f15be329, damage, var_c71fc4f4, var_edd69b13, var_fdd51794, intensity);
+			function_3e8742fe(center, 0, 0, var_f15be329, damage, damageinterval, var_edd69b13, var_fdd51794, intensity);
 			level thread function_81ccccb6();
 		}
 	#/
@@ -1617,7 +1617,7 @@ function private draw_circle(circle, index, var_36b41a8, color, groundtrace)
 		var_a42bf85 = var_a42bf85 + printoffset;
 		print3d(var_a42bf85, "" + circle.damage, (1, 1, 1), 1, var_36b41a8);
 		var_a42bf85 = var_a42bf85 + printoffset;
-		print3d(var_a42bf85, "" + circle.var_c71fc4f4, (1, 1, 1), 1, var_36b41a8);
+		print3d(var_a42bf85, "" + circle.damageinterval, (1, 1, 1), 1, var_36b41a8);
 		var_a42bf85 = var_a42bf85 + printoffset;
 		print3d(var_a42bf85, "" + (isdefined(circle.var_227b1773) ? circle.var_227b1773 : ""), (1, 1, 1), 1, var_36b41a8);
 		var_a42bf85 = var_a42bf85 + printoffset;

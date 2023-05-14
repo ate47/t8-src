@@ -3750,15 +3750,15 @@ function swat_leave()
 	Parameters: 1
 	Flags: Linked
 */
-function function_50adbe51(var_b05782ac)
+function function_50adbe51(destroy_heli)
 {
 	if(gamestate::is_game_over())
 	{
 		return;
 	}
-	if(!isdefined(var_b05782ac))
+	if(!isdefined(destroy_heli))
 	{
-		var_b05782ac = 1;
+		destroy_heli = 1;
 	}
 	self notify(#"hash_71a1db99eb99dcff");
 	if(isdefined(self.var_6c0553ea))
@@ -3783,7 +3783,7 @@ function function_50adbe51(var_b05782ac)
 		if(isdefined(self.var_6c0553ea.helicopter))
 		{
 			function_d4331865(self.var_6c0553ea.helicopter.rope);
-			if(var_b05782ac)
+			if(destroy_heli)
 			{
 				thread swat_helicopter_explode(self.var_6c0553ea.helicopter);
 			}

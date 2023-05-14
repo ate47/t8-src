@@ -59,7 +59,7 @@ function __main__()
 */
 function function_8afdc221()
 {
-	zm_perks::function_7f42e14e(#"hash_cd6e82bd4ce7abf", "mod_stronghold", #"perk_stronghold", #"hash_34c7d1e8a059f87e", 3000);
+	zm_perks::register_perk_mod_basic_info(#"hash_cd6e82bd4ce7abf", "mod_stronghold", #"perk_stronghold", #"hash_34c7d1e8a059f87e", 3000);
 	zm_perks::register_perk_threads(#"hash_cd6e82bd4ce7abf", &function_1076eef9, &function_20b5dc19);
 }
 

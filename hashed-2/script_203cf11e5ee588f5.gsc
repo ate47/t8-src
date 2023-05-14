@@ -614,11 +614,11 @@ function function_506285c3(t_damage)
 				params = getstatuseffect(#"hash_baee445ed1d9b99");
 				if(zm_utility::is_standard())
 				{
-					params.var_9f648d82 = int(params.var_9f648d82 / 4);
+					params.dotdamage = int(params.dotdamage / 4);
 				}
 				if(zm_utility::function_e51dc2d8() && self flag::get(#"hash_6757075afacfc1b4"))
 				{
-					params.var_9f648d82 = int(params.var_9f648d82 * 0.1);
+					params.dotdamage = int(params.dotdamage * 0.1);
 				}
 				self status_effect::status_effect_apply(params);
 				self clientfield::set_to_player("acid_trap_postfx", 1);

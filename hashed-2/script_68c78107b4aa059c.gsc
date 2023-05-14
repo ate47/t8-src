@@ -683,16 +683,16 @@ function private function_216a69d6(var_9f19fcb6, reset)
 					if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[0]))
 					{
 						newstate = bundle.var_c14aa186[0];
-						if(isdefined(newstate.var_af128328))
+						if(isdefined(newstate.statefx))
 						{
 							if(isdefined(dynent.fx))
 							{
 								deletefx(0, dynent.fx);
 								dynent.fx = undefined;
 							}
-							if(newstate.var_af128328 !== #"hash_633319dd8957ddbb")
+							if(newstate.statefx !== #"hash_633319dd8957ddbb")
 							{
-								dynent.fx = playfxondynent(newstate.var_af128328, dynent);
+								dynent.fx = playfxondynent(newstate.statefx, dynent);
 							}
 						}
 					}

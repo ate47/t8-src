@@ -132,11 +132,11 @@ function private function_43e771ee(reason)
 		timeused = function_f8d53445() - self.var_3dc66299.starttime;
 		if(self.var_3dc66299.shots > 0 || timeused >= 2000)
 		{
-			var_c2ffb370 = 0;
+			longesthitdist = 0;
 			var_e0ba2ec1 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 			if(isdefined(var_e0ba2ec1))
 			{
-				var_c2ffb370 = self match_record::get_stat(#"lives", var_e0ba2ec1, "longest_hit_distance");
+				longesthitdist = self match_record::get_stat(#"lives", var_e0ba2ec1, "longest_hit_distance");
 				self match_record::set_stat(#"lives", var_e0ba2ec1, "longest_hit_distance", 0);
 			}
 			died = 0;
@@ -154,7 +154,7 @@ function private function_43e771ee(reason)
 			var_178db383.headshots = self.var_3dc66299.headshots;
 			var_178db383.died = died;
 			var_178db383.time_used_s = var_27047881;
-			var_178db383.longest_hit_distance = var_c2ffb370;
+			var_178db383.longest_hit_distance = longesthitdist;
 			var_178db383.attachment1 = attachments.attachment0;
 			var_178db383.attachment2 = attachments.attachment1;
 			var_178db383.attachment3 = attachments.attachment2;

@@ -303,10 +303,10 @@ function function_efefda46(willbekilled, einflictor, eattacker, idamage, flags, 
 		}
 		return idamage;
 	}
-	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
-	var_474adcfd = getweapon(#"ww_blundergat_fire_t8_upgraded");
+	w_blundergat_fire = getweapon(#"ww_blundergat_fire_t8");
+	w_blundergat_fire_upgraded = getweapon(#"ww_blundergat_fire_t8_upgraded");
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
-	if(weapon == var_3845b34a || weapon == var_474adcfd || weapon == var_e97d8c2c)
+	if(weapon == w_blundergat_fire || weapon == w_blundergat_fire_upgraded || weapon == var_e97d8c2c)
 	{
 		if(self.var_6f84b820 == #"basic" || self.var_6f84b820 == #"popcorn" || self.var_6f84b820 == #"enhanced")
 		{
@@ -923,12 +923,12 @@ function function_89bde454(weapon)
 {
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	var_44dea58e = getweapon(#"ww_blundergat_t8_upgraded");
-	var_25836e3e = getweapon(#"ww_blundergat_acid_t8");
-	var_e6343dc3 = getweapon(#"ww_blundergat_acid_t8_upgraded");
-	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
-	var_5749016f = getweapon(#"ww_blundergat_fire_t8_upgraded");
-	var_e30eba14 = array(var_e97d8c2c, w_blundergat, var_44dea58e, var_25836e3e, var_e6343dc3, var_3845b34a, var_5749016f);
+	w_blundergat_upg = getweapon(#"ww_blundergat_t8_upgraded");
+	w_blundergat_acid = getweapon(#"ww_blundergat_acid_t8");
+	w_blundergat_acid_upg = getweapon(#"ww_blundergat_acid_t8_upgraded");
+	w_blundergat_fire = getweapon(#"ww_blundergat_fire_t8");
+	w_blundergat_fire_upg = getweapon(#"ww_blundergat_fire_t8_upgraded");
+	var_e30eba14 = array(var_e97d8c2c, w_blundergat, w_blundergat_upg, w_blundergat_acid, w_blundergat_acid_upg, w_blundergat_fire, w_blundergat_fire_upg);
 	if(isinarray(var_e30eba14, weapon))
 	{
 		foreach(w_blundergat in var_e30eba14)
@@ -954,41 +954,41 @@ function function_bd27d397(oldweapondata, newweapondata)
 {
 	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
-	var_44dea58e = getweapon(#"ww_blundergat_t8_upgraded");
-	var_25836e3e = getweapon(#"ww_blundergat_acid_t8");
-	var_e6343dc3 = getweapon(#"ww_blundergat_acid_t8_upgraded");
-	var_3845b34a = getweapon(#"ww_blundergat_fire_t8");
-	var_5749016f = getweapon(#"ww_blundergat_fire_t8_upgraded");
-	if(oldweapondata[#"weapon"] === var_e97d8c2c || oldweapondata[#"weapon"] === w_blundergat || oldweapondata[#"weapon"] === var_44dea58e || oldweapondata[#"weapon"] === var_25836e3e || oldweapondata[#"weapon"] === var_e6343dc3 || oldweapondata[#"weapon"] === var_3845b34a || oldweapondata[#"weapon"] === var_5749016f && (newweapondata[#"weapon"] === var_e97d8c2c || newweapondata[#"weapon"] === w_blundergat || newweapondata[#"weapon"] === var_44dea58e || newweapondata[#"weapon"] === var_25836e3e || newweapondata[#"weapon"] === var_e6343dc3 || newweapondata[#"weapon"] === var_3845b34a || newweapondata[#"weapon"] === var_5749016f))
+	w_blundergat_upg = getweapon(#"ww_blundergat_t8_upgraded");
+	w_blundergat_acid = getweapon(#"ww_blundergat_acid_t8");
+	w_blundergat_acid_upg = getweapon(#"ww_blundergat_acid_t8_upgraded");
+	w_blundergat_fire = getweapon(#"ww_blundergat_fire_t8");
+	w_blundergat_fire_upg = getweapon(#"ww_blundergat_fire_t8_upgraded");
+	if(oldweapondata[#"weapon"] === var_e97d8c2c || oldweapondata[#"weapon"] === w_blundergat || oldweapondata[#"weapon"] === w_blundergat_upg || oldweapondata[#"weapon"] === w_blundergat_acid || oldweapondata[#"weapon"] === w_blundergat_acid_upg || oldweapondata[#"weapon"] === w_blundergat_fire || oldweapondata[#"weapon"] === w_blundergat_fire_upg && (newweapondata[#"weapon"] === var_e97d8c2c || newweapondata[#"weapon"] === w_blundergat || newweapondata[#"weapon"] === w_blundergat_upg || newweapondata[#"weapon"] === w_blundergat_acid || newweapondata[#"weapon"] === w_blundergat_acid_upg || newweapondata[#"weapon"] === w_blundergat_fire || newweapondata[#"weapon"] === w_blundergat_fire_upg))
 	{
 		weapondata = [];
-		if(oldweapondata[#"weapon"] === var_5749016f || newweapondata[#"weapon"] === var_5749016f)
+		if(oldweapondata[#"weapon"] === w_blundergat_fire_upg || newweapondata[#"weapon"] === w_blundergat_fire_upg)
 		{
-			weapondata[#"weapon"] = var_5749016f;
+			weapondata[#"weapon"] = w_blundergat_fire_upg;
 		}
 		else
 		{
-			if(oldweapondata[#"weapon"] === var_e6343dc3 || newweapondata[#"weapon"] === var_e6343dc3)
+			if(oldweapondata[#"weapon"] === w_blundergat_acid_upg || newweapondata[#"weapon"] === w_blundergat_acid_upg)
 			{
-				weapondata[#"weapon"] = var_e6343dc3;
+				weapondata[#"weapon"] = w_blundergat_acid_upg;
 			}
 			else
 			{
-				if(oldweapondata[#"weapon"] === var_3845b34a || newweapondata[#"weapon"] === var_3845b34a)
+				if(oldweapondata[#"weapon"] === w_blundergat_fire || newweapondata[#"weapon"] === w_blundergat_fire)
 				{
-					weapondata[#"weapon"] = var_3845b34a;
+					weapondata[#"weapon"] = w_blundergat_fire;
 				}
 				else
 				{
-					if(oldweapondata[#"weapon"] === var_25836e3e || newweapondata[#"weapon"] === var_25836e3e)
+					if(oldweapondata[#"weapon"] === w_blundergat_acid || newweapondata[#"weapon"] === w_blundergat_acid)
 					{
-						weapondata[#"weapon"] = var_25836e3e;
+						weapondata[#"weapon"] = w_blundergat_acid;
 					}
 					else
 					{
-						if(oldweapondata[#"weapon"] === var_44dea58e || newweapondata[#"weapon"] === var_44dea58e)
+						if(oldweapondata[#"weapon"] === w_blundergat_upg || newweapondata[#"weapon"] === w_blundergat_upg)
 						{
-							weapondata[#"weapon"] = var_44dea58e;
+							weapondata[#"weapon"] = w_blundergat_upg;
 						}
 						else
 						{

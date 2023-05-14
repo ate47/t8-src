@@ -194,8 +194,8 @@ function function_fc04b237(weapon, weaponoptions)
 	{
 		return weaponoptions;
 	}
-	var_b7659ba0 = activecamo::function_385ef18d(weapon);
-	weaponoptions = self getbuildkitweaponoptions(var_b7659ba0, var_7df02232, stagenum);
+	buildkitweapon = activecamo::function_385ef18d(weapon);
+	weaponoptions = self getbuildkitweaponoptions(buildkitweapon, var_7df02232, stagenum);
 	return weaponoptions;
 }
 
@@ -1858,7 +1858,7 @@ function function_9ba10b94(var_bd027dd9)
 	{
 		return;
 	}
-	var_ad3db3b1 = [];
+	attachmentweapons = [];
 	var_8e198ed3 = [];
 	foreach(var_259f58f3 in array(1, 2, 3, 4, 5, 6))
 	{
@@ -1866,7 +1866,7 @@ function function_9ba10b94(var_bd027dd9)
 		item = self.inventory.items[var_f9f8c0b5];
 		if(item.var_bd027dd9 != 32767)
 		{
-			var_ad3db3b1[var_ad3db3b1.size] = namespace_ad5a0cd6::function_f4a8d375(item.id);
+			attachmentweapons[attachmentweapons.size] = namespace_ad5a0cd6::function_f4a8d375(item.id);
 			var_8e198ed3[var_8e198ed3.size] = item.id;
 			remove_inventory_item(item.var_bd027dd9, 0, 1);
 		}
@@ -1874,7 +1874,7 @@ function function_9ba10b94(var_bd027dd9)
 	function_418f9eb8(self.inventory.items[slotid].var_bd027dd9);
 	for(index = 0; index < var_8e198ed3.size; index++)
 	{
-		self thread function_d7944517(var_8e198ed3[index], var_ad3db3b1[index], 1, 1);
+		self thread function_d7944517(var_8e198ed3[index], attachmentweapons[index], 1, 1);
 	}
 }
 
@@ -3083,10 +3083,10 @@ function equip_weapon(item, switchweapon = 1, var_9fa01da8 = 0, var_a3a17c55 = 0
 			}
 			else
 			{
-				var_b7659ba0 = activecamo::function_385ef18d(weapon);
-				weaponoptions = self getbuildkitweaponoptions(var_b7659ba0);
-				var_3a7d925b = self function_9826b353(var_b7659ba0);
-				var_2febbde5 = self function_74829bcf(var_b7659ba0);
+				buildkitweapon = activecamo::function_385ef18d(weapon);
+				weaponoptions = self getbuildkitweaponoptions(buildkitweapon);
+				var_3a7d925b = self function_9826b353(buildkitweapon);
+				var_2febbde5 = self function_74829bcf(buildkitweapon);
 			}
 			if(weaponoptions != self getbuildkitweaponoptions(level.weaponnone))
 			{
@@ -4173,7 +4173,7 @@ function function_db2abc4(item)
 	Parameters: 3
 	Flags: Linked
 */
-function function_a24d6e36(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 = 1)
+function function_a24d6e36(var_bd027dd9, notifyclient = 1, var_cda2ff12 = 1)
 {
 	/#
 		assert(isplayer(self));
@@ -4210,7 +4210,7 @@ function function_a24d6e36(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 = 1)
 	}
 	else
 	{
-		self remove_inventory_item(var_bd027dd9, 0, var_b44c0e7e, var_cda2ff12);
+		self remove_inventory_item(var_bd027dd9, 0, notifyclient, var_cda2ff12);
 	}
 }
 
@@ -4223,7 +4223,7 @@ function function_a24d6e36(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 = 1)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_eb70ad46(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 = 1)
+function private function_eb70ad46(var_bd027dd9, notifyclient = 1, var_cda2ff12 = 1)
 {
 	item = function_dfcacdc2(var_bd027dd9);
 	weapon = namespace_a0d533d1::function_2b83d3ff(item);
@@ -4231,7 +4231,7 @@ function private function_eb70ad46(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 
 	self.inventory.items[13] = function_520b16d6();
 	self.inventory.var_c212de25 = 5;
 	self.inventory.var_7658cbec = 0;
-	if(var_b44c0e7e)
+	if(notifyclient)
 	{
 		self function_b00db06(5, var_bd027dd9);
 	}
@@ -4264,7 +4264,7 @@ function private function_eb70ad46(var_bd027dd9, var_b44c0e7e = 1, var_cda2ff12 
 	Parameters: 4
 	Flags: Linked
 */
-function remove_inventory_item(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var_cda2ff12 = 1)
+function remove_inventory_item(var_bd027dd9, var_dfe6c7e5 = 0, notifyclient = 1, var_cda2ff12 = 1)
 {
 	/#
 		assert(isplayer(self));
@@ -4288,14 +4288,14 @@ function remove_inventory_item(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1,
 	}
 	if(self.inventory.items[13].var_bd027dd9 === var_bd027dd9)
 	{
-		function_eb70ad46(var_bd027dd9, var_b44c0e7e, var_cda2ff12);
+		function_eb70ad46(var_bd027dd9, notifyclient, var_cda2ff12);
 		return true;
 	}
 	for(i = 0; i < self.inventory.items.size; i++)
 	{
 		if(self.inventory.items[i].var_bd027dd9 === var_bd027dd9)
 		{
-			unequipped = self function_d019bf1d(var_bd027dd9, var_dfe6c7e5, var_b44c0e7e, var_cda2ff12);
+			unequipped = self function_d019bf1d(var_bd027dd9, var_dfe6c7e5, notifyclient, var_cda2ff12);
 			self.inventory.items[i] = function_520b16d6();
 			if(function_8b1a219a())
 			{
@@ -4306,7 +4306,7 @@ function remove_inventory_item(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1,
 			}
 			self function_6c36ab6b();
 			self function_a4413333();
-			if(var_b44c0e7e)
+			if(notifyclient)
 			{
 				self function_b00db06(5, var_bd027dd9);
 			}
@@ -4669,10 +4669,10 @@ function function_a2c7ce35()
 		{
 			continue;
 		}
-		var_a101f33c = var_3e9ef0a1[var_25c45152];
-		for(index = 0; index < var_a101f33c.size; index++)
+		equipmentitems = var_3e9ef0a1[var_25c45152];
+		for(index = 0; index < equipmentitems.size; index++)
 		{
-			var_7f695eed = var_a101f33c[index];
+			var_7f695eed = equipmentitems[index];
 			var_f77e15f6 = function_4ba8fde(var_7f695eed);
 			if(!isdefined(var_f77e15f6))
 			{
@@ -4934,7 +4934,7 @@ function function_26c87da8(var_c9293a27, var_8f194e5a)
 	Parameters: 3
 	Flags: Linked
 */
-function function_b3342af3(item, var_b44c0e7e = 1, var_2ea908ac = undefined)
+function function_b3342af3(item, notifyclient = 1, var_2ea908ac = undefined)
 {
 	/#
 		assert(isplayer(self));
@@ -4966,13 +4966,13 @@ function function_b3342af3(item, var_b44c0e7e = 1, var_2ea908ac = undefined)
 		{
 			itemtype = item.var_a6762160.itemtype;
 			var_bd027dd9 = item.var_bd027dd9;
-			if(var_b44c0e7e)
+			if(notifyclient)
 			{
 				self function_b00db06(7, var_bd027dd9);
 			}
 			weapon = namespace_a0d533d1::function_2b83d3ff(weaponitem);
 			iscurrentweapon = weapon == self.currentweapon;
-			function_d019bf1d(var_f0dc4e93, undefined, var_b44c0e7e, 0);
+			function_d019bf1d(var_f0dc4e93, undefined, notifyclient, 0);
 			namespace_a0d533d1::function_6e9e7169(weaponitem);
 			equip_weapon(weaponitem, iscurrentweapon, undefined, 1, 0);
 			newammo = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weaponitem));
@@ -4996,7 +4996,7 @@ function function_b3342af3(item, var_b44c0e7e = 1, var_2ea908ac = undefined)
 	Parameters: 4
 	Flags: Linked
 */
-function function_41a57271(item, slot, var_b44c0e7e = 1, var_b2bd0862 = undefined)
+function function_41a57271(item, slot, notifyclient = 1, var_b2bd0862 = undefined)
 {
 	/#
 		assert(isplayer(self));
@@ -5021,7 +5021,7 @@ function function_41a57271(item, slot, var_b44c0e7e = 1, var_b2bd0862 = undefine
 		}
 		if(isdefined(attachment.var_a6762160.(slot)) && attachment.var_a6762160.(slot))
 		{
-			function_b3342af3(function_dfcacdc2(attachment.var_bd027dd9), var_b44c0e7e);
+			function_b3342af3(function_dfcacdc2(attachment.var_bd027dd9), notifyclient);
 		}
 	}
 }
@@ -5035,7 +5035,7 @@ function function_41a57271(item, slot, var_b44c0e7e = 1, var_b2bd0862 = undefine
 	Parameters: 4
 	Flags: Linked
 */
-function function_d019bf1d(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var_8eb4edca = 1)
+function function_d019bf1d(var_bd027dd9, var_dfe6c7e5 = 0, notifyclient = 1, var_8eb4edca = 1)
 {
 	/#
 		assert(isplayer(self));
@@ -5056,11 +5056,11 @@ function function_d019bf1d(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var
 	itemtype = var_a6762160.itemtype;
 	if(itemtype == #"weapon")
 	{
-		return function_3f5b2e2e(item, var_b44c0e7e, var_8eb4edca);
+		return function_3f5b2e2e(item, notifyclient, var_8eb4edca);
 	}
 	if(itemtype == #"attachment")
 	{
-		return function_b3342af3(item, var_b44c0e7e);
+		return function_b3342af3(item, notifyclient);
 	}
 	if(itemtype == #"armor")
 	{
@@ -5079,7 +5079,7 @@ function function_d019bf1d(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var
 			self thread function_8214f1b6(var_a6762160, var_dfe6c7e5);
 		}
 	}
-	if(var_b44c0e7e)
+	if(notifyclient)
 	{
 		self function_b00db06(7, var_bd027dd9);
 	}
@@ -5095,7 +5095,7 @@ function function_d019bf1d(var_bd027dd9, var_dfe6c7e5 = 0, var_b44c0e7e = 1, var
 	Parameters: 3
 	Flags: Linked
 */
-function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
+function function_3f5b2e2e(item, notifyclient = 1, var_8eb4edca = 1)
 {
 	/#
 		assert(isplayer(self));
@@ -5157,7 +5157,7 @@ function function_3f5b2e2e(item, var_b44c0e7e = 1, var_8eb4edca = 1)
 		}
 	}
 	self clearstowedweapon();
-	if(var_b44c0e7e)
+	if(notifyclient)
 	{
 		self function_b00db06(7, var_bd027dd9);
 	}

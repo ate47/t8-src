@@ -1581,7 +1581,7 @@ function private function_66b243ac(entity, asmstatename)
 function private function_5f4c1c68(entity)
 {
 	result = 0;
-	if(self.var_b90a4dc9 == 4 && isdefined(level.e_avogadro) && isdefined(level.e_avogadro.var_a8161b1a) && entity istouching(entity.var_a8161b1a))
+	if(self.var_b90a4dc9 == 4 && isdefined(level.e_avogadro) && isdefined(level.e_avogadro.vol_no_charge) && entity istouching(entity.vol_no_charge))
 	{
 		result = 1;
 	}

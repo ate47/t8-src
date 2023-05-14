@@ -583,13 +583,13 @@ function private function_36aab2f3(params)
 	var_2ad7f33b = params.intensity;
 	if(isdefined(var_2ad7f33b) && var_2ad7f33b > var_1fdf316c)
 	{
-		var_ae95ae92 = mapfloat(var_1fdf316c, var_a7796a79, mindamage, maxdamage, var_2ad7f33b);
+		applydamage = mapfloat(var_1fdf316c, var_a7796a79, mindamage, maxdamage, var_2ad7f33b);
 		if(isdefined(params.normal) && params.normal[2] < -0.5)
 		{
 			var_d3f8fc8a = vectordot(anglestoup(self.angles), -1 * params.normal);
 			if(var_d3f8fc8a > var_a1805d6e)
 			{
-				var_ae95ae92 = var_ae95ae92 * 0.1;
+				applydamage = applydamage * 0.1;
 			}
 		}
 		if(isdefined(params.entity) && isvehicle(params.entity))
@@ -604,14 +604,14 @@ function private function_36aab2f3(params)
 				attacker = self;
 			}
 		}
-		self dodamage(var_ae95ae92, self.origin, attacker);
+		self dodamage(applydamage, self.origin, attacker);
 	}
 	if(isdefined(params.entity) && issentient(params.entity))
 	{
 		if(isdefined(var_2ad7f33b) && var_2ad7f33b > 12)
 		{
-			var_ae95ae92 = mapfloat(12, 50, 50, 1000, var_2ad7f33b);
-			params.entity dodamage(var_ae95ae92 * var_1831f049, self.origin, self);
+			applydamage = mapfloat(12, 50, 50, 1000, var_2ad7f33b);
+			params.entity dodamage(applydamage * var_1831f049, self.origin, self);
 		}
 	}
 }
@@ -1061,7 +1061,7 @@ function on_player_killed(params)
 			}
 			else
 			{
-				vehicle.session.var_a1f4ebc0++;
+				vehicle.session.passenger_kills++;
 			}
 		}
 	}
@@ -4382,7 +4382,7 @@ function private function_4885ce1(params)
 		}
 		if(speed > var_1fdf316c)
 		{
-			var_ae95ae92 = mapfloat(var_1fdf316c, var_a7796a79, mindamage, maxdamage, speed);
+			applydamage = mapfloat(var_1fdf316c, var_a7796a79, mindamage, maxdamage, speed);
 			normal = params.normal;
 			var_264f4ce2 = self.origin - (100 * normal);
 			if(isdefined(params.entity) && isvehicle(params.entity))
@@ -4393,7 +4393,7 @@ function private function_4885ce1(params)
 					attacker = riders[0];
 				}
 			}
-			self dodamage(var_ae95ae92, var_264f4ce2, attacker);
+			self dodamage(applydamage, var_264f4ce2, attacker);
 		}
 	}
 	state = self vehicle_ai::get_current_state();
@@ -4850,12 +4850,12 @@ function function_33a25ecf(owner)
 					{
 						var_84c1f04c = (1, 0, 0);
 					}
-					var_cd148a81 = anglestoup(self.angles);
-					if(var_cd148a81 == (0, 0, 0))
+					fxup = anglestoup(self.angles);
+					if(fxup == (0, 0, 0))
 					{
-						var_cd148a81 = (0, 0, 1);
+						fxup = (0, 0, 1);
 					}
-					playfx("weapon/fx_trophy_flash", self.origin + vectorscale((0, 0, 1), 15), var_84c1f04c, var_cd148a81);
+					playfx("weapon/fx_trophy_flash", self.origin + vectorscale((0, 0, 1), 15), var_84c1f04c, fxup);
 					owner thread projectile_explode(grenade);
 					index--;
 					self playsound(#"wpn_trophy_alert");

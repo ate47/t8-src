@@ -2037,13 +2037,13 @@ function function_8f243ee0()
 {
 	var_86e0f327 = struct::get("walnut_teleporter_01");
 	var_77b254ca = struct::get("walnut_teleporter_02");
-	if(isdefined(var_86e0f327.var_9fa2930a))
+	if(isdefined(var_86e0f327.mdl_walnut))
 	{
-		var_86e0f327.var_9fa2930a delete();
+		var_86e0f327.mdl_walnut delete();
 	}
-	if(isdefined(var_77b254ca.var_9fa2930a))
+	if(isdefined(var_77b254ca.mdl_walnut))
 	{
-		var_77b254ca.var_9fa2930a delete();
+		var_77b254ca.mdl_walnut delete();
 	}
 	zm_unitrigger::unregister_unitrigger(var_86e0f327.s_unitrigger_stub);
 	zm_unitrigger::unregister_unitrigger(var_77b254ca.s_unitrigger_stub);

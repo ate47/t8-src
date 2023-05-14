@@ -2718,9 +2718,9 @@ function givelastonteamwarning()
 	Parameters: 2
 	Flags: None
 */
-function function_c4aeb146(var_efb758a8, var_befddc02)
+function function_c4aeb146(var_efb758a8, calloutplayer)
 {
-	luinotifyevent(#"player_callout", 2, var_efb758a8, var_befddc02.entnum);
+	luinotifyevent(#"player_callout", 2, var_efb758a8, calloutplayer.entnum);
 }
 
 /*
@@ -3987,7 +3987,7 @@ function function_7470e459(spawnpoint, predictedspawn)
 {
 	if(!predictedspawn)
 	{
-		self.var_b936d86b = spawnpoint;
+		self.startspawn = spawnpoint;
 	}
 }
 

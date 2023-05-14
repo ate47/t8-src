@@ -1246,7 +1246,7 @@ function function_7467b3c0(entity, mocompanim, mocompanimblendouttime, mocompani
 function function_5543b423(entity, mocompanim, mocompanimblendouttime, mocompanimflag, mocompduration)
 {
 	entity orientmode("face enemy");
-	entity.var_b0e6f49 = 0;
+	entity.melee_notetrack = 0;
 }
 
 /*
@@ -1260,10 +1260,10 @@ function function_5543b423(entity, mocompanim, mocompanimblendouttime, mocompani
 */
 function function_345c8845(entity, mocompanim, mocompanimblendouttime, mocompanimflag, mocompduration)
 {
-	if(isdefined(entity.var_b0e6f49) && entity.var_b0e6f49)
+	if(isdefined(entity.melee_notetrack) && entity.melee_notetrack)
 	{
 		entity orientmode("face current");
-		entity.var_b0e6f49 = 0;
+		entity.melee_notetrack = 0;
 	}
 	if(isdefined(entity.favoriteenemy))
 	{
@@ -1457,7 +1457,7 @@ function function_16bc9556(entity)
 	else
 	{
 		hitent = entity melee();
-		entity.var_b0e6f49 = 1;
+		entity.melee_notetrack = 1;
 		/#
 			record3dtext("", self.origin, (1, 0, 0), "", entity);
 		#/

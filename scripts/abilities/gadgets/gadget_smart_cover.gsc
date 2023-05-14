@@ -483,7 +483,7 @@ function function_b7f5b1cc(origin, angles, player)
 function function_a47ce1c2(player)
 {
 	var_b43e8dc2 = player function_287dcf4b(level.var_5101157d.bundle.var_63aab046, level.var_5101157d.bundle.maxwidth, 1, 1, level.var_5101157d.var_8d86ade8);
-	player.smartcover.var_add809de = var_b43e8dc2;
+	player.smartcover.lastvalid = var_b43e8dc2;
 	var_9e596670 = 0;
 	if(isdefined(var_b43e8dc2) && isdefined(var_b43e8dc2.origin))
 	{
@@ -595,12 +595,12 @@ function function_3b96637(watcher, owner)
 	player = owner;
 	self.canthack = 1;
 	self hide();
-	if(!isdefined(player.smartcover.var_add809de) || !player.smartcover.var_add809de.isvalid)
+	if(!isdefined(player.smartcover.lastvalid) || !player.smartcover.lastvalid.isvalid)
 	{
 		player deployable::function_416f03e6(level.var_5101157d.var_8d86ade8);
 		return;
 	}
-	var_bf2bf1a = player createsmartcover(watcher, self, player.smartcover.var_add809de.var_83050ca1, player.smartcover.var_add809de.angles, 1);
+	var_bf2bf1a = player createsmartcover(watcher, self, player.smartcover.lastvalid.var_83050ca1, player.smartcover.lastvalid.angles, 1);
 	var_bf2bf1a.angles = player.angles;
 	var_bf2bf1a.var_8120c266 = [];
 	var_bf2bf1a.var_9a3bd50f = 0;

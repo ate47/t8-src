@@ -1336,8 +1336,8 @@ function spawn(b_force = 0, str_targetname, v_origin, v_angles, bignorespawningl
 	}
 	/#
 		vehiclespawner = self.classname == "";
-		var_cff301a5 = !vehiclespawner || (!(isdefined(level.var_3313aeb2) && level.var_3313aeb2));
-		if(isdefined(level.archetype_spawners) && isarray(level.archetype_spawners) && var_cff301a5)
+		overridevehicle = !vehiclespawner || (!(isdefined(level.var_3313aeb2) && level.var_3313aeb2));
+		if(isdefined(level.archetype_spawners) && isarray(level.archetype_spawners) && overridevehicle)
 		{
 			archetype = undefined;
 			archetype_spawner = undefined;

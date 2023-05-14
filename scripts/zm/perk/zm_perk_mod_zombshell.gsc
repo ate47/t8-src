@@ -29,11 +29,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_37c0d395();
+	enable_zombshell_perk_for_level();
 }
 
 /*
-	Name: function_37c0d395
+	Name: enable_zombshell_perk_for_level
 	Namespace: zm_perk_mod_zombshell
 	Checksum: 0x688C855B
 	Offset: 0xF0
@@ -41,10 +41,10 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37c0d395()
+function enable_zombshell_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_4c14ed37c4038671", "mod_zombshell", #"perk_zombshell", #"specialty_zombshell", 5500);
-	zm_perks::register_perk_threads(#"hash_4c14ed37c4038671", &function_58d94d9, &function_bf7ca4a7);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_zombshell", "mod_zombshell", #"perk_zombshell", #"specialty_zombshell", 5500);
+	zm_perks::register_perk_threads(#"specialty_mod_zombshell", &function_58d94d9, &function_bf7ca4a7);
 }
 
 /*

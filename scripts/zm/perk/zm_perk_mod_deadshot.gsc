@@ -36,12 +36,12 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_e52f65ea();
+	enable_mod_deadshot_perk_for_level();
 	level._effect[#"hash_950ebbfb250b43e"] = #"hash_1695e8ac20dd5629";
 }
 
 /*
-	Name: function_e52f65ea
+	Name: enable_mod_deadshot_perk_for_level
 	Namespace: zm_perk_mod_deadshot
 	Checksum: 0x48F35E10
 	Offset: 0x158
@@ -49,11 +49,11 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e52f65ea()
+function enable_mod_deadshot_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_300c4e868f92134b", "mod_deadshot", #"perk_dead_shot", #"specialty_deadshot", 3000);
-	zm_perks::register_perk_threads(#"hash_300c4e868f92134b", &function_f93c5f09, &function_ce99709d);
-	zm_perks::register_actor_damage_override(#"hash_300c4e868f92134b", &function_36228265);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_deadshot", "mod_deadshot", #"perk_dead_shot", #"specialty_deadshot", 3000);
+	zm_perks::register_perk_threads(#"specialty_mod_deadshot", &function_f93c5f09, &function_ce99709d);
+	zm_perks::register_actor_damage_override(#"specialty_mod_deadshot", &function_36228265);
 	callback::on_ai_killed(&on_ai_killed);
 }
 
@@ -99,7 +99,7 @@ function function_ce99709d(b_pause, str_perk, str_result, n_slot)
 function on_ai_killed(params)
 {
 	e_attacker = params.eattacker;
-	if(isplayer(e_attacker) && e_attacker hasperk(#"hash_300c4e868f92134b"))
+	if(isplayer(e_attacker) && e_attacker hasperk(#"specialty_mod_deadshot"))
 	{
 		if(e_attacker zm_weapons::function_f5a0899d(params.weapon))
 		{

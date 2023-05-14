@@ -484,12 +484,12 @@ class class_7da27482
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_dd872e2b(params, var_d3ec8b24)
+	function function_dd872e2b(params, force_updates)
 	{
 		if(isdefined(params.weapon_right) || isdefined(params.weapon_left))
 		{
-			[[ self ]]->update_model_attachment(params.weapon_right, "tag_weapon_right", params.weapon_right_anim, params.weapon_right_anim_intro, var_d3ec8b24);
-			[[ self ]]->update_model_attachment(params.weapon_left, "tag_weapon_left", params.weapon_left_anim, params.weapon_left_anim_intro, var_d3ec8b24);
+			[[ self ]]->update_model_attachment(params.weapon_right, "tag_weapon_right", params.weapon_right_anim, params.weapon_right_anim_intro, force_updates);
+			[[ self ]]->update_model_attachment(params.weapon_left, "tag_weapon_left", params.weapon_left_anim, params.weapon_left_anim_intro, force_updates);
 		}
 		else if(isdefined(params.activeweapon))
 		{

@@ -183,7 +183,7 @@ function private _setup_devgui()
 function private function_a88ee653()
 {
 	/#
-		if(isdefined(level.var_b2513722))
+		if(isdefined(level.supplydropveh))
 		{
 			var_52b56362 = (isdefined(level.var_52b56362) ? level.var_52b56362 : 0);
 			deathcircle = level.deathcircles[var_52b56362];
@@ -211,12 +211,12 @@ function private function_a88ee653()
 			{
 				line(level.var_57e06aea[index - 1], level.var_57e06aea[index], (1, 0, 0));
 			}
-			if(isdefined(level.var_ae7f6100) && isdefined(level.var_3e5e898c))
+			if(isdefined(level.supplydropmax) && isdefined(level.supplydropmin))
 			{
-				var_d54803e = level.var_3e5e898c;
-				var_9c1af46d = (level.var_3e5e898c[0], level.var_ae7f6100[1], level.var_ae7f6100[2]);
-				var_c46271bf = (level.var_ae7f6100[0], level.var_3e5e898c[1], level.var_3e5e898c[2]);
-				var_99a8be82 = level.var_ae7f6100;
+				var_d54803e = level.supplydropmin;
+				var_9c1af46d = (level.supplydropmin[0], level.supplydropmax[1], level.supplydropmax[2]);
+				var_c46271bf = (level.supplydropmax[0], level.supplydropmin[1], level.supplydropmin[2]);
+				var_99a8be82 = level.supplydropmax;
 				line(var_d54803e, var_9c1af46d, (1, 1, 1));
 				line(var_d54803e, var_c46271bf, (1, 1, 1));
 				line(var_99a8be82, var_9c1af46d, (1, 1, 1));
@@ -254,8 +254,8 @@ function private function_c7bd0aa8(point, startpoint)
 	/#
 		assert(function_16bbdd8b(startpoint));
 	#/
-	min = level.var_3e5e898c;
-	max = level.var_ae7f6100;
+	min = level.supplydropmin;
+	max = level.supplydropmax;
 	var_1ccbeeaa = (point[0], point[1], 0);
 	var_49e5fac9 = (startpoint[0], startpoint[1], 0);
 	if(var_1ccbeeaa[0] < min[0])
@@ -321,7 +321,7 @@ function private function_13339b58(var_d4bce8be)
 	}
 	self animscripted("parachute_open", self.origin, self.angles, var_ee00b371, "normal", "root", 1, 0);
 	self waittill(#"parachute_open");
-	if(!(isdefined(self.var_b702030d) && self.var_b702030d))
+	if(!(isdefined(self.parachute_close) && self.parachute_close))
 	{
 		self animscripted("parachute_idle", self.origin, self.angles, idle_anim, "normal", "root", 1, 0);
 	}
@@ -365,10 +365,10 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 	{
 		supplydrop = self.supplydrop;
 		self.supplydrop = undefined;
-		supplydrop.var_b2513722 = undefined;
+		supplydrop.supplydropveh = undefined;
 		if(isdefined(supplydrop.var_d5552131))
 		{
-			supplydrop.var_d5552131.var_b2513722 = undefined;
+			supplydrop.var_d5552131.supplydropveh = undefined;
 		}
 		supplydrop endon(#"death");
 		supplydrop unlink();
@@ -418,7 +418,7 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 		if(isdefined(supplydropparachute))
 		{
 			supplydropparachute notify(#"parachute_close");
-			supplydropparachute.var_b702030d = 1;
+			supplydropparachute.parachute_close = 1;
 		}
 		if(isdefined(supplydrop.var_abd32694) && supplydrop.var_abd32694)
 		{
@@ -595,7 +595,7 @@ function private function_67d7d040(var_d91c179d)
 	supplydrop clientfield::set("dynamic_stash", 1);
 	supplydrop clientfield::set("dynamic_stash_type", 1);
 	supplydrop.stash_type = 1;
-	supplydrop.var_b2513722 = var_d91c179d;
+	supplydrop.supplydropveh = var_d91c179d;
 	return supplydrop;
 }
 
@@ -645,12 +645,12 @@ function private function_a3832aa0(var_d91c179d, vehicletype)
 	supplydrop = spawn("script_model", vectorscale((0, 0, -1), 64000));
 	supplydrop setmodel("tag_origin");
 	supplydrop useanimtree("generic");
-	supplydrop.var_b2513722 = var_d91c179d;
+	supplydrop.supplydropveh = var_d91c179d;
 	var_d5552131 = spawnvehicle(vehicletype, (0, 0, 0), (0, 0, 0));
 	var_d5552131 linkto(supplydrop, "tag_origin", (0, 0, 0), vectorscale((0, 1, 0), 90));
 	var_d5552131.var_b9b5403c = var_d5552131.health * 0.5;
 	var_d5552131.overridevehicledamage = &function_9a275b1f;
-	var_d5552131.var_b2513722 = var_d91c179d;
+	var_d5552131.supplydropveh = var_d91c179d;
 	var_d5552131.supplydrop = supplydrop;
 	var_d5552131 makeusable();
 	if(isdefined(var_d5552131.isphysicsvehicle) && var_d5552131.isphysicsvehicle)
@@ -673,20 +673,20 @@ function private function_a3832aa0(var_d91c179d, vehicletype)
 */
 function private function_16bbdd8b(point)
 {
-	if(!isdefined(level.var_3e5e898c) || !isdefined(level.var_ae7f6100))
+	if(!isdefined(level.supplydropmin) || !isdefined(level.supplydropmax))
 	{
 		var_6024133d = getentarray("map_corner", "targetname");
 		minx = min(var_6024133d[0].origin[0], var_6024133d[1].origin[0]);
 		miny = min(var_6024133d[0].origin[1], var_6024133d[1].origin[1]);
 		minz = -10;
-		level.var_3e5e898c = (minx, miny, minz);
+		level.supplydropmin = (minx, miny, minz);
 		maxx = max(var_6024133d[0].origin[0], var_6024133d[1].origin[0]);
 		maxy = max(var_6024133d[0].origin[1], var_6024133d[1].origin[1]);
 		maxz = 10;
-		level.var_ae7f6100 = (maxx, maxy, maxz);
+		level.supplydropmax = (maxx, maxy, maxz);
 	}
 	testpoint = (point[0], point[1], 0);
-	return function_fc3f770b(level.var_3e5e898c, level.var_ae7f6100, testpoint);
+	return function_fc3f770b(level.supplydropmin, level.supplydropmax, testpoint);
 }
 
 /*
@@ -728,11 +728,11 @@ function private function_9a275b1f(einflictor, eattacker, idamage, idflags, smea
 	var_d4bce8be = isdefined(self.scriptvehicletype) && self.scriptvehicletype == "player_tank";
 	if(!var_d4bce8be && newhealth <= self.var_b9b5403c)
 	{
-		if(isdefined(self.var_b2513722))
+		if(isdefined(self.supplydropveh))
 		{
-			var_b2513722 = self.var_b2513722;
-			var_b2513722 thread function_500a6615();
-			var_b2513722 thread function_ba3be344();
+			supplydropveh = self.supplydropveh;
+			supplydropveh thread function_500a6615();
+			supplydropveh thread function_ba3be344();
 		}
 		else
 		{
@@ -1253,36 +1253,36 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca282
 function function_b8dd1978(startpoint, endpoint, droppoint, var_2118f785 = undefined, var_58ca2822 = 1)
 {
 	var_57e06aea = array(startpoint, droppoint, endpoint);
-	var_b2513722 = spawnvehicle("vehicle_t8_mil_air_transport_infiltration", startpoint, vectortoangles(vectornormalize(endpoint - startpoint)));
-	if(!isdefined(var_b2513722))
+	supplydropveh = spawnvehicle("vehicle_t8_mil_air_transport_infiltration", startpoint, vectortoangles(vectornormalize(endpoint - startpoint)));
+	if(!isdefined(supplydropveh))
 	{
 		return;
 	}
-	var_b2513722 setforcenocull();
+	supplydropveh setforcenocull();
 	if(var_58ca2822)
 	{
 		function_58ca2822("warSupplyDropIncoming");
 	}
-	var_b2513722.goalradius = 128;
-	var_b2513722.goalheight = 128;
-	var_b2513722.var_57e06aea = var_57e06aea;
-	var_b2513722.maxhealth = var_b2513722.health;
-	var_b2513722.var_b9b5403c = var_b2513722.maxhealth * 0.5;
-	var_b2513722 setspeed(100);
-	var_b2513722 setrotorspeed(1);
-	var_b2513722 vehicle::toggle_tread_fx(1);
-	var_b2513722 vehicle::toggle_exhaust_fx(1);
-	var_b2513722 vehicle::toggle_sounds(1);
-	var_b2513722.var_5d0810d7 = 1;
-	supplydrop = function_67d7d040(var_b2513722);
-	if(!isdefined(var_b2513722))
+	supplydropveh.goalradius = 128;
+	supplydropveh.goalheight = 128;
+	supplydropveh.var_57e06aea = var_57e06aea;
+	supplydropveh.maxhealth = supplydropveh.health;
+	supplydropveh.var_b9b5403c = supplydropveh.maxhealth * 0.5;
+	supplydropveh setspeed(100);
+	supplydropveh setrotorspeed(1);
+	supplydropveh vehicle::toggle_tread_fx(1);
+	supplydropveh vehicle::toggle_exhaust_fx(1);
+	supplydropveh vehicle::toggle_sounds(1);
+	supplydropveh.var_5d0810d7 = 1;
+	supplydrop = function_67d7d040(supplydropveh);
+	if(!isdefined(supplydropveh))
 	{
 		return;
 	}
-	supplydrop linkto(var_b2513722, "tag_origin", vectorscale((0, 0, -1), 120));
-	var_b2513722.supplydrop = supplydrop;
-	var_b2513722 thread function_c2edbefb(var_57e06aea, droppoint, 0, var_2118f785);
-	var_b2513722 thread function_9e8348e4();
+	supplydrop linkto(supplydropveh, "tag_origin", vectorscale((0, 0, -1), 120));
+	supplydropveh.supplydrop = supplydrop;
+	supplydropveh thread function_c2edbefb(var_57e06aea, droppoint, 0, var_2118f785);
+	supplydropveh thread function_9e8348e4();
 	level.var_a5f063d[level.var_a5f063d.size] = supplydrop;
 	return var_57e06aea;
 }
@@ -1308,41 +1308,41 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d = 0, ve
 	#/
 	startpoint = var_57e06aea[0];
 	endpoint = var_57e06aea[var_57e06aea.size - 1];
-	var_b2513722 = spawnvehicle("vehicle_t8_mil_helicopter_transport_dark_wz", startpoint, vectortoangles(vectornormalize(endpoint - startpoint)));
-	if(!isdefined(var_b2513722))
+	supplydropveh = spawnvehicle("vehicle_t8_mil_helicopter_transport_dark_wz", startpoint, vectortoangles(vectornormalize(endpoint - startpoint)));
+	if(!isdefined(supplydropveh))
 	{
 		return;
 	}
-	var_b2513722 setforcenocull();
+	supplydropveh setforcenocull();
 	function_58ca2822("warSupplyDropIncoming");
-	target_set(var_b2513722, (0, 0, 0));
-	var_b2513722.goalradius = 128;
-	var_b2513722.goalheight = 128;
-	var_b2513722.var_57e06aea = var_57e06aea;
-	var_b2513722.maxhealth = var_b2513722.health;
-	var_b2513722.var_b9b5403c = var_b2513722.maxhealth * 0.5;
-	var_b2513722.overridevehicledamage = &function_415bdb1d;
-	var_b2513722 setspeed(100);
-	var_b2513722 setrotorspeed(1);
-	var_b2513722 vehicle::toggle_tread_fx(1);
-	var_b2513722 vehicle::toggle_exhaust_fx(1);
-	var_b2513722 vehicle::toggle_sounds(1);
-	var_b2513722.var_5d0810d7 = 1;
+	target_set(supplydropveh, (0, 0, 0));
+	supplydropveh.goalradius = 128;
+	supplydropveh.goalheight = 128;
+	supplydropveh.var_57e06aea = var_57e06aea;
+	supplydropveh.maxhealth = supplydropveh.health;
+	supplydropveh.var_b9b5403c = supplydropveh.maxhealth * 0.5;
+	supplydropveh.overridevehicledamage = &function_415bdb1d;
+	supplydropveh setspeed(100);
+	supplydropveh setrotorspeed(1);
+	supplydropveh vehicle::toggle_tread_fx(1);
+	supplydropveh vehicle::toggle_exhaust_fx(1);
+	supplydropveh vehicle::toggle_sounds(1);
+	supplydropveh.var_5d0810d7 = 1;
 	if(var_d91c179d)
 	{
-		supplydrop = function_a3832aa0(var_b2513722, vehicletype);
+		supplydrop = function_a3832aa0(supplydropveh, vehicletype);
 	}
 	else
 	{
-		supplydrop = function_67d7d040(var_b2513722);
+		supplydrop = function_67d7d040(supplydropveh);
 	}
-	supplydrop linkto(var_b2513722, "tag_cargo_attach", vectorscale((0, 0, -1), 45));
-	var_b2513722.supplydrop = supplydrop;
-	var_b2513722 thread function_c2edbefb(var_57e06aea, droppoint);
-	var_b2513722 thread function_9e8348e4();
+	supplydrop linkto(supplydropveh, "tag_cargo_attach", vectorscale((0, 0, -1), 45));
+	supplydropveh.supplydrop = supplydrop;
+	supplydropveh thread function_c2edbefb(var_57e06aea, droppoint);
+	supplydropveh thread function_9e8348e4();
 	level.var_a5f063d[level.var_a5f063d.size] = supplydrop;
 	level.supplydrop = supplydrop;
-	level.var_b2513722 = var_b2513722;
+	level.supplydropveh = supplydropveh;
 	level.var_57e06aea = var_57e06aea;
 	level.var_daa6e3f = droppoint;
 	level.var_d1c35a7a = startpoint;

@@ -1202,7 +1202,7 @@ function private function_393b9c76(planner, constants)
 	rank = 2147483647;
 	shortestpath = undefined;
 	var_c5e003e1 = undefined;
-	var_cfb25645 = function_1b0a9309(params.bots[0]);
+	currentweaponrank = function_1b0a9309(params.bots[0]);
 	foreach(var_df2f03d1 in var_8c60fdb3)
 	{
 		weapon = var_df2f03d1[#"weapon"];
@@ -1212,7 +1212,7 @@ function private function_393b9c76(planner, constants)
 		}
 		wallbuy = var_df2f03d1[#"__unsafe__"][#"wallbuy"];
 		weaponrank = function_8cfcffa3(params.bots[0], wallbuy.weapon);
-		if(weaponrank - var_cfb25645 < constants[#"hash_357612272d0dca05"])
+		if(weaponrank - currentweaponrank < constants[#"hash_357612272d0dca05"])
 		{
 			continue;
 		}

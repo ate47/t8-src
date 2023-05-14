@@ -96,13 +96,13 @@ function private on_player_connect(localclientnum)
 			setweaponcosts(localclientnum, weaponcost.weapon, weaponcost.cost, weaponcost.ammo_cost, player_cost, weaponcost.upgradedweapon);
 			if(isdefined(level.var_5a069e6[weaponcost.weapon]))
 			{
-				var_cc9f95c9 = level.var_5a069e6[weaponcost.weapon];
+				w_dw = level.var_5a069e6[weaponcost.weapon];
 				var_8afe76d1 = level.var_5a069e6[weaponcost.upgradedweapon];
 				if(!isdefined(var_8afe76d1))
 				{
 					var_8afe76d1 = level.weaponnone;
 				}
-				setweaponcosts(localclientnum, var_cc9f95c9, weaponcost.cost, weaponcost.ammo_cost, player_cost, var_8afe76d1);
+				setweaponcosts(localclientnum, w_dw, weaponcost.cost, weaponcost.ammo_cost, player_cost, var_8afe76d1);
 			}
 		}
 	}

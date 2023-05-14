@@ -68,7 +68,7 @@ function dot_apply(var_756fda07, weapon, var_84171a6c)
 	self.var_48b3f3eb = var_756fda07.var_48b3f3eb;
 	self.var_dc45cd85 = var_756fda07.var_5cf129b8;
 	self.var_cd9ab93d = var_756fda07.var_cd9ab93d;
-	self.var_73c55eee = var_756fda07.var_9f648d82;
+	self.var_73c55eee = var_756fda07.dotdamage;
 	self.var_4c4e9eb3 = var_756fda07.var_44ff1a4;
 	self.var_5cf129b8 = self.var_dc45cd85;
 	self.var_adb1692a = self.var_73c55eee;

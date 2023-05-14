@@ -204,7 +204,7 @@ function function_416eaaa2(var_deaf10fb, var_ef230d21)
 	if(isdefined(level.var_697a556f) && level.var_697a556f && var_deaf10fb > 0 && !self gadgetisactive(level.var_a53a05b5))
 	{
 		current_power = self gadgetpowerget(level.var_a53a05b5);
-		if(self hasperk(#"hash_301aaa36fae44a5c"))
+		if(self hasperk(#"specialty_mod_cooldown"))
 		{
 			var_deaf10fb = 0.15 * var_deaf10fb;
 		}
@@ -241,7 +241,7 @@ function function_29f19e9a(var_deaf10fb, n_points)
 			return;
 		}
 		var_f032086a = 0;
-		if(self hasperk(#"hash_301aaa36fae44a5c"))
+		if(self hasperk(#"specialty_mod_cooldown"))
 		{
 			var_f032086a = var_f032086a + 0.15;
 		}

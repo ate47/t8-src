@@ -232,13 +232,13 @@ function function_6661621a()
 	talents = self function_4a9f1384(self.class_num);
 	mploadout.var_942f949 = (talents.size > 0 ? talents[0] : 0);
 	mploadout.talent1 = (talents.size > 1 ? talents[1] : 0);
-	mploadout.var_9e81a3e0 = (talents.size > 2 ? talents[2] : 0);
+	mploadout.talent2 = (talents.size > 2 ? talents[2] : 0);
 	mploadout.var_9c409f5e = (talents.size > 3 ? talents[3] : 0);
 	mploadout.talent4 = (talents.size > 4 ? talents[4] : 0);
-	mploadout.var_432fed3e = (talents.size > 5 ? talents[5] : 0);
+	mploadout.talent5 = (talents.size > 5 ? talents[5] : 0);
 	wildcards = self function_6f2c0492(self.class_num);
-	mploadout.var_bd1c86b8 = (wildcards.size > 0 ? wildcards[0] : 0);
-	mploadout.var_cb5e233b = (wildcards.size > 1 ? wildcards[1] : 0);
+	mploadout.wildcard0 = (wildcards.size > 0 ? wildcards[0] : 0);
+	mploadout.wildcard1 = (wildcards.size > 1 ? wildcards[1] : 0);
 	mploadout.var_13573300 = (wildcards.size > 2 ? wildcards[2] : 0);
 	if(isdefined(self.playerrole) && isdefined(self.playerrole.var_c21d61e9))
 	{

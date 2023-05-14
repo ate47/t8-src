@@ -38,7 +38,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_482ec336();
+	enable_cooldown_perk_for_level();
 }
 
 /*
@@ -55,7 +55,7 @@ function __main__()
 }
 
 /*
-	Name: function_482ec336
+	Name: enable_cooldown_perk_for_level
 	Namespace: zm_perk_cooldown
 	Checksum: 0x20BD7A96
 	Offset: 0x1F8
@@ -63,7 +63,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_482ec336()
+function enable_cooldown_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

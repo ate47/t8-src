@@ -74,7 +74,7 @@ function function_c9ff0dce()
 		{
 			if(level.var_ad7c0539 >= 6)
 			{
-				n_slot = self namespace_d82263d5::function_fe5bfd29(#"eq_gravityslam");
+				n_slot = self namespace_d82263d5::get_slot(#"eq_gravityslam");
 				self.var_f3d589a1[n_slot] = 3;
 			}
 			switch(level.var_ad7c0539)
@@ -913,7 +913,7 @@ function function_baae9a51()
 	level endon(#"combattraining_logic_finished");
 	ct_utils::function_e9ab1003("s_grav_slam_start");
 	e_player = getplayers()[0];
-	n_slot = e_player namespace_d82263d5::function_fe5bfd29(#"eq_gravityslam");
+	n_slot = e_player namespace_d82263d5::get_slot(#"eq_gravityslam");
 	e_player.var_f3d589a1[n_slot] = 3;
 	level.var_d4668c34 = undefined;
 	level.a_spawn_beacons = [];
@@ -1154,7 +1154,7 @@ function function_8678055f()
 		level notify(#"slam_started", var_6a9e5fbd);
 		level.var_e72728b8 = undefined;
 		e_player = getplayers()[0];
-		n_slot = e_player namespace_d82263d5::function_fe5bfd29(#"eq_gravityslam");
+		n_slot = e_player namespace_d82263d5::get_slot(#"eq_gravityslam");
 		level thread namespace_d82263d5::function_144e61da(n_slot, "stop_grav_slam_charge");
 		var_5c76e8d = (e_player gamepadusedlast() ? #"hash_69996f3f10b734ca" : #"hash_94c2bd8b788ebca");
 		e_player thread ct_utils::function_61c3d59c(var_5c76e8d, array(#"hash_73601b890c77f89c"));
@@ -1869,15 +1869,15 @@ function function_bbdd4fa9()
 		level thread ct_vo::function_14b08e49(array(#"hash_44a0461092ffb316"), "stop_nag");
 		kills = e_player.kills;
 		setdvar(#"hash_3e06b14c41136e95", 0);
-		var_b8d8ceed = e_player killstreaks::get_killstreak_quantity(getweapon(#"remote_missile"));
-		if(var_b8d8ceed == 0)
+		killstreakquantity = e_player killstreaks::get_killstreak_quantity(getweapon(#"remote_missile"));
+		if(killstreakquantity == 0)
 		{
 			weapon = getweapon(#"remote_missile");
 			e_player killstreaks::change_killstreak_quantity(weapon, 1);
 		}
 		else
 		{
-			e_player killstreaks::add_to_notification_queue(killstreaks::get_menu_name(#"remote_missile"), var_b8d8ceed, #"remote_missile", undefined, 0);
+			e_player killstreaks::add_to_notification_queue(killstreaks::get_menu_name(#"remote_missile"), killstreakquantity, #"remote_missile", undefined, 0);
 		}
 		var_f445a007 = (e_player gamepadusedlast() ? #"hash_5baa07d86c0f300a" : #"hash_3f9bcf3d2fe5da0a");
 		e_player thread ct_utils::function_61c3d59c(var_f445a007);

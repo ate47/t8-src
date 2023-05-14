@@ -38,11 +38,11 @@ function private __init__()
 	callback::on_connect(&onconnect);
 	callback::on_spawned(&onspawned);
 	ability_player::register_gadget_activation_callbacks(23, &onhealthregen, &offhealthregen);
-	level.var_ad24980b = &offhealthregen;
+	level.healingdisabled = &offhealthregen;
 	level.var_99a34951 = getgametypesetting(#"hash_712f4c2a96bca56e");
 	level.var_33a3ef40 = getgametypesetting(#"hash_647310a2fe3554f7");
 	level.var_aff59367 = getgametypesetting(#"hash_44533f4f290c5e77");
-	level.var_ca2fc68c = getgametypesetting(#"hash_6a2434c947c86b9b");
+	level.pickup_respawn_time = getgametypesetting(#"hash_6a2434c947c86b9b");
 }
 
 /*
@@ -239,7 +239,7 @@ function private function_7a80944d(player)
 	level endon(#"game_ended");
 	self endon(#"death");
 	player endon(#"disconnect");
-	wait((isdefined(level.var_ca2fc68c) ? level.var_ca2fc68c : 0));
+	wait((isdefined(level.pickup_respawn_time) ? level.pickup_respawn_time : 0));
 	if(isdefined(self.objectiveid))
 	{
 		objective_setvisibletoplayer(self.objectiveid, player);

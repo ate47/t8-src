@@ -32,11 +32,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_ce65aae8();
+	enable_mod_staminup_perk_for_level();
 }
 
 /*
-	Name: function_ce65aae8
+	Name: enable_mod_staminup_perk_for_level
 	Namespace: zm_perk_mod_staminup
 	Checksum: 0x4F306240
 	Offset: 0xF8
@@ -44,10 +44,10 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ce65aae8()
+function enable_mod_staminup_perk_for_level()
 {
-	zm_perks::register_perk_clientfields(#"hash_3e2f955cd85b5532", &registermelee_leader_guntookpain, &function_170260ee);
-	zm_perks::register_perk_init_thread(#"hash_3e2f955cd85b5532", &function_c24062a0);
+	zm_perks::register_perk_clientfields(#"specialty_mod_staminup", &registermelee_leader_guntookpain, &function_170260ee);
+	zm_perks::register_perk_init_thread(#"specialty_mod_staminup", &function_c24062a0);
 }
 
 /*

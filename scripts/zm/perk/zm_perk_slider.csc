@@ -31,13 +31,13 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_481123c();
+	enable_slider_perk_for_level();
 	level._effect[#"hash_7b8ad0ed3ef67813"] = "zombie/fx8_perk_phd_exp";
 	zm_perks::function_f3c80d73("zombie_perk_bottle_slider", "zombie_perk_totem_slider");
 }
 
 /*
-	Name: function_481123c
+	Name: enable_slider_perk_for_level
 	Namespace: zm_perk_slider
 	Checksum: 0x218B45A6
 	Offset: 0x1F0
@@ -45,7 +45,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_481123c()
+function enable_slider_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"specialty_phdflopper", &function_4bb29d61, &function_90b5e96c);
 	zm_perks::register_perk_effects(#"specialty_phdflopper", "divetonuke_light");

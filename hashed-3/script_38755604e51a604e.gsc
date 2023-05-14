@@ -318,13 +318,13 @@ function function_d0055419()
 				arr = strtok(cmd, "");
 				zone_name = arr[1];
 				ai_type = hash(arr[2]);
-				var_b1d22eeb = function_aacb2027(zone_name, ai_type);
-				var_b1d22eeb.is_disabled = 0;
+				zone_ins = function_aacb2027(zone_name, ai_type);
+				zone_ins.is_disabled = 0;
 				level.var_8110be92 = 1;
-				if(!(isdefined(var_b1d22eeb.is_active) && var_b1d22eeb.is_active))
+				if(!(isdefined(zone_ins.is_active) && zone_ins.is_active))
 				{
-					var_b1d22eeb.var_cafac64a = ai_type;
-					level thread function_41101f23(var_b1d22eeb, 1);
+					zone_ins.var_cafac64a = ai_type;
+					level thread function_41101f23(zone_ins, 1);
 					level notify(#"hash_4168bee802274065");
 				}
 			}
@@ -335,14 +335,14 @@ function function_d0055419()
 					arr = strtok(cmd, "");
 					zone_name = arr[1];
 					ai_type = hash(arr[2]);
-					var_b1d22eeb = function_aacb2027(zone_name, ai_type);
-					var_b1d22eeb.is_active = 0;
-					var_b1d22eeb.var_a74b14d0 = 0;
-					var_b1d22eeb.is_disabled = 1;
-					var_b1d22eeb.minimap clientfield::set("", 0);
-					var_b1d22eeb thread function_a82cad64(var_b1d22eeb);
-					var_b1d22eeb.var_8f95a80f = gettime() + level.var_5f531c0f;
-					var_b1d22eeb function_4fa5953();
+					zone_ins = function_aacb2027(zone_name, ai_type);
+					zone_ins.is_active = 0;
+					zone_ins.var_a74b14d0 = 0;
+					zone_ins.is_disabled = 1;
+					zone_ins.minimap clientfield::set("", 0);
+					zone_ins thread function_a82cad64(zone_ins);
+					zone_ins.var_8f95a80f = gettime() + level.var_5f531c0f;
+					zone_ins function_4fa5953();
 					level notify(#"hash_4168bee802274065");
 				}
 				else
@@ -1381,12 +1381,12 @@ function function_d6258153(zone_name, spawner_type, num)
 	Parameters: 3
 	Flags: Linked
 */
-function function_6c75dee3(zone_name, spawner_type, var_cc92fb9d)
+function function_6c75dee3(zone_name, spawner_type, time_in_sec)
 {
 	var_a59ba023 = function_aacb2027(zone_name, spawner_type);
 	if(isdefined(var_a59ba023))
 	{
-		var_a59ba023.var_2209cb79 = int(var_cc92fb9d * 1000);
+		var_a59ba023.var_2209cb79 = int(time_in_sec * 1000);
 	}
 }
 

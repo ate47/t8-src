@@ -2261,7 +2261,7 @@ function get_player_weapondata(weapon)
 		weapondata[#"alt_clip"] = 0;
 		weapondata[#"alt_stock"] = 0;
 	}
-	if(self aat::function_c5abc232(weapon))
+	if(self aat::has_aat(weapon))
 	{
 		weapondata[#"aat"] = self aat::getaatonweapon(weapon, 1);
 	}

@@ -34,11 +34,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_707471ee();
+	enable_dying_wish_perk_for_level();
 }
 
 /*
-	Name: function_707471ee
+	Name: enable_dying_wish_perk_for_level
 	Namespace: zm_perk_dying_wish
 	Checksum: 0xB278AFB5
 	Offset: 0x1B0
@@ -46,7 +46,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_707471ee()
+function enable_dying_wish_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"hash_5b141f82a55645a9", &function_6e5c87d, &function_36db14fb);
 	zm_perks::register_perk_effects(#"hash_5b141f82a55645a9", "divetonuke_light");

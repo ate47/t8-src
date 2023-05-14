@@ -285,11 +285,11 @@ function function_6fe5a945(player)
 	var_b43e8dc2 = player function_287dcf4b(level.var_87226c31.bundle.var_63aab046, level.var_87226c31.bundle.maxwidth, 0, 0, level.var_87226c31.var_3e7344ee);
 	if(!var_b43e8dc2.isvalid)
 	{
-		player.concertinawire.var_add809de = undefined;
+		player.concertinawire.lastvalid = undefined;
 		player function_bf191832(0, (0, 0, 0), (0, 0, 0));
 		return var_b43e8dc2;
 	}
-	player.concertinawire.var_add809de = var_b43e8dc2;
+	player.concertinawire.lastvalid = var_b43e8dc2;
 	var_2b68b641 = function_54267517(var_b43e8dc2.origin);
 	var_1167a9ce = function_6541080b(var_b43e8dc2.origin, level.var_87226c31.var_ff1a491d);
 	var_a82b48d6 = anglestoright(player.angles);
@@ -575,12 +575,12 @@ function function_fc4df41e(watcher, owner)
 	player = owner;
 	self.canthack = 1;
 	self hide();
-	if(!isdefined(player.concertinawire.var_add809de) || !player.concertinawire.var_add809de.isvalid)
+	if(!isdefined(player.concertinawire.lastvalid) || !player.concertinawire.lastvalid.isvalid)
 	{
 		player deployable::function_416f03e6(level.var_87226c31.var_3e7344ee);
 		return;
 	}
-	var_637dcf3d = player function_34d706ae(watcher, self, player.concertinawire.var_add809de.origin, player.concertinawire.var_add809de.angles, 1, player.concertinawire.var_add809de.width);
+	var_637dcf3d = player function_34d706ae(watcher, self, player.concertinawire.lastvalid.origin, player.concertinawire.lastvalid.angles, 1, player.concertinawire.lastvalid.width);
 	array::add(player.concertinawire.activelist, var_637dcf3d);
 	var_26c9fcc2 = function_57f553e9(player.concertinawire.activelist, level.var_87226c31.bundle.var_a0b69d8b);
 	if(isdefined(var_26c9fcc2))
@@ -603,7 +603,7 @@ function function_fc4df41e(watcher, owner)
 	var_637dcf3d util::function_c596f193();
 	if(isdefined(level.var_87226c31.bundle.deployanim))
 	{
-		thread function_8d89605(var_637dcf3d, player.concertinawire.var_add809de);
+		thread function_8d89605(var_637dcf3d, player.concertinawire.lastvalid);
 	}
 	var_637dcf3d function_e4f3f17();
 }

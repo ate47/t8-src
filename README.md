@@ -16,7 +16,7 @@ Scobalula - Original T7 decompiler
 
 # ATE47's files
 
-- [gamesettings.md](gamesettings.md) - the settings usable
+- [t8_info.md](t8_info.md) - information about the game
 - [find.txt](find.txt) - the find hashes
 - [BOHashTool](https://github.com/ate47/BOHashTool) tool I'm using to search
 

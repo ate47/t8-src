@@ -111,9 +111,9 @@ function autoexec function_45a212c0()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_18e6f0326e75bce4", #"hash_394e9478cf4f8d9d");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_43d8944b55b1e63c", #"hash_394e9478cf4f8d9d");
 	}
-	var_3ff328e2 = gamemodeismode(1) || gamemodeismode(7);
+	customgame = gamemodeismode(1) || gamemodeismode(7);
 	namespace_da5c04c3::function_7860b659(var_a12b4736, undefined, #"hash_5e9c3f9821e1ee0a");
-	if(!(isdefined(getgametypesetting(#"hash_512aec4c9e79844f")) && getgametypesetting(#"hash_512aec4c9e79844f")) || var_3ff328e2)
+	if(!(isdefined(getgametypesetting(#"hash_512aec4c9e79844f")) && getgametypesetting(#"hash_512aec4c9e79844f")) || customgame)
 	{
 		namespace_da5c04c3::function_7860b659(var_87d0eef8, undefined, #"hash_5e9c3f9821e1ee0a");
 	}

@@ -495,7 +495,7 @@ function function_e43bea18(var_11975e15)
 		}
 		case "hash_a2556a2905fd952":
 		{
-			str_weapon = #"hash_72fe417b2fdf3abe";
+			str_weapon = #"matryoshka";
 			break;
 		}
 		case "music_box":
@@ -532,7 +532,7 @@ function function_e162fac3(weapon, str_vo_line)
 	}
 	if(weapon === getweapon(#"hash_7a42b57be462143f"))
 	{
-		return #"hash_72fe417b2fdf3abe";
+		return #"matryoshka";
 	}
 	return str_vo_line;
 }

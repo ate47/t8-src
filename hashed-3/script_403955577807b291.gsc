@@ -160,11 +160,11 @@ function function_45e26cb2(local_client_num, oldval, newval, bnewent, binitialsn
 {
 	if(newval == 1)
 	{
-		self.var_acee3911 = 1;
+		self.cantbehacked = 1;
 	}
 	else
 	{
-		self.var_acee3911 = 0;
+		self.cantbehacked = 0;
 	}
 }
 
@@ -405,7 +405,7 @@ function function_adceefd(local_client_num, hacker)
 function watchfordeath(local_client_num, entity, index)
 {
 	entity endon(#"icepickhacked");
-	while(isdefined(entity) && (!(isdefined(entity.var_acee3911) && entity.var_acee3911)))
+	while(isdefined(entity) && (!(isdefined(entity.cantbehacked) && entity.cantbehacked)))
 	{
 		waitframe(1);
 	}

@@ -67,8 +67,8 @@ function function_ba2049f5()
 {
 	level endon(#"end_game");
 	level flag::wait_till("magicbox_initialized");
-	var_db0e5dff = array::random(level.var_b1805d48);
-	zm_weapons::function_603af7a8(var_db0e5dff);
+	w_doll = array::random(level.var_b1805d48);
+	zm_weapons::function_603af7a8(w_doll);
 }
 
 /*

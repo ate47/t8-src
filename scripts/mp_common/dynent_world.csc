@@ -125,16 +125,16 @@ event function_3981d015(eventstruct)
 		{
 			function_27b5ddff(dynent);
 		}
-		if(isdefined(newstate.var_af128328) && isdefined(eventstruct.localclientnum))
+		if(isdefined(newstate.statefx) && isdefined(eventstruct.localclientnum))
 		{
 			if(isdefined(dynent.fx))
 			{
 				stopfx(eventstruct.localclientnum, dynent.fx);
 				dynent.fx = undefined;
 			}
-			if(newstate.var_af128328 !== #"hash_633319dd8957ddbb")
+			if(newstate.statefx !== #"hash_633319dd8957ddbb")
 			{
-				dynent.fx = playfxondynent(newstate.var_af128328, dynent);
+				dynent.fx = playfxondynent(newstate.statefx, dynent);
 			}
 		}
 		setdynentenabled(dynent, isdefined(newstate.enable) && newstate.enable);

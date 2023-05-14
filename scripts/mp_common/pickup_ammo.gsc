@@ -17,8 +17,8 @@
 */
 function function_cff1656d()
 {
-	var_c2c1c043 = getentarray("pickup_ammo", "targetname");
-	foreach(pickup in var_c2c1c043)
+	pickup_ammos = getentarray("pickup_ammo", "targetname");
+	foreach(pickup in pickup_ammos)
 	{
 		pickup.trigger = spawn("trigger_radius_use", pickup.origin + vectorscale((0, 0, 1), 15), 0, 120, 100);
 		pickup.trigger setcursorhint("HINT_INTERACTIVE_PROMPT");
@@ -49,7 +49,7 @@ function function_4827d817(weapon)
 	{
 		return false;
 	}
-	package = struct::get_script_bundle("bountyhunterpackage", level.var_a9f35be1[0]);
+	package = struct::get_script_bundle("bountyhunterpackage", level.bountypackagelist[0]);
 	slot = undefined;
 	if(isdefined(self.pers[#"hash_50251e63e4a703b5"].weapons[0]) && self.pers[#"hash_50251e63e4a703b5"].weapons[0].name == weapon.name)
 	{
@@ -64,7 +64,7 @@ function function_4827d817(weapon)
 		return false;
 	}
 	var_f3e0cb57 = self.pers[#"hash_50251e63e4a703b5"].clientfields[slot].val - 1;
-	package = struct::get_script_bundle("bountyhunterpackage", level.var_a9f35be1[var_f3e0cb57]);
+	package = struct::get_script_bundle("bountyhunterpackage", level.bountypackagelist[var_f3e0cb57]);
 	var_e6e3de63 = package.var_ef921c3c;
 	maxammo = package.refillammo;
 	if(!isdefined(maxammo) || maxammo == 0)
@@ -164,7 +164,7 @@ function private function_7a80944d(player)
 	level endon(#"game_ended");
 	self endon(#"death");
 	player endon(#"disconnect");
-	wait((isdefined(level.var_ca2fc68c) ? level.var_ca2fc68c : 0));
+	wait((isdefined(level.pickup_respawn_time) ? level.pickup_respawn_time : 0));
 	if(isdefined(self.objectiveid))
 	{
 		objective_setvisibletoplayer(self.objectiveid, player);

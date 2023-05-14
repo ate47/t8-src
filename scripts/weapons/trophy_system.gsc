@@ -409,12 +409,12 @@ function trophyactive(owner)
 					{
 						var_84c1f04c = (1, 0, 0);
 					}
-					var_cd148a81 = anglestoup(self.angles);
-					if(var_cd148a81 == (0, 0, 0))
+					fxup = anglestoup(self.angles);
+					if(fxup == (0, 0, 0))
 					{
-						var_cd148a81 = (0, 0, 1);
+						fxup = (0, 0, 1);
 					}
-					playfx(level.trophylongflashfx, self.origin + vectorscale((0, 0, 1), 15), var_84c1f04c, var_cd148a81);
+					playfx(level.trophylongflashfx, self.origin + vectorscale((0, 0, 1), 15), var_84c1f04c, fxup);
 					owner thread projectileexplode(grenade, self);
 					index--;
 					self playsound(#"wpn_trophy_alert");

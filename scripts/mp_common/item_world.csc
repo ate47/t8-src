@@ -629,11 +629,11 @@ function private _draw(localclientnum, draworigin)
 	var_f4b807cb = function_abaeb170(draworigin, undefined, level.var_c49f422c, maxdist, -1, 1, servertime);
 	var_6665e24 = arraysortclosest(level.var_a4a4012e, draworigin, level.var_c49f422c, 0, maxdist);
 	var_13e4be37 = [];
-	foreach(var_ae944413 in var_6665e24)
+	foreach(dynamicitem in var_6665e24)
 	{
-		if(isdefined(var_ae944413) && var_ae944413.var_8e092725 !== -1)
+		if(isdefined(dynamicitem) && dynamicitem.var_8e092725 !== -1)
 		{
-			var_13e4be37[var_13e4be37.size] = var_ae944413;
+			var_13e4be37[var_13e4be37.size] = dynamicitem;
 		}
 	}
 	if(var_13e4be37.size > 0)
@@ -698,10 +698,10 @@ function private _draw(localclientnum, draworigin)
 			model.origin = item.origin;
 			model.angles = item.angles;
 			model function_e082e650(localclientnum, item, function_78a9fd5f(item), item.var_a6762160.modelscale);
-			var_b318478d = namespace_ad5a0cd6::function_da09de95(item.var_bd027dd9) && namespace_ad5a0cd6::can_pick_up(item, servertime);
-			var_b318478d = var_b318478d | (item.var_bd027dd9 < function_8322cf16() && namespace_ad5a0cd6::can_pick_up(function_b1702735(item.var_bd027dd9), servertime));
-			var_b318478d = var_b318478d & (!(isdefined(item.type) && item.type === #"missile"));
-			if(var_b318478d)
+			shouldshow = namespace_ad5a0cd6::function_da09de95(item.var_bd027dd9) && namespace_ad5a0cd6::can_pick_up(item, servertime);
+			shouldshow = shouldshow | (item.var_bd027dd9 < function_8322cf16() && namespace_ad5a0cd6::can_pick_up(function_b1702735(item.var_bd027dd9), servertime));
+			shouldshow = shouldshow & (!(isdefined(item.type) && item.type === #"missile"));
+			if(shouldshow)
 			{
 				model show();
 			}

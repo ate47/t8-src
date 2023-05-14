@@ -89,7 +89,7 @@ function private fxhandler(localclientnum, oldvalue, newvalue, bnewent, binitial
 	}
 	else
 	{
-		self function_5aa8d239(localclientnum, self.var_9fff53d1);
+		self function_5aa8d239(localclientnum, self.fxloop);
 	}
 }
 
@@ -107,8 +107,8 @@ function play_seeker_mine_fx(localclientnum)
 	self endon(#"death");
 	playsound(0, #"hash_153d2d19a99f3a29", self.origin);
 	sound = self playloopsound(#"hash_40039ac740a9f96e");
-	self.var_9fff53d1 = util::playfxontag(localclientnum, #"hash_180b04db9cd1ee12", self, "tag_body_animate");
-	level thread function_cece47d2(localclientnum, self, self.var_9fff53d1);
+	self.fxloop = util::playfxontag(localclientnum, #"hash_180b04db9cd1ee12", self, "tag_body_animate");
+	level thread function_cece47d2(localclientnum, self, self.fxloop);
 }
 
 /*

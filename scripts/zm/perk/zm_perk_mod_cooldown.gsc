@@ -56,8 +56,8 @@ function __main__()
 */
 function function_7299c39e()
 {
-	zm_perks::function_7f42e14e(#"hash_301aaa36fae44a5c", "mod_cooldown", #"perk_cooldown", #"specialty_cooldown", 3500);
-	zm_perks::register_perk_threads(#"hash_301aaa36fae44a5c", &function_8d51d9a8, &function_754453a);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_cooldown", "mod_cooldown", #"perk_cooldown", #"specialty_cooldown", 3500);
+	zm_perks::register_perk_threads(#"specialty_mod_cooldown", &function_8d51d9a8, &function_754453a);
 }
 
 /*

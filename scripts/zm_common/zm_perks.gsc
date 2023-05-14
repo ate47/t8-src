@@ -2492,7 +2492,7 @@ function register_perk_basic_info(str_perk, str_alias, n_perk_cost, str_hint_str
 }
 
 /*
-	Name: function_7f42e14e
+	Name: register_perk_mod_basic_info
 	Namespace: zm_perks
 	Checksum: 0x8F0C53F1
 	Offset: 0x7048
@@ -2500,7 +2500,7 @@ function register_perk_basic_info(str_perk, str_alias, n_perk_cost, str_hint_str
 	Parameters: 5
 	Flags: Linked
 */
-function function_7f42e14e(str_perk, str_alias, var_771fabd4, var_5a736864, n_cost)
+function register_perk_mod_basic_info(str_perk, str_alias, var_771fabd4, var_5a736864, n_cost)
 {
 	/#
 		assert(isdefined(str_perk), "");
@@ -3551,7 +3551,7 @@ function function_9bdf581f(perk, n_slot, b_bought = 0)
 		self.var_466b927f[self.var_466b927f.size] = perk;
 	}
 	function_fc0e5f36();
-	if(isdefined(self.var_c4cce77d) && (self.var_c4cce77d - 1) == n_slot || zm_utility::is_standard())
+	if(isdefined(self.talisman_perk_permanent) && (self.talisman_perk_permanent - 1) == n_slot || zm_utility::is_standard())
 	{
 		if(!isdefined(self.var_774e0ad7))
 		{

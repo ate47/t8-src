@@ -6247,18 +6247,18 @@ function function_b0b7e8a9()
 				{
 					vh_wisp vehicle::get_on_path(nd_start);
 					vh_wisp clientfield::set("fx8_power_wisp_lg", 1);
-					var_c299518b = 0;
+					is_player_touching = 0;
 					a_e_players = getplayers();
 					var_19092d6b = undefined;
 					foreach(e_player in a_e_players)
 					{
 						if(e_player istouching(var_9d62fe6f))
 						{
-							var_c299518b = 1;
+							is_player_touching = 1;
 							var_19092d6b = e_player;
 						}
 					}
-					if(var_c299518b)
+					if(is_player_touching)
 					{
 						vh_wisp.var_38f957e = undefined;
 						level.var_bf68ff1f = level.var_bf68ff1f + 1;
@@ -6330,15 +6330,15 @@ function function_3ce3c949()
 		while(var_7b286c7b < 40)
 		{
 			a_e_players = getplayers();
-			var_c299518b = 0;
+			is_player_touching = 0;
 			foreach(e_player in a_e_players)
 			{
 				if(e_player istouching(self.var_ef55363f))
 				{
-					var_c299518b = 1;
+					is_player_touching = 1;
 				}
 			}
-			if(var_c299518b)
+			if(is_player_touching)
 			{
 				if(n_speed < 9)
 				{

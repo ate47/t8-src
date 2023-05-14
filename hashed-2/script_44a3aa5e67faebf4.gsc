@@ -119,10 +119,10 @@ function number_b_(var_5c57c958, var_f3e138f3, var_3800dad7, plane_normal)
 	{
 		var_fa608360 = var_3800dad7 - var_5c57c958;
 		var_bc4566f4 = vectordot(var_fa608360, plane_normal);
-		var_c7ca84dc = var_bc4566f4 / var_a979e3a2;
-		if(var_c7ca84dc >= 0)
+		hit_time = var_bc4566f4 / var_a979e3a2;
+		if(hit_time >= 0)
 		{
-			result = var_c7ca84dc;
+			result = hit_time;
 		}
 	}
 	return result;

@@ -36,7 +36,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_707471ee();
+	enable_dying_wish_perk_for_level();
 }
 
 /*
@@ -53,7 +53,7 @@ function __main__()
 }
 
 /*
-	Name: function_707471ee
+	Name: enable_dying_wish_perk_for_level
 	Namespace: zm_perk_dying_wish
 	Checksum: 0xDE0053D4
 	Offset: 0x238
@@ -61,7 +61,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_707471ee()
+function enable_dying_wish_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

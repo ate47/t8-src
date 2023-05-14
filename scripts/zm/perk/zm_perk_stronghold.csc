@@ -33,13 +33,13 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_c6d3e860();
+	enable_stronghold_perk_for_level();
 	level._effect[#"hash_24e322568c9492c5"] = #"hash_497cb15bcf6c05b1";
 	callback::on_localclient_connect(&on_localclient_connect);
 }
 
 /*
-	Name: function_c6d3e860
+	Name: enable_stronghold_perk_for_level
 	Namespace: zm_perk_stronghold
 	Checksum: 0x169A1DBE
 	Offset: 0x1F8
@@ -47,7 +47,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c6d3e860()
+function enable_stronghold_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"hash_34c7d1e8a059f87e", &function_5a4557ee, &function_44bd921f);
 	zm_perks::register_perk_effects(#"hash_34c7d1e8a059f87e", "divetonuke_light");

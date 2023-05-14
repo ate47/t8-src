@@ -435,23 +435,23 @@ function function_2b77bc35()
 */
 function function_fb02bdd4(var_17a89b1)
 {
-	var_cfd6f17c = [];
+	enemy_teams = [];
 	foreach(team, _ in level.teams)
 	{
 		if(!isinarray(var_17a89b1, team))
 		{
-			if(!isdefined(var_cfd6f17c))
+			if(!isdefined(enemy_teams))
 			{
-				var_cfd6f17c = [];
+				enemy_teams = [];
 			}
-			else if(!isarray(var_cfd6f17c))
+			else if(!isarray(enemy_teams))
 			{
-				var_cfd6f17c = array(var_cfd6f17c);
+				enemy_teams = array(enemy_teams);
 			}
-			var_cfd6f17c[var_cfd6f17c.size] = team;
+			enemy_teams[enemy_teams.size] = team;
 		}
 	}
-	return var_cfd6f17c;
+	return enemy_teams;
 }
 
 /*
@@ -465,13 +465,13 @@ function function_fb02bdd4(var_17a89b1)
 */
 function function_16d5deba()
 {
-	var_b9ebc7d6 = 0;
+	revive_count = 0;
 	friendlies = getplayers(self.team);
 	foreach(player in friendlies)
 	{
 		if(player thread function_5de626dc(self))
 		{
-			var_b9ebc7d6++;
+			revive_count++;
 		}
 	}
 }
@@ -1424,7 +1424,7 @@ function revive_trigger_think()
 {
 	self endon(#"stop_revive_trigger");
 	teams = self function_2b77bc35();
-	var_cfd6f17c = function_fb02bdd4(teams);
+	enemy_teams = function_fb02bdd4(teams);
 	wait(0.1);
 	while(isdefined(self) && (!(isdefined(level.gameended) && level.gameended)))
 	{
@@ -1459,7 +1459,7 @@ function revive_trigger_think()
 		}
 		if(function_feb3e91d())
 		{
-			foreach(team in var_cfd6f17c)
+			foreach(team in enemy_teams)
 			{
 				if(function_356caede(team))
 				{

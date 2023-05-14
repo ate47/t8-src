@@ -44,8 +44,8 @@ function __init__()
 */
 function function_7299c39e()
 {
-	zm_perks::register_perk_clientfields(#"hash_301aaa36fae44a5c", &function_2e843bb7, &function_dbcec7de);
-	zm_perks::register_perk_init_thread(#"hash_301aaa36fae44a5c", &function_d5042d74);
+	zm_perks::register_perk_clientfields(#"specialty_mod_cooldown", &function_2e843bb7, &function_dbcec7de);
+	zm_perks::register_perk_init_thread(#"specialty_mod_cooldown", &function_d5042d74);
 }
 
 /*

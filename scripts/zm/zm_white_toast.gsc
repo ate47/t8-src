@@ -1107,7 +1107,7 @@ function spawn_boss()
 {
 	level.e_avogadro = zombie_utility::spawn_zombie(getent("avogadro_spawner", "targetname"), undefined, undefined);
 	level.e_avogadro.var_885c1824 = undefined;
-	level.e_avogadro.var_a8161b1a = getent("vol_avogadro_no_charge", "targetname");
+	level.e_avogadro.vol_no_charge = getent("vol_avogadro_no_charge", "targetname");
 	level.e_avogadro.vol_retreat = getent("vol_avogadro_retreat", "targetname");
 	level.e_avogadro.var_77ef4a35 = struct::get("avogadro_retreat_point", "targetname");
 	level.e_avogadro thread function_e5e69e2c();

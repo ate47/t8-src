@@ -773,7 +773,7 @@ function elevator_move_to(elevator)
 		{
 			function_d5410733();
 			elevator thread zombie_elevator_closets(0);
-			elevator.var_a231af57 = 3;
+			elevator.moving_to = 3;
 			if(!zm_zonemgr::zone_is_enabled("labs_elevator"))
 			{
 				zm_zonemgr::enable_zone("labs_elevator");
@@ -781,7 +781,7 @@ function elevator_move_to(elevator)
 		}
 		else
 		{
-			elevator.var_a231af57 = 2;
+			elevator.moving_to = 2;
 			function_5e62aa83();
 			if(!zm_zonemgr::zone_is_enabled("war_room_zone_top"))
 			{
@@ -806,12 +806,12 @@ function elevator_move_to(elevator)
 		{
 			function_1352fc3c();
 			elevator thread zombie_elevator_closets(1);
-			elevator.var_a231af57 = 2;
+			elevator.moving_to = 2;
 		}
 		else
 		{
 			function_cfd40975();
-			elevator.var_a231af57 = 1;
+			elevator.moving_to = 1;
 		}
 		elevator vehicle::get_on_and_go_path(elevator.var_5a3b55a3);
 		elevator waittill(#"reached_end_node");
@@ -847,7 +847,7 @@ function elevator_move_to(elevator)
 	}
 	level flag::set("elevator_grounded");
 	level flag::set("spawn_zombies");
-	elevator.var_a231af57 = undefined;
+	elevator.moving_to = undefined;
 	elevator open_elev_doors();
 	elevator waittill(#"doors_finished_moving");
 	elevator.called = 0;

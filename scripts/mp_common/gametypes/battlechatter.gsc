@@ -161,7 +161,7 @@ function __init__()
 	Parameters: 2
 	Flags: Linked
 */
-function function_e9f06034(player, var_cda945ba)
+function function_e9f06034(player, playbreath)
 {
 	if(player hasperk(#"specialty_quieter"))
 	{
@@ -172,11 +172,11 @@ function function_e9f06034(player, var_cda945ba)
 	{
 		return;
 	}
-	if(var_cda945ba && isdefined(playerbundle.exertemergegasp))
+	if(playbreath && isdefined(playerbundle.exertemergegasp))
 	{
 		self thread function_a48c33ff(playerbundle.exertemergegasp, 22, mpdialog_value("playerExertBuffer", 0));
 	}
-	else if(!var_cda945ba && isdefined(playerbundle.exertemergebreath))
+	else if(!playbreath && isdefined(playerbundle.exertemergebreath))
 	{
 		self thread function_a48c33ff(playerbundle.exertemergebreath, 22, mpdialog_value("playerExertBuffer", 0));
 	}
@@ -1942,7 +1942,7 @@ function function_f5c48bfa(attacker, owner, gadgetweapon, attackerweapon)
 		}
 		case "eq_hawk":
 		{
-			dialogkey = playerbundle.var_d11f02f1;
+			dialogkey = playerbundle.hawkWeaponDestroyed;
 			break;
 		}
 		case "hash_f525ab9cc66c061":
@@ -4378,7 +4378,7 @@ function play_gadget_activate(weapon)
 		}
 		case "eq_grapple":
 		{
-			dialogkey = playerbundle.var_a97283ea;
+			dialogkey = playerbundle.grappleGunWeaponUse;
 			dialogbuffer = 0.05;
 			break;
 		}

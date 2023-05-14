@@ -213,7 +213,7 @@ function function_cf065988(params)
 	cover = params.cover;
 	owner endon(#"death");
 	cover endon(#"death");
-	slots = namespace_b912c30b::function_bdb2b85b(cover, owner.smartcover.var_add809de.origin, owner.smartcover.var_add809de.angles, (owner.smartcover.var_add809de.width / 2) + 12, 6, level.var_5101157d.bundle.var_b345c668);
+	slots = namespace_b912c30b::function_bdb2b85b(cover, owner.smartcover.lastvalid.origin, owner.smartcover.lastvalid.angles, (owner.smartcover.lastvalid.width / 2) + 12, 6, level.var_5101157d.bundle.var_b345c668);
 	if(!isdefined(slots) || slots.size <= 0)
 	{
 		return;
@@ -997,7 +997,7 @@ function private zombieshouldmelee(entity)
 		return false;
 	}
 	meleedistsq = zombiebehavior::function_997f1224(entity);
-	var_c6bad08 = undefined;
+	enemy_vehicle = undefined;
 	test_origin = entity.enemy.origin;
 	if(function_f41ded83(entity.enemy))
 	{
@@ -1007,16 +1007,16 @@ function private zombieshouldmelee(entity)
 	{
 		if(function_142c3c86(entity.enemy, entity))
 		{
-			var_c6bad08 = entity.enemy getvehicleoccupied();
-			var_81952387 = var_c6bad08.origin;
+			enemy_vehicle = entity.enemy getvehicleoccupied();
+			var_81952387 = enemy_vehicle.origin;
 			for(i = 0; i < 11; i++)
 			{
-				if(var_c6bad08 function_dcef0ba1(i))
+				if(enemy_vehicle function_dcef0ba1(i))
 				{
-					var_ec950ebd = var_c6bad08 function_defc91b2(i);
+					var_ec950ebd = enemy_vehicle function_defc91b2(i);
 					if(isdefined(var_ec950ebd) && var_ec950ebd >= 0)
 					{
-						seat_pos = var_c6bad08 function_5051cc0c(i);
+						seat_pos = enemy_vehicle function_5051cc0c(i);
 						if(distancesquared(entity.origin, var_81952387) > distancesquared(entity.origin, seat_pos))
 						{
 							var_81952387 = seat_pos;
@@ -1030,17 +1030,17 @@ function private zombieshouldmelee(entity)
 		{
 			if(isvehicle(entity.enemy getgroundent()))
 			{
-				var_c6bad08 = entity.enemy getgroundent();
+				enemy_vehicle = entity.enemy getgroundent();
 				test_origin = (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin);
 			}
 			else if(isplayer(entity.enemy) && isvehicle(entity.enemy getmoverent()))
 			{
-				var_c6bad08 = entity.enemy getmoverent();
+				enemy_vehicle = entity.enemy getmoverent();
 				test_origin = (isdefined(entity.enemy.enemy.last_valid_position) ? entity.enemy.last_valid_position : entity.enemy.origin);
 			}
 		}
 	}
-	if(isdefined(var_c6bad08) && isdefined(entity.var_cbc65493))
+	if(isdefined(enemy_vehicle) && isdefined(entity.var_cbc65493))
 	{
 		meleedistsq = meleedistsq * entity.var_cbc65493;
 	}
@@ -1064,7 +1064,7 @@ function private zombieshouldmelee(entity)
 	{
 		return false;
 	}
-	if(!entity cansee((isdefined(var_c6bad08) ? var_c6bad08 : entity.enemy)))
+	if(!entity cansee((isdefined(enemy_vehicle) ? enemy_vehicle : entity.enemy)))
 	{
 		return false;
 	}
@@ -1074,7 +1074,7 @@ function private zombieshouldmelee(entity)
 		entity.var_1b250399 = entity.origin;
 		return true;
 	}
-	if(isdefined(var_c6bad08))
+	if(isdefined(enemy_vehicle))
 	{
 		entity.idletime = gettime();
 		entity.var_1b250399 = entity.origin;
@@ -2100,7 +2100,7 @@ function private function_d2106375()
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private function_dad6ba0e(name, enter, update, exit, var_c8f102d5, var_95e6c767)
+function private function_dad6ba0e(name, enter, update, exit, target_update, var_95e6c767)
 {
 	if(!isdefined(level.var_6082a6e3))
 	{
@@ -2109,7 +2109,7 @@ function private function_dad6ba0e(name, enter, update, exit, var_c8f102d5, var_
 	/#
 		assert(!isdefined(level.var_6082a6e3[name]));
 	#/
-	level.var_6082a6e3[name] = {#hash_27aeff3b:var_95e6c767, #hash_1bef5880:var_c8f102d5, #exit_func:exit, #update_func:update, #enter_func:enter, #name:name};
+	level.var_6082a6e3[name] = {#hash_27aeff3b:var_95e6c767, #hash_1bef5880:target_update, #exit_func:exit, #update_func:update, #enter_func:enter, #name:name};
 }
 
 /*
@@ -3245,7 +3245,7 @@ function private function_36151fe3()
 	}
 	else
 	{
-		if(self.isonnavmesh && isdefined(self.attackable) && isdefined(self.var_b238ef38) && (self.var_b238ef38.slot.var_bb075e37 || (isdefined(self.var_b238ef38.slot.var_acdc8d71) && !self isingoal(self.var_b238ef38.slot.var_acdc8d71))))
+		if(self.isonnavmesh && isdefined(self.attackable) && isdefined(self.var_b238ef38) && (self.var_b238ef38.slot.on_navmesh || (isdefined(self.var_b238ef38.slot.var_acdc8d71) && !self isingoal(self.var_b238ef38.slot.var_acdc8d71))))
 		{
 			if(!isinarray(level.var_8de0b84e, self getentitynumber()))
 			{
@@ -3256,7 +3256,7 @@ function private function_36151fe3()
 			{
 				var_bc4c0533[var_bc4c0533.size] = self.var_80780af2;
 			}
-			if(self.var_b238ef38.slot.var_bb075e37)
+			if(self.var_b238ef38.slot.on_navmesh)
 			{
 				var_bc4c0533[var_bc4c0533.size] = self.var_b238ef38.position;
 				var_d01c2da3 = self.var_b238ef38.position;
@@ -3751,14 +3751,14 @@ function turretthink()
 {
 	turret = self;
 	turret endon(#"microwave_turret_shutdown", #"death");
-	var_c71fc4f4 = 0.3;
+	damageinterval = 0.3;
 	damage = 2;
 	if(isdefined(level.deathcircle))
 	{
-		var_c71fc4f4 = level.deathcircle.var_c71fc4f4;
+		damageinterval = level.deathcircle.damageinterval;
 		damage = level.deathcircle.damage;
 	}
-	var_f4d9a132 = gettime() + (var_c71fc4f4 * 1000);
+	var_f4d9a132 = gettime() + (damageinterval * 1000);
 	while(gettime() < self.var_2853518c + self.var_fdeb16c7)
 	{
 		dodamage = gettime() >= var_f4d9a132;
@@ -3792,7 +3792,7 @@ function turretthink()
 					ent dodamage(damage, org, turret, undefined, undefined, "MOD_DEATH_CIRCLE");
 				}
 			}
-			var_f4d9a132 = gettime() + (var_c71fc4f4 * 1000);
+			var_f4d9a132 = gettime() + (damageinterval * 1000);
 		}
 		/#
 			turret turretdebug();

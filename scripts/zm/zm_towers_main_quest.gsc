@@ -181,7 +181,7 @@ function function_7dcdbfde()
 			self thread zm_perks::function_9bdf581f(var_16c042b8, i);
 		}
 	}
-	var_5d62d3c8 = array::randomize(array(#"ar_accurate_t8", #"ar_fastfire_t8", #"ar_stealth_t8", #"ar_modular_t8", #"smg_capacity_t8", #"tr_powersemi_t8", #"lmg_heavy_t8", #"lmg_spray_t8", #"lmg_standard_t8", #"hash_4ae11871b1233211"));
+	var_5d62d3c8 = array::randomize(array(#"ar_accurate_t8", #"ar_fastfire_t8", #"ar_stealth_t8", #"ar_modular_t8", #"smg_capacity_t8", #"tr_powersemi_t8", #"lmg_heavy_t8", #"lmg_spray_t8", #"lmg_standard_t8", #"ww_crossbow_t8"));
 	array::random(getplayers()) giveweapon(getweapon(#"homunculus"));
 	foreach(w_primary in self getweaponslistprimaries())
 	{
@@ -6587,7 +6587,7 @@ function function_2e309b5c(s_params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_94f7ef12(var_a922ea3a)
+function function_94f7ef12(s_spawnloc)
 {
 }
 

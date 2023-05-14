@@ -73,7 +73,7 @@ function init()
 	clientfield::register("world", "" + #"hash_5f0c4b68b2a6a75d", 16000, 1, "int");
 	namespace_617a54f4::function_d8383812("ee_asf_altar", 8000, #"a_skeet_fink_charge", &function_123eb361, &function_9bb74431, 1);
 	function_c739f755();
-	level.var_6d66c4ba = getweapon(#"stake_knife");
+	level.w_stake_knife = getweapon(#"stake_knife");
 	level thread function_93bd3e32();
 }
 
@@ -179,7 +179,7 @@ function function_f2971bfd(b_respawn = 0)
 */
 function function_ff75fde6(var_a276c861)
 {
-	zm_melee_weapon::init(#"stake_knife", #"hash_5e3608222071b688", undefined, "", undefined, "bowie", undefined);
+	zm_melee_weapon::init(#"stake_knife", #"stake_knife_flourish", undefined, "", undefined, "bowie", undefined);
 	zm_loadout::register_melee_weapon_for_level(#"stake_knife");
 	clientfield::set("" + #"hash_300ef0a8a2afdab9", level.var_5e01899a[0]);
 	clientfield::set("" + #"hash_300eefa8a2afd906", level.var_5e01899a[1]);
@@ -581,7 +581,7 @@ function function_15c82a8a(var_a276c861)
 function private function_eb6f728f()
 {
 	self endon(#"hash_20911f4af4e75472");
-	var_6d66c4ba = getweapon(#"stake_knife");
+	w_stake_knife = getweapon(#"stake_knife");
 	while(true)
 	{
 		if(level flag::get("round_reset"))
@@ -589,7 +589,7 @@ function private function_eb6f728f()
 			level flag::wait_till_clear("round_reset");
 			wait(7);
 		}
-		else if(namespace_11abec5a::is_active(var_6d66c4ba))
+		else if(namespace_11abec5a::is_active(w_stake_knife))
 		{
 			n_nosferatus = zm_ai_nosferatu::function_853b43e8();
 			if(n_nosferatus < 10)
@@ -768,7 +768,7 @@ function function_422acb4c()
 		var_be17187b = undefined;
 		var_be17187b = self waittill(#"trigger");
 		e_player = var_be17187b.activator;
-		if(!e_player hasweapon(level.var_6d66c4ba))
+		if(!e_player hasweapon(level.w_stake_knife))
 		{
 			e_player thread function_db526700();
 		}
@@ -788,7 +788,7 @@ function function_7aa50bb7(e_player)
 {
 	self endon(#"death");
 	can_use = zm_utility::can_use(e_player);
-	can_use = can_use & !e_player hasweapon(level.var_6d66c4ba);
+	can_use = can_use & !e_player hasweapon(level.w_stake_knife);
 	if(can_use)
 	{
 		self sethintstring(self.stub.blueprint.var_391591d0);

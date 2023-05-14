@@ -348,17 +348,17 @@ function function_dba32984()
 	level endon(#"hash_a54ffd2751ba9de", #"hash_13cf89176254a394");
 	if(isdefined(self.var_ef55363f))
 	{
-		var_c299518b = 1;
+		is_player_touching = 1;
 		a_e_players = getplayers();
-		while(var_c299518b)
+		while(is_player_touching)
 		{
 			wait(0.25);
 			foreach(e_player in a_e_players)
 			{
-				var_c299518b = 0;
+				is_player_touching = 0;
 				if(e_player istouching(self.var_ef55363f))
 				{
-					var_c299518b = 1;
+					is_player_touching = 1;
 				}
 			}
 		}

@@ -1137,9 +1137,9 @@ function function_f311bd4c(ai_zone)
 			if(isdefined(self.var_2cee3556))
 			{
 				var_b25650ab.var_2cee3556 = self.var_2cee3556;
-				foreach(item_list, var_c46cdc46 in var_b25650ab.var_2cee3556)
+				foreach(item_list, drop_count in var_b25650ab.var_2cee3556)
 				{
-					var_b25650ab.var_6a7537d8 = var_c46cdc46;
+					var_b25650ab.var_6a7537d8 = drop_count;
 					var_b25650ab function_d92e3c5a(waitresult.attacker, ai_zone, item_list);
 				}
 			}
@@ -1402,7 +1402,7 @@ function get_attackable_slot(entity)
 	}
 	var_754df93c = entity.origin;
 	var_b2c0d134 = arraygetclosest(var_754df93c, var_34bcb139);
-	if(var_b2c0d134.var_bb075e37)
+	if(var_b2c0d134.on_navmesh)
 	{
 		var_acdc8d71 = getclosestpointonnavmesh(var_b2c0d134.origin, entity getpathfindingradius(), entity getpathfindingradius());
 		if(isdefined(var_acdc8d71))

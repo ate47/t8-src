@@ -1372,7 +1372,7 @@ function private function_8807475c()
 {
 	self.enabled = 1;
 	self.enabled = self.enabled && (!isdefined(self.trigger_enabled) || self.trigger_enabled);
-	self.enabled = self.enabled && (!isdefined(self.var_bb915a97) || self.var_bb915a97);
+	self.enabled = self.enabled && (!isdefined(self.filter_enabled) || self.filter_enabled);
 }
 
 /*

@@ -530,7 +530,7 @@ function function_a29b80e8(e_victim)
 					params = getstatuseffect(#"hash_4b174f501c358c4c");
 					if(zm_utility::is_standard())
 					{
-						params.var_9f648d82 = int(params.var_9f648d82 / 2);
+						params.dotdamage = int(params.dotdamage / 2);
 					}
 					e_victim status_effect::status_effect_apply(params, w_fire, self, 0, undefined, undefined, self.origin);
 					e_victim notify(#"hash_60f39c53ee3e0ec7");

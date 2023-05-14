@@ -65,9 +65,9 @@ function __init__()
 */
 function private on_begin(var_a29299fb)
 {
-	if(!(isdefined(level.var_9d606cae) && level.var_9d606cae))
+	if(!(isdefined(level.buys_disabled) && level.buys_disabled))
 	{
-		level.var_9d606cae = 1;
+		level.buys_disabled = 1;
 		level notify(#"disable_buys");
 		function_6fd56055();
 		function_a4284cb4();
@@ -95,7 +95,7 @@ function private on_begin(var_a29299fb)
 function private on_end(round_reset)
 {
 	/#
-		assert(isdefined(level.var_9d606cae) && level.var_9d606cae);
+		assert(isdefined(level.buys_disabled) && level.buys_disabled);
 	#/
 	if(!round_reset)
 	{
@@ -105,7 +105,7 @@ function private on_end(round_reset)
 		zm_trial_util::function_ef1fce77();
 		function_c348adcc();
 		zm_trial_util::function_302c6014();
-		level.var_9d606cae = undefined;
+		level.buys_disabled = undefined;
 		function_c0da518d();
 	}
 }

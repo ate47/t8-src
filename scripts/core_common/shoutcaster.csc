@@ -247,7 +247,7 @@ function private function_4c4946d4(local_client_num, localplayerteam, var_52fe68
 	foreach(array in var_f2a410c9)
 	{
 		entity = array[0];
-		var_c43ac0da = array[1];
+		robkey = array[1];
 		rob = array[2];
 		if(!var_52fe6881 || var_faa7a3fb == 0)
 		{
@@ -265,7 +265,7 @@ function private function_4c4946d4(local_client_num, localplayerteam, var_52fe68
 			}
 			continue;
 		}
-		entity function_a0b844f1(local_client_num, var_c43ac0da, rob);
+		entity function_a0b844f1(local_client_num, robkey, rob);
 	}
 }
 
@@ -278,7 +278,7 @@ function private function_4c4946d4(local_client_num, localplayerteam, var_52fe68
 	Parameters: 3
 	Flags: Linked
 */
-function function_a0b844f1(local_client_num, var_c6fc7911, rob)
+function function_a0b844f1(local_client_num, rob_key, rob)
 {
 	var_52fe6881 = getshoutcastersetting(local_client_num, "shoutcaster_qs_xray");
 	loc_00000E16:
@@ -296,7 +296,7 @@ function function_a0b844f1(local_client_num, var_c6fc7911, rob)
 	{
 		return;
 	}
-	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_3a8caf1d07ba0251", var_c6fc7911);
+	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_3a8caf1d07ba0251", rob_key);
 	teamcolor = (self.team == #"allies" ? (0.13, 0.87, 0.94) : (0.98, 0.18, 0.1));
 	if(is_shoutcaster_using_team_identity(local_client_num))
 	{
@@ -324,11 +324,11 @@ function private function_7ed4edd3(playername)
 	{
 		return false;
 	}
-	if(!isdefined(level.var_b541c509))
+	if(!isdefined(level.shoutcasterpucks))
 	{
 		return false;
 	}
-	if(!isdefined(level.var_b541c509[playername]))
+	if(!isdefined(level.shoutcasterpucks[playername]))
 	{
 		return false;
 	}
@@ -384,7 +384,7 @@ function function_995e01b6(localclientnum, player)
 	{
 		var_11792f05 = #"hash_40193ed2b55dd6b6";
 	}
-	level.var_b541c509[player.name] = util::playfxontag(localclientnum, var_11792f05, self, "tag_origin");
+	level.shoutcasterpucks[player.name] = util::playfxontag(localclientnum, var_11792f05, self, "tag_origin");
 }
 
 /*
@@ -421,10 +421,10 @@ function private function_8e1e7736(localclientnum, player)
 */
 function private function_35248a94(localclientnum, playername)
 {
-	if(isdefined(level.var_b541c509[playername]))
+	if(isdefined(level.shoutcasterpucks[playername]))
 	{
-		stopfx(localclientnum, level.var_b541c509[playername]);
-		level.var_b541c509[playername] = undefined;
+		stopfx(localclientnum, level.shoutcasterpucks[playername]);
+		level.shoutcasterpucks[playername] = undefined;
 	}
 }
 

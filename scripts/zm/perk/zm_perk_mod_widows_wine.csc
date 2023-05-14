@@ -30,8 +30,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	zm_perks::register_perk_clientfields(#"hash_14e2498426fadea3", &function_905840b3, &function_a3102f04);
-	zm_perks::register_perk_init_thread(#"hash_14e2498426fadea3", &function_eb36b57e);
+	zm_perks::register_perk_clientfields(#"specialty_mod_widowswine", &function_905840b3, &function_a3102f04);
+	zm_perks::register_perk_init_thread(#"specialty_mod_widowswine", &function_eb36b57e);
 }
 
 /*

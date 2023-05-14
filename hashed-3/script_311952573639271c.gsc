@@ -442,22 +442,22 @@ function function_a0f5819b(b_on = 1)
 */
 function function_4f4e423f()
 {
-	var_ad0c3ba3 = getent("break_the_glass", "targetname");
+	mdl_lever = getent("break_the_glass", "targetname");
 	s_trigger = spawnstruct();
-	s_trigger.origin = var_ad0c3ba3.origin - vectorscale((0, 0, 1), 16);
+	s_trigger.origin = mdl_lever.origin - vectorscale((0, 0, 1), 16);
 	s_trigger zm_unitrigger::create();
 	while(true)
 	{
 		waitresult = undefined;
 		waitresult = s_trigger waittill(#"trigger_activated");
 		e_player = waitresult.e_who;
-		var_ad0c3ba3 rotatepitch(-120, 0.5);
-		var_ad0c3ba3 playsound(#"hash_3cd844a784afd0f");
-		var_ad0c3ba3 waittill(#"rotatedone");
+		mdl_lever rotatepitch(-120, 0.5);
+		mdl_lever playsound(#"hash_3cd844a784afd0f");
+		mdl_lever waittill(#"rotatedone");
 		if(level flag::get(#"hash_f244999377a9081"))
 		{
 			level flag::set(#"hash_598d4e6af1cf4c39");
-			var_ad0c3ba3 playsound(#"hash_3088af4bb5209a73");
+			mdl_lever playsound(#"hash_3088af4bb5209a73");
 			if(isdefined(e_player))
 			{
 				wait(1.5);
@@ -468,9 +468,9 @@ function function_4f4e423f()
 		else
 		{
 			wait(5);
-			var_ad0c3ba3 rotatepitch(120, 3);
-			var_ad0c3ba3 playsound(#"hash_3cd844a784afd0f");
-			var_ad0c3ba3 waittill(#"rotatedone");
+			mdl_lever rotatepitch(120, 3);
+			mdl_lever playsound(#"hash_3cd844a784afd0f");
+			mdl_lever waittill(#"rotatedone");
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(s_trigger);
@@ -560,10 +560,10 @@ function function_9e34f29()
 */
 function function_ec3ffba()
 {
-	var_ad0c3ba3 = getent("break_the_glass", "targetname");
-	var_ad0c3ba3 playloopsound(#"hash_7df918bfc36f9f8");
+	mdl_lever = getent("break_the_glass", "targetname");
+	mdl_lever playloopsound(#"hash_7df918bfc36f9f8");
 	level flag::wait_till_clear(#"hash_598d4e6af1cf4c39");
-	var_ad0c3ba3 stoploopsound(0.1);
+	mdl_lever stoploopsound(0.1);
 }
 
 /*
@@ -749,7 +749,7 @@ function function_7071d9b0()
 	{
 		s_result = undefined;
 		s_result = trigger waittill(#"damage");
-		if(isdefined(s_result.attacker) && s_result.attacker aat::function_c5abc232(s_result.weapon))
+		if(isdefined(s_result.attacker) && s_result.attacker aat::has_aat(s_result.weapon))
 		{
 			level.var_33918b88 = s_result.attacker;
 			break;
@@ -2259,8 +2259,8 @@ function function_73bdaf30()
 	}
 	foreach(player in util::get_active_players())
 	{
-		player aat::acquire(getweapon(#"hash_62d7f56331878d18"), "zm_aat_frostbite");
-		player zm_pap_util::repack_weapon(getweapon(#"hash_62d7f56331878d18"), 4);
+		player aat::acquire(getweapon(#"zhield_frost_dw"), "zm_aat_frostbite");
+		player zm_pap_util::repack_weapon(getweapon(#"zhield_frost_dw"), 4);
 		player thread function_bf9f03e1();
 		player.var_5ba94c1e = 1;
 	}
@@ -2279,7 +2279,7 @@ function function_73bdaf30()
 */
 function function_bf9f03e1()
 {
-	var_95f83c9 = getweapon(#"hash_62d7f56331878d18");
+	var_95f83c9 = getweapon(#"zhield_frost_dw");
 	self.var_5ba94c1e = 1;
 	self thread function_a5214a8d(var_95f83c9);
 	while(true)
@@ -2309,7 +2309,7 @@ function function_bf9f03e1()
 */
 function function_9693e041(player)
 {
-	var_95f83c9 = getweapon(#"hash_62d7f56331878d18");
+	var_95f83c9 = getweapon(#"zhield_frost_dw");
 	if(player hasweapon(var_95f83c9))
 	{
 		if(isdefined(self.blueprint.var_54a97edd.isriotshield) && self.blueprint.var_54a97edd.isriotshield && isdefined(player.player_shield_reset_health) && (isdefined(player.var_d3345483) && player.var_d3345483))
@@ -2365,8 +2365,8 @@ function function_bd64f794()
 	}
 	if(isdefined(self))
 	{
-		self aat::acquire(getweapon(#"hash_62d7f56331878d18"), "zm_aat_frostbite");
-		self zm_pap_util::repack_weapon(getweapon(#"hash_62d7f56331878d18"), 4);
+		self aat::acquire(getweapon(#"zhield_frost_dw"), "zm_aat_frostbite");
+		self zm_pap_util::repack_weapon(getweapon(#"zhield_frost_dw"), 4);
 	}
 }
 

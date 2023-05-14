@@ -43,8 +43,8 @@ function __init__()
 */
 function enable_widows_wine_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_14e2498426fadea3", "mod_widows_wine", #"perk_widows_wine", #"specialty_widowswine", 4500);
-	zm_perks::register_perk_threads(#"hash_14e2498426fadea3", &widows_wine_perk_activate, &widows_wine_perk_lost);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_widowswine", "mod_widows_wine", #"perk_widows_wine", #"specialty_widowswine", 4500);
+	zm_perks::register_perk_threads(#"specialty_mod_widowswine", &widows_wine_perk_activate, &widows_wine_perk_lost);
 }
 
 /*

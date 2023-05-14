@@ -121,11 +121,11 @@ function function_bff5c062(tripwire, attackingplayer)
 		tripwire clientfield::set("tripwire_state", 2);
 		tripwire.hacked = 1;
 	}
-	if(isdefined(tripwire.var_c922c2eb))
+	if(isdefined(tripwire.entityenemyinfluencer))
 	{
-		tripwire influencers::remove_influencer(tripwire.var_c922c2eb);
+		tripwire influencers::remove_influencer(tripwire.entityenemyinfluencer);
 	}
-	tripwire.var_c922c2eb = tripwire influencers::create_entity_enemy_influencer("claymore", attackingplayer.team);
+	tripwire.entityenemyinfluencer = tripwire influencers::create_entity_enemy_influencer("claymore", attackingplayer.team);
 	tripwire thread weaponobjects::function_6d8aa6a0(attackingplayer, tripwire.watcher);
 	level function_d77f9442();
 }
@@ -257,7 +257,7 @@ function function_32854cb2(watcher, player)
 	self.team = player.team;
 	self.watcher = watcher;
 	self clientfield::set("friendlyequip", 1);
-	self.var_c922c2eb = self influencers::create_entity_enemy_influencer("claymore", player.team);
+	self.entityenemyinfluencer = self influencers::create_entity_enemy_influencer("claymore", player.team);
 	self.destroyablebytrophysystem = 0;
 	self.detonating = 0;
 	wait(level.var_c72e8c51.var_e14f5fca);

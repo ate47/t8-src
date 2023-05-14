@@ -43,8 +43,8 @@ function __init__()
 */
 function function_bf3cfde4()
 {
-	zm_perks::register_perk_clientfields(#"hash_6ca140703a87cd09", &function_59383c4e, &function_613ff0da);
-	zm_perks::register_perk_init_thread(#"hash_6ca140703a87cd09", &function_58cb6bff);
+	zm_perks::register_perk_clientfields(#"specialty_mod_phdflopper", &function_59383c4e, &function_613ff0da);
+	zm_perks::register_perk_init_thread(#"specialty_mod_phdflopper", &function_58cb6bff);
 }
 
 /*

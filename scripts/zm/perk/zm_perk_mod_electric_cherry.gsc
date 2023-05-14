@@ -50,9 +50,9 @@ function __init__()
 */
 function function_82ad2d27()
 {
-	zm_perks::function_7f42e14e(#"hash_3eac84d6fe51944b", "mod_electric_cherry", #"perk_electric_cherry", #"specialty_electriccherry", 4000);
-	zm_perks::register_perk_threads(#"hash_3eac84d6fe51944b", &function_4b44aa37, &function_cfba6046, &function_b107ce52);
-	zm_perks::register_actor_damage_override(#"hash_3eac84d6fe51944b", &function_f6515ba2);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_electriccherry", "mod_electric_cherry", #"perk_electric_cherry", #"specialty_electriccherry", 4000);
+	zm_perks::register_perk_threads(#"specialty_mod_electriccherry", &function_4b44aa37, &function_cfba6046, &function_b107ce52);
+	zm_perks::register_actor_damage_override(#"specialty_mod_electriccherry", &function_f6515ba2);
 }
 
 /*
@@ -165,7 +165,7 @@ function electric_cherry_stun()
 */
 function electric_cherry_reload_attack()
 {
-	self endon(#"death", #"hash_3eac84d6fe51944b" + "_take");
+	self endon(#"death", #"specialty_mod_electriccherry" + "_take");
 	self.consecutive_electric_cherry_attacks = 0;
 	self.var_c25a91ee = 0;
 	if(!isdefined(self.var_dbaad7dd))
@@ -199,7 +199,7 @@ function electric_cherry_reload_attack()
 */
 function check_for_reload_complete(weapon, n_clip_current, n_clip_max)
 {
-	self endon(#"death", #"hash_3eac84d6fe51944b" + "_take", "player_lost_weapon_" + weapon.name);
+	self endon(#"death", #"specialty_mod_electriccherry" + "_take", "player_lost_weapon_" + weapon.name);
 	while(true)
 	{
 		self waittill(#"reload");
@@ -418,7 +418,7 @@ function function_b107ce52()
 */
 function function_cfba6046(b_pause, str_perk, str_result, n_slot)
 {
-	self notify(#"hash_3eac84d6fe51944b" + "_take");
+	self notify(#"specialty_mod_electriccherry" + "_take");
 	self.var_c25a91ee = undefined;
 	self zm_perks::function_c8c7bc5(3, 0, #"perk_electric_cherry");
 	self zm_perks::function_f0ac059f(3, 0, #"perk_electric_cherry");

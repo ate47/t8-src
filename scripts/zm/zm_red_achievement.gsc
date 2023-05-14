@@ -266,7 +266,7 @@ function private function_3c39c720()
 */
 function function_8a595f5(s_params)
 {
-	if(isplayer(s_params.eattacker) && s_params.weapon == level.var_45072d7d)
+	if(isplayer(s_params.eattacker) && s_params.weapon == level.w_hand_hemera)
 	{
 		if(isdefined(self.var_4dcd7a1c) && self.var_4dcd7a1c)
 		{
@@ -340,7 +340,7 @@ function private function_74846734()
 */
 function function_c6125761(s_params)
 {
-	if(isplayer(s_params.eattacker) && s_params.weapon == level.var_f7e963d9)
+	if(isplayer(s_params.eattacker) && s_params.weapon == level.w_hand_ouranos)
 	{
 		if(isdefined(self.var_8ac7cc49) && self.var_8ac7cc49 && isdefined(s_params.eattacker.n_flung))
 		{

@@ -325,10 +325,10 @@ function fasttravel_rail_fx(localclientnum, oldval, newval, bnewent, binitialsna
 {
 	if(newval == 1)
 	{
-		if(!isdefined(self.var_a7fc7689))
+		if(!isdefined(self.sfx_fasttravel))
 		{
 			self playsound(localclientnum, #"hash_7204b092c976136b");
-			self.var_a7fc7689 = self playloopsound(#"hash_33b6a998603c309d");
+			self.sfx_fasttravel = self playloopsound(#"hash_33b6a998603c309d");
 		}
 		if(!isdefined(self.var_a6b9f4c1))
 		{
@@ -350,10 +350,10 @@ function fasttravel_rail_fx(localclientnum, oldval, newval, bnewent, binitialsna
 	{
 		if(newval == 2)
 		{
-			if(!isdefined(self.var_a7fc7689))
+			if(!isdefined(self.sfx_fasttravel))
 			{
 				self playsound(localclientnum, #"hash_7f171ce50ab41fb8");
-				self.var_a7fc7689 = self playloopsound(#"hash_59921813746566c8");
+				self.sfx_fasttravel = self playloopsound(#"hash_59921813746566c8");
 			}
 			if(isdefined(self.var_a6b9f4c1))
 			{
@@ -375,11 +375,11 @@ function fasttravel_rail_fx(localclientnum, oldval, newval, bnewent, binitialsna
 		}
 		else if(newval == 0)
 		{
-			if(isdefined(self.var_a7fc7689))
+			if(isdefined(self.sfx_fasttravel))
 			{
 				self playsound(localclientnum, #"hash_588047eba8deb34e");
-				self stoploopsound(self.var_a7fc7689);
-				self.var_a7fc7689 = undefined;
+				self stoploopsound(self.sfx_fasttravel);
+				self.sfx_fasttravel = undefined;
 			}
 			if(isdefined(self.var_a6b9f4c1))
 			{

@@ -104,9 +104,9 @@ function function_84f1c310()
 	var_40762d8a = getent("t_catwalk_door_open", "targetname");
 	t_catwalk_door = getent("door_model_west_side_exterior_to_catwalk", "target");
 	var_f7076542 = getentarray("catwalk_event_triggers", "script_noteworthy");
-	foreach(var_9fe758bc in var_f7076542)
+	foreach(t_catwalk_event in var_f7076542)
 	{
-		trigger::add_function(var_9fe758bc, "enemies_spawned", &function_7b6777c5, var_9fe758bc);
+		trigger::add_function(t_catwalk_event, "enemies_spawned", &function_7b6777c5, t_catwalk_event);
 	}
 	if(zm_custom::function_901b751c(#"zmpowerstate") == 1 && zm_custom::function_901b751c(#"hash_29004a67830922b6") != 2)
 	{
@@ -876,12 +876,12 @@ function function_e11ac4f5()
 {
 	level notify(#"hash_7bf357f5c916ca4e");
 	level endon(#"hash_7bf357f5c916ca4e");
-	var_a0a26cf = getentarray("catwalk_event_triggers", "script_noteworthy");
-	foreach(var_9fe758bc in var_a0a26cf)
+	a_t_catwalk_event = getentarray("catwalk_event_triggers", "script_noteworthy");
+	foreach(t_catwalk_event in a_t_catwalk_event)
 	{
-		if(isdefined(var_9fe758bc))
+		if(isdefined(t_catwalk_event))
 		{
-			var_9fe758bc delete();
+			t_catwalk_event delete();
 		}
 	}
 	level flag::clear(#"hash_6019aeb57ae7e6b5");

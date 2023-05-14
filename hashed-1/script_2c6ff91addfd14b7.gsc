@@ -593,10 +593,10 @@ function function_ded83def(lastenemy)
 		enemy_origin = enemy.origin;
 		if(isplayer(enemy) && enemy isinvehicle())
 		{
-			var_c6bad08 = enemy getvehicleoccupied();
-			if(isdefined(var_c6bad08))
+			enemy_vehicle = enemy getvehicleoccupied();
+			if(isdefined(enemy_vehicle))
 			{
-				enemy_origin = var_c6bad08.origin;
+				enemy_origin = enemy_vehicle.origin;
 			}
 		}
 		disttoenemysquared = distancesquared(self.origin, enemy_origin);

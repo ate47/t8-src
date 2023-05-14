@@ -689,16 +689,16 @@ function function_65cca2e1(localclientnum, var_1e7db62f)
 		waitframe(1);
 	}
 	jump_point = level.var_a3ede655[var_1e7db62f].origin;
-	var_b286938d = level.var_697988b1[var_1e7db62f].origin;
+	force_drop_point = level.var_697988b1[var_1e7db62f].origin;
 	direction = anglestoforward(level.var_a3ede655[var_1e7db62f].angles);
 	start_point = jump_point - (direction * 150000);
-	end_point = var_b286938d + (direction * 150000);
+	end_point = force_drop_point + (direction * 150000);
 	var_5a20cc9d = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.freeFallStartAltitude");
 	setuimodelvalue(var_5a20cc9d, jump_point[2]);
 	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
 	if(var_7eb8f61a == 0)
 	{
-		function_4dfe3112(localclientnum, var_1e7db62f, start_point, end_point, jump_point, var_b286938d);
+		function_4dfe3112(localclientnum, var_1e7db62f, start_point, end_point, jump_point, force_drop_point);
 	}
 }
 

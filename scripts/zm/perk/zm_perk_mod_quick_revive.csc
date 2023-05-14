@@ -44,7 +44,7 @@ function __init__()
 */
 function enable_quick_revive_perk_for_level()
 {
-	zm_perks::register_perk_clientfields(#"hash_a6796d796a8d2b9", &quick_revive_client_field_func, &quick_revive_callback_func);
+	zm_perks::register_perk_clientfields(#"specialty_mod_quickrevive", &quick_revive_client_field_func, &quick_revive_callback_func);
 }
 
 /*

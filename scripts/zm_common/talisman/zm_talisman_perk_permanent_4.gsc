@@ -50,6 +50,6 @@ function __init__()
 */
 function activate_talisman()
 {
-	self.var_c4cce77d = 4;
+	self.talisman_perk_permanent = 4;
 }
 

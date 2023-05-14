@@ -664,7 +664,7 @@ function play_starting_vox()
 */
 function function_cbc7dc41()
 {
-	var_bf3f669b = getentarray("power_off_tv_screens", "targetname");
+	poweroffscreens = getentarray("power_off_tv_screens", "targetname");
 	var_458dae44 = getentarray("power_on_tv_screens", "targetname");
 	var_828004fa = getentarray("power_on_screens_glitch", "targetname");
 	foreach(screen in var_458dae44)
@@ -676,7 +676,7 @@ function function_cbc7dc41()
 		screen hide();
 	}
 	level waittill(#"hash_21249b4d1ece37b5");
-	foreach(screen in var_bf3f669b)
+	foreach(screen in poweroffscreens)
 	{
 		screen hide();
 	}

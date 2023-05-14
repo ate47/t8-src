@@ -83,7 +83,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			}
 			return;
 		}
-		if(isdefined(level._ee) && isdefined(level._ee[name]) && isdefined(var_d6ca4caf) && isdefined(level._ee[name].var_bd7d9ebf))
+		if(isdefined(level._ee) && isdefined(level._ee[name]) && isdefined(var_d6ca4caf) && isdefined(level._ee[name].record_stat))
 		{
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
 			{
@@ -108,9 +108,9 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 		#/
 	}
 	ee = level._ee[name];
-	if(!isdefined(ee.var_bd7d9ebf))
+	if(!isdefined(ee.record_stat))
 	{
-		ee.var_bd7d9ebf = var_d6ca4caf;
+		ee.record_stat = var_d6ca4caf;
 	}
 	if(!isdefined(ee.var_35ccab99))
 	{
@@ -305,7 +305,7 @@ function private run_step(ee, step, var_5ea5c94d)
 		return;
 	}
 	level flag::set(step.var_e788cdd7 + "_completed");
-	if(ee.current_step === 0 && (isdefined(ee.var_bd7d9ebf) && ee.var_bd7d9ebf))
+	if(ee.current_step === 0 && (isdefined(ee.record_stat) && ee.record_stat))
 	{
 		players = getplayers();
 		foreach(player in players)
@@ -341,7 +341,7 @@ function private run_step(ee, step, var_5ea5c94d)
 	{
 		ee.completed = 1;
 		level flag::set(ee.name + "_completed");
-		if(sessionmodeisonlinegame() && (isdefined(ee.var_bd7d9ebf) && ee.var_bd7d9ebf))
+		if(sessionmodeisonlinegame() && (isdefined(ee.record_stat) && ee.record_stat))
 		{
 			players = getplayers();
 			foreach(player in players)

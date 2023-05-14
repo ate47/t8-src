@@ -48,11 +48,11 @@ function __init__()
 	callback::on_item_pickup(&function_4467066e);
 	callback::add_callback(#"on_player_downed", &function_ef53914c);
 	callback::on_player_killed_with_params(&function_de83cc91);
-	callback::add_callback(#"hash_405e46788e83af41", &function_fefefe2a);
+	callback::add_callback(#"hash_405e46788e83af41", &start_beams);
 }
 
 /*
-	Name: function_fefefe2a
+	Name: start_beams
 	Namespace: wz_spectre
 	Checksum: 0xE571041C
 	Offset: 0x3E0
@@ -60,7 +60,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_fefefe2a()
+function start_beams()
 {
 	level clientfield::set("showSpectreSwordBeams", 1);
 }
@@ -101,19 +101,19 @@ function private function_4467066e(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f82142f8(var_b0e2f18c)
+function private function_f82142f8(isSpectre)
 {
 	self notify(#"hash_2e4cc87f4b3a6396");
 	self endon(#"death", #"hash_2e4cc87f4b3a6396");
 	level endon(#"hash_313ad43b34e74e96");
-	self function_1edd6e9e(var_b0e2f18c);
+	self function_1edd6e9e(isSpectre);
 	if(!isalive(self))
 	{
 		return;
 	}
-	self clientfield::set("hasspectrebody", var_b0e2f18c);
+	self clientfield::set("hasspectrebody", isSpectre);
 	role = self player_role::get();
-	if(var_b0e2f18c)
+	if(isSpectre)
 	{
 		if(role != 57)
 		{
@@ -137,7 +137,7 @@ function private function_f82142f8(var_b0e2f18c)
 		wait(0.5);
 		self function_9299d039();
 	}
-	self clientfield::set_player_uimodel("hudItems.isSpectre", var_b0e2f18c);
+	self clientfield::set_player_uimodel("hudItems.isSpectre", isSpectre);
 }
 
 /*
@@ -166,10 +166,10 @@ function private function_9299d039()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_1edd6e9e(var_b0e2f18c)
+function private function_1edd6e9e(isSpectre)
 {
 	var_91de0487 = 0;
-	if(var_b0e2f18c && isalive(self))
+	if(isSpectre && isalive(self))
 	{
 		var_91de0487 = 1;
 	}

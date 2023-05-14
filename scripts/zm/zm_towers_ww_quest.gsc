@@ -1217,7 +1217,7 @@ function function_869d271a(b_skipped)
 function function_79875787(b_skipped, var_19e802fa)
 {
 	level flag::set(#"hash_77ff9a8101ea687b");
-	zm_weapons::function_603af7a8(getweapon(#"hash_4ae11871b1233211"));
+	zm_weapons::function_603af7a8(getweapon(#"ww_crossbow_t8"));
 	callback::on_spawned(&function_e7e07200);
 	array::thread_all(level.players, &function_e7e07200);
 	level.customrandomweaponweights = &function_73ed3038;
@@ -1434,7 +1434,7 @@ function function_1da98a12()
 */
 function function_6919af04(e_player)
 {
-	if(zombie_utility::function_d2dfacfd(#"zombie_powerup_fire_sale_on") === 1 || e_player hasweapon(level.var_3891e803) || e_player hasweapon(level.var_d7f4cb84) || e_player hasweapon(level.var_29cce7eb) || e_player hasweapon(level.var_bc26d00c))
+	if(zombie_utility::function_d2dfacfd(#"zombie_powerup_fire_sale_on") === 1 || e_player hasweapon(level.w_crossbow) || e_player hasweapon(level.w_crossbow_upgraded) || e_player hasweapon(level.w_crossbow_charged) || e_player hasweapon(level.w_crossbow_charged_upgraded))
 	{
 		self sethintstringforplayer(e_player, "");
 		return false;
@@ -1516,7 +1516,7 @@ function function_9da58e50()
 function function_73ed3038(a_keys)
 {
 	level.customrandomweaponweights = undefined;
-	arrayinsert(a_keys, getweapon(#"hash_4ae11871b1233211"), 0);
+	arrayinsert(a_keys, getweapon(#"ww_crossbow_t8"), 0);
 	return a_keys;
 }
 

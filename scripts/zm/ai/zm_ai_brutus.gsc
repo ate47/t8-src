@@ -519,14 +519,14 @@ function private function_3c3e6f4a(entity)
 	/#
 		namespace_cb42c6c0::function_f3cff6ff(entity);
 	#/
-	var_c0c93f86 = [];
-	array::add(var_c0c93f86, "lockdown_stub_type_crafting_tables");
-	array::add(var_c0c93f86, "lockdown_stub_type_perks");
-	array::add(var_c0c93f86, "lockdown_stub_type_pap");
-	array::add(var_c0c93f86, "lockdown_stub_type_magic_box");
-	array::add(var_c0c93f86, "lockdown_stub_type_boards");
-	array::add(var_c0c93f86, "lockdown_stub_type_traps");
-	registerlotus_right = namespace_cb42c6c0::function_9b84bb88(entity, var_c0c93f86, entity ai::function_9139c839().var_58b424ec, entity ai::function_9139c839().var_e81712d);
+	stub_types = [];
+	array::add(stub_types, "lockdown_stub_type_crafting_tables");
+	array::add(stub_types, "lockdown_stub_type_perks");
+	array::add(stub_types, "lockdown_stub_type_pap");
+	array::add(stub_types, "lockdown_stub_type_magic_box");
+	array::add(stub_types, "lockdown_stub_type_boards");
+	array::add(stub_types, "lockdown_stub_type_traps");
+	registerlotus_right = namespace_cb42c6c0::function_9b84bb88(entity, stub_types, entity ai::function_9139c839().var_58b424ec, entity ai::function_9139c839().var_e81712d);
 	entity.var_e38eaee5 = gettime() + 500;
 	if(registerlotus_right.size == 0)
 	{

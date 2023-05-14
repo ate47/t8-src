@@ -259,21 +259,21 @@ event main(eventstruct)
 */
 function private function_95db9900(weapon)
 {
-	if(weapon === level.var_c50bf24c || weapon === level.var_8a49b135 || weapon === level.var_ca7edc78)
+	if(weapon === level.w_hand_charon || weapon === level.w_hand_charon_charged || weapon === level.w_hand_charon_uncharged)
 	{
-		return level.var_c50bf24c;
+		return level.w_hand_charon;
 	}
-	if(weapon === level.var_53789618 || weapon === level.var_161aeda7 || weapon === level.var_b784afad)
+	if(weapon === level.w_hand_gaia || weapon === level.w_hand_gaia_charged || weapon === level.w_hand_gaia_uncharged)
 	{
-		return level.var_53789618;
+		return level.w_hand_gaia;
 	}
-	if(weapon === level.var_f7e963d9 || weapon === level.var_7e83ad70 || weapon === level.var_1bf918c7)
+	if(weapon === level.w_hand_ouranos || weapon === level.w_hand_ouranos_charged || weapon === level.w_hand_ouranos_uncharged)
 	{
-		return level.var_f7e963d9;
+		return level.w_hand_ouranos;
 	}
-	if(weapon === level.var_45072d7d || weapon === level.var_f10d87a1 || weapon === level.var_e8ffa40)
+	if(weapon === level.w_hand_hemera || weapon === level.w_hand_hemera_charged || weapon === level.w_hand_hemera_uncharged)
 	{
-		return level.var_45072d7d;
+		return level.w_hand_hemera;
 	}
 	return weapon;
 }
@@ -3276,11 +3276,11 @@ function function_bb5a8b5e(b_charged)
 	/#
 		if(b_charged)
 		{
-			var_d9d642ba = array(level.var_c50bf24c, level.var_53789618, level.var_f7e963d9, level.var_45072d7d);
+			var_d9d642ba = array(level.w_hand_charon, level.w_hand_gaia, level.w_hand_ouranos, level.w_hand_hemera);
 		}
 		else
 		{
-			var_d9d642ba = array(level.var_ca7edc78, level.var_b784afad, level.var_1bf918c7, level.var_e8ffa40);
+			var_d9d642ba = array(level.w_hand_charon_uncharged, level.w_hand_gaia_uncharged, level.w_hand_ouranos_uncharged, level.w_hand_hemera_uncharged);
 		}
 		var_d9d642ba = array::randomize(var_d9d642ba);
 		foreach(i, e_player in getplayers())

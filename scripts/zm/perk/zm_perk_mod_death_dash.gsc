@@ -49,7 +49,7 @@ function __init__()
 */
 function function_27473e44()
 {
-	zm_perks::function_7f42e14e(#"specialty_mod_death_dash", "mod_death_dash", #"perk_death_dash", #"specialty_death_dash", 3000);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_death_dash", "mod_death_dash", #"perk_death_dash", #"specialty_death_dash", 3000);
 	zm_perks::register_perk_clientfields(#"specialty_mod_death_dash", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_threads(#"specialty_mod_death_dash", &give_perk, &take_perk);
 }

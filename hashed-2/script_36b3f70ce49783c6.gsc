@@ -268,7 +268,7 @@ function private function_6ef5c287(deathcircle, var_898879a6)
 		{
 			continue;
 		}
-		if(isdefined(supplydrop.var_b2513722))
+		if(isdefined(supplydrop.supplydropveh))
 		{
 			continue;
 		}

@@ -536,7 +536,7 @@ function function_50b1ae32()
 {
 	if(is_character(array(#"hash_68255d9ce2a09382", #"hash_1a427f842f175b3c")))
 	{
-		self.var_a66c06b6 = "scar";
+		self.revivevox = "scar";
 		self.var_ff5f8752 = "self";
 		self.var_c107ed3 = "support_scar";
 		self.var_d10fb794 = "surrounded_scar";
@@ -549,7 +549,7 @@ function function_50b1ae32()
 		{
 			self.talks_in_danger = 1;
 			level.rich_sq_player = self;
-			self.var_a66c06b6 = "brun";
+			self.revivevox = "brun";
 			self.var_ff5f8752 = "self";
 			self.var_c107ed3 = "support_brun";
 			self.var_d10fb794 = "surrounded_brun";
@@ -560,7 +560,7 @@ function function_50b1ae32()
 		{
 			if(is_character(array(#"hash_f531a8c2df891cc", #"hash_26072a3b34719d22")))
 			{
-				self.var_a66c06b6 = "dieg";
+				self.revivevox = "dieg";
 				self.var_ff5f8752 = "self";
 				self.var_c107ed3 = "support_dieg";
 				self.var_d10fb794 = "surrounded_dieg";
@@ -571,7 +571,7 @@ function function_50b1ae32()
 			{
 				if(is_character(array(#"hash_3e63362aea484e09", #"hash_5a906d7137467771")))
 				{
-					self.var_a66c06b6 = "shaw";
+					self.revivevox = "shaw";
 					self.var_ff5f8752 = "self";
 					self.var_c107ed3 = "support_shaw";
 					self.var_d10fb794 = "surrounded_shaw";
@@ -582,7 +582,7 @@ function function_50b1ae32()
 				{
 					if(is_character(array(#"hash_59f3598ad57dadd8", #"hash_2bcebdf1bef33311", #"hash_5a715cb0a6e071ae")))
 					{
-						self.var_a66c06b6 = "rich";
+						self.revivevox = "rich";
 						self.var_ff5f8752 = "self";
 						self.var_c107ed3 = "support_rich";
 						self.var_d10fb794 = "surrounded_rich";
@@ -595,7 +595,7 @@ function function_50b1ae32()
 						{
 							self.talks_in_danger = 1;
 							level.rich_sq_player = self;
-							self.var_a66c06b6 = "demp";
+							self.revivevox = "demp";
 							self.var_ff5f8752 = "self";
 							self.var_c107ed3 = "support_demp";
 							self.var_d10fb794 = "surrounded_demp";
@@ -606,7 +606,7 @@ function function_50b1ae32()
 						{
 							if(is_character(array(#"hash_22e6f7e13c3a99ef", #"hash_46b92e1337b43236")))
 							{
-								self.var_a66c06b6 = "niko";
+								self.revivevox = "niko";
 								self.var_ff5f8752 = "self";
 								self.var_c107ed3 = "support_niko";
 								self.var_d10fb794 = "surrounded_niko";
@@ -617,7 +617,7 @@ function function_50b1ae32()
 							{
 								if(is_character(array(#"hash_305f156156d37e34", #"hash_6df0037e3f390b15")))
 								{
-									self.var_a66c06b6 = "take";
+									self.revivevox = "take";
 									self.var_ff5f8752 = "self";
 									self.var_c107ed3 = "support_take";
 									self.var_d10fb794 = "surrounded_take";
@@ -628,7 +628,7 @@ function function_50b1ae32()
 								{
 									if(is_character(array(#"hash_73d71ff1e886bbe9")))
 									{
-										self.var_a66c06b6 = "uric";
+										self.revivevox = "uric";
 										self.var_ff5f8752 = "self";
 										self.var_c107ed3 = "support_uric";
 										self.var_d10fb794 = "surrounded_uric";
@@ -641,7 +641,7 @@ function function_50b1ae32()
 										{
 											self.talks_in_danger = 1;
 											level.rich_sq_player = self;
-											self.var_a66c06b6 = "udem";
+											self.revivevox = "udem";
 											self.var_ff5f8752 = "self";
 											self.var_c107ed3 = "support_udem";
 											self.var_d10fb794 = "surrounded_udem";
@@ -652,7 +652,7 @@ function function_50b1ae32()
 										{
 											if(is_character(array(#"hash_78aa6812c38263ba")))
 											{
-												self.var_a66c06b6 = "unik";
+												self.revivevox = "unik";
 												self.var_ff5f8752 = "self";
 												self.var_c107ed3 = "support_unik";
 												self.var_d10fb794 = "surrounded_unik";
@@ -663,7 +663,7 @@ function function_50b1ae32()
 											{
 												if(is_character(array(#"hash_1fd4157dcafc6e45")))
 												{
-													self.var_a66c06b6 = "utak";
+													self.revivevox = "utak";
 													self.var_ff5f8752 = "self";
 													self.var_c107ed3 = "support_utak";
 													self.var_d10fb794 = "surrounded_utak";
@@ -674,7 +674,7 @@ function function_50b1ae32()
 												{
 													if(is_character(array(#"hash_3c0932fa55ee6e5b")))
 													{
-														self.var_a66c06b6 = "brig";
+														self.revivevox = "brig";
 														self.var_ff5f8752 = "self";
 														self.var_c107ed3 = "support_brig";
 														self.var_d10fb794 = "surrounded_brig";
@@ -684,7 +684,7 @@ function function_50b1ae32()
 													{
 														if(is_character(array(#"hash_5ebf024e1559c04a")))
 														{
-															self.var_a66c06b6 = "butl";
+															self.revivevox = "butl";
 															self.var_ff5f8752 = "self";
 															self.var_c107ed3 = "support_butl";
 															self.var_d10fb794 = "surrounded_butl";
@@ -694,7 +694,7 @@ function function_50b1ae32()
 														{
 															if(is_character(array(#"hash_4e8f51ec275a4a38")))
 															{
-																self.var_a66c06b6 = "guns";
+																self.revivevox = "guns";
 																self.var_ff5f8752 = "self";
 																self.var_c107ed3 = "support_guns";
 																self.var_d10fb794 = "surrounded_guns";
@@ -704,7 +704,7 @@ function function_50b1ae32()
 															{
 																if(is_character(array(#"hash_515977e191d13967")))
 																{
-																	self.var_a66c06b6 = "psyc";
+																	self.revivevox = "psyc";
 																	self.var_ff5f8752 = "self";
 																	self.var_c107ed3 = "support_psyc";
 																	self.var_d10fb794 = "surrounded_psyc";
@@ -714,7 +714,7 @@ function function_50b1ae32()
 																{
 																	if(is_character(array(#"hash_8d5bc4a77c74f69")))
 																	{
-																		self.var_a66c06b6 = "russ";
+																		self.revivevox = "russ";
 																		self.var_ff5f8752 = "self";
 																		self.var_c107ed3 = "support_russ";
 																		self.var_d10fb794 = "surrounded_russ";
@@ -724,7 +724,7 @@ function function_50b1ae32()
 																	{
 																		if(is_character(array(#"hash_291943ac9ed00ebc")))
 																		{
-																			self.var_a66c06b6 = "mist";
+																			self.revivevox = "mist";
 																			self.var_ff5f8752 = "self";
 																			self.var_c107ed3 = "support_mist";
 																			self.var_d10fb794 = "surrounded_mist";
@@ -734,7 +734,7 @@ function function_50b1ae32()
 																		{
 																			if(is_character(array(#"hash_7ba62675ab75df69")))
 																			{
-																				self.var_a66c06b6 = "marl";
+																				self.revivevox = "marl";
 																				self.var_ff5f8752 = "self";
 																				self.var_c107ed3 = "support_marl";
 																				self.var_d10fb794 = "surrounded_marl";
@@ -742,7 +742,7 @@ function function_50b1ae32()
 																			}
 																			else if(is_character(array(#"hash_447b3c77b73aa2a9")))
 																			{
-																				self.var_a66c06b6 = "stuh";
+																				self.revivevox = "stuh";
 																				self.var_ff5f8752 = "self";
 																				self.var_c107ed3 = "support_stuh";
 																				self.var_d10fb794 = "surrounded_stuh";

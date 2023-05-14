@@ -250,7 +250,7 @@ function get_armor()
 	Parameters: 13
 	Flags: Linked
 */
-function set_armor(amount, max_armor, armortier, var_2274e560 = 1, var_cdeeec29 = 1, var_5164d2e2 = 1, var_e6683a43 = 1, var_22c3ab38 = 1, var_9f307988 = 1, var_7a80f06e = 1, var_c899f877 = 1, var_35e3563e = 1, var_4aad1e44 = undefined)
+function set_armor(amount, max_armor, armortier, var_2274e560 = 1, var_cdeeec29 = 1, var_5164d2e2 = 1, var_e6683a43 = 1, var_22c3ab38 = 1, var_9f307988 = 1, var_7a80f06e = 1, explosive_damage_scale = 1, var_35e3563e = 1, var_4aad1e44 = undefined)
 {
 	/#
 		assert(isdefined(amount));
@@ -268,7 +268,7 @@ function set_armor(amount, max_armor, armortier, var_2274e560 = 1, var_cdeeec29 
 	self.var_59a874a7.var_cdeeec29 = var_cdeeec29;
 	self.var_59a874a7.var_5164d2e2 = var_5164d2e2;
 	self.var_59a874a7.var_e6683a43 = var_e6683a43;
-	self.var_59a874a7.var_c899f877 = var_c899f877;
+	self.var_59a874a7.explosive_damage_scale = explosive_damage_scale;
 	self.var_59a874a7.var_35e3563e = var_35e3563e;
 	self.var_59a874a7.var_4aad1e44 = var_4aad1e44;
 	if(isdefined(var_4aad1e44))
@@ -569,7 +569,7 @@ function apply_damage(weapon, damage, smeansofdeath, eattacker, shitloc)
 	}
 	if(weapon_utils::isexplosivedamage(smeansofdeath))
 	{
-		var_2274e560 = self.var_59a874a7.var_c899f877;
+		var_2274e560 = self.var_59a874a7.explosive_damage_scale;
 		var_737c8f6e = self.var_59a874a7.var_35e3563e;
 	}
 	else

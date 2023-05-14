@@ -1633,9 +1633,9 @@ function function_a54d07e6(item, activator)
 					}
 				}
 				var_c5c64633 = arraysortclosest(var_c5c64633, stashes[0].origin, var_c5c64633.size, 0, 12);
-				foreach(var_ae944413 in var_c5c64633)
+				foreach(dynamicitem in var_c5c64633)
 				{
-					if(var_ae944413.var_8e092725 === -1)
+					if(dynamicitem.var_8e092725 === -1)
 					{
 						return;
 					}
@@ -1689,9 +1689,9 @@ function function_a54d07e6(item, activator)
 					}
 				}
 				var_c5c64633 = arraysortclosest(var_c5c64633, stashes[0].origin, var_c5c64633.size, 0, 12);
-				foreach(var_ae944413 in var_c5c64633)
+				foreach(dynamicitem in var_c5c64633)
 				{
-					if(var_ae944413.var_8e092725 === -1)
+					if(dynamicitem.var_8e092725 === -1)
 					{
 						return;
 					}

@@ -3140,13 +3140,13 @@ function private function_3854c592()
 	var_bdf9e3c2 = "cellblock_shower";
 	a_str_active_zones = zm_cleanup::get_adjacencies_to_zone(var_bdf9e3c2);
 	arrayremovevalue(a_str_active_zones, var_bdf9e3c2);
-	var_b607f902 = level.zones[var_bdf9e3c2];
+	zone_shower = level.zones[var_bdf9e3c2];
 	a_str_zones = arraycopy(a_str_active_zones);
 	foreach(str_zones in a_str_zones)
 	{
-		if(var_b607f902.adjacent_zones[str_zones].is_connected)
+		if(zone_shower.adjacent_zones[str_zones].is_connected)
 		{
-			var_b607f902.adjacent_zones[str_zones].is_connected = 0;
+			zone_shower.adjacent_zones[str_zones].is_connected = 0;
 			continue;
 		}
 		arrayremovevalue(a_str_active_zones, str_zones);
@@ -3154,7 +3154,7 @@ function private function_3854c592()
 	self waittill(#"death", #"hash_300e9fed7925cd69");
 	foreach(str_zones in a_str_active_zones)
 	{
-		var_b607f902.adjacent_zones[str_zones].is_connected = 1;
+		zone_shower.adjacent_zones[str_zones].is_connected = 1;
 	}
 }
 
@@ -3277,8 +3277,8 @@ function private function_dc369dee(var_b51b4b08)
 		level.var_8eec9430 waittilltimeout(20, #"goal");
 		if(isdefined(level.var_8eec9430.b_visible) && level.var_8eec9430.b_visible && isinarray(level.var_62f48651, s_next_pos.script_int))
 		{
-			var_ad0c3ba3 = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
-			var_ad0c3ba3 scene::play(#"hash_fa0e1383821390e", array(level.var_8eec9430, var_ad0c3ba3));
+			mdl_lever = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
+			mdl_lever scene::play(#"hash_fa0e1383821390e", array(level.var_8eec9430, mdl_lever));
 			if(!isdefined(level.var_ed42611e))
 			{
 				level.var_ed42611e = [];
@@ -3287,9 +3287,9 @@ function private function_dc369dee(var_b51b4b08)
 			{
 				level.var_ed42611e = array(level.var_ed42611e);
 			}
-			if(!isinarray(level.var_ed42611e, var_ad0c3ba3))
+			if(!isinarray(level.var_ed42611e, mdl_lever))
 			{
-				level.var_ed42611e[level.var_ed42611e.size] = var_ad0c3ba3;
+				level.var_ed42611e[level.var_ed42611e.size] = mdl_lever;
 			}
 			arrayremovevalue(level.var_62f48651, s_next_pos.script_int);
 			level.var_8eec9430 notify(#"hash_6f38117315565110", {#b_success:1});
@@ -3297,14 +3297,14 @@ function private function_dc369dee(var_b51b4b08)
 		}
 		else
 		{
-			var_ad0c3ba3 = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
-			var_ad0c3ba3 scene::play(#"hash_f73b18cc3a4c4ef", level.var_8eec9430);
-			if(!isinarray(level.var_ed42611e, var_ad0c3ba3))
+			mdl_lever = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
+			mdl_lever scene::play(#"hash_f73b18cc3a4c4ef", level.var_8eec9430);
+			if(!isinarray(level.var_ed42611e, mdl_lever))
 			{
 				if(isdefined(level.var_8eec9430.b_visible) && level.var_8eec9430.b_visible && isinarray(level.var_62f48651, s_next_pos.script_int))
 				{
-					var_ad0c3ba3 = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
-					var_ad0c3ba3 scene::play(#"hash_fa0e1383821390e", array(level.var_8eec9430, var_ad0c3ba3));
+					mdl_lever = getent("flicker_" + (s_next_pos.script_int + 1), "targetname");
+					mdl_lever scene::play(#"hash_fa0e1383821390e", array(level.var_8eec9430, mdl_lever));
 					if(!isdefined(level.var_ed42611e))
 					{
 						level.var_ed42611e = [];
@@ -3313,9 +3313,9 @@ function private function_dc369dee(var_b51b4b08)
 					{
 						level.var_ed42611e = array(level.var_ed42611e);
 					}
-					if(!isinarray(level.var_ed42611e, var_ad0c3ba3))
+					if(!isinarray(level.var_ed42611e, mdl_lever))
 					{
-						level.var_ed42611e[level.var_ed42611e.size] = var_ad0c3ba3;
+						level.var_ed42611e[level.var_ed42611e.size] = mdl_lever;
 					}
 					arrayremovevalue(level.var_62f48651, s_next_pos.script_int);
 					level.var_8eec9430 notify(#"hash_6f38117315565110", {#b_success:1});

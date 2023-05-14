@@ -57,12 +57,12 @@ function __init__()
 	clientfield::register("allplayers", "hemera_beam_flash", 16000, 1, "int");
 	clientfield::register("actor", "hemera_proj_death", 16000, 1, "int");
 	clientfield::register("actor", "" + #"hash_5a8f1796382ec694", 16000, 1, "int");
-	level.var_45072d7d = getweapon(#"ww_hand_h");
-	level.var_f10d87a1 = getweapon(#"hash_4f2a3ad24337dd19");
-	level.var_e8ffa40 = getweapon(#"ww_hand_h_uncharged");
-	level.var_836fa4da = getweapon(#"ww_hand_h_upgraded");
+	level.w_hand_hemera = getweapon(#"ww_hand_h");
+	level.w_hand_hemera_charged = getweapon(#"ww_hand_h_charged");
+	level.w_hand_hemera_uncharged = getweapon(#"ww_hand_h_uncharged");
+	level.w_hand_hemera_upgraded = getweapon(#"ww_hand_h_upgraded");
 	zm_weapons::include_zombie_weapon(#"ww_hand_h", 0);
-	zm_weapons::include_zombie_weapon(#"hash_4f2a3ad24337dd19", 0);
+	zm_weapons::include_zombie_weapon(#"ww_hand_h_charged", 0);
 	zm_weapons::include_zombie_weapon(#"ww_hand_h_uncharged", 0);
 	zm_weapons::include_zombie_weapon(#"ww_hand_h_upgraded", 0);
 	callback::on_connect(&on_player_connect);
@@ -72,10 +72,10 @@ function __init__()
 		[[ level.var_ab6fef61 ]]->initialize(6, 0.1);
 	}
 	namespace_9ff9f642::register_slowdown(#"hash_7e8287b2e2587da1", 0.6, 3);
-	callback::function_34dea974(level.var_45072d7d, &function_10b4d6ac);
-	callback::function_34dea974(level.var_f10d87a1, &function_dd7bc108);
-	callback::function_34dea974(level.var_e8ffa40, &function_10b4d6ac);
-	callback::function_34dea974(level.var_836fa4da, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_hemera, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_hemera_charged, &function_dd7bc108);
+	callback::function_34dea974(level.w_hand_hemera_uncharged, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_hemera_upgraded, &function_10b4d6ac);
 	level.var_7148b584 = [];
 	level.var_e51fadba = [];
 }
@@ -110,12 +110,12 @@ function function_3f8da82c()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"weapon_change");
-		if(s_notify.weapon === level.var_e8ffa40)
+		if(s_notify.weapon === level.w_hand_hemera_uncharged)
 		{
 		}
 		else
 		{
-			if(s_notify.weapon === level.var_45072d7d || s_notify.weapon === level.var_836fa4da)
+			if(s_notify.weapon === level.w_hand_hemera || s_notify.weapon === level.w_hand_hemera_upgraded)
 			{
 				self.var_e34577ca = undefined;
 				self thread function_54922a21();
@@ -156,7 +156,7 @@ function function_10b4d6ac(weapon)
 function function_d8a9b5a6(weapon)
 {
 	self endon(#"death");
-	if(weapon == level.var_836fa4da)
+	if(weapon == level.w_hand_hemera_upgraded)
 	{
 		n_damage = 8500;
 		b_up = 1;
@@ -241,7 +241,7 @@ function function_54922a21()
 	self endon(#"death", #"weapon_change");
 	while(true)
 	{
-		while(self.chargeshotlevel != 2 || !self attackbuttonpressed() && (self.currentweapon === level.var_45072d7d || self.currentweapon === level.var_836fa4da))
+		while(self.chargeshotlevel != 2 || !self attackbuttonpressed() && (self.currentweapon === level.w_hand_hemera || self.currentweapon === level.w_hand_hemera_upgraded))
 		{
 			waitframe(1);
 		}
@@ -611,7 +611,7 @@ function function_8e7f5291(e_projectile, ai_zombie, n_damage)
 	}
 	if(isalive(ai_zombie) || (isdefined(ai_zombie) && ai_zombie.var_6f84b820 === #"boss"))
 	{
-		self thread function_dced5aef(ai_zombie, level.var_e8ffa40, n_damage);
+		self thread function_dced5aef(ai_zombie, level.w_hand_hemera_uncharged, n_damage);
 	}
 	waitframe(1);
 	e_projectile delete();
@@ -940,7 +940,7 @@ function function_8bf301a6()
 {
 	self endon(#"death", #"weapon_change", #"hash_609518a5a35564bf");
 	self.var_8999a4bf endon(#"death");
-	if(self.currentweapon === level.var_836fa4da)
+	if(self.currentweapon === level.w_hand_hemera_upgraded)
 	{
 		n_damage = 8500;
 		n_range = 10000;
@@ -958,7 +958,7 @@ function function_8bf301a6()
 		{
 			if(isalive(e_target) && (!(isdefined(e_target.var_8ac7cc49) && e_target.var_8ac7cc49)) && (!(isdefined(e_target.var_339655cf) && e_target.var_339655cf)) && (!(isdefined(e_target.var_aea6e035) && e_target.var_aea6e035)) && distance2dsquared(self.var_8999a4bf.origin, e_target.origin) <= n_range)
 			{
-				self thread function_dced5aef(e_target, level.var_45072d7d, n_damage, 1);
+				self thread function_dced5aef(e_target, level.w_hand_hemera, n_damage, 1);
 			}
 		}
 		wait(0.1);
@@ -1046,13 +1046,13 @@ function function_e56c350e(e_target, b_charged, n_damage)
 	e_target.var_61768419 = 1;
 	e_target.marked_for_death = 1;
 	[[ level.var_ab6fef61 ]]->waitinqueue(e_target);
-	w_weapon = level.var_e8ffa40;
+	w_weapon = level.w_hand_hemera_uncharged;
 	if(isdefined(b_charged))
 	{
 		e_target clientfield::set("" + #"hash_5a8f1796382ec694", 1);
 		e_target.var_4dcd7a1c = 1;
 		n_damage = e_target.health + 999;
-		w_weapon = level.var_45072d7d;
+		w_weapon = level.w_hand_hemera;
 	}
 	else
 	{

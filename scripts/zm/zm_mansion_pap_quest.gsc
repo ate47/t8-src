@@ -1880,9 +1880,9 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 			var_47323b73 = s_loc zm_unitrigger::create(&function_5c8eab18, 64, &function_d29a3f81);
 			var_47323b73.str_flag = "clock";
 			var_47323b73.s_clock = s_clock;
-			var_c597d89a = struct::get("vol_" + s_stub.str_hint);
-			var_47323b73.vol_defend = spawn("trigger_radius", var_c597d89a.origin, 0, var_c597d89a.radius, var_c597d89a.height);
-			var_47323b73.vol_defend.targetname = var_c597d89a.targetname;
+			s_trigger_loc = struct::get("vol_" + s_stub.str_hint);
+			var_47323b73.vol_defend = spawn("trigger_radius", s_trigger_loc.origin, 0, s_trigger_loc.radius, s_trigger_loc.height);
+			var_47323b73.vol_defend.targetname = s_trigger_loc.targetname;
 			var_47323b73.var_159100b7 = mdl_key.targetname;
 			level flag::wait_till("clock");
 			var_991cace9 delete();

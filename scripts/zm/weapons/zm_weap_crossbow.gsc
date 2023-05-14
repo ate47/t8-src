@@ -47,10 +47,10 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_3891e803 = getweapon(#"hash_4ae11871b1233211");
-	level.var_d7f4cb84 = getweapon(#"hash_5f8f734c5dd02242");
-	level.var_29cce7eb = getweapon(#"hash_5aa162d2872d2bac");
-	level.var_bc26d00c = getweapon(#"hash_eeac880dffb5d95");
+	level.w_crossbow = getweapon(#"ww_crossbow_t8");
+	level.w_crossbow_upgraded = getweapon(#"ww_crossbow_t8_upgraded");
+	level.w_crossbow_charged = getweapon(#"ww_crossbow_charged_t8");
+	level.w_crossbow_charged_upgraded = getweapon(#"ww_crossbow_charged_t8_upgraded");
 	level.var_7cfd8159 = [];
 	clientfield::register("missile", "" + #"hash_6308b5ed3cbd99e3", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"hash_37c2ef99d645cf87", 1, 1, "int");
@@ -64,10 +64,10 @@ function __init__()
 	callback::on_connect(&function_39ffd9fc);
 	callback::on_connect(&function_89ec3604);
 	callback::function_f77ced93(&function_16be57e6);
-	callback::function_34dea974(level.var_3891e803, &function_62d37304);
-	callback::function_34dea974(level.var_d7f4cb84, &function_62d37304);
-	callback::function_34dea974(level.var_29cce7eb, &function_62d37304);
-	callback::function_34dea974(level.var_bc26d00c, &function_62d37304);
+	callback::function_34dea974(level.w_crossbow, &function_62d37304);
+	callback::function_34dea974(level.w_crossbow_upgraded, &function_62d37304);
+	callback::function_34dea974(level.w_crossbow_charged, &function_62d37304);
+	callback::function_34dea974(level.w_crossbow_charged_upgraded, &function_62d37304);
 	namespace_9ff9f642::register_slowdown(#"hash_664a130410d3fd9a", 0.75, 5);
 	namespace_9ff9f642::register_slowdown(#"hash_2607a6ffde83b4a7", 0.5, 5);
 	namespace_9ff9f642::register_slowdown(#"hash_3a067a5eb7a19857", 0.75, 5);
@@ -482,7 +482,7 @@ function function_c805f2f9(params)
 {
 	self endon(#"death");
 	player = params.eattacker;
-	var_3891e803 = params.weapon;
+	w_crossbow = params.weapon;
 	var_5ff12d5f = params.einflictor;
 	if(!isactor(self) || !isplayer(player) || !isdefined(var_5ff12d5f))
 	{
@@ -493,7 +493,7 @@ function function_c805f2f9(params)
 		player.var_7cfd8159 = [];
 	}
 	player.var_7cfd8159 = array::remove_dead(player.var_7cfd8159);
-	if(isdefined(var_5ff12d5f.var_99100b64) && var_5ff12d5f.var_99100b64 || !function_c6da1395(var_3891e803) || (isdefined(self.var_1df64653) && self.var_1df64653) || (isdefined(self.var_427e5396) && self.var_427e5396) || (isdefined(self.var_2c2980d3) && self.var_2c2980d3) || params.smeansofdeath === "MOD_MELEE" || self.archetype == #"hash_165d4f75a46540bb" || self.archetype == #"hash_3b41c3299f47fb7f")
+	if(isdefined(var_5ff12d5f.var_99100b64) && var_5ff12d5f.var_99100b64 || !function_c6da1395(w_crossbow) || (isdefined(self.var_1df64653) && self.var_1df64653) || (isdefined(self.var_427e5396) && self.var_427e5396) || (isdefined(self.var_2c2980d3) && self.var_2c2980d3) || params.smeansofdeath === "MOD_MELEE" || self.archetype == #"hash_165d4f75a46540bb" || self.archetype == #"hash_3b41c3299f47fb7f")
 	{
 		if(isdefined(self.var_427e5396) && self.var_427e5396 || (isdefined(self.var_2c2980d3) && self.var_2c2980d3))
 		{
@@ -562,7 +562,7 @@ function function_c805f2f9(params)
 	}
 	else
 	{
-		if(function_a2c527e5(var_3891e803))
+		if(function_a2c527e5(w_crossbow))
 		{
 			self function_9fa5e527(10);
 		}
@@ -613,7 +613,7 @@ function function_c805f2f9(params)
 			a_zombies = array::exclude(getaiteamarray(level.zombie_team), self);
 			foreach(ai in a_zombies)
 			{
-				if(isalive(ai) && ai function_8a514a61(v_origin, var_3891e803))
+				if(isalive(ai) && ai function_8a514a61(v_origin, w_crossbow))
 				{
 					n_damage = ai function_b3ac0cab(params);
 					ai thread function_b261e2a0(n_damage, player, v_origin, params);
@@ -685,9 +685,9 @@ function function_d8effeda(weapon)
 {
 	if(function_a2c527e5(weapon))
 	{
-		return level.var_d7f4cb84;
+		return level.w_crossbow_upgraded;
 	}
-	return level.var_3891e803;
+	return level.w_crossbow;
 }
 
 /*
@@ -701,7 +701,7 @@ function function_d8effeda(weapon)
 */
 function is_crossbow(weapon)
 {
-	if(weapon === level.var_3891e803 || weapon === level.var_d7f4cb84 || weapon === level.var_29cce7eb || weapon === level.var_bc26d00c)
+	if(weapon === level.w_crossbow || weapon === level.w_crossbow_upgraded || weapon === level.w_crossbow_charged || weapon === level.w_crossbow_charged_upgraded)
 	{
 		return true;
 	}
@@ -724,7 +724,7 @@ function function_c6da1395(weapon, player)
 		var_57b07826 = function_d8effeda(weapon);
 		var_510d7f2b = player getweaponammostock(var_57b07826);
 		n_ammo_clip = player getweaponammoclip(var_57b07826);
-		if(n_ammo_clip >= 5 || var_510d7f2b >= 4 && (weapon === level.var_29cce7eb || weapon === level.var_bc26d00c))
+		if(n_ammo_clip >= 5 || var_510d7f2b >= 4 && (weapon === level.w_crossbow_charged || weapon === level.w_crossbow_charged_upgraded))
 		{
 			return true;
 		}
@@ -733,7 +733,7 @@ function function_c6da1395(weapon, player)
 			return true;
 		}
 	}
-	else if(weapon === level.var_29cce7eb || weapon === level.var_bc26d00c)
+	else if(weapon === level.w_crossbow_charged || weapon === level.w_crossbow_charged_upgraded)
 	{
 		return true;
 	}
@@ -751,7 +751,7 @@ function function_c6da1395(weapon, player)
 */
 function function_a2c527e5(weapon)
 {
-	if(weapon === level.var_d7f4cb84 || weapon === level.var_bc26d00c)
+	if(weapon === level.w_crossbow_upgraded || weapon === level.w_crossbow_charged_upgraded)
 	{
 		return true;
 	}
@@ -772,9 +772,9 @@ function function_e1c4ab06(params)
 	v_origin = self.origin;
 	player = params.eattacker;
 	e_inflictor = params.einflictor;
-	var_3891e803 = params.weapon;
+	w_crossbow = params.weapon;
 	params.smeansofdeath = "MOD_ELECTROCUTED";
-	if(function_a2c527e5(var_3891e803))
+	if(function_a2c527e5(w_crossbow))
 	{
 		var_832a6071 = 1;
 		n_time = 10;
@@ -795,7 +795,7 @@ function function_e1c4ab06(params)
 		}
 		foreach(ai in a_zombies)
 		{
-			if(isalive(ai) && ai function_8a514a61(v_origin, var_3891e803) && ai.archetype !== #"hash_3b41c3299f47fb7f")
+			if(isalive(ai) && ai function_8a514a61(v_origin, w_crossbow) && ai.archetype !== #"hash_3b41c3299f47fb7f")
 			{
 				if(!(isdefined(ai.var_427e5396) && ai.var_427e5396))
 				{
@@ -813,7 +813,7 @@ function function_e1c4ab06(params)
 						player.var_d382ba7a = array::remove_dead(player.var_d382ba7a);
 					}
 					ai.var_427e5396 = 1;
-					if(function_a2c527e5(var_3891e803))
+					if(function_a2c527e5(w_crossbow))
 					{
 						ai clientfield::set("" + #"hash_690509b9a2ec2ef3", 2);
 						ai function_9fa5e527(10);

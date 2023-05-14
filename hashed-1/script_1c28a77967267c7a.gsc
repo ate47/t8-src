@@ -38,7 +38,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_ff31c99 = getweapon(#"music_box");
+	level.w_music_box = getweapon(#"music_box");
 	clientfield::register("scriptmover", "" + #"hash_136e9d44e7e2e888", 24000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_77a1a7cd8eb3e86c", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_4881cb6bc59fdc49", 24000, 1, "int");
@@ -65,7 +65,7 @@ function __init__()
 */
 function function_20263b9e(s_params)
 {
-	if(s_params.weapon === level.var_ff31c99 && isdefined(s_params.projectile))
+	if(s_params.weapon === level.w_music_box && isdefined(s_params.projectile))
 	{
 		s_params.projectile endon(#"death");
 		level endon(#"end_game");

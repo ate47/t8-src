@@ -1113,7 +1113,7 @@ function function_aa4579e2(fovcosine, maxsightdistsqrd)
 function function_1628d95b(cansee = 0, var_9a21f98d = 1, var_2dd9c403 = self.origin)
 {
 	var_56203bf4 = function_4d8c71ce(util::get_enemy_team(self.team), #"team3");
-	var_c719c76b = undefined;
+	nearesttarget = undefined;
 	var_46e1d165 = undefined;
 	foreach(target in var_56203bf4)
 	{
@@ -1137,13 +1137,13 @@ function function_1628d95b(cansee = 0, var_9a21f98d = 1, var_2dd9c403 = self.ori
 			}
 		}
 		distsq = distancesquared(var_2dd9c403, target.origin);
-		if(!isdefined(var_c719c76b) || distsq < var_46e1d165)
+		if(!isdefined(nearesttarget) || distsq < var_46e1d165)
 		{
-			var_c719c76b = target;
+			nearesttarget = target;
 			var_46e1d165 = distsq;
 		}
 	}
-	return var_c719c76b;
+	return nearesttarget;
 }
 
 /*

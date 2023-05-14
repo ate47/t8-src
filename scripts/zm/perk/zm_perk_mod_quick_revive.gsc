@@ -47,8 +47,8 @@ function __init__()
 */
 function enable_quick_revive_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_a6796d796a8d2b9", "mod_revive", #"perk_quick_revive", #"specialty_quickrevive", 2500);
-	zm_perks::register_perk_threads(#"hash_a6796d796a8d2b9", &give_perk, &take_perk);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_quickrevive", "mod_revive", #"perk_quick_revive", #"specialty_quickrevive", 2500);
+	zm_perks::register_perk_threads(#"specialty_mod_quickrevive", &give_perk, &take_perk);
 	callback::on_revived(&on_revived);
 }
 
@@ -95,7 +95,7 @@ function take_perk(b_pause, str_perk, str_result, n_slot)
 */
 function on_revived(s_params)
 {
-	if(isplayer(s_params.e_reviver) && s_params.e_reviver hasperk(#"hash_a6796d796a8d2b9"))
+	if(isplayer(s_params.e_reviver) && s_params.e_reviver hasperk(#"specialty_mod_quickrevive"))
 	{
 		s_params.e_reviver zm_utility::function_e0448fec();
 		s_params.e_reviver thread function_118be9d8();

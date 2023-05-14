@@ -285,7 +285,7 @@ function private registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_1d036f310bd792ad", &function_e523fa0d);
 	animationstatenetwork::registernotetrackhandlerfunction("summon_wolves", &function_aa43003c);
-	animationstatenetwork::registernotetrackhandlerfunction("werewolf_leap_melee", &function_fca0332e);
+	animationstatenetwork::registernotetrackhandlerfunction("werewolf_leap_melee", &werewolfleapattack);
 	animationstatenetwork::registernotetrackhandlerfunction("werewolf_disable_pain", &werewolfdisablepain);
 	animationstatenetwork::registernotetrackhandlerfunction("wrwlf_silver_death_fx", &function_b74b9f01);
 	animationstatenetwork::registernotetrackhandlerfunction("werewolf_leap_rumble", &function_e980911c);
@@ -1473,7 +1473,7 @@ function private function_9e901f61(entity)
 }
 
 /*
-	Name: function_fca0332e
+	Name: werewolfleapattack
 	Namespace: zm_ai_werewolf
 	Checksum: 0x6361BA3F
 	Offset: 0x4058
@@ -1481,7 +1481,7 @@ function private function_9e901f61(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_fca0332e(entity)
+function private werewolfleapattack(entity)
 {
 	if(entity.ignoreall)
 	{

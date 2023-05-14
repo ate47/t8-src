@@ -1279,14 +1279,14 @@ function function_993de6f7()
 		{
 			level waittill(#"zombie_total_set");
 		}
-		var_a1ef7f29 = level.zm_loc_types[#"hash_605a47238f0057ac"];
+		s_spawn_locs = level.zm_loc_types[#"hash_605a47238f0057ac"];
 		if(isdefined(s_spawn_loc))
 		{
-			arrayremovevalue(var_a1ef7f29, s_spawn_loc);
+			arrayremovevalue(s_spawn_locs, s_spawn_loc);
 		}
-		if(var_a1ef7f29.size > 0)
+		if(s_spawn_locs.size > 0)
 		{
-			s_spawn_loc = array::random(var_a1ef7f29);
+			s_spawn_loc = array::random(s_spawn_locs);
 		}
 		if(isdefined(s_spawn_loc) && !level flag::get("mee_round"))
 		{
@@ -1998,7 +1998,7 @@ function function_2330b278()
 	playsoundatposition(#"hash_22f33ce72be33eab", (0, -334, -337));
 	wait(6);
 	exploder::stop_exploder("fxexp_script_power_room_gas_event_intermediate");
-	var_d1ef124f = 0;
+	player_is_touching = 0;
 	n_touching = 0;
 	players = getplayers();
 	for(i = 0; i < players.size; i++)
@@ -2007,7 +2007,7 @@ function function_2330b278()
 		{
 			if(players[i] istouching(var_7b52a014) && !players[i] laststand::player_is_in_laststand())
 			{
-				var_d1ef124f = 1;
+				player_is_touching = 1;
 				n_touching = n_touching + 1;
 			}
 		}
@@ -2307,7 +2307,7 @@ function function_696a0eca()
 	var_e6da0a39 = 0;
 	while(level flag::get(#"hash_639e8274a1b57729") && !level flag::get(#"hash_40856b65dff0f6eb"))
 	{
-		var_d1ef124f = 0;
+		player_is_touching = 0;
 		players = getplayers();
 		for(i = 0; i < players.size; i++)
 		{
@@ -2315,7 +2315,7 @@ function function_696a0eca()
 			{
 				if(players[i] istouching(var_7b52a014) && !players[i] laststand::player_is_in_laststand())
 				{
-					var_d1ef124f = 1;
+					player_is_touching = 1;
 					if(var_e6da0a39 > 0)
 					{
 						level.var_7a86ba58 function_ccc74648("string_03");
@@ -2324,7 +2324,7 @@ function function_696a0eca()
 				}
 			}
 		}
-		if(!var_d1ef124f)
+		if(!player_is_touching)
 		{
 			switch(var_e6da0a39)
 			{

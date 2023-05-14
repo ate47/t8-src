@@ -635,8 +635,8 @@ function private function_8ee25278(commander, squad, constants)
 		domflags = planner::getblackboardattribute(commander.planner, "mp_domFlags");
 		if(isdefined(domflags))
 		{
-			var_a1582820 = function_c0e398c4(bots, domflags, "domFlag");
-			if(var_a1582820.size > 0)
+			pathabledomFlags = function_c0e398c4(bots, domflags, "domFlag");
+			if(pathabledomFlags.size > 0)
 			{
 				return 0;
 			}
@@ -1045,8 +1045,8 @@ function private function_913bffb1(planner, constants)
 	#/
 	bots = planner::getblackboardattribute(planner, "doppelbots", squadindex);
 	domflags = planner::getblackboardattribute(planner, "mp_domFlags");
-	var_a1582820 = function_c0e398c4(bots, domflags, "domFlag");
-	planner::setblackboardattribute(planner, "mp_pathable_domFlags", var_a1582820, squadindex);
+	pathabledomFlags = function_c0e398c4(bots, domflags, "domFlag");
+	planner::setblackboardattribute(planner, "mp_pathable_domFlags", pathabledomFlags, squadindex);
 	return spawnstruct();
 }
 
@@ -1065,28 +1065,28 @@ function private function_edf25221(planner, constants)
 	/#
 		assert(squadindex >= 0, "");
 	#/
-	var_a1582820 = planner::getblackboardattribute(planner, "mp_pathable_domFlags", squadindex);
-	if(!isarray(var_a1582820) || var_a1582820.size <= 0)
+	pathabledomFlags = planner::getblackboardattribute(planner, "mp_pathable_domFlags", squadindex);
+	if(!isarray(pathabledomFlags) || pathabledomFlags.size <= 0)
 	{
 		return spawnstruct();
 	}
 	domflags = [];
-	shortestpath = var_a1582820[0][#"distance"];
-	longestpath = var_a1582820[0][#"distance"];
+	shortestpath = pathabledomFlags[0][#"distance"];
+	longestpath = pathabledomFlags[0][#"distance"];
 	var_fa2c1b88 = 0;
 	var_67f36fed = 0;
-	for(i = 1; i < var_a1582820.size; i++)
+	for(i = 1; i < pathabledomFlags.size; i++)
 	{
-		var_bd820c96 = var_a1582820[i];
-		if(var_bd820c96[#"distance"] < shortestpath)
+		pathabledomFlag = pathabledomFlags[i];
+		if(pathabledomFlag[#"distance"] < shortestpath)
 		{
-			shortestpath = var_a1582820[i][#"distance"];
+			shortestpath = pathabledomFlags[i][#"distance"];
 			var_fa2c1b88 = i;
 			continue;
 		}
-		if(var_bd820c96[#"distance"] > longestpath)
+		if(pathabledomFlag[#"distance"] > longestpath)
 		{
-			longestpath = var_a1582820[i][#"distance"];
+			longestpath = pathabledomFlags[i][#"distance"];
 			var_67f36fed = i;
 		}
 	}
@@ -1098,8 +1098,8 @@ function private function_edf25221(planner, constants)
 	{
 		domflags = array(domflags);
 	}
-	domflags[domflags.size] = var_a1582820[var_fa2c1b88][#"domflag"];
-	for(i = 0; i < var_a1582820.size; i++)
+	domflags[domflags.size] = pathabledomFlags[var_fa2c1b88][#"domflag"];
+	for(i = 0; i < pathabledomFlags.size; i++)
 	{
 		if(i == var_fa2c1b88 || i == var_67f36fed)
 		{
@@ -1113,7 +1113,7 @@ function private function_edf25221(planner, constants)
 		{
 			domflags = array(domflags);
 		}
-		domflags[domflags.size] = var_a1582820[i][#"domflag"];
+		domflags[domflags.size] = pathabledomFlags[i][#"domflag"];
 	}
 	if(!isdefined(domflags))
 	{
@@ -1123,7 +1123,7 @@ function private function_edf25221(planner, constants)
 	{
 		domflags = array(domflags);
 	}
-	domflags[domflags.size] = var_a1582820[var_67f36fed][#"domflag"];
+	domflags[domflags.size] = pathabledomFlags[var_67f36fed][#"domflag"];
 	planner::setblackboardattribute(planner, "mp_domFlags", domflags, squadindex);
 	return spawnstruct();
 }
@@ -1366,8 +1366,8 @@ function private function_9c7e3773(planner, constants)
 		assert(squadindex >= 0, "");
 	#/
 	var_7c70464e = namespace_cb7fdaf1::function_9fe18733();
-	var_d108dac6 = squadindex % var_7c70464e;
-	planner::setblackboardattribute(planner, "mp_laneNum", array(var_d108dac6), squadindex);
+	laneNum = squadindex % var_7c70464e;
+	planner::setblackboardattribute(planner, "mp_laneNum", array(laneNum), squadindex);
 	return spawnstruct();
 }
 

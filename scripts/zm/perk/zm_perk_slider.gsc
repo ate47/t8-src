@@ -39,7 +39,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_481123c();
+	enable_slider_perk_for_level();
 }
 
 /*
@@ -56,7 +56,7 @@ function __main__()
 }
 
 /*
-	Name: function_481123c
+	Name: enable_slider_perk_for_level
 	Namespace: zm_perk_slider
 	Checksum: 0xC5A07A75
 	Offset: 0x248
@@ -64,7 +64,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_481123c()
+function enable_slider_perk_for_level()
 {
 	if(function_8b1a219a())
 	{

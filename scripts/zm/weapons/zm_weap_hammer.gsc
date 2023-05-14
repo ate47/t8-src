@@ -931,7 +931,7 @@ function staff_lightning_ball_damage_over_time(e_source, e_target, e_attacker)
 	while(isdefined(e_source) && isalive(e_target))
 	{
 		e_target thread stun_zombie();
-		var_21277708 = e_source.str_weapon;
+		w_attack = e_source.str_weapon;
 		wait(0.25);
 		if(!isalive(e_target))
 		{
@@ -949,12 +949,12 @@ function staff_lightning_ball_damage_over_time(e_source, e_target, e_attacker)
 						e_target thread zombie_shock_eyes();
 					}
 					e_target.var_b7e3212 = 1;
-					e_target thread function_1ca3b529(e_attacker, e_target.health + 100, var_21277708, "MOD_ELECTROCUTED");
+					e_target thread function_1ca3b529(e_attacker, e_target.health + 100, w_attack, "MOD_ELECTROCUTED");
 					break;
 				}
 				default:
 				{
-					e_target thread function_1ca3b529(e_attacker, n_damage_per_pulse, var_21277708, "MOD_ELECTROCUTED");
+					e_target thread function_1ca3b529(e_attacker, n_damage_per_pulse, w_attack, "MOD_ELECTROCUTED");
 					break;
 				}
 			}

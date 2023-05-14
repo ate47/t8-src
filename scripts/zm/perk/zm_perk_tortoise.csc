@@ -31,13 +31,13 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_9c732a0a();
+	enable_tortoise_perk_for_level();
 	level._effect[#"perk_tortoise_explosion"] = "zombie/fx8_perk_vic_tort_exp";
 	zm_perks::function_f3c80d73("zombie_perk_bottle_tortoise", "zombie_perk_totem_tortoise");
 }
 
 /*
-	Name: function_9c732a0a
+	Name: enable_tortoise_perk_for_level
 	Namespace: zm_perk_tortoise
 	Checksum: 0x55152949
 	Offset: 0x220
@@ -45,7 +45,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9c732a0a()
+function enable_tortoise_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"specialty_shield", &function_6dd9c0ca, &function_cdbbd4f1);
 	zm_perks::register_perk_effects(#"specialty_shield", "divetonuke_light");

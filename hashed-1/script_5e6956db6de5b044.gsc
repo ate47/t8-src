@@ -245,10 +245,10 @@ function function_aa539d7b()
 		level flag::wait_till(self.var_78f643be);
 	}
 	self.var_23769a97 = [];
-	foreach(var_d0ba86c2 in self.var_3a2026c0)
+	foreach(s_src in self.var_3a2026c0)
 	{
 		str_prompt = zm_utility::function_d6046228(#"hash_888d5fd1e90d685", #"hash_f1db4a15f0e12bb");
-		var_47323b73 = mansion_util::create_unitrigger(var_d0ba86c2, &function_5b8a557f, str_prompt, 0, 0, 0);
+		var_47323b73 = mansion_util::create_unitrigger(s_src, &function_5b8a557f, str_prompt, 0, 0, 0);
 		var_47323b73.e_trap = self;
 		var_47323b73.prompt_and_visibility_func = &function_9026cbcd;
 		self.var_23769a97[self.var_23769a97.size] = var_47323b73;

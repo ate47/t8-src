@@ -44,7 +44,7 @@ function private __init__()
 	callback::on_connect(&onconnect);
 	level.givecustomloadout = &function_738575c4;
 	level.var_67f4fd41 = &function_485e3421;
-	level.var_a9f35be1 = getscriptbundlelist("bounty_hunter_package_list");
+	level.bountypackagelist = getscriptbundlelist("bounty_hunter_package_list");
 	registerclientfields();
 	level.var_968635ea = bountyhunterbuy::register("BountyHunterLoadout");
 	for(i = 1; i < 38; i++)
@@ -148,9 +148,9 @@ function private function_9ede386f(slot)
 */
 function private registerclientfields()
 {
-	if(isdefined(level.var_a9f35be1))
+	if(isdefined(level.bountypackagelist))
 	{
-		var_2b5b08bd = int(ceil(function_53f6489c(level.var_a9f35be1.size + 1)));
+		var_2b5b08bd = int(ceil(function_53f6489c(level.bountypackagelist.size + 1)));
 		var_ff35ecd8 = getgametypesetting(#"bountybagomoneymoney");
 		var_19302641 = getgametypesetting(#"hash_63f8d60d122e755b");
 		if(var_19302641 > 0)
@@ -279,7 +279,7 @@ function private function_40eb02fc(response, intpayload)
 	{
 		return;
 	}
-	package = struct::get_script_bundle("bountyhunterpackage", level.var_a9f35be1[intpayload - 1]);
+	package = struct::get_script_bundle("bountyhunterpackage", level.bountypackagelist[intpayload - 1]);
 	switch(response)
 	{
 		case "hash_28554ae159269915":

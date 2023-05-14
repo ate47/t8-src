@@ -1648,7 +1648,7 @@ function private function_8bb02a48(localclientnum)
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{
-		var_7f695eed = data.inventory.var_a101f33c[index];
+		var_7f695eed = data.inventory.equipmentitems[index];
 		inventoryitem = var_7007b688[index];
 		function_1a99656a(localclientnum, var_7f695eed, inventoryitem.var_bd027dd9, inventoryitem.id, inventoryitem.count, function_bba770de(localclientnum, inventoryitem.var_a6762160), inventoryitem.availableaction, undefined, 1);
 		setuimodelvalue(createuimodel(var_7f695eed.itemuimodel, "cycle"), 1);
@@ -1656,7 +1656,7 @@ function private function_8bb02a48(localclientnum)
 	}
 	for(index = var_7007b688.size; index < 2; index++)
 	{
-		var_7f695eed = data.inventory.var_a101f33c[index];
+		var_7f695eed = data.inventory.equipmentitems[index];
 		function_1a99656a(localclientnum, var_7f695eed, 32767, 32767, 0, 0, 0, undefined, 1);
 		setuimodelvalue(createuimodel(var_7f695eed.itemuimodel, "cycle"), 0);
 	}
@@ -3030,12 +3030,12 @@ function function_42e2bb1a(localclientnum)
 		data.inventory.healthitems[index].itemuimodel = createuimodel(var_dcb56aa8, "health" + index);
 		function_1a99656a(localclientnum, data.inventory.healthitems[index], 32767, 32767, 0, 0, 0);
 	}
-	data.inventory.var_a101f33c = [];
+	data.inventory.equipmentitems = [];
 	for(index = 0; index < 2; index++)
 	{
-		data.inventory.var_a101f33c[index] = spawnstruct();
-		data.inventory.var_a101f33c[index].itemuimodel = createuimodel(var_dcb56aa8, "equipment" + index);
-		function_1a99656a(localclientnum, data.inventory.var_a101f33c[index], 32767, 32767, 0, 0, 0);
+		data.inventory.equipmentitems[index] = spawnstruct();
+		data.inventory.equipmentitems[index].itemuimodel = createuimodel(var_dcb56aa8, "equipment" + index);
+		function_1a99656a(localclientnum, data.inventory.equipmentitems[index], 32767, 32767, 0, 0, 0);
 	}
 	setuimodelvalue(createuimodel(var_dcb56aa8, "count"), 5);
 	setuimodelvalue(createuimodel(var_dcb56aa8, "filledSlots"), 0);

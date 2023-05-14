@@ -752,7 +752,7 @@ function function_b53212e5()
 */
 function function_779b1320(var_5ea5c94d)
 {
-	level.var_79260935.var_ff31c99 = getweapon(#"music_box");
+	level.var_79260935.w_music_box = getweapon(#"music_box");
 	callback::function_33f0ddd3(&function_33f0ddd3);
 	callback::on_disconnect(&on_disconnect);
 	if(!var_5ea5c94d)
@@ -781,7 +781,7 @@ function function_8a1848f8(var_5ea5c94d, ended_early)
 		{
 			if(!e_player util::is_spectating())
 			{
-				e_player zm_weapons::weapon_give(level.var_79260935.var_ff31c99, 1);
+				e_player zm_weapons::weapon_give(level.var_79260935.w_music_box, 1);
 			}
 		}
 		level flag::set(#"hash_60c221c7e2c660c0");
@@ -820,8 +820,8 @@ function function_be4c3b3e()
 	s_result = self waittill(#"trigger_activated");
 	e_who = s_result.e_who;
 	level thread function_7c831be0(e_who);
-	e_who zm_weapons::weapon_give(level.var_79260935.var_ff31c99, 1);
-	zm_weapons::function_603af7a8(level.var_79260935.var_ff31c99);
+	e_who zm_weapons::weapon_give(level.var_79260935.w_music_box, 1);
+	zm_weapons::function_603af7a8(level.var_79260935.w_music_box);
 	var_b3362cd = getent(self.target, "targetname");
 	var_b3362cd hide();
 	self zm_unitrigger::unregister_unitrigger(level.var_79260935.s_vault_reward.s_unitrigger);
@@ -875,7 +875,7 @@ function private function_89c75856()
 */
 function private on_disconnect()
 {
-	if(self hasweapon(level.var_79260935.var_ff31c99))
+	if(self hasweapon(level.var_79260935.w_music_box))
 	{
 		/#
 			iprintln("");
@@ -895,7 +895,7 @@ function private on_disconnect()
 */
 function private function_33f0ddd3(s_event)
 {
-	if(s_event.event === "take_weapon" && s_event.weapon === level.var_79260935.var_ff31c99 && self.var_3b55baa1 !== level.var_79260935.var_ff31c99)
+	if(s_event.event === "take_weapon" && s_event.weapon === level.var_79260935.w_music_box && self.var_3b55baa1 !== level.var_79260935.w_music_box)
 	{
 		/#
 			iprintln("");

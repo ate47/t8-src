@@ -1615,9 +1615,9 @@ function revive_trigger_think(t_secondary)
 					w_revive_tool = undefined;
 				}
 			}
-			if(isdefined(self.var_a66c06b6) && (!(isdefined(self.var_54cb40e6) && self.var_54cb40e6)))
+			if(isdefined(self.revivevox) && (!(isdefined(self.var_54cb40e6) && self.var_54cb40e6)))
 			{
-				e_reviver thread zm_audio::create_and_play_dialog(#"revive", self.var_a66c06b6);
+				e_reviver thread zm_audio::create_and_play_dialog(#"revive", self.revivevox);
 			}
 			b_revive_successful = e_reviver revive_do_revive(self, w_reviver, w_revive_tool, t_secondary);
 			if(isdefined(e_reviver))

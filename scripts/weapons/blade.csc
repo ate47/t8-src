@@ -32,7 +32,7 @@ function __init__()
 {
 	callback::on_localplayer_spawned(&function_e79ccfd8);
 	callback::function_f77ced93(&function_f77ced93);
-	callback::on_melee(&function_fcfa93d0);
+	callback::on_melee(&melee_event);
 }
 
 /*
@@ -117,7 +117,7 @@ function function_c0c566d4(localclientnum)
 }
 
 /*
-	Name: function_fcfa93d0
+	Name: melee_event
 	Namespace: blade
 	Checksum: 0x1A915E33
 	Offset: 0x498
@@ -125,7 +125,7 @@ function function_c0c566d4(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_fcfa93d0(eventstruct)
+function melee_event(eventstruct)
 {
 	if(!self function_21c0fa55())
 	{

@@ -10,9 +10,9 @@
 	Parameters: 8
 	Flags: None
 */
-function function_e9b061a8(state, start, var_2ae5a795, end, var_5d31deb6, var_edc20efd, var_ff716a93, var_a1891b01)
+function function_e9b061a8(state, start, var_2ae5a795, end, var_5d31deb6, var_edc20efd, var_ff716a93, update_debug)
 {
-	level.extra_screen_electricity_.functions[state] = {#hash_a1891b01:var_a1891b01, #hash_ff716a93:var_ff716a93, #hash_edc20efd:var_edc20efd, #hash_5d31deb6:var_5d31deb6, #end:end, #hash_2ae5a795:var_2ae5a795, #start:start};
+	level.extra_screen_electricity_.functions[state] = {#hash_a1891b01:update_debug, #hash_ff716a93:var_ff716a93, #hash_edc20efd:var_edc20efd, #hash_5d31deb6:var_5d31deb6, #end:end, #hash_2ae5a795:var_2ae5a795, #start:start};
 }
 
 /*
@@ -175,9 +175,9 @@ function is_state(state)
 function function_c1d2ede8()
 {
 	/#
-		if(isdefined(level.extra_screen_electricity_.functions[self.ai.state].var_a1891b01))
+		if(isdefined(level.extra_screen_electricity_.functions[self.ai.state].update_debug))
 		{
-			self [[level.extra_screen_electricity_.functions[self.ai.state].var_a1891b01]]();
+			self [[level.extra_screen_electricity_.functions[self.ai.state].update_debug]]();
 		}
 	#/
 }

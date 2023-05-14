@@ -141,9 +141,9 @@ function function_97346595()
 				{
 					level thread zombie_open_sesame();
 				}
-				var_b2efd61b = 4 - players.size;
+				remainingplayers = 4 - players.size;
 				/#
-					adddebugcommand("" + var_b2efd61b);
+					adddebugcommand("" + remainingplayers);
 				#/
 				waitframe(1);
 				/#

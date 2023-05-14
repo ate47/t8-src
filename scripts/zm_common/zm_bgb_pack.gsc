@@ -700,7 +700,7 @@ function global_cooldown(n_index)
 	self.var_bd0d5874 = 1;
 	self function_a1f97e79(1, n_index);
 	n_cooldown = 30;
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
@@ -877,7 +877,7 @@ function function_87ad6161(n_index)
 			break;
 		}
 	}
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
@@ -965,7 +965,7 @@ function private function_d84ec5ee(var_707fd977)
 {
 	self endon(#"disconnect", #"hash_738988561a113fac");
 	n_cooldown = 30;
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}

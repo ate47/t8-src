@@ -1077,18 +1077,18 @@ function function_57d4a011(insertion)
 			center = var_8a2c40d0.origin;
 			radius = 9000;
 			angle = 0;
-			foreach(var_9fac9726 in level.warp_portal_vehicles)
+			foreach(portal_vehicle in level.warp_portal_vehicles)
 			{
 				x_pos = center[0] + (radius * cos(angle));
 				y_pos = center[1] + (radius * sin(angle));
 				z_pos = 20000;
-				var_9fac9726.origin = (x_pos, y_pos, z_pos);
-				var_9fac9726.var_8c9cad0b = angle;
+				portal_vehicle.origin = (x_pos, y_pos, z_pos);
+				portal_vehicle.var_8c9cad0b = angle;
 				angle = angle + step_size;
-				target = var_8a2c40d0.origin - var_9fac9726.origin;
+				target = var_8a2c40d0.origin - portal_vehicle.origin;
 				target = vectornormalize(target);
 				angles = vectortoangles(target);
-				var_9fac9726.angles = angles;
+				portal_vehicle.angles = angles;
 			}
 		}
 		var_30fc202f = 0;
@@ -2742,10 +2742,10 @@ function function_b80277f7()
 	while(true)
 	{
 		waitframe(1);
-		if(self flagsys::get(#"hash_287397edba8966f9") && isdefined(level.var_a2915a68) && isdefined(level.var_f3320ad2) && isdefined(level.var_a3c0d635) && isdefined(level.var_ce84dde9) && !level.var_a2915a68 [[level.var_a3c0d635]](self))
+		if(self flagsys::get(#"hash_287397edba8966f9") && isdefined(level.insertionpassenger) && isdefined(level.var_f3320ad2) && isdefined(level.var_a3c0d635) && isdefined(level.var_ce84dde9) && !level.insertionpassenger [[level.var_a3c0d635]](self))
 		{
-			level.var_a2915a68 [[level.var_f3320ad2]](self, 0);
-			level.var_a2915a68 [[level.var_ce84dde9]](self, level.insertion.passengercount);
+			level.insertionpassenger [[level.var_f3320ad2]](self, 0);
+			level.insertionpassenger [[level.var_ce84dde9]](self, level.insertion.passengercount);
 		}
 		if(self flagsys::get(#"hash_224cb97b8f682317") || (self flagsys::get(#"hash_287397edba8966f9") && self usebuttonpressed()))
 		{
@@ -2784,13 +2784,13 @@ function function_1c06c249(plane)
 */
 function function_25facefd(count, ignore_player)
 {
-	if(isdefined(level.var_a2915a68) && isdefined(level.var_a3c0d635) && isdefined(level.var_ce84dde9))
+	if(isdefined(level.insertionpassenger) && isdefined(level.var_a3c0d635) && isdefined(level.var_ce84dde9))
 	{
 		foreach(player in getplayers())
 		{
-			if(level.var_a2915a68 [[level.var_a3c0d635]](player))
+			if(level.insertionpassenger [[level.var_a3c0d635]](player))
 			{
-				level.var_a2915a68 [[level.var_ce84dde9]](player, count);
+				level.insertionpassenger [[level.var_ce84dde9]](player, count);
 			}
 		}
 	}
@@ -2871,9 +2871,9 @@ function function_2d683dc2(aircraft)
 	self solid();
 	self death_circle::function_b57e3cde(0);
 	self clientfield::set_to_player("inside_infiltration_vehicle", 0);
-	if(isdefined(level.var_a2915a68) && isdefined(level.var_81b39a59))
+	if(isdefined(level.insertionpassenger) && isdefined(level.var_81b39a59))
 	{
-		level.var_a2915a68 [[level.var_81b39a59]](self);
+		level.insertionpassenger [[level.var_81b39a59]](self);
 	}
 	self thread player_freefall(aircraft);
 	self function_af096637();

@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_perks.gsc;
 
-#namespace namespace_4fc83677;
+#namespace zm_perk_mod_dying_wish;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0xA75B5C5F
 	Offset: 0x90
 	Size: 0x44
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_16f1bc78a3808406", &__init__, &__main__, undefined);
+	system::register(#"zm_perk_mod_dying_wish", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x31905E07
 	Offset: 0xE0
 	Size: 0x14
@@ -34,7 +34,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x80F724D1
 	Offset: 0x100
 	Size: 0x4
@@ -47,7 +47,7 @@ function __main__()
 
 /*
 	Name: function_7186a3aa
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x9D0D1C45
 	Offset: 0x110
 	Size: 0x94
@@ -56,13 +56,13 @@ function __main__()
 */
 function function_7186a3aa()
 {
-	zm_perks::function_7f42e14e(#"hash_48255a3b086a9bea", "mod_dying_wish", #"perk_dying_wish", #"hash_5b141f82a55645a9", 5000);
+	zm_perks::register_perk_mod_basic_info(#"hash_48255a3b086a9bea", "mod_dying_wish", #"perk_dying_wish", #"hash_5b141f82a55645a9", 5000);
 	zm_perks::register_perk_threads(#"hash_48255a3b086a9bea", &function_fb91d1a, &function_63f21c1e);
 }
 
 /*
 	Name: function_fb91d1a
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x80F724D1
 	Offset: 0x1B0
 	Size: 0x4
@@ -75,7 +75,7 @@ function function_fb91d1a()
 
 /*
 	Name: function_63f21c1e
-	Namespace: namespace_4fc83677
+	Namespace: zm_perk_mod_dying_wish
 	Checksum: 0x7DE5DA40
 	Offset: 0x1C0
 	Size: 0x24

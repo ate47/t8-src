@@ -715,8 +715,8 @@ function function_809767d(var_fc6baa64)
 			s_quest.var_f72f5053 = #"hash_4dc10c417b2d65ce";
 			s_quest.var_723cad8 = #"hash_137b801137c6840";
 			var_50928a25 = getent("mdl_ww_uncharged_hand_light", "targetname");
-			var_68e3bde6 = getweapon(#"ww_hand_h_uncharged");
-			var_a76d09cd = getweapon(#"ww_hand_h");
+			w_uncharged_hand = getweapon(#"ww_hand_h_uncharged");
+			w_charged_hand = getweapon(#"ww_hand_h");
 			s_quest.var_e5b61ee5 = getweapon(#"ww_hand_h_upgraded");
 			var_f172b16e = "" + #"hash_6d443dd8ae685236";
 			s_quest.var_ea3032ca = "" + #"hash_1d886dddf28e80bc";
@@ -762,8 +762,8 @@ function function_809767d(var_fc6baa64)
 			var_50928a25 = getent("mdl_ww_uncharged_hand_death", "targetname");
 			var_f172b16e = "" + #"hash_27e137de4035c3b3";
 			s_quest.var_ea3032ca = "" + #"hash_7fb27e0252c756b";
-			var_68e3bde6 = getweapon(#"ww_hand_c_uncharged");
-			var_a76d09cd = getweapon(#"ww_hand_c");
+			w_uncharged_hand = getweapon(#"ww_hand_c_uncharged");
+			w_charged_hand = getweapon(#"ww_hand_c");
 			s_quest.var_e5b61ee5 = getweapon(#"ww_hand_c_upgraded");
 			var_a1327d58 = struct::get(#"s_ww_quests_death_box_interact");
 			var_c476e1d9 = zm_utility::function_d6046228(#"hash_5fe4e8fa43024e11", #"hash_51d170c27ccc550f");
@@ -809,8 +809,8 @@ function function_809767d(var_fc6baa64)
 			var_50928a25 = getent("mdl_ww_uncharged_hand_air", "targetname");
 			var_f172b16e = "" + #"hash_3a38a1d1eda0d02f";
 			s_quest.var_ea3032ca = "" + #"hash_1cdf2252d9f82767";
-			var_68e3bde6 = getweapon(#"ww_hand_o_uncharged");
-			var_a76d09cd = getweapon(#"ww_hand_o");
+			w_uncharged_hand = getweapon(#"ww_hand_o_uncharged");
+			w_charged_hand = getweapon(#"ww_hand_o");
 			s_quest.var_e5b61ee5 = getweapon(#"ww_hand_o_upgraded");
 			var_a1327d58 = struct::get(#"s_ww_quests_air_box_interact");
 			var_c476e1d9 = zm_utility::function_d6046228(#"hash_572796ab0e1cbfe7", #"hash_7c267e16e45ff895");
@@ -851,8 +851,8 @@ function function_809767d(var_fc6baa64)
 			var_50928a25 = getent("mdl_ww_uncharged_hand_earth", "targetname");
 			var_f172b16e = "" + #"hash_720392b899f6e8f8";
 			s_quest.var_ea3032ca = "" + #"hash_4195d99bef577e46";
-			var_68e3bde6 = getweapon(#"ww_hand_g_uncharged");
-			var_a76d09cd = getweapon(#"ww_hand_g");
+			w_uncharged_hand = getweapon(#"ww_hand_g_uncharged");
+			w_charged_hand = getweapon(#"ww_hand_g");
 			s_quest.var_e5b61ee5 = getweapon(#"ww_hand_g_upgraded");
 			var_a1327d58 = struct::get(#"s_ww_quests_earth_box_interact");
 			var_c476e1d9 = zm_utility::function_d6046228(#"hash_542d9f1f5c0eb557", #"hash_330a65e00da6ea85");
@@ -885,9 +885,9 @@ function function_809767d(var_fc6baa64)
 	s_quest.var_a04ebe57 = var_a04ebe57;
 	s_quest.var_d39cfea7 = var_d39cfea7;
 	s_quest.var_50928a25 = var_50928a25;
-	s_quest.var_68e3bde6 = var_68e3bde6;
-	s_quest.var_a76d09cd = var_a76d09cd;
-	array::add(level.var_66153d2c, s_quest.var_a76d09cd);
+	s_quest.w_uncharged_hand = w_uncharged_hand;
+	s_quest.w_charged_hand = w_charged_hand;
+	array::add(level.var_66153d2c, s_quest.w_charged_hand);
 	s_quest.var_6486fc00 = var_6486fc00;
 	s_quest.var_ad816fb3 = var_ad816fb3;
 	level flag::init(var_16ba625b);
@@ -898,7 +898,7 @@ function function_809767d(var_fc6baa64)
 	var_a1327d58.var_525d0532 = var_525d0532;
 	s_quest.var_cffb5613 = var_cffb5613;
 	s_quest.var_f172b16e = var_f172b16e;
-	var_a1327d58.var_884c4b3a = var_68e3bde6;
+	var_a1327d58.var_884c4b3a = w_uncharged_hand;
 	s_unitrigger = var_a1327d58 zm_unitrigger::create(&function_9f665c5d, 64, &function_75fd2345);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger, 1);
 	var_a1327d58 flag::init(#"hash_58c0761173ca055");
@@ -3128,7 +3128,7 @@ function function_79a8a785(var_542837e6, e_player)
 	{
 		if(var_542837e6 flag::get("light_source_brazier_lit"))
 		{
-			if(e_player ismeleeing() && e_player util::is_looking_at(var_542837e6.origin) && distance(e_player.origin, var_542837e6.origin) < 100 && e_player getcurrentweapon() === self.var_68e3bde6 && !e_player flag::get("carrying_light_energy"))
+			if(e_player ismeleeing() && e_player util::is_looking_at(var_542837e6.origin) && distance(e_player.origin, var_542837e6.origin) < 100 && e_player getcurrentweapon() === self.w_uncharged_hand && !e_player flag::get("carrying_light_energy"))
 			{
 				break;
 			}
@@ -3340,7 +3340,7 @@ function light_energy_carry(e_player)
 	callback::function_f77ced93(&function_fbcb1210);
 	while(true)
 	{
-		if(e_player ismeleeing() && distance(e_player.origin, self.var_a1327d58.origin) < 150 && e_player getcurrentweapon() === self.var_68e3bde6)
+		if(e_player ismeleeing() && distance(e_player.origin, self.var_a1327d58.origin) < 150 && e_player getcurrentweapon() === self.w_uncharged_hand)
 		{
 			e_player notify(#"hash_3f0faacb0cc98a9", {#b_success:1});
 			callback::function_5a753d97(&function_fbcb1210);
@@ -3955,7 +3955,7 @@ function function_dd1c5ae6()
 {
 	level.var_d225ea18[#"earth"].var_8baa00ae = 0;
 	self.var_94b03771 = getent("mdl_gaia_portal", "targetname");
-	self.var_a94b45c = getent("mdl_gaia_return_portal", "targetname");
+	self.mdl_return_portal = getent("mdl_gaia_return_portal", "targetname");
 	self.var_285af63c = getent("mdl_gaia_p_portal", "targetname");
 	level.var_1e60b889 = 1;
 	level.var_3eccc872 = getweapon("equip_sprout");
@@ -4409,14 +4409,14 @@ function function_1c5aedd8(e_player)
 	}
 	else
 	{
-		e_player zm_weapons::weapon_give(s_quest.var_68e3bde6, 1, 0);
+		e_player zm_weapons::weapon_give(s_quest.w_uncharged_hand, 1, 0);
 		if(isdefined(e_player.var_ada0236a) && e_player.var_ada0236a)
 		{
-			e_player zm_weapons::function_7c5dd4bd(s_quest.var_68e3bde6);
+			e_player zm_weapons::function_7c5dd4bd(s_quest.w_uncharged_hand);
 		}
 		else
 		{
-			e_player setweaponammoclip(s_quest.var_68e3bde6, e_player.var_34e10757);
+			e_player setweaponammoclip(s_quest.w_uncharged_hand, e_player.var_34e10757);
 		}
 		e_player.var_ada0236a = undefined;
 		e_player.var_34e10757 = undefined;
@@ -4601,12 +4601,12 @@ function function_6161ce9a(e_player)
 	}
 	level waittill(self.var_9bd3a2c6);
 	self thread function_530d7ea0(0);
-	e_player.var_34e10757 = e_player getammocount(self.var_68e3bde6);
-	e_player zm_weapons::weapon_take(self.var_68e3bde6);
-	e_player zm_weapons::weapon_give(self.var_a76d09cd);
-	e_player switchtoweaponimmediate(self.var_a76d09cd);
+	e_player.var_34e10757 = e_player getammocount(self.w_uncharged_hand);
+	e_player zm_weapons::weapon_take(self.w_uncharged_hand);
+	e_player zm_weapons::weapon_give(self.w_charged_hand);
+	e_player switchtoweaponimmediate(self.w_charged_hand);
 	e_player thread function_9c9f9731();
-	self thread function_88edd220(e_player, self.var_a76d09cd);
+	self thread function_88edd220(e_player, self.w_charged_hand);
 	e_player thread function_7d2500d8();
 	e_player disableoffhandweapons();
 	e_player bgb_pack::function_ac9cb612();
@@ -4749,16 +4749,16 @@ function private function_9c9f9731()
 	Parameters: 2
 	Flags: Linked
 */
-function function_88edd220(e_player, var_4d248f0c)
+function function_88edd220(e_player, w_charged)
 {
 	e_player endon(#"hash_4d89e2bb8e3d1eb3", #"disconnect");
 	w_weapon = e_player getcurrentweapon();
-	if(!w_weapon === var_4d248f0c)
+	if(!w_weapon === w_charged)
 	{
 		var_2e07b8ff = e_player getweaponslistprimaries();
 		foreach(w_weapon in var_2e07b8ff)
 		{
-			if(w_weapon === var_4d248f0c)
+			if(w_weapon === w_charged)
 			{
 				e_player switchtoweapon(w_weapon, 1);
 			}
@@ -4766,12 +4766,12 @@ function function_88edd220(e_player, var_4d248f0c)
 	}
 	e_player disableweaponcycling();
 	e_player waittill(#"weapon_change_complete");
-	n_max_ammo = e_player function_b7f1fd2c(var_4d248f0c);
+	n_max_ammo = e_player function_b7f1fd2c(w_charged);
 	while(true)
 	{
-		if(e_player getweaponammoclip(var_4d248f0c) < n_max_ammo)
+		if(e_player getweaponammoclip(w_charged) < n_max_ammo)
 		{
-			e_player givemaxammo(var_4d248f0c);
+			e_player givemaxammo(w_charged);
 		}
 		waitframe(1);
 	}
@@ -4831,7 +4831,7 @@ function function_cb939976(s_params)
 	{
 		s_params.eattacker.var_ac8a5779++;
 	}
-	if(isdefined(s_params.eattacker) && isplayer(s_params.eattacker) && (!(isdefined(s_params.eattacker.var_49afaaae) && s_params.eattacker.var_49afaaae)) && isinarray(array(level.var_ca7edc78, level.var_b784afad, level.var_1bf918c7, level.var_e8ffa40), s_params.weapon))
+	if(isdefined(s_params.eattacker) && isplayer(s_params.eattacker) && (!(isdefined(s_params.eattacker.var_49afaaae) && s_params.eattacker.var_49afaaae)) && isinarray(array(level.w_hand_charon_uncharged, level.w_hand_gaia_uncharged, level.w_hand_ouranos_uncharged, level.w_hand_hemera_uncharged), s_params.weapon))
 	{
 		s_params.eattacker thread function_2a513082(s_params.weapon);
 	}
@@ -4869,9 +4869,9 @@ function function_aea7779d(e_player)
 			{
 				exploder::exploder(self.var_83a4152c);
 			}
-			else if(isdefined(self.var_a94b45c))
+			else if(isdefined(self.mdl_return_portal))
 			{
-				self.var_a94b45c clientfield::set("" + #"hash_194ece8e9166daad", 1);
+				self.mdl_return_portal clientfield::set("" + #"hash_194ece8e9166daad", 1);
 			}
 		}
 		wait(4);
@@ -4885,8 +4885,8 @@ function function_aea7779d(e_player)
 		{
 			e_player clientfield::set(self.var_f172b16e, 0);
 		}
-		self.var_a1327d58.var_884c4b3a = self.var_a76d09cd;
-		e_player givemaxammo(self.var_a76d09cd);
+		self.var_a1327d58.var_884c4b3a = self.w_charged_hand;
+		e_player givemaxammo(self.w_charged_hand);
 		self thread function_530d7ea0(0);
 		self.var_a1327d58 flag::clear("flag_ww_quests_portal_available");
 		level flag::set(self.var_c2f7f323);
@@ -4896,11 +4896,11 @@ function function_aea7779d(e_player)
 	}
 	else
 	{
-		e_player takeweapon(self.var_a76d09cd);
-		e_player zm_weapons::weapon_give(self.var_68e3bde6);
+		e_player takeweapon(self.w_charged_hand);
+		e_player zm_weapons::weapon_give(self.w_uncharged_hand);
 		if(isdefined(e_player.var_34e10757))
 		{
-			e_player setweaponammoclip(self.var_68e3bde6, e_player.var_34e10757);
+			e_player setweaponammoclip(self.w_uncharged_hand, e_player.var_34e10757);
 			e_player.var_34e10757 = undefined;
 		}
 		function_4aea06b0(1);
@@ -5552,7 +5552,7 @@ function function_34e4438c()
 function function_59382270(e_player)
 {
 	w_current = e_player getcurrentweapon();
-	if(w_current != level.var_d225ea18[#"earth"].var_a76d09cd && w_current != level.var_d225ea18[#"death"].var_a76d09cd && w_current != level.var_d225ea18[#"light"].var_a76d09cd && w_current != level.var_d225ea18[#"air"].var_a76d09cd)
+	if(w_current != level.var_d225ea18[#"earth"].w_charged_hand && w_current != level.var_d225ea18[#"death"].w_charged_hand && w_current != level.var_d225ea18[#"light"].w_charged_hand && w_current != level.var_d225ea18[#"air"].w_charged_hand)
 	{
 		return false;
 	}
@@ -6199,9 +6199,9 @@ function function_f2081007(e_player, s_pap_interact)
 				exploder::exploder(self.var_83a4152c);
 				playsoundatposition(#"hash_2545ab11d0e8966a", s_pap_interact.origin);
 			}
-			else if(isdefined(self.var_a94b45c))
+			else if(isdefined(self.mdl_return_portal))
 			{
-				self.var_a94b45c clientfield::set("" + #"hash_194ece8e9166daad", 1);
+				self.mdl_return_portal clientfield::set("" + #"hash_194ece8e9166daad", 1);
 				self.var_285af63c clientfield::set("" + #"hash_194ece8e9166daad", 1);
 			}
 		}
@@ -6266,9 +6266,9 @@ function function_f2081007(e_player, s_pap_interact)
 			exploder::stop_exploder(self.var_4d50be8e);
 			playsoundatposition(#"hash_15e7e9734cce421e", s_pap_interact.origin);
 		}
-		else if(isdefined(self.var_a94b45c))
+		else if(isdefined(self.mdl_return_portal))
 		{
-			self.var_a94b45c clientfield::set("" + #"hash_194ece8e9166daad", 0);
+			self.mdl_return_portal clientfield::set("" + #"hash_194ece8e9166daad", 0);
 			self.var_285af63c clientfield::set("" + #"hash_194ece8e9166daad", 0);
 		}
 	}
@@ -6462,9 +6462,9 @@ function function_8d47bf8(e_player)
 		{
 			exploder::stop_exploder(self.var_83a4152c);
 		}
-		else if(isdefined(self.var_a94b45c))
+		else if(isdefined(self.mdl_return_portal))
 		{
-			self.var_a94b45c clientfield::set("" + #"hash_194ece8e9166daad", 0);
+			self.mdl_return_portal clientfield::set("" + #"hash_194ece8e9166daad", 0);
 		}
 	}
 	if(isdefined(self.var_f172b16e))

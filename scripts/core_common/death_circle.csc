@@ -172,26 +172,26 @@ function private function_382da026(localclientnum)
 	level.var_32e10fc2[localclientnum] = var_ef2f4cec;
 	while(true)
 	{
-		var_d017e788 = function_5c10bd79(localclientnum);
-		if(!isdefined(var_d017e788))
+		currentplayer = function_5c10bd79(localclientnum);
+		if(!isdefined(currentplayer))
 		{
 			waitframe(1);
 			continue;
 		}
-		intensity = var_d017e788 clientfield::get_to_player("deathcircleeffects");
+		intensity = currentplayer clientfield::get_to_player("deathcircleeffects");
 		if(var_ef2f4cec.var_e51324b5 !== intensity)
 		{
 			var_ef2f4cec notify(#"hash_b6468b7475f6790");
 			var_ef2f4cec function_43d7470c(localclientnum, intensity);
 			var_ef2f4cec function_d69170b(localclientnum, intensity);
 			var_ef2f4cec function_b8c979ec(localclientnum, intensity);
-			var_ef2f4cec thread function_7ede78e9(localclientnum, var_d017e788, intensity);
+			var_ef2f4cec thread function_7ede78e9(localclientnum, currentplayer, intensity);
 			level function_e1273acb(localclientnum, intensity);
 			var_ef2f4cec.var_e51324b5 = intensity;
 		}
 		else if(intensity > 0)
 		{
-			var_ef2f4cec thread function_7ede78e9(localclientnum, var_d017e788, intensity);
+			var_ef2f4cec thread function_7ede78e9(localclientnum, currentplayer, intensity);
 			level function_e1273acb(localclientnum, intensity);
 		}
 		if(ispc())
@@ -309,13 +309,13 @@ function private function_b8c979ec(localclientnum, intensity = 0)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_7ede78e9(localclientnum, var_d017e788 = undefined, intensity = 0)
+function private function_7ede78e9(localclientnum, currentplayer = undefined, intensity = 0)
 {
 	self notify("7d26c6ac6cb4777b");
 	self endon("7d26c6ac6cb4777b");
 	self endon(#"hash_b6468b7475f6790");
 	tagfx = level.var_601fc3c5[intensity];
-	if(self.var_d017e788 === var_d017e788 && self.var_cfa7d2bf === tagfx)
+	if(self.currentplayer === currentplayer && self.var_cfa7d2bf === tagfx)
 	{
 		return;
 	}
@@ -323,16 +323,16 @@ function private function_7ede78e9(localclientnum, var_d017e788 = undefined, int
 	{
 		killfx(localclientnum, self.var_601fc3c5);
 		self.var_601fc3c5 = undefined;
-		self.var_d017e788 = undefined;
+		self.currentplayer = undefined;
 		self.var_cfa7d2bf = undefined;
 	}
-	if(isdefined(tagfx) && isdefined(var_d017e788))
+	if(isdefined(tagfx) && isdefined(currentplayer))
 	{
-		var_d017e788 util::waittill_dobj(localclientnum);
-		if(isdefined(var_d017e788))
+		currentplayer util::waittill_dobj(localclientnum);
+		if(isdefined(currentplayer))
 		{
-			self.var_601fc3c5 = function_239993de(localclientnum, tagfx, var_d017e788, "tag_origin");
-			self.var_d017e788 = var_d017e788;
+			self.var_601fc3c5 = function_239993de(localclientnum, tagfx, currentplayer, "tag_origin");
+			self.currentplayer = currentplayer;
 			self.var_cfa7d2bf = tagfx;
 		}
 	}
@@ -357,7 +357,7 @@ function private function_e1273acb(localclientnum, intensity = 0)
 	players = getplayers(localclientnum);
 	players = arraysortclosest(players, origin);
 	rob = level.var_c465fd31[intensity];
-	var_ba26d3a3 = level.var_7d949aad[intensity];
+	robfade = level.var_7d949aad[intensity];
 	tagfx = level.var_213a0963[intensity];
 	foreach(player in players)
 	{
@@ -375,7 +375,7 @@ function private function_e1273acb(localclientnum, intensity = 0)
 			player function_9e8e1f4f(localclientnum);
 			continue;
 		}
-		player function_de4523(localclientnum, rob, var_ba26d3a3);
+		player function_de4523(localclientnum, rob, robfade);
 		player function_9e8e1f4f(localclientnum, tagfx);
 		var_4a4e047++;
 	}
@@ -390,9 +390,9 @@ function private function_e1273acb(localclientnum, intensity = 0)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_de4523(localclientnum, rob = undefined, var_ba26d3a3 = undefined)
+function private function_de4523(localclientnum, rob = undefined, robfade = undefined)
 {
-	if(self.var_eeee3972 === rob && self.var_99d5860e === var_ba26d3a3)
+	if(self.var_eeee3972 === rob && self.var_99d5860e === robfade)
 	{
 		return;
 	}
@@ -408,12 +408,12 @@ function private function_de4523(localclientnum, rob = undefined, var_ba26d3a3 =
 		{
 			self function_bf9d3071(rob);
 		}
-		if(isdefined(var_ba26d3a3))
+		if(isdefined(robfade))
 		{
-			self function_78233d29(rob, "", "Fade", var_ba26d3a3);
+			self function_78233d29(rob, "", "Fade", robfade);
 		}
 		self.var_eeee3972 = rob;
-		self.var_99d5860e = var_ba26d3a3;
+		self.var_99d5860e = robfade;
 	}
 }
 

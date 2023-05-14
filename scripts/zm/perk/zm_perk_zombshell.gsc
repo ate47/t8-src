@@ -42,14 +42,14 @@ function __init__()
 {
 	if(getdvarint(#"hash_49ef5478510b5af3", 0))
 	{
-		function_37c0d395();
+		enable_zombshell_perk_for_level();
 		namespace_9ff9f642::register_slowdown(#"hash_5d9e1ae933ad6f87", 0.7, 3);
 		namespace_9ff9f642::register_slowdown(#"hash_63a208b609d3fa87", 0.8, 3);
 	}
 }
 
 /*
-	Name: function_37c0d395
+	Name: enable_zombshell_perk_for_level
 	Namespace: zm_perk_zombshell
 	Checksum: 0xB3D848C6
 	Offset: 0x2A0
@@ -57,7 +57,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37c0d395()
+function enable_zombshell_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
@@ -179,7 +179,7 @@ function on_ai_killed(s_params)
 	player = s_params.eattacker;
 	if(isplayer(player) && player hasperk(#"specialty_zombshell") && s_params.shitloc !== "none")
 	{
-		n_chance = (player hasperk(#"hash_4c14ed37c4038671") ? 20 : 15);
+		n_chance = (player hasperk(#"specialty_mod_zombshell") ? 20 : 15);
 		if(!isdefined(player.var_c153f587) && !player.var_69604b18 && math::cointoss(n_chance) && (isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 		{
 			self.no_powerups = 1;
@@ -226,7 +226,7 @@ function shell_explosion(e_attacker, w_weapon)
 	}
 	physicsexplosionsphere(v_origin, 128, 0, 5, 500, 500);
 	e_attacker thread function_4e547cfd(e_attacker.var_c153f587.origin);
-	if(e_attacker hasperk(#"hash_4c14ed37c4038671"))
+	if(e_attacker hasperk(#"specialty_mod_zombshell"))
 	{
 		wait(8);
 	}
@@ -437,7 +437,7 @@ function function_279e31b8(e_owner)
 	self endoncallback(&function_26c2620, #"death", #"hash_7199d465a80b4f59", #"scene_ready", #"specialty_zombshell" + "_take");
 	var_bbf6e7fd = 16384;
 	var_fc7bb684 = e_owner.var_c153f587.origin;
-	while(isdefined(e_owner.var_c153f587) && distancesquared(self.origin, var_fc7bb684) < var_bbf6e7fd && self hasperk(#"hash_4c14ed37c4038671"))
+	while(isdefined(e_owner.var_c153f587) && distancesquared(self.origin, var_fc7bb684) < var_bbf6e7fd && self hasperk(#"specialty_mod_zombshell"))
 	{
 		if(!isdefined(self.var_9c1c5b59))
 		{

@@ -6,11 +6,11 @@
 #using scripts\zm\zm_lightning_chain.gsc;
 #using scripts\zm_common\zm.gsc;
 
-#namespace namespace_56e9194e;
+#namespace zm_weap_tesla_gun_t8;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xAD1D1458
 	Offset: 0xD8
 	Size: 0x3C
@@ -24,7 +24,7 @@ function autoexec __init__system__()
 
 /*
 	Name: __init__
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x4C1CE5CA
 	Offset: 0x120
 	Size: 0x1CC
@@ -33,8 +33,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_35abdd52 = getweapon(#"ww_tesla_gun_t8");
-	level.var_669e5aa1 = getweapon(#"ww_tesla_gun_t8_upgraded");
+	level.w_tesla_gun_t8 = getweapon(#"ww_tesla_gun_t8");
+	level.w_tesla_gun_t8_upgraded = getweapon(#"ww_tesla_gun_t8_upgraded");
 	level.s_tesla_gun = spawnstruct();
 	level.s_tesla_gun.base = spawnstruct();
 	level.s_tesla_gun.upgraded = spawnstruct();
@@ -48,7 +48,7 @@ function __init__()
 
 /*
 	Name: function_5ff12a45
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x6286CAFE
 	Offset: 0x2F8
 	Size: 0xA0
@@ -63,7 +63,7 @@ function function_5ff12a45(inflictor, attacker, damage, flags, meansofdeath, wea
 
 /*
 	Name: function_52d66433
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x20E9EBCE
 	Offset: 0x3A0
 	Size: 0xA0
@@ -78,7 +78,7 @@ function function_52d66433(inflictor, attacker, damage, flags, meansofdeath, wea
 
 /*
 	Name: function_f77ced93
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xF11A83A2
 	Offset: 0x448
 	Size: 0xA4
@@ -99,7 +99,7 @@ function function_f77ced93(s_params)
 
 /*
 	Name: function_de59b16a
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x892C1FBA
 	Offset: 0x4F8
 	Size: 0xAC
@@ -117,7 +117,7 @@ function function_de59b16a(e_source, str_mod, var_8e05c280)
 
 /*
 	Name: is_tesla_gun
-	Namespace: namespace_56e9194e
+	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0x39A4D06A
 	Offset: 0x5B0
 	Size: 0x3C
@@ -126,6 +126,6 @@ function function_de59b16a(e_source, str_mod, var_8e05c280)
 */
 function is_tesla_gun(w_weapon)
 {
-	return isdefined(w_weapon) && (w_weapon == level.var_35abdd52 || w_weapon == level.var_669e5aa1);
+	return isdefined(w_weapon) && (w_weapon == level.w_tesla_gun_t8 || w_weapon == level.w_tesla_gun_t8_upgraded);
 }
 

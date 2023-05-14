@@ -308,7 +308,7 @@ function function_3aa81e0e(activecamoinfo)
 				stage.statname = var_3594168e.statname;
 				stage.var_d2eac588 = var_3594168e.var_d2eac588;
 				stage.var_e2dbd42d = (isdefined(var_3594168e.var_e2dbd42d) ? var_3594168e.var_e2dbd42d : 0);
-				stage.var_bf8f1a70 = (isdefined(var_3594168e.var_bf8f1a70) ? var_3594168e.var_bf8f1a70 : 0);
+				stage.resettimer = (isdefined(var_3594168e.resettimer) ? var_3594168e.resettimer : 0);
 				stage.resetnotify = var_3594168e.resetnotify;
 				stage.resetondeath = var_3594168e.resetondeath;
 				stage.var_825ae630 = var_3594168e.var_c43b3dd3;
@@ -443,7 +443,7 @@ function function_d005b26d(activecamo, var_3a8a1e00, isdeath)
 					{
 						stage.var_dd54a13b[activecamo.baseweapon].statvalue = stage.info.var_e2dbd42d;
 					}
-					else if(isdefined(stage.info.resetondeath) && stage.info.resetondeath || stage.info.var_bf8f1a70 > 0)
+					else if(isdefined(stage.info.resetondeath) && stage.info.resetondeath || stage.info.resettimer > 0)
 					{
 						stage.var_dd54a13b[activecamo.baseweapon].statvalue = 0;
 						reset = 1;
@@ -1266,25 +1266,25 @@ function function_a80cb651(activecamo, stagenum)
 	self endon("4be8cd84d8f00caa");
 	self endon(#"new_stage", #"death");
 	stage = activecamo.stages[stagenum];
-	if(stage.info.var_bf8f1a70 == 0 && !isdefined(stage.info.resetnotify))
+	if(stage.info.resettimer == 0 && !isdefined(stage.info.resetnotify))
 	{
 		return;
 	}
 	weapon = activecamo.weapon;
 	while(true)
 	{
-		if(stage.info.var_bf8f1a70 > 0 && isdefined(stage.info.resetnotify))
+		if(stage.info.resettimer > 0 && isdefined(stage.info.resetnotify))
 		{
-			stage.resettime = gettime() + stage.info.var_bf8f1a70;
+			stage.resettime = gettime() + stage.info.resettimer;
 			s_result = undefined;
-			s_result = self waittilltimeout(float(stage.info.var_bf8f1a70) / 1000, stage.info.resetnotify);
+			s_result = self waittilltimeout(float(stage.info.resettimer) / 1000, stage.info.resetnotify);
 		}
 		else
 		{
-			if(stage.info.var_bf8f1a70 > 0)
+			if(stage.info.resettimer > 0)
 			{
-				stage.resettime = gettime() + stage.info.var_bf8f1a70;
-				wait(float(stage.info.var_bf8f1a70) / 1000);
+				stage.resettime = gettime() + stage.info.resettimer;
+				wait(float(stage.info.resettimer) / 1000);
 			}
 			else
 			{

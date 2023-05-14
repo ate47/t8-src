@@ -552,7 +552,7 @@ function function_d03a7fe8()
 			{
 				self vehicle_ai::set_state("seek");
 			}
-			var_d0ca034f = arc::function_33d5b9a6(level.var_8a74f7fc[self.var_c43010fc], self.owner, self, self function_d3a9800e(), 0, self.favoriteenemy);
+			var_d0ca034f = arc::function_33d5b9a6(level.var_8a74f7fc[self.arcweapon], self.owner, self, self function_d3a9800e(), 0, self.favoriteenemy);
 			if(var_d0ca034f)
 			{
 				self vehicle_ai::set_state("discharge");
@@ -649,14 +649,14 @@ function function_fb89ba8a(params)
 	var_b2c9484f = int(self.settings.var_e0c78652 * 1000);
 	while((starttime + var_b2c9484f) > gettime() && !isdefined(self.var_290ed3ab) || (isdefined(self.var_290ed3ab) && self.var_290ed3ab > gettime()) || (isdefined(self.var_e19bcce0) && self.var_e19bcce0))
 	{
-		if(isdefined(self.var_c43010fc))
+		if(isdefined(self.arcweapon))
 		{
-			if(isdefined(level.var_8a74f7fc[self.var_c43010fc]))
+			if(isdefined(level.var_8a74f7fc[self.arcweapon]))
 			{
-				self.var_8a74f7fc = level.var_8a74f7fc[self.var_c43010fc];
-				if(!isdefined(self.var_d8d780c1) || self.var_d8d780c1.size < level.var_8a74f7fc[self.var_c43010fc].var_755593b1)
+				self.var_8a74f7fc = level.var_8a74f7fc[self.arcweapon];
+				if(!isdefined(self.var_d8d780c1) || self.var_d8d780c1.size < level.var_8a74f7fc[self.arcweapon].var_755593b1)
 				{
-					arc::find_arc_targets(level.var_8a74f7fc[self.var_c43010fc], self.owner, self, self function_d3a9800e(), 0, 0);
+					arc::find_arc_targets(level.var_8a74f7fc[self.arcweapon], self.owner, self, self function_d3a9800e(), 0, 0);
 				}
 			}
 			if(!(isdefined(self.var_52ed036d) && self.var_52ed036d))

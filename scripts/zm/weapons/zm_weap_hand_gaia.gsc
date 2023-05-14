@@ -57,12 +57,12 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"gaia_impact", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"spike_explode", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"spike_spawn", 16000, 1, "counter");
-	level.var_53789618 = getweapon(#"ww_hand_g");
-	level.var_161aeda7 = getweapon(#"hash_6538045b64145e74");
-	level.var_b784afad = getweapon(#"ww_hand_g_uncharged");
-	level.var_54ed88ec = getweapon(#"ww_hand_g_upgraded");
+	level.w_hand_gaia = getweapon(#"ww_hand_g");
+	level.w_hand_gaia_charged = getweapon(#"ww_hand_g_charged");
+	level.w_hand_gaia_uncharged = getweapon(#"ww_hand_g_uncharged");
+	level.w_hand_gaia_upgraded = getweapon(#"ww_hand_g_upgraded");
 	zm_weapons::include_zombie_weapon(#"ww_hand_g", 0);
-	zm_weapons::include_zombie_weapon(#"hash_6538045b64145e74", 0);
+	zm_weapons::include_zombie_weapon(#"ww_hand_g_charged", 0);
 	zm_weapons::include_zombie_weapon(#"ww_hand_g_uncharged", 0);
 	zm_weapons::include_zombie_weapon(#"ww_hand_g_upgraded", 0);
 	namespace_9ff9f642::register_slowdown(#"hash_4689473b7f0df2f7", 0.1, 3);
@@ -74,10 +74,10 @@ function __init__()
 		level.var_9295b8ef = new throttle();
 		[[ level.var_9295b8ef ]]->initialize(6, 0.1);
 	}
-	callback::function_34dea974(level.var_53789618, &function_10b4d6ac);
-	callback::function_34dea974(level.var_161aeda7, &function_dd7bc108);
-	callback::function_34dea974(level.var_b784afad, &function_10b4d6ac);
-	callback::function_34dea974(level.var_54ed88ec, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_gaia, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_gaia_charged, &function_dd7bc108);
+	callback::function_34dea974(level.w_hand_gaia_uncharged, &function_10b4d6ac);
+	callback::function_34dea974(level.w_hand_gaia_upgraded, &function_10b4d6ac);
 	level.var_4cd68405 = [];
 	level.var_ff53a03a = [];
 }
@@ -112,7 +112,7 @@ function function_3f8da82c()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"weapon_change");
-		if(s_notify.weapon == level.var_53789618 || s_notify.weapon == level.var_54ed88ec)
+		if(s_notify.weapon == level.w_hand_gaia || s_notify.weapon == level.w_hand_gaia_upgraded)
 		{
 			level.var_a8472176 = 1;
 		}
@@ -131,7 +131,7 @@ function function_3f8da82c()
 function function_10b4d6ac(weapon)
 {
 	self endon(#"death");
-	if(weapon == level.var_54ed88ec)
+	if(weapon == level.w_hand_gaia_upgraded)
 	{
 		n_damage = 8500;
 		b_up = 1;
@@ -559,7 +559,7 @@ function function_ce711b5c(e_projectile, ai_zombie, n_damage)
 	}
 	if(isalive(ai_zombie) || (isdefined(ai_zombie) && ai_zombie.var_6f84b820 === #"boss"))
 	{
-		self thread function_dced5aef(ai_zombie, level.var_b784afad, n_damage, undefined);
+		self thread function_dced5aef(ai_zombie, level.w_hand_gaia_uncharged, n_damage, undefined);
 	}
 	waitframe(1);
 	e_projectile delete();
@@ -769,7 +769,7 @@ function function_dd7bc108(weapon)
 		return;
 	}
 	level.var_a8472176 = 0;
-	if(self.currentweapon === level.var_54ed88ec)
+	if(self.currentweapon === level.w_hand_gaia_upgraded)
 	{
 		n_damage = 8500;
 		b_up = 1;
@@ -781,7 +781,7 @@ function function_dd7bc108(weapon)
 	}
 	n_inc = 100;
 	v_org = self.origin;
-	if(self.currentweapon === level.var_54ed88ec || self.currentweapon === level.var_53789618)
+	if(self.currentweapon === level.w_hand_gaia_upgraded || self.currentweapon === level.w_hand_gaia)
 	{
 		n_ammo = self getweaponammoclip(self.currentweapon);
 	}
@@ -793,7 +793,7 @@ function function_dd7bc108(weapon)
 	{
 		return;
 	}
-	if(self.currentweapon === level.var_54ed88ec || self.currentweapon === level.var_53789618)
+	if(self.currentweapon === level.w_hand_gaia_upgraded || self.currentweapon === level.w_hand_gaia)
 	{
 		self setweaponammoclip(self.currentweapon, n_ammo);
 	}
@@ -901,7 +901,7 @@ function function_33f9ab00(a_e_targets, weapon)
 function spike_explode(v_pos, weapon)
 {
 	self endon(#"death");
-	if(weapon == level.var_54ed88ec)
+	if(weapon == level.w_hand_gaia_upgraded)
 	{
 		n_dist = 62500;
 	}
@@ -966,12 +966,12 @@ function function_1e39fbc5()
 	self endon(#"death", #"hash_609518a5a35564bf", #"weapon_change");
 	while(zm_utility::is_player_valid(self) && self attackbuttonpressed() && !self fragbuttonpressed())
 	{
-		n_ammo = self getweaponammoclip(level.var_53789618);
+		n_ammo = self getweaponammoclip(level.w_hand_gaia);
 		if(n_ammo)
 		{
 			n_ammo--;
 		}
-		self setweaponammoclip(level.var_53789618, n_ammo);
+		self setweaponammoclip(level.w_hand_gaia, n_ammo);
 		wait(0.5);
 	}
 }
@@ -992,7 +992,7 @@ function function_5bca6886(e_target, v_dir)
 	player = self.owner;
 	if(isdefined(player))
 	{
-		if(player.currentweapon == level.var_54ed88ec)
+		if(player.currentweapon == level.w_hand_gaia_upgraded)
 		{
 			n_damage = 8500;
 		}
@@ -1000,7 +1000,7 @@ function function_5bca6886(e_target, v_dir)
 		{
 			n_damage = 5000;
 		}
-		player thread function_dced5aef(e_target, level.var_53789618, n_damage, 1, v_dir);
+		player thread function_dced5aef(e_target, level.w_hand_gaia, n_damage, 1, v_dir);
 	}
 }
 
@@ -1023,11 +1023,11 @@ function function_85d88e17(e_target, b_charged, v_dir, n_damage)
 	}
 	e_target.var_61768419 = 1;
 	[[ level.var_9295b8ef ]]->waitinqueue(e_target);
-	w_weapon = level.var_b784afad;
+	w_weapon = level.w_hand_gaia_uncharged;
 	if(isdefined(b_charged) && isdefined(v_dir))
 	{
 		e_target.marked_for_death = 1;
-		w_weapon = level.var_53789618;
+		w_weapon = level.w_hand_gaia;
 		e_target zm_utility::function_ffc279(v_dir, self, undefined, w_weapon);
 		wait(randomfloatrange(1.5, 2));
 		if(isdefined(e_target))

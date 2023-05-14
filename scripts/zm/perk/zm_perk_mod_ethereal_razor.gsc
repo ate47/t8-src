@@ -30,11 +30,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	function_a7cdda99();
+	enable_ethereal_razor_perk_for_level();
 }
 
 /*
-	Name: function_a7cdda99
+	Name: enable_ethereal_razor_perk_for_level
 	Namespace: zm_perk_mod_ethereal_razor
 	Checksum: 0xE62DEBF6
 	Offset: 0x100
@@ -42,10 +42,10 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a7cdda99()
+function enable_ethereal_razor_perk_for_level()
 {
-	zm_perks::function_7f42e14e(#"hash_7036ce8dafbf1f81", "mod_ethereal_razor", #"perk_ethereal_razor", #"specialty_etherealrazor", 5500);
-	zm_perks::register_perk_threads(#"hash_7036ce8dafbf1f81", &function_5b26f1e3, &function_98c3f271);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_etherealrazor", "mod_ethereal_razor", #"perk_ethereal_razor", #"specialty_etherealrazor", 5500);
+	zm_perks::register_perk_threads(#"specialty_mod_etherealrazor", &function_5b26f1e3, &function_98c3f271);
 }
 
 /*

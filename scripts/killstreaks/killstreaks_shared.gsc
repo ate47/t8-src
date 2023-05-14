@@ -149,13 +149,13 @@ function register_ui(killstreak_type, killstreak_menu)
 	#/
 	item_index = getitemindexfromref(killstreak_menu);
 	killstreak_info = getunlockableiteminfofromindex(item_index, 0);
-	var_ccab2c89 = 0;
+	killstreak_cost = 0;
 	if(isdefined(killstreak_info))
 	{
-		var_ccab2c89 = killstreak_info.momentum;
+		killstreak_cost = killstreak_info.momentum;
 	}
 	level.killstreaks[killstreak_type].itemindex = item_index;
-	level.killstreaks[killstreak_type].momentumcost = var_ccab2c89;
+	level.killstreaks[killstreak_type].momentumcost = killstreak_cost;
 	level.killstreaks[killstreak_type].menuname = killstreak_menu;
 	level.killstreaks[killstreak_type].uiname = "";
 	/#
