@@ -1008,9 +1008,9 @@ function function_7e65c446(var_5ea5c94d, ended_early)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b8f6f344(e_player, var_876ad064)
+function function_b8f6f344(e_player, b_get_weapon)
 {
-	if(var_876ad064)
+	if(b_get_weapon)
 	{
 		e_player thread zm_orange_util::function_51b752a9(#"hash_8afeb4b44d0add");
 	}

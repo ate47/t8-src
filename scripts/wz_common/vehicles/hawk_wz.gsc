@@ -179,7 +179,7 @@ function function_7dfe3289(var_d8138db2)
 	vehicle.glasscollision_alt = 1;
 	vehicle.is_staircase_up = &function_900bb4f5;
 	vehicle.id = var_d8138db2;
-	level.var_d79f1ee4[level.var_d79f1ee4.size] = vehicle;
+	level.item_vehicles[level.item_vehicles.size] = vehicle;
 	vehicle thread item_inventory::function_956a8ecd();
 	self.hawk.vehicle = vehicle;
 	bundle = level.hawk_settings.bundle;

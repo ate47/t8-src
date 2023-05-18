@@ -52,8 +52,8 @@ function function_b01adb59()
 	}
 	if(isdefined(getgametypesetting(#"hash_e66ea1c74a48224")) && getgametypesetting(#"hash_e66ea1c74a48224"))
 	{
-		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_1b898a6e72d622d8");
-		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_3e2adcfef9a6105b");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b898a6e72d622d8");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_3e2adcfef9a6105b");
 	}
 	if(isdefined(getgametypesetting(#"hash_78bfea2b72e79da3")) && getgametypesetting(#"hash_78bfea2b72e79da3"))
 	{

@@ -57,9 +57,9 @@ function __init__()
 	{
 		level.item_inventory = [];
 	}
-	if(!isdefined(level.var_91d6d592))
+	if(!isdefined(level.item_callbacks))
 	{
-		level.var_91d6d592 = [];
+		level.item_callbacks = [];
 	}
 	clientfield::register("item", "highlight_item", 1, 2, "int");
 	callback::on_spawned(&player_on_spawned);
@@ -173,23 +173,23 @@ function player_on_spawned()
 */
 function function_4d230236(w_item, fn_callback)
 {
-	if(!isdefined(level.var_91d6d592))
+	if(!isdefined(level.item_callbacks))
 	{
-		level.var_91d6d592 = [];
+		level.item_callbacks = [];
 	}
-	if(!isdefined(level.var_91d6d592[w_item]))
+	if(!isdefined(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = [];
+		level.item_callbacks[w_item] = [];
 	}
-	if(!isdefined(level.var_91d6d592[w_item]))
+	if(!isdefined(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = [];
+		level.item_callbacks[w_item] = [];
 	}
-	else if(!isarray(level.var_91d6d592[w_item]))
+	else if(!isarray(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = array(level.var_91d6d592[w_item]);
+		level.item_callbacks[w_item] = array(level.item_callbacks[w_item]);
 	}
-	level.var_91d6d592[w_item][level.var_91d6d592[w_item].size] = fn_callback;
+	level.item_callbacks[w_item][level.item_callbacks[w_item].size] = fn_callback;
 }
 
 /*
@@ -312,9 +312,9 @@ function player_pick_up(player, w_item)
 	}
 	level notify(#"hash_78451720bf647f70", {#holder:holder, #component:w_item});
 	player notify(#"hash_78451720bf647f70", {#holder:holder, #component:w_item});
-	if(isdefined(level.var_91d6d592[w_item]))
+	if(isdefined(level.item_callbacks[w_item]))
 	{
-		foreach(callback in level.var_91d6d592[w_item])
+		foreach(callback in level.item_callbacks[w_item])
 		{
 			player [[callback]](holder, w_item);
 		}

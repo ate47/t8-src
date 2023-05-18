@@ -46,7 +46,7 @@ function function_c77b33db()
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_3c8a483e6ebb08cb", #"hash_8dc997954bb3904");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_4d9217b81488ca02", #"hash_8dc997954bb3904");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_25fc1eba4e8349b", #"hash_48af83ea40a85fcf");
-		namespace_da5c04c3::function_149cbc84(var_74257310, undefined, #"hash_3063198fc139e3b0", #"hash_6cfcc2143e6ee6ee");
+		namespace_da5c04c3::function_149cbc84(var_74257310, undefined, #"warmachine_wz_item", #"hash_6cfcc2143e6ee6ee");
 		namespace_da5c04c3::function_149cbc84(var_74257310, undefined, #"hash_2f73719d945fc6b5", #"hash_6cfcc2143e6ee6ee");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_774a49591e12d6d", #"hash_7e0a254a9044612");
 		namespace_da5c04c3::function_149cbc84(var_f8a4c541, undefined, #"hash_53568e2a0a929c12", #"hash_12addb5ce13ebab3");

@@ -577,7 +577,7 @@ function function_db185b3()
 		s_info = undefined;
 		s_info = self waittill(#"trigger");
 		e_player = s_info.activator;
-		e_player thread zm_audio::create_and_play_dialog(#"hash_6530bd618d24bb74", #"react");
+		e_player thread zm_audio::create_and_play_dialog(#"escape_plan", #"react");
 	}
 }
 

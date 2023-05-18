@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_170a9c130859c688;
+#using script_731df012f3a3c2fc;
 
-#namespace namespace_48d0c7cb;
+#namespace warzone_fixup;
 
 /*
 	Name: __init__
-	Namespace: namespace_48d0c7cb
-	Checksum: 0x3C731CFD
+	Namespace: warzone_fixup
+	Checksum: 0x3DB22214
 	Offset: 0x70
 	Size: 0x124
 	Parameters: 0
@@ -41,8 +41,8 @@ function autoexec __init__()
 
 /*
 	Name: function_4305a789
-	Namespace: namespace_48d0c7cb
-	Checksum: 0x51C26BBE
+	Namespace: warzone_fixup
+	Checksum: 0x2A23406A
 	Offset: 0x1A0
 	Size: 0x1C
 	Parameters: 0
@@ -55,8 +55,8 @@ function private function_4305a789()
 
 /*
 	Name: function_c94723bd
-	Namespace: namespace_48d0c7cb
-	Checksum: 0xFD2D877E
+	Namespace: warzone_fixup
+	Checksum: 0x224603B
 	Offset: 0x1C8
 	Size: 0x104
 	Parameters: 0
@@ -78,8 +78,8 @@ function private function_c94723bd()
 
 /*
 	Name: function_9b8d4d02
-	Namespace: namespace_48d0c7cb
-	Checksum: 0xAF9739EE
+	Namespace: warzone_fixup
+	Checksum: 0x9E9F01FB
 	Offset: 0x2D8
 	Size: 0xF8
 	Parameters: 1
@@ -104,8 +104,8 @@ function private function_9b8d4d02(prematch = 0)
 
 /*
 	Name: function_d0dc6619
-	Namespace: namespace_48d0c7cb
-	Checksum: 0x7827483D
+	Namespace: warzone_fixup
+	Checksum: 0xEA7A9CFB
 	Offset: 0x3D8
 	Size: 0x44
 	Parameters: 0
@@ -119,7 +119,7 @@ function private function_d0dc6619()
 
 /*
 	Name: function_f16631fc
-	Namespace: namespace_48d0c7cb
+	Namespace: warzone_fixup
 	Checksum: 0x80F724D1
 	Offset: 0x428
 	Size: 0x4
@@ -132,7 +132,7 @@ function private function_f16631fc()
 
 /*
 	Name: function_91d1fd09
-	Namespace: namespace_48d0c7cb
+	Namespace: warzone_fixup
 	Checksum: 0x80F724D1
 	Offset: 0x438
 	Size: 0x4

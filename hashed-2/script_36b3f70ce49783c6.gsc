@@ -81,8 +81,8 @@ function private function_b465b436(deathcircle, var_898879a6)
 	{
 		return;
 	}
-	var_3aeceeac = arraycopy(level.var_ace9fb52);
-	foreach(deathstash in var_3aeceeac)
+	deathstashes = arraycopy(level.var_ace9fb52);
+	foreach(deathstash in deathstashes)
 	{
 		if(!isdefined(deathstash))
 		{

@@ -1063,7 +1063,7 @@ function function_9d4c3c52(params)
 	if(isplayer(self))
 	{
 		var_a6762160 = item.var_a6762160;
-		if(var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
+		if(var_a6762160.itemtype == #"armor_shard")
 		{
 			self function_ed661177(#"hash_209c6ecb45a25a6a");
 		}
@@ -1157,9 +1157,9 @@ function function_7870114(var_38280f2f)
 			}
 			break;
 		}
-		case "hash_168eea8163f308b":
-		case "hash_7650e8c1507eaae3":
-		case "hash_7b8c22ec4dfa6d6e":
+		case "warzone_ambush_quads":
+		case "warzone_ambush_duo":
+		case "warzone_ambush_solo":
 		{
 			if(var_38280f2f == #"hash_114034ef741c57c")
 			{
@@ -1272,9 +1272,9 @@ function function_e82e67c5(n_time_played)
 			self function_ed661177(#"hash_395b9be57a35044e", var_89bb208b);
 			break;
 		}
-		case "hash_168eea8163f308b":
-		case "hash_7650e8c1507eaae3":
-		case "hash_7b8c22ec4dfa6d6e":
+		case "warzone_ambush_quads":
+		case "warzone_ambush_duo":
+		case "warzone_ambush_solo":
 		{
 			self function_ed661177(#"hash_114034ef741c57c", var_89bb208b);
 			break;

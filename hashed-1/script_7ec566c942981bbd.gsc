@@ -35,7 +35,7 @@ function function_6df391ab()
 	var_87d0eef8 = &namespace_b0722f43::remove_item;
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
-	if(!(isdefined(getgametypesetting(#"hash_3cb1f3806a9e6b40")) && getgametypesetting(#"hash_3cb1f3806a9e6b40")))
+	if(!(isdefined(getgametypesetting(#"wzenableatv")) && getgametypesetting(#"wzenableatv")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_25481b71f9abe27d", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_519d3a4a64c8cb41", #"");
@@ -45,7 +45,7 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_2a97e28588c0e70d", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_187986857e448901", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_3e59b47ddcff2734")) && getgametypesetting(#"hash_3e59b47ddcff2734")))
+	if(!(isdefined(getgametypesetting(#"wzenablecargotruck")) && getgametypesetting(#"wzenablecargotruck")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_1fb06a3f56ce1796", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_4cb788e3e2dbf87b", #"");
@@ -61,14 +61,14 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_1901d08fcd916430", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_fd6f140d8bcdac2", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_3a728eb1941f6601")) && getgametypesetting(#"hash_3a728eb1941f6601")))
+	if(!(isdefined(getgametypesetting(#"wzenabletacticalraft")) && getgametypesetting(#"wzenabletacticalraft")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_400500d7f09c79bc", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_2042fbc5251cee8", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_5596b963052eb73a", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_4e20ad723ed1eaaf", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_53464d3535fadbe3")) && getgametypesetting(#"hash_53464d3535fadbe3")))
+	if(!(isdefined(getgametypesetting(#"wzenablearav")) && getgametypesetting(#"wzenablearav")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_71e093f11898ba29", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_7e203893238d1bbd", #"");
@@ -79,7 +79,7 @@ function function_6df391ab()
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_77502a4dc5ec85e8", #"hash_139acdd590ca3442");
 		}
 	}
-	if(!(isdefined(getgametypesetting(#"hash_4d44aa80bbbf23d9")) && getgametypesetting(#"hash_4d44aa80bbbf23d9")))
+	if(!(isdefined(getgametypesetting(#"wzenablepbr")) && getgametypesetting(#"wzenablepbr")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_19dc50f4de7eee0a", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_2731d0584cb10b76", #"");
@@ -101,7 +101,7 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_6d90d15ce8e75ac2", #"hash_16e0b9072c3b1e13");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_18134e61b5fb4bd0", #"hash_6d754bec0d9dfae7");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_76896a980cc6639e")) && getgametypesetting(#"hash_76896a980cc6639e")))
+	if(!(isdefined(getgametypesetting(#"wzenablemusclecar")) && getgametypesetting(#"wzenablemusclecar")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_466620938ca8df9a", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_25c2cc7eb3a2a6e6", #"");
@@ -115,7 +115,7 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_315468ed02f0a459", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_e43a7178b27fa38", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_58a3b9a2190fbbc6")) && getgametypesetting(#"hash_58a3b9a2190fbbc6")))
+	if(!(isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_783d715d99a78f7", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_6c03445407374b2", #"");
@@ -125,7 +125,7 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_b7249ef08ef3fe3", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_58b2f14a0f17dad5", #"");
 	}
-	else if(isdefined(getgametypesetting(#"hash_3cb1f3806a9e6b40")) && getgametypesetting(#"hash_3cb1f3806a9e6b40") && (isdefined(getgametypesetting(#"hash_58a3b9a2190fbbc6")) && getgametypesetting(#"hash_58a3b9a2190fbbc6")) && (!(isdefined(getgametypesetting(#"hash_76896a980cc6639e")) && getgametypesetting(#"hash_76896a980cc6639e"))) && (!(isdefined(getgametypesetting(#"hash_33f54380ad99eeab")) && getgametypesetting(#"hash_33f54380ad99eeab"))))
+	else if(isdefined(getgametypesetting(#"wzenableatv")) && getgametypesetting(#"wzenableatv") && (isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle")) && (!(isdefined(getgametypesetting(#"wzenablemusclecar")) && getgametypesetting(#"wzenablemusclecar"))) && (!(isdefined(getgametypesetting(#"wzenablesuv")) && getgametypesetting(#"wzenablesuv"))))
 	{
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_2cb3a37c908b9d9b", #"hash_35aa8b10467eb39d");
 	}
@@ -133,7 +133,7 @@ function function_6df391ab()
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_4bc7cb3d2c929e11", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_33f54380ad99eeab")) && getgametypesetting(#"hash_33f54380ad99eeab")))
+	if(!(isdefined(getgametypesetting(#"wzenablesuv")) && getgametypesetting(#"wzenablesuv")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_281f596586975bd0", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_57d41aed7b572c2c", #"");
@@ -143,7 +143,7 @@ function function_6df391ab()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_319e7234b67c192f", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_132b60e9b406d9bb", #"");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_458acfe2c3f397a7")) && getgametypesetting(#"hash_458acfe2c3f397a7")))
+	if(!(isdefined(getgametypesetting(#"wzenabletank")) && getgametypesetting(#"wzenabletank")))
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_ae20347969d9e80", #"");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_5fb94a533612f4fc", #"");
@@ -157,12 +157,12 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"hash_78bfea2b72e79da3")) && getgametypesetting(#"hash_78bfea2b72e79da3")) && (!(isdefined(getgametypesetting(#"hash_23e09b48546a7e3b")) && getgametypesetting(#"hash_23e09b48546a7e3b"))) && (!(isdefined(getgametypesetting(#"hash_1c3b95e54e6f178c")) && getgametypesetting(#"hash_1c3b95e54e6f178c"))) && (!(isdefined(getgametypesetting(#"hash_695d922e24b41e31")) && getgametypesetting(#"hash_695d922e24b41e31"))) && (!(isdefined(getgametypesetting(#"hash_767052b9f54e554a")) && getgametypesetting(#"hash_767052b9f54e554a"))) && (!(isdefined(getgametypesetting(#"hash_7e60451699436d76")) && getgametypesetting(#"hash_7e60451699436d76"))))
 	{
-		if(isdefined(getgametypesetting(#"hash_76896a980cc6639e")) && getgametypesetting(#"hash_76896a980cc6639e"))
+		if(isdefined(getgametypesetting(#"wzenablemusclecar")) && getgametypesetting(#"wzenablemusclecar"))
 		{
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_159e4e48721d6125", #"hash_1a6670777ac8e38c");
-			if(isdefined(getgametypesetting(#"hash_33f54380ad99eeab")) && getgametypesetting(#"hash_33f54380ad99eeab"))
+			if(isdefined(getgametypesetting(#"wzenablesuv")) && getgametypesetting(#"wzenablesuv"))
 			{
-				if(isdefined(getgametypesetting(#"hash_58a3b9a2190fbbc6")) && getgametypesetting(#"hash_58a3b9a2190fbbc6"))
+				if(isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle"))
 				{
 					namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_2cb3a37c908b9d9b", #"hash_1df26c2b584534f0");
 				}
@@ -170,7 +170,7 @@ function function_6df391ab()
 				{
 					namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_2cb3a37c908b9d9b", #"hash_6626d2dc4952331e");
 				}
-				if(!(isdefined(getgametypesetting(#"hash_458acfe2c3f397a7")) && getgametypesetting(#"hash_458acfe2c3f397a7")))
+				if(!(isdefined(getgametypesetting(#"wzenabletank")) && getgametypesetting(#"wzenabletank")))
 				{
 					namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_139acdd590ca3442", #"hash_604d143f1f7c7f76");
 				}
@@ -178,7 +178,7 @@ function function_6df391ab()
 			}
 			else
 			{
-				if(isdefined(getgametypesetting(#"hash_58a3b9a2190fbbc6")) && getgametypesetting(#"hash_58a3b9a2190fbbc6"))
+				if(isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle"))
 				{
 					namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_2cb3a37c908b9d9b", #"hash_23031ef9fe71ef45");
 				}
@@ -188,9 +188,9 @@ function function_6df391ab()
 				}
 			}
 		}
-		else if(isdefined(getgametypesetting(#"hash_33f54380ad99eeab")) && getgametypesetting(#"hash_33f54380ad99eeab"))
+		else if(isdefined(getgametypesetting(#"wzenablesuv")) && getgametypesetting(#"wzenablesuv"))
 		{
-			if(isdefined(getgametypesetting(#"hash_58a3b9a2190fbbc6")) && getgametypesetting(#"hash_58a3b9a2190fbbc6"))
+			if(isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle"))
 			{
 				namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_2cb3a37c908b9d9b", #"hash_23031ef9fe71ef45");
 			}
@@ -214,11 +214,11 @@ function function_6df391ab()
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_6d90d15ce8e75ac2", #"hash_ec830fead8a57a6");
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_18134e61b5fb4bd0", #"hash_6d754bec0d9dfae7");
 		}
-		if(isdefined(getgametypesetting(#"hash_4d44aa80bbbf23d9")) && getgametypesetting(#"hash_4d44aa80bbbf23d9"))
+		if(isdefined(getgametypesetting(#"wzenablepbr")) && getgametypesetting(#"wzenablepbr"))
 		{
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_1926dc7c3ce2bfb2", #"hash_346e4bfaf0aee29");
 		}
-		if(!(isdefined(getgametypesetting(#"hash_458acfe2c3f397a7")) && getgametypesetting(#"hash_458acfe2c3f397a7")))
+		if(!(isdefined(getgametypesetting(#"wzenabletank")) && getgametypesetting(#"wzenabletank")))
 		{
 			namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_139acdd590ca3442", #"hash_3331822e00aa2879");
 		}

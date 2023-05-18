@@ -986,7 +986,7 @@ function function_aa8f1e69()
 */
 function function_5b03a448()
 {
-	if(isdefined(self.var_beb2295))
+	if(isdefined(self.e_grapplee))
 	{
 		return "has_grapplee_yes";
 	}

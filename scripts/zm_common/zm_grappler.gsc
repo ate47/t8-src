@@ -128,7 +128,7 @@ function private function_2772f623(id)
 	Parameters: 4
 	Flags: None
 */
-function start_grapple(prone_2_run_roll, var_beb2295, n_type, n_speed = 1800)
+function start_grapple(prone_2_run_roll, e_grapplee, n_type, n_speed = 1800)
 {
 	/#
 		assert(n_type == 2);
@@ -138,33 +138,33 @@ function start_grapple(prone_2_run_roll, var_beb2295, n_type, n_speed = 1800)
 	thread function_30a5f5c1(e_source, var_28ac1348);
 	if(isdefined(var_28ac1348))
 	{
-		var_beb2295 function_a60cb756(1, 1);
+		e_grapplee function_a60cb756(1, 1);
 		util::wait_network_frame();
-		n_time = function_b9937e84(prone_2_run_roll, var_beb2295, n_speed);
+		n_time = function_b9937e84(prone_2_run_roll, e_grapplee, n_speed);
 		var_28ac1348.origin = prone_2_run_roll function_f21c3519();
-		var_5f04bf66 = var_beb2295 function_f21c3519();
+		var_5f04bf66 = e_grapplee function_f21c3519();
 		var_28ac1348 playsound(#"zmb_grapple_start");
 		var_28ac1348 moveto(var_5f04bf66, n_time);
 		var_28ac1348 waittill(#"movedone");
-		var_7fdf7771 = var_5f04bf66 - var_beb2295.origin;
-		var_28ac1348.origin = var_beb2295.origin;
-		if(isplayer(var_beb2295))
+		var_7fdf7771 = var_5f04bf66 - e_grapplee.origin;
+		var_28ac1348.origin = e_grapplee.origin;
+		if(isplayer(e_grapplee))
 		{
-			var_beb2295 playerlinkto(var_28ac1348, "tag_origin");
+			e_grapplee playerlinkto(var_28ac1348, "tag_origin");
 		}
 		else
 		{
-			var_beb2295 linkto(var_28ac1348);
+			e_grapplee linkto(var_28ac1348);
 		}
-		var_beb2295 playsound(#"zmb_grapple_grab");
+		e_grapplee playsound(#"zmb_grapple_grab");
 		var_b7f19309 = prone_2_run_roll function_f21c3519() - var_7fdf7771;
 		var_28ac1348 moveto(var_b7f19309, n_time);
 		var_28ac1348 playsound(#"zmb_grapple_pull");
 		var_28ac1348 waittill(#"movedone");
 		function_c43e7cab();
 		var_28ac1348 clientfield::set("grappler_beam_target", 0);
-		var_beb2295 unlink();
-		var_beb2295 function_a60cb756(0, 1);
+		e_grapplee unlink();
+		e_grapplee function_a60cb756(0, 1);
 		util::wait_network_frame();
 		function_a8e7b940(var_28ac1348);
 		function_a8e7b940(e_source);

@@ -36,7 +36,7 @@ function function_62cd02cc()
 	var_74257310 = &namespace_b0722f43::function_6da5e673;
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	var_edfbccd0 = &namespace_b0722f43::function_e70fa91c;
-	var_e92b5b25 = getgametypesetting(#"hash_280809419b2cabc0");
+	var_e92b5b25 = getgametypesetting(#"wzambush");
 	if(isdefined(var_e92b5b25) && var_e92b5b25)
 	{
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_212b01feaa916a00", #"hash_7ebaa4e1e2f5d8a2");

@@ -1636,11 +1636,11 @@ function private get_unique_id()
 */
 function private function_d081cf72(var_a2b4b991)
 {
-	if(isdefined(var_a2b4b991.var_28184dd8))
+	if(isdefined(var_a2b4b991.spawntypes))
 	{
-		foreach(var_3abe2668 in var_a2b4b991.var_28184dd8)
+		foreach(s_spawn_type in var_a2b4b991.spawntypes)
 		{
-			if(isdefined(var_3abe2668.variant))
+			if(isdefined(s_spawn_type.variant))
 			{
 				return true;
 			}
@@ -1661,15 +1661,15 @@ function private function_d081cf72(var_a2b4b991)
 function private function_ed819a97(var_a2b4b991)
 {
 	var_c165240a = [];
-	if(isdefined(var_a2b4b991.var_28184dd8))
+	if(isdefined(var_a2b4b991.spawntypes))
 	{
-		foreach(var_3abe2668 in var_a2b4b991.var_28184dd8)
+		foreach(s_spawn_type in var_a2b4b991.spawntypes)
 		{
-			if(isdefined(var_3abe2668.variant))
+			if(isdefined(s_spawn_type.variant))
 			{
-				var_2f2d7675 = (isdefined(var_3abe2668.var_34ceb858) ? var_3abe2668.var_34ceb858 : 0);
-				var_40b0c36 = {#name:var_3abe2668.variant, #hash_a33f2319:[], #hash_2f2d7675:var_2f2d7675};
-				var_c165240a[var_3abe2668.variant] = var_40b0c36;
+				var_2f2d7675 = (isdefined(s_spawn_type.var_34ceb858) ? s_spawn_type.var_34ceb858 : 0);
+				var_40b0c36 = {#name:s_spawn_type.variant, #hash_a33f2319:[], #hash_2f2d7675:var_2f2d7675};
+				var_c165240a[s_spawn_type.variant] = var_40b0c36;
 			}
 		}
 	}

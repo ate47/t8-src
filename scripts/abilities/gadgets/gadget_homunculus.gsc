@@ -35,7 +35,7 @@ function autoexec __init__system__()
 function private __init__()
 {
 	level.var_2da60c10 = [];
-	if(isdefined(getgametypesetting(#"hash_29e7b59313a2f532")) && getgametypesetting(#"hash_29e7b59313a2f532"))
+	if(isdefined(getgametypesetting(#"wzenablehomunculus")) && getgametypesetting(#"wzenablehomunculus"))
 	{
 		level.var_cc310d06 = &function_7bfc867f;
 		level thread function_c83057f0();

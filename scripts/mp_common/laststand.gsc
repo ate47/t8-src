@@ -977,7 +977,7 @@ function bleed_out()
 		wait(var_d7e063c + 0.2);
 		self lui::screen_fade(var_d7e063c, 0, 1, "black", 0);
 	}
-	if(isdefined(self) && self.var_8da0afa !== 1)
+	if(isdefined(self) && self.no_respawn !== 1)
 	{
 		self thread respawn_player_after_time(15);
 	}

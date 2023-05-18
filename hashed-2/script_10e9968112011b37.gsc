@@ -46,7 +46,7 @@ function __init__()
 }
 
 /*
-	Name: function_7860b659
+	Name: item_remover
 	Namespace: namespace_da5c04c3
 	Checksum: 0x2289C380
 	Offset: 0xF0
@@ -54,7 +54,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function function_7860b659(func1, func2, param1)
+function item_remover(func1, func2, param1)
 {
 	if(!isdefined(param1))
 	{

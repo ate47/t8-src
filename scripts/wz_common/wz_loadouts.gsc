@@ -248,7 +248,7 @@ function function_9de0644f()
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
+				backpack = function_ba18c3e5(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
 				armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
@@ -292,7 +292,7 @@ function function_9de0644f()
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
+				backpack = function_ba18c3e5(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
 				armorShard = function_ba18c3e5(#"hash_2e33ce38d6cda617");
@@ -326,7 +326,7 @@ function function_9de0644f()
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
+				backpack = function_ba18c3e5(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
 				grapple = function_ba18c3e5(#"hash_68b64725de40edae");
@@ -363,7 +363,7 @@ function function_9de0644f()
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"hash_527b2cdb9b6837f3");
+				backpack = function_ba18c3e5(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
 				grapple = function_ba18c3e5(#"hash_68b64725de40edae");
@@ -533,7 +533,7 @@ function private function_6667abef()
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"hash_5506836b90ed93a9");
+			attachment = function_ba18c3e5(#"acog_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -652,7 +652,7 @@ function private function_1f091d2f()
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"hash_5506836b90ed93a9");
+			attachment = function_ba18c3e5(#"acog_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -702,7 +702,7 @@ function private function_2d31b980()
 		attachment = function_ba18c3e5(#"hash_43d8944b55b1e63c");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		attachment = function_ba18c3e5(#"hash_2b2bf36e2ea5ab8f");
+		attachment = function_ba18c3e5(#"holo_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
 		attachment = function_ba18c3e5(#"hash_2a10ad247a663aaa");
@@ -727,7 +727,7 @@ function private function_2d31b980()
 			weapon = function_ba18c3e5(#"hash_36978e3a9321b430");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"hash_66023e3bee6c58a1");
+			attachment = function_ba18c3e5(#"extmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -802,7 +802,7 @@ function private function_f56a5599()
 	armor = function_ba18c3e5(#"hash_8578856a247ab60");
 	var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 	self item_world::function_de2018e3(armor, self, var_fa3df96);
-	var_57fd914e = function_ba18c3e5(#"hash_4a2739676c12d92a");
+	var_57fd914e = function_ba18c3e5(#"dart_wz_item");
 	var_57fd914e.count = 5;
 	var_fa3df96 = self item_inventory::function_e66dcff5(var_57fd914e);
 	self item_world::function_de2018e3(health, self, var_fa3df96);

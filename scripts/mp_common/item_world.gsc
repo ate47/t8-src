@@ -1624,16 +1624,16 @@ function function_a54d07e6(item, activator)
 						return;
 					}
 				}
-				var_c5c64633 = [];
+				dynamicitems = [];
 				foreach(var_979cae3d in level.var_a4a4012e)
 				{
 					if(isdefined(var_979cae3d) && var_979cae3d.var_67169c0b === targetname)
 					{
-						var_c5c64633[var_c5c64633.size] = var_979cae3d;
+						dynamicitems[dynamicitems.size] = var_979cae3d;
 					}
 				}
-				var_c5c64633 = arraysortclosest(var_c5c64633, stashes[0].origin, var_c5c64633.size, 0, 12);
-				foreach(dynamicitem in var_c5c64633)
+				dynamicitems = arraysortclosest(dynamicitems, stashes[0].origin, dynamicitems.size, 0, 12);
+				foreach(dynamicitem in dynamicitems)
 				{
 					if(dynamicitem.var_8e092725 === -1)
 					{
@@ -1680,16 +1680,16 @@ function function_a54d07e6(item, activator)
 			}
 			else if(stash.var_bad13452 == 1)
 			{
-				var_c5c64633 = [];
+				dynamicitems = [];
 				foreach(var_979cae3d in level.var_a4a4012e)
 				{
 					if(isdefined(var_979cae3d) && var_979cae3d.var_67169c0b === targetname)
 					{
-						var_c5c64633[var_c5c64633.size] = var_979cae3d;
+						dynamicitems[dynamicitems.size] = var_979cae3d;
 					}
 				}
-				var_c5c64633 = arraysortclosest(var_c5c64633, stashes[0].origin, var_c5c64633.size, 0, 12);
-				foreach(dynamicitem in var_c5c64633)
+				dynamicitems = arraysortclosest(dynamicitems, stashes[0].origin, dynamicitems.size, 0, 12);
+				foreach(dynamicitem in dynamicitems)
 				{
 					if(dynamicitem.var_8e092725 === -1)
 					{
@@ -2451,10 +2451,10 @@ function function_83ddce0f(item, inventoryslot)
 {
 	var_a1ca235e = undefined;
 	var_3d1f9df4 = 0;
-	var_8acbe1d0 = self item_inventory::function_550fcb41(item) || item.var_a6762160.itemtype == #"hash_56d6621e6c4caf07" || item.var_a6762160.itemtype == #"resource" || item.var_a6762160.itemtype == #"ammo" || (item.var_a6762160.itemtype == #"backpack" && !self item_inventory::has_backpack());
+	var_8acbe1d0 = self item_inventory::function_550fcb41(item) || item.var_a6762160.itemtype == #"armor_shard" || item.var_a6762160.itemtype == #"resource" || item.var_a6762160.itemtype == #"ammo" || (item.var_a6762160.itemtype == #"backpack" && !self item_inventory::has_backpack());
 	stashitem = item.var_8e092725 === -1;
-	var_a692c6d6 = (isdefined(item.deathstash) ? item.deathstash : 0);
-	stashitem = stashitem & (~var_a692c6d6);
+	deathstashitem = (isdefined(item.deathstash) ? item.deathstash : 0);
+	stashitem = stashitem & (~deathstashitem);
 	dropitem = undefined;
 	if(!var_8acbe1d0 && self item_inventory::function_f62713c3(inventoryslot))
 	{

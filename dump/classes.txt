@@ -11,6 +11,7 @@ ccp_skip_scene_menu
 cct_crash_kill_remaining_enemy
 cct_firebreak_multi_kill
 cct_progressbar_status
+cct_shared_aar
 cct_shared_aar_medals
 cct_shared_desc
 cct_shared_ingame_hint
@@ -42,7 +43,6 @@ class_6fde4e6
 class_726d8173
 class_7b5e0861
 class_7da27482
-class_8305f378
 class_8d574d24
 class_8e39177
 class_92792865

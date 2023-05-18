@@ -696,7 +696,7 @@ function function_3edc6292()
 	}
 	for(i = 0; i < self.powerups.size; i++)
 	{
-		self.var_d0686fde[i] = self.powerups[i].var_650a6ea9;
+		self.var_d0686fde[i] = self.powerups[i].dropid;
 	}
 }
 

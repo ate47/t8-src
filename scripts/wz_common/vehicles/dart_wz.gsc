@@ -193,7 +193,7 @@ function private function_bac16d76(spawnorigin, spawnangles, var_d8138db2)
 	vehicle = spawnvehicle(#"hash_4043fb66689f91c8", spawnorigin, spawnangles);
 	if(isdefined(vehicle))
 	{
-		level.var_d79f1ee4[level.var_d79f1ee4.size] = vehicle;
+		level.item_vehicles[level.item_vehicles.size] = vehicle;
 		vehicle.id = var_d8138db2;
 		vehicle setteam(self.team);
 		vehicle.team = self.team;

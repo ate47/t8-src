@@ -7967,8 +7967,8 @@ function function_ce32cc66(b_skipped)
 		e_actor notify(#"hash_46064b6c2cb5cf20");
 		foreach(ai_blight_father in a_ai_blight_father)
 		{
-			var_beb2295 = ai_blight_father.var_beb2295;
-			if(var_beb2295 === e_actor)
+			e_grapplee = ai_blight_father.e_grapplee;
+			if(e_grapplee === e_actor)
 			{
 				ai_blight_father notify(#"hash_2fb2eddfa6a0ef3f");
 				level thread zm_ai_blight_father::function_c526065b(ai_blight_father);

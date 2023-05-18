@@ -37,10 +37,10 @@ function function_95ba8fb7()
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	if(isdefined(getgametypesetting(#"hash_2bf10704e2a0ad4d")) && getgametypesetting(#"hash_2bf10704e2a0ad4d"))
 	{
-		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_8578856a247ab60");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_8578856a247ab60");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_6f80136c3b79d9e", #"hash_568173e016d45c2a");
-		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_1abfcce0e9955057");
-		namespace_da5c04c3::function_7860b659(var_a12b4736, var_87d0eef8, #"hash_1b975e4c6ae8b190");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1abfcce0e9955057");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b975e4c6ae8b190");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_ff50c93155e445f", #"hash_80292d121740f6f");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_5119794c0791738", #"hash_1bb3938ead724a68");
 		namespace_da5c04c3::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_27e22f275feb07fe", #"hash_445dccc6a87f957f");

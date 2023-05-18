@@ -310,9 +310,9 @@ function function_67098abf(var_5ea5c94d, ended_early)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_37d390f8(e_player, var_876ad064)
+function private function_37d390f8(e_player, b_get_weapon)
 {
-	if(var_876ad064)
+	if(b_get_weapon)
 	{
 		e_player thread zm_orange_util::function_51b752a9("vox_tundragun_get");
 	}

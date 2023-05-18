@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"battery_unlock", #"hash_7f410b145dce17bd", #"hash_3063198fc139e3b0", &function_d95e620c, #"hash_c5713430b8fb888");
+	character_unlock_fixup::register_character_unlock(#"battery_unlock", #"hash_7f410b145dce17bd", #"warmachine_wz_item", &function_d95e620c, #"hash_c5713430b8fb888");
 }
 
 /*

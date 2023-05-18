@@ -235,8 +235,8 @@ function private function_62c0d32d(item_name, stashitem = 0)
 	{
 		return;
 	}
-	var_f77e15f6 = function_4ba8fde(item_name);
-	if(!isdefined(var_f77e15f6))
+	itemspawnpoint = function_4ba8fde(item_name);
+	if(!isdefined(itemspawnpoint))
 	{
 		return;
 	}
@@ -260,7 +260,7 @@ function private function_62c0d32d(item_name, stashitem = 0)
 		var_aec6fa7f = var_a6762160.amount;
 		itemcount = 1;
 	}
-	item = item_drop::drop_item(weapon, itemcount, var_aec6fa7f, var_f77e15f6.id, origin, angles, stashitem);
+	item = item_drop::drop_item(weapon, itemcount, var_aec6fa7f, itemspawnpoint.id, origin, angles, stashitem);
 	if(isdefined(item))
 	{
 		item.spawning = 1;
@@ -354,7 +354,7 @@ function private _spawn_item(point, row, stashitem = 0)
 		}
 		if(isdefined(vehicle))
 		{
-			level.var_d79f1ee4[level.var_d79f1ee4.size] = vehicle;
+			level.item_vehicles[level.item_vehicles.size] = vehicle;
 			level.var_8819644a[level.var_8819644a.size] = {#used:0, #vehicle:vehicle, #vehicletype:vehicle.vehicletype, #origin:vehicle.origin};
 			if(isairborne(vehicle))
 			{
@@ -823,9 +823,9 @@ function private _setup()
 	self.remaining = (isdefined(self.count) ? self.count : 0);
 	self.points = function_d0dc448b(self.target);
 	self.var_8107154f = [];
-	foreach(var_13d946ef in self.points)
+	foreach(pointid in self.points)
 	{
-		self.var_8107154f[var_13d946ef] = var_13d946ef;
+		self.var_8107154f[pointid] = pointid;
 	}
 	if(!isdefined(level.var_28cd0b1f[self.target]))
 	{
@@ -1148,7 +1148,7 @@ function private function_e25c9d12(var_8107154f, spawncount, stashitem = 0, var_
 				}
 				else
 				{
-					var_f77e15f6 = function_b1702735(var_8107154f[var_a1b91de4[pointindex]]);
+					itemspawnpoint = function_b1702735(var_8107154f[var_a1b91de4[pointindex]]);
 					if(isdefined(self.var_b91441dd.var_7fb0967b) && !var_a9826383)
 					{
 						var_8822f354 = 0;
@@ -1166,23 +1166,23 @@ function private function_e25c9d12(var_8107154f, spawncount, stashitem = 0, var_
 							if(itemtype == #"vehicle")
 							{
 								vehicles = getvehiclearray();
-								var_7150cb21 = arraysortclosest(vehicles, var_f77e15f6.origin, 1, 0, self.var_b91441dd.var_7fb0967b);
+								var_7150cb21 = arraysortclosest(vehicles, itemspawnpoint.origin, 1, 0, self.var_b91441dd.var_7fb0967b);
 								var_8822f354 = var_7150cb21.size;
 							}
 							else
 							{
-								var_8822f354 = function_579fdc53(var_f77e15f6.origin, undefined, itemtype, self.var_b91441dd.var_7fb0967b, -1, 2147483647);
+								var_8822f354 = function_579fdc53(itemspawnpoint.origin, undefined, itemtype, self.var_b91441dd.var_7fb0967b, -1, 2147483647);
 							}
 						}
 						else
 						{
-							var_8822f354 = function_6de8969b(var_f77e15f6.origin, undefined, self.var_b91441dd.var_7fb0967b, -1, 1, 2147483647);
+							var_8822f354 = function_6de8969b(itemspawnpoint.origin, undefined, self.var_b91441dd.var_7fb0967b, -1, 1, 2147483647);
 						}
 						if(var_8822f354 > 0)
 						{
 						}
 					}
-					self _spawn_item(var_f77e15f6, var_75aa5cbb, stashitem);
+					self _spawn_item(itemspawnpoint, var_75aa5cbb, stashitem);
 				}
 				else
 				{
@@ -1377,9 +1377,9 @@ function is_enabled()
 function function_6a80751c()
 {
 	var_f6e761cd = function_c77ddcd6();
-	for(var_13d946ef = 0; var_13d946ef < var_f6e761cd; var_13d946ef++)
+	for(pointid = 0; pointid < var_f6e761cd; pointid++)
 	{
-		point = function_b1702735(var_13d946ef);
+		point = function_b1702735(pointid);
 		var_a6762160 = point.var_a6762160;
 		if(!isdefined(var_a6762160))
 		{
@@ -1439,9 +1439,9 @@ function function_6a80751c()
 		level.var_d0676b07 = getrealtime();
 	}
 	level.var_8ac64bf3 = [];
-	if(isarray(level.var_d79f1ee4))
+	if(isarray(level.item_vehicles))
 	{
-		foreach(vehicle in level.var_d79f1ee4)
+		foreach(vehicle in level.item_vehicles)
 		{
 			if(isdefined(vehicle))
 			{
@@ -1454,7 +1454,7 @@ function function_6a80751c()
 		waitframe(1);
 		level.var_d0676b07 = getrealtime();
 	}
-	level.var_d79f1ee4 = [];
+	level.item_vehicles = [];
 	level.var_8819644a = [];
 	level.var_a4a4012e = [];
 }
@@ -1593,7 +1593,7 @@ function setup_groups(reset = 1)
 	level.var_5862f2ce = [];
 	level.var_5ce07338 = [];
 	level.var_93d08989 = [];
-	level.var_d79f1ee4 = [];
+	level.item_vehicles = [];
 	level.var_8819644a = [];
 	level.var_5b2a8d88 = [];
 	level.var_cc113617 = [5:270, 4:225, 3:315, 2:120, 1:50, 0:-130];
@@ -1783,7 +1783,7 @@ function function_fd87c780(scriptbundlename, itemcount)
 	itemgroup.origin = self.origin;
 	itemgroup.angles = self.angles;
 	var_8107154f = [];
-	for(var_13d946ef = 0; var_13d946ef < itemcount; var_13d946ef++)
+	for(pointid = 0; pointid < itemcount; pointid++)
 	{
 		var_8107154f[var_8107154f.size] = -2;
 	}

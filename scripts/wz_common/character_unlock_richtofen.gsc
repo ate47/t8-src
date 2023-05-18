@@ -244,7 +244,7 @@ function function_2043936c(trigger_struct)
 		if(isdefined(point) && isdefined(point.var_a6762160))
 		{
 			forward = anglestoforward(player.angles);
-			droppos = player function_1188c2e8();
+			droppos = player get_item_spawn_point();
 			dropitem = player item_drop::drop_item(point.var_a6762160.weapon, 1, point.var_a6762160.amount, point.id, droppos, player.angles);
 			player item_inventory::remove_inventory_item(item.var_bd027dd9);
 			var_129fa609 = player function_80635b6f();
@@ -259,7 +259,7 @@ function function_2043936c(trigger_struct)
 }
 
 /*
-	Name: function_1188c2e8
+	Name: get_item_spawn_point
 	Namespace: character_unlock_richtofen
 	Checksum: 0xFEE3FEE6
 	Offset: 0xC90
@@ -267,7 +267,7 @@ function function_2043936c(trigger_struct)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_1188c2e8()
+function private get_item_spawn_point()
 {
 	var_6e5341fb = struct::get_array("cu17_drop_point", "targetname");
 	if(isdefined(var_6e5341fb) && isarray(var_6e5341fb))
