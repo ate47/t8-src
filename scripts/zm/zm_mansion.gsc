@@ -31,7 +31,7 @@
 #using script_6e3c826b1814cab6;
 #using scripts\zm\zm_mansion_jordans.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
-#using script_7acfd9adfb8235d7;
+#using scripts\zm\zm_mansion_impaler.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_9af9e17217da6e6;
 #using script_a2c974cd6e11ddf;
@@ -155,7 +155,7 @@ event main(eventstruct)
 	namespace_a8113e97::init();
 	namespace_b6ca3ccc::init();
 	mansion_triad::init();
-	namespace_bfa7c2ed::init();
+	mansion_impaler::init();
 	namespace_59d4913f::init();
 	mansion_jordans::init();
 	mansion_achievements::init();
@@ -2447,7 +2447,7 @@ function function_3f147b12(cmd)
 				level open_sesame();
 				function_1aba9a64();
 				level notify(#"hash_2588983e2be22ca5");
-				level thread namespace_bfa7c2ed::function_b9289f93();
+				level thread mansion_impaler::function_b9289f93();
 				level thread zm_sq::function_f2dd8601(#"hash_4c0e5e4b34877996", 1);
 				level thread zm_sq::function_f2dd8601(#"hash_65636bbec86da22c", 1);
 				level thread zm_sq::function_f2dd8601(#"hash_4ca89643d74ccffb", 1);
@@ -2455,7 +2455,7 @@ function function_3f147b12(cmd)
 			}
 			case "hash_7913b71a1f12913a":
 			{
-				level thread namespace_bfa7c2ed::function_b9289f93();
+				level thread mansion_impaler::function_b9289f93();
 				break;
 			}
 			case "open_pap":

@@ -12,3 +12,4 @@ You can find an applied version of these information in the [ate47/t8-atian-menu
 - [Weapons](weapons.md)
 - [Weapons customization](weaponscustom.md)
 - [Naming](naming.md)
+- [Zombies step EEs](zmee.md)

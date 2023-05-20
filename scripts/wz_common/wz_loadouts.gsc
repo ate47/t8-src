@@ -215,7 +215,7 @@ function function_9de0644f()
 				smg = function_ba18c3e5(#"hash_34e069748d48b434");
 				var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 				smg.attachments = [];
-				attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+				attachment = function_ba18c3e5(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -265,7 +265,7 @@ function function_9de0644f()
 				smg = function_ba18c3e5(#"hash_73ba92c06ae7102a");
 				var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 				smg.attachments = [];
-				attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+				attachment = function_ba18c3e5(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -339,7 +339,7 @@ function function_9de0644f()
 				pistol = function_ba18c3e5(#"hash_6bbeca41cf389982");
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
-				attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+				attachment = function_ba18c3e5(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -377,7 +377,7 @@ function function_9de0644f()
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
 				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
-				attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+				attachment = function_ba18c3e5(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -410,7 +410,7 @@ function function_9de0644f()
 				pistol = function_ba18c3e5(#"hash_6bbeca41cf389982");
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
-				attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+				attachment = function_ba18c3e5(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -495,7 +495,7 @@ function private function_6667abef()
 		pistol = function_ba18c3e5(#"hash_5cc9b5e23093ac03");
 		var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 		pistol.attachments = [];
-		attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+		attachment = function_ba18c3e5(#"fastmag_wz_item");
 		var_e38a0464 = item_inventory::function_520b16d6();
 		var_e38a0464.count = 1;
 		var_e38a0464.id = attachment.id;
@@ -526,7 +526,7 @@ function private function_6667abef()
 			weapon = function_ba18c3e5(#"hash_15f30a19a23c0190");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+			attachment = function_ba18c3e5(#"fastmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -645,7 +645,7 @@ function private function_1f091d2f()
 			weapon = function_ba18c3e5(#"hash_36978e3a9321b430");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"hash_513a787ad3a20198");
+			attachment = function_ba18c3e5(#"fastmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;

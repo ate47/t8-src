@@ -27,6 +27,7 @@
       - [Shotguns](#shotguns)
       - [Specials and Melees](#specials-and-melees)
       - [Equipment and gadgets](#equipment-and-gadgets)
+      - [Perks](#perks)
       - [Attachments](#attachments)
     - [Vehicle spawn](#vehicle-spawn)
     - [Zombies](#zombies-1)
@@ -35,7 +36,7 @@
     - [Entities](#entities)
     - [Powerups](#powerups)
     - [Elixir](#elixir)
-    - [Perks](#perks)
+    - [Perks](#perks-1)
     - [Rounds](#rounds)
     - [Allow weapon wallbuy](#allow-weapon-wallbuy)
 
@@ -166,15 +167,21 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](../hashed-3/script_5014b7c0ca48e9a8.gsc) and [`script_2c290bc0b594991c.csc`](../hashed-1/script_2c290bc0b594991c.gsc) scripts.
 
+**Warning**: It's not because an element isn't enabled that you can't use it, you need to find a way to remove it from the map, otherwise you'll get render issue.
+
 #### Items
 
 - `"wzenablebackpack"` - Enable backpack
 - `"wzenablehawk"` - Enable Hawk
 - `"wzenabledart"` - Enable Dart
-- `"wzenablemedkit"` - Enable medkit
+- `"wzenablesentrygun"` - Enable Sentry gun
 - `"wzenablelv1armor"` - Enable armor lvl 1
 - `"wzenablelv2armor"` - Enable armor lvl 2
 - `"wzenablelv3armor"` - Enable armor lvl 3
+- `"hash_5e9a89fe817a3fac"` - Enable bandage (+25)
+- `"wzenablemedkit"` - Enable medkit (+50)
+- `"hash_18a48cc68a5ea51b"` - Enable health kit (+200)
+- `"wzenabletak5"` - Enable tak5 (disabled?)
 
 #### Heros
 
@@ -183,7 +190,10 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenableblundergat"` - Enable blundergat
 - `"wzenablesparrow"` - Enable sparrow
 - `"wzenablewarmachine"` - Enable warmachine
-- `"wzenabletak5"` - Enable tak5 (?)
+- `"wzenableannihilator"` - Enable Annihilator
+- `"wzenablealistairsfolly"` - Enable Alistair's folly
+- `"wzenabledeathoforion"` - Enable Death of Orion
+- `"wzenablesavageimpaler"` - Enable Savage impaler
 
 #### Assault rifles
 
@@ -278,6 +288,36 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablewraithfire"` - Enable Wraith fire
 - `"wzenableempgrenade"` - Enable emp grenade
 - `"wzenablegrapple"` - Enable grapple
+- `"wzenablemolotov"` - Enable molotov
+- `"wzenableclustergrenade"` - Enable cluster grenade
+- `"wzenablecombataxe"` - Enable combat axe
+- `"wzenableconcussiongrenade"` - Enable concussion grenade
+- `"wzenablerazorwire"` - Enable razor wire
+- `"wzenablesensordart"` - Enable sensor dart
+- `"hash_7c6aa297d67f94c1"` Enable unknown equipment
+- `"hash_2e25d475b271a700"` Enable unknown equipment
+- `"hash_2fa72a7ec2d86741"` Enable unknown equipment
+- `"hash_565cb574e1da9e2a"` Enable unknown equipment
+- `"hash_7d2d9c6d8d1efde4"` Enable unknown equipment
+- `"hash_20787bdeafae5592"` Enable unknown equipment
+- `"hash_16f10373ec8e6906"` Enable unknown equipment
+#### Perks
+
+- `"wzenableperkawareness"` - Enable perk awareness
+- `"wzenableperkbrawler"` - Enable perk brawler
+- `"wzenableperkconsumer"` - Enable perk consumer
+- `"wzenableperkdeadsilence"` - Enable perk deadsilence
+- `"wzenableperkengineer"` - Enable perk engineer
+- `"wzenableperkironlungs"` - Enable perk iron lungs
+- `"wzenableperklooter"` - Enable perk looter
+- `"wzenableperkmedic"` - Enable perk medic
+- `"wzenableperkmobility"` - Enable perk mobility
+- `"wzenableperkoutlander"` - Enable perk outlander
+- `"wzenableperkparanoia"` - Enable perk paranoia
+- `"wzenableperkreinforced"` - Enable perk reinforced
+- `"wzenableperksquadlink"` - Enable perk squadlink
+- `"hash_9fa187740ff5e40"` - Enable perk unknown (probably tracker)
+- `"hash_78e459ad87509a46"` - Enable perk unknown (probably skulker)
 
 #### Attachments
 
@@ -288,6 +328,14 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablefastmag"` - Enable fast mag
 - `"wzenableelo"` - Enable elo
 - `"wzenablelasersight"` - Enable laser sight
+- `"wzenablesniperscope"` - Enable sniper scope
+- `"wzenablesuppressor"` Enable suppressor
+- `"hash_230f75891223e1f5"` Enable attachment unknown
+- `"hash_76563462cf31f5c"` Enable attachment unknown
+- `"hash_62181bb12898aef6"` Enable attachment unknown
+- `"hash_daba3be8725aaab"` Enable attachment unknown
+- `"hash_34f53d28a9bbfae9"` Enable attachment unknown
+- `"hash_1b28296927171330"` Enable attachment unknown
 
 ### Vehicle spawn
 

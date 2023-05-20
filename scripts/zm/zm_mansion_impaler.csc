@@ -11,11 +11,11 @@
 #using scripts\zm_common\zm_utility.csc;
 #using scripts\zm_common\zm_weapons.csc;
 
-#namespace namespace_bfa7c2ed;
+#namespace mansion_impaler;
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x7EECD214
 	Offset: 0x128
 	Size: 0x3E2
@@ -42,7 +42,7 @@ function init_clientfields()
 
 /*
 	Name: function_7b2555da
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x90665AE2
 	Offset: 0x518
 	Size: 0x19E
@@ -69,7 +69,7 @@ function function_7b2555da(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5755829d
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xF3C3BB8A
 	Offset: 0x6C0
 	Size: 0xFE
@@ -94,7 +94,7 @@ function function_5755829d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_46354b9d
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x1E6057F2
 	Offset: 0x7C8
 	Size: 0x11E
@@ -121,7 +121,7 @@ function function_46354b9d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7fb1dad8
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xE9C03897
 	Offset: 0x8F0
 	Size: 0xC6
@@ -137,7 +137,7 @@ function function_7fb1dad8(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5790d8f
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x918D89B2
 	Offset: 0x9C0
 	Size: 0x146
@@ -169,7 +169,7 @@ function function_5790d8f(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_4e782d34
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xC364A96C
 	Offset: 0xB10
 	Size: 0x1FE
@@ -211,7 +211,7 @@ function function_4e782d34(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3f039efc
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xAB49447
 	Offset: 0xD18
 	Size: 0xFC
@@ -238,7 +238,7 @@ function function_3f039efc(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_12852d1a
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x257656C2
 	Offset: 0xE20
 	Size: 0x5C

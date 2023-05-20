@@ -148,10 +148,10 @@ function init_quest()
 			level.var_d416f0ff.vh_wisp = vh_wisp;
 		}
 		function_69a6d31a(0);
-		zm_sq::register(#"insanity_mode", #"step_1", #"hash_1ac340ed59970ef4", &function_e62b987d, &function_899db485);
-		zm_sq::register(#"insanity_mode", #"step_2", #"hash_1ac343ed5997140d", &function_77a0aab6, &function_e78c6006);
-		zm_sq::register(#"insanity_mode", #"step_3", #"hash_1ac342ed5997125a", &function_6699867f, &function_a885d87a);
-		zm_sq::register(#"insanity_mode", #"step_4", #"hash_1ac33ded599709db", &function_21b9d36d, &function_6932bc46);
+		zm_sq::register(#"insanity_mode", #"step_1", #"insanity_mode_step1", &function_e62b987d, &function_899db485);
+		zm_sq::register(#"insanity_mode", #"step_2", #"insanity_mode_step2", &function_77a0aab6, &function_e78c6006);
+		zm_sq::register(#"insanity_mode", #"step_3", #"insanity_mode_step3", &function_6699867f, &function_a885d87a);
+		zm_sq::register(#"insanity_mode", #"step_4", #"insanity_mode_step4", &function_21b9d36d, &function_6932bc46);
 		zm_sq::start(#"insanity_mode");
 	}
 	else

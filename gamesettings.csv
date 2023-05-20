@@ -292,6 +292,23 @@ wzenablelv2armor,wz,boolean,enable lv2armor
 wzenablelv1armor,wz,boolean,enable lv1armor
 wzenablefastmag,wz,boolean,enable fastmag
 wzenablegrapple,wz,boolean,enable grapple
+wzenablemolotov,wz,boolean,enable molotov
+wzenableclustergrenade,wz,boolean,enable cluster grenade
+wzenableperkawareness,wz,boolean,enable perk awareness
+wzenableperkbrawler,wz,boolean,enable perk brawler
+wzenableperkconsumer,wz,boolean,enable perk consumer
+wzenableperkdeadsilence,wz,boolean,enable perk deadsilence
+wzenableperkengineer,wz,boolean,enable perk engineer
+wzenableperkironlungs,wz,boolean,enable perk iron lungs
+wzenableperklooter,wz,boolean,enable perk looter
+wzenableperkmedic,wz,boolean,enable perk medic
+wzenableperkmobility,wz,boolean,enable perk mobility
+wzenableperkoutlander,wz,boolean,enable perk outlander
+wzenableperkparanoia,wz,boolean,enable perk paranoia
+wzenableperkreinforced,wz,boolean,enable perk reinforced
+wzenableperksquadlink,wz,boolean,enable perk squadlink
+hash_9fa187740ff5e40,wz,boolean,enable perk unknown (probably tracker)
+hash_78e459ad87509a46,wz,boolean,enable perk unknown (probably skulker)
 wzenablelasersight,wz,boolean,enable laster sight
 hash_7e60451699436d76,wz,boolean,vehicle spawn related unknown
 hash_78bfea2b72e79da3,wz,boolean,vehicle spawn related unknown
@@ -302,6 +319,23 @@ hash_31a92a9f4a213a7c,wz,boolean,vehicle spawn related unknown
 hash_2951c2ca77068ac9,wz,boolean,vehicle spawn related unknown
 hash_23e09b48546a7e3b,wz,boolean,vehicle spawn related unknown
 hash_1c3b95e54e6f178c,wz,boolean,vehicle spawn related unknown
+wzenableannihilator,wz,boolean,enable annihilator
+wzenabledeathoforion,wz,boolean,enable death of orion
+wzenableannihilator,wz,boolean,enable alistair s folly
+wzenablesentrygun,wz,boolean,enable sentry gun
+wzenablesavageimpaler,wz,boolean,enable savageimpaler
+wzenableconcussiongrenade,wz,boolean,enable concussiongrenade
+wzenablesniperscope,wz,boolean,enable sniperscope
+wzenablerazorwire,wz,boolean,enable razorwire
+wzenablesensordart,wz,boolean,enable sensordart
+wzenablecombataxe,wz,boolean,enable combataxe
+wzenablesuppressor,wz,boolean,enable suppressor
+hash_230f75891223e1f5,wz,boolean,enable attachment unknown
+hash_76563462cf31f5c,wz,boolean,enable attachment unknown
+hash_62181bb12898aef6,wz,boolean,enable attachment unknown
+hash_daba3be8725aaab,wz,boolean,enable attachment unknown
+hash_34f53d28a9bbfae9,wz,boolean,enable attachment unknown
+hash_1b28296927171330,wz,boolean,enable attachment unknown
 
 voipkillershearvictim,unknown,unknown,unknown
 voipeveryonehearseveryone,unknown,unknown,unknown
@@ -391,39 +425,30 @@ killeventscoremultiplier,unknown,unknown,unknown
 killcamtime,unknown,unknown,unknown
 incrementalspawndelay,unknown,unknown,unknown
 headshotsonly,unknown,unknown,unknown
-hash_f5ea977f20c026a,unknown,unknown,unknown
 hash_f1e30f8dfc57d39,unknown,unknown,unknown
 hash_f04393e2e028c01,unknown,unknown,unknown
 hash_ecf2124e9108fc4,unknown,unknown,unknown
 hash_ec059b9a7f28627,unknown,unknown,unknown
 hash_e66ea1c74a48224,unknown,unknown,unknown
-hash_daba3be8725aaab,unknown,unknown,unknown
 hash_bd1199baafe11fe,unknown,unknown,unknown
 hash_ad6c0d1cd92c1fe,unknown,unknown,unknown
-hash_9fa187740ff5e40,unknown,unknown,unknown
 hash_9dc52c75197d173,unknown,unknown,unknown
-hash_950a1bae46ea69e,unknown,unknown,unknown
 hash_926bf70c5a0d23b,unknown,unknown,unknown
 hash_83f11b8abac148f,unknown,unknown,unknown
 hash_82c01ef004ff0a3,unknown,unknown,unknown
 hash_7fb8c0dadeac34d9,unknown,unknown,unknown
-hash_7f16c3fe5a8dcf07,unknown,unknown,unknown
 hash_7d8c969e384dd1c9,unknown,unknown,unknown
 hash_7d3d69a0fd97862d,unknown,unknown,unknown
 hash_7c6aa297d67f94c1,unknown,unknown,unknown
 hash_7c0dcff6ffb1e348,unknown,unknown,unknown
 hash_7c0acf14fb1f4080,unknown,unknown,unknown
-hash_7b794bb976baacfc,unknown,unknown,unknown
 hash_7ab596bf4932361d,unknown,unknown,unknown
 hash_794b9fb296da09b6,unknown,unknown,unknown
-hash_78e459ad87509a46,unknown,unknown,unknown
 hash_77b7734750cd75e9,unknown,unknown,unknown
 hash_77af5743dec010ae,wz,unknown,unknown
 hash_76fb3219916a09f2,unknown,unknown,unknown
 hash_76c2c603f164eb31,unknown,unknown,unknown
 hash_7684a70eb68f1ebb,unknown,unknown,unknown
-hash_76563462cf31f5c,unknown,unknown,unknown
-hash_76432fd7e57b1bee,unknown,unknown,unknown
 hash_75a36f7e4a81c93,unknown,unknown,unknown
 hash_7532afe3ef8b4332,unknown,unknown,unknown
 hash_74f1260346e4198e,unknown,unknown,unknown
@@ -431,7 +456,6 @@ hash_7477eea36687a960,unknown,unknown,unknown
 hash_731aac1992af2669,unknown,unknown,unknown
 hash_731988b03dc6ee17,unknown,unknown,unknown
 hash_72baa3480316bf55,unknown,unknown,unknown
-hash_71f1a84d7208bd57,unknown,unknown,unknown
 hash_71b2b43696e16252,unknown,unknown,unknown
 hash_7148b13c0ace2cd7,unknown,unknown,unknown
 hash_712f4c2a96bca56e,unknown,unknown,unknown
@@ -444,7 +468,6 @@ hash_6f135d596eeee7a,unknown,unknown,unknown
 hash_6e2abf2cc40e03f1,unknown,unknown,unknown
 hash_6cf5f53d1fbb1066,unknown,unknown,unknown
 hash_6cc7b012775d9662,unknown,unknown,unknown
-hash_6ac86084bc041660,unknown,unknown,unknown
 hash_6aba2f652c6f4e07,unknown,unknown,unknown
 hash_6a2434c947c86b9b,unknown,unknown,unknown
 hash_69ad073972c1c4ea,unknown,unknown,unknown
@@ -458,14 +481,10 @@ hash_661ee23f114191c1,unknown,unknown,unknown
 hash_64aba694bd70856c,unknown,unknown,unknown
 hash_648fb3af9bc11566,unknown,unknown,unknown
 hash_647310a2fe3554f7,unknown,unknown,unknown
-hash_6441f0d43571288,unknown,unknown,unknown
 hash_63f8d60d122e755b,unknown,unknown,unknown
 hash_62a4fd40810cb61,unknown,unknown,unknown
 hash_6269eb986d22cd37,unknown,unknown,unknown
-hash_624b317222a0532b,unknown,unknown,unknown
 hash_622b18585020f430,unknown,unknown,unknown
-hash_62181bb12898aef6,unknown,unknown,unknown
-hash_6062f089b8e2a9b6,unknown,unknown,unknown
 hash_5faa7b70e6eb1e2d,unknown,unknown,unknown
 hash_5f99f52d9081044e,unknown,unknown,unknown
 hash_5f76e2d55ad861ed,unknown,unknown,unknown
@@ -477,7 +496,6 @@ hash_5c918cbf75e16116,unknown,unknown,unknown
 hash_5c6371ef701d7485,unknown,unknown,unknown
 hash_5ba752e23e79af9d,unknown,unknown,unknown
 hash_5b7b817a91ce3534,unknown,unknown,unknown
-hash_59fbb75e58a43cc6,unknown,unknown,unknown
 hash_59ab05f71c3789c7,unknown,unknown,unknown
 hash_57743f417c14e3f9,unknown,unknown,unknown
 hash_56ab3c042b783de6,unknown,unknown,unknown
@@ -487,17 +505,14 @@ hash_565cb574e1da9e2a,unknown,unknown,unknown
 hash_557cb4680634f585,unknown,unknown,unknown
 hash_54fe37a58b87c7a0,unknown,unknown,unknown
 hash_54dfa988db5db24c,unknown,unknown,unknown
-hash_54b31c3bfb70da4c,unknown,unknown,unknown
 hash_542ec48cf30b74c0,unknown,unknown,unknown
 hash_5408e974098bc234,unknown,unknown,unknown
 hash_53b5887dea69a320,unknown,unknown,unknown
-hash_522bb6c75afd7380,unknown,unknown,unknown
 hash_51e989796c38cd87,unknown,unknown,unknown
 hash_51a2cf319e12d9ae,unknown,unknown,unknown
 hash_512aec4c9e79844f,unknown,unknown,unknown
 hash_50c10372c80d0a6b,unknown,unknown,unknown
 hash_50352319697250b,unknown,unknown,unknown
-hash_50105b0ebfabeb63,unknown,unknown,unknown
 hash_4f4a73f236278ba8,unknown,unknown,unknown
 hash_4e4352bd1aaeedfe,unknown,unknown,unknown
 hash_4d6cfd0b3ee4cc7d,unknown,unknown,unknown
@@ -514,18 +529,15 @@ hash_49e5e9c2e7812462,unknown,unknown,unknown
 hash_49746a22bfe5fb83,unknown,unknown,unknown
 hash_48670d9509071424,unknown,unknown,unknown
 hash_46f957248efbd39a,unknown,unknown,unknown
-hash_46abc67b302b3b9a,unknown,unknown,unknown
 hash_464afa49c60793b7,unknown,unknown,unknown
 hash_450463e38ea8bf1,unknown,unknown,unknown
 hash_44c7473eab6e5459,unknown,unknown,unknown
 hash_446a66a4499c4e5d,unknown,unknown,unknown
-hash_446939a6459aedf3,unknown,unknown,unknown
 hash_44533f4f290c5e77,unknown,unknown,unknown
 hash_42471cb0cbc19544,unknown,unknown,unknown
 hash_418adedc5cf0a538,unknown,unknown,unknown
 hash_4149d5d65eb07138,unknown,unknown,unknown
 hash_40f115f7ed3324f9,unknown,unknown,unknown
-hash_3ff237bde39c8efd,unknown,unknown,unknown
 hash_3eb2b790db0345da,unknown,unknown,unknown
 hash_3e8ed24e99b27614,unknown,unknown,unknown
 hash_3e62d9528eca0a13,unknown,unknown,unknown
@@ -540,10 +552,8 @@ hash_36c2eeb3865325f2,unknown,unknown,unknown
 hash_368f9b5b4992b8da,unknown,unknown,unknown
 hash_3668350e780332a3,unknown,unknown,unknown
 hash_3624143624604b4c,unknown,unknown,unknown
-hash_34f53d28a9bbfae9,unknown,unknown,unknown
 hash_33c34a7d3c678e37,unknown,unknown,unknown
 hash_33bc6781006ae83d,unknown,unknown,unknown
-hash_330eef3a75c26bb4,unknown,unknown,unknown
 hash_32da91b78e54e7b5,unknown,unknown,unknown
 hash_3109a8794543000f,unknown,unknown,unknown
 hash_30ca3c2a4473f979,unknown,unknown,unknown
@@ -551,13 +561,11 @@ hash_3083d02ea0f5761c,unknown,unknown,unknown
 hash_2fd89902533bd300,unknown,unknown,unknown
 hash_2fa72a7ec2d86741,unknown,unknown,unknown
 hash_2f4adaa9de981357,unknown,unknown,unknown
-hash_2f487cfcc854c2e3,unknown,unknown,unknown
 hash_2f350927e92f2156,unknown,unknown,unknown
 hash_2f1217d530d06c4c,unknown,unknown,unknown
 hash_2e25d475b271a700,unknown,unknown,unknown
 hash_2d4ff63e866cdd74,unknown,unknown,unknown
 hash_2ce00db5cd5003ff,unknown,unknown,unknown
-hash_2ca3c9c6942bd9a6,unknown,boolean,unknown
 hash_2bf10704e2a0ad4d,unknown,unknown,unknown
 hash_2b88c6ac064e9c59,unknown,unknown,unknown
 hash_2b3e56efad3a1504,unknown,unknown,unknown
@@ -566,10 +574,7 @@ hash_29ef96a3b8f635fd,unknown,unknown,unknown
 hash_29d174e7d8ab76c8,unknown,unknown,unknown
 hash_28a3a35c24fe616,unknown,unknown,unknown
 hash_28233b1037888945,unknown,unknown,unknown
-hash_270fc90c123830a3,unknown,unknown,unknown
-hash_270660990ceab264,unknown,unknown,unknown
 hash_26f00de198472b81,unknown,unknown,unknown
-hash_26c2d144e8174846,unknown,unknown,unknown
 hash_26c067f1dd032ebc,unknown,unknown,unknown
 hash_2560dae45cc112e3,unknown,unknown,unknown
 hash_24e281e778894ac9,unknown,unknown,unknown
@@ -578,13 +583,11 @@ hash_24918193d72a5866,unknown,unknown,unknown
 hash_236b15ded103132a,unknown,unknown,unknown
 hash_234ae2f2ff58263f,unknown,unknown,unknown
 hash_232750b87390cbff,unknown,unknown,unknown
-hash_230f75891223e1f5,unknown,unknown,unknown
 hash_230e67d5ddfb2c06,unknown,unknown,unknown
 hash_22431a9369b5d7c0,unknown,unknown,unknown
 hash_221008a2c793dfa1,unknown,unknown,unknown
 hash_21e0d28e8692d5a,wz,int,unknown
 hash_21ab1ca7e18bddcd,wz,boolean,unknown
-hash_21617b6e09ed2361,unknown,unknown,unknown
 hash_211486dd31982753,unknown,unknown,unknown
 hash_20787bdeafae5592,unknown,unknown,unknown
 hash_1fdc18ec4c85b70d,unknown,unknown,unknown
@@ -596,12 +599,10 @@ hash_1c94fa23e276efe9,unknown,unknown,unknown
 hash_1bcb7e5d76212b76,unknown,unknown,unknown
 hash_1b4a66a008f60927,unknown,unknown,unknown
 hash_1b34b26470f4368,unknown,unknown,unknown
-hash_1b28296927171330,unknown,unknown,unknown
 hash_19400c3e10b77e6b,unknown,unknown,unknown
 hash_18a48cc68a5ea51b,unknown,unknown,unknown
 hash_189c8ca60451e9e9,unknown,unknown,unknown
 hash_17f17e92c2654659,unknown,unknown,unknown
-hash_176ffa7e5bcc3e9b,unknown,unknown,unknown
 hash_16f10373ec8e6906,unknown,unknown,unknown
 hash_1614b9cbe0df6f75,unknown,unknown,unknown
 hash_1607aac841a2f1a2,unknown,unknown,unknown

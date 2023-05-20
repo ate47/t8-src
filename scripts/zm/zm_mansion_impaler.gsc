@@ -29,11 +29,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_bfa7c2ed;
+#namespace mansion_impaler;
 
 /*
 	Name: init
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xB0094993
 	Offset: 0x3F8
 	Size: 0x3A4
@@ -61,13 +61,13 @@ function init()
 	function_c6e2a4fd();
 	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4") && zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") != 2)
 	{
-		zm_sq::start(#"hash_4e21e987e2c0592d", 1);
+		zm_sq::start(#"zm_mansion_impaler", 1);
 	}
 }
 
 /*
 	Name: function_c739f755
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xDBBC2A32
 	Offset: 0x7A8
 	Size: 0x1E4
@@ -76,16 +76,16 @@ function init()
 */
 function function_c739f755()
 {
-	zm_sq::register(#"hash_4e21e987e2c0592d", #"step_1", #"hash_66fb6a37bb95210e", &function_cdfe68a2, &cleanup_step_1);
-	zm_sq::register(#"hash_4e21e987e2c0592d", #"step_2", #"hash_66fb6937bb951f5b", &function_a03f8d25, &cleanup_step_2);
-	zm_sq::register(#"hash_4e21e987e2c0592d", #"step_3", #"hash_66fb6837bb951da8", &function_aa79a199, &cleanup_step_3);
-	zm_sq::register(#"hash_4e21e987e2c0592d", #"step_4", #"hash_66fb6f37bb95298d", &function_86e35a69, &cleanup_step_4);
-	zm_sq::register(#"hash_4e21e987e2c0592d", #"step_5", #"hash_66fb6e37bb9527da", &function_e35c1359, &cleanup_step_5);
+	zm_sq::register(#"zm_mansion_impaler", #"step_1", #"impaler_step_1", &function_cdfe68a2, &cleanup_step_1);
+	zm_sq::register(#"zm_mansion_impaler", #"step_2", #"impaler_step_2", &function_a03f8d25, &cleanup_step_2);
+	zm_sq::register(#"zm_mansion_impaler", #"step_3", #"impaler_step_3", &function_aa79a199, &cleanup_step_3);
+	zm_sq::register(#"zm_mansion_impaler", #"step_4", #"impaler_step_4", &function_86e35a69, &cleanup_step_4);
+	zm_sq::register(#"zm_mansion_impaler", #"step_5", #"impaler_step_5", &function_e35c1359, &cleanup_step_5);
 }
 
 /*
 	Name: init_flags
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xEA4FF13C
 	Offset: 0x998
 	Size: 0x1C4
@@ -112,7 +112,7 @@ function init_flags()
 
 /*
 	Name: function_c6e2a4fd
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x3BAE7147
 	Offset: 0xB68
 	Size: 0x54
@@ -127,7 +127,7 @@ function function_c6e2a4fd()
 
 /*
 	Name: function_355450a4
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x11FB2323
 	Offset: 0xBC8
 	Size: 0x6C
@@ -144,7 +144,7 @@ function function_355450a4()
 
 /*
 	Name: function_edb1add2
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x2EFEF39E
 	Offset: 0xC40
 	Size: 0xE4
@@ -164,7 +164,7 @@ function function_edb1add2()
 
 /*
 	Name: function_cdfe68a2
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xEA4814FE
 	Offset: 0xD30
 	Size: 0x4C
@@ -185,7 +185,7 @@ function function_cdfe68a2(var_a276c861)
 
 /*
 	Name: cleanup_step_1
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xA5A16CE9
 	Offset: 0xD88
 	Size: 0xE0
@@ -204,7 +204,7 @@ function cleanup_step_1(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_a03f8d25
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xF857BE6A
 	Offset: 0xE70
 	Size: 0x17C
@@ -229,7 +229,7 @@ function function_a03f8d25(var_a276c861)
 
 /*
 	Name: cleanup_step_2
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xAF3C6F81
 	Offset: 0xFF8
 	Size: 0x18C
@@ -261,7 +261,7 @@ function cleanup_step_2(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_aa79a199
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x603BD3FE
 	Offset: 0x1190
 	Size: 0x684
@@ -325,7 +325,7 @@ function function_aa79a199(var_a276c861)
 
 /*
 	Name: cleanup_step_3
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x99B5CC6E
 	Offset: 0x1820
 	Size: 0xC4
@@ -346,7 +346,7 @@ function cleanup_step_3(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_86e35a69
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x688362A8
 	Offset: 0x18F0
 	Size: 0x134
@@ -368,7 +368,7 @@ function function_86e35a69(var_a276c861)
 
 /*
 	Name: cleanup_step_4
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x492F67F9
 	Offset: 0x1A30
 	Size: 0x4C
@@ -383,7 +383,7 @@ function cleanup_step_4(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_e35c1359
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xEBA4B1EF
 	Offset: 0x1A88
 	Size: 0x64
@@ -402,7 +402,7 @@ function function_e35c1359(var_a276c861)
 
 /*
 	Name: cleanup_step_5
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x420D79A6
 	Offset: 0x1AF8
 	Size: 0x1B8
@@ -430,7 +430,7 @@ function cleanup_step_5(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_d84548e7
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x89883D0B
 	Offset: 0x1CB8
 	Size: 0xA8
@@ -455,7 +455,7 @@ function function_d84548e7()
 
 /*
 	Name: registerremaining_retreat_
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xF9BD1445
 	Offset: 0x1D68
 	Size: 0x100
@@ -479,7 +479,7 @@ function registerremaining_retreat_()
 
 /*
 	Name: function_32606f19
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xD4B6CB8F
 	Offset: 0x1E70
 	Size: 0x36
@@ -497,7 +497,7 @@ function function_32606f19()
 
 /*
 	Name: function_89d75db
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x24765585
 	Offset: 0x1EB0
 	Size: 0xAA
@@ -523,7 +523,7 @@ function function_89d75db(e_player)
 
 /*
 	Name: function_c929af49
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xCAE9DC8
 	Offset: 0x1F68
 	Size: 0x26E
@@ -562,7 +562,7 @@ function function_c929af49()
 
 /*
 	Name: function_92e77dc6
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x89EE4B3C
 	Offset: 0x21E0
 	Size: 0x21E
@@ -599,7 +599,7 @@ function function_92e77dc6()
 
 /*
 	Name: function_9950740f
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x90721B9B
 	Offset: 0x2408
 	Size: 0x6E
@@ -616,7 +616,7 @@ function function_9950740f()
 
 /*
 	Name: function_d17deac0
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xF20FBEC
 	Offset: 0x2480
 	Size: 0xBC
@@ -634,7 +634,7 @@ function function_d17deac0(var_a6356bbe)
 
 /*
 	Name: function_a6978e42
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xE7764479
 	Offset: 0x2548
 	Size: 0x294
@@ -671,7 +671,7 @@ function function_a6978e42(nd_start)
 
 /*
 	Name: function_4802a272
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xC82066BF
 	Offset: 0x27E8
 	Size: 0x55C
@@ -821,7 +821,7 @@ function function_4802a272()
 
 /*
 	Name: function_188bb878
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x7FD0C723
 	Offset: 0x2D50
 	Size: 0x82
@@ -841,7 +841,7 @@ function function_188bb878(str_vo)
 
 /*
 	Name: function_79556c43
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x4872EC1B
 	Offset: 0x2DE0
 	Size: 0x194
@@ -869,7 +869,7 @@ function function_79556c43(var_80296afc, var_5e246f88)
 
 /*
 	Name: function_8846933a
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xCFF4B03
 	Offset: 0x2F80
 	Size: 0xB2
@@ -891,7 +891,7 @@ function function_8846933a()
 
 /*
 	Name: function_4a51430a
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xDB2D2D92
 	Offset: 0x3040
 	Size: 0x158
@@ -925,7 +925,7 @@ function function_4a51430a(n_range = 190, var_16752072 = 1, var_caa1b6b8 = 0.8)
 
 /*
 	Name: function_9ee098d5
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x17F72310
 	Offset: 0x31A0
 	Size: 0x914
@@ -1066,7 +1066,7 @@ function function_9ee098d5()
 
 /*
 	Name: function_99257c19
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xFBA188D0
 	Offset: 0x3AC0
 	Size: 0x54
@@ -1082,7 +1082,7 @@ function function_99257c19()
 
 /*
 	Name: function_c5a4ae6
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x2C1C493C
 	Offset: 0x3B20
 	Size: 0x58
@@ -1098,7 +1098,7 @@ function function_c5a4ae6(v_start, v_end)
 
 /*
 	Name: function_5270aabe
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x2AB6DFAD
 	Offset: 0x3B80
 	Size: 0x148
@@ -1128,7 +1128,7 @@ function function_5270aabe(e_trigger)
 
 /*
 	Name: function_7de84c26
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x1C1BCAF4
 	Offset: 0x3CD0
 	Size: 0x1CE
@@ -1173,7 +1173,7 @@ function function_7de84c26(v_drop, n_drop)
 
 /*
 	Name: function_3c1f242b
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x1F5E40D6
 	Offset: 0x3EA8
 	Size: 0x218
@@ -1232,7 +1232,7 @@ function function_3c1f242b()
 
 /*
 	Name: function_e7423237
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xFD818404
 	Offset: 0x40C8
 	Size: 0x304
@@ -1292,7 +1292,7 @@ function function_e7423237()
 
 /*
 	Name: function_9f0de8b3
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xF65A38C5
 	Offset: 0x43D8
 	Size: 0x168
@@ -1340,7 +1340,7 @@ function function_9f0de8b3()
 
 /*
 	Name: function_9768c04b
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0xE8314F10
 	Offset: 0x4548
 	Size: 0x168
@@ -1365,7 +1365,7 @@ function function_9768c04b()
 
 /*
 	Name: function_cc11b6fd
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x863D710D
 	Offset: 0x46B8
 	Size: 0x4C
@@ -1382,7 +1382,7 @@ function function_cc11b6fd()
 
 /*
 	Name: function_58251713
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x8B1E0E7B
 	Offset: 0x4710
 	Size: 0x13C
@@ -1409,7 +1409,7 @@ function function_58251713(s_params)
 
 /*
 	Name: function_d7d6b759
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x275AEF02
 	Offset: 0x4858
 	Size: 0xD0
@@ -1434,7 +1434,7 @@ function function_d7d6b759()
 
 /*
 	Name: function_886c88e
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x3959069F
 	Offset: 0x4930
 	Size: 0x134
@@ -1457,7 +1457,7 @@ function function_886c88e()
 
 /*
 	Name: function_b9289f93
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x16459233
 	Offset: 0x4A70
 	Size: 0x1B4
@@ -1491,7 +1491,7 @@ function function_b9289f93()
 
 /*
 	Name: function_520a8a02
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x38D61950
 	Offset: 0x4C30
 	Size: 0x1CC
@@ -1525,7 +1525,7 @@ function function_520a8a02()
 
 /*
 	Name: function_486252bc
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x52B4398D
 	Offset: 0x4E08
 	Size: 0xBC
@@ -1545,7 +1545,7 @@ function function_486252bc()
 
 /*
 	Name: function_d23a6d02
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x46E72CB
 	Offset: 0x4ED0
 	Size: 0x118
@@ -1572,7 +1572,7 @@ function function_d23a6d02()
 
 /*
 	Name: function_a9bfed2d
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x7D261108
 	Offset: 0x4FF0
 	Size: 0x3E4
@@ -1672,7 +1672,7 @@ function function_a9bfed2d()
 
 /*
 	Name: function_615d8c38
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x540C0DE6
 	Offset: 0x53E0
 	Size: 0x54A
@@ -1804,7 +1804,7 @@ function function_615d8c38(params)
 
 /*
 	Name: crossbow_kill
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x1F2F30F9
 	Offset: 0x5938
 	Size: 0x74
@@ -1819,7 +1819,7 @@ function crossbow_kill(n_damage, e_player, var_40dea06f, str_hitloc, str_meansof
 
 /*
 	Name: function_9a05e3c2
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x5CC28BA5
 	Offset: 0x59B8
 	Size: 0x180
@@ -1846,7 +1846,7 @@ function function_9a05e3c2(e_player, var_40dea06f, str_hitloc, str_meansofdeath)
 
 /*
 	Name: createspecialcrossbowwatchertypes
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x5CD3D032
 	Offset: 0x5B40
 	Size: 0x8E
@@ -1865,7 +1865,7 @@ function createspecialcrossbowwatchertypes(watcher)
 
 /*
 	Name: onspawncrossbowboltimpact
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x25DD2313
 	Offset: 0x5BD8
 	Size: 0x3C
@@ -1880,7 +1880,7 @@ function onspawncrossbowboltimpact(s_watcher, e_player)
 
 /*
 	Name: onspawncrossbowboltimpact_internal
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x1E1DDD3F
 	Offset: 0x5C20
 	Size: 0x104
@@ -1905,7 +1905,7 @@ function onspawncrossbowboltimpact_internal(s_watcher, e_player)
 
 /*
 	Name: cleanweaponobjectarray
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x188D033F
 	Offset: 0x5D30
 	Size: 0x2E
@@ -1919,7 +1919,7 @@ function cleanweaponobjectarray(watcher)
 
 /*
 	Name: waitandfizzleout
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x98EA87DD
 	Offset: 0x5D68
 	Size: 0xA4
@@ -1944,7 +1944,7 @@ function waitandfizzleout(object, delay)
 
 /*
 	Name: deleteent
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x47662256
 	Offset: 0x5E18
 	Size: 0x3C
@@ -1961,7 +1961,7 @@ function deleteent(attacker, emp, target)
 
 /*
 	Name: function_1e640843
-	Namespace: namespace_bfa7c2ed
+	Namespace: mansion_impaler
 	Checksum: 0x318DE6DD
 	Offset: 0x5E60
 	Size: 0x68

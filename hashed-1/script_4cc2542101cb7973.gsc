@@ -217,7 +217,7 @@ function function_3335f286()
 	zm_sq::register(#"hash_62ca600e9c6f07c0", #"5", #"hash_53dd51d260046017", &step_5, &step_5_cleanup);
 	zm_sq::register(#"hash_62ca600e9c6f07c0", #"6", #"hash_53dd52d2600461ca", &step_6, &step_6_cleanup);
 	zm_sq::register(#"hash_62ca600e9c6f07c0", #"7", #"hash_53dd53d26004637d", &step_7, &step_7_cleanup);
-	zm_sq::register(#"hash_62ca600e9c6f07c0", #"outro", #"hash_4b2d3fa2839cfcf8", &outro, &outro_cleanup, 1, &function_f7a9d7c4);
+	zm_sq::register(#"hash_62ca600e9c6f07c0", #"outro", #"hash_4b2d3fa2839cfcf8", &outro, &outro_cleanup, true, &function_f7a9d7c4);
 }
 
 /*

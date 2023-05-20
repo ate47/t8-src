@@ -108,7 +108,7 @@ function autoexec function_45a212c0()
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_5d35f83e51965781", #"hash_394e9478cf4f8d9d");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_35f5430256d9c158", #"hash_394e9478cf4f8d9d");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"acog_wz_item", #"hash_394e9478cf4f8d9d");
-		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_18e6f0326e75bce4", #"hash_394e9478cf4f8d9d");
+		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"sniperscope_wz_item", #"hash_394e9478cf4f8d9d");
 		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_43d8944b55b1e63c", #"hash_394e9478cf4f8d9d");
 	}
 	customgame = gamemodeismode(1) || gamemodeismode(7);
@@ -307,7 +307,7 @@ function autoexec function_45a212c0()
 		{
 			namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_64f996475acdd244");
 		}
-		if(!(isdefined(getgametypesetting(#"hash_74f828ed58482468")) && getgametypesetting(#"hash_74f828ed58482468")))
+		if(!(isdefined(getgametypesetting(#"wzenablerampart")) && getgametypesetting(#"wzenablerampart")))
 		{
 			namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_7a53240a3664fe64");
 		}
@@ -372,7 +372,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_2f73719d945fc6b5");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_46abc67b302b3b9a")) && getgametypesetting(#"hash_46abc67b302b3b9a")))
+	if(!(isdefined(getgametypesetting(#"wzenableannihilator")) && getgametypesetting(#"wzenableannihilator")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_6c0eed50f4c26acb");
 	}
@@ -472,7 +472,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_371a6c5b25d41927");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_74f828ed58482468")) && getgametypesetting(#"hash_74f828ed58482468")))
+	if(!(isdefined(getgametypesetting(#"wzenablerampart")) && getgametypesetting(#"wzenablerampart")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_3aa75724345f7f87");
 	}
@@ -572,7 +572,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_43aca7fcfd3e5949");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_446939a6459aedf3")) && getgametypesetting(#"hash_446939a6459aedf3")))
+	if(!(isdefined(getgametypesetting(#"wzenabledeathoforion")) && getgametypesetting(#"wzenabledeathoforion")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_5ab8d5a7f1052988");
 	}
@@ -582,7 +582,7 @@ function autoexec function_45a212c0()
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_7d4f218271a68cab");
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_188b62566928d932");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_76432fd7e57b1bee")) && getgametypesetting(#"hash_76432fd7e57b1bee")))
+	if(!(isdefined(getgametypesetting(#"wzenablesavageimpaler")) && getgametypesetting(#"wzenablesavageimpaler")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_50e8d062f783c1b6");
 	}
@@ -594,7 +594,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_7e1689892a14df96");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_71f1a84d7208bd57")) && getgametypesetting(#"hash_71f1a84d7208bd57")))
+	if(!(isdefined(getgametypesetting(#"wzenablealistairsfolly")) && getgametypesetting(#"wzenablealistairsfolly")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_300632fdf0b9f295");
 	}
@@ -606,7 +606,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_6c4a730e599b8513");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_39d72f93c54f240e")) && getgametypesetting(#"hash_39d72f93c54f240e")))
+	if(!(isdefined(getgametypesetting(#"wzenableminigun")) && getgametypesetting(#"wzenableminigun")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_383a7ee05d5b8327");
 	}
@@ -626,15 +626,15 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_213093d947c30be6");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_176ffa7e5bcc3e9b")) && getgametypesetting(#"hash_176ffa7e5bcc3e9b")))
+	if(!(isdefined(getgametypesetting(#"wzenableconcussiongrenade")) && getgametypesetting(#"wzenableconcussiongrenade")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1a7edb90a484158b");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_6ac86084bc041660")) && getgametypesetting(#"hash_6ac86084bc041660")))
+	if(!(isdefined(getgametypesetting(#"wzenablesensordart")) && getgametypesetting(#"wzenablesensordart")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_300914db9caf4033");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_50352319697250b")) && getgametypesetting(#"hash_50352319697250b")))
+	if(!(isdefined(getgametypesetting(#"wzenableclustergrenade")) && getgametypesetting(#"wzenableclustergrenade")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_3074c41bb205ed8c");
 	}
@@ -666,15 +666,15 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_745d80b3e4f28da1");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_270fc90c123830a3")) && getgametypesetting(#"hash_270fc90c123830a3")))
+	if(!(isdefined(getgametypesetting(#"wzenablemolotov")) && getgametypesetting(#"wzenablemolotov")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_4cec712579f1202f");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_3ff237bde39c8efd")) && getgametypesetting(#"hash_3ff237bde39c8efd")))
+	if(!(isdefined(getgametypesetting(#"wzenablecombataxe")) && getgametypesetting(#"wzenablecombataxe")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_5752a7e130ea202a");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_54b31c3bfb70da4c")) && getgametypesetting(#"hash_54b31c3bfb70da4c")))
+	if(!(isdefined(getgametypesetting(#"wzenablerazorwire")) && getgametypesetting(#"wzenablerazorwire")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_14b578e446580ad5");
 	}
@@ -723,7 +723,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"homunculus_wz_item");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_950a1bae46ea69e")) && getgametypesetting(#"hash_950a1bae46ea69e")))
+	if(!(isdefined(getgametypesetting(#"wzenablesentrygun")) && getgametypesetting(#"wzenablesentrygun")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_50b970644e43947b");
 	}
@@ -743,39 +743,39 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_45ced3880667df22");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_6441f0d43571288")) && getgametypesetting(#"hash_6441f0d43571288")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkparanoia")) && getgametypesetting(#"wzenableperkparanoia")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_5d35f83e51965781");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_624b317222a0532b")) && getgametypesetting(#"hash_624b317222a0532b")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkconsumer")) && getgametypesetting(#"wzenableperkconsumer")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_750be705a5c4201e");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_6062f089b8e2a9b6")) && getgametypesetting(#"hash_6062f089b8e2a9b6")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkironlungs")) && getgametypesetting(#"wzenableperkironlungs")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1a79c2970ba8bf79");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_26c2d144e8174846")) && getgametypesetting(#"hash_26c2d144e8174846")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkbrawler")) && getgametypesetting(#"wzenableperkbrawler")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_3d82033b67579745");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_330eef3a75c26bb4")) && getgametypesetting(#"hash_330eef3a75c26bb4")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkawareness")) && getgametypesetting(#"wzenableperkawareness")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_799f875c8f064a83");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_2ca3c9c6942bd9a6")) && getgametypesetting(#"hash_2ca3c9c6942bd9a6")))
+	if(!(isdefined(getgametypesetting(#"wzenableperklooter")) && getgametypesetting(#"wzenableperklooter")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_58c7fc0e9b3387bf");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_50105b0ebfabeb63")) && getgametypesetting(#"hash_50105b0ebfabeb63")))
+	if(!(isdefined(getgametypesetting(#"wzenableperksquadlink")) && getgametypesetting(#"wzenableperksquadlink")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_35f5430256d9c158");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_522bb6c75afd7380")) && getgametypesetting(#"hash_522bb6c75afd7380")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkreinforced")) && getgametypesetting(#"wzenableperkreinforced")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_3ccd209713ecb085");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_7f16c3fe5a8dcf07")) && getgametypesetting(#"hash_7f16c3fe5a8dcf07")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkmedic")) && getgametypesetting(#"wzenableperkmedic")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_2011eafeff274fc8");
 	}
@@ -783,7 +783,7 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1f0f67f0ad9a766");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_270660990ceab264")) && getgametypesetting(#"hash_270660990ceab264")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkdeadsilence")) && getgametypesetting(#"wzenableperkdeadsilence")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_332dd2a4956f495f");
 	}
@@ -791,15 +791,15 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_5df4c523191c9bf7");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_f5ea977f20c026a")) && getgametypesetting(#"hash_f5ea977f20c026a")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkmobility")) && getgametypesetting(#"wzenableperkmobility")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_5d7898105fc6595a");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_59fbb75e58a43cc6")) && getgametypesetting(#"hash_59fbb75e58a43cc6")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkengineer")) && getgametypesetting(#"wzenableperkengineer")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_61d6c77ca964fa5b");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_2f487cfcc854c2e3")) && getgametypesetting(#"hash_2f487cfcc854c2e3")))
+	if(!(isdefined(getgametypesetting(#"wzenableperkoutlander")) && getgametypesetting(#"wzenableperkoutlander")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b898a6e72d622d8");
 	}
@@ -845,7 +845,7 @@ function autoexec function_45a212c0()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablefastmag")) && getgametypesetting(#"wzenablefastmag")))
 	{
-		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_513a787ad3a20198");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"fastmag_wz_item");
 	}
 	if(!(isdefined(getgametypesetting(#"hash_34f53d28a9bbfae9")) && getgametypesetting(#"hash_34f53d28a9bbfae9")))
 	{
@@ -867,15 +867,15 @@ function autoexec function_45a212c0()
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"reflex_wz_item");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_7b794bb976baacfc")) && getgametypesetting(#"hash_7b794bb976baacfc")))
+	if(!(isdefined(getgametypesetting(#"wzenablesniperscope")) && getgametypesetting(#"wzenablesniperscope")))
 	{
-		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_18e6f0326e75bce4");
+		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"sniperscope_wz_item");
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablestock")) && getgametypesetting(#"wzenablestock")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"stock_wz_item");
 	}
-	if(!(isdefined(getgametypesetting(#"hash_21617b6e09ed2361")) && getgametypesetting(#"hash_21617b6e09ed2361")))
+	if(!(isdefined(getgametypesetting(#"wzenablesuppressor")) && getgametypesetting(#"wzenablesuppressor")))
 	{
 		namespace_da5c04c3::item_remover(var_a12b4736, var_87d0eef8, #"hash_460aadea32c22c61");
 	}

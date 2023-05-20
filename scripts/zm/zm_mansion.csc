@@ -2,7 +2,7 @@
 #using scripts\zm\ai\zm_ai_bat.csc;
 #using script_14d2d89964cae0b1;
 #using scripts\zm\zm_mansion_jordans.csc;
-#using script_1ebb85ae10368663;
+#using scripts\zm\zm_mansion_impaler.csc;
 #using scripts\zm\zm_mansion_triad.csc;
 #using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\zm_common\zm_characters.csc;
@@ -125,7 +125,7 @@ event main(eventstruct)
 	namespace_a8113e97::init_clientfields();
 	namespace_b6ca3ccc::init_clientfields();
 	mansion_triad::init_clientfields();
-	namespace_bfa7c2ed::init_clientfields(); // ww_crossbow_impaler_t8 quests
+	mansion_impaler::init_clientfields(); // ww_crossbow_impaler_t8 quests
 	namespace_c2ad41c5::init(); // billiard balls
 	mansion_pap::init_fx();
 	mansion_pap::init_clientfields();

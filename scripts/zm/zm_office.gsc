@@ -180,7 +180,7 @@ event main(eventstruct)
 	level thread registergondola_moving_watcher();
 	level thread function_8aea12();
 	level thread function_785cadc4();
-	zm_sq::register(#"main_quest", #"step1", #"hash_269c18969e47568f", &function_7b48256b, &function_e3a10039, 1);
+	zm_sq::register(#"main_quest", #"step1", #"main_quest_step1", &function_7b48256b, &function_e3a10039, 1);
 	zm_sq::start(#"main_quest");
 	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
 	if(zm_custom::function_901b751c(#"zmenhancedstate") == 2)

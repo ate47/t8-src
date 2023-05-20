@@ -3592,7 +3592,7 @@ function function_3f7ef88()
 		pistol = function_4ba8fde(#"hash_5cc9b5e23093ac03");
 		var_fa3df96 = self function_e66dcff5(pistol);
 		pistol.attachments = [];
-		attachment = function_4ba8fde(#"hash_513a787ad3a20198");
+		attachment = function_4ba8fde(#"fastmag_wz_item");
 		var_e38a0464 = function_520b16d6();
 		var_e38a0464.count = 1;
 		var_e38a0464.id = attachment.id;
