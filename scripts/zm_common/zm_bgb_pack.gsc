@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_34dd50761fe08819;
+#using scripts\zm_common\trials\zm_trial_disable_bgbs.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\animation_shared.gsc;
@@ -260,7 +260,7 @@ function function_dc818f99()
 			waitframe(1);
 			continue;
 		}
-		if(namespace_a90d606b::is_active() && (self actionslotonebuttonpressed() || self actionslotfourbuttonpressed() || self actionslottwobuttonpressed() || self actionslotthreebuttonpressed()))
+		if(zm_trial_disable_bgbs::is_active() && (self actionslotonebuttonpressed() || self actionslotfourbuttonpressed() || self actionslottwobuttonpressed() || self actionslotthreebuttonpressed()))
 		{
 			self zm_trial_util::function_97444b02();
 			do
@@ -661,7 +661,7 @@ function function_efe33e13()
 	{
 		level waittill(#"end_of_round");
 		self.var_22fbe1cc = 0;
-		if(!namespace_a90d606b::is_active())
+		if(!zm_trial_disable_bgbs::is_active())
 		{
 			self function_f2173c97(0);
 		}

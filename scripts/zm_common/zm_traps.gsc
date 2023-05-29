@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using script_2f9a68261f6a17be;
 #using script_301f64a4090c381a;
 #using script_5660bae5b402a1eb;
@@ -334,7 +334,7 @@ function trap_main()
 */
 function function_783f63e9(var_1c9c3123 = 1)
 {
-	if(namespace_497ab7da::is_active())
+	if(zm_trial_disable_buys::is_active())
 	{
 		self trap_set_string(#"hash_55d25caf8f7bbb2f");
 	}
@@ -388,7 +388,7 @@ function trap_use_think(trap)
 		{
 			continue;
 		}
-		if(isdefined(self.var_fc36786e) && self.var_fc36786e || (isdefined(level.var_4f7df1ac) && level.var_4f7df1ac) || namespace_497ab7da::is_active())
+		if(isdefined(self.var_fc36786e) && self.var_fc36786e || (isdefined(level.var_4f7df1ac) && level.var_4f7df1ac) || zm_trial_disable_buys::is_active())
 		{
 			continue;
 		}

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6ef496a1b77e83a4;
+#using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\zm\perk\zm_perk_mod_additionalprimaryweapon.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -190,7 +190,7 @@ function take_additional_primary_weapon_perk(b_pause, str_perk, str_result, n_sl
 		var_287a8343 = zm_utility::get_player_weapon_limit(self);
 		if(var_3ba4bf7d.size > var_287a8343)
 		{
-			if(zm_perks::function_e56d8ef4(#"specialty_additionalprimaryweapon") && !namespace_5f71460c::is_active())
+			if(zm_perks::function_e56d8ef4(#"specialty_additionalprimaryweapon") && !zm_trial_disable_perks::is_active())
 			{
 				self clientfield::set_player_uimodel("hudItems.perks.additional_primary_weapon", 0);
 				return;

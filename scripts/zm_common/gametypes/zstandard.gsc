@@ -99,7 +99,7 @@ event main(eventstruct)
 	level.var_236b9f7a = &function_37fe3e07;
 	level.func_magicbox_update_prompt_use_override = &function_127f0ac5;
 	level.custom_generic_deny_vo_func = &function_8d66c98c;
-	level.var_c1fe3c83 = &function_b6bd04b4;
+	level.var_c1fe3c83 = &set_revive_count;
 	level.var_8c978b55 = &function_d679a241;
 	level.var_a6f62e91 = &function_36f1c05b;
 	level.var_932a1afb = &function_75ebd926;
@@ -1635,7 +1635,7 @@ function get_delay_between_rounds()
 }
 
 /*
-	Name: function_b6bd04b4
+	Name: set_revive_count
 	Namespace: zstandard
 	Checksum: 0xB3B77786
 	Offset: 0x48F8
@@ -1643,7 +1643,7 @@ function get_delay_between_rounds()
 	Parameters: 0
 	Flags: None
 */
-function function_b6bd04b4()
+function set_revive_count()
 {
 	self clientfield::set_world_uimodel(("PlayerList.client" + self.entity_num) + ".self_revives", self.var_72249004);
 }

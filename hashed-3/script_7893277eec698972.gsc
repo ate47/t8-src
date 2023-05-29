@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using script_3e5ec44cfab7a201;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
@@ -791,7 +791,7 @@ function function_8498110e(e_player)
 */
 function private registerblinkingshouldshowpain(e_player)
 {
-	if(namespace_497ab7da::is_active())
+	if(zm_trial_disable_buys::is_active())
 	{
 		self sethintstring(#"hash_55d25caf8f7bbb2f");
 		return true;
@@ -1060,7 +1060,7 @@ function function_ae6c3cf2()
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
 		user = waitresult.activator;
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			continue;
 		}

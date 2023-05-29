@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm_unitrigger.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_45e52e8a;
+#namespace zm_orange_mq_dials;
 
 /*
 	Name: preload
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x80F724D1
 	Offset: 0x1E0
 	Size: 0x4
@@ -29,7 +29,7 @@ function preload()
 
 /*
 	Name: main
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x83B40FF8
 	Offset: 0x1F0
 	Size: 0x26C
@@ -60,7 +60,7 @@ function main()
 
 /*
 	Name: function_77ed3bab
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x6F47AB51
 	Offset: 0x468
 	Size: 0x26C
@@ -107,7 +107,7 @@ function function_77ed3bab(var_5ea5c94d)
 
 /*
 	Name: function_51ecc801
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0xFEC00162
 	Offset: 0x6E0
 	Size: 0xFC
@@ -131,7 +131,7 @@ function function_51ecc801(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_bd605daa
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x374A2B0D
 	Offset: 0x7E8
 	Size: 0x24
@@ -145,7 +145,7 @@ function function_bd605daa()
 
 /*
 	Name: function_5a73ee80
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0xC5CB5C6C
 	Offset: 0x818
 	Size: 0x90
@@ -167,7 +167,7 @@ function function_5a73ee80()
 
 /*
 	Name: function_1e5c0d3b
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x90EAA58B
 	Offset: 0x8B0
 	Size: 0x33E
@@ -243,7 +243,7 @@ function private function_1e5c0d3b()
 
 /*
 	Name: lavapit_breach_
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0xEA409397
 	Offset: 0xBF8
 	Size: 0x12C
@@ -271,7 +271,7 @@ function private lavapit_breach_(object)
 
 /*
 	Name: function_a02dfba
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0xBA2F7338
 	Offset: 0xD30
 	Size: 0xA0
@@ -289,7 +289,7 @@ function function_a02dfba()
 
 /*
 	Name: function_eb2835af
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x237F2AFD
 	Offset: 0xDD8
 	Size: 0xF2
@@ -310,7 +310,7 @@ function function_eb2835af()
 
 /*
 	Name: function_66365668
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x226FA7BA
 	Offset: 0xED8
 	Size: 0x102
@@ -346,7 +346,7 @@ function function_66365668(n_code)
 
 /*
 	Name: function_5f228e90
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0xD5A784D2
 	Offset: 0xFE8
 	Size: 0x12C
@@ -367,7 +367,7 @@ function function_5f228e90()
 
 /*
 	Name: function_ca3efcd8
-	Namespace: namespace_45e52e8a
+	Namespace: zm_orange_mq_dials
 	Checksum: 0x652B52D8
 	Offset: 0x1120
 	Size: 0x104

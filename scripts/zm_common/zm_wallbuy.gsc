@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using script_6e3c826b1814cab6;
@@ -489,7 +489,7 @@ function wall_weapon_update_prompt(player)
 	}
 	else
 	{
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			return false;
 		}
@@ -919,7 +919,7 @@ function weapon_spawn_think()
 			wait(0.1);
 			continue;
 		}
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			wait(0.1);
 			continue;

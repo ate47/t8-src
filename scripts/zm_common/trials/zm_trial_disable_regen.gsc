@@ -6,11 +6,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
-#namespace namespace_34cc3243;
+#namespace zm_trial_disable_regen;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_34cc3243
+	Namespace: zm_trial_disable_regen
 	Checksum: 0x584F26BC
 	Offset: 0xC0
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_76d53a060efc848a", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_regen", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_34cc3243
+	Namespace: zm_trial_disable_regen
 	Checksum: 0xE7F40035
 	Offset: 0x108
 	Size: 0x5C
@@ -42,7 +42,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_34cc3243
+	Namespace: zm_trial_disable_regen
 	Checksum: 0x1678FC6D
 	Offset: 0x170
 	Size: 0x90
@@ -59,7 +59,7 @@ function private on_begin()
 
 /*
 	Name: on_end
-	Namespace: namespace_34cc3243
+	Namespace: zm_trial_disable_regen
 	Checksum: 0xC1DDD899
 	Offset: 0x208
 	Size: 0x98
@@ -76,7 +76,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_34cc3243
+	Namespace: zm_trial_disable_regen
 	Checksum: 0x148765F9
 	Offset: 0x2A8
 	Size: 0x4A

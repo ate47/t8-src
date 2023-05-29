@@ -20,11 +20,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_13b4b4b;
+#namespace zm_orange_mq_sendoff;
 
 /*
 	Name: preload
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x313E7C65
 	Offset: 0x240
 	Size: 0x44
@@ -38,7 +38,7 @@ function preload()
 
 /*
 	Name: init
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0xFFA468EF
 	Offset: 0x290
 	Size: 0x64
@@ -53,7 +53,7 @@ function init()
 
 /*
 	Name: function_5309464a
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x9FF08D77
 	Offset: 0x300
 	Size: 0x174
@@ -84,7 +84,7 @@ function function_5309464a(var_5ea5c94d)
 
 /*
 	Name: function_ae270d9e
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x26797BC7
 	Offset: 0x480
 	Size: 0x1C
@@ -97,7 +97,7 @@ function function_ae270d9e(var_5ea5c94d, ended_early)
 
 /*
 	Name: function_b5f900c3
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x9722BECC
 	Offset: 0x4A8
 	Size: 0x4C
@@ -115,7 +115,7 @@ function function_b5f900c3()
 
 /*
 	Name: function_39c9e020
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x8AD33E28
 	Offset: 0x500
 	Size: 0x1EC
@@ -164,7 +164,7 @@ function function_39c9e020()
 
 /*
 	Name: sun_deck_watcher
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x9464413D
 	Offset: 0x6F8
 	Size: 0x64
@@ -187,7 +187,7 @@ function sun_deck_watcher()
 
 /*
 	Name: function_d096f18f
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x53386672
 	Offset: 0x768
 	Size: 0x43C
@@ -233,7 +233,7 @@ function function_d096f18f()
 
 /*
 	Name: function_8a707841
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0xA35BFF9
 	Offset: 0xBB0
 	Size: 0xD2
@@ -256,7 +256,7 @@ function function_8a707841(n_loop_time)
 
 /*
 	Name: function_39d9b290
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x211E53E0
 	Offset: 0xC90
 	Size: 0xC4
@@ -279,7 +279,7 @@ function function_39d9b290()
 
 /*
 	Name: function_bf106bdf
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x93491629
 	Offset: 0xD60
 	Size: 0x1CC
@@ -305,7 +305,7 @@ function function_bf106bdf()
 
 /*
 	Name: function_f140d71a
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x6BC603E5
 	Offset: 0xF38
 	Size: 0x74

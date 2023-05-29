@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_35598499769dbb3d;
-#using script_460f2e04fb3cff8a;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -76,7 +76,7 @@ function event()
 */
 function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
-	if(meansofdeath === "MOD_MELEE" && !namespace_25f0796c::is_active() && !zm_loadout::is_hero_weapon(weapon) && weapon != level.weaponnone)
+	if(meansofdeath === "MOD_MELEE" && !zm_trial_headshots_only::is_active() && !zm_loadout::is_hero_weapon(weapon) && weapon != level.weaponnone)
 	{
 		attacker function_40383770(self);
 	}

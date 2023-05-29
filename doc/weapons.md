@@ -308,7 +308,7 @@ The ids are:
 - `is`: Iron Sights
 - `mixclip`: Hybrid Mags
 - `mms`: Threat Detector
-- `pistolscope`: Compact Scope
+- `pistolscope`: Compact Scope (Mozu, Daemon)
 - `quickdraw`: Quickdraw
 - `quickdraw2`: Quickdraw II
 - `reflex`: Reflex
@@ -321,4 +321,9 @@ The ids are:
 - `supply`: Rocket Cache
 - `suppressed`: Suppressor
 - `swayreduc`: Stabilizer
+- `dw`: Unknwon
+- `custom2`: unknown
+- `custom3`: Projectile speed (Crossbow/Balistic knife)
 - `uber`: operator mod
+- `clantag`: Clan tag
+- `killcounter`: Kill counter

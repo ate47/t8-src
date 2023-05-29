@@ -10,11 +10,11 @@
 #using scripts\core_common\weapons_shared.gsc;
 #using scripts\zm_common\zm_perks.gsc;
 
-#namespace namespace_5f71460c;
+#namespace zm_trial_disable_perks;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xA1E45001
 	Offset: 0xB8
 	Size: 0x3C
@@ -23,12 +23,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_6e3eb3affb730b9a", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_perks", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0x24906419
 	Offset: 0x100
 	Size: 0x5C
@@ -46,7 +46,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xD0582FB9
 	Offset: 0x168
 	Size: 0x154
@@ -75,7 +75,7 @@ function private on_begin()
 
 /*
 	Name: on_end
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0x651E1DE7
 	Offset: 0x2C8
 	Size: 0x14C
@@ -104,7 +104,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0x5B76304D
 	Offset: 0x420
 	Size: 0x7A
@@ -123,7 +123,7 @@ function is_active(var_34f09024 = 0)
 
 /*
 	Name: lose_perk
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xBE2C7CD1
 	Offset: 0x4A8
 	Size: 0x1A2
@@ -157,7 +157,7 @@ function lose_perk(perk)
 
 /*
 	Name: function_776fbeaf
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xFEA16EA2
 	Offset: 0x658
 	Size: 0x112
@@ -178,7 +178,7 @@ function function_776fbeaf(s_params)
 
 /*
 	Name: function_551412f6
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0x47BD913
 	Offset: 0x778
 	Size: 0x3E
@@ -197,7 +197,7 @@ function function_551412f6()
 
 /*
 	Name: function_f0b698a7
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xD0AE527A
 	Offset: 0x7C0
 	Size: 0x3A
@@ -214,7 +214,7 @@ function private function_f0b698a7()
 
 /*
 	Name: function_85611c27
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0x99E3999D
 	Offset: 0x808
 	Size: 0xC4
@@ -239,7 +239,7 @@ function private function_85611c27()
 
 /*
 	Name: function_2c0ae6d1
-	Namespace: namespace_5f71460c
+	Namespace: zm_trial_disable_perks
 	Checksum: 0xD6AE20D7
 	Offset: 0x8D8
 	Size: 0x15E

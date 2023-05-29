@@ -18,18 +18,20 @@
 You can customize a weapon when giving it using weapon options, you can build them using the method
 
 ```c++
-<player> calcweaponoptions(int camo_id, int reticle_id = 0, int mastercraft_id = 0) -> WeaponOptions;
+<player> calcweaponoptions(int camo_id, int reticle_id = 0, int mastercraft_id = 0, bool unknown4 = false, bool unknown5 = false) -> int;
 ```
 
 - `camo_id` is the camo ID, 0 for default
 - `reticle_id` is the mastercraft ID, 0 for default
 - `mastercraft_id` is the reticle ID, 0 for default
   - **Warning**: a bad camo or reticle id is fine, but a bad mastercraft id will **crash your game**!
+- `unknown4` i don't know (yet), but it's a boolean
+- `unknown5` i don't know (yet), but it's a boolean
 
 then you add it while giving the weapon
 
 ```c++
-<player> giveweapon(Weapon weapon, WeaponOptions weapon_options);
+<player> giveweapon(Weapon weapon, int weapon_options);
 ```
 
 you can also set the camo of a weapon without the weapon options using the method, it will bypass the reactive camo scripts.
@@ -37,6 +39,20 @@ you can also set the camo of a weapon without the weapon options using the metho
 ```c++
 <player> setcamo(Weapon weapon, int camo_id);
 ```
+
+A weapon_options is an int (all the numbers will be shown using base 16)
+
+by default this number is `x = 0x400000000`
+
+- Then the camo ID is applied using `x | camo_id`, example for `camo_id=0xC4`: `0x4000000C4`
+
+- The reticle ID is applied using `x | (reticle_id << 14)`, example for `reticle_id=0x01`: `0x400004000`
+
+- The mastercraft ID is applied using `x | (mastercraft_id << 41)`, example for `mastercraft_id=0x02`: `0x40400000000`
+
+- The unknown4 boolean is applied using `x | (unknown4 << 45)`, example for `mastercraft_id=0x02`: `0x200400000000`
+
+- The unknown5 boolean is applied using `x | (unknown5 << 22)`, example for `mastercraft_id=0x02`: `0x400400000`
 
 
 ## Camos

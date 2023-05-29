@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_vo.gsc;
@@ -433,7 +433,7 @@ function boxstub_update_prompt(player)
 	}
 	else
 	{
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			self sethintstring(#"hash_55d25caf8f7bbb2f");
 			return true;
@@ -853,7 +853,7 @@ function treasure_chest_think()
 			user = self.forced_user;
 		}
 		self.var_75c86f89 = undefined;
-		if(!user can_buy_weapon() || (isdefined(self.disabled) && self.disabled) || namespace_497ab7da::is_active() || (isdefined(self.being_removed) && self.being_removed))
+		if(!user can_buy_weapon() || (isdefined(self.disabled) && self.disabled) || zm_trial_disable_buys::is_active() || (isdefined(self.being_removed) && self.being_removed))
 		{
 			wait(0.1);
 			continue;
@@ -925,7 +925,7 @@ function treasure_chest_think()
 		level notify(#"hash_39b0256c6c9885fc", {#e_player:self.chest_user});
 	}
 	self thread watch_for_emp_close();
-	self thread namespace_497ab7da::function_8327d26e();
+	self thread zm_trial_disable_buys::function_8327d26e();
 	if(isdefined(level.var_f39bb42a))
 	{
 		self thread [[level.var_f39bb42a]]();

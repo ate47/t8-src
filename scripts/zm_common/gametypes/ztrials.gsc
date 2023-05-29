@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_10034e69dca1cdbd;
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\trials\zm_trial_give_reward.gsc;
 #using script_1496ada77dc2f2e2;
 #using script_1827ef4caab1c237;
@@ -10,7 +10,7 @@
 #using script_27d214e32f50853d;
 #using script_35d3717bf2cbee8f;
 #using script_3657077a08b7f19e;
-#using script_460f2e04fb3cff8a;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using script_4aeb3279b6b23a91;
 #using script_512d27609721ec85;
 #using script_536485e2fdf72e34;
@@ -272,7 +272,7 @@ function private function_b8839207(e_door, n_cost)
 	e_door endon(#"hash_42c191c31ed08a4", #"death");
 	while(true)
 	{
-		if(n_cost > 0 && namespace_497ab7da::is_active())
+		if(n_cost > 0 && zm_trial_disable_buys::is_active())
 		{
 			e_door sethintstring(#"hash_55d25caf8f7bbb2f");
 		}

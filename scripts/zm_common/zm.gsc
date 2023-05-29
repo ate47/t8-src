@@ -35,7 +35,7 @@
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_2.gsc;
 #using scripts\zm_common\aats\zm_aat_brain_decay.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_1.gsc;
-#using script_460f2e04fb3cff8a;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\zm_common\talisman\zm_talisman_weapon_reducepapcost.gsc;
 #using scripts\zm\weapons\zm_weap_homunculus.gsc;
 #using scripts\core_common\player\player_stats.gsc;
@@ -1413,7 +1413,7 @@ function vehicle_damage_override(einflictor, eattacker, idamage, idflags, smeans
 */
 function private function_7bdb1f9f(attacker, damage, meansofdeath, weapon, shitloc)
 {
-	if(isdefined(level.headshots_only) && level.headshots_only || namespace_25f0796c::is_active() && isplayer(attacker))
+	if(isdefined(level.headshots_only) && level.headshots_only || zm_trial_headshots_only::is_active() && isplayer(attacker))
 	{
 		if(meansofdeath == "MOD_MELEE" && (shitloc == "head" || shitloc == "helmet"))
 		{

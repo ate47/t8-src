@@ -2,11 +2,11 @@
 #using scripts\zm_common\zm_trial.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_497ab7da;
+#namespace zm_trial_disable_buys;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xBD0449B4
 	Offset: 0x78
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_42f44652a16988d8", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_buys", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xACE5A132
 	Offset: 0xC0
 	Size: 0x33C
@@ -61,7 +61,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xCB56358F
 	Offset: 0x408
 	Size: 0x14
@@ -74,7 +74,7 @@ function private on_begin(local_client_num, params)
 
 /*
 	Name: on_end
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x613FD966
 	Offset: 0x428
 	Size: 0xC

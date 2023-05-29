@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_14d4cc4687ff9afd;
 #using scripts\zm\zm_orange_pap.gsc;
-#using script_5c6694d7aa0f1490;
+#using scripts\zm\zm_orange_mq_sendoff.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm\zm_orange_ee_dynamite.gsc;
@@ -172,7 +172,7 @@ function private devgui()
 				}
 				case "play_portal":
 				{
-					level thread namespace_13b4b4b::function_d096f18f();
+					level thread zm_orange_mq_sendoff::function_d096f18f();
 					break;
 				}
 				case "hash_86a620951049404":

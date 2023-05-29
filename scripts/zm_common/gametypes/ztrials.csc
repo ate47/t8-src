@@ -5,7 +5,7 @@
 #using scripts\zm_common\zm_trial_util.csc;
 #using script_45657e86e8f90414;
 #using script_5afd8ff8f8304cc4;
-#using script_6e6840022cbf42f4;
+#using scripts\zm_common\trials\zm_trial_disable_buys.csc;
 #using script_70ab01a7690ea256;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\struct.csc;

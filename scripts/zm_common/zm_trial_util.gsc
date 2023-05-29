@@ -3,7 +3,7 @@
 #using script_1de6f3c239229d19;
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6ef496a1b77e83a4;
+#using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -646,7 +646,7 @@ function function_d37a769(var_806e2de0)
 			self.var_c27f1e90[slot] = var_806e2de0.var_8f0c164f[slot];
 		}
 		vapor = self.var_c27f1e90[slot];
-		if(var_806e2de0.var_149ec45c[slot] || (self zm_perks::function_e56d8ef4(vapor) && !namespace_5f71460c::is_active(1)))
+		if(var_806e2de0.var_149ec45c[slot] || (self zm_perks::function_e56d8ef4(vapor) && !zm_trial_disable_perks::is_active(1)))
 		{
 			if(isdefined(var_806e2de0.var_c4193958) && isdefined(var_806e2de0.var_c4193958[slot]))
 			{

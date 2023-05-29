@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_bgb.gsc;
 
-#namespace namespace_a90d606b;
+#namespace zm_trial_disable_bgbs;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_a90d606b
+	Namespace: zm_trial_disable_bgbs
 	Checksum: 0x62AB5B49
 	Offset: 0x88
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5e833052f96b85bd", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_bgbs", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_a90d606b
+	Namespace: zm_trial_disable_bgbs
 	Checksum: 0xB69C50B9
 	Offset: 0xD0
 	Size: 0x5C
@@ -40,7 +40,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_a90d606b
+	Namespace: zm_trial_disable_bgbs
 	Checksum: 0xDF601257
 	Offset: 0x138
 	Size: 0xC8
@@ -60,7 +60,7 @@ function private on_begin()
 
 /*
 	Name: on_end
-	Namespace: namespace_a90d606b
+	Namespace: zm_trial_disable_bgbs
 	Checksum: 0x58F40DDB
 	Offset: 0x208
 	Size: 0xC0
@@ -79,7 +79,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_a90d606b
+	Namespace: zm_trial_disable_bgbs
 	Checksum: 0x225D45FD
 	Offset: 0x2D0
 	Size: 0x32

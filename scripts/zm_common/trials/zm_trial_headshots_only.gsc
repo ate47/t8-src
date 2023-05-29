@@ -8,11 +8,11 @@
 #using scripts\zm_common\zm_traps.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_25f0796c;
+#namespace zm_trial_headshots_only;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0x37451D23
 	Offset: 0xD8
 	Size: 0x3C
@@ -21,12 +21,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_771cd3c1dc16ee32", &__init__, undefined, undefined);
+	system::register(#"zm_trial_headshots_only", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0x86CFE75A
 	Offset: 0x120
 	Size: 0x5C
@@ -44,7 +44,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0xC9143673
 	Offset: 0x188
 	Size: 0x20C
@@ -75,7 +75,7 @@ function private on_begin(weapon_name)
 
 /*
 	Name: on_end
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0x729DA5A0
 	Offset: 0x3A0
 	Size: 0x2A4
@@ -113,7 +113,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0x15525366
 	Offset: 0x650
 	Size: 0x32
@@ -128,7 +128,7 @@ function is_active()
 
 /*
 	Name: function_33f0ddd3
-	Namespace: namespace_25f0796c
+	Namespace: zm_trial_headshots_only
 	Checksum: 0x46A8B16E
 	Offset: 0x690
 	Size: 0x6C

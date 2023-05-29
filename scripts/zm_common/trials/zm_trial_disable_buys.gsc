@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm_traps.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_497ab7da;
+#namespace zm_trial_disable_buys;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xA4BD0545
 	Offset: 0x3B0
 	Size: 0x3C
@@ -25,12 +25,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_42f44652a16988d8", &__init__, undefined, undefined);
+	system::register(#"zm_trial_disable_buys", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xC2484A67
 	Offset: 0x3F8
 	Size: 0x1F4
@@ -56,7 +56,7 @@ function __init__()
 
 /*
 	Name: on_begin
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x10BC5B6A
 	Offset: 0x5F8
 	Size: 0xE4
@@ -85,7 +85,7 @@ function private on_begin(var_a29299fb)
 
 /*
 	Name: on_end
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x2092082D
 	Offset: 0x6E8
 	Size: 0xC4
@@ -112,7 +112,7 @@ function private on_end(round_reset)
 
 /*
 	Name: is_active
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xFE251612
 	Offset: 0x7B8
 	Size: 0x32
@@ -127,7 +127,7 @@ function is_active()
 
 /*
 	Name: function_8327d26e
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x40DFFC8E
 	Offset: 0x7F8
 	Size: 0x176
@@ -171,7 +171,7 @@ function function_8327d26e()
 
 /*
 	Name: function_6fd56055
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xD4B3E8B5
 	Offset: 0x978
 	Size: 0x2E8
@@ -220,7 +220,7 @@ function private function_6fd56055()
 
 /*
 	Name: function_fa70c8c4
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x50147A13
 	Offset: 0xC68
 	Size: 0x2C0
@@ -269,7 +269,7 @@ function private function_fa70c8c4()
 
 /*
 	Name: _open_arcs
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xE414D83A
 	Offset: 0xF30
 	Size: 0x58
@@ -287,7 +287,7 @@ function private _open_arcs(blocker)
 
 /*
 	Name: function_fcf197fa
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xD3C7F6A1
 	Offset: 0xF90
 	Size: 0x252
@@ -344,7 +344,7 @@ function private function_fcf197fa(targetname, show)
 
 /*
 	Name: function_a4284cb4
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x81DC0BF3
 	Offset: 0x11F0
 	Size: 0x34
@@ -359,7 +359,7 @@ function private function_a4284cb4()
 
 /*
 	Name: function_c606ef4b
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x294812D0
 	Offset: 0x1230
 	Size: 0x44
@@ -374,7 +374,7 @@ function private function_c606ef4b()
 
 /*
 	Name: function_4516d298
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x18C82E66
 	Offset: 0x1280
 	Size: 0x40
@@ -392,7 +392,7 @@ function private function_4516d298()
 
 /*
 	Name: function_610df6d
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x14F91AAF
 	Offset: 0x12C8
 	Size: 0x3E
@@ -410,7 +410,7 @@ function private function_610df6d()
 
 /*
 	Name: function_47c81160
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x2D8B87DC
 	Offset: 0x1310
 	Size: 0x74
@@ -430,7 +430,7 @@ function private function_47c81160()
 
 /*
 	Name: function_d7ee2133
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x41BE6DCA
 	Offset: 0x1390
 	Size: 0x5C
@@ -449,7 +449,7 @@ function private function_d7ee2133()
 
 /*
 	Name: function_d5e17413
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x53154351
 	Offset: 0x13F8
 	Size: 0x5C
@@ -467,7 +467,7 @@ function private function_d5e17413()
 
 /*
 	Name: function_c348adcc
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0xF5C33C97
 	Offset: 0x1460
 	Size: 0x7C
@@ -488,7 +488,7 @@ function private function_c348adcc()
 
 /*
 	Name: function_ffdd5310
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x21D3BBD9
 	Offset: 0x14E8
 	Size: 0xD8
@@ -508,7 +508,7 @@ function private function_ffdd5310()
 
 /*
 	Name: function_c0da518d
-	Namespace: namespace_497ab7da
+	Namespace: zm_trial_disable_buys
 	Checksum: 0x1ED9C2F0
 	Offset: 0x15C8
 	Size: 0x100

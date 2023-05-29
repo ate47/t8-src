@@ -50,8 +50,8 @@
       - [`#"zm_mansion_impaler"` (Impaler ww quest)](#zm_mansion_impaler-impaler-ww-quest)
       - [`#"hash_391f247dda2377a9"`](#hash_391f247dda2377a9)
       - [`#"hash_1fa9e2a949df3866"`](#hash_1fa9e2a949df3866)
-      - [`#"zm_mansion_triad"` (stones)](#zm_mansion_triad-stones)
-      - [`#"zm_mansion_pap_quest"` (pap)](#zm_mansion_pap_quest-pap)
+      - [`#"zm_mansion_triad"` (stones/pap)](#zm_mansion_triad-stonespap)
+      - [`#"zm_mansion_pap_quest"`](#zm_mansion_pap_quest)
       - [`#"zm_mansion_silver_bullet"` (silver bullets)](#zm_mansion_silver_bullet-silver-bullets)
       - [`#"hash_331f9ba64e2c2478"`](#hash_331f9ba64e2c2478)
       - [`#"hash_4c0e5e4b34877996"`](#hash_4c0e5e4b34877996)
@@ -544,7 +544,7 @@ TODO
   - name: `#"step_4"`, flag name: `#"hash_af33e9072da62da"`
   - name: `#"step_5"`, flag name: `#"hash_af33f9072da648d"`
 
-#### `#"zm_mansion_triad"` (stones)
+#### `#"zm_mansion_triad"` (stones/pap)
 
 **steps**
 
@@ -553,7 +553,7 @@ TODO
   - name: `#"step_3"`, flag name: `#"triad_step_3"`
   - name: `#"step_4"`, flag name: `#"triad_step_4"`
 
-#### `#"zm_mansion_pap_quest"` (pap)
+#### `#"zm_mansion_pap_quest"`
 
 **steps**
 

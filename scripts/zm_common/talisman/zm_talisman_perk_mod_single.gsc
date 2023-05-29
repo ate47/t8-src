@@ -50,6 +50,6 @@ function __init__()
 */
 function activate_talisman()
 {
-	self.talisman_perk_mod_single = 1;
+	self.talisman_perk_mod_single = true;
 }
 

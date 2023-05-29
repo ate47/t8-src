@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_460f2e04fb3cff8a;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\trials\zm_trial_no_powerups.gsc;
@@ -2222,7 +2222,7 @@ function is_insta_kill_active()
 */
 function function_fe6d6eac(player, mod, hit_location, weapon, damage)
 {
-	if(!("head" == hit_location || "helmet" == hit_location || "neck" == hit_location) && (isdefined(level.headshots_only) && level.headshots_only || namespace_25f0796c::is_active()))
+	if(!("head" == hit_location || "helmet" == hit_location || "neck" == hit_location) && (isdefined(level.headshots_only) && level.headshots_only || zm_trial_headshots_only::is_active()))
 	{
 		return damage;
 	}

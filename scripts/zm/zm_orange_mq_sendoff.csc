@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_13b4b4b;
+#namespace zm_orange_mq_sendoff;
 
 /*
 	Name: preload
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0xFCEB41B0
 	Offset: 0x98
 	Size: 0x84
@@ -21,7 +21,7 @@ function preload()
 
 /*
 	Name: function_e5ecfa90
-	Namespace: namespace_13b4b4b
+	Namespace: zm_orange_mq_sendoff
 	Checksum: 0xC90F837B
 	Offset: 0x128
 	Size: 0x74

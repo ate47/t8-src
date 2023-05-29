@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_24c32478acf44108;
 #using script_35598499769dbb3d;
-#using script_460f2e04fb3cff8a;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -258,7 +258,7 @@ function shell_explosion(e_attacker, w_weapon)
 */
 function zombie_death_gib(e_attacker, w_weapon)
 {
-	if(!isalive(self) || (isdefined(level.headshots_only) && level.headshots_only) || namespace_25f0796c::is_active())
+	if(!isalive(self) || (isdefined(level.headshots_only) && level.headshots_only) || zm_trial_headshots_only::is_active())
 	{
 		return;
 	}

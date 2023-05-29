@@ -54,7 +54,7 @@ function __init__()
 function activate_talisman()
 {
 	callback::on_spawned(&function_4d97e9ce);
-	self.b_talisman_extra_semtex = 1;
+	self.b_talisman_extra_semtex = true;
 	zm_loadout::register_lethal_grenade_for_level(#"eq_acid_bomb_extra");
 }
 

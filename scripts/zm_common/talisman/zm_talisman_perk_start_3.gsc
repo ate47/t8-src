@@ -53,7 +53,7 @@ function activate_talisman()
 {
 	if(isdefined(self.var_c27f1e90) && zm_custom::function_d9f0defb(self.var_c27f1e90[2]))
 	{
-		self.talisman_perk_start_3 = 1;
+		self.talisman_perk_start_3 = true;
 	}
 }
 

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using scripts\core_common\player\player_stats.gsc;
@@ -829,7 +829,7 @@ function private function_8a5fe651(pap_machine, current_weapon)
 			return false;
 		}
 	}
-	if(!self zm_magicbox::can_buy_weapon(0) || self laststand::player_is_in_laststand() || (isdefined(self.intermission) && self.intermission) || self isthrowinggrenade() || namespace_497ab7da::is_active() || namespace_83dc3729::is_active() || (!self zm_weapons::can_upgrade_weapon(current_weapon) && !zm_weapons::weapon_supports_aat(current_weapon)))
+	if(!self zm_magicbox::can_buy_weapon(0) || self laststand::player_is_in_laststand() || (isdefined(self.intermission) && self.intermission) || self isthrowinggrenade() || zm_trial_disable_buys::is_active() || namespace_83dc3729::is_active() || (!self zm_weapons::can_upgrade_weapon(current_weapon) && !zm_weapons::weapon_supports_aat(current_weapon)))
 	{
 		return false;
 	}

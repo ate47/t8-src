@@ -9,9 +9,9 @@
 #using script_4b80fc97d8469299;
 #using script_4ec1d631174f7283;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_5a4c716662b66a50;
+#using scripts\zm\zm_orange_mq_dials.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_5c6694d7aa0f1490;
+#using scripts\zm\zm_orange_mq_sendoff.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_6a3f43063dfd1bdc;
@@ -49,13 +49,13 @@
 */
 function preload()
 {
-	namespace_45e52e8a::preload();
+	zm_orange_mq_dials::preload();
 	zm_orange_mq_vessel::preload();
 	zm_orange_mq_blood::preload();
 	zm_orange_mq_campfire::preload();
 	namespace_4b68b2b3::preload();
 	zm_orange_mq_hell::preload();
-	namespace_13b4b4b::preload();
+	zm_orange_mq_sendoff::preload();
 	clientfield::register("toplayer", "" + #"hash_668f474410d5c1d0", 24000, 1, "int");
 }
 
@@ -70,16 +70,16 @@ function preload()
 */
 function main()
 {
-	namespace_45e52e8a::main();
+	zm_orange_mq_dials::main();
 	zm_orange_mq_vessel::main();
 	zm_orange_mq_blood::main();
 	zm_orange_mq_campfire::main();
 	namespace_4b68b2b3::main();
 	zm_orange_mq_hell::main();
-	namespace_13b4b4b::init();
+	zm_orange_mq_sendoff::init();
 	level flag::init("sam_music_done");
 	level flag::init(#"hash_18b94410e3b6b0bf");
-	zm_sq::register(#"main_quest", #"hash_86e283359f19a5f", #"main_quest_step1", &namespace_45e52e8a::function_77ed3bab, &namespace_45e52e8a::function_51ecc801);
+	zm_sq::register(#"main_quest", #"hash_86e283359f19a5f", #"main_quest_step1", &zm_orange_mq_dials::function_77ed3bab, &zm_orange_mq_dials::function_51ecc801);
 	zm_sq::register(#"main_quest", #"hash_467104204a4803ad", #"main_quest_step2", &zm_orange_mq_vessel::function_a5254494, &zm_orange_mq_vessel::function_77e4073b);
 	zm_sq::register(#"main_quest", #"hash_7c16d3a3e4250b9a", #"main_quest_step3", &zm_orange_mq_blood::function_8d43b840, &zm_orange_mq_blood::function_2d9e1e29);
 	zm_sq::register(#"main_quest", #"hash_2dfcd4264b2c2340", #"main_quest_step4", &zm_orange_mq_campfire::function_13dda28a, &zm_orange_mq_campfire::function_a874e5d0);
@@ -94,7 +94,7 @@ function main()
 	zm_sq::register(#"main_quest", #"hash_d0bf3cf30a07a84", #"main_quest_step11", &zm_orange_mq_campfire::function_13dda28a, &zm_orange_mq_campfire::function_a874e5d0);
 	zm_sq::register(#"main_quest", #"hash_13b9abe1bd17294c", #"main_quest_step12", &namespace_4b68b2b3::function_816c3132, &namespace_4b68b2b3::function_3c9be590);
 	zm_sq::register(#"main_quest", #"hash_7d78cef11f6afb5e", #"main_quest_step13", &zm_orange_mq_hell::function_5309464a, &zm_orange_mq_hell::function_ae270d9e);
-	zm_sq::register(#"main_quest", #"hash_2bd81e2b05fccbed", #"main_quest_step14", &namespace_13b4b4b::function_5309464a, &namespace_13b4b4b::function_ae270d9e);
+	zm_sq::register(#"main_quest", #"hash_2bd81e2b05fccbed", #"main_quest_step14", &zm_orange_mq_sendoff::function_5309464a, &zm_orange_mq_sendoff::function_ae270d9e);
 	zm_sq::register(#"main_quest", #"hash_49b41abaa9addedd", #"main_quest_step15", &function_d4147875, &function_895265b1, 1);
 	if(zm_utility::function_e51dc2d8())
 	{

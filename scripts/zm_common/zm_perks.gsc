@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using script_3f9e0dc8454d98e1;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\trials\zm_trial_randomize_perks.gsc;
 #using script_6e3c826b1814cab6;
-#using script_6ef496a1b77e83a4;
+#using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -3050,12 +3050,12 @@ function function_b7f2c635(player)
 		self sethintstringforplayer(player, #"hash_71158766520dc432");
 		return 1;
 	}
-	if(namespace_497ab7da::is_active())
+	if(zm_trial_disable_buys::is_active())
 	{
 		self sethintstringforplayer(player, #"hash_55d25caf8f7bbb2f");
 		return 1;
 	}
-	if(namespace_5f71460c::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f") || zm_trial_randomize_perks::is_active())
+	if(zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f") || zm_trial_randomize_perks::is_active())
 	{
 		self sethintstringforplayer(player, #"hash_77db65489366a43");
 		return 1;
@@ -3139,7 +3139,7 @@ function function_f5da744e()
 		{
 			continue;
 		}
-		if(!vending_trigger_can_player_use(player, 1) || namespace_497ab7da::is_active() || namespace_5f71460c::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f"))
+		if(!vending_trigger_can_player_use(player, 1) || zm_trial_disable_buys::is_active() || zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f"))
 		{
 			wait(0.1);
 			continue;
@@ -4732,9 +4732,9 @@ function function_28ac0614(var_bbb2c705, var_613b7621 = 0)
 		self function_dc10fc94(var_cd5d9345, var_bbb2c705);
 		foreach(var_d105825e in var_cd5d9345)
 		{
-			if(namespace_5f71460c::is_active())
+			if(zm_trial_disable_perks::is_active())
 			{
-				b_wait = self namespace_5f71460c::lose_perk(var_d105825e);
+				b_wait = self zm_trial_disable_perks::lose_perk(var_d105825e);
 			}
 			else
 			{
@@ -4751,9 +4751,9 @@ function function_28ac0614(var_bbb2c705, var_613b7621 = 0)
 	{
 		for(i = 3; i >= 0; i--)
 		{
-			if(namespace_5f71460c::is_active())
+			if(zm_trial_disable_perks::is_active())
 			{
-				self namespace_5f71460c::lose_perk(self.var_c27f1e90[i]);
+				self zm_trial_disable_perks::lose_perk(self.var_c27f1e90[i]);
 				continue;
 			}
 			if(isinarray(self.var_466b927f, self.var_c27f1e90[i]))
