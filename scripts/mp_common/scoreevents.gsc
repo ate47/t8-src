@@ -142,11 +142,11 @@ function private function_f77ced93(params)
 	{
 		return;
 	}
-	if(var_86ecd1f2.var_76ce72e8 === 1 || var_86ecd1f2.var_b76e0a09 === 1 || var_86ecd1f2.name == #"none")
+	if(var_86ecd1f2.var_76ce72e8 === 1 || var_86ecd1f2.issignatureweapon === 1 || var_86ecd1f2.name == #"none")
 	{
 		return;
 	}
-	if(var_b577d267.var_76ce72e8 === 1 || var_b577d267.var_b76e0a09 === 1 || var_b577d267.name == #"none")
+	if(var_b577d267.var_76ce72e8 === 1 || var_b577d267.issignatureweapon === 1 || var_b577d267.name == #"none")
 	{
 		return;
 	}
@@ -1427,7 +1427,7 @@ function multikill(killcount, weapon)
 			self stats::function_dad108fa(#"hash_2fa96b97166080d2", 1);
 			self contracts::function_a54e2068(#"hash_7861508178a93a0f");
 		}
-		else if(weapon.var_b76e0a09)
+		else if(weapon.issignatureweapon)
 		{
 			self stats::function_dad108fa(#"hash_cb8c5c845093e02", 1);
 			self contracts::function_a54e2068(#"hash_3f50e5536ee788ab");
@@ -1580,7 +1580,7 @@ function updatemultikills(weapon, weaponclass, killstreak, victim)
 		self.recentkillcountsameweapon++;
 		self.recentkillcount++;
 	}
-	if(isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09 || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8))
+	if(isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8))
 	{
 		self.var_311e32f++;
 		if(self.var_311e32f > 8)
@@ -2241,7 +2241,7 @@ function specialiststatabilityusage(usagesinglegame, multitrackperlife)
 function function_9aef690a(weapon)
 {
 	baseweapon = weapons::getbaseweapon(weapon);
-	return isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09 || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8);
+	return isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8);
 }
 
 /*

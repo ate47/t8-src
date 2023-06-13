@@ -547,7 +547,7 @@ function private function_78bf134c(localclientnum, clientdata, var_bd027dd9, mod
 	{
 		if(!model function_d2503806(var_8ad7f92f))
 		{
-			model function_bf9d3071(var_8ad7f92f);
+			model playrenderoverridebundle(var_8ad7f92f);
 		}
 	}
 	model.var_2584a90d = var_8ad7f92f;
@@ -592,7 +592,7 @@ function private function_3bd99d2f(localclientnum, clientdata, vehicle, clear = 
 	var_8ad7f92f = #"hash_3d6eb4b9bbc74fbd";
 	if(!vehicle function_d2503806(var_8ad7f92f))
 	{
-		vehicle function_bf9d3071(var_8ad7f92f);
+		vehicle playrenderoverridebundle(var_8ad7f92f);
 	}
 	vehicle.var_2584a90d = var_8ad7f92f;
 }
@@ -1008,14 +1008,14 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 		}
 		case 4:
 		{
-			var_d8138db2 = eventdata;
+			itemid = eventdata;
 			count = var_c5a66313;
 			slotid = (var_567004a8 ? var_567004a8 - 1 : undefined);
 			if(!isalive)
 			{
 				return;
 			}
-			item_inventory::function_9c4460e0(localclientnum, var_d8138db2, count, slotid);
+			item_inventory::function_9c4460e0(localclientnum, itemid, count, slotid);
 			function_b78a9820(localclientnum);
 			break;
 		}
@@ -1205,11 +1205,11 @@ function private function_4e9220ab(localclientnum, oldval, newval, bnewent, bini
 			}
 			clientdata.modellist = models;
 		}
-		foreach(var_bd027dd9, var_ee7a9894 in clientdata.var_ffc1c0e1)
+		foreach(var_bd027dd9, serverinfo in clientdata.var_ffc1c0e1)
 		{
 			clientdata.var_ffc1c0e1[var_bd027dd9].servertime = 0;
 		}
-		foreach(var_7b9b4259, var_ee7a9894 in clientdata.var_baf65690)
+		foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
 		{
 			clientdata.var_baf65690[var_7b9b4259].servertime = 0;
 		}
@@ -1817,8 +1817,8 @@ function private function_b0af857f(localclientnum)
 					uimodel = createuimodel(model, "id");
 					if(isdefined(uimodel))
 					{
-						var_d8138db2 = getuimodelvalue(uimodel);
-						if(isdefined(var_d8138db2) && var_d8138db2 != 32767)
+						itemid = getuimodelvalue(uimodel);
+						if(isdefined(itemid) && itemid != 32767)
 						{
 							setuimodelvalue(createuimodel(model, "id"), 32767);
 						}
@@ -1836,18 +1836,18 @@ function private function_b0af857f(localclientnum)
 					uimodel = createuimodel(model, "id");
 					if(isdefined(uimodel))
 					{
-						var_d8138db2 = getuimodelvalue(uimodel);
-						if(isdefined(var_d8138db2) && var_d8138db2 != 32767)
+						itemid = getuimodelvalue(uimodel);
+						if(isdefined(itemid) && itemid != 32767)
 						{
-							if(namespace_ad5a0cd6::function_2c7fc531(var_d8138db2))
+							if(namespace_ad5a0cd6::function_2c7fc531(itemid))
 							{
-								self.var_9b882d22 = function_b1702735(var_d8138db2);
+								self.var_9b882d22 = function_b1702735(itemid);
 							}
-							else if(namespace_ad5a0cd6::function_da09de95(var_d8138db2))
+							else if(namespace_ad5a0cd6::function_da09de95(itemid))
 							{
-								if(isdefined(level.var_a4a4012e[var_d8138db2]))
+								if(isdefined(level.var_a4a4012e[itemid]))
 								{
-									self.var_9b882d22 = level.var_a4a4012e[var_d8138db2];
+									self.var_9b882d22 = level.var_a4a4012e[itemid];
 								}
 							}
 							if(isdefined(self.var_9b882d22))
@@ -2070,26 +2070,26 @@ function private function_48ec057f(localclientnum)
 	}
 	var_f1530a67 = getservertime(localclientnum, 1);
 	var_bea3e246 = [];
-	foreach(var_bd027dd9, var_ee7a9894 in clientdata.var_ffc1c0e1)
+	foreach(var_bd027dd9, serverinfo in clientdata.var_ffc1c0e1)
 	{
 		model = function_61f5d33a(localclientnum, clientdata, var_bd027dd9);
 		if(isdefined(model))
 		{
 			function_a4886b1e(localclientnum, var_bd027dd9, model);
 		}
-		if(var_ee7a9894.servertime >= var_f1530a67)
+		if(serverinfo.servertime >= var_f1530a67)
 		{
-			var_bea3e246[var_bd027dd9] = var_ee7a9894;
+			var_bea3e246[var_bd027dd9] = serverinfo;
 		}
 	}
 	clientdata.var_ffc1c0e1 = var_bea3e246;
 	var_bf2d48f6 = [];
-	foreach(var_7b9b4259, var_ee7a9894 in clientdata.var_baf65690)
+	foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
 	{
 		vehicle = getentbynum(localclientnum, var_7b9b4259);
-		if(isdefined(vehicle) && var_ee7a9894.servertime >= var_f1530a67 && !function_97980fde(localclientnum, vehicle))
+		if(isdefined(vehicle) && serverinfo.servertime >= var_f1530a67 && !function_97980fde(localclientnum, vehicle))
 		{
-			var_bf2d48f6[var_7b9b4259] = var_ee7a9894;
+			var_bf2d48f6[var_7b9b4259] = serverinfo;
 			function_3bd99d2f(localclientnum, clientdata, vehicle);
 			continue;
 		}
@@ -2460,12 +2460,12 @@ function private function_1b42632a(localclientnum, clientdata, var_2ccf7a1c)
 {
 	var_f0a9e97d = undefined;
 	var_e7349b30 = undefined;
-	foreach(var_7d6cdf6f, var_ee7a9894 in clientdata.var_ffc1c0e1)
+	foreach(var_7d6cdf6f, serverinfo in clientdata.var_ffc1c0e1)
 	{
-		if(var_ee7a9894.var_2ccf7a1c == var_2ccf7a1c)
+		if(serverinfo.var_2ccf7a1c == var_2ccf7a1c)
 		{
 			var_f0a9e97d = var_7d6cdf6f;
-			var_e7349b30 = var_ee7a9894;
+			var_e7349b30 = serverinfo;
 			break;
 		}
 	}
@@ -2480,12 +2480,12 @@ function private function_1b42632a(localclientnum, clientdata, var_2ccf7a1c)
 	}
 	var_cd3b74d6 = undefined;
 	var_e7349b30 = undefined;
-	foreach(var_7b9b4259, var_ee7a9894 in clientdata.var_baf65690)
+	foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
 	{
-		if(var_ee7a9894.var_2ccf7a1c == var_2ccf7a1c)
+		if(serverinfo.var_2ccf7a1c == var_2ccf7a1c)
 		{
 			var_cd3b74d6 = var_7b9b4259;
-			var_e7349b30 = var_ee7a9894;
+			var_e7349b30 = serverinfo;
 			break;
 		}
 	}

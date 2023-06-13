@@ -75,7 +75,7 @@ function spawned(localclientnum, killstreak_duration)
 	self.var_da04aa74 = 1;
 	if(isdefined(var_2c9baa0c) && var_2c9baa0c != 0)
 	{
-		self function_5db470de(localclientnum, var_2c9baa0c);
+		self enablevisioncircle(localclientnum, var_2c9baa0c);
 	}
 }
 

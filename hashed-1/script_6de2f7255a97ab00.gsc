@@ -869,8 +869,8 @@ function private function_a40836e(angles)
 	var_553ec518 = (1, 0, 0);
 	worldup = (0, 0, 1);
 	newforward = function_8234217e(var_553ec518, axises);
-	var_1883753b = function_8234217e(worldup, axises);
-	newangles = axistoangles(newforward, var_1883753b);
+	newup = function_8234217e(worldup, axises);
+	newangles = axistoangles(newforward, newup);
 	return newangles;
 }
 

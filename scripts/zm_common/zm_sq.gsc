@@ -506,11 +506,11 @@ function function_b3da1a16(ee_name, step_name)
 		/#
 			assert(ishash(step_name), "");
 		#/
-		var_e73bf583 = function_f09763fd(ee_name, step_name);
+		step_path = function_f09763fd(ee_name, step_name);
 		index = function_9212ff4d(ee_name, step_name);
 		util::waittill_can_add_debug_command();
-		adddebugcommand((((("" + var_e73bf583) + "") + function_9e72a96(ee_name) + "") + index) + "");
-		adddebugcommand((((("" + var_e73bf583) + "") + function_9e72a96(ee_name) + "") + index) + "");
+		adddebugcommand((((("" + step_path) + "") + function_9e72a96(ee_name) + "") + index) + "");
+		adddebugcommand((((("" + step_path) + "") + function_9e72a96(ee_name) + "") + index) + "");
 	#/
 }
 

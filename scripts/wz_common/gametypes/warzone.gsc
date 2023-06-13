@@ -118,7 +118,7 @@ event main(eventstruct)
 	level.var_ce84dde9 = &insertion_passenger_count::set_count;
 	level.var_ec375172 = &function_ec375172;
 	level.var_eed7c027 = [];
-	level.resurrect_override_spawn = &spawn::function_b76a2e3f;
+	level.resurrect_override_spawn = &spawn::override_spawn;
 	if(isdefined(getgametypesetting(#"hash_5b7b817a91ce3534")) && getgametypesetting(#"hash_5b7b817a91ce3534"))
 	{
 		level.var_30783ca9 = &function_b3f02397;
@@ -160,7 +160,7 @@ event main(eventstruct)
 	globallogic_spawn::addsupportedspawnpointtype("tdm");
 	function_aaa24662();
 	level.var_bde3d03 = &function_b777ff94;
-	setdvar(#"hash_53e6eeca9f56d0bf", 1);
+	setdvar(#"g_allowlaststandforactiveclients", 1);
 	setdvar(#"hash_7036719f41a78d54", 50);
 	setdvar(#"hash_6d545f685fa213dd", 3);
 	setdvar(#"scr_deleteexplosivesonspawn", 0);
@@ -928,7 +928,7 @@ function on_player_spawned()
 	level endon(#"game_ended");
 	if((isdefined(getgametypesetting(#"hash_24918193d72a5866")) ? getgametypesetting(#"hash_24918193d72a5866") : 0))
 	{
-		self setperk(#"hash_1a1660312a4db585");
+		self setperk(#"specialty_doublejump");
 		self setperk(#"specialty_fallheight");
 	}
 	self.var_1ab1ec0c = self.origin;
@@ -1367,8 +1367,8 @@ function team_eliminated(team, var_293493b)
 	namespace_d3564fd8::team_eliminated(team, var_293493b);
 	level function_22df4165();
 	level thread function_9498e451(team);
-	var_3aef38fd = getplayers(team);
-	foreach(teammember in var_3aef38fd)
+	deadteam = getplayers(team);
+	foreach(teammember in deadteam)
 	{
 		teammember notify(#"end_respawn");
 		if(!platoons::function_382a49e0())

@@ -6654,7 +6654,7 @@ function function_5df4294()
 */
 function get_map_name()
 {
-	return tolower(getdvarstring(#"hash_3b7b241b78207c96"));
+	return tolower(getdvarstring(#"sv_mapname"));
 }
 
 /*
@@ -6688,7 +6688,7 @@ function add_devgui(menu_path, commands)
 }
 
 /*
-	Name: function_d84da933
+	Name: remove_devgui
 	Namespace: util
 	Checksum: 0x5050044E
 	Offset: 0xCAD0
@@ -6696,7 +6696,7 @@ function add_devgui(menu_path, commands)
 	Parameters: 1
 	Flags: None
 */
-function function_d84da933(menu_path)
+function remove_devgui(menu_path)
 {
 	/#
 		add_queued_debug_command(("" + menu_path) + "");

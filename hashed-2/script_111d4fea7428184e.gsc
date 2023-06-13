@@ -85,7 +85,7 @@ function __init__()
 	/#
 		level thread function_ce726eb4();
 	#/
-	setdvar(#"hash_6f1b1794f8f39b93", getgametypesetting(#"hash_7148b13c0ace2cd7"));
+	setdvar(#"g_revivetime", getgametypesetting(#"hash_7148b13c0ace2cd7"));
 }
 
 /*
@@ -1890,7 +1890,7 @@ function revive_do_revive(playerbeingrevived)
 	/#
 		assert(self is_reviving(playerbeingrevived, 1));
 	#/
-	revivetime = getdvarfloat(#"hash_6f1b1794f8f39b93", 3) * self function_bd85bc2f();
+	revivetime = getdvarfloat(#"g_revivetime", 3) * self function_bd85bc2f();
 	timer = 0;
 	revived = 0;
 	playerbeingrevived clientfield::set_player_uimodel("hudItems.laststand.beingRevived", 1);

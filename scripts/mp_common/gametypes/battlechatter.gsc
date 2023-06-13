@@ -418,7 +418,7 @@ function function_af2bf286(player)
 		}
 		playerdirection = anglestoforward(player.angles);
 		var_29b9ab2b = player geteye();
-		enemies = self function_bdda420f(self.origin, mpdialog_value("warmachineThreatMaxDistance", 500));
+		enemies = self getenemiesinradius(self.origin, mpdialog_value("warmachineThreatMaxDistance", 500));
 		if(isarray(enemies) && enemies.size > 0)
 		{
 			foreach(enemy in enemies)
@@ -2071,7 +2071,7 @@ function grenade_tracking()
 					{
 						continue;
 					}
-					enemies = self function_bdda420f(grenade.origin, 250);
+					enemies = self getenemiesinradius(grenade.origin, 250);
 					if(isarray(enemies) && enemies.size > 0)
 					{
 						foreach(enemy in enemies)

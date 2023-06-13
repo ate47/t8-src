@@ -99,7 +99,7 @@ function private function_37d90686(bot, path)
 		var_3eecdd31 = 0;
 		foreach(point in adjustedpath)
 		{
-			var_3eecdd31 = var_3eecdd31 + pow(bot function_bdda420f(point, 128).size, 1.5);
+			var_3eecdd31 = var_3eecdd31 + pow(bot getenemiesinradius(point, 128).size, 1.5);
 		}
 	}
 	return var_3eecdd31;
@@ -116,7 +116,7 @@ function private function_37d90686(bot, path)
 */
 function private function_3e6c9e50(weapon)
 {
-	if(isdefined(weapon.firetype) && weapon.firetype == #"hash_74e162e14a20482b")
+	if(isdefined(weapon.firetype) && weapon.firetype == #"single shot")
 	{
 		if(weapon.clipsize < 20)
 		{
@@ -147,7 +147,7 @@ function private function_3e6c9e50(weapon)
 function private function_48d6c189(weapon)
 {
 	var_f8e2456f = (weapon.clipsize * weapon.firetime) + weapon.reloadtime;
-	if(isdefined(weapon.firetype) && weapon.firetype == #"hash_74e162e14a20482b")
+	if(isdefined(weapon.firetype) && weapon.firetype == #"single shot")
 	{
 		var_f8e2456f = var_f8e2456f + (weapon.clipsize * 0.5);
 	}

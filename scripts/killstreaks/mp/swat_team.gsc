@@ -4,10 +4,10 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_3819e7a1427df6d2;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_3aa0f32b70d4f7cb;
-#using script_3fda550bc6e1089a;
-#using script_452cf453bf79907b;
+#using scripts\killstreaks\helicopter_shared.gsc;
+#using scripts\killstreaks\ai\tracking.gsc;
 #using script_4bf952f6ba31bb17;
 #using script_52d2de9b438adc78;
 #using scripts\killstreaks\airsupport.gsc;
@@ -742,7 +742,7 @@ function private function_fb9f1f3b(entity)
 		{
 			var_5612239e = anglestoright(angles) * -1;
 			var_d1ba5d77 = entity.origin + vectorscale(var_5612239e, randomintrange(60, 200));
-			tacpoint = function_ad6356f5(var_d1ba5d77);
+			tacpoint = getclosesttacpoint(var_d1ba5d77);
 			if(isdefined(tacpoint) && tracepassedonnavmesh(entity.origin, tacpoint.origin, 18))
 			{
 				newspot = tacpoint.origin;
@@ -755,7 +755,7 @@ function private function_fb9f1f3b(entity)
 			{
 				var_c254b075 = anglestoright(angles);
 				var_d1ba5d77 = entity.origin + vectorscale(var_c254b075, randomintrange(60, 200));
-				tacpoint = function_ad6356f5(var_d1ba5d77);
+				tacpoint = getclosesttacpoint(var_d1ba5d77);
 				if(isdefined(tacpoint) && tracepassedonnavmesh(entity.origin, tacpoint.origin, 18))
 				{
 					newspot = tacpoint.origin;
@@ -1142,9 +1142,9 @@ function private function_ace0a9bc()
 					recordcircle(self.enemy.origin + vectorscale((0, 0, 1), 70), 8, (1, 0, 0), "");
 					if(isplayer(self.enemy))
 					{
-						var_f67d1ba2 = generatenavmeshpath(self.origin, self.enemy.origin, self);
-						pathdistance = var_f67d1ba2.pathdistance;
-						path = var_f67d1ba2.pathpoints;
+						pathdata = generatenavmeshpath(self.origin, self.enemy.origin, self);
+						pathdistance = pathdata.pathdistance;
+						path = pathdata.pathpoints;
 						path::function_3c367117(path, (0, 0, 1), (1, 0, 0), (1, 0.5, 0));
 					}
 				#/
@@ -2213,7 +2213,7 @@ function private function_accec5c5(origin, context, verticaloffset)
 function function_d15dd929(origin)
 {
 	result = function_9cc082d2(origin + vectorscale((0, 0, 1), 100), 200);
-	if(isdefined(result[#"hash_556255be476284b3"]) && result[#"hash_556255be476284b3"] & 2)
+	if(isdefined(result[#"materialflags"]) && result[#"materialflags"] & 2)
 	{
 		return false;
 	}
@@ -2359,7 +2359,7 @@ function function_263d3e9e(var_1c996690, context, owner, var_9f26686a = 0)
 	{
 		if(!function_3b759619(var_1c996690))
 		{
-			var_986a13c3 = function_ad6356f5(var_1c996690);
+			var_986a13c3 = getclosesttacpoint(var_1c996690);
 			if(isdefined(var_986a13c3))
 			{
 				var_1c996690 = var_986a13c3.origin;
@@ -3153,7 +3153,7 @@ function sort_by_score(left, right)
 */
 function private function_2d44c54f(var_eca4744a, var_56bd1bef, nodes)
 {
-	tacpoint = function_ad6356f5(var_56bd1bef);
+	tacpoint = getclosesttacpoint(var_56bd1bef);
 	foreach(node in nodes)
 	{
 		withinfov = vectordot(var_eca4744a, (vectornormalize(node.origin - var_56bd1bef)) > cos(30));
@@ -3237,8 +3237,8 @@ function function_a4ab9672(swat, owner, var_eca4744a, var_56bd1bef, forced = 0)
 */
 function function_7b3ad3fe(swat, location)
 {
-	var_80a2ada4 = getdvarint(#"hkai_pathfinditerationlimit", 1800);
-	path = generatenavmeshpath(swat.origin, location, swat, undefined, undefined, var_80a2ada4);
+	iterationlimit = getdvarint(#"hkai_pathfinditerationlimit", 1800);
+	path = generatenavmeshpath(swat.origin, location, swat, undefined, undefined, iterationlimit);
 	if(isdefined(path) && path.status === "succeeded")
 	{
 		return true;
@@ -3351,7 +3351,7 @@ function function_4c2ed78d(owner, forced = 0)
 					waitframe(1);
 					continue;
 				}
-				tacpoint = function_ad6356f5(nearbyplayer.origin);
+				tacpoint = getclosesttacpoint(nearbyplayer.origin);
 				if(isdefined(tacpoint))
 				{
 					newpos = getclosestpointonnavmesh(tacpoint.origin, 200, self getpathfindingradius(), 1);
@@ -3383,7 +3383,7 @@ function function_4c2ed78d(owner, forced = 0)
 			continue;
 		}
 		var_eca4744a = vectornormalize(var_56bd1bef - var_17db3d7b);
-		tacpoint = function_ad6356f5(var_56bd1bef);
+		tacpoint = getclosesttacpoint(var_56bd1bef);
 		shouldmove = 0;
 		if(isdefined(tacpoint))
 		{

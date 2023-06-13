@@ -336,9 +336,9 @@ function getscoreeventtablename(gametype)
 			prefix = #"hash_2bedaa060f1bcc0f";
 		}
 	}
-	gametype = function_ea13f55(gametype, "_hc", "");
-	gametype = function_ea13f55(gametype, "_cwl", "");
-	gametype = function_ea13f55(gametype, "_bb", "");
+	gametype = strreplace(gametype, "_hc", "");
+	gametype = strreplace(gametype, "_cwl", "");
+	gametype = strreplace(gametype, "_bb", "");
 	tablename = ((prefix + "_") + gametype) + ".csv";
 	if(!(isdefined(isassetloaded("stringtable", tablename)) && isassetloaded("stringtable", tablename)))
 	{

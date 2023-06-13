@@ -127,7 +127,7 @@ function private function_900bb4f5(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7dfe3289(var_d8138db2)
+function function_7dfe3289(itemid)
 {
 	self endon(#"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist", #"changed_specialist_death");
 	if(isdefined(self.hawk) && isdefined(self.hawk.vehicle))
@@ -178,7 +178,7 @@ function function_7dfe3289(var_d8138db2)
 	vehicle.var_8516173f = 1;
 	vehicle.glasscollision_alt = 1;
 	vehicle.is_staircase_up = &function_900bb4f5;
-	vehicle.id = var_d8138db2;
+	vehicle.id = itemid;
 	level.item_vehicles[level.item_vehicles.size] = vehicle;
 	vehicle thread item_inventory::function_956a8ecd();
 	self.hawk.vehicle = vehicle;
@@ -289,7 +289,7 @@ function function_ed9fa4fc(vehicle, playerorigin)
 	vehicle.var_b61d83c4 = 0;
 	self.hawk.var_b61d83c4 = 0;
 	distsqr = distancesquared(vehicle.origin, playerorigin);
-	if(distsqr > (level.hawk_settings.bundle.var_6e4818a6 * level.hawk_settings.bundle.var_6e4818a6) || vehicle.origin[2] > level.var_5718bd08)
+	if(distsqr > (level.hawk_settings.bundle.far_distance * level.hawk_settings.bundle.far_distance) || vehicle.origin[2] > level.var_5718bd08)
 	{
 		vehicle clientfield::set("hawk_range", 1);
 		vehicle.var_b61d83c4 = 1;

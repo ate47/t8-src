@@ -1,14 +1,14 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_3738f84821de194e;
-#using script_383a3b1bb18ba876;
-#using script_40afc365f1e35fde;
-#using script_452cf453bf79907b;
-#using script_45decd627aedfc09;
-#using script_49d5f69a3ac4a923;
+#using scripts\killstreaks\ai\escort.gsc;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
+#using scripts\killstreaks\ai\dog.gsc;
+#using scripts\killstreaks\ai\tracking.gsc;
+#using scripts\killstreaks\ai\state.gsc;
+#using scripts\killstreaks\ai\leave.gsc;
 #using scripts\core_common\globallogic\globallogic_score.gsc;
-#using script_5e918923a121b594;
+#using scripts\killstreaks\ai\patrol.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -31,9 +31,9 @@
 */
 function init_shared()
 {
-	if(!isdefined(level.var_4d6508e))
+	if(!isdefined(level.dog_shared))
 	{
-		level.var_4d6508e = {};
+		level.dog_shared = {};
 		archetypempdog::init();
 		clientfield::register("clientuimodel", "hudItems.dogState", 1, 2, "int");
 		clientfield::register("actor", "dogState", 1, 1, "int");
@@ -197,7 +197,7 @@ function private function_9cb166cd(tacpoints)
 	filteredpoints = [];
 	foreach(tacpoint in tacpoints)
 	{
-		if(!function_4670789f(tacpoint) && !function_a38d2d73(tacpoint) && namespace_9f91adfa::function_d15dd929(tacpoint.origin))
+		if(!function_4670789f(tacpoint) && !function_a38d2d73(tacpoint) && ai_escort::function_d15dd929(tacpoint.origin))
 		{
 			filteredpoints[filteredpoints.size] = tacpoint;
 		}
@@ -286,8 +286,8 @@ function spawn_dog(bundle, owner)
 	origin = spawn.origin;
 	dog = spawnactor(bundle.var_32f64ba3, origin, angles, "", 1);
 	dog ai_patrol::function_d091ff45(bundle);
-	dog namespace_9f91adfa::function_60415868(bundle);
-	dog namespace_300327a7::function_f9c30a79(bundle.var_cadb59a0);
+	dog ai_escort::function_60415868(bundle);
+	dog ai_leave::function_f9c30a79(bundle.var_cadb59a0);
 	dog callback::function_d8abfc3d(#"hash_c3f225c9fa3cb25", &function_3fb68a86);
 	dog.goalradius = bundle.var_a562774d;
 	dog setentityowner(owner);
@@ -304,7 +304,7 @@ function spawn_dog(bundle, owner)
 	{
 		dog thread killstreaks::waitfortimeout(bundle.var_d3413870, bundle.ksduration, &timeout, "death");
 	}
-	if(!namespace_9f91adfa::function_d15dd929(dog.origin))
+	if(!ai_escort::function_d15dd929(dog.origin))
 	{
 		cylinder = ai::t_cylinder(origin, 1500, 250);
 		var_441c6196 = ai::t_cylinder(origin, 100, 250);

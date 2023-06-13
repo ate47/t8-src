@@ -1774,9 +1774,9 @@ function private function_942e45dc(planner, params)
 			{
 				targetvol = component.var_2956bff4;
 			}
-			else if(isdefined(component.var_abc3ef9) && isdefined(component.var_abc3ef9.mdl_gameobject))
+			else if(isdefined(component.e_objective) && isdefined(component.e_objective.mdl_gameobject))
 			{
-				targetvol = component.var_abc3ef9.mdl_gameobject.trigger;
+				targetvol = component.e_objective.mdl_gameobject.trigger;
 			}
 		}
 		else if(isdefined(crumb.trigger))

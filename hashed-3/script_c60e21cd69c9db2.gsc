@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1b905a8474ed2a62;
-#using script_2ca4b414b146b498;
+#using scripts\killstreaks\ai_tank_shared.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_522aeb6ae906391e;
 #using scripts\core_common\struct.gsc;

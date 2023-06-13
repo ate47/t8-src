@@ -3,10 +3,10 @@
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_3819e7a1427df6d2;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_46fade957db10c16;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
@@ -1974,7 +1974,7 @@ function function_37cc249f()
 function function_d15dd929(radius, origin)
 {
 	result = function_9cc082d2(origin + vectorscale((0, 0, 1), 100), 200);
-	if(isdefined(result) && isdefined(result[#"hash_556255be476284b3"]) && result[#"hash_556255be476284b3"] & 2)
+	if(isdefined(result) && isdefined(result[#"materialflags"]) && result[#"materialflags"] & 2)
 	{
 		return false;
 	}
@@ -2066,7 +2066,7 @@ function state_combat_update(params)
 	self setspeed(self.settings.defaultmovespeed);
 	self setacceleration((isdefined(self.settings.default_move_acceleration) ? self.settings.default_move_acceleration : 10));
 	heatseekingmissile::initlockfield(self);
-	var_80a2ada4 = getdvarint(#"hkai_pathfinditerationlimit", 1800);
+	iterationlimit = getdvarint(#"hkai_pathfinditerationlimit", 1800);
 	for(;;)
 	{
 		if(isdefined(self.isstunned) && self.isstunned || (isdefined(self.var_b61a6415) && self.var_b61a6415))
@@ -2112,7 +2112,7 @@ function state_combat_update(params)
 				var_2a54124d = 0;
 				if(isdefined(var_4e35e079))
 				{
-					path = generatenavmeshpath(self.origin, var_4e35e079, self, undefined, undefined, var_80a2ada4);
+					path = generatenavmeshpath(self.origin, var_4e35e079, self, undefined, undefined, iterationlimit);
 					if(isdefined(path) && path.status === "succeeded")
 					{
 						var_2a54124d = 1;
@@ -2158,7 +2158,7 @@ function state_combat_update(params)
 					self.origin = getbackpoint;
 				}
 			}
-			path = generatenavmeshpath(self.origin, newpos, self, undefined, undefined, var_80a2ada4);
+			path = generatenavmeshpath(self.origin, newpos, self, undefined, undefined, iterationlimit);
 			if(isdefined(path) && path.status === "succeeded")
 			{
 				foundpath = 1;
@@ -2190,7 +2190,7 @@ function state_combat_update(params)
 			newpos = function_4ae23c85();
 			if(isdefined(newpos))
 			{
-				path = generatenavmeshpath(self.origin, newpos, self, undefined, undefined, var_80a2ada4);
+				path = generatenavmeshpath(self.origin, newpos, self, undefined, undefined, iterationlimit);
 				if(isdefined(path) && path.status === "succeeded")
 				{
 					foundpath = 1;

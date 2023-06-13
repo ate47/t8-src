@@ -104,7 +104,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 {
 	if(isdefined(self.var_ea20345f))
 	{
-		self function_5d482e78(self.var_ea20345f, "j_head");
+		self stoprenderoverridebundle(self.var_ea20345f, "j_head");
 	}
 	if(isdefined(self.var_3231a850))
 	{
@@ -129,7 +129,7 @@ function zombie_eyes_clientfield_cb(localclientnum, oldval, newval, bnewent, bin
 			{
 				self.var_ea20345f = "rob_zm_eyes_red";
 				var_d40cd873 = "eye_glow";
-				self function_bf9d3071(self.var_ea20345f, "j_head");
+				self playrenderoverridebundle(self.var_ea20345f, "j_head");
 			}
 		}
 		self.var_3231a850 = util::playfxontag(localclientnum, level._effect[var_d40cd873], self, "j_eyeball_le");

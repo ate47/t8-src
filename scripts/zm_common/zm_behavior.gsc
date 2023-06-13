@@ -1015,10 +1015,10 @@ function zombieupdategoal()
 				path = undefined;
 				if(isdefined(self.var_ceed8829) && self.var_ceed8829)
 				{
-					var_f67d1ba2 = generatenavmeshpath(self.origin, goalpos, self);
-					if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded" && isdefined(var_f67d1ba2.pathpoints))
+					pathdata = generatenavmeshpath(self.origin, goalpos, self);
+					if(isdefined(pathdata) && pathdata.status === "succeeded" && isdefined(pathdata.pathpoints))
 					{
-						path = var_f67d1ba2.pathpoints;
+						path = pathdata.pathpoints;
 					}
 				}
 				else
@@ -2973,7 +2973,7 @@ function function_17cd1b17(behaviortreeentity)
 	meleedistsq = 4096;
 	if(isdefined(behaviortreeentity.meleeweapon) && behaviortreeentity.meleeweapon !== level.weaponnone)
 	{
-		meleedistsq = behaviortreeentity.meleeweapon.var_d3cafde6 * behaviortreeentity.meleeweapon.var_d3cafde6;
+		meleedistsq = behaviortreeentity.meleeweapon.aimeleerange * behaviortreeentity.meleeweapon.aimeleerange;
 	}
 	if(distancesquared(behaviortreeentity.origin, behaviortreeentity.enemy.origin) > meleedistsq)
 	{

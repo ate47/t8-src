@@ -177,7 +177,7 @@ function function_dc61ccae(vnd_start, var_6f06d19d, var_ca144d1e)
 				right = vectorcross((0, 0, 1), forward);
 				up = vectorcross(forward, right);
 				angles = axistoangles(forward, up);
-				var_c246e8d5 = function_e2ee5807(var_3a080e11, var_8e89eaf2, angles);
+				var_c246e8d5 = coordtransformtranspose(var_3a080e11, var_8e89eaf2, angles);
 				var_e941deaa = vectornormalize(var_c246e8d5);
 				/#
 					line(var_8e89eaf2, var_8e89eaf2 + var_c246e8d5, (1, 0, 1));

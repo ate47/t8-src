@@ -81,12 +81,12 @@ function private function_440f0490(var_b91441dd)
 	}
 	var_d54615ef = function_d59c2d03(var_ac9f1dc8);
 	var_8efa5a60 = 0;
-	for(var_ee49f1ad = 0; var_ee49f1ad < weights.size; var_ee49f1ad++)
+	for(weightindex = 0; weightindex < weights.size; weightindex++)
 	{
-		var_8efa5a60 = var_8efa5a60 + weights[var_ee49f1ad];
+		var_8efa5a60 = var_8efa5a60 + weights[weightindex];
 		if(var_d54615ef <= var_8efa5a60)
 		{
-			var_b91441dd = getscriptbundle(var_b91441dd.itemlist[var_ee49f1ad].var_a6762160);
+			var_b91441dd = getscriptbundle(var_b91441dd.itemlist[weightindex].var_a6762160);
 			/#
 				assert(var_b91441dd.type === "");
 			#/
@@ -223,16 +223,16 @@ function private function_62c0d32d(item_name, stashitem = 0)
 */
 function private function_98013deb(row)
 {
-	var_27758d04 = 0;
+	numchildren = 0;
 	for(index = 1; index <= 5; index++)
 	{
 		item_name = self.var_b91441dd.itemlist[row].("childitementry_" + index);
 		if(isdefined(item_name))
 		{
-			var_27758d04++;
+			numchildren++;
 		}
 	}
-	return var_27758d04;
+	return numchildren;
 }
 
 /*
@@ -296,12 +296,12 @@ function private _spawn_item(point, row, stashitem = 0)
 		}
 		return;
 	}
-	var_27758d04 = self function_98013deb(row);
+	numchildren = self function_98013deb(row);
 	if(!stashitem)
 	{
 		origin = point.origin;
 		angles = point.angles;
-		if(var_27758d04 > 0)
+		if(numchildren > 0)
 		{
 			if(!isdefined(var_a6762160.var_47f145b4))
 			{
@@ -333,7 +333,7 @@ function private _spawn_item(point, row, stashitem = 0)
 		loc_000010DE:
 		originoffset = ((isdefined(var_a6762160.var_ada071fe) ? var_a6762160.var_ada071fe : 0), (isdefined(var_a6762160.var_5ab74bb1) ? var_a6762160.var_5ab74bb1 : 0), (isdefined(var_a6762160.var_50773731) ? var_a6762160.var_50773731 : 0));
 		origin = origin + originoffset;
-		if(var_27758d04 > 0 || isdefined(var_a6762160.var_47f145b4))
+		if(numchildren > 0 || isdefined(var_a6762160.var_47f145b4))
 		{
 			point = function_53a81463(origin, angles, point.targetname, item_name);
 		}
@@ -368,7 +368,7 @@ function private _spawn_item(point, row, stashitem = 0)
 			level.var_136445c0++;
 		}
 	#/
-	if(var_27758d04 > 0)
+	if(numchildren > 0)
 	{
 		for(index = 1; index <= 5; index++)
 		{
@@ -680,9 +680,9 @@ function private function_216a69d6(var_9f19fcb6, reset)
 						setdynentenabled(dynent, 1);
 					}
 					bundle = function_489009c1(dynent);
-					if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[0]))
+					if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[0]))
 					{
-						newstate = bundle.var_c14aa186[0];
+						newstate = bundle.dynentstates[0];
 						if(isdefined(newstate.statefx))
 						{
 							if(isdefined(dynent.fx))

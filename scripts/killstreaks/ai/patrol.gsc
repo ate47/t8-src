@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3738f84821de194e;
-#using script_45decd627aedfc09;
-#using script_ebc09732f6544a3;
+#using scripts\killstreaks\ai\escort.gsc;
+#using scripts\killstreaks\ai\state.gsc;
+#using scripts\killstreaks\ai\target.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\entityheadicons_shared.gsc;
@@ -245,7 +245,7 @@ function function_6155a7ca(var_9033671b)
 	tacpoints = undefined;
 	if(isdefined(var_cd26c30e) && isdefined(self.ai.patrol.var_7d9560c1))
 	{
-		var_c36ae55a = function_ad6356f5(var_cd26c30e.origin);
+		var_c36ae55a = getclosesttacpoint(var_cd26c30e.origin);
 		if(isdefined(var_c36ae55a))
 		{
 			cylinder = ai::t_cylinder(var_c36ae55a.origin, 150, self.ai.patrol.var_52e43a03);
@@ -294,7 +294,7 @@ function function_94d884e4(var_9033671b)
 	tacpoints = self function_6155a7ca(var_9033671b);
 	if(isdefined(tacpoints) && tacpoints.size > 0)
 	{
-		tacpoints = namespace_9f91adfa::function_cb4925e3(tacpoints);
+		tacpoints = ai_escort::function_cb4925e3(tacpoints);
 		if(isdefined(tacpoints) && tacpoints.size > 0)
 		{
 			self.var_36299b51 = tacpoints;

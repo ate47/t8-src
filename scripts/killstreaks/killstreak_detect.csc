@@ -85,7 +85,7 @@ function function_95f96f3e(local_client_num, bundle, param)
 	}
 	if(player.var_33b61b6f === 1)
 	{
-		bundle.var_e156fd4 = 1;
+		bundle.force_kill = 1;
 		return false;
 	}
 	return true;
@@ -155,7 +155,7 @@ function function_903bbed3(local_client_num, bundle)
 	player = function_5c10bd79(local_client_num);
 	if(isdefined(player) && player.var_33b61b6f === 1)
 	{
-		bundle.var_e156fd4 = 1;
+		bundle.force_kill = 1;
 		return true;
 	}
 	return false;

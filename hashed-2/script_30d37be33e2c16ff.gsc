@@ -58,10 +58,10 @@ function target_changed(localclientnum, oldval, newval, bnewent, binitialsnap, f
 {
 	clientnum = self getentitynumber();
 	var_dd4e1d40 = getuimodel(getglobaluimodel(), "Clients");
-	var_35b0780f = getuimodel(var_dd4e1d40, clientnum);
-	if(isdefined(var_35b0780f))
+	clientmodel = getuimodel(var_dd4e1d40, clientnum);
+	if(isdefined(clientmodel))
 	{
-		setuimodelvalue(createuimodel(var_35b0780f, "isSpectreRisingTarget"), newval == 1);
+		setuimodelvalue(createuimodel(clientmodel, "isSpectreRisingTarget"), newval == 1);
 	}
 	/#
 		if(getdvarint(#"hash_31365963abce3d7b", 0))
@@ -70,12 +70,12 @@ function target_changed(localclientnum, oldval, newval, bnewent, binitialsnap, f
 			{
 				if(!self function_d2503806(#"hash_4368c406e6a21060"))
 				{
-					self function_bf9d3071(#"hash_4368c406e6a21060");
+					self playrenderoverridebundle(#"hash_4368c406e6a21060");
 				}
 			}
 			else if(self function_d2503806(#"hash_4368c406e6a21060"))
 			{
-				self function_5d482e78(#"hash_4368c406e6a21060");
+				self stoprenderoverridebundle(#"hash_4368c406e6a21060");
 			}
 		}
 	#/

@@ -1,17 +1,17 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_452cf453bf79907b;
-#using script_45decd627aedfc09;
-#using script_ebc09732f6544a3;
+#using scripts\killstreaks\ai\tracking.gsc;
+#using scripts\killstreaks\ai\state.gsc;
+#using scripts\killstreaks\ai\target.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_9f91adfa;
+#namespace ai_escort;
 
 /*
 	Name: init
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xD046702C
 	Offset: 0xA0
 	Size: 0x74
@@ -25,7 +25,7 @@ function init()
 
 /*
 	Name: function_1b378f6d
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xC092DC32
 	Offset: 0x120
 	Size: 0xC2
@@ -42,7 +42,7 @@ function private function_1b378f6d(var_5a529222, var_edc20efd, var_d73e0c6e, var
 
 /*
 	Name: function_60415868
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x2DF4BCC5
 	Offset: 0x1F0
 	Size: 0x84
@@ -57,7 +57,7 @@ function function_60415868(bundle)
 
 /*
 	Name: function_ae92f67d
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x68A0F7E9
 	Offset: 0x280
 	Size: 0x22
@@ -71,7 +71,7 @@ function function_ae92f67d()
 
 /*
 	Name: function_4af1ff64
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x26A0A896
 	Offset: 0x2B0
 	Size: 0x4E
@@ -89,7 +89,7 @@ function function_4af1ff64()
 
 /*
 	Name: function_a78474f2
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x1C89B59A
 	Offset: 0x308
 	Size: 0xA
@@ -103,7 +103,7 @@ function function_a78474f2()
 
 /*
 	Name: function_7e09d4ab
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x8D1E4969
 	Offset: 0x320
 	Size: 0x2C
@@ -121,7 +121,7 @@ function function_7e09d4ab()
 
 /*
 	Name: function_c6c4dd36
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xB25BB65B
 	Offset: 0x358
 	Size: 0x4E
@@ -139,7 +139,7 @@ function function_c6c4dd36()
 
 /*
 	Name: function_2be96ed8
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xB4B6481
 	Offset: 0x3B0
 	Size: 0x12C
@@ -173,7 +173,7 @@ function private function_2be96ed8(current_point, var_673e28d2, points)
 
 /*
 	Name: function_cd106dcf
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x17F8BEA2
 	Offset: 0x4E8
 	Size: 0x2C
@@ -187,7 +187,7 @@ function function_cd106dcf(left, right)
 
 /*
 	Name: function_2d44c54f
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xFC4917A6
 	Offset: 0x520
 	Size: 0xDA
@@ -221,7 +221,7 @@ function private function_2d44c54f(points)
 
 /*
 	Name: function_14457965
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xEFECF9DF
 	Offset: 0x608
 	Size: 0x4A
@@ -239,7 +239,7 @@ function function_14457965()
 
 /*
 	Name: get_point_of_interest
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xCFAAFE21
 	Offset: 0x660
 	Size: 0x1A2
@@ -264,20 +264,20 @@ function get_point_of_interest()
 	{
 		return objective_target.origin;
 	}
-	var_c951a2c2 = distance(ai_target.origin, var_56bd1bef);
+	ai_distance = distance(ai_target.origin, var_56bd1bef);
 	var_3ac8b299 = distance(objective_target.origin, var_56bd1bef);
-	if((var_c951a2c2 + var_3ac8b299) == 0)
+	if((ai_distance + var_3ac8b299) == 0)
 	{
 		return level.mapcenter;
 	}
-	coef = var_c951a2c2 / (var_c951a2c2 + var_3ac8b299);
+	coef = ai_distance / (ai_distance + var_3ac8b299);
 	origin = vectorlerp(ai_target.origin, objective_target.origin, coef);
 	return origin;
 }
 
 /*
 	Name: function_d15dd929
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x496D4B63
 	Offset: 0x810
 	Size: 0xA6
@@ -287,7 +287,7 @@ function get_point_of_interest()
 function function_d15dd929(origin)
 {
 	result = function_9cc082d2(origin + vectorscale((0, 0, 1), 100), 200);
-	if(isdefined(result) && isdefined(result[#"hash_556255be476284b3"]) && result[#"hash_556255be476284b3"] & 2)
+	if(isdefined(result) && isdefined(result[#"materialflags"]) && result[#"materialflags"] & 2)
 	{
 		return false;
 	}
@@ -300,7 +300,7 @@ function function_d15dd929(origin)
 
 /*
 	Name: function_cb4925e3
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x613C4A10
 	Offset: 0x8C0
 	Size: 0x13C
@@ -329,7 +329,7 @@ function function_cb4925e3(tacpoints)
 
 /*
 	Name: function_b6f15bda
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xA261DA3E
 	Offset: 0xA08
 	Size: 0x63E
@@ -438,7 +438,7 @@ function function_b6f15bda()
 
 /*
 	Name: function_81832658
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0xCEEC97FC
 	Offset: 0x1050
 	Size: 0x54
@@ -457,7 +457,7 @@ function function_81832658()
 
 /*
 	Name: function_11d6df2c
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x7A927E58
 	Offset: 0x10B0
 	Size: 0x32E
@@ -511,7 +511,7 @@ function function_11d6df2c()
 
 /*
 	Name: function_92ed3ce9
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x72E07DA8
 	Offset: 0x13E8
 	Size: 0x2C
@@ -528,7 +528,7 @@ function function_92ed3ce9()
 
 /*
 	Name: function_5d31deb6
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x3AF52794
 	Offset: 0x1420
 	Size: 0x86
@@ -549,7 +549,7 @@ function function_5d31deb6()
 
 /*
 	Name: function_a1891b01
-	Namespace: namespace_9f91adfa
+	Namespace: ai_escort
 	Checksum: 0x80F724D1
 	Offset: 0x14B0
 	Size: 0x4

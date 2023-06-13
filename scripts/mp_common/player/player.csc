@@ -191,7 +191,7 @@ function on_player_corpse(localclientnum, params)
 	self renderoverridebundle::stop_bundle(#"friendly", (sessionmodeiscampaigngame() ? #"hash_1cbf6d26721c59a7" : #"hash_1c90592671f4c6e9"), 0);
 	if(shoutcaster::is_shoutcaster(localclientnum))
 	{
-		self function_5d482e78(#"hash_71fbf1094f57b910");
+		self stoprenderoverridebundle(#"hash_71fbf1094f57b910");
 	}
 }
 
@@ -285,7 +285,7 @@ function function_fac25f84(local_client_num, bundle)
 */
 function function_6803f977(local_client_num, bundle)
 {
-	if(!function_2f9b4fe8(local_client_num, #"hash_14d17d597281f9a1"))
+	if(!function_2f9b4fe8(local_client_num, #"specialty_friendliesthroughwalls"))
 	{
 		return 0;
 	}

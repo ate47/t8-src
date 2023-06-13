@@ -144,8 +144,8 @@ function start()
 function function_bb3ec038()
 {
 	lookup = [];
-	var_f0b4da50 = tablelookuprowcount(#"hash_5ec1825aeab754a2");
-	for(i = 0; i < var_f0b4da50; i++)
+	rowcount = tablelookuprowcount(#"hash_5ec1825aeab754a2");
+	for(i = 0; i < rowcount; i++)
 	{
 		row = tablelookuprow(#"hash_5ec1825aeab754a2", i);
 		player1 = row[0];

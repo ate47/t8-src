@@ -167,8 +167,8 @@ function function_3932cbd9(owner, origin, normal, velocity, killcament, weapon, 
 */
 function function_f4e48434(position)
 {
-	var_c84f4998 = getwaterheight(position) - position[2];
-	return !(isdefined(level.var_c62ed297) && level.var_c62ed297) && var_c84f4998 >= 24;
+	water_depth = getwaterheight(position) - position[2];
+	return !(isdefined(level.var_c62ed297) && level.var_c62ed297) && water_depth >= 24;
 }
 
 /*
@@ -180,9 +180,9 @@ function function_f4e48434(position)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a66ba8cc(var_c84f4998)
+function function_a66ba8cc(water_depth)
 {
-	return !(isdefined(level.var_c62ed297) && level.var_c62ed297) && 0 < var_c84f4998 && var_c84f4998 < 24;
+	return !(isdefined(level.var_c62ed297) && level.var_c62ed297) && 0 < water_depth && water_depth < 24;
 }
 
 /*
@@ -251,7 +251,7 @@ function function_7cbeb2f0(normal)
 */
 function function_e8ad1d81(position, owner, normal, velocity, killcament, weapon, team, customsettings)
 {
-	var_4f9d7296 = position;
+	originalposition = position;
 	var_493d36f9 = normal;
 	var_96609105 = vectornormalize(velocity);
 	var_87d082a9 = vectorscale(var_96609105, -1);
@@ -311,14 +311,14 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, weapon
 	if(normal[2] < 0.5)
 	{
 		wall_normal = normal;
-		var_36c22d1d = var_4f9d7296 + vectorscale(var_493d36f9, 8);
+		var_36c22d1d = originalposition + vectorscale(var_493d36f9, 8);
 		var_8ae62b02 = var_36c22d1d - vectorscale((0, 0, 1), 300);
 		var_69d15ad0 = physicstrace(var_36c22d1d, var_8ae62b02, vectorscale((-1, -1, -1), 3), vectorscale((1, 1, 1), 3), self, 1);
 		var_693f108f = var_69d15ad0[#"fraction"] * 300;
 		var_959a2a8b = 0;
 		if(var_693f108f > 10)
 		{
-			var_e76400c0 = var_4f9d7296;
+			var_e76400c0 = originalposition;
 			wallnormal = var_493d36f9;
 			var_d6d43109 = sqrt(1 - var_69d15ad0[#"fraction"]);
 			var_959a2a8b = 1;
@@ -337,17 +337,17 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, weapon
 		}
 		if(var_959a2a8b)
 		{
-			x = var_4f9d7296[0];
-			y = var_4f9d7296[1];
+			x = originalposition[0];
+			y = originalposition[1];
 			lowestz = var_69d15ad0[#"position"][2];
-			z = var_4f9d7296[2];
+			z = originalposition[2];
 			while(z > lowestz)
 			{
 				newpos = (x, y, z);
-				var_c84f4998 = function_330c2616(newpos);
-				if(function_a66ba8cc(var_c84f4998) || function_f4e48434(newpos))
+				water_depth = function_330c2616(newpos);
+				if(function_a66ba8cc(water_depth) || function_f4e48434(newpos))
 				{
-					newpos = newpos - (0, 0, var_c84f4998);
+					newpos = newpos - (0, 0, water_depth);
 					level thread function_42b9fdbe(var_fc031a6d, newpos, (0, 0, 1), int(customsettings.var_b79d64a9), team);
 					break;
 				}
@@ -469,12 +469,12 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 			{
 				function_85ff22aa(var_e5d1793d[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locations[#"loc"][count] = var_e5d1793d[#"position"];
-				var_c84f4998 = function_330c2616(var_e5d1793d[#"position"]);
-				if(function_a66ba8cc(var_c84f4998))
+				water_depth = function_330c2616(var_e5d1793d[#"position"]);
+				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][count] = (0, 0, 1);
 					locations[#"steam"][count] = 1;
-					locations[#"loc"][count] = locations[#"loc"][count] - (0, 0, var_c84f4998);
+					locations[#"loc"][count] = locations[#"loc"][count] - (0, 0, water_depth);
 				}
 				else
 				{
@@ -497,12 +497,12 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 				function_85ff22aa(var_9417df90[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locindex = count + (fxcount * (var_ecef2fde + 1));
 				locations[#"loc"][locindex] = var_9417df90[#"position"];
-				var_c84f4998 = function_330c2616(var_9417df90[#"position"]);
-				if(function_a66ba8cc(var_c84f4998))
+				water_depth = function_330c2616(var_9417df90[#"position"]);
+				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][locindex] = (0, 0, 1);
 					locations[#"steam"][locindex] = 1;
-					locations[#"loc"][locindex] = locations[#"loc"][locindex] - (0, 0, var_c84f4998);
+					locations[#"loc"][locindex] = locations[#"loc"][locindex] - (0, 0, water_depth);
 					continue;
 				}
 				locations[#"normal"][locindex] = var_9417df90[#"normal"];

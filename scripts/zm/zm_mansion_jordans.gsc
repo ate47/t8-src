@@ -1052,7 +1052,7 @@ function function_ffc00d17(var_10372151)
 */
 function function_9215e9d(var_1e99deea, var_711067a4)
 {
-	self endon(#"hash_3b5f95e199c7d7db", #"death");
+	self endon(#"left_trigger", #"death");
 	var_1e99deea endon(#"death");
 	self thread function_123c7022(var_1e99deea, var_711067a4);
 	n_time = 1;
@@ -1084,7 +1084,7 @@ function function_123c7022(var_1e99deea, var_711067a4)
 		var_6e84d29e = self function_ffc00d17(var_711067a4);
 	}
 	while(self istouching(var_1e99deea) && var_6e84d29e);
-	self notify(#"hash_3b5f95e199c7d7db");
+	self notify(#"left_trigger");
 }
 
 /*
@@ -1577,7 +1577,7 @@ function function_eb269563()
 */
 function function_e92918f6(var_1e99deea, s_lookat)
 {
-	self endoncallback(&function_dc123817, #"hash_3b5f95e199c7d7db", #"death");
+	self endoncallback(&function_dc123817, #"left_trigger", #"death");
 	self.var_4522314f = 1;
 	self thread function_da604bc0(var_1e99deea, s_lookat.origin);
 	wait(30);
@@ -1664,7 +1664,7 @@ function function_da604bc0(var_1e99deea, var_1611e2c0)
 		wait(0.2);
 	}
 	while(function_533ca98d(var_1e99deea, var_1611e2c0));
-	self notify(#"hash_3b5f95e199c7d7db");
+	self notify(#"left_trigger");
 	/#
 		iprintlnbold("" + self.playernum);
 	#/

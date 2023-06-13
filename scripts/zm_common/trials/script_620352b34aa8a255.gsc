@@ -78,7 +78,7 @@ function private on_end(round_reset)
 	{
 		player.var_b2c60867 = undefined;
 		player.var_e14296de = undefined;
-		player.var_cd0a3ad3 = undefined;
+		player.n_timeout_time = undefined;
 		player.var_60fa6139 = undefined;
 		player zm_trial_util::stop_timer();
 		level.var_f995ece6 zm_trial_timer::close(player);
@@ -104,7 +104,7 @@ function private function_ad32d69(var_b2c60867, timeout, var_ca735ce8, var_a4a28
 	}
 	self.var_b2c60867 = var_b2c60867;
 	self.var_e14296de = level.time;
-	self.var_cd0a3ad3 = timeout;
+	self.n_timeout_time = timeout;
 	self.var_60fa6139 = (level.time + (timeout * 1000)) - (var_ca735ce8 * 1000);
 	self.b_teleporting = 0;
 	level.var_f995ece6 zm_trial_timer::open(self);
@@ -204,7 +204,7 @@ function private function_ff66b979()
 	foreach(player in getplayers())
 	{
 		var_d1659cdf = var_a0328dd5 - player.var_e14296de;
-		player thread function_ad32d69(player.var_b2c60867, player.var_cd0a3ad3, int(float(var_d1659cdf) / 1000), 0);
+		player thread function_ad32d69(player.var_b2c60867, player.n_timeout_time, int(float(var_d1659cdf) / 1000), 0);
 		player thread damage_monitor(0);
 	}
 }

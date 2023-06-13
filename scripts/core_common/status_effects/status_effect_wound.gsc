@@ -99,7 +99,7 @@ function function_a54d41f7(starttime)
 		if(self.endtime != var_1420e67b)
 		{
 			var_3a8a4c13 = gettime() - starttime;
-			self.owner function_eb1cd20(starttime, self.duration + var_3a8a4c13, self.var_3cf2d21);
+			self.owner function_eb1cd20(starttime, self.duration + var_3a8a4c13, self.namehash);
 			var_1420e67b = self.endtime;
 		}
 	}

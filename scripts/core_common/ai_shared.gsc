@@ -691,7 +691,7 @@ function patrol(start_path_node)
 	/#
 		assert(isdefined(start_path_node), self.targetname + "");
 	#/
-	if(start_path_node.type === #"hash_397b1509f632dd34")
+	if(start_path_node.type === #"bad node")
 	{
 		/#
 			errormsg = (((("" + start_path_node.targetname) + "") + int(start_path_node.origin[0]) + "") + int(start_path_node.origin[1]) + "") + int(start_path_node.origin[2]) + "";
@@ -1274,9 +1274,9 @@ function function_9139c839()
 {
 	if(!isdefined(self.var_76167463))
 	{
-		if(isdefined(self.var_ae8ec545))
+		if(isdefined(self.aisettingsbundle))
 		{
-			settingsbundle = self.var_ae8ec545;
+			settingsbundle = self.aisettingsbundle;
 		}
 		else
 		{
@@ -1286,7 +1286,7 @@ function function_9139c839()
 			}
 			else if(isvehicle(self) && isdefined(self.scriptbundlesettings))
 			{
-				settingsbundle = getscriptbundle(self.scriptbundlesettings).var_ae8ec545;
+				settingsbundle = getscriptbundle(self.scriptbundlesettings).aisettingsbundle;
 			}
 		}
 		if(!isdefined(settingsbundle))

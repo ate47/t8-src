@@ -53,7 +53,7 @@ class cct_progressbar_status : cLUIelem
 			}
 			else
 			{
-				if(#"hash_4082029e6e323467" == state_name)
+				if(#"downloading" == state_name)
 				{
 					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}

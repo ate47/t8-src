@@ -1177,7 +1177,7 @@ function wasatcovernode()
 {
 	if(isdefined(self.prevnode))
 	{
-		if(self.prevnode.type == #"cover left" || self.prevnode.type == #"cover right" || self.prevnode.type == #"cover pillar" || (self.prevnode.type == #"cover stand" || self.prevnode.type == #"hash_1bb444d857814e92") || (self.prevnode.type == #"cover crouch" || self.prevnode.type == #"hash_280d1247a6abdbae" || self.prevnode.type == #"hash_171465527444ed14"))
+		if(self.prevnode.type == #"cover left" || self.prevnode.type == #"cover right" || self.prevnode.type == #"cover pillar" || (self.prevnode.type == #"cover stand" || self.prevnode.type == #"conceal stand") || (self.prevnode.type == #"cover crouch" || self.prevnode.type == #"cover crouch window" || self.prevnode.type == #"conceal crouch"))
 		{
 			return true;
 		}
@@ -2324,11 +2324,11 @@ function getcovertype(node)
 		{
 			return "cover_right";
 		}
-		if(node.type == #"cover stand" || node.type == #"hash_1bb444d857814e92")
+		if(node.type == #"cover stand" || node.type == #"conceal stand")
 		{
 			return "cover_stand";
 		}
-		if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+		if(node.type == #"cover crouch" || node.type == #"cover crouch window" || node.type == #"conceal crouch")
 		{
 			return "cover_crouch";
 		}
@@ -2353,7 +2353,7 @@ function iscoverconcealed(node)
 {
 	if(isdefined(node))
 	{
-		return node.type == #"hash_171465527444ed14" || node.type == #"hash_1bb444d857814e92";
+		return node.type == #"conceal crouch" || node.type == #"conceal stand";
 	}
 	return 0;
 }
@@ -2426,11 +2426,11 @@ function canseeenemywrapper()
 		}
 		else
 		{
-			if(node.type == #"cover stand" || node.type == #"hash_1bb444d857814e92")
+			if(node.type == #"cover stand" || node.type == #"conceal stand")
 			{
 				nodeoffset = (-3.7, -22, 63);
 			}
-			else if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+			else if(node.type == #"cover crouch" || node.type == #"cover crouch window" || node.type == #"conceal crouch")
 			{
 				nodeoffset = (3.5, -12.5, 45);
 			}
@@ -2489,7 +2489,7 @@ function gethighestnodestance(node)
 	/#
 		errormsg(((node.type + "") + node.origin) + "");
 	#/
-	if(node.type == #"cover crouch" || node.type == #"hash_280d1247a6abdbae" || node.type == #"hash_171465527444ed14")
+	if(node.type == #"cover crouch" || node.type == #"cover crouch window" || node.type == #"conceal crouch")
 	{
 		return "crouch";
 	}

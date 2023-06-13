@@ -233,11 +233,11 @@ function function_dd0c6ccb(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071("rob_zod_vista_light_fade");
+		self playrenderoverridebundle("rob_zod_vista_light_fade");
 	}
 	else
 	{
-		self function_5d482e78("rob_zod_vista_light_fade");
+		self stoprenderoverridebundle("rob_zod_vista_light_fade");
 	}
 }
 

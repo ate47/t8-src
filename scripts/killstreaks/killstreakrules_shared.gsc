@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\core_common\popups_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 

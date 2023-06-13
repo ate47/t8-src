@@ -228,7 +228,7 @@ function function_ec73770b(local_client_num)
 		{
 			continue;
 		}
-		if(!current_weapon.var_93295a64)
+		if(!current_weapon.mountable)
 		{
 			continue;
 		}

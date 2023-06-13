@@ -130,12 +130,12 @@ function __init__()
 		}
 		spawner::add_archetype_spawn_function(#"gladiator", &zombie_utility::function_27ba8249);
 	#/
-	animationstatenetwork::registernotetrackhandlerfunction("dropgun_left", &function_ce148f14);
+	animationstatenetwork::registernotetrackhandlerfunction("dropgun_left", &detachleft);
 	animationstatenetwork::registernotetrackhandlerfunction("dropgun_right", &detachright);
 }
 
 /*
-	Name: function_ce148f14
+	Name: detachleft
 	Namespace: zm_ai_gladiator
 	Checksum: 0x9F9EF4E0
 	Offset: 0xA68
@@ -143,7 +143,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_ce148f14(entity)
+function detachleft(entity)
 {
 	if(isdefined(self.var_fe593357) && self.var_fe593357)
 	{
@@ -784,12 +784,12 @@ function function_c6c44df1(entity)
 		return true;
 	}
 	z_diff = abs(entity.origin[2] - entity.favoriteenemy.origin[2]);
-	var_4ea3ded6 = 48;
+	z_max = 48;
 	if(isdefined(entity.favoriteenemy.zone_name) && entity.favoriteenemy.zone_name == #"zone_starting_area_center")
 	{
-		var_4ea3ded6 = 8;
+		z_max = 8;
 	}
-	if(z_diff > var_4ea3ded6)
+	if(z_diff > z_max)
 	{
 		return false;
 	}
@@ -849,12 +849,12 @@ function function_13f886a2(entity)
 	else if(self.var_9fde8624 == #"gladiator_destroyer")
 	{
 		z_diff = abs(entity.origin[2] - entity.favoriteenemy.origin[2]);
-		var_4ea3ded6 = 48;
+		z_max = 48;
 		if(isdefined(entity.favoriteenemy.zone_name) && entity.favoriteenemy.zone_name == #"zone_starting_area_center")
 		{
-			var_4ea3ded6 = 8;
+			z_max = 8;
 		}
-		if(z_diff > var_4ea3ded6)
+		if(z_diff > z_max)
 		{
 			return false;
 		}
@@ -2521,7 +2521,7 @@ function private function_24a38427()
 					{
 						break;
 					}
-					case "hash_250613ea7c45ec3e":
+					case "detach_left":
 					{
 						gladiators[0] hidepart("", "", 1);
 						name = getpartname(gladiators[0], 83);

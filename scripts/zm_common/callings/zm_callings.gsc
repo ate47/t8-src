@@ -80,9 +80,9 @@ function private function_c3be3572(var_9c939fff, var_27426b47, target, xp, var_b
 	if(isdefined(var_1eb89301.callingtask))
 	{
 		var_341c004b = undefined;
-		for(i = 0; i < level.var_314051a1.var_df270379.size; i++)
+		for(i = 0; i < level.var_314051a1.tasklist.size; i++)
 		{
-			if(level.var_314051a1.var_df270379[i].task == var_9c939fff)
+			if(level.var_314051a1.tasklist[i].task == var_9c939fff)
 			{
 				var_341c004b = i;
 				break;

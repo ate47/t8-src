@@ -146,7 +146,7 @@ function main()
 	zm_utility::set_gamemode_var("match_end_notify", undefined);
 	zm_utility::set_gamemode_var("match_end_func", undefined);
 	bundle = function_302bd0b9();
-	setvisiblescoreboardcolumns(bundle.var_6d99d15e, bundle.var_7be9edfe, bundle.var_8f7881b, bundle.var_1744a4b5, bundle.var_267a4320, bundle.var_d4259e74, bundle.var_54dd9ff6, bundle.var_5ee7b40a);
+	setvisiblescoreboardcolumns(bundle.scoreboard_1, bundle.scoreboard_2, bundle.scoreboard_3, bundle.scoreboard_4, bundle.scoreboard_5, bundle.var_d4259e74, bundle.var_54dd9ff6, bundle.var_5ee7b40a);
 	callback::on_connect(&onplayerconnect_check_for_hotjoin);
 }
 

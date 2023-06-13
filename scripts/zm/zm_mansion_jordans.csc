@@ -65,7 +65,7 @@ function function_5869f09a(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_c51132ba(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_bf9d3071(#"hash_429426f01ad84c8b");
+	self playrenderoverridebundle(#"hash_429426f01ad84c8b");
 }
 
 /*

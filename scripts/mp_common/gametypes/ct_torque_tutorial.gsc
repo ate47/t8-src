@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\abilities\gadgets\gadget_concertina_wire.gsc;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\abilities\gadgets\gadget_smart_cover.gsc;
 #using script_490759cf62a1abc8;
 #using scripts\mp_common\gametypes\ct_vo.gsc;

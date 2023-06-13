@@ -218,7 +218,7 @@ function private function_2f394f36()
 		}
 		stateindex = function_ffdbe8c2(dynent);
 		bundle = function_489009c1(dynent);
-		if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[stateindex]) && (isdefined(bundle.var_c14aa186[stateindex].var_efabe801) && bundle.var_c14aa186[stateindex].var_efabe801 || (level.inprematchperiod && (!(isdefined(bundle.var_c14aa186[stateindex].var_4a78f198) && bundle.var_c14aa186[stateindex].var_4a78f198)))))
+		if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[stateindex]) && (isdefined(bundle.dynentstates[stateindex].var_efabe801) && bundle.dynentstates[stateindex].var_efabe801 || (level.inprematchperiod && (!(isdefined(bundle.dynentstates[stateindex].var_4a78f198) && bundle.dynentstates[stateindex].var_4a78f198)))))
 		{
 			/#
 				if(debug)
@@ -245,13 +245,13 @@ function private function_2f394f36()
 	}
 	trigger = self.var_8a022726;
 	state = function_ffdbe8c2(var_c61b7280);
-	if(trigger.var_a9309589 === var_c61b7280 && trigger.var_9680a0e4 === state)
+	if(trigger.var_a9309589 === var_c61b7280 && trigger.dynentstate === state)
 	{
 		trigger triggerenable(1);
 		return;
 	}
 	trigger.var_a9309589 = var_c61b7280;
-	trigger.var_9680a0e4 = state;
+	trigger.dynentstate = state;
 	bundle = function_489009c1(var_c61b7280);
 	loc_00000C66:
 	loc_00000C86:
@@ -275,9 +275,9 @@ function private function_2f394f36()
 function function_836af3b3(bundle, state)
 {
 	hintstring = #"";
-	if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[state]) && isdefined(bundle.var_c14aa186[state].hintstring))
+	if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[state]) && isdefined(bundle.dynentstates[state].hintstring))
 	{
-		hintstring = bundle.var_c14aa186[state].hintstring;
+		hintstring = bundle.dynentstates[state].hintstring;
 	}
 	self sethintstring(hintstring);
 }
@@ -432,9 +432,9 @@ function function_bf7b8a27(dynent, activator)
 	stateindex = function_ffdbe8c2(dynent);
 	bundle = function_489009c1(dynent);
 	var_9bdcfcd8 = undefined;
-	if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[stateindex]))
+	if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[stateindex]))
 	{
-		state = bundle.var_c14aa186[stateindex];
+		state = bundle.dynentstates[stateindex];
 		var_9bdcfcd8 = (isdefined(state.var_8a7fcb87) ? state.var_8a7fcb87 : 0);
 		if(isdefined(activator))
 		{
@@ -481,9 +481,9 @@ event private function_3981d015(eventstruct)
 	dynent = eventstruct.ent;
 	var_16a4afdc = eventstruct.state;
 	bundle = function_489009c1(dynent);
-	if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[var_16a4afdc]))
+	if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[var_16a4afdc]))
 	{
-		newstate = bundle.var_c14aa186[var_16a4afdc];
+		newstate = bundle.dynentstates[var_16a4afdc];
 		teleport = eventstruct.teleport;
 		if(!(isdefined(bundle.var_f710132b) && bundle.var_f710132b))
 		{
@@ -555,10 +555,10 @@ event private function_ff8b3908(eventstruct)
 	dynent = eventstruct.ent;
 	bundle = function_489009c1(dynent);
 	var_1a5e0c43 = isdefined(eventstruct.clientside) && eventstruct.clientside;
-	if(isdefined(bundle) && isdefined(bundle.var_c14aa186))
+	if(isdefined(bundle) && isdefined(bundle.dynentstates))
 	{
 		stateindex = (var_1a5e0c43 ? (isdefined(bundle.vehicledestroyed) ? bundle.vehicledestroyed : 0) : (isdefined(bundle.destroyed) ? bundle.destroyed : 0));
-		if(isdefined(bundle.var_c14aa186[stateindex]))
+		if(isdefined(bundle.dynentstates[stateindex]))
 		{
 			function_e2a06860(dynent, stateindex);
 		}

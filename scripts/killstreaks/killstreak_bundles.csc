@@ -19,7 +19,7 @@ function spawned(local_client_num, bundle)
 	self.var_22a05c26 = bundle;
 	if(isdefined(bundle.var_7249d50f) && bundle.var_7249d50f > 0)
 	{
-		self function_5db470de(local_client_num, bundle.var_7249d50f);
+		self enablevisioncircle(local_client_num, bundle.var_7249d50f);
 	}
 	if(bundle.var_101cf227 === 1)
 	{

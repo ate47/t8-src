@@ -51,11 +51,11 @@ function supply_drop_parachute(localclientnum, oldval, newval, bnewent, binitial
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_336cece53ae2342f");
+		self playrenderoverridebundle(#"hash_336cece53ae2342f");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_336cece53ae2342f");
+		self stoprenderoverridebundle(#"hash_336cece53ae2342f");
 	}
 }
 

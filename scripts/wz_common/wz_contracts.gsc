@@ -304,7 +304,7 @@ function on_player_killed()
 	if(isdefined(attacker) && isdefined(attacker.pers) && isdefined(attacker.pers[#"characterindex"]))
 	{
 		n_character_index = attacker.pers[#"characterindex"];
-		rf = function_fb05c532(n_character_index, currentsessionmode());
+		rf = getplayerrolefields(n_character_index, currentsessionmode());
 		if(isdefined(rf))
 		{
 			if(!isdefined(rf.var_f0a975bf))

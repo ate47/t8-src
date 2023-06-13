@@ -215,7 +215,7 @@ function update(tacbundle)
 function private function_e027100a()
 {
 	self notify(#"hash_2747b8ce1136a8ae");
-	[[ level.var_d1a4558d ]]->function_5ef47bb4(self);
+	[[ level.var_d1a4558d ]]->leavequeue(self);
 }
 
 /*
@@ -671,7 +671,7 @@ function function_795a469(name)
 */
 function function_7f65a721(notifyhash)
 {
-	[[ level.var_d1a4558d ]]->function_5ef47bb4(self);
+	[[ level.var_d1a4558d ]]->leavequeue(self);
 }
 
 /*
@@ -902,7 +902,7 @@ function function_b94f5770(params, tacbundle)
 function function_7ed3ada6(params, tacbundle)
 {
 	var_4db4630 = (isdefined(self.enemy) ? self.enemy.origin : self.likelyenemyposition);
-	nodes = function_74251581(self.goalpos, self.goalradius, self.goalheight, self.team, var_4db4630);
+	nodes = findbestcovernodesatlocation(self.goalpos, self.goalradius, self.goalheight, self.team, var_4db4630);
 	/#
 		if(self bot::should_record(""))
 		{
@@ -968,7 +968,7 @@ function function_356f5b61(trigger)
 	if(!isdefined(trigger.tacpoints))
 	{
 		trigger.tacpoints = tacticalquery("stratcom_tacquery_trigger_all", trigger);
-		var_c36ae55a = function_ad6356f5(trigger.origin);
+		var_c36ae55a = getclosesttacpoint(trigger.origin);
 		if(isdefined(var_c36ae55a))
 		{
 			var_3ffc9821 = array(var_c36ae55a);
@@ -1093,9 +1093,9 @@ function get_goal_center()
 	{
 		return info.goalvolume;
 	}
-	if(isdefined(info.var_151c9dda))
+	if(isdefined(info.regionid))
 	{
-		return info.var_151c9dda;
+		return info.regionid;
 	}
 	return ai::t_cylinder(info.goalpos, info.goalradius, info.goalheight);
 }
@@ -1220,17 +1220,17 @@ function function_d0cf287b(params, tacbundle)
 		#/
 		return false;
 	}
-	var_fa686307 = undefined;
+	claimnode = undefined;
 	if(ispathnode(position))
 	{
 		var_8e2d9611 = function_f29e63ea(position);
 		if(isdefined(var_8e2d9611))
 		{
-			var_fa686307 = position;
+			claimnode = position;
 			position = var_8e2d9611;
 		}
 	}
-	self set_position(position, var_fa686307);
+	self set_position(position, claimnode);
 	return true;
 }
 
@@ -1371,13 +1371,13 @@ function function_f29e63ea(node)
 	{
 		return undefined;
 	}
-	var_831c15e5 = anglestoright(node.angles);
-	offsetdir = var_831c15e5;
+	noderight = anglestoright(node.angles);
+	offsetdir = noderight;
 	if(var_208965cf && var_a26a51ba)
 	{
 		if(isdefined(self.enemylastseenpos))
 		{
-			if(vectordot(var_831c15e5, self.enemylastseenpos - self.origin) < 0)
+			if(vectordot(noderight, self.enemylastseenpos - self.origin) < 0)
 			{
 				offsetdir = (0, 0, 0) - offsetdir;
 			}
@@ -1459,7 +1459,7 @@ function function_2ea7762a(tacbundle)
 	Parameters: 2
 	Flags: Linked
 */
-function set_position(position, var_fa686307 = undefined)
+function set_position(position, claimnode = undefined)
 {
 	radius = self getpathfindingradius();
 	if(ispathnode(position))
@@ -1471,7 +1471,7 @@ function set_position(position, var_fa686307 = undefined)
 	}
 	if(isvec(position))
 	{
-		self usecovernode(var_fa686307);
+		self usecovernode(claimnode);
 		navmeshpoint = getclosestpointonnavmesh(position, 64, radius);
 		if(isdefined(navmeshpoint))
 		{
@@ -1577,7 +1577,7 @@ function get_pathable_point(points)
 		return undefined;
 	}
 	origin = path.pathpoints[path.pathpoints.size - 1];
-	tacpoint = function_ad6356f5(origin);
+	tacpoint = getclosesttacpoint(origin);
 	if(isdefined(tacpoint))
 	{
 		return tacpoint.origin;

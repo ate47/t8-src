@@ -421,7 +421,7 @@ function function_ccbdf992(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_4659ecede94f0b38", "tag_accessory_left");
+		self playrenderoverridebundle(#"hash_4659ecede94f0b38", "tag_accessory_left");
 	}
 }
 
@@ -513,7 +513,7 @@ function function_bb184fed(localclientnum, oldval, newval, bnewent, binitialsnap
 		forcestreamxmodel(var_c1cbeea5, 1, -1);
 		var_dcf4ea85 = util::spawn_model(localclientnum, var_c1cbeea5, self gettagorigin("tag_icon_link"), self.angles);
 		var_dcf4ea85 linkto(self, "tag_icon_link");
-		var_dcf4ea85 function_bf9d3071(#"hash_16b8b568a95931e7");
+		var_dcf4ea85 playrenderoverridebundle(#"hash_16b8b568a95931e7");
 		var_dcf4ea85.targetname = str_targetname;
 		var_dcf4ea85.var_73bd396b = self;
 		if(level.var_c3e5c4cd == 2)

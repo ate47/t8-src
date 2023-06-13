@@ -186,7 +186,7 @@ function private function_c08cf66b()
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_bac16d76(spawnorigin, spawnangles, var_d8138db2)
+function private function_bac16d76(spawnorigin, spawnangles, itemid)
 {
 	self endon(#"death", #"disconnect");
 	var_5c5b7682 = self getplayercamerapos();
@@ -194,7 +194,7 @@ function private function_bac16d76(spawnorigin, spawnangles, var_d8138db2)
 	if(isdefined(vehicle))
 	{
 		level.item_vehicles[level.item_vehicles.size] = vehicle;
-		vehicle.id = var_d8138db2;
+		vehicle.id = itemid;
 		vehicle setteam(self.team);
 		vehicle.team = self.team;
 		vehicle setowner(self);

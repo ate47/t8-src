@@ -715,7 +715,7 @@ function private supportsovercovercondition(entity)
 	stance = entity getblackboardattribute("_stance");
 	if(isdefined(entity.node))
 	{
-		if(entity.node.type == #"hash_171465527444ed14" || entity.node.type == #"hash_1bb444d857814e92")
+		if(entity.node.type == #"conceal crouch" || entity.node.type == #"conceal stand")
 		{
 			return true;
 		}
@@ -723,14 +723,14 @@ function private supportsovercovercondition(entity)
 		{
 			return false;
 		}
-		if(entity.node.type == #"cover left" || entity.node.type == #"cover right" || (entity.node.type == #"cover crouch" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14"))
+		if(entity.node.type == #"cover left" || entity.node.type == #"cover right" || (entity.node.type == #"cover crouch" || entity.node.type == #"cover crouch window" || entity.node.type == #"conceal crouch"))
 		{
 			if(stance == "crouch")
 			{
 				return true;
 			}
 		}
-		else if(entity.node.type == #"cover stand" || entity.node.type == #"hash_1bb444d857814e92")
+		else if(entity.node.type == #"cover stand" || entity.node.type == #"conceal stand")
 		{
 			if(stance == "stand")
 			{

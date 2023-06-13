@@ -1671,17 +1671,17 @@ function mission_result(str_winning_team, var_db3d629e = #"hash_6ef5bcff7fb1d1ab
 		array::thread_all(a_players, &val::set, "mission_result", "takedamage", 0);
 		if(str_winning_team == #"allies")
 		{
-			var_ef387694 = {#targetname:level.mission_name, #side:#"allies", #team:#"allies"};
-			function_58ca2822("mssn_succ", undefined, var_ef387694);
-			var_ef387694 = {#targetname:level.mission_name, #side:#"axis", #team:#"axis"};
-			function_58ca2822("mssn_fail", undefined, var_ef387694);
+			voiceparams = {#targetname:level.mission_name, #side:#"allies", #team:#"allies"};
+			function_58ca2822("mssn_succ", undefined, voiceparams);
+			voiceparams = {#targetname:level.mission_name, #side:#"axis", #team:#"axis"};
+			function_58ca2822("mssn_fail", undefined, voiceparams);
 		}
 		else
 		{
-			var_ef387694 = {#targetname:level.mission_name, #side:#"axis", #team:#"axis"};
-			function_58ca2822("mssn_succ", undefined, var_ef387694);
-			var_ef387694 = {#targetname:level.mission_name, #side:#"allies", #team:#"allies"};
-			function_58ca2822("mssn_fail", undefined, var_ef387694);
+			voiceparams = {#targetname:level.mission_name, #side:#"axis", #team:#"axis"};
+			function_58ca2822("mssn_succ", undefined, voiceparams);
+			voiceparams = {#targetname:level.mission_name, #side:#"allies", #team:#"allies"};
+			function_58ca2822("mssn_fail", undefined, voiceparams);
 		}
 		wait(1);
 		array::thread_all(a_players, &val::set, "mission_result", "freezecontrols_allowlook", 1);

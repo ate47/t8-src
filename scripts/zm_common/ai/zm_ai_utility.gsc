@@ -116,14 +116,14 @@ function private function_a19d7104(settingsbundle)
 	}
 	foreach(var_e8d7c6d7 in settingsbundle.var_ca920a99)
 	{
-		if(!isdefined(var_e8d7c6d7.weaponid) || !isdefined(var_e8d7c6d7.var_54c33ecd))
+		if(!isdefined(var_e8d7c6d7.weaponid) || !isdefined(var_e8d7c6d7.damagescale))
 		{
 			/#
 				println("" + settingsbundle.name);
 			#/
 			continue;
 		}
-		level.var_532264f5[settingsbundle.name][var_e8d7c6d7.weaponid] = {#hash_fac896db:var_e8d7c6d7.var_97b22faa, #hash_8e22aa87:var_e8d7c6d7.var_fc420d71, #hash_fff93f95:var_e8d7c6d7.var_628192b0, #hash_c6cc6205:var_e8d7c6d7.var_54c33ecd};
+		level.var_532264f5[settingsbundle.name][var_e8d7c6d7.weaponid] = {#hash_fac896db:var_e8d7c6d7.var_97b22faa, #hash_8e22aa87:var_e8d7c6d7.var_fc420d71, #hash_fff93f95:var_e8d7c6d7.var_628192b0, #hash_c6cc6205:var_e8d7c6d7.damagescale};
 	}
 	settingsbundle.var_6199bcd5 = 1;
 }
@@ -461,7 +461,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	}
 	if(!var_201ce857 && !var_30362eca)
 	{
-		var_b1c1c5cf = (isdefined(var_c6cc6205) ? var_c6cc6205 : entity ai::function_9139c839().var_54c33ecd);
+		var_b1c1c5cf = (isdefined(var_c6cc6205) ? var_c6cc6205 : entity ai::function_9139c839().damagescale);
 	}
 	else
 	{

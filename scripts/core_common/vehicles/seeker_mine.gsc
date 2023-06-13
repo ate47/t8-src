@@ -229,7 +229,7 @@ function function_b23e4b45()
 		}
 		if(function_d39f1cf2())
 		{
-			tacpoint = function_ad6356f5(self.origin);
+			tacpoint = getclosesttacpoint(self.origin);
 			if(isdefined(tacpoint))
 			{
 				self.origin = tacpoint.origin;
@@ -460,13 +460,13 @@ function waittill_pathing_done(maxtime = 15)
 */
 function function_33d3892a()
 {
-	var_80a2ada4 = getdvarint(#"hkai_pathfinditerationlimit", 1800);
+	iterationlimit = getdvarint(#"hkai_pathfinditerationlimit", 1800);
 	if(isdefined(self.favoriteenemy) && !function_9ba314a1(self.favoriteenemy))
 	{
 		targetpos = function_3acf1c61();
 		if(isdefined(targetpos))
 		{
-			path = generatenavmeshpath(self.origin, targetpos, self, undefined, undefined, var_80a2ada4);
+			path = generatenavmeshpath(self.origin, targetpos, self, undefined, undefined, iterationlimit);
 			if(isdefined(path) && path.status === "succeeded")
 			{
 				return true;
@@ -833,7 +833,7 @@ function private function_82e5be34()
 function function_d15dd929(radius, origin)
 {
 	result = function_9cc082d2(origin + vectorscale((0, 0, 1), 100), 200);
-	if(isdefined(result) && isdefined(result[#"hash_556255be476284b3"]) && result[#"hash_556255be476284b3"] & 2)
+	if(isdefined(result) && isdefined(result[#"materialflags"]) && result[#"materialflags"] & 2)
 	{
 		return false;
 	}
@@ -1217,7 +1217,7 @@ function function_55be8453()
 		enemies = util::function_81ccf6d3(self.team);
 		var_61c9e8b6 = arraycombine(enemies, getactorarray(), 1, 0);
 		var_61c9e8b6 = arraysort(enemies, self function_d3a9800e(), 1);
-		var_6f879bc1 = 0;
+		foundenemy = 0;
 		foreach(target in var_61c9e8b6)
 		{
 			if(function_9ba314a1(target))
@@ -1233,11 +1233,11 @@ function function_55be8453()
 			if(util::within_fov(self.origin, angles, target.origin, 0))
 			{
 				function_45eb6b84(target);
-				var_6f879bc1 = 1;
+				foundenemy = 1;
 				break;
 			}
 		}
-		if(!var_6f879bc1)
+		if(!foundenemy)
 		{
 			foreach(target in var_61c9e8b6)
 			{
@@ -1245,12 +1245,12 @@ function function_55be8453()
 				if(var_87c0ec9c <= 122500 && !function_9ba314a1(target))
 				{
 					function_45eb6b84(target);
-					var_6f879bc1 = 1;
+					foundenemy = 1;
 					break;
 				}
 			}
 		}
-		if(!var_6f879bc1 && var_61c9e8b6.size && isdefined(var_61c9e8b6[0]) && !function_9ba314a1(var_61c9e8b6[0]))
+		if(!foundenemy && var_61c9e8b6.size && isdefined(var_61c9e8b6[0]) && !function_9ba314a1(var_61c9e8b6[0]))
 		{
 			function_45eb6b84(target);
 		}

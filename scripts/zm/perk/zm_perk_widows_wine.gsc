@@ -200,7 +200,7 @@ function widows_wine_contact_explosion()
 	self endon(#"disconnect");
 	level endon(#"end_game");
 	self clientfield::increment("winters_wail_explosion");
-	a_ai_targets = self function_bdda420f(self.origin, 256);
+	a_ai_targets = self getenemiesinradius(self.origin, 256);
 	a_ai_targets = arraysortclosest(a_ai_targets, self.origin);
 	foreach(ai_target in a_ai_targets)
 	{
@@ -280,7 +280,7 @@ function function_c6366dbe()
 	self clientfield::set("winters_wail_slow_field", 1);
 	while(gettime() < n_end_time)
 	{
-		a_ai = self function_bdda420f(self.origin, 256);
+		a_ai = self getenemiesinradius(self.origin, 256);
 		foreach(ai in a_ai)
 		{
 			if(!isdefined(ai.var_6f84b820))

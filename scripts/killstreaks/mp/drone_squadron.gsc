@@ -4,8 +4,8 @@
 #using script_2eeea8e6fc9ffec5;
 #using script_308727214b5f8162;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_48e84d96b02dc660;
 #using scripts\killstreaks\killstreak_hacking.gsc;

@@ -56,7 +56,7 @@ function function_46e95cc7()
 	util::registerroundlimit(0, 10);
 	util::registerroundwinlimit(0, 10);
 	util::registernumlives(0, 100);
-	setdvar(#"hash_72369c90b4adfcc7", 1);
+	setdvar(#"com_pausesupported", 1);
 	setdvar(#"custom_killstreak_mode", 0);
 	setdvar(#"hash_48162cd174e3034d", 1);
 	setdvar(#"scr_scorestreaks", 0);
@@ -430,7 +430,7 @@ function function_1e84c767()
 	{
 		gamedifficulty = function_1aeaebae();
 		level thread function_f8f94589(gamedifficulty);
-		if(player function_c2c1d36b(player function_76785843()) == #"hash_2ea525d9988ed06c")
+		if(player function_c2c1d36b(player function_76785843()) == #"not_started")
 		{
 			player function_3b91934f(player function_76785843(), #"hash_233ea6adba72609d");
 			player function_ea859fe2();
@@ -558,14 +558,14 @@ function on_end_game(params)
 	Parameters: 1
 	Flags: Private
 */
-function private function_a1fb023a(var_e5cf3cc9)
+function private function_a1fb023a(ismaturecontent)
 {
 	e_player = ct_utils::get_player();
 	if(isdefined(e_player))
 	{
 		var_1e77bf82 = ismature(e_player);
 	}
-	return isdefined(var_e5cf3cc9) && var_e5cf3cc9 || (isdefined(var_1e77bf82) && var_1e77bf82);
+	return isdefined(ismaturecontent) && ismaturecontent || (isdefined(var_1e77bf82) && var_1e77bf82);
 }
 
 /*
@@ -603,12 +603,12 @@ function function_e9b83be8()
 		#/
 	#/
 	fields = getcharacterfields(level.select_character, currentsessionmode());
-	if(isdefined(fields) && isdefined(fields.var_4bda8a1) && function_a1fb023a(fields.var_5331abe0))
+	if(isdefined(fields) && isdefined(fields.intromovie) && function_a1fb023a(fields.var_5331abe0))
 	{
 		e_player = getplayers(#"allies")[0];
 		if(isdefined(e_player) && isplayer(e_player))
 		{
-			e_player function_95e72b33(fields.var_4bda8a1);
+			e_player function_95e72b33(fields.intromovie);
 		}
 	}
 }

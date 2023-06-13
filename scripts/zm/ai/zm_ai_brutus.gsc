@@ -402,8 +402,8 @@ function private function_943e4c08(entity, minplayerdist)
 	var_6f59ec8b = getclosestpointonnavmesh(entity.origin, entity getpathfindingradius());
 	if(isdefined(var_6f59ec8b))
 	{
-		var_f67d1ba2 = generatenavmeshpath(var_6f59ec8b, playerpositions, entity);
-		if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded" && var_f67d1ba2.pathdistance < minplayerdist)
+		pathdata = generatenavmeshpath(var_6f59ec8b, playerpositions, entity);
+		if(isdefined(pathdata) && pathdata.status === "succeeded" && pathdata.pathdistance < minplayerdist)
 		{
 			return false;
 		}
@@ -675,7 +675,7 @@ function function_20fa0d4c(entity)
 	}
 	if(isdefined(entity.meleeweapon) && entity.meleeweapon !== level.weaponnone)
 	{
-		meleedistsq = entity.meleeweapon.var_d3cafde6 * entity.meleeweapon.var_d3cafde6;
+		meleedistsq = entity.meleeweapon.aimeleerange * entity.meleeweapon.aimeleerange;
 	}
 	if(!isdefined(meleedistsq))
 	{

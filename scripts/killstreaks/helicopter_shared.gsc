@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\airsupport.gsc;
@@ -465,9 +465,9 @@ function set_goal_pos(goalpos, stop)
 	Parameters: 8
 	Flags: Linked
 */
-function spawn_helicopter(owner, origin, angles, var_87735872, targetname, target_offset, hardpointtype, killstreak_id)
+function spawn_helicopter(owner, origin, angles, vehicledef, targetname, target_offset, hardpointtype, killstreak_id)
 {
-	chopper = spawnvehicle(var_87735872, origin, angles);
+	chopper = spawnvehicle(vehicledef, origin, angles);
 	chopper setowner(owner);
 	chopper.owner = owner;
 	chopper clientfield::set("enemyvehicle", 1);
@@ -3159,16 +3159,16 @@ function heli_get_protect_spot(protectdest, var_551cf1b9, heli_team)
 		assert(isdefined(level.var_c2bbc18f >= level.var_17076139));
 	#/
 	heightmin = level.var_17076139;
-	var_c4124b8e = level.var_c2bbc18f;
+	heightmax = level.var_c2bbc18f;
 	if(heli_team == #"axis")
 	{
 		/#
 			assert(isdefined(level.var_d9c77d70));
 		#/
 		heightmin = heightmin + level.var_d9c77d70;
-		var_c4124b8e = var_c4124b8e + level.var_d9c77d70;
+		heightmax = heightmax + level.var_d9c77d70;
 	}
-	hoverheight = heightmin + ((var_c4124b8e - heightmin) / 2);
+	hoverheight = heightmin + ((heightmax - heightmin) / 2);
 	radius = 10000;
 	if(isdefined(groundpos))
 	{
@@ -3187,12 +3187,12 @@ function heli_get_protect_spot(protectdest, var_551cf1b9, heli_team)
 		{
 			self.var_2c1a38eb = groundpos;
 			self.var_f9d38924 = protectdest;
-			halfheight = (var_c4124b8e - heightmin) / 2;
+			halfheight = (heightmax - heightmin) / 2;
 			queryresult = positionquery_source_navigation(protectdest, min_radius, max_radius, halfheight, 50, self);
 			if(isdefined(queryresult.data) && queryresult.data.size)
 			{
 				validpoints = [];
-				var_7f378b0 = randomintrange(heightmin, var_c4124b8e);
+				var_7f378b0 = randomintrange(heightmin, heightmax);
 				foreach(point in queryresult.data)
 				{
 					distsq = distancesquared(self.origin, point.origin);
@@ -3432,10 +3432,10 @@ function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 		{
 			return;
 		}
-		var_c092cd08 = heli_get_protect_spot(protectdest, undefined, heli_team);
-		if(isdefined(var_c092cd08))
+		newdest = heli_get_protect_spot(protectdest, undefined, heli_team);
+		if(isdefined(newdest))
 		{
-			self function_86012f82(var_c092cd08.origin, 1);
+			self function_86012f82(newdest.origin, 1);
 			self waittilltimeout(10, #"near_goal", #"hash_12e918889eada2ad");
 		}
 		else

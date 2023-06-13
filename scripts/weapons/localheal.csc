@@ -54,7 +54,7 @@ function function_eefb5c87(localclientnum, oldval, newval, bnewent, binitialsnap
 		if(isdefined(oldent) && (isdefined(oldent.var_4dffc910) && oldent.var_4dffc910))
 		{
 			oldent function_577be059(0);
-			oldent function_5d482e78(robname);
+			oldent stoprenderoverridebundle(robname);
 			oldent.var_4dffc910 = undefined;
 		}
 		entnum = self getentitynumber();
@@ -63,7 +63,7 @@ function function_eefb5c87(localclientnum, oldval, newval, bnewent, binitialsnap
 			if(isdefined(ent) && (!(isdefined(ent.var_4dffc910) && ent.var_4dffc910)))
 			{
 				ent function_577be059(1);
-				ent function_bf9d3071(robname);
+				ent playrenderoverridebundle(robname);
 				ent function_78233d29(robname, "", "Alpha", 1);
 				ent.var_4dffc910 = 1;
 			}

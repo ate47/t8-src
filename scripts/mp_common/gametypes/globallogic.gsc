@@ -153,7 +153,7 @@ function __init__()
 function private on_player_spawned()
 {
 	self clientfield::set_player_uimodel("huditems.killedByEntNum", 15);
-	self.var_84c4b3e6 = 0;
+	self.strobed = 0;
 }
 
 /*
@@ -2298,7 +2298,7 @@ function private function_6c9e78d5(var_c1e98979)
 		if(sessionmodeisonlinegame())
 		{
 			player stats::function_7a850245(#"demofileid", getdemofileid());
-			player stats::function_7a850245(#"matchid", function_c7c50474());
+			player stats::function_7a850245(#"matchid", getmatchid());
 			if(level.rankedmatch)
 			{
 				player stats::function_7a850245("surveyId", var_f9adbf05);
@@ -4542,7 +4542,7 @@ function timelimitclock_intermission(waittime)
 */
 function private function_51350eb8()
 {
-	level notify(#"hash_313ad43b34e74e96");
+	level notify(#"game_playing");
 	gamestate::set_state("playing");
 	level callback::callback(#"hash_361e06db4b210e");
 	if(level.var_6aec2d48 > 0)
@@ -5196,7 +5196,7 @@ function function_b9b7618()
 	level.voip.killershearvictim = getgametypesetting(#"voipkillershearvictim");
 	level.voip.partychat = getgametypesetting(#"hash_33bc6781006ae83d");
 	level.droppedtagrespawn = getgametypesetting(#"droppedtagrespawn");
-	setdvar(#"hash_53e6eeca9f56d0bf", getgametypesetting(#"hash_7ab596bf4932361d"));
+	setdvar(#"g_allowlaststandforactiveclients", getgametypesetting(#"hash_7ab596bf4932361d"));
 	if(isdefined(level.droppedtagrespawn) && level.droppedtagrespawn)
 	{
 		dogtags::init();
@@ -5942,17 +5942,17 @@ function function_a4156fb2()
 		{
 			if(self function_fdb8b430(player))
 			{
-				if(!(isdefined(player.var_84c4b3e6) && player.var_84c4b3e6))
+				if(!(isdefined(player.strobed) && player.strobed))
 				{
 					player clientfield::set_to_player("strobe_light", 1);
-					player.var_84c4b3e6 = 1;
+					player.strobed = 1;
 				}
 				continue;
 			}
-			if(isdefined(player.var_84c4b3e6) && player.var_84c4b3e6)
+			if(isdefined(player.strobed) && player.strobed)
 			{
 				player clientfield::set_to_player("strobe_light", 0);
-				player.var_84c4b3e6 = 0;
+				player.strobed = 0;
 			}
 		}
 		waitframe(1);
@@ -5978,10 +5978,10 @@ function function_b761e219()
 		{
 			continue;
 		}
-		if(isdefined(player.var_84c4b3e6) && player.var_84c4b3e6)
+		if(isdefined(player.strobed) && player.strobed)
 		{
 			player clientfield::set_to_player("strobe_light", 0);
-			player.var_84c4b3e6 = 0;
+			player.strobed = 0;
 		}
 	}
 }

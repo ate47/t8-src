@@ -129,8 +129,8 @@ function player_last_stand_stats(einflictor, attacker, idamage, smeansofdeath, w
 	{
 		if("zcleansed" == level.gametype)
 		{
-			demo::function_ae3420ca(attacker, self, einflictor);
-			potm::function_ae3420ca(attacker, self, einflictor);
+			demo::kill_bookmark(attacker, self, einflictor);
+			potm::kill_bookmark(attacker, self, einflictor);
 		}
 		if("zcleansed" == level.gametype)
 		{
@@ -1225,11 +1225,11 @@ function function_4d3cb10()
 	Parameters: 1
 	Flags: Linked
 */
-function function_3d685b5f(var_7f2e1d50)
+function function_3d685b5f(self_revive_count)
 {
-	var_7f2e1d50 = int(max(var_7f2e1d50, 0));
-	self.var_72249004 = var_7f2e1d50;
-	self clientfield::set_player_uimodel("ZMInventoryPersonal.self_revive_count", var_7f2e1d50);
+	self_revive_count = int(max(self_revive_count, 0));
+	self.var_72249004 = self_revive_count;
+	self clientfield::set_player_uimodel("ZMInventoryPersonal.self_revive_count", self_revive_count);
 	if(isdefined(level.var_c1fe3c83))
 	{
 		self [[level.var_c1fe3c83]]();
@@ -1308,12 +1308,12 @@ function function_b7c101fa()
 	level flag::wait_till("start_zombie_round_logic");
 	if(getplayers().size == 1)
 	{
-		var_7f2e1d50 = self.var_d66589da;
+		self_revive_count = self.var_d66589da;
 		self.var_240cf7be = 1;
 	}
 	else
 	{
-		var_7f2e1d50 = self.var_5d4c5daf;
+		self_revive_count = self.var_5d4c5daf;
 	}
 	var_48f2f554 = zm_custom::function_901b751c(#"hash_21ae4d5b707b063");
 	if(var_48f2f554)
@@ -1324,7 +1324,7 @@ function function_b7c101fa()
 	}
 	else
 	{
-		self function_3d685b5f(var_7f2e1d50);
+		self function_3d685b5f(self_revive_count);
 	}
 }
 
@@ -1606,7 +1606,7 @@ function revive_trigger_think(t_secondary)
 					e_reviver setweaponammostock(w_revive_tool, 1);
 					e_reviver disableweaponcycling();
 					e_reviver disableoffhandweapons();
-					e_reviver function_432f99ff();
+					e_reviver disableweaponswitchhero();
 					e_reviver thread revive_give_back_weapons_when_done(w_reviver, w_revive_tool, self);
 				}
 				else
@@ -1722,7 +1722,7 @@ function revive_give_back_weapons(w_reviver, w_revive_tool)
 	self enableoffhandweapons();
 	if(!(isdefined(self.var_b6840ea0) && self.var_b6840ea0))
 	{
-		self function_6c22c47a();
+		self enableweaponswitchhero();
 	}
 	if(self laststand::player_is_in_laststand())
 	{

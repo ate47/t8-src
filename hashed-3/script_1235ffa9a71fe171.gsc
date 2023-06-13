@@ -1113,7 +1113,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	var_e008ecea = var_d2314927;
 	if(!var_30362eca)
 	{
-		var_b1c1c5cf = (isdefined(var_c6cc6205) ? var_c6cc6205 : entity ai::function_9139c839().var_54c33ecd);
+		var_b1c1c5cf = (isdefined(var_c6cc6205) ? var_c6cc6205 : entity ai::function_9139c839().damagescale);
 	}
 	else if(var_30362eca)
 	{

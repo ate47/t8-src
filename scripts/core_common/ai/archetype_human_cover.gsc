@@ -162,7 +162,7 @@ function shouldthrowgrenadeatcovercondition(entity, throwifpossible = 0)
 		return false;
 	}
 	entityangles = entity.angles;
-	if(isdefined(entity.node) && (entity.node.type == #"cover left" || entity.node.type == #"cover right" || entity.node.type == #"cover pillar" || (entity.node.type == #"cover stand" || entity.node.type == #"hash_1bb444d857814e92") || (entity.node.type == #"cover crouch" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")) && entity isatcovernodestrict())
+	if(isdefined(entity.node) && (entity.node.type == #"cover left" || entity.node.type == #"cover right" || entity.node.type == #"cover pillar" || (entity.node.type == #"cover stand" || entity.node.type == #"conceal stand") || (entity.node.type == #"cover crouch" || entity.node.type == #"cover crouch window" || entity.node.type == #"conceal crouch")) && entity isatcovernodestrict())
 	{
 		entityangles = entity.node.angles;
 	}
@@ -679,13 +679,13 @@ function temp_get_arm_offset(entity, throwposition)
 			}
 			else
 			{
-				if(entity.node.type == #"cover stand" || entity.node.type == #"hash_1bb444d857814e92")
+				if(entity.node.type == #"cover stand" || entity.node.type == #"conceal stand")
 				{
 					arm_offset = (10, 7, 77);
 				}
 				else
 				{
-					if(entity.node.type == #"cover crouch" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")
+					if(entity.node.type == #"cover crouch" || entity.node.type == #"cover crouch window" || entity.node.type == #"conceal crouch")
 					{
 						arm_offset = (19, 5, 60);
 					}

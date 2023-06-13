@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_2ca4b414b146b498;
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\ai_tank_shared.gsc;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_52d2de9b438adc78;
 #using scripts\killstreaks\mp\killstreak_weapons.gsc;
@@ -2921,9 +2921,9 @@ function personalusebar(object)
 	Parameters: 8
 	Flags: Linked
 */
-function spawn_helicopter(owner, team, origin, angles, var_87735872, targetname, killstreak_id, context)
+function spawn_helicopter(owner, team, origin, angles, vehicledef, targetname, killstreak_id, context)
 {
-	chopper = spawnvehicle(var_87735872, origin, angles, targetname);
+	chopper = spawnvehicle(vehicledef, origin, angles, targetname);
 	chopper setowner(owner);
 	if(!isdefined(chopper))
 	{

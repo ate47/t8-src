@@ -5551,7 +5551,7 @@ function private function_faee09d2()
 */
 function private defend_spawn(var_4bf95f4c)
 {
-	if(level.players.size < var_4bf95f4c.var_6d1df6c7)
+	if(level.players.size < var_4bf95f4c.minplayers)
 	{
 		return;
 	}

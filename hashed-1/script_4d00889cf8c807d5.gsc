@@ -465,7 +465,7 @@ function private function_3ce1516d(a_s_spawn_locs)
 }
 
 /*
-	Name: function_4c74b381
+	Name: alloc_dynamic_buffer
 	Namespace: namespace_bc12435c
 	Checksum: 0x699A8326
 	Offset: 0x12D8
@@ -473,7 +473,7 @@ function private function_3ce1516d(a_s_spawn_locs)
 	Parameters: 3
 	Flags: None
 */
-function function_4c74b381(origin, radius, half_height)
+function alloc_dynamic_buffer(origin, radius, half_height)
 {
 	/#
 		assert(self.archetype === #"skeleton", "");

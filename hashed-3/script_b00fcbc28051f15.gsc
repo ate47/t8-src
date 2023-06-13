@@ -64,7 +64,7 @@ function __init__()
 	level.var_70f7eb75 = level.var_637136f3;
 	level.var_ecfcf864 = &function_4173ee30;
 	level.var_1177ae05 = &function_401e4768;
-	level.riotshield_melee_power = &function_c531046b;
+	level.riotshield_melee_power = &melee_power;
 	level.var_fe5b96fb = &zombie_knockdown;
 	level.var_a6a70655 = [];
 	level.var_a6a70655[level.var_a6a70655.size] = "guts";
@@ -615,7 +615,7 @@ function function_16dd8932()
 }
 
 /*
-	Name: function_c531046b
+	Name: melee_power
 	Namespace: namespace_b4a066ff
 	Checksum: 0x830D7726
 	Offset: 0x2138
@@ -623,7 +623,7 @@ function function_16dd8932()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c531046b(weapon)
+function melee_power(weapon)
 {
 	if(self.var_9fd623ed >= 3 && (weapon == level.var_4e845c84 || weapon == level.var_58e17ce3))
 	{

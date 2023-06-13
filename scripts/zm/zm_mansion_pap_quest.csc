@@ -188,76 +188,76 @@ function function_731e7fcf(localclientnum, oldval, newval, bnewent, binitialsnap
 		case 1:
 		{
 			str_tag = "charging_circle_number_01_jnt";
-			self function_5d482e78(#"hash_61170b938ecbae23", str_tag);
+			self stoprenderoverridebundle(#"hash_61170b938ecbae23", str_tag);
 			break;
 		}
 		case 2:
 		{
 			str_tag = "charging_circle_number_02_jnt";
-			self function_5d482e78(#"hash_61170c938ecbafd6", str_tag);
+			self stoprenderoverridebundle(#"hash_61170c938ecbafd6", str_tag);
 			break;
 		}
 		case 3:
 		{
 			str_tag = "charging_circle_number_03_jnt";
-			self function_5d482e78(#"hash_61170d938ecbb189", str_tag);
+			self stoprenderoverridebundle(#"hash_61170d938ecbb189", str_tag);
 			break;
 		}
 		case 4:
 		{
 			str_tag = "charging_circle_number_04_jnt";
-			self function_5d482e78(#"hash_61170e938ecbb33c", str_tag);
+			self stoprenderoverridebundle(#"hash_61170e938ecbb33c", str_tag);
 			break;
 		}
 		case 5:
 		{
 			str_tag = "charging_circle_number_05_jnt";
-			self function_5d482e78(#"hash_61170f938ecbb4ef", str_tag);
+			self stoprenderoverridebundle(#"hash_61170f938ecbb4ef", str_tag);
 			break;
 		}
 		case 6:
 		{
 			str_tag = "charging_circle_number_06_jnt";
-			self function_5d482e78(#"hash_611710938ecbb6a2", str_tag);
+			self stoprenderoverridebundle(#"hash_611710938ecbb6a2", str_tag);
 			var_24a77d58 = self playloopsound(#"hash_4cbb119df079b8ad");
 			break;
 		}
 		case 7:
 		{
 			str_tag = "charging_circle_number_07_jnt";
-			self function_5d482e78(#"hash_611711938ecbb855", str_tag);
+			self stoprenderoverridebundle(#"hash_611711938ecbb855", str_tag);
 			break;
 		}
 		case 8:
 		{
 			str_tag = "charging_circle_number_08_jnt";
-			self function_5d482e78(#"hash_611712938ecbba08", str_tag);
+			self stoprenderoverridebundle(#"hash_611712938ecbba08", str_tag);
 			break;
 		}
 		case 9:
 		{
 			str_tag = "charging_circle_number_09_jnt";
-			self function_5d482e78(#"hash_611713938ecbbbbb", str_tag);
+			self stoprenderoverridebundle(#"hash_611713938ecbbbbb", str_tag);
 			break;
 		}
 		case 10:
 		{
 			str_tag = "charging_circle_number_10_jnt";
-			self function_5d482e78(#"hash_611a90938ecec5f9", str_tag);
+			self stoprenderoverridebundle(#"hash_611a90938ecec5f9", str_tag);
 			break;
 		}
 		case 11:
 		{
 			str_tag = "charging_circle_number_11_jnt";
-			self function_5d482e78(#"hash_611a8f938ecec446", str_tag);
+			self stoprenderoverridebundle(#"hash_611a8f938ecec446", str_tag);
 			break;
 		}
 		case 12:
 		{
 			self.b_completed = 1;
 			str_tag = "charging_circle_number_12_jnt";
-			self function_5d482e78(#"hash_611a8e938ecec293", str_tag);
-			self function_5d482e78(#"hash_31724d2ff7557f6f", "charging_circle_jnt");
+			self stoprenderoverridebundle(#"hash_611a8e938ecec293", str_tag);
+			self stoprenderoverridebundle(#"hash_31724d2ff7557f6f", "charging_circle_jnt");
 			self stopallloopsounds();
 			if(isdefined(self.var_23864f02))
 			{
@@ -275,19 +275,19 @@ function function_731e7fcf(localclientnum, oldval, newval, bnewent, binitialsnap
 			if(!(isdefined(self.b_started) && self.b_started))
 			{
 				self.b_started = 1;
-				self function_bf9d3071(#"hash_31724d2ff7557f6f", "charging_circle_jnt");
-				self function_bf9d3071(#"hash_61170b938ecbae23", "charging_circle_number_01_jnt");
-				self function_bf9d3071(#"hash_61170c938ecbafd6", "charging_circle_number_02_jnt");
-				self function_bf9d3071(#"hash_61170d938ecbb189", "charging_circle_number_03_jnt");
-				self function_bf9d3071(#"hash_61170e938ecbb33c", "charging_circle_number_04_jnt");
-				self function_bf9d3071(#"hash_61170f938ecbb4ef", "charging_circle_number_05_jnt");
-				self function_bf9d3071(#"hash_611710938ecbb6a2", "charging_circle_number_06_jnt");
-				self function_bf9d3071(#"hash_611711938ecbb855", "charging_circle_number_07_jnt");
-				self function_bf9d3071(#"hash_611712938ecbba08", "charging_circle_number_08_jnt");
-				self function_bf9d3071(#"hash_611713938ecbbbbb", "charging_circle_number_09_jnt");
-				self function_bf9d3071(#"hash_611a90938ecec5f9", "charging_circle_number_10_jnt");
-				self function_bf9d3071(#"hash_611a8f938ecec446", "charging_circle_number_11_jnt");
-				self function_bf9d3071(#"hash_611a8e938ecec293", "charging_circle_number_12_jnt");
+				self playrenderoverridebundle(#"hash_31724d2ff7557f6f", "charging_circle_jnt");
+				self playrenderoverridebundle(#"hash_61170b938ecbae23", "charging_circle_number_01_jnt");
+				self playrenderoverridebundle(#"hash_61170c938ecbafd6", "charging_circle_number_02_jnt");
+				self playrenderoverridebundle(#"hash_61170d938ecbb189", "charging_circle_number_03_jnt");
+				self playrenderoverridebundle(#"hash_61170e938ecbb33c", "charging_circle_number_04_jnt");
+				self playrenderoverridebundle(#"hash_61170f938ecbb4ef", "charging_circle_number_05_jnt");
+				self playrenderoverridebundle(#"hash_611710938ecbb6a2", "charging_circle_number_06_jnt");
+				self playrenderoverridebundle(#"hash_611711938ecbb855", "charging_circle_number_07_jnt");
+				self playrenderoverridebundle(#"hash_611712938ecbba08", "charging_circle_number_08_jnt");
+				self playrenderoverridebundle(#"hash_611713938ecbbbbb", "charging_circle_number_09_jnt");
+				self playrenderoverridebundle(#"hash_611a90938ecec5f9", "charging_circle_number_10_jnt");
+				self playrenderoverridebundle(#"hash_611a8f938ecec446", "charging_circle_number_11_jnt");
+				self playrenderoverridebundle(#"hash_611a8e938ecec293", "charging_circle_number_12_jnt");
 				var_f6f521f4 = self playloopsound(#"hash_4f64bfb4c243e852");
 			}
 			break;
@@ -498,7 +498,7 @@ function function_924f922d(localclientnum, oldval, newval, bnewent, binitialsnap
 			{
 				level.var_e62313ec[level.var_e62313ec.size] = self;
 			}
-			self function_bf9d3071(#"hash_51b6bba95848bab8");
+			self playrenderoverridebundle(#"hash_51b6bba95848bab8");
 			forcestreamxmodel(str_model);
 			while(isdefined(self) && self.b_force_stream)
 			{
@@ -537,7 +537,7 @@ function function_924f922d(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			self.b_force_stream = 0;
 			playfx(localclientnum, level._effect[#"hash_11eb6b7dc7db71ad"], self.origin, anglestoforward(self.angles), anglestoup(self.angles));
-			self function_5d482e78(#"hash_51b6bba95848bab8");
+			self stoprenderoverridebundle(#"hash_51b6bba95848bab8");
 		}
 	}
 }
@@ -618,15 +618,15 @@ function function_5fc23aa1(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_42273a05e6150ef0");
+		self playrenderoverridebundle(#"hash_42273a05e6150ef0");
 		return;
 	}
-	self function_5d482e78(#"hash_42273a05e6150ef0");
+	self stoprenderoverridebundle(#"hash_42273a05e6150ef0");
 	wait(6);
 	if(isdefined(self))
 	{
 		self function_f6e99a8d(#"hash_42273a05e6150ef0");
-		self function_bf9d3071(#"hash_1b29e0471c3a0eb7");
+		self playrenderoverridebundle(#"hash_1b29e0471c3a0eb7");
 	}
 }
 

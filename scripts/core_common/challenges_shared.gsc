@@ -458,7 +458,7 @@ function perkkills(victim, isstunned, time)
 				assert(isdefined(level.activecounteruavs[team]));
 			#/
 			/#
-				assert(isdefined(level.var_707cab08.activeemps[team]));
+				assert(isdefined(level.emp_shared.activeemps[team]));
 			#/
 			if(team == player.team)
 			{
@@ -468,7 +468,7 @@ function perkkills(victim, isstunned, time)
 			{
 				activecuav = 1;
 			}
-			if(level.var_707cab08.activeemps[team] > 0)
+			if(level.emp_shared.activeemps[team] > 0)
 			{
 				activeenemyemp = 1;
 			}
@@ -480,7 +480,7 @@ function perkkills(victim, isstunned, time)
 			assert(isdefined(level.activecounteruavs[victim.entnum]));
 		#/
 		/#
-			assert(isdefined(level.var_707cab08.activeemps[victim.entnum]));
+			assert(isdefined(level.emp_shared.activeemps[victim.entnum]));
 		#/
 		players = level.players;
 		for(i = 0; i < players.size; i++)
@@ -491,7 +491,7 @@ function perkkills(victim, isstunned, time)
 				{
 					activecuav = 1;
 				}
-				if(isdefined(level.var_707cab08.activeemps[players[i].entnum]) && level.var_707cab08.activeemps[players[i].entnum] > 0)
+				if(isdefined(level.emp_shared.activeemps[players[i].entnum]) && level.emp_shared.activeemps[players[i].entnum] > 0)
 				{
 					activeenemyemp = 1;
 				}
@@ -1009,7 +1009,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 	var_dbb56f7e = getdvarint(#"hash_4574f0b1608d9ea8", 0);
 	if(var_dbb56f7e && player function_875e4dbc() && totaltimeplayed > 0)
 	{
-		timeoffset = ((getdvarint(#"hash_59e760d0f14ae13b", 0) * 60) * 60) * 24;
+		timeoffset = ((getdvarint(#"live_timewarp", 0) * 60) * 60) * 24;
 		timemultiplier = getdvarfloat(#"hash_2956967233bebd4f", 1);
 		var_bf107145 = totaltimeplayed;
 		if(timemultiplier > 1)
@@ -1139,10 +1139,10 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 			}
 			credits = min(credits, var_1ed920ee);
 			var_e1020153 = min(var_e1020153, var_5f508856);
-			var_9d1040e4 = 1;
+			modeindex = 1;
 			if(sessionmodeiswarzonegame())
 			{
-				var_9d1040e4 = 2;
+				modeindex = 2;
 			}
 			if(credits > 0)
 			{
@@ -1154,7 +1154,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 					}
 					if(player.pers[#"hash_6344af0b142ed0b6"])
 					{
-						player function_cce105c8(#"hash_53d1279e51b610a9", 1, 1, 2, var_9d1040e4);
+						player function_cce105c8(#"hash_53d1279e51b610a9", 1, 1, 2, modeindex);
 					}
 				}
 				if(sessionmodeismultiplayergame() && getdvarint(#"hash_ed47eb88ebf25b2", 1) || (sessionmodeiswarzonegame() && getdvarint(#"hash_eb27cb88ea23be6", 1)))
@@ -1162,7 +1162,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 					/#
 						println("" + credits);
 					#/
-					player function_cce105c8(#"hash_680a99fa024dd073", 1, int(credits), 2, var_9d1040e4, 3, int(totaltimeplayed));
+					player function_cce105c8(#"hash_680a99fa024dd073", 1, int(credits), 2, modeindex, 3, int(totaltimeplayed));
 				}
 			}
 			if(var_e1020153 > 0)
@@ -1173,7 +1173,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 					/#
 						println("" + var_e1020153);
 					#/
-					player function_cce105c8(#"hash_7c81ccc32581870e", 1, int(var_e1020153), 2, var_9d1040e4, 3, int(totaltimeplayed), 4, int(var_ae857992));
+					player function_cce105c8(#"hash_7c81ccc32581870e", 1, int(var_e1020153), 2, modeindex, 3, int(totaltimeplayed), 4, int(var_ae857992));
 				}
 			}
 		}
@@ -1392,7 +1392,7 @@ function function_57d8515c()
 	level.var_8e1c2aa1 = (isdefined(getgametypesetting(#"hash_35e9fc8eee6881e0")) ? getgametypesetting(#"hash_35e9fc8eee6881e0") : 0);
 	level.var_5d96cc20 = (isdefined(getgametypesetting(#"hash_7adb62a64c6d963")) ? getgametypesetting(#"hash_7adb62a64c6d963") : 0);
 	level.var_b6752258 = (isdefined(getgametypesetting(#"hash_1df445b9d1af641f")) ? getgametypesetting(#"hash_1df445b9d1af641f") : 0);
-	level waittill(#"hash_313ad43b34e74e96");
+	level waittill(#"game_playing");
 	for(;;)
 	{
 		wait(level.var_df437ed2);
@@ -1512,7 +1512,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 	}
 	else
 	{
-		if(weapon.var_b76e0a09)
+		if(weapon.issignatureweapon)
 		{
 			self stats::function_dad108fa(#"destroy_scorestreak_with_specialist", 1);
 		}
@@ -2701,7 +2701,7 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 			}
 			struct.var_4b22e697 = effect.var_4b22e697;
 			struct.var_3d1ed4bd = effect.var_3d1ed4bd;
-			struct.name = effect.var_3cf2d21;
+			struct.name = effect.namehash;
 			if(!isdefined(data.var_bd10969))
 			{
 				data.var_bd10969 = [];
@@ -3295,7 +3295,7 @@ function trophy_defense(origin, radius)
 			if(isdefined(weapon))
 			{
 				should_award = 0;
-				if(weapon.var_b76e0a09)
+				if(weapon.issignatureweapon)
 				{
 					should_award = 1;
 				}

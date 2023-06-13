@@ -24,7 +24,7 @@ function initweakpoints(entity, var_97e1b97d)
 	{
 		var_7c4db75f = function_2e532eed(var_dd54fdb1);
 		var_7c4db75f.currstate = 2;
-		if(isdefined(var_dd54fdb1.var_e37acc23) && var_dd54fdb1.var_e37acc23)
+		if(isdefined(var_dd54fdb1.activebydefault) && var_dd54fdb1.activebydefault)
 		{
 			var_7c4db75f.currstate = 1;
 		}
@@ -59,7 +59,7 @@ function initweakpoints(entity, var_97e1b97d)
 	Parameters: 3
 	Flags: Linked
 */
-function function_3131f5dd(entity, hitloc, var_6b0c6fac)
+function function_3131f5dd(entity, hitloc, weakpointstate)
 {
 	if(!isdefined(hitloc))
 	{
@@ -69,7 +69,7 @@ function function_3131f5dd(entity, hitloc, var_6b0c6fac)
 	{
 		foreach(var_dd54fdb1 in entity.var_5ace757d)
 		{
-			if(isdefined(var_6b0c6fac) && var_dd54fdb1.currstate !== var_6b0c6fac)
+			if(isdefined(weakpointstate) && var_dd54fdb1.currstate !== weakpointstate)
 			{
 				continue;
 			}
@@ -90,7 +90,7 @@ function function_3131f5dd(entity, hitloc, var_6b0c6fac)
 	Parameters: 3
 	Flags: Linked
 */
-function function_73ab4754(entity, point, var_6b0c6fac)
+function function_73ab4754(entity, point, weakpointstate)
 {
 	if(!isdefined(point))
 	{
@@ -102,7 +102,7 @@ function function_73ab4754(entity, point, var_6b0c6fac)
 		var_833f593 = 2147483647;
 		foreach(var_dd54fdb1 in entity.var_5ace757d)
 		{
-			if(isdefined(var_6b0c6fac) && var_dd54fdb1.currstate !== var_6b0c6fac)
+			if(isdefined(weakpointstate) && var_dd54fdb1.currstate !== weakpointstate)
 			{
 				continue;
 			}
@@ -133,7 +133,7 @@ function function_73ab4754(entity, point, var_6b0c6fac)
 	Parameters: 3
 	Flags: None
 */
-function function_6bb685f0(entity, point, var_6b0c6fac)
+function function_6bb685f0(entity, point, weakpointstate)
 {
 	if(!isdefined(point))
 	{
@@ -143,7 +143,7 @@ function function_6bb685f0(entity, point, var_6b0c6fac)
 	{
 		foreach(var_dd54fdb1 in entity.var_5ace757d)
 		{
-			if(isdefined(var_6b0c6fac) && var_dd54fdb1.currstate !== var_6b0c6fac)
+			if(isdefined(weakpointstate) && var_dd54fdb1.currstate !== weakpointstate)
 			{
 				continue;
 			}
@@ -172,7 +172,7 @@ function function_6bb685f0(entity, point, var_6b0c6fac)
 	Parameters: 3
 	Flags: Linked
 */
-function function_37e3f011(entity, bone, var_6b0c6fac)
+function function_37e3f011(entity, bone, weakpointstate)
 {
 	if(!isdefined(entity))
 	{
@@ -199,7 +199,7 @@ function function_37e3f011(entity, bone, var_6b0c6fac)
 		#/
 		foreach(var_dd54fdb1 in entity.var_5ace757d)
 		{
-			if(isdefined(var_6b0c6fac) && var_dd54fdb1.currstate !== var_6b0c6fac)
+			if(isdefined(weakpointstate) && var_dd54fdb1.currstate !== weakpointstate)
 			{
 				continue;
 			}
@@ -287,7 +287,7 @@ function function_f29756fe(var_dd54fdb1)
 function function_26901d33(var_dd54fdb1)
 {
 	var_dd54fdb1.currstate = 2;
-	if(isdefined(var_dd54fdb1.var_e37acc23) && var_dd54fdb1.var_e37acc23)
+	if(isdefined(var_dd54fdb1.activebydefault) && var_dd54fdb1.activebydefault)
 	{
 		var_dd54fdb1.currstate = 1;
 	}

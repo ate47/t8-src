@@ -522,7 +522,7 @@ function function_3cec5609(arr, var_7956c7ac, bodytype, outfitindex, optiontype)
 function function_2c6232e5(in_string)
 {
 	/#
-		out_string = function_ea13f55(in_string, "", "");
+		out_string = strreplace(in_string, "", "");
 		return out_string;
 	#/
 }
@@ -577,7 +577,7 @@ function body_customization_populate(mode, var_ef4940a5)
 				if(var_9cf37283.valid)
 				{
 					var_346660ac = function_2c6232e5(makelocalizedstring(function_9e72a96(var_9cf37283.var_74996050)));
-					var_1bf829f2 = ((((outfitindex + "") + var_346660ac) + "") + function_9e72a96(var_9cf37283.var_3cf2d21) + "") + outfitindex;
+					var_1bf829f2 = ((((outfitindex + "") + var_346660ac) + "") + function_9e72a96(var_9cf37283.namehash) + "") + outfitindex;
 					var_a818c4e = ((body_customization_devgui_base + body_name) + "") + var_1bf829f2;
 					util::add_debug_command((((((((((var_a818c4e + "") + "") + "") + "") + "") + playerbodytype) + "") + "") + outfitindex) + "");
 					types = [7:{#field:"", #path:""}, 6:{#field:"", #path:""}, 5:{#field:"", #path:""}, 4:{#field:"", #path:""}, 3:{#field:"", #path:""}, 2:{#field:"", #path:""}, 1:{#field:"", #path:""}, 0:{#field:"", #path:""}];
@@ -605,7 +605,7 @@ function body_customization_populate(mode, var_ef4940a5)
 				}
 				if(isdefined(var_ef4940a5))
 				{
-					util::function_d84da933(("" + body_name) + "");
+					util::remove_devgui(("" + body_name) + "");
 				}
 			}
 		}

@@ -84,7 +84,7 @@ function private function_53d906fd(localclientnum)
 			{
 				if(stash.var_aa9f8f87 === #"hash_4bfbb656e63b17ae" || stash.var_aa9f8f87 === #"supply_stash_parent")
 				{
-					stash function_e2d53ad5(localclientnum, playfx, function_ffdbe8c2(stash));
+					stash update_fx(localclientnum, playfx, function_ffdbe8c2(stash));
 				}
 			}
 		}
@@ -101,7 +101,7 @@ function private function_53d906fd(localclientnum)
 				{
 					state = 1;
 				}
-				drop function_e2d53ad5(localclientnum, playfx, state);
+				drop update_fx(localclientnum, playfx, state);
 			}
 		}
 		wait(0.2);
@@ -140,7 +140,7 @@ function private function_fd3f6235(localclientnum)
 				{
 					state = 1;
 				}
-				drop function_e2d53ad5(localclientnum, playfx, state);
+				drop update_fx(localclientnum, playfx, state);
 			}
 		}
 		wait(0.2);
@@ -148,7 +148,7 @@ function private function_fd3f6235(localclientnum)
 }
 
 /*
-	Name: function_e2d53ad5
+	Name: update_fx
 	Namespace: wz_supply_stash
 	Checksum: 0x31E3E982
 	Offset: 0x740
@@ -156,7 +156,7 @@ function private function_fd3f6235(localclientnum)
 	Parameters: 3
 	Flags: Linked
 */
-function function_e2d53ad5(localclientnum, playfx, state)
+function update_fx(localclientnum, playfx, state)
 {
 	if(playfx && state == 0)
 	{

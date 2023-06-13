@@ -151,9 +151,9 @@ function function_29f91f81(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval == 1)
 	{
 		self.fx_trail = util::playfxontag(localclientnum, level._effect[#"hash_6dca5478f1baf5ce"], self, "tag_fx");
-		if(!isdefined(self.var_cebd6e9e))
+		if(!isdefined(self.snd_looper))
 		{
-			self.var_cebd6e9e = self playloopsound(#"hash_3cd6bae1469848f1", 1);
+			self.snd_looper = self playloopsound(#"hash_3cd6bae1469848f1", 1);
 		}
 	}
 	else
@@ -162,10 +162,10 @@ function function_29f91f81(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			killfx(localclientnum, self.fx_trail);
 		}
-		if(isdefined(self.var_cebd6e9e))
+		if(isdefined(self.snd_looper))
 		{
-			self stoploopsound(self.var_cebd6e9e);
-			self.var_cebd6e9e = undefined;
+			self stoploopsound(self.snd_looper);
+			self.snd_looper = undefined;
 		}
 	}
 }

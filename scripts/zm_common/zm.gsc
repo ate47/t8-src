@@ -1134,7 +1134,7 @@ function init_dvars()
 	setdvar(#"magic_chest_movable", 1);
 	setdvar(#"revive_trigger_radius", 75);
 	setdvar(#"scr_deleteexplosivesonspawn", 0);
-	setdvar(#"hash_442d42efc73d739a", 50);
+	setdvar(#"cg_healthperbar", 50);
 }
 
 /*
@@ -2150,7 +2150,7 @@ function end_game()
 		if(sessionmodeisonlinegame())
 		{
 			players[i] stats::function_7a850245(#"demofileid", getdemofileid());
-			players[i] stats::function_7a850245(#"matchid", function_c7c50474());
+			players[i] stats::function_7a850245(#"matchid", getmatchid());
 			if(level.rankedmatch)
 			{
 				players[i] stats::function_7a850245(#"surveyid", surveyid);

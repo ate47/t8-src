@@ -1,22 +1,22 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_178024232e91b0a1;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_3738f84821de194e;
+#using scripts\killstreaks\ai\escort.gsc;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_452cf453bf79907b;
-#using script_45decd627aedfc09;
+#using scripts\killstreaks\ai\tracking.gsc;
+#using scripts\killstreaks\ai\state.gsc;
 #using script_489b835a247c990e;
-#using script_49d5f69a3ac4a923;
+#using scripts\killstreaks\ai\leave.gsc;
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
-#using script_5e918923a121b594;
+#using scripts\killstreaks\ai\patrol.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using script_caf007e2a98afa2;
-#using script_ebc09732f6544a3;
+#using scripts\killstreaks\ai\target.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -142,8 +142,8 @@ function init()
 		clientfield::register("actor", "ks_shocked", 1, 1, "int");
 	}
 	ai_patrol::init();
-	namespace_9f91adfa::init();
-	namespace_300327a7::init();
+	ai_escort::init();
+	ai_leave::init();
 }
 
 /*

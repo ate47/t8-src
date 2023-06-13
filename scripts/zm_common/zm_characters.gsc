@@ -339,7 +339,7 @@ function function_36936eeb()
 			{
 				for(i = 1; i <= 4; i++)
 				{
-					fields = function_fb05c532(i, currentsessionmode());
+					fields = getplayerrolefields(i, currentsessionmode());
 					var_2a42c5e0 = fields.var_2a42c5e0;
 					level.characters[var_2a42c5e0] = [];
 					if(!isdefined(level.characters[var_2a42c5e0]))
@@ -440,7 +440,7 @@ function function_d35e4c92(characterindex, var_fdf0f13d = 0)
 	{
 		if(var_fdf0f13d || player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(characterindex, currentsessionmode());
+			fields = getplayerrolefields(characterindex, currentsessionmode());
 			return fields.var_2a42c5e0;
 		}
 	}
@@ -449,7 +449,7 @@ function function_d35e4c92(characterindex, var_fdf0f13d = 0)
 		characterindex = player_role::get();
 		if(player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(player_role::get(), currentsessionmode());
+			fields = getplayerrolefields(player_role::get(), currentsessionmode());
 			return fields.var_2a42c5e0;
 		}
 	}
@@ -472,7 +472,7 @@ function function_dc232a80(character)
 		characterindex = player_role::get();
 		if(player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(player_role::get(), currentsessionmode());
+			fields = getplayerrolefields(player_role::get(), currentsessionmode());
 			return fields.var_3e570307;
 		}
 		/#
@@ -486,7 +486,7 @@ function function_dc232a80(character)
 		{
 			if(isinarray(character, var_c81b1496.name))
 			{
-				var_9e4224f8 = function_fb05c532(var_c81b1496.characterindex, currentsessionmode());
+				var_9e4224f8 = getplayerrolefields(var_c81b1496.characterindex, currentsessionmode());
 				return var_9e4224f8.var_3e570307;
 			}
 		}

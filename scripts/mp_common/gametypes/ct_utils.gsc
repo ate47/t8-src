@@ -6,7 +6,7 @@
 #using script_2ceedb8f6f1237ee;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\bots\bot_util.gsc;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_446da318d52124e0;
 #using scripts\mp_common\gametypes\ct_vo.gsc;
 #using script_5fece3526d2da5d4;
@@ -1044,7 +1044,7 @@ function function_1eef023d()
 	var_87288558 = getentarray("intelpiece", "targetname");
 	level.var_76fdcc3e = var_87288558.size;
 	/#
-		if(isdefined(level.var_295e5d1d) && level.var_295e5d1d)
+		if(isdefined(level.debugct) && level.debugct)
 		{
 			level.var_53c2effb setvalue(level.var_76fdcc3e);
 		}
@@ -1054,7 +1054,7 @@ function function_1eef023d()
 		var_87288558[index] thread function_18696050();
 	}
 	/#
-		if(isdefined(level.var_295e5d1d) && level.var_295e5d1d)
+		if(isdefined(level.debugct) && level.debugct)
 		{
 			while(!level.gameended)
 			{
@@ -1085,7 +1085,7 @@ function function_18696050()
 	player = s_notify.activator;
 	level.var_76fdcc3e--;
 	/#
-		if(isdefined(level.var_295e5d1d) && level.var_295e5d1d)
+		if(isdefined(level.debugct) && level.debugct)
 		{
 			level.var_53c2effb setvalue(level.var_76fdcc3e);
 		}
@@ -1576,9 +1576,9 @@ function function_b42ce622(var_4b3a6521)
 				self thread function_7b72086e(#"hash_4730cb5d57cb0f20", #"hash_42f8a09c2e0a99e3", 1);
 				break;
 			}
-			case "hash_4082029e6e323467":
+			case "downloading":
 			{
-				self thread function_7b72086e(#"hash_4082029e6e323467", #"hash_4f1ec9353f4eee22", 1);
+				self thread function_7b72086e(#"downloading", #"hash_4f1ec9353f4eee22", 1);
 				break;
 			}
 			case "download_complete":
@@ -6525,10 +6525,10 @@ function function_51c89e00(var_2f3964e3, str_team)
 		{
 			if(isdefined(var_2f3964e3) && var_2f3964e3)
 			{
-				bot val::set(#"hash_2a2460ac6d0dc272", "ignoreall", 1);
+				bot val::set(#"ai_ignore", "ignoreall", 1);
 				continue;
 			}
-			bot val::reset(#"hash_2a2460ac6d0dc272", "ignoreall");
+			bot val::reset(#"ai_ignore", "ignoreall");
 		}
 	}
 }

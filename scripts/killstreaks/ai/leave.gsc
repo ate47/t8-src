@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_45decd627aedfc09;
+#using scripts\killstreaks\ai\state.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_300327a7;
+#namespace ai_leave;
 
 /*
 	Name: init
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0xE17986C
 	Offset: 0x90
 	Size: 0x64
@@ -21,7 +21,7 @@ function init()
 
 /*
 	Name: function_f9c30a79
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0xE75B7443
 	Offset: 0x100
 	Size: 0x62
@@ -38,7 +38,7 @@ function function_f9c30a79(var_edc20efd)
 
 /*
 	Name: function_4af1ff64
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x3B795903
 	Offset: 0x170
 	Size: 0x1A
@@ -52,7 +52,7 @@ function function_4af1ff64()
 
 /*
 	Name: function_a78474f2
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x8AB9C960
 	Offset: 0x198
 	Size: 0xA
@@ -66,7 +66,7 @@ function function_a78474f2()
 
 /*
 	Name: function_5d31deb6
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x7EF68A30
 	Offset: 0x1B0
 	Size: 0x7C
@@ -88,7 +88,7 @@ function function_5d31deb6()
 
 /*
 	Name: function_5c1be07d
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x80F724D1
 	Offset: 0x238
 	Size: 0x4
@@ -101,7 +101,7 @@ function function_5c1be07d()
 
 /*
 	Name: function_e35eee4d
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x9BD71F2D
 	Offset: 0x248
 	Size: 0x130
@@ -134,7 +134,7 @@ function function_e35eee4d()
 
 /*
 	Name: function_b05ed2fa
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0x11ACBD19
 	Offset: 0x380
 	Size: 0x164
@@ -164,7 +164,7 @@ function function_b05ed2fa()
 
 /*
 	Name: function_233ddd28
-	Namespace: namespace_300327a7
+	Namespace: ai_leave
 	Checksum: 0xC710DF17
 	Offset: 0x4F0
 	Size: 0xFA

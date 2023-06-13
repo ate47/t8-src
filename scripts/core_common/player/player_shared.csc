@@ -315,7 +315,7 @@ function enable_rob(var_6560376a)
 {
 	if(!self function_d2503806(var_6560376a))
 	{
-		self function_bf9d3071(var_6560376a);
+		self playrenderoverridebundle(var_6560376a);
 	}
 }
 
@@ -332,7 +332,7 @@ function function_5da42cd4(var_6560376a)
 {
 	if(self function_d2503806(var_6560376a))
 	{
-		self function_5d482e78(var_6560376a);
+		self stoprenderoverridebundle(var_6560376a);
 	}
 }
 
@@ -349,7 +349,7 @@ function private function_bd70f43d()
 {
 	if(!self function_d2503806(#"rob_sonar_set_enemy"))
 	{
-		self function_bf9d3071(#"rob_sonar_set_enemy");
+		self playrenderoverridebundle(#"rob_sonar_set_enemy");
 	}
 }
 
@@ -366,7 +366,7 @@ function private function_994b4121()
 {
 	if(self function_d2503806(#"rob_sonar_set_enemy"))
 	{
-		self function_5d482e78(#"rob_sonar_set_enemy");
+		self stoprenderoverridebundle(#"rob_sonar_set_enemy");
 	}
 }
 

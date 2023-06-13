@@ -221,7 +221,7 @@ function function_1edfdbc1(localclientnum)
 			break;
 		}
 		current_health = renderhealthoverlayhealth(localclientnum);
-		basehealth = var_38d92d79 function_3b0f0852();
+		basehealth = var_38d92d79 getplayerspawnhealth();
 		n_health = current_health * basehealth;
 		if(n_health > 125)
 		{
@@ -758,11 +758,11 @@ function function_815076cb(var_fa8995f4, color)
 	Parameters: 4
 	Flags: Linked
 */
-function function_ed8d6d5e(var_fa8995f4, startcolor, var_fce18bda, fadetime)
+function function_ed8d6d5e(var_fa8995f4, startcolor, endcolor, fadetime)
 {
 	foreach(key in var_fa8995f4)
 	{
-		function_b4c6383f(key, 2, startcolor, var_fce18bda, fadetime);
+		function_b4c6383f(key, 2, startcolor, endcolor, fadetime);
 	}
 }
 

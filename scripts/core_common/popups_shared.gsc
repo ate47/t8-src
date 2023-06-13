@@ -111,13 +111,13 @@ function devgui_notif_getgunleveltablename()
 	/#
 		if(sessionmodeiscampaigngame())
 		{
-			return #"hash_4150230c4105dc11";
+			return #"gamedata/weapons/cp/cp_gunlevels.csv";
 		}
 		if(sessionmodeiszombiesgame())
 		{
-			return #"hash_5ea60cf27bedfa51";
+			return #"gamedata/weapons/zm/zm_gunlevels.csv";
 		}
-		return #"hash_7d6337a77ef98ad";
+		return #"gamedata/weapons/mp/mp_gunlevels.csv";
 	#/
 }
 
@@ -190,7 +190,7 @@ function devgui_create_weapon_levels_table()
 				group_s = iteminfo.itemgroupname;
 				if(issubstr(group_s, "") || group_s == "")
 				{
-					reference_s = iteminfo.var_3cf2d21;
+					reference_s = iteminfo.namehash;
 					if(reference_s != "")
 					{
 						level.tbl_weaponids[i][#"reference"] = reference_s;
@@ -251,7 +251,7 @@ function function_a65863ce()
 		{
 			if(getdvarint(#"hash_300689cb3bb5ab4d", 0) > 0)
 			{
-				util::function_d84da933("");
+				util::remove_devgui("");
 				function_ac0bfb9c();
 				return;
 			}

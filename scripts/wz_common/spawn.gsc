@@ -134,7 +134,7 @@ function function_cb5864fc()
 }
 
 /*
-	Name: function_b76a2e3f
+	Name: override_spawn
 	Namespace: spawn
 	Checksum: 0xB366675E
 	Offset: 0x8B8
@@ -142,7 +142,7 @@ function function_cb5864fc()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b76a2e3f(ispredictedspawn)
+function override_spawn(ispredictedspawn)
 {
 	self.var_7070a94c = 0;
 	if(infection::function_74650d7() && self infection::is_infected())

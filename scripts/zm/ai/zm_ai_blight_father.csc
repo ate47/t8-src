@@ -596,7 +596,7 @@ function function_cf88b888()
 	self endon("77cd1973e51a1a17");
 	self endoncallback(&function_43ec7ca3, #"death", #"hash_3af6fe8d4a8fac02");
 	var_893a571 = 0;
-	self function_bf9d3071("rob_zm_viewarm_vomit");
+	self playrenderoverridebundle("rob_zm_viewarm_vomit");
 	while(!var_893a571)
 	{
 		var_37159c8c = self.var_7fd3b200;
@@ -635,7 +635,7 @@ function function_1ca2497b()
 		self function_78233d29("rob_zm_viewarm_vomit", "", "Threshold", var_72840ba5);
 		if(var_72840ba5 <= 0)
 		{
-			self function_5d482e78("rob_zm_viewarm_vomit");
+			self stoprenderoverridebundle("rob_zm_viewarm_vomit");
 			var_e935ecce = 1;
 			break;
 		}

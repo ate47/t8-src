@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -150,9 +150,9 @@ function function_bff5c062(turret, attackingplayer)
 		{
 			[[level.var_fc1bbaef]](turret);
 		}
-		turret.var_1ee03b04 = [];
-		turret.var_1ee03b04[0] = turret createturretinfluencer("turret");
-		turret.var_1ee03b04[1] = turret createturretinfluencer("turret_close");
+		turret.spawninfluencers = [];
+		turret.spawninfluencers[0] = turret createturretinfluencer("turret");
+		turret.spawninfluencers[1] = turret createturretinfluencer("turret_close");
 	}
 	turret thread turret_watch_owner_events();
 }
@@ -545,9 +545,9 @@ function onplaceturret(turret)
 		turret.vehicle thread turret_laser_watch();
 		turret.vehicle thread setup_death_watch_for_new_targets();
 		turret.vehicle thread function_31477582();
-		turret.vehicle.var_1ee03b04 = [];
-		turret.vehicle.var_1ee03b04[0] = turret.vehicle createturretinfluencer("turret");
-		turret.vehicle.var_1ee03b04[1] = turret.vehicle createturretinfluencer("turret_close");
+		turret.vehicle.spawninfluencers = [];
+		turret.vehicle.spawninfluencers[0] = turret.vehicle createturretinfluencer("turret");
+		turret.vehicle.spawninfluencers[1] = turret.vehicle createturretinfluencer("turret_close");
 		turret.vehicle thread util::ghost_wait_show(0.05);
 		turret.vehicle.var_63d65a8d = "arc";
 		turret.vehicle.var_7eb3ebd5 = [];
@@ -959,16 +959,16 @@ function createturretinfluencer(name)
 */
 function function_3a9dddac()
 {
-	if(!isdefined(self.var_1ee03b04))
+	if(!isdefined(self.spawninfluencers))
 	{
-		self.var_1ee03b04 = [];
+		self.spawninfluencers = [];
 		return;
 	}
-	foreach(influencer in self.var_1ee03b04)
+	foreach(influencer in self.spawninfluencers)
 	{
 		self influencers::remove_influencer(influencer);
 	}
-	self.var_1ee03b04 = [];
+	self.spawninfluencers = [];
 }
 
 /*

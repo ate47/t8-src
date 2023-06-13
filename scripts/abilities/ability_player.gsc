@@ -1722,7 +1722,7 @@ function function_2e0162e9(add_cmd_with_root, pid, menu_index)
 			}
 			var_d59b8ebf = getplayerrolecategoryinfo(var_854a6ba2);
 			var_1a27a47a = makelocalizedstring(getcharacterdisplayname(i, session_mode));
-			var_1a27a47a = function_ea13f55(var_1a27a47a, "", "");
+			var_1a27a47a = strreplace(var_1a27a47a, "", "");
 			if(var_1a27a47a == "")
 			{
 				var_1a27a47a = "";
@@ -1835,7 +1835,7 @@ function function_1c3e8791(a_weapons, var_dd06e779)
 			iteminfo = getunlockableiteminfofromindex(i, 0);
 			if(isdefined(iteminfo))
 			{
-				reference_s = iteminfo.var_3cf2d21;
+				reference_s = iteminfo.namehash;
 				loadoutslotname = iteminfo.loadoutslotname;
 				if(loadoutslotname == "")
 				{
@@ -1891,7 +1891,7 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 		a_heal = [];
 		for(i = 0; i < var_6b97f6f9.size; i++)
 		{
-			if(var_6b97f6f9[i].gadget_type == 11 && var_6b97f6f9[i].var_b76e0a09)
+			if(var_6b97f6f9[i].gadget_type == 11 && var_6b97f6f9[i].issignatureweapon)
 			{
 				if(!isdefined(var_ef060ee3))
 				{

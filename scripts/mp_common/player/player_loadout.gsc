@@ -452,7 +452,7 @@ function private function_6bc4927f()
 		{
 			group_s = iteminfo.itemgroupname;
 			reference_s = iteminfo.name;
-			var_da0b29d2 = iteminfo.var_3cf2d21;
+			var_da0b29d2 = iteminfo.namehash;
 			display_name_s = iteminfo.displayname;
 			if(issubstr(group_s, "weapon_") || group_s == "hero")
 			{
@@ -842,14 +842,14 @@ function private function_c0a72f5c()
 	self.var_c8836f02 = self function_fd62a2aa(self.class_num);
 	foreach(var_ebdddedf in self.var_c8836f02)
 	{
-		if(var_ebdddedf.var_3cf2d21 == #"hash_6be738527a4213aa" && level.hardcoremode)
+		if(var_ebdddedf.namehash == #"hash_6be738527a4213aa" && level.hardcoremode)
 		{
-			var_ebdddedf.var_3cf2d21 = #"hash_5c9c79c25b74b7bb";
+			var_ebdddedf.namehash = #"hash_5c9c79c25b74b7bb";
 		}
 		var_b3ed76f5 = function_c84c77d8(var_ebdddedf.loadoutslot);
-		if(var_b3ed76f5 && !self function_6c32d092(var_ebdddedf.var_3cf2d21))
+		if(var_b3ed76f5 && !self function_6c32d092(var_ebdddedf.namehash))
 		{
-			self function_b5feff95(var_ebdddedf.var_3cf2d21);
+			self function_b5feff95(var_ebdddedf.namehash);
 		}
 	}
 	pixendevent();
@@ -903,7 +903,7 @@ function function_f436358b(weaponclass)
 	self.class_num = function_6972fdbb(weaponclass);
 	if(issubstr(weaponclass, "CLASS_CUSTOM"))
 	{
-		pixbeginevent(#"hash_63d74886d6f53e7a");
+		pixbeginevent(#"custom class");
 		self.class_num_for_global_weapons = self.class_num;
 		self reset_specialty_slots(self.class_num);
 		playerrenderoptions = self calcplayeroptions(self.class_num);
@@ -912,7 +912,7 @@ function function_f436358b(weaponclass)
 	}
 	else
 	{
-		pixbeginevent(#"hash_2da58233fa68322a");
+		pixbeginevent(#"default class");
 		/#
 			assert(isdefined(self.pers[#"class"]), "");
 		#/
@@ -938,7 +938,7 @@ function function_6972fdbb(weaponclass)
 		assert(isdefined(weaponclass));
 	#/
 	prefixstring = "CLASS_CUSTOM";
-	var_8bba14bc = self function_b69de520();
+	var_8bba14bc = self getcustomclasscount();
 	var_8bba14bc = max(var_8bba14bc, 0);
 	if(isstring(weaponclass) && issubstr(weaponclass, prefixstring))
 	{

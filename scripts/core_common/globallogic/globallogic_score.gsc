@@ -438,7 +438,7 @@ function function_5829abe3(attacker, weapon, var_651b6171)
 		scoreevents::processscoreevent(var_3c727edf.var_3143c814, attacker, self, var_651b6171);
 		attacker stats::function_dad108fa(#"stats_destructions", 1);
 	}
-	if(var_651b6171.var_b76e0a09)
+	if(var_651b6171.issignatureweapon)
 	{
 		attacker activecamo::function_896ac347(weapon, #"showstopper", 1);
 	}
@@ -474,7 +474,7 @@ function function_a890cac2(attacker, owningteam, weapon, scoreevents, objectiveo
 		}
 		if((isdefined(attacker.multikills[attacker.multikills[weapon.name].name].objectivekills) ? attacker.multikills[weapon.name].objectivekills : 0) > 2 && (isdefined(objectiveobj.var_4e02c9bd) ? objectiveobj.var_4e02c9bd : 0) < gettime())
 		{
-			enemies = attacker function_bdda420f(objectiveobj.origin, var_1bbdd8b0);
+			enemies = attacker getenemiesinradius(objectiveobj.origin, var_1bbdd8b0);
 			if(enemies.size == 0)
 			{
 				objectiveobj.var_4e02c9bd = gettime() + 4000;
@@ -666,7 +666,7 @@ function function_24d66e59(inflictor, meansofdeath, victim, attacker, weapon, va
 		else if(isdefined(effect.var_4b22e697) && isplayer(effect.var_4b22e697) && attacker != effect.var_4b22e697 && attacker util::isenemyplayer(effect.var_4b22e697) == 0)
 		{
 			baseweapon = weapons::getbaseweapon(weapon);
-			if(isdefined(scoreevents.var_2eaed769) && (isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09 || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8)))
+			if(isdefined(scoreevents.var_2eaed769) && (isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8)))
 			{
 				scoreevents::processscoreevent(scoreevents.var_2eaed769, effect.var_4b22e697, victim, effect.var_3d1ed4bd);
 			}
@@ -734,7 +734,7 @@ function function_f7f7b14e(data)
 	if(isdefined(data.victimweapon))
 	{
 		var_3d2a11cf = function_3cbc4c6c(data.victimweapon.var_2e4a8800);
-		if(data.victimweapon.var_b76e0a09)
+		if(data.victimweapon.issignatureweapon)
 		{
 			attacker activecamo::function_896ac347(weapon, #"showstopper", 1);
 		}
@@ -1017,7 +1017,7 @@ function specialistmedalachievement(weapon, scoreevents)
 	}
 	var_e716a62e = 0;
 	baseweapon = weapons::getbaseweapon(weapon);
-	if(isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09)
+	if(isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon)
 	{
 		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_battle_shield_x2_multikill_summary");
 		var_e716a62e = var_e716a62e + self stats::get_stat_global(#"stats_war_machine_x2_multikill_summary");
@@ -1071,7 +1071,7 @@ function function_8279d8bf(weapon, scoreevents)
 	equipment = self loadout::function_18a77b37("primarygrenade");
 	ability = self loadout::function_18a77b37("specialgrenade");
 	baseweapon = weapons::getbaseweapon(weapon);
-	if(isdefined(ability) && baseweapon.var_b76e0a09 === 1)
+	if(isdefined(ability) && baseweapon.issignatureweapon === 1)
 	{
 		self function_be7a08a8(ability, 1);
 	}

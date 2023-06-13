@@ -208,11 +208,11 @@ function keyline_model(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 	}
 	if(newval)
 	{
-		self function_bf9d3071(#"rob_sonar_set_friendly");
+		self playrenderoverridebundle(#"rob_sonar_set_friendly");
 	}
 	else
 	{
-		self function_5d482e78(#"rob_sonar_set_friendly");
+		self stoprenderoverridebundle(#"rob_sonar_set_friendly");
 	}
 }
 
@@ -296,7 +296,7 @@ function function_250bbf4e(localclientnum, oldval, newval, bnewent, binitialsnap
 		var_99f92cf4 = self function_3298ba0(newval);
 		if(isdefined(var_99f92cf4))
 		{
-			var_99f92cf4 function_bf9d3071(#"rob_sonar_set_friendly");
+			var_99f92cf4 playrenderoverridebundle(#"rob_sonar_set_friendly");
 		}
 	}
 }
@@ -318,7 +318,7 @@ function function_4b8846c3(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			if(isdefined(var_99f92cf4))
 			{
-				var_99f92cf4 function_5d482e78(#"rob_sonar_set_friendly");
+				var_99f92cf4 stoprenderoverridebundle(#"rob_sonar_set_friendly");
 			}
 		}
 	}
@@ -437,7 +437,7 @@ function function_beb03b41(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_4eff20ff()
 {
 	self endon(#"death", #"hash_6bc81dae92c4902e");
-	self function_bf9d3071("rob_zm_red_cin_coals");
+	self playrenderoverridebundle("rob_zm_red_cin_coals");
 	level.var_75ca8fda = 0;
 	level.var_6437d5e7 = 0.002;
 	self function_78233d29("rob_zm_red_cin_coals", "", "Brightness", 1);
@@ -490,6 +490,6 @@ function function_23333a90()
 		self function_78233d29("rob_zm_red_cin_coals", "", "Alpha", level.var_75ca8fda);
 		waitframe(1);
 	}
-	self function_5d482e78("rob_zm_red_cin_coals");
+	self stoprenderoverridebundle("rob_zm_red_cin_coals");
 }
 

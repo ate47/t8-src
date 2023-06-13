@@ -1586,7 +1586,7 @@ function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee3
 	if(level.teambased && isdefined(attacker.pers) && !var_f87dccb5 && smeansofdeath == "MOD_GRENADE" && level.friendlyfire == 0)
 	{
 		obituary(self, self, weapon, smeansofdeath);
-		demo::function_ae3420ca(self, self, einflictor, var_50d1e41a, overrideentitycamera);
+		demo::kill_bookmark(self, self, einflictor, var_50d1e41a, overrideentitycamera);
 		if(!var_e9d49a33)
 		{
 			if(level.gametype === "bounty")
@@ -1595,14 +1595,14 @@ function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee3
 			}
 			else
 			{
-				potm::function_ae3420ca(self, self, einflictor, var_50d1e41a, overrideentitycamera);
+				potm::kill_bookmark(self, self, einflictor, var_50d1e41a, overrideentitycamera);
 			}
 		}
 	}
 	else
 	{
 		obituary(self, attacker, weapon, smeansofdeath);
-		demo::function_ae3420ca(attacker, self, einflictor, var_50d1e41a, overrideentitycamera);
+		demo::kill_bookmark(attacker, self, einflictor, var_50d1e41a, overrideentitycamera);
 		if(!var_e9d49a33)
 		{
 			if(level.gametype === "bounty")
@@ -1614,7 +1614,7 @@ function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee3
 			}
 			else
 			{
-				potm::function_ae3420ca(attacker, self, einflictor, var_50d1e41a, overrideentitycamera);
+				potm::kill_bookmark(attacker, self, einflictor, var_50d1e41a, overrideentitycamera);
 			}
 		}
 	}

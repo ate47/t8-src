@@ -91,19 +91,19 @@ class cct_shared_aar_medals : cLUIelem
 		}
 		else
 		{
-			if(#"hash_6888d33e85daf77" == state_name)
+			if(#"medal_gold" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_47e79fc, "_state", 1);
 			}
 			else
 			{
-				if(#"hash_2a6082609998ad9c" == state_name)
+				if(#"medal_silver" == state_name)
 				{
 					player clientfield::function_9bf78ef8(var_47e79fc, "_state", 2);
 				}
 				else
 				{
-					if(#"hash_6a156fe8b5495e2d" == state_name)
+					if(#"medal_bronze" == state_name)
 					{
 						player clientfield::function_9bf78ef8(var_47e79fc, "_state", 3);
 					}

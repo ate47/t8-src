@@ -264,9 +264,9 @@ function private snipinterfaceattributes(weapon)
 				}
 			}
 		}
-		if(weapon.ischargeshot && weapon.var_3d85028 != level.weaponnone)
+		if(weapon.ischargeshot && weapon.nextchargelevelweapon != level.weaponnone)
 		{
-			self snipinterfaceattributes(weapon.var_3d85028);
+			self snipinterfaceattributes(weapon.nextchargelevelweapon);
 		}
 	}
 }
@@ -3673,10 +3673,10 @@ function function_a6616b9c(player, heldweapon)
 			player trophy_system::ammo_weapon_pickup(ammoleftequipment);
 		}
 	}
-	if("ammo" != heldweapon.var_11389297)
+	if("ammo" != heldweapon.gadget_powerusetype)
 	{
 		slot = player gadgetgetslot(heldweapon);
-		player gadgetpowerchange(slot, heldweapon.var_7d70a9f);
+		player gadgetpowerchange(slot, heldweapon.gadget_powergainonretrieve);
 		return;
 	}
 	if(!function_e0093db1(player, heldweapon))
@@ -3698,7 +3698,7 @@ function function_a6616b9c(player, heldweapon)
 function function_d9219ce2(player, weapon)
 {
 	self notify(#"picked_up");
-	if(weapon.var_7d70a9f > 0)
+	if(weapon.gadget_powergainonretrieve > 0)
 	{
 		slot = player gadgetgetslot(weapon);
 		if(slot >= 0)
@@ -3706,11 +3706,11 @@ function function_d9219ce2(player, weapon)
 			clipsize = player function_b7f1fd2c(weapon);
 			if(clipsize && weapon.var_ce34bb7e)
 			{
-				powergain = weapon.var_7d70a9f / clipsize;
+				powergain = weapon.gadget_powergainonretrieve / clipsize;
 			}
 			else
 			{
-				powergain = weapon.var_7d70a9f;
+				powergain = weapon.gadget_powergainonretrieve;
 			}
 			player gadgetpowerchange(slot, powergain);
 			return;

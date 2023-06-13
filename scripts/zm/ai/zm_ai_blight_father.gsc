@@ -2835,8 +2835,8 @@ function private function_7fe36aac(entity, minplayerdist)
 	{
 		return false;
 	}
-	var_f67d1ba2 = generatenavmeshpath(position, playerpositions, entity);
-	if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded" && var_f67d1ba2.pathdistance < minplayerdist)
+	pathdata = generatenavmeshpath(position, playerpositions, entity);
+	if(isdefined(pathdata) && pathdata.status === "succeeded" && pathdata.pathdistance < minplayerdist)
 	{
 		return false;
 	}

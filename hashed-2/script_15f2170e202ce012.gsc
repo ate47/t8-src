@@ -142,9 +142,9 @@ event private function_209450ae(eventstruct)
 		return;
 	}
 	bundle = function_489009c1(dynent);
-	if(isstruct(bundle) && isarray(bundle.var_c14aa186))
+	if(isstruct(bundle) && isarray(bundle.dynentstates))
 	{
-		var_daedea1b = bundle.var_c14aa186[dynent.hitindex];
+		var_daedea1b = bundle.dynentstates[dynent.hitindex];
 		if(isdefined(var_daedea1b.var_879eb2ff))
 		{
 			function_e2a06860(dynent, dynent.hitindex);

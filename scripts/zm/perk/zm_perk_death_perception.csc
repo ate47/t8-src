@@ -132,7 +132,7 @@ function perk_death_perception_visuals(localclientnum, oldval, newval, bnewent, 
 		a_ai = function_793a9f3d(localclientnum);
 		foreach(ai in a_ai)
 		{
-			ai function_5d482e78(#"hash_30651f363ef055e9");
+			ai stoprenderoverridebundle(#"hash_30651f363ef055e9");
 		}
 		self notify(#"hash_45ed6efeef67b773");
 	}
@@ -151,7 +151,7 @@ function function_731d83de(localclientnum)
 {
 	if(level.var_1c1febec[localclientnum] && self.team === #"axis")
 	{
-		self function_bf9d3071(#"hash_30651f363ef055e9");
+		self playrenderoverridebundle(#"hash_30651f363ef055e9");
 	}
 }
 

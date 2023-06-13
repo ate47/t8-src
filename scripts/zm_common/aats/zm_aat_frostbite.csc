@@ -93,7 +93,7 @@ function function_d84b013b(localclientnum, b_freeze)
 {
 	self notify(#"hash_224e66d46cc29cd6");
 	self endon(#"death", #"hash_224e66d46cc29cd6");
-	self function_bf9d3071("rob_test_character_ice");
+	self playrenderoverridebundle("rob_test_character_ice");
 	if(!isdefined(self.var_82fb67e7))
 	{
 		self.var_82fb67e7 = 0;
@@ -119,7 +119,7 @@ function function_d84b013b(localclientnum, b_freeze)
 		}
 		else if(self.var_82fb67e7 <= 0)
 		{
-			self function_5d482e78("rob_test_character_ice");
+			self stoprenderoverridebundle("rob_test_character_ice");
 			if(isdefined(self.var_c19403bf))
 			{
 				stopfx(localclientnum, self.var_c19403bf);

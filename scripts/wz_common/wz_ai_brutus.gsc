@@ -720,10 +720,10 @@ function private getclosestnode(entity, nodes)
 		}
 		origins[origins.size] = node.origin;
 	}
-	var_f67d1ba2 = generatenavmeshpath(entity.origin, origins, entity);
-	if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+	pathdata = generatenavmeshpath(entity.origin, origins, entity);
+	if(isdefined(pathdata) && pathdata.status === "succeeded")
 	{
-		goalpos = var_f67d1ba2.pathpoints[var_f67d1ba2.pathpoints.size - 1];
+		goalpos = pathdata.pathpoints[pathdata.pathpoints.size - 1];
 		return arraygetclosest(goalpos, var_f122ea68);
 	}
 	return arraygetclosest(entity.origin, var_f122ea68);

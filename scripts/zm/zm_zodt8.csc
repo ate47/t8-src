@@ -76,7 +76,7 @@ event main(eventstruct)
 	clientfield::register("actor", "sndActorUnderwater", 1, 1, "int", &sndactorunderwater, 0, 1);
 	setdvar(#"player_shallowwaterwadescale", 1);
 	setdvar(#"player_waistwaterwadescale", 1);
-	setdvar(#"hash_70d60913dea5aadd", 1);
+	setdvar(#"player_deepwaterwadescale", 1);
 	level._effect[#"headshot"] = #"zombie/fx_bul_flesh_head_fatal_zmb";
 	level._effect[#"headshot_nochunks"] = #"zombie/fx_bul_flesh_head_nochunks_zmb";
 	level._effect[#"bloodspurt"] = #"zombie/fx_bul_flesh_neck_spurt_zmb";
@@ -798,7 +798,7 @@ function sentinel_artifact_activated(localclientnum, oldval, newval, bnewent, bi
 	if(newval == 1)
 	{
 		self.fx = util::playfxontag(localclientnum, level._effect[#"hash_4e794284db75a3f5"], self, "tag_fx_x_pos");
-		self function_bf9d3071(#"hash_1589a47f2fdc6c67");
+		self playrenderoverridebundle(#"hash_1589a47f2fdc6c67");
 		self.sfx_id = self playloopsound(#"hash_66df9cab2c64f968");
 	}
 	else
@@ -810,7 +810,7 @@ function sentinel_artifact_activated(localclientnum, oldval, newval, bnewent, bi
 				self stoploopsound(self.sfx_id);
 			}
 			self playsound(localclientnum, #"hash_75b9c9ad6ebe8af2");
-			self function_5d482e78(#"hash_1589a47f2fdc6c67");
+			self stoprenderoverridebundle(#"hash_1589a47f2fdc6c67");
 			if(isdefined(self.fx))
 			{
 				stopfx(localclientnum, self.fx);
@@ -823,7 +823,7 @@ function sentinel_artifact_activated(localclientnum, oldval, newval, bnewent, bi
 			}
 			self.fx = util::playfxontag(localclientnum, level._effect[#"hash_2b40b14fc8577053"], self, "tag_fx_x_pos");
 			waitframe(1);
-			self function_bf9d3071(#"hash_111d3e86bf2007e4");
+			self playrenderoverridebundle(#"hash_111d3e86bf2007e4");
 		}
 		else
 		{

@@ -6081,12 +6081,12 @@ function function_14727b8f()
 	array::thread_all(var_fc14780a, &function_5ea46511);
 	var_551a187 = [];
 	var_55b0fa0c = [];
-	for(var_12caf287 = 1; var_12caf287 <= 3; var_12caf287++)
+	for(n_act = 1; n_act <= 3; n_act++)
 	{
 		/#
-			iprintlnbold(("" + var_12caf287) + "");
+			iprintlnbold(("" + n_act) + "");
 		#/
-		switch(var_12caf287)
+		switch(n_act)
 		{
 			case 1:
 			{
@@ -6111,7 +6111,7 @@ function function_14727b8f()
 		n_parts = var_c3815c7.size;
 		for(i = 0; i < n_parts; i++)
 		{
-			switch(var_12caf287)
+			switch(n_act)
 			{
 				case 2:
 				{
@@ -6183,32 +6183,32 @@ function function_14727b8f()
 					str_task = a_str_tasks[n_task];
 					n_spotlight = array::find(var_59f7dee9, s_spotlight);
 					n_spotlight++;
-					e_player thread function_9cb5a6ac(var_2c03c1e4, str_task, var_12caf287, n_spotlight, var_d8d4faff);
+					e_player thread function_9cb5a6ac(var_2c03c1e4, str_task, n_act, n_spotlight, var_d8d4faff);
 					continue;
 				}
 				var_55b0fa0c[var_2c03c1e4] = undefined;
-				e_player thread function_9cb5a6ac(var_2c03c1e4, #"return", var_12caf287);
+				e_player thread function_9cb5a6ac(var_2c03c1e4, #"return", n_act);
 			}
 			level waittill(#"hash_6f04da8e7237740");
 			level thread function_b927f16();
 			wait(1);
 		}
-		if(var_12caf287 < 3)
+		if(n_act < 3)
 		{
 			s_play.var_ef5091fc = 0;
 			foreach(var_2c03c1e4, e_player in var_fc14780a)
 			{
-				e_player thread function_9cb5a6ac(var_2c03c1e4, #"return", var_12caf287);
+				e_player thread function_9cb5a6ac(var_2c03c1e4, #"return", n_act);
 			}
 			level waittill(#"hash_6f04da8e7237740");
 			array::thread_all(var_fc14780a, &function_5ea46511);
 			level thread function_b927f16();
 		}
 		/#
-			iprintlnbold(("" + var_12caf287) + "");
+			iprintlnbold(("" + n_act) + "");
 		#/
 		level notify(#"hash_79ebfc45b1857e0a");
-		if(var_12caf287 < 3)
+		if(n_act < 3)
 		{
 			playsoundatposition(#"hash_83542f629d907c8", (0, 0, 0));
 			level thread function_759871d0();
@@ -6477,7 +6477,7 @@ function function_a6ec87a7()
 	Parameters: 5
 	Flags: Linked
 */
-function function_9cb5a6ac(var_2c03c1e4, str_task, var_12caf287, n_spotlight, var_d8d4faff)
+function function_9cb5a6ac(var_2c03c1e4, str_task, n_act, n_spotlight, var_d8d4faff)
 {
 	level endon(#"end_game", #"play" + "_ended_early", #"hash_285de4ce79135552");
 	self endon(#"entering_last_stand", #"death");
@@ -6495,7 +6495,7 @@ function function_9cb5a6ac(var_2c03c1e4, str_task, var_12caf287, n_spotlight, va
 	}
 	wait(0.5);
 	s_play = level.var_28dcf408;
-	switch(var_12caf287)
+	switch(n_act)
 	{
 		case 1:
 		{
@@ -7295,7 +7295,7 @@ function function_3c6638c1(a_s_spawns, n_zombies, var_d8d4faff)
 	Parameters: 1
 	Flags: None
 */
-function function_12ff6bb5(var_12caf287)
+function function_12ff6bb5(n_act)
 {
 	level endon(#"end_game", #"play" + "_ended_early", #"hash_79ebfc45b1857e0a", #"hash_666e960831b9abc4", #"hash_285de4ce79135552");
 	a_s_spawns = struct::get_array(#"hash_408827725d1ed07a");
@@ -7306,7 +7306,7 @@ function function_12ff6bb5(var_12caf287)
 		if(a_ai_spawned.size < 6 && getaiarray().size < level.zombie_ai_limit)
 		{
 			b_spartoi = 0;
-			if(var_12caf287 > 2)
+			if(n_act > 2)
 			{
 				b_spartoi = math::cointoss();
 			}

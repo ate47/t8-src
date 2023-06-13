@@ -132,16 +132,16 @@ class cinteractobj
 			{
 				if(function_aa070e6f(e_player) && !isinarray(var_2854e7f7, e_player.team) && !e_player isinvehicle())
 				{
-					var_ef387694 = {#targetname:e_object.var_f66cebb1, #side:var_9c2f0815, #team:m_str_team};
+					voiceparams = {#targetname:e_object.var_f66cebb1, #side:var_9c2f0815, #team:m_str_team};
 					if(isdefined(e_object.var_fa2dfcb4))
 					{
-						function_58ca2822("itfr_dis_obj", undefined, var_ef387694);
+						function_58ca2822("itfr_dis_obj", undefined, voiceparams);
 					}
 					else
 					{
 						if(isdefined(e_object.var_ff3c99c5))
 						{
-							function_58ca2822("mini_hint_itct", undefined, var_ef387694);
+							function_58ca2822("mini_hint_itct", undefined, voiceparams);
 						}
 						else if(isdefined(var_426bccfd))
 						{
@@ -149,32 +149,32 @@ class cinteractobj
 							{
 								case "door":
 								{
-									function_58ca2822("door_hint_itct", undefined, var_ef387694);
+									function_58ca2822("door_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "panel":
 								{
-									function_58ca2822("panl_hint_itct", undefined, var_ef387694);
+									function_58ca2822("panl_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "radio":
 								{
-									function_58ca2822("rdio_hint_itct", undefined, var_ef387694);
+									function_58ca2822("rdio_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "console":
 								{
-									function_58ca2822("cnsl_hint_itct", undefined, var_ef387694);
+									function_58ca2822("cnsl_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "climb":
 								{
-									function_58ca2822("clmb_hint_itct", undefined, var_ef387694);
+									function_58ca2822("clmb_hint_itct", undefined, voiceparams);
 									break;
 								}
 								default:
 								{
-									function_58ca2822("gobj_hint_itct", undefined, var_ef387694);
+									function_58ca2822("gobj_hint_itct", undefined, voiceparams);
 									break;
 								}
 							}

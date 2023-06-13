@@ -63,11 +63,11 @@ function function_f6c7ad1b(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_2db85fc8b73a1571");
+		self playrenderoverridebundle(#"hash_2db85fc8b73a1571");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_2db85fc8b73a1571");
+		self stoprenderoverridebundle(#"hash_2db85fc8b73a1571");
 	}
 }
 
@@ -350,6 +350,6 @@ function function_443d6ae(localclientnum)
 {
 	self endon(#"death", #"hash_ac788aea26a8b23");
 	wait(0.15);
-	self function_bf9d3071(#"hash_429426f01ad84c8b");
+	self playrenderoverridebundle(#"hash_429426f01ad84c8b");
 }
 

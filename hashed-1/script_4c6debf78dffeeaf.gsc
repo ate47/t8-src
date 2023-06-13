@@ -524,8 +524,8 @@ function private init_character_index()
 				var_72964a59 = self stats::function_6d50f14b(#"cacloadouts", #"charactercontext", #"characterindex");
 				if(var_72964a59 != 0 && (isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising")))
 				{
-					rf = function_fb05c532(var_72964a59, currentsessionmode());
-					if(isdefined(rf) && rf.var_57519715 === #"hash_350d7fc2aca48b7f")
+					rf = getplayerrolefields(var_72964a59, currentsessionmode());
+					if(isdefined(rf) && rf.unlockableitementry === #"hash_350d7fc2aca48b7f")
 					{
 						var_72964a59 = 0;
 					}
@@ -554,7 +554,7 @@ function private init_character_index()
 								continue;
 							}
 						#/
-						rf = function_fb05c532(i, currentsessionmode());
+						rf = getplayerrolefields(i, currentsessionmode());
 						if(isdefined(rf) && (isdefined(rf.var_7376c393) && rf.var_7376c393))
 						{
 							if(!isdefined(var_36918d27))

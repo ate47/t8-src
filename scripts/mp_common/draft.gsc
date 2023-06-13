@@ -808,7 +808,7 @@ function assign_remaining_players(only_assign_player)
 	playerroletemplatecount = getplayerroletemplatecount(currentsessionmode());
 	for(i = 0; i < playerroletemplatecount; i++)
 	{
-		var_1404a093 = function_fb05c532(i, currentsessionmode());
+		var_1404a093 = getplayerrolefields(i, currentsessionmode());
 		var_bacff7f = getcharacterfields(i, currentsessionmode());
 		characters[i] = spawnstruct();
 		characters[i].index = i;

@@ -260,7 +260,7 @@ function function_beeca5c7(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_4fb0136f51fcf7", "tag_weapon");
+		self playrenderoverridebundle(#"hash_4fb0136f51fcf7", "tag_weapon");
 		self function_78233d29(#"hash_4fb0136f51fcf7", "tag_weapon", "Brightness", 0.7);
 		self thread function_f9a794dc(localclientnum);
 		self thread function_eba88fd(localclientnum);
@@ -274,7 +274,7 @@ function function_beeca5c7(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_c183198c = undefined;
 		}
 		self function_78233d29(#"hash_4fb0136f51fcf7", "tag_weapon", "Brightness", 0);
-		self function_5d482e78(#"hash_4fb0136f51fcf7", "tag_weapon");
+		self stoprenderoverridebundle(#"hash_4fb0136f51fcf7", "tag_weapon");
 	}
 }
 
@@ -597,7 +597,7 @@ function function_84e77740(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_68ee9247aaae4517");
+		self playrenderoverridebundle(#"hash_68ee9247aaae4517");
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Brightness", 1);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Alpha", 1);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Tint", 1);

@@ -195,7 +195,7 @@ function function_b754923d(b_pause, str_perk, str_result, n_slot)
 */
 function function_81058b09(var_d92ac80e)
 {
-	a_ai = self function_bdda420f(self.origin, 320);
+	a_ai = self getenemiesinradius(self.origin, 320);
 	a_ai = arraysortclosest(a_ai, self.origin);
 	if(namespace_6b49f66b::is_active())
 	{

@@ -722,7 +722,7 @@ function function_8606278d()
 */
 function function_b54f6326()
 {
-	level thread namespace_fddd83bd::function_a2c208d5();
+	level thread namespace_fddd83bd::quiz();
 }
 
 /*

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\core_common\globallogic\globallogic_score.gsc;
@@ -3599,9 +3599,9 @@ function waitfortimecheck(duration, callback, endcondition1, endcondition2, endc
 */
 function emp_isempd()
 {
-	if(isdefined(level.var_707cab08.enemyempactivefunc))
+	if(isdefined(level.emp_shared.enemyempactivefunc))
 	{
-		return self [[level.var_707cab08.enemyempactivefunc]]();
+		return self [[level.emp_shared.enemyempactivefunc]]();
 	}
 	return 0;
 }

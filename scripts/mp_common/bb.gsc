@@ -210,8 +210,8 @@ function function_6661621a()
 	mploadout.primaryattachment2 = var_6834562f.attachment1;
 	mploadout.primaryattachment3 = var_6834562f.attachment2;
 	mploadout.primaryattachment4 = var_6834562f.attachment3;
-	mploadout.var_741a707b = var_6834562f.attachment4;
-	mploadout.var_27509928 = hash(self getweaponoptic(primaryweapon));
+	mploadout.primaryattachment5 = var_6834562f.attachment4;
+	mploadout.primaryreticle = hash(self getweaponoptic(primaryweapon));
 	mploadout.var_b3cb3732 = self function_9b237966(self.class_num, 1);
 	mploadout.var_5f2a5b01 = self function_73182cb6(self.class_num, 1);
 	secondaryweapon = self getloadoutweapon(self.class_num, "secondary");
@@ -219,10 +219,10 @@ function function_6661621a()
 	var_90030ba7 = function_285f8efd(secondaryweapon);
 	mploadout.secondaryattachment1 = var_90030ba7.attachment0;
 	mploadout.secondaryattachment2 = var_90030ba7.attachment1;
-	mploadout.var_1e8aa8c8 = var_90030ba7.attachment2;
-	mploadout.var_783f5bcc = var_90030ba7.attachment3;
-	mploadout.var_82897060 = var_90030ba7.attachment4;
-	mploadout.var_92bbb1fd = hash(self getweaponoptic(secondaryweapon));
+	mploadout.secondaryattachment3 = var_90030ba7.attachment2;
+	mploadout.secondaryattachment4 = var_90030ba7.attachment3;
+	mploadout.secondaryattachment5 = var_90030ba7.attachment4;
+	mploadout.secondaryreticle = hash(self getweaponoptic(secondaryweapon));
 	mploadout.var_37fdd840 = self function_9b237966(self.class_num, 0);
 	mploadout.var_f27f3a24 = self function_73182cb6(self.class_num, 0);
 	mploadout.tacticalgear = self function_d78e0e04(self.class_num);
@@ -250,7 +250,7 @@ function function_6661621a()
 	}
 	mploadout.var_9911e1f2 = var_c0f05cbb.name;
 	mploadout.specialistindex = (isdefined(self getspecialistindex()) ? self getspecialistindex() : -1);
-	function_92d1707f(#"hash_30b542620e21966d", #"hash_606f63fe928017f1", mploadout);
+	function_92d1707f(#"hash_30b542620e21966d", #"mploadouts", mploadout);
 }
 
 /*

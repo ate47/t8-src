@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b80a90bb1ce332e;
+#using scripts\killstreaks\helicopter_shared.csc;
 #using scripts\weapons\acid_bomb.csc;
 #using scripts\killstreaks\airsupport.csc;
 #using scripts\abilities\gadgets\gadget_vision_pulse.csc;

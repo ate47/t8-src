@@ -310,10 +310,10 @@ function gadget_health_regen_off(slot, weapon)
 	else if(isdefined(self.var_eedfcc6e))
 	{
 		var_d9dbb072 = 0;
-		var_406dcd04 = self function_c1b7eefa(weapon);
-		if(var_406dcd04 > 0)
+		usage_rate = self function_c1b7eefa(weapon);
+		if(usage_rate > 0)
 		{
-			var_d9dbb072 = weapon.gadget_powermax / var_406dcd04;
+			var_d9dbb072 = weapon.gadget_powermax / usage_rate;
 		}
 		if(((int(var_d9dbb072 * 1000)) + self.var_eedfcc6e) <= (gettime() + 100))
 		{
@@ -604,7 +604,7 @@ function private function_dafd9cd(attacker)
 function function_831bf182()
 {
 	can_set = isdefined(self.gadget_health_regen_slot);
-	if(!can_set || "ammo" == self.gadget_health_regen_weapon.var_11389297)
+	if(!can_set || "ammo" == self.gadget_health_regen_weapon.gadget_powerusetype)
 	{
 		return 0;
 	}

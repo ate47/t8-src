@@ -120,7 +120,7 @@ function private bb_getcoverflankability()
 		{
 			return covermode == "cover_blind" || covermode == "cover_over";
 		}
-		if(covernode.type == #"cover stand" || covernode.type == #"hash_1bb444d857814e92" || (covernode.type == #"cover crouch" || covernode.type == #"hash_280d1247a6abdbae" || covernode.type == #"hash_171465527444ed14"))
+		if(covernode.type == #"cover stand" || covernode.type == #"conceal stand" || (covernode.type == #"cover crouch" || covernode.type == #"cover crouch window" || covernode.type == #"conceal crouch"))
 		{
 			return "flankable";
 		}

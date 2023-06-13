@@ -132,8 +132,8 @@ function __init__()
 function function_c4dfe16e(localclientnum)
 {
 	localplayer = function_5c10bd79(localclientnum);
-	var_86012318 = function_b2272884();
-	if(!var_86012318 && localplayer.team != #"free")
+	isteambased = function_b2272884();
+	if(!isteambased && localplayer.team != #"free")
 	{
 		return #"allies";
 	}

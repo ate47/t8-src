@@ -155,13 +155,13 @@ function private function_3ecc52d9(var_d3547bb1, laneNum)
 			}
 		}
 	}
-	tpoint = function_ad6356f5(self.origin);
+	tpoint = getclosesttacpoint(self.origin);
 	if(!isdefined(tpoint))
 	{
 		var_9f855ac9 = getclosestpointonnavmesh(self.origin, 600);
 		if(isdefined(var_9f855ac9))
 		{
-			tpoint = function_ad6356f5(var_9f855ac9);
+			tpoint = getclosesttacpoint(var_9f855ac9);
 		}
 	}
 	if(isdefined(tpoint))
@@ -211,8 +211,8 @@ function private function_a702eb04(params, goal)
 				continue;
 			}
 			var_1f2328d0 = bot function_4794d6a3();
-			tpoint = function_ad6356f5(bot.origin);
-			if(!isdefined(tpoint) && isdefined(var_1f2328d0.var_151c9dda) && !var_1f2328d0.isatgoal)
+			tpoint = getclosesttacpoint(bot.origin);
+			if(!isdefined(tpoint) && isdefined(var_1f2328d0.regionid) && !var_1f2328d0.isatgoal)
 			{
 				continue;
 			}
@@ -284,7 +284,7 @@ function private function_3f15f776(params)
 		if(strategiccommandutility::isvalidbot(bot))
 		{
 			var_1f2328d0 = bot function_4794d6a3();
-			if(isdefined(var_1f2328d0.var_151c9dda) && !var_1f2328d0.isatgoal)
+			if(isdefined(var_1f2328d0.regionid) && !var_1f2328d0.isatgoal)
 			{
 				continue;
 			}
@@ -669,7 +669,7 @@ function private function_c586e586(planner, constants)
 		}
 	}
 	params.var_f76f8cf6 = planner::getblackboardattribute(planner, "mp_laneNum");
-	params.var_46b70ee6 = function_ad6356f5(params.controlzone.gameobject.origin).region;
+	params.var_46b70ee6 = getclosesttacpoint(params.controlzone.gameobject.origin).region;
 	if(isdefined(params.controlzone))
 	{
 		if(isdefined(params.var_f76f8cf6))
@@ -894,7 +894,7 @@ function private function_2b5c33a8(planner, constants)
 		return params;
 	}
 	params.var_f76f8cf6 = planner::getblackboardattribute(planner, "mp_laneNum");
-	params.var_46b70ee6 = function_ad6356f5(params.domflag.origin).region;
+	params.var_46b70ee6 = getclosesttacpoint(params.domflag.origin).region;
 	if(isdefined(params.domflag))
 	{
 		if(isdefined(params.var_f76f8cf6))
@@ -1013,7 +1013,7 @@ function private function_e32ce201(planner, constants)
 	params.bots = bots;
 	params.kothzone = kothzone[0][#"__unsafe__"][#"kothzone"];
 	params.var_f76f8cf6 = planner::getblackboardattribute(planner, "mp_laneNum");
-	params.var_46b70ee6 = function_ad6356f5(params.kothzone.gameobject.origin).region;
+	params.var_46b70ee6 = getclosesttacpoint(params.kothzone.gameobject.origin).region;
 	if(isdefined(params.kothzone))
 	{
 		if(isdefined(params.laneNum))
@@ -1164,7 +1164,7 @@ function private function_3235898a(planner, params)
 			goal = params.sdbomb.origin;
 			if(!ispointonnavmesh(goal, bot))
 			{
-				var_1209f27 = function_ad6356f5(goal);
+				var_1209f27 = getclosesttacpoint(goal);
 				if(isdefined(var_1209f27))
 				{
 					goal = var_1209f27.origin;
@@ -1454,7 +1454,7 @@ function private function_458e36c0(planner, constants)
 	{
 		params.regions = array(params.regions);
 	}
-	params.regions[params.regions.size] = function_ad6356f5(params.sdbombzone.origin).region;
+	params.regions[params.regions.size] = getclosesttacpoint(params.sdbombzone.origin).region;
 	var_c1db2604 = function_b507a336(params.regions[0]);
 	foreach(neighbor in var_c1db2604.neighbors)
 	{
@@ -1559,7 +1559,7 @@ function private function_8c1624c4(planner, constants)
 	if(isdefined(bots[0].bot.var_f9954cf6))
 	{
 		var_79a83b2e = bots[0].bot.var_f9954cf6;
-		var_f6ce5982 = function_ad6356f5(bots[0].origin);
+		var_f6ce5982 = getclosesttacpoint(bots[0].origin);
 		if(isdefined(var_f6ce5982) && isdefined(var_f6ce5982.region))
 		{
 			var_65733efe = var_f6ce5982.region;
@@ -1574,11 +1574,11 @@ function private function_8c1624c4(planner, constants)
 		var_ae5ed4e = function_6d153384(bots[0].origin);
 		if(isdefined(var_ae5ed4e))
 		{
-			var_79a83b2e = function_ad6356f5(var_ae5ed4e).region;
+			var_79a83b2e = getclosesttacpoint(var_ae5ed4e).region;
 		}
 		else
 		{
-			var_79a83b2e = function_ad6356f5(bots[0].origin).region;
+			var_79a83b2e = getclosesttacpoint(bots[0].origin).region;
 		}
 		bots[0].bot.var_f9954cf6 = var_79a83b2e;
 	}
@@ -1637,7 +1637,7 @@ function private function_6203826a(planner, params)
 		bot = var_d5fcb00b.bots[i];
 		if(strategiccommandutility::isvalidbot(bot) && bot bot::in_combat() && distancesquared(bot.enemy.origin, bot.origin) < 640000)
 		{
-			var_494658cd = function_ad6356f5(bot.enemy.origin);
+			var_494658cd = getclosesttacpoint(bot.enemy.origin);
 			if(!isdefined(var_494658cd))
 			{
 				continue;

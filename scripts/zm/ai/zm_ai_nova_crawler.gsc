@@ -187,7 +187,7 @@ function function_29c22852(entity)
 	}
 	if(isdefined(entity.meleeweapon) && entity.meleeweapon !== level.weaponnone)
 	{
-		meleedistsq = entity.meleeweapon.var_d3cafde6 * entity.meleeweapon.var_d3cafde6;
+		meleedistsq = entity.meleeweapon.aimeleerange * entity.meleeweapon.aimeleerange;
 	}
 	if(!isdefined(meleedistsq))
 	{

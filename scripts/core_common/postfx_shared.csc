@@ -148,18 +148,18 @@ function function_764eb053()
 			bundlename = getdvarstring(#"hash_3e6eca38278b4ff6", "");
 			if(bundlename != var_e0f0fb1d && isdefined(ent))
 			{
-				ent function_5d482e78(var_e0f0fb1d);
+				ent stoprenderoverridebundle(var_e0f0fb1d);
 				if(bundlename != "")
 				{
-					ent function_bf9d3071(bundlename);
+					ent playrenderoverridebundle(bundlename);
 				}
 			}
 			if(showviewmodel && (showviewmodel != var_4828f60f || bundlename != var_e0f0fb1d))
 			{
-				self function_5d482e78(var_e0f0fb1d);
+				self stoprenderoverridebundle(var_e0f0fb1d);
 				if(bundlename != "")
 				{
-					self function_bf9d3071(bundlename);
+					self playrenderoverridebundle(bundlename);
 				}
 			}
 			var_e0f0fb1d = bundlename;

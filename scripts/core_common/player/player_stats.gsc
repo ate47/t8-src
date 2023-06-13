@@ -107,7 +107,7 @@ function get_stat(vararg)
 		/#
 			assert(isplayer(self), "");
 		#/
-		result = self function_d0fed49d(vararg);
+		result = self readstat(vararg);
 		/#
 			function_d92cb558(result, vararg);
 		#/
@@ -209,7 +209,7 @@ function set_stat(vararg)
 		#/
 		value = vararg[vararg.size - 1];
 		arrayremoveindex(vararg, vararg.size - 1);
-		result = self function_e14338da(vararg, value);
+		result = self writestat(vararg, value);
 		/#
 			function_d92cb558(result, vararg);
 		#/

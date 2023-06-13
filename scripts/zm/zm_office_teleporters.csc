@@ -430,13 +430,13 @@ function war_room_map_control(localclientnum, oldval, newval, bnewent, binitials
 	if(newval)
 	{
 		wait(1);
-		self function_bf9d3071("rob_zm_off_table_plotting_map");
+		self playrenderoverridebundle("rob_zm_off_table_plotting_map");
 	}
 	else
 	{
 		playfx(localclientnum, level._effect[#"hash_3ae2cb0d50ae8e3e"], self.origin, (1, 0, 0), (0, 0, 1));
 		wait(1);
-		self function_5d482e78("rob_zm_off_table_plotting_map");
+		self stoprenderoverridebundle("rob_zm_off_table_plotting_map");
 	}
 }
 

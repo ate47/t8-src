@@ -899,7 +899,7 @@ function song()
 }
 
 /*
-	Name: function_a2c208d5
+	Name: quiz
 	Namespace: namespace_fddd83bd
 	Checksum: 0x8D687BA1
 	Offset: 0x2978
@@ -907,7 +907,7 @@ function song()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a2c208d5()
+function quiz()
 {
 	level endon(#"hash_1a91b42d31e0b28d");
 	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_73fd31eafa77ad51", 0, 1);

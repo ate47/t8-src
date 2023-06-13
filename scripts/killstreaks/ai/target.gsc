@@ -16,7 +16,7 @@
 function function_d15dd929(radius, origin)
 {
 	result = function_9cc082d2(origin + vectorscale((0, 0, 1), 100), 200);
-	if(isdefined(result) && isdefined(result[#"hash_556255be476284b3"]) && result[#"hash_556255be476284b3"] & 2)
+	if(isdefined(result) && isdefined(result[#"materialflags"]) && result[#"materialflags"] & 2)
 	{
 		return false;
 	}

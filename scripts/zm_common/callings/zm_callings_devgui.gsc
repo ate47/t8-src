@@ -49,7 +49,7 @@ function function_1d4f22e4(cmd)
 	/#
 		if(strstartswith(cmd, ""))
 		{
-			str = function_ea13f55(cmd, "", "");
+			str = strreplace(cmd, "", "");
 			arr = strtok(str, "");
 			taskid = arr[0];
 			taskid = int(taskid);
@@ -61,7 +61,7 @@ function function_1d4f22e4(cmd)
 		{
 			if(strstartswith(cmd, ""))
 			{
-				str = function_ea13f55(cmd, "", "");
+				str = strreplace(cmd, "", "");
 				var_762ca590 = hash(str);
 				if(!getdvarint(#"hash_11da02ca40639de5", 0))
 				{
@@ -100,7 +100,7 @@ function function_1d4f22e4(cmd)
 			}
 			else if(strstartswith(cmd, ""))
 			{
-				str = function_ea13f55(cmd, "", "");
+				str = strreplace(cmd, "", "");
 				arr = strtok(str, "");
 				interval = arr[0];
 				interval = int(interval);

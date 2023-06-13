@@ -85,7 +85,7 @@ function function_4bc12499()
 		player = players[0];
 		if(isdefined(player))
 		{
-			dialogkey = player get_death_vox(var_7f729179.mod, var_7f729179.var_f11eb5f2);
+			dialogkey = player get_death_vox(var_7f729179.mod, var_7f729179.roleindex);
 			if(isdefined(dialogkey) && isdefined(var_7f729179.body))
 			{
 				var_7f729179.body playsound(0, dialogkey);
@@ -168,9 +168,9 @@ function function_f1d27638(var_f7f4481f)
 	Parameters: 2
 	Flags: None
 */
-function get_death_vox(meansofdeath, var_f11eb5f2)
+function get_death_vox(meansofdeath, roleindex)
 {
-	bundlename = function_361aa16d(var_f11eb5f2);
+	bundlename = function_361aa16d(roleindex);
 	if(!isdefined(bundlename))
 	{
 		return;

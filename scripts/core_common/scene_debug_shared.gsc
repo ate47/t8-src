@@ -839,7 +839,7 @@ function function_3bafd088(var_a572f325)
 {
 	/#
 		/#
-			if(getdvarint(#"hash_356851cac5b69fb7", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
+			if(getdvarint(#"dvr_enable", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
 			{
 				if(!isdefined(var_a572f325))
 				{
@@ -872,7 +872,7 @@ function function_d2785094(var_a572f325)
 {
 	/#
 		/#
-			if(getdvarint(#"hash_356851cac5b69fb7", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
+			if(getdvarint(#"dvr_enable", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
 			{
 				var_3ee40508 = 0;
 				var_2640d68e = 0;

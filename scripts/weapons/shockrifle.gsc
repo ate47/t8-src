@@ -564,7 +564,7 @@ function function_c80bac1f(shockcharge, var_51415470, var_3ee2edfa)
 */
 function function_e0141557(ent, var_51415470)
 {
-	damage = (var_51415470 ? level.var_a5ff950.var_2c5ddff9 : level.var_a5ff950.shockdamage);
+	damage = (var_51415470 ? level.var_a5ff950.impactdamage : level.var_a5ff950.shockdamage);
 	isplayer = isplayer(ent);
 	if(isdefined(ent.var_beee9523) && ent.var_beee9523)
 	{

@@ -144,14 +144,14 @@ function add_bots(count = 1, team)
 	Parameters: 4
 	Flags: Linked
 */
-function add_fixed_spawn_bot(team, origin, yaw, var_f11eb5f2 = undefined)
+function add_fixed_spawn_bot(team, origin, yaw, roleindex = undefined)
 {
 	bot = add_bot(team);
 	if(isdefined(bot))
 	{
-		if(isdefined(var_f11eb5f2) && var_f11eb5f2 >= 0)
+		if(isdefined(roleindex) && roleindex >= 0)
 		{
-			bot.var_29b433bd = int(var_f11eb5f2);
+			bot.var_29b433bd = int(roleindex);
 		}
 		bot allow_all(0);
 		node = bot get_nearest_node(origin);
@@ -1053,7 +1053,7 @@ function function_678e7c0(bundlename)
 	loc_000027CA:
 	self botsetlooksensitivity((isdefined(tacbundle.pitchsensitivity) ? tacbundle.pitchsensitivity : 0), (isdefined(tacbundle.yawsensitivity) ? tacbundle.yawsensitivity : 0));
 	loc_0000281A:
-	self function_4f0b9564((isdefined(tacbundle.var_17ee500f) ? tacbundle.var_17ee500f : 0), (isdefined(tacbundle.var_18e471dc) ? tacbundle.var_18e471dc : 0));
+	self function_4f0b9564((isdefined(tacbundle.pitchacceleration) ? tacbundle.pitchacceleration : 0), (isdefined(tacbundle.yawacceleration) ? tacbundle.yawacceleration : 0));
 	loc_0000286A:
 	self function_a6b577cd((isdefined(tacbundle.var_2b02e26a) ? tacbundle.var_2b02e26a : 0), (isdefined(tacbundle.var_69610dbe) ? tacbundle.var_69610dbe : 0));
 	loc_000028BA:
@@ -1665,8 +1665,8 @@ function function_e0aceb0c(tacbundle, dvarstr)
 function function_b78e1ebf(lefthand = 0)
 {
 	weapon = self get_current_weapon(lefthand);
-	var_71f9ccb1 = (lefthand ? 24 : 0);
-	self bottapbutton(var_71f9ccb1);
+	buttonbit = (lefthand ? 24 : 0);
+	self bottapbutton(buttonbit);
 	if(isdefined(level.var_32ae304))
 	{
 		self [[level.var_32ae304]](lefthand);

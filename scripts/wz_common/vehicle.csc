@@ -144,7 +144,7 @@ function private function_54e9d3c4(localclientnum)
 		self.var_e29b96d2 function_a5edb367(#"neutral");
 		self.var_e29b96d2 function_8e04481f();
 		self.var_e29b96d2 function_5e00861(0.62);
-		self.var_e29b96d2 function_5db470de(localclientnum, 2400, 1);
+		self.var_e29b96d2 enablevisioncircle(localclientnum, 2400, 1);
 	}
 }
 

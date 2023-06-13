@@ -191,7 +191,7 @@ function private function_fa444840()
 	self.var_3dc66299.deathsduringuse = 0;
 	self.var_3dc66299.headshots = 0;
 	self.var_3dc66299.currentweapon = undefined;
-	level waittill(#"hash_313ad43b34e74e96");
+	level waittill(#"game_playing");
 	while(true)
 	{
 		result = undefined;
@@ -242,7 +242,7 @@ function private breadcrumbs()
 	}
 	else if(sessionmodeiswarzonegame())
 	{
-		level waittill(#"hash_313ad43b34e74e96");
+		level waittill(#"game_playing");
 		waittime = getdvarfloat(#"hash_2872d2b12241500c", 4);
 	}
 	while(true)

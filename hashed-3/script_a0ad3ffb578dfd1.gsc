@@ -765,8 +765,8 @@ function function_e1a452f5(e_homunculus, var_21bb918c, var_c8279d50)
 	var_c8279d50 setinvisibletoplayer(self);
 	while(true)
 	{
-		var_93027823 = trigger::wait_till("trigger_life_preserver", "targetname", self);
-		player = var_93027823.who;
+		t_vis = trigger::wait_till("trigger_life_preserver", "targetname", self);
+		player = t_vis.who;
 		if(isalive(player))
 		{
 			weapon = player getcurrentweapon();
@@ -783,7 +783,7 @@ function function_e1a452f5(e_homunculus, var_21bb918c, var_c8279d50)
 					{
 						wait(0.25);
 					}
-					while(isalive(player) && player adsbuttonpressed() && player istouching(var_93027823) && player util::is_looking_at(e_homunculus));
+					while(isalive(player) && player adsbuttonpressed() && player istouching(t_vis) && player util::is_looking_at(e_homunculus));
 					if(isalive(player))
 					{
 						e_homunculus setinvisibletoplayer(player);

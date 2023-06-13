@@ -2,9 +2,9 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\gametypes\ct_ai.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2ca4b414b146b498;
+#using scripts\killstreaks\ai_tank_shared.gsc;
 #using script_3819e7a1427df6d2;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\bots\bot_util.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using script_490759cf62a1abc8;
@@ -12,7 +12,7 @@
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
-#using script_7dd6557e89e9840b;
+#using scripts\killstreaks\remotemissile_shared.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\bots\bot_stance.gsc;

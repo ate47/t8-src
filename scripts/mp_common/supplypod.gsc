@@ -197,7 +197,7 @@ function function_bff5c062(supplypod, attackingplayer)
 function function_29de6f1f(weapon, meansofdeath = undefined)
 {
 	baseweapon = weapons::getbaseweapon(weapon);
-	var_a489f56 = isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09 || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8);
+	var_a489f56 = isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon || (isdefined(baseweapon.var_76ce72e8) && baseweapon.var_76ce72e8);
 	iskillstreak = isdefined(killstreaks::get_from_weapon(weapon));
 	ismelee = isdefined(meansofdeath) && (meansofdeath == #"mod_melee" || meansofdeath == #"mod_melee_weapon_butt");
 	var_4ea2a976 = weapon.name == "launcher_standard_t8" || weapon.name == "sig_buckler_dw";
@@ -467,8 +467,8 @@ function on_player_spawned()
 		player thread function_577ff80b();
 	}
 	self function_46d74bb7(0);
-	var_8d33d79 = isdefined(player.var_29fdd9dd) && player.team != player.var_29fdd9dd;
-	if((isdefined(player.var_228b6835) ? player.var_228b6835 : 0) || var_8d33d79 || (isdefined(level.var_934fb97.bundle.var_18ede0bb) ? level.var_934fb97.bundle.var_18ede0bb : 0))
+	changedteam = isdefined(player.var_29fdd9dd) && player.team != player.var_29fdd9dd;
+	if((isdefined(player.var_228b6835) ? player.var_228b6835 : 0) || changedteam || (isdefined(level.var_934fb97.bundle.var_18ede0bb) ? level.var_934fb97.bundle.var_18ede0bb : 0))
 	{
 		player.var_17d74a5c = undefined;
 		player.var_57de9100 = undefined;

@@ -197,7 +197,7 @@ function player_acid_trap_post_fx(localclientnum, oldval, newval, bnewent, binit
 		self thread function_17956e93(localclientnum);
 		self thread postfx::playpostfxbundle(#"pstfx_zm_acid_dmg");
 		self.var_b1409d8f = playfxoncamera(localclientnum, level._effect[#"hash_4391e5c4b43c63c9"]);
-		self function_bf9d3071(#"hash_6efc465a2da0373a");
+		self playrenderoverridebundle(#"hash_6efc465a2da0373a");
 		if(self zm_utility::function_f8796df3(localclientnum))
 		{
 			self.var_7a7fac87 = playviewmodelfx(localclientnum, level._effect[#"hash_5647f8e593893bce"], "j_wrist_ri");
@@ -245,7 +245,7 @@ function function_17956e93(localclientnum)
 			self stoploopsound(self.var_431ddde9);
 			self.var_431ddde9 = undefined;
 		}
-		self function_5d482e78(#"hash_6efc465a2da0373a");
+		self stoprenderoverridebundle(#"hash_6efc465a2da0373a");
 	}
 }
 
@@ -282,7 +282,7 @@ function function_502136a5(str_notify)
 			stopfx(localclientnum, self.var_7a7fac87);
 			self.var_7a7fac87 = undefined;
 		}
-		self function_5d482e78(#"hash_6efc465a2da0373a");
+		self stoprenderoverridebundle(#"hash_6efc465a2da0373a");
 	}
 }
 

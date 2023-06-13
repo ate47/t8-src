@@ -439,7 +439,7 @@ function function_19a5d7e7(localclientnum, weapon, tagname, stagenum, impulse, v
 	{
 		if(!self function_d2503806(stage.rob, tagname))
 		{
-			self function_bf9d3071(stage.rob, tagname);
+			self playrenderoverridebundle(stage.rob, tagname);
 		}
 		self callback::add_entity_callback(#"death", &player_on_death);
 		for(layer = 1; layer <= 3; layer++)
@@ -490,7 +490,7 @@ function function_3e27a7cb(localclientnum, tagname)
 	var_58bac2d = function_16d7447b(localclientnum, tagname);
 	if(isdefined(var_58bac2d.var_796fdf6e))
 	{
-		self function_5d482e78(var_58bac2d.var_796fdf6e, tagname);
+		self stoprenderoverridebundle(var_58bac2d.var_796fdf6e, tagname);
 		var_58bac2d.var_796fdf6e = undefined;
 	}
 }
@@ -827,7 +827,7 @@ function function_374e37a0(localclientnum, weaponmodel, var_3594168e, var_49daa2
 	stage.var_7a3e0e45 = (isdefined(var_3594168e.var_7a3e0e45) ? var_3594168e.var_7a3e0e45 : 0);
 	if(!weaponmodel function_d2503806(stage.rob, tagname))
 	{
-		weaponmodel function_bf9d3071(stage.rob, tagname);
+		weaponmodel playrenderoverridebundle(stage.rob, tagname);
 		var_49daa2f6[localclientnum] = stage.rob;
 	}
 	for(layer = 1; layer <= 3; layer++)

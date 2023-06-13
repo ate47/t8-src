@@ -109,7 +109,7 @@ function function_bdbf3da2(player)
 			continue;
 		}
 		w_current = player.currentweapon;
-		if(isdefined(w_current.var_94d4849) && w_current.var_94d4849)
+		if(isdefined(w_current.ammoregen) && w_current.ammoregen)
 		{
 			waitframe(1);
 			continue;

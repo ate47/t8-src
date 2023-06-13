@@ -1451,7 +1451,7 @@ function private function_9e901f61(entity)
 		{
 			return false;
 		}
-		if(distancesq > entity ai::function_9139c839().var_bacb44ae * entity ai::function_9139c839().var_bacb44ae)
+		if(distancesq > entity ai::function_9139c839().chargemeleedist * entity ai::function_9139c839().chargemeleedist)
 		{
 			return false;
 		}

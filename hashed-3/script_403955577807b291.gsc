@@ -253,12 +253,12 @@ function function_39f69700(local_client_num, oldval, newval, bnewent, binitialsn
 	Parameters: 7
 	Flags: None
 */
-function function_ca096bad(model, index, var_3cf2d21, entnum, category, categoryindex, weapon)
+function function_ca096bad(model, index, namehash, entnum, category, categoryindex, weapon)
 {
 	itemuimodel = createuimodel(model, "item" + index);
-	if(isdefined(var_3cf2d21))
+	if(isdefined(namehash))
 	{
-		setuimodelvalue(createuimodel(itemuimodel, "hackableName"), var_3cf2d21);
+		setuimodelvalue(createuimodel(itemuimodel, "hackableName"), namehash);
 	}
 	var_c097c11c = 0;
 	setuimodelvalue(createuimodel(itemuimodel, "hackableId"), entnum);

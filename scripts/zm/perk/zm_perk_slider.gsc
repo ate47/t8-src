@@ -280,7 +280,7 @@ function slide_explosion(n_slot)
 		var_1574e1cf = [];
 		while(self issliding())
 		{
-			var_fe40b467 = self function_bdda420f(self.origin, 80);
+			var_fe40b467 = self getenemiesinradius(self.origin, 80);
 			var_a2bdc08a = vectornormalize(self getvelocity());
 			var_1574e1cf = [];
 			foreach(ai in var_fe40b467)
@@ -306,7 +306,7 @@ function slide_explosion(n_slot)
 		}
 		if(isarray(var_1574e1cf) && var_1574e1cf.size)
 		{
-			a_ai = self function_bdda420f(self.origin, 256);
+			a_ai = self getenemiesinradius(self.origin, 256);
 			a_ai = arraysortclosest(a_ai, self.origin);
 			self clientfield::increment("" + #"hash_7b8ad0ed3ef67813");
 			self zm_perks::function_13880aa5(n_slot, 0.05, #"perk_slider");

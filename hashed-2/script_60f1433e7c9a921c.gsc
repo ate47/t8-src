@@ -128,7 +128,7 @@ function private _calculatepositionquerypath(queryresult, position, entity)
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_c0e398c4(bots, var_26b45a5e, var_ed673d9e, claimed = undefined)
+function private function_c0e398c4(bots, var_26b45a5e, bbkey, claimed = undefined)
 {
 	/#
 		assert(isarray(bots));
@@ -143,7 +143,7 @@ function private function_c0e398c4(bots, var_26b45a5e, var_ed673d9e, claimed = u
 	}
 	for(i = 0; i < var_26b45a5e.size; i++)
 	{
-		var_deb9ffcf = var_26b45a5e[i][#"__unsafe__"][var_ed673d9e];
+		var_deb9ffcf = var_26b45a5e[i][#"__unsafe__"][bbkey];
 		if(!isdefined(var_deb9ffcf))
 		{
 			continue;
@@ -188,7 +188,7 @@ function private function_c0e398c4(bots, var_26b45a5e, var_ed673d9e, claimed = u
 			if(pathable)
 			{
 				path = [];
-				path[var_ed673d9e] = var_26b45a5e[i];
+				path[bbkey] = var_26b45a5e[i];
 				path[#"distance"] = distance;
 				if(!isdefined(var_f8d389a2))
 				{

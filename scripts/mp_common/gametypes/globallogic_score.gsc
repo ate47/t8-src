@@ -834,7 +834,7 @@ function function_3172cf59(player, newscore, weapon, mpplayerscore)
 		{
 			player stats::function_dad108fa(#"hash_6e9980514a73974", scorediff);
 		}
-		else if(weapon.var_b76e0a09)
+		else if(weapon.issignatureweapon)
 		{
 			player stats::function_dad108fa(#"score_specialized_weapons", scorediff);
 		}

@@ -61,11 +61,11 @@ function function_4c32ce00(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071("rob_tricannon_character_ice");
+		self playrenderoverridebundle("rob_tricannon_character_ice");
 	}
 	else
 	{
-		self function_5d482e78("rob_tricannon_character_ice");
+		self stoprenderoverridebundle("rob_tricannon_character_ice");
 	}
 }
 

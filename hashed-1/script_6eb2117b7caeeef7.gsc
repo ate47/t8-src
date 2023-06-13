@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_56d425496a225a1b;
+#using scripts\killstreaks\ultimate_turret_shared.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using scripts\weapons\deployable.gsc;
@@ -108,9 +108,9 @@ function function_6c288c45(spawnorigin, spawnangles)
 	turretvehicle.overridevehiclekilled = &onturretdeath;
 	turretvehicle.allowfriendlyfiredamageoverride = &turretallowfriendlyfiredamage;
 	turretvehicle.var_54b19f55 = 1;
-	turretvehicle.var_1ee03b04 = [];
-	turretvehicle.var_1ee03b04[0] = turretvehicle createturretinfluencer("turret");
-	turretvehicle.var_1ee03b04[1] = turretvehicle createturretinfluencer("turret_close");
+	turretvehicle.spawninfluencers = [];
+	turretvehicle.spawninfluencers[0] = turretvehicle createturretinfluencer("turret");
+	turretvehicle.spawninfluencers[1] = turretvehicle createturretinfluencer("turret_close");
 	turretvehicle.maxhealth = (isdefined(bundle.kshealth) ? bundle.kshealth : turretvehicle.healthdefault);
 	turretvehicle.health = turretvehicle.maxhealth;
 	turretvehicle.controlled = 0;

@@ -1662,11 +1662,11 @@ function _init_instance(str_scenedef = self.scriptbundlename, a_ents, b_test_run
 */
 function function_6f382548(struct, str_scene_name)
 {
-	if(!isdefined(struct.var_87403372) || !(getdvarint(#"splitscreen_playercount", 1) > 1))
+	if(!isdefined(struct.disableinsplitscreen) || !(getdvarint(#"splitscreen_playercount", 1) > 1))
 	{
 		return true;
 	}
-	if(struct.var_87403372 == 2 && getdvarint(#"splitscreen_playercount", 1) > 1 || (struct.var_87403372 == 3 && getdvarint(#"splitscreen_playercount", 1) > 2) || (struct.var_87403372 == 4 && getdvarint(#"splitscreen_playercount", 1) > 3))
+	if(struct.disableinsplitscreen == 2 && getdvarint(#"splitscreen_playercount", 1) > 1 || (struct.disableinsplitscreen == 3 && getdvarint(#"splitscreen_playercount", 1) > 2) || (struct.disableinsplitscreen == 4 && getdvarint(#"splitscreen_playercount", 1) > 3))
 	{
 		/#
 			if(struct.type === "")

@@ -810,12 +810,12 @@ function function_35e06774(var_a6762160, var_48cfb6ca = 0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f4a8d375(var_d8138db2)
+function function_f4a8d375(itemid)
 {
 	/#
-		assert(function_2c7fc531(var_d8138db2));
+		assert(function_2c7fc531(itemid));
 	#/
-	point = function_b1702735(var_d8138db2);
+	point = function_b1702735(itemid);
 	if(isdefined(point))
 	{
 		var_a6762160 = point.var_a6762160;

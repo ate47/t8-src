@@ -2394,9 +2394,9 @@ event function_2073f6dc(eventstruct)
 	magnitude = float(eventstruct.magnitude);
 	innerradius = float(eventstruct.innerradius);
 	outerradius = int(eventstruct.outerradius);
-	var_489a8c6f = (isdefined(self.var_f501d778) ? self.var_f501d778 : 50);
-	var_5143872f = (isdefined(self.var_e14c1b5c) ? self.var_e14c1b5c : 25);
-	physicsexplosionsphere(origin, outerradius, innerradius, magnitude, var_5143872f, var_489a8c6f);
+	innerdamage = (isdefined(self.var_f501d778) ? self.var_f501d778 : 50);
+	outerdamage = (isdefined(self.var_e14c1b5c) ? self.var_e14c1b5c : 25);
+	physicsexplosionsphere(origin, outerradius, innerradius, magnitude, outerdamage, innerdamage);
 }
 
 /*
@@ -2652,7 +2652,7 @@ event codecallback_entitydeleted(eventstruct)
 */
 event codecallback_botentereduseredge(eventstruct)
 {
-	self [[level.callbackbotentereduseredge]](eventstruct.start_node, eventstruct.end_node, eventstruct.var_3de2a65c, eventstruct.start_position, eventstruct.end_position, eventstruct.var_a8cc518d);
+	self [[level.callbackbotentereduseredge]](eventstruct.start_node, eventstruct.end_node, eventstruct.mantle_node, eventstruct.start_position, eventstruct.end_position, eventstruct.var_a8cc518d);
 }
 
 /*

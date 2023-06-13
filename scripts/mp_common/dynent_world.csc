@@ -50,9 +50,9 @@ event function_3981d015(eventstruct)
 	dynent = eventstruct.ent;
 	var_16a4afdc = eventstruct.state;
 	bundle = function_489009c1(dynent);
-	if(isdefined(bundle) && isdefined(bundle.var_c14aa186) && isdefined(bundle.var_c14aa186[var_16a4afdc]))
+	if(isdefined(bundle) && isdefined(bundle.dynentstates) && isdefined(bundle.dynentstates[var_16a4afdc]))
 	{
-		newstate = bundle.var_c14aa186[var_16a4afdc];
+		newstate = bundle.dynentstates[var_16a4afdc];
 		var_eb7c2031 = isdefined(bundle.var_eb7c2031) && bundle.var_eb7c2031;
 		var_59102aec = (isdefined(bundle.vehicledestroyed) ? bundle.vehicledestroyed : 0);
 		if(var_16a4afdc == var_59102aec)

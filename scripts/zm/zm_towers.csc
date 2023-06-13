@@ -411,11 +411,11 @@ function function_240a3342(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_3e2336a0454b9574");
+		self playrenderoverridebundle(#"hash_3e2336a0454b9574");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_3e2336a0454b9574");
+		self stoprenderoverridebundle(#"hash_3e2336a0454b9574");
 	}
 }
 
@@ -432,11 +432,11 @@ function function_9eb43a48(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_616b1855bf6ea5f2");
+		self playrenderoverridebundle(#"hash_616b1855bf6ea5f2");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_616b1855bf6ea5f2");
+		self stoprenderoverridebundle(#"hash_616b1855bf6ea5f2");
 	}
 }
 
@@ -3071,7 +3071,7 @@ function function_a8fa1dc3(b_show)
 	{
 		self flag::init(#"hash_71f56d0cc4c3df1f");
 		self flag::set(#"hash_71f56d0cc4c3df1f");
-		self function_bf9d3071(#"hash_16b8b568a95931e7");
+		self playrenderoverridebundle(#"hash_16b8b568a95931e7");
 	}
 	n_start_time = gettime();
 	n_end_time = n_start_time + (int(0.5 * 1000));

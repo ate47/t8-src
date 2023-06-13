@@ -262,10 +262,10 @@ function function_f0b81b80(var_14d21c2b)
 	Parameters: 1
 	Flags: None
 */
-function function_423a05a4(var_a7fb3ec0)
+function function_423a05a4(gametypestr)
 {
 	/#
-		return level.var_2f11d3e5[var_a7fb3ec0];
+		return level.var_2f11d3e5[gametypestr];
 	#/
 }
 

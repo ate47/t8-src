@@ -40,7 +40,7 @@ function function_d92cb558(result, vararg)
 */
 function get_stat(localclientnum, vararg)
 {
-	result = function_d0fed49d(localclientnum, currentsessionmode(), vararg);
+	result = readstat(localclientnum, currentsessionmode(), vararg);
 	/#
 		function_d92cb558(result, vararg);
 	#/
@@ -58,7 +58,7 @@ function get_stat(localclientnum, vararg)
 */
 function function_842e069e(localclientnum, sessionmode, vararg)
 {
-	result = function_d0fed49d(localclientnum, sessionmode, vararg);
+	result = readstat(localclientnum, sessionmode, vararg);
 	/#
 		function_d92cb558(result, vararg);
 	#/

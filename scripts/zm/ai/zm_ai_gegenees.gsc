@@ -1411,7 +1411,7 @@ function private function_ca5688e3(inflictor, attacker, damage, idflags, meansof
 				}
 				return 0;
 			}
-			if(isdefined(var_dd54fdb1.var_e37acc23) && var_dd54fdb1.var_e37acc23)
+			if(isdefined(var_dd54fdb1.activebydefault) && var_dd54fdb1.activebydefault)
 			{
 				if(isdefined(dir))
 				{

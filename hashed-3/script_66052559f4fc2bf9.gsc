@@ -786,9 +786,9 @@ function function_7e74281()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b797319e(var_d75e9390, var_e6825eda)
+function function_b797319e(transition_type, var_e6825eda)
 {
-	self luinotifyevent(var_d75e9390, 1, var_e6825eda);
+	self luinotifyevent(transition_type, 1, var_e6825eda);
 }
 
 /*

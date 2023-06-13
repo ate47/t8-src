@@ -1742,7 +1742,7 @@ class csceneplayer : csceneobject
 						for(var_6e0e2531 = 0; var_6e0e2531 < var_b744a7ed; var_6e0e2531++)
 						{
 							var_322595c6 = function_d7c3cf6c(var_2074c3ff, var_6e0e2531, var_be7bc546);
-							if(var_322595c6.var_3cf2d21 === _s.model)
+							if(var_322595c6.namehash === _s.model)
 							{
 								player setcharacterbodytype(var_2074c3ff);
 								player setcharacteroutfit(var_6e0e2531);

@@ -48,11 +48,11 @@ function function_39e7c9dd(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071("rob_sonar_set_friendly");
+		self playrenderoverridebundle("rob_sonar_set_friendly");
 	}
 	else
 	{
-		self function_5d482e78("rob_sonar_set_friendly");
+		self stoprenderoverridebundle("rob_sonar_set_friendly");
 	}
 }
 

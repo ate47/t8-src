@@ -907,7 +907,7 @@ function function_4e718879(v_value)
 }
 
 /*
-	Name: function_a7a4e2b8
+	Name: pathnodeconstant
 	Namespace: namespace_22752a75
 	Checksum: 0xCE79F86D
 	Offset: 0x1B70
@@ -915,7 +915,7 @@ function function_4e718879(v_value)
 	Parameters: 1
 	Flags: None
 */
-function function_a7a4e2b8(var_f4af12cc)
+function pathnodeconstant(var_f4af12cc)
 {
 	return var_f4af12cc;
 }

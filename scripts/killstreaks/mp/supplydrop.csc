@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3d31ed135d4747;
+#using scripts\killstreaks\supplydrop_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace supplydrop;

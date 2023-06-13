@@ -51,12 +51,12 @@ function on_player_connect()
 			var_ea4558f5.var_14c94e49 = 0;
 		}
 		s_talisman.rarity = var_ea4558f5.var_14c94e49;
-		n_remaining = self function_bd6a3188(s_talisman.var_3cf2d21);
+		n_remaining = self function_bd6a3188(s_talisman.namehash);
 	}
 	var_88049519 = 0;
 	if(isdefined(s_talisman) && zm_custom::function_ff4557dc(s_talisman) && n_remaining > 0)
 	{
-		var_240061ef = s_talisman.var_3cf2d21;
+		var_240061ef = s_talisman.namehash;
 		if(isdefined(level.var_e1074d3e[var_240061ef]))
 		{
 			if(isdefined(level.var_e1074d3e[var_240061ef].activate_talisman) && (!(isdefined(level.var_e1074d3e[var_240061ef].is_activated[self.clientid]) && level.var_e1074d3e[var_240061ef].is_activated[self.clientid])))
@@ -103,7 +103,7 @@ function on_player_disconnect()
 	var_ea4558f5 = function_b143666d(var_e18c5d7, 4);
 	if(isdefined(s_talisman))
 	{
-		var_240061ef = s_talisman.var_3cf2d21;
+		var_240061ef = s_talisman.namehash;
 		if(isdefined(level.var_e1074d3e[var_240061ef]))
 		{
 			if(isdefined(level.var_e1074d3e[var_240061ef].activate_talisman) && (isdefined(level.var_e1074d3e[var_240061ef].is_activated[self.clientid]) && level.var_e1074d3e[var_240061ef].is_activated[self.clientid]))

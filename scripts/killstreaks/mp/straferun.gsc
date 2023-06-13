@@ -2,7 +2,7 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_3819e7a1427df6d2;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
@@ -177,8 +177,8 @@ function usekillstreakstraferun(hardpointtype)
 	offset_x = getdvarint(#"hash_6354a081bacd5b72", -2500);
 	offset_y = getdvarint(#"hash_6354a181bacd5d25", 0);
 	offset_z = getdvarint(#"hash_63549e81bacd580c", -150);
-	var_3a08eecc = getdvarint(#"hash_53fdb5b01cf6f7dc", 2);
-	plane.killcament linkto(plane, "tag_origin", (offset_x, offset_y, offset_z), (var_3a08eecc, 0, 0));
+	offset_pitch = getdvarint(#"hash_53fdb5b01cf6f7dc", 2);
+	plane.killcament linkto(plane, "tag_origin", (offset_x, offset_y, offset_z), (offset_pitch, 0, 0));
 	plane.killcament setweapon(level.straferungunweapon);
 	plane resetkillcams();
 	plane thread watchforotherkillstreaks();

@@ -132,7 +132,7 @@ function private function_e5f3924e(localclientnum)
 	players = getplayers(localclientnum);
 	foreach(player in players)
 	{
-		player function_5d482e78("rob_wz_zombievision");
+		player stoprenderoverridebundle("rob_wz_zombievision");
 	}
 }
 
@@ -156,17 +156,17 @@ function private function_325e85a2(localclientnum)
 			corpse = player getplayercorpse();
 			if(isdefined(corpse) && iscorpse(corpse) && corpse function_d2503806("rob_wz_zombievision"))
 			{
-				corpse function_5d482e78("rob_wz_zombievision");
+				corpse stoprenderoverridebundle("rob_wz_zombievision");
 			}
 			if(!isalive(player) || player function_83973173())
 			{
 				if(player function_d2503806("rob_wz_zombievision"))
 				{
-					player function_5d482e78("rob_wz_zombievision");
+					player stoprenderoverridebundle("rob_wz_zombievision");
 				}
 				continue;
 			}
-			player function_bf9d3071("rob_wz_zombievision");
+			player playrenderoverridebundle("rob_wz_zombievision");
 		}
 		wait(0.25);
 	}

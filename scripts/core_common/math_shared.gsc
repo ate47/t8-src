@@ -554,8 +554,8 @@ function function_8dd4c3c5(linestart, lineend, point)
 {
 	var_6dbcbbd = distancesquared(linestart, point);
 	var_eb2bcaa0 = distancesquared(lineend, point);
-	var_fc3c6223 = lengthsquared(lineend - linestart);
-	if(var_6dbcbbd > var_fc3c6223 || var_eb2bcaa0 > var_fc3c6223)
+	lengthsq = lengthsquared(lineend - linestart);
+	if(var_6dbcbbd > lengthsq || var_eb2bcaa0 > lengthsq)
 	{
 		point = (var_6dbcbbd < var_eb2bcaa0 ? linestart : lineend);
 	}

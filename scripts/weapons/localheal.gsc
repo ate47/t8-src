@@ -346,7 +346,7 @@ function function_903b9495(weapon, source_player)
 	{
 		foreach(effect in self.var_121392a1)
 		{
-			if(effect.var_3cf2d21 == #"hacking")
+			if(effect.namehash == #"hacking")
 			{
 				continue;
 			}

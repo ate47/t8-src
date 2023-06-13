@@ -793,7 +793,7 @@ function function_8fd8b982(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 1:
 		{
-			self function_bf9d3071(#"hash_68ee9247aaae4517");
+			self playrenderoverridebundle(#"hash_68ee9247aaae4517");
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Brightness", 1);
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Alpha", 1);
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Tint", 1);
@@ -869,7 +869,7 @@ function function_acafe26b(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 1:
 		{
-			self function_bf9d3071(#"hash_24cdaac09819f0e");
+			self playrenderoverridebundle(#"hash_24cdaac09819f0e");
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Brightness", 1);
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Alpha", 1);
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Tint", 1);
@@ -917,7 +917,7 @@ function function_acafe26b(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 10:
 		{
-			self function_bf9d3071(#"hash_24cdaac09819f0e");
+			self playrenderoverridebundle(#"hash_24cdaac09819f0e");
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Brightness", 1);
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Alpha", 1);
 			self function_78233d29(#"hash_24cdaac09819f0e", "", "Tint", 2);
@@ -993,7 +993,7 @@ function function_ab71f1f5(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 10:
 		{
-			self function_bf9d3071(#"hash_68ee9247aaae4517");
+			self playrenderoverridebundle(#"hash_68ee9247aaae4517");
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Brightness", 1);
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Alpha", 1);
 			self function_78233d29(#"hash_68ee9247aaae4517", "", "Tint", 1);
@@ -1258,11 +1258,11 @@ function function_5fbccf1d(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"hash_37d4ef63a7510b78");
+		self playrenderoverridebundle(#"hash_37d4ef63a7510b78");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_37d4ef63a7510b78");
+		self stoprenderoverridebundle(#"hash_37d4ef63a7510b78");
 	}
 }
 

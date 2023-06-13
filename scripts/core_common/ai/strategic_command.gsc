@@ -506,14 +506,14 @@ function private function_75df771f()
 		yoffset = 100;
 		var_2f7868e6 = 850;
 		var_608ee9cd = 50;
-		var_f7059c = getdvarint(#"hash_2010e59417406d5f", 0);
+		debugmode = getdvarint(#"hash_2010e59417406d5f", 0);
 		while(true)
 		{
 			waitframe(1);
 			var_f3ac248f = getdvarint(#"hash_2010e59417406d5f", 0);
 			if(var_f3ac248f != 0)
 			{
-				if(!var_f7059c)
+				if(!debugmode)
 				{
 					/#
 						iprintlnbold("");
@@ -546,13 +546,13 @@ function private function_75df771f()
 					function_df74a8f3(var_1b2a0645, var_d695a79f, axis, level.axiscommander);
 				}
 			}
-			else if(var_f7059c)
+			else if(debugmode)
 			{
 				/#
 					iprintlnbold("");
 				#/
 			}
-			var_f7059c = getdvarint(#"hash_2010e59417406d5f", 0);
+			debugmode = getdvarint(#"hash_2010e59417406d5f", 0);
 		}
 	#/
 }
@@ -662,16 +662,16 @@ function private function_31badd5d(var_5fbc7570, index)
 			var_fabc86d6 = "" + (isdefined(var_5fbc7570.var_3093fd62) ? "" : "");
 			var_f3fe7e2c = ("" + (isdefined(var_5fbc7570.var_4702e184) ? var_5fbc7570.var_4702e184 : "")) + "";
 			var_2aac6b87 = ("" + (isdefined(var_5fbc7570.var_eba32ac6) ? var_5fbc7570.var_eba32ac6 : "")) + "";
-			var_7c52e53d = "";
+			statustext = "";
 			statuscolor = (1, 1, 1);
 			tacpointtext = "";
 			var_31aedcbf = undefined;
 			component = var_5fbc7570.var_36f0c06d;
 			if(isdefined(component) && var_5fbc7570 flag::get(""))
 			{
-				var_7c52e53d = "";
+				statustext = "";
 				statuscolor = (0, 1, 0);
-				gameobject = component.var_abc3ef9;
+				gameobject = component.e_objective;
 				var_41dd65b0 = undefined;
 				if(isdefined(gameobject))
 				{
@@ -711,11 +711,11 @@ function private function_31badd5d(var_5fbc7570, index)
 			}
 			else if(var_5fbc7570 flag::get(""))
 			{
-				var_7c52e53d = "";
+				statustext = "";
 				statuscolor = vectorscale((1, 1, 1), 0.1);
 			}
 			textcolor = (isdefined(var_31aedcbf) ? (1, 0, 0) : (1, 1, 1));
-			function_15462dcd(origin, textcolor, "", identifiertext, var_7c52e53d, origintext, var_4fea471b, var_fabc86d6, var_f3fe7e2c, var_2aac6b87, tacpointtext, var_31aedcbf);
+			function_15462dcd(origin, textcolor, "", identifiertext, statustext, origintext, var_4fea471b, var_fabc86d6, var_f3fe7e2c, var_2aac6b87, tacpointtext, var_31aedcbf);
 			recordsphere(origin, 20, statuscolor);
 		#/
 	#/
@@ -1648,7 +1648,7 @@ function function_4b0c469d(vehicle)
 		{
 			return "air";
 		}
-		case "hash_533cea8e2a687ac8":
+		case "4 wheel":
 		{
 			return "ground";
 		}

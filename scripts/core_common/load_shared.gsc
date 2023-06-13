@@ -539,7 +539,7 @@ function calculate_map_center()
 		}
 		for(index = 0; index < nodes.size; index++)
 		{
-			if(nodes[index].type == #"hash_397b1509f632dd34")
+			if(nodes[index].type == #"bad node")
 			{
 				/#
 					println("", nodes[index].origin);

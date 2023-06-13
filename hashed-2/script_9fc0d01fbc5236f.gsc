@@ -48,7 +48,7 @@ function function_32f95e3f(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(i = 0; i < self getnumzbarrierpieces(); i++)
 		{
 			var_a6b8d2c2 = self zbarriergetpiece(i);
-			var_a6b8d2c2 function_bf9d3071("rob_zm_office_debris_clear");
+			var_a6b8d2c2 playrenderoverridebundle("rob_zm_office_debris_clear");
 		}
 	}
 	else
@@ -56,7 +56,7 @@ function function_32f95e3f(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(i = 0; i < self getnumzbarrierpieces(); i++)
 		{
 			var_a6b8d2c2 = self zbarriergetpiece(i);
-			var_a6b8d2c2 function_5d482e78("rob_zm_office_debris_clear");
+			var_a6b8d2c2 stoprenderoverridebundle("rob_zm_office_debris_clear");
 		}
 	}
 }

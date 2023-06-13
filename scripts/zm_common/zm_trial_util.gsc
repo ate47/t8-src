@@ -75,7 +75,7 @@ function function_97444b02()
 function function_9bf8e274()
 {
 	self.var_b6840ea0 = 1;
-	self function_432f99ff();
+	self disableweaponswitchhero();
 	self function_21ea8f2b(1);
 	foreach(var_5a1e3e5b in level.hero_weapon)
 	{
@@ -98,7 +98,7 @@ function function_9bf8e274()
 function function_73ff0096()
 {
 	self.var_b6840ea0 = undefined;
-	self function_6c22c47a();
+	self enableweaponswitchhero();
 	self function_21ea8f2b(0);
 	foreach(var_5a1e3e5b in level.hero_weapon)
 	{

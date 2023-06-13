@@ -329,12 +329,12 @@ function private function_65b16924(doppelbots, components)
 			}
 			foreach(crumb in bot.var_aeb3e046)
 			{
-				var_9abffecd = crumb.var_5b8b19fe[bot.team];
-				if(!isdefined(var_9abffecd))
+				teaminfo = crumb.var_5b8b19fe[bot.team];
+				if(!isdefined(teaminfo))
 				{
 					continue;
 				}
-				if(component.var_54a1987a === var_9abffecd.var_951e29f)
+				if(component.var_54a1987a === teaminfo.var_951e29f)
 				{
 					chained = 1;
 				}

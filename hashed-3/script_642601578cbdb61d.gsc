@@ -643,7 +643,7 @@ function private function_73d5db3b(player)
 	function_d65b8dbe(player.var_be9a0b4b[0], &function_8d50c205);
 	player.var_be9a0b4b[1] = [];
 	player.var_be9a0b4b[2] = [];
-	foreach(entity in function_c0757a13())
+	foreach(entity in getentities())
 	{
 		entityweapon = findweapon(entity);
 		if(entityweapon.var_a8bd8bb2 > 0)

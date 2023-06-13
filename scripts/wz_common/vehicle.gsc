@@ -1415,12 +1415,12 @@ event function_2aa4e6cf(eventstruct)
 	}
 	vehicle = eventstruct.vehicle;
 	seatindex = eventstruct.seat_index;
-	var_6747c7b8 = eventstruct.var_21911287;
+	oldseatindex = eventstruct.old_seat_index;
 	if(!isinarray(level.var_9c103fe0, vehicle.scriptvehicletype))
 	{
 		return;
 	}
-	if(var_6747c7b8 === 0)
+	if(oldseatindex === 0)
 	{
 		if(vehicle vehicle_ai::function_6664e3af() && vehicle function_e95a0595())
 		{
@@ -2679,10 +2679,10 @@ function private function_17949e01()
 		{
 			waitresult = undefined;
 			waitresult = self waittill(#"touch", #"hash_5dd07f78cd8cd3b8");
-			if(waitresult._notify == #"touch" && isdefined(waitresult.var_6fc50c7c))
+			if(waitresult._notify == #"touch" && isdefined(waitresult.pm_flags))
 			{
 				time = gettime();
-				if(time > var_80831eb5 && waitresult.var_6fc50c7c & 128)
+				if(time > var_80831eb5 && waitresult.pm_flags & 128)
 				{
 					force = anglestoforward(waitresult.entity getplayerangles());
 					force = force * mag;
@@ -3404,8 +3404,8 @@ function private function_2ba6be18(player, eventstruct)
 function private function_3af01392(player, eventstruct)
 {
 	seatindex = eventstruct.seat_index;
-	var_6747c7b8 = eventstruct.var_21911287;
-	if(var_6747c7b8 === 0)
+	oldseatindex = eventstruct.old_seat_index;
+	if(oldseatindex === 0)
 	{
 		self function_2205f6bf(player);
 	}
@@ -4243,11 +4243,11 @@ function private function_479389f3()
 		assert(isdefined(self.height));
 	#/
 	var_33a206d0 = [];
-	var_33a206d0[#"hash_64b97ae77785a7ee"] = self gettagorigin("tag_ground_contact_left_rear");
+	var_33a206d0[#"leftrear"] = self gettagorigin("tag_ground_contact_left_rear");
 	var_33a206d0[#"leftmiddle"] = self gettagorigin("tag_ground_contact_left_middle");
 	var_33a206d0[#"leftfront"] = self gettagorigin("tag_ground_contact_left_front");
 	var_8fc02d3b = [];
-	var_8fc02d3b[#"hash_3e2b39e8efce03e3"] = self gettagorigin("tag_ground_contact_right_rear");
+	var_8fc02d3b[#"rightrear"] = self gettagorigin("tag_ground_contact_right_rear");
 	var_8fc02d3b[#"rightmiddle"] = self gettagorigin("tag_ground_contact_right_middle");
 	var_8fc02d3b[#"rightfront"] = self gettagorigin("tag_ground_contact_right_front");
 	var_df47b913 = [];
@@ -4458,13 +4458,13 @@ function function_9dd58750()
 	if(self.var_eb4e4182[2] < 0.99)
 	{
 		var_352be391 = self getvelocity()[2];
-		var_7cec550f = (self.var_eb4e4182[0] * 300, self.var_eb4e4182[1] * 300, var_352be391);
+		slidemove = (self.var_eb4e4182[0] * 300, self.var_eb4e4182[1] * 300, var_352be391);
 	}
 	else
 	{
-		var_7cec550f = (1, 0, 0) * 300;
+		slidemove = (1, 0, 0) * 300;
 	}
-	self setvehvelocity(var_7cec550f);
+	self setvehvelocity(slidemove);
 }
 
 /*
@@ -4924,20 +4924,20 @@ function function_4ead318d()
 		while(true)
 		{
 			waitframe(1);
-			var_9072f5ef = self gettagorigin("");
+			leftrear = self gettagorigin("");
 			leftmiddle = self gettagorigin("");
 			leftfront = self gettagorigin("");
-			var_dbe8006b = self gettagorigin("");
+			rightrear = self gettagorigin("");
 			rightmiddle = self gettagorigin("");
 			rightfront = self gettagorigin("");
-			if(!isdefined(var_9072f5ef))
+			if(!isdefined(leftrear))
 			{
 				break;
 			}
-			line(var_9072f5ef + vectorscale((0, 0, 1), 25), var_9072f5ef - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(leftrear + vectorscale((0, 0, 1), 25), leftrear - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 			line(leftmiddle + vectorscale((0, 0, 1), 25), leftmiddle - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 			line(leftfront + vectorscale((0, 0, 1), 25), leftfront - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
-			line(var_dbe8006b + vectorscale((0, 0, 1), 25), var_dbe8006b - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
+			line(rightrear + vectorscale((0, 0, 1), 25), rightrear - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 			line(rightmiddle + vectorscale((0, 0, 1), 25), rightmiddle - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 			line(rightfront + vectorscale((0, 0, 1), 25), rightfront - vectorscale((0, 0, 1), 75), (1, 1, 0), 1);
 		}

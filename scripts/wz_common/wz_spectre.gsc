@@ -105,7 +105,7 @@ function private function_f82142f8(isSpectre)
 {
 	self notify(#"hash_2e4cc87f4b3a6396");
 	self endon(#"death", #"hash_2e4cc87f4b3a6396");
-	level endon(#"hash_313ad43b34e74e96");
+	level endon(#"game_playing");
 	self function_1edd6e9e(isSpectre);
 	if(!isalive(self))
 	{

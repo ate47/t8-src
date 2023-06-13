@@ -779,18 +779,18 @@ function ai_wz_can_see()
 			var_1f79ce88[var_1f79ce88.size] = (isdefined(player.last_valid_position) ? player.last_valid_position : player.origin);
 		}
 	}
-	var_4c08e4c9 = function_5f460765();
-	if(!isdefined(var_4c08e4c9))
+	iteration_limit = function_5f460765();
+	if(!isdefined(iteration_limit))
 	{
-		var_f67d1ba2 = generatenavmeshpath(self.origin, var_1f79ce88, self);
+		pathdata = generatenavmeshpath(self.origin, var_1f79ce88, self);
 	}
 	else
 	{
-		var_f67d1ba2 = generatenavmeshpath(self.origin, var_1f79ce88, self, undefined, undefined, var_4c08e4c9);
+		pathdata = generatenavmeshpath(self.origin, var_1f79ce88, self, undefined, undefined, iteration_limit);
 	}
-	if(isdefined(var_f67d1ba2) && var_f67d1ba2.status == "succeeded")
+	if(isdefined(pathdata) && pathdata.status == "succeeded")
 	{
-		var_4a71d96f = arraygetclosest(var_f67d1ba2.pathpoints[var_f67d1ba2.pathpoints.size - 1], var_a5b66044);
+		var_4a71d96f = arraygetclosest(pathdata.pathpoints[pathdata.pathpoints.size - 1], var_a5b66044);
 	}
 	aiprofile_endentry();
 	return var_4a71d96f;
@@ -1597,7 +1597,7 @@ function function_16e2f075(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7a87d2a7(var_a9ffa6ec)
+function function_7a87d2a7(damageduration)
 {
 	level endon(#"game_ended");
 	self endon(#"death");

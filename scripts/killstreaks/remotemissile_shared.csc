@@ -205,7 +205,7 @@ function missile_fired(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 		self thread hud_update(localclientnum);
 		if(player === owner)
 		{
-			player.var_ac70fe70 = util::playfxontag(localclientnum, #"hash_50b25e352ba908d0", self, "tag_origin");
+			player.clouds_fx = util::playfxontag(localclientnum, #"hash_50b25e352ba908d0", self, "tag_origin");
 		}
 	}
 	else
@@ -353,9 +353,9 @@ function function_d260edc9(localclientnum)
 	}
 	else
 	{
-		if(isdefined(player.var_ac70fe70))
+		if(isdefined(player.clouds_fx))
 		{
-			killfx(localclientnum, player.var_ac70fe70);
+			killfx(localclientnum, player.clouds_fx);
 		}
 		if(function_148ccc79(localclientnum, postfxbundle))
 		{
@@ -390,9 +390,9 @@ function function_c65b18ed(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		if(isdefined(player.var_ac70fe70))
+		if(isdefined(player.clouds_fx))
 		{
-			killfx(localclientnum, player.var_ac70fe70);
+			killfx(localclientnum, player.clouds_fx);
 		}
 		if(function_148ccc79(localclientnum, postfxbundle))
 		{

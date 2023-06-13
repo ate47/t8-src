@@ -19,7 +19,7 @@ class class_d5e9830e
 	constructor()
 	{
 		self.tags = [];
-		self.var_8c17f0f4 = 0;
+		self.shaderconst = 0;
 	}
 
 	/*
@@ -242,23 +242,23 @@ function private _burnbody(localclientnum, prefix)
 	{
 		var_58b4042a = new class_d5e9830e();
 		var_58b4042a.tags = array("j_elbow_le" + bonemodifier, "j_elbow_ri" + bonemodifier, "null");
-		var_58b4042a.var_8c17f0f4 = 0.2;
+		var_58b4042a.shaderconst = 0.2;
 		array::add(var_cdc643c6, var_58b4042a);
 		var_4d8772cf = new class_d5e9830e();
 		var_4d8772cf.tags = array("j_shoulder_le" + bonemodifier, "j_shoulder_ri" + bonemodifier, "null");
-		var_4d8772cf.var_8c17f0f4 = 0.4;
+		var_4d8772cf.shaderconst = 0.4;
 		array::add(var_cdc643c6, var_4d8772cf);
 		var_86127c87 = new class_d5e9830e();
 		var_86127c87.tags = array("j_spine4", "null");
-		var_86127c87.var_8c17f0f4 = 0.6;
+		var_86127c87.shaderconst = 0.6;
 		array::add(var_cdc643c6, var_86127c87);
 		var_c65d82a4 = new class_d5e9830e();
 		var_c65d82a4.tags = array("j_hip_le", "j_hip_ri", "j_head", "null");
-		var_c65d82a4.var_8c17f0f4 = 0.8;
+		var_c65d82a4.shaderconst = 0.8;
 		array::add(var_cdc643c6, var_c65d82a4);
 		var_9e543e79 = new class_d5e9830e();
 		var_9e543e79.tags = array("j_knee_le", "j_knee_ri", "null");
-		var_9e543e79.var_8c17f0f4 = 1;
+		var_9e543e79.shaderconst = 1;
 		array::add(var_cdc643c6, var_9e543e79);
 	}
 	maturemask = 0;
@@ -270,7 +270,7 @@ function private _burnbody(localclientnum, prefix)
 	foreach(var_86661a11 in var_cdc643c6)
 	{
 		self.activefx[self.activefx.size] = self thread _burnstage(localclientnum, var_86661a11.tags, 1, prefix);
-		self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * var_86661a11.var_8c17f0f4);
+		self mapshaderconstant(localclientnum, 0, "scriptVector0", maturemask * var_86661a11.shaderconst);
 		self waittill(#"burn_stage_finished");
 	}
 }

@@ -1477,12 +1477,12 @@ function function_284616f8(var_8f48d608 = 0)
 {
 	if(var_8f48d608)
 	{
-		if(self bgb::is_enabled(#"zm_bgb_secret_shopper") && (!(isdefined(self.currentweapon.var_94d4849) && self.currentweapon.var_94d4849)) && self.currentweapon.type !== "melee")
+		if(self bgb::is_enabled(#"zm_bgb_secret_shopper") && (!(isdefined(self.currentweapon.ammoregen) && self.currentweapon.ammoregen)) && self.currentweapon.type !== "melee")
 		{
 			return true;
 		}
 	}
-	else if(self bgb::is_enabled(#"zm_bgb_secret_shopper") && (!(isdefined(self.currentweapon.var_94d4849) && self.currentweapon.var_94d4849)))
+	else if(self bgb::is_enabled(#"zm_bgb_secret_shopper") && (!(isdefined(self.currentweapon.ammoregen) && self.currentweapon.ammoregen)))
 	{
 		return true;
 	}

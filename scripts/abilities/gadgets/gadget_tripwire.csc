@@ -94,7 +94,7 @@ function function_bd054816(params)
 	{
 		return;
 	}
-	if(params.var_c67e16d2)
+	if(params.using_offhand)
 	{
 		function_17d973ec(params.localclientnum);
 	}

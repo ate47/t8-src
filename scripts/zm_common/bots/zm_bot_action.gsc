@@ -132,10 +132,10 @@ function function_c31a5c42()
 	Parameters: 1
 	Flags: None
 */
-function function_95600a05(var_b594a2cd)
+function function_95600a05(actionparams)
 {
-	var_b594a2cd.target = self.enemy;
-	self bot_action::function_9c6ca396(var_b594a2cd);
+	actionparams.target = self.enemy;
+	self bot_action::function_9c6ca396(actionparams);
 	return 100;
 }
 
@@ -148,15 +148,15 @@ function function_95600a05(var_b594a2cd)
 	Parameters: 1
 	Flags: None
 */
-function function_9393f3df(var_b594a2cd)
+function function_9393f3df(actionparams)
 {
-	weapon = var_b594a2cd.weapon;
+	weapon = actionparams.weapon;
 	dualwieldweapon = weapon.dualwieldweapon;
 	while(!self bot_action::function_cf788c22() && self bot::weapon_loaded(dualwieldweapon))
 	{
-		self bot_action::function_8a2b82ad(var_b594a2cd);
-		self bot_action::function_e69a1e2e(var_b594a2cd);
-		if(self bot_action::function_faa6a59d(var_b594a2cd, dualwieldweapon.maxdamagerange) && self bot_action::function_31a76186(var_b594a2cd))
+		self bot_action::function_8a2b82ad(actionparams);
+		self bot_action::function_e69a1e2e(actionparams);
+		if(self bot_action::function_faa6a59d(actionparams, dualwieldweapon.maxdamagerange) && self bot_action::function_31a76186(actionparams))
 		{
 			self bottapbutton(24);
 		}
@@ -173,82 +173,82 @@ function function_9393f3df(var_b594a2cd)
 	Parameters: 1
 	Flags: None
 */
-function function_5f02aeee(var_b594a2cd)
+function function_5f02aeee(actionparams)
 {
-	weapon = var_b594a2cd.weapon;
+	weapon = actionparams.weapon;
 	slot = self gadgetgetslot(weapon);
 	if(!self bot_action::function_fe0b0c29(slot))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self gadgetisready(slot))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self bot::in_combat())
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!isdefined(self.enemy) || !isalive(self.enemy))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
-	if(self function_bdda420f(self.origin, 512).size < 8 && self function_bdda420f(self.origin, 256).size < 5)
+	if(self getenemiesinradius(self.origin, 512).size < 8 && self getenemiesinradius(self.origin, 256).size < 5)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -264,9 +264,9 @@ function function_5f02aeee(var_b594a2cd)
 	Parameters: 1
 	Flags: None
 */
-function function_ef04e9cc(var_b594a2cd)
+function function_ef04e9cc(actionparams)
 {
-	weapon = var_b594a2cd.weapon;
+	weapon = actionparams.weapon;
 	self bot_action::function_ccdcc5d9(weapon);
 	while(self isswitchingweapons())
 	{
@@ -283,10 +283,10 @@ function function_ef04e9cc(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_aa4daa54(var_b594a2cd)
+function function_aa4daa54(actionparams)
 {
-	var_b594a2cd.target = self.enemy;
-	weapon = var_b594a2cd.weapon;
+	actionparams.target = self.enemy;
+	weapon = actionparams.weapon;
 	primaryweapons = self getweaponslistprimaries();
 	foreach(primary in primaryweapons)
 	{
@@ -295,49 +295,49 @@ function function_aa4daa54(var_b594a2cd)
 			if(self getammocount(primary) > 0)
 			{
 				/#
-					if(!isdefined(var_b594a2cd.debug))
+					if(!isdefined(actionparams.debug))
 					{
-						var_b594a2cd.debug = [];
+						actionparams.debug = [];
 					}
-					else if(!isarray(var_b594a2cd.debug))
+					else if(!isarray(actionparams.debug))
 					{
-						var_b594a2cd.debug = array(var_b594a2cd.debug);
+						actionparams.debug = array(actionparams.debug);
 					}
-					var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+					actionparams.debug[actionparams.debug.size] = "";
 				#/
 				return undefined;
 			}
 		}
 	}
-	if(!self bot_action::is_target_visible(var_b594a2cd))
+	if(!self bot_action::is_target_visible(actionparams))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
-	meleerange = var_b594a2cd.weapon.var_bfbec33f;
+	meleerange = actionparams.weapon.var_bfbec33f;
 	enemyradius = self.enemy getpathfindingradius();
 	if(distance2dsquared(self.origin, self.enemy.origin) > (meleerange + enemyradius) * (meleerange + enemyradius))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -353,7 +353,7 @@ function function_aa4daa54(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function zombie_auto_revive(var_b594a2cd)
+function zombie_auto_revive(actionparams)
 {
 	while(isdefined(self.revivetrigger))
 	{
@@ -371,20 +371,20 @@ function zombie_auto_revive(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f4707540(var_b594a2cd)
+function function_f4707540(actionparams)
 {
 	if(!isdefined(self.var_72249004) || self.var_72249004 <= 0)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -400,83 +400,83 @@ function function_f4707540(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ae19f70f(var_b594a2cd)
+function function_ae19f70f(actionparams)
 {
 	if(self getcurrentweapon().isgadget)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self bot::function_914feddd())
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(self haspath())
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	zombie_weapon_upgrade = self bot::function_f47bf51d();
-	var_b594a2cd.zombie_weapon_upgrade = zombie_weapon_upgrade;
+	actionparams.zombie_weapon_upgrade = zombie_weapon_upgrade;
 	trigger = function_d41104ab(zombie_weapon_upgrade);
 	if(!isdefined(trigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self function_f59547eb(trigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -492,13 +492,13 @@ function function_ae19f70f(var_b594a2cd)
 	Parameters: 1
 	Flags: None
 */
-function function_99428ae2(var_b594a2cd)
+function function_99428ae2(actionparams)
 {
 	self notify(#"hash_782d5f24975a7cd1");
 	self endon(#"hash_782d5f24975a7cd1", #"hash_5b4f399c08222e2", #"death", #"entering_last_stand", #"enter_vehicle", #"animscripted_start", #"hash_1728f8b5de3bde13");
 	level endon(#"game_ended");
 	self waittill(#"hash_52d48b9173a9eeec");
-	var_b594a2cd.var_d9c6fa12 = 1;
+	actionparams.var_d9c6fa12 = 1;
 }
 
 /*
@@ -527,9 +527,9 @@ function private function_f59547eb(trigger)
 	Parameters: 1
 	Flags: Linked
 */
-function function_2c6e5988(var_b594a2cd)
+function function_2c6e5988(actionparams)
 {
-	zombie_weapon_upgrade = var_b594a2cd.zombie_weapon_upgrade;
+	zombie_weapon_upgrade = actionparams.zombie_weapon_upgrade;
 	trigger = zombie_weapon_upgrade.trigger_stub.playertrigger[self getentitynumber()];
 	trigger useby(self);
 	waitframe(1);
@@ -581,83 +581,83 @@ function function_d41104ab(interact)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b4d8b7d6(var_b594a2cd)
+function function_b4d8b7d6(actionparams)
 {
 	if(self getcurrentweapon().isgadget)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self bot::function_43a720c7())
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(self haspath())
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	interact = self bot::function_f47bf51d();
-	var_b594a2cd.interact = interact;
+	actionparams.interact = interact;
 	trigger = function_d41104ab(interact);
 	if(!isdefined(trigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self function_f59547eb(trigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -673,9 +673,9 @@ function function_b4d8b7d6(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3c22de9a(var_b594a2cd)
+function function_3c22de9a(actionparams)
 {
-	trigger = function_d41104ab(var_b594a2cd.interact);
+	trigger = function_d41104ab(actionparams.interact);
 	self bottapbutton(3);
 	waitframe(1);
 	if(isdefined(self) && isdefined(trigger))
@@ -696,35 +696,35 @@ function function_3c22de9a(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function zombie_scan_for_threats(var_b594a2cd)
+function zombie_scan_for_threats(actionparams)
 {
-	targetvisible = self bot_action::is_target_visible(var_b594a2cd);
-	var_b594a2cd.targetvisible = targetvisible;
-	while(!self bot_action::function_cf788c22() && self bot_action::function_bb2a8f1b(var_b594a2cd) && var_b594a2cd.targetvisible == targetvisible)
+	targetvisible = self bot_action::is_target_visible(actionparams);
+	actionparams.targetvisible = targetvisible;
+	while(!self bot_action::function_cf788c22() && self bot_action::function_bb2a8f1b(actionparams) && actionparams.targetvisible == targetvisible)
 	{
 		trigger = function_d41104ab(bot::function_f47bf51d());
 		if(isdefined(trigger) && self bot::function_914feddd() && function_f59547eb(trigger))
 		{
 			break;
 		}
-		if(targetvisible && self bot_action::function_ee402bf6(var_b594a2cd))
+		if(targetvisible && self bot_action::function_ee402bf6(actionparams))
 		{
-			self bot_action::function_8a2b82ad(var_b594a2cd);
-			self bot_action::function_e69a1e2e(var_b594a2cd);
+			self bot_action::function_8a2b82ad(actionparams);
+			self bot_action::function_e69a1e2e(actionparams);
 		}
 		else
 		{
 			if(targetvisible)
 			{
-				self bot_action::function_8a2b82ad(var_b594a2cd);
-				self bot_action::aim_at_target(var_b594a2cd);
+				self bot_action::function_8a2b82ad(actionparams);
+				self bot_action::aim_at_target(actionparams);
 			}
 			else
 			{
-				if(!targetvisible && self bot_action::function_ee402bf6(var_b594a2cd) && self seerecently(var_b594a2cd.target, 4000))
+				if(!targetvisible && self bot_action::function_ee402bf6(actionparams) && self seerecently(actionparams.target, 4000))
 				{
-					self bot_action::function_8a2b82ad(var_b594a2cd);
-					self bot_action::function_e69a1e2e(var_b594a2cd);
+					self bot_action::function_8a2b82ad(actionparams);
+					self bot_action::function_e69a1e2e(actionparams);
 				}
 				else
 				{
@@ -747,7 +747,7 @@ function zombie_scan_for_threats(var_b594a2cd)
 			}
 		}
 		self waittill(#"hash_347a612b61067eb3");
-		targetvisible = self bot_action::is_target_visible(var_b594a2cd);
+		targetvisible = self bot_action::is_target_visible(actionparams);
 	}
 }
 
@@ -760,7 +760,7 @@ function zombie_scan_for_threats(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function zombie_reload_weapon(var_b594a2cd)
+function zombie_reload_weapon(actionparams)
 {
 	weapon = self getcurrentweapon();
 	if(!self isreloading())
@@ -770,14 +770,14 @@ function zombie_reload_weapon(var_b594a2cd)
 	self waittill(#"hash_347a612b61067eb3");
 	while(self isreloading())
 	{
-		if(self bot_action::function_bb2a8f1b(var_b594a2cd) && self bot_action::is_target_visible(var_b594a2cd))
+		if(self bot_action::function_bb2a8f1b(actionparams) && self bot_action::is_target_visible(actionparams))
 		{
-			self bot_action::function_8a2b82ad(var_b594a2cd);
-			self bot_action::function_e69a1e2e(var_b594a2cd);
+			self bot_action::function_8a2b82ad(actionparams);
+			self bot_action::function_e69a1e2e(actionparams);
 		}
 		else
 		{
-			if(self bot_action::function_bb2a8f1b(var_b594a2cd) && self bot_action::function_3094610b(self.bot.tacbundle.var_82aa37d8))
+			if(self bot_action::function_bb2a8f1b(actionparams) && self bot_action::function_3094610b(self.bot.tacbundle.var_82aa37d8))
 			{
 				if(self bot_action::function_ca71ffdb())
 				{
@@ -818,35 +818,35 @@ function zombie_reload_weapon(var_b594a2cd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_296516b4(var_b594a2cd)
+function function_296516b4(actionparams)
 {
 	if(self getcurrentweapon().isgadget)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self ai::get_behavior_attribute("revive"))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
@@ -854,72 +854,72 @@ function function_296516b4(var_b594a2cd)
 	if(!isdefined(revivetarget))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
-	var_b594a2cd.revivetarget = revivetarget;
+	actionparams.revivetarget = revivetarget;
 	/#
-		if(!isdefined(var_b594a2cd.debug))
+		if(!isdefined(actionparams.debug))
 		{
-			var_b594a2cd.debug = [];
+			actionparams.debug = [];
 		}
-		else if(!isarray(var_b594a2cd.debug))
+		else if(!isarray(actionparams.debug))
 		{
-			var_b594a2cd.debug = array(var_b594a2cd.debug);
+			actionparams.debug = array(actionparams.debug);
 		}
-		var_b594a2cd.debug[var_b594a2cd.debug.size] = "" + revivetarget.name;
+		actionparams.debug[actionparams.debug.size] = "" + revivetarget.name;
 	#/
 	if(!isdefined(revivetarget.revivetrigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(!self istouching(revivetarget.revivetrigger))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
 	if(isdefined(revivetarget.revivetrigger.beingrevived) && revivetarget.revivetrigger.beingrevived)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return;
 	}
@@ -927,31 +927,31 @@ function function_296516b4(var_b594a2cd)
 	if(!self ai::get_behavior_attribute("ignorepathenemyfightdist") && isdefined(self.enemy) && isdefined(pathenemyfightdist) && pathenemyfightdist > 0 && distance2dsquared(self.origin, self.enemy.origin) < (pathenemyfightdist * pathenemyfightdist))
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}
-	var_353ad24b = self function_bdda420f(revivetarget.revivetrigger.origin, 256);
+	var_353ad24b = self getenemiesinradius(revivetarget.revivetrigger.origin, 256);
 	if(var_353ad24b.size > 0)
 	{
 		/#
-			if(!isdefined(var_b594a2cd.debug))
+			if(!isdefined(actionparams.debug))
 			{
-				var_b594a2cd.debug = [];
+				actionparams.debug = [];
 			}
-			else if(!isarray(var_b594a2cd.debug))
+			else if(!isarray(actionparams.debug))
 			{
-				var_b594a2cd.debug = array(var_b594a2cd.debug);
+				actionparams.debug = array(actionparams.debug);
 			}
-			var_b594a2cd.debug[var_b594a2cd.debug.size] = "";
+			actionparams.debug[actionparams.debug.size] = "";
 		#/
 		return undefined;
 	}

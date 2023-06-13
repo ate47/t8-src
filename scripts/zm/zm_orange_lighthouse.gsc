@@ -711,7 +711,7 @@ function function_76ff758d()
 function function_56b9aca4(var_64c09f7f)
 {
 	var_82224aaf = (isdefined(self.var_82224aaf) ? self.var_82224aaf : 500);
-	a_e_targets = var_64c09f7f function_bdda420f(self.origin, var_82224aaf);
+	a_e_targets = var_64c09f7f getenemiesinradius(self.origin, var_82224aaf);
 	if(a_e_targets.size > 0)
 	{
 		return arraygetclosest(self.origin, a_e_targets);
@@ -763,7 +763,7 @@ function shoot_trap_target(v_target, var_64c09f7f)
 */
 function trigger_trap_explosion(v_pos, var_64c09f7f)
 {
-	a_e_ai = var_64c09f7f function_bdda420f(v_pos, 250);
+	a_e_ai = var_64c09f7f getenemiesinradius(v_pos, 250);
 	array::thread_all(a_e_ai, &zm_trap_electric::damage, level.var_ab11c23d);
 	if(a_e_ai.size > 0)
 	{

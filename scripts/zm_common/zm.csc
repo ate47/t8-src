@@ -173,7 +173,7 @@ function init()
 	level._zombie_gib_piece_index_head = 5;
 	level._zombie_gib_piece_index_guts = 6;
 	level._zombie_gib_piece_index_hat = 7;
-	setdvar(#"hash_442d42efc73d739a", 50);
+	setdvar(#"cg_healthperbar", 50);
 	setdvar(#"hash_52a4767bd6da84f1", 0);
 	callback::add_callback(#"on_localclient_connect", &basic_player_connect);
 	callback::on_spawned(&function_92f0c63);
@@ -605,7 +605,7 @@ function rob_zm_prop_fade(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval)
 	{
-		self function_bf9d3071(#"rob_zm_prop_fade");
+		self playrenderoverridebundle(#"rob_zm_prop_fade");
 		if(!isdefined(self.sndlooper))
 		{
 			self.sndlooper = self playloopsound(#"hash_66df9cab2c64f968");
@@ -613,7 +613,7 @@ function rob_zm_prop_fade(localclientnum, oldval, newval, bnewent, binitialsnap,
 	}
 	else
 	{
-		self function_5d482e78(#"rob_zm_prop_fade");
+		self stoprenderoverridebundle(#"rob_zm_prop_fade");
 		if(isdefined(self.sndlooper))
 		{
 			self stoploopsound(self.sndlooper);

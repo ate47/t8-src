@@ -65,7 +65,7 @@ function set_stat(vararg)
 	}
 	value = vararg[vararg.size - 1];
 	arrayremoveindex(vararg, vararg.size - 1);
-	result = function_484b4b09(vararg, value);
+	result = writematchstat(vararg, value);
 	/#
 		function_d92cb558(result, vararg);
 	#/

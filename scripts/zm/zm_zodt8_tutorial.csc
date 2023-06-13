@@ -101,20 +101,20 @@ function tutorial_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_2ef4d8e5fdbc8a08");
+		self playrenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		if(self.model == "p8_fxanim_zm_vapor_altar_zeus_mod")
 		{
 			var_e5c7e01a = getent(0, "zeus_bird_head", "targetname");
-			var_e5c7e01a function_bf9d3071(#"hash_2ef4d8e5fdbc8a08");
+			var_e5c7e01a playrenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		}
 	}
 	else if(newval == 2)
 	{
-		self function_5d482e78(#"hash_2ef4d8e5fdbc8a08");
+		self stoprenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		if(self.model == "p8_fxanim_zm_vapor_altar_zeus_mod")
 		{
 			var_e5c7e01a = getent(0, "zeus_bird_head", "targetname");
-			var_e5c7e01a function_5d482e78(#"hash_2ef4d8e5fdbc8a08");
+			var_e5c7e01a stoprenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		}
 	}
 }
@@ -136,7 +136,7 @@ function function_a9c8f9d2(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(n_index = 0; n_index < n_pieces; n_index++)
 		{
 			e_piece = self zbarriergetpiece(n_index);
-			e_piece function_bf9d3071(#"hash_2ef4d8e5fdbc8a08");
+			e_piece playrenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		}
 	}
 	else if(newval == 2)
@@ -145,7 +145,7 @@ function function_a9c8f9d2(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(n_index = 0; n_index < n_pieces; n_index++)
 		{
 			e_piece = self zbarriergetpiece(n_index);
-			e_piece function_5d482e78(#"hash_2ef4d8e5fdbc8a08");
+			e_piece stoprenderoverridebundle(#"hash_2ef4d8e5fdbc8a08");
 		}
 	}
 }

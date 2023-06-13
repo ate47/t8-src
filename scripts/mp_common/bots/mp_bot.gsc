@@ -5,9 +5,9 @@
 #using script_2be661251429fd1a;
 #using scripts\mp_common\ai\planner_mp_koth_commander.gsc;
 #using scripts\mp_common\ai\planner_mp_dom_squad.gsc;
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\mp_common\ai\planner_mp_sd_commander.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\ai\planner_mp_control_commander.gsc;
 #using script_53b37ee2382572eb;

@@ -306,7 +306,7 @@ function initialize_match_stats()
 	}
 	if(sessionmodeiswarzonegame())
 	{
-		level waittill(#"hash_313ad43b34e74e96");
+		level waittill(#"game_playing");
 		rankid = getrankforxp(self rank::getrankxp());
 		self stats::set_stat_global(#"rank", rankid);
 		self stats::set_stat_global(#"minxp", rank::getrankinfominxp(rankid));

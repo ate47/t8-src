@@ -1510,14 +1510,14 @@ function private function_f37c4bb5(player)
 	}
 	if(silent)
 	{
-		var_6ea6e65 = zm_progress::progress_think(player, level.var_98dad84e, var_c060d2c8);
+		progress_result = zm_progress::progress_think(player, level.var_98dad84e, var_c060d2c8);
 	}
 	else
 	{
-		var_6ea6e65 = zm_progress::progress_think(player, level.var_90237ebd, var_c060d2c8);
+		progress_result = zm_progress::progress_think(player, level.var_90237ebd, var_c060d2c8);
 	}
-	self notify(#"hash_6db03c91467a21f5", {#b_completed:var_6ea6e65});
-	if(var_6ea6e65)
+	self notify(#"hash_6db03c91467a21f5", {#b_completed:progress_result});
+	if(progress_result)
 	{
 		self.stub.crafted = 1;
 		player_crafted = player;

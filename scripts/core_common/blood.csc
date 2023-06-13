@@ -102,8 +102,8 @@ function private function_e79ccfd8(localclientnum)
 	self.lastbloodupdate = 0;
 	self stop_breath(localclientnum);
 	level thread wait_game_ended(localclientnum);
-	self function_5d482e78("rob_wound_blood_splatter");
-	self function_5d482e78("rob_wound_blood_splatter_reaper");
+	self stoprenderoverridebundle("rob_wound_blood_splatter");
+	self stoprenderoverridebundle("rob_wound_blood_splatter_reaper");
 	self thread function_87544c4a(localclientnum);
 	self thread function_493a8fbc(localclientnum);
 	new_health_model_ui_model = createuimodel(getuimodelforcontroller(localclientnum), "usingNewHealthModel");
@@ -328,7 +328,7 @@ function private function_8e228a1d(localclientnum, damage)
 {
 	if(damage > level.blood.rob.damage_threshold)
 	{
-		self function_bf9d3071(self.var_36732900);
+		self playrenderoverridebundle(self.var_36732900);
 		self thread function_f192f00b(localclientnum, self.var_36732900);
 	}
 }
@@ -354,7 +354,7 @@ function private function_f192f00b(localclientnum, rob)
 	wait(float(level.blood.rob.hold_time) / 1000);
 	self thread ramprobsetting(localclientnum, 1, 0, level.blood.rob.fade_time, "Threshold");
 	wait(float(level.blood.rob.fade_time) / 1000);
-	self function_5d482e78(rob);
+	self stoprenderoverridebundle(rob);
 }
 
 /*
@@ -524,9 +524,9 @@ function private player_splatter(localclientnum)
 			opacity = 0;
 			for(i = 0; i < 4; i++)
 			{
-				if(isdefined(splatter.splatters[i][#"hash_2151e5b1dafa374"]) && splatter.splatters[i][#"hash_2151e5b1dafa374"] > blur)
+				if(isdefined(splatter.splatters[i][#"blur amount"]) && splatter.splatters[i][#"blur amount"] > blur)
 				{
-					blur = splatter.splatters[i][#"hash_2151e5b1dafa374"];
+					blur = splatter.splatters[i][#"blur amount"];
 				}
 				if(isdefined(splatter.splatters[i][#"opacity"]) && splatter.splatters[i][#"opacity"] > opacity)
 				{
@@ -702,7 +702,7 @@ function private player_base_health()
 	{
 		return 150;
 	}
-	basehealth = self function_3b0f0852();
+	basehealth = self getplayerspawnhealth();
 	basehealth = basehealth + (isdefined(level.var_90bb9821) ? level.var_90bb9821 : 0);
 	if(isdefined(self.var_ee9b8af0))
 	{
@@ -907,15 +907,15 @@ function private function_e91b92e2(localclientnum, new_blood_stage, prior_blood_
 		}
 		if(isdefined(level.blood.scriptbundle.pulse_loop))
 		{
-			level.blood.var_9af02310 = function_604c9983(localclientnum, level.blood.scriptbundle.pulse_loop);
+			level.blood.soundhandle = function_604c9983(localclientnum, level.blood.scriptbundle.pulse_loop);
 		}
 	}
 	else if(self.var_9861062)
 	{
-		if(isdefined(level.blood.var_9af02310))
+		if(isdefined(level.blood.soundhandle))
 		{
-			function_d48752e(localclientnum, level.blood.var_9af02310);
-			level.blood.var_9af02310 = undefined;
+			function_d48752e(localclientnum, level.blood.soundhandle);
+			level.blood.soundhandle = undefined;
 		}
 		self.var_9861062 = 0;
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
@@ -1033,7 +1033,7 @@ function private function_9a8dc0ec(localclientnum, playerhealth, forceupdate)
 		self thread function_c0cdd1f2(localclientnum, level.blood.blur[prior_blood_stage], level.blood.blur[new_blood_stage], ramptime, #"blur", self.var_957f4b6b);
 		if(level.blood.var_e9d8aaf5)
 		{
-			self thread function_c0cdd1f2(localclientnum, level.blood.var_c0dfc7ef[prior_blood_stage], level.blood.var_c0dfc7ef[new_blood_stage], ramptime, #"hash_20907a894d572d2a", self.var_957f4b6b);
+			self thread function_c0cdd1f2(localclientnum, level.blood.refraction[prior_blood_stage], level.blood.refraction[new_blood_stage], ramptime, #"refraction", self.var_957f4b6b);
 		}
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
@@ -1178,26 +1178,26 @@ function private function_dd830dee()
 	{
 		level.blood.var_e9d8aaf5 = (isdefined(level.blood.scriptbundle.var_e9d8aaf5) ? level.blood.scriptbundle.var_e9d8aaf5 : 0);
 	}
-	level.blood.var_c0dfc7ef = [];
-	if(!isdefined(level.blood.var_c0dfc7ef[0]))
+	level.blood.refraction = [];
+	if(!isdefined(level.blood.refraction[0]))
 	{
-		level.blood.var_c0dfc7ef[0] = (isdefined(level.blood.scriptbundle.var_9e65e691) ? level.blood.scriptbundle.var_9e65e691 : 0);
+		level.blood.refraction[0] = (isdefined(level.blood.scriptbundle.var_9e65e691) ? level.blood.scriptbundle.var_9e65e691 : 0);
 	}
-	if(!isdefined(level.blood.var_c0dfc7ef[1]))
+	if(!isdefined(level.blood.refraction[1]))
 	{
-		level.blood.var_c0dfc7ef[1] = (isdefined(level.blood.scriptbundle.var_49ddbdf6) ? level.blood.scriptbundle.var_49ddbdf6 : 0);
+		level.blood.refraction[1] = (isdefined(level.blood.scriptbundle.var_49ddbdf6) ? level.blood.scriptbundle.var_49ddbdf6 : 0);
 	}
-	if(!isdefined(level.blood.var_c0dfc7ef[2]))
+	if(!isdefined(level.blood.refraction[2]))
 	{
-		level.blood.var_c0dfc7ef[2] = (isdefined(level.blood.scriptbundle.var_83022fca) ? level.blood.scriptbundle.var_83022fca : 0);
+		level.blood.refraction[2] = (isdefined(level.blood.scriptbundle.var_83022fca) ? level.blood.scriptbundle.var_83022fca : 0);
 	}
-	if(!isdefined(level.blood.var_c0dfc7ef[3]))
+	if(!isdefined(level.blood.refraction[3]))
 	{
-		level.blood.var_c0dfc7ef[3] = (isdefined(level.blood.scriptbundle.var_90b9cb39) ? level.blood.scriptbundle.var_90b9cb39 : 0);
+		level.blood.refraction[3] = (isdefined(level.blood.scriptbundle.var_90b9cb39) ? level.blood.scriptbundle.var_90b9cb39 : 0);
 	}
-	if(!isdefined(level.blood.var_c0dfc7ef[4]))
+	if(!isdefined(level.blood.refraction[4]))
 	{
-		level.blood.var_c0dfc7ef[4] = (isdefined(level.blood.scriptbundle.var_e790f8e6) ? level.blood.scriptbundle.var_e790f8e6 : 0);
+		level.blood.refraction[4] = (isdefined(level.blood.scriptbundle.var_e790f8e6) ? level.blood.scriptbundle.var_e790f8e6 : 0);
 	}
 	level.blood.var_d3813c3a = [];
 	if(!isdefined(level.blood.var_d3813c3a[0]))

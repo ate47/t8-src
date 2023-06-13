@@ -52,7 +52,7 @@ function callback_botentereduseredge(startnode, endnode, mantlenode, startpos, e
 	{
 		params.var_bccf04e7 = 1;
 	}
-	self function_cf312d24(params);
+	self analyze(params);
 	self thread volume_traversal(params);
 }
 
@@ -250,7 +250,7 @@ function traversal_timeout(params)
 }
 
 /*
-	Name: function_cf312d24
+	Name: analyze
 	Namespace: bot
 	Checksum: 0x5EA6FB39
 	Offset: 0xA80
@@ -258,7 +258,7 @@ function traversal_timeout(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_cf312d24(params)
+function analyze(params)
 {
 	params.starttrace = checknavmeshdirection(params.startpos, params.endpos - params.startpos, 512, 0);
 	params.endtrace = checknavmeshdirection(params.endpos, params.startpos - params.endpos, 512, 0);
@@ -517,7 +517,7 @@ function mantle(var_2a1f4ab7)
 	Parameters: 3
 	Flags: Linked
 */
-function function_b34ef250(var_f125b440, normal, dist = 0)
+function function_b34ef250(edgepos, normal, dist = 0)
 {
 	/#
 		if(self should_record(""))
@@ -527,17 +527,17 @@ function function_b34ef250(var_f125b440, normal, dist = 0)
 			{
 				recordtext = (recordtext + "") + dist;
 			}
-			record3dtext(recordtext, var_f125b440, (1, 1, 1), "", undefined, 0.5);
-			recordsphere(var_f125b440, 3, (0, 1, 0), "", self);
+			record3dtext(recordtext, edgepos, (1, 1, 1), "", undefined, 0.5);
+			recordsphere(edgepos, 3, (0, 1, 0), "", self);
 		}
 	#/
-	self botsetmovepoint(var_f125b440);
+	self botsetmovepoint(edgepos);
 	self botsetmovemagnitude(1);
-	var_459ca70 = vectordot(self.origin - var_f125b440, normal);
+	var_459ca70 = vectordot(self.origin - edgepos, normal);
 	while(var_459ca70 > dist)
 	{
 		waitframe(1);
-		var_459ca70 = vectordot(self.origin - var_f125b440, normal);
+		var_459ca70 = vectordot(self.origin - edgepos, normal);
 	}
 }
 

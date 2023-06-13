@@ -186,7 +186,7 @@ function take_player_weapons(n_interval, e_player)
 */
 function private function_873de196(weapon)
 {
-	if(weapon.ischargeshot && (!isdefined(weapon.var_3d85028) || weapon.var_3d85028 == level.weaponnone))
+	if(weapon.ischargeshot && (!isdefined(weapon.nextchargelevelweapon) || weapon.nextchargelevelweapon == level.weaponnone))
 	{
 		return true;
 	}

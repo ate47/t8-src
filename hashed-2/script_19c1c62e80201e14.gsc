@@ -955,8 +955,8 @@ function private function_2ae5a795()
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
 			{
-				var_f67d1ba2 = generatenavmeshpath(self.origin, adjustedgoal, self);
-				if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+				pathdata = generatenavmeshpath(self.origin, adjustedgoal, self);
+				if(isdefined(pathdata) && pathdata.status === "succeeded")
 				{
 					self setgoal(adjustedgoal);
 				}

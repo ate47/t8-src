@@ -84,7 +84,7 @@ function function_e8d94580(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			self thread function_84fcb204(localclientnum);
 		}
-		self function_bf9d3071("rob_tricannon_classified_zombie_ice");
+		self playrenderoverridebundle("rob_tricannon_classified_zombie_ice");
 	}
 	else
 	{
@@ -92,7 +92,7 @@ function function_e8d94580(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			self thread function_6180e679(localclientnum);
 		}
-		self function_5d482e78("rob_tricannon_classified_zombie_ice");
+		self stoprenderoverridebundle("rob_tricannon_classified_zombie_ice");
 		self notify(#"hash_5ab24a026f132ea4");
 	}
 }

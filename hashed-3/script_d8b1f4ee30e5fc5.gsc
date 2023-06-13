@@ -904,7 +904,7 @@ function private p8_usa_farm_tools_hoe_lod2_s1_geo_rigid_bs_7cqeqf2k2nw2binsrm67
 	}
 	eye_pos = entity util::get_eye();
 	enemy_eye_pos = entity.favoriteenemy util::get_eye();
-	if(distancesquared(eye_pos, enemy_eye_pos) > entity.meleeweapon.var_d3cafde6 * entity.meleeweapon.var_d3cafde6)
+	if(distancesquared(eye_pos, enemy_eye_pos) > entity.meleeweapon.aimeleerange * entity.meleeweapon.aimeleerange)
 	{
 		return 5;
 	}

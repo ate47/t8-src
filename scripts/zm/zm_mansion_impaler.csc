@@ -222,8 +222,8 @@ function function_3f039efc(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_5d482e78(#"hash_3b7b44b7a440e5f");
-		self function_bf9d3071(#"hash_3d9f08ef1b60239e");
+		self stoprenderoverridebundle(#"hash_3b7b44b7a440e5f");
+		self playrenderoverridebundle(#"hash_3d9f08ef1b60239e");
 		if(self.model == #"hash_2b87b734e194ea79")
 		{
 			level notify(#"hash_5a1a7e205b6f5b88");
@@ -231,8 +231,8 @@ function function_3f039efc(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		self function_5d482e78(#"hash_3d9f08ef1b60239e");
-		self function_bf9d3071(#"hash_3b7b44b7a440e5f");
+		self stoprenderoverridebundle(#"hash_3d9f08ef1b60239e");
+		self playrenderoverridebundle(#"hash_3b7b44b7a440e5f");
 	}
 }
 

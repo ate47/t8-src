@@ -555,11 +555,11 @@ function function_3b23bb2f(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071("rob_tricannon_classified_zombie_ice");
+		self playrenderoverridebundle("rob_tricannon_classified_zombie_ice");
 	}
 	else
 	{
-		self function_5d482e78("rob_tricannon_classified_zombie_ice");
+		self stoprenderoverridebundle("rob_tricannon_classified_zombie_ice");
 	}
 }
 

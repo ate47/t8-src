@@ -221,11 +221,11 @@ function function_98ff6333(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		self function_bf9d3071("rob_shield_window");
+		self playrenderoverridebundle("rob_shield_window");
 	}
 	else
 	{
-		self function_5d482e78("rob_shield_window");
+		self stoprenderoverridebundle("rob_shield_window");
 	}
 }
 
@@ -263,7 +263,7 @@ function function_a694da18(localclientnum, oldval, newval, bnewent, binitialsnap
 		self notify(#"hash_60940765153fcb7d");
 		self.b_seen = undefined;
 		self.var_ffeecdb6 = undefined;
-		self function_bf9d3071("rob_skull_grab");
+		self playrenderoverridebundle("rob_skull_grab");
 		self show();
 	}
 }
@@ -280,7 +280,7 @@ function function_a694da18(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_f66111c5(localclientnum)
 {
 	self endon(#"death", #"hash_60940765153fcb7d");
-	self function_bf9d3071("rob_spectral_vision");
+	self playrenderoverridebundle("rob_spectral_vision");
 	self show();
 }
 
@@ -296,7 +296,7 @@ function function_f66111c5(localclientnum)
 function function_5681824(localclientnum)
 {
 	self endon(#"death", #"hash_60940765153fcb7d");
-	self function_5d482e78("rob_spectral_vision");
+	self stoprenderoverridebundle("rob_spectral_vision");
 }
 
 /*
@@ -881,7 +881,7 @@ function function_36c349d0(localclientnum, oldval, newval, bnewent, binitialsnap
 		if(self zm_utility::function_f8796df3(localclientnum))
 		{
 			self.var_2a2f2afa[localclientnum] = playviewmodelfx(localclientnum, level._effect[#"hash_5e08e3b80445f6d7"], "tag_flash");
-			self function_bf9d3071("rob_key_charging", "tag_weapon_right");
+			self playrenderoverridebundle("rob_key_charging", "tag_weapon_right");
 		}
 		else
 		{
@@ -896,7 +896,7 @@ function function_36c349d0(localclientnum, oldval, newval, bnewent, binitialsnap
 			if(self zm_utility::function_f8796df3(localclientnum))
 			{
 				self.var_b2b4e5eb[localclientnum] = playviewmodelfx(localclientnum, level._effect[#"hash_3ae08d08271270d6"], "tag_flash");
-				self function_bf9d3071("rob_key_charged", "tag_weapon_right");
+				self playrenderoverridebundle("rob_key_charged", "tag_weapon_right");
 			}
 			else
 			{

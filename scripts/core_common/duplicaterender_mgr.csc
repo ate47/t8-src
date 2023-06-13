@@ -740,11 +740,11 @@ function set_entity_draft_unselected(localclientnum, on_off)
 	}
 	if(isdefined(on_off) && on_off)
 	{
-		self function_bf9d3071(rob);
+		self playrenderoverridebundle(rob);
 	}
 	else
 	{
-		self function_5d482e78(rob);
+		self stoprenderoverridebundle(rob);
 	}
 }
 

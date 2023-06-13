@@ -203,11 +203,11 @@ function function_61c6d401(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071("rob_zm_white_crate_clear");
+		self playrenderoverridebundle("rob_zm_white_crate_clear");
 	}
 	else
 	{
-		self function_5d482e78("rob_zm_white_crate_clear");
+		self stoprenderoverridebundle("rob_zm_white_crate_clear");
 	}
 }
 

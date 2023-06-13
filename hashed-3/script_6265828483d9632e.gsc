@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
-#using script_4a81c26d2ddde9c;
+#using scripts\killstreaks\planemortar_shared.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

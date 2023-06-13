@@ -578,7 +578,7 @@ function private function_ba0f4046(entity)
 	{
 		var_7e0e6341 = entity ai::function_9139c839();
 		distance_sq = distancesquared(entity.origin, entity.favoriteenemy.origin);
-		if(isdefined(var_7e0e6341) && distance_sq <= (var_7e0e6341.var_23bae7cc * var_7e0e6341.var_23bae7cc))
+		if(isdefined(var_7e0e6341) && distance_sq <= (var_7e0e6341.normalmeleedist * var_7e0e6341.normalmeleedist))
 		{
 			result = 1;
 		}
@@ -608,9 +608,9 @@ function private function_f7c7a416(entity)
 				var_743a2772 = entity function_f00b611e();
 				n_base_damage = hit_enemy.maxhealth;
 				var_7e0e6341 = hit_enemy ai::function_9139c839();
-				if(isdefined(var_7e0e6341) && isdefined(var_7e0e6341.var_54c33ecd))
+				if(isdefined(var_7e0e6341) && isdefined(var_7e0e6341.damagescale))
 				{
-					var_b1c1c5cf = var_7e0e6341.var_54c33ecd;
+					var_b1c1c5cf = var_7e0e6341.damagescale;
 					if(var_b1c1c5cf > 0 && var_b1c1c5cf < 1)
 					{
 						var_64cc5e50 = 1 / var_b1c1c5cf;
@@ -775,7 +775,7 @@ function function_14a8c157(entity)
 		predictedenemypos = entity.enemy.origin;
 		distancesq = distancesquared(entity.origin, entity.enemy.origin);
 		var_7e0e6341 = entity ai::function_9139c839();
-		if(isdefined(var_7e0e6341) && distancesq < (var_7e0e6341.var_23bae7cc * var_7e0e6341.var_23bae7cc))
+		if(isdefined(var_7e0e6341) && distancesq < (var_7e0e6341.normalmeleedist * var_7e0e6341.normalmeleedist))
 		{
 			return false;
 		}

@@ -45,7 +45,7 @@ function __init__()
 */
 function function_fe37390(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	self function_bf9d3071(#"hash_75168376918f5ab7");
+	self playrenderoverridebundle(#"hash_75168376918f5ab7");
 	self function_78233d29(#"hash_75168376918f5ab7", "", "Scale", 1);
 }
 

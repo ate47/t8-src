@@ -359,7 +359,7 @@ function function_69745ea0()
 		if(isbot(self))
 		{
 			maxsightdist = sqrt(self.maxsightdistsqrd);
-			allenemies = self function_bdda420f(self.origin, maxsightdist);
+			allenemies = self getenemiesinradius(self.origin, maxsightdist);
 			allenemies = arraysortclosest(allenemies, self.origin);
 			visibleenemy = allenemies[0];
 			foreach(enemy in allenemies)

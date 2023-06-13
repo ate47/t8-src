@@ -373,10 +373,10 @@ function function_13ba9cec(target_point, lead_player, var_282c0a8e)
 	var_e0db94ca = vectortoangles(var_8fbb46cd);
 	angle_delta = goal_angles - var_e0db94ca;
 	var_ce2f4ce0 = function_dac81c9a(angleclamp180(angle_delta[0]));
-	var_7be00d5e = function_dac81c9a(angleclamp180(angle_delta[1]));
-	angles = var_e0db94ca + (var_ce2f4ce0, var_7be00d5e, 0);
+	angle_yaw = function_dac81c9a(angleclamp180(angle_delta[1]));
+	angles = var_e0db94ca + (var_ce2f4ce0, angle_yaw, 0);
 	angles = (angleclamp180(angles[0]), angleclamp180(angles[1]), 0);
-	self function_c3d37a6d(angles);
+	self botsetmoveangles(angles);
 	self botsetlookangles(angles);
 	return true;
 }
@@ -407,7 +407,7 @@ function function_c9a18304(params)
 		direction = vectornormalize(target_point - self.origin);
 		angles = vectortoangles(direction);
 		angles = (90, angles[1], 0);
-		self function_c3d37a6d(angles);
+		self botsetmoveangles(angles);
 		self botsetlookangles(angles);
 		while(true)
 		{

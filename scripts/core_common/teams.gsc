@@ -78,7 +78,7 @@ function function_3d288f14()
 			return self.var_30e2c3ec;
 		}
 	#/
-	status = self function_e59fbfc8();
+	status = self voipstatus();
 	return status;
 }
 

@@ -49,7 +49,7 @@ function main()
 */
 function private on_localclient_connect(localclientnum)
 {
-	thread function_cf386505(localclientnum);
+	thread update_players(localclientnum);
 }
 
 /*
@@ -228,7 +228,7 @@ function private function_26ff990a(local_client_num)
 }
 
 /*
-	Name: function_cf386505
+	Name: update_players
 	Namespace: clientfaceanim
 	Checksum: 0xE9680CF7
 	Offset: 0xA00
@@ -236,7 +236,7 @@ function private function_26ff990a(local_client_num)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_cf386505(local_client_num)
+function private update_players(local_client_num)
 {
 	var_40425722 = 1;
 	while(true)

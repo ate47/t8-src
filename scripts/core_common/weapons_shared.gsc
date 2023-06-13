@@ -237,7 +237,7 @@ function function_e870d33d()
 		{
 			continue;
 		}
-		if(!current_weapon.var_93295a64)
+		if(!current_weapon.mountable)
 		{
 			continue;
 		}
@@ -431,7 +431,7 @@ function function_e870d33d()
 					{
 						continue;
 					}
-					if(current_weapon.var_93295a64)
+					if(current_weapon.mountable)
 					{
 						continue;
 					}

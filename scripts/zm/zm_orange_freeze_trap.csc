@@ -158,7 +158,7 @@ function function_4443ecea(localclientnum)
 			self stoploopsound(self.var_f08ae416);
 			self.var_f08ae416 = undefined;
 		}
-		self function_5d482e78(#"hash_216f6c4ece79a4b8");
+		self stoprenderoverridebundle(#"hash_216f6c4ece79a4b8");
 	}
 }
 
@@ -195,7 +195,7 @@ function function_b487d98d(str_notify)
 			stopfx(localclientnum, self.var_1aab7c79);
 			self.var_1aab7c79 = undefined;
 		}
-		self function_5d482e78(#"hash_216f6c4ece79a4b8");
+		self stoprenderoverridebundle(#"hash_216f6c4ece79a4b8");
 	}
 }
 

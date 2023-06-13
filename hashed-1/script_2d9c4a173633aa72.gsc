@@ -121,8 +121,8 @@ function crystal_fx(localclientnum, oldval, newval, bnewent, binitialsnap, field
 		{
 			self.var_52baf800 = self playloopsound(#"hash_67377acc9921b8fe");
 		}
-		self function_5d482e78(#"hash_309e494aade1703c");
-		self function_bf9d3071(#"hash_591c2c7461c7beed");
+		self stoprenderoverridebundle(#"hash_309e494aade1703c");
+		self playrenderoverridebundle(#"hash_591c2c7461c7beed");
 	}
 }
 
@@ -185,11 +185,11 @@ function function_b75c6b4f(localclientnum, oldval, newval, bnewent, binitialsnap
 		self endon(#"death");
 		self util::waittill_dobj(localclientnum);
 		self function_f6e99a8d(#"hash_7f2b5509bb2ebd3f");
-		self function_bf9d3071(#"hash_7f2b5509bb2ebd3f");
+		self playrenderoverridebundle(#"hash_7f2b5509bb2ebd3f");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_7f2b5509bb2ebd3f");
+		self stoprenderoverridebundle(#"hash_7f2b5509bb2ebd3f");
 	}
 }
 

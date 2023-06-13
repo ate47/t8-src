@@ -316,7 +316,7 @@ function function_93440c52()
 			}
 			if(getdvarint(#"hash_3c0e90252ca92099", 0) != 0)
 			{
-				function_b7c018a7();
+				showtargets();
 			}
 			if(getdvarint(#"scr_prop_minigame", 1) != minigame_on && isdefined(level.players) && level.players.size > 0)
 			{
@@ -360,7 +360,7 @@ function function_ad983215(enabled)
 {
 	/#
 		setdvar(#"com_statmon", enabled);
-		setdvar(#"hash_37468b91055d5271", enabled);
+		setdvar(#"con_minicon", enabled);
 		setdvar(#"cg_drawfps", enabled);
 		setdvar(#"hash_61537eefc769c7b3", enabled);
 		setdvar(#"hash_59587b459995b6eb", enabled);
@@ -518,12 +518,12 @@ function function_1e509052()
 function debugaxis(origin, angles, size, alpha, depthtest, duration)
 {
 	/#
-		var_d40c3d87 = anglestoforward(angles) * size;
-		var_bdd51119 = anglestoright(angles) * size;
-		var_2792648e = anglestoup(angles) * size;
-		line(origin, origin + var_d40c3d87, (1, 0, 0), alpha, 0, duration);
-		line(origin, origin + var_bdd51119, (0, 1, 0), alpha, 0, duration);
-		line(origin, origin + var_2792648e, (0, 0, 1), alpha, 0, duration);
+		axisx = anglestoforward(angles) * size;
+		axisy = anglestoright(angles) * size;
+		axisz = anglestoup(angles) * size;
+		line(origin, origin + axisx, (1, 0, 0), alpha, 0, duration);
+		line(origin, origin + axisy, (0, 1, 0), alpha, 0, duration);
+		line(origin, origin + axisz, (0, 0, 1), alpha, 0, duration);
 	#/
 }
 
@@ -1434,7 +1434,7 @@ function function_77511c75()
 		{
 			enemybot.hits = 0;
 		}
-		setdvar(#"hash_3835bf18bc27fe80", 0);
+		setdvar(#"bot_allowattack", 0);
 		setdvar(#"bot_allowmovement", 0);
 		player.health = player.maxhealth;
 		weapon = getweapon("");
@@ -1442,14 +1442,14 @@ function function_77511c75()
 		dir = anglestoforward(player.angles);
 		start = (end + (dir * 100)) + vectorscale((0, 0, 1), 30);
 		magicbullet(weapon, start, end, enemybot);
-		var_9b67aa0b = -1 * dir;
-		start = (end + (var_9b67aa0b * 100)) + vectorscale((0, 0, 1), 30);
+		dirback = -1 * dir;
+		start = (end + (dirback * 100)) + vectorscale((0, 0, 1), 30);
 		magicbullet(weapon, start, end, enemybot);
-		var_70d65e57 = anglestoright(player.angles);
-		start = (end + (var_70d65e57 * 100)) + vectorscale((0, 0, 1), 30);
+		dirright = anglestoright(player.angles);
+		start = (end + (dirright * 100)) + vectorscale((0, 0, 1), 30);
 		magicbullet(weapon, start, end, enemybot);
-		var_3d34e352 = -1 * var_70d65e57;
-		start = (end + (var_3d34e352 * 100)) + vectorscale((0, 0, 1), 30);
+		dirleft = -1 * dirright;
+		start = (end + (dirleft * 100)) + vectorscale((0, 0, 1), 30);
 		magicbullet(weapon, start, end, enemybot);
 		start = end + vectorscale((0, 0, 1), 100);
 		magicbullet(weapon, start, end, enemybot);
@@ -1780,7 +1780,7 @@ function function_f06fb157()
 }
 
 /*
-	Name: function_b7c018a7
+	Name: showtargets
 	Namespace: prop_dev
 	Checksum: 0x1823CC51
 	Offset: 0x6BB8
@@ -1788,7 +1788,7 @@ function function_f06fb157()
 	Parameters: 0
 	Flags: None
 */
-function function_b7c018a7()
+function showtargets()
 {
 	/#
 		if(!isdefined(level.var_1103f74e) || !isdefined(level.var_1103f74e.targets))

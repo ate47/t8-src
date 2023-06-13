@@ -451,12 +451,12 @@ function function_e41243c1(var_e953aca6)
 	Parameters: 10
 	Flags: Linked
 */
-function createcameramenu(menu_name, localclientnum, target_name, xcam, sub_xcam, xcam_frame = undefined, var_1f199068 = undefined, var_2c679be0 = undefined, lerp_time = 0, var_f37c29f7 = 0)
+function createcameramenu(menu_name, localclientnum, target_name, xcam, sub_xcam, xcam_frame = undefined, var_1f199068 = undefined, var_2c679be0 = undefined, lerp_time = 0, lut_index = 0)
 {
 	/#
 		assert(!isdefined(level.client_menus[localclientnum][menu_name]));
 	#/
-	level.client_menus[localclientnum][menu_name] = {#hash_e57ed98b:[], #hash_f37c29f7:var_f37c29f7, #lerp_time:lerp_time, #hash_2c679be0:function_e41243c1(var_2c679be0), #hash_1f199068:function_e41243c1(var_1f199068), #xcam_frame:xcam_frame, #sub_xcam:sub_xcam, #xcam:xcam, #target_name:target_name, #menu_name:menu_name};
+	level.client_menus[localclientnum][menu_name] = {#hash_e57ed98b:[], #hash_f37c29f7:lut_index, #lerp_time:lerp_time, #hash_2c679be0:function_e41243c1(var_2c679be0), #hash_1f199068:function_e41243c1(var_1f199068), #xcam_frame:xcam_frame, #sub_xcam:sub_xcam, #xcam:xcam, #target_name:target_name, #menu_name:menu_name};
 	return level.client_menus[localclientnum][menu_name];
 }
 
@@ -469,12 +469,12 @@ function createcameramenu(menu_name, localclientnum, target_name, xcam, sub_xcam
 	Parameters: 9
 	Flags: Linked
 */
-function function_9d7ab167(menu_name, localclientnum, session_mode, target_name, xcam, sub_xcam, xcam_frame = undefined, lerp_time = 0, var_f37c29f7 = 0)
+function function_9d7ab167(menu_name, localclientnum, session_mode, target_name, xcam, sub_xcam, xcam_frame = undefined, lerp_time = 0, lut_index = 0)
 {
 	/#
 		assert(isdefined(level.client_menus[localclientnum][menu_name]));
 	#/
-	level.client_menus[localclientnum][menu_name].var_e57ed98b[session_mode] = {#hash_f37c29f7:var_f37c29f7, #lerp_time:lerp_time, #xcam_frame:xcam_frame, #sub_xcam:sub_xcam, #xcam:xcam, #target_name:target_name};
+	level.client_menus[localclientnum][menu_name].var_e57ed98b[session_mode] = {#hash_f37c29f7:lut_index, #lerp_time:lerp_time, #xcam_frame:xcam_frame, #sub_xcam:sub_xcam, #xcam:xcam, #target_name:target_name};
 }
 
 /*
@@ -486,12 +486,12 @@ function function_9d7ab167(menu_name, localclientnum, session_mode, target_name,
 	Parameters: 7
 	Flags: Linked
 */
-function createcustomcameramenu(menu_name, localclientnum, camera_function, has_state, var_1f199068 = undefined, var_2c679be0 = undefined, var_f37c29f7 = 0)
+function createcustomcameramenu(menu_name, localclientnum, camera_function, has_state, var_1f199068 = undefined, var_2c679be0 = undefined, lut_index = 0)
 {
 	/#
 		assert(!isdefined(level.client_menus[localclientnum][menu_name]));
 	#/
-	level.client_menus[localclientnum][menu_name] = {#hash_f37c29f7:var_f37c29f7, #hash_2c679be0:function_e41243c1(var_2c679be0), #hash_1f199068:function_e41243c1(var_1f199068), #has_state:has_state, #camera_function:camera_function, #menu_name:menu_name};
+	level.client_menus[localclientnum][menu_name] = {#hash_f37c29f7:lut_index, #hash_2c679be0:function_e41243c1(var_2c679be0), #hash_1f199068:function_e41243c1(var_1f199068), #has_state:has_state, #camera_function:camera_function, #menu_name:menu_name};
 	return level.client_menus[localclientnum][menu_name];
 }
 
@@ -562,9 +562,9 @@ function setup_menu(localclientnum, menu_data, previous_menu)
 				playradiantexploder(localclientnum, exploder);
 			}
 		}
-		if(isdefined(new_menu.var_f37c29f7))
+		if(isdefined(new_menu.lut_index))
 		{
-			setdvar(#"vc_lut", new_menu.var_f37c29f7);
+			setdvar(#"vc_lut", new_menu.lut_index);
 		}
 		if(isdefined(new_menu.camera_function))
 		{

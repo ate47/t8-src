@@ -851,7 +851,7 @@ function private function_4dbf2663()
 	{
 		table = hash(("gamedata/tables/zm/") + util::get_map_name() + "_trials.csv");
 	}
-	var_a183f42b = tablelookupcolumncount(table);
+	column_count = tablelookupcolumncount(table);
 	var_e1617d73 = tablelookuprowcount(table);
 	row = 0;
 	while(row < var_e1617d73)

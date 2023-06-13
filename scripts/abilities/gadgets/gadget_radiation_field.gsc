@@ -330,14 +330,14 @@ function function_1503c832(weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_748147c(var_89775279, time)
+function function_748147c(state_id, time)
 {
 	player = self;
 	player endon(#"radiation_shutdown");
 	wait(time);
 	if(isdefined(player))
 	{
-		player notify("state_done_" + var_89775279);
+		player notify("state_done_" + state_id);
 	}
 }
 
@@ -413,14 +413,14 @@ function function_7e96addd(var_4411cc03, player)
 	Parameters: 11
 	Flags: Linked
 */
-function damage_state(var_89775279, weapon, min_radius, max_radius, min_height, max_height, duration, var_32900164, loop_sound, var_d68ee2ab, killcament)
+function damage_state(state_id, weapon, min_radius, max_radius, min_height, max_height, duration, var_32900164, loop_sound, var_d68ee2ab, killcament)
 {
 	player = self;
-	if(var_89775279 < 3)
+	if(state_id < 3)
 	{
-		player thread function_748147c(var_89775279, duration);
+		player thread function_748147c(state_id, duration);
 	}
-	player endon("state_done_" + var_89775279, #"radiation_shutdown", #"death", #"disconnect");
+	player endon("state_done_" + state_id, #"radiation_shutdown", #"death", #"disconnect");
 	var_adf90433 = getstatuseffect(var_32900164);
 	var_327bdee = undefined;
 	if(isdefined(var_d68ee2ab))

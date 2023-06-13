@@ -150,12 +150,12 @@ function private registerclientfields()
 {
 	if(isdefined(level.bountypackagelist))
 	{
-		var_2b5b08bd = int(ceil(function_53f6489c(level.bountypackagelist.size + 1)));
+		var_2b5b08bd = int(ceil(log2(level.bountypackagelist.size + 1)));
 		var_ff35ecd8 = getgametypesetting(#"bountybagomoneymoney");
 		var_19302641 = getgametypesetting(#"hash_63f8d60d122e755b");
 		if(var_19302641 > 0)
 		{
-			var_bfbe32b4 = int(ceil(function_53f6489c(var_ff35ecd8 / var_19302641)));
+			var_bfbe32b4 = int(ceil(log2(var_ff35ecd8 / var_19302641)));
 			clientfield::register("toplayer", "bountyBagMoney", 1, var_bfbe32b4, "int");
 		}
 		else

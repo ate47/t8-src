@@ -4647,7 +4647,7 @@ class cscene
 			/#
 				depth = getdvarstring(#"hash_3018c0b9207d1c", "");
 				fps = getdvarstring(#"hash_51617678bebb961a", "");
-				var_6d1932c7 = getdvarstring(#"hash_4bf15ae7a6fbf73c", "");
+				fmt = getdvarstring(#"hash_4bf15ae7a6fbf73c", "");
 				if(issubstr(_str_mode, "") || getdvarint(#"hash_6a54249f0cc48945", 0) == 2 || scene::function_24f8cfb5(_str_name, str_shot))
 				{
 					if(issubstr(_str_mode, "") || getdvarint(#"hash_6a54249f0cc48945", 0) == 2)
@@ -4659,7 +4659,7 @@ class cscene
 						var_3a6bcf6e = _str_name;
 					}
 					level flagsys::set(#"hash_20a4053fe3e70f8");
-					str_command = (((((((("" + depth) + "") + fps) + "") + var_6d1932c7) + "") + _str_name) + "") + var_3a6bcf6e;
+					str_command = (((((((("" + depth) + "") + fps) + "") + fmt) + "") + _str_name) + "") + var_3a6bcf6e;
 					adddebugcommand("");
 					adddebugcommand(str_command);
 				}

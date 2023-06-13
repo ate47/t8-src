@@ -64,8 +64,8 @@ function function_86492662(player1, player2)
 	player2name = player2 getmpdialogname();
 	if(isdefined(player1name) && isdefined(player2name))
 	{
-		var_f0b4da50 = tablelookuprowcount(#"hash_5ec1825aeab754a2");
-		for(i = 0; i < var_f0b4da50; i++)
+		rowcount = tablelookuprowcount(#"hash_5ec1825aeab754a2");
+		for(i = 0; i < rowcount; i++)
 		{
 			row = tablelookuprow(#"hash_5ec1825aeab754a2", i);
 			if(row[0] == player1name && row[1] == player2name)

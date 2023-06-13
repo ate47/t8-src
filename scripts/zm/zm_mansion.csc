@@ -704,7 +704,7 @@ function function_be42dd6a(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval == 1)
 	{
 		self.var_2ea06178 = util::playfxontag(localclientnum, level._effect[#"hash_581c81003eac976f"], self, "tag_fx_x_pos");
-		self function_bf9d3071(#"hash_8cb3b94ffea62fe");
+		self playrenderoverridebundle(#"hash_8cb3b94ffea62fe");
 		self.var_b3673abf = self playloopsound(#"hash_66df9cab2c64f968");
 	}
 	else
@@ -721,14 +721,14 @@ function function_be42dd6a(localclientnum, oldval, newval, bnewent, binitialsnap
 				self.var_2ea06178 = undefined;
 			}
 			util::playfxontag(localclientnum, level._effect[#"artifact_activate"], self, "tag_fx_x_pos");
-			self function_5d482e78(#"hash_8cb3b94ffea62fe");
+			self stoprenderoverridebundle(#"hash_8cb3b94ffea62fe");
 		}
 		else
 		{
 			if(newval == 3)
 			{
 				self.var_f7a393 = util::playfxontag(localclientnum, level._effect[#"artifact_glow"], self, "tag_fx_x_pos");
-				self function_bf9d3071(#"hash_4192ceb1c828492f");
+				self playrenderoverridebundle(#"hash_4192ceb1c828492f");
 				self playsound(localclientnum, #"zmb_sq_souls_release");
 			}
 			else
@@ -748,7 +748,7 @@ function function_be42dd6a(localclientnum, oldval, newval, bnewent, binitialsnap
 					stopfx(localclientnum, self.var_f7a393);
 					self.var_f7a393 = undefined;
 				}
-				self function_5d482e78(#"hash_4192ceb1c828492f");
+				self stoprenderoverridebundle(#"hash_4192ceb1c828492f");
 				self playsound(localclientnum, #"hash_5de064f33e9e49b8");
 			}
 		}
@@ -768,11 +768,11 @@ function function_9e061782(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_798166dc35b7e58");
+		self playrenderoverridebundle(#"hash_798166dc35b7e58");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_798166dc35b7e58");
+		self stoprenderoverridebundle(#"hash_798166dc35b7e58");
 	}
 }
 

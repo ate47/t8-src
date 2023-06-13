@@ -125,7 +125,7 @@ function function_f1be5640(inflictor, attacker, damage, flags, meansofdeath, wea
 	var_7e0e6341 = self ai::function_9139c839();
 	if(isdefined(var_7e0e6341))
 	{
-		var_b1c1c5cf = var_7e0e6341.var_54c33ecd;
+		var_b1c1c5cf = var_7e0e6341.damagescale;
 		if(var_b1c1c5cf > 0 && var_b1c1c5cf < 1)
 		{
 			var_64cc5e50 = 1 / var_b1c1c5cf;

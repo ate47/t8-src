@@ -174,13 +174,13 @@ function function_9139c839()
 {
 	if(!isdefined(self.var_76167463))
 	{
-		if(isdefined(self.var_ae8ec545))
+		if(isdefined(self.aisettingsbundle))
 		{
-			settingsbundle = self.var_ae8ec545;
+			settingsbundle = self.aisettingsbundle;
 		}
 		else if(isdefined(self.scriptbundlesettings))
 		{
-			settingsbundle = getscriptbundle(self.scriptbundlesettings).var_ae8ec545;
+			settingsbundle = getscriptbundle(self.scriptbundlesettings).aisettingsbundle;
 		}
 		if(!isdefined(settingsbundle))
 		{

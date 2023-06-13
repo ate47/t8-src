@@ -562,9 +562,9 @@ function init_player_lethal_grenade()
 	var_cd6fae8c = self get_loadout_item("primarygrenade");
 	s_weapon = getunlockableiteminfofromindex(var_cd6fae8c, 1);
 	w_weapon = level.zombie_lethal_grenade_player_init;
-	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21))
+	if(isdefined(s_weapon) && isdefined(s_weapon.namehash))
 	{
-		w_weapon = getweapon(s_weapon.var_3cf2d21);
+		w_weapon = getweapon(s_weapon.namehash);
 		self zm_weapons::weapon_give(w_weapon, 1, 0);
 	}
 	else
@@ -1078,9 +1078,9 @@ function give_start_weapon(b_switch_weapon)
 {
 	var_9aeb4447 = self get_loadout_item("primary");
 	s_weapon = getunlockableiteminfofromindex(var_9aeb4447, 1);
-	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21) && zm_custom::function_bce642a1(s_weapon) && zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
+	if(isdefined(s_weapon) && isdefined(s_weapon.namehash) && zm_custom::function_bce642a1(s_weapon) && zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
 	{
-		self zm_weapons::weapon_give(getweapon(s_weapon.var_3cf2d21), 1, b_switch_weapon);
+		self zm_weapons::weapon_give(getweapon(s_weapon.namehash), 1, b_switch_weapon);
 		if(zm_custom::function_901b751c(#"hash_7bc64c0823c87e41") && isdefined(self.var_8313fee5))
 		{
 			self thread function_d9153457(b_switch_weapon);

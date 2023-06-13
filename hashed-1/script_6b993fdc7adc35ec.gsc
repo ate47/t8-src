@@ -31,7 +31,7 @@ function private function_c92543a0(attachmentitem, attachmentname)
 	Parameters: 4
 	Flags: Linked
 */
-function function_9e9c82a6(item, attachmentitem, var_41a74919 = 1, var_31d2edc5 = 0)
+function function_9e9c82a6(item, attachmentitem, var_41a74919 = 1, allowdupe = 0)
 {
 	/#
 		assert(isstruct(item));
@@ -57,7 +57,7 @@ function function_9e9c82a6(item, attachmentitem, var_41a74919 = 1, var_31d2edc5 
 			}
 		}
 	}
-	attachmentname = function_2ced1d34(item, attachmentitem.var_a6762160, var_31d2edc5);
+	attachmentname = function_2ced1d34(item, attachmentitem.var_a6762160, allowdupe);
 	if(!isdefined(attachmentname))
 	{
 		return false;
@@ -88,7 +88,7 @@ function function_9e9c82a6(item, attachmentitem, var_41a74919 = 1, var_31d2edc5 
 	Parameters: 3
 	Flags: Linked
 */
-function function_2ced1d34(item, var_fe35755b, var_21055e1a = 0)
+function function_2ced1d34(item, var_fe35755b, allowdupes = 0)
 {
 	/#
 		assert(isdefined(item));
@@ -161,7 +161,7 @@ function function_2ced1d34(item, var_fe35755b, var_21055e1a = 0)
 	{
 		return;
 	}
-	if(isdefined(item.attachments) && !var_21055e1a)
+	if(isdefined(item.attachments) && !allowdupes)
 	{
 		foreach(attachment in item.attachments)
 		{

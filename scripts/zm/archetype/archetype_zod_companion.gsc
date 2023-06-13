@@ -1478,10 +1478,10 @@ function define_new_leader()
 					}
 					playerpositions[playerpositions.size] = potential_leader.origin;
 				}
-				var_f67d1ba2 = generatenavmeshpath(self.origin, playerpositions, self);
-				if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+				pathdata = generatenavmeshpath(self.origin, playerpositions, self);
+				if(isdefined(pathdata) && pathdata.status === "succeeded")
 				{
-					goalpos = var_f67d1ba2.pathpoints[var_f67d1ba2.pathpoints.size - 1];
+					goalpos = pathdata.pathpoints[pathdata.pathpoints.size - 1];
 					foreach(potential_leader in a_potential_leaders)
 					{
 						if(distancesquared(potential_leader.origin, goalpos) < 16 * 16)

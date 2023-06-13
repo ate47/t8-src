@@ -113,13 +113,13 @@ function function_5e412e4a(var_ae6c2bbe)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d81873aa(var_12be3b68)
+function function_d81873aa(delaysec)
 {
 	/#
-		assert(var_12be3b68 >= 0, "" + "");
+		assert(delaysec >= 0, "" + "");
 	#/
-	var_12be3b68 = var_12be3b68 * level.var_1f8ac687;
-	level.var_a425ed89 = var_12be3b68;
+	delaysec = delaysec * level.var_1f8ac687;
+	level.var_a425ed89 = delaysec;
 }
 
 /*
@@ -131,13 +131,13 @@ function function_d81873aa(var_12be3b68)
 	Parameters: 1
 	Flags: Linked
 */
-function function_114f128a(var_12be3b68)
+function function_114f128a(delaysec)
 {
 	/#
-		assert(var_12be3b68 >= 0, "" + "");
+		assert(delaysec >= 0, "" + "");
 	#/
-	var_12be3b68 = var_12be3b68 * level.var_1f8ac687;
-	level.var_eb37cf2e = var_12be3b68;
+	delaysec = delaysec * level.var_1f8ac687;
+	level.var_eb37cf2e = delaysec;
 }
 
 /*
@@ -1449,16 +1449,16 @@ function private function_ded40950()
 		{
 			level.deathcircles = [];
 			level.var_a425ed89 = 0;
-			var_db6547d = getdvarstring(#"hash_76b26d6e696b82e8", "");
+			centerstr = getdvarstring(#"hash_76b26d6e696b82e8", "");
 			damage = getdvarint(#"hash_5675659e1a445164", 0);
 			damageinterval = getdvarint(#"hash_700ae39acbcd84e5", 60);
 			var_edd69b13 = getdvarint(#"hash_5779bb38cf5f61a9", 36000);
 			var_fdd51794 = getdvarint(#"hash_537f05a2ad3b9d7a", 60);
 			intensity = getdvarint(#"hash_16271dbe4d00b41e", 1);
 			center = (level.mapcenter[0], level.mapcenter[1], 0);
-			if(var_db6547d != "")
+			if(centerstr != "")
 			{
-				var_ad7b95c0 = strtok(var_db6547d, "");
+				var_ad7b95c0 = strtok(centerstr, "");
 				center = (float(var_ad7b95c0[0]), float(var_ad7b95c0[1]), 0);
 			}
 			function_3e8742fe(center, 0, 0, var_f15be329, damage, damageinterval, var_edd69b13, var_fdd51794, intensity);

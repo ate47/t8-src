@@ -314,7 +314,7 @@ function function_b3d993e9(deployable_weapon, sethintstring = 0)
 */
 function private function_ab25be55(weapon, sethintstring)
 {
-	if(self isplayerswimming() && !(isdefined(weapon.var_83c8d96a) ? weapon.var_83c8d96a : 0))
+	if(self isplayerswimming() && !(isdefined(weapon.canuseunderwater) ? weapon.canuseunderwater : 0))
 	{
 		self sethintstring(#"hash_37605398dce96965");
 		return false;
@@ -744,7 +744,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	{
 		var_d22ba639 = 1;
 	}
-	var_c84f4998 = 0;
+	water_depth = 0;
 	water_bottom = hit_location;
 	if(var_d22ba639)
 	{
@@ -769,7 +769,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 				var_a7bfb = 1;
 				if(isdefined(var_4bc118b9[#"waterdepth"]))
 				{
-					var_c84f4998 = var_4bc118b9[#"waterdepth"];
+					water_depth = var_4bc118b9[#"waterdepth"];
 					water_bottom = var_4bc118b9[#"waterbottom"];
 				}
 			}
@@ -808,7 +808,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	results.origin = var_5adff8ce;
 	results.angles = var_4c59d56;
 	results.hitent = hitent;
-	results.waterdepth = var_c84f4998;
+	results.waterdepth = water_depth;
 	results.waterbottom = water_bottom;
 	return results;
 }

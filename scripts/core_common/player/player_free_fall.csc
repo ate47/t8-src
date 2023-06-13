@@ -145,14 +145,14 @@ function private function_26d46af3(eventstruct)
 		{
 			if(self.currentweapon === parachute_weapon)
 			{
-				self function_bf9d3071(#"hash_336cece53ae2342f");
+				self playrenderoverridebundle(#"hash_336cece53ae2342f");
 			}
 		}
 		function_6aac1790(var_dbb94a);
 	}
 	else
 	{
-		self function_5d482e78(#"hash_336cece53ae2342f");
+		self stoprenderoverridebundle(#"hash_336cece53ae2342f");
 		self function_40635b9a(var_dbb94a);
 	}
 	if(self function_21c0fa55())
@@ -270,7 +270,7 @@ function function_cc5ed6ff(pitch, min_pitch, max_pitch, var_2ff50798, var_9988e8
 	Parameters: 1
 	Flags: None
 */
-function function_9a3dbe71(var_80943462)
+function function_9a3dbe71(viewpitch)
 {
 	/#
 		self endon(#"death", #"disconnect", #"hash_36dd69a696f827af");
@@ -278,7 +278,7 @@ function function_9a3dbe71(var_80943462)
 		{
 			vel = self getvelocity();
 			speed = length(vel);
-			iprintlnbold((("" + speed) + "") + var_80943462);
+			iprintlnbold((("" + speed) + "") + viewpitch);
 			wait(1);
 		}
 	#/
@@ -390,13 +390,13 @@ function function_e8a9e948(localclientnum, var_695a7111)
 			vel = self getvelocity();
 			speed = length(vel);
 			angles = self getcamangles();
-			var_80943462 = 0;
+			viewpitch = 0;
 			if(isdefined(angles))
 			{
-				var_80943462 = angles[0];
-				if(var_80943462 > 180)
+				viewpitch = angles[0];
+				if(viewpitch > 180)
 				{
-					var_80943462 = var_80943462 - 360;
+					viewpitch = viewpitch - 360;
 				}
 			}
 			if(speed < 2552)
@@ -769,7 +769,7 @@ function function_5789287a()
 {
 	self endon(#"death");
 	wait(1.75);
-	self function_5d482e78(#"hash_336cece53ae2342f");
+	self stoprenderoverridebundle(#"hash_336cece53ae2342f");
 }
 
 /*
@@ -812,7 +812,7 @@ function parachute_detach()
 	{
 		parachute linkto(self);
 		parachute useanimtree("generic");
-		parachute function_bf9d3071(#"hash_336cece53ae2342f");
+		parachute playrenderoverridebundle(#"hash_336cece53ae2342f");
 		parachute thread function_5789287a();
 		parachute animation::play(#"p8_fxanim_wz_parachute_player_anim", self.origin, self.angles);
 		wait(1);

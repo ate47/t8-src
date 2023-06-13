@@ -266,7 +266,7 @@ function function_23d38bdc(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function private function_89a37ae2()
 {
-	self function_bf9d3071(#"hash_24cdaac09819f0e");
+	self playrenderoverridebundle(#"hash_24cdaac09819f0e");
 	self function_78233d29(#"hash_24cdaac09819f0e", "", "Brightness", 1);
 	self function_78233d29(#"hash_24cdaac09819f0e", "", "Tint", 1);
 	self function_78233d29(#"hash_24cdaac09819f0e", "", "Alpha", 1);
@@ -799,14 +799,14 @@ function function_8fe4f2a7(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self function_bf9d3071(#"hash_68ee9247aaae4517");
+		self playrenderoverridebundle(#"hash_68ee9247aaae4517");
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Brightness", 0);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Alpha", 0);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Tint", 0);
 	}
 	else
 	{
-		self function_bf9d3071(#"hash_68ee9247aaae4517");
+		self playrenderoverridebundle(#"hash_68ee9247aaae4517");
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Brightness", 1);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Alpha", 1);
 		self function_78233d29(#"hash_68ee9247aaae4517", "", "Tint", 1);

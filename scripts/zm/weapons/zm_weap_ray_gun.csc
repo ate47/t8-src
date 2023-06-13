@@ -48,7 +48,7 @@ function __init__()
 function function_2602ff58(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	self endon(#"death");
-	self function_bf9d3071(#"hash_1d387211bf187bab");
+	self playrenderoverridebundle(#"hash_1d387211bf187bab");
 	util::playfxontag(localclientnum, level._effect[#"hash_41c6282937fa564d"], self, "j_spinelower");
 	wait(0.55);
 	util::playfxontag(localclientnum, level._effect[#"hash_41c6282937fa564d"], self, "j_spinelower");

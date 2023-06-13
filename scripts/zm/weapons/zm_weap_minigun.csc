@@ -72,11 +72,11 @@ function private minigun_nuke_rob(localclientnum, oldvalue, newvalue, bnewent, b
 {
 	if(newvalue == 1)
 	{
-		self function_bf9d3071("rob_zm_going_nuclear");
+		self playrenderoverridebundle("rob_zm_going_nuclear");
 	}
 	else
 	{
-		self function_5d482e78("rob_zm_going_nuclear");
+		self stoprenderoverridebundle("rob_zm_going_nuclear");
 	}
 }
 

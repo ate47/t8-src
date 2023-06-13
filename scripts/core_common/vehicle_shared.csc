@@ -177,7 +177,7 @@ function spawned_callback(localclientnum)
 			function_dd27aacd(localclientnum, self.scriptvehicletype);
 		}
 	}
-	if(self function_5d43fd44())
+	if(self usessubtargets())
 	{
 		self thread function_529fa01();
 	}
@@ -326,17 +326,17 @@ function function_a87e7c22(subtarget)
 		if(!isdefined(self.var_d2c05029[subtarget]) || self.var_d2c05029[subtarget] <= time)
 		{
 			self.var_d2c05029[subtarget] = time + 150;
-			bone = self function_d55293d0(subtarget);
-			self function_bf9d3071(#"hash_20bdbaa0db5eb57d", bone);
+			bone = self submodelboneforsubtarget(subtarget);
+			self playrenderoverridebundle(#"hash_20bdbaa0db5eb57d", bone);
 			wait(0.1);
-			self function_5d482e78(#"hash_20bdbaa0db5eb57d", bone);
+			self stoprenderoverridebundle(#"hash_20bdbaa0db5eb57d", bone);
 		}
 	}
 	else
 	{
-		self function_bf9d3071(#"hash_20bdbaa0db5eb57d");
+		self playrenderoverridebundle(#"hash_20bdbaa0db5eb57d");
 		wait(0.15);
-		self function_5d482e78(#"hash_20bdbaa0db5eb57d");
+		self stoprenderoverridebundle(#"hash_20bdbaa0db5eb57d");
 	}
 }
 
@@ -573,7 +573,7 @@ function play_boost(localclientnum, var_a7ba3864)
 function kill_boost(localclientnum, var_1ca9b241)
 {
 	self endon(#"death");
-	wait(self.var_686515e3 + 0.5);
+	wait(self.boostduration + 0.5);
 	self notify(#"end_boost");
 	if(isdefined(var_1ca9b241))
 	{

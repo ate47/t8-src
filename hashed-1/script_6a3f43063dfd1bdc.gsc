@@ -1219,22 +1219,22 @@ function private devgui()
 	Parameters: 4
 	Flags: None
 */
-function function_af49a1e9(str_event, var_8c7a21ea, var_7dc08477, var_b8eefad3)
+function function_af49a1e9(str_event, data1, data2, data3)
 {
 	/#
-		if(!isdefined(var_8c7a21ea))
+		if(!isdefined(data1))
 		{
-			var_8c7a21ea = "";
+			data1 = "";
 		}
-		if(!isdefined(var_7dc08477))
+		if(!isdefined(data2))
 		{
-			var_7dc08477 = "";
+			data2 = "";
 		}
-		if(!isdefined(var_b8eefad3))
+		if(!isdefined(data3))
 		{
-			var_b8eefad3 = "";
+			data3 = "";
 		}
-		s_event = {#hash_b8eefad3:var_b8eefad3, #hash_7dc08477:var_7dc08477, #hash_8c7a21ea:var_8c7a21ea, #n_time:float(gettime()) / 1000, #str_event:str_event};
+		s_event = {#hash_b8eefad3:data3, #hash_7dc08477:data2, #hash_8c7a21ea:data1, #n_time:float(gettime()) / 1000, #str_event:str_event};
 		if(!isdefined(level.var_df9f1a00))
 		{
 			level.var_df9f1a00 = [];
@@ -1358,7 +1358,7 @@ function function_4eb5a6ad()
 		fprintln(file, "");
 		foreach(s_event in level.var_df9f1a00)
 		{
-			fprintln(file, (((((((s_event.n_time + "") + s_event.str_event) + "") + s_event.var_8c7a21ea) + "") + s_event.var_7dc08477) + "") + s_event.var_b8eefad3);
+			fprintln(file, (((((((s_event.n_time + "") + s_event.str_event) + "") + s_event.data1) + "") + s_event.data2) + "") + s_event.data3);
 		}
 		closefile(file);
 		println("" + path);

@@ -111,7 +111,7 @@ function private _debugsquad(squad)
 						var_45c7238e = function_101999aa(var_3d879b56, "", array("", "", "", "", "", "", "", ""), position + (500, 10, 0), (1, 1, 1), "", textscale);
 						function_101999aa(var_3d879b56, "", array("", "", "", "", "", "", "", ""), position + (500, 10 + var_45c7238e, 0), (1, 1, 1), "", textscale);
 						targetpos = undefined;
-						var_35e9a86a = undefined;
+						targettrigger = undefined;
 						if(target[#"type"] == "")
 						{
 							entity = target[#"__unsafe__"][#"entity"];
@@ -123,7 +123,7 @@ function private _debugsquad(squad)
 								{
 									if(isdefined(object))
 									{
-										var_35e9a86a = object.trigger;
+										targettrigger = object.trigger;
 									}
 								}
 							}
@@ -135,7 +135,7 @@ function private _debugsquad(squad)
 								var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
 								targetpos = var_5fbc7570.origin;
 								component = target[#"__unsafe__"][#"component"];
-								var_35e9a86a = component.var_2956bff4;
+								targettrigger = component.var_2956bff4;
 								if(isdefined(component.var_6bc907c4))
 								{
 									function_f301de44(component.var_6bc907c4, (1, 0, 1), "");
@@ -150,7 +150,7 @@ function private _debugsquad(squad)
 									var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
 									targetpos = var_5fbc7570.origin;
 									component = target[#"__unsafe__"][#"component"];
-									var_35e9a86a = component.var_cc67d976;
+									targettrigger = component.var_cc67d976;
 								}
 								else
 								{
@@ -159,7 +159,7 @@ function private _debugsquad(squad)
 										var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
 										targetpos = var_5fbc7570.origin;
 										component = target[#"__unsafe__"][#"component"];
-										var_35e9a86a = component.var_c68dc48c;
+										targettrigger = component.var_c68dc48c;
 									}
 									else
 									{
@@ -181,11 +181,11 @@ function private _debugsquad(squad)
 						{
 							recordsphere(targetpos, 20, (1, 0, 1));
 							record3dtext("" + target[#"type"], targetpos + vectorscale((0, 0, 1), 21), (1, 0, 1), "", textscale);
-							if(isdefined(var_35e9a86a))
+							if(isdefined(targettrigger))
 							{
-								function_f301de44(var_35e9a86a, (1, 0, 1), "");
-								recordline(targetpos, var_35e9a86a.origin, (1, 0, 1), "");
-								record3dtext("", var_35e9a86a.origin, (1, 0, 1), "", textscale);
+								function_f301de44(targettrigger, (1, 0, 1), "");
+								recordline(targetpos, targettrigger.origin, (1, 0, 1), "");
+								record3dtext("", targettrigger.origin, (1, 0, 1), "", textscale);
 							}
 						}
 						else
@@ -224,14 +224,14 @@ function private _debugsquad(squad)
 	Parameters: 7
 	Flags: Private
 */
-function private function_101999aa(strategy, header, var_71b35362, position, color, channel, textscale)
+function private function_101999aa(strategy, header, fieldlist, position, color, channel, textscale)
 {
 	/#
 		xoffset = 0;
 		yoffset = 0;
 		recordtext(header, position, color, channel, textscale);
 		xoffset = xoffset + 15;
-		foreach(field in var_71b35362)
+		foreach(field in fieldlist)
 		{
 			yoffset = yoffset + 13;
 			recordtext((field + "") + strategy.(field), position + (xoffset, yoffset, 0), color, channel, textscale);

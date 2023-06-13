@@ -1224,7 +1224,7 @@ function private function_3295542a(player, weapon)
 	if(isdefined(player))
 	{
 		player.var_61950f95 = undefined;
-		a_ai_zombies = player function_bdda420f(var_344157ae, 192);
+		a_ai_zombies = player getenemiesinradius(var_344157ae, 192);
 	}
 	else
 	{

@@ -53,7 +53,7 @@ function preload()
 */
 function function_f1749965(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_bf9d3071(#"hash_75168376918f5ab7");
+	self playrenderoverridebundle(#"hash_75168376918f5ab7");
 	self function_e378599(500);
 	self.var_4156bf58 = 1;
 }
@@ -232,7 +232,7 @@ function function_19f2f0f2(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_cbc22c9d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_bf9d3071(#"rob_sonar_set_friendly_zm");
+	self playrenderoverridebundle(#"rob_sonar_set_friendly_zm");
 }
 
 /*

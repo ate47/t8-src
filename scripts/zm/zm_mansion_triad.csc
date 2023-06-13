@@ -293,7 +293,7 @@ function function_b24b4025(localclientnum, oldval, newval, bnewent, binitialsnap
 			}
 			if(isdefined(self.var_2cf005a1))
 			{
-				self function_bf9d3071(self.var_2cf005a1);
+				self playrenderoverridebundle(self.var_2cf005a1);
 			}
 		}
 		if(!isdefined(self.var_f9a31f04))
@@ -305,7 +305,7 @@ function function_b24b4025(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(isdefined(self.var_2cf005a1))
 		{
-			self function_5d482e78(self.var_2cf005a1);
+			self stoprenderoverridebundle(self.var_2cf005a1);
 			self.var_2cf005a1 = undefined;
 		}
 		if(isdefined(self.var_f9a31f04))

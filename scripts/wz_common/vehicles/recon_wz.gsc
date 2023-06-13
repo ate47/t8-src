@@ -75,8 +75,8 @@ function function_294117a0()
 */
 function function_3711499d(vehicle, deployable_weapon, traceresult)
 {
-	var_d1b2ddd5 = (isdefined(deployable_weapon.var_76127e14) ? deployable_weapon.var_76127e14 : 0);
-	if(var_d1b2ddd5 > 0 && traceresult.waterdepth > var_d1b2ddd5)
+	maxdepth = (isdefined(deployable_weapon.var_76127e14) ? deployable_weapon.var_76127e14 : 0);
+	if(maxdepth > 0 && traceresult.waterdepth > maxdepth)
 	{
 		return false;
 	}

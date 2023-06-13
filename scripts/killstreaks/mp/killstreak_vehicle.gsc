@@ -3,7 +3,7 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\vehicles\rcxd.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -186,7 +186,7 @@ function function_5e2ea3ef(owner, ishacked)
 }
 
 /*
-	Name: function_c9ef365d
+	Name: can_activate
 	Namespace: killstreak_vehicle
 	Checksum: 0x7356C107
 	Offset: 0x7E0
@@ -194,7 +194,7 @@ function function_5e2ea3ef(owner, ishacked)
 	Parameters: 1
 	Flags: None
 */
-function function_c9ef365d(placement)
+function can_activate(placement)
 {
 	if(!isdefined(placement))
 	{
@@ -415,7 +415,7 @@ function function_2cee4434()
 }
 
 /*
-	Name: function_2ff466f
+	Name: watch_exit
 	Namespace: killstreak_vehicle
 	Checksum: 0xD91199A3
 	Offset: 0x11F8
@@ -423,7 +423,7 @@ function function_2cee4434()
 	Parameters: 0
 	Flags: None
 */
-function function_2ff466f()
+function watch_exit()
 {
 	vehicle = self;
 	vehicle endon(#"shutdown", #"death");

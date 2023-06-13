@@ -14,7 +14,7 @@
 */
 function function_10672567()
 {
-	if(!isdefined(level.var_4ada4f1f))
+	if(!isdefined(level.maptableentry))
 	{
 		mapname = util::get_map_name();
 		fields = getmapfields();
@@ -44,9 +44,9 @@ function function_10672567()
 				fields = getmapfields(mapname, "");
 			}
 		#/
-		level.var_4ada4f1f = fields;
+		level.maptableentry = fields;
 	}
-	return level.var_4ada4f1f;
+	return level.maptableentry;
 }
 
 /*

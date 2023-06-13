@@ -328,13 +328,13 @@ function function_580b77a2()
 	self attach("c_t8_zmb_titanic_stoker_shovel1", "tag_weapon_right");
 	self.var_1861eb5b = [];
 	self.var_1861eb5b[#"left_arm_upper"] = new class_264486ac();
-	self.var_1861eb5b[#"left_arm_upper"].var_fbff893 = 4;
+	self.var_1861eb5b[#"left_arm_upper"].shadervector = 4;
 	self.var_1861eb5b[#"left_arm_upper"].fxindex = 3;
 	self.var_1861eb5b[#"right_arm_upper"] = new class_264486ac();
-	self.var_1861eb5b[#"right_arm_upper"].var_fbff893 = 1;
+	self.var_1861eb5b[#"right_arm_upper"].shadervector = 1;
 	self.var_1861eb5b[#"right_arm_upper"].fxindex = 4;
 	self.var_1861eb5b[#"head"] = new class_264486ac();
-	self.var_1861eb5b[#"head"].var_fbff893 = 3;
+	self.var_1861eb5b[#"head"].shadervector = 3;
 	self.var_1861eb5b[#"head"].fxindex = 5;
 	self.var_1861eb5b[#"left_arm_lower"] = new class_264486ac();
 	self.var_1861eb5b[#"left_arm_lower"].var_6d7b8c32 = 1;
@@ -584,9 +584,9 @@ function function_a96d8bd7(einflictor, eattacker, idamage, idflags, smeansofdeat
 						self destructserverutils::handledamage(einflictor, eattacker, idamage, idflags, smeansofdeath, sweapon, vpoint, vdir, var_dd54fdb1.hitloc, psoffsettime, boneindex, modelindex);
 						if(var_dd54fdb1.hitloc === self.var_a056e24)
 						{
-							if(isdefined(var_1861eb5b.var_fbff893))
+							if(isdefined(var_1861eb5b.shadervector))
 							{
-								self clientfield::set("crit_spot_reveal_clientfield", var_1861eb5b.var_fbff893);
+								self clientfield::set("crit_spot_reveal_clientfield", var_1861eb5b.shadervector);
 							}
 							var_add9b529 = namespace_81245006::function_3131f5dd(self, self.var_a056e24);
 							if(isdefined(var_add9b529))
@@ -739,7 +739,7 @@ function private function_6cd91a4d(entity)
 	meleedistsq = 4096;
 	if(isdefined(entity.meleeweapon) && entity.meleeweapon !== level.weaponnone)
 	{
-		meleedistsq = entity.meleeweapon.var_d3cafde6 * entity.meleeweapon.var_d3cafde6;
+		meleedistsq = entity.meleeweapon.aimeleerange * entity.meleeweapon.aimeleerange;
 	}
 	var_e9677328 = distancesquared(entity.origin, entity.enemy.origin);
 	if(var_e9677328 <= meleedistsq)

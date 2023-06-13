@@ -424,7 +424,7 @@ function applyroundstartdelay()
 	self endon(#"disconnect", #"joined_spectators", #"death");
 	if(game.state == "pregame")
 	{
-		level waittill(#"hash_313ad43b34e74e96");
+		level waittill(#"game_playing");
 	}
 	else
 	{

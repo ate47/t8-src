@@ -771,7 +771,7 @@ function private function_b506b922()
 	level endon(#"game_ended");
 	while(true)
 	{
-		var_1556c25 = function_8168c82a();
+		var_1556c25 = getlevelframenumber();
 		foreach(player in getplayers())
 		{
 			if(((player getentitynumber() + var_1556c25) & 1) != 0)

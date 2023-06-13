@@ -221,7 +221,7 @@ function private function_5a46c509(var_d53fd9d8)
 			if(old_value != level.var_e12ea40c)
 			{
 				old_value = level.var_e12ea40c;
-				setdvar(#"hash_1c45750e4f6818eb", old_value);
+				setdvar(#"g_drawdebuginfovolumes", old_value);
 				if(old_value)
 				{
 					foreach(ent in var_d53fd9d8)
@@ -349,7 +349,7 @@ function function_d0055419()
 				{
 					if(strstartswith(cmd, ""))
 					{
-						weapon_name = function_ea13f55(cmd, "", "");
+						weapon_name = strreplace(cmd, "", "");
 						weapon = getweapon(weapon_name);
 						players = getplayers();
 						players[0] giveweapon(weapon);

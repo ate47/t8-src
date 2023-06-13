@@ -1693,12 +1693,12 @@ function _missiledetonate(attacker, weapon, range, mindamage, maxdamage, allowdi
 			target dodamage(maxdamage, origin, attacker, self, "none", "MOD_PROJECTILE", 0, weapon);
 		}
 	}
-	var_fd0cb0de = attacker;
+	attackerentity = attacker;
 	if(function_3132f113(attacker) || (isdefined(attacker) && !isplayer(attacker) && !isalive(attacker)))
 	{
-		var_fd0cb0de = undefined;
+		attackerentity = undefined;
 	}
-	radiusdamage(origin, range, maxdamage, mindamage, var_fd0cb0de, "MOD_PROJECTILE_SPLASH", weapon);
+	radiusdamage(origin, range, maxdamage, mindamage, attackerentity, "MOD_PROJECTILE_SPLASH", weapon);
 }
 
 /*

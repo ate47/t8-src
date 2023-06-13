@@ -2,7 +2,7 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\killstreaks\mp\uav.gsc;
 #using scripts\killstreaks\mp\counteruav.gsc;
 #using scripts\core_common\player\player_stats.gsc;
@@ -201,7 +201,7 @@ event function_edc4ebe8(eventstruct)
 	else if(!isdefined(level.var_ca4ce464) || level.var_ca4ce464[var_f2b25a4e] !== 1)
 	{
 		self.var_ea1458aa.var_96d50420 = undefined;
-		if(var_f2b25a4e.var_b76e0a09)
+		if(var_f2b25a4e.issignatureweapon)
 		{
 			self.var_ea1458aa.var_96d50420 = 0;
 		}
@@ -243,7 +243,7 @@ event function_4776caf4(eventstruct)
 		if(isdefined(level.var_ca4ce464) && level.var_ca4ce464[newweapon] === 1)
 		{
 			self.var_9cd2c51d.var_d298c9a8 = undefined;
-			if(newweapon.var_b76e0a09)
+			if(newweapon.issignatureweapon)
 			{
 				self.var_9cd2c51d.var_d298c9a8 = 0;
 			}
@@ -253,7 +253,7 @@ event function_4776caf4(eventstruct)
 	{
 		if(isdefined(level.var_7897141a) && level.var_7897141a[newweapon] !== 1)
 		{
-			if(!newweapon.var_b76e0a09)
+			if(!newweapon.issignatureweapon)
 			{
 				self.var_ea1458aa.var_59ac2f5 = undefined;
 				if(newweapon.var_76ce72e8)
@@ -540,7 +540,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		var_8a4cfbd = weapon.var_76ce72e8 && isdefined(scoreevents) && scoreevents.var_fcd2ff3a === 1;
 		if(isdefined(self.var_9cd2c51d))
 		{
-			if(weapon.var_b76e0a09 && isdefined(level.var_ca4ce464) && level.var_ca4ce464[weapon] === 1)
+			if(weapon.issignatureweapon && isdefined(level.var_ca4ce464) && level.var_ca4ce464[weapon] === 1)
 			{
 				if(!isdefined(self.var_9cd2c51d.var_d298c9a8))
 				{
@@ -555,7 +555,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		}
 		if(!isdefined(var_828dac8f))
 		{
-			if(weapon.var_b76e0a09 && isdefined(self.var_ea1458aa.var_96d50420))
+			if(weapon.issignatureweapon && isdefined(self.var_ea1458aa.var_96d50420))
 			{
 				if(!isdefined(self.var_9cd2c51d.var_96d50420))
 				{
@@ -1168,7 +1168,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		{
 			self stats::function_dad108fa(#"ekia_specialized_equipment", 1);
 		}
-		else if(weapon.var_b76e0a09)
+		else if(weapon.issignatureweapon)
 		{
 			self stats::function_dad108fa(#"ekia_specialized_weapons", 1);
 		}
@@ -1247,7 +1247,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 	}
 	if(killstreak === #"dog")
 	{
-		if(weapon.var_b76e0a09)
+		if(weapon.issignatureweapon)
 		{
 			self stats::function_dad108fa(#"ekia_specialized_weapons", 1);
 		}
@@ -2109,7 +2109,7 @@ function challengekills(data)
 		{
 			attacker stats::function_dad108fa(#"kill_enemy_thats_in_air", 1);
 		}
-		if(victimweapon.var_b76e0a09 === 1)
+		if(victimweapon.issignatureweapon === 1)
 		{
 			if(!isdefined(var_f91a4dd6) || var_f91a4dd6 < 1)
 			{
@@ -2154,7 +2154,7 @@ function challengekills(data)
 			}
 		}
 		var_2cf35051 = globallogic_score::function_3cbc4c6c(victimweapon.var_2e4a8800);
-		if(victimweapon.var_b76e0a09 === 1 || (isdefined(var_2cf35051) && var_2cf35051.var_fcd2ff3a === 1))
+		if(victimweapon.issignatureweapon === 1 || (isdefined(var_2cf35051) && var_2cf35051.var_fcd2ff3a === 1))
 		{
 			if(killstreak == #"dart" || killstreak == #"inventory_dart" || killstreak == #"recon_car" || killstreak == #"inventory_recon_car" || (killstreak == #"tank_robot" || killstreak == #"inventory_tank_robot" && var_911b9b40 === 1))
 			{
@@ -2170,9 +2170,9 @@ function challengekills(data)
 		}
 	}
 	var_eae59bb8 = globallogic_score::function_3cbc4c6c(weapon.var_2e4a8800);
-	if(weapon.var_b76e0a09 === 1 || (isdefined(var_eae59bb8) && var_eae59bb8.var_fcd2ff3a === 1))
+	if(weapon.issignatureweapon === 1 || (isdefined(var_eae59bb8) && var_eae59bb8.var_fcd2ff3a === 1))
 	{
-		if(victimweapon.var_b76e0a09 === 1)
+		if(victimweapon.issignatureweapon === 1)
 		{
 			attacker stats::function_dad108fa(#"kill_specialist_with_specialist", 1);
 		}
@@ -2924,7 +2924,7 @@ function function_ea966b4a(killstreak)
 		case "recon_car":
 		case "inventory_recon_car":
 		case "inventory_tank_robot":
-		case "hash_73dc3b42cb4b6869":
+		case "inventory_swat_team":
 		{
 			self stats::function_dad108fa(#"hash_10b0c56ae630070d", 1);
 			self contracts::player_contract_event(#"hash_10b0c56ae630070d");
@@ -2994,7 +2994,7 @@ function function_2f462ffd(victim, weapon, inflictor, objective)
 			case "tank_robot":
 			case "swat_team":
 			case "inventory_tank_robot":
-			case "hash_73dc3b42cb4b6869":
+			case "inventory_swat_team":
 			{
 				self stats::function_dad108fa(#"hash_1efa6ab922134e1d", 1);
 				break;
@@ -3018,7 +3018,7 @@ function function_2f462ffd(victim, weapon, inflictor, objective)
 		{
 			self stats::function_dad108fa(#"hash_d4a989a2da3fa72", 1);
 		}
-		else if(weapon.var_b76e0a09)
+		else if(weapon.issignatureweapon)
 		{
 			self stats::function_dad108fa(#"hash_6c3172682467122", 1);
 		}
@@ -3081,7 +3081,7 @@ function function_2f462ffd(victim, weapon, inflictor, objective)
 	}
 	victimweapon = victim.currentweapon;
 	var_2cf35051 = globallogic_score::function_3cbc4c6c(victimweapon.var_2e4a8800);
-	if(victimweapon.var_b76e0a09 === 1 || (isdefined(var_2cf35051) && var_2cf35051.var_fcd2ff3a === 1))
+	if(victimweapon.issignatureweapon === 1 || (isdefined(var_2cf35051) && var_2cf35051.var_fcd2ff3a === 1))
 	{
 		self stats::function_dad108fa(#"end_enemy_specialist_weapon_on_objective", 1);
 	}
@@ -3122,7 +3122,7 @@ function function_82bb78f7(weapon)
 function function_e0f51b6f(weapon)
 {
 	should_award = 0;
-	if(weapon.var_b76e0a09)
+	if(weapon.issignatureweapon)
 	{
 		should_award = 1;
 	}
@@ -3149,7 +3149,7 @@ function function_e0f51b6f(weapon)
 function function_57ca42c6(weapon)
 {
 	should_award = 0;
-	if(weapon.var_b76e0a09)
+	if(weapon.issignatureweapon)
 	{
 		should_award = 1;
 	}
@@ -3227,7 +3227,7 @@ function killedbaseoffender(objective, weapon, inflictor)
 				break;
 			}
 			case "swat_team":
-			case "hash_73dc3b42cb4b6869":
+			case "inventory_swat_team":
 			{
 				self stats::function_dad108fa(#"hash_103a235d7563069c", 1);
 				break;
@@ -3667,7 +3667,7 @@ function private specialist_multikill(killcount, weapon, scoreevents)
 {
 	baseweapon = getweapon(weapon.statname);
 	ability = self loadout::function_18a77b37("specialgrenade");
-	if(isdefined(ability) && (isdefined(baseweapon.var_b76e0a09) && baseweapon.var_b76e0a09))
+	if(isdefined(ability) && (isdefined(baseweapon.issignatureweapon) && baseweapon.issignatureweapon))
 	{
 		self stats::function_dad108fa(#"specialist_multikill", 1);
 		return;

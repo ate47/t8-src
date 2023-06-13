@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_300f815a565e66fb;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\emp_shared.gsc;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -23,16 +23,16 @@
 */
 function init_shared()
 {
-	if(!isdefined(level.var_707cab08))
+	if(!isdefined(level.emp_shared))
 	{
-		level.var_707cab08 = {};
-		level.var_707cab08.activeplayeremps = [];
-		level.var_707cab08.activeemps = [];
+		level.emp_shared = {};
+		level.emp_shared.activeplayeremps = [];
+		level.emp_shared.activeemps = [];
 		foreach(team, _ in level.teams)
 		{
-			level.var_707cab08.activeemps[team] = 0;
+			level.emp_shared.activeemps[team] = 0;
 		}
-		level.var_707cab08.enemyempactivefunc = &enemyempactive;
+		level.emp_shared.enemyempactivefunc = &enemyempactive;
 		level thread emptracker();
 		clientfield::register("scriptmover", "emp_turret_init", 1, 1, "int");
 		clientfield::register("vehicle", "emp_turret_deploy", 1, 1, "int");
@@ -121,7 +121,7 @@ function onplayerspawned()
 function onplayerconnect()
 {
 	self.entnum = self getentitynumber();
-	level.var_707cab08.activeplayeremps[self.entnum] = 0;
+	level.emp_shared.activeplayeremps[self.entnum] = 0;
 }
 
 /*
@@ -345,8 +345,8 @@ function stopemp(currentteam, currentownerentnum, originalteam, killstreakid)
 */
 function stopempeffect(team, ownerentnum)
 {
-	level.var_707cab08.activeemps[team] = 0;
-	level.var_707cab08.activeplayeremps[ownerentnum] = 0;
+	level.emp_shared.activeemps[team] = 0;
+	level.emp_shared.activeplayeremps[ownerentnum] = 0;
 	level notify(#"emp_updated");
 }
 
@@ -375,7 +375,7 @@ function stopemprule(killstreakoriginalteam, killstreakid)
 */
 function hasactiveemp()
 {
-	return level.var_707cab08.activeplayeremps[self.entnum];
+	return level.emp_shared.activeplayeremps[self.entnum];
 }
 
 /*
@@ -389,7 +389,7 @@ function hasactiveemp()
 */
 function teamhasactiveemp(team)
 {
-	return level.var_707cab08.activeemps[team] > 0;
+	return level.emp_shared.activeemps[team] > 0;
 }
 
 /*
@@ -442,7 +442,7 @@ function getenemies()
 */
 function function_d12cde1c()
 {
-	return isdefined(level.var_707cab08);
+	return isdefined(level.emp_shared);
 }
 
 /*
@@ -523,15 +523,15 @@ function emp_jamenemies(empent, hacked)
 	{
 		if(hacked)
 		{
-			level.var_707cab08.activeemps[empent.originalteam] = 0;
+			level.emp_shared.activeemps[empent.originalteam] = 0;
 		}
-		level.var_707cab08.activeemps[self.team] = 1;
+		level.emp_shared.activeemps[self.team] = 1;
 	}
 	if(hacked)
 	{
-		level.var_707cab08.activeplayeremps[empent.originalownerentnum] = 0;
+		level.emp_shared.activeplayeremps[empent.originalownerentnum] = 0;
 	}
-	level.var_707cab08.activeplayeremps[self.entnum] = 1;
+	level.emp_shared.activeplayeremps[self.entnum] = 1;
 	level notify(#"emp_updated");
 	level notify(#"emp_deployed");
 	visionsetnaked("flash_grenade", 1.5);

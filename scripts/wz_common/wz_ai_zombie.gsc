@@ -1280,9 +1280,9 @@ function private function_8f57dc52(dynent)
 {
 	if(isdefined(dynent))
 	{
-		var_9680a0e4 = function_ffdbe8c2(dynent);
+		dynentstate = function_ffdbe8c2(dynent);
 		var_f3fec032 = function_489009c1(dynent);
-		if(!dynent.destructible || !dynent.var_e76c7e9f || !isdefined(var_f3fec032) || !isdefined(var_f3fec032.destroyed) || var_9680a0e4 === var_f3fec032.destroyed || var_9680a0e4 === var_f3fec032.vehicledestroyed || (isdefined(dynent.var_993e9bb0) && dynent.var_993e9bb0))
+		if(!dynent.destructible || !dynent.var_e76c7e9f || !isdefined(var_f3fec032) || !isdefined(var_f3fec032.destroyed) || dynentstate === var_f3fec032.destroyed || dynentstate === var_f3fec032.vehicledestroyed || (isdefined(dynent.var_993e9bb0) && dynent.var_993e9bb0))
 		{
 			return false;
 		}
@@ -1870,7 +1870,7 @@ function function_e261b81d()
 		}
 		if(self.aistate == 3)
 		{
-			if((self getentitynumber() & 1) == (function_8168c82a() & 1))
+			if((self getentitynumber() & 1) == (getlevelframenumber() & 1))
 			{
 				self.clamptonavmesh = !self.isonnavmesh && isdefined(self.ai_zone) && self istouching(self.ai_zone.def);
 			}
@@ -2017,7 +2017,7 @@ function private function_25b61968()
 		{
 			case "weapon_fired":
 			{
-				function_91248517(waitresult.weapon);
+				weapon_fired_event(waitresult.weapon);
 				break;
 			}
 		}
@@ -2057,7 +2057,7 @@ function function_83baeaf1(event)
 }
 
 /*
-	Name: function_91248517
+	Name: weapon_fired_event
 	Namespace: wz_ai_zombie
 	Checksum: 0x12BCB043
 	Offset: 0x64F0
@@ -2065,7 +2065,7 @@ function function_83baeaf1(event)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_91248517(weapon)
+function private weapon_fired_event(weapon)
 {
 	radius = 2200;
 	if(weaponhasattachment(weapon, "suppressed"))
@@ -2364,7 +2364,7 @@ function private function_24abc003(entity)
 */
 function function_1cfdbe7(notifyhash)
 {
-	[[ level.var_812c573d ]]->function_5ef47bb4(self);
+	[[ level.var_812c573d ]]->leavequeue(self);
 }
 
 /*
@@ -2554,10 +2554,10 @@ function private function_5c293c05(entity)
 	}
 	if(potential_targets.size > 1)
 	{
-		var_f67d1ba2 = generatenavmeshpath(entity.origin, var_8d6705e8, entity);
-		if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+		pathdata = generatenavmeshpath(entity.origin, var_8d6705e8, entity);
+		if(isdefined(pathdata) && pathdata.status === "succeeded")
 		{
-			var_6f5b42c8 = arraygetclosest(var_f67d1ba2.pathpoints[var_f67d1ba2.pathpoints.size - 1], potential_targets);
+			var_6f5b42c8 = arraygetclosest(pathdata.pathpoints[pathdata.pathpoints.size - 1], potential_targets);
 			if(isdefined(var_6f5b42c8))
 			{
 				entity.favoriteenemy = var_6f5b42c8.player;
@@ -2767,8 +2767,8 @@ function private function_d3a12e63()
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
 			{
-				var_f67d1ba2 = generatenavmeshpath(self.origin, adjustedgoal, self);
-				if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+				pathdata = generatenavmeshpath(self.origin, adjustedgoal, self);
+				if(isdefined(pathdata) && pathdata.status === "succeeded")
 				{
 					self setgoal(adjustedgoal);
 				}
@@ -2796,16 +2796,16 @@ function private function_2ae5a795()
 			adjustedgoal = getclosestpointonnavmesh(self.var_80780af2, 100, self getpathfindingradius());
 			if(isdefined(adjustedgoal))
 			{
-				var_4c08e4c9 = namespace_b912c30b::function_5f460765();
-				if(!isdefined(var_4c08e4c9))
+				iteration_limit = namespace_b912c30b::function_5f460765();
+				if(!isdefined(iteration_limit))
 				{
-					var_f67d1ba2 = generatenavmeshpath(self.origin, adjustedgoal, self);
+					pathdata = generatenavmeshpath(self.origin, adjustedgoal, self);
 				}
 				else
 				{
-					var_f67d1ba2 = generatenavmeshpath(self.origin, adjustedgoal, self, undefined, undefined, var_4c08e4c9);
+					pathdata = generatenavmeshpath(self.origin, adjustedgoal, self, undefined, undefined, iteration_limit);
 				}
-				if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+				if(isdefined(pathdata) && pathdata.status === "succeeded")
 				{
 					self setgoal(adjustedgoal);
 				}
@@ -2826,7 +2826,7 @@ function private function_2ae5a795()
 */
 function private function_bf21ead1()
 {
-	if(getdvarint(#"hash_4cfef227405e3c46", 0) == 1 || getdvarint(#"hash_6e86098ccb2a7c2b", 0) && (self getentitynumber() & 1) == (function_8168c82a() & 1))
+	if(getdvarint(#"hash_4cfef227405e3c46", 0) == 1 || getdvarint(#"hash_6e86098ccb2a7c2b", 0) && (self getentitynumber() & 1) == (getlevelframenumber() & 1))
 	{
 		return;
 	}
@@ -3268,18 +3268,18 @@ function private function_36151fe3()
 			}
 			if(var_bc4c0533.size > 1)
 			{
-				var_4c08e4c9 = namespace_b912c30b::function_5f460765();
-				if(!isdefined(var_4c08e4c9))
+				iteration_limit = namespace_b912c30b::function_5f460765();
+				if(!isdefined(iteration_limit))
 				{
-					var_f67d1ba2 = generatenavmeshpath(self.origin, var_bc4c0533, self);
+					pathdata = generatenavmeshpath(self.origin, var_bc4c0533, self);
 				}
 				else
 				{
-					var_f67d1ba2 = generatenavmeshpath(self.origin, var_bc4c0533, self, undefined, undefined, var_4c08e4c9);
+					pathdata = generatenavmeshpath(self.origin, var_bc4c0533, self, undefined, undefined, iteration_limit);
 				}
-				if(isdefined(var_f67d1ba2) && var_f67d1ba2.status === "succeeded")
+				if(isdefined(pathdata) && pathdata.status === "succeeded")
 				{
-					pathgoal = var_f67d1ba2.pathpoints[var_f67d1ba2.pathpoints.size - 1];
+					pathgoal = pathdata.pathpoints[pathdata.pathpoints.size - 1];
 					if(distancesquared(pathgoal, self.var_80780af2) < distancesquared(pathgoal, var_d01c2da3))
 					{
 						namespace_b912c30b::function_2b925fa5(self);

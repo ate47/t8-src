@@ -1607,11 +1607,11 @@ event function_2073f6dc(eventstruct)
 	magnitude = float(eventstruct.magnitude);
 	innerradius = float(eventstruct.innerradius);
 	outerradius = float(eventstruct.outerradius);
-	var_489a8c6f = (isdefined(self.var_f501d778) ? self.var_f501d778 : 50);
-	var_5143872f = (isdefined(self.var_e14c1b5c) ? self.var_e14c1b5c : 25);
+	innerdamage = (isdefined(self.var_f501d778) ? self.var_f501d778 : 50);
+	outerdamage = (isdefined(self.var_e14c1b5c) ? self.var_e14c1b5c : 25);
 	var_a62fd3ab = (isdefined(self.var_abe3f153) ? self.var_abe3f153 : 1);
 	var_c1cde02b = (isdefined(self.var_bd0f9401) ? self.var_bd0f9401 : 1);
-	physicsexplosionsphere(eventstruct.localclientnum, origin, outerradius, innerradius, magnitude, var_489a8c6f, var_5143872f, var_a62fd3ab, var_c1cde02b);
+	physicsexplosionsphere(eventstruct.localclientnum, origin, outerradius, innerradius, magnitude, innerdamage, outerdamage, var_a62fd3ab, var_c1cde02b);
 }
 
 /*
@@ -1810,7 +1810,7 @@ event function_582e112f(eventstruct)
 {
 	if(isdefined(level.var_45ca79e5))
 	{
-		[[level.var_45ca79e5]](eventstruct.localclientnum, eventstruct.eventtype, eventstruct.var_d8138db2, eventstruct.value, eventstruct.value2);
+		[[level.var_45ca79e5]](eventstruct.localclientnum, eventstruct.eventtype, eventstruct.itemid, eventstruct.value, eventstruct.value2);
 	}
 }
 

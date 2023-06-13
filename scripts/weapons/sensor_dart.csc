@@ -97,14 +97,14 @@ function private function_73021afc(localclientnum, oldval, newval, bnewent, bini
 		case 0:
 		default:
 		{
-			self function_b608a20b(localclientnum);
+			self disablevisioncircle(localclientnum);
 			break;
 		}
 		case 1:
 		{
 			self thread function_a252eaf0(localclientnum);
 			self thread function_e3a084cd(localclientnum);
-			self function_ef15ea9c();
+			self hideunseencompassicon();
 			break;
 		}
 	}
@@ -127,7 +127,7 @@ function private function_a252eaf0(localclientnum)
 	{
 		self.var_b44c157f delete();
 	}
-	function_fb25716d(localclientnum, var_9cf4b61c);
+	disablevisioncirclebyentnum(localclientnum, var_9cf4b61c);
 }
 
 /*
@@ -182,7 +182,7 @@ function private function_e3a084cd(localclientnum)
 				{
 					self function_5e00861((radius / 200) * 0.6);
 				}
-				self function_5db470de(localclientnum, distance, 1, var_354c76a5 * 2);
+				self enablevisioncircle(localclientnum, distance, 1, var_354c76a5 * 2);
 			}
 		}
 		waitframe(1);
@@ -208,7 +208,7 @@ function private function_e3a084cd(localclientnum)
 	{
 		dart_radius = level.sensor_dart_radius;
 	}
-	self function_5db470de(localclientnum, dart_radius, 1);
+	self enablevisioncircle(localclientnum, dart_radius, 1);
 	self thread function_6527a2e9(localclientnum, "o_recon_sensor_gun_projectile_open", "o_recon_sensor_gun_projectile_closed_idle");
 	self thread function_e140ca2b(localclientnum);
 }
@@ -225,7 +225,7 @@ function private function_e3a084cd(localclientnum)
 function private function_31a1aa18(localclientnum)
 {
 	level waittill(#"game_ended");
-	function_c18242d9(localclientnum);
+	disableallvisioncircles(localclientnum);
 }
 
 /*

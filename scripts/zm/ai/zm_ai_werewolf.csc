@@ -57,7 +57,7 @@ function function_d45ef8ea(localclientnum)
 	self.var_f87f8fa0 = "tag_eye";
 	self zm_utility::function_3a020b0f(localclientnum, "rob_zm_eyes_orange", #"hash_524decea28717b7c");
 	self callback::on_shutdown(&on_entity_shutdown);
-	self function_bf9d3071("rob_zm_man_werewolf_nonboss_weakpoint");
+	self playrenderoverridebundle("rob_zm_man_werewolf_nonboss_weakpoint");
 }
 
 /*
@@ -79,7 +79,7 @@ function on_entity_shutdown(localclientnum)
 		}
 		self zm_utility::good_barricade_damaged(localclientnum);
 	}
-	self function_5d482e78("rob_zm_man_werewolf_nonboss_weakpoint");
+	self stoprenderoverridebundle("rob_zm_man_werewolf_nonboss_weakpoint");
 }
 
 /*
@@ -111,8 +111,8 @@ function function_c65ce64a(localclientnum, oldval, newval, bnewent, binitialsnap
 function function_815cc85c(localclientnum)
 {
 	self zm_utility::good_barricade_damaged(localclientnum);
-	self function_5d482e78("rob_zm_man_werewolf_nonboss_weakpoint");
-	self function_bf9d3071("rob_zm_werewolf_dust");
+	self stoprenderoverridebundle("rob_zm_man_werewolf_nonboss_weakpoint");
+	self playrenderoverridebundle("rob_zm_werewolf_dust");
 }
 
 /*

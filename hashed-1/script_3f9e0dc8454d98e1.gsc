@@ -274,7 +274,7 @@ function initialize(animscript)
 	self.changingcoverpos = 0;
 	self.a.scriptstarttime = gettime();
 	self.a.atconcealmentnode = 0;
-	if(isdefined(self.node) && (self.node.type == #"hash_171465527444ed14" || self.node.type == #"hash_1bb444d857814e92"))
+	if(isdefined(self.node) && (self.node.type == #"conceal crouch" || self.node.type == #"conceal stand"))
 	{
 		self.a.atconcealmentnode = 1;
 	}
@@ -1133,15 +1133,15 @@ function getnodeoffset(node)
 			}
 			break;
 		}
-		case "hash_1bb444d857814e92":
+		case "conceal stand":
 		case "turret":
 		case "cover stand":
 		{
 			nodeoffset = calculatenodeoffset(right, forward, cover_stand_offset);
 			break;
 		}
-		case "hash_171465527444ed14":
-		case "hash_280d1247a6abdbae":
+		case "conceal crouch":
+		case "cover crouch window":
 		case "cover crouch":
 		{
 			nodeoffset = calculatenodeoffset(right, forward, cover_crouch_offset);
@@ -1180,7 +1180,7 @@ function checkpitchvisibility(frompoint, topoint, atnode)
 	pitch = angleclamp180(vectortoangles(topoint - frompoint)[0]);
 	if(abs(pitch) > 45)
 	{
-		if(isdefined(atnode) && atnode.type != #"cover crouch" && atnode.type != #"hash_171465527444ed14")
+		if(isdefined(atnode) && atnode.type != #"cover crouch" && atnode.type != #"conceal crouch")
 		{
 			return false;
 		}

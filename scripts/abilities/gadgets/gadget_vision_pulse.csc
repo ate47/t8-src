@@ -338,8 +338,8 @@ function function_f4ebfe85(localclientnum)
 		{
 			if(isdefined(enemy) && isalive(enemy) && util::function_fbce7263(enemy.team, self.team) && (isdefined(enemy.visionpulsereveal) && enemy.visionpulsereveal || (isdefined(enemy.var_f4f50357) && enemy.var_f4f50357)))
 			{
-				enemy function_5d482e78(#"hash_75f4d8048e6adb94");
-				enemy function_5d482e78(#"hash_62b3e8ea5469c2f5");
+				enemy stoprenderoverridebundle(#"hash_75f4d8048e6adb94");
+				enemy stoprenderoverridebundle(#"hash_62b3e8ea5469c2f5");
 				enemy function_9b51bc6(localclientnum, 0);
 				enemy notify(#"hash_4512d3339b669c7");
 			}
@@ -523,13 +523,13 @@ function watch_vision_pulse_owner_death(localclientnum)
 		owner waittill(#"death");
 	}
 	self notify(#"vision_pulse_owner_death");
-	self function_5d482e78(#"hash_75f4d8048e6adb94");
-	self function_5d482e78(#"hash_62b3e8ea5469c2f5");
+	self stoprenderoverridebundle(#"hash_75f4d8048e6adb94");
+	self stoprenderoverridebundle(#"hash_62b3e8ea5469c2f5");
 	self player::function_f2ba057();
 	if(self function_d2503806(#"hash_1978eff2ac047e65"))
 	{
 		self function_78233d29(#"hash_1978eff2ac047e65", "", #"brightness", 0);
-		self function_5d482e78(#"hash_1978eff2ac047e65");
+		self stoprenderoverridebundle(#"hash_1978eff2ac047e65");
 	}
 	level callback::callback(#"vision_pulse_off", localclientnum);
 	self.vision_pulse_owner = undefined;
@@ -551,11 +551,11 @@ function do_vision_local_pulse(localclientnum)
 	self notify(#"local_pulse");
 	self endon(#"startlocalpulse");
 	self thread watch_vision_pulse_owner_death(localclientnum);
-	self function_bf9d3071(#"hash_1978eff2ac047e65");
+	self playrenderoverridebundle(#"hash_1978eff2ac047e65");
 	origin = getrevealpulseorigin(localclientnum);
 	self function_78233d29(#"hash_1978eff2ac047e65", "", #"brightness", 1);
 	starttime = function_41f5de53(localclientnum);
-	var_21820cdc = level.var_2e3031be.var_b9951041;
+	revealtime = level.var_2e3031be.var_b9951041;
 	fadeout_duration = level.var_2e3031be.var_8e0b0827;
 	jammed = self clientfield::get("gps_jammer_active");
 	var_8ac8d61d = (isdefined(level.var_2e3031be.var_5be370e9) ? level.var_2e3031be.var_5be370e9 : 1);
@@ -564,7 +564,7 @@ function do_vision_local_pulse(localclientnum)
 	while(true)
 	{
 		elapsedtime = getservertime(localclientnum) - starttime;
-		if(elapsedtime >= var_21820cdc)
+		if(elapsedtime >= revealtime)
 		{
 			break;
 		}
@@ -593,7 +593,7 @@ function do_vision_local_pulse(localclientnum)
 		waitframe(1);
 	}
 	self function_78233d29(#"hash_1978eff2ac047e65", "", #"brightness", 0);
-	self function_5d482e78(#"hash_75f4d8048e6adb94");
+	self stoprenderoverridebundle(#"hash_75f4d8048e6adb94");
 	self notify(#"finished_local_pulse");
 	self function_9b51bc6(localclientnum, 0);
 	self.vision_pulse_owner = undefined;
@@ -777,7 +777,7 @@ function function_9e2a452e(localclientnum, robname)
 							self.var_1d0bc391 = 0;
 						}
 						self.var_1d0bc391++;
-						self function_5d482e78(robname);
+						self stoprenderoverridebundle(robname);
 						self function_9b51bc6(localclientnum, 0);
 					}
 				}
@@ -825,7 +825,7 @@ function set_reveal_enemy(localclientnum, on_off)
 			{
 				self function_9b51bc6(localclientnum, 1);
 				self player::function_f2ba057();
-				self function_bf9d3071(robname);
+				self playrenderoverridebundle(robname);
 				self thread function_9e2a452e(localclientnum, robname);
 			}
 			self function_78233d29(robname, "", "Alpha", 1);
@@ -838,8 +838,8 @@ function set_reveal_enemy(localclientnum, on_off)
 	}
 	else
 	{
-		self function_5d482e78(#"hash_75f4d8048e6adb94");
-		self function_5d482e78(#"hash_62b3e8ea5469c2f5");
+		self stoprenderoverridebundle(#"hash_75f4d8048e6adb94");
+		self stoprenderoverridebundle(#"hash_62b3e8ea5469c2f5");
 		self function_9b51bc6(localclientnum, 0);
 		self notify(#"hash_4512d3339b669c7");
 	}
@@ -868,7 +868,7 @@ function set_reveal_self(localclientnum, on_off)
 	{
 		if(self function_d2503806(#"hash_1978eff2ac047e65"))
 		{
-			self function_5d482e78(#"hash_1978eff2ac047e65");
+			self stoprenderoverridebundle(#"hash_1978eff2ac047e65");
 		}
 	}
 }

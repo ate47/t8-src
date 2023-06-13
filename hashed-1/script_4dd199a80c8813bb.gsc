@@ -54,7 +54,7 @@ function function_c0d2e1a2(localclientnum, oldval, newval, bnewent, binitialsnap
 		if(array::contains(a_e_players, e_player))
 		{
 			self thread function_cd5f9803(localclientnum);
-			self function_bf9d3071(#"hash_46a64e44ebfa3078");
+			self playrenderoverridebundle(#"hash_46a64e44ebfa3078");
 		}
 	}
 	else
@@ -77,7 +77,7 @@ function private function_cd5f9803(localclientnum)
 	self waittill(#"hash_5a7453176272efff", #"death");
 	if(isdefined(self))
 	{
-		self function_5d482e78(#"hash_46a64e44ebfa3078");
+		self stoprenderoverridebundle(#"hash_46a64e44ebfa3078");
 	}
 }
 

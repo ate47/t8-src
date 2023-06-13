@@ -275,8 +275,8 @@ function private function_93b89303(localclientnum)
 */
 function function_4fec33b5(clientnum, value)
 {
-	var_ff5f6756 = ("Clients." + clientnum) + ".hasCash";
-	var_45d5c75f = createuimodel(getglobaluimodel(), var_ff5f6756);
+	modelpath = ("Clients." + clientnum) + ".hasCash";
+	var_45d5c75f = createuimodel(getglobaluimodel(), modelpath);
 	setuimodelvalue(var_45d5c75f, value);
 }
 

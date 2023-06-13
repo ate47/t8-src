@@ -2580,9 +2580,9 @@ function function_e8c496dd(var_d479261a)
 		if(isdefined(var_e199fb8a.callingtask))
 		{
 			var_341c004b = undefined;
-			for(i = 0; i < var_314051a1.var_df270379.size; i++)
+			for(i = 0; i < var_314051a1.tasklist.size; i++)
 			{
-				if(var_314051a1.var_df270379[i].task == task.task)
+				if(var_314051a1.tasklist[i].task == task.task)
 				{
 					var_341c004b = i;
 					break;

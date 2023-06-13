@@ -136,7 +136,7 @@ function function_afce0cdb(spawn_loc)
 				patroller.zone = zone;
 				if(patroller.archetype === #"amws")
 				{
-					patroller.var_7672a5b9 = 1;
+					patroller.scan_turret = 1;
 					patroller.var_9b4a5686 = 1;
 					patroller.var_a8c60b0e = 1;
 				}
@@ -321,7 +321,7 @@ function function_f8e46115(node, oldgoalradius)
 		self.goalradius = 512;
 	}
 	self setgoal(node);
-	if(isdefined(self.var_7672a5b9) && self.var_7672a5b9)
+	if(isdefined(self.scan_turret) && self.scan_turret)
 	{
 		self turretsettargetangles(0, (0, self.angles[1], 0));
 	}
@@ -403,7 +403,7 @@ function function_b25a6169()
 		else
 		{
 			self.goalradius = goalradius;
-			if(isdefined(self.var_7672a5b9) && self.var_7672a5b9)
+			if(isdefined(self.scan_turret) && self.scan_turret)
 			{
 				if(randomint(100) > 50)
 				{

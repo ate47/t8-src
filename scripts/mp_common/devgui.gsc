@@ -241,7 +241,7 @@ function function_cb7cee87()
 			}
 			waitframe(1);
 		}
-		util::function_d84da933(player_devgui_base + "");
+		util::remove_devgui(player_devgui_base + "");
 		level thread function_42644f29();
 	#/
 }
@@ -1325,19 +1325,19 @@ function function_773432e2()
 		while(true)
 		{
 			wait(0.1);
-			var_aa8173e0 = getdvarint(#"hash_649ea18bd5e55893", -1);
+			actionid = getdvarint(#"hash_649ea18bd5e55893", -1);
 			var_97c83f66 = getdvarint(#"hash_6ad3f58a8e0a1e59", -1);
 			var_9721ecc = getdvarint(#"hash_4c63911d0d26443c", -1);
-			if(var_aa8173e0 == -1 && var_97c83f66 == -1 && var_9721ecc == -1)
+			if(actionid == -1 && var_97c83f66 == -1 && var_9721ecc == -1)
 			{
 				continue;
 			}
 			player = level.players[0];
 			if(isplayer(player))
 			{
-				if(var_aa8173e0 != -1)
+				if(actionid != -1)
 				{
-					player luinotifyevent(#"hash_468a2878939e8c64", 1, var_aa8173e0);
+					player luinotifyevent(#"hash_468a2878939e8c64", 1, actionid);
 				}
 				if(var_97c83f66 != -1)
 				{

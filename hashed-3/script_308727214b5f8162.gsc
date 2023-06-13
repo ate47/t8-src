@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -31,9 +31,9 @@
 */
 function init_shared()
 {
-	if(!isdefined(level.var_c5b27019))
+	if(!isdefined(level.qrdrone_shared))
 	{
-		level.var_c5b27019 = {};
+		level.qrdrone_shared = {};
 		remote_weapons::init_shared();
 		airsupport::init_shared();
 		level.qrdrone_vehicle = "qrdrone_mp";

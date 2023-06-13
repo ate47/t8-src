@@ -1520,17 +1520,17 @@ function function_c153d922(elephant, point, bonename)
 	/#
 		assert(isdefined(point) && isdefined(bonename));
 	#/
-	var_845efb9f = elephant gettagorigin(bonename);
-	if(distancesquared(var_845efb9f, point) <= (40 * 40))
+	weakpointpos = elephant gettagorigin(bonename);
+	if(distancesquared(weakpointpos, point) <= (40 * 40))
 	{
 		/#
 			recordsphere(point, 4, (0, 1, 0), "");
 		#/
 		/#
-			recordsphere(var_845efb9f, 4, (0, 0, 1), "");
+			recordsphere(weakpointpos, 4, (0, 0, 1), "");
 		#/
 		/#
-			recordline(var_845efb9f, point, (0, 0, 1), "");
+			recordline(weakpointpos, point, (0, 0, 1), "");
 		#/
 		return true;
 	}
@@ -1538,10 +1538,10 @@ function function_c153d922(elephant, point, bonename)
 		recordsphere(point, 4, (1, 0, 0), "");
 	#/
 	/#
-		recordsphere(var_845efb9f, 4, (0, 0, 1), "");
+		recordsphere(weakpointpos, 4, (0, 0, 1), "");
 	#/
 	/#
-		recordline(var_845efb9f, point, (0, 0, 1), "");
+		recordline(weakpointpos, point, (0, 0, 1), "");
 	#/
 	return false;
 }

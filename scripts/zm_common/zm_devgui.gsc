@@ -183,7 +183,7 @@ function function_5ac8947e()
 			}
 			if(strstartswith(cmd, ""))
 			{
-				str = function_ea13f55(cmd, "", "");
+				str = strreplace(cmd, "", "");
 				score = int(str);
 				players = getplayers();
 				foreach(player in players)
@@ -284,7 +284,7 @@ function private function_2f5772bf(cmd)
 			direction_vec = (direction_vec[0] * 8000, direction_vec[1] * 8000, direction_vec[2] * 8000);
 			trace = bullettrace(eye, eye + direction_vec, 0, undefined);
 			ai = undefined;
-			ai_info = function_ea13f55(cmd, "", "");
+			ai_info = strreplace(cmd, "", "");
 			ai_info = strtok(ai_info, "");
 			aitype = ai_info[0];
 			if(ai_info.size > 1)
@@ -2815,7 +2815,7 @@ function zombie_devgui_think()
 					robotsupportsovercover_manager_();
 					break;
 				}
-				case "hash_60d495ce6f76305":
+				case "debug_counts":
 				{
 					function_92523b12();
 					break;
@@ -5848,7 +5848,7 @@ function wait_for_zombie(crawler)
 			{
 				foreach(node in nodes)
 				{
-					if(node.type == #"begin" || node.type == #"end" || node.type == #"hash_397b1509f632dd34")
+					if(node.type == #"begin" || node.type == #"end" || node.type == #"bad node")
 					{
 						if(isdefined(node.animscript))
 						{
@@ -6309,7 +6309,7 @@ function function_3a5618f8()
 {
 	/#
 		self endon(#"hash_63ae1cb168b8e0d7");
-		setdvar(#"hash_260e48dce2c9ae6c", 1);
+		setdvar(#"cg_drawscriptusage", 1);
 		var_a6f3b62c = getdvarint(#"hash_1e8ebf0a767981dd", 0);
 		timescale = getdvarint(#"hash_7438b7c847f3c0", 0);
 		var_59ed21fc = function_29dcbd58();

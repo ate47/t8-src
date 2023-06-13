@@ -152,7 +152,7 @@ function function_e3abcf2()
 	Parameters: 1
 	Flags: Linked
 */
-function function_4ac25840(var_d32e67b4)
+function function_4ac25840(dead_team)
 {
 	if(isdefined(level.var_7733b33f) && level.var_7733b33f)
 	{

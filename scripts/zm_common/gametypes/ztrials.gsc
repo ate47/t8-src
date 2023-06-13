@@ -340,7 +340,7 @@ function private function_1201b5da(medal)
 				round = 20;
 				break;
 			}
-			case "hash_5a4a42ab8880ab1":
+			case "bronze":
 			{
 				round = 10;
 				break;

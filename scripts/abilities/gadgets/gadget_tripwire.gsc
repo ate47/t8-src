@@ -202,7 +202,7 @@ function function_9366bdf9(tripwire, owner)
 	{
 		return;
 	}
-	enemyplayers = owner function_bdda420f(tripwire.origin, [[level.var_ac6052e9]]("tripwireThreatRadius", 500));
+	enemyplayers = owner getenemiesinradius(tripwire.origin, [[level.var_ac6052e9]]("tripwireThreatRadius", 500));
 	foreach(enemy in enemyplayers)
 	{
 		if(!isplayer(enemy))

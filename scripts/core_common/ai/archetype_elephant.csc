@@ -40,7 +40,7 @@ function autoexec init()
 */
 function private function_4c731a08(localclientnum)
 {
-	self function_bf9d3071("rob_zm_eyes_red");
+	self playrenderoverridebundle("rob_zm_eyes_red");
 }
 
 /*
@@ -84,12 +84,12 @@ function function_e1fb79d0(var_99c2529a, oldval, newval, bnewent, binitialsnap, 
 {
 	if(newval == 1)
 	{
-		self function_5d482e78("rob_zm_eyes_red");
-		self function_bf9d3071(#"hash_782edffb9e72130");
+		self stoprenderoverridebundle("rob_zm_eyes_red");
+		self playrenderoverridebundle(#"hash_782edffb9e72130");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_782edffb9e72130");
+		self stoprenderoverridebundle(#"hash_782edffb9e72130");
 	}
 }
 

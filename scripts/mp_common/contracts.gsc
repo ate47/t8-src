@@ -292,7 +292,7 @@ function function_71eb8a5a(weapon)
 	{
 		player function_a54e2068(#"hash_6b52fb637a3c29cb");
 	}
-	else if(weapon.var_b76e0a09)
+	else if(weapon.issignatureweapon)
 	{
 		player function_a54e2068(#"hash_31a6484e36a0a20f");
 	}

@@ -611,9 +611,9 @@ function function_e9768f1f()
 	Parameters: 2
 	Flags: None
 */
-function function_e32cc1a7(var_8c7a21ea, var_7dc08477)
+function function_e32cc1a7(data1, data2)
 {
-	return var_8c7a21ea.script_noteworthy == "head";
+	return data1.script_noteworthy == "head";
 }
 
 /*
@@ -625,9 +625,9 @@ function function_e32cc1a7(var_8c7a21ea, var_7dc08477)
 	Parameters: 2
 	Flags: None
 */
-function function_a292531e(var_8c7a21ea, var_7dc08477)
+function function_a292531e(data1, data2)
 {
-	return var_8c7a21ea.script_noteworthy == "body";
+	return data1.script_noteworthy == "body";
 }
 
 /*

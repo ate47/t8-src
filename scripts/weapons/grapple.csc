@@ -73,7 +73,7 @@ function function_664d0a50(localclientnum)
 	self endon("16bdee31b75b050b");
 	player = self;
 	var_e413b7c3 = undefined;
-	var_e562bc9b = undefined;
+	invalidhandle = undefined;
 	while(isdefined(player))
 	{
 		var_6e521a44 = function_15f112c3(localclientnum);
@@ -81,16 +81,16 @@ function function_664d0a50(localclientnum)
 		{
 			if(var_6e521a44 && !isdefined(var_e413b7c3))
 			{
-				if(isdefined(var_e562bc9b))
+				if(isdefined(invalidhandle))
 				{
-					killfx(localclientnum, var_e562bc9b);
+					killfx(localclientnum, invalidhandle);
 					player notify("grapple_light_done_watch" + "invalid");
-					var_e562bc9b = undefined;
+					invalidhandle = undefined;
 				}
 				var_e413b7c3 = playviewmodelfx(localclientnum, #"hash_2a3978ae302f2faf", "tag_fx1", 0);
 				thread grapple_light_watch_end(localclientnum, var_e413b7c3, "valid");
 			}
-			else if(!var_6e521a44 && !isdefined(var_e562bc9b))
+			else if(!var_6e521a44 && !isdefined(invalidhandle))
 			{
 				if(isdefined(var_e413b7c3))
 				{
@@ -98,16 +98,16 @@ function function_664d0a50(localclientnum)
 					player notify("grapple_light_done_watch" + "valid");
 					var_e413b7c3 = undefined;
 				}
-				var_e562bc9b = playviewmodelfx(localclientnum, #"hash_39ed4a0ecba806a2", "tag_fx1", 0);
-				thread grapple_light_watch_end(localclientnum, var_e562bc9b, "invalid");
+				invalidhandle = playviewmodelfx(localclientnum, #"hash_39ed4a0ecba806a2", "tag_fx1", 0);
+				thread grapple_light_watch_end(localclientnum, invalidhandle, "invalid");
 			}
 		}
 		else
 		{
-			if(isdefined(var_e562bc9b))
+			if(isdefined(invalidhandle))
 			{
-				killfx(localclientnum, var_e562bc9b);
-				var_e562bc9b = undefined;
+				killfx(localclientnum, invalidhandle);
+				invalidhandle = undefined;
 			}
 			if(isdefined(var_e413b7c3))
 			{

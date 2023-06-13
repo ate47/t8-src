@@ -107,9 +107,9 @@ function pulse_end()
 	if(isdefined(self))
 	{
 		shutdownpulserebootindicatormenu();
-		if(isdefined(level.var_707cab08.enemyempactivefunc))
+		if(isdefined(level.emp_shared.enemyempactivefunc))
 		{
-			if(self [[level.var_707cab08.enemyempactivefunc]]())
+			if(self [[level.emp_shared.enemyempactivefunc]]())
 			{
 				return;
 			}

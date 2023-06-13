@@ -616,7 +616,7 @@ function aoe_friendlies(weapon, aoe)
 		{
 			frac = 1;
 		}
-		radius = settings.var_575dfe5;
+		radius = settings.cleanseradius;
 		aoe_applied = 0;
 		if(isdefined(self) && isdefined(self.origin))
 		{
@@ -693,7 +693,7 @@ function aoe_trace_entity(entity, origin, trace_z_offset)
 */
 function is_hero_weapon(gadgetweapon)
 {
-	if(gadgetweapon.isheavyweapon || gadgetweapon.var_b76e0a09 && gadgetweapon.gadget_type == 11)
+	if(gadgetweapon.isheavyweapon || gadgetweapon.issignatureweapon && gadgetweapon.gadget_type == 11)
 	{
 		return true;
 	}

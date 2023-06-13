@@ -185,7 +185,7 @@ function function_1c4b5097(item)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4ac25840(var_d32e67b4)
+function function_4ac25840(dead_team)
 {
 	if(isdefined(level.var_34983012) && level.var_34983012)
 	{
