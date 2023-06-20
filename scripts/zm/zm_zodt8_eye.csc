@@ -6,11 +6,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_48d025ef;
+#namespace zodt8_boss;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x9B50718B
 	Offset: 0x348
 	Size: 0x3C
@@ -19,12 +19,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_77bec2ab64ee4676", &__init__, undefined, undefined);
+	system::register(#"zodt8_boss", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x59014363
 	Offset: 0x390
 	Size: 0x24
@@ -39,7 +39,7 @@ function __init__()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xD0DCF7
 	Offset: 0x3C0
 	Size: 0x6C4
@@ -76,7 +76,7 @@ function init_clientfields()
 
 /*
 	Name: init_fx
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x93DED1B
 	Offset: 0xA90
 	Size: 0x722
@@ -127,7 +127,7 @@ function init_fx()
 
 /*
 	Name: function_1af2e865
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x20F96F5A
 	Offset: 0x11C0
 	Size: 0x168
@@ -158,7 +158,7 @@ function function_1af2e865(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_27b6baf4
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x8CA0107C
 	Offset: 0x1330
 	Size: 0x168
@@ -189,7 +189,7 @@ function function_27b6baf4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_8df08eef
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xD948E8F
 	Offset: 0x14A0
 	Size: 0x168
@@ -220,7 +220,7 @@ function function_8df08eef(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: quad_stage_roof_break
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x1BC1BEE5
 	Offset: 0x1610
 	Size: 0x168
@@ -251,7 +251,7 @@ function quad_stage_roof_break(localclientnum, oldval, newval, bnewent, binitial
 
 /*
 	Name: function_cfa8ca16
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xE2A0E33F
 	Offset: 0x1780
 	Size: 0xCA
@@ -282,7 +282,7 @@ function function_cfa8ca16(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_2944b5ce
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xE44A1696
 	Offset: 0x1858
 	Size: 0x3BC
@@ -357,7 +357,7 @@ function function_2944b5ce(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9732f718
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xA8638A3E
 	Offset: 0x1C20
 	Size: 0x3FC
@@ -435,7 +435,7 @@ function function_9732f718(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3feb7449
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xADEC9B6C
 	Offset: 0x2028
 	Size: 0x43A
@@ -508,7 +508,7 @@ function function_3feb7449(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f0174fdc
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xA622943B
 	Offset: 0x2470
 	Size: 0x74
@@ -522,7 +522,7 @@ function function_f0174fdc(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_52672d29
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xF7EA37E9
 	Offset: 0x24F0
 	Size: 0x4DC
@@ -655,7 +655,7 @@ function function_52672d29(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f0b8ee2e
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x2667037A
 	Offset: 0x29D8
 	Size: 0x1DE
@@ -698,7 +698,7 @@ function function_f0b8ee2e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_64884362
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xE5AF00
 	Offset: 0x2BC0
 	Size: 0x11E
@@ -729,7 +729,7 @@ function function_64884362(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_2c4b4a11
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x81951508
 	Offset: 0x2CE8
 	Size: 0x5A
@@ -746,7 +746,7 @@ function function_2c4b4a11(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_bf5b47d7
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x17E6E3DF
 	Offset: 0x2D50
 	Size: 0x74
@@ -764,7 +764,7 @@ function function_bf5b47d7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f5116ee2
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x5CB16155
 	Offset: 0x2DD0
 	Size: 0xBE
@@ -786,7 +786,7 @@ function function_f5116ee2(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_8c5b87a7
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xDC587D2F
 	Offset: 0x2E98
 	Size: 0x17E
@@ -811,7 +811,7 @@ function function_8c5b87a7(localclientnum)
 
 /*
 	Name: function_e8a1c9e1
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x29215A70
 	Offset: 0x3020
 	Size: 0x1C
@@ -826,7 +826,7 @@ function function_e8a1c9e1()
 
 /*
 	Name: function_c6932c3b
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x6A04AD2E
 	Offset: 0x3048
 	Size: 0x88
@@ -847,7 +847,7 @@ function function_c6932c3b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e8071e64
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x12365B35
 	Offset: 0x30D8
 	Size: 0x304
@@ -896,7 +896,7 @@ function function_e8071e64(localclientnum)
 
 /*
 	Name: function_a96b063f
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x9A8EDED
 	Offset: 0x33E8
 	Size: 0x74
@@ -915,7 +915,7 @@ function function_a96b063f()
 
 /*
 	Name: function_da0759d0
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x169E17CC
 	Offset: 0x3468
 	Size: 0x86
@@ -935,7 +935,7 @@ function function_da0759d0()
 
 /*
 	Name: function_25d9319
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x7DDA8F21
 	Offset: 0x34F8
 	Size: 0x72
@@ -955,7 +955,7 @@ function function_25d9319(var_49a313db)
 
 /*
 	Name: function_ff52ba5a
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xFFC7FC78
 	Offset: 0x3578
 	Size: 0xE4
@@ -977,7 +977,7 @@ function function_ff52ba5a(localclientnum)
 
 /*
 	Name: function_2585c107
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xBCBC36A6
 	Offset: 0x3668
 	Size: 0x150
@@ -1005,7 +1005,7 @@ function function_2585c107()
 
 /*
 	Name: function_1c341163
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x63019575
 	Offset: 0x37C0
 	Size: 0x7E
@@ -1025,7 +1025,7 @@ function function_1c341163(localclientnum)
 
 /*
 	Name: function_dac3a61d
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x1104CB8F
 	Offset: 0x3848
 	Size: 0xD6
@@ -1050,7 +1050,7 @@ function function_dac3a61d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e1af20d7
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x8BE25FF1
 	Offset: 0x3928
 	Size: 0x1C4
@@ -1087,7 +1087,7 @@ function function_e1af20d7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_eb5c7406
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xA508723D
 	Offset: 0x3AF8
 	Size: 0x136
@@ -1118,7 +1118,7 @@ function function_eb5c7406(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_50703d72
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x5282A9B6
 	Offset: 0x3C38
 	Size: 0xBE
@@ -1140,7 +1140,7 @@ function function_50703d72(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_218857fd
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0xD946EB5D
 	Offset: 0x3D00
 	Size: 0x62
@@ -1161,7 +1161,7 @@ function function_218857fd(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b415e676
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x49B2E7DC
 	Offset: 0x3D70
 	Size: 0x7C
@@ -1182,7 +1182,7 @@ function function_b415e676(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e3c6c272
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x590DA998
 	Offset: 0x3DF8
 	Size: 0x124
@@ -1214,7 +1214,7 @@ function function_e3c6c272(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ae2a3a29
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x1AB95E81
 	Offset: 0x3F28
 	Size: 0x118
@@ -1244,7 +1244,7 @@ function function_ae2a3a29(localclientnum)
 
 /*
 	Name: boss_player_snow_fx
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x3ED768D8
 	Offset: 0x4048
 	Size: 0x18C
@@ -1292,7 +1292,7 @@ function boss_player_snow_fx(localclientnum, oldval, newval, bnewent, binitialsn
 
 /*
 	Name: function_7f21fc5b
-	Namespace: namespace_48d025ef
+	Namespace: zodt8_boss
 	Checksum: 0x9687A090
 	Offset: 0x41E0
 	Size: 0xE0

@@ -4,9 +4,9 @@
 #using scripts\zm\zm_orange_pap.gsc;
 #using script_39e954a546d3baf;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm\zm_orange_special_rounds.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm\zm_orange_ee_dynamite.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm\zm_orange_lighthouse.gsc;
@@ -74,18 +74,18 @@ function init_level_vars()
 	level.var_ecdf38f = 12;
 	level.var_55e562f9 = 18;
 	level.zombie_hints[#"default_treasure_chest"] = #"hash_57a34375dddce337";
-	level thread function_ca35fa36();
+	level thread defend_areas();
 	level thread function_9217567c();
 	level thread init_traps();
 	level thread function_f436d901();
-	namespace_c3287616::function_2876740e(#"zombie_dog", &function_c7e2bbe2);
-	namespace_c3287616::function_2876740e(#"zombie_electric", &function_ae7c2601);
+	zm_round_spawning::function_2876740e(#"zombie_dog", &function_c7e2bbe2);
+	zm_round_spawning::function_2876740e(#"zombie_electric", &function_ae7c2601);
 	zm_utility::function_2959a3cb(#"zombie_dog", &function_126999be);
 	zm_utility::function_2959a3cb(#"zombie_electric", &function_7b3abf7b);
 }
 
 /*
-	Name: function_ca35fa36
+	Name: defend_areas
 	Namespace: zm_orange_zstandard
 	Checksum: 0xF2106481
 	Offset: 0xCD8
@@ -93,7 +93,7 @@ function init_level_vars()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ca35fa36()
+function defend_areas()
 {
 	level endon(#"end_game");
 	function_84139b27();
@@ -156,7 +156,7 @@ function function_ca35fa36()
 	}
 	level zm_utility::open_door(var_420e4589, undefined, undefined, 1);
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
-	namespace_c3287616::function_306ce518(#"zombie_dog", &intro_zombie_dog);
+	zm_round_spawning::function_306ce518(#"zombie_dog", &intro_zombie_dog);
 	level thread function_b4cae8b9();
 	util::delay(4, undefined, &zm_utility::function_11101458, var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
@@ -166,7 +166,7 @@ function function_ca35fa36()
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_f79ff5ec = #"sundeck";
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
-	level.var_a385f14 notify(#"hash_77af4c847e66b4ca");
+	level.var_a385f14 notify(#"force_extinguisher");
 	zm_orange_lighthouse::function_602d605();
 	level flag::set(#"hash_5a3d0402a5557739");
 	foreach(e_pap in level.var_4d8e32c8)
@@ -195,7 +195,7 @@ function function_ca35fa36()
 	level zm_utility::open_door(var_420e4589, undefined, undefined, 1);
 	level flag::set("sun_deck_to_bridge");
 	level flag::set("gangway_points");
-	namespace_c3287616::function_306ce518(#"zombie_electric", &intro_electric_zombie);
+	zm_round_spawning::function_306ce518(#"zombie_electric", &intro_electric_zombie);
 	level thread function_6091b49b();
 	util::delay(4, undefined, &zm_utility::function_11101458, var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
@@ -206,7 +206,7 @@ function function_ca35fa36()
 	level flag::set(#"hash_7d9f8ec3cb9af87e");
 	level flag::clear("fasttravel_disabled");
 	level flag::set("ship_flinger_fixed");
-	level flag::set(#"hash_24952374a6e863b8");
+	level flag::set(#"facility_available");
 	level flag::set("facility_points");
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	if(math::cointoss())
@@ -397,7 +397,7 @@ function intro_zombie_dog(n_round_number)
 function function_b4cae8b9()
 {
 	level flag::wait_till("started_defend_area");
-	util::delay(15, "end_game", &namespace_c3287616::function_376e51ef, #"zombie_dog");
+	util::delay(15, "end_game", &zm_round_spawning::function_376e51ef, #"zombie_dog");
 }
 
 /*
@@ -437,7 +437,7 @@ function intro_electric_zombie(n_round_number)
 function function_6091b49b()
 {
 	level flag::wait_till("started_defend_area");
-	util::delay(15, "end_game", &namespace_c3287616::function_376e51ef, #"zombie_electric");
+	util::delay(15, "end_game", &zm_round_spawning::function_376e51ef, #"zombie_electric");
 }
 
 /*
@@ -691,7 +691,7 @@ function function_f436d901()
 function registerlast_truck_headshot_()
 {
 	level zm_utility::function_7a35b1d7(#"hash_56917185158b9df4");
-	level thread zm_audio::sndannouncerplayvox(#"hash_435dce8984528996", undefined, undefined, undefined, 1);
+	level thread zm_audio::sndannouncerplayvox(#"pap_avail", undefined, undefined, undefined, 1);
 }
 
 /*

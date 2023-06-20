@@ -34,7 +34,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_148571995bbd7ec1", &on_begin, &on_end);
+	zm_trial::register_challenge(#"force_archetypes", &on_begin, &on_end);
 }
 
 /*
@@ -81,7 +81,7 @@ function private on_end(round_reset)
 */
 function function_ff2a74e7(archetype)
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_148571995bbd7ec1");
+	challenge = zm_trial::function_a36e8c38(#"force_archetypes");
 	if(!isdefined(challenge))
 	{
 		return 0;

@@ -32,7 +32,7 @@ function init()
 */
 function init_clientfield()
 {
-	clientfield::register("world", "" + #"hash_3fcd3bbe36f86e4b", 1, 1, "counter", &function_5cb90582, 0, 0);
+	clientfield::register("world", "" + #"lightning_far", 1, 1, "counter", &function_5cb90582, 0, 0);
 	clientfield::register("scriptmover", "" + #"lightning_near", 1, 1, "counter", &lightning_near_fx, 0, 0);
 }
 

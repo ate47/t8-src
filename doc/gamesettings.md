@@ -68,6 +68,7 @@ In zombies, the `zm_custom::function_901b751c(setting)` can be used to find sett
 ### General
 
 - `"drafttime"` - time to select specialist
+- `"laststandrevivetime"` - time to revive a player
 
 ## Blackout (Warzone/wz)
 
@@ -82,28 +83,30 @@ In zombies, the `zm_custom::function_901b751c(setting)` can be used to find sett
 - `"hash_11b79ec2ffb886c8"` - wz_escape nixie tube EE
 - `"hash_30b11d064f146fcc"` - wz_escape spoon EE
 - `"hash_473fee16f796c84e"` - wz_escape fishing EE
+- `"hash_701bac755292fab2"` - wz_escape spawn Icarus
 - `"hash_697d65a68cc6c6f1"` - wz_escape enable enable some ee (nixie, spoon, icarus)
 - `"hash_6fbf57e2af153e5f"` - spawn homunculus
 - `"hash_53b5887dea69a320"` - enable spring homunculus
+- `"laststandrevivetime"` - time to revive a player
 
 ### XP
 
-- `"hash_271f60ded9c53d99"` - xp per kill
-- `"hash_788f9d764901a139"` - xp per win
-- `"hash_678c85f6f120d34b"` - xp per top 5
-- `"hash_14a8959bbad2b045"` - xp per top 10
-- `"hash_14a8909bbad2a7c6"` - xp per top 15
-- `"hash_14ac1b9bbad5c9ce"` - xp per top 20
-- `"hash_14ac209bbad5d24d"` - xp per top 25
-- `"hash_14af219bbad809d7"` - xp per top 30
-- `"hash_149b1d9bbac75a01"` - xp per top 50
-- `"hash_149e239bbac99a0a"` - xp per top 60
-- `"hash_14a18c9bbacc824c"` - xp per top 75
-- `"hash_64e698c86ac94f34"` - xp per remaining lives (respawn modes)
-- `"hash_6beb27cc6f581f2d"` - xp per kill while infected (pandemic)
+- `"wzmeritkill"` - xp per kill
+- `"wzmeritwin"` - xp per win
+- `"wzmerittop5"` - xp per top 5
+- `"wzmerittop10"` - xp per top 10
+- `"wzmerittop15"` - xp per top 15
+- `"wzmerittop20"` - xp per top 20
+- `"wzmerittop25"` - xp per top 25
+- `"wzmerittop30"` - xp per top 30
+- `"wzmerittop50"` - xp per top 50
+- `"wzmerittop60"` - xp per top 60
+- `"wzmerittop75"` - xp per top 75
+- `"wzmeritlives"` - xp per remaining lives (respawn modes)
+- `"wzmeritinfectedkill"` - xp per kill while infected (pandemic)
 - `"hash_5596ee09efc44216"` - xp per kill of non infected player (pandemic)
 - `"hash_6551049476c7127c"` - xp per kill of infected player (pandemic)
-- `"hash_709b7e506f5d3775"` - xp per infected win (pandemic)
+- `"wzmeritinfectedwin"` - xp per infected win (pandemic)
 
 ### Characters
 
@@ -162,6 +165,7 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 - `"wzhardcore"` - Is WZ Hardcore mode (true|false)
 - `"wzzombieapocalypse"` - Is WZ Pandemic mode (true|false)
 - `"wzambush"` - Is WZ Ambush mode (true|false)
+- `"wzwetworks"` - Is WZ Wetworks event (only affect vehicle spewn) (true|false)
 
 ### Item spawn
 
@@ -278,7 +282,7 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 #### Equipment and gadgets
 
 - `"hash_33d1ac5e99fb0584"` - Spawn water balloon, can't be used with `"hash_3e2d2cf6b1cc6c68"`
-- `"hash_437b759bd6885560"` - Spawn snowballs
+- `"wzsnowballsenabled"` - Spawn snowballs
 - `"wzenablehomunculus"` - Enable Homunculus
 - `"wzenablecymbalmonkey"` - Enable Monkey bomb
 - `"wzenabletrophysystem"` - Enable Trophy system
@@ -294,11 +298,11 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenableconcussiongrenade"` - Enable concussion grenade
 - `"wzenablerazorwire"` - Enable razor wire
 - `"wzenablesensordart"` - Enable sensor dart
+- `"wzenablebarricade"` Enable barricade
+- `"wzenabletrophysystem"` Enable trophy
 - `"hash_7c6aa297d67f94c1"` Enable unknown equipment
 - `"hash_2e25d475b271a700"` Enable unknown equipment
 - `"hash_2fa72a7ec2d86741"` Enable unknown equipment
-- `"hash_565cb574e1da9e2a"` Enable unknown equipment
-- `"hash_7d2d9c6d8d1efde4"` Enable unknown equipment
 - `"hash_20787bdeafae5592"` Enable unknown equipment
 - `"hash_16f10373ec8e6906"` Enable unknown equipment
 #### Perks
@@ -330,11 +334,11 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablelasersight"` - Enable laser sight
 - `"wzenablesniperscope"` - Enable sniper scope
 - `"wzenablesuppressor"` Enable suppressor
+- `"wzenableextbarrel"` Enable extended barrel
 - `"hash_230f75891223e1f5"` Enable attachment unknown
 - `"hash_76563462cf31f5c"` Enable attachment unknown
-- `"hash_62181bb12898aef6"` Enable attachment unknown
 - `"hash_daba3be8725aaab"` Enable attachment unknown
-- `"hash_34f53d28a9bbfae9"` Enable attachment unknown
+- `"wzenableforegrip"` Enable foregrip
 - `"hash_1b28296927171330"` Enable attachment unknown
 
 ### Vehicle spawn
@@ -353,15 +357,18 @@ the logic behide the vehicle list spawn are in the [`script_5e3ebac930c54131.gsc
 
 ### Zombies
 
+- `"wzzombiesmaxcount"` - Count of zombies
+- `"wzspawnspecial` - spawn special AI
 - `"wzzombies"` - Spawn zombies (true|false)
+- `"wzgreeneyes"` - Set the zombies' eyes to be green (🇮🇪)
 
 You can set which type of zombies can spawn
 
-- `hash_36c4caf5bc327807` and `wzbrutus` - spawn brutus
-- `hash_64b6849360a2bc86` and `hash_2f1217d530d06c4c` - spawn brutus boss
-- `hash_29a8b0865154e079` and `wzavogadro` - spawn avogadro (with health set to 150, I suggest using a `spawner::add_archetype_spawn_function` gsc script to set its life to 6000 (brutus' health))
-- `hash_7dd54269f48d6047` and `wzblightfather` - spawn blight father only for the core map **(bugged, will crash the game)**
-- `hash_530fdf750e69c0d6` and `hash_6c65796bd239e3c` - **spawn dogs (bugged, will spawn brutus boss)**
+- `wzbrutuseverywhere` and `wzbrutus` - spawn brutus
+- `wzbrutuslargeeverywhere` and `wzbrutuslarge` - spawn brutus boss
+- `wzavogadroeverywhere` and `wzavogadro` - spawn avogadro (with health set to 150, I suggest using a `spawner::add_archetype_spawn_function` gsc script to set its life to 6000 (brutus' health))
+- `wzblightfatherseverywhere` and `wzblightfather` - spawn blight father only for the core map **(bugged, will crash the game)**
+- `wzhellhoundseverywhere` and `wzhellhounds` - **spawn dogs (bugged, will spawn brutus boss)**
 
 ## Zombies (zm)
 
@@ -372,12 +379,12 @@ You can set which type of zombies can spawn
   - 1 = normal
   - 2 = hard
   - 3 = insane
-- `"hash_7b14ee93b27576a9"` - Set the zombies' min speed
+- `"zmzombieminspeed"` - Set the zombies' min speed
   - 0 = walk
   - 1 = run
   - 2 = sprint
   - 3 = super sprint
-- `"hash_58af4e73782aba2f"` - Set the zombies' max speed
+- `"zmzombiemaxspeed"` - Set the zombies' max speed
   - 0 = walk
   - 1 = run
   - 2 = sprint
@@ -385,39 +392,37 @@ You can set which type of zombies can spawn
 - `"zmtrialsvariant"` - Variant of a trials (gauntlet), default = 0, hard = 1
 - `"waverespawndelay"` - respawn wave delay (seconds)
 - `"magic"` - enable magic
-- `"hash_4cb15aed177a8ef5"` and `"headshotsonly"` - headshots only
+- `"zmheadshotsonly"` and `"headshotsonly"` - headshots only
 - `"startround"` - Start round
 - `"zmroundcap"` - Max round
 - `"zmtimecap"` - Max time (minutes?)
-- `"zmpowerupsactive"` - Allow powerups
-- `"hash_137eb8d53913f781"` - Allow elixirs
-  - `"hash_3ab7cedcfef7eacc"` - Allow elixir type 1
-  - `"hash_5374d50efd1e6b59"` - Allow elixir type 2
-  - `"hash_5e1f08b8335a0ce0"` - Allow elixir type 3
-  - `"hash_7ea1426ffa93f34d"` - Allow elixir type 4
-  - `"hash_5746674cbab8264d"` - Allow elixir type 5
-- `"hash_3d18f84f48bd5d1f"` - Allow perks
-- `"hash_4b16b22d8a0d3301"` - Allow traps
-- `"hash_2a5dc43e6de87347"` - Highlight craftables items
-- `"hash_3386caa315211c88"` - no repair
-- `"hash_3ddb6198e7837062"` - decay the perks
-- `"hash_3d18f84f48bd5d1f"` - allow magic
-- `"hash_3f8f02e8109b6e93"` - allow friendly fire
+- `"zmtrapsenabled"` - Allow traps
+- `"zmcraftingkeyline"` - Highlight craftables items
+- `"zmbarricadestate"` - no repair
+- `"zmperkdecay"` - decay the perks
+- `"zmfriendlyfiretype"` - allow friendly fire
 - `"hash_57a5c7a9dcf94d61"` - allow AATs
-- `"hash_589c0366b1458c7e"` - allow loadouts
+- `"zmretainweapons"` - allow loadouts
 - `"hash_1fed0d9afc0b0040"` - points percentage lost per down
 - `"hash_1158d006a3913ef6"` - points percentage lost per death
-- `"hash_b066c34278e6394"` - allow hero weapon
+- `"zmspecweaponisenabled"` - allow hero weapon
+- `zmdoorstate` - door state, 0 = nothing, 1 = base, 2 = power
+- `zmshowtimer` - show game timer
 
 ### Entities
 
 - `"zmminibossstate"` - allow miniboss entity
 - `"zmheavystate"` - allow heavy entity
-- `"hash_5f8aca8340761fce"` - allow dog/tiger entity
+- `"zmpopcornstate"` - allow dog/tiger entity
 - `"zmenhancedstate"` - allow enhanced entity
 
 ### Powerups
 
+- `"zmpowerupsactive"` - Allow powerups
+
+Then you can config by powerup:
+
+- `"zmperksactive"` - Allow perks
 - `"zmpowerupnuke"` - allow powerup nuke
 - `"zmpowerupdouble"` - allow powerup double
 - `"zmpowerupinstakill"` - allow powerup instakill
@@ -429,6 +434,18 @@ You can set which type of zombies can spawn
 - `"zmpowerupcarpenter"` - allow powerup carpenter
 
 ### Elixir
+
+- `"zmelixirsenabled"` - Allow elixirs
+
+Then you can config by category:
+
+- `"hash_3ab7cedcfef7eacc"` - Allow elixir default
+- `"zmelixirscommon"` - Allow elixir type common
+- `"zmelixirsrare"` - Allow elixir type rare
+- `"zmelixirslegendary"` - Allow elixir legendary
+- `"zmelixirsepic"` - Allow elixir type epic
+
+Or by elixir:
 
 - `"zmelixiraftertaste"` allow elixir aftertaste
 - `"zmelixiralchemicalantithesis"` allow elixir alchemicalantithesis
@@ -458,16 +475,17 @@ You can set which type of zombies can spawn
 - `"zmelixirlicensedcontractor"` allow elixir licensedcontractor
 - `"zmelixirneardeathexperience"` allow elixir neardeathexperience
 - `"zmelixirnewtoniannegation"` allow elixir newtoniannegation
-- `"zmelixirnowyouseeme"` allow elixir nowyouseeme
 - `"zmelixirnowherebutthere"` allow elixir nowherebutthere
-- `"zmelixirperkup"` allow elixir perkup
+- `"zmelixirnowyouseeme"` allow elixir nowyouseeme
 - `"zmelixirperkaholic"` allow elixir perkaholic
+- `"zmelixirperkup"` allow elixir perkup
 - `"zmelixirphantomreload"` allow elixir phantomreload
 - `"zmelixirphoenixup"` allow elixir phoenixup
 - `"zmelixirpointdrops"` allow elixir pointdrops
 - `"zmelixirpopshocks"` allow elixir popshocks
 - `"zmelixirpowerkeg"` allow elixir powerkeg
 - `"zmelixirpowervacuum"` allow elixir powervacuum
+- `"zmelixirquacknarok"` allow elixir quacknarok
 - `"zmelixirrefreshmint"` allow elixir refreshmint
 - `"zmelixirreigndrops"` allow elixir reigndrops
 - `"zmelixirsecretshopper"` allow elixir secretshopper
@@ -483,24 +501,74 @@ You can set which type of zombies can spawn
 - `"zmelixirwallpower"` allow elixir wallpower
 - `"zmelixirwhoskeepingscore"` allow elixir whoskeepingscore
 
+### Talismans
+
+- `"zmtalismansenabled"` - Allow elixirs
+
+
+Then you can config by category:
+
+- `"zmtalismanscommon"` - Allow elixir type common
+- `"zmtalismansrare"` - Allow elixir type rare
+- `"zmtalismanslegendary"` - Allow elixir legendary
+- `"zmtalismansepic"` - Allow elixir type epic
+- `"zmtalismansultra"` - Allow elixir type ultra
+
+Or by talisman:
+
+- `"zmtalismanboxguaranteeboxonly"` allow talisman box guarantee box only
+- `"zmtalismanboxguaranteelmg"` allow talisman box guarantee lmg
+- `"zmtalismancoagulant"` allow talisman coagulant
+- `"zmtalismanextraclaymore"` allow talisman extra claymore
+- `"zmtalismanextrafrag"` allow talisman extra frag
+- `"zmtalismanextraminiturret"` allow talisman extra miniturret
+- `"zmtalismanextramolotov"` allow talisman extra molotov
+- `"zmtalismanextrasemtex"` allow talisman extra semtex
+- `"zmtalismanimpatient"` allow talisman impatient
+- `"zmtalismanperkmodsingle"` allow talisman perk modsingle
+- `"zmtalismanperkpermanent1"` allow talisman perk permanent 1
+- `"zmtalismanperkpermanent2"` allow talisman perk permanent 2
+- `"zmtalismanperkpermanent3"` allow talisman perk permanent 3
+- `"zmtalismanperkpermanent4"` allow talisman perk permanent 4
+- `"zmtalismanperkreducecost1"` allow talisman perk reducecost 1
+- `"zmtalismanperkreducecost2"` allow talisman perk reducecost 2
+- `"zmtalismanperkreducecost3"` allow talisman perk reducecost 3
+- `"zmtalismanperkreducecost4"` allow talisman perk reducecost 4
+- `"zmtalismanperkstart1"` allow talisman perks tart 1
+- `"zmtalismanperkstart2"` allow talisman perks tart 2
+- `"zmtalismanperkstart3"` allow talisman perks tart 3
+- `"zmtalismanperkstart4"` allow talisman perks tart 4
+- `"zmtalismanshielddurabilitylegendary"` allow talisman shield durability legendary
+- `"zmtalismanshielddurabilityrare"` allow talisman shield durability rare
+- `"zmtalismanshieldprice"` allow talisman shield price
+- `"zmtalismanspecialstartlvl2"` allow talisman special start level 2
+- `"zmtalismanspecialstartlvl3"` allow talisman special start level 3
+- `"zmtalismanspecialxprate"` allow talisman specialxprate
+- `"zmtalismanstartweaponar"` allow talisman start weapon assault rifle
+- `"zmtalismanstartweaponlmg"` allow talisman start weapon lmg
+- `"zmtalismanstartweaponsmg"` allow talisman start weapon smg
+- `"zmtalismanreducepapcost"` allow talisman reduce pap cost
+- `"zmtalismanpermanentheroweaparmor"` allow talisman permanent hero weapon armor
+- `"zmtalismanextraselfrevive"` allow talisman extra self revive
+
 ### Perks
 
-- `"hash_7520ccdc8dcaee8d"` allow perk armorvest
-- `"hash_8edd17a31990450"` allow perk fastreload
+- `"zmperksjuggernaut"` allow perk juggernaut
+- `"zmperksspeed"` allow perk fastreload
 - `"zmperksquickrevive"` allow perk quickrevive
 - `"hash_557e3edd7fe168c3"` allow perk widowswine
 - `"zmperksstaminup"` allow perk staminup
 - `"zmperksmulekick"` allow perk additionalprimaryweapon
-- `"hash_77c5cc2d9b6ca16c"` allow perk electriccherry
+- `"zmperkselectricburst"` allow perk electriccherry
 - `"zmperksdeadshot"` allow perk deadshot
 - `"zmperkscooldown"` allow perk cooldown
 - `"zmperksdyingwish"` allow perk dying_wish
 - `"zmperksphdslider"` allow perk phdflopper
 - `"hash_5690c4dcc61973ec"` allow perk stronghold
-- `"hash_1bdfb5736ad174a3"` allow perk extraammo
+- `"zmperksbandolier"` allow perk extraammo
 - `"zmperksdeathperception"` allow perk awareness
-- `"hash_2dd9d538ca5bc2d6"` allow perk shield
-- `"hash_179ae09979e80714"` allow perk mystery
+- `"zmperksvictorious"` allow perk shield
+- `"zmperkssecretsauce"` allow perk secret sauce
 - `"zmperksetherealrazor"` allow perk etherealrazor
 - `"zmperkszombshell"` allow perk zombshell
 - `"zmperkswolfprotector"` allow perk wolf_protector
@@ -516,13 +584,13 @@ You can set which type of zombies can spawn
 
 Boolean values to allow wallbuy of a weapon category
 
-- `"hash_6f1440098d849316"` - Allow pistols
-- `"hash_edfb07f798aaab5"` - Allow CQB
-- `"hash_1f6665b5581f6b6e"` - Allow SMG
-- `"hash_1d5c8e6f0e20201a"` - Allow AR
+- `"zmweaponspistol"` - Allow pistols
+- `"zmweaponsshotgun"` - Allow shotguns
+- `"zmweaponssmg"` - Allow SMG
+- `"zmweaponsar"` - Allow AR
 - `"zmweaponstr"` - Allow tacticals
-- `"hash_2f6740b518dbeb8f"` - Allow LMG
-- `"hash_5bfd047c58816496"` - Allow snipers
+- `"zmweaponslmg"` - Allow LMG
+- `"zmweaponssniper"` - Allow snipers
 - `"zmweaponsknife"` - Allow knifes
 
 

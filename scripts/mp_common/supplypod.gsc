@@ -57,7 +57,7 @@ function __init__()
 	level.var_934fb97.var_d741a6a4 = [];
 	level.var_934fb97.bundle = getscriptbundle("killstreak_supplypod");
 	level.var_934fb97.weapon = getweapon("gadget_supplypod");
-	level.var_934fb97.var_ff101fac = getweapon(#"hash_3b38033eca0a3bdd");
+	level.var_934fb97.var_ff101fac = getweapon(#"supplypod_catch");
 	if(!isdefined(level.killstreakbundle))
 	{
 		level.killstreakbundle = [];
@@ -105,7 +105,7 @@ function function_127fb8f3(supplypod, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_86e3d17a]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0) > 0)
 		{
-			supplypod notify(#"hash_602ae7ca650d6287");
+			supplypod notify(#"cancel_timeout");
 			supplypod thread weaponobjects::weapon_object_timeout(supplypod.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
@@ -156,7 +156,7 @@ function function_bff5c062(supplypod, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			supplypod.var_2d045452 notify(#"hash_602ae7ca650d6287");
+			supplypod.var_2d045452 notify(#"cancel_timeout");
 			if(isdefined(original_owner))
 			{
 				watcher = original_owner weaponobjects::getweaponobjectwatcherbyweapon(supplypod.var_2d045452.weapon);
@@ -350,7 +350,7 @@ function function_37a2d89d(watcher, owner)
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
 	self hide();
 	self.canthack = 1;
-	self.var_24d0abd1 = 1;
+	self.ignoreemp = 1;
 	if(!(isdefined(self.previouslyhacked) && self.previouslyhacked))
 	{
 		if(isdefined(owner))
@@ -757,7 +757,7 @@ function function_9d4aabb9(var_d3213f00)
 		self.var_2d045452 delete();
 	}
 	self stoploopsound();
-	self notify(#"hash_6d5130f90f39295e");
+	self notify(#"supplypod_removed");
 	self delete();
 }
 
@@ -775,7 +775,7 @@ function private function_5761966a(supplypod)
 	player = self;
 	player endon(#"disconnect");
 	level endon(#"game_ended");
-	supplypod endon(#"hash_6d5130f90f39295e");
+	supplypod endon(#"supplypod_removed");
 	if(!isdefined(supplypod.var_7b7607df[player.clientid]))
 	{
 		return;
@@ -933,7 +933,7 @@ function function_8d362deb(einflictor, attacker, idamage, idflags, smeansofdeath
 function function_438ca4e0()
 {
 	supplypod = self;
-	supplypod endon(#"hash_6d5130f90f39295e", #"death");
+	supplypod endon(#"supplypod_removed", #"death");
 	level waittill(#"game_ended");
 	if(!isdefined(self))
 	{
@@ -1144,7 +1144,7 @@ function private function_a1434496(team, player, result)
 			supplypod.owner battlechatter::function_bd715920(level.var_934fb97.weapon, undefined, self.origin, self);
 		}
 		thread function_a143899c(player, 1.5);
-		player thread gestures::function_f3e2696f(supplypod, level.var_934fb97.var_ff101fac, undefined, 0.5, &function_e8df0c85, undefined, undefined);
+		player thread gestures::function_f3e2696f(supplypod, level.var_934fb97.var_ff101fac, undefined, 0.5, &supplypod_catch, undefined, undefined);
 		player function_bcf0dd99();
 		self gameobjects::hide_waypoint(player);
 		self.trigger setinvisibletoplayer(player);
@@ -1174,7 +1174,7 @@ function private function_a1434496(team, player, result)
 }
 
 /*
-	Name: function_e8df0c85
+	Name: supplypod_catch
 	Namespace: supplypod
 	Checksum: 0xF7142102
 	Offset: 0x39E8
@@ -1182,7 +1182,7 @@ function private function_a1434496(team, player, result)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e8df0c85(supplypod)
+function supplypod_catch(supplypod)
 {
 	if(isdefined(supplypod))
 	{

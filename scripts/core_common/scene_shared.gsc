@@ -2834,9 +2834,9 @@ function has_init_state(str_scenedef)
 	Parameters: 2
 	Flags: Linked
 */
-function function_9730988a(str_scenedef, var_6a688dba)
+function function_9730988a(str_scenedef, str_shotname)
 {
-	return isinarray(get_all_shot_names(str_scenedef), var_6a688dba);
+	return isinarray(get_all_shot_names(str_scenedef), str_shotname);
 }
 
 /*

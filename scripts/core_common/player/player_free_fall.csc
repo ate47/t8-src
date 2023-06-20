@@ -213,7 +213,7 @@ function private function_c9a18304(eventstruct)
 	}
 	else
 	{
-		self function_a097fe21(eventstruct.localclientnum);
+		self freefallend(eventstruct.localclientnum);
 	}
 }
 
@@ -230,7 +230,7 @@ function function_3f6dfc34(localclientnum)
 {
 	self notify("62720c265d658b90");
 	self endon("62720c265d658b90");
-	self endon(#"death", #"disconnect", #"hash_36dd69a696f827af");
+	self endon(#"death", #"disconnect", #"freefallend");
 	while(true)
 	{
 		waitframe(1);
@@ -262,7 +262,7 @@ function function_cc5ed6ff(pitch, min_pitch, max_pitch, var_2ff50798, var_9988e8
 }
 
 /*
-	Name: function_9a3dbe71
+	Name: printspeed
 	Namespace: player_free_fall
 	Checksum: 0x24059925
 	Offset: 0xB68
@@ -270,10 +270,10 @@ function function_cc5ed6ff(pitch, min_pitch, max_pitch, var_2ff50798, var_9988e8
 	Parameters: 1
 	Flags: None
 */
-function function_9a3dbe71(viewpitch)
+function printspeed(viewpitch)
 {
 	/#
-		self endon(#"death", #"disconnect", #"hash_36dd69a696f827af");
+		self endon(#"death", #"disconnect", #"freefallend");
 		while(true)
 		{
 			vel = self getvelocity();
@@ -384,7 +384,7 @@ function function_e8a9e948(localclientnum, var_695a7111)
 {
 	if(self function_21c0fa55())
 	{
-		self endoncallback(&function_1c6573a4, #"death", #"hash_36dd69a696f827af");
+		self endoncallback(&function_1c6573a4, #"death", #"freefallend");
 		while(true)
 		{
 			vel = self getvelocity();
@@ -424,24 +424,24 @@ function function_e8a9e948(localclientnum, var_695a7111)
 				waitframe(1);
 				continue;
 			}
-			var_3ffff5d7 = namespace_eb06e24d::function_2328db2c();
+			contrail_fx = namespace_eb06e24d::function_2328db2c();
 			if(isdefined(self.var_ba907ef1) && self.angles[2] < -20)
 			{
 				stopfx(localclientnum, self.var_ba907ef1);
 				self.var_ba907ef1 = undefined;
 			}
-			else if(!isdefined(self.var_ba907ef1) && self.angles[2] > -20 && isdefined(var_3ffff5d7.("contrails")))
+			else if(!isdefined(self.var_ba907ef1) && self.angles[2] > -20 && isdefined(contrail_fx.("contrails")))
 			{
-				self.var_ba907ef1 = self play_fx_on_tag(localclientnum, var_3ffff5d7.("contrails"), var_3ffff5d7.var_ccb00fe4);
+				self.var_ba907ef1 = self play_fx_on_tag(localclientnum, contrail_fx.("contrails"), contrail_fx.var_ccb00fe4);
 			}
 			if(isdefined(self.var_890b1c43) && self.angles[2] > 20)
 			{
 				stopfx(localclientnum, self.var_890b1c43);
 				self.var_890b1c43 = undefined;
 			}
-			else if(!isdefined(self.var_890b1c43) && self.angles[2] < 20 && isdefined(var_3ffff5d7.("contrails")))
+			else if(!isdefined(self.var_890b1c43) && self.angles[2] < 20 && isdefined(contrail_fx.("contrails")))
 			{
-				self.var_890b1c43 = self play_fx_on_tag(localclientnum, var_3ffff5d7.("contrails"), var_3ffff5d7.var_6a36c78c);
+				self.var_890b1c43 = self play_fx_on_tag(localclientnum, contrail_fx.("contrails"), contrail_fx.var_6a36c78c);
 			}
 			waitframe(1);
 		}
@@ -479,7 +479,7 @@ function function_a993866(localclientnum, var_9a17b15c)
 	}
 	if(var_9a17b15c > 0)
 	{
-		self endon(#"death", #"hash_36dd69a696f827af", #"disconnect");
+		self endon(#"death", #"freefallend", #"disconnect");
 		wait(var_9a17b15c);
 	}
 	/#
@@ -568,7 +568,7 @@ function function_1c6573a4(notifyhash)
 */
 function function_ba7365ff(localclientnum, height, fxid)
 {
-	self endon(#"death", #"hash_36dd69a696f827af");
+	self endon(#"death", #"freefallend");
 	while(true)
 	{
 		if(self.origin[2] < height)
@@ -679,7 +679,7 @@ function function_577c7bd0(localclientnum)
 }
 
 /*
-	Name: function_a097fe21
+	Name: freefallend
 	Namespace: player_free_fall
 	Checksum: 0x1ECAF860
 	Offset: 0x1950
@@ -687,9 +687,9 @@ function function_577c7bd0(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a097fe21(localclientnum)
+function freefallend(localclientnum)
 {
-	self notify(#"hash_36dd69a696f827af");
+	self notify(#"freefallend");
 	/#
 		println(self.name + "");
 	#/

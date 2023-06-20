@@ -135,7 +135,7 @@ function function_f084faed()
 			level.var_2f11d3e5[#"hash_200089ed140063d2"] = "";
 			level.var_2f11d3e5[#"hash_754a59ee5b52f897"] = "";
 			level.var_2f11d3e5[#"hash_754a5aee5b52fa4a"] = "";
-			level.var_2f11d3e5[#"hash_7faa5a704de97213"] = "";
+			level.var_2f11d3e5[#"demolition_overtime"] = "";
 			level.var_2f11d3e5[#"hash_69438a51aacbf824"] = "";
 			level.var_2f11d3e5[#"hash_69438d51aacbfd3d"] = "";
 			level.var_2f11d3e5[#"hash_16ca7b5aee87513c"] = "";
@@ -173,13 +173,13 @@ function function_3326cf8d()
 	/#
 		while(true)
 		{
-			var_14d21c2b = getdvarstring(#"hash_35e516df462215b5");
+			var_14d21c2b = getdvarstring(#"scr_set_spawns");
 			if(var_14d21c2b != "")
 			{
 				function_f084faed();
 				var_9e1b22d = function_f0b81b80(var_14d21c2b);
 				function_bf14041f(var_9e1b22d);
-				setdvar(#"hash_35e516df462215b5", "");
+				setdvar(#"scr_set_spawns", "");
 			}
 			wait(1);
 		}

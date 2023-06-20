@@ -83,7 +83,7 @@ function init_shared(bundlename)
 		{
 			remote_weapons::registerremoteweapon("killstreak_ai_tank", #"hash_747fc4429380f380", &starttankremotecontrol, &endtankremotecontrol, 1);
 		}
-		level.var_66e94ad5 = bundle.var_1ab696c6;
+		level.var_66e94ad5 = bundle.ksweapon;
 		level.ai_tank_damage_fx = "killstreaks/fx8_drone_tank_damage_state";
 		level.ai_tank_explode_fx = "killstreaks/fx8_agr_explosion";
 		level.ai_tank_crate_explode_fx = "killstreaks/fx8_agr_drop_box";
@@ -223,7 +223,7 @@ function function_61610d6b()
 	foreach(point in level.var_51368c39)
 	{
 		point.objectiveid = gameobjects::get_next_obj_id();
-		objective_add(point.objectiveid, "invisible", point.origin, #"hash_5f0d67aea5a55be8");
+		objective_add(point.objectiveid, "invisible", point.origin, #"datapad_location");
 		objective_setinvisibletoall(point.objectiveid);
 	}
 	var_9afbe37 = struct::get_array("datapad_patrol_loc", "targetname");
@@ -381,9 +381,9 @@ function usekillstreakaitankdrop(killstreaktype)
 	}
 	if(isdefined(level.var_30264985))
 	{
-		level notify(#"hash_44b6188b744c7daf");
+		level notify(#"marker_ready");
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_30b1d3352d2c1900", #"death", #"weapon_change", #"weapon_fired");
+		waitresult = self waittill(#"mantis_deployed", #"death", #"weapon_change", #"weapon_fired");
 	}
 	context = spawnstruct();
 	context.radius = level.killstreakcorebundle.ksairdropsupplydropradius;
@@ -559,8 +559,8 @@ function islocationgood(location, context)
 */
 function function_5479b133(team, killstreak_id)
 {
-	self endon(#"hash_6736343f5a9c98f2", #"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist");
-	self waittill(#"hash_d843795c594bf0e");
+	self endon(#"payload_delivered", #"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist");
+	self waittill(#"payload_fail");
 	self killstreakrules::killstreakstop("tank_robot", team, killstreak_id);
 }
 
@@ -607,14 +607,14 @@ function function_e1553d5f(location, killstreak_id)
 		return false;
 	}
 	bundle = level.var_400ded61.aitankkillstreakbundle;
-	killstreak = killstreaks::get_killstreak_for_weapon(bundle.var_1ab696c6);
+	killstreak = killstreaks::get_killstreak_for_weapon(bundle.ksweapon);
 	context = spawnstruct();
 	if(!isdefined(context))
 	{
 		killstreak_stop_and_assert(killstreak, team, killstreak_id, "Failed to spawn struct for ai tank.");
 		return false;
 	}
-	self ability_player::function_c22f319e(bundle.var_1ab696c6);
+	self ability_player::function_c22f319e(bundle.ksweapon);
 	context.radius = level.killstreakcorebundle.ksairdropaitankradius;
 	context.dist_from_boundary = 50;
 	context.max_dist_from_location = 4;
@@ -640,7 +640,7 @@ function function_e1553d5f(location, killstreak_id)
 		return false;
 	}
 	self thread function_e00df756(team, killstreak_id);
-	self stats::function_e24eec31(bundle.var_1ab696c6, #"used", 1);
+	self stats::function_e24eec31(bundle.ksweapon, #"used", 1);
 	return true;
 }
 
@@ -1444,7 +1444,7 @@ function function_f358791()
 		tanks = getentarray("talon", "targetname");
 		foreach(tank in tanks)
 		{
-			if(self function_932034ba(tank))
+			if(self cantargettank(tank))
 			{
 				targets[targets.size] = tank;
 			}
@@ -1701,7 +1701,7 @@ function cantargetplayer(player)
 }
 
 /*
-	Name: function_932034ba
+	Name: cantargettank
 	Namespace: ai_tank
 	Checksum: 0xBCF94EB7
 	Offset: 0x54B8
@@ -1709,7 +1709,7 @@ function cantargetplayer(player)
 	Parameters: 1
 	Flags: None
 */
-function function_932034ba(tank)
+function cantargettank(tank)
 {
 	if(!isdefined(tank))
 	{
@@ -1799,8 +1799,8 @@ function turretfireupdate()
 		if(isalive(self) && (!(isdefined(self.isstunned) && self.isstunned)) && isdefined(self.enemy))
 		{
 			var_f4cf81b8 = self gettagorigin("tag_flash");
-			var_1cb20ce1 = self.enemy geteye();
-			var_a44b348b = sighttracepassed(var_f4cf81b8, var_1cb20ce1, 0, self, self.enemy);
+			enemyeyepos = self.enemy geteye();
+			var_a44b348b = sighttracepassed(var_f4cf81b8, enemyeyepos, 0, self, self.enemy);
 			if(var_a44b348b && !function_98a125e6())
 			{
 				self turretsettarget(0, self.enemy);
@@ -1953,11 +1953,11 @@ function function_dd91d091(params)
 function function_37cc249f()
 {
 	enemies = util::function_81ccf6d3(self.team);
-	var_61c9e8b6 = arraycombine(enemies, getactorarray(), 1, 0);
-	var_61c9e8b6 = arraysort(enemies, self.origin, 1);
-	if(var_61c9e8b6.size)
+	alltargets = arraycombine(enemies, getactorarray(), 1, 0);
+	alltargets = arraysort(enemies, self.origin, 1);
+	if(alltargets.size)
 	{
-		return var_61c9e8b6[0];
+		return alltargets[0];
 	}
 	return undefined;
 }
@@ -2083,8 +2083,8 @@ function state_combat_update(params)
 		if(isdefined(self.enemy))
 		{
 			var_f4cf81b8 = self gettagorigin("tag_flash");
-			var_1cb20ce1 = self.enemy geteye();
-			cansee = sighttracepassed(var_f4cf81b8, var_1cb20ce1, 0, self, self.enemy);
+			enemyeyepos = self.enemy geteye();
+			cansee = sighttracepassed(var_f4cf81b8, enemyeyepos, 0, self, self.enemy);
 		}
 		if(isdefined(self.enemy) && cansee)
 		{

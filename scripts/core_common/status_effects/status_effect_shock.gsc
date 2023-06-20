@@ -31,7 +31,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	status_effect::register_status_effect_callback_apply(5, &shock_apply);
-	status_effect::function_5bae5120(5, &function_1eac7817);
+	status_effect::function_5bae5120(5, &shock_end);
 	status_effect::function_6f4eaf88(getstatuseffect("shock"));
 }
 
@@ -65,7 +65,7 @@ function shock_apply(var_756fda07, weapon, var_84171a6c)
 }
 
 /*
-	Name: function_1eac7817
+	Name: shock_end
 	Namespace: status_effect_shock
 	Checksum: 0xD9996C81
 	Offset: 0x2C8
@@ -73,7 +73,7 @@ function shock_apply(var_756fda07, weapon, var_84171a6c)
 	Parameters: 0
 	Flags: Linked
 */
-function function_1eac7817()
+function shock_end()
 {
 	if(isdefined(self))
 	{
@@ -102,7 +102,7 @@ function function_1eac7817()
 function private function_51356342(duration)
 {
 	self notify(#"hash_50998937b8ffdf86");
-	self endon(#"hash_50998937b8ffdf86", #"hash_13d72ca5a7cfd2bd");
+	self endon(#"hash_50998937b8ffdf86", #"endstatuseffect");
 	self.owner endon(#"disconnect", #"death");
 	goaltime = gettime() + (int(duration * 1000));
 	while(gettime() < goaltime && isdefined(self.owner))

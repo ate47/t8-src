@@ -132,8 +132,8 @@ function private _debugsquad(squad)
 						{
 							if(target[#"type"] == "" || target[#"type"] == "")
 							{
-								var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
-								targetpos = var_5fbc7570.origin;
+								missioncomponent = target[#"__unsafe__"][#"mission_component"];
+								targetpos = missioncomponent.origin;
 								component = target[#"__unsafe__"][#"component"];
 								targettrigger = component.var_2956bff4;
 								if(isdefined(component.var_6bc907c4))
@@ -147,8 +147,8 @@ function private _debugsquad(squad)
 							{
 								if(target[#"type"] == "")
 								{
-									var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
-									targetpos = var_5fbc7570.origin;
+									missioncomponent = target[#"__unsafe__"][#"mission_component"];
+									targetpos = missioncomponent.origin;
 									component = target[#"__unsafe__"][#"component"];
 									targettrigger = component.var_cc67d976;
 								}
@@ -156,8 +156,8 @@ function private _debugsquad(squad)
 								{
 									if(target[#"type"] == "")
 									{
-										var_5fbc7570 = target[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
-										targetpos = var_5fbc7570.origin;
+										missioncomponent = target[#"__unsafe__"][#"mission_component"];
+										targetpos = missioncomponent.origin;
 										component = target[#"__unsafe__"][#"component"];
 										targettrigger = component.var_c68dc48c;
 									}

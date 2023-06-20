@@ -479,7 +479,7 @@ function private function_bea2e288(type)
 			{
 				damage = mapfloat(0, var_46f1b5eb.radius, var_46f1b5eb.damagemin, var_46f1b5eb.damagemax, dist);
 				player dodamage(damage, aoe.entity.origin);
-				player notify(#"hash_30e5a6bd41a5917c", {#origin:aoe.entity.origin, #hash_159100b7:aoe.type});
+				player notify(#"aoe_damage", {#origin:aoe.entity.origin, #hash_159100b7:aoe.type});
 			}
 		}
 	}
@@ -528,7 +528,7 @@ function private function_e39c0be4(var_46f1b5eb)
 		var_46f1b5eb endon(#"hash_343e166e4aa4288e");
 		while(true)
 		{
-			if(getdvarint(#"hash_423e0fe03fe8ae0c", 0))
+			if(getdvarint(#"zm_debug_aoe", 0))
 			{
 				if(var_46f1b5eb.var_9a08bb02.size)
 				{

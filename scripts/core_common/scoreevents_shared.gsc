@@ -48,7 +48,7 @@ function processscoreevent(event, player, victim, weapon, var_36f23f1f)
 	{
 		return scoregiven;
 	}
-	if(isdefined(level.var_64ce2685) && level.var_64ce2685)
+	if(isdefined(level.disablescoreevents) && level.disablescoreevents)
 	{
 		return scoregiven;
 	}
@@ -59,7 +59,7 @@ function processscoreevent(event, player, victim, weapon, var_36f23f1f)
 	pixbeginevent(#"processscoreevent");
 	isscoreevent = 0;
 	/#
-		if(getdvarint(#"hash_39060c853726e6c0", 0) > 0)
+		if(getdvarint(#"logscoreevents", 0) > 0)
 		{
 			if(!isdefined(level.var_10cd7193))
 			{
@@ -114,7 +114,7 @@ function processscoreevent(event, player, victim, weapon, var_36f23f1f)
 		player addrankxp(event, weapon, player.class_num, pickedup, isscoreevent, xp_difficulty_multiplier);
 		if(isdefined(event) && isdefined(weapon) && isdefined(level.scoreinfo[event]))
 		{
-			var_6d1793bb = level.scoreinfo[event][#"hash_17ffe407dca54dd7"];
+			var_6d1793bb = level.scoreinfo[event][#"medalnamehash"];
 			if(isdefined(var_6d1793bb))
 			{
 				specialistindex = player getspecialistindex();

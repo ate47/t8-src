@@ -357,7 +357,7 @@ function get_shots_to_kill(weapon, meansofdeath, bundle)
 		case "hash_1d2a1056220e71a9":
 		case "hash_1d2a1156220e735c":
 		case "hash_1d2a1256220e750f":
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		case "hero_bowlauncher":
 		{
 			if(meansofdeath == "MOD_PROJECTILE_SPLASH" || meansofdeath == "MOD_PROJECTILE" || meansofdeath == "MOD_GRENADE_SPLASH")
@@ -464,7 +464,7 @@ function get_shots_to_kill(weapon, meansofdeath, bundle)
 			shotstokill = bundle.var_50c51e5;
 			break;
 		}
-		case "hash_721bd01efec90239":
+		case "ac130_chaingun":
 		{
 			shotstokill = bundle.var_676a4c7;
 			break;
@@ -588,9 +588,9 @@ function function_14bd8ba5(damage, damage_multiplier)
 	Parameters: 2
 	Flags: None
 */
-function function_6bacfedc(weapon, var_5f29de13)
+function function_6bacfedc(weapon, levelweapon)
 {
-	return isdefined(var_5f29de13) && weapon.statname == var_5f29de13.statname && var_5f29de13.statname != level.weaponnone.statname;
+	return isdefined(levelweapon) && weapon.statname == levelweapon.statname && levelweapon.statname != level.weaponnone.statname;
 }
 
 /*
@@ -602,9 +602,9 @@ function function_6bacfedc(weapon, var_5f29de13)
 	Parameters: 2
 	Flags: None
 */
-function function_90509610(weapon, var_5f29de13)
+function function_90509610(weapon, levelweapon)
 {
-	return isdefined(var_5f29de13) && weapon.name == var_5f29de13.name && var_5f29de13.statname != level.weaponnone.statname;
+	return isdefined(levelweapon) && weapon.name == levelweapon.name && levelweapon.statname != level.weaponnone.statname;
 }
 
 /*

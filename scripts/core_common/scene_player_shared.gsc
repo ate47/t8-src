@@ -260,7 +260,7 @@ class csceneplayer : csceneobject
 		Parameters: 5
 		Flags: Linked
 	*/
-	function _camanimscripted(player, var_ef4c0f91, v_origin, v_angles, n_start_time = 0)
+	function _camanimscripted(player, str_camera, v_origin, v_angles, n_start_time = 0)
 	{
 		player notify(#"camanimscripted");
 		player endon(#"camanimscripted", #"disconnect");
@@ -268,11 +268,11 @@ class csceneplayer : csceneobject
 		{
 			player thread scene::scene_disable_player_stuff(_o_scene._s, _s);
 		}
-		var_57949b2d = getcamanimtime(var_ef4c0f91) * n_start_time;
+		var_57949b2d = getcamanimtime(str_camera) * n_start_time;
 		var_41193b94 = int(gettime() - var_57949b2d);
 		player dontinterpolate();
-		camanimscripted(player, var_ef4c0f91, var_41193b94, v_origin, v_angles);
-		wait_for_camera(var_ef4c0f91, n_start_time);
+		camanimscripted(player, str_camera, var_41193b94, v_origin, v_angles);
+		wait_for_camera(str_camera, n_start_time);
 		player dontinterpolate();
 	}
 

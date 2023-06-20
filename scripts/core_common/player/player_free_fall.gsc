@@ -34,7 +34,7 @@ function __init__()
 {
 	callback::add_callback(#"freefall", &function_c9a18304);
 	callback::add_callback(#"parachute", &function_26d46af3);
-	callback::add_callback(#"hash_36b1b305064a7cf8", &function_a7e644f6);
+	callback::add_callback(#"debug_movement", &function_a7e644f6);
 	level.parachute_weapon = getweapon(#"parachute");
 	/#
 		level thread function_1fc427dc();
@@ -187,7 +187,7 @@ function private function_26d46af3(eventstruct)
 */
 function private function_a7e644f6(eventstruct)
 {
-	if(!eventstruct.var_711b1aa7)
+	if(!eventstruct.debug_movement)
 	{
 		if(getdvarint(#"hash_bfa71d08f383550", 0))
 		{

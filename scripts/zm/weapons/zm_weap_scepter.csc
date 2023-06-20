@@ -47,11 +47,11 @@ function __init__()
 	clientfield::register("toplayer", "" + #"scepter_rumble", 1, 3, "counter", &scepter_rumble, 0, 0);
 	level._effect[#"hash_1c2f974106158a5f"] = #"hash_7c1a6aad09dc0d7a";
 	level._effect[#"hash_1c28ab41060f8dad"] = #"hash_7c145ead09d78d68";
-	level._effect[#"hash_54ead9bf14ce3f2c"] = #"hash_17756eb35aac3766";
+	level._effect[#"scepter_bubble"] = #"hash_17756eb35aac3766";
 	level._effect[#"hash_4c17911c3aed59ae"] = #"hash_15d8d928da3054a8";
 	level._effect[#"hash_47a7d03689c68789"] = #"hash_7bf95975cc22d9e3";
 	level._effect[#"scepter_revive"] = #"hash_7247f41820f6a4ac";
-	level._effect[#"hash_3409a93fe945050c"] = #"zombie/fx_bgb_near_death_3p";
+	level._effect[#"scepter_heal"] = #"zombie/fx_bgb_near_death_3p";
 	level._effect[#"hash_5a1d977ed6c0bfbc"] = #"hash_7e8ecb7f481f27c1";
 	level._effect[#"hash_5a24a37ed6c6f2ce"] = #"hash_7e95b77f48252473";
 	level._effect[#"hash_1764e15fc9d376eb"] = #"hash_7951bc836b30dd06";
@@ -358,7 +358,7 @@ function beacon_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldn
 		}
 		if(isdefined(self.b_beacon_fx) && self.b_beacon_fx)
 		{
-			self.n_beacon_fx = util::playfxontag(localclientnum, level._effect[#"hash_54ead9bf14ce3f2c"], self, "tag_origin");
+			self.n_beacon_fx = util::playfxontag(localclientnum, level._effect[#"scepter_bubble"], self, "tag_origin");
 		}
 	}
 	else
@@ -385,7 +385,7 @@ function beacon_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldn
 */
 function private function_d05553c6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_28d2c6df1a547302");
 	}
@@ -419,7 +419,7 @@ function function_3f83a22f(localclientnum, oldval, newval, bnewent, binitialsnap
 			if(!(isdefined(self.var_5427d523) && self.var_5427d523))
 			{
 				self.var_5427d523 = 1;
-				self.var_aa9e07fe[localclientnum] = util::playfxontag(localclientnum, level._effect[#"hash_3409a93fe945050c"], self, "j_spine4");
+				self.var_aa9e07fe[localclientnum] = util::playfxontag(localclientnum, level._effect[#"scepter_heal"], self, "j_spine4");
 				fxhandle = self.var_aa9e07fe[localclientnum];
 				wait(0.5);
 				if(isdefined(fxhandle))

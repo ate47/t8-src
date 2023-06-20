@@ -72,7 +72,7 @@ function private on_localplayer_spawned(localclientnum)
 	if(self function_21c0fa55())
 	{
 		self.var_53204996 = &function_3ec2efae;
-		if(isdefined(getgametypesetting(#"hash_78bfea2b72e79da3")) && getgametypesetting(#"hash_78bfea2b72e79da3"))
+		if(isdefined(getgametypesetting(#"wzenablebountyhuntervehicles")) && getgametypesetting(#"wzenablebountyhuntervehicles"))
 		{
 			level thread function_8fd2e04f(localclientnum);
 		}
@@ -192,7 +192,7 @@ function function_3ec2efae(localclientnum)
 }
 
 /*
-	Name: function_ba36f5d
+	Name: stunnedcallback
 	Namespace: wz_vehicle
 	Checksum: 0xC124A17E
 	Offset: 0xC18
@@ -200,7 +200,7 @@ function function_3ec2efae(localclientnum)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ba36f5d(localclientnum, val)
+function stunnedcallback(localclientnum, val)
 {
 	self setstunned(val);
 }
@@ -217,7 +217,7 @@ function function_ba36f5d(localclientnum, val)
 function private function_79500af5(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -232,7 +232,7 @@ function private function_79500af5(localclientnum, data)
 function private function_fb9c790a(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -247,7 +247,7 @@ function private function_fb9c790a(localclientnum, data)
 function private function_bd3b5229(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 	if(isdefined(self.scriptbundlesettings))
 	{
 		if(!isdefined(self.settings))
@@ -273,7 +273,7 @@ function private function_bd3b5229(localclientnum, data)
 function private function_500291c4(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -288,7 +288,7 @@ function private function_500291c4(localclientnum, data)
 function private function_8278ed00(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -304,7 +304,7 @@ function private function_6b617752(localclientnum, data)
 {
 	self.var_917cf8e3 = &function_b0d51c9;
 	self.var_1a6ef836 = 0;
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -320,7 +320,7 @@ function private function_cc0af45d(localclientnum, data)
 {
 	self.var_917cf8e3 = &function_b0d51c9;
 	self.var_1a6ef836 = 0;
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*
@@ -362,7 +362,7 @@ function private function_a01726dd(localclientnum, data)
 function private function_cb575bc3(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 	if(isdefined(self.scriptbundlesettings))
 	{
 		if(!isdefined(self.settings))
@@ -388,7 +388,7 @@ function private function_cb575bc3(localclientnum, data)
 function private function_c0f1d81b(localclientnum, data)
 {
 	self function_3f24c5a(1);
-	self.stunnedcallback = &function_ba36f5d;
+	self.stunnedcallback = &stunnedcallback;
 }
 
 /*

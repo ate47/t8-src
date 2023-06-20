@@ -1126,7 +1126,7 @@ event function_f075cefa(eventstruct)
 	}
 	switch(weapon.statname)
 	{
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		{
 			missile thread check_stuck_to_player(1, 0, weapon);
 			break;
@@ -1452,7 +1452,7 @@ function begin_grenade_tracking()
 */
 event function_e2b6d5a5(eventstruct)
 {
-	self callback::callback(#"hash_5989c4f123e1fb1a", eventstruct);
+	self callback::callback(#"grenade_fired", eventstruct);
 	if(!isplayer(self))
 	{
 		return;
@@ -1513,7 +1513,7 @@ event function_e2b6d5a5(eventstruct)
 */
 event function_97023fdf(eventstruct)
 {
-	self callback::callback(#"hash_7b6a55a9b65e3194", eventstruct);
+	self callback::callback(#"offhand_fire", eventstruct);
 }
 
 /*

@@ -15,13 +15,13 @@
 */
 function init_shared()
 {
-	weaponobjects::function_e6400478(#"eq_sticky_grenade", &function_ece99a15, 1);
-	weaponobjects::function_e6400478(#"concussion_grenade", &function_ece99a15, 1);
-	weaponobjects::function_e6400478(#"hash_5825488ac68418af", &function_ece99a15, 1);
+	weaponobjects::function_e6400478(#"eq_sticky_grenade", &creategrenadewatcher, 1);
+	weaponobjects::function_e6400478(#"concussion_grenade", &creategrenadewatcher, 1);
+	weaponobjects::function_e6400478(#"hash_5825488ac68418af", &creategrenadewatcher, 1);
 }
 
 /*
-	Name: function_ece99a15
+	Name: creategrenadewatcher
 	Namespace: grenades
 	Checksum: 0xA8974499
 	Offset: 0x140
@@ -29,7 +29,7 @@ function init_shared()
 	Parameters: 1
 	Flags: None
 */
-function function_ece99a15(watcher)
+function creategrenadewatcher(watcher)
 {
 	watcher.onspawn = &function_aa95d684;
 }

@@ -425,7 +425,7 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 	weapon.remoteowner thread killstreaks::watch_for_remove_remote_weapon();
 	weapon.remoteowner util::setusingremote(weapon.remotename);
 	weapon.remoteowner val::set(#"useremotecontrolweapon", "freezecontrols");
-	weapon.remoteowner thread function_4db75132(weapon);
+	weapon.remoteowner thread resetcontrols(weapon);
 	result = weapon.remoteowner killstreaks::init_ride_killstreak(weapon.remotename, always_allow_ride);
 	if(result != "success")
 	{
@@ -450,11 +450,11 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 			weapon.remoteowner killstreaks::hide_compass();
 		}
 	}
-	weapon notify(#"hash_356f1aec5e4ecabf");
+	weapon notify(#"reset_controls");
 }
 
 /*
-	Name: function_4db75132
+	Name: resetcontrols
 	Namespace: remote_weapons
 	Checksum: 0xE4485D34
 	Offset: 0x13F8
@@ -462,9 +462,9 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 	Parameters: 1
 	Flags: Linked
 */
-function function_4db75132(weapon)
+function resetcontrols(weapon)
 {
-	weapon waittill(#"death", #"hash_356f1aec5e4ecabf");
+	weapon waittill(#"death", #"reset_controls");
 	if(isdefined(self))
 	{
 		self val::reset(#"useremotecontrolweapon", "freezecontrols");

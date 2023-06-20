@@ -107,7 +107,7 @@ function function_bff5c062(uav, attackingplayer)
 	if(isdefined(level.var_f1edf93f))
 	{
 		uav notify(#"hacked");
-		uav notify(#"hash_602ae7ca650d6287");
+		uav notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		uav thread killstreaks::waitfortimeout("uav", var_eb79e7c3, &ontimeout, "delete", "death", "crashing");
 	}
@@ -193,14 +193,14 @@ function initrotatingrig()
 	if(isdefined(level.var_c6129172))
 	{
 		map_center = airsupport::getmapcenter();
-		var_e6d77887 = ((isdefined(level.var_c6129172) ? level.var_c6129172 : map_center[0]), (isdefined(level.var_ae8d87c7) ? level.var_ae8d87c7 : map_center[1]), (isdefined(level.var_eb2556e1) ? level.var_eb2556e1 : 1200));
-		level.var_b59e7114 = spawn("script_model", var_e6d77887);
+		rotator_offset = ((isdefined(level.var_c6129172) ? level.var_c6129172 : map_center[0]), (isdefined(level.var_ae8d87c7) ? level.var_ae8d87c7 : map_center[1]), (isdefined(level.var_eb2556e1) ? level.var_eb2556e1 : 1200));
+		level.var_b59e7114 = spawn("script_model", rotator_offset);
 	}
 	else
 	{
 		map_center = airsupport::getmapcenter();
-		var_e6d77887 = ((isdefined(level.var_778a1b96) ? level.var_778a1b96 : 0), (isdefined(level.var_621e7f72) ? level.var_621e7f72 : 0), 1200);
-		level.var_b59e7114 = spawn("script_model", map_center + var_e6d77887);
+		rotator_offset = ((isdefined(level.var_778a1b96) ? level.var_778a1b96 : 0), (isdefined(level.var_621e7f72) ? level.var_621e7f72 : 0), 1200);
+		level.var_b59e7114 = spawn("script_model", map_center + rotator_offset);
 	}
 	level.var_b59e7114 setmodel(#"tag_origin");
 	level.var_b59e7114.angles = vectorscale((0, 1, 0), 115);

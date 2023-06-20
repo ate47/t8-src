@@ -4,7 +4,7 @@
 #using script_522aeb6ae906391e;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
-#using script_5b1c3d314b9c88fb;
+#using scripts\wz_common\wz_ai_utils.gsc;
 #using scripts\core_common\ai\archetype_avogadro.gsc;
 #using scripts\wz_common\wz_ai_zombie.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -49,13 +49,13 @@ function __init__()
 	level.var_8791f7c5 = &function_ac94df05;
 	level.var_a35afcb2 = &function_7d5cf0e4;
 	/#
-		assert(isscriptfunctionptr(&function_98909da));
+		assert(isscriptfunctionptr(&avogadrodespawn));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_512d14c0bff9da20", &function_98909da);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"avogadrodespawn", &avogadrodespawn);
 	/#
-		assert(isscriptfunctionptr(&function_d392301));
+		assert(isscriptfunctionptr(&avogadrorespawn));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_59c1b80c0f1a9062", &function_d392301);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"avogadrorespawn", &avogadrorespawn);
 }
 
 /*
@@ -98,18 +98,18 @@ function private function_f34df3c()
 	self.var_6501ffdf = 1;
 	self.var_872e52b0 = &function_d44ccb0a;
 	self.var_8f61d7f4 = 1;
-	self namespace_b912c30b::function_9758722("walk");
+	self wz_ai_utils::function_9758722("walk");
 	self callback::function_d8abfc3d(#"on_ai_damage", &function_ce2bd83c);
 	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_7140c3848cbefaa1", &function_e44ef704);
-	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
+	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_5ff730c7();
 	function_905d3c1a(self);
 	if(!isdefined(self))
 	{
 		return;
 	}
-	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(!getdvarint(#"survival_prototype", 0))
 	{
 		self thread wz_ai_zombie::function_e261b81d();
 	}
@@ -133,7 +133,7 @@ function private function_c41e67c()
 	{
 		self.var_15aa1ae0 = 0;
 	}
-	if(getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(getdvarint(#"survival_prototype", 0))
 	{
 		self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &wz_ai_zombie::function_bb3c1175);
 		self wz_ai_zombie::function_b670d610();
@@ -204,7 +204,7 @@ function function_905d3c1a(entity)
 }
 
 /*
-	Name: function_98909da
+	Name: avogadrodespawn
 	Namespace: wz_ai_avogadro
 	Checksum: 0x41A74209
 	Offset: 0x850
@@ -212,13 +212,13 @@ function function_905d3c1a(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_98909da(entity)
+function avogadrodespawn(entity)
 {
-	entity thread function_ad2f1327(entity);
+	entity thread onallcracks(entity);
 }
 
 /*
-	Name: function_ad2f1327
+	Name: onallcracks
 	Namespace: wz_ai_avogadro
 	Checksum: 0x314F417F
 	Offset: 0x880
@@ -226,7 +226,7 @@ function function_98909da(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ad2f1327(entity)
+function onallcracks(entity)
 {
 	entity endon(#"death");
 	entity.var_8a96267d = undefined;
@@ -238,13 +238,13 @@ function function_ad2f1327(entity)
 	waitresult = entity waittilltimeout(timeout, #"avogadro_exit_finished");
 	entity ghost();
 	entity notsolid();
-	entity val::set(#"hash_5dc24322003886a3", "ignoreall", 1);
+	entity val::set(#"avogadro_despawn", "ignoreall", 1);
 	entity clientfield::set("" + #"hash_2eec8fc21495a18c", 0);
 	entity notify(#"is_underground");
 }
 
 /*
-	Name: function_d392301
+	Name: avogadrorespawn
 	Namespace: wz_ai_avogadro
 	Checksum: 0x6308DF5B
 	Offset: 0xA20
@@ -252,7 +252,7 @@ function function_ad2f1327(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d392301(entity)
+function avogadrorespawn(entity)
 {
 	entity thread function_edc8c459(entity);
 }
@@ -279,9 +279,9 @@ function function_edc8c459(entity)
 	}
 	entity.is_digging = 0;
 	entity pathmode("move allowed");
-	entity val::reset(#"hash_5dc24322003886a3", "ignoreall");
+	entity val::reset(#"avogadro_despawn", "ignoreall");
 	archetype_avogadro::function_dbc638a8(entity);
-	entity notify(#"hash_661885e7a60ccf04");
+	entity notify(#"not_underground");
 }
 
 /*
@@ -314,7 +314,7 @@ function function_ce2bd83c(params)
 	}
 	if(isdefined(params.einflictor) && !isdefined(self.attackable) && isdefined(params.einflictor.var_b79a8ac7) && isarray(params.einflictor.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, params.weapon))
 	{
-		if(params.einflictor namespace_b912c30b::get_attackable_slot(self))
+		if(params.einflictor wz_ai_utils::get_attackable_slot(self))
 		{
 			self.attackable = params.einflictor;
 		}
@@ -353,7 +353,7 @@ function function_ce2bd83c(params)
 function function_e44ef704(params)
 {
 	self.var_ef59b90 = 5;
-	if(getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(getdvarint(#"survival_prototype", 0))
 	{
 		self callback::callback(#"hash_10ab46b52df7967a");
 	}
@@ -370,7 +370,7 @@ function function_e44ef704(params)
 */
 function function_ac94df05(entity)
 {
-	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(!getdvarint(#"survival_prototype", 0))
 	{
 		return entity.aistate === 3 && (entity.var_9bff71aa < 2 || (gettime() - entity.var_7fde19e8) > 1000);
 	}
@@ -388,7 +388,7 @@ function function_ac94df05(entity)
 */
 function function_7d5cf0e4(entity)
 {
-	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(!getdvarint(#"survival_prototype", 0))
 	{
 		return entity.aistate === 3;
 	}

@@ -31,7 +31,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level._effect[#"hash_49da2356dfdd52ee"] = "zm_ai/fx8_nova_crawler_zombie_buff";
+	level._effect[#"fx8_nova_crawler_zombie_buff"] = "zm_ai/fx8_nova_crawler_zombie_buff";
 	level._effect[#"hash_fa591e70e810d4a"] = "zm_ai/fx8_nova_crawler_gas_cloud_lg";
 	clientfield::register("actor", "nova_buff_aura_clientfield", 8000, 1, "int", &function_be621cc7, 0, 0);
 	clientfield::register("actor", "white_nova_crawler_phase_end_clientfield", 8000, 1, "counter", &function_18c564d0, 0, 0);
@@ -84,7 +84,7 @@ function private function_be621cc7(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval === 1)
 	{
-		self.var_f09d143c = util::playfxontag(localclientnum, level._effect[#"hash_49da2356dfdd52ee"], self, "j_spine4");
+		self.var_f09d143c = util::playfxontag(localclientnum, level._effect[#"fx8_nova_crawler_zombie_buff"], self, "j_spine4");
 	}
 	else if(isdefined(self.var_f09d143c))
 	{

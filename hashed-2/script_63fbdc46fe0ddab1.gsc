@@ -153,7 +153,7 @@ class czm_red_challenges_hud : cLUIelem
 			}
 			else
 			{
-				if(#"hash_5b34afcc0d053940" == state_name)
+				if(#"visiblepc" == state_name)
 				{
 					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}

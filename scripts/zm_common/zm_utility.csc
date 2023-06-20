@@ -214,7 +214,7 @@ function spawn_buildkit_weapon_model(localclientnum, weapon, camo, origin, angle
 */
 function is_classic()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zclassic")
 	{
 		return true;
@@ -233,7 +233,7 @@ function is_classic()
 */
 function is_standard()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zstandard")
 	{
 		return true;
@@ -252,7 +252,7 @@ function is_standard()
 */
 function is_trials()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"ztrials" || level flag::exists(#"ztrial"))
 	{
 		return true;
@@ -271,7 +271,7 @@ function is_trials()
 */
 function is_tutorial()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"ztutorial")
 	{
 		return true;
@@ -290,7 +290,7 @@ function is_tutorial()
 */
 function is_grief()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zgrief")
 	{
 		return true;
@@ -316,7 +316,7 @@ function is_gametype_active(a_gametypes)
 	}
 	for(i = 0; i < a_gametypes.size; i++)
 	{
-		if(util::function_5df4294() == a_gametypes[i])
+		if(util::get_game_type() == a_gametypes[i])
 		{
 			b_is_gametype_active = 1;
 		}
@@ -335,7 +335,7 @@ function is_gametype_active(a_gametypes)
 */
 function function_e51dc2d8()
 {
-	if(!getdvarint(#"hash_2992299f853b2039", 0))
+	if(!getdvarint(#"zm_ee_enabled", 0))
 	{
 		return false;
 	}

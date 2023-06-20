@@ -9,7 +9,7 @@
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_4d00889cf8c807d5;
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -114,15 +114,15 @@ function main()
 	level.var_d7853f35 = 14;
 	level.var_ecdf38f = 13;
 	level.var_55e562f9 = 16;
-	namespace_c3287616::function_306ce518(#"catalyst", &function_40dfd00b);
-	namespace_c3287616::function_306ce518(#"skeleton", &function_9f77f5c8);
-	namespace_c3287616::function_306ce518(#"gegenees", &function_41342d7);
-	namespace_c3287616::function_306ce518(#"blight_father", &function_d0835d29);
+	zm_round_spawning::function_306ce518(#"catalyst", &function_40dfd00b);
+	zm_round_spawning::function_306ce518(#"skeleton", &function_9f77f5c8);
+	zm_round_spawning::function_306ce518(#"gegenees", &function_41342d7);
+	zm_round_spawning::function_306ce518(#"blight_father", &function_d0835d29);
 	zm_utility::function_2959a3cb(#"gegenees", &i_zmb_robo_eye_head_lp);
 	zm_utility::function_2959a3cb(#"skeleton", &function_a1f61594);
 	level.zombie_hints[#"default_treasure_chest"] = #"hash_57a34375dddce337";
 	level thread zm_crafting::function_ca244624(#"hash_3f832ccf78265a33");
-	level thread function_ca35fa36();
+	level thread defend_areas();
 }
 
 /*
@@ -185,7 +185,7 @@ function function_a1f61594()
 function registerlast_truck_headshot_()
 {
 	level zm_utility::function_7a35b1d7(#"hash_485fed0457aa5e06");
-	level thread zm_audio::sndannouncerplayvox(#"hash_435dce8984528996", undefined, undefined, undefined, 1);
+	level thread zm_audio::sndannouncerplayvox(#"pap_avail", undefined, undefined, undefined, 1);
 }
 
 /*
@@ -282,7 +282,7 @@ function function_edd5bb1a()
 }
 
 /*
-	Name: function_ca35fa36
+	Name: defend_areas
 	Namespace: zm_red_zstandard
 	Checksum: 0x1EDEE92E
 	Offset: 0x12B8
@@ -290,7 +290,7 @@ function function_edd5bb1a()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ca35fa36()
+function defend_areas()
 {
 	level endon(#"end_game");
 	function_84139b27();
@@ -329,7 +329,7 @@ function function_ca35fa36()
 	level notify(#"hash_20632257a91d251a");
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 35, undefined, s_defend_area.var_9fc5eea1);
 	zm_utility::function_fef4b36a(var_f79ff5ec);
-	level util::delay(15, undefined, &namespace_c3287616::function_376e51ef, #"skeleton");
+	level util::delay(15, undefined, &zm_round_spawning::function_376e51ef, #"skeleton");
 	if(var_5150f93a == #"east")
 	{
 		zm_utility::open_door(array("apollo_temple_to_western_plaza", "western_plaza_to_monument_of_craterus"), undefined, undefined, 1);
@@ -354,7 +354,7 @@ function function_ca35fa36()
 	s_defend_area = zm_utility::function_a877cd10(var_33efe293);
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45, undefined, s_defend_area.var_9fc5eea1);
 	zm_utility::function_fef4b36a(var_33efe293);
-	level util::delay(5, undefined, &namespace_c3287616::function_376e51ef, #"catalyst");
+	level util::delay(5, undefined, &zm_round_spawning::function_376e51ef, #"catalyst");
 	var_f79ff5ec = array::random(array(#"forge", #"serpent"));
 	level thread zm_utility::open_door(array("stoa_of_the_athenians_to_spartan_monument", "spartan_monument_to_intersection_of_treasuries", "stoa_of_the_athenians_to_intersection_of_treasuries"));
 	level notify(#"hash_36ec7e3beabe7a4");
@@ -388,11 +388,11 @@ function function_ca35fa36()
 	}
 	zm_utility::function_11101458(var_f79ff5ec);
 	wait(15);
-	level util::delay(45, undefined, &namespace_c3287616::function_376e51ef, #"gegenees");
+	level util::delay(45, undefined, &zm_round_spawning::function_376e51ef, #"gegenees");
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, undefined, undefined, s_defend_area.var_9fc5eea1);
 	zm_utility::function_fef4b36a(var_f79ff5ec);
-	level util::delay(65, undefined, &namespace_c3287616::function_376e51ef, #"blight_father");
+	level util::delay(65, undefined, &zm_round_spawning::function_376e51ef, #"blight_father");
 	level thread util::delay(260, "end_game", &function_cf680b18);
 	function_39364bed();
 }

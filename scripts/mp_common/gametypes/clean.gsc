@@ -459,7 +459,7 @@ function function_903c4eff(victim, attacker, pos, yawangle)
 	self.var_2581d0d notsolid();
 	self thread function_8cb72ba4();
 	self thread function_9415d18b();
-	self thread function_8f7a9a20();
+	self thread timeout_wait();
 }
 
 /*
@@ -519,7 +519,7 @@ function function_9415d18b()
 }
 
 /*
-	Name: function_8f7a9a20
+	Name: timeout_wait
 	Namespace: clean
 	Checksum: 0xF83CB269
 	Offset: 0x1D10
@@ -527,7 +527,7 @@ function function_9415d18b()
 	Parameters: 0
 	Flags: None
 */
-function function_8f7a9a20()
+function timeout_wait()
 {
 	level endon(#"game_ended");
 	self endon(#"reset");
@@ -1149,7 +1149,7 @@ function function_bbcf6af(attacker, yawangle)
 	self clientfield::set_player_uimodel("hudItems.cleanCarryCount", self.carriedtacos);
 	self function_fccce038();
 	/#
-		dropcount = dropcount + getdvarint(#"hash_28135ad78580b035", 0);
+		dropcount = dropcount + getdvarint(#"extratacos", 0);
 	#/
 	var_8a33c2ea = 360 / (dropcount + 1);
 	for(i = 0; i < dropcount; i++)

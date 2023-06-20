@@ -13,7 +13,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4bae07eadc57bb51;
 #using scripts\zm\zm_office_trials.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_office_elevators.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;
@@ -155,7 +155,7 @@ event main(eventstruct)
 	level thread zm_office_fx::init();
 	level thread zm_office_elevators::init();
 	level thread wait_for_power();
-	level thread namespace_2a4e49d0::init();
+	level thread zm_office_traps::init();
 	level thread namespace_ef310bfe::init();
 	level thread zm_office_special_rounds::init();
 	level thread namespace_a5657ff1::init();
@@ -409,7 +409,7 @@ function function_785cadc4()
 	level._effect[#"hash_4048cb4967032c4a"] = #"hash_7e272f1a9f143051";
 	level._effect[#"lght_marker"] = #"hash_7dec2fde8393c0f4";
 	level._effect[#"lght_marker_flare"] = #"hash_11347f5077a17dcb";
-	level._effect[#"hash_578e608ef34f517a"] = #"hash_11347f5077a17dcb";
+	level._effect[#"poltergeist_magicbox"] = #"hash_11347f5077a17dcb";
 }
 
 /*
@@ -878,7 +878,7 @@ function private office_devgui()
 			str_command = getdvarstring(#"hash_1c410d7e116d84b7", "");
 			switch(str_command)
 			{
-				case "hash_2347d90c6e4ac494":
+				case "go_defcon5":
 				{
 					level thread zm_office_defcon::function_d2f6cecb();
 					break;

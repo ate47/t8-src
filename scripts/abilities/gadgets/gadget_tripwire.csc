@@ -415,9 +415,9 @@ function spawn_previs(localclientnum)
 	Parameters: 3
 	Flags: Linked
 */
-function function_3e8d9b27(local_client_num, previs_weapon, var_120d5014)
+function function_3e8d9b27(local_client_num, previs_weapon, validlocation)
 {
-	if(var_120d5014)
+	if(validlocation)
 	{
 		level.tripwire.localclients[local_client_num].model setmodel(#"hash_2edbbbe63af8213d");
 	}
@@ -493,7 +493,7 @@ function function_82a8db78(localclientnum)
 		obj_id = player.var_61df85ff;
 		if(function_a8cb5322(localclientnum) && !shoutcaster::is_shoutcaster(localclientnum))
 		{
-			objective_add(localclientnum, obj_id, "active", #"hash_410b4c975bc3f66f", trace1[#"position"]);
+			objective_add(localclientnum, obj_id, "active", #"tripwire_placement", trace1[#"position"]);
 			objective_setgamemodeflags(localclientnum, obj_id, 0);
 		}
 		else if(objective_state(localclientnum, obj_id) != "invisible")

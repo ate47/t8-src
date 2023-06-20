@@ -94,10 +94,10 @@ event main(eventstruct)
 		var_342d094f setmodel(#"p7_mou_clock_wall_second_hand");
 		var_342d094f.angles = (60.0097, 179.999, -180);
 	}
-	var_ea543e47 = spawn("script_model", (2976, -579, 401));
-	if(isdefined(var_ea543e47))
+	newyork = spawn("script_model", (2976, -579, 401));
+	if(isdefined(newyork))
 	{
-		var_ea543e47 setmodel(#"p7_mou_clock_wall");
+		newyork setmodel(#"p7_mou_clock_wall");
 	}
 	var_242acc4f = spawn("script_model", (2976, -580, 412.75));
 	if(isdefined(var_242acc4f))

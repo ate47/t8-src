@@ -5,7 +5,7 @@
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
@@ -65,7 +65,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		clientfield::register("scriptmover", "" + #"hash_63ffcbb6c8f4bc11", 8000, 1, "int");
 		clientfield::register("scriptmover", "" + #"hash_62ee80337662b3cd", 8000, 1, "int");
@@ -103,13 +103,13 @@ function __init__()
 */
 function __main__()
 {
-	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		level thread function_6e094214();
 		level thread function_7b5a8c15();
 		level thread function_bc8c390e();
 		getweapon(#"zitem_chaos_lvl3_part_3").var_62a98b13 = #"hash_3b036955869eed34";
-		zm_crafting::function_d1f16587(#"zblueprint_chaos_lvl3", &function_8bca35b9);
+		zm_crafting::function_d1f16587(#"zblueprint_chaos_lvl3", &ww_lvl3_crafted);
 		level thread function_25058256();
 	}
 }
@@ -261,7 +261,7 @@ function function_9a0471ab(params)
 */
 function function_6e094214()
 {
-	level waittill(#"hash_24c45fc7880ee4f0");
+	level waittill(#"ww_lvl2_crafted");
 	level.var_c40da3d5 = struct::get_array("bat_catalyst_starter", "targetname");
 	level.var_b7a0ccb2 = [];
 	foreach(var_74f1c6f6 in level.var_c40da3d5)
@@ -744,7 +744,7 @@ function function_c73f430e()
 		if(isdefined(self.stub.var_b434e769) & !level flag::get("flag_player_grabbed_catalyst_material"))
 		{
 			self.stub.var_b434e769 delete();
-			level namespace_6747c550::function_7df6bb60(#"ww_p2_2", 1);
+			level zm_ui_inventory::function_7df6bb60(#"ww_p2_2", 1);
 			level flag::set("flag_player_grabbed_catalyst_material");
 			level.var_52d4b640 notify(#"hash_2b1cabe38e2ce84b");
 			level.var_b434e769 = undefined;
@@ -891,7 +891,7 @@ function function_cfffc455()
 		var_47323b73 = var_d43d0ba1 zm_unitrigger::create(&function_21db5b62, 96);
 		var_d43d0ba1 thread function_dca0343();
 		var_be17187b = undefined;
-		var_be17187b = var_d43d0ba1 waittilltimeout(90, #"hash_4f8ef502f90d41d3");
+		var_be17187b = var_d43d0ba1 waittilltimeout(90, #"bile_delete");
 		zm_unitrigger::unregister_unitrigger(var_47323b73);
 		if(isdefined(var_d43d0ba1))
 		{
@@ -940,7 +940,7 @@ function function_fb72da74()
 {
 	self endon(#"death");
 	level flag::wait_till("bile_collected");
-	self notify(#"hash_4f8ef502f90d41d3");
+	self notify(#"bile_delete");
 }
 
 /*
@@ -961,7 +961,7 @@ function function_c60245c1(e_player)
 	}
 	self thread function_366a1f08();
 	level.n_bile++;
-	level namespace_6747c550::function_7df6bb60(#"ww_p2_3", level.n_bile);
+	level zm_ui_inventory::function_7df6bb60(#"ww_p2_3", level.n_bile);
 	if(level.n_bile > 2)
 	{
 		level flag::set("bile_collected");
@@ -983,7 +983,7 @@ function function_366a1f08()
 	self clientfield::set("" + #"hash_48c6d058e9587c19", 0);
 	wait(0.1);
 	self ghost();
-	self notify(#"hash_4f8ef502f90d41d3");
+	self notify(#"bile_delete");
 }
 
 /*
@@ -1146,7 +1146,7 @@ function function_9d36c592()
 function function_d8648a1e(e_player)
 {
 	level flag::set("flag_crimson_nosferatu_set_intro");
-	level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 0);
+	level zm_ui_inventory::function_7df6bb60(#"ww_p2_3", 0);
 	s_loc = struct::get("nosferatu_pos");
 	s_bile = struct::get("s_bile");
 	self.var_76a23f3 = util::spawn_model(#"hash_36f02881e6dba006", s_bile.origin, s_bile.angles);
@@ -1368,7 +1368,7 @@ function function_6f3f4e18(s_loc)
 	if(!level flag::get("flag_player_grabbed_nosferatu_material"))
 	{
 		e_holder thread zm_vo::function_a2bd5a0c(#"hash_31e2f2fbfc612834", 1);
-		level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 4);
+		level zm_ui_inventory::function_7df6bb60(#"ww_p2_3", 4);
 		s_loc.var_817342a7 delete();
 		s_loc struct::delete();
 		level.var_8e7ee650 = undefined;
@@ -1682,7 +1682,7 @@ function function_a2256244(var_f9105ee8, var_f1935ec8)
 		w_item = zm_crafting::get_component("zitem_chaos_lvl3_part_3");
 		w_part = zm_items::spawn_item(w_item, var_f9105ee8.origin, var_f9105ee8.angles, 1);
 		level.var_27f4ef2f = undefined;
-		w_part clientfield::set("" + #"hash_524ec892754aeb34", 1);
+		w_part clientfield::set("" + #"ww_pickup_part", 1);
 	}
 	wait(2);
 	self notify(#"hash_28e3235da53ba083");
@@ -1764,7 +1764,7 @@ function function_25058256()
 }
 
 /*
-	Name: function_8bca35b9
+	Name: ww_lvl3_crafted
 	Namespace: namespace_1bf74f9e
 	Checksum: 0x6A695DA8
 	Offset: 0x53B0
@@ -1772,7 +1772,7 @@ function function_25058256()
 	Parameters: 1
 	Flags: Linked
 */
-function function_8bca35b9(e_player)
+function ww_lvl3_crafted(e_player)
 {
 	var_a70a763b = getentarray("ww_lvl3_quest_piece_on_table", "targetname");
 	array::run_all(var_a70a763b, &show);

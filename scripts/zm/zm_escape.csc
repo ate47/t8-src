@@ -21,7 +21,7 @@
 #using script_675455e5e6c0c5ad;
 #using script_6a0e50bc15d725a9;
 #using script_711bbbba637da80;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\zm\weapons\zm_weap_katana.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\exploder_shared.csc;

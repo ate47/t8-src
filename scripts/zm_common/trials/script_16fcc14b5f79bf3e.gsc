@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm\zm_red_main_quest.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -51,7 +51,7 @@ function __init__()
 */
 function private on_begin()
 {
-	level namespace_6747c550::function_7df6bb60(#"hash_566a6ec283e2360a", 5);
+	level zm_ui_inventory::function_7df6bb60(#"hash_566a6ec283e2360a", 5);
 	if(!(isdefined(level.var_4e4909a6) && level.var_4e4909a6))
 	{
 		level thread function_57755268();

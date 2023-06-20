@@ -6,14 +6,14 @@
 #using scripts\zm_common\aats\zm_aat_frostbite.csc;
 #using scripts\zm\weapons\zm_weap_homunculus.csc;
 #using scripts\zm_common\zm_hud.csc;
-#using script_3e87d9314f0597ef;
+#using scripts\zm_common\zm_vapor_random.csc;
 #using scripts\zm_common\aats\zm_aat_plasmatic_burst.csc;
 #using scripts\zm_common\zm_demo.csc;
 #using scripts\zm\weapons\zm_weap_mini_turret.csc;
 #using scripts\zm_common\aats\zm_aat_kill_o_watt.csc;
 #using scripts\zm_common\zm_crafting.csc;
 #using script_7520bf82a814057c;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\core_common\aat_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -111,7 +111,7 @@ function __init__()
 	{
 		level.zombie_vars = [];
 	}
-	level.scr_zm_ui_gametype = util::function_5df4294();
+	level.scr_zm_ui_gametype = util::get_game_type();
 	level.scr_zm_ui_gametype_group = "";
 	level.scr_zm_map_start_location = "";
 	callback::on_laststand(&on_player_laststand);
@@ -1728,7 +1728,7 @@ function function_bbea98ae(localclientnum, b_igc_active)
 function function_92f0c63(localclientnum)
 {
 	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly", #"hash_60913f86a5a5a3f1");
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_7c0db17218fac872", #"hash_60913f86a5a5a3f1");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly_ls", #"hash_60913f86a5a5a3f1");
 }
 
 /*

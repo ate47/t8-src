@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.platoon = {#max_players:0, #assignment:(isdefined(getgametypesetting(#"hash_1fb467bbf02b5835")) ? getgametypesetting(#"hash_1fb467bbf02b5835") : 0), #count:(isdefined(getgametypesetting(#"hash_9dc52c75197d173")) ? getgametypesetting(#"hash_9dc52c75197d173") : 0)};
+	level.platoon = {#max_players:0, #assignment:(isdefined(getgametypesetting(#"platoonassignment")) ? getgametypesetting(#"platoonassignment") : 0), #count:(isdefined(getgametypesetting(#"platooncount")) ? getgametypesetting(#"platooncount") : 0)};
 	level.platoon.max_players = function_bb1ab64b();
 	if(level.platoon.count)
 	{

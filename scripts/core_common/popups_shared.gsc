@@ -609,7 +609,7 @@ function notif_devgui_challenges_think()
 							}
 							else
 							{
-								itemindex = getdvarint(#"hash_1a10d0fbf3a34f63", 0);
+								itemindex = getdvarint(#"scr_challenge_itemindex", 0);
 								if(itemindex == 0)
 								{
 									currentweaponname = player.currentweapon.name;

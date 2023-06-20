@@ -41,12 +41,12 @@ function __init__()
 	clientfield::register("toplayer", "" + #"hash_1aa1c7790dc67d1e", 1, 1, "int", &function_46b21d8a, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_7cdfc8f4819bab2e", 1, 1, "int", &function_73ca75df, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_61ed2f45564d54f9", 1, 1, "int", &function_fa6bb35e, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_6335a683b93e26a2", 1, 1, "int", &function_8e48b175, 0, 0);
+	clientfield::register("toplayer", "" + #"totem_fall", 1, 1, "int", &totem_fall, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_2a7ceb22f84e5aa9", 1, 1, "int", &function_85aab97f, 0, 0);
 	level._effect[#"hash_1aa1c7790dc67d1e"] = #"hash_2a9ea20e6cb5f0fb";
 	level._effect[#"hash_7cdfc8f4819bab2e"] = #"hash_e1bfaf62712f587";
 	level._effect[#"hash_61ed2f45564d54f9"] = #"hash_5531980ba0ce0b70";
-	level._effect[#"hash_596ba88c81d4f0e5"] = #"hash_56628b3f5bc6da0d";
+	level._effect[#"blood_rise"] = #"hash_56628b3f5bc6da0d";
 	level._effect[#"blood_splash"] = #"hash_4d27fd6de25c639b";
 }
 
@@ -232,7 +232,7 @@ function function_fa6bb35e(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_8e48b175
+	Name: totem_fall
 	Namespace: namespace_42cc2819
 	Checksum: 0x11B86D86
 	Offset: 0xE20
@@ -240,7 +240,7 @@ function function_fa6bb35e(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_8e48b175(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function totem_fall(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	var_e9af628d = struct::get("mdl_d_w_i_k_t");
 	s_destination = struct::get(var_e9af628d.target);
@@ -272,7 +272,7 @@ function function_85aab97f(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval)
 	{
 		var_3bda41ab = struct::get("s_white_metal_splash");
-		self.var_f383d0c1 = util::playfxontag(localclientnum, level._effect[#"hash_596ba88c81d4f0e5"], self, "tag_spork");
+		self.var_f383d0c1 = util::playfxontag(localclientnum, level._effect[#"blood_rise"], self, "tag_spork");
 		self.var_53b18c8d = playfx(localclientnum, level._effect[#"blood_splash"], var_3bda41ab.origin);
 	}
 }

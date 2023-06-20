@@ -119,7 +119,7 @@ function function_299d2131(maxhealth, var_5af5a1bf, var_4465ef1e)
 	self.heal.rate = var_5af5a1bf / var_4465ef1e;
 	self gadget_health_regen::function_ddfdddb1();
 	self gadget_health_regen::function_1e02d458();
-	self callback::function_d8abfc3d(#"hash_25663702210244cc", &function_4a257174);
+	self callback::function_d8abfc3d(#"done_healing", &function_4a257174);
 }
 
 /*
@@ -135,7 +135,7 @@ function function_4a257174()
 {
 	if(isdefined(self))
 	{
-		self callback::function_52ac9652(#"hash_25663702210244cc", &function_4a257174);
+		self callback::function_52ac9652(#"done_healing", &function_4a257174);
 		self.var_44d52546 = undefined;
 		gadget_health_regen::function_7993d50e();
 	}
@@ -208,27 +208,27 @@ function function_fc04b237(weapon, weaponoptions)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a2162b3b(var_de56bf19)
+function private function_a2162b3b(deployableweapon)
 {
 	if(isplayer(self))
 	{
-		if(var_de56bf19 === self.var_cc111ddc)
+		if(deployableweapon === self.var_cc111ddc)
 		{
 			self.var_cc111ddc = undefined;
 		}
-		if(var_de56bf19 === self.var_8181d952)
+		if(deployableweapon === self.var_8181d952)
 		{
 			self.var_8181d952 = undefined;
 		}
-		if(var_de56bf19 === self.var_cd3bc45b)
+		if(deployableweapon === self.var_cd3bc45b)
 		{
 			self.var_cd3bc45b = undefined;
 		}
-		if(var_de56bf19 === self.var_d0015cb3)
+		if(deployableweapon === self.var_d0015cb3)
 		{
 			self.var_d0015cb3 = undefined;
 		}
-		if(var_de56bf19 === self.var_14c391cc)
+		if(deployableweapon === self.var_14c391cc)
 		{
 			self.var_14c391cc = undefined;
 		}
@@ -419,7 +419,7 @@ event private function_4776caf4(eventstruct)
 				dropitem.id = itemspawnpoint.id;
 				dropitem.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(dropitem);
 				dropitem.var_a6762160 = itemspawnpoint.var_a6762160;
-				dropitem.var_8e092725 = 0;
+				dropitem.hidetime = 0;
 				dropitem.amount = (eventstruct.weapon.weapon.name == #"basketball" ? 1 : 0);
 				dropitem.count = 1;
 				dropitem clientfield::set("dynamic_item_drop", 1);
@@ -1214,7 +1214,7 @@ function private function_6c36ab6b()
 			self setperk(#"hash_4df21972dd2a3a87");
 		}
 	}
-	if((isdefined(getgametypesetting(#"hash_24918193d72a5866")) ? getgametypesetting(#"hash_24918193d72a5866") : 0))
+	if((isdefined(getgametypesetting(#"wzheavymetalheroes")) ? getgametypesetting(#"wzheavymetalheroes") : 0))
 	{
 		self setperk(#"specialty_doublejump");
 		self setperk(#"specialty_fallheight");
@@ -1922,7 +1922,7 @@ function function_9d102bbd(var_b72297c2, var_bd027dd9)
 	}
 	if(isentity(var_b72297c2))
 	{
-		var_b72297c2.var_8e092725 = gettime();
+		var_b72297c2.hidetime = gettime();
 	}
 	else
 	{
@@ -2624,7 +2624,7 @@ function equip_backpack(item)
 function debug_print(message, weapon)
 {
 	/#
-		if(getdvarint(#"hash_33bb7d70dd139207", 0) > 0)
+		if(getdvarint(#"inventory_debug", 0) > 0)
 		{
 			weaponname = "";
 			if(isdefined(weapon))
@@ -3072,7 +3072,7 @@ function equip_weapon(item, switchweapon = 1, var_9fa01da8 = 0, var_a3a17c55 = 0
 		if(initialweaponraise && !isdefined(item.weaponoptions) && !isdefined(item.var_3a7d925b) && !isdefined(item.var_2febbde5))
 		{
 			weaponoptions = undefined;
-			if((isdefined(getgametypesetting(#"hash_33c34a7d3c678e37")) ? getgametypesetting(#"hash_33c34a7d3c678e37") : 0))
+			if((isdefined(getgametypesetting(#"wzrandomcamo")) ? getgametypesetting(#"wzrandomcamo") : 0))
 			{
 				renderoptions = function_ea647602("camo", weapon);
 				if(renderoptions.size > 0)
@@ -3859,7 +3859,7 @@ function function_461de298()
 	/#
 		assert(isplayer(self));
 	#/
-	if(!(isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0))
+	if(!(isdefined(getgametypesetting(#"wzlootlockers")) ? getgametypesetting(#"wzlootlockers") : 0))
 	{
 		return;
 	}
@@ -4821,7 +4821,7 @@ function function_ec238da8()
 }
 
 /*
-	Name: function_56a681fb
+	Name: reset_inventory
 	Namespace: item_inventory
 	Checksum: 0xBEC69129
 	Offset: 0xE710
@@ -4829,7 +4829,7 @@ function function_ec238da8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_56a681fb()
+function reset_inventory()
 {
 	self endon(#"death", #"disconnect");
 	/#
@@ -4874,7 +4874,7 @@ function function_56a681fb()
 	self.var_7bba6210 = undefined;
 	self enableoffhandspecial();
 	self enableoffhandweapons();
-	self callback::callback(#"hash_5acf7bf1a288eb9f");
+	self callback::callback(#"inventory_reset");
 }
 
 /*
@@ -5283,7 +5283,7 @@ function function_956a8ecd()
 */
 function private function_d8ceeeec(notifyhash)
 {
-	self val::reset(#"hash_546302f07800b5e5", "freezecontrols_allowlook");
+	self val::reset(#"item_killstreak", "freezecontrols_allowlook");
 }
 
 /*
@@ -5340,8 +5340,8 @@ function use_killstreak(var_bd027dd9, item)
 		}
 		else
 		{
-			var_8d430fcb = self getplayerangles();
-			forward = anglestoforward(var_8d430fcb);
+			eyeangle = self getplayerangles();
+			forward = anglestoforward(eyeangle);
 			eyepos = self getplayercamerapos();
 			endpos = eyepos + (forward * 50);
 			var_f45df727 = eyepos + (forward * 100);
@@ -5350,12 +5350,12 @@ function use_killstreak(var_bd027dd9, item)
 			traceresults.isvalid = traceresults.trace[#"fraction"] >= 1;
 			traceresults.waterdepth = 0;
 			traceresults.origin = endpos;
-			traceresults.angles = var_8d430fcb;
+			traceresults.angles = eyeangle;
 		}
 	}
 	if(traceresults.isvalid)
 	{
-		remoteweapon = getweapon(#"hash_8c773df059a6d5e");
+		remoteweapon = getweapon(#"warzone_remote");
 		if(self hasweapon(remoteweapon))
 		{
 			return;
@@ -5364,14 +5364,14 @@ function use_killstreak(var_bd027dd9, item)
 		{
 			self waittilltimeout(2, #"weapon_change");
 		}
-		self val::set(#"hash_546302f07800b5e5", "freezecontrols_allowlook", 1);
+		self val::set(#"item_killstreak", "freezecontrols_allowlook", 1);
 		self giveweapon(remoteweapon);
 		self switchtoweapon(remoteweapon, 1);
 		self waittilltimeout(2, #"weapon_change");
 		if(self getcurrentweapon() != remoteweapon)
 		{
 			self takeweapon(remoteweapon);
-			self val::reset(#"hash_546302f07800b5e5", "freezecontrols_allowlook");
+			self val::reset(#"item_killstreak", "freezecontrols_allowlook");
 			return;
 		}
 		remove_inventory_item(var_bd027dd9);
@@ -5416,7 +5416,7 @@ function use_killstreak(var_bd027dd9, item)
 			vehicle.ownerentnum = self.entnum;
 			if(vehicle isremotecontrol())
 			{
-				self val::reset(#"hash_546302f07800b5e5", "freezecontrols_allowlook");
+				self val::reset(#"item_killstreak", "freezecontrols_allowlook");
 				vehicle usevehicle(self, 0);
 				self waittill(#"exit_vehicle");
 			}
@@ -5425,7 +5425,7 @@ function use_killstreak(var_bd027dd9, item)
 				vehicle [[vehicle.var_7feead71]](self);
 			}
 		}
-		self val::reset(#"hash_546302f07800b5e5", "freezecontrols_allowlook");
+		self val::reset(#"item_killstreak", "freezecontrols_allowlook");
 		self takeweapon(remoteweapon);
 	}
 	else

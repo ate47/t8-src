@@ -228,7 +228,7 @@ function function_45a2294f(str_id)
 	}
 	level notify(#"traps_activated", {#hash_be3f58a:str_id});
 	wait(30);
-	level notify(#"hash_3c662e7b29cfc3dd", {#hash_be3f58a:str_id});
+	level notify(#"traps_cooldown", {#hash_be3f58a:str_id});
 	n_cooldown = zm_traps::function_da13db45(60, self);
 	wait(n_cooldown);
 	level notify(#"traps_available", {#hash_be3f58a:str_id});
@@ -245,7 +245,7 @@ function function_45a2294f(str_id)
 */
 function function_6f34f900()
 {
-	level endon(#"hash_3c662e7b29cfc3dd");
+	level endon(#"traps_cooldown");
 	while(true)
 	{
 		s_info = undefined;
@@ -296,7 +296,7 @@ function activate_trap(e_player)
 }
 
 /*
-	Name: function_b97c8553
+	Name: deactivate_trap
 	Namespace: namespace_a5b1b1d7
 	Checksum: 0x51597EED
 	Offset: 0xB50
@@ -304,7 +304,7 @@ function activate_trap(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b97c8553(e_trap)
+function deactivate_trap(e_trap)
 {
 	e_trap notify(#"trap_deactivate");
 	self flag::clear("activated");
@@ -328,7 +328,7 @@ function damage(e_trap)
 	}
 	if(self.var_6f84b820 === #"miniboss" || self.var_6f84b820 === #"heavy")
 	{
-		e_trap.var_1a26b52 function_b97c8553(e_trap);
+		e_trap.var_1a26b52 deactivate_trap(e_trap);
 		if(isdefined(e_trap.activated_by_player))
 		{
 			e_trap.activated_by_player notify(#"hash_74fc45698491be88");

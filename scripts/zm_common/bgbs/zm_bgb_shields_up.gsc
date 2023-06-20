@@ -51,7 +51,7 @@ function __init__()
 */
 function activation()
 {
-	self function_92cb336d();
+	self give_shield();
 }
 
 /*
@@ -84,7 +84,7 @@ function validation()
 }
 
 /*
-	Name: function_92cb336d
+	Name: give_shield
 	Namespace: zm_bgb_shields_up
 	Checksum: 0x186592DB
 	Offset: 0x258
@@ -92,7 +92,7 @@ function validation()
 	Parameters: 0
 	Flags: Linked
 */
-function function_92cb336d()
+function give_shield()
 {
 	if(!(isdefined(self.hasriotshield) && self.hasriotshield))
 	{

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
@@ -44,11 +44,11 @@ function private __init__()
 	zm_score::function_e5d6e6dd(#"skeleton", 60);
 	if(zm_utility::is_standard())
 	{
-		namespace_c3287616::register_archetype(#"skeleton", &function_cf877849, &round_spawn, &function_1ea880bd, 5);
+		zm_round_spawning::register_archetype(#"skeleton", &function_cf877849, &round_spawn, &function_1ea880bd, 5);
 	}
 	else
 	{
-		namespace_c3287616::register_archetype(#"skeleton", &function_cf877849, &round_spawn, &function_1ea880bd, 25);
+		zm_round_spawning::register_archetype(#"skeleton", &function_cf877849, &round_spawn, &function_1ea880bd, 25);
 	}
 	zm_cleanup::function_cdf5a512(#"skeleton", &function_ad4293a8);
 	namespace_32192f7::function_95c1dd81(#"skeleton", &function_8609d56e);

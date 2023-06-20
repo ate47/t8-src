@@ -111,12 +111,12 @@ function function_e7a7ac96(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	self endon(#"death", #"hash_5423f6c5db580daa");
 	self.var_d1f92a1c = util::spawn_model(localclientnum, "tag_origin", self.origin + vectorscale((0, 0, 1), 4000));
-	var_be18b9fb = "beam8_zm_raygun2v_elec";
+	str_beam = "beam8_zm_raygun2v_elec";
 	if(newval > 1)
 	{
-		var_be18b9fb = "beam8_zm_raygun2v_ug_elec";
+		str_beam = "beam8_zm_raygun2v_ug_elec";
 	}
-	self.var_21553ca5 = level beam::function_cfb2f62a(localclientnum, self, "tag_flash", self.var_d1f92a1c, "tag_origin", var_be18b9fb);
+	self.var_21553ca5 = level beam::function_cfb2f62a(localclientnum, self, "tag_flash", self.var_d1f92a1c, "tag_origin", str_beam);
 }
 
 /*

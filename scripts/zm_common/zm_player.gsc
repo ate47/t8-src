@@ -503,7 +503,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	/#
 		assert(isdefined(idamage), "");
 	#/
-	if(isdefined(level.var_4804edae) && level.var_4804edae && isbot(self) && isdefined(einflictor) && isactor(einflictor))
+	if(isdefined(level.zm_bots_scale) && level.zm_bots_scale && isbot(self) && isdefined(einflictor) && isactor(einflictor))
 	{
 		idamage = int(idamage / zm_bot::function_e16b5033(einflictor));
 	}
@@ -903,7 +903,7 @@ function onplayerspawned()
 				self thread val::set_for_time(3, #"player_spawn_protection", "ignoreme");
 			}
 		}
-		self notify(#"hash_6983c1a427fa8913");
+		self notify(#"perks_initialized");
 	}
 }
 

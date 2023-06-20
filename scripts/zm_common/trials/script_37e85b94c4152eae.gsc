@@ -39,7 +39,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d38da46b35569b3", &on_begin, &on_end);
+	zm_trial::register_challenge(#"timed_round", &on_begin, &on_end);
 }
 
 /*

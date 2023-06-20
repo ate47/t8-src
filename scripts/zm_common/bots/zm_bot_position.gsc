@@ -114,8 +114,8 @@ function function_a3d8f155(params, tacbundle)
 	{
 		return false;
 	}
-	var_6836ac55 = arraygetclosest(self.origin, allies);
-	self bot_position::set_position(var_6836ac55.origin);
+	closestally = arraygetclosest(self.origin, allies);
+	self bot_position::set_position(closestally.origin);
 	return true;
 }
 
@@ -170,7 +170,7 @@ function function_a0b3c01e()
 	{
 		return undefined;
 	}
-	var_efad0f6 = self getpathfindingradius();
+	pathfindingradius = self getpathfindingradius();
 	interact = self bot::function_f47bf51d();
 	if(isentity(interact))
 	{

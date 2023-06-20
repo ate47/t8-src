@@ -43,12 +43,12 @@ function __init__()
 	function_e9e03d6f(#"hash_156be21f04d01350", &function_d2161ccd);
 	function_e9e03d6f(#"hash_c0bcf7fa0d58e5", &function_b94f5770);
 	function_e9e03d6f(#"revive_player", &function_8adaa75f);
-	function_e9e03d6f(#"hash_d6dff7ae81e65db", &function_daab6847);
+	function_e9e03d6f(#"gameobject_interact", &function_daab6847);
 	function_e9e03d6f(#"hash_797d652ff338b7d4", &function_90ff35fc);
 	function_e9e03d6f(#"visible_enemy", &function_a0da5bb);
 	function_e9e03d6f(#"hash_608fe62234892b49", &function_7ed3ada6);
 	function_aa8c6854(#"goal", &get_goal_center);
-	function_aa8c6854(#"hash_d6dff7ae81e65db", &function_4fa26afe);
+	function_aa8c6854(#"gameobject_interact", &function_4fa26afe);
 	function_aa8c6854(#"revive_target", &function_f94e1790);
 	function_aa8c6854(#"self", &function_eeca1b53);
 	if(!isdefined(level.var_d1a4558d))
@@ -968,11 +968,11 @@ function function_356f5b61(trigger)
 	if(!isdefined(trigger.tacpoints))
 	{
 		trigger.tacpoints = tacticalquery("stratcom_tacquery_trigger_all", trigger);
-		var_c36ae55a = getclosesttacpoint(trigger.origin);
-		if(isdefined(var_c36ae55a))
+		closesttacpoint = getclosesttacpoint(trigger.origin);
+		if(isdefined(closesttacpoint))
 		{
-			var_3ffc9821 = array(var_c36ae55a);
-			neighbors = function_9086d9a4(var_c36ae55a);
+			var_3ffc9821 = array(closesttacpoint);
+			neighbors = function_9086d9a4(closesttacpoint);
 			foreach(point in neighbors)
 			{
 				if(!isdefined(var_3ffc9821))

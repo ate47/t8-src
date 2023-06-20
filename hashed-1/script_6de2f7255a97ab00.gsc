@@ -82,9 +82,9 @@ function private function_eaba72c9()
 				}
 				setdvar(#"wz_supply_drop", 0);
 			}
-			if(getdvarint(#"hash_41d51e6f2ca1b9b1", 0) > 0)
+			if(getdvarint(#"wz_flare_drop", 0) > 0)
 			{
-				switch(getdvarint(#"hash_41d51e6f2ca1b9b1", 0))
+				switch(getdvarint(#"wz_flare_drop", 0))
 				{
 					case 1:
 					{
@@ -92,7 +92,7 @@ function private function_eaba72c9()
 						break;
 					}
 				}
-				setdvar(#"hash_41d51e6f2ca1b9b1", 0);
+				setdvar(#"wz_flare_drop", 0);
 			}
 			if(getdvarint(#"hash_5dc24c61c66f6fee", 0) > 0)
 			{
@@ -346,8 +346,8 @@ function private function_13339b58(var_d4bce8be)
 */
 function private function_71c31c8d()
 {
-	self notify(#"hash_6ade3db3c3188274");
-	self.var_7bea4af0 = 1;
+	self notify(#"pop_parachute");
+	self.pop_parachute = 1;
 }
 
 /*
@@ -377,9 +377,9 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 		startpoint = (supplydrop.origin[0], supplydrop.origin[1], min(10000, supplydrop.origin[2] - 200));
 		endpoint = (supplydrop.origin[0], supplydrop.origin[1], -10000);
 		travelspeed = isdefined(supplydrop.var_abd32694) && (supplydrop.var_abd32694 ? 400 : 200);
-		var_d635e1bd = isdefined(supplydrop.var_abd32694) && (supplydrop.var_abd32694 ? 200 : 120);
+		groundoffset = isdefined(supplydrop.var_abd32694) && (supplydrop.var_abd32694 ? 200 : 120);
 		groundtrace = physicstraceex(startpoint, endpoint, vectorscale((-1, -1, -1), 0.5), vectorscale((1, 1, 1), 0.5), supplydrop, 32);
-		groundpoint = groundtrace[#"position"] + (0, 0, var_d635e1bd);
+		groundpoint = groundtrace[#"position"] + (0, 0, groundoffset);
 		traveldistance = startpoint - groundpoint;
 		movetime = traveldistance[2] / travelspeed;
 		if(movetime < 0)
@@ -411,9 +411,9 @@ function private function_500a6615(itemspawnlist = #"hash_696141fcc5f2e372")
 			supplydropparachute linkto(supplydrop, "tag_origin", (0, 0, 0));
 			supplydropparachute thread function_13339b58();
 		}
-		if(!(isdefined(supplydrop.var_7bea4af0) && supplydrop.var_7bea4af0))
+		if(!(isdefined(supplydrop.pop_parachute) && supplydrop.pop_parachute))
 		{
-			supplydrop waittill(#"movedone", #"hash_6ade3db3c3188274");
+			supplydrop waittill(#"movedone", #"pop_parachute");
 		}
 		if(isdefined(supplydropparachute))
 		{
@@ -480,8 +480,8 @@ function private function_e21ceb1b()
 		{
 			speed = abs(self getspeedmph());
 			velocity = self getvelocity();
-			var_80c2b29 = abs(velocity[2]);
-			if(speed < 0.1 && var_80c2b29 < 0.1)
+			zvelocity = abs(velocity[2]);
+			if(speed < 0.1 && zvelocity < 0.1)
 			{
 				var_8bc27a4a++;
 			}
@@ -511,7 +511,7 @@ function private function_e21ceb1b()
 function private function_ba3be344()
 {
 	self endon(#"death");
-	self notify(#"hash_57267dfd9e64c1c7");
+	self notify(#"emergency_exit");
 	exitangle = 60;
 	right = anglestoforward(self.angles + (0, exitangle, 0));
 	left = anglestoforward(self.angles + (0, exitangle * -1, 0));
@@ -937,7 +937,7 @@ function private function_9e8348e4()
 */
 function private function_c2edbefb(path, droppoint, var_86928932 = 1, var_2118f785 = undefined)
 {
-	self endon(#"death", #"hash_57267dfd9e64c1c7");
+	self endon(#"death", #"emergency_exit");
 	for(pathindex = 1; pathindex < path.size; pathindex++)
 	{
 		var_f155e743 = 0;
@@ -1025,7 +1025,7 @@ function function_ab6af198()
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private function_261b0e67(spawnpoint, endpoint, droppoint, var_d9151bd0 = 1, vehicleoverride = undefined)
+function private function_261b0e67(spawnpoint, endpoint, droppoint, dropflare = 1, vehicleoverride = undefined)
 {
 	var_47736ddd = array(spawnpoint, droppoint, endpoint);
 	var_7366c0ff = spawnvehicle((isdefined(vehicleoverride) ? vehicleoverride : "vehicle_t8_mil_helicopter_transport_dark_wz_infiltration"), spawnpoint, vectortoangles(vectornormalize(endpoint - spawnpoint)));
@@ -1057,7 +1057,7 @@ function private function_261b0e67(spawnpoint, endpoint, droppoint, var_d9151bd0
 			{
 				if(distancesquared(droppoint, var_7366c0ff.origin) < 128 * 128)
 				{
-					if(var_d9151bd0)
+					if(dropflare)
 					{
 						fx = playfx("wz/fx8_death_circle_cue", var_7366c0ff.origin, (1, 0, 0), (0, 0, 1));
 					}
@@ -1159,7 +1159,7 @@ function function_7d4a448f(var_47d17dcb = 0)
 	Parameters: 6
 	Flags: Linked
 */
-function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca2822 = 1, var_541c190b = 0, var_d6388d1 = 0, vehicletype = undefined)
+function function_418e26fe(var_2118f785 = undefined, helicopter = 0, voiceevent = 1, var_541c190b = 0, var_d6388d1 = 0, vehicletype = undefined)
 {
 	if(!(isdefined(level.var_d8958e58) && level.var_d8958e58))
 	{
@@ -1235,7 +1235,7 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca282
 	}
 	else
 	{
-		var_57e06aea = function_b8dd1978(spawnpoint, endpoint, droppoint, var_2118f785, var_58ca2822);
+		var_57e06aea = function_b8dd1978(spawnpoint, endpoint, droppoint, var_2118f785, voiceevent);
 	}
 	level.var_1b269b78 = var_8df04549;
 	level.var_538928e3 = exitpoint;
@@ -1250,7 +1250,7 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, var_58ca282
 	Parameters: 5
 	Flags: Linked
 */
-function function_b8dd1978(startpoint, endpoint, droppoint, var_2118f785 = undefined, var_58ca2822 = 1)
+function function_b8dd1978(startpoint, endpoint, droppoint, var_2118f785 = undefined, voiceevent = 1)
 {
 	var_57e06aea = array(startpoint, droppoint, endpoint);
 	supplydropveh = spawnvehicle("vehicle_t8_mil_air_transport_infiltration", startpoint, vectortoangles(vectornormalize(endpoint - startpoint)));
@@ -1259,9 +1259,9 @@ function function_b8dd1978(startpoint, endpoint, droppoint, var_2118f785 = undef
 		return;
 	}
 	supplydropveh setforcenocull();
-	if(var_58ca2822)
+	if(voiceevent)
 	{
-		function_58ca2822("warSupplyDropIncoming");
+		voiceevent("warSupplyDropIncoming");
 	}
 	supplydropveh.goalradius = 128;
 	supplydropveh.goalheight = 128;
@@ -1314,7 +1314,7 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d = 0, ve
 		return;
 	}
 	supplydropveh setforcenocull();
-	function_58ca2822("warSupplyDropIncoming");
+	voiceevent("warSupplyDropIncoming");
 	target_set(supplydropveh, (0, 0, 0));
 	supplydropveh.goalradius = 128;
 	supplydropveh.goalheight = 128;

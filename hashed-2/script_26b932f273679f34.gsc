@@ -109,7 +109,7 @@ class cct_shared_aar_medals : cLUIelem
 					}
 					else
 					{
-						if(#"hash_7eee9bfd6e19148f" == state_name)
+						if(#"medal_none" == state_name)
 						{
 							player clientfield::function_9bf78ef8(var_47e79fc, "_state", 4);
 						}

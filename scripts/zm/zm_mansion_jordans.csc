@@ -49,7 +49,7 @@ function function_5869f09a(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval)
 	{
-		self.var_5d1596c4 = playfx(localclientnum, level._effect[#"hash_2d18ba139fbb02f"], self.origin + vectorscale((0, 0, 1), 6), anglestoforward(self.angles), anglestoup(self.angles));
+		self.var_5d1596c4 = playfx(localclientnum, level._effect[#"candle_light"], self.origin + vectorscale((0, 0, 1), 6), anglestoforward(self.angles), anglestoup(self.angles));
 		playsound(localclientnum, #"hash_6ab53d808ef366d5", self.origin);
 	}
 }

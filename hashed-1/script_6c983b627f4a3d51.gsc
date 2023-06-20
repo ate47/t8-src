@@ -93,7 +93,7 @@ function function_9c8540b4(e_player, n_amount)
 			level flag::set("fl_oracle_unlocked");
 			foreach(player in getplayers())
 			{
-				player zm_vo::function_8e0f4696(#"hash_4c29e41ef47ad9b2", 0, 1, 9999, 1, 1, 1);
+				player zm_vo::vo_say(#"hash_4c29e41ef47ad9b2", 0, 1, 9999, 1, 1, 1);
 			}
 		}
 	}
@@ -188,6 +188,6 @@ function function_407b2b88()
 	level flag::wait_till("all_players_connected");
 	level flag::wait_till("power_on");
 	level.var_483180c5 = getent("coal_brazier_apollo", "targetname");
-	level.var_483180c5 clientfield::set("" + #"hash_118e9445b028d4bf", 1);
+	level.var_483180c5 clientfield::set("" + #"rob_coals", 1);
 }
 

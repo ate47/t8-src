@@ -148,7 +148,7 @@ function function_bff5c062(supplydrop, attackingplayer)
 	supplydrop thread deleteonownerleave();
 	if(isdefined(level.var_f1edf93f))
 	{
-		supplydrop notify(#"hash_602ae7ca650d6287");
+		supplydrop notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		supplydrop thread killstreaks::waitfortimeout("inventory_supply_drop", var_eb79e7c3, &cratedelete, "death");
 	}
@@ -966,11 +966,11 @@ function function_200081db(owner, context, location)
 		return false;
 	}
 	bundle = struct::get_script_bundle("killstreak", "killstreak_supply_drop");
-	killstreak = killstreaks::get_killstreak_for_weapon(bundle.var_1ab696c6);
+	killstreak = killstreaks::get_killstreak_for_weapon(bundle.ksweapon);
 	context.var_ea9c2360 = location;
 	context.killstreak_id = killstreak_id;
-	self thread helidelivercrate(context.var_ea9c2360, bundle.var_1ab696c6, self, team, killstreak_id, killstreak_id, context);
-	self addweaponstat(bundle.var_1ab696c6, #"used", 1);
+	self thread helidelivercrate(context.var_ea9c2360, bundle.ksweapon, self, team, killstreak_id, killstreak_id, context);
+	self addweaponstat(bundle.ksweapon, #"used", 1);
 }
 
 /*
@@ -2435,7 +2435,7 @@ function is_touching_crate()
 			stance_z_offset = (stance == "stand" ? 75 : (stance == "crouch" ? 55 : 15));
 			player_test_point = player.origin + (0, 0, stance_z_offset);
 			var_f6f95bb5 = distance2dsquared(player_test_point, self.origin);
-			var_dee7aebd = self.velocity[2];
+			zvel = self.velocity[2];
 			if(var_f6f95bb5 < 2500 && player_test_point[2] > crate_bottom_point[2])
 			{
 				attacker = (isdefined(self.owner) ? self.owner : self);
@@ -3422,7 +3422,7 @@ function private function_7d90f954(drop_origin, context)
 */
 function private function_75277c27(tacpoint, context)
 {
-	if(isdefined(tacpoint.var_eadc2c7d) && tacpoint.var_eadc2c7d >= 4000)
+	if(isdefined(tacpoint.ceilingheight) && tacpoint.ceilingheight >= 4000)
 	{
 		/#
 			recordsphere(tacpoint.origin, 2, (0, 1, 0), "");
@@ -3852,7 +3852,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	chopper thread function_e16ff9df(15);
 	if(isdefined(owner))
 	{
-		owner notify(#"hash_6736343f5a9c98f2");
+		owner notify(#"payload_delivered");
 	}
 	if(isdefined(context) && isdefined(context.epilog))
 	{
@@ -4093,7 +4093,7 @@ function helidestroyed()
 	}
 	if(isdefined(self.owner))
 	{
-		self.owner notify(#"hash_d843795c594bf0e");
+		self.owner notify(#"payload_fail");
 	}
 	self setspeed(25, 5);
 	wait(randomfloatrange(0.5, 1.5));

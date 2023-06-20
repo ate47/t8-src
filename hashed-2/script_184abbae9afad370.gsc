@@ -274,7 +274,7 @@ function function_f5cfe2b4(einflictor, eattacker, idamage, idflags)
 		}
 		if(eattacker.health !== eattacker.maxhealth)
 		{
-			eattacker playsoundtoplayer(#"hash_14586b7702eea859", eattacker);
+			eattacker playsoundtoplayer(#"chr_vampire", eattacker);
 		}
 		var_2be81a5b = (idamage * var_4e3e876f) / 100;
 		newhealth = eattacker.health + var_2be81a5b;
@@ -294,12 +294,12 @@ function function_f5cfe2b4(einflictor, eattacker, idamage, idflags)
 function function_74a5d514(eattacker, idamage, smeansofdeath, weapon, shitloc)
 {
 	meleedamage = smeansofdeath === "MOD_MELEE" || smeansofdeath === "MOD_MELEE_WEAPON_BUTT" || smeansofdeath === "MOD_MELEE_ASSASSINATE";
-	if(isdefined(eattacker) && isplayer(eattacker) && meleedamage && eattacker hasperk(#"hash_153b9c0c558db313"))
+	if(isdefined(eattacker) && isplayer(eattacker) && meleedamage && eattacker hasperk(#"specialty_brawler"))
 	{
 		idamage = int(idamage * 4);
 		new_health = eattacker.health + 50;
 		eattacker.health = int(math::clamp(new_health, 0, max(eattacker.health, eattacker.maxhealth)));
-		params = getstatuseffect(#"hash_505300dab645fba4");
+		params = getstatuseffect(#"deaf_tinnitus");
 		self status_effect::status_effect_apply(params, weapon, eattacker);
 	}
 	return idamage;

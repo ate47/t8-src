@@ -26,8 +26,8 @@ function function_7e1a12ce(radius)
 	var_dd3b2438 = int(update_interval * 1000);
 	while(true)
 	{
-		var_97248341 = self getenemiesinradius(self.origin, radius);
-		foreach(enemy in var_97248341)
+		enemy_players = self getenemiesinradius(self.origin, radius);
+		foreach(enemy in enemy_players)
 		{
 			if(!isplayer(enemy))
 			{

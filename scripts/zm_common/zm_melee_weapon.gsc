@@ -99,7 +99,7 @@ function init(weapon_name, flourish_weapon_name, cost, wallbuy_targetname, hint_
 	}
 	zm_loadout::register_melee_weapon_for_level(weapon.name);
 	/#
-		if(!isdefined(level.zombie_weapons[weapon]) && (!is_ee || getdvarint(#"hash_11ad6a9695943217", 0)))
+		if(!isdefined(level.zombie_weapons[weapon]) && (!is_ee || getdvarint(#"zm_debug_ee", 0)))
 		{
 			if(isdefined(level.devgui_add_weapon))
 			{
@@ -639,7 +639,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 				level notify(#"weapon_bought", {#weapon:weapon, #player:player});
 				player zm_score::minus_to_player_score(cost);
 				player zm_stats::function_c0c6ab19(#"wallbuys", 1, 1);
-				player zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
+				player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
 				player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
 				player contracts::function_5b88297d(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
 				player thread give_melee_weapon(vo_dialog_id, flourish_weapon, weapon, flourish_fn, self);

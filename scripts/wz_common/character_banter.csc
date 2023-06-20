@@ -90,10 +90,10 @@ function play_banter(player1, player2, alias1, alias2)
 {
 	player1 endon(#"death");
 	player2 endon(#"death");
-	var_1909680b = player1 playsound(-1, alias1);
-	if(var_1909680b >= 0)
+	handle1 = player1 playsound(-1, alias1);
+	if(handle1 >= 0)
 	{
-		while(soundplaying(var_1909680b))
+		while(soundplaying(handle1))
 		{
 			waitframe(1);
 		}

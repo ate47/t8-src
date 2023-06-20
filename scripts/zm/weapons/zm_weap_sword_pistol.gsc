@@ -487,7 +487,7 @@ function private function_698ddbd9(weapon)
 	var_825c6643 = var_2dfd6afd * var_2dfd6afd;
 	var_2069eb4c = zm_hero_weapon::function_7c3681f7();
 	var_2069eb4c = arraysortclosest(var_2069eb4c, var_2ed6f142, undefined, undefined, var_2dfd6afd);
-	if(isdefined(var_fa879df8[#"entity"]) && var_fa879df8[#"entity"].var_6f84b820 === #"hash_8b8ef6434c32b55" || (isdefined(level.var_2c19331b) && isinarray(level.var_2c19331b, var_fa879df8[#"entity"])))
+	if(isdefined(var_fa879df8[#"entity"]) && var_fa879df8[#"entity"].var_6f84b820 === #"inanimate" || (isdefined(level.var_2c19331b) && isinarray(level.var_2c19331b, var_fa879df8[#"entity"])))
 	{
 		var_fa879df8[#"entity"].b_is_valid_target = 1;
 		if(!isdefined(var_2069eb4c))
@@ -734,7 +734,7 @@ function private function_698ddbd9(weapon)
 		self.var_4ecb8a5c clientfield::increment("" + #"hash_63827b1d4c75136f");
 		var_2069eb4c = zm_hero_weapon::function_7c3681f7();
 		var_2069eb4c = arraysortclosest(var_2069eb4c, var_2ed6f142, undefined, undefined, level.var_30d2c56e[#"sword_pistol"][#"hash_634b06c9d5064145"]);
-		if(isdefined(a_trace) && isdefined(a_trace[#"entity"]) && function_ffa5b184(a_trace[#"entity"].var_6f84b820 === #"hash_8b8ef6434c32b55"))
+		if(isdefined(a_trace) && isdefined(a_trace[#"entity"]) && function_ffa5b184(a_trace[#"entity"].var_6f84b820 === #"inanimate"))
 		{
 			if(!isdefined(var_2069eb4c))
 			{
@@ -894,8 +894,8 @@ function private function_e47a52e0(weapon)
 		v_end = var_ea317f4d;
 	}
 	var_6ff1bf88 = distance(v_pos, v_end);
-	var_213e9c69 = var_6ff1bf88 / n_move_speed;
-	var_f0ccd955 = (var_213e9c69 > 0.1 ? var_213e9c69 : 0.1);
+	n_time_travel = var_6ff1bf88 / n_move_speed;
+	var_f0ccd955 = (n_time_travel > 0.1 ? n_time_travel : 0.1);
 	self.var_7c78b80e moveto(v_end, var_f0ccd955);
 	self.var_7c78b80e clientfield::set("" + #"hash_4d733389a8e35a7c", 1);
 	self thread swordpistol_rumble(5);

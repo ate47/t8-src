@@ -433,7 +433,7 @@ function enable_healing(slot, weapon, player)
 		}
 	}
 	self.heal.enabled = 1;
-	self callback::function_d8abfc3d(#"hash_25663702210244cc", &function_4e449209);
+	self callback::function_d8abfc3d(#"done_healing", &function_4e449209);
 	if(isdefined(self.health) && isdefined(self.var_66cb03ad) && self.health >= self.var_66cb03ad)
 	{
 		self function_4e449209();
@@ -494,7 +494,7 @@ function function_4e449209()
 		{
 			level [[level.var_d9ae19f0]](self);
 		}
-		self callback::function_52ac9652(#"hash_25663702210244cc", &function_4e449209);
+		self callback::function_52ac9652(#"done_healing", &function_4e449209);
 		if(self is_healing())
 		{
 			if(isdefined(level.var_da2d586a) && !isdefined(self.var_c443b227))

@@ -51,26 +51,26 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.hero_weapon[#"flamethrower"][0] = getweapon(#"hash_18829d56b3fbd75b");
-	level.hero_weapon[#"flamethrower"][1] = getweapon(#"hash_18829e56b3fbd90e");
-	level.hero_weapon[#"flamethrower"][2] = getweapon(#"hash_18829f56b3fbdac1");
-	zm_loadout::register_hero_weapon_for_level(#"hash_18829d56b3fbd75b");
-	zm_loadout::register_hero_weapon_for_level(#"hash_18829e56b3fbd90e");
-	zm_loadout::register_hero_weapon_for_level(#"hash_18829f56b3fbdac1");
+	level.hero_weapon[#"flamethrower"][0] = getweapon(#"hero_flamethrower_t8_lv1");
+	level.hero_weapon[#"flamethrower"][1] = getweapon(#"hero_flamethrower_t8_lv2");
+	level.hero_weapon[#"flamethrower"][2] = getweapon(#"hero_flamethrower_t8_lv3");
+	zm_loadout::register_hero_weapon_for_level(#"hero_flamethrower_t8_lv1");
+	zm_loadout::register_hero_weapon_for_level(#"hero_flamethrower_t8_lv2");
+	zm_loadout::register_hero_weapon_for_level(#"hero_flamethrower_t8_lv3");
 	clientfield::register("scriptmover", "flamethrower_tornado_fx", 1, 1, "int");
 	clientfield::register("toplayer", "hero_flamethrower_vigor_postfx", 1, 1, "counter");
 	clientfield::register("toplayer", "flamethrower_wind_blast_flash", -1, 1, "counter");
 	clientfield::register("allplayers", "flamethrower_wind_blast_tu16", 16000, 1, "counter");
 	clientfield::register("toplayer", "flamethrower_tornado_blast_flash", 1, 1, "counter");
 	callback::on_connect(&function_f5430720);
-	zm::function_84d343d(#"hash_18829d56b3fbd75b", &function_f63feeb6);
-	zm::function_84d343d(#"hash_18829e56b3fbd90e", &function_f63feeb6);
-	zm::function_84d343d(#"hash_18829f56b3fbdac1", &function_f63feeb6);
+	zm::function_84d343d(#"hero_flamethrower_t8_lv1", &function_f63feeb6);
+	zm::function_84d343d(#"hero_flamethrower_t8_lv2", &function_f63feeb6);
+	zm::function_84d343d(#"hero_flamethrower_t8_lv3", &function_f63feeb6);
 	namespace_9ff9f642::register_slowdown(#"hash_6ff4731de876ab68", 0.6, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_6a420a16118789e1", 0.6, 3);
-	namespace_9ff9f642::function_9d45c058(#"hash_18829d56b3fbd75b", 16, 6);
-	namespace_9ff9f642::function_9d45c058(#"hash_18829e56b3fbd90e", 16, 6);
-	namespace_9ff9f642::function_9d45c058(#"hash_18829f56b3fbdac1", 16, 6);
+	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv1", 16, 6);
+	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv2", 16, 6);
+	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv3", 16, 6);
 	level.n_zombies_lifted_for_ragdoll = 0;
 	if(!isdefined(level.var_f2f67d17))
 	{
@@ -377,11 +377,11 @@ function private function_aa93af91(w_flamethrower)
 	a_e_targets = zm_hero_weapon::function_7c3681f7();
 	var_560ef51 = [];
 	v_start_pos = self geteye();
-	var_a993e05e = self getweaponforwarddir();
+	v_forward_angles = self getweaponforwarddir();
 	a_ai_zombies = util::get_array_of_closest(self.origin, a_e_targets, undefined, undefined, 64);
 	foreach(ai_zombie in a_ai_zombies)
 	{
-		if(isdefined(ai_zombie sightconetrace(v_start_pos, self, var_a993e05e, 29)) && ai_zombie sightconetrace(v_start_pos, self, var_a993e05e, 29))
+		if(isdefined(ai_zombie sightconetrace(v_start_pos, self, v_forward_angles, 29)) && ai_zombie sightconetrace(v_start_pos, self, v_forward_angles, 29))
 		{
 			if(!isdefined(var_560ef51))
 			{
@@ -434,12 +434,12 @@ function function_31a142a2(w_flamethrower)
 {
 	switch(w_flamethrower.name)
 	{
-		case "hash_18829e56b3fbd90e":
+		case "hero_flamethrower_t8_lv2":
 		{
 			var_c4d00e65 = 0.75;
 			break;
 		}
-		case "hash_18829f56b3fbdac1":
+		case "hero_flamethrower_t8_lv3":
 		{
 			var_c4d00e65 = 1;
 			break;
@@ -454,8 +454,8 @@ function function_31a142a2(w_flamethrower)
 	{
 		self.maxhealth = self.health;
 	}
-	var_24a53699 = var_c4d00e65 * self.maxhealth;
-	return max(var_24a53699, w_flamethrower.maxdamage);
+	n_percent_health = var_c4d00e65 * self.maxhealth;
+	return max(n_percent_health, w_flamethrower.maxdamage);
 }
 
 /*
@@ -496,7 +496,7 @@ function function_99207e4d(w_flamethrower)
 	var_a092956c = [];
 	var_560ef51 = [];
 	var_2ed6f142 = self getweaponmuzzlepoint();
-	var_a993e05e = self getweaponforwarddir();
+	v_forward_angles = self getweaponforwarddir();
 	self playrumbleonentity("grenade_rumble");
 	a_ai_zombies = util::get_array_of_closest(var_2ed6f142, getaispeciesarray(level.zombie_team), undefined, undefined, 614);
 	foreach(ai_zombie in a_ai_zombies)
@@ -527,7 +527,7 @@ function function_99207e4d(w_flamethrower)
 			}
 			self.var_1374cdc6 = 1;
 		}
-		if(isdefined(ai_zombie sightconetrace(var_2ed6f142, self, var_a993e05e, 29)) && ai_zombie sightconetrace(var_2ed6f142, self, var_a993e05e, 29))
+		if(isdefined(ai_zombie sightconetrace(var_2ed6f142, self, v_forward_angles, 29)) && ai_zombie sightconetrace(var_2ed6f142, self, v_forward_angles, 29))
 		{
 			if(distance(ai_zombie.origin, self.origin) <= 296)
 			{
@@ -686,8 +686,8 @@ function function_3be93b07(w_flamethrower)
 	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676", #"hash_2ca901b5ada4f20f");
 	var_a85d39a2 = [];
 	var_2ed6f142 = self getweaponmuzzlepoint();
-	var_a993e05e = self getweaponforwarddir();
-	var_a812a69b = var_2ed6f142 + (var_a993e05e * 40);
+	v_forward_angles = self getweaponforwarddir();
+	var_a812a69b = var_2ed6f142 + (v_forward_angles * 40);
 	var_a812a69b = getclosestpointonnavmesh(var_a812a69b, 128, 16);
 	if(!isdefined(var_a812a69b))
 	{
@@ -718,7 +718,7 @@ function function_3be93b07(w_flamethrower)
 	a_ai_zombies = util::get_array_of_closest(var_a812a69b, getaispeciesarray(level.zombie_team), undefined, undefined, 400);
 	foreach(ai_zombie in a_ai_zombies)
 	{
-		if(isdefined(ai_zombie sightconetrace(var_2ed6f142, self, var_a993e05e, 29)) && ai_zombie sightconetrace(var_2ed6f142, self, var_a993e05e, 29))
+		if(isdefined(ai_zombie sightconetrace(var_2ed6f142, self, v_forward_angles, 29)) && ai_zombie sightconetrace(var_2ed6f142, self, v_forward_angles, 29))
 		{
 			if(!isdefined(var_a85d39a2))
 			{
@@ -734,7 +734,7 @@ function function_3be93b07(w_flamethrower)
 			}
 		}
 	}
-	self.var_be72e7c2 thread function_6c891578(var_a993e05e, var_a85d39a2);
+	self.var_be72e7c2 thread function_6c891578(v_forward_angles, var_a85d39a2);
 	self thread function_95195ac0();
 }
 
@@ -783,7 +783,7 @@ function function_95195ac0()
 	Parameters: 2
 	Flags: Linked
 */
-function function_6c891578(var_a993e05e, var_a85d39a2)
+function function_6c891578(v_forward_angles, var_a85d39a2)
 {
 	self endon(#"death", #"hash_2ca901b5ada4f20f");
 	var_2ddb51af = self.v_start + vectorscale((0, 0, 1), 16);
@@ -803,13 +803,13 @@ function function_6c891578(var_a993e05e, var_a85d39a2)
 			}
 			else
 			{
-				if(isdefined(bullettracepassed(var_2ddb51af, var_2ddb51af + (var_a993e05e * var_94a175c3), 0, self)) && bullettracepassed(var_2ddb51af, var_2ddb51af + (var_a993e05e * var_94a175c3), 0, self))
+				if(isdefined(bullettracepassed(var_2ddb51af, var_2ddb51af + (v_forward_angles * var_94a175c3), 0, self)) && bullettracepassed(var_2ddb51af, var_2ddb51af + (v_forward_angles * var_94a175c3), 0, self))
 				{
-					v_target_pos = var_2ddb51af + (var_a993e05e * var_94a175c3);
+					v_target_pos = var_2ddb51af + (v_forward_angles * var_94a175c3);
 				}
 				else
 				{
-					v_target_pos = bullettrace(var_2ddb51af, var_2ddb51af + (var_a993e05e * var_94a175c3), 0, self)[#"position"];
+					v_target_pos = bullettrace(var_2ddb51af, var_2ddb51af + (v_forward_angles * var_94a175c3), 0, self)[#"position"];
 				}
 			}
 		}
@@ -1003,7 +1003,7 @@ function private function_72601dd2(e_player, var_ab287846, n_push_away, n_lift_h
 				var_ab287846 thread scene::init(#"p8_zm_flame_tornado_miniboss_scene", self);
 				self dodamage(self.maxhealth * 0.18, v_origin, e_player, e_player, "none", "MOD_BURNED", 0, w_flamethrower);
 				self.var_42d5176d = 1;
-				self val::set(#"hash_77bfbbee3d2c15d", "ignoreall", 1);
+				self val::set(#"trap_ignore", "ignoreall", 1);
 				v_pos = groundtrace(self.origin + vectorscale((0, 0, 1), 100), self.origin + (vectorscale((0, 0, -1), 1000)), 0, self)[#"position"];
 				if(!isdefined(v_pos))
 				{
@@ -1020,7 +1020,7 @@ function private function_72601dd2(e_player, var_ab287846, n_push_away, n_lift_h
 				if(isdefined(self) && isdefined(self.var_68f4c9de))
 				{
 					self.var_42d5176d = undefined;
-					self val::reset(#"hash_77bfbbee3d2c15d", "ignoreall");
+					self val::reset(#"trap_ignore", "ignoreall");
 					self.var_d9e7a08a = undefined;
 					self.var_68f4c9de delete();
 				}

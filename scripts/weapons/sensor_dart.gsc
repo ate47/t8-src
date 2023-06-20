@@ -127,7 +127,7 @@ function function_bff5c062(sensordart, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]() * 1000;
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			sensordart notify(#"hash_602ae7ca650d6287");
+			sensordart notify(#"cancel_timeout");
 			sensordart thread weaponobjects::function_d9c08e94(_station_up_to_detention_center_triggers, &function_4db10465);
 		}
 	}

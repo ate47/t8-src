@@ -35,7 +35,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("actor", "" + #"gaia_impact_zombie", 16000, 1, "counter", &gaia_impact_zombie_fx, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_90f855c336338af", 16000, 1, "counter", &function_e8dc2680, 0, 0);
+	clientfield::register("scriptmover", "" + #"gaia_shoot", 16000, 1, "counter", &function_e8dc2680, 0, 0);
 	clientfield::register("scriptmover", "" + #"gaia_impact", 16000, 1, "counter", &gaia_impact_fx, 0, 0);
 	clientfield::register("scriptmover", "" + #"spike_explode", 16000, 1, "counter", &function_10485953, 0, 0);
 	clientfield::register("scriptmover", "" + #"spike_spawn", 16000, 1, "counter", &function_3672d8a5, 0, 0);

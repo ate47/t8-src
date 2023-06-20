@@ -296,7 +296,7 @@ function function_bbba5164(player)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9bab3960(player, var_d5710e87 = 0, var_b1100790)
+function function_9bab3960(player, b_force_close = 0, var_b1100790)
 {
 	if(!isdefined(player.var_e325b124))
 	{
@@ -307,13 +307,13 @@ function function_9bab3960(player, var_d5710e87 = 0, var_b1100790)
 	{
 		player.var_26b0547b = undefined;
 	}
-	if(self is_open(player) && (player.var_e325b124 <= 0 || var_d5710e87))
+	if(self is_open(player) && (player.var_e325b124 <= 0 || b_force_close))
 	{
 		player.var_e325b124 = 0;
 		self close(player);
 		player notify(#"hash_2a4a6c3c411261d8");
 		player.var_26b0547b = undefined;
-		if(var_d5710e87)
+		if(b_force_close)
 		{
 			player notify(#"hash_660dedc4af5b4336");
 		}

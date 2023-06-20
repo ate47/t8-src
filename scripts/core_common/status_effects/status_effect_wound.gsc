@@ -91,7 +91,7 @@ function wound_apply(var_756fda07, weapon, var_84171a6c)
 function function_a54d41f7(starttime)
 {
 	self notify(#"hash_77a943337c92549a");
-	self endon(#"hash_77a943337c92549a", #"hash_13d72ca5a7cfd2bd");
+	self endon(#"hash_77a943337c92549a", #"endstatuseffect");
 	var_1420e67b = self.endtime;
 	while(self.endtime > gettime())
 	{
@@ -117,7 +117,7 @@ function function_a54d41f7(starttime)
 function private function_f6fec56f()
 {
 	self notify(#"hash_35c63d8ef4b4825");
-	self endon(#"hash_35c63d8ef4b4825", #"hash_13d72ca5a7cfd2bd");
+	self endon(#"hash_35c63d8ef4b4825", #"endstatuseffect");
 	while(true)
 	{
 		waitresult = undefined;

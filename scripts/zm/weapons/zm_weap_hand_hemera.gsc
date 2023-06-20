@@ -246,7 +246,7 @@ function function_54922a21()
 			waitframe(1);
 		}
 		self thread function_b27148c8(self.currentweapon);
-		self waittill(#"weapon_fired", #"hash_609518a5a35564bf");
+		self waittill(#"weapon_fired", #"stop_beaming");
 		while(self.chargeshotlevel >= 2)
 		{
 			waitframe(1);
@@ -819,7 +819,7 @@ function function_3f079da()
 	a_trace = bullettrace(var_2ed6f142, v_end, 1, self);
 	if(isdefined(level.var_137b8e71))
 	{
-		level notify(#"hash_53f322a8c39f79d6", {#v_position:a_trace[#"position"], #e_entity:a_trace[#"entity"], #player:self});
+		level notify(#"ww_hemera_hit", {#v_position:a_trace[#"position"], #e_entity:a_trace[#"entity"], #player:self});
 	}
 	return a_trace[#"position"];
 }
@@ -835,7 +835,7 @@ function function_3f079da()
 */
 function function_b27148c8(weapon)
 {
-	self endoncallback(&function_8a56ed15, #"death", #"disconnect", #"weapon_change", #"weapon_fired", #"hash_609518a5a35564bf");
+	self endoncallback(&function_8a56ed15, #"death", #"disconnect", #"weapon_change", #"weapon_fired", #"stop_beaming");
 	v_trace = self function_3f079da();
 	v_ground = groundtrace(v_trace + vectorscale((0, 0, 1), 200), v_trace + (vectorscale((0, 0, -1), 1000)), 0, self)[#"position"];
 	if(!isdefined(self.var_8999a4bf))
@@ -843,7 +843,7 @@ function function_b27148c8(weapon)
 		self.var_8999a4bf = util::spawn_model("tag_origin", v_ground);
 		if(!isdefined(self.var_8999a4bf))
 		{
-			self notify(#"hash_609518a5a35564bf");
+			self notify(#"stop_beaming");
 			return;
 		}
 	}
@@ -879,7 +879,7 @@ function function_b27148c8(weapon)
 		self.var_8999a4bf clientfield::set("" + #"hemera_beam", 0);
 		self.var_8999a4bf delete();
 	}
-	self notify(#"hash_609518a5a35564bf");
+	self notify(#"stop_beaming");
 }
 
 /*
@@ -916,12 +916,12 @@ function function_8a56ed15(s_notify)
 */
 function function_a2065170()
 {
-	self endon(#"death", #"weapon_change", #"hash_609518a5a35564bf", #"weapon_fired");
+	self endon(#"death", #"weapon_change", #"stop_beaming", #"weapon_fired");
 	while(true)
 	{
 		if(self meleebuttonpressed())
 		{
-			self notify(#"hash_609518a5a35564bf");
+			self notify(#"stop_beaming");
 		}
 		waitframe(1);
 	}
@@ -938,7 +938,7 @@ function function_a2065170()
 */
 function function_8bf301a6()
 {
-	self endon(#"death", #"weapon_change", #"hash_609518a5a35564bf");
+	self endon(#"death", #"weapon_change", #"stop_beaming");
 	self.var_8999a4bf endon(#"death");
 	if(self.currentweapon === level.w_hand_hemera_upgraded)
 	{
@@ -976,7 +976,7 @@ function function_8bf301a6()
 */
 function function_1e39fbc5(weapon)
 {
-	self endon(#"death", #"hash_609518a5a35564bf", #"weapon_change");
+	self endon(#"death", #"stop_beaming", #"weapon_change");
 	wait(0.3);
 	while(zm_utility::is_player_valid(self) && self attackbuttonpressed())
 	{
@@ -985,7 +985,7 @@ function function_1e39fbc5(weapon)
 		if(n_ammo)
 		{
 			n_ammo--;
-			self notify(#"hash_7d855302d88c6701", {#weapon:weapon});
+			self notify(#"ammo_reduction", {#weapon:weapon});
 		}
 		w_hand = self getcurrentweapon();
 		if(w_hand != weapon)
@@ -999,7 +999,7 @@ function function_1e39fbc5(weapon)
 			{
 				self switchtoweapon();
 			}
-			self notify(#"hash_609518a5a35564bf");
+			self notify(#"stop_beaming");
 		}
 		wait(1);
 	}
@@ -1017,12 +1017,12 @@ function function_1e39fbc5(weapon)
 function function_6e71e724()
 {
 	self notify(#"beaming");
-	self endon(#"death", #"beaming", #"hash_609518a5a35564bf", #"weapon_change");
+	self endon(#"death", #"beaming", #"stop_beaming", #"weapon_change");
 	while(zm_utility::is_player_valid(self) && self attackbuttonpressed())
 	{
 		waitframe(1);
 	}
-	self notify(#"hash_609518a5a35564bf");
+	self notify(#"stop_beaming");
 }
 
 /*

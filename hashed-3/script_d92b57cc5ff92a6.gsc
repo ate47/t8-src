@@ -91,7 +91,7 @@ class cct_shared_objcounter : cLUIelem
 		}
 		else
 		{
-			if(#"hash_2da0af76542bf74" == state_name)
+			if(#"nototal" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_47e79fc, "_state", 1);
 			}
@@ -109,7 +109,7 @@ class cct_shared_objcounter : cLUIelem
 					}
 					else
 					{
-						if(#"hash_3a90323ee061faef" == state_name)
+						if(#"total_update" == state_name)
 						{
 							player clientfield::function_9bf78ef8(var_47e79fc, "_state", 4);
 						}

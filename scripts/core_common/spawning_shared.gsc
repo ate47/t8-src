@@ -42,7 +42,7 @@ function __init__()
 	level.spawnprotectiontime = getgametypesetting(#"spawnprotectiontime");
 	level.spawnprotectiontimems = int(int((isdefined(level.spawnprotectiontime) ? level.spawnprotectiontime : 0) * 1000));
 	level.spawntraptriggertime = getgametypesetting(#"spawntraptriggertime");
-	level.var_f220c297 = getgametypesetting(#"hash_19400c3e10b77e6b");
+	level.deathcirclerespawn = getgametypesetting(#"deathcirclerespawn");
 	level.var_c2cc011f = getgametypesetting(#"hash_4bdd1bd86b610871");
 	level.players = [];
 	level.numplayerswaitingtoenterkillcam = 0;
@@ -198,12 +198,12 @@ function private init_spawn_system()
 	spawnsystem.ispawn_teammask_free = 1;
 	spawnsystem.ispawn_teammask[#"free"] = spawnsystem.ispawn_teammask_free;
 	spawnsystem.ispawn_teammask[#"neutral"] = spawnsystem.var_146943ea;
-	function_44c8af7f();
-	callback::add_callback(#"hash_79b2aab11c0a9902", &function_44c8af7f);
+	init_teams();
+	callback::add_callback(#"init_teams", &init_teams);
 }
 
 /*
-	Name: function_44c8af7f
+	Name: init_teams
 	Namespace: spawning
 	Checksum: 0x242C617
 	Offset: 0x958
@@ -211,7 +211,7 @@ function private init_spawn_system()
 	Parameters: 0
 	Flags: None
 */
-function function_44c8af7f()
+function init_teams()
 {
 	spawnsystem = level.spawnsystem;
 	all = spawnsystem.ispawn_teammask_free;

@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_38755604e51a604e;
+#using scripts\wz_common\wz_ai_zonemgr.gsc;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\wz_common\gametypes\warzone.gsc;
 #using scripts/wz_common/wz_loadouts.gsc;
-#using script_5b1c3d314b9c88fb;
+#using scripts\wz_common\wz_ai_utils.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using script_cb32d07c95e5628;
@@ -398,14 +398,14 @@ function private function_70f6e873(params)
 	}
 	attacker = params.eattacker;
 	origin = self.origin;
-	items = self namespace_65181344::function_fd87c780(#"hash_764a785c198b6416", 1);
+	items = self namespace_65181344::function_fd87c780(#"zombie_infected_itemlist", 1);
 	foreach(item in items)
 	{
 		if(!isdefined(item))
 		{
 			continue;
 		}
-		item thread namespace_b912c30b::function_7a1e21a9(attacker, origin);
+		item thread wz_ai_utils::function_7a1e21a9(attacker, origin);
 	}
 }
 
@@ -564,7 +564,7 @@ function private function_cdd9b388()
 	/#
 		while(true)
 		{
-			if(getdvarint(#"hash_4649e82f518e2143", 0))
+			if(getdvarint(#"wz_respawn_points", 0))
 			{
 				wait(1);
 			}
@@ -572,7 +572,7 @@ function private function_cdd9b388()
 			{
 				waitframe(1);
 			}
-			if(getdvarint(#"hash_4649e82f518e2143", 0))
+			if(getdvarint(#"wz_respawn_points", 0))
 			{
 				players = getplayers();
 				if(players.size <= 0)

@@ -415,8 +415,8 @@ function private function_2ad18645(notifyhash)
 	}
 	if(isdefined(player))
 	{
-		player val::reset(#"hash_56d5d2157d677c61", "ignoreme");
-		player val::reset(#"hash_56d5d2157d677c61", "disable_weapons");
+		player val::reset(#"nosferatu_latch", "ignoreme");
+		player val::reset(#"nosferatu_latch", "disable_weapons");
 	}
 }
 
@@ -477,7 +477,7 @@ function private function_20a76c21(entity)
 	}
 	if(isdefined(latch_enemy))
 	{
-		latch_enemy val::reset(#"hash_56d5d2157d677c61", "disable_weapons");
+		latch_enemy val::reset(#"nosferatu_latch", "disable_weapons");
 		latch_enemy notify(#"hash_7a32b2af2eef5415");
 	}
 	if(isdefined(entity))
@@ -502,14 +502,14 @@ function private function_20a76c21(entity)
 function private function_db62d88a()
 {
 	self endon(#"disconnect", #"death");
-	self val::set(#"hash_56d5d2157d677c61", "ignoreme", 1);
+	self val::set(#"nosferatu_latch", "ignoreme", 1);
 	w_current = self getcurrentweapon();
 	if(isdefined(w_current) && (isdefined(w_current.isheroweapon) && w_current.isheroweapon))
 	{
-		self val::set(#"hash_56d5d2157d677c61", "disable_weapons", 1);
+		self val::set(#"nosferatu_latch", "disable_weapons", 1);
 	}
 	wait(8);
-	self val::reset(#"hash_56d5d2157d677c61", "ignoreme");
+	self val::reset(#"nosferatu_latch", "ignoreme");
 }
 
 /*
@@ -1063,10 +1063,10 @@ function function_1ad502a0(entity, mocompanim, mocompanimblendouttime, mocompani
 		entity.var_cd8354e0.var_cb28f380 = entity localtoworldcoords(var_e397f54c);
 		/#
 			movedelta = getmovedelta(mocompanim, 0, 1, entity);
-			var_6b8f735f = entity localtoworldcoords(movedelta);
-			distance = distance(entity.origin, var_6b8f735f);
-			recordcircle(var_6b8f735f, 3, (0, 1, 0), "");
-			record3dtext("" + distance, var_6b8f735f, (0, 1, 0), "");
+			animendpos = entity localtoworldcoords(movedelta);
+			distance = distance(entity.origin, animendpos);
+			recordcircle(animendpos, 3, (0, 1, 0), "");
+			record3dtext("" + distance, animendpos, (0, 1, 0), "");
 		#/
 	}
 }
@@ -1094,18 +1094,18 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 		{
 			predictedenemypos = predictedenemypos + vectorscale(velocity, 0.25);
 		}
-		entity.var_cd8354e0.var_736d2cce = predictedenemypos;
+		entity.var_cd8354e0.adjustedendpos = predictedenemypos;
 		var_cf699df5 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_cb28f380);
-		var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.var_736d2cce);
-		var_65cbfb52 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_736d2cce);
-		var_201660e6 = tracepassedonnavmesh(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_736d2cce, entity getpathfindingradius());
-		traceresult = bullettrace(entity.origin, entity.var_cd8354e0.var_736d2cce + vectorscale((0, 0, 1), 30), 0, entity, 0, 0, entity.enemy);
+		var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.adjustedendpos);
+		var_65cbfb52 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.adjustedendpos);
+		var_201660e6 = tracepassedonnavmesh(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.adjustedendpos, entity getpathfindingradius());
+		traceresult = bullettrace(entity.origin, entity.var_cd8354e0.adjustedendpos + vectorscale((0, 0, 1), 30), 0, entity, 0, 0, entity.enemy);
 		isvisible = traceresult[#"fraction"] == 1;
 		var_535d098c = 0;
 		if(isdefined(traceresult[#"hitloc"]) && traceresult[#"hitloc"] == "riotshield")
 		{
-			var_cc075bd0 = vectornormalize(entity.origin - entity.var_cd8354e0.var_736d2cce);
-			entity.var_cd8354e0.var_736d2cce = entity.var_cd8354e0.var_736d2cce + vectorscale(var_cc075bd0, 50);
+			var_cc075bd0 = vectornormalize(entity.origin - entity.var_cd8354e0.adjustedendpos);
+			entity.var_cd8354e0.adjustedendpos = entity.var_cd8354e0.adjustedendpos + vectorscale(var_cc075bd0, 50);
 			var_535d098c = 1;
 		}
 		if(traceresult[#"fraction"] < 0.9)
@@ -1151,7 +1151,7 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		if(entity.var_cd8354e0.var_425c4c8b)
 		{
-			var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.var_736d2cce);
+			var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.adjustedendpos);
 			var_beabc994 = anglestoforward(entity.angles);
 			var_1c3641f2 = (entity.enemy.origin[0], entity.enemy.origin[1], entity.origin[2]);
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
@@ -1173,7 +1173,7 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 			#/
 			if(var_425c4c8b)
 			{
-				var_90c3cdd2 = length(entity.var_cd8354e0.var_736d2cce - entity.var_cd8354e0.var_cb28f380);
+				var_90c3cdd2 = length(entity.var_cd8354e0.adjustedendpos - entity.var_cd8354e0.var_cb28f380);
 				timestep = function_60d95f53();
 				animlength = getanimlength(mocompanim) * 1000;
 				starttime = entity.var_cd8354e0.var_98bc84b7 * animlength;
@@ -1181,7 +1181,7 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 				starttime = ceil(starttime / timestep);
 				stoptime = ceil(stoptime / timestep);
 				adjustduration = stoptime - starttime;
-				entity.var_cd8354e0.var_10b8b6d1 = vectornormalize(entity.var_cd8354e0.var_736d2cce - entity.var_cd8354e0.var_cb28f380);
+				entity.var_cd8354e0.var_10b8b6d1 = vectornormalize(entity.var_cd8354e0.adjustedendpos - entity.var_cd8354e0.var_cb28f380);
 				entity.var_cd8354e0.var_8b9a15a6 = var_90c3cdd2 / adjustduration;
 				entity.var_cd8354e0.var_425c4c8b = 1;
 				entity.var_cd8354e0.adjustmentstarted = 1;
@@ -1201,7 +1201,7 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 			#/
 			/#
 				recordsphere(entity.var_cd8354e0.var_cb28f380, 3, (0, 1, 0), "");
-				recordsphere(entity.var_cd8354e0.var_736d2cce, 3, (0, 0, 1), "");
+				recordsphere(entity.var_cd8354e0.adjustedendpos, 3, (0, 0, 1), "");
 			#/
 			adjustedorigin = entity.origin + (entity.var_cd8354e0.var_10b8b6d1 * entity.var_cd8354e0.var_8b9a15a6);
 			entity forceteleport(adjustedorigin);

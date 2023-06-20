@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -43,7 +43,7 @@ function init()
 	level.var_aa3c02c3 = getentarray("ww_modkit_part", "targetname");
 	array::run_all(level.var_aa3c02c3, &hide);
 	level flag::init(#"hash_6f791dc137e0b695");
-	if(zm_utility::is_standard() || !zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_utility::is_standard() || !zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		function_456e91dd();
 		zm_crafting::function_ca244624(#"hash_586280338ab7ad11");
@@ -105,12 +105,12 @@ function function_269676a2()
 */
 function function_b60df00d()
 {
-	zm_crafting::function_d1f16587(#"hash_586280338ab7ad11", &function_5d6515cb);
-	level flag::init(#"hash_69501a0ee1d7ab54");
+	zm_crafting::function_d1f16587(#"hash_586280338ab7ad11", &modkit_crafted);
+	level flag::init(#"ww_modkit_crafted");
 }
 
 /*
-	Name: function_5d6515cb
+	Name: modkit_crafted
 	Namespace: namespace_d351d90f
 	Checksum: 0xF5FBC922
 	Offset: 0x848
@@ -118,14 +118,14 @@ function function_b60df00d()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5d6515cb(e_player)
+function modkit_crafted(e_player)
 {
 	array::run_all(level.var_aa3c02c3, &show);
-	level flag::set(#"hash_69501a0ee1d7ab54");
+	level flag::set(#"ww_modkit_crafted");
 	modkit_init();
 	if(zm_utility::is_classic())
 	{
-		e_player namespace_509a75d1::function_51b752a9("vox_ww_kit_built");
+		e_player zm_hms_util::function_51b752a9("vox_ww_kit_built");
 	}
 }
 
@@ -277,8 +277,8 @@ function function_584d6092(e_user)
 			level flag::set(#"hash_6f791dc137e0b695");
 		}
 	}
-	namespace_6747c550::function_7df6bb60("zm_white_ww_husk_part", 0, e_user);
-	namespace_6747c550::function_7df6bb60(level.var_88cb369b[e_user.var_f7694097], 0, e_user);
+	zm_ui_inventory::function_7df6bb60("zm_white_ww_husk_part", 0, e_user);
+	zm_ui_inventory::function_7df6bb60(level.var_88cb369b[e_user.var_f7694097], 0, e_user);
 	e_user.var_382b64f2 = undefined;
 	e_user.var_f7694097 = undefined;
 	e_user.var_9c20e2c9 = undefined;

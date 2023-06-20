@@ -101,7 +101,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 	{
 		level._ee[name] = {#skip_to_step:-1, #started:0, #current_step:0, #steps:[], #completed:0, #name:name};
 		/#
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				thread function_28aee167(name);
 			}
@@ -137,7 +137,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 		level flag::init(ee.name + "_completed");
 	}
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			thread function_b3da1a16(ee.name, new_step.name);
 			thread devgui_think();
@@ -482,9 +482,9 @@ function function_28aee167(ee_name)
 		/#
 			assert(ishash(ee_name), "");
 		#/
-		var_1863e990 = function_44e256d8(ee_name);
+		ee_path = function_44e256d8(ee_name);
 		util::waittill_can_add_debug_command();
-		adddebugcommand((("" + var_1863e990) + "") + function_9e72a96(ee_name) + "");
+		adddebugcommand((("" + ee_path) + "") + function_9e72a96(ee_name) + "");
 	#/
 }
 

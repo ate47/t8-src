@@ -680,7 +680,7 @@ function ondamage()
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"damage");
-		if(isdefined(waitresult.attacker) && isplayer(waitresult.attacker) && getdvarint(#"hash_4cfef227405e3c46", 0) == 0)
+		if(isdefined(waitresult.attacker) && isplayer(waitresult.attacker) && getdvarint(#"survival_prototype", 0) == 0)
 		{
 			if(waitresult.amount > 0 && damagefeedback::dodamagefeedback(waitresult.weapon, waitresult.attacker))
 			{
@@ -996,7 +996,7 @@ function function_f067d867(concertinawire)
 			{
 				if(!(isdefined(player.var_65e57a10) && player.var_65e57a10))
 				{
-					if(getdvarint(#"hash_4cfef227405e3c46", 0))
+					if(getdvarint(#"survival_prototype", 0))
 					{
 						damageamount = 10;
 					}
@@ -1173,8 +1173,8 @@ function function_a9160578(damagedealt, player)
 	{
 		self.var_84ac42b3 = [];
 	}
-	var_25e4be49 = player getentitynumber();
-	self.var_84ac42b3[var_25e4be49] = 1;
+	entnumb = player getentitynumber();
+	self.var_84ac42b3[entnumb] = 1;
 	if(isdefined(level.var_87226c31.bundle.var_89ee8a9) && self.damagedealt >= level.var_87226c31.bundle.var_89ee8a9)
 	{
 		scoreevents::processscoreevent(#"hash_6024b59ca1d3b641", self.owner, undefined, self.weapon, self.var_84ac42b3.size);
@@ -1399,8 +1399,8 @@ function function_6541080b(origin, maxdistancesq)
 function watchweaponchange()
 {
 	player = self;
-	self notify(#"hash_7c317ca72a23c2a6");
-	self endon(#"hash_7c317ca72a23c2a6");
+	self notify(#"watchweaponchange_singleton");
+	self endon(#"watchweaponchange_singleton");
 	while(true)
 	{
 		if(self weaponswitchbuttonpressed())

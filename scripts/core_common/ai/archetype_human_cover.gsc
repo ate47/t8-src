@@ -105,17 +105,17 @@ function autoexec registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_914aa2c9d4ad21c", &function_e17114c2);
 	/#
-		assert(isscriptfunctionptr(&function_b1b24a11));
+		assert(isscriptfunctionptr(&switchtogrenadelauncher));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_46826da2c33c9632", &function_b1b24a11);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtogrenadelauncher", &switchtogrenadelauncher);
 	/#
-		assert(isscriptfunctionptr(&function_60315632));
+		assert(isscriptfunctionptr(&switchtolightninggun));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_f9bf57d0e8f28a0", &function_60315632);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtolightninggun", &switchtolightninggun);
 	/#
-		assert(isscriptfunctionptr(&function_2221fee7));
+		assert(isscriptfunctionptr(&switchtoannihilator));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_7f97f92742243917", &function_2221fee7);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtoannihilator", &switchtoannihilator);
 }
 
 /*
@@ -779,7 +779,7 @@ function private function_e17114c2(entity)
 }
 
 /*
-	Name: function_b1b24a11
+	Name: switchtogrenadelauncher
 	Namespace: archetype_human_cover
 	Checksum: 0x49987CF9
 	Offset: 0x2878
@@ -787,14 +787,14 @@ function private function_e17114c2(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_b1b24a11(entity)
+function private switchtogrenadelauncher(entity)
 {
 	entity.blockingpain = 1;
 	entity ai::gun_switchto("hero_pineapplegun", "right");
 }
 
 /*
-	Name: function_60315632
+	Name: switchtolightninggun
 	Namespace: archetype_human_cover
 	Checksum: 0xCD0D559F
 	Offset: 0x28C0
@@ -802,14 +802,14 @@ function private function_b1b24a11(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_60315632(entity)
+function private switchtolightninggun(entity)
 {
 	entity.blockingpain = 1;
 	entity ai::gun_switchto("hero_lightninggun", "right");
 }
 
 /*
-	Name: function_2221fee7
+	Name: switchtoannihilator
 	Namespace: archetype_human_cover
 	Checksum: 0x86E6A342
 	Offset: 0x2908
@@ -817,7 +817,7 @@ function private function_60315632(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_2221fee7(entity)
+function private switchtoannihilator(entity)
 {
 	entity.blockingpain = 1;
 	entity ai::gun_switchto("hero_annihilator", "right");

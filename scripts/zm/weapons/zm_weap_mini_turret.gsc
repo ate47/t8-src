@@ -276,7 +276,7 @@ function function_7f9eb7f()
 	owner = self.owner;
 	owner endon(#"disconnect");
 	waitresult = undefined;
-	waitresult = self waittill(#"death", #"hash_6f331ac7d2a40217");
+	waitresult = self waittill(#"death", #"death_started");
 	if(!isdefined(self))
 	{
 		arrayremovevalue(owner.mini_turrets, undefined);
@@ -424,7 +424,7 @@ function ondeathafterframeend(einflictor, eattacker, idamage, smeansofdeath, wea
 function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime)
 {
 	turretvehicle = self;
-	turretvehicle notify(#"hash_6f331ac7d2a40217");
+	turretvehicle notify(#"death_started");
 	if(turretvehicle.dead === 1)
 	{
 		return;
@@ -606,7 +606,7 @@ function target_death_watch(turretvehicle)
 function turretscanning()
 {
 	veh = self;
-	veh endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	veh endon(#"death", #"death_started", #"end_turret_scanning");
 	veh.turret_target = undefined;
 	veh.do_not_clear_targets_during_think = 1;
 	wait(0.8);

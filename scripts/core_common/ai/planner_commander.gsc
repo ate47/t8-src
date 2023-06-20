@@ -122,15 +122,15 @@ function private function_b1c3f0bd(commander, blackboard)
 	/#
 		assert(isarray(blackboard));
 	#/
-	var_3d32e488 = array();
+	possiblesquads = array();
 	idlebots = blackboard[#"idle_doppelbots"];
-	foreach(var_a0264998 in idlebots)
+	foreach(idlebot in idlebots)
 	{
 		squad = array();
-		squad[squad.size] = var_a0264998;
-		var_3d32e488[var_3d32e488.size] = squad;
+		squad[squad.size] = idlebot;
+		possiblesquads[possiblesquads.size] = squad;
 	}
-	blackboard[#"hash_6df1f48e5a0dda8"] = var_3d32e488;
+	blackboard[#"possible_squads"] = possiblesquads;
 	aiprofile_endentry();
 	pixendevent();
 }
@@ -183,9 +183,9 @@ function private function_12b9fafb(commander, blackboard)
 		pixendevent();
 		return;
 	}
-	var_a5d7f469 = blackboard[#"hash_1eb0ee71cbc01785"];
-	blackboard[#"hash_1eb0ee71cbc01785"] = undefined;
-	foreach(component in var_a5d7f469)
+	missioncomponents = blackboard[#"missioncomponents"];
+	blackboard[#"missioncomponents"] = undefined;
+	foreach(component in missioncomponents)
 	{
 		priority = component[#"strategy"].("doppelbotspriority");
 		targetsize = targets[priority].size;
@@ -461,8 +461,8 @@ function private _disbandsquads(commander)
 			return;
 		}
 	}
-	commander.squads = commander.var_ecab1221;
-	commander.var_ecab1221 = [];
+	commander.squads = commander.squadsfit;
+	commander.squadsfit = [];
 	commander.var_6e4f62de = [];
 	aiprofile_endentry();
 	pixendevent();
@@ -577,7 +577,7 @@ function private _initializeblackboard(commander, team)
 	blackboard::registerblackboardattribute(commander, #"idle_doppelbots", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"objectives", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"players", array(), undefined);
-	blackboard::registerblackboardattribute(commander, #"hash_916ad083496a876", array(), undefined);
+	blackboard::registerblackboardattribute(commander, #"bot_vehicles", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"allow_escort", 1, undefined);
 	blackboard::registerblackboardattribute(commander, #"allow_golden_path", 1, undefined);
 	blackboard::registerblackboardattribute(commander, #"allow_progress_throttling", 0, undefined);
@@ -585,7 +585,7 @@ function private _initializeblackboard(commander, team)
 	blackboard::registerblackboardattribute(commander, #"gameobjects_force_attack", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"gameobjects_force_defend", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"gameobjects_priority", array(), undefined);
-	blackboard::registerblackboardattribute(commander, #"hash_5a8e9789fd37580e", array(), undefined);
+	blackboard::registerblackboardattribute(commander, #"gameobjects_restrict", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"team", team, undefined);
 	blackboard::registerblackboardattribute(commander, #"throttling_total_gameobjects", undefined, undefined);
 	blackboard::registerblackboardattribute(commander, #"throttling_total_gameobjects_enemy", undefined, undefined);
@@ -598,9 +598,9 @@ function private _initializeblackboard(commander, team)
 	blackboard::registerblackboardattribute(commander, #"hash_f5c6c6aa7dc0f6d", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"hash_6e9081699001bcd9", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"hash_4984fd4b0ba666a2", array(), undefined);
-	blackboard::registerblackboardattribute(commander, #"hash_1eb0ee71cbc01785", array(), undefined);
+	blackboard::registerblackboardattribute(commander, #"missioncomponents", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"gameobjects", array(), undefined);
-	blackboard::registerblackboardattribute(commander, #"hash_1cf72c0289954423", array(), undefined);
+	blackboard::registerblackboardattribute(commander, #"gameobjects_vehicles", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"targets", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"entities", array(), undefined);
 	blackboard::registerblackboardattribute(commander, #"gpbundles", array(), undefined);
@@ -977,7 +977,7 @@ function private function_60f42acc(commander)
 			return;
 		}
 	}
-	commander.var_ecab1221 = fitsquads;
+	commander.squadsfit = fitsquads;
 	commander.var_6e4f62de = unfitsquads;
 	fitbots = [];
 	for(index = 0; index < fitsquads.size; index++)
@@ -1032,7 +1032,7 @@ function private function_60f42acc(commander)
 			return;
 		}
 	}
-	var_fa3efaa4 = blackboard::getstructblackboardattribute(commander, #"hash_916ad083496a876");
+	var_fa3efaa4 = blackboard::getstructblackboardattribute(commander, #"bot_vehicles");
 	foreach(var_a6b55625 in var_fa3efaa4)
 	{
 		bot = var_a6b55625[#"__unsafe__"][#"bot"];
@@ -1333,7 +1333,7 @@ function createcommander(team, commanderplanner, squadplanner, commanderupdatera
 	commander.planstarttime = gettime();
 	commander.planner = commanderplanner;
 	commander.squads = [];
-	commander.var_ecab1221 = [];
+	commander.squadsfit = [];
 	commander.squadsfitness = [];
 	commander.var_6e4f62de = [];
 	commander.shutdown = 0;

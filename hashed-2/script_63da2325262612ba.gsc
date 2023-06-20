@@ -134,7 +134,7 @@ function function_6c7d76d(e_player)
 	{
 		return false;
 	}
-	if(var_b2818507 != var_5949c6af && (var_b2818507 == 4 || var_5949c6af == 4 || !level flag::get(#"hash_53a41180dac96fff")))
+	if(var_b2818507 != var_5949c6af && (var_b2818507 == 4 || var_5949c6af == 4 || !level flag::get(#"portals_active")))
 	{
 		return false;
 	}
@@ -161,7 +161,7 @@ function private function_1969a102()
 		}
 		else if(isdefined(target) && zm_office_floors::function_35babccd(self) != zm_office_floors::function_35babccd(target))
 		{
-			if(level flag::get(#"hash_53a41180dac96fff") && level.zones[#"war_room_zone_north"].is_enabled)
+			if(level flag::get(#"portals_active") && level.zones[#"war_room_zone_north"].is_enabled)
 			{
 				self thread zm_office_teleporters::function_9d689cc4();
 			}
@@ -179,7 +179,7 @@ function private function_1969a102()
 	}
 	else if(isdefined(target) && distancesquared(self.origin, target.origin) < distancesquared(self.origin, self.var_3f667178.origin))
 	{
-		self notify(#"hash_2016cf7b5d5069a7");
+		self notify(#"cancel_teleport");
 	}
 	return false;
 }

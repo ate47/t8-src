@@ -20,9 +20,9 @@
 */
 function init_shared()
 {
-	if(!isdefined(level.var_6df120d9))
+	if(!isdefined(level.planemortar_shared))
 	{
-		level.var_6df120d9 = {};
+		level.planemortar_shared = {};
 		airsupport::init_shared();
 		level.planemortarexhaustfx = "killstreaks/fx8_mortar_jet_thrusters";
 		level.var_913789d7 = "killstreaks/fx8_mortar_jet_contrails";

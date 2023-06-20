@@ -33,9 +33,9 @@
 */
 function init_shared(bundlename)
 {
-	if(!(isdefined(level.var_e3049e92) && level.var_e3049e92) && !isdefined(level.var_f80c2e27))
+	if(!(isdefined(level.var_e3049e92) && level.var_e3049e92) && !isdefined(level.remotemissile_shared))
 	{
-		level.var_f80c2e27 = {};
+		level.remotemissile_shared = {};
 		airsupport::init_shared();
 		level.rockets = [];
 		killstreak_detect::init_shared();
@@ -108,7 +108,7 @@ function function_bff5c062(remotemissile, attackingplayer)
 				continue;
 			}
 			bomblet detonate();
-			bomblet notify(#"hash_29e967c616cdc4c9");
+			bomblet notify(#"bombletdestroyed");
 		}
 	}
 }
@@ -273,7 +273,7 @@ function _fire(lifeid, player, team, killstreak_id)
 	cam clientfield::set("hellstorm_camera", 1);
 	player clientfield::set("remote_killstreak_static", 1);
 	veh moveto(var_b984f2ed, 2.5);
-	player val::set(#"hash_37f3e8e45cfa1e62", "show_hud", 0);
+	player val::set(#"hellstorm_intro", "show_hud", 0);
 	player camerasetposition(cam.origin);
 	player camerasetlookat(cam.angles);
 	player cameraactivate(1);
@@ -324,7 +324,7 @@ function _fire(lifeid, player, team, killstreak_id)
 	player.rocket = rocket;
 	rocket.owner = player;
 	rocket.killcament = player;
-	player val::reset(#"hash_37f3e8e45cfa1e62", "show_hud");
+	player val::reset(#"hellstorm_intro", "show_hud");
 	cam clientfield::set("hellstorm_camera", 0);
 	veh clientfield::set("hellstorm_deploy", 0);
 	waitframe(1);
@@ -1196,7 +1196,7 @@ function getbesttarget(rocket, trace)
 }
 
 /*
-	Name: function_8c981143
+	Name: checktarget
 	Namespace: remotemissile
 	Checksum: 0xB49D39C
 	Offset: 0x40B0
@@ -1204,7 +1204,7 @@ function getbesttarget(rocket, trace)
 	Parameters: 1
 	Flags: None
 */
-function function_8c981143(rocket)
+function checktarget(rocket)
 {
 	target = rocket.aimtarget;
 	if(isdefined(target) && isalive(target))
@@ -1628,7 +1628,7 @@ function fire_bomblet(weapon, rocket, target, waitframes)
 */
 function function_4c8c3b0b(player)
 {
-	self endon(#"hash_29e967c616cdc4c9");
+	self endon(#"bombletdestroyed");
 	bomblet = self;
 	bomblet waittill(#"death");
 	if(!isdefined(bomblet))

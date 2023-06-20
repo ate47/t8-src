@@ -144,7 +144,7 @@ function update_arena_challenge_seasons()
 		}
 		case 1:
 		{
-			eventstate = #"hash_60f1e9335197f661";
+			eventstate = #"leagueplaystats";
 			break;
 		}
 		case 4:
@@ -157,7 +157,7 @@ function update_arena_challenge_seasons()
 			return;
 		}
 	}
-	perseasonwins = self stats::get_stat(#"arenaperseasonstats", eventstate, #"hash_2f54ed970fcecc95", #"wins");
+	perseasonwins = self stats::get_stat(#"arenaperseasonstats", eventstate, #"matchesstats", #"wins");
 	if(perseasonwins >= getdvarint(#"arena_seasonvetchallengewins", 0))
 	{
 		arenaslot = arenagetslot();

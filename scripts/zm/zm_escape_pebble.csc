@@ -35,7 +35,7 @@ function __init__()
 	clientfield::register("actor", "" + #"hash_7792af358100c735", 1, 1, "int", &function_33f1dd99, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_f2d0b920043dbbd", 1, 1, "counter", &function_87d68f99, 0, 0);
 	clientfield::register("world", "" + #"attic_room", 1, 1, "int", &attic_room, 0, 0);
-	clientfield::register("world", "" + #"hash_5474fbb93aebbb65", 1, 1, "int", &function_e6ce9708, 0, 0);
+	clientfield::register("world", "" + #"narrative_room", 1, 1, "int", &narrative_room, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_46dbc12bdc275121", 1, 1, "int", &glyph_fx, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_59623b8b4fc694c8", 1, 2, "int", &function_db9b47b5, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_ce418c45d804842", 1, 1, "counter", &function_2f00e842, 0, 0);
@@ -76,7 +76,7 @@ function function_33f1dd99(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_e6ce9708
+	Name: narrative_room
 	Namespace: zm_escape_pebble
 	Checksum: 0x8EBC1BE4
 	Offset: 0x5E0
@@ -84,7 +84,7 @@ function function_33f1dd99(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_e6ce9708(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function narrative_room(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval == 1)
 	{

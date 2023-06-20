@@ -50,9 +50,9 @@ function init_killstreak(bundle)
 {
 	killstreaks::register_bundle(bundle, &activate_vehicle);
 	killstreaks::allow_assists(bundle.var_d3413870, 1);
-	remote_weapons::registerremoteweapon(bundle.var_1ab696c6.name, #"", &function_c9aa9ee5, &function_8cb72281, 0);
+	remote_weapons::registerremoteweapon(bundle.ksweapon.name, #"", &function_c9aa9ee5, &function_8cb72281, 0);
 	vehicle::add_main_callback(bundle.ksvehicle, &init_vehicle);
-	deployable::function_2e088f73(bundle.var_1ab696c6, undefined, undefined);
+	deployable::function_2e088f73(bundle.ksweapon, undefined, undefined);
 	level.killstreaks[bundle.var_d3413870].var_b6c17aab = 1;
 	if(isdefined(bundle.var_486124e6))
 	{
@@ -150,7 +150,7 @@ function function_2df6e3bf(hacker)
 	killstreak_type = level.var_8997324c[self];
 	bundle = level.killstreaks[killstreak_type].script_bundle;
 	vehicle = self;
-	hacker remote_weapons::useremoteweapon(vehicle, bundle.var_1ab696c6, 1, 0);
+	hacker remote_weapons::useremoteweapon(vehicle, bundle.ksweapon, 1, 0);
 	vehicle makevehicleunusable();
 	vehicle killstreaks::set_killstreak_delay_killcam(killstreak_type);
 	vehicle killstreak_hacking::set_vehicle_drivable_time_starting_now(vehicle);
@@ -243,7 +243,7 @@ function activate_vehicle(type)
 		return false;
 	}
 	bundle = level.killstreaks[type].script_bundle;
-	if(isdefined(bundle.var_1ab696c6) && (isdefined(bundle.var_1ab696c6.deployable) && bundle.var_1ab696c6.deployable) && !deployable::function_b3d993e9(bundle.var_1ab696c6, 1))
+	if(isdefined(bundle.ksweapon) && (isdefined(bundle.ksweapon.deployable) && bundle.ksweapon.deployable) && !deployable::function_b3d993e9(bundle.ksweapon, 1))
 	{
 		return false;
 	}
@@ -267,15 +267,15 @@ function activate_vehicle(type)
 	vehicle.hackedhealth = bundle.kshackedhealth;
 	vehicle.hackedhealthupdatecallback = &function_f07460c5;
 	vehicle.ignore_vehicle_underneath_splash_scalar = 1;
-	if(isdefined(bundle.var_1ab696c6))
+	if(isdefined(bundle.ksweapon))
 	{
-		vehicle setweapon(bundle.var_1ab696c6);
-		vehicle.weapon = bundle.var_1ab696c6;
+		vehicle setweapon(bundle.ksweapon);
+		vehicle.weapon = bundle.ksweapon;
 	}
 	vehicle killstreak_bundles::spawned(bundle);
 	self thread killstreaks::play_killstreak_start_dialog(type, self.team, killstreak_id);
-	self stats::function_e24eec31(bundle.var_1ab696c6, #"used", 1);
-	remote_weapons::useremoteweapon(vehicle, bundle.var_1ab696c6.name, 1, 0);
+	self stats::function_e24eec31(bundle.ksweapon, #"used", 1);
+	remote_weapons::useremoteweapon(vehicle, bundle.ksweapon.name, 1, 0);
 	if(!isdefined(player) || !isalive(player) || (isdefined(player.laststand) && player.laststand) || player isempjammed())
 	{
 		if(isdefined(vehicle))
@@ -292,7 +292,7 @@ function activate_vehicle(type)
 	vehicle setvisibletoall();
 	vehicle.activatingkillstreak = 0;
 	target_set(vehicle);
-	ability_player::function_c22f319e(bundle.var_1ab696c6);
+	ability_player::function_c22f319e(bundle.ksweapon);
 	vehicle thread watch_game_ended();
 	vehicle waittill(#"death");
 	return true;
@@ -550,7 +550,7 @@ function function_68a07849(bundle, driver)
 	if(isdefined(driver))
 	{
 		var_4dd90b81 = 0;
-		driver ability_player::function_f2250880(bundle.var_1ab696c6, var_4dd90b81);
+		driver ability_player::function_f2250880(bundle.ksweapon, var_4dd90b81);
 	}
 }
 
@@ -802,8 +802,8 @@ function explode(attacker, weapon)
 				if(isdefined(weapon) && weapon.isvalid)
 				{
 					level.globalkillstreaksdestroyed++;
-					attacker stats::function_e24eec31(bundle.var_1ab696c6, #"destroyed", 1);
-					attacker stats::function_e24eec31(bundle.var_1ab696c6, #"destroyed_controlled_killstreak", 1);
+					attacker stats::function_e24eec31(bundle.ksweapon, #"destroyed", 1);
+					attacker stats::function_e24eec31(bundle.ksweapon, #"destroyed_controlled_killstreak", 1);
 				}
 				if(!var_3906173b)
 				{

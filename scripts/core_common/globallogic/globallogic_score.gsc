@@ -41,8 +41,8 @@ function __init__()
 	callback::on_start_gametype(&init);
 	callback::on_spawned(&playerspawn);
 	/#
-		setdvar(#"hash_39060c853726e6c0", 0);
-		setdvar(#"hash_35960c7344552dce", 0);
+		setdvar(#"logscoreevents", 0);
+		setdvar(#"dumpscoreevents", 0);
 		thread function_bb9f3842();
 	#/
 }
@@ -1276,7 +1276,7 @@ function function_d3ca3608(eventname)
 		return;
 	}
 	/#
-		if(getdvarint(#"hash_39060c853726e6c0", 0) > 0)
+		if(getdvarint(#"logscoreevents", 0) > 0)
 		{
 			if(!isdefined(level.var_10cd7193))
 			{
@@ -1354,7 +1354,7 @@ function function_bb9f3842()
 		}
 		while(true)
 		{
-			if(getdvarint(#"hash_35960c7344552dce", 0) > 0)
+			if(getdvarint(#"dumpscoreevents", 0) > 0)
 			{
 				var_594354f3 = [];
 				foreach(scoreevent in level.var_10cd7193)
@@ -1372,7 +1372,7 @@ function function_bb9f3842()
 					println((var_d975dd49 + "") + (isdefined(count) ? "" + count : ""));
 				}
 				println("");
-				setdvar(#"hash_35960c7344552dce", 0);
+				setdvar(#"dumpscoreevents", 0);
 			}
 			waitframe(1);
 		}

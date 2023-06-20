@@ -16,10 +16,10 @@
     - [Voyage (`zm_zodt8`)](#voyage-zm_zodt8)
       - [`#"main_quest"` (Main quest)](#main_quest-main-quest)
       - [`#"hash_634eee6c99fa32d6"` (shield frost upgrade)](#hash_634eee6c99fa32d6-shield-frost-upgrade)
-      - [`#"hash_2a94ed57942ab290"`](#hash_2a94ed57942ab290)
-      - [`#"hash_1b2ce27a742dce1"`](#hash_1b2ce27a742dce1)
-      - [`#"hash_6ec9bcc25b22e601"` (free perk)](#hash_6ec9bcc25b22e601-free-perk)
-      - [`#"hash_520fa96bf5c8055"`](#hash_520fa96bf5c8055)
+      - [`#"sea_walkers"`](#sea_walkers)
+      - [`#"vomit_blade"`](#vomit_blade)
+      - [`#"fishy_offering"` (free perk)](#fishy_offering-free-perk)
+      - [`#"portal_pass"`](#portal_pass)
       - [`#"hash_68677a02650cad00"`](#hash_68677a02650cad00)
       - [`#"hash_61a8ff6c7866b2d4"`](#hash_61a8ff6c7866b2d4)
       - [`#"boss_fight"` (eye boss fight)](#boss_fight-eye-boss-fight)
@@ -32,9 +32,9 @@
       - [`#"hash_1da6434ce50c3713"`](#hash_1da6434ce50c3713)
     - [Blood of the Dead (`zm_escape`)](#blood-of-the-dead-zm_escape)
       - [`#"hash_62ca600e9c6f07c0"` (Main quest)](#hash_62ca600e9c6f07c0-main-quest)
-      - [`#"hash_306a7f142403b7c6"` (catwalk sniper scope event)](#hash_306a7f142403b7c6-catwalk-sniper-scope-event)
+      - [`#"jump_scare"` (catwalk sniper scope event)](#jump_scare-catwalk-sniper-scope-event)
       - [`#"drawings"` (drawing ee)](#drawings-drawing-ee)
-      - [`#"hash_5474fbb93aebbb65"`](#hash_5474fbb93aebbb65)
+      - [`#"narrative_room"`](#narrative_room)
       - [`#"hash_e1a54725ab6e00b"`](#hash_e1a54725ab6e00b)
       - [`#"monkey_bomb"` (free monkey\_bomb)](#monkey_bomb-free-monkey_bomb)
       - [`#"laundry_day"` (free monkey\_bomb)](#laundry_day-free-monkey_bomb)
@@ -44,8 +44,8 @@
       - [`#"hash_5a9580406af2d773"`](#hash_5a9580406af2d773)
       - [`#"hash_63dc1e557f49595f"`](#hash_63dc1e557f49595f)
       - [`#"hash_6039fc2dd130edf5"`](#hash_6039fc2dd130edf5)
-      - [`#"hash_306a7f142403b7c6"` (Richtofen jumpscare)](#hash_306a7f142403b7c6-richtofen-jumpscare)
-      - [`#"hash_5474fbb93aebbb65"`](#hash_5474fbb93aebbb65-1)
+      - [`#"jump_scare"` (Richtofen jumpscare)](#jump_scare-richtofen-jumpscare)
+      - [`#"narrative_room"`](#narrative_room-1)
     - [Dead of the Night (`zm_mansion`)](#dead-of-the-night-zm_mansion)
       - [`#"zm_mansion_impaler"` (Impaler ww quest)](#zm_mansion_impaler-impaler-ww-quest)
       - [`#"hash_391f247dda2377a9"`](#hash_391f247dda2377a9)
@@ -64,7 +64,7 @@
       - [`#"main_quest"`](#main_quest)
       - [`#"prophecy"`](#prophecy)
       - [`#"light"`](#light)
-      - [`#"hash_5474fbb93aebbb65"`](#hash_5474fbb93aebbb65-2)
+      - [`#"narrative_room"`](#narrative_room-2)
     - [Alpha Omega (`zm_white`)](#alpha-omega-zm_white)
       - [`#"zm_white_main_quest"` (main quest)](#zm_white_main_quest-main-quest)
       - [`#"hash_26a9aef6e9be5b86"` (Crawler step)](#hash_26a9aef6e9be5b86-crawler-step)
@@ -280,31 +280,31 @@ TODO
   - name: `#"step_3"`, flag name: `#"hash_33e48dfbaa9e73c3"`
   - name: `#"step_4"`, flag name: `#"hash_33e492fbaa9e7c42"`
 
-#### `#"hash_2a94ed57942ab290"`
+#### `#"sea_walkers"`
 
 **steps**
 
-  - name: `#"step_1"`, flag name: `#"hash_5b0258bdf17964bb"`
+  - name: `#"step_1"`, flag name: `#"sea_walkers_step_1"`
 
-#### `#"hash_1b2ce27a742dce1"`
+#### `#"vomit_blade"`
 
 **steps**
 
-  - name: `#"step_1"`, flag name: `#"hash_3f11a01a6c8f925c"`
+  - name: `#"step_1"`, flag name: `#"vomit_blade_step_1"`
 
-#### `#"hash_6ec9bcc25b22e601"` (free perk)
+#### `#"fishy_offering"` (free perk)
 
 **steps**
 
   - name: `#"step_1"`, flag name: `#"hash_189536bc9c5850f1"`
   - name: `#"step_2"`, flag name: `#"hash_189533bc9c584bd8"`
 
-#### `#"hash_520fa96bf5c8055"`
+#### `#"portal_pass"`
 
 **steps**
 
-  - name: `#"step_1"`, flag name: `#"hash_2220bd5951e8be08"`
-  - name: `#"step_2"`, flag name: `#"hash_2220c05951e8c321"`
+  - name: `#"step_1"`, flag name: `#"portal_pass_step_1"`
+  - name: `#"step_2"`, flag name: `#"portal_pass_step_2"`
 
 #### `#"hash_68677a02650cad00"`
 
@@ -420,7 +420,7 @@ TODO
   - name: `#"7"`, flag name: `#"hash_53dd53d26004637d"`
   - name: `#"outro"`, flag name: `#"hash_4b2d3fa2839cfcf8"`
 
-#### `#"hash_306a7f142403b7c6"` (catwalk sniper scope event)
+#### `#"jump_scare"` (catwalk sniper scope event)
 
 **steps**
 
@@ -432,7 +432,7 @@ TODO
 
   - name: `#"1"`, flag name: `#"hash_4f409d159ce41d57"`
 
-#### `#"hash_5474fbb93aebbb65"`
+#### `#"narrative_room"`
 
 **steps**
 
@@ -502,13 +502,13 @@ TODO
   - name: `#"step_1"`, flag name: `#"hash_5873576264199a27"`
   - name: `#"step_2"`, flag name: `#"hash_5873586264199bda"`
 
-#### `#"hash_306a7f142403b7c6"` (Richtofen jumpscare)
+#### `#"jump_scare"` (Richtofen jumpscare)
 
 **steps**
 
   - name: `#"step_1"`, flag name: `#"hash_3203b932029a4e0b"`
 
-#### `#"hash_5474fbb93aebbb65"`
+#### `#"narrative_room"`
 
 **steps**
 
@@ -659,7 +659,7 @@ TODO
   - name: `#"hash_2ef35a0caeaf1677"`, flag name: `#"hash_2ef35a0caeaf1677"`
   - name: `#"hash_6f1d1e83bc66b715"`, flag name: `#"hash_6f1d1e83bc66b715"`
 
-#### `#"hash_5474fbb93aebbb65"`
+#### `#"narrative_room"`
 
 **steps**
 
@@ -738,7 +738,7 @@ TODO
 
   - name: `#"step_1"`, flag name: `#"mee_galvaknuckle_step1"`
 
-#### `#"hash_306a7f142403b7c6"`
+#### `#"jump_scare"`
 
 **steps**
 

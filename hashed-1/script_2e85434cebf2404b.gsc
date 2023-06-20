@@ -79,7 +79,7 @@ function init_clientfields()
 function init_fx()
 {
 	level._effect[#"hash_1e4fa83f4db14c46"] = #"hash_40a93ef9da58e006";
-	level._effect[#"hash_3704ab5bf4ec1957"] = #"hash_1cd0bfd0a3ff1817";
+	level._effect[#"fx8_boss_eye_glow"] = #"hash_1cd0bfd0a3ff1817";
 	level._effect[#"hash_420110993bafb86b"] = #"hash_4edfb7b10f36a12b";
 	level._effect[#"hash_3665813f5609df50"] = #"hash_105035871586710";
 	level._effect[#"hash_2699e8762805fbdc"] = #"hash_f378b1b7c38569c";
@@ -170,7 +170,7 @@ function function_f389e70d(localclientnum)
 	self endon(#"death");
 	if(!isdefined(self.var_aac4aa35))
 	{
-		self.var_aac4aa35 = util::playfxontag(localclientnum, level._effect[#"hash_3704ab5bf4ec1957"], self, "tag_eye");
+		self.var_aac4aa35 = util::playfxontag(localclientnum, level._effect[#"fx8_boss_eye_glow"], self, "tag_eye");
 	}
 	else
 	{

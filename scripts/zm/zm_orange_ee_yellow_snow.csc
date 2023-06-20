@@ -18,9 +18,9 @@
 */
 function preload()
 {
-	level._effect[#"hash_6917a07f5944f8de"] = #"hash_59977c4c851916e0";
+	level._effect[#"campfire_soul"] = #"hash_59977c4c851916e0";
 	level._effect[#"hash_6d2d7bab75c2c0"] = #"hash_1a06427eff8dfe13";
-	level._effect[#"hash_3a4cca038b97b169"] = #"hash_487863cb3f012833";
+	level._effect[#"campfire_flames"] = #"hash_487863cb3f012833";
 	level._effect[#"snowpile_swap"] = #"hash_6d8c75ffdf65fe0";
 	init_clientfields();
 	forcestreamxmodel("p8_zm_ora_specimen_container_lrg_cracked");
@@ -52,16 +52,16 @@ function main()
 */
 function init_clientfields()
 {
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_1", 24000, "snowball_campfire_1", 400, level._effect[#"hash_6917a07f5944f8de"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_2", 24000, "snowball_campfire_2", 400, level._effect[#"hash_6917a07f5944f8de"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"snowball_campfire_3", 24000, "snowball_campfire_3", 400, level._effect[#"hash_6917a07f5944f8de"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
-	clientfield::register("scriptmover", "fx8_reward_brazier_fire_blue", 24000, 1, "int", &function_6c0434ba, 0, 0);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_1", 24000, "snowball_campfire_1", 400, level._effect[#"campfire_soul"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_2", 24000, "snowball_campfire_2", 400, level._effect[#"campfire_soul"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"snowball_campfire_3", 24000, "snowball_campfire_3", 400, level._effect[#"campfire_soul"], level._effect[#"hash_6d2d7bab75c2c0"], undefined, undefined, 1);
+	clientfield::register("scriptmover", "fx8_reward_brazier_fire_blue", 24000, 1, "int", &campfire_flames, 0, 0);
 	clientfield::register("scriptmover", "fx8_snowpile_swap", 24000, 1, "int", &snowpile_swap, 0, 0);
 	clientfield::register("toplayer", "spleen_carry_sound", 20000, 1, "int", &spleen_carry_sound, 0, 0);
 }
 
 /*
-	Name: function_6c0434ba
+	Name: campfire_flames
 	Namespace: zm_orange_ee_yellow_snow
 	Checksum: 0xFB900E4B
 	Offset: 0x518
@@ -69,11 +69,11 @@ function init_clientfields()
 	Parameters: 7
 	Flags: Linked
 */
-function function_6c0434ba(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function campfire_flames(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{
-		self.fx_sparks = util::playfxontag(localclientnum, level._effect[#"hash_3a4cca038b97b169"], self, "tag_origin");
+		self.fx_sparks = util::playfxontag(localclientnum, level._effect[#"campfire_flames"], self, "tag_origin");
 	}
 }
 

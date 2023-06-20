@@ -949,7 +949,7 @@ function turn_gadget_on(slot, weapon)
 			clientnum = self getentitynumber();
 			foreach(player in players)
 			{
-				player luinotifyevent(#"hash_a2cf40647d18112", 2, var_ef2d7dfd, clientnum);
+				player luinotifyevent(#"ability_callout", 2, var_ef2d7dfd, clientnum);
 			}
 			foreach(turn_on in level._gadgets_level[self._gadgets_player[slot].gadget_type].turn_on)
 			{
@@ -1385,9 +1385,9 @@ function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
 	if(isdefined(var_de825ec6))
 	{
 		tutorial_init(weapon);
-		self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55) = gettime() + (var_de825ec6 * 1000);
+		self.pers[#"ability_tutorial"][weapon].(var_8be5aa55) = gettime() + (var_de825ec6 * 1000);
 	}
-	return isdefined(self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55)) && self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55) > gettime();
+	return isdefined(self.pers[#"ability_tutorial"][weapon].(var_8be5aa55)) && self.pers[#"ability_tutorial"][weapon].(var_8be5aa55) > gettime();
 }
 
 /*
@@ -1401,13 +1401,13 @@ function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
 */
 function tutorial_init(weapon)
 {
-	if(!isdefined(self.pers[#"hash_2c18b7a9ddcf325c"]))
+	if(!isdefined(self.pers[#"ability_tutorial"]))
 	{
-		self.pers[#"hash_2c18b7a9ddcf325c"] = [];
+		self.pers[#"ability_tutorial"] = [];
 	}
-	if(!isdefined(self.pers[#"hash_2c18b7a9ddcf325c"][weapon]))
+	if(!isdefined(self.pers[#"ability_tutorial"][weapon]))
 	{
-		self.pers[#"hash_2c18b7a9ddcf325c"][weapon] = spawnstruct();
+		self.pers[#"ability_tutorial"][weapon] = spawnstruct();
 	}
 }
 
@@ -1479,7 +1479,7 @@ function function_4f74cee6(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf886
 		if(!self function_3d2a352e(weapon, "recentlyReadyVoice") && isdefined(var_eadf8864))
 		{
 			self function_3d2a352e(weapon, "recentlyReadyVoice", 60);
-			function_58ca2822(var_eadf8864, self, undefined);
+			voiceevent(var_eadf8864, self, undefined);
 			/#
 				self function_374c4352(var_eadf8864);
 			#/

@@ -16,7 +16,7 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59f07c660e6710a5;
 #using script_6809bf766eba194a;
 #using script_6e3c826b1814cab6;
@@ -92,9 +92,9 @@ function __init__()
 	clientfield::register("actor", "nfrtu_move_dash", 8000, 1, "int");
 	zm_score::function_e5d6e6dd(#"nosferatu", 60);
 	zm_score::function_e5d6e6dd(#"crimson_nosferatu", 80);
-	namespace_c3287616::register_archetype(#"nosferatu", &function_cf877849, &round_spawn, &function_74f25f8a, 25);
-	namespace_c3287616::register_archetype(#"crimson_nosferatu", &function_97f1f86e, &function_a8a8c2fb, undefined, 100);
-	namespace_c3287616::function_306ce518(#"crimson_nosferatu", &function_57abef39);
+	zm_round_spawning::register_archetype(#"nosferatu", &function_cf877849, &round_spawn, &function_74f25f8a, 25);
+	zm_round_spawning::register_archetype(#"crimson_nosferatu", &function_97f1f86e, &function_a8a8c2fb, undefined, 100);
+	zm_round_spawning::function_306ce518(#"crimson_nosferatu", &function_57abef39);
 	level.var_243137e = getentarray("zombie_nosferatu_spawner", "script_noteworthy");
 	level.var_13bc407f = getentarray("zombie_crimson_nosferatu_spawner", "script_noteworthy");
 	/#
@@ -152,9 +152,9 @@ function private registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_50f7728355042178", &function_82785646);
 	/#
-		assert(isscriptfunctionptr(&function_7856b311));
+		assert(isscriptfunctionptr(&nosferatustunstart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_6bf97c8d416da898", &function_7856b311);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"nosferatustunstart", &nosferatustunstart);
 	/#
 		assert(isscriptfunctionptr(&nosferatushouldstun));
 	#/
@@ -224,7 +224,7 @@ function private function_e060c994(entity)
 }
 
 /*
-	Name: function_7856b311
+	Name: nosferatustunstart
 	Namespace: zm_ai_nosferatu
 	Checksum: 0x30020034
 	Offset: 0xCE0
@@ -232,9 +232,9 @@ function private function_e060c994(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7856b311(entity)
+function nosferatustunstart(entity)
 {
-	zm_behavior::function_bdedea72(entity);
+	zm_behavior::zombiestunstart(entity);
 	var_268f1415 = spawnstruct();
 	var_268f1415.nosferatu = entity;
 	blackboard::addblackboardevent("nfrtu_stun", var_268f1415, randomintrange(10000, 12000));
@@ -499,7 +499,7 @@ function function_8dc028ba(s_params)
 	{
 		self function_2b35beda();
 		attacker function_c59b482e();
-		if(zm_custom::function_901b751c(#"hash_5c47775ddd2e17dd") == 2 && zm_custom::function_901b751c(#"hash_5fbcaf0a1daae566") == 1)
+		if(zm_custom::function_901b751c(#"zmhealthregenrate") == 2 && zm_custom::function_901b751c(#"zmhealthregendelay") == 1)
 		{
 			self.var_cd35302f = attacker ai::function_9139c839().var_52a41524 + 1.1;
 			self thread function_e05b2c36();
@@ -552,7 +552,7 @@ function function_57abef39(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"crimson_nosferatu"))
+		if(zm_round_spawning::function_d0db51fc(#"crimson_nosferatu"))
 		{
 			level.var_da92f51a = level.round_number + function_21a3a673(2, 3);
 		}
@@ -1235,7 +1235,7 @@ function function_201862b(eventstruct)
 		}
 		case "leap":
 		case "attack_melee":
-		case "hash_68d6e0a573aa2c1c":
+		case "attack_bite":
 		{
 			level thread zm_audio::zmbaivox_playvox(self, notify_string, 1, 2, 1);
 			break;

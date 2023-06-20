@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_29065f0efd8d6ff3", &on_begin, &on_end);
+	zm_trial::register_challenge(#"wallbuy_count", &on_begin, &on_end);
 }
 
 /*
@@ -120,7 +120,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_29065f0efd8d6ff3");
+	challenge = zm_trial::function_a36e8c38(#"wallbuy_count");
 	return isdefined(challenge);
 }
 

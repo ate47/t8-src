@@ -69,11 +69,11 @@ function init()
 	level thread function_eac89317();
 	var_7febdbb2 = getentarray("trig_buy_bladepillars_to_upper_south", "targetname");
 	array::thread_all(var_7febdbb2, &function_ea998c9, 0, 1);
-	foreach(var_4b912983 in level.var_4fe2f84d[#"zblueprint_trap_hellpools"])
+	foreach(t_crafting in level.var_4fe2f84d[#"zblueprint_trap_hellpools"])
 	{
-		if(var_4b912983.script_noteworthy === "danu" || var_4b912983.script_noteworthy === "ra")
+		if(t_crafting.script_noteworthy === "danu" || t_crafting.script_noteworthy === "ra")
 		{
-			var_4b912983 thread function_ea998c9(1, 0);
+			t_crafting thread function_ea998c9(1, 0);
 		}
 	}
 }
@@ -170,7 +170,7 @@ function function_eac89317()
 	while(true)
 	{
 		s_notify = undefined;
-		s_notify = level waittill(#"traps_activated", #"traps_available", #"hash_3c662e7b29cfc3dd");
+		s_notify = level waittill(#"traps_activated", #"traps_available", #"traps_cooldown");
 		if(isdefined(s_notify.var_be3f58a))
 		{
 			switch(s_notify._notify)
@@ -185,7 +185,7 @@ function function_eac89317()
 					function_6087ebc2(s_notify.var_be3f58a);
 					break;
 				}
-				case "hash_3c662e7b29cfc3dd":
+				case "traps_cooldown":
 				{
 					function_1b229077(s_notify.var_be3f58a);
 					break;

@@ -453,7 +453,7 @@ class csceneobject : cscriptbundleobjectbase
 		{
 			return;
 		}
-		if(isdefined(var_55b4f21e.var_71ce74a1) && var_55b4f21e.var_71ce74a1)
+		if(isdefined(var_55b4f21e.cleanupdelete) && var_55b4f21e.cleanupdelete)
 		{
 			_e_array[clientnum] delete();
 			return;
@@ -470,11 +470,11 @@ class csceneobject : cscriptbundleobjectbase
 		}
 		if(!(isdefined(_e_array[clientnum].var_463f8196) && _e_array[clientnum].var_463f8196))
 		{
-			if(isdefined(var_55b4f21e.var_6d848d4b) && var_55b4f21e.var_6d848d4b)
+			if(isdefined(var_55b4f21e.cleanuphide) && var_55b4f21e.cleanuphide)
 			{
 				_e_array[clientnum] hide();
 			}
-			else if(isdefined(var_55b4f21e.var_78089fee) && var_55b4f21e.var_78089fee)
+			else if(isdefined(var_55b4f21e.cleanupshow) && var_55b4f21e.cleanupshow)
 			{
 				_e_array[clientnum] show();
 			}
@@ -528,7 +528,7 @@ class csceneobject : cscriptbundleobjectbase
 		{
 			return;
 		}
-		if(isdefined(var_55b4f21e.var_a4b8685d) && var_55b4f21e.var_a4b8685d)
+		if(isdefined(var_55b4f21e.preparedelete) && var_55b4f21e.preparedelete)
 		{
 			_e_array[clientnum] delete();
 			return;
@@ -545,11 +545,11 @@ class csceneobject : cscriptbundleobjectbase
 		}
 		if(!(isdefined(_e_array[clientnum].var_463f8196) && _e_array[clientnum].var_463f8196))
 		{
-			if(isdefined(var_55b4f21e.var_562f4281) && var_55b4f21e.var_562f4281)
+			if(isdefined(var_55b4f21e.preparehide) && var_55b4f21e.preparehide)
 			{
 				_e_array[clientnum] hide();
 			}
-			else if(isdefined(var_55b4f21e.var_4f4c4730) && var_55b4f21e.var_4f4c4730)
+			else if(isdefined(var_55b4f21e.prepareshow) && var_55b4f21e.prepareshow)
 			{
 				_e_array[clientnum] show();
 			}
@@ -5103,8 +5103,8 @@ function get_inactive_scenes(str_scenedef)
 	Parameters: 2
 	Flags: None
 */
-function function_9730988a(str_scenedef, var_6a688dba)
+function function_9730988a(str_scenedef, str_shotname)
 {
-	return isinarray(get_all_shot_names(str_scenedef), var_6a688dba);
+	return isinarray(get_all_shot_names(str_scenedef), str_shotname);
 }
 

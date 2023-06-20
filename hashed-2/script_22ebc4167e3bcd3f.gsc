@@ -74,7 +74,7 @@ function main()
 	function_3335f286();
 	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
 	{
-		zm_sq::start(#"hash_670bd51cc2f6cb9b", 1);
+		zm_sq::start(#"spoon_quest", 1);
 		/#
 			level thread function_a860e46e();
 		#/
@@ -94,7 +94,7 @@ function main()
 */
 function function_3335f286()
 {
-	zm_sq::register(#"hash_670bd51cc2f6cb9b", #"1", #"hash_3b8b2ab09b97dee6", &step_1, &step_1_cleanup);
+	zm_sq::register(#"spoon_quest", #"1", #"hash_3b8b2ab09b97dee6", &step_1, &step_1_cleanup);
 }
 
 /*
@@ -262,7 +262,7 @@ function setup_docks_crane()
 	level flag::wait_till("start_zombie_round_logic");
 	var_217fca51 = struct::get("docks_crane");
 	scene::add_scene_func(var_217fca51.scriptbundlename, &function_32fbad12, "Shot 2");
-	var_4e8f9a1c = var_217fca51.scene_ents[#"hash_29358891420766c3"];
+	var_4e8f9a1c = var_217fca51.scene_ents[#"skeleton_arm"];
 	var_4e8f9a1c ghost();
 	var_965869c9 = var_217fca51.scene_ents[#"crane"];
 	var_965869c9 hidepart("jnt_skeleton", "p8_fxanim_zm_esc_crane_mod", 1);
@@ -375,7 +375,7 @@ function function_6ff33a91(var_217fca51)
 	var_217fca51 thread scene::play("Shot 3");
 	n_anim_length = getanimlength(#"hash_2bf732b76b5383ba");
 	wait(n_anim_length);
-	var_6b6eb535 = var_217fca51.scene_ents[#"hash_29358891420766c3"];
+	var_6b6eb535 = var_217fca51.scene_ents[#"skeleton_arm"];
 	var_6b6eb535 hide();
 	function_ac52c6f1();
 }
@@ -453,7 +453,7 @@ function function_c5e0a9a4()
 		{
 			if(!isdefined(e_player.var_1c4683c4))
 			{
-				e_player.var_1c4683c4 = e_player.var_49377865[#"melee_weapon"];
+				e_player.var_1c4683c4 = e_player.slot_weapons[#"melee_weapon"];
 			}
 			e_player clientfield::set_to_player("sp_ar_pi", 0);
 			e_player thread function_eebe4e13();
@@ -819,7 +819,7 @@ function function_be995f48(var_6e6ec518, var_9c0bf2db)
 function function_a860e46e()
 {
 	/#
-		if(!getdvarint(#"hash_11ad6a9695943217", 0))
+		if(!getdvarint(#"zm_debug_ee", 0))
 		{
 			return;
 		}

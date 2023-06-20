@@ -592,7 +592,7 @@ function function_d4896942()
 	self endon(#"death", #"strafe_stop");
 	while(true)
 	{
-		self waittill(#"hash_63404ad70a51f8ca");
+		self waittill(#"flare_deployed");
 		if(!(isdefined(self.leavenexttime) && self.leavenexttime))
 		{
 			self killstreaks::play_pilot_dialog_on_owner("damageEvaded", "straferun", self.killstreakid);

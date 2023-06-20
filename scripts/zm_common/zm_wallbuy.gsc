@@ -48,7 +48,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_custom::function_901b751c(#"hash_51a2cf319e12d9ae"))
+	if(!zm_custom::function_901b751c(#"zmwallbuysenabled"))
 	{
 		var_b936460 = getentarray("wallbuy_outline", "targetname");
 		foreach(var_160326ff in var_b936460)
@@ -72,7 +72,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -152,7 +152,7 @@ function init_spawnable_weapon_upgrade()
 		spawnable_weapon = spawnable_weapon_spawns[i];
 		spawnable_weapon.weapon = getweapon(spawnable_weapon.zombie_weapon_upgrade);
 		weapon_group = zm_utility::getweaponclasszm(spawnable_weapon.weapon);
-		if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"zmweaponspistol") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"zmweaponssmg")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"zmweaponsar")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"zmweaponslmg")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"zmweaponssniper")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
+		if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"zmweaponspistol") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"zmweaponsshotgun")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"zmweaponssmg")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"zmweaponsar")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"zmweaponslmg")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"zmweaponssniper")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
 		{
 			continue;
 		}
@@ -325,10 +325,10 @@ function function_c970de50(trigger, parent)
 */
 function function_753c491c(trigger)
 {
-	self.var_857d2187 = self.model;
+	self.orgmodel = self.model;
 	self setmodel(#"wpn_t7_none_world");
 	trigger waittill(#"trigger");
-	self setmodel(self.var_857d2187);
+	self setmodel(self.orgmodel);
 }
 
 /*
@@ -972,7 +972,7 @@ function weapon_spawn_think()
 				player zm_stats::increment_challenge_stat(#"survivalist_buy_wallbuy", undefined, 1);
 				player zm_stats::increment_challenge_stat(#"hash_385398b8acbf8b4a", undefined, 1);
 				player zm_stats::increment_challenge_stat(#"hash_702d98df99af63d5", undefined, 1);
-				player zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
+				player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
 				player zm_stats::function_c0c6ab19(#"wallbuys", 1, 1);
 				player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
 				player contracts::function_5b88297d(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
@@ -1004,7 +1004,7 @@ function weapon_spawn_think()
 				}
 				if(isdefined(weapon))
 				{
-					player notify(#"hash_72df0a050bd0f72f", {#weapon:weapon});
+					player notify(#"weapon_purchased", {#weapon:weapon});
 					player zm_stats::increment_client_stat("wallbuy_weapons_purchased");
 					player zm_stats::increment_player_stat("wallbuy_weapons_purchased");
 					player zm_stats::function_8f10788e("boas_wallbuy_weapons_purchased");
@@ -1152,7 +1152,7 @@ function weapon_spawn_think()
 		}
 		if(isdefined(player))
 		{
-			player notify(#"hash_52d48b9173a9eeec");
+			player notify(#"wallbuy_done");
 			if(isdefined(self.stub) && isdefined(self.stub.prompt_and_visibility_func))
 			{
 				self [[self.stub.prompt_and_visibility_func]](player);

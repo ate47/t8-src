@@ -10,7 +10,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\globallogic\globallogic_score.gsc;
-#using script_66052559f4fc2bf9;
+#using scripts\mp_common\gametypes\display_transition.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\globallogic\globallogic_player.gsc;
@@ -159,7 +159,7 @@ function function_ca27b62b(attacker, player)
 	{
 		return false;
 	}
-	if(isdefined(level.var_f68b214e) && level.var_f68b214e && isdefined(player.deathtime) && player.deathtime > self.attackerdamage[player.clientid].lastdamagetime)
+	if(isdefined(level.ekiaresetondeath) && level.ekiaresetondeath && isdefined(player.deathtime) && player.deathtime > self.attackerdamage[player.clientid].lastdamagetime)
 	{
 		return false;
 	}
@@ -202,7 +202,7 @@ function function_284c61bd(attacker, meansofdeath, bledout = 0)
 			{
 				continue;
 			}
-			if(isdefined(level.var_f68b214e) && level.var_f68b214e && isdefined(player.deathtime) && player.deathtime > self.attackerdamage[player.clientid].lastdamagetime)
+			if(isdefined(level.ekiaresetondeath) && level.ekiaresetondeath && isdefined(player.deathtime) && player.deathtime > self.attackerdamage[player.clientid].lastdamagetime)
 			{
 				continue;
 			}
@@ -972,7 +972,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 				self function_66cec679();
 				if(!platoons::function_382a49e0())
 				{
-					self thread namespace_81c567a8::function_1caf5c87(self.team);
+					self thread display_transition::function_1caf5c87(self.team);
 				}
 			}
 			else
@@ -981,12 +981,12 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 				{
 					if(self function_448f7ed2())
 					{
-						self thread namespace_81c567a8::function_b3964dc9();
+						self thread display_transition::function_b3964dc9();
 					}
 				}
 				else
 				{
-					self thread namespace_81c567a8::function_9b2bd02c();
+					self thread display_transition::function_9b2bd02c();
 				}
 			}
 		}
@@ -1000,7 +1000,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		livesleft = !(level.numlives && !self.pers[#"lives"]) && (!(level.numteamlives && !game.lives[self.team]));
 		if(livesleft)
 		{
-			if(isdefined(level.var_f220c297) && level.var_f220c297)
+			if(isdefined(level.deathcirclerespawn) && level.deathcirclerespawn)
 			{
 				self thread [[level.spawnspectator]](self.origin + vectorscale((0, 0, 1), 60), self.angles);
 			}
@@ -1139,7 +1139,7 @@ function function_73da2f89()
 	}
 	if(!infection::function_74650d7())
 	{
-		if(isdefined(level.var_f220c297) && level.var_f220c297)
+		if(isdefined(level.deathcirclerespawn) && level.deathcirclerespawn)
 		{
 			if(function_d5c8119d())
 			{
@@ -1233,18 +1233,18 @@ function private function_caabcf70(victim, var_aedb48f4, laststandparams, var_a1
 		}
 		if(isdefined(var_f53d817d) && isdefined(var_f53d817d.attacker) && isplayer(var_f53d817d.attacker))
 		{
-			var_7d5350e1 = var_f53d817d.attacker match_record::get_player_index();
-			if(isdefined(var_7d5350e1))
+			attackerindex = var_f53d817d.attacker match_record::get_player_index();
+			if(isdefined(attackerindex))
 			{
-				match_record::set_stat(#"lives", lifeindex, #"hash_bc364c8d078a4b9", var_7d5350e1);
+				match_record::set_stat(#"lives", lifeindex, #"attacker_index", attackerindex);
 			}
 		}
 		if(isdefined(var_ee2f4691) && isdefined(var_ee2f4691.attacker) && isplayer(var_ee2f4691.attacker))
 		{
-			var_f913202b = var_ee2f4691.attacker match_record::get_player_index();
-			if(isdefined(var_f913202b))
+			killerindex = var_ee2f4691.attacker match_record::get_player_index();
+			if(isdefined(killerindex))
 			{
-				match_record::set_stat(#"lives", lifeindex, #"hash_6adf5918df7d307d", var_f913202b);
+				match_record::set_stat(#"lives", lifeindex, #"killer_index", killerindex);
 			}
 		}
 	}
@@ -1860,7 +1860,7 @@ function function_f632c17e(weapon)
 		case "hash_216eeca7a4295e4":
 		case "hash_17df39d53492b0bf":
 		case "tank_robot_launcher_turret":
-		case "hash_721bd01efec90239":
+		case "ac130_chaingun":
 		case "hash_7b24d0d0d2823bca":
 		{
 			return true;

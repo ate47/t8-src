@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3e5ec44cfab7a201;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\exploder_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -145,7 +145,7 @@ function private soul_captured(var_f0e6c7a2, ent)
 function private function_fab8c488()
 {
 	self endon(#"death", #"event_end");
-	while(self namespace_509a75d1::function_b8a27acc())
+	while(self zm_hms_util::function_b8a27acc())
 	{
 		wait(0.1);
 	}
@@ -165,7 +165,7 @@ function private function_fab8c488()
 function private player_enter_watcher()
 {
 	self endon(#"death", #"event_end");
-	while(!self namespace_509a75d1::function_b8a27acc())
+	while(!self zm_hms_util::function_b8a27acc())
 	{
 		wait(0.1);
 	}

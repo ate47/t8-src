@@ -354,9 +354,9 @@ function function_3759fcf(localclientnum, var_c5e2f09a)
 */
 function function_2e07be71(localclientnum)
 {
-	var_fa108926 = (localclientnum + "_") + self getentitynumber();
-	self notify("cfc7ae5c0a7a3ce" + var_fa108926);
-	self endon("cfc7ae5c0a7a3ce" + var_fa108926);
+	notifyparam = (localclientnum + "_") + self getentitynumber();
+	self notify("cfc7ae5c0a7a3ce" + notifyparam);
+	self endon("cfc7ae5c0a7a3ce" + notifyparam);
 	/#
 		assert(isdefined(self.owner));
 	#/
@@ -383,9 +383,9 @@ function function_2e07be71(localclientnum)
 */
 function function_5a1bf101(localclientnum)
 {
-	var_fa108926 = (localclientnum + "_") + self getentitynumber();
-	self notify("7f2100a11fa32baf" + var_fa108926);
-	self endon("7f2100a11fa32baf" + var_fa108926);
+	notifyparam = (localclientnum + "_") + self getentitynumber();
+	self notify("7f2100a11fa32baf" + notifyparam);
+	self endon("7f2100a11fa32baf" + notifyparam);
 	self endon(#"death");
 	var_dff09cb4 = self.owner;
 	controllermodel = getuimodelforcontroller(localclientnum);
@@ -421,10 +421,10 @@ function function_5a1bf101(localclientnum)
 	var_c0443ab2 = 0;
 	var_8736e321 = 1;
 	var_6c8b920a = [];
-	var_7cb3c06f = [];
-	var_7cb3c06f[#"stand"] = vectorscale((0, 0, 1), 60);
-	var_7cb3c06f[#"crouch"] = vectorscale((0, 0, 1), 40);
-	var_7cb3c06f[#"prone"] = vectorscale((0, 0, 1), 12);
+	stance_offsets = [];
+	stance_offsets[#"stand"] = vectorscale((0, 0, 1), 60);
+	stance_offsets[#"crouch"] = vectorscale((0, 0, 1), 40);
+	stance_offsets[#"prone"] = vectorscale((0, 0, 1), 12);
 	while(isdefined(var_dff09cb4) && isplayer(var_dff09cb4) && var_dff09cb4 function_21c0fa55())
 	{
 		if(var_dff09cb4 isremotecontrolling(localclientnum))
@@ -491,7 +491,7 @@ function function_5a1bf101(localclientnum)
 				{
 					var_6c8b920a[ti] = now;
 					var_14569a7a++;
-					trace = bullettrace(var_1d7ce7ba, target_player.origin + var_7cb3c06f[target_player getstance()], 0, var_dff09cb4);
+					trace = bullettrace(var_1d7ce7ba, target_player.origin + stance_offsets[target_player getstance()], 0, var_dff09cb4);
 					if(isdefined(trace))
 					{
 						var_d7caaee9 = trace[#"fraction"] < 1;

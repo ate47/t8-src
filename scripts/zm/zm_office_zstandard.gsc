@@ -7,9 +7,9 @@
 #using script_39e954a546d3baf;
 #using script_4bae07eadc57bb51;
 #using scripts\zm\zm_office_elevators.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59a783d756554a80;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm\zm_office_floors.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\array_shared.gsc;
@@ -65,14 +65,14 @@ function init_level_vars()
 	level thread zm_blockers::function_6f01c3cf("conference1_screens_tear_in_barricade", "script_string", 0);
 	level thread zm_blockers::function_6f01c3cf("conference1_screens_left_barricade", "script_string", 0);
 	level thread zm_blockers::function_6f01c3cf("conference1_screens_right_barricade", "script_string", 0);
-	level thread function_ca35fa36();
+	level thread defend_areas();
 	level thread function_9217567c();
 	level thread init_traps();
 	level thread function_f436d901();
 	level thread init_pack_a_punch();
 	level thread zm_office_defcon::function_cec9d001();
-	namespace_c3287616::function_2876740e(#"zombie_dog", &function_c7e2bbe2);
-	namespace_c3287616::function_2876740e(#"nova_crawler", &function_aee9d1fb);
+	zm_round_spawning::function_2876740e(#"zombie_dog", &function_c7e2bbe2);
+	zm_round_spawning::function_2876740e(#"nova_crawler", &function_aee9d1fb);
 }
 
 /*
@@ -175,7 +175,7 @@ function intro_zombie_dog(n_round_number)
 function function_b4cae8b9()
 {
 	level flag::wait_till("started_defend_area");
-	util::delay(15, "end_game", &namespace_c3287616::function_376e51ef, #"zombie_dog");
+	util::delay(15, "end_game", &zm_round_spawning::function_376e51ef, #"zombie_dog");
 }
 
 /*
@@ -217,13 +217,13 @@ function function_bee94926()
 {
 	level flag::wait_till("started_defend_area");
 	level flag::set(#"hash_2a1fc2e349c48462");
-	level util::delay(20, "end_game", &namespace_c3287616::function_376e51ef, #"nova_crawler");
+	level util::delay(20, "end_game", &zm_round_spawning::function_376e51ef, #"nova_crawler");
 	level waittill(#"crawlers_spawned");
 	level flag::clear(#"hash_2a1fc2e349c48462");
 }
 
 /*
-	Name: function_ca35fa36
+	Name: defend_areas
 	Namespace: zm_office_zstandard
 	Checksum: 0xD04AFD60
 	Offset: 0xD28
@@ -231,7 +231,7 @@ function function_bee94926()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ca35fa36()
+function defend_areas()
 {
 	level endon(#"end_game");
 	function_84139b27();
@@ -261,7 +261,7 @@ function function_ca35fa36()
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_f79ff5ec = array::random(array(#"server_room", #"war_room_lower"));
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
-	namespace_c402654::function_aec3446d(0);
+	namespace_c402654::dog_enable_rounds(0);
 	var_3e4bb460 = "elevator2";
 	level zm_utility::open_door("elev2_blocker", undefined, undefined, 1);
 	function_cc31fe55(var_3e4bb460);
@@ -270,7 +270,7 @@ function function_ca35fa36()
 	util::delay(4, undefined, &zm_utility::function_11101458, var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
 	wait(25);
-	namespace_c3287616::function_306ce518(#"zombie_dog", &intro_zombie_dog);
+	zm_round_spawning::function_306ce518(#"zombie_dog", &intro_zombie_dog);
 	level thread function_b4cae8b9();
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45);
 	function_35ff3f69();
@@ -293,12 +293,12 @@ function function_ca35fa36()
 	util::delay(4, undefined, &zm_utility::function_11101458, var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
 	wait(25);
-	namespace_c3287616::function_306ce518(#"nova_crawler", &intro_nova_crawler);
+	zm_round_spawning::function_306ce518(#"nova_crawler", &intro_nova_crawler);
 	level thread function_bee94926();
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	level thread zm_utility::enable_power_switch(1, 1);
 	level notify(#"hash_2ec0be5019c6c395");
-	level thread namespace_8f53e87b::play_pentagon_announcer_vox(#"hash_7d4064a8d03e0606");
+	level thread namespace_8f53e87b::play_pentagon_announcer_vox(#"power_activated");
 	level.var_4c71614b = 1;
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_f79ff5ec = #"groom_lake";
@@ -317,7 +317,7 @@ function function_ca35fa36()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	foreach(e_player in getplayers())
 	{
-		e_player notify(#"hash_4084bd0cc597186f");
+		e_player notify(#"defend_completed");
 		e_player function_b4afc059(var_37b7b46a);
 	}
 	var_420e4589 = array("lab2_level3");
@@ -453,7 +453,7 @@ function enable_groom_lake()
 */
 function function_231d0b19()
 {
-	level.var_dc235a55 = namespace_509a75d1::function_2719d4c0("cage_debris", "targetname", "script_int");
+	level.var_dc235a55 = zm_hms_util::function_2719d4c0("cage_debris", "targetname", "script_int");
 	foreach(var_f0a1a909 in level.var_dc235a55)
 	{
 		if(!isdefined(var_f0a1a909.a_e_clip))
@@ -685,7 +685,7 @@ function function_466fb0ff(var_3cf55c1)
 		{
 			foreach(e_player in getplayers())
 			{
-				e_player notify(#"hash_4084bd0cc597186f");
+				e_player notify(#"defend_completed");
 				e_player function_b4afc059(var_37b7b46a);
 			}
 		}

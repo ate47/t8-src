@@ -8,7 +8,7 @@
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using scripts\zm_common\zm_characters.gsc;
@@ -52,14 +52,14 @@
 */
 function function_84139b27()
 {
-	zm_utility::function_c492c4d6(#"cellar", #"hash_1b5f923615231b33", array(#"zone_cellar"), array(#"hash_413cdf3a155d7eb5", #"library", #"greenhouse", #"cemetery"), #"hash_d991d688c218647", #"hash_2b2357a02d83b291");
+	zm_utility::function_c492c4d6(#"cellar", #"hash_1b5f923615231b33", array(#"zone_cellar"), array(#"billiards_room", #"library", #"greenhouse", #"cemetery"), #"hash_d991d688c218647", #"hash_2b2357a02d83b291");
 	zm_utility::function_c492c4d6(#"main_hall", #"hash_7a9b6ecf9efe213d", array(#"zone_main_hall"), array(#"library", #"dining_room", #"grand_staircase"), #"hash_23e3f0727cf654e1", #"hash_56ee5965eeb986f7");
-	zm_utility::function_c492c4d6(#"grand_staircase", #"hash_385f3c24f5a215a0", array(#"zone_grand_staircase", #"zone_entrance_hall"), array(#"hash_413cdf3a155d7eb5", #"greenhouse", #"dining_room", #"library"), #"hash_17eb32ca84395d46", #"hash_63182288b2fa8fe2");
+	zm_utility::function_c492c4d6(#"grand_staircase", #"hash_385f3c24f5a215a0", array(#"zone_grand_staircase", #"zone_entrance_hall"), array(#"billiards_room", #"greenhouse", #"dining_room", #"library"), #"hash_17eb32ca84395d46", #"hash_63182288b2fa8fe2");
 	zm_utility::function_c492c4d6(#"library", #"hash_1ed56b51775c6337", array(#"zone_library"), array(#"grand_staircase", #"main_hall", #"cemetery"), #"hash_18ccedb519d08fdb", #"hash_3d3024b021773e75");
 	zm_utility::function_c492c4d6(#"greenhouse", #"hash_6ca6299c59dc3611", array(#"zone_greenhouse_lab"), array(#"main_hall", #"cellar", #"grand_staircase", #"dining_room"), #"hash_1eab9450a8098785", #"hash_11659cb4f681fe2b");
 	zm_utility::function_c492c4d6(#"dining_room", #"hash_630110b8f5ec36d9", array(#"zone_dining_room"), array(#"greenhouse", #"cellar", #"cemetery"), #"hash_59f4621f89897419", #"hash_9374fbb3272c53f");
-	zm_utility::function_c492c4d6(#"hash_413cdf3a155d7eb5", #"hash_1d07f6440958f050", array(#"zone_library_hallway_upper", #"zone_foyer_westend"), array(#"cemetery", #"grand_staircase", #"greenhouse"), #"hash_3d69c72a393f3836", #"hash_3d83f27f0bfd3a72");
-	zm_utility::function_c492c4d6(#"cemetery", #"hash_551b339e17319aa0", array(#"zone_cemetery_mausoleum"), array(#"library", #"hash_413cdf3a155d7eb5", #"main_hall", #"cellar"), #"hash_2b4478e34d38202", #"hash_a3797801599641e");
+	zm_utility::function_c492c4d6(#"billiards_room", #"hash_1d07f6440958f050", array(#"zone_library_hallway_upper", #"zone_foyer_westend"), array(#"cemetery", #"grand_staircase", #"greenhouse"), #"hash_3d69c72a393f3836", #"hash_3d83f27f0bfd3a72");
+	zm_utility::function_c492c4d6(#"cemetery", #"hash_551b339e17319aa0", array(#"zone_cemetery_mausoleum"), array(#"library", #"billiards_room", #"main_hall", #"cellar"), #"hash_2b4478e34d38202", #"hash_a3797801599641e");
 	/#
 		zm_utility::function_1e856719();
 	#/
@@ -85,13 +85,13 @@ function main()
 	level.var_d7853f35 = 14;
 	level.var_ecdf38f = 13;
 	level.var_55e562f9 = 16;
-	namespace_c3287616::function_306ce518(#"catalyst", &function_40dfd00b);
-	namespace_c3287616::function_306ce518(#"nosferatu", &function_2ce29db3);
-	namespace_c3287616::function_306ce518(#"werewolf", &function_124d3657);
+	zm_round_spawning::function_306ce518(#"catalyst", &function_40dfd00b);
+	zm_round_spawning::function_306ce518(#"nosferatu", &function_2ce29db3);
+	zm_round_spawning::function_306ce518(#"werewolf", &function_124d3657);
 	zm_utility::function_2959a3cb(#"nosferatu", &function_c22d1f6a);
 	zm_utility::function_2959a3cb(#"werewolf", &function_9ab66ae8);
 	level.zombie_hints[#"default_treasure_chest"] = #"hash_57a34375dddce337";
-	level thread function_ca35fa36();
+	level thread defend_areas();
 	var_4ce6fa3d = getent("connect_forest_entrance_to_forest", "script_flag");
 	var_4ce6fa3d.script_noteworthy = "";
 	var_822110ba = getent("ooze_gate_col", "targetname");
@@ -191,7 +191,7 @@ function function_9ab66ae8()
 function registerlast_truck_headshot_()
 {
 	level zm_utility::function_7a35b1d7(#"hash_4ebcbd3655fdceb0");
-	level thread zm_audio::sndannouncerplayvox(#"hash_435dce8984528996", undefined, undefined, undefined, 1);
+	level thread zm_audio::sndannouncerplayvox(#"pap_avail", undefined, undefined, undefined, 1);
 }
 
 /*
@@ -273,7 +273,7 @@ function function_edd5bb1a()
 }
 
 /*
-	Name: function_ca35fa36
+	Name: defend_areas
 	Namespace: zm_mansion_zstandard
 	Checksum: 0x21479BC7
 	Offset: 0x13D8
@@ -281,7 +281,7 @@ function function_edd5bb1a()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ca35fa36()
+function defend_areas()
 {
 	level endon(#"end_game");
 	function_84139b27();
@@ -341,7 +341,7 @@ function function_ca35fa36()
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	level thread zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	level flag::wait_till("started_defend_area");
-	level util::delay(5, undefined, &namespace_c3287616::function_376e51ef, #"werewolf");
+	level util::delay(5, undefined, &zm_round_spawning::function_376e51ef, #"werewolf");
 	level waittill(#"hash_7a04a7fb98fa4e4d");
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	a_zbarriers = getzbarrierarray();
@@ -376,9 +376,9 @@ function function_ca35fa36()
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	zm_utility::function_fef4b36a(var_f79ff5ec);
-	namespace_c3287616::function_376e51ef(#"bat");
-	namespace_c3287616::function_376e51ef(#"nosferatu");
-	level thread namespace_c3287616::function_376e51ef(#"crimson_nosferatu", level.round_number + 6);
+	zm_round_spawning::function_376e51ef(#"bat");
+	zm_round_spawning::function_376e51ef(#"nosferatu");
+	level thread zm_round_spawning::function_376e51ef(#"crimson_nosferatu", level.round_number + 6);
 	level thread util::delay(120, "end_game", &function_cf680b18);
 	/#
 		iprintlnbold("");
@@ -472,7 +472,7 @@ function function_cf680b18()
 */
 function function_39364bed()
 {
-	var_f79ff5ec = array::random(array(#"hash_413cdf3a155d7eb5", #"cellar", #"library"));
+	var_f79ff5ec = array::random(array(#"billiards_room", #"cellar", #"library"));
 	while(true)
 	{
 		zm_utility::function_11101458(var_f79ff5ec);

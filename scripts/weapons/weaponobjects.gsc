@@ -251,7 +251,7 @@ function private snipinterfaceattributes(weapon)
 		struct = level.watcherregisters[weapon.name];
 		if(isdefined(struct))
 		{
-			self function_9d7ae85f(weapon.name, struct.func, struct.type);
+			self createwatcher(weapon.name, struct.func, struct.type);
 			if(isdefined(struct.var_80e51919) && isdefined(struct.var_7bd83b52))
 			{
 				if(weaponhasattachment(weapon, struct.var_80e51919))
@@ -272,7 +272,7 @@ function private snipinterfaceattributes(weapon)
 }
 
 /*
-	Name: function_9d7ae85f
+	Name: createwatcher
 	Namespace: weaponobjects
 	Checksum: 0xF01958F
 	Offset: 0xCF0
@@ -280,7 +280,7 @@ function private snipinterfaceattributes(weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9d7ae85f(weaponname, createfunc, var_7b2908f = 2)
+function createwatcher(weaponname, createfunc, var_7b2908f = 2)
 {
 	watcher = undefined;
 	switch(var_7b2908f)
@@ -913,7 +913,7 @@ function cleanupwatcherondeath(watcher)
 function weapon_object_timeout(watcher, var_84e5ee08)
 {
 	weapon_instance = self;
-	weapon_instance endon(#"death", #"hash_602ae7ca650d6287");
+	weapon_instance endon(#"death", #"cancel_timeout");
 	var_754e514 = (isdefined(var_84e5ee08) ? var_84e5ee08 : watcher.timeout);
 	wait(var_754e514);
 	if(isdefined(watcher) && isdefined(watcher.ontimeout))
@@ -1872,7 +1872,7 @@ function watchweaponobjectspawn(notify_type, endonnotify = undefined)
 		else
 		{
 			waitresult = undefined;
-			waitresult = self waittill(#"grenade_fire", #"grenade_launcher_fire", #"missile_fire", #"hash_5244e3160ac43ca3");
+			waitresult = self waittill(#"grenade_fire", #"grenade_launcher_fire", #"missile_fire", #"placeables_plant");
 		}
 		weapon_instance = waitresult.projectile;
 		weapon = waitresult.weapon;
@@ -4029,7 +4029,7 @@ function watch_supplemental_object_death()
 */
 function function_d9c08e94(var_2f190eaf, var_46f3f2d3)
 {
-	self endon(#"hash_602ae7ca650d6287");
+	self endon(#"cancel_timeout");
 	if(!isdefined(var_2f190eaf) || var_2f190eaf <= 0)
 	{
 		return;

@@ -46,13 +46,13 @@ function enable_cooldown_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"specialty_cooldown", &function_683242be, &function_20945b84);
 	zm_perks::register_perk_effects(#"specialty_cooldown", "divetonuke_light");
-	zm_perks::register_perk_init_thread(#"specialty_cooldown", &function_a2d341cc);
+	zm_perks::register_perk_init_thread(#"specialty_cooldown", &init_cooldown);
 	zm_perks::function_b60f4a9f(#"specialty_cooldown", #"p8_zm_vapor_altar_icon_01_timeslip", "zombie/fx8_perk_altar_symbol_ambient_timeslip", #"zmperkscooldown");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_cooldown", "zombie_perk_totem_timeslip");
 }
 
 /*
-	Name: function_a2d341cc
+	Name: init_cooldown
 	Namespace: zm_perk_cooldown
 	Checksum: 0x6EA6FFB8
 	Offset: 0x278
@@ -60,7 +60,7 @@ function enable_cooldown_perk_for_level()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a2d341cc()
+function init_cooldown()
 {
 	if(isdefined(level.enable_magic) && level.enable_magic)
 	{

@@ -616,7 +616,7 @@ function player_reduce_points(event, n_amount)
 		points = 4000000;
 	}
 	self.score = points;
-	self notify(#"hash_733a824fa6229915", {#str_reason:event});
+	self notify(#"reduced_points", {#str_reason:event});
 }
 
 /*
@@ -659,7 +659,7 @@ function add_to_player_score(points, b_add_to_total = 1, str_awarded_by = "", va
 		self contracts::function_5b88297d(#"hash_781e103e02826009", n_points_to_add_to_currency, #"zstandard");
 		if(zm_utility::is_standard())
 		{
-			self zm_stats::function_c0c6ab19(#"hash_61d61f092d2739eb", n_points_to_add_to_currency);
+			self zm_stats::function_c0c6ab19(#"rush_points", n_points_to_add_to_currency);
 		}
 		if(b_add_to_total)
 		{

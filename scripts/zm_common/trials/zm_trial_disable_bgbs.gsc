@@ -35,7 +35,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_684ed24d7aec001c", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_bgbs", &on_begin, &on_end);
 }
 
 /*
@@ -88,7 +88,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_684ed24d7aec001c");
+	challenge = zm_trial::function_a36e8c38(#"disable_bgbs");
 	return isdefined(challenge);
 }
 

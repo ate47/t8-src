@@ -414,7 +414,7 @@ function standard_powered_items()
 			powered_perk thread zone_controlled_perk(trigger.script_int);
 		}
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)
@@ -1297,7 +1297,7 @@ function turn_power_on_and_open_doors(power_zone)
 	{
 		player zm_stats::function_8f10788e("boas_power_turnedon");
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)
@@ -1351,7 +1351,7 @@ function turn_power_off_and_close_doors(power_zone)
 		level flag::clear("power_on" + power_zone);
 		level clientfield::set("zombie_power_off", power_zone);
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)

@@ -379,18 +379,18 @@ function devgui()
 		level.var_8e9d88b6[#"fl1"] = 1;
 		level.var_8e9d88b6[#"tn1"] = 2;
 		level.var_8e9d88b6[#"db1"] = 3;
-		level.var_8e9d88b6[#"hash_356b191335bab8"] = 4;
-		level.var_8e9d88b6[#"hash_34ad5ed8d296ff88"] = 5;
-		level.var_8e9d88b6[#"hash_ffc38cdd7774e8b"] = 6;
+		level.var_8e9d88b6[#"bf1"] = 4;
+		level.var_8e9d88b6[#"helmets1"] = 5;
+		level.var_8e9d88b6[#"season1"] = 6;
 		while(true)
 		{
 			waitframe(1);
 			str_command = getdvarstring(#"hash_443a451d4b2f9de2", "");
 			switch(str_command)
 			{
-				case "hash_356b191335bab8":
-				case "hash_ffc38cdd7774e8b":
-				case "hash_34ad5ed8d296ff88":
+				case "bf1":
+				case "season1":
+				case "helmets1":
 				case "db1":
 				case "tn1":
 				case "fl1":

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5734ebb98acc5da6;
+#using scripts\wz_common\wz_nixie_tubes.csc;
 #using scripts\mp_common\item_world.csc;
-#using script_7728a38fdb93c354;
+#using scripts\wz\wz_escape_ffotd.csc;
 #using scripts\core_common\exploder_shared.csc;
 #using scripts\core_common\util_shared.csc;
 #using scripts\mp_common\load.csc;

@@ -543,7 +543,7 @@ function switch_from_alt_weapon(weapon)
 */
 function give_start_weapons(takeallweapons, alreadyspawned)
 {
-	if(isdefined(self.s_loadout) && zombie_utility::function_d2dfacfd("retain_weapons") && zm_custom::function_901b751c(#"hash_589c0366b1458c7e"))
+	if(isdefined(self.s_loadout) && zombie_utility::function_d2dfacfd("retain_weapons") && zm_custom::function_901b751c(#"zmretainweapons"))
 	{
 		self player_give_loadout(self.s_loadout, 1, 0);
 		self.s_loadout = undefined;
@@ -767,7 +767,7 @@ function add_zombie_weapon(weapon_name, upgrade_name, is_ee, cost, weaponvo, wea
 	}
 	level.zombie_weapons[weapon] = struct;
 	/#
-		if(isdefined(level.devgui_add_weapon) && (!is_ee || getdvarint(#"hash_11ad6a9695943217", 0)))
+		if(isdefined(level.devgui_add_weapon) && (!is_ee || getdvarint(#"zm_debug_ee", 0)))
 		{
 			level thread [[level.devgui_add_weapon]](weapon, upgrade, in_box, cost, weaponvo, weaponvoresp, ammo_cost);
 		}
@@ -2740,7 +2740,7 @@ function checkstringvalid(var_f5bc27b5)
 */
 function load_weapon_spec_from_table(table, first_row)
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	index = first_row;
 	row = tablelookuprow(table, index);
 	while(isdefined(row))

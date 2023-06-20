@@ -2679,7 +2679,7 @@ function ai_calculate_health(base_health, round_number)
 			return var_d082c739;
 		}
 	}
-	if(util::function_5df4294() == #"zclassic" && level.gamedifficulty < 2 && round_number > 35)
+	if(util::get_game_type() == #"zclassic" && level.gamedifficulty < 2 && round_number > 35)
 	{
 		round_number = 35;
 	}
@@ -3356,7 +3356,7 @@ function zombie_gib(amount, attacker, direction_vec, point, type, tagname, model
 		if(isdefined(self.missinglegs) && self.missinglegs && self.health > 0)
 		{
 			b_gibbed = 1;
-			level notify(#"hash_5198ca6a3343ece8", {#weapon:weapon, #player:attacker, #zombie:self});
+			level notify(#"crawler_created", {#weapon:weapon, #player:attacker, #zombie:self});
 			self allowedstances("crouch");
 			self setphysparams(15, 0, 24);
 			self allowpitchangle(1);
@@ -4197,7 +4197,7 @@ function run_ignore_player_handler()
 }
 
 /*
-	Name: function_27ba8249
+	Name: updateanimationrate
 	Namespace: zombie_utility
 	Checksum: 0xF2FE0E80
 	Offset: 0x7FF0
@@ -4205,11 +4205,11 @@ function run_ignore_player_handler()
 	Parameters: 0
 	Flags: None
 */
-function function_27ba8249()
+function updateanimationrate()
 {
 	/#
-		self notify(#"hash_3f5088baaf14f6d0");
-		self endon(#"death", #"hash_3f5088baaf14f6d0");
+		self notify(#"updateanimationrate");
+		self endon(#"death", #"updateanimationrate");
 		settings_bundle = self ai::function_9139c839();
 		if(!isdefined(settings_bundle))
 		{

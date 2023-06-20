@@ -237,7 +237,7 @@ function private function_462df450(inflictor, attacker, damage, flags, meansofda
 function private function_bd0a9007(entity, target)
 {
 	result = 1;
-	if(!zm_ai_dog::is_target_valid(entity, target) || (!(isdefined(target.completed_emerging_into_playable_area) && target.completed_emerging_into_playable_area)) || (isdefined(target.in_gravity_trap) && target.in_gravity_trap) || (isdefined(target.var_105c6f35) && target.var_105c6f35) || (isdefined(target.archetype) && target.archetype == #"hash_3b41c3299f47fb7f"))
+	if(!zm_ai_dog::is_target_valid(entity, target) || (!(isdefined(target.completed_emerging_into_playable_area) && target.completed_emerging_into_playable_area)) || (isdefined(target.in_gravity_trap) && target.in_gravity_trap) || (isdefined(target.var_105c6f35) && target.var_105c6f35) || (isdefined(target.archetype) && target.archetype == #"dust_ball"))
 	{
 		result = 0;
 	}
@@ -597,7 +597,7 @@ function private function_ba0f4046(entity)
 */
 function private function_f7c7a416(entity)
 {
-	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"hash_6182e0a57e0b549f", 1) * 1000);
+	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
 	if(isdefined(entity.enemy) && (!(isdefined(entity.marked_for_death) && entity.marked_for_death)) && (!(isdefined(entity.enemy.ignoreme) && entity.enemy.ignoreme)))
 	{
 		hit_enemy = entity melee();
@@ -681,13 +681,13 @@ function private function_f7c7a416(entity)
 */
 function private pick_new_movement_point()
 {
-	var_bc03597b = self.origin;
+	anchor_point = self.origin;
 	player_owner = function_f00b611e();
 	if(isdefined(player_owner))
 	{
-		var_bc03597b = player_owner.origin;
+		anchor_point = player_owner.origin;
 	}
-	queryresult = positionquery_source_navigation(var_bc03597b, 96, 256, 128, 20, self);
+	queryresult = positionquery_source_navigation(anchor_point, 96, 256, 128, 20, self);
 	if(queryresult.data.size)
 	{
 		point = queryresult.data[randomint(queryresult.data.size)];
@@ -858,11 +858,11 @@ function function_26fcd34f(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		/#
 			movedelta = getmovedelta(mocompanim, 0, 1, entity);
-			var_6b8f735f = entity localtoworldcoords(movedelta);
-			distance = distance(entity.origin, var_6b8f735f);
+			animendpos = entity localtoworldcoords(movedelta);
+			distance = distance(entity.origin, animendpos);
 			recordcircle(entity.var_cd8354e0.var_9bfa8497, 8, (0, 1, 0), "");
-			recordcircle(var_6b8f735f, 8, (0, 1, 0), "");
-			record3dtext("" + distance, var_6b8f735f, (0, 1, 0), "");
+			recordcircle(animendpos, 8, (0, 1, 0), "");
+			record3dtext("" + distance, animendpos, (0, 1, 0), "");
 		#/
 	}
 }
@@ -894,26 +894,26 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 			var_b1145e11 = vectorscale(velocity, var_16c6aa5b / 1000);
 			predictedenemypos = predictedenemypos + var_b1145e11;
 		}
-		entity.var_cd8354e0.var_736d2cce = predictedenemypos;
+		entity.var_cd8354e0.adjustedendpos = predictedenemypos;
 		/#
 			recordsphere(entity.var_cd8354e0.var_cb28f380 + offset, 2, (1, 0, 1), "");
-			recordsphere(entity.var_cd8354e0.var_736d2cce + offset, 4, (1, 0, 1), "");
-			recordline(entity.var_cd8354e0.var_cb28f380 + offset, entity.var_cd8354e0.var_736d2cce + offset, (1, 0, 1), "");
+			recordsphere(entity.var_cd8354e0.adjustedendpos + offset, 4, (1, 0, 1), "");
+			recordline(entity.var_cd8354e0.var_cb28f380 + offset, entity.var_cd8354e0.adjustedendpos + offset, (1, 0, 1), "");
 		#/
 		var_283a081d = distance(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_cb28f380);
 		var_cf699df5 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_cb28f380);
-		var_5eef8d2d = distance(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.var_736d2cce);
-		var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.var_736d2cce);
-		var_62670629 = distance(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_736d2cce);
-		var_65cbfb52 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_736d2cce);
-		var_201660e6 = tracepassedonnavmesh(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.var_736d2cce, entity getpathfindingradius());
-		traceresult = bullettrace(entity.origin, entity.var_cd8354e0.var_736d2cce + vectorscale((0, 0, 1), 30), 0, entity);
+		var_5eef8d2d = distance(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.adjustedendpos);
+		var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.adjustedendpos);
+		var_62670629 = distance(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.adjustedendpos);
+		var_65cbfb52 = distancesquared(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.adjustedendpos);
+		var_201660e6 = tracepassedonnavmesh(entity.var_cd8354e0.var_9bfa8497, entity.var_cd8354e0.adjustedendpos, entity getpathfindingradius());
+		traceresult = bullettrace(entity.origin, entity.var_cd8354e0.adjustedendpos + vectorscale((0, 0, 1), 30), 0, entity);
 		isvisible = traceresult[#"fraction"] == 1;
 		var_535d098c = 0;
 		if(isdefined(traceresult[#"hitloc"]) && traceresult[#"hitloc"] == "riotshield")
 		{
-			var_cc075bd0 = vectornormalize(entity.origin - entity.var_cd8354e0.var_736d2cce);
-			entity.var_cd8354e0.var_736d2cce = entity.var_cd8354e0.var_736d2cce + vectorscale(var_cc075bd0, 50);
+			var_cc075bd0 = vectornormalize(entity.origin - entity.var_cd8354e0.adjustedendpos);
+			entity.var_cd8354e0.adjustedendpos = entity.var_cd8354e0.adjustedendpos + vectorscale(var_cc075bd0, 50);
 			var_535d098c = 1;
 		}
 		if(!var_201660e6)
@@ -949,7 +949,7 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		if(entity.var_cd8354e0.var_425c4c8b)
 		{
-			var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.var_736d2cce);
+			var_776ddabf = distancesquared(entity.var_cd8354e0.var_cb28f380, entity.var_cd8354e0.adjustedendpos);
 			var_beabc994 = anglestoforward(entity.angles);
 			var_1c3641f2 = (entity.enemy.origin[0], entity.enemy.origin[1], entity.origin[2]);
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
@@ -971,7 +971,7 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 			#/
 			if(var_425c4c8b)
 			{
-				var_90c3cdd2 = length(entity.var_cd8354e0.var_736d2cce - entity.var_cd8354e0.var_cb28f380);
+				var_90c3cdd2 = length(entity.var_cd8354e0.adjustedendpos - entity.var_cd8354e0.var_cb28f380);
 				timestep = function_60d95f53();
 				animlength = getanimlength(mocompanim) * 1000;
 				starttime = entity.var_cd8354e0.var_98bc84b7 * animlength;
@@ -979,7 +979,7 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 				starttime = floor(starttime / timestep);
 				stoptime = floor(stoptime / timestep);
 				adjustduration = stoptime - starttime;
-				entity.var_cd8354e0.var_10b8b6d1 = vectornormalize(entity.var_cd8354e0.var_736d2cce - entity.var_cd8354e0.var_cb28f380);
+				entity.var_cd8354e0.var_10b8b6d1 = vectornormalize(entity.var_cd8354e0.adjustedendpos - entity.var_cd8354e0.var_cb28f380);
 				entity.var_cd8354e0.var_8b9a15a6 = var_90c3cdd2 / adjustduration;
 				entity.var_cd8354e0.var_425c4c8b = 1;
 				entity.var_cd8354e0.adjustmentstarted = 1;

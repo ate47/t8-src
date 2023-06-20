@@ -92,7 +92,7 @@ function function_bba54dca()
 {
 	self waittill(#"death");
 	waittillframeend();
-	self notify(#"hash_2a125df0aca068b");
+	self notify(#"molotov_deleted");
 }
 
 /*
@@ -106,7 +106,7 @@ function function_bba54dca()
 */
 function function_1cdbb1e5(owner, weapon)
 {
-	self endon(#"hacked", #"hash_2a125df0aca068b");
+	self endon(#"hacked", #"molotov_deleted");
 	/#
 		assert(isdefined(weapon.customsettings), "" + weapon.name);
 	#/
@@ -659,7 +659,7 @@ function function_42b9fdbe(weapon, loc, normal, duration, team)
 function incendiary_debug_line(from, to, color, depthtest, time)
 {
 	/#
-		debug_rcbomb = getdvarint(#"hash_4eff71fc5bf5542a", 0);
+		debug_rcbomb = getdvarint(#"scr_molotov_debug", 0);
 		if(debug_rcbomb == 1)
 		{
 			if(!isdefined(time))
@@ -1097,8 +1097,8 @@ function damageinfirearea(origin, killcament, trace, position, weapon, customset
 	if(candofiredamage(killcament, self, customsettings.var_90bd7d92))
 	{
 		/#
-			level.var_de532e7f = getdvarint(#"hash_4eff71fc5bf5542a", 0);
-			if(level.var_de532e7f)
+			level.molotov_debug = getdvarint(#"scr_molotov_debug", 0);
+			if(level.molotov_debug)
 			{
 				if(!isdefined(level.incendiarydamagetime))
 				{
@@ -1215,8 +1215,8 @@ function hitpos(start, end, color)
 {
 	trace = bullettrace(start, end, 0, undefined);
 	/#
-		level.var_de532e7f = getdvarint(#"hash_4eff71fc5bf5542a", 0);
-		if(level.var_de532e7f)
+		level.molotov_debug = getdvarint(#"scr_molotov_debug", 0);
+		if(level.molotov_debug)
 		{
 			debugstar(trace[#"position"], 2000, color);
 		}

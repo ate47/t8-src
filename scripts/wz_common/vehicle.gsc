@@ -6,7 +6,7 @@
 #using script_48bb1764a662152d;
 #using script_578e247c429144f6;
 #using script_5961deb533dad533;
-#using script_7452a079afe69150;
+#using scripts\wz_common\wz_progression.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -99,10 +99,10 @@ function private function_eaba72c9()
 		self endon("");
 		while(true)
 		{
-			if(getdvarint(#"hash_7d9fc228773dbb5e", 0) > 0)
+			if(getdvarint(#"wz_delete_vehicles", 0) > 0)
 			{
 				function_40fc185b();
-				setdvar(#"hash_7d9fc228773dbb5e", 0);
+				setdvar(#"wz_delete_vehicles", 0);
 			}
 			waitframe(1);
 		}
@@ -1290,7 +1290,7 @@ event function_ca9b286c(eventstruct)
 	if(seatindex === 0)
 	{
 		vehicle turn_on();
-		namespace_d3564fd8::function_66fe9481(vehicle, self, seatindex);
+		wz_progression::function_66fe9481(vehicle, self, seatindex);
 		wz_contracts::function_66fe9481(vehicle, self, seatindex);
 	}
 	if(isdefined(vehicle.settings) && (isdefined(vehicle.settings.var_6754976b) && vehicle.settings.var_6754976b))
@@ -1357,7 +1357,7 @@ event function_e011eea6(eventstruct)
 	}
 	if(vehicle function_ea4291d3())
 	{
-		namespace_d3564fd8::on_exit_locked_on_vehicle(self);
+		wz_progression::on_exit_locked_on_vehicle(self);
 	}
 	if(seatindex !== 0)
 	{
@@ -1491,7 +1491,7 @@ event function_2aa4e6cf(eventstruct)
 		{
 			vehicle takeplayercontrol();
 		}
-		namespace_d3564fd8::function_66fe9481(vehicle, self, seatindex);
+		wz_progression::function_66fe9481(vehicle, self, seatindex);
 		wz_contracts::function_66fe9481(vehicle, self, seatindex);
 	}
 	if(isdefined(vehicle.var_643db19d))
@@ -2678,7 +2678,7 @@ function private function_17949e01()
 		while(true)
 		{
 			waitresult = undefined;
-			waitresult = self waittill(#"touch", #"hash_5dd07f78cd8cd3b8");
+			waitresult = self waittill(#"touch", #"unbeached");
 			if(waitresult._notify == #"touch" && isdefined(waitresult.pm_flags))
 			{
 				time = gettime();
@@ -2786,7 +2786,7 @@ function private function_e8e41bbb()
 			{
 				fxorg delete();
 			}
-			self notify(#"hash_5dd07f78cd8cd3b8");
+			self notify(#"unbeached");
 			wait(5);
 		}
 		waitframe(1);
@@ -3133,7 +3133,7 @@ function private function_f11207a9()
 {
 	self endon(#"death");
 	self.var_8382289e = undefined;
-	self notify(#"hash_3a531082a005f542");
+	self notify(#"cancel_malfunction");
 	self function_260f32b3(1);
 }
 
@@ -3172,7 +3172,7 @@ function private function_dae7aaf3()
 */
 function private function_260f32b3(exit = 0)
 {
-	self notify(#"hash_5945cb8f37c085c0");
+	self notify(#"cancel_acceleration");
 	if(!(isdefined(self.emped) && self.emped) && (!(isdefined(self.jammed) && self.jammed)))
 	{
 		if(self vehicle_ai::get_current_state() === "landed")
@@ -3212,7 +3212,7 @@ function private function_260f32b3(exit = 0)
 */
 function private function_8bb6a990()
 {
-	self endon(#"death", #"hash_3a531082a005f542", #"hash_3c7ae83e462fe4e2", #"hash_3c9653d2ffd49352", #"hash_41dbbf5434aab9e0");
+	self endon(#"death", #"cancel_malfunction", #"hash_3c7ae83e462fe4e2", #"pilot_exit", #"hash_41dbbf5434aab9e0");
 	wait(5);
 	self clientfield::set("flickerlights", 2);
 	while(true)
@@ -3238,14 +3238,14 @@ function private function_f46dd7b0()
 {
 	self notify("7568179a9adfe70f");
 	self endon("7568179a9adfe70f");
-	self endon(#"death", #"hash_3a531082a005f542", #"hash_41dbbf5434aab9e0");
+	self endon(#"death", #"cancel_malfunction", #"hash_41dbbf5434aab9e0");
 	if(vehicle_ai::function_329f45a4())
 	{
 		self thread function_8bb6a990();
 	}
 	else
 	{
-		self waittill(#"hash_172a4ff3d058a0cc");
+		self waittill(#"pilot_enter");
 	}
 	shutdowntime = gettime() + 30000;
 	while(true)
@@ -3320,7 +3320,7 @@ function function_82224f4b(scale)
 {
 	self notify("43958cae29e09bf1");
 	self endon("43958cae29e09bf1");
-	self endon(#"death", #"hash_3a531082a005f542", #"hash_5945cb8f37c085c0", #"hash_41dbbf5434aab9e0");
+	self endon(#"death", #"cancel_malfunction", #"cancel_acceleration", #"hash_41dbbf5434aab9e0");
 	while(true)
 	{
 		accel = anglestoup(self.angles) * scale;
@@ -3446,7 +3446,7 @@ function private function_ff490dad(player, eventstruct)
 */
 function private function_b985a0f1(player)
 {
-	self notify(#"hash_172a4ff3d058a0cc");
+	self notify(#"pilot_enter");
 	self setheliheightcap(1);
 	if(isdefined(self.var_8382289e))
 	{
@@ -3468,7 +3468,7 @@ function private function_2205f6bf(player)
 {
 	state = self vehicle_ai::get_current_state();
 	self notify(#"hash_3c7ae83e462fe4e2");
-	self notify(#"hash_3c9653d2ffd49352");
+	self notify(#"pilot_exit");
 	if(state === "landed" || state === "off")
 	{
 		return;
@@ -3688,8 +3688,8 @@ function private function_d929b41()
 {
 	self.var_4dab0a63 = 0;
 	speed = self getspeedmph();
-	var_a01adee8 = physicstrace(self.origin, self.origin - vectorscale((0, 0, 1), 1536), (0, 0, 0), (0, 0, 0), self, 2);
-	if(speed < 15 && var_a01adee8[#"fraction"] < 0.2604167)
+	heighttrace = physicstrace(self.origin, self.origin - vectorscale((0, 0, 1), 1536), (0, 0, 0), (0, 0, 0), self, 2);
+	if(speed < 15 && heighttrace[#"fraction"] < 0.2604167)
 	{
 		self.var_4dab0a63 = 1;
 		self.var_c1764af8 = 1;
@@ -3697,7 +3697,7 @@ function private function_d929b41()
 	}
 	else
 	{
-		if(speed < 80 && var_a01adee8[#"fraction"] < 1)
+		if(speed < 80 && heighttrace[#"fraction"] < 1)
 		{
 			self.var_c1764af8 = 1;
 			params = spawnstruct();
@@ -3723,13 +3723,13 @@ function private function_d929b41()
 */
 function private function_3b841f4()
 {
-	var_a01adee8 = physicstrace(self.origin, self.origin - vectorscale((0, 0, 1), 1536), (0, 0, 0), (0, 0, 0), self, 2);
-	if(var_a01adee8[#"fraction"] >= 1)
+	heighttrace = physicstrace(self.origin, self.origin - vectorscale((0, 0, 1), 1536), (0, 0, 0), (0, 0, 0), self, 2);
+	if(heighttrace[#"fraction"] >= 1)
 	{
 		self.var_4e76046a = 1;
 		self vehicle_ai::set_state("spiral");
 	}
-	else if(var_a01adee8[#"fraction"] > 0.2604167)
+	else if(heighttrace[#"fraction"] > 0.2604167)
 	{
 		self.var_c1764af8 = 1;
 		params = spawnstruct();
@@ -3829,7 +3829,7 @@ function private function_4b5646b1(params)
 	self vehicle::do_death_dynents();
 	self notsolid();
 	self ghost();
-	if(isdefined(self.deathmodel) && (!(isdefined(getgametypesetting(#"hash_24918193d72a5866")) && getgametypesetting(#"hash_24918193d72a5866"))))
+	if(isdefined(self.deathmodel) && (!(isdefined(getgametypesetting(#"wzheavymetalheroes")) && getgametypesetting(#"wzheavymetalheroes"))))
 	{
 		if(!isdefined(level.var_82eb1dab))
 		{
@@ -3916,16 +3916,16 @@ function function_e13c4d09(params)
 */
 function function_1f014f43(params)
 {
-	if(!isdefined(params.var_c1ed6562))
+	if(!isdefined(params.rotorspeed))
 	{
-		params.var_c1ed6562 = 0.7;
+		params.rotorspeed = 0.7;
 	}
 	occupants = self getvehoccupants();
 	if(occupants.size == 0)
 	{
 		params.var_52c5850b = 60;
 	}
-	self setrotorspeed(params.var_c1ed6562);
+	self setrotorspeed(params.rotorspeed);
 	self takeplayercontrol();
 }
 
@@ -4549,7 +4549,7 @@ function function_32607cfc(vehicle)
 			return 1;
 		}
 	#/
-	if(isdefined(getgametypesetting(#"hash_24918193d72a5866")) && getgametypesetting(#"hash_24918193d72a5866"))
+	if(isdefined(getgametypesetting(#"wzheavymetalheroes")) && getgametypesetting(#"wzheavymetalheroes"))
 	{
 		return 1;
 	}

@@ -686,7 +686,7 @@ function function_10ececeb(var_e280bfe2 = 1, tracedistance = 24, originheightoff
 		origin = self.origin + (anglestoup(self.angles) * originheightoffset);
 		var_708a2754 = physicstrace(origin + (0, 0, 1), origin - (0, 0, tracedistance), min, max, self, 32);
 		parentent = var_708a2754[#"entity"];
-		if(var_708a2754[#"hash_7f9ee3a239b86eea"])
+		if(var_708a2754[#"startsolid"])
 		{
 			self physicslaunch();
 		}
@@ -920,7 +920,7 @@ function drop_inventory(player)
 	player.var_33a24f82 = 1;
 	if(isdefined(player.var_4896787f) && player.var_4896787f)
 	{
-		player item_inventory::function_56a681fb();
+		player item_inventory::reset_inventory();
 		if(isdefined(player))
 		{
 			player.var_33a24f82 = 0;
@@ -955,7 +955,7 @@ function drop_inventory(player)
 	var_d148a5b6 = [];
 	var_406c6a0e = [];
 	var_8049cf09 = 100;
-	if((isdefined(getgametypesetting(#"hash_19400c3e10b77e6b")) ? getgametypesetting(#"hash_19400c3e10b77e6b") : 0))
+	if((isdefined(getgametypesetting(#"deathcirclerespawn")) ? getgametypesetting(#"deathcirclerespawn") : 0))
 	{
 		var_8049cf09 = 80;
 	}
@@ -1110,7 +1110,7 @@ function drop_inventory(player)
 			}
 		}
 	}
-	player item_inventory::function_56a681fb();
+	player item_inventory::reset_inventory();
 	deathstash endon(#"death");
 	waitframe(1);
 	function_44a6883c(var_d9a91a6, drop_items, drop_count, var_413559c8, 1, 1);
@@ -1218,7 +1218,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, itemid, position, 
 	}
 	if(level.var_18dc9d17.size > var_2e8786e2)
 	{
-		level.var_18dc9d17[0].var_8e092725 = gettime();
+		level.var_18dc9d17[0].hidetime = gettime();
 		item_world::function_a54d07e6(level.var_18dc9d17[0]);
 		level.var_18dc9d17[0] delete();
 	}
@@ -1296,11 +1296,11 @@ function drop_item(weapon = undefined, count = 0, amount = 0, itemid, position, 
 	dropitem ghost();
 	if(stashitem)
 	{
-		dropitem.var_8e092725 = -1;
+		dropitem.hidetime = -1;
 	}
 	else
 	{
-		dropitem.var_8e092725 = 0;
+		dropitem.hidetime = 0;
 	}
 	dropitem.amount = amount;
 	dropitem.count = count;

@@ -138,12 +138,12 @@ function init_fan_trap_trigs()
 				}
 			}
 		}
-		var_1f88db8a = struct::get_array(var_7c68fa38.target);
-		for(i = 0; i < var_1f88db8a.size; i++)
+		a_s_trap = struct::get_array(var_7c68fa38.target);
+		for(i = 0; i < a_s_trap.size; i++)
 		{
-			if(isdefined(var_1f88db8a[i].script_noteworthy))
+			if(isdefined(a_s_trap[i].script_noteworthy))
 			{
-				if(var_1f88db8a[i].script_noteworthy == "brutus_trap_finder")
+				if(a_s_trap[i].script_noteworthy == "brutus_trap_finder")
 				{
 					if(!isdefined(var_7c68fa38.var_31004a80))
 					{
@@ -153,9 +153,9 @@ function init_fan_trap_trigs()
 					{
 						var_7c68fa38.var_31004a80 = array(var_7c68fa38.var_31004a80);
 					}
-					if(!isinarray(var_7c68fa38.var_31004a80, var_1f88db8a[i]))
+					if(!isinarray(var_7c68fa38.var_31004a80, a_s_trap[i]))
 					{
-						var_7c68fa38.var_31004a80[var_7c68fa38.var_31004a80.size] = var_1f88db8a[i];
+						var_7c68fa38.var_31004a80[var_7c68fa38.var_31004a80.size] = a_s_trap[i];
 					}
 				}
 			}
@@ -637,12 +637,12 @@ function init_acid_trap_trigs()
 				}
 			}
 		}
-		var_1f88db8a = struct::get_array(var_4d42c97f.target, "targetname");
-		for(i = 0; i < var_1f88db8a.size; i++)
+		a_s_trap = struct::get_array(var_4d42c97f.target, "targetname");
+		for(i = 0; i < a_s_trap.size; i++)
 		{
-			if(isdefined(var_1f88db8a[i].script_string))
+			if(isdefined(a_s_trap[i].script_string))
 			{
-				if(var_1f88db8a[i].script_string == "acid_trap_fx")
+				if(a_s_trap[i].script_string == "acid_trap_fx")
 				{
 					if(!isdefined(var_4d42c97f.var_28ea1870))
 					{
@@ -652,15 +652,15 @@ function init_acid_trap_trigs()
 					{
 						var_4d42c97f.var_28ea1870 = array(var_4d42c97f.var_28ea1870);
 					}
-					if(!isinarray(var_4d42c97f.var_28ea1870, var_1f88db8a[i]))
+					if(!isinarray(var_4d42c97f.var_28ea1870, a_s_trap[i]))
 					{
-						var_4d42c97f.var_28ea1870[var_4d42c97f.var_28ea1870.size] = var_1f88db8a[i];
+						var_4d42c97f.var_28ea1870[var_4d42c97f.var_28ea1870.size] = a_s_trap[i];
 					}
 				}
 			}
-			if(isdefined(var_1f88db8a[i].script_noteworthy))
+			if(isdefined(a_s_trap[i].script_noteworthy))
 			{
-				if(var_1f88db8a[i].script_noteworthy == "brutus_trap_finder")
+				if(a_s_trap[i].script_noteworthy == "brutus_trap_finder")
 				{
 					if(!isdefined(var_4d42c97f.var_31004a80))
 					{
@@ -670,9 +670,9 @@ function init_acid_trap_trigs()
 					{
 						var_4d42c97f.var_31004a80 = array(var_4d42c97f.var_31004a80);
 					}
-					if(!isinarray(var_4d42c97f.var_31004a80, var_1f88db8a[i]))
+					if(!isinarray(var_4d42c97f.var_31004a80, a_s_trap[i]))
 					{
-						var_4d42c97f.var_31004a80[var_4d42c97f.var_31004a80.size] = var_1f88db8a[i];
+						var_4d42c97f.var_31004a80[var_4d42c97f.var_31004a80.size] = a_s_trap[i];
 					}
 				}
 			}
@@ -979,12 +979,12 @@ function function_6dbbc97()
 				}
 			}
 		}
-		var_1f88db8a = struct::get_array(var_fe861167.target);
-		for(i = 0; i < var_1f88db8a.size; i++)
+		a_s_trap = struct::get_array(var_fe861167.target);
+		for(i = 0; i < a_s_trap.size; i++)
 		{
-			if(isdefined(var_1f88db8a[i].script_noteworthy))
+			if(isdefined(a_s_trap[i].script_noteworthy))
 			{
-				if(var_1f88db8a[i].script_noteworthy == "brutus_trap_finder")
+				if(a_s_trap[i].script_noteworthy == "brutus_trap_finder")
 				{
 					if(!isdefined(var_fe861167.var_31004a80))
 					{
@@ -994,9 +994,9 @@ function function_6dbbc97()
 					{
 						var_fe861167.var_31004a80 = array(var_fe861167.var_31004a80);
 					}
-					if(!isinarray(var_fe861167.var_31004a80, var_1f88db8a[i]))
+					if(!isinarray(var_fe861167.var_31004a80, a_s_trap[i]))
 					{
-						var_fe861167.var_31004a80[var_fe861167.var_31004a80.size] = var_1f88db8a[i];
+						var_fe861167.var_31004a80[var_fe861167.var_31004a80.size] = a_s_trap[i];
 					}
 				}
 			}
@@ -1167,7 +1167,7 @@ function function_1f7e661f(t_damage)
 		a_e_players = util::get_array_of_closest(self.origin, getplayers());
 		if(isdefined(a_e_players[0]) && distance2dsquared(a_e_players[0].origin, self.origin) < (400 * 400))
 		{
-			a_e_players[0] zm_audio::create_and_play_dialog(#"hash_2c3c478eed0f3b99", #"hook", undefined, 1);
+			a_e_players[0] zm_audio::create_and_play_dialog(#"spin_trap", #"hook", undefined, 1);
 		}
 	}
 	else

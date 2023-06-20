@@ -127,10 +127,10 @@ function private function_67189b6b(localclientnum, newval)
 				return;
 			}
 			self.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(self);
-			self.var_8e092725 = 0;
+			self.hidetime = 0;
 			if(stashitem)
 			{
-				self.var_8e092725 = -1;
+				self.hidetime = -1;
 			}
 			if(self.id != 32767 && self.id < function_8322cf16())
 			{
@@ -154,7 +154,7 @@ function private function_67189b6b(localclientnum, newval)
 		}
 		else if(newval == 2)
 		{
-			self.var_8e092725 = gettime();
+			self.hidetime = gettime();
 			self.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(self);
 			item_inventory::function_31868137(localclientnum, self);
 			item_world::function_b78a9820(localclientnum);

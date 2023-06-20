@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3371dd5958d2f84f;
+#using scripts\mp_common\dynamic_loadout.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
 #using scripts\core_common\gestures.gsc;
 #using scripts\core_common\struct.gsc;
@@ -51,11 +51,11 @@ function function_4827d817(weapon)
 	}
 	package = struct::get_script_bundle("bountyhunterpackage", level.bountypackagelist[0]);
 	slot = undefined;
-	if(isdefined(self.pers[#"hash_50251e63e4a703b5"].weapons[0]) && self.pers[#"hash_50251e63e4a703b5"].weapons[0].name == weapon.name)
+	if(isdefined(self.pers[#"dynamic_loadout"].weapons[0]) && self.pers[#"dynamic_loadout"].weapons[0].name == weapon.name)
 	{
 		slot = 0;
 	}
-	else if(isdefined(self.pers[#"hash_50251e63e4a703b5"].weapons[1]) && self.pers[#"hash_50251e63e4a703b5"].weapons[1].name == weapon.name)
+	else if(isdefined(self.pers[#"dynamic_loadout"].weapons[1]) && self.pers[#"dynamic_loadout"].weapons[1].name == weapon.name)
 	{
 		slot = 1;
 	}
@@ -63,7 +63,7 @@ function function_4827d817(weapon)
 	{
 		return false;
 	}
-	var_f3e0cb57 = self.pers[#"hash_50251e63e4a703b5"].clientfields[slot].val - 1;
+	var_f3e0cb57 = self.pers[#"dynamic_loadout"].clientfields[slot].val - 1;
 	package = struct::get_script_bundle("bountyhunterpackage", level.bountypackagelist[var_f3e0cb57]);
 	var_e6e3de63 = package.var_ef921c3c;
 	maxammo = package.refillammo;
@@ -115,8 +115,8 @@ function private function_5bb13b48(player)
 		primaries = player getweaponslistprimaries();
 		foreach(weapon in primaries)
 		{
-			var_f34ce24d = player function_4827d817(weapon);
-			if(var_f34ce24d)
+			ammogiven = player function_4827d817(weapon);
+			if(ammogiven)
 			{
 				var_bd3d7a99 = 1;
 			}

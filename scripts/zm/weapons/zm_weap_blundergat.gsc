@@ -3,7 +3,7 @@
 #using script_24c32478acf44108;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
-#using script_50c040e371c1c35f;
+#using scripts\zm_common\zm_lockdown_util.gsc;
 #using script_5660bae5b402a1eb;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -1463,7 +1463,7 @@ function private function_c95282e3()
 	while(true)
 	{
 		s_result = undefined;
-		s_result = level waittill(#"hash_356be6a8a0b0668d");
+		s_result = level waittill(#"crafting_started");
 		if(isdefined(s_result.unitrigger))
 		{
 			s_result.unitrigger thread crafting_table_watcher();
@@ -1491,7 +1491,7 @@ function crafting_table_watcher()
 		{
 			var_17022e1e = arraygetclosest(v_pos, level.var_acbfec33);
 			var_17022e1e.unitrigger_stub flag::set(#"hash_56b99393c357db0f");
-			namespace_cb42c6c0::function_d67bafb5(var_17022e1e.unitrigger_stub, "lockdown_stub_type_crafting_tables");
+			zm_lockdown_util::function_d67bafb5(var_17022e1e.unitrigger_stub, "lockdown_stub_type_crafting_tables");
 			var_17022e1e.var_13202c94 show();
 			level notify(#"hash_209ec855e7a13ef3");
 		}

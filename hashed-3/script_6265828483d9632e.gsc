@@ -53,7 +53,7 @@ function function_5fd995a8()
 	if(killstreak_used && isdefined(self))
 	{
 		bundle = level.killstreaks[#"artillery_barrage"].script_bundle;
-		var_fa9aff9a = self gadgetgetslot(bundle.var_1ab696c6);
+		var_fa9aff9a = self gadgetgetslot(bundle.ksweapon);
 		self gadgetpowerset(var_fa9aff9a, 0);
 	}
 	return killstreak_used;
@@ -682,7 +682,7 @@ function function_5a0d2864(startpoint, endpoint, targetpoint, angles, team, kill
 	dvxy = dxy / droptime;
 	nvel = vectornormalize(velocity);
 	launchvel = nvel * dvxy;
-	bomb = self magicmissile(bundle.var_1ab696c6, shell.origin, launchvel);
+	bomb = self magicmissile(bundle.ksweapon, shell.origin, launchvel);
 	target_set(bomb);
 	bomb killstreaks::configure_team("artillery_barrage", killstreak_id, self);
 	bomb killstreak_hacking::enable_hacking("artillery_barrage");
@@ -700,7 +700,7 @@ function function_5a0d2864(startpoint, endpoint, targetpoint, angles, team, kill
 	bomb.owner thread watchownerevents(bomb);
 	if(isdefined(level.var_1e30ea6a))
 	{
-		bomb.owner thread [[level.var_1e30ea6a]](bundle.var_1ab696c6, bomb);
+		bomb.owner thread [[level.var_1e30ea6a]](bundle.ksweapon, bomb);
 	}
 	waitframe(1);
 	shell hide();

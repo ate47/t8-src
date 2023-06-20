@@ -236,7 +236,7 @@ function private function_b7c5f376(deathcircle, var_898879a6)
 		}
 		if(function_3703bc36(dropitem, var_898879a6, 1))
 		{
-			dropitem.var_8e092725 = gettime();
+			dropitem.hidetime = gettime();
 			item_world::function_a54d07e6(dropitem, undefined);
 			dropitem delete();
 			waitframe(1);

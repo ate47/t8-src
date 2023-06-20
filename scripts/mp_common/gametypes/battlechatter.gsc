@@ -59,7 +59,7 @@ function __init__()
 	level.var_b42019ef = &function_4fb91bc7;
 	level.playpromotionreaction = &play_promotion_reaction;
 	level.var_cb4eb1d1 = &function_fff18afc;
-	level.var_cef454e8 = &function_9a20c887;
+	level.playkillstreakthreat = &function_9a20c887;
 	level.var_c08cd9fa = &function_1d4b0ec0;
 	level.var_da2d586a = &function_78c16252;
 	level.var_17d1b660 = &function_e3ebbf87;
@@ -532,13 +532,13 @@ function function_44b5e397()
 			}
 			case "sig_lmg":
 			{
-				if(waitresult.last_weapon.name != #"hash_772f4afd37e876a1")
+				if(waitresult.last_weapon.name != #"sig_lmg_alt")
 				{
 					dialogkey = playerbundle.scytheweaponuse;
 				}
 				break;
 			}
-			case "hash_40380537847df901":
+			case "sig_bow_quickshot":
 			{
 				dialogkey = playerbundle.sparrowweaponuse;
 				break;
@@ -1000,7 +1000,7 @@ function function_bd715920(var_28b40381, attacker, var_87017634, var_d963f0cf, t
 			break;
 		}
 		case "eq_tripwire":
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		case "gadget_supplypod":
 		case "eq_emp_grenade":
 		case "dog_ai_defaultmelee":
@@ -1271,7 +1271,7 @@ function private function_95e44f78(weapon, timedelay)
 			dialogkey = playerbundle.var_b50819f2;
 			break;
 		}
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		{
 			dialogkey = playerbundle.var_c41dc169;
 			break;
@@ -1425,13 +1425,13 @@ function killed_by_sniper(sniper)
 	Parameters: 3
 	Flags: Linked
 */
-function function_d804d2f0(var_70b80ca6, player, allyradiussq)
+function function_d804d2f0(speakingplayer, player, allyradiussq)
 {
-	if(!isdefined(player) || !isdefined(player.origin) || !isdefined(var_70b80ca6) || !isdefined(var_70b80ca6.origin) || !isalive(player) || player.sessionstate != "playing" || player.playingdialog || player isplayerunderwater() || player isremotecontrolling() || player isinvehicle() || player isweaponviewonlylinked() || player == var_70b80ca6 || player.team != var_70b80ca6.team || player.playerrole == var_70b80ca6.playerrole || player hasperk(#"specialty_quieter"))
+	if(!isdefined(player) || !isdefined(player.origin) || !isdefined(speakingplayer) || !isdefined(speakingplayer.origin) || !isalive(player) || player.sessionstate != "playing" || player.playingdialog || player isplayerunderwater() || player isremotecontrolling() || player isinvehicle() || player isweaponviewonlylinked() || player == speakingplayer || player.team != speakingplayer.team || player.playerrole == speakingplayer.playerrole || player hasperk(#"specialty_quieter"))
 	{
 		return false;
 	}
-	distsq = distancesquared(var_70b80ca6.origin, player.origin);
+	distsq = distancesquared(speakingplayer.origin, player.origin);
 	if(distsq > allyradiussq)
 	{
 		return false;
@@ -1448,18 +1448,18 @@ function function_d804d2f0(var_70b80ca6, player, allyradiussq)
 	Parameters: 2
 	Flags: None
 */
-function function_db89c38f(var_70b80ca6, allyradiussq)
+function function_db89c38f(speakingplayer, allyradiussq)
 {
 	allies = [];
 	foreach(player in level.players)
 	{
-		if(!function_d804d2f0(var_70b80ca6, player, allyradiussq))
+		if(!function_d804d2f0(speakingplayer, player, allyradiussq))
 		{
 			continue;
 		}
 		allies[allies.size] = player;
 	}
-	allies = arraysort(allies, var_70b80ca6.origin);
+	allies = arraysort(allies, speakingplayer.origin);
 	if(!isdefined(allies) || allies.size == 0)
 	{
 		return undefined;
@@ -1571,7 +1571,7 @@ function function_e6457410(attacker, victim, weapon, inflictor)
 			}
 			break;
 		}
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		{
 			attacker.var_3528f7e9 = (isdefined(attacker.var_3528f7e9) ? attacker.var_3528f7e9 : 0) + 1;
 			if(attacker.var_3528f7e9 == (isdefined(mpdialog.var_269d71a4) ? mpdialog.var_269d71a4 : 0))
@@ -1581,7 +1581,7 @@ function function_e6457410(attacker, victim, weapon, inflictor)
 			break;
 		}
 		case "sig_lmg":
-		case "hash_772f4afd37e876a1":
+		case "sig_lmg_alt":
 		{
 			attacker.var_eefb1fd3 = (isdefined(attacker.var_eefb1fd3) ? attacker.var_eefb1fd3 : 0) + 1;
 			if(attacker.var_eefb1fd3 == (isdefined(mpdialog.var_2c044553) ? mpdialog.var_2c044553 : 0))
@@ -1715,7 +1715,7 @@ function function_7c107ed4(attacker, weapon, victim, inflictor)
 				dialogkey = "battleShieldWeaponDestroyed";
 				break;
 			}
-			case "hash_40380537847df901":
+			case "sig_bow_quickshot":
 			{
 				dialogkey = "sparrowWeaponDestroyed";
 				break;
@@ -1746,7 +1746,7 @@ function function_7c107ed4(attacker, weapon, victim, inflictor)
 				break;
 			}
 			case "sig_lmg":
-			case "hash_772f4afd37e876a1":
+			case "sig_lmg_alt":
 			{
 				dialogkey = "scytheWeaponDestroyed";
 				break;
@@ -1945,7 +1945,7 @@ function function_f5c48bfa(attacker, owner, gadgetweapon, attackerweapon)
 			dialogkey = playerbundle.hawkWeaponDestroyed;
 			break;
 		}
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		{
 			dialogkey = playerbundle.var_987d028;
 			break;
@@ -3163,7 +3163,7 @@ function play_gadget_ready(weapon, userflip = 0)
 			dialogkey = playerbundle.var_a9a63fa;
 			break;
 		}
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		{
 			dialogkey = playerbundle.sparrowweaponready;
 			break;
@@ -3245,7 +3245,7 @@ function play_gadget_ready(weapon, userflip = 0)
 			dialogkey = playerbundle.scytheweaponready;
 			break;
 		}
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		{
 			dialogkey = playerbundle.var_30130c75;
 			break;
@@ -3481,22 +3481,22 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_c4f44015;
 				break;
 			}
-			case "hash_12196c2957bbed75":
+			case "blackjack_bo4":
 			{
 				dialogalias = var_aa988d26.var_8f349bdf;
 				break;
 			}
-			case "hash_3f57def1d8fe2fc9":
+			case "captain_price":
 			{
 				dialogalias = var_aa988d26.var_4aa5fa49;
 				break;
 			}
-			case "hash_670bb663c887a446":
+			case "cosmic_silverback":
 			{
 				dialogalias = var_aa988d26.var_60412044;
 				break;
 			}
-			case "hash_2a7f0b8ac199ecc4":
+			case "david_mason":
 			{
 				dialogalias = var_aa988d26.var_4b5e1168;
 				break;
@@ -3506,7 +3506,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_48d23194;
 				break;
 			}
-			case "hash_4aa849dab9aaf091":
+			case "hudson_hawaiian":
 			{
 				dialogalias = var_aa988d26.var_6fb717e9;
 				break;
@@ -3516,7 +3516,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_432508cc;
 				break;
 			}
-			case "hash_5d13dabfea862471":
+			case "matt_shadows":
 			{
 				dialogalias = var_aa988d26.var_321df77f;
 				break;
@@ -3561,7 +3561,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_46584bcd;
 				break;
 			}
-			case "hash_7126a3eb1fbc97c7":
+			case "woods_old":
 			{
 				dialogalias = var_aa988d26.var_46584bcd;
 				break;
@@ -3608,22 +3608,22 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_9ed1fc02;
 				break;
 			}
-			case "hash_5d7fb8a5f9783ac7":
+			case "ofc_dempsey":
 			{
 				dialogalias = var_aa988d26.var_a4215642;
 				break;
 			}
-			case "hash_30e2c95a219f969":
+			case "ofc_nikolai":
 			{
 				dialogalias = var_aa988d26.var_9f201adb;
 				break;
 			}
-			case "hash_515d2feae8c86daa":
+			case "ofc_richtofen":
 			{
 				dialogalias = var_aa988d26.var_ce6ec646;
 				break;
 			}
-			case "hash_2e260fd4586f092a":
+			case "ofc_takeo":
 			{
 				dialogalias = var_aa988d26.var_94a73557;
 				break;
@@ -3670,12 +3670,12 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_d9286c13;
 				break;
 			}
-			case "hash_6fd25b2f51ddd9e0":
+			case "zombie_female":
 			{
 				dialogalias = var_aa988d26.var_330f1168;
 				break;
 			}
-			case "hash_504698da24dbe4bd":
+			case "zombie_male":
 			{
 				dialogalias = var_aa988d26.var_eb1d0a0f;
 				break;
@@ -3700,47 +3700,47 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_f41f1940;
 				break;
 			}
-			case "hash_18ce722545297238":
+			case "air_female":
 			{
 				dialogalias = var_aa988d26.var_92fcd922;
 				break;
 			}
-			case "hash_5bc153ee98d24c01":
+			case "seal_female":
 			{
 				dialogalias = var_aa988d26.var_efb78ea3;
 				break;
 			}
-			case "hash_81dd0a524c1e033":
+			case "male1":
 			{
 				dialogalias = var_aa988d26.var_a7c0131a;
 				break;
 			}
-			case "hash_81dd1a524c1e1e6":
+			case "male2":
 			{
 				dialogalias = var_aa988d26.var_c97b2728;
 				break;
 			}
-			case "hash_81dd2a524c1e399":
+			case "male3":
 			{
 				dialogalias = var_aa988d26.var_bd4b3225;
 				break;
 			}
-			case "hash_81dd3a524c1e54c":
+			case "male4":
 			{
 				dialogalias = var_aa988d26.var_63a86387;
 				break;
 			}
-			case "hash_7e9e791e2f1f1a7c":
+			case "hard_male":
 			{
 				dialogalias = var_aa988d26.var_e8e7012b;
 				break;
 			}
-			case "hash_704e3fad37eb453c":
+			case "land_male":
 			{
 				dialogalias = var_aa988d26.var_63d7db94;
 				break;
 			}
-			case "hash_7ef5cbd378f6506c":
+			case "sea_male":
 			{
 				dialogalias = var_aa988d26.var_105e5d33;
 				break;
@@ -3825,22 +3825,22 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_ebb4b55;
 				break;
 			}
-			case "hash_12196c2957bbed75":
+			case "blackjack_bo4":
 			{
 				dialogalias = var_aa988d26.var_f449ccb6;
 				break;
 			}
-			case "hash_3f57def1d8fe2fc9":
+			case "captain_price":
 			{
 				dialogalias = var_aa988d26.var_1411ad27;
 				break;
 			}
-			case "hash_670bb663c887a446":
+			case "cosmic_silverback":
 			{
 				dialogalias = var_aa988d26.var_f0be54bd;
 				break;
 			}
-			case "hash_2a7f0b8ac199ecc4":
+			case "david_mason":
 			{
 				dialogalias = var_aa988d26.var_1d9994d5;
 				break;
@@ -3850,7 +3850,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_236ed551;
 				break;
 			}
-			case "hash_4aa849dab9aaf091":
+			case "hudson_hawaiian":
 			{
 				dialogalias = var_aa988d26.var_609b5733;
 				break;
@@ -3860,7 +3860,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_36156b4;
 				break;
 			}
-			case "hash_5d13dabfea862471":
+			case "matt_shadows":
 			{
 				dialogalias = var_aa988d26.var_e7c3ff0b;
 				break;
@@ -3905,7 +3905,7 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_86f07f8a;
 				break;
 			}
-			case "hash_7126a3eb1fbc97c7":
+			case "woods_old":
 			{
 				dialogalias = var_aa988d26.var_e5b468ae;
 				break;
@@ -3952,22 +3952,22 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_27bc4433;
 				break;
 			}
-			case "hash_5d7fb8a5f9783ac7":
+			case "ofc_dempsey":
 			{
 				dialogalias = var_aa988d26.var_95a03453;
 				break;
 			}
-			case "hash_30e2c95a219f969":
+			case "ofc_nikolai":
 			{
 				dialogalias = var_aa988d26.var_69033114;
 				break;
 			}
-			case "hash_515d2feae8c86daa":
+			case "ofc_richtofen":
 			{
 				dialogalias = var_aa988d26.var_d56828f1;
 				break;
 			}
-			case "hash_2e260fd4586f092a":
+			case "ofc_takeo":
 			{
 				dialogalias = var_aa988d26.var_33edc6fa;
 				break;
@@ -4014,12 +4014,12 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_6e548d8e;
 				break;
 			}
-			case "hash_6fd25b2f51ddd9e0":
+			case "zombie_female":
 			{
 				dialogalias = var_aa988d26.var_63dc7b96;
 				break;
 			}
-			case "hash_504698da24dbe4bd":
+			case "zombie_male":
 			{
 				dialogalias = var_aa988d26.var_afc5e0c1;
 				break;
@@ -4044,47 +4044,47 @@ function function_e3ebbf87(var_aa988d26, var_c1132df6)
 				dialogalias = var_aa988d26.var_68ef0dd5;
 				break;
 			}
-			case "hash_18ce722545297238":
+			case "air_female":
 			{
 				dialogalias = var_aa988d26.var_19e39499;
 				break;
 			}
-			case "hash_5bc153ee98d24c01":
+			case "seal_female":
 			{
 				dialogalias = var_aa988d26.var_de7a214a;
 				break;
 			}
-			case "hash_81dd0a524c1e033":
+			case "male1":
 			{
 				dialogalias = var_aa988d26.var_53c80d60;
 				break;
 			}
-			case "hash_81dd1a524c1e1e6":
+			case "male2":
 			{
 				dialogalias = var_aa988d26.var_6db249ec;
 				break;
 			}
-			case "hash_81dd2a524c1e399":
+			case "male3":
 			{
 				dialogalias = var_aa988d26.var_cf970750;
 				break;
 			}
-			case "hash_81dd3a524c1e54c":
+			case "male4":
 			{
 				dialogalias = var_aa988d26.var_ff548dc3;
 				break;
 			}
-			case "hash_7e9e791e2f1f1a7c":
+			case "hard_male":
 			{
 				dialogalias = var_aa988d26.var_80c17c05;
 				break;
 			}
-			case "hash_704e3fad37eb453c":
+			case "land_male":
 			{
 				dialogalias = var_aa988d26.var_5bdd23de;
 				break;
 			}
-			case "hash_7ef5cbd378f6506c":
+			case "sea_male":
 			{
 				dialogalias = var_aa988d26.var_8702f696;
 				break;
@@ -4514,7 +4514,7 @@ function play_gadget_activate(weapon)
 			dialogkey = playerbundle.var_d30ab48d;
 			break;
 		}
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		{
 			dialogkey = playerbundle.var_6ca16623;
 			break;

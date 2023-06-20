@@ -565,7 +565,7 @@ function _force_goal(s_tracker, goto, b_shoot = 1, str_end_on, b_keep_colors = 0
 	grenadeawareness = self.grenadeawareness;
 	if(!b_shoot)
 	{
-		self val::set(#"hash_6bc9266ffa66387c", "ignoreall", 1);
+		self val::set(#"ai_forcegoal", "ignoreall", 1);
 	}
 	else if(self has_behavior_attribute("move_mode"))
 	{
@@ -578,7 +578,7 @@ function _force_goal(s_tracker, goto, b_shoot = 1, str_end_on, b_keep_colors = 0
 	}
 	self.ignoresuppression = 1;
 	self.grenadeawareness = 0;
-	self val::set(#"hash_6bc9266ffa66387c", "ignoreme", 1);
+	self val::set(#"ai_forcegoal", "ignoreme", 1);
 	self disable_pain();
 	if(!isplayer(self))
 	{
@@ -598,8 +598,8 @@ function _force_goal(s_tracker, goto, b_shoot = 1, str_end_on, b_keep_colors = 0
 		self pushplayer(0);
 	}
 	self clearforcedgoal();
-	self val::reset(#"hash_6bc9266ffa66387c", "ignoreme");
-	self val::reset(#"hash_6bc9266ffa66387c", "ignoreall");
+	self val::reset(#"ai_forcegoal", "ignoreme");
+	self val::reset(#"ai_forcegoal", "ignoreall");
 	if(isdefined(allowpain) && allowpain)
 	{
 		self enable_pain();

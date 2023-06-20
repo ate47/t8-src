@@ -53,7 +53,7 @@ function __init__()
 */
 function private function_d05553c6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_1663ca7cc81f9b17");
 	}
@@ -96,11 +96,11 @@ function private minigun_nuke_rumble(localclientnum, oldvalue, newvalue, bnewent
 	{
 		return;
 	}
-	self thread postfx::playpostfxbundle(#"hash_3b0eec5d73aa6243");
+	self thread postfx::playpostfxbundle(#"pstfx_slowed");
 	self waittilltimeout(1, #"death");
 	if(isdefined(self))
 	{
-		self thread postfx::exitpostfxbundle(#"hash_3b0eec5d73aa6243");
+		self thread postfx::exitpostfxbundle(#"pstfx_slowed");
 	}
 }
 

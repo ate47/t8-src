@@ -223,14 +223,14 @@ function function_cb7cee87()
 		self endon("");
 		level endon(#"game_ended");
 		player_devgui_base = "";
-		setdvar(#"hash_2abeb78ad3292aa1", "");
+		setdvar(#"scr_boast_gesture", "");
 		util::add_devgui(player_devgui_base + "", ("" + "") + "");
-		while(getdvarstring(#"hash_2abeb78ad3292aa1", "") == "")
+		while(getdvarstring(#"scr_boast_gesture", "") == "")
 		{
 			wait(1);
 		}
 		game.var_461b2589 = 1;
-		setdvar(#"hash_2abeb78ad3292aa1", "");
+		setdvar(#"scr_boast_gesture", "");
 		var_fca60300 = function_5e2d2d9b();
 		foreach(var_1a983da1, boasts in var_fca60300)
 		{
@@ -260,21 +260,21 @@ function function_42644f29()
 	/#
 		while(true)
 		{
-			level.var_cfbfb6de = getdvarint(#"hash_6046bac574d1e237", 0);
-			gesture = getdvarstring(#"hash_2abeb78ad3292aa1");
+			level.boastplayer = getdvarint(#"scr_boast_player", 0);
+			gesture = getdvarstring(#"scr_boast_gesture");
 			if(gesture != "")
 			{
-				setdvar(#"hash_6028c4687677bbc9", 1);
+				setdvar(#"bg_boastenabled", 1);
 				players = getplayers();
-				if(isdefined(level.var_cfbfb6de) && isdefined(players[level.var_cfbfb6de]))
+				if(isdefined(level.boastplayer) && isdefined(players[level.boastplayer]))
 				{
-					players[level.var_cfbfb6de] function_c6775cf9(gesture);
+					players[level.boastplayer] function_c6775cf9(gesture);
 				}
 				else
 				{
 					players[0] function_c6775cf9(gesture);
 				}
-				setdvar(#"hash_2abeb78ad3292aa1", "");
+				setdvar(#"scr_boast_gesture", "");
 			}
 			waitframe(1);
 		}
@@ -1268,7 +1268,7 @@ function function_be0f9897()
 		while(true)
 		{
 			wait(0.25);
-			damage = getdvarint(#"hash_3ea62f6d7351287c", 0);
+			damage = getdvarint(#"scr_damage_health", 0);
 			if(damage == 0)
 			{
 				continue;
@@ -1298,7 +1298,7 @@ function function_be0f9897()
 					player dodamage(damage, player.origin + vectorscale((1, 0, 0), 100));
 				}
 			}
-			setdvar(#"hash_3ea62f6d7351287c", 0);
+			setdvar(#"scr_damage_health", 0);
 		}
 	#/
 }
@@ -1327,8 +1327,8 @@ function function_773432e2()
 			wait(0.1);
 			actionid = getdvarint(#"hash_649ea18bd5e55893", -1);
 			var_97c83f66 = getdvarint(#"hash_6ad3f58a8e0a1e59", -1);
-			var_9721ecc = getdvarint(#"hash_4c63911d0d26443c", -1);
-			if(actionid == -1 && var_97c83f66 == -1 && var_9721ecc == -1)
+			hotstreakstage = getdvarint(#"scr_hotstreak_stage", -1);
+			if(actionid == -1 && var_97c83f66 == -1 && hotstreakstage == -1)
 			{
 				continue;
 			}
@@ -1343,9 +1343,9 @@ function function_773432e2()
 				{
 					player luinotifyevent(#"hash_2ba26a631965ab0b", 1, var_97c83f66);
 				}
-				if(var_9721ecc != -1)
+				if(hotstreakstage != -1)
 				{
-					player clientfield::set_player_uimodel("", var_9721ecc);
+					player clientfield::set_player_uimodel("", hotstreakstage);
 				}
 			}
 			setdvar(#"hash_649ea18bd5e55893", -1);
@@ -1440,7 +1440,7 @@ function function_354e12a4()
 			action = level.scoreinfo[key];
 			if(isdefined(action) && isdefined(action[#"row"]))
 			{
-				if(isdefined(action[#"hash_7fe1763a3ac14691"]))
+				if(isdefined(action[#"job_type"]))
 				{
 					keystring = function_9e72a96(key);
 					util::add_devgui((((path + "") + keystring[0]) + "") + keystring, cmd + action[#"row"]);
@@ -1476,9 +1476,9 @@ function private function_57edec18()
 		util::add_devgui("", "");
 		while(true)
 		{
-			if(getdvarint(#"hash_428eca4823d65134", 0))
+			if(getdvarint(#"scr_drone_camera", 0))
 			{
-				if(isdefined(level.var_6460e605))
+				if(isdefined(level.drone_camera))
 				{
 					waitframe(1);
 					continue;
@@ -1489,19 +1489,19 @@ function private function_57edec18()
 					waitframe(1);
 					continue;
 				}
-				var_6460e605 = spawnvehicle("", player.origin + vectorscale((0, 0, 1), 150), player.angles, "");
-				var_6460e605.ignoreme = 1;
-				var_6460e605 usevehicle(player, 0);
-				level.var_6460e605 = var_6460e605;
+				drone_camera = spawnvehicle("", player.origin + vectorscale((0, 0, 1), 150), player.angles, "");
+				drone_camera.ignoreme = 1;
+				drone_camera usevehicle(player, 0);
+				level.drone_camera = drone_camera;
 			}
-			else if(isdefined(level.var_6460e605))
+			else if(isdefined(level.drone_camera))
 			{
-				driver = level.var_6460e605 getseatoccupant(0);
+				driver = level.drone_camera getseatoccupant(0);
 				if(isdefined(driver))
 				{
 					driver unlink();
 				}
-				level.var_6460e605 delete();
+				level.drone_camera delete();
 			}
 			waitframe(1);
 		}

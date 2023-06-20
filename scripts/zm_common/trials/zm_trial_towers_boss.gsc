@@ -216,7 +216,7 @@ function private boss_fight()
 	level.var_3395fcab = 1;
 	animation::add_global_notetrack_handler("tower_contact", &function_dd2db3df, 0);
 	scene::play(#"hash_5e82fd01d9eb1519", array(e_elephant));
-	e_elephant notify(#"hash_6451d1a6caf29e08");
+	e_elephant notify(#"entrace_done");
 	level thread function_ae1cbf2e();
 	level flag::set(#"spawn_zombies");
 	level flag::set(#"infinite_round_spawning");
@@ -330,7 +330,7 @@ function private function_4d682898()
 	level endon(#"end_game", #"boss_battle_done");
 	while(true)
 	{
-		level waittill(#"hash_5588a95b63ca4e19");
+		level waittill(#"basket_hit");
 		level.var_8b66546e = 1;
 		wait(30);
 		level.var_8b66546e = 0;
@@ -358,7 +358,7 @@ function private function_3d487e02()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_30e5a6bd41a5917c");
+		waitresult = self waittill(#"aoe_damage");
 		if(waitresult.var_159100b7 == "zm_aoe_spear" || waitresult.var_159100b7 == "zm_aoe_spear_small" || waitresult.var_159100b7 == "zm_aoe_spear_big")
 		{
 			self status_effect::status_effect_apply(params, weapon, undefined, 0, 3000, undefined, waitresult.origin);

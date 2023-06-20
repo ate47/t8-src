@@ -265,7 +265,7 @@ function function_22a92b8b()
 			break;
 		}
 	}
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	switch(gametype)
 	{
 		case "download":
@@ -289,7 +289,7 @@ function function_22a92b8b()
 function function_c9705ad4()
 {
 	ignore = 1;
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	switch(gametype)
 	{
 		case "coop":

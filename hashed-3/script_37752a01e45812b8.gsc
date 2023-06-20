@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_orange_water.gsc;
-#using script_58c342edd81589fb;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm_common\zm_round_spawning.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -43,7 +43,7 @@ function preload()
 function main()
 {
 	level flag::init(#"freeze_mode");
-	level flag::init(#"hash_7c577b936ff3fe7e");
+	level flag::init(#"all_freeze");
 	zm_audio::sndannouncervoxadd(#"freeze_mode", #"hash_2df47a99f054462e");
 	level.var_50c3a25b = getentarray("freeze_mode_ice", "targetname");
 	foreach(ice in level.var_50c3a25b)
@@ -56,13 +56,13 @@ function main()
 	{
 		barrier notsolid();
 	}
-	zm_sq::register(#"freeze_mode", #"step_1", #"hash_fca1aaee837b77", &function_b0cb0de5, &function_b5fd797c);
+	zm_sq::register(#"freeze_mode", #"step_1", #"freeze_quest", &freeze_quest, &function_b5fd797c);
 	zm_sq::start(#"freeze_mode", zm_utility::function_e51dc2d8());
 	callback::on_spawned(&function_1bb74851);
 }
 
 /*
-	Name: function_b0cb0de5
+	Name: freeze_quest
 	Namespace: namespace_565e073b
 	Checksum: 0x33AB9BC8
 	Offset: 0x430
@@ -70,9 +70,9 @@ function main()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0cb0de5(var_a276c861)
+function freeze_quest(var_a276c861)
 {
-	level flag::wait_till_any(array(#"hash_7c577b936ff3fe7e", #"hell_on_earth", #"hash_198bc172b5af7f25"));
+	level flag::wait_till_any(array(#"all_freeze", #"hell_on_earth", #"hash_198bc172b5af7f25"));
 }
 
 /*
@@ -88,7 +88,7 @@ function function_b5fd797c(var_a276c861, var_19e802fa)
 {
 	if(var_a276c861)
 	{
-		level flag::set(#"hash_7c577b936ff3fe7e");
+		level flag::set(#"all_freeze");
 	}
 	if(level flag::get(#"hell_on_earth") || level flag::get(#"hash_198bc172b5af7f25"))
 	{
@@ -98,15 +98,15 @@ function function_b5fd797c(var_a276c861, var_19e802fa)
 	var_e08890fb movez(var_e08890fb.script_int, 2, 0.2, 0.2);
 	wait(1.5);
 	var_57e06cb = struct::get("freeze_mode_struct", "targetname");
-	var_57e06cb namespace_509a75d1::function_6099877a(72, "end_game", #"hash_6001ebf204288bf8", #"hash_3fe9eae6f03accce");
+	var_57e06cb zm_hms_util::function_6099877a(72, "end_game", #"hash_6001ebf204288bf8", #"hash_3fe9eae6f03accce");
 	var_898a45da = level.var_45827161[level.round_number + 1];
 	if(isdefined(var_898a45da))
 	{
-		namespace_c3287616::function_43aed0ca(level.round_number + 1);
+		zm_round_spawning::function_43aed0ca(level.round_number + 1);
 	}
 	level flag::clear(#"hash_7d9f8ec3cb9af87e");
 	level.func_get_delay_between_rounds = &function_f85d3d98;
-	namespace_509a75d1::function_2ba419ee(1, int(max(199, level.round_number)));
+	zm_hms_util::function_2ba419ee(1, int(max(199, level.round_number)));
 	level flag::clear(#"break_freeze_faster");
 	foreach(zone in level.zones)
 	{
@@ -192,7 +192,7 @@ function function_3931c78()
 		self.var_e1257157++;
 		if(self.var_e1257157 >= self.var_adf5d9b4.size)
 		{
-			level flag::set(#"hash_7c577b936ff3fe7e");
+			level flag::set(#"all_freeze");
 		}
 	}
 }

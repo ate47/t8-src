@@ -38,7 +38,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_79a710e660651843", &on_begin, &on_end);
+	zm_trial::register_challenge(#"special_enemy", &on_begin, &on_end);
 }
 
 /*
@@ -112,7 +112,7 @@ function private on_end(round_reset)
 */
 function private on_ai_killed(params)
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_79a710e660651843");
+	challenge = zm_trial::function_a36e8c38(#"special_enemy");
 	/#
 		assert(isdefined(challenge), "");
 	#/
@@ -124,7 +124,7 @@ function private on_ai_killed(params)
 	{
 		return;
 	}
-	if(level.var_44445188 === #"hash_6a1ae478973ee12" && isplayer(params.eattacker) && zm_utility::is_headshot(params.weapon, params.shitloc, params.smeansofdeath))
+	if(level.var_44445188 === #"no_headshots" && isplayer(params.eattacker) && zm_utility::is_headshot(params.weapon, params.shitloc, params.smeansofdeath))
 	{
 		zm_trial::fail(#"hash_11e532a4f9c3e482", array(params.eattacker));
 		return;
@@ -178,7 +178,7 @@ function private spawn_enemy()
 			return true;
 		}
 	}
-	challenge = zm_trial::function_a36e8c38(#"hash_79a710e660651843");
+	challenge = zm_trial::function_a36e8c38(#"special_enemy");
 	/#
 		assert(isdefined(challenge));
 	#/
@@ -235,7 +235,7 @@ function function_95c1dd81(name, spawn_callback)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_79a710e660651843");
+	challenge = zm_trial::function_a36e8c38(#"special_enemy");
 	return isdefined(challenge);
 }
 

@@ -103,7 +103,7 @@ class cct_shared_aar : cLUIelem
 		}
 		else
 		{
-			if(#"hash_9eb93e70b62ebd" == state_name)
+			if(#"success_fadeout" == state_name)
 			{
 				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
@@ -121,25 +121,25 @@ class cct_shared_aar : cLUIelem
 					}
 					else
 					{
-						if(#"hash_718c7e5495bf7124" == state_name)
+						if(#"fail_fadeout" == state_name)
 						{
 							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
 						else
 						{
-							if(#"hash_548784ff7a210cc0" == state_name)
+							if(#"win_gold" == state_name)
 							{
 								[[ self ]]->set_data(localclientnum, "_state", 5);
 							}
 							else
 							{
-								if(#"hash_3d4fff458e63e427" == state_name)
+								if(#"win_silver" == state_name)
 								{
 									[[ self ]]->set_data(localclientnum, "_state", 6);
 								}
 								else
 								{
-									if(#"hash_44e0b76bd50b192e" == state_name)
+									if(#"win_bronze" == state_name)
 									{
 										[[ self ]]->set_data(localclientnum, "_state", 7);
 									}

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -51,7 +51,7 @@ function init_flags()
 function init_quest()
 {
 	level.var_51acdb19 = getent("dempsey_grenade", "targetname");
-	level.var_a7a99ef1 = struct::get(#"hash_5720572540b41747");
+	level.var_a7a99ef1 = struct::get(#"dempsey_audio");
 	level.var_cd51aa28 = 0;
 	level.var_440b230b = 0;
 	zm_sq::register(#"hash_63dc1e557f49595f", #"step_1", #"hash_4d540289d82df269", &function_4c20829a, &function_37518cc4);
@@ -268,9 +268,9 @@ function function_2c09c7d2(var_5ea5c94d, ended_early)
 	else
 	{
 		level.var_cd51aa28 = 5;
-		namespace_509a75d1::function_e308175e(#"hash_3bd00f2e3293cc1a", level.var_a7a99ef1.origin);
+		zm_hms_util::function_e308175e(#"hash_3bd00f2e3293cc1a", level.var_a7a99ef1.origin);
 		wait(1);
-		namespace_509a75d1::function_e308175e(#"hash_63eaabff22eb9bab", level.var_a7a99ef1.origin);
+		zm_hms_util::function_e308175e(#"hash_63eaabff22eb9bab", level.var_a7a99ef1.origin);
 	}
 }
 

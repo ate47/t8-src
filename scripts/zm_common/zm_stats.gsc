@@ -302,14 +302,14 @@ function player_stats_init()
 		var_87b499fb = self stats::get_stat(#"hash_18e3320ccf4091e5", #"hash_487f0fce798b3a4b");
 		var_8962d9b1 = (isdefined(level.var_d479261a) ? level.var_d479261a : 0);
 		self stats::set_stat(#"hash_18e3320ccf4091e5", #"hash_487f0fce798b3a4b", var_8962d9b1);
-		var_327c034e = self stats::get_stat(#"hash_18e3320ccf4091e5", #"hash_6ad32b22445c4828");
+		var_327c034e = self stats::get_stat(#"hash_18e3320ccf4091e5", #"calling_timestamp");
 		var_d0ad64e3 = getutc();
 		var_222b02a1 = var_d0ad64e3 - var_327c034e;
 		var_ee21b34b = 86400;
 		if(var_87b499fb !== var_8962d9b1 || var_327c034e == 0 || var_222b02a1 > var_ee21b34b)
 		{
 			self stats::set_stat(#"hash_18e3320ccf4091e5", #"progress", 0);
-			self stats::set_stat(#"hash_18e3320ccf4091e5", #"hash_6ad32b22445c4828", var_d0ad64e3);
+			self stats::set_stat(#"hash_18e3320ccf4091e5", #"calling_timestamp", var_d0ad64e3);
 		}
 	}
 	if(getdvarint(#"hash_11da02ca40639de5", 0))
@@ -343,7 +343,7 @@ function update_players_stats_at_match_end(players)
 	{
 		return;
 	}
-	game_mode = util::function_5df4294();
+	game_mode = util::get_game_type();
 	game_mode_group = level.scr_zm_ui_gametype_group;
 	map_location_name = level.scr_zm_map_start_location;
 	zm_score::function_bc9de425();
@@ -2165,7 +2165,7 @@ function update_global_counters_on_match_end()
 		killed_by_crimson_nosferatu = killed_by_crimson_nosferatu + player.pers[#"killed_by_crimson_nosferatu"];
 		bats_killed = bats_killed + player.pers[#"bats_killed"];
 	}
-	game_mode = util::function_5df4294();
+	game_mode = util::get_game_type();
 }
 
 /*
@@ -2590,7 +2590,7 @@ function function_e8c496dd(var_d479261a)
 			}
 			if(isdefined(var_341c004b))
 			{
-				level.s_daily_calling_task = {#hash_de86e878:var_341c004b, #n_xp:task.xp, #hash_ad971622:var_e199fb8a.callingtask, #hash_e226ec4f:var_e199fb8a.var_61731cf1};
+				level.s_daily_calling_task = {#hash_de86e878:var_341c004b, #n_xp:task.xp, #hash_ad971622:var_e199fb8a.callingtask, #hash_e226ec4f:var_e199fb8a.dailytarget};
 			}
 		}
 	}

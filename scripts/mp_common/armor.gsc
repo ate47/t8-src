@@ -34,7 +34,7 @@ event main(eventstruct)
 */
 function function_9c8b5737()
 {
-	self.var_98a174a7 = {#hash_cdeeec29:1, #hash_2274e560:1, #max:0, #amount:0};
+	self.lightarmor = {#hash_cdeeec29:1, #hash_2274e560:1, #max:0, #amount:0};
 	self.var_59a874a7 = {#hash_cdeeec29:1, #hash_2274e560:1};
 	self set_armor(0, 0, 0, 1, 0);
 }
@@ -66,17 +66,17 @@ function setlightarmorhp(newvalue)
 {
 	if(isdefined(newvalue))
 	{
-		self.var_98a174a7.amount = newvalue;
-		if(isplayer(self) && self.var_98a174a7.max > 0)
+		self.lightarmor.amount = newvalue;
+		if(isplayer(self) && self.lightarmor.max > 0)
 		{
-			lightarmorpercent = math::clamp(self.var_98a174a7.amount / self.var_98a174a7.max, 0, 1);
+			lightarmorpercent = math::clamp(self.lightarmor.amount / self.lightarmor.max, 0, 1);
 			self setcontrolleruimodelvalue("hudItems.armorPercent", lightarmorpercent);
 		}
 	}
 	else
 	{
-		self.var_98a174a7.amount = 0;
-		self.var_98a174a7.max = 0;
+		self.lightarmor.amount = 0;
+		self.lightarmor.max = 0;
 		self setcontrolleruimodelvalue("hudItems.armorPercent", 0);
 	}
 }
@@ -93,7 +93,7 @@ function setlightarmorhp(newvalue)
 function setlightarmor(optionalarmorvalue, var_2274e560, var_cdeeec29)
 {
 	self notify(#"give_light_armor");
-	if(isdefined(self.var_98a174a7.amount))
+	if(isdefined(self.lightarmor.amount))
 	{
 		unsetlightarmor();
 	}
@@ -103,18 +103,18 @@ function setlightarmor(optionalarmorvalue, var_2274e560, var_cdeeec29)
 	{
 		optionalarmorvalue = 150;
 	}
-	self.var_98a174a7.max = optionalarmorvalue;
+	self.lightarmor.max = optionalarmorvalue;
 	if(!isdefined(var_2274e560))
 	{
 		var_2274e560 = 1;
 	}
-	self.var_98a174a7.var_2274e560 = var_2274e560;
+	self.lightarmor.var_2274e560 = var_2274e560;
 	if(!isdefined(var_cdeeec29))
 	{
 		var_cdeeec29 = 1;
 	}
-	self.var_98a174a7.var_cdeeec29 = var_cdeeec29;
-	self setlightarmorhp(self.var_98a174a7.max);
+	self.lightarmor.var_cdeeec29 = var_cdeeec29;
+	self setlightarmorhp(self.lightarmor.max);
 }
 
 /*
@@ -175,7 +175,7 @@ function removelightarmoronmatchend()
 */
 function haslightarmor()
 {
-	return self.var_98a174a7.amount > 0;
+	return self.lightarmor.amount > 0;
 }
 
 /*
@@ -189,7 +189,7 @@ function haslightarmor()
 */
 function function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon, shitloc)
 {
-	if(isdefined(self.var_98a174a7) && self.var_98a174a7.amount > 0)
+	if(isdefined(self.lightarmor) && self.lightarmor.amount > 0)
 	{
 		if(weapon.ignoreslightarmor && smeansofdeath != "MOD_MELEE")
 		{
@@ -201,12 +201,12 @@ function function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon
 		}
 		if(smeansofdeath != "MOD_FALLING" && !weapon_utils::ismeleemod(smeansofdeath) && !weapons::isheadshot(shitloc, smeansofdeath))
 		{
-			damage_to_armor = idamage * self.var_98a174a7.var_cdeeec29;
-			self.var_98a174a7.amount = self.lightarmorhp - damage_to_armor;
+			damage_to_armor = idamage * self.lightarmor.var_cdeeec29;
+			self.lightarmor.amount = self.lightarmorhp - damage_to_armor;
 			idamage = 0;
-			if(self.var_98a174a7.amount <= 0)
+			if(self.lightarmor.amount <= 0)
 			{
-				idamage = abs(self.var_98a174a7.amount);
+				idamage = abs(self.lightarmor.amount);
 				unsetlightarmor();
 			}
 		}
@@ -234,9 +234,9 @@ function get_armor()
 	{
 		total_armor = self.armor;
 	}
-	if(isdefined(self.var_98a174a7) && isdefined(self.var_98a174a7.amount))
+	if(isdefined(self.lightarmor) && isdefined(self.lightarmor.amount))
 	{
-		total_armor = total_armor + self.var_98a174a7.amount;
+		total_armor = total_armor + self.lightarmor.amount;
 	}
 	return total_armor;
 }
@@ -563,7 +563,7 @@ function apply_damage(weapon, damage, smeansofdeath, eattacker, shitloc)
 	}
 	var_737c8f6e = var_737c8f6e * (isdefined(weapon.var_ed6ea786) && (weapon.var_ed6ea786 ? self.var_59a874a7.var_e6683a43 : self.var_59a874a7.var_cdeeec29));
 	var_2274e560 = weapon.var_7b0ea85;
-	if(getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(getdvarint(#"survival_prototype", 0))
 	{
 		var_2274e560 = self.var_59a874a7.var_5164d2e2;
 	}

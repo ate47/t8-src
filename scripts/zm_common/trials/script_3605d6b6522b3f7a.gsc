@@ -38,7 +38,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_43dda54e53f4807f", &on_begin, &on_end);
+	zm_trial::register_challenge(#"magicbox_hunt", &on_begin, &on_end);
 }
 
 /*

@@ -199,9 +199,9 @@ function function_9b24638f()
 	Parameters: 1
 	Flags: None
 */
-function is_winner(var_512330f1)
+function is_winner(team_or_player)
 {
-	return outcome::is_winner(game.outcome.var_aefc8b8d, var_512330f1);
+	return outcome::is_winner(game.outcome.var_aefc8b8d, team_or_player);
 }
 
 /*
@@ -213,9 +213,9 @@ function is_winner(var_512330f1)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d1e740f6(var_512330f1)
+function function_d1e740f6(team_or_player)
 {
-	outcome::function_d1e740f6(game.outcome.var_aefc8b8d, var_512330f1);
+	outcome::function_d1e740f6(game.outcome.var_aefc8b8d, team_or_player);
 }
 
 /*

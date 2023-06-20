@@ -61,10 +61,10 @@ function __init__()
 */
 function private on_begin(var_2a0af02f)
 {
-	level.var_4ecf5754 = (isdefined(var_2a0af02f) ? var_2a0af02f : #"hash_65cfe78dc61dd3af");
+	level.var_4ecf5754 = (isdefined(var_2a0af02f) ? var_2a0af02f : #"silent_film");
 	switch(level.var_4ecf5754)
 	{
-		case "hash_65cfe78dc61dd3af":
+		case "silent_film":
 		{
 			level thread function_40c7a8fd();
 			break;
@@ -77,7 +77,7 @@ function private on_begin(var_2a0af02f)
 			}
 			break;
 		}
-		case "hash_64ad2ae9d7260dbc":
+		case "perk_drunk":
 		{
 			foreach(player in getplayers())
 			{
@@ -111,7 +111,7 @@ function private on_end(round_reset)
 {
 	switch(level.var_4ecf5754)
 	{
-		case "hash_65cfe78dc61dd3af":
+		case "silent_film":
 		{
 			foreach(player in getplayers())
 			{
@@ -136,7 +136,7 @@ function private on_end(round_reset)
 			}
 			break;
 		}
-		case "hash_64ad2ae9d7260dbc":
+		case "perk_drunk":
 		{
 			foreach(player in getplayers())
 			{
@@ -165,7 +165,7 @@ function private on_end(round_reset)
 */
 function private on_player_spawned()
 {
-	if(level.var_4ecf5754 === #"hash_65cfe78dc61dd3af")
+	if(level.var_4ecf5754 === #"silent_film")
 	{
 		self clientfield::set_to_player("" + #"hash_b905d796914b710", 1);
 	}

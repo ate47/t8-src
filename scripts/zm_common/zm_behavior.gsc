@@ -79,14 +79,14 @@ function __init__()
 	}
 	zm_utility::function_d0f02e71(#"zombie");
 	spawner::add_archetype_spawn_function(#"zombie", &function_c15c6e44);
-	spawner::add_archetype_spawn_function(#"zombie", &function_a5188320);
+	spawner::add_archetype_spawn_function(#"zombie", &zombiespawninit);
 	level.do_randomized_zigzag_path = 1;
 	level.zombie_targets = [];
 	zm::register_actor_damage_callback(&function_7994fd99);
 }
 
 /*
-	Name: function_a5188320
+	Name: zombiespawninit
 	Namespace: zm_behavior
 	Checksum: 0x4BE546F
 	Offset: 0x5E0
@@ -94,7 +94,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a5188320()
+function private zombiespawninit()
 {
 	self pushplayer(0);
 	self collidewithactors(0);
@@ -429,9 +429,9 @@ function private initzmbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiestunaction", &zombiestunactionstart, &function_4e52c07, &zombiestunactionend);
 	/#
-		assert(isscriptfunctionptr(&function_bdedea72));
+		assert(isscriptfunctionptr(&zombiestunstart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_1ea36681b6c1071", &function_bdedea72);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"zombiestunstart", &zombiestunstart);
 	/#
 		assert(!isdefined(undefined) || isscriptfunctionptr(undefined));
 	#/
@@ -441,7 +441,7 @@ function private initzmbehaviorsandasm()
 	/#
 		assert(!isdefined(undefined) || isscriptfunctionptr(undefined));
 	#/
-	behaviortreenetworkutility::registerbehaviortreeaction(#"hash_18c4bd585d3772ff", undefined, &function_4e52c07, undefined);
+	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiestunactionloop", undefined, &function_4e52c07, undefined);
 	/#
 		assert(isscriptfunctionptr(&function_c377438f));
 	#/
@@ -1575,7 +1575,7 @@ function zombieshouldstun(behaviortreeentity)
 }
 
 /*
-	Name: function_bdedea72
+	Name: zombiestunstart
 	Namespace: zm_behavior
 	Checksum: 0x98D04779
 	Offset: 0x5530
@@ -1583,7 +1583,7 @@ function zombieshouldstun(behaviortreeentity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_bdedea72(behaviortreeentity)
+function zombiestunstart(behaviortreeentity)
 {
 	behaviortreeentity pathmode("dont move", 1);
 	callback::callback(#"hash_1eda827ff5e6895b");
@@ -1615,7 +1615,7 @@ function function_c377438f(behaviortreeentity)
 */
 function zombiestunactionstart(behaviortreeentity, asmstatename)
 {
-	function_bdedea72(behaviortreeentity);
+	zombiestunstart(behaviortreeentity);
 	animationstatenetworkutility::requeststate(behaviortreeentity, asmstatename);
 	return 5;
 }
@@ -2724,7 +2724,7 @@ function function_b37b8c0d(entity)
 {
 	if(isdefined(entity.first_node))
 	{
-		zm_blockers::function_b193ea5c(entity.first_node, 1);
+		zm_blockers::open_zbarrier(entity.first_node, 1);
 	}
 }
 

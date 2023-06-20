@@ -35,9 +35,9 @@ function init_player_contract_events()
 	{
 		level.player_contract_events = [];
 	}
-	if(!isdefined(level.var_90031a39))
+	if(!isdefined(level.contract_ids))
 	{
-		level.var_90031a39 = [];
+		level.contract_ids = [];
 	}
 }
 
@@ -160,7 +160,7 @@ function function_d17bcd3c(slot)
 	var_5ceb23d0.var_38280f2f = #"hash_6a1133003efe7380";
 	var_5ceb23d0.var_59cb904f = 0;
 	var_5ceb23d0.var_c3e2bb05 = 0;
-	var_38280f2f = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"hash_55345949dcdaa243");
+	var_38280f2f = player stats::function_ff8f4f17(#"loot_contracts", slot, #"contracthash");
 	if(!getdvarint(#"hash_d233413e805fbd0", 0))
 	{
 		var_38280f2f = hash(var_38280f2f);
@@ -168,11 +168,11 @@ function function_d17bcd3c(slot)
 	if(var_38280f2f != #"")
 	{
 		var_5ceb23d0.var_38280f2f = var_38280f2f;
-		var_5ceb23d0.target_value = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"target");
-		var_5ceb23d0.var_59cb904f = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"progress");
-		var_5ceb23d0.var_c3e2bb05 = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"hash_71e9be4174b5740e");
-		var_5ceb23d0.xp = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"xp");
-		level.var_90031a39[var_38280f2f] = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"contractid");
+		var_5ceb23d0.target_value = player stats::function_ff8f4f17(#"loot_contracts", slot, #"target");
+		var_5ceb23d0.var_59cb904f = player stats::function_ff8f4f17(#"loot_contracts", slot, #"progress");
+		var_5ceb23d0.var_c3e2bb05 = player stats::function_ff8f4f17(#"loot_contracts", slot, #"contractgamemode");
+		var_5ceb23d0.xp = player stats::function_ff8f4f17(#"loot_contracts", slot, #"xp");
+		level.contract_ids[var_38280f2f] = player stats::function_ff8f4f17(#"loot_contracts", slot, #"contractid");
 	}
 	return var_5ceb23d0;
 }
@@ -189,14 +189,14 @@ function function_d17bcd3c(slot)
 function function_de4ff5a(slot)
 {
 	player = self;
-	var_38280f2f = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"hash_55345949dcdaa243");
+	var_38280f2f = player stats::function_ff8f4f17(#"loot_contracts", slot, #"contracthash");
 	if(!getdvarint(#"hash_d233413e805fbd0", 0))
 	{
 		var_38280f2f = hash(var_38280f2f);
 	}
 	if(var_38280f2f != #"")
 	{
-		level.var_90031a39[var_38280f2f] = player stats::function_ff8f4f17(#"hash_35951a0a644a98fb", slot, #"contractid");
+		level.contract_ids[var_38280f2f] = player stats::function_ff8f4f17(#"loot_contracts", slot, #"contractid");
 	}
 }
 

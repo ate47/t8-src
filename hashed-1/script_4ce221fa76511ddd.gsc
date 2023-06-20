@@ -26,11 +26,11 @@
 #using scripts\zm_common\zm_unitrigger.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_172975be;
+#namespace zm_trap_werewolfer;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0x6B45D01B
 	Offset: 0x248
 	Size: 0x44
@@ -39,12 +39,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_c0e025ae129c375", &__init__, &__main__, undefined);
+	system::register(#"zm_trap_werewolfer", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xF6159C7A
 	Offset: 0x298
 	Size: 0x14C
@@ -53,7 +53,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"zmtrapsenabled"))
 	{
 		return;
 	}
@@ -71,7 +71,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xACEB6748
 	Offset: 0x3F0
 	Size: 0xA4
@@ -80,7 +80,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"zmtrapsenabled"))
 	{
 		return;
 	}
@@ -91,7 +91,7 @@ function __main__()
 
 /*
 	Name: function_670dda89
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xB4374097
 	Offset: 0x4A0
 	Size: 0x28C
@@ -133,7 +133,7 @@ function function_670dda89()
 
 /*
 	Name: function_408fcb87
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xF1F6C815
 	Offset: 0x738
 	Size: 0x13C
@@ -158,7 +158,7 @@ function function_408fcb87()
 
 /*
 	Name: function_38b44aab
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0x483FEDCD
 	Offset: 0x880
 	Size: 0xF8
@@ -167,7 +167,7 @@ function function_408fcb87()
 */
 function function_38b44aab()
 {
-	level notify(#"hash_3c662e7b29cfc3dd", {#hash_be3f58a:self.script_string});
+	level notify(#"traps_cooldown", {#hash_be3f58a:self.script_string});
 	n_cooldown = zm_traps::function_da13db45(self._trap_cooldown_time, self.activated_by_player);
 	wait(n_cooldown);
 	self.var_fe043be4 rotatepitch(-90, 0.5);
@@ -178,7 +178,7 @@ function function_38b44aab()
 
 /*
 	Name: function_436d9a24
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xBAB7483C
 	Offset: 0x980
 	Size: 0x84
@@ -197,7 +197,7 @@ function function_436d9a24(t_damage)
 
 /*
 	Name: ai_damage
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0x7FE5958A
 	Offset: 0xA10
 	Size: 0x3FA
@@ -278,7 +278,7 @@ function ai_damage(e_trap)
 
 /*
 	Name: function_a3059f6
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0x42D20A1B
 	Offset: 0xE18
 	Size: 0x16C
@@ -317,7 +317,7 @@ function function_a3059f6(e_trap)
 
 /*
 	Name: function_2b9a3abe
-	Namespace: namespace_172975be
+	Namespace: zm_trap_werewolfer
 	Checksum: 0xFDB703D1
 	Offset: 0xF90
 	Size: 0x118

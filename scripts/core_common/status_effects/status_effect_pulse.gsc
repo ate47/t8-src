@@ -84,7 +84,7 @@ function private pulse_rumble_loop(duration)
 {
 	self endon(#"pulse_rumble_loop");
 	self notify(#"pulse_rumble_loop");
-	self endon(#"hash_13d72ca5a7cfd2bd");
+	self endon(#"endstatuseffect");
 	goaltime = gettime() + (int(duration * 1000));
 	while(gettime() < goaltime)
 	{

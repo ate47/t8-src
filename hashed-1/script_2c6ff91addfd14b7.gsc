@@ -34,9 +34,9 @@ function function_c6f75619()
 	{
 		self enableaimassist();
 	}
-	if(self.settings.var_ed35eeb2 === 1)
+	if(self.settings.ignorelaststandplayers === 1)
 	{
-		self.var_ed35eeb2 = 1;
+		self.ignorelaststandplayers = 1;
 	}
 	self setneargoalnotifydist(self.settings.near_goal_notify_dist);
 	self.goalradius = 999999;

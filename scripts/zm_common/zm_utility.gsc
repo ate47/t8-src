@@ -114,7 +114,7 @@ function init_utility()
 */
 function is_classic()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zclassic")
 	{
 		return true;
@@ -133,7 +133,7 @@ function is_classic()
 */
 function is_standard()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zstandard")
 	{
 		return true;
@@ -152,7 +152,7 @@ function is_standard()
 */
 function is_trials()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"ztrials" || level flag::exists(#"ztrial"))
 	{
 		return true;
@@ -171,7 +171,7 @@ function is_trials()
 */
 function is_tutorial()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"ztutorial")
 	{
 		return true;
@@ -190,7 +190,7 @@ function is_tutorial()
 */
 function is_grief()
 {
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(str_gametype == #"zgrief")
 	{
 		return true;
@@ -4409,7 +4409,7 @@ function function_e51dc2d8()
 	{
 		return false;
 	}
-	if(!getdvarint(#"hash_2992299f853b2039", 0))
+	if(!getdvarint(#"zm_ee_enabled", 0))
 	{
 		return false;
 	}
@@ -5608,7 +5608,7 @@ function is_gametype_active(a_gametypes)
 	}
 	for(i = 0; i < a_gametypes.size; i++)
 	{
-		if(util::function_5df4294() == a_gametypes[i])
+		if(util::get_game_type() == a_gametypes[i])
 		{
 			b_is_gametype_active = 1;
 		}
@@ -6684,10 +6684,10 @@ function function_9ad5aeb1(var_a8d0b313 = 1, var_82ea43f2 = 1, b_hide_body = 0, 
 	else
 	{
 		var_72487f42 = var_b0e62e21[0];
-		var_413948c0 = var_b0e62e21[1];
+		n_hold = var_b0e62e21[1];
 		var_7012f1e9 = var_b0e62e21[2];
 		n_alpha = array(0.8, 1)[var_814b69d3];
-		level thread lui::screen_flash(var_72487f42, var_413948c0, var_7012f1e9, n_alpha, var_87c98387);
+		level thread lui::screen_flash(var_72487f42, n_hold, var_7012f1e9, n_alpha, var_87c98387);
 	}
 	foreach(ai in getaiteamarray(level.zombie_team))
 	{

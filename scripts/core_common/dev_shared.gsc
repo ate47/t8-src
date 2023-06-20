@@ -737,7 +737,7 @@ function function_8263c0d5(name, postfix)
 function function_a432e633()
 {
 	/#
-		gesture = getdvarstring(#"hash_69042953f03fb8a4");
+		gesture = getdvarstring(#"scr_givegesture");
 		if(isdefined(gesture) && gesture != "")
 		{
 			foreach(player in level.players)
@@ -754,7 +754,7 @@ function function_a432e633()
 				}
 			}
 		}
-		setdvar(#"hash_69042953f03fb8a4", "");
+		setdvar(#"scr_givegesture", "");
 	#/
 }
 
@@ -772,12 +772,12 @@ function function_487bf571()
 	/#
 		for(;;)
 		{
-			gesture = getdvarstring(#"hash_69042953f03fb8a4");
+			gesture = getdvarstring(#"scr_givegesture");
 			if(gesture != "")
 			{
 				function_a432e633();
 			}
-			setdvar(#"hash_69042953f03fb8a4", "");
+			setdvar(#"scr_givegesture", "");
 			wait(0.5);
 		}
 	#/

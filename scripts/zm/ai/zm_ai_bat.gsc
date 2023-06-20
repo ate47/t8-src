@@ -4,7 +4,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
@@ -95,7 +95,7 @@ function __init__()
 	spawner::function_89a2cd87(#"bat", &function_141c342b);
 	zm_transform::function_cfca77a7(#"hash_6937d645fe2be5b5", #"hash_791d597ac0457860", undefined, 0, undefined, undefined);
 	level thread function_1b029905();
-	namespace_c3287616::register_archetype(#"bat", &function_84cd2223, &function_9471b7f9, &function_2e37549f, 25);
+	zm_round_spawning::register_archetype(#"bat", &function_84cd2223, &function_9471b7f9, &function_2e37549f, 25);
 	zm_score::function_e5d6e6dd(#"bat", 60);
 	clientfield::register("vehicle", "bat_transform_fx", 8000, 1, "int");
 	level.bat_spawners = getentarray("zombie_bat_spawner", "script_noteworthy");
@@ -188,7 +188,7 @@ function function_ab7568e0()
 }
 
 /*
-	Name: function_ea8fc463
+	Name: istargetvalid
 	Namespace: bat
 	Checksum: 0xD3035048
 	Offset: 0x848
@@ -196,7 +196,7 @@ function function_ab7568e0()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ea8fc463(target)
+function private istargetvalid(target)
 {
 	if(!isdefined(target) || !isalive(target))
 	{
@@ -225,25 +225,25 @@ function private function_ea8fc463(target)
 function private gettarget()
 {
 	targets = getplayers();
-	var_2d605ac5 = targets[0];
+	leasthunted = targets[0];
 	for(i = 0; i < targets.size; i++)
 	{
 		if(!isdefined(targets[i].hunted_by))
 		{
 			targets[i].hunted_by = 0;
 		}
-		if(!function_ea8fc463(targets[i]))
+		if(!istargetvalid(targets[i]))
 		{
 			continue;
 		}
-		if(!function_ea8fc463(var_2d605ac5) || targets[i].hunted_by < var_2d605ac5.hunted_by)
+		if(!istargetvalid(leasthunted) || targets[i].hunted_by < leasthunted.hunted_by)
 		{
-			var_2d605ac5 = targets[i];
+			leasthunted = targets[i];
 		}
 	}
-	if(function_ea8fc463(var_2d605ac5))
+	if(istargetvalid(leasthunted))
 	{
-		return var_2d605ac5;
+		return leasthunted;
 	}
 }
 
@@ -266,7 +266,7 @@ function private function_1076a2e0()
 			wait(0.5);
 			continue;
 		}
-		if(function_ea8fc463(self.var_c4e19d3))
+		if(istargetvalid(self.var_c4e19d3))
 		{
 			wait(0.5);
 			continue;
@@ -475,14 +475,14 @@ function function_1fff2d()
 			recordline(self.origin, pos, (0, 1, 1), "");
 			recordsphere(pos, 8, (0, 1, 1), "");
 		#/
-		var_491fd46e = getclosestpointonnavmesh(pos, 256, 30);
-		if(isdefined(var_491fd46e))
+		posonnavmesh = getclosestpointonnavmesh(pos, 256, 30);
+		if(isdefined(posonnavmesh))
 		{
-			pos = physicstrace(var_491fd46e + vectorscale((0, 0, 1), 70), var_491fd46e + (vectorscale((0, 0, -1), 70)), vectorscale((-1, -1, -1), 2), vectorscale((1, 1, 1), 2), self, 1);
+			pos = physicstrace(posonnavmesh + vectorscale((0, 0, 1), 70), posonnavmesh + (vectorscale((0, 0, -1), 70)), vectorscale((-1, -1, -1), 2), vectorscale((1, 1, 1), 2), self, 1);
 			pos = pos[#"position"];
 			/#
-				recordline(pos, var_491fd46e, (0, 0, 1), "");
-				recordsphere(var_491fd46e, 8, (0, 0, 1), "");
+				recordline(pos, posonnavmesh, (0, 0, 1), "");
+				recordsphere(posonnavmesh, 8, (0, 0, 1), "");
 			#/
 			if(isdefined(pos))
 			{
@@ -606,13 +606,13 @@ function function_47c795bc(params)
 		assert(isdefined(self.ai.var_15916e52));
 	#/
 	self.ai.var_15916e52.healthmultiplier = self.var_b008e588;
-	var_d1ba5d77 = self.ai.var_15916e52.pos;
+	movepos = self.ai.var_15916e52.pos;
 	mover = self.ai.var_15916e52.mover;
 	tagorigin = self.origin;
 	var_4edd9b4 = self gettagorigin("j_spine4");
 	offset = var_4edd9b4 - tagorigin;
 	timescale = 0.4;
-	movetime = getanimlength(self animmappingsearch(#"hash_68965c4716ebbf8b")) * timescale;
+	movetime = getanimlength(self animmappingsearch(#"par_transform")) * timescale;
 	mover enablelinkto();
 	self linkto(mover, "tag_origin", offset, (0, 0, 0));
 	self asmrequestsubstate(#"hash_4bea3500eb31dd8b");
@@ -623,7 +623,7 @@ function function_47c795bc(params)
 	waittime = 0.1;
 	wait(waittime);
 	acceleration = 0.6;
-	mover moveto(var_d1ba5d77, movetime, acceleration);
+	mover moveto(movepos, movetime, acceleration);
 	mover waittill(#"movedone");
 	self clientfield::set("bat_transform_fx", 1);
 	self.overridevehicledamage = undefined;

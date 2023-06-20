@@ -39,7 +39,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_74c2bf5674739948", &on_begin, &on_end);
+	zm_trial::register_challenge(#"acquire_weapon", &on_begin, &on_end);
 }
 
 /*

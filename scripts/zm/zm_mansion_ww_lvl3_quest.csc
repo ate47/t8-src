@@ -25,7 +25,7 @@
 */
 function init()
 {
-	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		clientfield::register("scriptmover", "" + #"hash_63ffcbb6c8f4bc11", 8000, 1, "int", &function_41ad73f5, 0, 0);
 		clientfield::register("scriptmover", "" + #"hash_62ee80337662b3cd", 8000, 1, "int", &function_3ab850d6, 0, 0);

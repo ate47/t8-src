@@ -213,7 +213,7 @@ function function_a38e222b()
 	for(i = 0; i < 4; i++)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_19e3162adf6caf91");
+		waitresult = level waittill(#"narrative_explore");
 		level flag::set(#"hash_64e187377acec152");
 		var_e25ba3b3 = spawn("script_origin", waitresult.v_origin);
 		var_e25ba3b3 playsound(#"hash_d4b330503498b0f");
@@ -516,13 +516,13 @@ function function_da2c37fc()
 	vol_pedestal = getent("vol_narrative_smash", "targetname");
 	while(true)
 	{
-		var_4618dc52 = self.var_4618dc52;
-		while(!isdefined(var_4618dc52))
+		e_storm = self.e_storm;
+		while(!isdefined(e_storm))
 		{
 			waitframe(1);
-			var_4618dc52 = self.var_4618dc52;
+			e_storm = self.e_storm;
 		}
-		if(var_4618dc52 istouching(vol_pedestal))
+		if(e_storm istouching(vol_pedestal))
 		{
 			self thread function_2160d544();
 			level flag::set(#"hash_407e0345ce2708de");
@@ -956,7 +956,7 @@ function function_e6f26f04()
 		{
 			level flag::set(#"hash_3e90f82a2802b3");
 			var_be17187b = undefined;
-			var_be17187b = level waittill(#"hash_3c662e7b29cfc3dd");
+			var_be17187b = level waittill(#"traps_cooldown");
 			str_off = var_be17187b.var_be3f58a;
 			if(str_off === str_id)
 			{
@@ -1367,7 +1367,7 @@ function function_2cb83322(var_1600546f, var_759598cf)
 	var_9185084 = spawn("script_origin", s_crying.origin);
 	level thread function_415b58b1(var_1600546f, s_crying, var_9185084);
 	s_crying zm_unitrigger::function_fac87205("");
-	level notify(#"hash_53319c10defe971b");
+	level notify(#"quit_crying");
 	var_9185084 stopsounds();
 	playsoundatposition(#"hash_70d9fd993e01154d", s_crying.origin);
 	wait(0.75);
@@ -1389,7 +1389,7 @@ function function_2cb83322(var_1600546f, var_759598cf)
 */
 function function_415b58b1(var_1600546f, s_crying, var_9185084)
 {
-	level endon(#"game_end", #"hash_53319c10defe971b");
+	level endon(#"game_end", #"quit_crying");
 	while(true)
 	{
 		var_9185084 playsound(var_1600546f);

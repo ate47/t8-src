@@ -82,7 +82,7 @@ function function_bff5c062(trophysystem, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			trophysystem notify(#"hash_602ae7ca650d6287");
+			trophysystem notify(#"cancel_timeout");
 			trophysystem thread weaponobjects::weapon_object_timeout(trophysystem.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
@@ -176,7 +176,7 @@ function createtrophysystemwatcher(watcher)
 }
 
 /*
-	Name: function_87af78ed
+	Name: trophysystemstopped
 	Namespace: trophy_system
 	Checksum: 0x45F02F7A
 	Offset: 0x7D8
@@ -184,12 +184,12 @@ function createtrophysystemwatcher(watcher)
 	Parameters: 0
 	Flags: Linked
 */
-function function_87af78ed()
+function trophysystemstopped()
 {
-	self endon(#"death", #"hash_340519cc3f2c92c3");
+	self endon(#"death", #"trophysystemstopped");
 	self util::waittillnotmoving();
 	self.trophysystemstationary = 1;
-	self notify(#"hash_340519cc3f2c92c3");
+	self notify(#"trophysystemstopped");
 }
 
 /*
@@ -213,7 +213,7 @@ function ontrophysystemspawn(watcher, player)
 	self.var_2d045452 = watcher;
 	self setweapon(self.weapon);
 	self.ammo = player ammo_get(self.weapon);
-	self thread function_87af78ed();
+	self thread trophysystemstopped();
 	movestate = self util::waittillrollingornotmoving();
 	if(movestate == "rolling")
 	{
@@ -222,7 +222,7 @@ function ontrophysystemspawn(watcher, player)
 	}
 	if(!self.trophysystemstationary)
 	{
-		function_87af78ed();
+		trophysystemstopped();
 	}
 	self.trophysystemstationary = 1;
 	if(isalive(player))

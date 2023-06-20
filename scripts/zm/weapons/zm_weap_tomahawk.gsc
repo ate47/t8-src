@@ -132,7 +132,7 @@ function private watch_for_tomahawk_throw()
 			}
 			self thread check_for_time_out(e_grenade);
 			self thread tomahawk_thrown(e_grenade);
-			self waittill(#"hash_6145d2b6c756e7cb");
+			self waittill(#"tomahawk_returned");
 		}
 	}
 }
@@ -758,7 +758,7 @@ function tomahawk_return_player(var_6e6ec518, var_65f2e452, n_move_speed = 1600)
 		ai_zombie.hit_by_tomahawk = undefined;
 	}
 	self clientfield::set_to_player("tomahawk_in_use", 3);
-	self notify(#"hash_6145d2b6c756e7cb");
+	self notify(#"tomahawk_returned");
 }
 
 /*

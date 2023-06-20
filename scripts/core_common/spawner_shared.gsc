@@ -54,7 +54,7 @@ function __init__()
 	add_global_spawn_function(#"allies", &global_ai_array);
 	add_global_spawn_function(#"team3", &global_ai_array);
 	/#
-		level thread function_fe02300();
+		level thread aigroup_debug();
 	#/
 }
 
@@ -265,7 +265,7 @@ function spawn_think(spawner)
 	}
 	self thread run_spawn_functions();
 	self.finished_spawning = 1;
-	self notify(#"hash_a8d38936f5f8fa4");
+	self notify(#"finished spawning");
 }
 
 /*
@@ -1058,7 +1058,7 @@ function get_goal(str_goal, str_key = "targetname")
 }
 
 /*
-	Name: function_fe02300
+	Name: aigroup_debug
 	Namespace: spawner
 	Checksum: 0xFCC056FA
 	Offset: 0x2568
@@ -1066,7 +1066,7 @@ function get_goal(str_goal, str_key = "targetname")
 	Parameters: 0
 	Flags: None
 */
-function function_fe02300()
+function aigroup_debug()
 {
 	/#
 		a_aigroups = [];
@@ -1087,7 +1087,7 @@ function function_fe02300()
 		adddebugcommand(cmd);
 		while(true)
 		{
-			var_d4f26db9 = getdvarstring(#"hash_c7bb03f6ed72246", "");
+			var_d4f26db9 = getdvarstring(#"debug_aigroup", "");
 			var_c708e6e1 = 120;
 			if(var_d4f26db9 != "")
 			{
@@ -1615,7 +1615,7 @@ function spawn_failed(spawn)
 	{
 		if(!isdefined(spawn.finished_spawning))
 		{
-			spawn waittill(#"hash_a8d38936f5f8fa4");
+			spawn waittill(#"finished spawning");
 		}
 		waittillframeend();
 		if(isalive(spawn))

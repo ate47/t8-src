@@ -88,7 +88,7 @@ function function_e93291ff()
 			break;
 		}
 	}
-	var_137456fd = getdvarint(#"hash_400f07203191574f", -1);
+	var_137456fd = getdvarint(#"wz_dest_id", -1);
 	if(var_137456fd >= 0 && var_137456fd < destinations.size)
 	{
 		level.var_7767cea8[0] = destinations[var_137456fd];
@@ -214,7 +214,7 @@ function override_spawn(ispredictedspawn)
 			}
 		}
 	}
-	if(getdvarint(#"hash_3d461f9c27bd2450", 1) > 0 && !isbot(self))
+	if(getdvarint(#"wz_alt_spawn", 1) > 0 && !isbot(self))
 	{
 		info = function_f468d9a5(spawn);
 		self.resurrect_origin = info.origin;

@@ -18,7 +18,7 @@
 */
 event main(eventstruct)
 {
-	if(util::function_5df4294() != "ztutorial")
+	if(util::get_game_type() != "ztutorial")
 	{
 		return;
 	}

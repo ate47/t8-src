@@ -65,19 +65,19 @@ function enable_dying_wish_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"hash_5b141f82a55645a9", #"perk_dying_wish", 4000, #"hash_4f7614bf7bd645c8", getweapon("zombie_perk_bottle_dying_wish"), getweapon("zombie_perk_totem_dying_wish"), #"zmperksdyingwish");
+		zm_perks::register_perk_basic_info(#"specialty_berserker", #"perk_dying_wish", 4000, #"hash_4f7614bf7bd645c8", getweapon("zombie_perk_bottle_dying_wish"), getweapon("zombie_perk_totem_dying_wish"), #"zmperksdyingwish");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"hash_5b141f82a55645a9", #"perk_dying_wish", 4000, #"zombie/perk_dying_wish", getweapon("zombie_perk_bottle_dying_wish"), getweapon("zombie_perk_totem_dying_wish"), #"zmperksdyingwish");
+		zm_perks::register_perk_basic_info(#"specialty_berserker", #"perk_dying_wish", 4000, #"zombie/perk_dying_wish", getweapon("zombie_perk_bottle_dying_wish"), getweapon("zombie_perk_totem_dying_wish"), #"zmperksdyingwish");
 	}
-	zm_perks::register_perk_precache_func(#"hash_5b141f82a55645a9", &function_aa1c61e);
-	zm_perks::register_perk_clientfields(#"hash_5b141f82a55645a9", &function_bee10d1f, &function_dbf100ee);
-	zm_perks::register_perk_machine(#"hash_5b141f82a55645a9", &function_32b9bac, &function_536f842f);
-	zm_perks::register_perk_host_migration_params(#"hash_5b141f82a55645a9", "p7_zm_vending_nuke", "divetonuke_light");
-	zm_perks::register_perk_threads(#"hash_5b141f82a55645a9", &function_2aefd3c4, &function_f3862b9b, &function_9227a4d8);
+	zm_perks::register_perk_precache_func(#"specialty_berserker", &function_aa1c61e);
+	zm_perks::register_perk_clientfields(#"specialty_berserker", &function_bee10d1f, &function_dbf100ee);
+	zm_perks::register_perk_machine(#"specialty_berserker", &function_32b9bac, &function_536f842f);
+	zm_perks::register_perk_host_migration_params(#"specialty_berserker", "p7_zm_vending_nuke", "divetonuke_light");
+	zm_perks::register_perk_threads(#"specialty_berserker", &function_2aefd3c4, &function_f3862b9b, &function_9227a4d8);
 	zm_player::function_a827358a(&function_a102936);
-	zm_perks::register_actor_damage_override(#"hash_5b141f82a55645a9", &function_ab41c8ab);
+	zm_perks::register_actor_damage_override(#"specialty_berserker", &function_ab41c8ab);
 }
 
 /*
@@ -110,10 +110,10 @@ function function_aa1c61e()
 		return;
 	}
 	level._effect[#"divetonuke_light"] = #"hash_2225287695ddf9c9";
-	level.machine_assets[#"hash_5b141f82a55645a9"] = spawnstruct();
-	level.machine_assets[#"hash_5b141f82a55645a9"].weapon = getweapon("zombie_perk_bottle_dying_wish");
-	level.machine_assets[#"hash_5b141f82a55645a9"].off_model = "p7_zm_vending_nuke";
-	level.machine_assets[#"hash_5b141f82a55645a9"].on_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_berserker"] = spawnstruct();
+	level.machine_assets[#"specialty_berserker"].weapon = getweapon("zombie_perk_bottle_dying_wish");
+	level.machine_assets[#"specialty_berserker"].off_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_berserker"].on_model = "p7_zm_vending_nuke";
 }
 
 /*
@@ -191,7 +191,7 @@ function function_d1c19f4e()
 */
 function function_2aefd3c4()
 {
-	self.var_95df0a1b = zm_perks::function_c1efcc57(#"hash_5b141f82a55645a9");
+	self.var_95df0a1b = zm_perks::function_c1efcc57(#"specialty_berserker");
 	if(isdefined(self.var_a4630f64) && self.var_a4630f64 && isdefined(self.var_95df0a1b))
 	{
 		self zm_perks::function_2ac7579(self.var_95df0a1b, 2, #"perk_dying_wish");
@@ -221,7 +221,7 @@ function function_2aefd3c4()
 */
 function function_f3862b9b(b_pause, str_perk, str_result, n_slot)
 {
-	self notify(#"hash_5b141f82a55645a9" + "_take");
+	self notify(#"specialty_berserker" + "_take");
 	if(isdefined(self.var_eb319d10) && self.var_eb319d10)
 	{
 		self function_2ca96414();
@@ -247,7 +247,7 @@ function function_f3862b9b(b_pause, str_perk, str_result, n_slot)
 */
 function function_a102936(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
 {
-	if(self hasperk(#"hash_5b141f82a55645a9"))
+	if(self hasperk(#"specialty_berserker"))
 	{
 		if(idamage >= self.health && !self.var_a4630f64 && self.var_eb319d10 !== 1)
 		{
@@ -274,7 +274,7 @@ function function_a102936(einflictor, eattacker, idamage, idflags, smeansofdeath
 function function_eeb3bf92(var_1483b30b)
 {
 	level endon(#"round_reset");
-	self endon(#"disconnect", #"hash_5b141f82a55645a9" + "_take");
+	self endon(#"disconnect", #"specialty_berserker" + "_take");
 	n_time_left = var_1483b30b;
 	self zm_perks::function_13880aa5(self.var_95df0a1b, 1, #"perk_dying_wish");
 	while(n_time_left > 0)
@@ -284,7 +284,7 @@ function function_eeb3bf92(var_1483b30b)
 		n_time_left = math::clamp(n_time_left, 0, var_1483b30b);
 		n_percentage = n_time_left / var_1483b30b;
 		n_percentage = math::clamp(n_percentage, 0.02, var_1483b30b);
-		if(self hasperk(#"hash_5b141f82a55645a9") && isdefined(self.var_95df0a1b))
+		if(self hasperk(#"specialty_berserker") && isdefined(self.var_95df0a1b))
 		{
 			self zm_perks::function_13880aa5(self.var_95df0a1b, n_percentage, #"perk_dying_wish");
 		}
@@ -302,7 +302,7 @@ function function_eeb3bf92(var_1483b30b)
 */
 function function_d752a094()
 {
-	self endon(#"disconnect", #"hash_5b141f82a55645a9" + "_take");
+	self endon(#"disconnect", #"specialty_berserker" + "_take");
 	self val::set(#"dying_wish", "takedamage", 0);
 	self val::set(#"dying_wish", "health_regen", 0);
 	self.var_eb319d10 = 1;
@@ -392,7 +392,7 @@ function function_d2bbaa76(var_85dcb56c)
 {
 	self endon(#"hash_ed7c0dc0ca165df", #"disconnect");
 	self.var_a4630f64 = 1;
-	if(self hasperk(#"hash_5b141f82a55645a9") && isdefined(self.var_95df0a1b))
+	if(self hasperk(#"specialty_berserker") && isdefined(self.var_95df0a1b))
 	{
 		self zm_perks::function_2ac7579(self.var_95df0a1b, 2, #"perk_dying_wish");
 	}
@@ -422,7 +422,7 @@ function function_7d72c6f9(var_85dcb56c)
 		self.var_3e48c35a = math::clamp(self.var_3e48c35a, 0, var_85dcb56c);
 		n_percentage = 1 - (self.var_3e48c35a / var_85dcb56c);
 		n_percentage = math::clamp(n_percentage, 0.02, var_85dcb56c);
-		if(self hasperk(#"hash_5b141f82a55645a9") && isdefined(self.var_95df0a1b))
+		if(self hasperk(#"specialty_berserker") && isdefined(self.var_95df0a1b))
 		{
 			self zm_perks::function_13880aa5(self.var_95df0a1b, n_percentage, #"perk_dying_wish");
 		}
@@ -442,7 +442,7 @@ function function_9227a4d8()
 {
 	self notify(#"hash_ed7c0dc0ca165df");
 	self.var_a4630f64 = 0;
-	if(self hasperk(#"hash_5b141f82a55645a9"))
+	if(self hasperk(#"specialty_berserker"))
 	{
 		/#
 			assert(isdefined(self.var_95df0a1b), "");

@@ -108,7 +108,7 @@ function private function_b24f18a1()
 		self.owner function_14fdd7e2(self.var_4f6b79a4);
 		self [[level._status_effects[self.setype].var_a4c649a2]]();
 		self.owner.var_121392a1[self.var_18d16a6b] = undefined;
-		self notify(#"hash_13d72ca5a7cfd2bd");
+		self notify(#"endstatuseffect");
 	}
 }
 
@@ -363,7 +363,7 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, var_80e47495, v
 */
 function private function_35d7925d(effect)
 {
-	effect endon(#"hash_13d72ca5a7cfd2bd");
+	effect endon(#"endstatuseffect");
 	self endon(#"death");
 	while(isdefined(effect.var_b5207a36) && isalive(self))
 	{
@@ -420,7 +420,7 @@ function private function_89ae38c1(sename)
 {
 	if(isplayer(self))
 	{
-		self function_522c570(sename);
+		self endstatuseffect(sename);
 	}
 }
 
@@ -495,7 +495,7 @@ function private function_6bf7c434(status_effect_type)
 		}
 	}
 	self.var_4b22e697 = undefined;
-	self notify(#"hash_13d72ca5a7cfd2bd");
+	self notify(#"endstatuseffect");
 }
 
 /*
@@ -513,8 +513,8 @@ function private wait_for_end()
 	{
 		return;
 	}
-	self notify(#"hash_2db8ad07c2f9d764");
-	self endon(#"hash_2db8ad07c2f9d764", #"hash_13d72ca5a7cfd2bd");
+	self notify(#"endwaiter");
+	self endon(#"endwaiter", #"endstatuseffect");
 	self.owner endon(#"disconnect");
 	while(self.endtime > level.time)
 	{
@@ -872,8 +872,8 @@ function private function_5d973c5f()
 */
 function function_150a8541()
 {
-	self notify(#"hash_5839b9fabbec3015");
-	self endon(#"hash_5839b9fabbec3015", #"hash_13d72ca5a7cfd2bd");
+	self notify(#"loadoutwatcher");
+	self endon(#"loadoutwatcher", #"endstatuseffect");
 	self.owner endon(#"death", #"disconnect");
 	var_eff9d37f = self.owner function_3c54ae98(self.setype);
 	while(true)
@@ -903,7 +903,7 @@ function function_150a8541()
 function function_72886b31()
 {
 	self notify(#"deathwatcher");
-	self endon(#"deathwatcher", #"hash_13d72ca5a7cfd2bd");
+	self endon(#"deathwatcher", #"endstatuseffect");
 	self.owner waittill(#"death");
 	if(isdefined(self.var_4b22e697))
 	{

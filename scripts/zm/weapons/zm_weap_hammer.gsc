@@ -77,7 +77,7 @@ function __init__()
 	callback::on_connect(&function_c3f6fd96);
 	callback::on_disconnect(&on_player_disconnect);
 	callback::function_4b58e5ab(&function_4b58e5ab);
-	level._effect[#"hash_6c99dc53e968631c"] = #"hash_5aa1120d061d1f6c";
+	level._effect[#"lightning_eyes"] = #"hash_5aa1120d061d1f6c";
 	ability_player::register_gadget_activation_callbacks(11, undefined, &hammer_off);
 }
 
@@ -241,17 +241,17 @@ function private function_70dbf9d1(player)
 		#/
 		return;
 	}
-	while(!isdefined(player.var_4618dc52))
+	while(!isdefined(player.e_storm))
 	{
-		player.var_4618dc52 = util::spawn_model("tag_origin", player.origin);
+		player.e_storm = util::spawn_model("tag_origin", player.origin);
 		util::wait_network_frame();
 	}
-	player.var_4618dc52.origin = v_drop[#"point"] + vectorscale((0, 0, 1), 20);
-	player thread function_6275aed3();
+	player.e_storm.origin = v_drop[#"point"] + vectorscale((0, 0, 1), 20);
+	player thread storm_think();
 }
 
 /*
-	Name: function_6275aed3
+	Name: storm_think
 	Namespace: zm_weap_hammer
 	Checksum: 0xAAF9EC76
 	Offset: 0x1000
@@ -259,23 +259,23 @@ function private function_70dbf9d1(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_6275aed3()
+function storm_think()
 {
 	self endon(#"disconnect");
-	self notify(#"hash_51ba139f52797f7d");
-	self endon(#"hash_51ba139f52797f7d");
+	self notify(#"storm_think");
+	self endon(#"storm_think");
 	waitframe(3);
-	if(self.var_4618dc52 clientfield::get("" + #"hammer_storm"))
+	if(self.e_storm clientfield::get("" + #"hammer_storm"))
 	{
-		self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
+		self.e_storm clientfield::set("" + #"hammer_storm", 0);
 		util::wait_network_frame();
 	}
-	self.var_4618dc52 clientfield::set("" + #"hammer_storm", 1);
+	self.e_storm clientfield::set("" + #"hammer_storm", 1);
 	self thread function_fd8e3604();
 	wait(10);
-	self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
+	self.e_storm clientfield::set("" + #"hammer_storm", 0);
 	util::wait_network_frame();
-	self.var_4618dc52 delete();
+	self.e_storm delete();
 }
 
 /*
@@ -386,7 +386,7 @@ function private function_7399cd86(weapon)
 		{
 			continue;
 		}
-		self thread function_f352c6b2(weapon);
+		self thread lightning_bolt(weapon);
 	}
 }
 
@@ -551,7 +551,7 @@ function function_1b29b59e(var_3e3892a7, weapon = level.weaponnone)
 }
 
 /*
-	Name: function_f352c6b2
+	Name: lightning_bolt
 	Namespace: zm_weap_hammer
 	Checksum: 0x19FE7BF1
 	Offset: 0x1BE8
@@ -559,7 +559,7 @@ function function_1b29b59e(var_3e3892a7, weapon = level.weaponnone)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f352c6b2(weapon)
+function lightning_bolt(weapon)
 {
 	self endon(#"disconnect");
 	self playsound("wpn_hammer_bolt_fire");
@@ -645,8 +645,8 @@ function function_f911e261()
 */
 function function_fd8e3604()
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_51ba139f52797f7d");
-	self.var_4618dc52 endon(#"death");
+	self endon(#"disconnect", #"bled_out", #"death", #"storm_think");
+	self.e_storm endon(#"death");
 	while(true)
 	{
 		a_e_targets = zm_hero_weapon::function_7c3681f7();
@@ -666,13 +666,13 @@ function function_fd8e3604()
 */
 function function_5ae28f27(player)
 {
-	player endon(#"disconnect", #"bled_out", #"death", #"hash_51ba139f52797f7d");
-	player.var_4618dc52 endon(#"death");
+	player endon(#"disconnect", #"bled_out", #"death", #"storm_think");
+	player.e_storm endon(#"death");
 	/#
 		assert(isdefined(player));
 	#/
 	var_359c1a94 = 10000;
-	var_75ccefac = player.var_4618dc52.origin;
+	var_75ccefac = player.e_storm.origin;
 	if(!isalive(self) || (isdefined(self.takedamage) && !self.takedamage))
 	{
 		return;
@@ -1151,7 +1151,7 @@ function zombie_shock_eyes()
 	if(isdefined(self gettagorigin("j_eyeball_le")))
 	{
 		zm_net::network_safe_init("shock_eyes", 2);
-		zm_net::network_choke_action("shock_eyes", &zombie_shock_eyes_network_safe, level._effect[#"hash_6c99dc53e968631c"], self, "j_eyeball_le");
+		zm_net::network_choke_action("shock_eyes", &zombie_shock_eyes_network_safe, level._effect[#"lightning_eyes"], self, "j_eyeball_le");
 	}
 }
 
@@ -1180,10 +1180,10 @@ function on_player_disconnect()
 */
 function function_371c585a()
 {
-	if(isdefined(self.var_4618dc52))
+	if(isdefined(self.e_storm))
 	{
-		self.var_4618dc52 clientfield::set("" + #"hammer_storm", 0);
-		self.var_4618dc52 delete();
+		self.e_storm clientfield::set("" + #"hammer_storm", 0);
+		self.e_storm delete();
 	}
 }
 
@@ -1198,7 +1198,7 @@ function function_371c585a()
 */
 function hammer_off(n_slot, w_hero)
 {
-	self notify(#"hash_51ba139f52797f7d");
+	self notify(#"storm_think");
 	self function_371c585a();
 }
 

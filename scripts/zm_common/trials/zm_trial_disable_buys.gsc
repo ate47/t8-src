@@ -503,7 +503,7 @@ function private function_ffdd5310()
 	{
 		t_trap zm_traps::trap_set_string(str_text);
 	}
-	level notify(#"hash_3c662e7b29cfc3dd");
+	level notify(#"traps_cooldown");
 }
 
 /*

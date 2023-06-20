@@ -34,7 +34,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_16444bcd852f0a0b", &on_begin, &on_end);
+	zm_trial::register_challenge(#"mobile_plan", &on_begin, &on_end);
 }
 
 /*

@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using scripts\mp_common\gametypes\ct_ai.gsc;
-#using script_490759cf62a1abc8;
+#using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using scripts\mp_common\gametypes\ct_vo.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\sensor_dart.gsc;
-#using script_7f988b980dd872d4;
+#using scripts\mp_common\gametypes\ct_difficulty.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -73,7 +73,7 @@ function function_c9ff0dce()
 					case 9:
 					{
 						self ct_core::function_1dd43d36(getweapon(#"ray_gun"));
-						self thread namespace_d82263d5::function_1be7e4f(#"ray_gun");
+						self thread ct_gadgets::function_1be7e4f(#"ray_gun");
 						break;
 					}
 				}
@@ -1315,7 +1315,7 @@ function function_79d4c106()
 	e_player = getplayers()[0];
 	e_player thread ct_utils::function_61c3d59c(#"hash_32598348d5a31069", undefined);
 	e_player ct_utils::give_weapon("ray_gun");
-	e_player thread namespace_d82263d5::function_1be7e4f(#"ray_gun");
+	e_player thread ct_gadgets::function_1be7e4f(#"ray_gun");
 	level thread function_bb44f289(10, 19, 0);
 	wait(0.5);
 	var_6256b329 = (gettime() / 1000) + 40;
@@ -1533,7 +1533,7 @@ function function_1d2b336(s_start_loc)
 	s_loc = struct::get("s_vp_friendly_look_at_pos", "targetname");
 	self.var_2925fedc = s_loc.origin;
 	level waittill(#"hash_489196ae3f94aaf8");
-	self namespace_ce5eff27::bot_set_difficulty(200, 400, 0.2);
+	self ct_difficulty::bot_set_difficulty(200, 400, 0.2);
 	level waittill(#"hash_3a0d770bcea202fd");
 	if(self.health > 150)
 	{
@@ -1631,7 +1631,7 @@ function function_9b0a398a(s_loc)
 				n_dist = distance(e_player.origin, self.origin);
 				if(n_dist < 320)
 				{
-					self notify(#"hash_6874a1e812989791");
+					self notify(#"abort_path");
 					break;
 				}
 			}
@@ -1645,7 +1645,7 @@ function function_9b0a398a(s_loc)
 		}
 		if(self.health != n_start_health)
 		{
-			self notify(#"hash_6874a1e812989791");
+			self notify(#"abort_path");
 			break;
 		}
 		if(isdefined(var_e4e157c8) && var_e4e157c8)
@@ -1654,13 +1654,13 @@ function function_9b0a398a(s_loc)
 			v_eye = e_player util::get_eye();
 			if(self ct_utils::can_see(v_eye, 1))
 			{
-				self notify(#"hash_6874a1e812989791");
+				self notify(#"abort_path");
 				break;
 			}
 		}
 		if(isdefined(level.var_4fbc6865) && level.var_4fbc6865)
 		{
-			self notify(#"hash_6874a1e812989791");
+			self notify(#"abort_path");
 			break;
 		}
 		if(isdefined(e_player))
@@ -1668,13 +1668,13 @@ function function_9b0a398a(s_loc)
 			a_bots = e_player ct_bots::function_dde6edbd();
 			if(a_bots.size < 2)
 			{
-				self notify(#"hash_6874a1e812989791");
+				self notify(#"abort_path");
 				break;
 			}
 		}
 		else
 		{
-			self notify(#"hash_6874a1e812989791");
+			self notify(#"abort_path");
 			break;
 		}
 		waitframe(1);
@@ -1718,18 +1718,18 @@ function function_78ccee50(params)
 function function_35bd7aef(s_loc)
 {
 	self endon(#"death");
-	self val::set(#"hash_6c6879fd201896d3", "ignoreall", 1);
-	self val::set(#"hash_6c6879fd201896d3", "ignoreme", 1);
+	self val::set(#"ai_church", "ignoreall", 1);
+	self val::set(#"ai_church", "ignoreme", 1);
 	self thread ct_utils::function_5b59f3b7(self.origin, self.angles, 32);
 	level waittill(#"hash_439e586d5a4210cd");
-	self val::reset(#"hash_6c6879fd201896d3", "ignoreme");
+	self val::reset(#"ai_church", "ignoreme");
 	n_delay = randomfloatrange(0.2, 0.8);
 	wait(n_delay);
 	s_target = struct::get(s_loc.target, "targetname");
 	self thread ct_utils::function_5b59f3b7(s_target.origin, s_target.angles, 32);
 	self.favoriteenemy = getplayers()[0];
 	wait(3);
-	self val::reset(#"hash_6c6879fd201896d3", "ignoreall");
+	self val::reset(#"ai_church", "ignoreall");
 	s_path = level.var_28cbbd60[level.var_68629f1];
 	level.var_68629f1++;
 	if(level.var_68629f1 >= level.var_28cbbd60.size)

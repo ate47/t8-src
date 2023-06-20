@@ -59,14 +59,14 @@ function function_d53a8c5b()
 {
 	if(!(isdefined(level.var_f5ea5804) && level.var_f5ea5804))
 	{
-		var_69f123e5 = function_9dc0fa01();
-		if(isdefined(var_69f123e5))
+		zombie_plane = function_9dc0fa01();
+		if(isdefined(zombie_plane))
 		{
-			var_69f123e5 player_insertion::function_723d686d();
+			zombie_plane player_insertion::function_723d686d();
 			zombie_plane_flight_goal = struct::get("zombie_plane_flight_goal", "targetname");
 			if(isdefined(zombie_plane_flight_goal))
 			{
-				var_69f123e5 thread function_3e59cbbb(zombie_plane_flight_goal);
+				zombie_plane thread function_3e59cbbb(zombie_plane_flight_goal);
 			}
 		}
 	}
@@ -149,17 +149,17 @@ function function_9dc0fa01()
 		var_e3b87be8 = center[0] + (radius * (cos(angle + 180)));
 		var_8e6c495b = center[1] + (radius * (sin(angle + 180)));
 		zombie_plane_flight_goal.origin = (var_e3b87be8, var_8e6c495b, 10000);
-		var_69f123e5 = spawnvehicle("vehicle_zmb_air_alcatraz_plane", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
-		if(!isdefined(var_69f123e5))
+		zombie_plane = spawnvehicle("vehicle_zmb_air_alcatraz_plane", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
+		if(!isdefined(zombie_plane))
 		{
 			return;
 		}
-		var_69f123e5.overridevehicledamage = &function_f3dbfe8d;
-		var_69f123e5 setforcenocull();
-		var_69f123e5 setneargoalnotifydist(128);
-		var_69f123e5.maxhealth = 1;
-		var_69f123e5 setspeed(50);
-		return var_69f123e5;
+		zombie_plane.overridevehicledamage = &function_f3dbfe8d;
+		zombie_plane setforcenocull();
+		zombie_plane setneargoalnotifydist(128);
+		zombie_plane.maxhealth = 1;
+		zombie_plane setspeed(50);
+		return zombie_plane;
 	}
 }
 
@@ -204,14 +204,14 @@ function function_37401a52()
 		{
 			if(getdvarint(#"hash_533e1b9932a65628", 0))
 			{
-				var_69f123e5 = function_de4b0705();
-				if(isdefined(var_69f123e5))
+				zombie_plane = function_de4b0705();
+				if(isdefined(zombie_plane))
 				{
-					var_69f123e5 player_insertion::function_723d686d();
+					zombie_plane player_insertion::function_723d686d();
 					zombie_plane_flight_goal = struct::get("", "");
 					if(isdefined(zombie_plane_flight_goal))
 					{
-						var_69f123e5 thread function_3e59cbbb(zombie_plane_flight_goal);
+						zombie_plane thread function_3e59cbbb(zombie_plane_flight_goal);
 					}
 				}
 				setdvar(#"hash_533e1b9932a65628", 0);
@@ -249,17 +249,17 @@ function function_de4b0705()
 				var_e3b87be8 = center[0] + (radius * (cos(angle + 180)));
 				var_8e6c495b = center[1] + (radius * (sin(angle + 180)));
 				zombie_plane_flight_goal.origin = (var_e3b87be8, var_8e6c495b, 10000);
-				var_69f123e5 = spawnvehicle("", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
-				if(!isdefined(var_69f123e5))
+				zombie_plane = spawnvehicle("", var_7206c0ef.origin, vectortoangles(vectornormalize(zombie_plane_flight_goal.origin - var_7206c0ef.origin)));
+				if(!isdefined(zombie_plane))
 				{
 					return;
 				}
-				var_69f123e5.overridevehicledamage = &function_f3dbfe8d;
-				var_69f123e5 setforcenocull();
-				var_69f123e5 setneargoalnotifydist(128);
-				var_69f123e5.maxhealth = 1;
-				var_69f123e5 setspeed(50);
-				return var_69f123e5;
+				zombie_plane.overridevehicledamage = &function_f3dbfe8d;
+				zombie_plane setforcenocull();
+				zombie_plane setneargoalnotifydist(128);
+				zombie_plane.maxhealth = 1;
+				zombie_plane setspeed(50);
+				return zombie_plane;
 			}
 		}
 		else

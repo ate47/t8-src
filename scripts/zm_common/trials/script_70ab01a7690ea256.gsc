@@ -55,10 +55,10 @@ function __init__()
 */
 function private on_begin(localclientnum, a_params)
 {
-	level.var_4ecf5754 = (isdefined(a_params[0]) ? a_params[0] : #"hash_65cfe78dc61dd3af");
+	level.var_4ecf5754 = (isdefined(a_params[0]) ? a_params[0] : #"silent_film");
 	switch(level.var_4ecf5754)
 	{
-		case "hash_65cfe78dc61dd3af":
+		case "silent_film":
 		{
 			break;
 		}
@@ -66,7 +66,7 @@ function private on_begin(localclientnum, a_params)
 		{
 			break;
 		}
-		case "hash_64ad2ae9d7260dbc":
+		case "perk_drunk":
 		{
 			level thread function_777d7ba2();
 			break;
@@ -87,7 +87,7 @@ function private on_end(localclientnum)
 {
 	switch(level.var_4ecf5754)
 	{
-		case "hash_65cfe78dc61dd3af":
+		case "silent_film":
 		{
 			break;
 		}
@@ -133,7 +133,7 @@ function function_777d7ba2()
 	Parameters: 1
 	Flags: Linked
 */
-function is_active(var_4ecf5754 = #"hash_65cfe78dc61dd3af")
+function is_active(var_4ecf5754 = #"silent_film")
 {
 	s_challenge = zm_trial::function_a36e8c38(#"hash_6c768f3c15d55377");
 	if(isdefined(s_challenge) && level.var_4ecf5754 === var_4ecf5754)

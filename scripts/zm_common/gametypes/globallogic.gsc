@@ -104,7 +104,7 @@ function init()
 		}
 	#/
 	level.script = util::get_map_name();
-	level.gametype = util::function_5df4294();
+	level.gametype = util::get_game_type();
 	level.var_837aa533 = hash(level.gametype);
 	level.teambased = 0;
 	level.teamcount = 1;

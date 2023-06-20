@@ -44,7 +44,7 @@ function __init__()
 	level._effect[#"gravityspikes_trap_start"] = #"hash_779eebf7aed3f4c0";
 	level._effect[#"gravityspikes_trap_loop"] = #"hash_7df2dbfda69b0792";
 	level._effect[#"gravityspikes_trap_end"] = #"hash_70f0169b86a98ce1";
-	level._effect[#"hash_4c08abb54cbb5556"] = #"hash_74ea4245b0e1646d";
+	level._effect[#"gravityspikes_shockwave"] = #"hash_74ea4245b0e1646d";
 	level._effect[#"hash_2c2dcd840a548ef2"] = #"hash_77964e1811bb9a67";
 	level._effect[#"hash_1758af99ff212148"] = #"hash_74f12e45b0e7611f";
 	level._effect[#"gravity_trap_spike_spark"] = #"hash_34fb31ef6c57f845";
@@ -523,7 +523,7 @@ function gravity_shock_wave_fx(localclientnum, oldval, newval, bnewent, binitial
 		}
 		if(self zm_utility::function_f8796df3(localclientnum))
 		{
-			self.var_c145bf0d[localclientnum] = playviewmodelfx(localclientnum, level._effect[#"hash_4c08abb54cbb5556"], "tag_weapon");
+			self.var_c145bf0d[localclientnum] = playviewmodelfx(localclientnum, level._effect[#"gravityspikes_shockwave"], "tag_weapon");
 			self.var_faf5c3df[localclientnum] = playviewmodelfx(localclientnum, level._effect[#"hash_2c2dcd840a548ef2"], "tag_weapon_le");
 		}
 		else
@@ -552,7 +552,7 @@ function gravity_shock_wave_fx(localclientnum, oldval, newval, bnewent, binitial
 */
 function private function_d05553c6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_74fd0cf7c91d14d0");
 	}

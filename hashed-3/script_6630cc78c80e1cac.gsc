@@ -283,7 +283,7 @@ function function_bd81f4e2(user)
 		#/
 		if(user zm_characters::is_character(array(#"hash_1aa57ef704f24fa5", #"hash_36bc80636f0fdac4")))
 		{
-			user thread zm_vo::function_8e0f4696("vox_mcnamara_log_repair_plr_6_0");
+			user thread zm_vo::vo_say("vox_mcnamara_log_repair_plr_6_0");
 		}
 		level flag::set(#"hash_7b1fd4fc459e497c");
 	}

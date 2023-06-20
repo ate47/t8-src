@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -130,10 +130,10 @@ function function_766980a4()
 	while(true)
 	{
 		s_result = undefined;
-		s_result = level waittill(#"hash_656719782f57ca1a");
+		s_result = level waittill(#"blueprint_completed");
 		if(s_result.produced == getweapon(#"hash_1d4928987b5f4f6e"))
 		{
-			level namespace_6747c550::function_7df6bb60(#"hash_26da6ef83af4ba62", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_26da6ef83af4ba62", 1);
 			break;
 		}
 	}
@@ -566,7 +566,7 @@ function pap_watcher()
 	self.var_1ab0a315 = 1;
 	while(true)
 	{
-		self waittill(#"hash_12922c9c5f12df1");
+		self waittill(#"packing_weapon");
 		if(isdefined(self.currentweapon))
 		{
 			w_current = self.currentweapon;

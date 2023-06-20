@@ -53,7 +53,7 @@ class cplayer_insertion_choice : cLUIelem
 			}
 			else
 			{
-				if(#"hash_a9365fdb97f532b" == state_name)
+				if(#"halojump" == state_name)
 				{
 					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}

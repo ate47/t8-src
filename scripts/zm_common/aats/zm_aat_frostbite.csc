@@ -91,8 +91,8 @@ function function_bad6b477(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_d84b013b(localclientnum, b_freeze)
 {
-	self notify(#"hash_224e66d46cc29cd6");
-	self endon(#"death", #"hash_224e66d46cc29cd6");
+	self notify(#"end_frosty");
+	self endon(#"death", #"end_frosty");
 	self playrenderoverridebundle("rob_test_character_ice");
 	if(!isdefined(self.var_82fb67e7))
 	{

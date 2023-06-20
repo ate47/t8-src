@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
@@ -127,7 +127,7 @@ function function_d1112480(e_player)
 		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
-	if(util::function_5df4294() == "zstandard")
+	if(util::get_game_type() == "zstandard")
 	{
 		if(function_8b1a219a())
 		{
@@ -191,7 +191,7 @@ function function_e14376a3()
 			level.s_apd_trap.v_touching.activated_by_player = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
 			{
-				e_who thread zm_audio::create_and_play_dialog(#"hash_3f3ef774cd01d778", #"activate");
+				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
 		}
 	}

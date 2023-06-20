@@ -100,7 +100,7 @@ function grappler_beam(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 	}
 	else
 	{
-		self notify(#"hash_1550b3a3e9b816f3");
+		self notify(#"grappler_done");
 	}
 }
 
@@ -115,7 +115,7 @@ function grappler_beam(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 */
 function function_34e3f163(player, tag, pivot, delay)
 {
-	player endon(#"hash_1550b3a3e9b816f3", #"death");
+	player endon(#"grappler_done", #"death");
 	pivot endon(#"death");
 	wait(delay);
 	thread grapple_beam(player, tag, pivot);
@@ -151,7 +151,7 @@ function grapple_beam(player, tag, pivot)
 	self.tag = tag;
 	self.pivot = pivot;
 	level beam::launch(player, tag, pivot, "tag_origin", level.grappler_beam, 1);
-	player waittill(#"hash_1550b3a3e9b816f3");
+	player waittill(#"grappler_done");
 	level beam::kill(player, tag, pivot, "tag_origin", level.grappler_beam);
 }
 

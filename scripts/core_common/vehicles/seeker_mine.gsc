@@ -579,8 +579,8 @@ function function_c23ecb2(params)
 {
 	if(isplayer(self.owner))
 	{
-		self notify(#"hash_7b8d0bddbc7a80ad");
-		self.owner notify(#"hash_7b8d0bddbc7a80ad");
+		self notify(#"seeker_discharge");
+		self.owner notify(#"seeker_discharge");
 	}
 	self setbrake(1);
 	self function_d4c687c9();
@@ -1038,12 +1038,12 @@ function function_9ba314a1(target)
 			{
 				return true;
 			}
-			shield = getweapon(#"hash_17f9f60ce4ea5074");
+			shield = getweapon(#"sig_buckler_lh");
 			if(isdefined(shield) && target.currentweapon == shield)
 			{
 				return true;
 			}
-			shield = getweapon(#"hash_24840aebcc206215");
+			shield = getweapon(#"sig_shield_turret");
 			if(isdefined(shield) && target.currentweapon == shield)
 			{
 				return true;
@@ -1215,10 +1215,10 @@ function function_55be8453()
 			}
 		}
 		enemies = util::function_81ccf6d3(self.team);
-		var_61c9e8b6 = arraycombine(enemies, getactorarray(), 1, 0);
-		var_61c9e8b6 = arraysort(enemies, self function_d3a9800e(), 1);
+		alltargets = arraycombine(enemies, getactorarray(), 1, 0);
+		alltargets = arraysort(enemies, self function_d3a9800e(), 1);
 		foundenemy = 0;
-		foreach(target in var_61c9e8b6)
+		foreach(target in alltargets)
 		{
 			if(function_9ba314a1(target))
 			{
@@ -1239,7 +1239,7 @@ function function_55be8453()
 		}
 		if(!foundenemy)
 		{
-			foreach(target in var_61c9e8b6)
+			foreach(target in alltargets)
 			{
 				var_87c0ec9c = distancesquared(target.origin, self.origin);
 				if(var_87c0ec9c <= 122500 && !function_9ba314a1(target))
@@ -1250,7 +1250,7 @@ function function_55be8453()
 				}
 			}
 		}
-		if(!foundenemy && var_61c9e8b6.size && isdefined(var_61c9e8b6[0]) && !function_9ba314a1(var_61c9e8b6[0]))
+		if(!foundenemy && alltargets.size && isdefined(alltargets[0]) && !function_9ba314a1(alltargets[0]))
 		{
 			function_45eb6b84(target);
 		}

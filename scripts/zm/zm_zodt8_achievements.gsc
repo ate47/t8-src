@@ -292,7 +292,7 @@ function function_1b454689()
 	self endon(#"disconnect");
 	while(true)
 	{
-		self waittill(#"hash_e66663be8ba322f");
+		self waittill(#"fasttravel_bought");
 		if(isdefined(self.var_5817f611))
 		{
 			if(!isdefined(self.var_b5982a89))
@@ -315,7 +315,7 @@ function function_1b454689()
 				}
 				if(self.var_b5982a89.size > 7)
 				{
-					self waittill(#"hash_66790eb1100e11a2", #"death");
+					self waittill(#"fasttravel_finished", #"death");
 					wait(1);
 					if(isdefined(self))
 					{
@@ -355,7 +355,7 @@ function function_46c56964()
 			}
 		#/
 		waitresult = undefined;
-		waitresult = self waittill(#"weapon_fired", #"weapon_switch_started", #"hash_7b6a55a9b65e3194", #"grenade_pullback");
+		waitresult = self waittill(#"weapon_fired", #"weapon_switch_started", #"offhand_fire", #"grenade_pullback");
 		self.var_574b5261 = 0;
 	}
 }

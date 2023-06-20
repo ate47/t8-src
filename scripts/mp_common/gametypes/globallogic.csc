@@ -2,7 +2,7 @@
 #using scripts\mp_common\player\player.csc;
 #using scripts\core_common\player\player_shared.csc;
 #using scripts\killstreaks\killstreak_detect.csc;
-#using script_6f7d15a072a2565;
+#using scripts\mp_common\gametypes\display_transition.csc;
 #using scripts\core_common\animation_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -87,14 +87,14 @@ function __init__()
 	{
 		level.var_90bb9821 = getgametypesetting(#"playermaxhealth") - 150;
 	}
-	setdvar(#"hash_6028c4687677bbc9", getgametypesetting(#"boastenabled"));
+	setdvar(#"bg_boastenabled", getgametypesetting(#"boastenabled"));
 	boastallowcam = getgametypesetting(#"boastallowcam");
 	setdvar(#"hash_23c5d7207ebc0bf9", boastallowcam);
 	setdvar(#"hash_62833d3c5e6d7380", boastallowcam);
 	setdvar(#"hash_e099986c072eb0f", getgametypesetting(#"hash_104f124f56f0f20a"));
 	setdvar(#"hash_553ad8f9db24bf22", int(1000 * getgametypesetting(#"hash_1614b9cbe0df6f75")));
 	callback::on_spawned(&on_player_spawned);
-	namespace_81c567a8::init_shared();
+	display_transition::init_shared();
 }
 
 /*
@@ -297,7 +297,7 @@ function function_765b7c63(local_client_num, oldval, newval, bnewent, binitialsn
 		self stoploopsound(self.var_8e7f416f);
 		self.var_33b61b6f = 0;
 	}
-	level notify(#"hash_2452fc0a6548ed2d");
+	level notify(#"thermal_toggle");
 	players = getplayers(local_client_num);
 	foreach(player in players)
 	{

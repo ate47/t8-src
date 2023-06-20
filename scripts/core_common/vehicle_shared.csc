@@ -1356,7 +1356,7 @@ function lights_flicker(localclientnum, duration = 8, var_5db078ba = 1)
 {
 	self notify("15457a87e1f08c8e");
 	self endon("15457a87e1f08c8e");
-	self endon(#"hash_45365ddf9df27830");
+	self endon(#"cancel_flicker");
 	self endon(#"death");
 	if(!isdefined(self.scriptbundlesettings))
 	{
@@ -1465,7 +1465,7 @@ function flicker_lights(localclientnum, oldval, newval, bnewent, binitialsnap, f
 {
 	if(newval == 0)
 	{
-		self notify(#"hash_45365ddf9df27830");
+		self notify(#"cancel_flicker");
 		self lights_off(localclientnum);
 	}
 	else
@@ -1482,7 +1482,7 @@ function flicker_lights(localclientnum, oldval, newval, bnewent, binitialsnap, f
 			}
 			else if(newval == 3)
 			{
-				self notify(#"hash_45365ddf9df27830");
+				self notify(#"cancel_flicker");
 			}
 		}
 	}
@@ -2106,9 +2106,9 @@ function function_7d1d0e65(localclientnum, oldval, newval, bnewent, binitialsnap
 				}
 				case 1:
 				{
-					if(isdefined(var_b5ddf091.warning) && isdefined(var_b5ddf091.var_b82c68ed))
+					if(isdefined(var_b5ddf091.warning) && isdefined(var_b5ddf091.tag_warning))
 					{
-						handle = util::playfxontag(localclientnum, var_b5ddf091.warning, self, var_b5ddf091.var_b82c68ed);
+						handle = util::playfxontag(localclientnum, var_b5ddf091.warning, self, var_b5ddf091.tag_warning);
 						if(!isdefined(self.fx_handles[#"malfunction"]))
 						{
 							self.fx_handles[#"malfunction"] = [];

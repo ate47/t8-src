@@ -122,15 +122,15 @@ function initscoreinfo()
 			dp = int(tablelookupcolumnforrow(scoreinfotablename, row, 7));
 			is_objective = tablelookupcolumnforrow(scoreinfotablename, row, 8);
 			medalname = tablelookupcolumnforrow(scoreinfotablename, row, 11);
-			var_812e5448 = tablelookupcolumnforrow(scoreinfotablename, row, 16);
+			job_type = tablelookupcolumnforrow(scoreinfotablename, row, 16);
 			var_b6593614 = tablelookupcolumnforrow(scoreinfotablename, row, 17);
 			var_1a39d14 = tablelookupcolumnforrow(scoreinfotablename, row, 18);
 			var_bdbfb0e = tablelookupcolumnforrow(scoreinfotablename, row, 19);
 			var_a434fd2d = tablelookupcolumnforrow(scoreinfotablename, row, 20);
 			var_f49811d1 = tablelookupcolumnforrow(scoreinfotablename, row, 21);
-			var_604c21c7 = tablelookupcolumnforrow(scoreinfotablename, row, 22);
+			bounty_reward = tablelookupcolumnforrow(scoreinfotablename, row, 22);
 			var_65181181 = int((isdefined(tablelookupcolumnforrow(scoreinfotablename, row, 24)) ? tablelookupcolumnforrow(scoreinfotablename, row, 24) : 0));
-			registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_objective, label, medalname, var_812e5448, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, var_604c21c7, var_65181181);
+			registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_objective, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, bounty_reward, var_65181181);
 			if(!isdefined(game.scoreinfoinitialized))
 			{
 				setddlstat = tablelookupcolumnforrow(scoreinfotablename, row, 12);
@@ -180,7 +180,7 @@ function getrankxpcapped(inrankxp)
 	Parameters: 20
 	Flags: Linked
 */
-function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_obj, label, medalname, var_812e5448, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, var_604c21c7, var_65181181)
+function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_obj, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, bounty_reward, var_65181181)
 {
 	overridedvar = (("scr_" + level.gametype) + "_score_") + type;
 	if(getdvarstring(overridedvar) != "")
@@ -245,11 +245,11 @@ function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_
 		}
 		if(isdefined(medalname) && medalname != #"")
 		{
-			level.scoreinfo[type][#"hash_17ffe407dca54dd7"] = medalname;
+			level.scoreinfo[type][#"medalnamehash"] = medalname;
 		}
-		if(var_812e5448 != "")
+		if(job_type != "")
 		{
-			level.scoreinfo[type][#"hash_7fe1763a3ac14691"] = var_812e5448;
+			level.scoreinfo[type][#"job_type"] = job_type;
 		}
 		if(var_b6593614 != "")
 		{
@@ -271,9 +271,9 @@ function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_
 		{
 			level.scoreinfo[type][#"hash_7b64eabf26f777c7"] = var_f49811d1;
 		}
-		if(isdefined(var_604c21c7) && var_604c21c7)
+		if(isdefined(bounty_reward) && bounty_reward)
 		{
-			level.scoreinfo[type][#"hash_505dd55ad702ef6c"] = var_604c21c7;
+			level.scoreinfo[type][#"bounty_reward"] = bounty_reward;
 		}
 		if(isdefined(var_65181181) && var_65181181)
 		{
@@ -981,9 +981,9 @@ function getrankxp()
 function function_bcb5e246(type)
 {
 	var_920d60e7 = 0;
-	if(isdefined(level.scoreinfo[type][#"hash_505dd55ad702ef6c"]))
+	if(isdefined(level.scoreinfo[type][#"bounty_reward"]))
 	{
-		var_920d60e7 = level.scoreinfo[type][#"hash_505dd55ad702ef6c"];
+		var_920d60e7 = level.scoreinfo[type][#"bounty_reward"];
 	}
 	return var_920d60e7;
 }

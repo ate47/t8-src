@@ -39,7 +39,7 @@ function autoexec init()
 	spawner::add_archetype_spawn_function(#"zombie", &archetypezombiespecialeffectsinit);
 	spawner::add_archetype_spawn_function(#"zombie", &zombie_utility::zombiespawnsetup);
 	/#
-		spawner::add_archetype_spawn_function(#"zombie", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"zombie", &zombie_utility::updateanimationrate);
 	#/
 	clientfield::register("actor", "zombie", 1, 1, "int");
 	clientfield::register("actor", "zombie_special_day", 1, 1, "counter");
@@ -58,7 +58,7 @@ function autoexec init()
 function private initzombiebehaviorsandasm()
 {
 	/#
-		assert(!isdefined(&function_c6787767) || isscriptfunctionptr(&function_c6787767));
+		assert(!isdefined(&zombiemoveactionstart) || isscriptfunctionptr(&zombiemoveactionstart));
 	#/
 	/#
 		assert(!isdefined(&zombiemoveactionupdate) || isscriptfunctionptr(&zombiemoveactionupdate));
@@ -66,7 +66,7 @@ function private initzombiebehaviorsandasm()
 	/#
 		assert(!isdefined(undefined) || isscriptfunctionptr(undefined));
 	#/
-	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiemoveaction", &function_c6787767, &zombiemoveactionupdate, undefined);
+	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiemoveaction", &zombiemoveactionstart, &zombiemoveactionupdate, undefined);
 	/#
 		assert(!isdefined(&function_9b6830c9) || isscriptfunctionptr(&function_9b6830c9));
 	#/
@@ -76,7 +76,7 @@ function private initzombiebehaviorsandasm()
 	/#
 		assert(!isdefined(&function_fbdc2cc4) || isscriptfunctionptr(&function_fbdc2cc4));
 	#/
-	behaviortreenetworkutility::registerbehaviortreeaction(#"hash_6b3df7eab00d9e03", &function_9b6830c9, undefined, &function_fbdc2cc4);
+	behaviortreenetworkutility::registerbehaviortreeaction(#"zombiemeleeaction", &function_9b6830c9, undefined, &function_fbdc2cc4);
 	/#
 		assert(isscriptfunctionptr(&zombietargetservice));
 	#/
@@ -122,13 +122,13 @@ function private initzombiebehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"iszombiewalking", &iszombiewalking);
 	/#
-		assert(isscriptfunctionptr(&function_8cd8819b));
+		assert(isscriptfunctionptr(&zombieshouldmovelowg));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_521713e6e7c89ff6", &function_8cd8819b);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"zombieshouldmovelowg", &zombieshouldmovelowg);
 	/#
-		assert(isscriptfunctionptr(&function_ff3245d3));
+		assert(isscriptfunctionptr(&zombieshouldturn));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal(#"hash_13ad697f9b7a1e13", &function_ff3245d3);
+	behaviorstatemachine::registerbsmscriptapiinternal(#"zombieshouldturn", &zombieshouldturn);
 	/#
 		assert(isscriptfunctionptr(&function_a716a3af));
 	#/
@@ -222,9 +222,9 @@ function private initzombiebehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"zombieshouldproceduraltraverse", &zombieshouldproceduraltraverse);
 	/#
-		assert(isscriptfunctionptr(&function_33ab7991));
+		assert(isscriptfunctionptr(&zombiemissinglegs));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal(#"hash_3940e25f9e65e404", &function_33ab7991);
+	behaviorstatemachine::registerbsmscriptapiinternal(#"zombiemissinglegs", &zombiemissinglegs);
 	/#
 		assert(isscriptfunctionptr(&function_f937377));
 	#/
@@ -232,7 +232,7 @@ function private initzombiebehaviorsandasm()
 	/#
 		assert(isscriptfunctionptr(&function_a82068d7));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal(#"hash_7a6e9a34d9a8290", &function_a82068d7);
+	behaviorstatemachine::registerbsmscriptapiinternal(#"zombiemoveactionstart", &function_a82068d7);
 	/#
 		assert(isscriptfunctionptr(&function_626edd6b));
 	#/
@@ -548,7 +548,7 @@ function zombienotetrackmeleefire(entity)
 	{
 		return;
 	}
-	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"hash_6182e0a57e0b549f", 1) * 1000);
+	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
 	if(isdefined(entity.aat_turned) && entity.aat_turned)
 	{
 		if(isdefined(entity.enemy) && isalive(entity.enemy) && !isplayer(entity.enemy))
@@ -1142,7 +1142,7 @@ function private function_ecba5a44(entity)
 }
 
 /*
-	Name: function_8cd8819b
+	Name: zombieshouldmovelowg
 	Namespace: zombiebehavior
 	Checksum: 0x8703B0D
 	Offset: 0x39E0
@@ -1150,13 +1150,13 @@ function private function_ecba5a44(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_8cd8819b(entity)
+function private zombieshouldmovelowg(entity)
 {
 	return isdefined(entity.low_gravity) && entity.low_gravity;
 }
 
 /*
-	Name: function_ff3245d3
+	Name: zombieshouldturn
 	Namespace: zombiebehavior
 	Checksum: 0xE6198D00
 	Offset: 0x3A10
@@ -1164,7 +1164,7 @@ function private function_8cd8819b(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ff3245d3(entity)
+function private zombieshouldturn(entity)
 {
 	return !isdefined(entity.var_40f848c3) || entity.var_40f848c3 < gettime();
 }
@@ -1800,7 +1800,7 @@ function zombiehaslegs(entity)
 }
 
 /*
-	Name: function_33ab7991
+	Name: zombiemissinglegs
 	Namespace: zombiebehavior
 	Checksum: 0x7B8870B4
 	Offset: 0x5250
@@ -1808,7 +1808,7 @@ function zombiehaslegs(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_33ab7991(entity)
+function zombiemissinglegs(entity)
 {
 	return !zombiehaslegs(entity);
 }
@@ -1915,7 +1915,7 @@ function zombiemeleesuicideterminate(entity)
 }
 
 /*
-	Name: function_c6787767
+	Name: zombiemoveactionstart
 	Namespace: zombiebehavior
 	Checksum: 0x7CB6515C
 	Offset: 0x54B0
@@ -1923,7 +1923,7 @@ function zombiemeleesuicideterminate(entity)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c6787767(entity, asmstatename)
+function zombiemoveactionstart(entity, asmstatename)
 {
 	function_ec25b529(entity);
 	animationstatenetworkutility::requeststate(entity, asmstatename);
@@ -1987,7 +1987,7 @@ function zombiemoveactionupdate(entity, asmstatename)
 	{
 		if(entity iscurrentbtactionlooping())
 		{
-			return function_c6787767(entity, asmstatename);
+			return zombiemoveactionstart(entity, asmstatename);
 		}
 		return 4;
 	}

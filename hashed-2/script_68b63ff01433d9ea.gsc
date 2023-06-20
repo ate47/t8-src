@@ -4,7 +4,7 @@
 #using script_387eab232fe22983;
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
@@ -58,17 +58,17 @@
 function init()
 {
 	clientfield::register("scriptmover", "" + #"hash_65a58403194ef1b4", 8000, 1, "int");
-	clientfield::register("world", "" + #"hash_d8f7d3d92b32a26", 8000, 1, "int");
+	clientfield::register("world", "" + #"start_billiards", 8000, 1, "int");
 	serverfield::register("billiard_ball_sunk_sf", 8000, getminbitcountfornum(9), "int", &function_cf048af);
 	clientfield::register("world", "" + #"hash_354bb8ac5de6640a", 8000, getminbitcountfornum(9), "int");
 	clientfield::register("world", "" + #"hash_75594bca6b54706e", 8000, 1, "int");
 	clientfield::register("world", "" + #"hash_2c115514da4cee51", 17000, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_4103918642e9fdf9", 8000, 1, "counter");
-	clientfield::register("scriptmover", "" + #"hash_74f15de74cd5b883", 8000, 1, "counter");
+	clientfield::register("scriptmover", "" + #"barrel_drip", 8000, 1, "counter");
+	clientfield::register("scriptmover", "" + #"barrel_spray", 8000, 1, "counter");
 	function_c739f755();
 	zm_sq::start(#"hash_4c0e5e4b34877996");
 	zm_sq::start(#"hash_65636bbec86da22c");
-	zm_sq::start(#"hash_4ca89643d74ccffb", 1);
+	zm_sq::start(#"zm_storage_billiards", 1);
 	level thread function_550d0bc6();
 	level thread function_e63ede31();
 }
@@ -88,8 +88,8 @@ function function_c739f755()
 	zm_sq::register(#"hash_4c0e5e4b34877996", #"step_2", #"hash_5b60b651867b65f8", &function_4e14c2d7, &function_21e10c11);
 	zm_sq::register(#"hash_65636bbec86da22c", #"step_1", #"hash_1551692125951197", &function_6c1be65c, &function_e4b6830d);
 	zm_sq::register(#"hash_65636bbec86da22c", #"step_2", #"hash_15516a212595134a", &function_28995f54, &function_f5692472);
-	zm_sq::register(#"hash_4ca89643d74ccffb", #"step_1", #"hash_33b63d9ccbdb1e3e", &function_ffc4a06a, &function_a4daedbe);
-	zm_sq::register(#"hash_4ca89643d74ccffb", #"step_2", #"hash_33b63c9ccbdb1c8b", &function_f21f0537, &function_2ff803fa);
+	zm_sq::register(#"zm_storage_billiards", #"step_1", #"hash_33b63d9ccbdb1e3e", &function_ffc4a06a, &function_a4daedbe);
+	zm_sq::register(#"zm_storage_billiards", #"step_2", #"hash_33b63c9ccbdb1c8b", &function_f21f0537, &function_2ff803fa);
 }
 
 /*
@@ -615,7 +615,7 @@ function function_3e37bb63()
 	self endon(#"busted");
 	while(true)
 	{
-		self.var_b0fe1e03 clientfield::increment("" + #"hash_4103918642e9fdf9");
+		self.var_b0fe1e03 clientfield::increment("" + #"barrel_drip");
 		wait(self.n_rate);
 	}
 }
@@ -671,7 +671,7 @@ function function_5e130882()
 {
 	if(isdefined(self.var_80221a28))
 	{
-		self.var_80221a28 clientfield::increment("" + #"hash_74f15de74cd5b883");
+		self.var_80221a28 clientfield::increment("" + #"barrel_spray");
 	}
 }
 
@@ -864,7 +864,7 @@ function function_ffc4a06a(var_a276c861)
 		level.var_e967a159 = 0;
 		level.var_691e2bc4 = undefined;
 		level.var_a24c96c7 = array(1, 2, 3, 4, 5, 6, 7, 8, 9);
-		level clientfield::set("" + #"hash_d8f7d3d92b32a26", 1);
+		level clientfield::set("" + #"start_billiards", 1);
 		/#
 			level thread function_e061d576();
 		#/
@@ -1411,8 +1411,8 @@ function function_63c873d9(var_dc2ad9ce)
 				{
 					if(distancesquared(var_dc2ad9ce.origin, a_e_players[i].origin) < 65536 && !a_e_players[i] function_80d68e4d(var_dc2ad9ce, 0.766, 0) && bullettracepassed(a_e_players[i] geteye(), var_dc2ad9ce.origin, 0, undefined))
 					{
-						var_36414a9f = a_e_players[i] zm_vo::function_8e0f4696(var_a5e8d5c7[a_e_players[i].var_d2822b91]);
-						if(isdefined(var_36414a9f) && var_36414a9f)
+						b_ret = a_e_players[i] zm_vo::vo_say(var_a5e8d5c7[a_e_players[i].var_d2822b91]);
+						if(isdefined(b_ret) && b_ret)
 						{
 							if(isdefined(a_e_players[i]))
 							{

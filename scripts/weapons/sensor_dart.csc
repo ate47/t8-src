@@ -261,7 +261,7 @@ function function_6527a2e9(localclientnum, animname, prevanim)
 function function_e140ca2b(localclientnum)
 {
 	self endon(#"death");
-	self waittill(#"hash_8156a03b06bd6e4");
+	self waittill(#"finished_opening");
 	self thread function_6527a2e9(localclientnum, "o_recon_sensor_gun_projectile_open_idle");
 }
 

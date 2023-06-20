@@ -135,7 +135,7 @@ function function_cec06121(var_264ee2f5)
 		player zm_trial_util::function_bf710271();
 	}
 	level zm_trial::function_25ee130(1);
-	level.var_388587c6 = array(#"hash_40788017f1c860f0", #"pistol_fullauto_t8_upgraded", #"smg_fastburst_t8_upgraded", #"smg_mp40_t8_upgraded", #"hash_3041cc761d495272", #"shotgun_fullauto_t8_upgraded", #"lmg_stealth_t8_upgraded", #"sniper_mini14_t8_upgraded", #"hash_e052dd0c54e4a6f", #"tr_flechette_t8_upgraded", #"sniper_locus_t8_upgraded");
+	level.var_388587c6 = array(#"ar_standard_t8_upgraded", #"pistol_fullauto_t8_upgraded", #"smg_fastburst_t8_upgraded", #"smg_mp40_t8_upgraded", #"smg_folding_t8_upgraded", #"shotgun_fullauto_t8_upgraded", #"lmg_stealth_t8_upgraded", #"sniper_mini14_t8_upgraded", #"ar_peacekeeper_t8_upgraded", #"tr_flechette_t8_upgraded", #"sniper_locus_t8_upgraded");
 	foreach(player in getplayers())
 	{
 		var_4cd7f83c = player getweaponslistprimaries();

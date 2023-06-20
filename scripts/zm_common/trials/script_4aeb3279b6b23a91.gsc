@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -72,9 +72,9 @@ function private on_begin(enemy_type, var_1f950d4d, var_81dcf087, var_d631185a, 
 			break;
 		}
 	}
-	namespace_c3287616::function_c1571721(&function_51ec9e09);
-	namespace_c3287616::function_54fee373(&function_1b1d71e7);
-	namespace_c3287616::function_2876740e(level.var_1c7412f9, &function_a7c00976);
+	zm_round_spawning::function_c1571721(&function_51ec9e09);
+	zm_round_spawning::function_54fee373(&function_1b1d71e7);
+	zm_round_spawning::function_2876740e(level.var_1c7412f9, &function_a7c00976);
 }
 
 /*
@@ -88,9 +88,9 @@ function private on_begin(enemy_type, var_1f950d4d, var_81dcf087, var_d631185a, 
 */
 function private on_end(round_reset)
 {
-	namespace_c3287616::function_9bf14a10(level.var_1c7412f9, &function_a7c00976);
-	namespace_c3287616::function_510039c1(&function_51ec9e09);
-	namespace_c3287616::function_375519eb(&function_1b1d71e7);
+	zm_round_spawning::function_9bf14a10(level.var_1c7412f9, &function_a7c00976);
+	zm_round_spawning::function_510039c1(&function_51ec9e09);
+	zm_round_spawning::function_375519eb(&function_1b1d71e7);
 	level.var_1c7412f9 = undefined;
 	level.var_e34a018e = undefined;
 }

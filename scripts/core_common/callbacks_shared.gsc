@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_64176e152a2cbf82;
+#using scripts\core_common\voice\voice_events.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
@@ -1158,7 +1158,7 @@ function function_deba137d(func, obj)
 */
 function function_20263b9e(func, obj)
 {
-	add_callback(#"hash_5989c4f123e1fb1a", func, obj);
+	add_callback(#"grenade_fired", func, obj);
 }
 
 /*
@@ -1172,7 +1172,7 @@ function function_20263b9e(func, obj)
 */
 function function_311bb575(func, obj)
 {
-	remove_callback(#"hash_5989c4f123e1fb1a", func, obj);
+	remove_callback(#"grenade_fired", func, obj);
 }
 
 /*
@@ -1186,7 +1186,7 @@ function function_311bb575(func, obj)
 */
 function function_ce4a7c15(func, obj)
 {
-	add_callback(#"hash_7b6a55a9b65e3194", func, obj);
+	add_callback(#"offhand_fire", func, obj);
 }
 
 /*
@@ -1200,7 +1200,7 @@ function function_ce4a7c15(func, obj)
 */
 function function_229f88c7(func, obj)
 {
-	remove_callback(#"hash_7b6a55a9b65e3194", func, obj);
+	remove_callback(#"offhand_fire", func, obj);
 }
 
 /*
@@ -2587,7 +2587,7 @@ event function_8877d89(eventstruct)
 event function_930ce3c3(eventstruct)
 {
 	/#
-		self callback(#"hash_36b1b305064a7cf8", eventstruct);
+		self callback(#"debug_movement", eventstruct);
 	#/
 }
 
@@ -2694,7 +2694,7 @@ event codecallback_botstopupdate(eventstruct)
 */
 event function_451258ba(eventstruct)
 {
-	self namespace_8e41fc17::function_c710099c(eventstruct.event, eventstruct.params);
+	self voice_events::function_c710099c(eventstruct.event, eventstruct.params);
 }
 
 /*

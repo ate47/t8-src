@@ -34,9 +34,9 @@
 */
 function init_shared(var_fc96f513)
 {
-	if(!isdefined(level.var_b17af6b4))
+	if(!isdefined(level.helicopter_shared))
 	{
-		level.var_b17af6b4 = {};
+		level.helicopter_shared = {};
 		airsupport::init_shared();
 		flak_drone::init_shared();
 		path_start = getentarray("heli_start", "targetname");
@@ -122,7 +122,7 @@ function function_bff5c062(helicopter, attackingplayer)
 	helicopter.loopcount = 0;
 	if(isdefined(level.var_f1edf93f))
 	{
-		helicopter notify(#"hash_602ae7ca650d6287");
+		helicopter notify(#"cancel_timeout");
 		var_eb79e7c3 = [[level.var_f1edf93f]]();
 		starttime = gettime();
 		duration = int(var_eb79e7c3 * 1000);
@@ -130,7 +130,7 @@ function function_bff5c062(helicopter, attackingplayer)
 		helicopter.killstreakendtime = starttime + duration;
 		helicopter.endtime = starttime + duration;
 		helicopter.var_478039e8 = 0;
-		helicopter notify(#"hash_12e918889eada2ad");
+		helicopter notify(#"abort_goal");
 	}
 	attackingplayer thread watchforearlyleave(helicopter);
 }
@@ -3436,11 +3436,11 @@ function heli_protect(startnode, protectdest, hardpointtype, heli_team)
 		if(isdefined(newdest))
 		{
 			self function_86012f82(newdest.origin, 1);
-			self waittilltimeout(10, #"near_goal", #"hash_12e918889eada2ad");
+			self waittilltimeout(10, #"near_goal", #"abort_goal");
 		}
 		else
 		{
-			self waittilltimeout(var_520e3459, #"hash_12e918889eada2ad");
+			self waittilltimeout(var_520e3459, #"abort_goal");
 		}
 		if(!ispointinnavvolume(self.origin, "navvolume_big"))
 		{

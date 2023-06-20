@@ -170,12 +170,12 @@ function on_menu_response(params)
 		self [[level.autocontrolplayer]]();
 		return;
 	}
-	if(response == #"hash_37a46164a47ed885")
+	if(response == #"play_deathcam")
 	{
 		self killcam::start_deathcam();
 		return;
 	}
-	if(response == #"hash_aa9fde2b084d482")
+	if(response == #"skip_deathcam")
 	{
 		self.sessionstate = "spectator";
 		self.spectatorclient = -1;
@@ -282,7 +282,7 @@ function function_2d1eb0ec(intpayload)
 {
 	if(!isdefined(level.var_4a38c46e))
 	{
-		level.var_4a38c46e = getscriptbundlelist(#"hash_1499732db058e6fb");
+		level.var_4a38c46e = getscriptbundlelist(#"callout_wheel");
 	}
 	var_a4d879fa = intpayload % 100;
 	var_f4cd8d56 = (int(intpayload / 100)) % 10;

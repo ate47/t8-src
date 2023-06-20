@@ -494,7 +494,7 @@ function function_c1cc29be(var_64c09f7f)
 		level flag::set(#"hash_795bde5570f8b67c");
 		if(isalive(var_64c09f7f) && (!(isdefined(var_b402acf2) && var_b402acf2)))
 		{
-			var_64c09f7f thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+			var_64c09f7f thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 		}
 		var_4f5b63ea thread function_4b17c9f6(1.5);
 		var_83aecc80 thread function_4b17c9f6(1.5);

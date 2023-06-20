@@ -87,7 +87,7 @@ function function_5bfd1343(attacker, var_f231d134, var_6ba675bd, capturedobjecti
 	}
 	if(function_db4ccff2(attacker, undefined, var_f231d134) && (isdefined(attacker.var_bc9d778c) && attacker.var_bc9d778c) && attacker != attacker.var_649d2b1f)
 	{
-		scoreevents::processscoreevent(#"hash_5a93aa54c5f5213f", attacker.var_649d2b1f, undefined, var_77cc3ee4);
+		scoreevents::processscoreevent(#"stim_vanguard", attacker.var_649d2b1f, undefined, var_77cc3ee4);
 	}
 }
 

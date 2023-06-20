@@ -240,14 +240,14 @@ function function_77ad4730()
 {
 	assignment = function_ef7959f0();
 	/#
-		var_655b66e0 = getdvarstring(#"hash_580a24dce39c44f9", "");
-		var_7826a1b3 = strtok(var_655b66e0, "");
-		if(var_7826a1b3.size > 0)
+		var_655b66e0 = getdvarstring(#"scr_playerplatoons", "");
+		playerplatoons = strtok(var_655b66e0, "");
+		if(playerplatoons.size > 0)
 		{
-			var_51746d07 = var_7826a1b3[self getentitynumber()];
-			if(isdefined(var_51746d07) && isdefined(level.platoons[var_51746d07]))
+			playerplatoon = playerplatoons[self getentitynumber()];
+			if(isdefined(playerplatoon) && isdefined(level.platoons[playerplatoon]))
 			{
-				assignment = hash(var_51746d07);
+				assignment = hash(playerplatoon);
 			}
 		}
 	#/

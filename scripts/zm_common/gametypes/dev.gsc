@@ -570,9 +570,9 @@ function updatedevsettings()
 			}
 			setdvar(#"scr_giveperk", "");
 		}
-		if(getdvarstring(#"hash_6fdd112130a541d4") != "")
+		if(getdvarstring(#"scr_toggleperk") != "")
 		{
-			perk = getdvarstring(#"hash_6fdd112130a541d4");
+			perk = getdvarstring(#"scr_toggleperk");
 			specialties = strtok(perk, "");
 			players = getplayers();
 			iprintln(("" + perk) + "");
@@ -594,7 +594,7 @@ function updatedevsettings()
 					player.extraperks[specialty] = 1;
 				}
 			}
-			setdvar(#"hash_6fdd112130a541d4", "");
+			setdvar(#"scr_toggleperk", "");
 		}
 		if(getdvarstring(#"scr_forceevent") != "")
 		{

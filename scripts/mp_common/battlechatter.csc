@@ -253,7 +253,7 @@ function get_death_vox(meansofdeath, roleindex)
 	Parameters: 4
 	Flags: None
 */
-function function_d804d2f0(localclientnum, var_70b80ca6, player, allyradiussq)
+function function_d804d2f0(localclientnum, speakingplayer, player, allyradiussq)
 {
 	if(!isdefined(player))
 	{
@@ -279,19 +279,19 @@ function function_d804d2f0(localclientnum, var_70b80ca6, player, allyradiussq)
 	{
 		return false;
 	}
-	if(!isdefined(var_70b80ca6))
+	if(!isdefined(speakingplayer))
 	{
 		return false;
 	}
-	if(!isdefined(var_70b80ca6.origin))
+	if(!isdefined(speakingplayer.origin))
 	{
 		return false;
 	}
-	if(player == var_70b80ca6 || player.team != var_70b80ca6.team)
+	if(player == speakingplayer || player.team != speakingplayer.team)
 	{
 		return false;
 	}
-	if(player function_715f2ffc(var_70b80ca6))
+	if(player function_715f2ffc(speakingplayer))
 	{
 		return false;
 	}
@@ -299,7 +299,7 @@ function function_d804d2f0(localclientnum, var_70b80ca6, player, allyradiussq)
 	{
 		return false;
 	}
-	distsq = distancesquared(var_70b80ca6.origin, player.origin);
+	distsq = distancesquared(speakingplayer.origin, player.origin);
 	if(distsq > allyradiussq)
 	{
 		return false;
@@ -316,18 +316,18 @@ function function_d804d2f0(localclientnum, var_70b80ca6, player, allyradiussq)
 	Parameters: 3
 	Flags: None
 */
-function function_db89c38f(localclientnum, var_70b80ca6, allyradiussq)
+function function_db89c38f(localclientnum, speakingplayer, allyradiussq)
 {
 	allies = [];
 	foreach(player in getplayers(localclientnum))
 	{
-		if(!function_d804d2f0(localclientnum, var_70b80ca6, player, allyradiussq))
+		if(!function_d804d2f0(localclientnum, speakingplayer, player, allyradiussq))
 		{
 			continue;
 		}
 		allies[allies.size] = player;
 	}
-	allies = arraysort(allies, var_70b80ca6.origin);
+	allies = arraysort(allies, speakingplayer.origin);
 	if(!isdefined(allies) || allies.size == 0)
 	{
 		return undefined;
@@ -400,162 +400,162 @@ function function_d2f35e13(localclientnum, successplayer, weapon, var_6ac148bc, 
 */
 function function_20edb636(weapon, playerbundle)
 {
-	var_7f8fdcd6 = spawnstruct();
+	returnstruct = spawnstruct();
 	switch(weapon.name)
 	{
 		case "hero_annihilator":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.annihilatorweaponsuccess;
+			returnstruct.var_17a094cf = playerbundle.annihilatorweaponsuccess;
 			break;
 		}
 		case "sig_buckler_dw":
 		case "sig_buckler_turret":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_b8e59ed0;
-			var_7f8fdcd6.startdelay = mpdialog_value("battleshieldSuccessDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.var_b8e59ed0;
+			returnstruct.startdelay = mpdialog_value("battleshieldSuccessDialogBuffer", 0);
 			break;
 		}
 		case "claymore":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_b4d5ca8f;
+			returnstruct.var_17a094cf = playerbundle.var_b4d5ca8f;
 			break;
 		}
 		case "dog_ai_defaultmelee":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_67888352;
-			var_7f8fdcd6.startdelay = playerbundle.var_aaf0d901;
+			returnstruct.var_17a094cf = playerbundle.var_67888352;
+			returnstruct.startdelay = playerbundle.var_aaf0d901;
 			break;
 		}
 		case "hero_flamethrower":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.purifierweaponsuccess;
-			var_7f8fdcd6.startdelay = playerbundle.var_f88f40a;
+			returnstruct.var_17a094cf = playerbundle.purifierweaponsuccess;
+			returnstruct.startdelay = playerbundle.var_f88f40a;
 			break;
 		}
 		case "eq_gravityslam":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_d1c8dc4;
+			returnstruct.var_17a094cf = playerbundle.var_d1c8dc4;
 			break;
 		}
 		case "gun_mini_turret":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_3755ba19;
+			returnstruct.var_17a094cf = playerbundle.var_3755ba19;
 			break;
 		}
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.sparrowweaponsuccess;
+			returnstruct.var_17a094cf = playerbundle.sparrowweaponsuccess;
 			break;
 		}
 		case "hash_5a4932f4b8d8b37a":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_dc2e66f;
+			returnstruct.var_17a094cf = playerbundle.var_dc2e66f;
 			break;
 		}
 		case "shock_rifle":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.tempestweaponsuccess;
+			returnstruct.var_17a094cf = playerbundle.tempestweaponsuccess;
 			break;
 		}
 		case "eq_tripwire":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_eb8b9d7a;
+			returnstruct.var_17a094cf = playerbundle.var_eb8b9d7a;
 			break;
 		}
 		case "hero_pineapplegun":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.warmachineweaponsuccess;
-			var_7f8fdcd6.startdelay = mpdialog_value("pineappleGunSuccessDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.warmachineweaponsuccess;
+			returnstruct.startdelay = mpdialog_value("pineappleGunSuccessDialogBuffer", 0);
 			break;
 		}
 		case "gadget_health_boost":
 		case "gadget_cleanse":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_febcf0b;
+			returnstruct.var_17a094cf = playerbundle.var_febcf0b;
 			break;
 		}
 		case "eq_concertina_wire":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_d5983ddb;
+			returnstruct.var_17a094cf = playerbundle.var_d5983ddb;
 			break;
 		}
 		case "eq_swat_grenade":
 		case "hash_3f62a872201cd1ce":
 		case "hash_5825488ac68418af":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_bd81e586;
-			var_7f8fdcd6.startdelay = mpdialog_value("nineBangSuccessDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.var_bd81e586;
+			returnstruct.startdelay = mpdialog_value("nineBangSuccessDialogBuffer", 0);
 			break;
 		}
 		case "eq_grapple":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_390929f1;
+			returnstruct.var_17a094cf = playerbundle.var_390929f1;
 			break;
 		}
 		case "molotov_fire":
 		case "eq_molotov":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_e64f9f9a;
-			var_7f8fdcd6.startdelay = mpdialog_value("playerDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.var_e64f9f9a;
+			returnstruct.startdelay = mpdialog_value("playerDialogBuffer", 0);
 			break;
 		}
 		case "gadget_radiation_field":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_ad1379f5;
-			var_7f8fdcd6.startdelay = mpdialog_value("radiationFieldPodSuccessDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.var_ad1379f5;
+			returnstruct.startdelay = mpdialog_value("radiationFieldPodSuccessDialogBuffer", 0);
 			break;
 		}
 		case "eq_sensor":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_ef10cbc3;
+			returnstruct.var_17a094cf = playerbundle.var_ef10cbc3;
 			break;
 		}
 		case "gadget_supplypod":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_383d5df3;
-			var_7f8fdcd6.startdelay = mpdialog_value("supplyPodSuccessDialogBuffer", 0);
+			returnstruct.var_17a094cf = playerbundle.var_383d5df3;
+			returnstruct.startdelay = mpdialog_value("supplyPodSuccessDialogBuffer", 0);
 			break;
 		}
 		case "gadget_vision_pulse":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.visionpulseabilitysuccess;
+			returnstruct.var_17a094cf = playerbundle.visionpulseabilitysuccess;
 			break;
 		}
 		case "eq_localheal":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_74dd2839;
+			returnstruct.var_17a094cf = playerbundle.var_74dd2839;
 			break;
 		}
 		case "gadget_icepick":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_e870e40c;
+			returnstruct.var_17a094cf = playerbundle.var_e870e40c;
 			break;
 		}
 		case "eq_hawk":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_bcaf7574;
-			var_7f8fdcd6.startdelay = 1;
+			returnstruct.var_17a094cf = playerbundle.var_bcaf7574;
+			returnstruct.startdelay = 1;
 			break;
 		}
 		case "sig_blade":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_eb02a29a;
+			returnstruct.var_17a094cf = playerbundle.var_eb02a29a;
 			break;
 		}
 		case "eq_smoke":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_c6ad4957;
+			returnstruct.var_17a094cf = playerbundle.var_c6ad4957;
 			break;
 		}
 		case "sig_lmg":
-		case "hash_772f4afd37e876a1":
+		case "sig_lmg_alt":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.scytheweaponsuccess;
+			returnstruct.var_17a094cf = playerbundle.scytheweaponsuccess;
 			break;
 		}
-		case "hash_f525ab9cc66c061":
+		case "eq_shroud":
 		{
-			var_7f8fdcd6.var_17a094cf = playerbundle.var_be9a9d3f;
+			returnstruct.var_17a094cf = playerbundle.var_be9a9d3f;
 			break;
 		}
 		default:
@@ -563,11 +563,11 @@ function function_20edb636(weapon, playerbundle)
 			break;
 		}
 	}
-	if(!isdefined(var_7f8fdcd6.startdelay))
+	if(!isdefined(returnstruct.startdelay))
 	{
-		var_7f8fdcd6.startdelay = mpdialog_value("defaultSuccessResponseBuffer", 0);
+		returnstruct.startdelay = mpdialog_value("defaultSuccessResponseBuffer", 0);
 	}
-	return var_7f8fdcd6;
+	return returnstruct;
 }
 
 /*

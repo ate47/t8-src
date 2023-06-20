@@ -59,8 +59,8 @@ function __main__()
 */
 function function_8afdc221()
 {
-	zm_perks::register_perk_mod_basic_info(#"hash_cd6e82bd4ce7abf", "mod_stronghold", #"perk_stronghold", #"hash_34c7d1e8a059f87e", 3000);
-	zm_perks::register_perk_threads(#"hash_cd6e82bd4ce7abf", &function_1076eef9, &function_20b5dc19);
+	zm_perks::register_perk_mod_basic_info(#"specialty_mod_camper", "mod_stronghold", #"perk_stronghold", #"specialty_camper", 3000);
+	zm_perks::register_perk_threads(#"specialty_mod_camper", &function_1076eef9, &function_20b5dc19);
 }
 
 /*
@@ -103,7 +103,7 @@ function function_20b5dc19(b_pause, str_perk, str_result, n_slot)
 function function_1c4f9c3f(s_params)
 {
 	player = s_params.eattacker;
-	if(isplayer(player) && player hasperk(#"hash_cd6e82bd4ce7abf"))
+	if(isplayer(player) && player hasperk(#"specialty_mod_camper"))
 	{
 		if(!(isdefined(player.var_7d0e99f3) && player.var_7d0e99f3))
 		{

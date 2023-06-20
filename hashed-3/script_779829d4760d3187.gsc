@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_office_special_rounds.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -136,7 +136,7 @@ function function_53935f3d(var_5ea5c94d, ended_early)
 		playsoundatposition(#"hash_61901dee5b81dba2", level.var_774c21fa.origin);
 		level.var_38ea4233 clientfield::increment_to_player("" + #"hash_7eefa4acee4c1d55", 1);
 		wait(3);
-		namespace_509a75d1::function_e308175e(#"hash_40c5232d4f3e85b", level.mcnamara.origin);
+		zm_hms_util::function_e308175e(#"hash_40c5232d4f3e85b", level.mcnamara.origin);
 	}
 }
 
@@ -182,7 +182,7 @@ function function_fe3de565(var_5ea5c94d, ended_early)
 		playsoundatposition(#"hash_61901dee5b81dba2", level.var_774c21fa.origin);
 		level.var_38ea4233 clientfield::increment_to_player("" + #"hash_7eefa4acee4c1d55", 1);
 		wait(3);
-		namespace_509a75d1::function_e308175e(#"hash_338550de989ad1a7", level.mcnamara.origin);
+		zm_hms_util::function_e308175e(#"hash_338550de989ad1a7", level.mcnamara.origin);
 	}
 }
 
@@ -228,7 +228,7 @@ function function_3409e90e(var_5ea5c94d, ended_early)
 		playsoundatposition(#"hash_61901dee5b81dba2", level.var_774c21fa.origin);
 		level.var_38ea4233 clientfield::increment_to_player("" + #"hash_7eefa4acee4c1d55", 1);
 		wait(3);
-		namespace_509a75d1::function_e308175e(#"hash_182892c4bb99b96a", level.mcnamara.origin);
+		zm_hms_util::function_e308175e(#"hash_182892c4bb99b96a", level.mcnamara.origin);
 	}
 }
 
@@ -274,7 +274,7 @@ function function_c2bd8b3d(var_5ea5c94d, ended_early)
 		playsoundatposition(#"hash_61901dee5b81dba2", level.var_774c21fa.origin);
 		level.var_38ea4233 clientfield::increment_to_player("" + #"hash_7eefa4acee4c1d55", 1);
 		wait(3);
-		namespace_509a75d1::function_e308175e(#"hash_1d3964f5cb0069af", level.mcnamara.origin);
+		zm_hms_util::function_e308175e(#"hash_1d3964f5cb0069af", level.mcnamara.origin);
 	}
 }
 
@@ -320,7 +320,7 @@ function function_d8b688e7(var_5ea5c94d, ended_early)
 		playsoundatposition(#"hash_61901dee5b81dba2", level.var_774c21fa.origin);
 		level.var_38ea4233 clientfield::increment_to_player("" + #"hash_7eefa4acee4c1d55", 1);
 		wait(3);
-		namespace_509a75d1::function_e308175e(#"hash_e51948d3d12b229", level.mcnamara.origin);
+		zm_hms_util::function_e308175e(#"hash_e51948d3d12b229", level.mcnamara.origin);
 	}
 	level thread zm_office_special_rounds::function_6b3512d();
 }

@@ -509,11 +509,11 @@ function function_2ff352cc()
 		n_players = a_e_players.size;
 	}
 	n_kill_count = function_21a3a673(zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players), zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + n_players));
-	if(zm_custom::function_901b751c(#"hash_393fb6bd6c5874aa") == 0)
+	if(zm_custom::function_901b751c(#"zmpowerupfrequency") == 0)
 	{
 		n_kill_count = n_kill_count * 2;
 	}
-	else if(zm_custom::function_901b751c(#"hash_393fb6bd6c5874aa") == 2)
+	else if(zm_custom::function_901b751c(#"zmpowerupfrequency") == 2)
 	{
 		n_kill_count = floor(n_kill_count / 2);
 	}
@@ -686,7 +686,7 @@ function get_regular_random_powerup_name()
 */
 function function_cc33adc8()
 {
-	return util::function_5df4294() != "zcleansed";
+	return util::get_game_type() != "zcleansed";
 }
 
 /*
@@ -1666,7 +1666,7 @@ function powerup_grab(powerup_team)
 					if(zm_utility::is_standard())
 					{
 						player zm_stats::increment_challenge_stat(#"hash_35ab7dfe675d26e9");
-						player zm_stats::function_c0c6ab19(#"hash_5d17ceae070dc3c1");
+						player zm_stats::function_c0c6ab19(#"rush_powerups");
 					}
 				}
 				if(isdefined(level.var_50b95271))

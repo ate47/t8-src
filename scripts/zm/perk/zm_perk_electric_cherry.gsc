@@ -62,11 +62,11 @@ function enable_electric_cherry_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"specialty_electriccherry", #"perk_electric_cherry", 3000, #"hash_2355bebe5034477a", getweapon("zombie_perk_bottle_cherry"), getweapon("zombie_perk_totem_electric_burst"), #"hash_77c5cc2d9b6ca16c");
+		zm_perks::register_perk_basic_info(#"specialty_electriccherry", #"perk_electric_cherry", 3000, #"hash_2355bebe5034477a", getweapon("zombie_perk_bottle_cherry"), getweapon("zombie_perk_totem_electric_burst"), #"zmperkselectricburst");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"specialty_electriccherry", #"perk_electric_cherry", 3000, #"zombie/perk_electric_cherry", getweapon("zombie_perk_bottle_cherry"), getweapon("zombie_perk_totem_electric_burst"), #"hash_77c5cc2d9b6ca16c");
+		zm_perks::register_perk_basic_info(#"specialty_electriccherry", #"perk_electric_cherry", 3000, #"zombie/perk_electric_cherry", getweapon("zombie_perk_bottle_cherry"), getweapon("zombie_perk_totem_electric_burst"), #"zmperkselectricburst");
 	}
 	zm_perks::register_perk_precache_func(#"specialty_electriccherry", &electric_cherry_precache);
 	zm_perks::register_perk_clientfields(#"specialty_electriccherry", &electric_cherry_register_clientfield, &electric_cherry_set_clientfield);

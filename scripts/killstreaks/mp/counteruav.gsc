@@ -144,7 +144,7 @@ function function_bff5c062(cuav, attackingplayer)
 	if(isdefined(level.var_f1edf93f))
 	{
 		cuav notify(#"hacked");
-		cuav notify(#"hash_602ae7ca650d6287");
+		cuav notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		cuav thread killstreaks::waitfortimeout("counteruav", 30000, &ontimeout, "delete", "death", "crashing");
 	}
@@ -204,8 +204,8 @@ function initrotatingrig()
 	if(isdefined(level.var_98c93497))
 	{
 		map_center = airsupport::getmapcenter();
-		var_e6d77887 = ((isdefined(level.var_98c93497) ? level.var_98c93497 : map_center[0]), (isdefined(level.var_31be45ec) ? level.var_31be45ec : map_center[1]), (isdefined(level.var_8ac94558) ? level.var_8ac94558 : 1200));
-		level.var_f6bf445b = spawn("script_model", var_e6d77887);
+		rotator_offset = ((isdefined(level.var_98c93497) ? level.var_98c93497 : map_center[0]), (isdefined(level.var_31be45ec) ? level.var_31be45ec : map_center[1]), (isdefined(level.var_8ac94558) ? level.var_8ac94558 : 1200));
+		level.var_f6bf445b = spawn("script_model", rotator_offset);
 	}
 	else
 	{

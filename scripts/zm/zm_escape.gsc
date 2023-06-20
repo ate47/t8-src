@@ -23,8 +23,8 @@
 #using scripts\zm\powerup\zm_powerup_zombie_blood.gsc;
 #using script_4cc2542101cb7973;
 #using scripts\zm\weapons\zm_weap_spork.gsc;
-#using script_52c6c2d1a2ef1b46;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using script_602009d88d859543;
@@ -35,7 +35,7 @@
 #using scripts\zm\zm_escape_trials.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_wallbuy.gsc;
-#using script_7980097e532303d1;
+#using scripts\zm\zm_escape_magicbox.gsc;
 #using scripts\zm\weapons\zm_weap_golden_knife.gsc;
 #using script_7c62f55ce3a557ff;
 #using script_ab862743b3070a;
@@ -156,7 +156,7 @@ event main(eventstruct)
 	level.custom_spawner_entry[#"hash_cd17ca22402a02b"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"hash_2764304c155bb1f9"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"hash_25469b9705aa3afa"] = &zm_spawner::function_45bb11e4;
-	level.custom_spawner_entry[#"hash_1d81dda80aa4528d"] = &zm_spawner::function_45bb11e4;
+	level.custom_spawner_entry[#"roof_climb"] = &zm_spawner::function_45bb11e4;
 	if(zm_utility::is_standard())
 	{
 		var_6811b7e = struct::get_array("perk_vapor_altar");
@@ -201,7 +201,7 @@ event main(eventstruct)
 	{
 		level.dog_round_track_override = &function_246a0760;
 		level.var_539f36cd = &function_2723556b;
-		namespace_c402654::function_aec3446d(0);
+		namespace_c402654::dog_enable_rounds(0);
 	}
 	else
 	{
@@ -245,12 +245,12 @@ function function_246a0760()
 	{
 		level.next_dog_round = 11;
 	}
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
-	namespace_c3287616::function_df803678(&namespace_c402654::function_ed67c5e7);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_df803678(&namespace_c402654::function_ed67c5e7);
 	zm_utility::function_fdb0368(level.next_dog_round + 1);
 	level.dog_round_count = 3;
 	level.next_dog_round = 22;
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
 	/#
 		level thread namespace_c402654::function_de0a6ae4();
 	#/
@@ -995,11 +995,11 @@ function function_ab7f70b9(str_location)
 function function_17ac86f7()
 {
 	self thread zm_audio::function_713192b1(#"hash_676a058bfe70473", #"roof");
-	self thread zm_audio::function_713192b1(#"hash_3aafbefc77b80ce3", #"hash_38935b99e409f15e");
+	self thread zm_audio::function_713192b1(#"hash_3aafbefc77b80ce3", #"wardens_house");
 	self thread zm_audio::function_713192b1(#"hash_4c183909b38ae649", #"wardens_office");
 	self thread zm_audio::function_713192b1(#"hash_f76546edee4a6a1", #"cafeteria");
 	self thread zm_audio::function_713192b1(#"hash_8a1754e2c346504", #"showers");
-	self thread zm_audio::function_713192b1(#"hash_9b40009eaa83579", #"hash_3eb2a18d21c3a5db");
+	self thread zm_audio::function_713192b1(#"hash_9b40009eaa83579", #"cell_block");
 }
 
 /*
@@ -1165,7 +1165,7 @@ function custom_add_vox()
 	zm_audio::loadplayervoicecategories(#"hash_41c3d60c9fdc1c1a");
 	zm_audio::loadplayervoicecategories(#"hash_6d9aadb58948623b");
 	zm_audio::loadplayervoicecategories(#"hash_5513a399a5c36320");
-	level.sndweaponpickupoverride = array(#"spoon", #"spork", #"spknifeork", #"tomahawk", #"blundergat", #"acidgat", #"magmagat", #"hash_49548133c092e662");
+	level.sndweaponpickupoverride = array(#"spoon", #"spork", #"spknifeork", #"tomahawk", #"blundergat", #"acidgat", #"magmagat", #"magmagat_unfinished");
 }
 
 /*
@@ -1403,7 +1403,7 @@ function function_172ac1b5()
 		zm_zonemgr::enable_zone("zone_cellblock_west");
 		zm_zonemgr::enable_zone("zone_start");
 		zm_zonemgr::enable_zone("zone_library");
-		if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
+		if(zm_custom::function_901b751c(#"zmpowerdoorstate") == 0)
 		{
 			zm_zonemgr::enable_zone("zone_catwalk_01");
 			zm_zonemgr::enable_zone("zone_catwalk_02");
@@ -1425,7 +1425,7 @@ function function_172ac1b5()
 function function_acb5b0ec()
 {
 	/#
-		if(!getdvarint(#"hash_11ad6a9695943217", 0))
+		if(!getdvarint(#"zm_debug_ee", 0))
 		{
 			return;
 		}

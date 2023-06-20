@@ -726,7 +726,7 @@ function bombs()
 		smart_cover::function_18f38647(trigger);
 		concertina_wire::function_18f38647(trigger);
 		name = #"sd" + trigger.script_label;
-		waypointname = #"hash_2797ef96a09741f0" + trigger.script_label;
+		waypointname = #"sd_waypoint" + trigger.script_label;
 		trigger.angles = visuals[0].angles;
 		bombzone = gameobjects::create_use_object(game.defenders, trigger, visuals, (0, 0, 0), name, 1, 1);
 		bombzone.angles = visuals[0].angles;
@@ -1090,7 +1090,7 @@ function onusedefuseobject(player)
 	{
 		scoreevents::processscoreevent(#"defused_bomb", player, undefined, undefined);
 	}
-	player globallogic_score::incpersstat(#"hash_2dadc7ba42ffd04d", 1, 0, 1);
+	player globallogic_score::incpersstat(#"objectivedefends", 1, 0, 1);
 	player recordgameevent("defuse");
 }
 

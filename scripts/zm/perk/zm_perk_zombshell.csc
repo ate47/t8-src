@@ -39,7 +39,7 @@ function __init__()
 		zm_perks::register_perk_init_thread(#"specialty_zombshell", &function_efe56acb);
 		zm_perks::function_b60f4a9f(#"specialty_zombshell", #"p8_zm_vapor_altar_icon_01_zombshell", "zombie/fx8_perk_altar_symbol_ambient_zombshell", #"zmperkszombshell");
 		zm_perks::function_f3c80d73("zombie_perk_bottle_zombshell", "zombie_perk_totem_zombshell");
-		clientfield::register("scriptmover", "" + #"hash_7199d465a80b4f59", 15000, 1, "int", &function_f420a36b, 0, 0);
+		clientfield::register("scriptmover", "" + #"zombshell_aoe", 15000, 1, "int", &zombshell_aoe, 0, 0);
 		clientfield::register("toplayer", "" + #"hash_5f545b88ba3e2938", 15000, 1, "int", &function_1e112e5f, 0, 1);
 		clientfield::register("actor", "" + #"zombshell_explosion", 15000, 1, "counter", &zombshell_explosion, 0, 0);
 	}
@@ -56,7 +56,7 @@ function __init__()
 */
 function function_efe56acb()
 {
-	level._effect[#"hash_7199d465a80b4f59"] = #"hash_3d2e7548c7dfc406";
+	level._effect[#"zombshell_aoe"] = #"hash_3d2e7548c7dfc406";
 	level._effect[#"zombshell_explosion"] = #"hash_1900ec48b2f264fe";
 	level._effect[#"zombie_blood_1st"] = #"player/fx8_plyr_pstfx_katana_rush_loop";
 }
@@ -88,7 +88,7 @@ function function_d0ba0d3()
 }
 
 /*
-	Name: function_f420a36b
+	Name: zombshell_aoe
 	Namespace: zm_perk_zombshell
 	Checksum: 0xF9954723
 	Offset: 0x4A0
@@ -96,7 +96,7 @@ function function_d0ba0d3()
 	Parameters: 7
 	Flags: Linked
 */
-function function_f420a36b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function zombshell_aoe(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
@@ -104,7 +104,7 @@ function function_f420a36b(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			deletefx(localclientnum, self.var_a6da95e6, 1);
 		}
-		self.var_a6da95e6 = util::playfxontag(localclientnum, level._effect[#"hash_7199d465a80b4f59"], self, "tag_origin");
+		self.var_a6da95e6 = util::playfxontag(localclientnum, level._effect[#"zombshell_aoe"], self, "tag_origin");
 		if(!isdefined(self.var_e3d27e69))
 		{
 			self playsound(localclientnum, #"hash_6aa32cc737673479");

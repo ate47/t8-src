@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1c72973fb240f263;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -109,7 +109,7 @@ function function_6ad87fb1()
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 show();
 	wait(1);
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 600);
-	namespace_509a75d1::function_e308175e(level.s_audiologs.var_c9f26594.var_7f4f65e6[n_id], self.origin);
+	zm_hms_util::function_e308175e(level.s_audiologs.var_c9f26594.var_7f4f65e6[n_id], self.origin);
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 1);
 	wait(2);
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 hide();
@@ -207,7 +207,7 @@ function doa_streak_udem()
 	#/
 	exploder::exploder("fxexp_script_projector_off");
 	exploder::exploder("fxexp_script_projector_on");
-	namespace_509a75d1::function_e308175e(level.s_audiologs.s_reels.var_7f4f65e6[n_id], self.origin);
+	zm_hms_util::function_e308175e(level.s_audiologs.s_reels.var_7f4f65e6[n_id], self.origin);
 	exploder::stop_exploder("fxexp_script_projector_off");
 	exploder::stop_exploder("fxexp_script_projector_on");
 }
@@ -280,7 +280,7 @@ function function_4a547e41()
 		iprintln("" + self.script_int);
 	#/
 	self showpart("tag_light");
-	self namespace_509a75d1::function_e308175e(level.s_audiologs.var_29f70993[self.script_int], self.origin);
+	self zm_hms_util::function_e308175e(level.s_audiologs.var_29f70993[self.script_int], self.origin);
 	self hidepart("tag_light");
 }
 
@@ -319,7 +319,7 @@ function function_a8be9b98()
 	#/
 	s_scene = struct::get(self.target);
 	s_scene thread scene::play();
-	self namespace_509a75d1::function_e308175e(level.s_audiologs.var_bc136840[self.script_int], self.origin);
+	self zm_hms_util::function_e308175e(level.s_audiologs.var_bc136840[self.script_int], self.origin);
 	s_scene thread scene::stop();
 }
 
@@ -374,7 +374,7 @@ function function_530a6195()
 	/#
 		iprintln("" + self.script_int);
 	#/
-	self namespace_509a75d1::function_e308175e(level.s_audiologs.var_7ab3422d[self.script_int], self.origin);
+	self zm_hms_util::function_e308175e(level.s_audiologs.var_7ab3422d[self.script_int], self.origin);
 	self delete();
 }
 

@@ -113,16 +113,16 @@ event main(eventstruct)
 */
 function on_localplayer_spawned(localclientnum)
 {
-	var_71714553 = function_5c10bd79(localclientnum);
-	var_71714553 function_24f8e5f9();
-	var_630fc8b = var_71714553 isplayerswimmingunderwater();
-	var_71714553 function_33eae096(localclientnum, var_630fc8b);
+	e_localplayer = function_5c10bd79(localclientnum);
+	e_localplayer function_24f8e5f9();
+	var_630fc8b = e_localplayer isplayerswimmingunderwater();
+	e_localplayer function_33eae096(localclientnum, var_630fc8b);
 	if(function_65b9eb0f(localclientnum))
 	{
-		var_71714553 thread function_2dca9b5b(localclientnum, var_630fc8b);
+		e_localplayer thread function_2dca9b5b(localclientnum, var_630fc8b);
 		return;
 	}
-	var_71714553 thread function_efae9657(localclientnum, var_630fc8b);
+	e_localplayer thread function_efae9657(localclientnum, var_630fc8b);
 }
 
 /*
@@ -438,7 +438,7 @@ function function_99e9d1fa()
 	Parameters: 7
 	Flags: Linked
 */
-function function_f31c22d6(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function function_f31c22d6(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval)
 	{
@@ -465,7 +465,7 @@ function function_f31c22d6(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_1e917f6a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function function_1e917f6a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval)
 	{
@@ -492,7 +492,7 @@ function function_1e917f6a(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function update_wave_water_height(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function update_wave_water_height(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	player = function_5c10bd79(localclientnum);
 	player endon(#"death");
@@ -522,7 +522,7 @@ function update_wave_water_height(localclientnum, oldval, newval, bnewent, binit
 	Parameters: 7
 	Flags: Linked
 */
-function change_wave_water_height(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function change_wave_water_height(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	level endon(#"demo_jump");
 	if(newval)
@@ -797,7 +797,7 @@ function sentinel_artifact_activated(localclientnum, oldval, newval, bnewent, bi
 	self endon(#"death");
 	if(newval == 1)
 	{
-		self.fx = util::playfxontag(localclientnum, level._effect[#"hash_4e794284db75a3f5"], self, "tag_fx_x_pos");
+		self.fx = util::playfxontag(localclientnum, level._effect[#"sentinel_aura"], self, "tag_fx_x_pos");
 		self playrenderoverridebundle(#"hash_1589a47f2fdc6c67");
 		self.sfx_id = self playloopsound(#"hash_66df9cab2c64f968");
 	}
@@ -821,7 +821,7 @@ function sentinel_artifact_activated(localclientnum, oldval, newval, bnewent, bi
 			{
 				waitframe(1);
 			}
-			self.fx = util::playfxontag(localclientnum, level._effect[#"hash_2b40b14fc8577053"], self, "tag_fx_x_pos");
+			self.fx = util::playfxontag(localclientnum, level._effect[#"sentinel_glow"], self, "tag_fx_x_pos");
 			waitframe(1);
 			self playrenderoverridebundle(#"hash_111d3e86bf2007e4");
 		}

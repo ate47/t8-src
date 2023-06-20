@@ -546,12 +546,12 @@ function private function_c1f972ba(planner, constants)
 */
 function private function_a5c008c(planner, constants)
 {
-	var_8ddd85d1 = planner::getblackboardattribute(planner, "mp_sdDefuseObj");
-	if(!isarray(var_8ddd85d1) || var_8ddd85d1.size <= 0)
+	defuseobj = planner::getblackboardattribute(planner, "mp_sdDefuseObj");
+	if(!isarray(defuseobj) || defuseobj.size <= 0)
 	{
 		return false;
 	}
-	defuse = var_8ddd85d1[0][#"__unsafe__"][#"sddefuseobj"];
+	defuse = defuseobj[0][#"__unsafe__"][#"sddefuseobj"];
 	if(isdefined(defuse))
 	{
 		return true;

@@ -20,8 +20,8 @@
 function init()
 {
 	clientfield::register("scriptmover", "medallion_fx", 1, 1, "int");
-	zm_sq::register(#"hash_637ceeb3bef1ea35", #"first_location", #"hash_3531cfab5aa57f4b", &function_fe4dc0ff, &function_3f739fed);
-	zm_sq::start(#"hash_637ceeb3bef1ea35");
+	zm_sq::register(#"music_sq", #"first_location", #"hash_3531cfab5aa57f4b", &function_fe4dc0ff, &function_3f739fed);
+	zm_sq::start(#"music_sq");
 }
 
 /*

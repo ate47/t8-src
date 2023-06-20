@@ -676,7 +676,7 @@ function function_aad01548(v_start_pos, var_b545186e = 0)
 			}
 		}
 	}
-	level notify(#"hash_3f09a53ccbee69f1");
+	level notify(#"key_dropped");
 	if(isdefined(level.var_9cec6237))
 	{
 		level.var_9cec6237--;
@@ -758,7 +758,7 @@ function function_34bcd465()
 	Parameters: 7
 	Flags: Linked
 */
-function function_742f2c18(n_round, archetype, var_2695bc4a, var_4f886dd2, var_37dc6df8, var_d58fab26, var_8857c54d)
+function function_742f2c18(n_round, archetype, n_count_total, var_4f886dd2, var_37dc6df8, var_d58fab26, var_8857c54d)
 {
 	if(!isdefined(level.var_f944d22e))
 	{
@@ -769,7 +769,7 @@ function function_742f2c18(n_round, archetype, var_2695bc4a, var_4f886dd2, var_3
 		level.var_f944d22e[n_round] = [];
 	}
 	var_77760771 = spawnstruct();
-	var_77760771.var_2695bc4a = var_2695bc4a;
+	var_77760771.n_count_total = n_count_total;
 	var_77760771.var_37dc6df8 = var_37dc6df8;
 	var_77760771.var_8857c54d = var_8857c54d;
 	var_77760771.var_d58fab26 = var_d58fab26;
@@ -782,7 +782,7 @@ function function_742f2c18(n_round, archetype, var_2695bc4a, var_4f886dd2, var_3
 		}
 		var_4debc821 = spawnstruct();
 		var_4debc821.var_4f886dd2 = var_4f886dd2;
-		var_4debc821.var_2695bc4a = var_2695bc4a;
+		var_4debc821.n_count_total = n_count_total;
 		level.var_ea47b206[n_round] = var_4debc821;
 	}
 }
@@ -1965,7 +1965,7 @@ function function_9b7bc715(str_archetype, var_f6e469ad = 1)
 		case "stoker":
 		{
 			level function_e64ac3b6(2, #"hash_602a33d6118f86cd");
-			var_fe5fbf66 = array::random(array(#"stoker", #"hash_554c3930bc5813d4"));
+			var_fe5fbf66 = array::random(array(#"stoker", #"incoming_stoker"));
 			level thread zm_audio::sndannouncerplayvox(var_fe5fbf66, undefined, undefined, undefined, 1);
 			break;
 		}
@@ -1979,7 +1979,7 @@ function function_9b7bc715(str_archetype, var_f6e469ad = 1)
 		case "gladiator":
 		{
 			level function_e64ac3b6(6, #"hash_5883640bac1406cc");
-			level thread zm_audio::sndannouncerplayvox(#"hash_1d0c325eadefe6a1", undefined, undefined, undefined, 1);
+			level thread zm_audio::sndannouncerplayvox(#"incoming_heavy", undefined, undefined, undefined, 1);
 			break;
 		}
 		case "gladiator_destroyer":
@@ -2108,7 +2108,7 @@ function enable_power_switch(b_enable = 0, var_909e9d3d = 0, str_value, str_key,
 				{
 					var_c996d382 = 1;
 					level util::delay(4, "end_game", &array::thread_all, getplayers(), &zm_equipment::show_hint_text, #"hash_5bdc1f7024280e4e");
-					level thread zm_audio::sndannouncerplayvox(#"hash_7d4064a8d03e0606");
+					level thread zm_audio::sndannouncerplayvox(#"power_activated");
 				}
 			}
 		}

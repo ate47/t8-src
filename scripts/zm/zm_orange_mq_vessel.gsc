@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_52c6c2d1a2ef1b46;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm\zm_orange_ee_dynamite.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -41,8 +41,8 @@ function preload()
 */
 function main()
 {
-	level flag::init(#"hash_6ba951b37826e520");
-	level flag::init(#"hash_a540a0cd7df9166");
+	level flag::init(#"vessel_found");
+	level flag::init(#"blood_hints");
 	level.var_50e4c504 = [];
 	var_bd588d2c = array::randomize(getentarray("mq_shubozzor", "targetname"));
 	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_bd588d2c, 0, 0);
@@ -156,20 +156,20 @@ function main()
 */
 function function_a5254494(var_5ea5c94d)
 {
-	namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 2);
+	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 2);
 	if(!var_5ea5c94d)
 	{
-		level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_13b606b34fa64ed5", 0, 0, 1);
-		level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_13b606b34fa64ed5", 1, 0, 1);
-		level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_13b606b34fa64ed5", 2, 0, 1);
-		level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_13b606b34fa64ed5", 3, 0, 1);
-		level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_13b606b34fa64ed5", 4, 0, 1);
+		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 0, 0, 1);
+		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 1, 0, 1);
+		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 2, 0, 1);
+		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 3, 0, 1);
+		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 4, 0, 1);
 		foreach(hint in level.var_54d62431)
 		{
 			hint function_ede90521();
 		}
 		level thread function_a5fa6428();
-		level waittill(#"hash_6ba951b37826e520");
+		level waittill(#"vessel_found");
 	}
 }
 
@@ -184,7 +184,7 @@ function function_a5254494(var_5ea5c94d)
 */
 function function_77e4073b(var_5ea5c94d, ended_early)
 {
-	level flag::set(#"hash_6ba951b37826e520");
+	level flag::set(#"vessel_found");
 	if(var_5ea5c94d || ended_early)
 	{
 		level.var_d6513b72.var_8ac20606 delete();
@@ -205,9 +205,9 @@ function function_ede90521()
 {
 	wait(2);
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold("" + self.script_string);
 				println("" + self.script_string);
@@ -216,14 +216,14 @@ function function_ede90521()
 	#/
 	level.var_60b08c24.var_489c2917 = self.var_d1f4d20d;
 	level.var_60b08c24 thread zm_audio::do_player_or_npc_playvox(self.script_string + "_apot_0");
-	level flag::set(#"hash_a540a0cd7df9166");
+	level flag::set(#"blood_hints");
 	self clientfield::set("" + #"hash_60a7e5b79e8064a5", 1);
 	self show();
 	self zm_unitrigger::function_fac87205();
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold((("" + self.targetname) + "") + self.script_int);
 				println((("" + self.targetname) + "") + self.script_int);
@@ -231,7 +231,7 @@ function function_ede90521()
 		}
 	#/
 	self playsound("zmb_bodypart_pickup");
-	level flag::clear(#"hash_a540a0cd7df9166");
+	level flag::clear(#"blood_hints");
 	self util::delayed_delete(0.1);
 }
 
@@ -246,22 +246,22 @@ function function_ede90521()
 */
 function private function_a5fa6428()
 {
-	level endon(#"end_game", #"hash_6ba951b37826e520");
+	level endon(#"end_game", #"vessel_found");
 	wait(2);
-	namespace_509a75d1::function_3c173d37();
-	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_33c988fee37ea6da", 0, 0, 1);
-	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_33c988fee37ea6da", 1, 0, 1);
+	zm_hms_util::function_3c173d37();
+	level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_33c988fee37ea6da", 0, 0, 1);
+	level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_33c988fee37ea6da", 1, 0, 1);
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold("" + level.var_d6513b72.script_noteworthy);
 				println("" + level.var_d6513b72.script_noteworthy);
 			}
 		}
 	#/
-	level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(level.var_d6513b72.script_noteworthy, -1, 0, 1);
+	level.var_60b08c24 thread zm_hms_util::function_6a0d675d(level.var_d6513b72.script_noteworthy, -1, 0, 1);
 	level.var_d6513b72.e_cover cover_think();
 	level.var_d6513b72 zm_unitrigger::create(&zm_orange_ee_dynamite::function_2a27ccb9, 64);
 	level.var_d6513b72 thread function_9c223c27();
@@ -278,7 +278,7 @@ function private function_a5fa6428()
 */
 function private cover_think()
 {
-	level endon(#"end_game", #"hash_6ba951b37826e520");
+	level endon(#"end_game", #"vessel_found");
 	self endon(#"death");
 	trigger = getent(self.target, "targetname");
 	while(true)
@@ -312,7 +312,7 @@ function private cover_think()
 */
 function private function_9c223c27()
 {
-	level endon(#"end_game", #"hash_6ba951b37826e520");
+	level endon(#"end_game", #"vessel_found");
 	self endon(#"death");
 	self.var_8ac20606 show();
 	self zm_orange_ee_dynamite::function_170afe2c(1);
@@ -320,12 +320,12 @@ function private function_9c223c27()
 	self.e_safe hide();
 	if(level.var_98138d6b > 1)
 	{
-		level.var_1c53964e namespace_509a75d1::function_6a0d675d(#"hash_497ec7e9ca9ca204", -1, 0, 1);
+		level.var_1c53964e zm_hms_util::function_6a0d675d(#"hash_497ec7e9ca9ca204", -1, 0, 1);
 	}
 	player = self zm_unitrigger::function_fac87205(zm_utility::function_d6046228(#"hash_3be823a04b5cca2d", #"hash_25cb84d1af883c53"), 64);
 	player thread zm_orange_util::function_51b752a9(#"hash_4323f85521955dd7");
 	self.var_8ac20606 hide();
 	self.var_8ac20606 playsound("zmb_vessel_pickup");
-	level flag::set(#"hash_6ba951b37826e520");
+	level flag::set(#"vessel_found");
 }
 

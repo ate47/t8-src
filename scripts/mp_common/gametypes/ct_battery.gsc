@@ -7,7 +7,7 @@
 #using scripts\mp_common\gametypes\ct_battery_tutorial.gsc;
 #using script_3819e7a1427df6d2;
 #using scripts\killstreaks\helicopter_shared.gsc;
-#using script_490759cf62a1abc8;
+#using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
@@ -84,9 +84,9 @@ function function_7c4ef26b(predictedspawn)
 		return;
 	}
 	setdvar(#"custom_killstreak_mode", 2);
-	setdvar(#"hash_26de0c20bc979e24", level.killstreakindices[#"uav"]);
-	setdvar(#"hash_26de0f20bc97a33d", level.killstreakindices[#"satellite"]);
-	setdvar(#"hash_26de0e20bc97a18a", level.killstreakindices[#"remote_missile"]);
+	setdvar(#"custom_killstreak1", level.killstreakindices[#"uav"]);
+	setdvar(#"custom_killstreak2", level.killstreakindices[#"satellite"]);
+	setdvar(#"custom_killstreak3", level.killstreakindices[#"remote_missile"]);
 	self thread ct_core::function_d2845186();
 	spawning::onspawnplayer(predictedspawn);
 	if(isbot(self))
@@ -182,7 +182,7 @@ function function_ba542258(mode)
 	{
 		self.var_71a70093 = level.var_1ecfe3a2;
 	}
-	self thread namespace_d82263d5::function_19181566();
+	self thread ct_gadgets::function_19181566();
 	self loadout::function_cdb86a18();
 	var_27875ecd = 180000;
 	self thread function_9270ab93(0, var_27875ecd);
@@ -215,8 +215,8 @@ function function_9270ab93(var_db89c655, var_27875ecd)
 	var_e7cc5e43[#"mp_silo"][1] = 60000;
 	var_e7cc5e43[#"mp_silo"][2] = 52000;
 	var_e7cc5e43[#"mp_silo"][3] = 45000;
-	var_b1cb18f1 = hash(getrootmapname());
-	ct_utils::function_7a21ac57(0, var_27875ecd, var_e7cc5e43[var_b1cb18f1][1], var_e7cc5e43[var_b1cb18f1][2], var_e7cc5e43[var_b1cb18f1][3]);
+	str_map = hash(getrootmapname());
+	ct_utils::function_7a21ac57(0, var_27875ecd, var_e7cc5e43[str_map][1], var_e7cc5e43[str_map][2], var_e7cc5e43[str_map][3]);
 }
 
 /*
@@ -233,7 +233,7 @@ function function_b89106ad(gamedifficulty)
 	level endon(#"combattraining_logic_finished");
 	level notify(#"hash_2a473e02881ca991");
 	level.usingscorestreaks = 0;
-	level.var_64ce2685 = 1;
+	level.disablescoreevents = 1;
 	level.disablemomentum = 1;
 	level.var_ebad4ea8 = gettime();
 	if(gamedifficulty == 0)
@@ -374,9 +374,9 @@ function spawn_attack_helicopter(str_targetname, str_team, b_guns = 1, b_missile
 	{
 		var_edf46d6e[#"attack_time"] = 5;
 	}
-	if(!isdefined(var_edf46d6e[#"hash_5ff2a429aff04484"]))
+	if(!isdefined(var_edf46d6e[#"attack_rest"]))
 	{
-		var_edf46d6e[#"hash_5ff2a429aff04484"] = 3;
+		var_edf46d6e[#"attack_rest"] = 3;
 	}
 	if(!isdefined(var_edf46d6e[#"shoot_spread"]))
 	{
@@ -392,7 +392,7 @@ function spawn_attack_helicopter(str_targetname, str_team, b_guns = 1, b_missile
 	}
 	chopper.var_6982e1d6 = var_edf46d6e[#"hash_340f1ead2b66b1e5"];
 	chopper.var_9d8645cf = var_edf46d6e[#"attack_time"];
-	chopper.var_847fac28 = var_edf46d6e[#"hash_5ff2a429aff04484"];
+	chopper.var_847fac28 = var_edf46d6e[#"attack_rest"];
 	chopper.n_shoot_spread = var_edf46d6e[#"shoot_spread"];
 	chopper.n_speed = var_edf46d6e[#"speed"];
 	chopper.n_accel = var_edf46d6e[#"accel"];
@@ -800,7 +800,7 @@ function function_560c5174(currentnode, startwait, hardpointtype)
 function function_ab637f96(waittime, var_f49cf7e0 = 0)
 {
 	self endon(#"death", #"crashing", #"evasive");
-	self endoncallback(&function_6b4ab31d, #"hash_2fb2657921c7de37", #"damage", #"hash_1ef47c427ec739d7");
+	self endoncallback(&function_6b4ab31d, #"chase_target", #"damage", #"hash_1ef47c427ec739d7");
 	self thread helicopter::heli_hover();
 	if(var_f49cf7e0 > 0)
 	{
@@ -827,7 +827,7 @@ function function_40c7d949(n_range = 2000)
 	{
 		if(isdefined(self.primarytarget) && distance2dsquared(self.origin, self.primarytarget.origin) > var_d6326c12)
 		{
-			self notify(#"hash_2fb2657921c7de37");
+			self notify(#"chase_target");
 		}
 	}
 }
@@ -1291,7 +1291,7 @@ function function_52d196f2(n_difficulty = 2)
 	e_player thread function_9be2d75f();
 	var_edf46d6e = [];
 	var_edf46d6e[#"hash_72de0eaa7f3c7619"] = var_a7b6c024[n_difficulty];
-	var_edf46d6e[#"hash_5ff2a429aff04484"] = var_89d9697a[n_difficulty];
+	var_edf46d6e[#"attack_rest"] = var_89d9697a[n_difficulty];
 	var_edf46d6e[#"shoot_spread"] = var_ed621a12[n_difficulty];
 	var_edf46d6e[#"speed"] = var_c52588b6[n_difficulty];
 	var_edf46d6e[#"accel"] = var_c005d40b[n_difficulty];
@@ -1430,7 +1430,7 @@ function wave_enemy_bot(var_764a1fa0)
 */
 function function_e12a129(v_target)
 {
-	self endon(#"hash_1c78823c90f5a58a");
+	self endon(#"multikill_reset");
 	if(!(isdefined(self.var_e2ca43cf) && self.var_e2ca43cf) && !isbot(self))
 	{
 		if(!isdefined(self.n_multikill))
@@ -1463,7 +1463,7 @@ function function_e12a129(v_target)
 */
 function function_f75c4ec2(v_target)
 {
-	self notify(#"hash_1c78823c90f5a58a");
+	self notify(#"multikill_reset");
 	if(isdefined(v_target))
 	{
 		level.var_d2193160.origin = v_target + vectorscale((0, 0, 1), 48);

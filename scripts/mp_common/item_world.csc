@@ -255,10 +255,10 @@ function function_2990e5f(localclientnum, model)
 	{
 		return;
 	}
-	if(isdefined(model.var_f7fa2943))
+	if(isdefined(model.modelfx))
 	{
-		stopfx(localclientnum, model.var_f7fa2943);
-		model.var_f7fa2943 = undefined;
+		stopfx(localclientnum, model.modelfx);
+		model.modelfx = undefined;
 	}
 }
 
@@ -332,7 +332,7 @@ function private function_c17fe536(localclientnum, clientdata, var_bd027dd9)
 	if(!isdefined(model) && isdefined(var_bd027dd9) && namespace_ad5a0cd6::function_2c7fc531(var_bd027dd9))
 	{
 		model = function_b1702735(var_bd027dd9);
-		if(model.var_8e092725 !== -1)
+		if(model.hidetime !== -1)
 		{
 			model = undefined;
 		}
@@ -394,7 +394,7 @@ function private function_61f5d33a(localclientnum, clientdata, var_bd027dd9)
 	if(!isdefined(model) && namespace_ad5a0cd6::function_2c7fc531(var_bd027dd9))
 	{
 		model = function_b1702735(var_bd027dd9);
-		if(model.var_8e092725 !== -1)
+		if(model.hidetime !== -1)
 		{
 			model = undefined;
 		}
@@ -414,12 +414,12 @@ function private function_61f5d33a(localclientnum, clientdata, var_bd027dd9)
 function private function_237888bb(localclientnum)
 {
 	/#
-		if(getdvarint(#"hash_1a8554bdb48b95b9", 0))
+		if(getdvarint(#"scr_looter", 0))
 		{
 			return true;
 		}
 	#/
-	if(self hasperk(localclientnum, #"hash_5321e235b64bb84d"))
+	if(self hasperk(localclientnum, #"specialty_looter"))
 	{
 		return true;
 	}
@@ -551,7 +551,7 @@ function private function_78bf134c(localclientnum, clientdata, var_bd027dd9, mod
 		}
 	}
 	model.var_2584a90d = var_8ad7f92f;
-	if(isdefined(var_a6762160) && isdefined(var_a6762160.worldfx) && !isdefined(model.var_f7fa2943) && !model ishidden())
+	if(isdefined(var_a6762160) && isdefined(var_a6762160.worldfx) && !isdefined(model.modelfx) && !model ishidden())
 	{
 		loc_00002382:
 		loc_000023A2:
@@ -565,7 +565,7 @@ function private function_78bf134c(localclientnum, clientdata, var_bd027dd9, mod
 		angles = combineangles(model.angles, ((isdefined(var_a6762160.var_15b88fde) ? var_a6762160.var_15b88fde : 0), (isdefined(var_a6762160.var_8c9a7dc8) ? var_a6762160.var_8c9a7dc8 : 0), (isdefined(var_a6762160.var_7a51d937) ? var_a6762160.var_7a51d937 : 0)));
 		forward = anglestoforward(angles);
 		up = anglestoup(angles);
-		model.var_f7fa2943 = playfx(localclientnum, var_a6762160.worldfx, model.origin + originoffset, forward, up);
+		model.modelfx = playfx(localclientnum, var_a6762160.worldfx, model.origin + originoffset, forward, up);
 	}
 }
 
@@ -631,7 +631,7 @@ function private _draw(localclientnum, draworigin)
 	var_13e4be37 = [];
 	foreach(dynamicitem in var_6665e24)
 	{
-		if(isdefined(dynamicitem) && dynamicitem.var_8e092725 !== -1)
+		if(isdefined(dynamicitem) && dynamicitem.hidetime !== -1)
 		{
 			var_13e4be37[var_13e4be37.size] = dynamicitem;
 		}
@@ -1114,9 +1114,9 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 		}
 		case 14:
 		{
-			var_7b9b4259 = eventdata;
+			vehicleentnum = eventdata;
 			var_2ccf7a1c = var_c5a66313;
-			function_d2f95c1a(localclientnum, var_7b9b4259, var_2ccf7a1c);
+			function_d2f95c1a(localclientnum, vehicleentnum, var_2ccf7a1c);
 			break;
 		}
 		default:
@@ -1209,9 +1209,9 @@ function private function_4e9220ab(localclientnum, oldval, newval, bnewent, bini
 		{
 			clientdata.var_ffc1c0e1[var_bd027dd9].servertime = 0;
 		}
-		foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
+		foreach(vehicleentnum, serverinfo in clientdata.var_baf65690)
 		{
-			clientdata.var_baf65690[var_7b9b4259].servertime = 0;
+			clientdata.var_baf65690[vehicleentnum].servertime = 0;
 		}
 		if(issplitscreenhost(localclientnum))
 		{
@@ -1333,7 +1333,7 @@ function private function_192b39cd(localclientnum)
 {
 	if(self function_da43934d())
 	{
-		var_db6db8ba = self hasperk(localclientnum, #"hash_5321e235b64bb84d");
+		var_db6db8ba = self hasperk(localclientnum, #"specialty_looter");
 		var_de744098 = self.var_db6db8ba !== var_db6db8ba;
 		if(var_de744098)
 		{
@@ -1537,13 +1537,13 @@ function private function_5cbe24ea(dest, source, order)
 		}
 		items[itemname] = undefined;
 	}
-	foreach(var_d27015ab in items)
+	foreach(itemarray in items)
 	{
-		if(!isdefined(var_d27015ab))
+		if(!isdefined(itemarray))
 		{
 			continue;
 		}
-		foreach(item in var_d27015ab)
+		foreach(item in itemarray)
 		{
 			if(!isdefined(item))
 			{
@@ -1576,7 +1576,7 @@ function private function_43d3ebe1(items)
 	sorted = [];
 	itemtypes = [];
 	stash = namespace_ad5a0cd6::function_31f5aa51(items[0]);
-	var_e30063d2 = isdefined(stash) && (isdefined(stash.var_1ed4b650) && stash.var_1ed4b650);
+	var_e30063d2 = isdefined(stash) && (isdefined(stash.lootlocker) && stash.lootlocker);
 	if(var_e30063d2)
 	{
 		lootweapons = self namespace_a0d533d1::get_loot_weapons();
@@ -1852,7 +1852,7 @@ function private function_b0af857f(localclientnum)
 							}
 							if(isdefined(self.var_9b882d22))
 							{
-								self.var_9b882d22.var_5d97fed1 = self.var_9b882d22.var_8e092725 === -1;
+								self.var_9b882d22.var_5d97fed1 = self.var_9b882d22.hidetime === -1;
 							}
 						}
 					}
@@ -1865,7 +1865,7 @@ function private function_b0af857f(localclientnum)
 						if(self namespace_ad5a0cd6::can_pick_up(item))
 						{
 							self.var_9b882d22 = item;
-							self.var_9b882d22.var_5d97fed1 = self.var_9b882d22.var_8e092725 === -1;
+							self.var_9b882d22.var_5d97fed1 = self.var_9b882d22.hidetime === -1;
 							break;
 						}
 					}
@@ -2084,12 +2084,12 @@ function private function_48ec057f(localclientnum)
 	}
 	clientdata.var_ffc1c0e1 = var_bea3e246;
 	var_bf2d48f6 = [];
-	foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
+	foreach(vehicleentnum, serverinfo in clientdata.var_baf65690)
 	{
-		vehicle = getentbynum(localclientnum, var_7b9b4259);
+		vehicle = getentbynum(localclientnum, vehicleentnum);
 		if(isdefined(vehicle) && serverinfo.servertime >= var_f1530a67 && !function_97980fde(localclientnum, vehicle))
 		{
-			var_bf2d48f6[var_7b9b4259] = serverinfo;
+			var_bf2d48f6[vehicleentnum] = serverinfo;
 			function_3bd99d2f(localclientnum, clientdata, vehicle);
 			continue;
 		}
@@ -2480,11 +2480,11 @@ function private function_1b42632a(localclientnum, clientdata, var_2ccf7a1c)
 	}
 	var_cd3b74d6 = undefined;
 	var_e7349b30 = undefined;
-	foreach(var_7b9b4259, serverinfo in clientdata.var_baf65690)
+	foreach(vehicleentnum, serverinfo in clientdata.var_baf65690)
 	{
 		if(serverinfo.var_2ccf7a1c == var_2ccf7a1c)
 		{
-			var_cd3b74d6 = var_7b9b4259;
+			var_cd3b74d6 = vehicleentnum;
 			var_e7349b30 = serverinfo;
 			break;
 		}
@@ -2531,13 +2531,13 @@ function function_347698a5(localclientnum, var_bd027dd9, var_2ccf7a1c)
 	Parameters: 3
 	Flags: Linked
 */
-function function_d2f95c1a(localclientnum, var_7b9b4259, var_2ccf7a1c)
+function function_d2f95c1a(localclientnum, vehicleentnum, var_2ccf7a1c)
 {
 	clientdata = function_a7e98a1a(localclientnum);
 	function_1b42632a(localclientnum, clientdata, var_2ccf7a1c);
 	endtime = getservertime(localclientnum, 1) + 60000;
-	clientdata.var_baf65690[var_7b9b4259] = {#hash_2ccf7a1c:var_2ccf7a1c, #servertime:endtime};
-	vehicle = getentbynum(localclientnum, var_7b9b4259);
+	clientdata.var_baf65690[vehicleentnum] = {#hash_2ccf7a1c:var_2ccf7a1c, #servertime:endtime};
+	vehicle = getentbynum(localclientnum, vehicleentnum);
 	function_d223645e(localclientnum, vehicle);
 }
 
@@ -2649,7 +2649,7 @@ function function_a4886b1e(localclientnum, var_bd027dd9, model)
 	draworigin = function_8cf40a8c(localclientnum);
 	maxdist = getdvarfloat(#"hash_2cd1a08f81049564", function_963d3f6e());
 	clientdata = function_a7e98a1a(localclientnum);
-	if(isdefined(model.var_5d97fed1) && model.var_5d97fed1 || model.var_8e092725 === -1)
+	if(isdefined(model.var_5d97fed1) && model.var_5d97fed1 || model.hidetime === -1)
 	{
 		stash = function_c17fe536(localclientnum, clientdata, var_bd027dd9);
 		function_78bf134c(localclientnum, clientdata, var_bd027dd9, stash);
@@ -2859,7 +2859,7 @@ function function_2e3efdda(origin, dir, var_4e7bdb02, maxdistance, dot, var_653b
 		stashitems = [];
 		for(index = 0; index < var_f4b807cb.size; index++)
 		{
-			if(var_f4b807cb[index].var_8e092725 === -1)
+			if(var_f4b807cb[index].hidetime === -1)
 			{
 				stashitems[stashitems.size] = var_f4b807cb[index];
 			}
@@ -2916,7 +2916,7 @@ function function_222205a3(localclientnum, var_bd027dd9)
 				{
 					if(isstruct(item))
 					{
-						item.var_8e092725 = gettime();
+						item.hidetime = gettime();
 					}
 					break;
 				}

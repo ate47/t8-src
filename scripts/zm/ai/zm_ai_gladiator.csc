@@ -38,8 +38,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level._effect[#"hash_3a97fe5c4d642a3b"] = "zm_ai/fx8_destroyer_axe_trail";
-	level._effect[#"hash_19ff54614b2ce89"] = "zm_ai/fx8_destroyer_arm_spurt";
+	level._effect[#"fx8_destroyer_axe_trail"] = "zm_ai/fx8_destroyer_axe_trail";
+	level._effect[#"fx8_destroyer_arm_spurt"] = "zm_ai/fx8_destroyer_arm_spurt";
 	footsteps::registeraitypefootstepcb(#"gladiator", &function_918ce680);
 	clientfield::register("toplayer", "gladiator_melee_effect", 1, 1, "counter", &function_5dae94f, 0, 0);
 	clientfield::register("actor", "gladiator_arm_effect", 1, 2, "int", &function_f5a07d57, 0, 0);
@@ -123,11 +123,11 @@ function private function_f5a07d57(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval == 1)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_19ff54614b2ce89"], self, "j_shouldertwist_le");
+		util::playfxontag(localclientnum, level._effect[#"fx8_destroyer_arm_spurt"], self, "j_shouldertwist_le");
 	}
 	else if(newval == 2)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_19ff54614b2ce89"], self, "tag_shoulder_ri_fx");
+		util::playfxontag(localclientnum, level._effect[#"fx8_destroyer_arm_spurt"], self, "tag_shoulder_ri_fx");
 	}
 }
 
@@ -144,7 +144,7 @@ function private function_49fab171(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval)
 	{
-		self.var_c047d899 = util::playfxontag(localclientnum, level._effect[#"hash_3a97fe5c4d642a3b"], self, "tag_origin");
+		self.var_c047d899 = util::playfxontag(localclientnum, level._effect[#"fx8_destroyer_axe_trail"], self, "tag_origin");
 	}
 	else if(isdefined(self.var_c047d899))
 	{

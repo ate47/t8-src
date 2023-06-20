@@ -17,7 +17,7 @@
 #using scripts\zm\zm_mansion_silver_bullet.csc;
 #using script_6c494cd6189bb8dc;
 #using script_74f5ae6ffc8bd614;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using script_7ef002db7fb88ad0;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -67,11 +67,11 @@ event main(eventstruct)
 	clientfield::register("vehicle", "" + #"hash_602ae5683c010563", 8000, 1, "int", &function_94cf8d37, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_4bd91c5285da0899", 8000, 1, "counter", &function_cb417790, 0, 0);
 	clientfield::register("scriptmover", "" + #"soul_fx", 8000, 1, "int", &mansion_pap::soul_release, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_60051e21f8eb4af", 8000, 1, "int", &function_39b69f3f, 0, 0);
+	clientfield::register("scriptmover", "" + #"stone_pickup", 8000, 1, "int", &function_39b69f3f, 0, 0);
 	clientfield::register("actor", "" + #"clock_zombie", 8000, 1, "int", &clock_zombie_fx, 0, 0);
-	clientfield::register("actor", "" + #"hash_1d0080ad80fd0913", 8000, 1, "int", &function_8048af7e, 0, 0);
+	clientfield::register("actor", "" + #"wisp_kill", 8000, 1, "int", &function_8048af7e, 0, 0);
 	clientfield::register("scriptmover", "" + #"blocker_fx", 8000, 1, "int", &function_328d64bd, 0, 0);
-	clientfield::register("item", "" + #"hash_524ec892754aeb34", 8000, 1, "int", &function_d86e0cb2, 0, 0);
+	clientfield::register("item", "" + #"ww_pickup_part", 8000, 1, "int", &function_d86e0cb2, 0, 0);
 	clientfield::register("item", "" + #"hash_35ce4034ca7e543c", 8000, 3, "int", &function_46bf4199, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_487e544e29aa8e45", 8000, 1, "int", &function_97aef6ef, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_65180cdab951d111", 8000, getminbitcountfornum(3), "int", &function_be42dd6a, 0, 0);
@@ -92,8 +92,8 @@ event main(eventstruct)
 	level._effect[#"clock_zombie_ri"] = #"hash_5a7915d0f515ed36";
 	level._effect[#"clock_zombie_eye"] = #"hash_482a9c9681f3db75";
 	level._effect[#"wisp_impact"] = #"zm_weapons/fx8_equip_mltv_fire_human_torso_loop_zm";
-	level._effect[#"hash_60051e21f8eb4af"] = #"zombie/fx8_wallbuy_reveal";
-	level._effect[#"hash_3bae53461accaa0b"] = #"hash_425c28d5fded81f2";
+	level._effect[#"stone_pickup"] = #"zombie/fx8_wallbuy_reveal";
+	level._effect[#"zone_lockdown"] = #"hash_425c28d5fded81f2";
 	level._effect[#"hash_1a4566b6595544b4"] = #"hash_5b773dbbac0012ff";
 	level._effect[#"hash_1a46c58a5032bb15"] = #"zombie/fx_ritual_barrier_defend_door_wide_zod_zmb";
 	level._effect[#"ww_pickup"] = #"hash_4b275679ef930b50";
@@ -114,7 +114,7 @@ event main(eventstruct)
 	level._effect[#"hash_8f58d28b0b40b2d"] = #"hash_18d057b947ae0c00";
 	level._effect[#"hash_36f6dd55e72db9a6"] = #"hash_59dbd1f9476a0415";
 	level._effect[#"hash_487e544e29aa8e45"] = #"hash_7ad8856e251bee77";
-	level._effect[#"hash_581c81003eac976f"] = #"hash_3def678deb7f4078";
+	level._effect[#"artifact_aura"] = #"hash_3def678deb7f4078";
 	level._effect[#"artifact_activate"] = #"hash_464f27bfbf0ce7bf";
 	level._effect[#"artifact_glow"] = #"hash_41b2c270f26faabc";
 	level._effect[#"hash_6b03597da0a3c2ae"] = #"hash_43b3118edb88df8c";
@@ -300,7 +300,7 @@ function private function_33593a44(localclientnum, var_312d65d1, var_68f7ce2e, n
 */
 function function_8f945669(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	util::playfxontag(localclientnum, level._effect[#"hash_3bae53461accaa0b"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"zone_lockdown"], self, "tag_origin");
 }
 
 /*
@@ -369,7 +369,7 @@ function function_39b69f3f(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_60051e21f8eb4af"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"stone_pickup"], self, "tag_origin");
 	}
 }
 
@@ -703,7 +703,7 @@ function function_be42dd6a(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval == 1)
 	{
-		self.var_2ea06178 = util::playfxontag(localclientnum, level._effect[#"hash_581c81003eac976f"], self, "tag_fx_x_pos");
+		self.var_2ea06178 = util::playfxontag(localclientnum, level._effect[#"artifact_aura"], self, "tag_fx_x_pos");
 		self playrenderoverridebundle(#"hash_8cb3b94ffea62fe");
 		self.var_b3673abf = self playloopsound(#"hash_66df9cab2c64f968");
 	}

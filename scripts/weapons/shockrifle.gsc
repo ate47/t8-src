@@ -334,7 +334,7 @@ function function_33020ed7(ent)
 */
 function function_c23ed15d(ent, var_3ee2edfa)
 {
-	if(isdefined(ent.var_21f48975) && (ent.var_21f48975 + var_3ee2edfa) + (int((isdefined(level.var_a5ff950.var_80cecde8) ? level.var_a5ff950.var_80cecde8 : 0) * 1000)) > gettime())
+	if(isdefined(ent.hittime) && (ent.hittime + var_3ee2edfa) + (int((isdefined(level.var_a5ff950.var_80cecde8) ? level.var_a5ff950.var_80cecde8 : 0) * 1000)) > gettime())
 	{
 		return true;
 	}
@@ -436,7 +436,7 @@ function function_3474c820()
 */
 function function_5439aa67(shockcharge)
 {
-	self endon(#"death", #"hash_171a421886825497");
+	self endon(#"death", #"shock_end");
 	while(isdefined(self))
 	{
 		if(self isplayerswimming())
@@ -483,7 +483,7 @@ function function_c80bac1f(shockcharge, var_51415470, var_3ee2edfa)
 {
 	self endon(#"death");
 	self ability_player::function_fc4dc54(1);
-	self.var_21f48975 = gettime();
+	self.hittime = gettime();
 	owner = shockcharge.owner;
 	damagepos = shockcharge.origin;
 	var_40aed931 = 0;
@@ -497,14 +497,14 @@ function function_c80bac1f(shockcharge, var_51415470, var_3ee2edfa)
 		self thread function_5439aa67(shockcharge);
 		self freezecontrolsallowlook(1);
 	}
-	var_fdc63b5e = getweapon(#"hash_740692024876c999");
+	shocked_hands = getweapon(#"shocked_hands");
 	var_cb36e12 = getweapon(#"hash_19abd3767bd1566d");
-	self giveweapon(var_fdc63b5e);
-	self switchtoweaponimmediate(var_fdc63b5e, 1);
+	self giveweapon(shocked_hands);
+	self switchtoweaponimmediate(shocked_hands, 1);
 	prevstance = self getstance();
 	self setstance("crouch");
 	self disableweaponcycling();
-	firstraisetime = (isdefined(var_fdc63b5e.firstraisetime) ? var_fdc63b5e.firstraisetime : 1);
+	firstraisetime = (isdefined(shocked_hands.firstraisetime) ? shocked_hands.firstraisetime : 1);
 	wait(firstraisetime);
 	self allowcrouch(1);
 	self allowprone(0);
@@ -544,13 +544,13 @@ function function_c80bac1f(shockcharge, var_51415470, var_3ee2edfa)
 	}
 	self enableweaponcycling();
 	self takeweapon(var_cb36e12);
-	self takeweapon(var_fdc63b5e);
+	self takeweapon(shocked_hands);
 	self killstreaks::switch_to_last_non_killstreak_weapon(1, 0, 0);
 	self waittill(#"weapon_change");
 	self setstance(prevstance);
 	self allowprone(1);
 	self allowstand(1);
-	self notify(#"hash_171a421886825497");
+	self notify(#"shock_end");
 }
 
 /*

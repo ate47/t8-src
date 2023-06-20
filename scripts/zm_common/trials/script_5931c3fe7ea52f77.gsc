@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_7319a6081ff47958", &on_begin, &on_end);
+	zm_trial::register_challenge(#"population_control", &on_begin, &on_end);
 }
 
 /*

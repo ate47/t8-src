@@ -20,7 +20,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_29ee595d6bf61bf4", &__init__, undefined, undefined);
+	system::register(#"team_assignment", &__init__, undefined, undefined);
 }
 
 /*
@@ -527,9 +527,9 @@ function function_d22a4fbb(comingfrommenu, var_4c542e39)
 		}
 		else
 		{
-			if(isdefined(level.var_34e67a68) && !isbot(self))
+			if(isdefined(level.forcedplayerteam) && !isbot(self))
 			{
-				assignment = level.var_34e67a68;
+				assignment = level.forcedplayerteam;
 			}
 			else
 			{

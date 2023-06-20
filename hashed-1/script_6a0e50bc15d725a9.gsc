@@ -39,7 +39,7 @@ function __init__()
 	level.var_4e845c84 = getweapon(#"hash_185abc5c82e9d849");
 	level.var_22a393d4 = [];
 	clientfield::register("allplayers", "" + #"hash_184a34e85c29399f", 1, 1, "int", &function_b7608e70, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_3538d219b7eb5ba0", 1, 1, "int", &function_98ff6333, 0, 0);
+	clientfield::register("toplayer", "" + #"afterlife_window", 1, 1, "int", &afterlife_window, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_3c8cd47650fbb324", 1, 2, "int", &function_a694da18, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_e9b9b677ff2b8e2", 1, 1, "int", &function_e943883, 0, 1);
 	clientfield::register("allplayers", "" + #"hash_1efc6bf68f09d02c", 1, 2, "int", &function_f9a03171, 0, 0);
@@ -70,10 +70,10 @@ function __init__()
 	level._effect[#"hash_28b1c64bd72686eb"] = #"hash_5e46c3cecd080eeb";
 	level._effect[#"hash_a64dd624f3d5eff"] = #"hash_3a4825045da5aa1f";
 	level._effect[#"hash_a5ef1624f39154d"] = #"hash_3a4139045d9fad6d";
-	level._effect[#"hash_568709b6dd3a62e2"] = #"hash_70630dd76a790b4";
+	level._effect[#"air_blast"] = #"hash_70630dd76a790b4";
 	level._effect[#"hash_3757ad652a2b0e54"] = #"hash_382d55804b58cfcb";
-	level._effect[#"hash_4c48b3d3cd5aca57"] = #"hash_1e261e7fd620ac9e";
-	level._effect[#"hash_1bd80166d9e218c4"] = #"zombie/fx_bgb_near_death_3p";
+	level._effect[#"shield_crafting"] = #"hash_1e261e7fd620ac9e";
+	level._effect[#"spectral_heal"] = #"zombie/fx_bgb_near_death_3p";
 }
 
 /*
@@ -116,7 +116,7 @@ function function_b7608e70(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		if(self getlocalclientnumber() === localclientnum)
 		{
-			if(!isdemoplaying() && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+			if(!isdemoplaying() && !namespace_a6aea2c6::is_active(#"silent_film"))
 			{
 				self thread postfx::playpostfxbundle(#"hash_529f2ffb7f62ca50");
 				a_e_players = getlocalplayers();
@@ -209,7 +209,7 @@ function private function_85e7adcf(localclientnum)
 }
 
 /*
-	Name: function_98ff6333
+	Name: afterlife_window
 	Namespace: namespace_b4a066ff
 	Checksum: 0xF4814573
 	Offset: 0x1300
@@ -217,7 +217,7 @@ function private function_85e7adcf(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_98ff6333(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function afterlife_window(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{
@@ -260,7 +260,7 @@ function function_a694da18(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else if(newval == 2)
 	{
-		self notify(#"hash_60940765153fcb7d");
+		self notify(#"set_grabbed");
 		self.b_seen = undefined;
 		self.var_ffeecdb6 = undefined;
 		self playrenderoverridebundle("rob_skull_grab");
@@ -279,7 +279,7 @@ function function_a694da18(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_f66111c5(localclientnum)
 {
-	self endon(#"death", #"hash_60940765153fcb7d");
+	self endon(#"death", #"set_grabbed");
 	self playrenderoverridebundle("rob_spectral_vision");
 	self show();
 }
@@ -295,7 +295,7 @@ function function_f66111c5(localclientnum)
 */
 function function_5681824(localclientnum)
 {
-	self endon(#"death", #"hash_60940765153fcb7d");
+	self endon(#"death", #"set_grabbed");
 	self stoprenderoverridebundle("rob_spectral_vision");
 }
 
@@ -618,7 +618,7 @@ function function_3f83a22f(localclientnum, oldval, newval, bnewent, binitialsnap
 		if(!(isdefined(self.var_5427d523) && self.var_5427d523))
 		{
 			self.var_5427d523 = 1;
-			self.var_aa9e07fe[localclientnum] = util::playfxontag(localclientnum, level._effect[#"hash_1bd80166d9e218c4"], self, "j_spine4");
+			self.var_aa9e07fe[localclientnum] = util::playfxontag(localclientnum, level._effect[#"spectral_heal"], self, "j_spine4");
 			fxhandle = self.var_aa9e07fe[localclientnum];
 			wait(0.5);
 			if(isdefined(fxhandle))
@@ -1007,7 +1007,7 @@ function function_6b58c030(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		self.var_3e85852d[localclientnum] = util::playfxontag(localclientnum, level._effect[#"hash_4a3bdc484e2c021c"], self, "tag_body_window");
 	}
-	util::playfxontag(localclientnum, level._effect[#"hash_568709b6dd3a62e2"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"air_blast"], self, "tag_origin");
 	var_d58aab0e = util::spawn_model(localclientnum, "tag_origin", self gettagorigin("tag_flash_window"), self gettagangles("tag_flash_window"));
 	var_d58aab0e linkto(self, "tag_flash_window");
 	var_d58aab0e scene::play(#"p8_fxanim_zm_esc_blast_afterlife_bundle");
@@ -1059,6 +1059,6 @@ function function_98890cd8(w_current, var_94c10bbd = 0)
 */
 function function_107af28d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	util::playfxontag(localclientnum, level._effect[#"hash_4c48b3d3cd5aca57"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"shield_crafting"], self, "tag_origin");
 }
 

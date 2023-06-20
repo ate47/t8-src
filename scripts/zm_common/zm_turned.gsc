@@ -28,7 +28,7 @@
 */
 function init()
 {
-	dvar = util::function_5df4294();
+	dvar = util::get_game_type();
 	if(dvar == "zcleansed")
 	{
 		level.weaponzmturnedmelee = getweapon(#"zombiemelee");

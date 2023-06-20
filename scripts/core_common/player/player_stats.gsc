@@ -53,7 +53,7 @@ function function_f94325d3()
 	}
 	if(sessionmodeiswarzonegame())
 	{
-		if(getdvarint(#"hash_11facc157381a65b", 0) == 1)
+		if(getdvarint(#"scr_disable_merits", 0) == 1)
 		{
 			return false;
 		}
@@ -61,7 +61,7 @@ function function_f94325d3()
 		{
 			return false;
 		}
-		if(!isdedicated() && getdvarint(#"hash_21fad94371b1fb98", 0) == 0)
+		if(!isdedicated() && getdvarint(#"wz_stat_testing", 0) == 0)
 		{
 			return false;
 		}
@@ -388,13 +388,13 @@ function function_62b271d8(statname, value)
 		{
 			continue;
 		}
-		var_7606c13d = get_stat(#"afteractionreportstats", #"hash_57b65eb93c6dfe20");
-		if(!isdefined(var_7606c13d))
+		teammatecount = get_stat(#"afteractionreportstats", #"teammatecount");
+		if(!isdefined(teammatecount))
 		{
 			return;
 		}
 		playerxuid = int(self getxuid(1));
-		for(i = 0; i < var_7606c13d; i++)
+		for(i = 0; i < teammatecount; i++)
 		{
 			var_bd8d01a8 = player get_stat(#"afteractionreportstats", #"teammates", i, #"xuid");
 			if(var_bd8d01a8 === playerxuid)
@@ -424,13 +424,13 @@ function function_b7f80d87(statname, value)
 		{
 			continue;
 		}
-		var_7606c13d = get_stat(#"afteractionreportstats", #"hash_57b65eb93c6dfe20");
-		if(!isdefined(var_7606c13d))
+		teammatecount = get_stat(#"afteractionreportstats", #"teammatecount");
+		if(!isdefined(teammatecount))
 		{
 			return;
 		}
 		playerxuid = int(self getxuid(1));
-		for(i = 0; i < var_7606c13d; i++)
+		for(i = 0; i < teammatecount; i++)
 		{
 			var_bd8d01a8 = player get_stat(#"afteractionreportstats", #"teammates", i, #"xuid");
 			if(var_bd8d01a8 === playerxuid)
@@ -459,8 +459,8 @@ function function_81f5c0fe(statname, value)
 	}
 	gametype = level.var_12323003;
 	map = util::get_map_name();
-	var_96e39f1 = (isarenamode() ? #"hash_2935ab25a7444ebf" : #"mapstats");
-	return self inc_stat(var_96e39f1, map, #"permode", gametype, statname, value);
+	mapstats = (isarenamode() ? #"mapstatsarena" : #"mapstats");
+	return self inc_stat(mapstats, map, #"permode", gametype, statname, value);
 }
 
 /*
@@ -508,7 +508,7 @@ function get_stat_global(statname, var_b6d36336 = 0)
 }
 
 /*
-	Name: function_efbbc38f
+	Name: set_stat_challenge
 	Namespace: stats
 	Checksum: 0x774C9E55
 	Offset: 0x11E8
@@ -516,7 +516,7 @@ function get_stat_global(statname, var_b6d36336 = 0)
 	Parameters: 2
 	Flags: Linked
 */
-function function_efbbc38f(statname, value)
+function set_stat_challenge(statname, value)
 {
 	if(!function_f94325d3())
 	{

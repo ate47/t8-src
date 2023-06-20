@@ -1239,10 +1239,10 @@ function private function_270b3dee(entity)
 	if(isactor(entity) && isdefined(entity.favoriteenemy))
 	{
 		start_location = entity gettagorigin("tag_tongue_3");
-		var_85e6dc61 = entity.favoriteenemy getcentroid();
+		target_location = entity.favoriteenemy getcentroid();
 		if(isdefined(start_location))
 		{
-			function_91582c6(entity, start_location, var_85e6dc61);
+			function_91582c6(entity, start_location, target_location);
 		}
 	}
 }
@@ -1256,7 +1256,7 @@ function private function_270b3dee(entity)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_91582c6(entity, start_location, var_85e6dc61)
+function private function_91582c6(entity, start_location, target_location)
 {
 	weapon_name = "white_nova_crawler_projectile";
 	if(isdefined(entity.var_9fde8624) && entity.var_9fde8624 == #"blue_nova_crawler")
@@ -1264,7 +1264,7 @@ function private function_91582c6(entity, start_location, var_85e6dc61)
 		weapon_name = "blue_nova_crawler_projectile";
 	}
 	projectile_weapon = getweapon(weapon_name);
-	projectile = magicbullet(projectile_weapon, start_location, var_85e6dc61, entity, entity.favoriteenemy);
+	projectile = magicbullet(projectile_weapon, start_location, target_location, entity, entity.favoriteenemy);
 }
 
 /*
@@ -1730,11 +1730,11 @@ function shoot_spore(spore, target)
 	spore endon(#"death");
 	start_location = self gettagorigin("j_spine4");
 	target_velocity = target getvelocity();
-	var_85e6dc61 = target getcentroid() + (target_velocity * 0.5);
+	target_location = target getcentroid() + (target_velocity * 0.5);
 	spore.origin = start_location;
 	wait(0.1);
 	spore clientfield::set("white_nova_crawler_spore_clientfield", 1);
-	spore moveto(var_85e6dc61, 0.5);
+	spore moveto(target_location, 0.5);
 	spore waittill(#"movedone");
 	if(isdefined(target) && isalive(target))
 	{

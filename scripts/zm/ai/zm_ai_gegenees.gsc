@@ -83,7 +83,7 @@ function __init__()
 		{
 			level thread function_c03e8d05();
 		}
-		spawner::add_archetype_spawn_function(#"gegenees", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"gegenees", &zombie_utility::updateanimationrate);
 	#/
 }
 
@@ -208,9 +208,9 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_471802b111fa1af0", &function_47fdaf31);
 	/#
-		assert(isscriptfunctionptr(&function_ebf730ee));
+		assert(isscriptfunctionptr(&gegeneesstunstart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_3e737f26ad26044", &function_ebf730ee);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"gegeneesstunstart", &gegeneesstunstart);
 	/#
 		assert(isscriptfunctionptr(&function_3839537e));
 	#/
@@ -404,9 +404,9 @@ function function_7fe60e9e(entity)
 	targetpos = targetpos + vectorscale((0, 0, 1), 36);
 	var_872c6826 = vectortoangles(targetpos - launchpos);
 	angles = function_cc68801f(launchpos, targetpos, 1110, getdvarfloat(#"bg_lowgravity", 0));
-	if(isdefined(angles) && angles[#"hash_1d5798eaa3bed36c"] > 0)
+	if(isdefined(angles) && angles[#"lowangle"] > 0)
 	{
-		dir = anglestoforward((-1 * angles[#"hash_1d5798eaa3bed36c"], var_872c6826[1], var_872c6826[2]));
+		dir = anglestoforward((-1 * angles[#"lowangle"], var_872c6826[1], var_872c6826[2]));
 	}
 	else
 	{
@@ -642,7 +642,7 @@ function private function_47fdaf31(entity)
 }
 
 /*
-	Name: function_ebf730ee
+	Name: gegeneesstunstart
 	Namespace: zm_ai_gegenees
 	Checksum: 0xD3DF58C0
 	Offset: 0x2318
@@ -650,10 +650,10 @@ function private function_47fdaf31(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ebf730ee(entity)
+function private gegeneesstunstart(entity)
 {
 	entity function_d06af584();
-	zm_behavior::function_bdedea72(entity);
+	zm_behavior::zombiestunstart(entity);
 }
 
 /*
@@ -970,7 +970,7 @@ function private gegeneestargetservice(entity)
 		var_eee191fa = 1;
 		if(isdefined(entity.zombie_poi[1].var_8305fd51))
 		{
-			if(entity.zombie_poi[1].var_8305fd51 == #"hash_27e4878539bc7f72" || entity.zombie_poi[1].var_8305fd51 == #"charon_pool")
+			if(entity.zombie_poi[1].var_8305fd51 == #"thunderstorm" || entity.zombie_poi[1].var_8305fd51 == #"charon_pool")
 			{
 				var_eee191fa = 0;
 				entity.zombie_poi = undefined;
@@ -1104,10 +1104,10 @@ function private function_3d752709(enemy, target)
 	{
 		return false;
 	}
-	var_f2fb414f = anglestoforward(target.angles);
-	var_9349139f = enemy.origin - target.origin;
-	var_3e3c8075 = (var_9349139f[0], var_9349139f[1], 0);
-	var_c2ee8451 = (var_f2fb414f[0], var_f2fb414f[1], 0);
+	facingvec = anglestoforward(target.angles);
+	enemyvec = enemy.origin - target.origin;
+	var_3e3c8075 = (enemyvec[0], enemyvec[1], 0);
+	var_c2ee8451 = (facingvec[0], facingvec[1], 0);
 	var_3e3c8075 = vectornormalize(var_3e3c8075);
 	var_c2ee8451 = vectornormalize(var_c2ee8451);
 	var_34e02165 = vectordot(var_c2ee8451, var_3e3c8075);
@@ -1222,9 +1222,9 @@ function private function_376a5549(enemy)
 {
 	forward = anglestoforward(self.angles);
 	velocity = enemy getvelocity();
-	var_886d7387 = 500;
-	var_886d7387 = 200 + (randomint(var_886d7387 - 200));
-	enemy setvelocity(velocity + (forward * var_886d7387));
+	push_strength = 500;
+	push_strength = 200 + (randomint(push_strength - 200));
+	enemy setvelocity(velocity + (forward * push_strength));
 }
 
 /*
@@ -1372,7 +1372,7 @@ function private function_ca5688e3(inflictor, attacker, damage, idflags, meansof
 		{
 			namespace_81245006::function_ef87b7e8(var_dd54fdb1, adjusted_damage);
 			/#
-				if(getdvarint(#"hash_50608e24a3f5f666", 0) > 0)
+				if(getdvarint(#"scr_weakpoint_debug", 0) > 0)
 				{
 					iprintlnbold("" + var_dd54fdb1.health);
 				}
@@ -1380,7 +1380,7 @@ function private function_ca5688e3(inflictor, attacker, damage, idflags, meansof
 			if(namespace_81245006::function_f29756fe(var_dd54fdb1) === 3)
 			{
 				/#
-					if(getdvarint(#"hash_50608e24a3f5f666", 0) > 0)
+					if(getdvarint(#"scr_weakpoint_debug", 0) > 0)
 					{
 						iprintlnbold("");
 					}

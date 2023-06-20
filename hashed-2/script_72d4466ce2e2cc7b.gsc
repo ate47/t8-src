@@ -285,12 +285,12 @@ function function_161106e1(localclientnum)
 	var_834a617c = array("key_f8", "key_f7", "key_f6", "key_f5");
 	while(!(isdefined(level.gameended) && level.gameended))
 	{
-		var_4fa59c0d = getcurrentweapon(localclientnum);
-		var_4c47f204 = getweaponammoclip(localclientnum, var_4fa59c0d);
-		var_2276fbea = var_4fa59c0d.clipsize;
-		if(var_2276fbea > 0)
+		w_currentweapon = getcurrentweapon(localclientnum);
+		var_4c47f204 = getweaponammoclip(localclientnum, w_currentweapon);
+		n_clipsize = w_currentweapon.clipsize;
+		if(n_clipsize > 0)
 		{
-			var_102d6996 = var_4c47f204 / var_2276fbea;
+			var_102d6996 = var_4c47f204 / n_clipsize;
 		}
 		else
 		{
@@ -321,7 +321,7 @@ function function_161106e1(localclientnum)
 function function_a78bbf22(localclientnum)
 {
 	self endon(#"death");
-	level endon(#"hash_5f10014535621f84");
+	level endon(#"keybind_change");
 	if(isdefined(level.playerinsertion) && level.playerinsertion)
 	{
 		a_keys = array(self function_c2a5ba97("+frag"), self function_c2a5ba97("+smoke"));
@@ -389,7 +389,7 @@ function function_a78bbf22(localclientnum)
 function function_c6bcf243(var_35a126c, var_b742c891, localclientnum)
 {
 	self endon(#"death");
-	level endon(#"game_ended", #"hash_5f10014535621f84");
+	level endon(#"game_ended", #"keybind_change");
 	function_b4c6383f(var_35a126c, 3, 63487, 855309, 275, 0);
 	for(i = 0; i < 160; i++)
 	{
@@ -419,7 +419,7 @@ function function_ba24f324(localclientnum)
 	level endon(#"game_ended");
 	while(!(isdefined(level.gameended) && level.gameended))
 	{
-		self waittill(#"hash_5f10014535621f84");
+		self waittill(#"keybind_change");
 		function_4d990c6a();
 		player = function_27673a7(localclientnum);
 		player function_43a84577();
@@ -581,7 +581,7 @@ function function_1d13e2db(localclientnum)
 function function_af712255(localclientnum)
 {
 	self endon(#"death");
-	level endon(#"game_ended", #"hash_5f10014535621f84");
+	level endon(#"game_ended", #"keybind_change");
 	controllermodel = getuimodelforcontroller(localclientnum);
 	parentmodel = createuimodel(controllermodel, "killstreaks");
 	var_f15e30b1 = createuimodel(parentmodel, "momentumPercentage");
@@ -621,13 +621,13 @@ function function_af712255(localclientnum)
 function function_88dc3170(localclientnum)
 {
 	self endon(#"death");
-	level endon(#"game_ended", #"hash_5f10014535621f84");
+	level endon(#"game_ended", #"keybind_change");
 	parentmodel = createuimodel(getuimodelforcontroller(localclientnum), "zmhud.bgb_carousel");
 	var_3e4e5ffe = createuimodel(parentmodel, "0");
 	var_af86a313 = createuimodel(parentmodel, "1");
 	var_9c05084e = createuimodel(parentmodel, "2");
 	var_3904e6a2 = createuimodel(parentmodel, "3");
-	if(util::function_5df4294() == "ztutorial")
+	if(util::get_game_type() == "ztutorial")
 	{
 		level waittill(#"hash_7d7ad8f95ddcdcbd");
 	}
@@ -665,8 +665,8 @@ function function_88dc3170(localclientnum)
 */
 function function_9d6500b(localclientnum)
 {
-	self endon(#"death", #"hash_36dd69a696f827af");
-	level endon(#"hash_5f10014535621f84");
+	self endon(#"death", #"freefallend");
+	level endon(#"keybind_change");
 	if(isdefined(level.var_51e99b46) && level.var_51e99b46 == 2)
 	{
 		return;

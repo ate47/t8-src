@@ -107,7 +107,7 @@ function start()
 	{
 		return;
 	}
-	level endon(#"hash_6a4335e44b9a5086");
+	level endon(#"stop_banter");
 	globallogic::waitforplayers();
 	lookup = function_bb3ec038();
 	var_8dcd4dc8 = [];
@@ -225,7 +225,7 @@ function stop()
 	{
 		wait(level.prematchperiod - 10);
 	}
-	level notify(#"hash_6a4335e44b9a5086");
+	level notify(#"stop_banter");
 	level.var_8dcd4dc8 = undefined;
 }
 

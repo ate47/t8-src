@@ -2449,8 +2449,8 @@ function function_c16f65a3(enemy_a, enemy_b)
 	/#
 		assert(enemy_a != enemy_b, "");
 	#/
-	level.var_766875b1[enemy_a] = enemy_b;
-	level.var_766875b1[enemy_b] = enemy_a;
+	level.team_enemy_mapping[enemy_a] = enemy_b;
+	level.team_enemy_mapping[enemy_b] = enemy_a;
 }
 
 /*
@@ -2606,9 +2606,9 @@ function get_enemy_team(team)
 	{
 		return undefined;
 	}
-	if(isdefined(level.var_766875b1) && isdefined(level.var_766875b1[team]))
+	if(isdefined(level.team_enemy_mapping) && isdefined(level.team_enemy_mapping[team]))
 	{
-		return level.var_766875b1[team];
+		return level.team_enemy_mapping[team];
 	}
 	return #"none";
 }
@@ -2634,26 +2634,26 @@ function function_35aed314(teama, teamb)
 	{
 		return false;
 	}
-	if(isdefined(level.var_766875b1))
+	if(isdefined(level.team_enemy_mapping))
 	{
-		if(isdefined(level.var_766875b1[teama]))
+		if(isdefined(level.team_enemy_mapping[teama]))
 		{
-			if(#"any" == level.var_766875b1[teama])
+			if(#"any" == level.team_enemy_mapping[teama])
 			{
 				return true;
 			}
-			if(teamb == level.var_766875b1[teama])
+			if(teamb == level.team_enemy_mapping[teama])
 			{
 				return true;
 			}
 		}
-		if(isdefined(level.var_766875b1[teamb]))
+		if(isdefined(level.team_enemy_mapping[teamb]))
 		{
-			if(#"any" == level.var_766875b1[teamb])
+			if(#"any" == level.team_enemy_mapping[teamb])
 			{
 				return true;
 			}
-			if(teama == level.var_766875b1[teamb])
+			if(teama == level.team_enemy_mapping[teamb])
 			{
 				return true;
 			}
@@ -2677,7 +2677,7 @@ function is_on_side(str_team)
 }
 
 /*
-	Name: function_5df4294
+	Name: get_game_type
 	Namespace: util
 	Checksum: 0x48C206BC
 	Offset: 0x4C20
@@ -2685,7 +2685,7 @@ function is_on_side(str_team)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5df4294()
+function get_game_type()
 {
 	return tolower(getdvarstring(#"g_gametype"));
 }

@@ -34,7 +34,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.wave_spawn = (isdefined(getgametypesetting(#"hash_6f135d596eeee7a")) ? getgametypesetting(#"hash_6f135d596eeee7a") : 0);
+	level.wave_spawn = (isdefined(getgametypesetting(#"wzenablewaverespawn")) ? getgametypesetting(#"wzenablewaverespawn") : 0);
 	if(level.wave_spawn)
 	{
 		level.takelivesondeath = 1;
@@ -116,7 +116,7 @@ function function_ca1398a7()
 	while(count < lives && isdefined(self))
 	{
 		count++;
-		scoreevents::processscoreevent(#"hash_7e277ffa73b4760b", self, undefined, weapon);
+		scoreevents::processscoreevent(#"redeploy_bonus", self, undefined, weapon);
 	}
 }
 

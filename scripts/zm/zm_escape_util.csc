@@ -86,7 +86,7 @@ function private function_c06aed2(localclientnum)
 function private function_59cd4ca1(localclientnum)
 {
 	self hide();
-	self notify(#"hash_488fe0f467820fcf");
+	self notify(#"set_invisible");
 }
 
 /*

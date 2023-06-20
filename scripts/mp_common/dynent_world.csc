@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!(isdefined(getgametypesetting(#"hash_56ab3c042b783de6")) ? getgametypesetting(#"hash_56ab3c042b783de6") : 0))
+	if(!(isdefined(getgametypesetting(#"usabledynents")) ? getgametypesetting(#"usabledynents") : 0))
 	{
 		return;
 	}

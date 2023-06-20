@@ -5,8 +5,8 @@
 #using scripts\abilities\ability_util.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
-#using script_7f988b980dd872d4;
-#using script_8ae208bbff9cf2f;
+#using scripts\mp_common\gametypes\ct_difficulty.gsc;
+#using scripts\mp_common\gametypes\ct_ui.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -64,12 +64,12 @@ function function_46e95cc7()
 	setdvar(#"bot_maxallies", 0);
 	setdvar(#"bot_maxaxis", 0);
 	level.usingscorestreaks = 0;
-	level.var_64ce2685 = 1;
+	level.disablescoreevents = 1;
 	level.disablemomentum = 1;
 	level.overrideteamscore = 1;
 	level.forceusekillstreak = 1;
-	level.var_34e67a68 = #"allies";
-	namespace_ce5eff27::function_be562a72();
+	level.forcedplayerteam = #"allies";
+	ct_difficulty::function_be562a72();
 	level.var_edd52efc = &function_edd52efc;
 	level thread function_6a1d53f3();
 }
@@ -92,7 +92,7 @@ function function_1dd43d36(spawn_weapon)
 	}
 	player loadout::init_player(1);
 	player loadout::function_c67222df();
-	player loadout::function_5ac66375();
+	player loadout::give_perks();
 	if(!isdefined(player.var_de9764de))
 	{
 		player.var_de9764de = [];
@@ -338,7 +338,7 @@ function function_1aeaebae()
 		waitframe(1);
 	}
 	e_player endon(#"death");
-	e_player thread namespace_738d4870::function_6889bb61(0);
+	e_player thread ct_ui::function_6889bb61(0);
 	level waittill(#"hash_3779df13251ba6f7");
 	return level.var_cd9d597c;
 }
@@ -432,7 +432,7 @@ function function_1e84c767()
 		level thread function_f8f94589(gamedifficulty);
 		if(player function_c2c1d36b(player function_76785843()) == #"not_started")
 		{
-			player function_3b91934f(player function_76785843(), #"hash_233ea6adba72609d");
+			player function_3b91934f(player function_76785843(), #"tutorial_started");
 			player function_ea859fe2();
 		}
 		s_result = undefined;
@@ -447,16 +447,16 @@ function function_1e84c767()
 	if(util::function_8570168d() && b_completed)
 	{
 		str_state = player function_c2c1d36b(player function_76785843());
-		if(str_state == #"hash_57ff204e0266294b")
+		if(str_state == #"skirmish_completed")
 		{
 			player thread namespace_9096c917::function_b4ebcd8a();
 			player function_ea859fe2();
 			function_588a84ce();
 			thread globallogic::end_round(9);
 		}
-		else if(str_state == #"hash_233ea6adba72609d" || str_state == #"hash_1d57d038b0d70b79")
+		else if(str_state == #"tutorial_started" || str_state == #"tutorial_completed")
 		{
-			player function_3b91934f(player function_76785843(), #"hash_1d57d038b0d70b79");
+			player function_3b91934f(player function_76785843(), #"tutorial_completed");
 			player function_ea859fe2();
 			waitframe(1);
 			player thread namespace_9096c917::function_b4ebcd8a();
@@ -507,7 +507,7 @@ function function_a217c7b4(b_success)
 		wait(0.3);
 	}
 	e_player = getplayers(#"allies")[0];
-	e_player namespace_738d4870::function_fa910e34(b_success, var_cd803a6b);
+	e_player ct_ui::function_fa910e34(b_success, var_cd803a6b);
 	level notify(#"hash_6731a3e5cccf7357");
 	level notify(#"hash_42057c28bd084d77");
 }

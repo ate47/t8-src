@@ -184,7 +184,7 @@ function private function_c18360f6(var_11a83c3a, params)
 	}
 	else if(isdefined(var_11a83c3a.var_e2131267.team) && isdefined(params.eattacker.team) && var_11a83c3a.var_e2131267.team == params.eattacker.team)
 	{
-		scoreevents::processscoreevent(#"hash_634954a0bb90b72d", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
+		scoreevents::processscoreevent(#"hacked_assist", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
 	}
 }
 
@@ -449,9 +449,9 @@ function private findweapon(entity)
 	{
 		return entity.weapon;
 	}
-	if(isdefined(entity.var_22a05c26) && isdefined(entity.var_22a05c26.var_1ab696c6))
+	if(isdefined(entity.var_22a05c26) && isdefined(entity.var_22a05c26.ksweapon))
 	{
-		return entity.var_22a05c26.var_1ab696c6;
+		return entity.var_22a05c26.ksweapon;
 	}
 	if(isdefined(entity.defaultweapon))
 	{
@@ -1096,7 +1096,7 @@ function function_27c9bfc8(var_11a83c3a, announce)
 	/#
 		assert(isdefined(announce));
 	#/
-	var_11a83c3a notify(#"hash_18b5dd5fa60e89ba");
+	var_11a83c3a notify(#"hack_end");
 	var_11a83c3a.ishacked = 0;
 	var_11a83c3a.var_be173895 = 0;
 	var_11a83c3a.var_e2131267 = undefined;
@@ -1219,7 +1219,7 @@ function private function_f255c737(var_11a83c3a)
 	/#
 		assert(isdefined(var_11a83c3a));
 	#/
-	var_11a83c3a endon(#"death", #"hash_18b5dd5fa60e89ba");
+	var_11a83c3a endon(#"death", #"hack_end");
 	settingsbundle = function_13f4415c();
 	while(gettime() <= var_11a83c3a.var_e92132fd && level.gameended !== 1)
 	{
@@ -1562,7 +1562,7 @@ function private function_b76c8353(hacker)
 	{
 		hacker.var_1d6ad02e = gameobjects::get_next_obj_id();
 	}
-	objective_add(hacker.var_1d6ad02e, "active", hacker, #"hash_70ba99f2044c367e");
+	objective_add(hacker.var_1d6ad02e, "active", hacker, #"exposed_hacker");
 	objective_setteam(hacker.var_1d6ad02e, hacker.team);
 	function_da7940a3(hacker.var_1d6ad02e, 1);
 	function_3ae6fa3(hacker.var_1d6ad02e, hacker.team, 0);

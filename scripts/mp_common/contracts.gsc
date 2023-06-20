@@ -391,18 +391,18 @@ function private function_902ef0de(var_38280f2f, delta)
 	if(new_progress != old_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].current_value = new_progress;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.var_90031a39[var_38280f2f], new_progress);
+			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.contract_ids[var_38280f2f], new_progress);
 		}
 	}
 	if(old_progress < target_value && target_value <= new_progress)
 	{
 		var_9d12108c = (isdefined(self.timeplayed[self.team]) ? self.timeplayed[self.team] : 0);
 		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = (self stats::get_stat_global(#"time_played_total") - self.pers[#"hash_5651f00c6c1790a4"]) + var_9d12108c;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.var_90031a39[var_38280f2f]);
+			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.contract_ids[var_38280f2f]);
 		}
 	}
 	/#
@@ -695,16 +695,16 @@ function function_8af6a5a()
 function devgui_setup()
 {
 	/#
-		var_74757534 = "";
+		devgui_base = "";
 		wait(3);
-		function_e07e542b(var_74757534, undefined);
-		function_17a92a99(var_74757534);
-		function_b308be00(var_74757534);
-		function_b8984e1a(var_74757534);
-		function_1379e87e(var_74757534);
-		function_50a60581(var_74757534);
-		function_ef925b75(var_74757534);
-		function_d1de9a1b(var_74757534);
+		function_e07e542b(devgui_base, undefined);
+		function_17a92a99(devgui_base);
+		function_b308be00(devgui_base);
+		function_b8984e1a(devgui_base);
+		function_1379e87e(devgui_base);
+		function_50a60581(devgui_base);
+		function_ef925b75(devgui_base);
+		function_d1de9a1b(devgui_base);
 	#/
 }
 

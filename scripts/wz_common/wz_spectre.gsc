@@ -43,7 +43,7 @@ function __init__()
 	clientfield::register("toplayer", "spectrebladebonus", 16000, 1, "int");
 	clientfield::register("clientuimodel", "hudItems.isSpectre", 16000, 1, "int");
 	clientfield::register("world", "showSpectreSwordBeams", 16000, 1, "int");
-	callback::add_callback(#"hash_5acf7bf1a288eb9f", &function_4467066e);
+	callback::add_callback(#"inventory_reset", &function_4467066e);
 	callback::add_callback(#"hash_4d3e34c3c8f8bb2a", &function_4467066e);
 	callback::on_item_pickup(&function_4467066e);
 	callback::add_callback(#"on_player_downed", &function_ef53914c);

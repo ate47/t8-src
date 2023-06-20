@@ -2,7 +2,7 @@
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -96,10 +96,10 @@ function init_weapons_locker()
 	callback::on_connect(&on_player_connect);
 	level flag::wait_till(#"hash_25d9ccebd2bdecd9");
 	e_door_l = getent("e_sarge_l", "targetname");
-	var_ff82be75 = getent("e_sarge_r", "targetname");
+	e_door_r = getent("e_sarge_r", "targetname");
 	e_door_l playsound(#"hash_75410a9cb6086f34");
 	e_door_l rotateyaw(185, 0.85, 0.1, 0.1);
-	var_ff82be75 rotateyaw(-220, 1, 0.05, 0.05);
+	e_door_r rotateyaw(-220, 1, 0.05, 0.05);
 	level.s_weapons_locker zm_unitrigger::create(&function_9d485d13, 64);
 	level.s_weapons_locker thread function_4ef09c7a();
 }
@@ -213,7 +213,7 @@ function function_6c029b7()
 			level.s_shower_trap.activated_by_player = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
 			{
-				e_who thread zm_audio::create_and_play_dialog(#"hash_3f3ef774cd01d778", #"activate");
+				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
 		}
 	}
@@ -550,7 +550,7 @@ function function_f24b1ecb()
 			level.s_fire_trap.activated_by_player = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
 			{
-				e_who thread zm_audio::create_and_play_dialog(#"hash_3f3ef774cd01d778", #"activate");
+				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
 		}
 	}
@@ -872,7 +872,7 @@ function function_6facfabc()
 			level.s_spinning_trap.activated_by_player = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
 			{
-				e_who thread zm_audio::create_and_play_dialog(#"hash_3f3ef774cd01d778", #"activate");
+				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
 		}
 	}
@@ -1362,7 +1362,7 @@ function function_67b12ae8(e_player)
 		self sethintstring(#"zombie/trap_cooldown");
 		return true;
 	}
-	if(util::function_5df4294() == "zstandard")
+	if(util::get_game_type() == "zstandard")
 	{
 		if(function_8b1a219a())
 		{

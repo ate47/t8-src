@@ -59,7 +59,7 @@ function __init__()
 	clientfield::register("toplayer", "" + #"hash_1aa1c7790dc67d1e", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_7cdfc8f4819bab2e", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_61ed2f45564d54f9", 1, 1, "int");
-	clientfield::register("toplayer", "" + #"hash_6335a683b93e26a2", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"totem_fall", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_2a7ceb22f84e5aa9", 1, 1, "int");
 	level flag::init(#"hash_6ee51d9a7d37aecc");
 	level flag::init(#"hash_43114a11c9ca5302");
@@ -109,7 +109,7 @@ function __init__()
 */
 function __main__()
 {
-	if(getdvarint(#"hash_11ad6a9695943217", 0))
+	if(getdvarint(#"zm_debug_ee", 0))
 	{
 		/#
 			level thread function_9562e9c1();
@@ -223,10 +223,10 @@ function on_player_connect()
 	{
 		var_29b8f3d0 = undefined;
 		var_29b8f3d0 = self waittill("new_" + "lethal_grenade");
-		var_3759bc11 = var_29b8f3d0.weapon;
+		w_newweapon = var_29b8f3d0.weapon;
 		var_22e180dd = self zm_loadout::get_player_lethal_grenade();
 		var_b7c4015f = getweapon(#"tomahawk_t8_upgraded");
-		if(var_3759bc11 == var_b7c4015f || var_22e180dd === var_b7c4015f)
+		if(w_newweapon == var_b7c4015f || var_22e180dd === var_b7c4015f)
 		{
 			self flag::set(#"hash_5acbab45c034f5bd");
 		}
@@ -317,7 +317,7 @@ function function_21e59cf5()
 		var_1a1a39e8.var_87697f87 = var_1a1a39e8 zm_unitrigger::create(&function_545c69d8, 64, &function_3c616882);
 	}
 	self flag::wait_till(#"hash_334221cd7977f5d5");
-	self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+	self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 	self thread function_d238a134();
 }
 
@@ -799,7 +799,7 @@ function acid_trap_think()
 	self clientfield::set_to_player("" + #"hash_5d9808a62579e894", 0);
 	level.var_288dc330 setvisibletoplayer(self);
 	level.var_288dc330 playloopsound(#"hash_3129e04ec52b7ef2");
-	self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+	self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 }
 
 /*
@@ -880,7 +880,7 @@ function function_5a8a4082()
 	self clientfield::set_to_player("" + #"hash_4ec2b359458774e4", 0);
 	level.var_57808c93 setvisibletoplayer(self);
 	level.var_57808c93 playloopsound(#"hash_3129e04ec52b7ef2");
-	self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+	self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 }
 
 /*
@@ -961,7 +961,7 @@ function fan_trap_think()
 	self clientfield::set_to_player("" + #"hash_4724376be4e925a3", 0);
 	level.var_dc120ff3 setvisibletoplayer(self);
 	level.var_dc120ff3 playloopsound(#"hash_3129e04ec52b7ef2");
-	self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+	self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 }
 
 /*
@@ -1132,7 +1132,7 @@ function ee_exp_monkey_fire_()
 			if(var_288eb627 istouching(level.t_g_o_s4))
 			{
 				self function_a88a6e6a();
-				self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+				self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 				break;
 			}
 			waitframe(1);
@@ -1299,7 +1299,7 @@ function function_858b2d2f()
 			playsoundatposition(#"hash_5077c643bb3c5f9e", level.var_8e667d9c.origin);
 			if(isdefined(e_player.var_1c4683c4) && e_player hasweapon(e_player.var_1c4683c4))
 			{
-				e_player thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", #"generic");
+				e_player thread zm_audio::create_and_play_dialog(#"component_pickup", #"generic");
 				e_player takeweapon(e_player.var_1c4683c4);
 				w_current = e_player.currentweapon;
 				e_player zm_melee_weapon::award_melee_weapon(#"golden_knife");
@@ -1360,10 +1360,10 @@ function function_195d2fb()
 	self.n_brutus_killed = 0;
 	self thread function_588dcdff();
 	self flag::wait_till(#"hash_7bcf95ea12236f0d");
-	self thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+	self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 	var_326289fb = getent("mdl_d_w_i_k_t", "script_noteworthy");
 	var_326289fb setinvisibletoplayer(self);
-	self clientfield::set_to_player("" + #"hash_6335a683b93e26a2", 1);
+	self clientfield::set_to_player("" + #"totem_fall", 1);
 	self.n_brutus_killed = undefined;
 	if(level flag::get(#"hash_43114a11c9ca5302"))
 	{
@@ -1495,7 +1495,7 @@ function function_d89318a3(var_e818669b, var_13de0d8f)
 				}
 				break;
 			}
-			case "hash_7ec791ae12e7fd6c":
+			case "spin trap":
 			{
 				switch(var_e818669b)
 				{
@@ -1628,7 +1628,7 @@ function function_efd25c9()
 		level flag::set(#"hash_3b1ad1b5bdc81825");
 		level flag::set(#"hash_29dc018e9551ecf");
 		var_217fca51 = struct::get("");
-		var_6b6eb535 = var_217fca51.scene_ents[#"hash_29358891420766c3"];
+		var_6b6eb535 = var_217fca51.scene_ents[#"skeleton_arm"];
 		var_6b6eb535 hide();
 		foreach(player in level.players)
 		{
@@ -1636,7 +1636,7 @@ function function_efd25c9()
 			{
 				while(!isdefined(player.var_1c4683c4))
 				{
-					player.var_1c4683c4 = player.var_49377865[#"melee_weapon"];
+					player.var_1c4683c4 = player.slot_weapons[#"melee_weapon"];
 					wait(0.1);
 				}
 				w_current = player.currentweapon;

@@ -88,7 +88,7 @@ function function_a380fe5(localclientnum, oldval, newval, bnewent, binitialsnap,
 				self.var_2c8e49d2 stoprenderoverridebundle(#"hash_75168376918f5ab7");
 				self.var_2c8e49d2 delete();
 			}
-			self function_a5edb367(#"hash_4964cfaa74d2a1ac");
+			self function_a5edb367(#"death_ring");
 			self.var_2c8e49d2 = spawn(localclientnum, self.origin, "script_model");
 			self.var_2c8e49d2 setmodel("p8_big_cylinder");
 			self.var_2c8e49d2 playrenderoverridebundle(#"hash_75168376918f5ab7");
@@ -475,15 +475,15 @@ function private function_32f7227c(deathcircle, currentradius, localclientnum)
 {
 	localplayer = function_5c10bd79(localclientnum);
 	startpos = (deathcircle.origin[0], deathcircle.origin[1], 0);
-	var_fc612cde = (0, 0, 0);
+	toplayervec = (0, 0, 0);
 	eyepos = startpos + vectorscale((0, 0, 1), 60);
 	if(isdefined(localplayer))
 	{
 		endpos = (localplayer.origin[0], localplayer.origin[1], 0);
-		var_fc612cde = (vectornormalize(endpos - startpos)) * currentradius;
+		toplayervec = (vectornormalize(endpos - startpos)) * currentradius;
 		eyepos = localplayer geteyeapprox();
 	}
-	var_ba5c9ce6 = deathcircle.origin + var_fc612cde;
+	var_ba5c9ce6 = deathcircle.origin + toplayervec;
 	return (var_ba5c9ce6[0], var_ba5c9ce6[1], eyepos[2]);
 }
 

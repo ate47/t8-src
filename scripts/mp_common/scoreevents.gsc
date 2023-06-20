@@ -389,14 +389,14 @@ function scoreeventplayerkill(data, time)
 				}
 				else
 				{
-					processscoreevent(#"hash_7eb6cf1758a9c2f2", attacker.var_3febb1e9, victim, getweapon(#"eq_localheal"));
+					processscoreevent(#"stim_assist", attacker.var_3febb1e9, victim, getweapon(#"eq_localheal"));
 				}
 			}
 			if(attackerwasflashed)
 			{
 				processscoreevent(#"kill_enemy_while_flashbanged", attacker, victim, weapon);
 			}
-			if(victim.currentweapon == getweapon(#"hash_40380537847df901") || victim.currentweapon == getweapon(#"hash_1d2a1056220e71a9") || victim.currentweapon == getweapon(#"hash_1d2a0f56220e6ff6") || victim.currentweapon == getweapon(#"hash_1d2a1256220e750f"))
+			if(victim.currentweapon == getweapon(#"sig_bow_quickshot") || victim.currentweapon == getweapon(#"hash_1d2a1056220e71a9") || victim.currentweapon == getweapon(#"hash_1d2a0f56220e6ff6") || victim.currentweapon == getweapon(#"hash_1d2a1256220e750f"))
 			{
 				processscoreevent(#"hash_6530935b474f2e11", attacker, victim, weapon);
 			}
@@ -483,7 +483,7 @@ function scoreeventplayerkill(data, time)
 		{
 			if(var_f048a359 == getweapon(#"concussion_grenade"))
 			{
-				processscoreevent(#"hash_7380fa332edb5a82", attacker, victim, getweapon(#"concussion_grenade"));
+				processscoreevent(#"concussion_kill", attacker, victim, getweapon(#"concussion_grenade"));
 				if(attacker != var_157f4d3b)
 				{
 					processscoreevent(#"assist_concussion", var_157f4d3b, victim, weapon);
@@ -632,11 +632,11 @@ function scoreeventplayerkill(data, time)
 		}
 		if(isdefined(var_989b2258))
 		{
-			processscoreevent(#"hash_51f0b8510479cbef", attacker, victim, getweapon(#"hash_a3fa25abdd4b905"));
+			processscoreevent(#"sticky_kill", attacker, victim, getweapon(#"eq_breachlauncher"));
 		}
-		else if(weapon == getweapon(#"hash_a3fa25abdd4b905") && meansofdeath == "MOD_EXPLOSIVE")
+		else if(weapon == getweapon(#"eq_breachlauncher") && meansofdeath == "MOD_EXPLOSIVE")
 		{
-			processscoreevent(#"hash_48d355527fe7ff9", attacker, victim, weapon);
+			processscoreevent(#"shrapnel_kill", attacker, victim, weapon);
 		}
 		if(isdefined(var_ab4f5741) && var_ab4f5741 === 1)
 		{
@@ -648,7 +648,7 @@ function scoreeventplayerkill(data, time)
 					break;
 				}
 			}
-			if(weapon == getweapon(#"hash_19049416fc420e6f"))
+			if(weapon == getweapon(#"eq_arm_blade"))
 			{
 				processscoreevent(#"hash_1e657ba6178ae2c6", attacker, victim, weapon);
 			}
@@ -672,7 +672,7 @@ function scoreeventplayerkill(data, time)
 			}
 			else
 			{
-				processscoreevent(#"hash_6528a1312edf578e", var_a99236f2, victim, weapon);
+				processscoreevent(#"suppression_assist", var_a99236f2, victim, weapon);
 			}
 		}
 		if(isdefined(attacker.var_a7f5c61e) && attacker.var_a7f5c61e)
@@ -1038,7 +1038,7 @@ function scoreeventplayerkill(data, time)
 	}
 	if(isdefined(var_7117b104) && (time - var_7117b104) < 5300)
 	{
-		processscoreevent(#"hash_3382a0f71afb182f", attacker, victim, weapon);
+		processscoreevent(#"alarm_kill", attacker, victim, weapon);
 	}
 	switch(weapon.rootweapon.name)
 	{
@@ -1144,13 +1144,13 @@ function heavyweaponkill(attacker, victim, weapon)
 		case "hash_1d2a0f56220e6ff6":
 		case "hash_1d2a1056220e71a9":
 		case "hash_1d2a1256220e750f":
-		case "hash_40380537847df901":
+		case "sig_bow_quickshot":
 		case "hero_bowlauncher":
 		{
 			event = "bowlauncher_kill";
 			break;
 		}
-		case "hash_10f001e3a1d7dcfa":
+		case "sig_minigun_alt":
 		case "sig_minigun":
 		case "hash_5a34a2f4b8c715c0":
 		case "hash_5a34aef4b8c72a24":
@@ -1259,7 +1259,7 @@ function specificweaponkill(attacker, victim, weapon, killstreak, inflictor)
 	}
 	switch(switchweapon)
 	{
-		case "hash_19049416fc420e6f":
+		case "eq_arm_blade":
 		{
 			event = "blade_kill";
 			break;
@@ -1310,7 +1310,7 @@ function specificweaponkill(attacker, victim, weapon, killstreak, inflictor)
 			event = "thermite_kill";
 			break;
 		}
-		case "hash_357c8bc7826f851d":
+		case "eq_frag_gun":
 		{
 			event = "frag_kill";
 			break;
@@ -1370,10 +1370,10 @@ function function_8fe4629e(killcount, weapon)
 	{
 		self activecamo::function_896ac347(weapon, #"furykill", furykill);
 	}
-	var_22016f22 = int(killcount / 5);
-	if(var_22016f22 > 0)
+	pentakill = int(killcount / 5);
+	if(pentakill > 0)
 	{
-		self activecamo::function_896ac347(weapon, #"hash_6a11a30d9f8002c7", var_22016f22);
+		self activecamo::function_896ac347(weapon, #"pentakill", pentakill);
 	}
 }
 
@@ -2289,11 +2289,11 @@ function function_c01cb128(entity, sensor_darts)
 	Parameters: 3
 	Flags: Linked
 */
-function function_c28e2c05(var_152c14d0, sensor_darts, var_e13a103a)
+function function_c28e2c05(entity_origin, sensor_darts, var_e13a103a)
 {
 	if(!var_e13a103a)
 	{
-		if(!isdefined(sensor_darts) || !isarray(sensor_darts) || !isdefined(var_152c14d0))
+		if(!isdefined(sensor_darts) || !isarray(sensor_darts) || !isdefined(entity_origin))
 		{
 			return undefined;
 		}
@@ -2304,7 +2304,7 @@ function function_c28e2c05(var_152c14d0, sensor_darts, var_e13a103a)
 		{
 			continue;
 		}
-		if(distancesquared(var_152c14d0, sensor.origin) < ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) * ((sessionmodeiswarzonegame() ? 2400 : 800) + 50))
+		if(distancesquared(entity_origin, sensor.origin) < ((sessionmodeiswarzonegame() ? 2400 : 800) + 50) * ((sessionmodeiswarzonegame() ? 2400 : 800) + 50))
 		{
 			return sensor;
 		}

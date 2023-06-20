@@ -301,7 +301,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 			self.humiliated = self.pers[#"humiliated"];
 			if(globallogic_score::gethighestscoringplayer() === self)
 			{
-				scoreevents::processscoreevent(#"hash_4ba3fd0437520af2", attacker, self, weapon);
+				scoreevents::processscoreevent(#"humiliation_sas", attacker, self, weapon);
 			}
 			if(level.setbacks == 0)
 			{

@@ -237,7 +237,7 @@ function function_fe0bb012(localclientnum, pos, surface, notetrack, bone)
 	Parameters: 7
 	Flags: Linked
 */
-function sndtowersbossarmor(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function sndtowersbossarmor(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{

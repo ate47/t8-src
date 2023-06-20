@@ -91,7 +91,7 @@ function start_gametype()
 		registerchallengescallback("playerKilled", &challengekills);
 		registerchallengescallback("gameEnd", &challengegameendmp);
 		player::function_3c5cc656(&function_a79ea08b);
-		self callback::add_callback(#"hash_25663702210244cc", &player_fully_healed);
+		self callback::add_callback(#"done_healing", &player_fully_healed);
 	}
 	callback::on_connect(&on_player_connect);
 }
@@ -1239,7 +1239,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 	}
 	if(isdefined(level.activeplayeruavs) && level.activeplayeruavs[self.entnum] && (!isdefined(level.forceradar) || level.forceradar == 0))
 	{
-		self stats::function_dad108fa(#"hash_5a544ba1aa27778", 1);
+		self stats::function_dad108fa(#"ekia_uav", 1);
 	}
 	if(isdefined(level.activeplayercounteruavs) && level.activeplayercounteruavs[self.entnum] > 0)
 	{
@@ -1653,8 +1653,8 @@ function challengekills(data)
 			}
 			if(weaponpurchased)
 			{
-				var_291c422e = player loadout::function_18a77b37("primarygrenade");
-				if(weapon === var_291c422e)
+				slot_weapon = player loadout::function_18a77b37("primarygrenade");
+				if(weapon === slot_weapon)
 				{
 					if(player.challenge_scavengedcount > 0)
 					{
@@ -2238,7 +2238,7 @@ function function_b6d44fd9()
 function force_challenge_stat(stat_name, stat_value)
 {
 	self stats::set_stat_global(stat_name, stat_value);
-	self stats::function_efbbc38f(stat_name, stat_value);
+	self stats::set_stat_challenge(stat_name, stat_value);
 }
 
 /*
@@ -2339,7 +2339,7 @@ function function_223ff464()
 {
 	if(!self stats::get_stat(#"extrabools", 0) === 1)
 	{
-		self force_challenge_stat(#"hash_3cb957dcdd3bca71", 0);
+		self force_challenge_stat(#"mastery_marksman", 0);
 		var_62fe685a = [];
 		array::add(var_62fe685a, #"hash_4075f20007923416");
 		array::add(var_62fe685a, #"hash_72d1952fced05f40");
@@ -2357,7 +2357,7 @@ function function_223ff464()
 		{
 			if(self stats::function_af5584ca(var_62fe685a[index]) === 1)
 			{
-				self stats::function_dad108fa(#"hash_3cb957dcdd3bca71", 1);
+				self stats::function_dad108fa(#"mastery_marksman", 1);
 			}
 		}
 		self stats::set_stat(#"extrabools", 0, 1);
@@ -2407,7 +2407,7 @@ function function_f4106216()
 			self stats::function_8e071909("stats_gravity_slam_shutdown", challengetier);
 		}
 		challengevalue = self stats::get_stat_challenge("shutdown_gravslam_before_impact");
-		self stats::function_efbbc38f("stats_gravity_slam_shutdown", challengevalue);
+		self stats::set_stat_challenge("stats_gravity_slam_shutdown", challengevalue);
 		self stats::set_stat(#"playerstatslist", #"hash_195a18a5697c5c96", 1);
 	}
 }
@@ -2424,13 +2424,13 @@ function function_f4106216()
 function function_34364901()
 {
 	player = self;
-	var_fae27922 = player stats::get_stat(#"hash_162f9b6a10fa7d66", #"sniper_locus_t8", #"hash_b7deb436e166ba3", #"challengevalue");
+	var_fae27922 = player stats::get_stat(#"item_stats", #"sniper_locus_t8", #"challenges_tu", #"challengevalue");
 	if(var_fae27922 === 6)
 	{
-		player stats::set_stat(#"hash_162f9b6a10fa7d66", #"sniper_locus_t8", #"hash_b7deb436e166ba3", #"challengevalue", 5);
-		player stats::set_stat(#"hash_162f9b6a10fa7d66", #"sniper_locus_t8", #"hash_b7deb436e166ba3", #"statvalue", 5);
-		player stats::set_stat(#"hash_162f9b6a10fa7d66", #"sniper_locus_t8", #"hash_b7deb436e166ba3", #"challengetier", 0);
-		player addweaponstat(getweapon(#"sniper_locus_t8"), #"hash_b7deb436e166ba3", 1);
+		player stats::set_stat(#"item_stats", #"sniper_locus_t8", #"challenges_tu", #"challengevalue", 5);
+		player stats::set_stat(#"item_stats", #"sniper_locus_t8", #"challenges_tu", #"statvalue", 5);
+		player stats::set_stat(#"item_stats", #"sniper_locus_t8", #"challenges_tu", #"challengetier", 0);
+		player addweaponstat(getweapon(#"sniper_locus_t8"), #"challenges_tu", 1);
 	}
 }
 
@@ -2651,7 +2651,7 @@ function function_b2b18857(player)
 	{
 		if((player.headshots % 5) == 0)
 		{
-			player stats::function_dad108fa(#"hash_7923fce35e4ba933", 1);
+			player stats::function_dad108fa(#"headshot_5", 1);
 		}
 	}
 }
@@ -3105,7 +3105,7 @@ function function_82bb78f7(weapon)
 	self activecamo::function_896ac347(weapon, #"vanguard", 1);
 	if(isdefined(self.var_aef7ad9) && (self.var_aef7ad9 + (int(5 * 1000))) >= gettime())
 	{
-		self activecamo::function_896ac347(weapon, #"hash_371b0f2ddd126688", 1);
+		self activecamo::function_896ac347(weapon, #"rapid_vanguard", 1);
 	}
 	self.var_aef7ad9 = gettime();
 }

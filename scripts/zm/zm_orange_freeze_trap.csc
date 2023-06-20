@@ -21,7 +21,7 @@ function init()
 	clientfield::register("actor", "freeze_trap_death_fx", 24000, 1, "int", &freeze_trap_death_fx, 0, 0);
 	clientfield::register("scriptmover", "freeze_trap_fx", 24000, 1, "int", &freeze_trap_fx, 0, 0);
 	clientfield::register("toplayer", "player_freeze_trap_post_fx", 24000, 1, "int", &player_freeze_trap_post_fx, 0, 0);
-	level._effect[#"hash_3952922328671100"] = #"hash_424786ecbc7f5672";
+	level._effect[#"freeze_spray"] = #"hash_424786ecbc7f5672";
 	level._effect[#"hash_4131e133ed64bb15"] = #"hash_48d74d13d0c569c";
 	level._effect[#"hash_4dbed2be32ca74bc"] = #"hash_29ac72c5aa5398bc";
 	level._effect[#"hash_4b8af2aba0424cf3"] = #"hash_709cca7d0048aa72";
@@ -48,7 +48,7 @@ function freeze_trap_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		}
 		playsound(localclientnum, #"hash_68f3e5dbc3422363", self.origin);
 		audio::playloopat("zmb_trap_acid_loop", self.origin);
-		self.var_91180673 = util::playfxontag(localclientnum, level._effect[#"hash_3952922328671100"], self, "tag_origin");
+		self.var_91180673 = util::playfxontag(localclientnum, level._effect[#"freeze_spray"], self, "tag_origin");
 	}
 	else
 	{

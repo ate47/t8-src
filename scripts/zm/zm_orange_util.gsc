@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -94,7 +94,7 @@ function function_583cad13(var_2753f06a)
 		if(var_2753f06a == 0)
 		{
 			level.host function_51b752a9(#"hash_4c0be2bb6d0c80b0" + var_5316ea7d);
-			var_d1e952c4 = namespace_509a75d1::function_3815943c(a_players);
+			var_d1e952c4 = zm_hms_util::function_3815943c(a_players);
 			if(isdefined(var_d1e952c4))
 			{
 				var_d1e952c4 function_51b752a9(#"hash_4c0be2bb6d0c80b0" + var_5316ea7d);
@@ -103,7 +103,7 @@ function function_583cad13(var_2753f06a)
 		else
 		{
 			level.host function_51b752a9(((#"hash_71bde3a512edb440" + var_2753f06a) + "_") + var_5316ea7d);
-			var_d1e952c4 = namespace_509a75d1::function_3815943c(a_players);
+			var_d1e952c4 = zm_hms_util::function_3815943c(a_players);
 			if(isdefined(var_d1e952c4))
 			{
 				var_d1e952c4 function_51b752a9(((#"hash_71bde3a512edb440" + var_2753f06a) + "_") + var_5316ea7d);
@@ -203,7 +203,7 @@ function function_2e565334()
 	self endon(#"disconnect");
 	while(true)
 	{
-		if(zm_vo::function_d122265c(self) && self.str_vo_being_spoken === #"hash_1242b7914448ebc7")
+		if(zm_vo::is_player_speaking(self) && self.str_vo_being_spoken === #"hash_1242b7914448ebc7")
 		{
 			while(!isdefined(self.var_4377124))
 			{
@@ -314,13 +314,13 @@ function function_51b752a9(str_alias, n_variant = int(-1), b_wait_if_busy = 0, v
 			self notify(#"hash_7efd5bdf8133ff7b");
 			self endon(#"hash_7efd5bdf8133ff7b");
 			var_215d4efb = (b_wait_if_busy == 2 ? 1 : 0);
-			while(!zm_audio::function_65e5c19a(self.var_8dd99641, var_215d4efb))
+			while(!zm_audio::function_65e5c19a(self.toself, var_215d4efb))
 			{
 				waitframe(1);
 				waittillframeend();
 			}
 		}
-		if(!zm_audio::function_65e5c19a(self.var_8dd99641))
+		if(!zm_audio::function_65e5c19a(self.toself))
 		{
 			return 0;
 		}
@@ -382,7 +382,7 @@ function function_ab3ed097(aliasprefix)
 function function_fd24e47f(str_alias, n_variant = int(-1), b_wait_if_busy = 0, var_a97d4e32 = 0)
 {
 	level endon(#"game_ended");
-	player = namespace_509a75d1::function_3815943c();
+	player = zm_hms_util::function_3815943c();
 	if(isdefined(player))
 	{
 		player function_51b752a9(str_alias, n_variant, b_wait_if_busy, var_a97d4e32);
@@ -550,7 +550,7 @@ function function_cda40569(n_delay, str_alias, n_variant, str_endon)
 {
 	level endon(str_endon);
 	wait(n_delay);
-	level.pablo_npc thread namespace_509a75d1::function_6a0d675d(str_alias, n_variant, 0, 1);
+	level.pablo_npc thread zm_hms_util::function_6a0d675d(str_alias, n_variant, 0, 1);
 }
 
 /*
@@ -571,14 +571,14 @@ function docks_power()
 	{
 		if(trig.script_int === 1)
 		{
-			var_2b95ab5b = trig;
+			power_trig = trig;
 			break;
 		}
 	}
-	if(isdefined(var_2b95ab5b))
+	if(isdefined(power_trig))
 	{
 		waitresult = undefined;
-		waitresult = var_2b95ab5b waittill(#"trigger");
+		waitresult = power_trig waittill(#"trigger");
 		user = waitresult.activator;
 		user thread function_51b752a9(#"hash_52d22e25dd1ac29f");
 	}
@@ -608,7 +608,7 @@ function function_3d6809e9()
 			break;
 		}
 	}
-	level.var_1c53964e namespace_509a75d1::function_6a0d675d(#"hash_58f39ce928f3a523", -1, 0, 1);
+	level.var_1c53964e zm_hms_util::function_6a0d675d(#"hash_58f39ce928f3a523", -1, 0, 1);
 	function_fd24e47f(#"hash_58f39ce928f3a523");
 	while(true)
 	{
@@ -619,7 +619,7 @@ function function_3d6809e9()
 			break;
 		}
 	}
-	level.var_1c53964e namespace_509a75d1::function_6a0d675d(#"vox_round_end_2_nikolai", -1, 0, 1);
+	level.var_1c53964e zm_hms_util::function_6a0d675d(#"vox_round_end_2_nikolai", -1, 0, 1);
 	function_fd24e47f("vox_round_end_2_nikolai", -1, 0, 0);
 	level.var_b2b15659 = 0;
 }

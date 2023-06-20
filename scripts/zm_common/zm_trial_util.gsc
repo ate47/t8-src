@@ -120,7 +120,7 @@ function function_73ff0096()
 */
 function function_2ee2d021()
 {
-	if(!level flag::get(#"hash_6acab8bde7078239") && clientfield::get_world_uimodel("ZMHudGlobal.trials.gameState") != 2)
+	if(!level flag::get(#"trial_failed") && clientfield::get_world_uimodel("ZMHudGlobal.trials.gameState") != 2)
 	{
 		clientfield::set_world_uimodel("ZMHudGlobal.trials.failurePlayer", 0);
 		clientfield::set_world_uimodel("ZMHudGlobal.trials.failureReason", #"hash_cd63faed592da03");
@@ -1193,13 +1193,13 @@ function function_9c1092f6()
 {
 	/#
 		iprintlnbold("");
-		if(getgametypesetting(#"hash_2876dc918cc6666", 0) == 1)
+		if(getgametypesetting(#"zmshowtimer", 0) == 1)
 		{
-			setgametypesetting(#"hash_2876dc918cc6666", 0);
+			setgametypesetting(#"zmshowtimer", 0);
 		}
 		else
 		{
-			setgametypesetting(#"hash_2876dc918cc6666", 1);
+			setgametypesetting(#"zmshowtimer", 1);
 		}
 	#/
 }

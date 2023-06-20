@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1b150f8ff0495a20;
+#using scripts\wz\wz_escape_ffotd.gsc;
 #using script_2c2d166441e0da0f;
 #using scripts\wz_common\wz_ee_poster.gsc;
 #using scripts\wz_common\wz_loadouts.gsc;
 #using scripts\mp_common\item_inventory.gsc;
-#using script_6aa2128e9d9956a2;
+#using scripts\wz\wz_escape_elevators.gsc;
 #using script_71e26f08f03b7a7a;
-#using script_77ba97b99c9d8532;
+#using scripts\wz_common\wz_nixie_tubes.gsc;
 #using script_78fb87cbf5b3ed1d;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -39,7 +39,7 @@ event main(eventstruct)
 	/#
 		callback::on_vehicle_spawned(&on_vehicle_spawned);
 	#/
-	if(!(isdefined(getgametypesetting(#"hash_5b7b817a91ce3534")) && getgametypesetting(#"hash_5b7b817a91ce3534")))
+	if(!(isdefined(getgametypesetting(#"wzzombieapocalypsemusic")) && getgametypesetting(#"wzzombieapocalypsemusic")))
 	{
 		level.var_30783ca9 = &function_28990311;
 	}
@@ -81,7 +81,7 @@ event main(eventstruct)
 */
 function function_d075b84e()
 {
-	itemlist = level.var_9eb9a467;
+	itemlist = level.zombie_itemlist;
 	if(isdefined(level.var_b4143320) && level.var_b4143320)
 	{
 		if(isdefined(getgametypesetting(#"hash_26f00de198472b81")) && getgametypesetting(#"hash_26f00de198472b81"))
@@ -90,7 +90,7 @@ function function_d075b84e()
 		}
 		else
 		{
-			itemlist = #"hash_193884f7170a26bb";
+			itemlist = #"zombie_itemlist_escape";
 		}
 		if(randomint(100) <= 2)
 		{
@@ -519,8 +519,8 @@ function function_9cc59537()
 function function_d72aa67e(str_list, str_name)
 {
 	/#
-		var_be4c7921 = strtok(str_list, "");
-		foreach(tok in var_be4c7921)
+		a_str_tok = strtok(str_list, "");
+		foreach(tok in a_str_tok)
 		{
 			if(tok == str_name)
 			{
@@ -1058,7 +1058,7 @@ function function_4b227faf()
 		{
 			switch(group.scriptbundlename)
 			{
-				case "hash_30e797eb835c5363":
+				case "wz_escape_zodiac":
 				{
 					var_dc1ea650 = group;
 					break;
@@ -1113,7 +1113,7 @@ function function_df930125(str_type)
 	/#
 		switch(str_type)
 		{
-			case "hash_9f79ee175f9f015":
+			case "raft_items":
 			{
 				return (1, 0, 0);
 			}

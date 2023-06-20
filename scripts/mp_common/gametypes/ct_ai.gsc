@@ -294,7 +294,7 @@ function spawn_warlord(v_spawn_pos, var_9ac46b0e)
 	warlord.var_dd940df3 = 12000;
 	warlord.ai.var_3af1add3 = &function_f02d23b2;
 	warlord.var_648ec54a = 1;
-	warlord val::set(#"hash_541a2c50a68e314a", "ignoreme", 1);
+	warlord val::set(#"nomad_warlord", "ignoreme", 1);
 	if(isdefined(level.var_42a4603))
 	{
 		warlord thread [[level.var_42a4603]]();

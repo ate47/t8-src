@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_10e9968112011b37;
+#using scripts\wz_common\wz_common_fixup.gsc;
 #using script_170a9c130859c688;
 
 #namespace namespace_e375ee62;

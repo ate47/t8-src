@@ -116,7 +116,7 @@ function function_48c30195(entity, var_ec9c756e)
 {
 	if(isdefined(entity))
 	{
-		entity.var_24d0abd1 = var_ec9c756e;
+		entity.ignoreemp = var_ec9c756e;
 	}
 }
 
@@ -235,12 +235,12 @@ function on_player_killed(params)
 	}
 	if(self.var_fe1ebada == params.eattacker)
 	{
-		scoreevents::processscoreevent(#"hash_46766567959e1df8", self.var_fe1ebada, undefined, level.var_578f7c6d.weapon);
+		scoreevents::processscoreevent(#"disruptor_kill", self.var_fe1ebada, undefined, level.var_578f7c6d.weapon);
 		params.eattacker function_be7a08a8(level.var_578f7c6d.weapon, 1);
 	}
 	else if(isdefined(self.var_fe1ebada.team) && isdefined(params.eattacker.team) && self.var_fe1ebada.team == params.eattacker.team)
 	{
-		scoreevents::processscoreevent(#"hash_123e698312e1824f", self.var_fe1ebada, undefined, level.var_578f7c6d.weapon);
+		scoreevents::processscoreevent(#"disruptor_assist", self.var_fe1ebada, undefined, level.var_578f7c6d.weapon);
 	}
 }
 
@@ -629,7 +629,7 @@ function private function_b16c8865(entity, attackingplayer)
 	{
 		return false;
 	}
-	if((isdefined(entity.var_24d0abd1) ? entity.var_24d0abd1 : 0))
+	if((isdefined(entity.ignoreemp) ? entity.ignoreemp : 0))
 	{
 		return false;
 	}

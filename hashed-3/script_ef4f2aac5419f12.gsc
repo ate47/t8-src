@@ -33,23 +33,23 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("scriptmover", "" + #"hash_24f81e48466b572", 16000, 1, "counter", &function_60d8c392, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_5e74ad0afcfe7364", 16000, 1, "int", &function_83e58cf4, 0, 0);
+	clientfield::register("scriptmover", "" + #"aoe_indicator", 16000, 1, "counter", &function_60d8c392, 0, 0);
+	clientfield::register("scriptmover", "" + #"electric_storm", 16000, 1, "int", &function_83e58cf4, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_7006a7d528a6f05c", 16000, 3, "int", &function_6e837718, 0, 0);
 	clientfield::register("actor", "" + #"hash_51b05e5d116438a9", 16000, 3, "int", &function_46a56fe2, 0, 0);
 	clientfield::register("actor", "" + #"hash_561a1fd86bc1a53a", 16000, 1, "int", &function_ab086ad8, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_43cf6c236d2e9ba", 16000, 1, "counter", &function_acecb36a, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_1187b848bf7868c5", 16000, 1, "int", &function_5b4619, 0, 0);
-	level._effect[#"hash_5e74ad0afcfe7364"] = #"hash_162a58538b5d6db0";
+	level._effect[#"electric_storm"] = #"hash_162a58538b5d6db0";
 	level._effect[#"hash_11c14ffaefdfd970"] = #"hash_515548ac872ebd06";
 	level._effect[#"hash_3d5823fb08a48ea1"] = #"hash_58e484ac8b26c8ef";
 	level._effect[#"hash_6da9e29916d2ac16"] = #"hash_7668b8e00c2854ae";
 	level._effect[#"hash_43cf6c236d2e9ba"] = #"hash_7d7d5c3856622734";
 	level._effect[#"electrocute"] = #"hash_5aa1120d061d1f6c";
-	level._effect[#"hash_22f526cdc824e0f3"] = #"hash_211c80023671737b";
+	level._effect[#"aoe_marker"] = #"hash_211c80023671737b";
 	level._effect[#"hash_6bfee027c13054b6"] = #"hash_2dc8e3470244bf1c";
 	level._effect[#"hash_788ff1a315628747"] = #"hash_661f2c77e14f0edf";
-	level._effect[#"hash_39815108525ba28b"] = #"hash_5f7d8c231fbcf09e";
+	level._effect[#"pegasus_teleport"] = #"hash_5f7d8c231fbcf09e";
 }
 
 /*
@@ -63,7 +63,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!zm_weapons::is_weapon_included(getweapon(#"hash_27e4878539bc7f72")))
+	if(!zm_weapons::is_weapon_included(getweapon(#"thunderstorm")))
 	{
 		return;
 	}
@@ -109,7 +109,7 @@ function function_ab086ad8(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_60d8c392(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self util::playfxontag(localclientnum, level._effect[#"hash_22f526cdc824e0f3"], self, "tag_origin");
+	self util::playfxontag(localclientnum, level._effect[#"aoe_marker"], self, "tag_origin");
 }
 
 /*
@@ -136,7 +136,7 @@ function function_83e58cf4(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 1:
 		{
-			self.var_d00cf6ff = playfx(localclientnum, level._effect[#"hash_5e74ad0afcfe7364"], self.origin + vectorscale((0, 0, 1), 180), self.angles);
+			self.var_d00cf6ff = playfx(localclientnum, level._effect[#"electric_storm"], self.origin + vectorscale((0, 0, 1), 180), self.angles);
 			break;
 		}
 	}
@@ -170,11 +170,11 @@ function function_6e837718(localclientnum, oldval, newval, bnewent, binitialsnap
 	level.var_667af8b4[newval] = self;
 	if(isdefined(self gettagorigin("j_h_chest")))
 	{
-		playfx(localclientnum, level._effect[#"hash_39815108525ba28b"], self gettagorigin("j_h_chest"), self gettagangles("j_h_chest"));
+		playfx(localclientnum, level._effect[#"pegasus_teleport"], self gettagorigin("j_h_chest"), self gettagangles("j_h_chest"));
 	}
 	else if(newval == 5)
 	{
-		playfx(localclientnum, level._effect[#"hash_39815108525ba28b"], self.origin);
+		playfx(localclientnum, level._effect[#"pegasus_teleport"], self.origin);
 	}
 }
 

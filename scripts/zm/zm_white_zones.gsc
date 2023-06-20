@@ -293,7 +293,7 @@ function function_ab7f70b9(e_player)
 			var_601fee0 = #"hash_1277174ca2ba0df";
 			break;
 		}
-		case "hash_11aeb684f2449edb":
+		case "zone_truck":
 		{
 			var_601fee0 = #"hash_5ff3990c30bac4bc";
 			break;

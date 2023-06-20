@@ -2,7 +2,7 @@
 #using script_387eab232fe22983;
 #using scripts\zm\ai\zm_ai_stoker.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
@@ -42,7 +42,7 @@
 */
 function init()
 {
-	namespace_c3287616::function_2669b95a(#"bat", #"nosferatu");
+	zm_round_spawning::function_2669b95a(#"bat", #"nosferatu");
 	level.var_4c350e72 = 0;
 	level.var_ce53172d = 30;
 	level.dog_spawn_func = &function_e1c262fb;
@@ -58,7 +58,7 @@ function init()
 	level flag::init("flag_werewolf_set_intro");
 	level flag::init("flag_bat_nosferatu_set_intro");
 	level flag::init("flag_crimson_nosferatu_set_intro");
-	namespace_c3287616::function_2876740e(#"catalyst", &function_2ffc8cca);
+	zm_round_spawning::function_2876740e(#"catalyst", &function_2ffc8cca);
 	level waittill(#"all_players_spawned");
 	if(zm_utility::is_standard())
 	{
@@ -128,7 +128,7 @@ function function_6957c745(str_archetype, n_round, var_b2239dab)
 		level waittill(#"hash_5d3012139f083ccb");
 		n_round = level.round_number;
 	}
-	namespace_c3287616::function_376e51ef(str_archetype, n_round);
+	zm_round_spawning::function_376e51ef(str_archetype, n_round);
 }
 
 /*
@@ -685,7 +685,7 @@ function function_50ec1ddf()
 			{
 				return s_spawn_loc;
 			}
-			if(s_spawn_loc.var_39512f0e === "power_on3" && zm_custom::function_901b751c("zmPowerState") == 2 && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
+			if(s_spawn_loc.var_39512f0e === "power_on3" && zm_custom::function_901b751c("zmPowerState") == 2 && zm_custom::function_901b751c(#"zmpowerdoorstate") == 0)
 			{
 				return s_spawn_loc;
 			}

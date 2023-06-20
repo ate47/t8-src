@@ -33,7 +33,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_45315239305b1f03", &on_begin, &on_end);
+	zm_trial::register_challenge(#"crawlers_only", &on_begin, &on_end);
 }
 
 /*

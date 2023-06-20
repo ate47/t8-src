@@ -414,7 +414,7 @@ function gethighestscoringplayer()
 function function_15683f39()
 {
 	players = level.players;
-	var_3df849b3 = undefined;
+	highestscoringplayer = undefined;
 	tie = 0;
 	for(i = 0; i < players.size; i++)
 	{
@@ -427,22 +427,22 @@ function function_15683f39()
 		{
 			continue;
 		}
-		if(!isdefined(var_3df849b3) || player.score > var_3df849b3.score)
+		if(!isdefined(highestscoringplayer) || player.score > highestscoringplayer.score)
 		{
-			var_3df849b3 = player;
+			highestscoringplayer = player;
 			tie = 0;
 			continue;
 		}
-		if(player.score == var_3df849b3.score)
+		if(player.score == highestscoringplayer.score)
 		{
 			tie = 1;
 		}
 	}
-	if(tie || !isdefined(var_3df849b3))
+	if(tie || !isdefined(highestscoringplayer))
 	{
 		return undefined;
 	}
-	return var_3df849b3;
+	return highestscoringplayer;
 }
 
 /*
@@ -542,7 +542,7 @@ function giveplayermomentumnotification(score, label, descvalue, countstowardram
 		self function_b552ffa9(#"score_event", 4, label, score, combatefficiencybonus, eventindex);
 		potm::function_d6b60141(#"score_event", self, label, score, combatefficiencybonus, eventindex);
 	}
-	if(isdefined(event) && isdefined(level.scoreinfo[event][#"hash_7fe1763a3ac14691"]) && level.scoreinfo[event][#"hash_7fe1763a3ac14691"] == "hotstreak")
+	if(isdefined(event) && isdefined(level.scoreinfo[event][#"job_type"]) && level.scoreinfo[event][#"job_type"] == "hotstreak")
 	{
 		if(!isdefined(var_36f23f1f) || var_36f23f1f < 2)
 		{
@@ -804,17 +804,17 @@ function function_3172cf59(player, newscore, weapon, mpplayerscore)
 	player bb::add_to_stat("score", mpplayerscore.delta);
 	if(!isbot(player))
 	{
-		if(!isdefined(player.pers[#"hash_f9d3527022e8383"]))
+		if(!isdefined(player.pers[#"scoreeventcache"]))
 		{
-			player.pers[#"hash_f9d3527022e8383"] = [];
+			player.pers[#"scoreeventcache"] = [];
 		}
-		if(!isdefined(player.pers[#"hash_f9d3527022e8383"][event]))
+		if(!isdefined(player.pers[#"scoreeventcache"][event]))
 		{
-			player.pers[#"hash_f9d3527022e8383"][event] = 1;
+			player.pers[#"scoreeventcache"][event] = 1;
 		}
 		else
 		{
-			player.pers[#"hash_f9d3527022e8383"][event] = player.pers[#"hash_f9d3527022e8383"][event] + 1;
+			player.pers[#"scoreeventcache"][event] = player.pers[#"scoreeventcache"][event] + 1;
 		}
 	}
 	if(scorediff <= 0)
@@ -890,10 +890,10 @@ function default_onplayerscore(event, player, victim)
 {
 	score = player rank::getscoreinfovalue(event);
 	rolescore = player rank::getscoreinfoposition(event);
-	var_f22ee5e = 0;
+	objscore = 0;
 	if(player rank::function_f7b5d9fa(event))
 	{
-		var_f22ee5e = score;
+		objscore = score;
 	}
 	/#
 		assert(isdefined(score));
@@ -903,11 +903,11 @@ function default_onplayerscore(event, player, victim)
 		if(isdefined(player) && !isalive(player))
 		{
 			score = 0;
-			var_f22ee5e = 0;
+			objscore = 0;
 			rolescore = 0;
 		}
 	}
-	function_889ed975(player, score, var_f22ee5e, rolescore);
+	function_889ed975(player, score, objscore, rolescore);
 }
 
 /*
@@ -947,20 +947,20 @@ function _setplayerscore(player, score, var_e21e8076, var_53c3aa0b)
 		player.pers[#"rolescore"] = var_53c3aa0b;
 		player.rolescore = player.pers[#"rolescore"];
 	}
-	if(isdefined(var_e21e8076) && var_e21e8076 != player.pers[#"hash_6061882505788180"])
+	if(isdefined(var_e21e8076) && var_e21e8076 != player.pers[#"objscore"])
 	{
 		if(isarenamode())
 		{
-			amount = (var_e21e8076 - player.pers[#"hash_6061882505788180"]) + player stats::get_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"arenavalue");
+			amount = (var_e21e8076 - player.pers[#"objscore"]) + player stats::get_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"arenavalue");
 			player stats::set_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"arenavalue", amount);
 		}
 		else
 		{
-			amount = (var_e21e8076 - player.pers[#"hash_6061882505788180"]) + player stats::get_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"statvalue");
+			amount = (var_e21e8076 - player.pers[#"objscore"]) + player stats::get_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"statvalue");
 			player stats::set_stat(#"playerstatsbygametype", level.var_12323003, #"objective_score", #"statvalue", amount);
 		}
-		player.pers[#"hash_6061882505788180"] = var_e21e8076;
-		player.var_f22ee5e = player.pers[#"hash_6061882505788180"];
+		player.pers[#"objscore"] = var_e21e8076;
+		player.objscore = player.pers[#"objscore"];
 	}
 }
 
@@ -1015,7 +1015,7 @@ function function_889ed975(player, score_add, var_252f7989, var_f8258842)
 		var_f8258842 = int(var_f8258842 * var_1eb7c454);
 	#/
 	score = player.pers[#"score"] + score_add;
-	var_e21e8076 = player.pers[#"hash_6061882505788180"];
+	var_e21e8076 = player.pers[#"objscore"];
 	if(isdefined(var_252f7989))
 	{
 		var_e21e8076 = var_e21e8076 + var_252f7989;
@@ -2213,7 +2213,7 @@ function backupandclearwinstreaks()
 		self stats::set_stat_global(#"cur_win_streak", 0);
 		if(level.var_aa5e6547 === 1)
 		{
-			self.pers[#"hash_1346f22553899977"] = self stats::get_stat_global(#"hash_a06075423336d9c");
+			self.pers[#"winstreakcwl"] = self stats::get_stat_global(#"hash_a06075423336d9c");
 			self stats::set_stat_global(#"hash_a06075423336d9c", 0);
 		}
 	}
@@ -2237,7 +2237,7 @@ function restorewinstreaks(winner)
 		winner stats::set_stat_global(#"cur_win_streak", winner.pers[#"winstreak"]);
 		if(level.var_aa5e6547 === 1)
 		{
-			winner stats::set_stat_global(#"hash_a06075423336d9c", winner.pers[#"hash_1346f22553899977"]);
+			winner stats::set_stat_global(#"hash_a06075423336d9c", winner.pers[#"winstreakcwl"]);
 		}
 	}
 	winner stats::function_baa25a23(#"cur_win_streak", (isdefined(winner.pers[#"winstreakforgametype"]) ? winner.pers[#"winstreakforgametype"] : 0));

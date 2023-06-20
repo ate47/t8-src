@@ -32,8 +32,8 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.var_2e115fb9 = getweapon(#"sig_buckler");
-	level.var_b9d2a7a9 = getweapon(#"hash_17f9f60ce4ea5074");
-	level.var_f1ab9c51 = getweapon(#"hash_24840aebcc206215");
+	level.var_b9d2a7a9 = getweapon(#"sig_buckler_lh");
+	level.var_f1ab9c51 = getweapon(#"sig_shield_turret");
 	level.var_69aaf8f = getdvarfloat(#"hash_27445ccf68d30520", 5);
 	ability_player::register_gadget_activation_callbacks(11, &function_e31bc59d, &linkcable_off_tele);
 }

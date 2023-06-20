@@ -62,10 +62,10 @@ function private function_20705e4c(localclientnum)
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_488fe0f467820fcf", #"set_visible", #"hash_6ab654a4c018818c");
+		waitresult = self waittill(#"set_invisible", #"set_visible", #"hash_6ab654a4c018818c");
 		switch(waitresult._notify)
 		{
-			case "hash_488fe0f467820fcf":
+			case "set_invisible":
 			{
 				self fxclientutils::function_ae92446(localclientnum, self, self.fxdef);
 				break;

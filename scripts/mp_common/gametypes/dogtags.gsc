@@ -55,7 +55,7 @@ function spawn_dog_tag(victim, attacker, on_use_function, objectives_for_attacke
 		visuals[1] = spawn("script_model", (0, 0, 0));
 		visuals[1] setmodel(victim getfriendlydogtagmodel());
 		trigger = spawn("trigger_radius", (0, 0, 0), 0, 32, 32);
-		level.dogtags[victim.entnum] = gameobjects::create_use_object(victim.team, trigger, visuals, vectorscale((0, 0, 1), 16), #"hash_bc7bcc75f63dc7b");
+		level.dogtags[victim.entnum] = gameobjects::create_use_object(victim.team, trigger, visuals, vectorscale((0, 0, 1), 16), #"conf_dogtags");
 		level.dogtags[victim.entnum] gameobjects::set_use_time(0);
 		level.dogtags[victim.entnum].onuse = &onuse;
 		level.dogtags[victim.entnum].custom_onuse = on_use_function;

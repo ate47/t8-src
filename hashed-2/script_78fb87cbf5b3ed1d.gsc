@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.blackjackstash = (isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0);
+	level.blackjackstash = (isdefined(getgametypesetting(#"wzlootlockers")) ? getgametypesetting(#"wzlootlockers") : 0);
 	customgame = gamemodeismode(1) || gamemodeismode(7);
 	if(customgame || !level.blackjackstash)
 	{

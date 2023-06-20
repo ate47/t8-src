@@ -30,8 +30,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	callback::add_weapon_type(#"hash_79fccf9f83bf7568", &function_9f6d38cf);
-	callback::add_weapon_type(#"hash_38c782e8db011867", &function_9f6d38cf);
+	callback::add_weapon_type(#"mine_trapd", &function_9f6d38cf);
+	callback::add_weapon_type(#"claymore_trapd", &function_9f6d38cf);
 }
 
 /*

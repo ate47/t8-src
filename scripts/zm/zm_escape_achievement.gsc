@@ -163,7 +163,7 @@ function private function_e5df009()
 	{
 		return;
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 2)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 2)
 	{
 		while(level.round_number < 20)
 		{

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_421e0a3702e22de;
-#using script_52c6c2d1a2ef1b46;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_orange_pablo.gsc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -38,8 +38,8 @@ function preload()
 */
 function main()
 {
-	level flag::init(#"hash_40324afbf4440a0c");
-	level flag::init(#"hash_117279bc435c1c9");
+	level flag::init(#"dials_aquired");
+	level flag::init(#"dials_done");
 	level.var_62bfa1a6 = [];
 	level.var_4cf6900e = [];
 	level.var_4cf6900e[#"orange"] = struct::get("orange", "script_noteworthy");
@@ -69,30 +69,30 @@ function main()
 */
 function function_77ed3bab(var_5ea5c94d)
 {
-	namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 1);
+	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 1);
 	if(!var_5ea5c94d)
 	{
 		/#
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
-				if(getdvarint(#"hash_11ad6a9695943217", 0))
+				if(getdvarint(#"zm_debug_ee", 0))
 				{
 					iprintlnbold("");
 					println("");
 				}
 			}
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
-				if(getdvarint(#"hash_11ad6a9695943217", 0))
+				if(getdvarint(#"zm_debug_ee", 0))
 				{
 					iprintlnbold("");
 					println("");
 				}
 			}
 		#/
-		namespace_85e029d3::function_3f9e02b8(6, #"hash_2934f352bd60d6d6", #"hash_68fc56c1fbf3b972", &function_bd605daa);
-		namespace_85e029d3::function_d83490c5(6);
-		level flag::wait_till(#"hash_40324afbf4440a0c");
+		zm_orange_pablo::function_3f9e02b8(6, #"hash_2934f352bd60d6d6", #"hash_68fc56c1fbf3b972", &function_bd605daa);
+		zm_orange_pablo::function_d83490c5(6);
+		level flag::wait_till(#"dials_aquired");
 		foreach(s_dial in level.var_4cf6900e)
 		{
 			s_dial zm_unitrigger::create("", 32);
@@ -118,7 +118,7 @@ function function_51ecc801(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
-		namespace_85e029d3::function_6aaeff92(6);
+		zm_orange_pablo::function_6aaeff92(6);
 		foreach(s_dial in level.var_4cf6900e)
 		{
 			s_dial.var_e5f66b29 = 1;
@@ -126,7 +126,7 @@ function function_51ecc801(var_5ea5c94d, ended_early)
 			s_dial.dial_model show();
 		}
 	}
-	level flag::set(#"hash_117279bc435c1c9");
+	level flag::set(#"dials_done");
 }
 
 /*
@@ -140,7 +140,7 @@ function function_51ecc801(var_5ea5c94d, ended_early)
 */
 function function_bd605daa()
 {
-	level flag::set(#"hash_40324afbf4440a0c");
+	level flag::set(#"dials_aquired");
 }
 
 /*
@@ -177,11 +177,11 @@ function function_5a73ee80()
 function private function_1e5c0d3b()
 {
 	level endon(#"end_game");
-	while(!level flag::get(#"hash_117279bc435c1c9"))
+	while(!level flag::get(#"dials_done"))
 	{
 		var_adea2587 = undefined;
-		var_adea2587 = self waittill(#"trigger_activated", #"hash_117279bc435c1c9");
-		if(var_adea2587._notify == #"hash_117279bc435c1c9")
+		var_adea2587 = self waittill(#"trigger_activated", #"dials_done");
+		if(var_adea2587._notify == #"dials_done")
 		{
 			return;
 		}
@@ -221,9 +221,9 @@ function private function_1e5c0d3b()
 			if(self.n_value == self.var_7bb4ff56)
 			{
 				/#
-					if(getdvarint(#"hash_11ad6a9695943217", 0))
+					if(getdvarint(#"zm_debug_ee", 0))
 					{
-						if(getdvarint(#"hash_11ad6a9695943217", 0))
+						if(getdvarint(#"zm_debug_ee", 0))
 						{
 							iprintlnbold(("" + self.script_noteworthy) + "");
 							println(("" + self.script_noteworthy) + "");
@@ -298,8 +298,8 @@ function function_a02dfba()
 */
 function function_eb2835af()
 {
-	var_880b9c97 = [3:"tag_yellow_", 2:"tag_violet_", 1:"tag_orange_", 0:"tag_blue_"];
-	foreach(str_tag in var_880b9c97)
+	a_str_tag_name = [3:"tag_yellow_", 2:"tag_violet_", 1:"tag_orange_", 0:"tag_blue_"];
+	foreach(str_tag in a_str_tag_name)
 	{
 		for(i = 0; i < 10; i++)
 		{
@@ -377,7 +377,7 @@ function function_5f228e90()
 function function_ca3efcd8(e_code, str_noteworthy, n_code)
 {
 	var_127789d1 = randomint(3);
-	a_e_codes = namespace_509a75d1::function_bffcedde(str_noteworthy, "script_noteworthy", "script_int");
+	a_e_codes = zm_hms_util::function_bffcedde(str_noteworthy, "script_noteworthy", "script_int");
 	level.var_c205c941[str_noteworthy] = a_e_codes[var_127789d1];
 	level.var_c205c941[str_noteworthy] function_66365668(n_code);
 	for(i = 0; i < a_e_codes.size; i++)

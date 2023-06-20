@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_progress.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -74,7 +74,7 @@ function __main__()
 	function_7a8f3cbd();
 	function_60a6c623();
 	setup_tables();
-	if(zombie_utility::function_d2dfacfd(#"hash_44737d225ec3b9d7") || zm_custom::function_901b751c(#"hash_2a5dc43e6de87347"))
+	if(zombie_utility::function_d2dfacfd(#"highlight_craftables") || zm_custom::function_901b751c(#"zmcraftingkeyline"))
 	{
 		level thread function_40f32480();
 	}
@@ -224,7 +224,7 @@ function function_6dccf508()
 	/#
 		assert(!(isdefined(self.registered) && self.registered), "");
 	#/
-	zm_unitrigger::register_static_unitrigger(self, &function_369159af);
+	zm_unitrigger::register_static_unitrigger(self, &crafting_think);
 	self function_35f5c90b(#"craft");
 	self.crafted = 0;
 	self.blueprint.completed = 0;
@@ -644,7 +644,7 @@ function function_f7dbfdf9(player, unitrigger)
 {
 	if(isdefined(player))
 	{
-		player notify(#"hash_7fd32c9551894e64");
+		player notify(#"crafting_fail");
 		player playsound(#"hash_15b7f680d9f65b62");
 	}
 }
@@ -662,7 +662,7 @@ function function_d95a600f(player, unitrigger)
 {
 	if(isdefined(player))
 	{
-		player notify(#"hash_424834e6dee13bc3");
+		player notify(#"crafting_success");
 		player playsound(#"hash_421a00cb329b2a45");
 	}
 }
@@ -878,7 +878,7 @@ function function_f665fde0(trig)
 	unitrigger_stub.var_c060d2c8 = 1;
 	zm_unitrigger::unitrigger_force_per_player_triggers(unitrigger_stub, 1);
 	unitrigger_stub.prompt_and_visibility_func = &function_126fc77c;
-	zm_unitrigger::register_static_unitrigger(unitrigger_stub, &function_369159af);
+	zm_unitrigger::register_static_unitrigger(unitrigger_stub, &crafting_think);
 	unitrigger_stub.piece_trigger = trig;
 	trig.trigger_stub = unitrigger_stub;
 	if(isdefined(trig.zombie_weapon_upgrade))
@@ -1012,7 +1012,7 @@ function private function_356e77bd()
 	while(isdefined(self))
 	{
 		event = undefined;
-		event = self waittill(#"hash_396aa901be0c0eaf");
+		event = self waittill(#"unitrigger_activated");
 		player = event.player;
 		self thread function_514b8f17(player);
 	}
@@ -1030,7 +1030,7 @@ function private function_356e77bd()
 function private function_514b8f17(player)
 {
 	self notify(#"hash_295a022a1c72a359");
-	self endon(#"hash_295a022a1c72a359", #"hash_d0ee404fc39206");
+	self endon(#"hash_295a022a1c72a359", #"unitrigger_deactivated");
 	player endon(#"death");
 	player.var_270241e9 = 0;
 	while(isdefined(player))
@@ -1119,16 +1119,16 @@ function function_86531922(e_holder, w_item)
 {
 	if(isdefined(w_item.gadgetreadysoundplayer))
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_76042abadb490bd", w_item.gadgetreadysoundplayer);
+		self thread zm_audio::create_and_play_dialog(#"shield_pickup", w_item.gadgetreadysoundplayer);
 	}
 	else
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_ef08945f5a2461d", #"pickup");
+		self thread zm_audio::create_and_play_dialog(#"shield_piece", #"pickup");
 	}
 	self playsound(#"hash_230737b2535a3374");
 	if(w_item.var_f56ac2bd !== "")
 	{
-		level namespace_6747c550::function_7df6bb60(hash(w_item.var_f56ac2bd), 1);
+		level zm_ui_inventory::function_7df6bb60(hash(w_item.var_f56ac2bd), 1);
 	}
 }
 
@@ -1145,7 +1145,7 @@ function function_d56724a6(e_holder, w_item)
 {
 	if(w_item.var_f56ac2bd !== "")
 	{
-		level namespace_6747c550::function_7df6bb60(hash(w_item.var_f56ac2bd), 1);
+		level zm_ui_inventory::function_7df6bb60(hash(w_item.var_f56ac2bd), 1);
 	}
 	if(isdefined(w_item.var_25bb96cc))
 	{
@@ -1157,17 +1157,17 @@ function function_d56724a6(e_holder, w_item)
 	}
 	if(isdefined(w_item.gadgetreadysoundplayer))
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", w_item.gadgetreadysoundplayer);
+		self thread zm_audio::create_and_play_dialog(#"component_pickup", w_item.gadgetreadysoundplayer);
 	}
 	else
 	{
 		if(isdefined(w_item.var_62a98b13))
 		{
-			self thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", w_item.var_62a98b13);
+			self thread zm_audio::create_and_play_dialog(#"component_pickup", w_item.var_62a98b13);
 		}
 		else
 		{
-			self thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", #"generic");
+			self thread zm_audio::create_and_play_dialog(#"component_pickup", #"generic");
 		}
 	}
 }
@@ -1292,7 +1292,7 @@ function function_18f2be60(player)
 }
 
 /*
-	Name: function_369159af
+	Name: crafting_think
 	Namespace: zm_crafting
 	Checksum: 0x8FA00A3E
 	Offset: 0x3400
@@ -1300,16 +1300,16 @@ function function_18f2be60(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_369159af()
+function crafting_think()
 {
-	self notify(#"hash_79308edbd278188");
-	self endon(#"hash_79308edbd278188", #"kill_trigger", #"death");
+	self notify(#"crafting_think");
+	self endon(#"crafting_think", #"kill_trigger", #"death");
 	while(isdefined(self))
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
 		player = waitresult.activator;
-		level notify(#"hash_356be6a8a0b0668d", {#activator:player, #unitrigger:self});
+		level notify(#"crafting_started", {#activator:player, #unitrigger:self});
 		if(isdefined(self.stub.var_90dfb0bf))
 		{
 			self [[level.var_b87dee47[self.stub.var_90dfb0bf].var_ea7ebe1f]](player);
@@ -1526,8 +1526,8 @@ function private function_f37c4bb5(player)
 		{
 			function_6f635422(player, self.stub.blueprint);
 		}
-		level notify(#"hash_656719782f57ca1a", {#player:player, #produced:self.stub.blueprint.var_54a97edd, #blueprint:self.stub.blueprint});
-		player notify(#"hash_656719782f57ca1a", {#produced:self.stub.blueprint.var_54a97edd, #blueprint:self.stub.blueprint});
+		level notify(#"blueprint_completed", {#player:player, #produced:self.stub.blueprint.var_54a97edd, #blueprint:self.stub.blueprint});
+		player notify(#"blueprint_completed", {#produced:self.stub.blueprint.var_54a97edd, #blueprint:self.stub.blueprint});
 		if(self.stub.blueprint.var_46309255 === "persistent_buy" || self.stub.blueprint.var_46309255 === "buy_once_then_box" || self.stub.blueprint.var_46309255 === "spawn_as_ingredient")
 		{
 			function_987a472(self.stub.blueprint.var_54a97edd.worldmodel, self.stub.blueprint);
@@ -1554,7 +1554,7 @@ function private function_f37c4bb5(player)
 				/#
 					e_player zm_challenges::debug_print("");
 				#/
-				e_player zm_stats::increment_challenge_stat(#"hash_7199c0c1e12de89a", undefined, 1);
+				e_player zm_stats::increment_challenge_stat(#"shields_built", undefined, 1);
 			}
 		}
 		if(isdefined(self.stub.blueprint.var_46309255))
@@ -1728,8 +1728,8 @@ function private function_9693e041(player)
 			str = self.blueprint.var_1238231a;
 			var_e7ed2264 = function_c9163c5d(str);
 			hint_str = zm_utility::function_d6046228(str, var_e7ed2264);
-			var_495e9cd = zm_utility::function_d6046228(#"hash_38222048e6736323", #"hash_197687e8f04962c9");
-			self.hint_string = (isdefined(hint_str) ? hint_str : var_495e9cd);
+			backup_str = zm_utility::function_d6046228(#"hash_38222048e6736323", #"hash_197687e8f04962c9");
+			self.hint_string = (isdefined(hint_str) ? hint_str : backup_str);
 			_shad_turret_debug_server = 1;
 		}
 		else
@@ -2093,7 +2093,7 @@ function private function_df8ce6e2(player)
 			player playsound(#"hash_230737b2535a3374");
 		}
 		player notify(#"hash_77d44943fb143b18", {#weapon:self.stub.blueprint.var_54a97edd});
-		player zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
+		player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
 		player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
 		self.stub.bought = 1;
 		self.stub.hint_string = "";

@@ -133,7 +133,7 @@ function function_78c32556(cmd)
 				}
 				break;
 			}
-			case "hash_4ea793630d0a487c":
+			case "hide_chests":
 			{
 				function_7edbb38();
 				if(level.chest_index != -1)
@@ -143,7 +143,7 @@ function function_78c32556(cmd)
 				}
 				break;
 			}
-			case "hash_35d52727cbcdaa13":
+			case "show_chests":
 			{
 				function_7edbb38();
 				if(level.chest_index != -1)
@@ -190,7 +190,7 @@ function function_4110a06f()
 	/#
 		zm_devgui::zombie_devgui_open_sesame();
 		level thread zodt8_pap_quest::function_765118cf();
-		level flag::set(#"hash_6bab9300c8d38dec");
+		level flag::set(#"open_lore_room");
 		level thread zm_zodt8::change_water_height_fore(1);
 		level thread zm_zodt8::change_water_height_aft(1);
 	#/

@@ -598,7 +598,7 @@ function no_target_override(ai_zombie)
 	if(!isdefined(ai_zombie.var_cc1c538e))
 	{
 		ai_zombie.var_cc1c538e = ai_zombie get_escape_position();
-		ai_zombie val::set(#"hash_70eb9b26a388505a", "ignoreall", 1);
+		ai_zombie val::set(#"zm_cleanup_mgr", "ignoreall", 1);
 	}
 	if(isdefined(ai_zombie.var_cc1c538e))
 	{
@@ -622,7 +622,7 @@ function no_target_override(ai_zombie)
 function function_d22435d9(ai_zombie)
 {
 	ai_zombie.var_cc1c538e = undefined;
-	ai_zombie val::reset(#"hash_70eb9b26a388505a", "ignoreall");
+	ai_zombie val::reset(#"zm_cleanup_mgr", "ignoreall");
 }
 
 /*

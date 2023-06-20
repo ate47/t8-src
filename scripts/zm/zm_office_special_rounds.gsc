@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ebb9642933bf7;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm\zm_office_floors.gsc;
@@ -35,11 +35,11 @@ function init()
 {
 	if(zm_utility::is_classic())
 	{
-		namespace_c402654::function_aec3446d(0);
+		namespace_c402654::dog_enable_rounds(0);
 		level.var_2f14be05 = 15;
 		level.var_35a23da4 = 25;
-		namespace_c3287616::function_376e51ef(#"nova_crawler");
-		namespace_c3287616::function_376e51ef(#"zombie_dog", level.var_2f14be05);
+		zm_round_spawning::function_376e51ef(#"nova_crawler");
+		zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
 		level.var_819e7dfd[#"zombie_dog"].var_87ed2709 = &function_6fa16bd2;
 	}
 	else
@@ -48,13 +48,13 @@ function init()
 		{
 			level.var_2f14be05 = 10;
 			level.var_35a23da4 = 11;
-			namespace_c3287616::function_376e51ef(#"nova_crawler");
-			namespace_c3287616::function_376e51ef(#"zombie_dog", level.var_2f14be05);
+			zm_round_spawning::function_376e51ef(#"nova_crawler");
+			zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
 			level.dog_round_track_override = &namespace_c402654::function_246a0760;
-			namespace_c402654::function_aec3446d(0);
+			namespace_c402654::dog_enable_rounds(0);
 			level.var_807ffa2e = &namespace_df88241c::function_5b0522fa;
 			namespace_df88241c::function_c44636f2(0);
-			namespace_c3287616::function_df803678(&namespace_c402654::function_ed67c5e7);
+			zm_round_spawning::function_df803678(&namespace_c402654::function_ed67c5e7);
 		}
 		else if(zm_utility::is_standard())
 		{
@@ -69,11 +69,11 @@ function init()
 	callback::on_round_end(&function_5b22eecf);
 	if(zm_utility::is_trials())
 	{
-		namespace_c3287616::function_2876740e(#"nova_crawler", &function_6f502b52);
+		zm_round_spawning::function_2876740e(#"nova_crawler", &function_6f502b52);
 	}
 	else
 	{
-		namespace_c3287616::function_2876740e(#"nova_crawler", &function_f3f325cb);
+		zm_round_spawning::function_2876740e(#"nova_crawler", &function_f3f325cb);
 	}
 }
 
@@ -177,10 +177,10 @@ function function_a409c2a7(e_target)
 		{
 			if(array::contains(var_2057a8c1, loc.zone_name))
 			{
-				var_e3c2bfe4 = distancesquared(loc.origin, e_target.origin);
-				if(var_e3c2bfe4 < 9000000)
+				sqr_dist = distancesquared(loc.origin, e_target.origin);
+				if(sqr_dist < 9000000)
 				{
-					if(var_e3c2bfe4 > 250000)
+					if(sqr_dist > 250000)
 					{
 						if(!isdefined(var_905a9429))
 						{
@@ -193,7 +193,7 @@ function function_a409c2a7(e_target)
 						var_905a9429[var_905a9429.size] = loc;
 						continue;
 					}
-					if(var_e3c2bfe4 > 10000)
+					if(sqr_dist > 10000)
 					{
 						if(!isdefined(var_51fb0ec7))
 						{

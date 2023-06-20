@@ -16,7 +16,7 @@
 */
 function init()
 {
-	ai_state::function_e9b061a8(2, &function_b05ed2fa, &function_5c1be07d, undefined, &function_5d31deb6, &function_4af1ff64, &function_a78474f2);
+	ai_state::function_e9b061a8(2, &make_leave, &function_5c1be07d, undefined, &function_5d31deb6, &function_4af1ff64, &function_a78474f2);
 }
 
 /*
@@ -82,7 +82,7 @@ function function_5d31deb6()
 	}
 	if(self.ai.leave.state != 1)
 	{
-		self thread function_b05ed2fa();
+		self thread make_leave();
 	}
 }
 
@@ -133,7 +133,7 @@ function function_e35eee4d()
 }
 
 /*
-	Name: function_b05ed2fa
+	Name: make_leave
 	Namespace: ai_leave
 	Checksum: 0x11ACBD19
 	Offset: 0x380
@@ -141,11 +141,11 @@ function function_e35eee4d()
 	Parameters: 0
 	Flags: None
 */
-function function_b05ed2fa()
+function make_leave()
 {
 	self endon(#"death");
-	self notify(#"hash_7b9527a0182f9b4f");
-	self endon(#"hash_7b9527a0182f9b4f");
+	self notify(#"make_leave");
+	self endon(#"make_leave");
 	self callback::callback(#"hash_c3f225c9fa3cb25");
 	self.ai.leave.state = 1;
 	if(!isdefined(self.exit_spawn))

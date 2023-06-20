@@ -31,12 +31,12 @@ function init()
 	Parameters: 10
 	Flags: None
 */
-function function_7d8be726(patrol_radius, var_edc20efd, var_d73e0c6e, var_c80d374a, var_36b19b5e, var_861daf20, var_a85cb855, var_52e43a03, var_544ae93d, var_7d9560c1)
+function function_7d8be726(patrol_radius, var_edc20efd, var_d73e0c6e, marker_fx, var_36b19b5e, var_861daf20, var_a85cb855, var_52e43a03, var_544ae93d, var_7d9560c1)
 {
 	/#
 		assert(isdefined(self.ai));
 	#/
-	self.ai.patrol = {#hash_7d9560c1:var_7d9560c1, #hash_544ae93d:var_544ae93d, #hash_52e43a03:var_52e43a03, #hash_a85cb855:var_a85cb855, #hash_861daf20:var_861daf20, #hash_36b19b5e:var_36b19b5e, #hash_c80d374a:var_c80d374a, #hash_d73e0c6e:var_d73e0c6e, #hash_edc20efd:var_edc20efd, #patrol_radius:patrol_radius, #state:2};
+	self.ai.patrol = {#hash_7d9560c1:var_7d9560c1, #hash_544ae93d:var_544ae93d, #hash_52e43a03:var_52e43a03, #hash_a85cb855:var_a85cb855, #hash_861daf20:var_861daf20, #hash_36b19b5e:var_36b19b5e, #hash_c80d374a:marker_fx, #hash_d73e0c6e:var_d73e0c6e, #hash_edc20efd:var_edc20efd, #patrol_radius:patrol_radius, #state:2};
 }
 
 /*
@@ -245,10 +245,10 @@ function function_6155a7ca(var_9033671b)
 	tacpoints = undefined;
 	if(isdefined(var_cd26c30e) && isdefined(self.ai.patrol.var_7d9560c1))
 	{
-		var_c36ae55a = getclosesttacpoint(var_cd26c30e.origin);
-		if(isdefined(var_c36ae55a))
+		closesttacpoint = getclosesttacpoint(var_cd26c30e.origin);
+		if(isdefined(closesttacpoint))
 		{
-			cylinder = ai::t_cylinder(var_c36ae55a.origin, 150, self.ai.patrol.var_52e43a03);
+			cylinder = ai::t_cylinder(closesttacpoint.origin, 150, self.ai.patrol.var_52e43a03);
 			tacpoints = tacticalquery(self.ai.patrol.var_7d9560c1, cylinder, self, var_cd26c30e, var_d9910e8a);
 			if(isdefined(tacpoints) && tacpoints.size)
 			{
@@ -536,9 +536,9 @@ function private function_732c2878()
 */
 function private function_8d4eba95(origin)
 {
-	if(isdefined(self.script_owner) && isdefined(self.ai.patrol.var_c80d374a))
+	if(isdefined(self.script_owner) && isdefined(self.ai.patrol.marker_fx))
 	{
-		self.var_74e8fd19 = spawnfx(self.ai.patrol.var_c80d374a, origin + vectorscale((0, 0, 1), 3), (0, 0, 1), (1, 0, 0));
+		self.var_74e8fd19 = spawnfx(self.ai.patrol.marker_fx, origin + vectorscale((0, 0, 1), 3), (0, 0, 1), (1, 0, 0));
 		self.var_74e8fd19.team = self.team;
 		triggerfx(self.var_74e8fd19);
 		self.var_74e8fd19 setinvisibletoall();

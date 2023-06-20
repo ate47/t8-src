@@ -110,7 +110,7 @@ function private function_a5a431f6()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_7d855302d88c6701", #"lightning_ball_created");
+		var_be17187b = self waittill(#"ammo_reduction", #"lightning_ball_created");
 		self zm_score::player_reduce_points("take_specified", level.var_d34d02af);
 	}
 }

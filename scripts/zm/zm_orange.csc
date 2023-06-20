@@ -21,7 +21,7 @@
 #using scripts\zm\zm_orange_mq_soapstone.csc;
 #using scripts\zm_common\zm_loadout.csc;
 #using script_70e92046734b4a71;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\zm\weapons\zm_weap_katana.csc;
 #using scripts\zm\zm_orange_audiologs.csc;
 #using scripts\zm\zm_orange_mq_mgr.csc;

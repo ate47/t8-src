@@ -44,7 +44,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_77bec2ab64ee4676", &__init__, undefined, undefined);
+	system::register(#"zodt8_boss", &__init__, undefined, undefined);
 }
 
 /*
@@ -68,7 +68,7 @@ function __init__()
 	function_8dec32e2();
 	init_vo();
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			level thread function_5d346946();
 		}
@@ -494,7 +494,7 @@ function function_51e51897(var_5ea5c94d)
 	level.var_d6f059f7 = max(level.round_number, 25);
 	zm_spawner::register_zombie_death_event_callback(&function_e9b8eaff);
 	level.var_c9f5947d = 1;
-	level notify(#"hash_3c3d24ff76335a0d");
+	level notify(#"force_transformations");
 	/#
 		util::wait_network_frame();
 		level notify(#"hash_fbdf766a8b47229");
@@ -4158,7 +4158,7 @@ function function_98198f98(str_archetype)
 function function_5d346946()
 {
 	/#
-		if(!getdvarint(#"hash_11ad6a9695943217", 0))
+		if(!getdvarint(#"zm_debug_ee", 0))
 		{
 			return;
 		}
@@ -4234,7 +4234,7 @@ function function_d25f8fbc(cmd)
 				level.e_boss thread function_6b5e9ead();
 				return true;
 			}
-			case "hash_2005de954011f43d":
+			case "do_combo":
 			{
 				level.e_boss thread function_da98e094();
 				return true;

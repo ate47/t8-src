@@ -136,8 +136,8 @@ function function_1ff1beff()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"weapon_change");
-		var_1c114591 = s_notify.weapon;
-		if(isdefined(var_1c114591.isheroweapon) && var_1c114591.isheroweapon || zm_weapons::is_wonder_weapon(var_1c114591))
+		w_check = s_notify.weapon;
+		if(isdefined(w_check.isheroweapon) && w_check.isheroweapon || zm_weapons::is_wonder_weapon(w_check))
 		{
 			if(self hasperk("specialty_ammodrainsfromstockfirst"))
 			{

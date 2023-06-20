@@ -412,7 +412,7 @@ function private function_14c67eb3(planner, constants)
 	}
 	var_5f1842bf = [];
 	distancesq = constants[#"distance"] * constants[#"distance"];
-	altars = planner::getblackboardattribute(planner, #"hash_789c87157aa8ed0c");
+	altars = planner::getblackboardattribute(planner, #"zm_altars");
 	if(!isdefined(altars))
 	{
 		altars = [];
@@ -612,7 +612,7 @@ function private function_2af9b775(planner, constants)
 	}
 	if(isdefined(var_2fcdec8b))
 	{
-		planner::setblackboardattribute(planner, #"hash_5a7c0b7729c7cc94", array(var_2fcdec8b));
+		planner::setblackboardattribute(planner, #"zm_pathable_blockers", array(var_2fcdec8b));
 		/#
 			if(isdefined(var_2fcdec8b) && getdvarint(#"hash_76cdb24d903cc201", 0))
 			{
@@ -754,7 +754,7 @@ function private function_e057582f(planner, constants)
 	}
 	if(isdefined(var_58fadc5d))
 	{
-		planner::setblackboardattribute(planner, #"hash_1e0780dc9a8db7a5", array(var_58fadc5d));
+		planner::setblackboardattribute(planner, #"zm_pathable_chests", array(var_58fadc5d));
 		params.chest = var_58fadc5d;
 	}
 	return params;
@@ -819,7 +819,7 @@ function function_ac1b59c(planner, constants)
 	}
 	if(isdefined(var_58fadc5d))
 	{
-		planner::setblackboardattribute(planner, #"hash_1e0780dc9a8db7a5", array(var_58fadc5d));
+		planner::setblackboardattribute(planner, #"zm_pathable_chests", array(var_58fadc5d));
 		params.chest = var_58fadc5d;
 	}
 	return params;
@@ -929,7 +929,7 @@ function private function_4f6a626d(planner, constants)
 	}
 	if(isdefined(var_7cc71b7c))
 	{
-		planner::setblackboardattribute(planner, #"hash_2661b50084f00ea2", array(var_7cc71b7c));
+		planner::setblackboardattribute(planner, #"zm_pathable_powerups", array(var_7cc71b7c));
 		params.powerup = var_7cc71b7c;
 	}
 	return params;
@@ -1024,12 +1024,12 @@ function private function_557051df(planner, constants)
 	var_a0301374 = undefined;
 	foreach(var_c42f08a2 in switches)
 	{
-		var_5ef756b8 = var_c42f08a2[#"__unsafe__"][#"switch"];
-		if(!isdefined(var_5ef756b8))
+		switchent = var_c42f08a2[#"__unsafe__"][#"switch"];
+		if(!isdefined(switchent))
 		{
 			continue;
 		}
-		pathsegment = strategiccommandutility::calculatepathtotrigger(params.bots[0], var_5ef756b8);
+		pathsegment = strategiccommandutility::calculatepathtotrigger(params.bots[0], switchent);
 		if(isdefined(pathsegment) && isdefined(pathsegment.status) && pathsegment.status == #"succeeded")
 		{
 			if(pathsegment.pathdistance > constants[#"distance"] * 2)
@@ -1049,7 +1049,7 @@ function private function_557051df(planner, constants)
 	}
 	if(isdefined(var_a0301374))
 	{
-		planner::setblackboardattribute(planner, #"hash_4e466b58ddff8a8f", array(var_a0301374));
+		planner::setblackboardattribute(planner, #"zm_pathable_switches", array(var_a0301374));
 		params.var_ed8f7cef = var_a0301374;
 	}
 	return params;
@@ -1070,8 +1070,8 @@ function private function_967b74c1(planner, params)
 	{
 		return 2;
 	}
-	var_5ef756b8 = params.var_ed8f7cef[#"__unsafe__"][#"switch"];
-	if(!isdefined(var_5ef756b8))
+	switchent = params.var_ed8f7cef[#"__unsafe__"][#"switch"];
+	if(!isdefined(switchent))
 	{
 		return 2;
 	}
@@ -1079,8 +1079,8 @@ function private function_967b74c1(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			var_bd055918 = getclosestpointonnavmesh(var_5ef756b8.origin, 200, bot getpathfindingradius());
-			bot bot::set_interact(var_5ef756b8);
+			var_bd055918 = getclosestpointonnavmesh(switchent.origin, 200, bot getpathfindingradius());
+			bot bot::set_interact(switchent);
 			bot setgoal(var_bd055918);
 			bot.goalradius = 512;
 		}
@@ -1103,8 +1103,8 @@ function private function_20f747ae(planner, params)
 	{
 		return 2;
 	}
-	var_5ef756b8 = params.var_ed8f7cef[#"__unsafe__"][#"switch"];
-	if(!isdefined(var_5ef756b8))
+	switchent = params.var_ed8f7cef[#"__unsafe__"][#"switch"];
+	if(!isdefined(switchent))
 	{
 		return 2;
 	}
@@ -1161,7 +1161,7 @@ function private function_393b9c76(planner, constants)
 		assert(isint(constants[#"hash_357612272d0dca05"]) || isfloat(constants[#"hash_357612272d0dca05"]), ("" + "") + "");
 	#/
 	var_66c1c955 = isdefined(constants[#"highcost"]) && constants[#"highcost"];
-	var_45bdcccb = isdefined(constants[#"hash_5011e8f2767fd1f"]) && constants[#"hash_5011e8f2767fd1f"];
+	var_45bdcccb = isdefined(constants[#"highrank"]) && constants[#"highrank"];
 	if(var_45bdcccb)
 	{
 		var_66c1c955 = 0;
@@ -1246,7 +1246,7 @@ function private function_393b9c76(planner, constants)
 	}
 	if(isdefined(var_c5e003e1))
 	{
-		planner::setblackboardattribute(planner, #"hash_3f8e61aec9140f86", array(var_c5e003e1));
+		planner::setblackboardattribute(planner, #"zm_pathable_wallbuys", array(var_c5e003e1));
 		params.wallbuy = var_c5e003e1;
 	}
 	return params;

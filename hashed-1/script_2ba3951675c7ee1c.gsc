@@ -2,7 +2,7 @@
 #using scripts\zm\weapons\zm_weap_blundergat.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using script_6e3c826b1814cab6;
 #using script_7c62f55ce3a557ff;
 #using scripts\core_common\array_shared.gsc;
@@ -96,7 +96,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(!zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		return;
 	}
@@ -378,7 +378,7 @@ function function_fcf0a319(e_player, var_a29167c5)
 		self thread function_11efbb03(e_player);
 		self thread wait_for_timeout(e_player, var_a29167c5);
 		var_2b94e3bb = undefined;
-		var_2b94e3bb = self waittill(#"hash_5df93e8b56c1c70e", #"hash_17f1f2fec5688f9a");
+		var_2b94e3bb = self waittill(#"magma_timeout", #"magma_taken");
 	}
 	if(isalive(e_player))
 	{
@@ -388,7 +388,7 @@ function function_fcf0a319(e_player, var_a29167c5)
 	self.var_bd8af718 = undefined;
 	self.var_a29167c5 = undefined;
 	self.e_player = undefined;
-	if(isdefined(var_2b94e3bb) && var_2b94e3bb._notify == #"hash_5df93e8b56c1c70e")
+	if(isdefined(var_2b94e3bb) && var_2b94e3bb._notify == #"magma_timeout")
 	{
 		self function_599013ad(e_player, 1);
 		playsoundatposition(#"hash_65b4e7aafb64c1a1", (0, 0, 0));
@@ -509,7 +509,7 @@ function function_d586e457()
 */
 function private function_11efbb03(e_player)
 {
-	self endon(#"hash_5df93e8b56c1c70e");
+	self endon(#"magma_timeout");
 	e_player endon(#"disconnect");
 	while(true)
 	{
@@ -519,8 +519,8 @@ function private function_11efbb03(e_player)
 		{
 			if(zm_utility::can_use(e_player, 1) && e_player.currentweapon.name != "none")
 			{
-				self notify(#"hash_17f1f2fec5688f9a");
-				e_player notify(#"hash_17f1f2fec5688f9a");
+				self notify(#"magma_taken");
+				e_player notify(#"magma_taken");
 				var_287a8343 = zm_utility::get_player_weapon_limit(e_player);
 				var_4f33a328 = e_player getweaponslistprimaries();
 				if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
@@ -533,7 +533,7 @@ function private function_11efbb03(e_player)
 				e_player.var_1ea09849 = 1;
 				level notify(#"hash_575b654fc5c59146", {#e_player:e_player});
 				level flag::set(#"hash_5e6097345e223e2d");
-				e_player zm_audio::create_and_play_dialog(#"weapon_pickup", #"hash_49548133c092e662");
+				e_player zm_audio::create_and_play_dialog(#"weapon_pickup", #"magmagat_unfinished");
 				e_player thread function_6222e98f();
 				self function_599013ad(undefined, undefined);
 				exploder::exploder("blue_fire");
@@ -554,7 +554,7 @@ function private function_11efbb03(e_player)
 */
 function private wait_for_timeout(e_player, var_9bce3ebf)
 {
-	self endon(#"hash_17f1f2fec5688f9a");
+	self endon(#"magma_taken");
 	if(isdefined(var_9bce3ebf) && var_9bce3ebf)
 	{
 		wait(30);
@@ -563,7 +563,7 @@ function private wait_for_timeout(e_player, var_9bce3ebf)
 	{
 		wait(30);
 	}
-	self notify(#"hash_5df93e8b56c1c70e");
+	self notify(#"magma_timeout");
 	if(isdefined(e_player))
 	{
 		e_player.var_22b64976 = undefined;
@@ -785,7 +785,7 @@ function function_ce0bd88a(var_146228fb)
 function function_4022d369(var_6282581e)
 {
 	level endon(#"hash_3ec656e276ceee53");
-	self endon(#"hash_17f1f2fec5688f9a");
+	self endon(#"magma_taken");
 	self waittill(#"death", #"disconnect");
 	if(level flag::get(#"hash_3fb7d58b07b04333"))
 	{
@@ -1095,7 +1095,7 @@ function function_3e6b7a2d()
 				{
 					e_player.var_a40e9d01 = 1;
 					e_player thread function_e02f6600();
-					e_player zm_audio::create_and_play_dialog(#"magmagat", #"hash_2d83229cecbed82", undefined, 1);
+					e_player zm_audio::create_and_play_dialog(#"magmagat", #"reheat", undefined, 1);
 				}
 			}
 			level waittill(#"hash_575b654fc5c59146");
@@ -1332,7 +1332,7 @@ function function_d3db303d()
 					var_da887cb9 = getweapon(var_fc074136);
 					e_player.var_452feb6c = e_player getweaponammostock(var_da887cb9);
 				}
-				e_player thread zm_audio::create_and_play_dialog(#"hash_74a0ff3487006243", #"generic");
+				e_player thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
 				e_player takeweapon(getweapon(var_fc074136));
 				e_player.var_6417e645 = 1;
 				e_player.var_1ea09849 = undefined;
@@ -1356,8 +1356,8 @@ function function_d3db303d()
 		{
 			if(zm_utility::can_use(e_player, 1) && e_player.currentweapon.name != "none")
 			{
-				self.stub notify(#"hash_17f1f2fec5688f9a");
-				e_player notify(#"hash_17f1f2fec5688f9a");
+				self.stub notify(#"magma_taken");
+				e_player notify(#"magma_taken");
 				var_287a8343 = zm_utility::get_player_weapon_limit(e_player);
 				var_4f33a328 = e_player getweaponslistprimaries();
 				if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
@@ -1415,7 +1415,7 @@ function function_d3db303d()
 */
 function function_e672cf9(e_player, var_fc074136)
 {
-	self endon(#"hash_17f1f2fec5688f9a");
+	self endon(#"magma_taken");
 	level waittill(#"hash_b36aace774a3377");
 	self.var_607f49de ghost();
 	level waittill(#"hash_933f0a634e259d9");
@@ -1434,7 +1434,7 @@ function function_e672cf9(e_player, var_fc074136)
 		}
 		self thread wait_for_timeout(e_player);
 		s_result = undefined;
-		s_result = self waittill(#"hash_5df93e8b56c1c70e");
+		s_result = self waittill(#"magma_timeout");
 		playsoundatposition(#"hash_65b4e7aafb64c1a1", (0, 0, 0));
 		level flag::clear(#"hash_5e6097345e223e2d");
 		if(isdefined(self.e_player))
@@ -1518,13 +1518,13 @@ function private function_a6a91f7a(var_f2528cbc)
 */
 function function_ecc34f71(e_player)
 {
-	self endon(#"hash_17f1f2fec5688f9a", #"hash_5df93e8b56c1c70e");
+	self endon(#"magma_taken", #"magma_timeout");
 	e_player waittill(#"death", #"disconnect");
 	self.e_player = undefined;
 	self.var_cec3094a = undefined;
 	self.var_515e20e6 = 0;
 	self.e_player = undefined;
-	self notify(#"hash_5df93e8b56c1c70e");
+	self notify(#"magma_timeout");
 }
 
 /*
@@ -1539,7 +1539,7 @@ function function_ecc34f71(e_player)
 function function_78ca248c()
 {
 	/#
-		if(!getdvarint(#"hash_11ad6a9695943217", 0))
+		if(!getdvarint(#"zm_debug_ee", 0))
 		{
 			return;
 		}

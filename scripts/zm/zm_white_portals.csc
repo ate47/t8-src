@@ -140,8 +140,8 @@ function init_fx()
 	level._effect[#"hash_690922b60c4fba8d"] = #"hash_205d49f043463dd2";
 	level._effect[#"hash_690921b60c4fb8da"] = #"hash_19301646fb93e04c";
 	level._effect[#"hash_3ae2cb0d50ae8e3e"] = #"hash_2cafcfa899f12c0";
-	level._effect[#"hash_61fb06e6b1e29b45"] = #"hash_1a6b5072e162ccd4";
-	level._effect[#"hash_692bbec56d4f9a18"] = #"hash_50655ac7dc942305";
+	level._effect[#"teleport_depart"] = #"hash_1a6b5072e162ccd4";
+	level._effect[#"teleport_arrive"] = #"hash_50655ac7dc942305";
 	level._effect[#"map_indicator"] = #"hash_62d58a4d86948967";
 }
 
@@ -199,7 +199,7 @@ function function_69108708(localclientnum, oldval, newval, bnewent, binitialsnap
 	/#
 		println("", localclientnum);
 	#/
-	util::playfxontag(localclientnum, level._effect[#"hash_61fb06e6b1e29b45"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"teleport_depart"], self, "tag_origin");
 }
 
 /*
@@ -216,7 +216,7 @@ function function_98cff177(localclientnum, oldval, newval, bnewent, binitialsnap
 	/#
 		println("", localclientnum);
 	#/
-	util::playfxontag(localclientnum, level._effect[#"hash_692bbec56d4f9a18"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"teleport_arrive"], self, "tag_origin");
 }
 
 /*

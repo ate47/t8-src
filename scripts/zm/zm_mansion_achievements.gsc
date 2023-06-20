@@ -102,7 +102,7 @@ function on_ai_killed(params)
 			{
 				str_weapon = params.weapon.name;
 			}
-			var_846ddcf9 = array(#"pistol_topbreak_t8", #"pistol_topbreak_t8_upgraded", #"pistol_revolver_t8", #"hash_6d4623559d21eea0", #"hash_c2a620242d1636a", #"hash_138efe2bb30be63c", #"hash_138f012bb30beb55", #"hash_46ad37ce8122812e", #"hash_138f002bb30be9a2", #"hash_3a8348f19a7e7629");
+			var_846ddcf9 = array(#"pistol_topbreak_t8", #"pistol_topbreak_t8_upgraded", #"pistol_revolver_t8", #"hash_6d4623559d21eea0", #"pistol_revolver_t8_upgraded", #"hash_138efe2bb30be63c", #"hash_138f012bb30beb55", #"hash_46ad37ce8122812e", #"hash_138f002bb30be9a2", #"hash_3a8348f19a7e7629");
 			if(str_zone === "zone_library" && isdefined(str_weapon) && isinarray(var_846ddcf9, str_weapon))
 			{
 				e_attacker notify(#"hash_1ac06d8c0149a66c");
@@ -278,7 +278,7 @@ function function_8dc740fa(var_c75beecc)
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_656719782f57ca1a");
+		waitresult = level waittill(#"blueprint_completed");
 		if(waitresult.blueprint.name === var_c75beecc)
 		{
 			level.var_f5ad5bac++;

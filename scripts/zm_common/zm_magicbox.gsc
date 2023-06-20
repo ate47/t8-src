@@ -661,7 +661,7 @@ function hide_chest(doboxleave)
 				s_result = self.zbarrier waittilltimeout(10, #"left", #"zbarrier_state_change");
 				if(s_result._notify !== "left")
 				{
-					self.zbarrier notify(#"hash_44a4a0cd8c49d1ab");
+					self.zbarrier notify(#"timeout_away");
 					level notify(#"hash_e39eca74fa250b4", {#s_magic_box:self});
 					return;
 				}
@@ -917,7 +917,7 @@ function treasure_chest_think()
 	user zm_stats::function_8f10788e("boas_use_magicbox");
 	user zm_daily_challenges::increment_magic_box();
 	user zm_stats::function_c0c6ab19(#"boxbuys", 1, 1);
-	user zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
+	user zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
 	user contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
 	if(isplayer(self.chest_user))
 	{
@@ -1667,7 +1667,7 @@ function function_db355791(player, weapon, var_21b5a3f4 = 1)
 	{
 		return 0;
 	}
-	if(zm_weapons::is_wonder_weapon(weapon) && !zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_weapons::is_wonder_weapon(weapon) && !zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		return 0;
 	}
@@ -1691,7 +1691,7 @@ function function_4aa1f177(player)
 {
 	a_weapons = array::randomize(getarraykeys(level.zombie_weapons));
 	var_b865ddb7 = a_weapons[0];
-	var_12894a2b = a_weapons[1];
+	w_second = a_weapons[1];
 	if(isdefined(player))
 	{
 		if(!isdefined(player.var_ca56e806))
@@ -1729,7 +1729,7 @@ function function_4aa1f177(player)
 	#/
 	if(isdefined(player))
 	{
-		if(a_weapons[0] === var_b865ddb7 && a_weapons[1] === var_12894a2b)
+		if(a_weapons[0] === var_b865ddb7 && a_weapons[1] === w_second)
 		{
 			var_d07a7ff9 = 1;
 			var_bf43f78f = randomfloat(100);
@@ -2294,7 +2294,7 @@ function treasure_chest_weapon_spawn(chest, player, respin)
 	self.weapon = rand;
 	if(!move_the_box && rand === getweapon(#"homunculus"))
 	{
-		self thread zm_vo::function_8e0f4696(#"hash_770c96a35322e11d", 0, 0, 0, 1);
+		self thread zm_vo::vo_say(#"hash_770c96a35322e11d", 0, 0, 0, 1);
 	}
 	if(isdefined(level.func_magicbox_weapon_spawned))
 	{
@@ -2798,7 +2798,7 @@ function treasure_chest_give_weapon(weapon, var_75c86f89, e_chest)
 function private function_e62595c2(e_chest)
 {
 	e_chest zm_vo::vo_stop();
-	b_said = zm_vo::function_8e0f4696((#"hash_6364370b57ccf050" + zm_vo::function_82f9bc9f()) + "_homu");
+	b_said = zm_vo::vo_say((#"hash_6364370b57ccf050" + zm_vo::function_82f9bc9f()) + "_homu");
 	if(isdefined(b_said) && b_said)
 	{
 		wait(1);
@@ -3150,7 +3150,7 @@ function function_f6a827d1()
 function magic_box_zbarrier_leave()
 {
 	self set_magic_box_zbarrier_state("leaving");
-	self waittill(#"left", #"hash_44a4a0cd8c49d1ab");
+	self waittill(#"left", #"timeout_away");
 	self set_magic_box_zbarrier_state("away");
 }
 

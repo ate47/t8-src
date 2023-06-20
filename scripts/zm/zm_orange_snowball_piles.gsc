@@ -184,7 +184,7 @@ function function_3bb2f43b()
 		self gadgetpowerset(n_slot, self.var_e01bb56);
 		self.var_3b55baa1 = undefined;
 		self.var_e01bb56 = undefined;
-		self notify(#"hash_2ef9a0f78a628812");
+		self notify(#"grenade_change");
 		self callback::function_53888e7f(&function_3bb2f43b);
 	}
 }
@@ -200,8 +200,8 @@ function function_3bb2f43b()
 */
 function function_76e94d52()
 {
-	self notify(#"hash_2ef9a0f78a628812");
-	self endon(#"hash_2ef9a0f78a628812");
+	self notify(#"grenade_change");
+	self endon(#"grenade_change");
 	self endon(#"death");
 	level endon(#"end_game");
 	while(true)
@@ -225,7 +225,7 @@ function function_76e94d52()
 					wait(1);
 					self function_820a63e9(n_slot, 0);
 					self callback::function_53888e7f(&function_3bb2f43b);
-					self notify(#"hash_2ef9a0f78a628812");
+					self notify(#"grenade_change");
 				}
 			}
 		}
@@ -237,7 +237,7 @@ function function_76e94d52()
 			}
 			self.var_3b55baa1 = undefined;
 			self.var_e01bb56 = undefined;
-			self notify(#"hash_2ef9a0f78a628812");
+			self notify(#"grenade_change");
 		}
 		wait(0.5);
 	}
@@ -274,7 +274,7 @@ function function_75a76099()
 function function_e1b7c710()
 {
 	self endon(#"death");
-	level flag::wait_till_any(array("round_reset", #"hash_6acab8bde7078239"));
+	level flag::wait_till_any(array("round_reset", #"trial_failed"));
 	if(isdefined(self.var_3b55baa1) && isdefined(self.var_e01bb56) && self function_75a76099())
 	{
 		self zm_loadout::set_player_lethal_grenade(self.var_3b55baa1);
@@ -283,7 +283,7 @@ function function_e1b7c710()
 		self gadgetpowerset(n_slot, self.var_e01bb56);
 		self.var_3b55baa1 = undefined;
 		self.var_e01bb56 = undefined;
-		self notify(#"hash_2ef9a0f78a628812");
+		self notify(#"grenade_change");
 	}
 }
 

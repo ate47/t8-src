@@ -18,7 +18,7 @@ function preload()
 }
 
 /*
-	Name: function_6c0434ba
+	Name: campfire_flames
 	Namespace: zm_orange_mq_campfire
 	Checksum: 0x37450BE
 	Offset: 0x98
@@ -26,11 +26,11 @@ function preload()
 	Parameters: 7
 	Flags: None
 */
-function function_6c0434ba(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function campfire_flames(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{
-		self.fx_fire = util::playfxontag(localclientnum, level._effect[#"hash_3a4cca038b97b169"], self, "tag_origin");
+		self.fx_fire = util::playfxontag(localclientnum, level._effect[#"campfire_flames"], self, "tag_origin");
 	}
 }
 

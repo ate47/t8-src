@@ -356,7 +356,7 @@ function function_323c6715()
 	foreach(var_142bdec0 in level.var_1a0a6769)
 	{
 		loc_000019EC:
-		luinotifyevent(#"hash_7eaa776edd5d85d3", 7, var_142bdec0.player.clientid, (isdefined(var_142bdec0.var_74be6838) ? var_142bdec0.var_74be6838 : 0), (isdefined(var_142bdec0.var_6ad8c73b[0]) ? var_142bdec0.var_6ad8c73b[0] : 0), (isdefined(var_142bdec0.var_6ad8c73b[1]) ? var_142bdec0.var_6ad8c73b[1] : 0), (isdefined(var_142bdec0.var_6ad8c73b[2]) ? var_142bdec0.var_6ad8c73b[2] : 0), (isdefined(var_142bdec0.var_6ad8c73b[3]) ? var_142bdec0.var_6ad8c73b[3] : 0), (isdefined(var_142bdec0.var_6ad8c73b[4]) ? var_142bdec0.var_6ad8c73b[4] : 0));
+		luinotifyevent(#"hvo_card", 7, var_142bdec0.player.clientid, (isdefined(var_142bdec0.var_74be6838) ? var_142bdec0.var_74be6838 : 0), (isdefined(var_142bdec0.var_6ad8c73b[0]) ? var_142bdec0.var_6ad8c73b[0] : 0), (isdefined(var_142bdec0.var_6ad8c73b[1]) ? var_142bdec0.var_6ad8c73b[1] : 0), (isdefined(var_142bdec0.var_6ad8c73b[2]) ? var_142bdec0.var_6ad8c73b[2] : 0), (isdefined(var_142bdec0.var_6ad8c73b[3]) ? var_142bdec0.var_6ad8c73b[3] : 0), (isdefined(var_142bdec0.var_6ad8c73b[4]) ? var_142bdec0.var_6ad8c73b[4] : 0));
 	}
 }
 

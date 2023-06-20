@@ -20,7 +20,7 @@ function init_shared()
 	callback::on_localplayer_spawned(&on_local_player_spawned);
 	clientfield::register("scriptmover", "smartcover_placed", 1, 5, "float", &smartcover_placed, 0, 0);
 	clientfield::register("clientuimodel", "hudItems.smartCoverState", 1, 1, "int", undefined, 0, 0);
-	clientfield::register("scriptmover", "start_smartcover_microwave", 1, 1, "int", &function_f80b166e, 0, 0);
+	clientfield::register("scriptmover", "start_smartcover_microwave", 1, 1, "int", &smartcover_start_microwave, 0, 0);
 	level.var_5101157d = spawnstruct();
 	level.var_5101157d.previewmodels = [];
 	level.var_5101157d.var_aef370a9 = [];
@@ -34,7 +34,7 @@ function init_shared()
 	{
 		if(sessionmodeiswarzonegame())
 		{
-			level.var_5101157d.bundle = getscriptbundle(#"hash_25e448b3e889dd9d");
+			level.var_5101157d.bundle = getscriptbundle(#"smartcover_settings_wz");
 		}
 		else if(sessionmodeiscampaigngame())
 		{
@@ -57,10 +57,10 @@ function setupdvars()
 {
 	setdvar(#"hash_25f7092e7c7b66f2", 0);
 	setdvar(#"hash_4332205cbf1cc384", 0);
-	setdvar(#"hash_6e04e8c9b344f745", 1000);
+	setdvar(#"smartcover_drawtime", 1000);
 	setdvar(#"hash_436fc2fad44e9041", 1);
 	setdvar(#"hash_1d8eb304f5cf8033", 1);
-	setdvar(#"hash_4c7f3e5c0af7fdc0", level.var_5101157d.bundle.var_1f0ae388);
+	setdvar(#"smartcover_tracedistance", level.var_5101157d.bundle.var_1f0ae388);
 	setdvar(#"hash_13c23fd3a4387b84", 8);
 	setdvar(#"hash_55a8dba3350b8b7c", 4);
 	setdvar(#"hash_4f4ce3cb18b004bc", 10);
@@ -70,7 +70,7 @@ function setupdvars()
 }
 
 /*
-	Name: function_f80b166e
+	Name: smartcover_start_microwave
 	Namespace: smart_cover
 	Checksum: 0x7BC02CC0
 	Offset: 0x748
@@ -78,7 +78,7 @@ function setupdvars()
 	Parameters: 7
 	Flags: Linked
 */
-function function_f80b166e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function smartcover_start_microwave(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(isdefined(level.var_5101157d.bundle.var_f4e0e7d7) && level.var_5101157d.bundle.var_f4e0e7d7 && newval == 1)
 	{
@@ -142,9 +142,9 @@ function function_112e3e89(localclientnum)
 	{
 		return;
 	}
-	foreach(var_688ed1a6 in level.var_5101157d.previewmodels[localclientnum])
+	foreach(previewmodel in level.var_5101157d.previewmodels[localclientnum])
 	{
-		var_688ed1a6 hide();
+		previewmodel hide();
 	}
 }
 
@@ -214,13 +214,13 @@ function function_1c2930c7(localclientnum)
 		{
 			if(var_b43e8dc2.var_bf9ca9b0)
 			{
-				var_688ed1a6 = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 0, 1);
+				previewmodel = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 0, 1);
 			}
 			else
 			{
-				var_688ed1a6 = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 2, 3);
-				var_688ed1a6 function_dbaf4647(localclientnum);
-				var_688ed1a6 function_5a8becdc(localclientnum, player, var_b43e8dc2, 1);
+				previewmodel = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 2, 3);
+				previewmodel function_dbaf4647(localclientnum);
+				previewmodel function_5a8becdc(localclientnum, player, var_b43e8dc2, 1);
 			}
 		}
 	}
@@ -304,11 +304,11 @@ function on_local_player_spawned(localclientnum)
 */
 function function_641491ac(localclientnum, modelname)
 {
-	var_688ed1a6 = spawn(localclientnum, (0, 0, 0), "script_model");
-	var_688ed1a6 setmodel(modelname);
-	var_688ed1a6 hide();
-	var_688ed1a6 notsolid();
-	return var_688ed1a6;
+	previewmodel = spawn(localclientnum, (0, 0, 0), "script_model");
+	previewmodel setmodel(modelname);
+	previewmodel hide();
+	previewmodel notsolid();
+	return previewmodel;
 }
 
 /*
@@ -346,7 +346,7 @@ function function_722fc669(localclientnum)
 function function_8fb44aff(localclientnum, origin, angles, isvalid, var_eb65925c, var_4b3e5e0a)
 {
 	player = self;
-	var_688ed1a6 = undefined;
+	previewmodel = undefined;
 	var_80f43370 = undefined;
 	var_ff5a387e = (isvalid ? var_eb65925c : var_4b3e5e0a);
 	for(var_a6932c26 = 0; var_a6932c26 < level.var_5101157d.previewmodels[localclientnum].size; var_a6932c26++)

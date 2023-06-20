@@ -812,7 +812,7 @@ function private strategyclearareatogoldenpathparam(planner, constants)
 		bots[bots.size] = botinfo[#"__unsafe__"][#"bot"];
 	}
 	params.bots = bots;
-	params.escort = escorts[0][#"__unsafe__"][constants[#"hash_2d0d1f930e0b821c"]];
+	params.escort = escorts[0][#"__unsafe__"][constants[#"escortkey"]];
 	if(isdefined(target))
 	{
 		params.var_263ac6c8 = target[#"__unsafe__"][#"bundle"];
@@ -1323,14 +1323,14 @@ function private strategyhasescort(planner, constants)
 	{
 		return false;
 	}
-	var_3ba94a7e = constants[#"key"];
-	if(!isstring(var_3ba94a7e) && !ishash(var_3ba94a7e) || var_3ba94a7e == "")
+	escortkey = constants[#"key"];
+	if(!isstring(escortkey) && !ishash(escortkey) || escortkey == "")
 	{
 		return true;
 	}
 	for(i = 0; i < escorts.size; i++)
 	{
-		escort = escorts[i][#"__unsafe__"][var_3ba94a7e];
+		escort = escorts[i][#"__unsafe__"][escortkey];
 		if(isdefined(escort))
 		{
 			return true;

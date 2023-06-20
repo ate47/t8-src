@@ -97,7 +97,7 @@ function init()
 		setdvar(#"scr_giveperk", "");
 		setdvar(#"scr_forceevent", "");
 		setdvar(#"scr_draw_triggers", 0);
-		setdvar(#"hash_69042953f03fb8a4", "");
+		setdvar(#"scr_givegesture", "");
 		thread engagement_distance_debug_toggle();
 		thread equipment_dev_gui();
 		thread grenade_dev_gui();
@@ -954,7 +954,7 @@ function updatedevsettings()
 			}
 			setdvar(#"scr_giveperk", "");
 		}
-		if(getdvarstring(#"hash_2d9131ec76baa766") == "")
+		if(getdvarstring(#"scr_giveskill") == "")
 		{
 			players = getplayers();
 			iprintln("");
@@ -967,11 +967,11 @@ function updatedevsettings()
 				player function_e6f9e3cd();
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_2d9131ec76baa766", "");
+			setdvar(#"scr_giveskill", "");
 		}
-		if(getdvarstring(#"hash_2d9131ec76baa766") != "")
+		if(getdvarstring(#"scr_giveskill") != "")
 		{
-			talentname = getdvarstring(#"hash_2d9131ec76baa766");
+			talentname = getdvarstring(#"scr_giveskill");
 			var_2fe3f7e3 = hash(talentname);
 			players = getplayers();
 			iprintln(("" + talentname) + "");
@@ -984,9 +984,9 @@ function updatedevsettings()
 				player function_b5feff95(var_2fe3f7e3);
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_2d9131ec76baa766", "");
+			setdvar(#"scr_giveskill", "");
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") == "")
+		if(getdvarstring(#"scr_givetalent") == "")
 		{
 			players = getplayers();
 			iprintln("");
@@ -999,11 +999,11 @@ function updatedevsettings()
 				player function_e6f9e3cd();
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") != "")
+		if(getdvarstring(#"scr_givetalent") != "")
 		{
-			talentname = getdvarstring(#"hash_5b311cf6da67afb");
+			talentname = getdvarstring(#"scr_givetalent");
 			var_2fe3f7e3 = hash(talentname);
 			players = getplayers();
 			iprintln(("" + talentname) + "");
@@ -1016,7 +1016,7 @@ function updatedevsettings()
 				player function_b5feff95(var_2fe3f7e3);
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
 		if(getdvarstring(#"scr_forcegrenade") != "")
 		{

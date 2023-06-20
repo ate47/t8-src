@@ -51,7 +51,7 @@ function __init__()
 */
 function private function_d05553c6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_4e5b35f770492ddb");
 	}
@@ -78,7 +78,7 @@ function function_ea3e4435(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 1)
 	{
-		if(self.weapon !== getweapon(#"hash_6627899099b8a69d"))
+		if(self.weapon !== getweapon(#"hero_katana_t8_lv3"))
 		{
 			return;
 		}

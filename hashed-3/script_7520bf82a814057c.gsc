@@ -61,7 +61,7 @@ class czm_game_over : cLUIelem
 		}
 		else
 		{
-			if(#"hash_6a6a4ebfc877658c" == state_name)
+			if(#"gatewayopened" == state_name)
 			{
 				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}

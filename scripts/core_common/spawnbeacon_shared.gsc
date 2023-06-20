@@ -524,7 +524,7 @@ function function_41a037e6()
 }
 
 /*
-	Name: function_a8549b52
+	Name: updatethreat
 	Namespace: spawn_beacon
 	Checksum: 0x7659774D
 	Offset: 0x13E0
@@ -532,7 +532,7 @@ function function_41a037e6()
 	Parameters: 0
 	Flags: None
 */
-function function_a8549b52()
+function updatethreat()
 {
 	level endon(#"game_ended");
 	spawnbeacon = self;
@@ -1280,7 +1280,7 @@ function retreatedstartmelee(var_a820f9, spawns)
 	{
 		self [[level.var_4b1d905b]](placedspawnbeacon);
 	}
-	placedspawnbeacon thread function_a8549b52();
+	placedspawnbeacon thread updatethreat();
 	placedspawnbeacon thread watchfordamage();
 	placedspawnbeacon thread watchfordeath();
 	placedspawnbeacon thread function_f8930fa1((isdefined(level.spawnbeaconsettings.settingsbundle.timeout) ? level.spawnbeaconsettings.settingsbundle.timeout : 0));

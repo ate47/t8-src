@@ -148,7 +148,7 @@ function private function_1e845317()
 function private function_bd506c77()
 {
 	self endon(#"death", #"disconnect");
-	remoteweapon = getweapon(#"hash_8c773df059a6d5e");
+	remoteweapon = getweapon(#"warzone_remote");
 	if(self hasweapon(remoteweapon))
 	{
 		return;
@@ -173,7 +173,7 @@ function private function_bd506c77()
 */
 function private function_c08cf66b()
 {
-	remoteweapon = getweapon(#"hash_8c773df059a6d5e");
+	remoteweapon = getweapon(#"warzone_remote");
 	self takeweapon(remoteweapon);
 }
 
@@ -189,8 +189,8 @@ function private function_c08cf66b()
 function private function_bac16d76(spawnorigin, spawnangles, itemid)
 {
 	self endon(#"death", #"disconnect");
-	var_5c5b7682 = self getplayercamerapos();
-	vehicle = spawnvehicle(#"hash_4043fb66689f91c8", spawnorigin, spawnangles);
+	playereyepos = self getplayercamerapos();
+	vehicle = spawnvehicle(#"veh_dart_wz", spawnorigin, spawnangles);
 	if(isdefined(vehicle))
 	{
 		level.item_vehicles[level.item_vehicles.size] = vehicle;
@@ -206,9 +206,9 @@ function private function_bac16d76(spawnorigin, spawnangles, itemid)
 			assert(vehicle isremotecontrol());
 		#/
 		vehicle usevehicle(self, 0);
-		if(!self function_f35d7cf3(var_5c5b7682, vehicle))
+		if(!self function_f35d7cf3(playereyepos, vehicle))
 		{
-			vehicle.origin = var_5c5b7682;
+			vehicle.origin = playereyepos;
 			vehicle kill_vehicle(self, getweapon(#"dart"));
 		}
 	}
@@ -265,8 +265,8 @@ function function_79a59d11()
 */
 function private function_8d3b7a66()
 {
-	var_8d430fcb = self getplayerangles();
-	forward = anglestoforward(var_8d430fcb);
+	eyeangle = self getplayerangles();
+	forward = anglestoforward(eyeangle);
 	eyepos = self getplayercamerapos();
 	endpos = eyepos + (forward * 50);
 	var_f45df727 = eyepos + (forward * 200);
@@ -275,7 +275,7 @@ function private function_8d3b7a66()
 	traceresults.isvalid = traceresults.trace[#"fraction"] >= 1;
 	traceresults.waterdepth = 0;
 	traceresults.origin = endpos;
-	traceresults.angles = var_8d430fcb;
+	traceresults.angles = eyeangle;
 	return traceresults;
 }
 
@@ -288,11 +288,11 @@ function private function_8d3b7a66()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_f35d7cf3(var_5c5b7682, vehicle)
+function private function_f35d7cf3(playereyepos, vehicle)
 {
-	var_8d430fcb = self getplayerangles();
-	forward = anglestoforward(var_8d430fcb);
-	eyepos = var_5c5b7682;
+	eyeangle = self getplayerangles();
+	forward = anglestoforward(eyeangle);
+	eyepos = playereyepos;
 	endpos = vehicle.origin;
 	trace = bullettrace(eyepos, endpos, 1, self, 1, 1);
 	if(trace[#"fraction"] < 1)

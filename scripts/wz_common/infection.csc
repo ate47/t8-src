@@ -53,7 +53,7 @@ function private __init__()
 */
 function on_localclient_connect(localclientnum)
 {
-	if(util::function_5df4294() == "warzone_pandemic_quad")
+	if(util::get_game_type() == "warzone_pandemic_quad")
 	{
 		level thread function_667d34b7(localclientnum);
 	}

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2a1b4621c4186335;
+#using scripts\core_common\player\player_reinsertion.csc;
 #using scripts\core_common\player_insertion.csc;
 #using script_3575fbea89393aba;
 #using scripts\wz_common\wz_ai.csc;
@@ -29,7 +29,7 @@
 event main(eventstruct)
 {
 	insertion_passenger_count::register("insertionPassengerElem");
-	var_f220c297 = getgametypesetting(#"hash_19400c3e10b77e6b");
+	deathcirclerespawn = getgametypesetting(#"deathcirclerespawn");
 	clientfield::register("worlduimodel", "hudItems.warzone.collapseTimerState", 1, 2, "int", undefined, 0, 0);
 	clientfield::register("worlduimodel", "hudItems.warzone.collapseProgress", 1, 7, "float", undefined, 0, 0);
 	clientfield::register("worlduimodel", "hudItems.warzone.reinsertionPassengerCount", 1, 7, "int", undefined, 0, 0);
@@ -127,7 +127,7 @@ function function_7be1ea25()
 		level.var_a5ec5f1a[localclientnum][waitresult.clientnum] = obj_id;
 		if(!(isdefined(getgametypesetting(#"hash_76c2c603f164eb31")) && getgametypesetting(#"hash_76c2c603f164eb31")) || (!(isdefined(level.localplayers[localclientnum].var_13a5716d) && level.localplayers[localclientnum].var_13a5716d)))
 		{
-			objective_add(localclientnum, obj_id, "active", #"hash_3a3dbdaf943d02d5", (waitresult.xcoord, waitresult.ycoord, 0), #"none", waitresult.clientnum);
+			objective_add(localclientnum, obj_id, "active", #"teammate_waypoint", (waitresult.xcoord, waitresult.ycoord, 0), #"none", waitresult.clientnum);
 		}
 		else
 		{
@@ -162,7 +162,7 @@ function function_97d0a8af(local_client_num, obj_id, x, y, clientnum)
 		wait(0.1);
 	}
 	objective_delete(local_client_num, obj_id);
-	objective_add(local_client_num, obj_id, "active", #"hash_3a3dbdaf943d02d5", (x, y, 0), #"none", clientnum);
+	objective_add(local_client_num, obj_id, "active", #"teammate_waypoint", (x, y, 0), #"none", clientnum);
 }
 
 /*

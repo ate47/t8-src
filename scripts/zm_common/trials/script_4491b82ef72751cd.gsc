@@ -36,7 +36,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5c39714fe470e000", &on_begin, &on_end);
+	zm_trial::register_challenge(#"flag_check", &on_begin, &on_end);
 }
 
 /*

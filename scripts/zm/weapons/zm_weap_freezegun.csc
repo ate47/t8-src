@@ -533,11 +533,11 @@ function private function_c4fded40(localclientnum, tag_name, gibflag, var_44146a
 	if(!self gibclientutils::isgibbed(localclientnum, self, gibflag) && isdefined(var_32a420b0))
 	{
 		var_91b70bd5 = self gettagangles(tag_name);
-		var_481f0c84 = (var_44146a38 ? function_91bb8595(var_32a420b0) : (0, 0, 0));
+		gib_force = (var_44146a38 ? function_91bb8595(var_32a420b0) : (0, 0, 0));
 		gib_model = function_3386e437(gibflag);
 		if(isdefined(gib_model))
 		{
-			createdynentandlaunch(localclientnum, gib_model, var_32a420b0, var_91b70bd5, var_32a420b0, var_481f0c84, level._effect[#"hash_3864bbc0912cb852"], 1);
+			createdynentandlaunch(localclientnum, gib_model, var_32a420b0, var_91b70bd5, var_32a420b0, gib_force, level._effect[#"hash_3864bbc0912cb852"], 1);
 		}
 	}
 }

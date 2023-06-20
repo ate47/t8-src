@@ -17,7 +17,7 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59f07c660e6710a5;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
@@ -71,7 +71,7 @@ class class_264486ac
 		self.active = 1;
 		self.health = 0;
 		self.hitloc = "";
-		self.var_f16c2276 = "";
+		self.hittag = "";
 		var_934afb38 = 0;
 	}
 
@@ -128,7 +128,7 @@ function __init__()
 	spawner::add_archetype_spawn_function(#"stoker", &function_580b77a2);
 	zm_utility::function_d0f02e71(#"stoker");
 	/#
-		spawner::add_archetype_spawn_function(#"stoker", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"stoker", &zombie_utility::updateanimationrate);
 	#/
 	animationstatenetwork::registernotetrackhandlerfunction("coals_fire", &function_b2602782);
 	animationstatenetwork::registernotetrackhandlerfunction("stoker_death_gib", &function_eb4e0ec3);
@@ -145,8 +145,8 @@ function __init__()
 	zm_spawner::register_zombie_death_event_callback(&killed_callback);
 	namespace_32192f7::function_95c1dd81(#"stoker", &function_f5f699aa);
 	namespace_9ff9f642::register_slowdown("stoker_undewater_slow_type", 0.8);
-	namespace_c3287616::register_archetype(#"stoker", &function_b381320, &round_spawn, undefined, 100);
-	namespace_c3287616::function_306ce518(#"stoker", &function_cf5ef033);
+	zm_round_spawning::register_archetype(#"stoker", &function_b381320, &round_spawn, undefined, 100);
+	zm_round_spawning::function_306ce518(#"stoker", &function_cf5ef033);
 	zm_cleanup::function_cdf5a512(#"stoker", &function_3049b317);
 }
 
@@ -304,7 +304,7 @@ function registerbehaviorscriptfunctions()
 */
 function private function_983f7ff1()
 {
-	level.var_71be6cf4 = 0;
+	level.stokerdebug = 0;
 	level.var_fb6dfb50 = 0;
 }
 
@@ -1122,7 +1122,7 @@ function private stokerchargeattack(entity)
 }
 
 /*
-	Name: function_f40b4833
+	Name: stokerrangedattack
 	Namespace: zm_ai_stoker
 	Checksum: 0xE90F6AC2
 	Offset: 0x3230
@@ -1130,7 +1130,7 @@ function private stokerchargeattack(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f40b4833(entity)
+function private stokerrangedattack(entity)
 {
 	entity.var_907e6060 = 1;
 	entity.var_aca87abc = 1;
@@ -1231,7 +1231,7 @@ function private function_253c9e38(entity)
 			/#
 				function_752a64b8("");
 			#/
-			function_f40b4833(entity);
+			stokerrangedattack(entity);
 		}
 	}
 }
@@ -1275,9 +1275,9 @@ function function_b2602782(entity)
 	targetpos = targetpos + (0, 0, entity ai::function_9139c839().var_f227d0d0);
 	var_872c6826 = vectortoangles(targetpos - launchpos);
 	angles = function_cc68801f(launchpos, targetpos, entity ai::function_9139c839().var_81da787, getdvarfloat(#"bg_lowgravity", 0));
-	if(isdefined(angles) && angles[#"hash_1d5798eaa3bed36c"] > 0)
+	if(isdefined(angles) && angles[#"lowangle"] > 0)
 	{
-		dir = anglestoforward((-1 * angles[#"hash_1d5798eaa3bed36c"], var_872c6826[1], var_872c6826[2]));
+		dir = anglestoforward((-1 * angles[#"lowangle"], var_872c6826[1], var_872c6826[2]));
 	}
 	else
 	{
@@ -1318,7 +1318,7 @@ function function_6da30402(einflictor, eattacker, idamage, idflags, smeansofdeat
 		{
 			eattacker.var_d691409c = 1;
 		}
-		if(weapon == getweapon(#"hash_758c92f7249cd780") && (isdefined(einflictor.cp_level_blackstation_goto_centerbreadcrumb) && einflictor.cp_level_blackstation_goto_centerbreadcrumb))
+		if(weapon == getweapon(#"stoker_melee") && (isdefined(einflictor.cp_level_blackstation_goto_centerbreadcrumb) && einflictor.cp_level_blackstation_goto_centerbreadcrumb))
 		{
 			idamage = 150;
 		}
@@ -1644,7 +1644,7 @@ function function_cf5ef033(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"stoker"))
+		if(zm_round_spawning::function_d0db51fc(#"stoker"))
 		{
 			level.var_ac8e1955++;
 			if(level.var_ac8e1955 == 3)
@@ -1842,7 +1842,7 @@ function update_dvars()
 	/#
 		while(true)
 		{
-			level.var_71be6cf4 = getdvarint(#"hash_6eb238066515a9c9", 0);
+			level.stokerdebug = getdvarint(#"scr_stokerdebug", 0);
 			wait(1);
 		}
 	#/
@@ -1860,7 +1860,7 @@ function update_dvars()
 function function_752a64b8(message)
 {
 	/#
-		if(isdefined(level.var_71be6cf4))
+		if(isdefined(level.stokerdebug))
 		{
 			println("" + message);
 		}

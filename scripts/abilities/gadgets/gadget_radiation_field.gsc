@@ -909,7 +909,7 @@ function function_831bf182()
 }
 
 /*
-	Name: function_e68725b4
+	Name: get_power
 	Namespace: gadget_radiation_field
 	Checksum: 0x5909B1A2
 	Offset: 0x30D8
@@ -917,7 +917,7 @@ function function_831bf182()
 	Parameters: 0
 	Flags: None
 */
-function function_e68725b4()
+function get_power()
 {
 	if(self function_831bf182())
 	{

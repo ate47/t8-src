@@ -38,8 +38,8 @@ function __init__()
 	register_handler(#"hash_7a468797a3a33424", &function_41d967fe);
 	register_handler(#"hash_2ebb09bf5581043d", &function_f71302f4);
 	register_handler(#"hash_3173f482acc24ec8", &function_821cce69);
-	register_handler(#"hash_63805884bf517826", &function_5485fc7b);
-	register_handler(#"hash_63805884bf517826", &function_5485fc7b);
+	register_handler(#"sprint_set", &function_5485fc7b);
+	register_handler(#"sprint_set", &function_5485fc7b);
 	register_handler(#"hash_59db68c04af7aab5", &function_e4f752b9);
 	register_handler(#"hash_51f609ea675fecde", &function_d22ff818);
 	register_handler(#"hash_21f619ce507cec96", &function_1989cfaf);

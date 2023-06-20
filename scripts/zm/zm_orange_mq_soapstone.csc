@@ -18,8 +18,8 @@
 */
 function preload()
 {
-	level._effect[#"hash_71c8e53319a84a5e"] = #"hash_75215ea3c21f31d3";
-	level._effect[#"hash_6eab68fbca3daf17"] = #"hash_7cdf08df557a9b3f";
+	level._effect[#"soapstone_cold"] = #"hash_75215ea3c21f31d3";
+	level._effect[#"soapstone_hot"] = #"hash_7cdf08df557a9b3f";
 	init_clientfields();
 }
 
@@ -68,11 +68,11 @@ function soapstone_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	}
 	if(newval == 1)
 	{
-		self.fx_glow = util::playfxontag(localclientnum, level._effect[#"hash_71c8e53319a84a5e"], self, "tag_origin");
+		self.fx_glow = util::playfxontag(localclientnum, level._effect[#"soapstone_cold"], self, "tag_origin");
 	}
 	else if(newval == 2)
 	{
-		self.fx_glow = util::playfxontag(localclientnum, level._effect[#"hash_6eab68fbca3daf17"], self, "tag_origin");
+		self.fx_glow = util::playfxontag(localclientnum, level._effect[#"soapstone_hot"], self, "tag_origin");
 	}
 }
 

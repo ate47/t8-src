@@ -19,11 +19,11 @@
 */
 function preload()
 {
-	level._effect[#"hash_2b1060af0c8f9976"] = #"hash_73e8d2cf76175901";
-	level._effect[#"hash_3f0f201f556a272f"] = #"hash_4f1f3e18228ac0a0";
-	level._effect[#"hash_62ef18672d041a6f"] = #"hash_7af8fa2d13abeeb1";
+	level._effect[#"lantern_moving"] = #"hash_73e8d2cf76175901";
+	level._effect[#"lantern_waiting"] = #"hash_4f1f3e18228ac0a0";
+	level._effect[#"lantern_charging"] = #"hash_7af8fa2d13abeeb1";
 	level._effect[#"lantern_explode"] = #"hash_306c49d67fca8485";
-	level._effect[#"hash_5f479f0ba680df7b"] = #"hash_59977c4c851916e0";
+	level._effect[#"lantern_soul"] = #"hash_59977c4c851916e0";
 	level._effect[#"hash_7336b7a4cc9d2581"] = #"hash_1a06427eff8dfe13";
 	clientfield::register("scriptmover", "" + #"hash_6aaf03a4358f45f5", 24000, 1, "counter", &function_f1749965, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_6a4317183d0ca452", 24000, 1, "counter", &function_44aa40e0, 0, 0);
@@ -34,12 +34,12 @@ function preload()
 	clientfield::register("vehicle", "" + #"lantern_fx", 24000, 2, "int", &function_f490f0e5, 0, 0);
 	clientfield::register("vehicle", "" + #"lantern_explode_fx", 24000, 1, "counter", &play_lantern_explode_fx, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_78b8d89d34b32241", 24000, 2, "int", &function_19f2f0f2, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_54e24ec6e84ad6e6", 24000, 1, "int", &function_cbc22c9d, 0, 0);
-	namespace_617a54f4::function_d8383812(#"sc_lantern_1", 24000, "sc_lantern_1", 400, level._effect[#"hash_5f479f0ba680df7b"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"sc_lantern_2", 24000, "sc_lantern_2", 400, level._effect[#"hash_5f479f0ba680df7b"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"sc_lantern_3", 24000, "sc_lantern_3", 400, level._effect[#"hash_5f479f0ba680df7b"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"sc_lantern_4", 24000, "sc_lantern_4", 400, level._effect[#"hash_5f479f0ba680df7b"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"sc_lantern_end", 24000, "sc_lantern_end", 400, level._effect[#"hash_5f479f0ba680df7b"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
+	clientfield::register("scriptmover", "" + #"lantern_outline", 24000, 1, "int", &function_cbc22c9d, 0, 0);
+	namespace_617a54f4::function_d8383812(#"sc_lantern_1", 24000, "sc_lantern_1", 400, level._effect[#"lantern_soul"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lantern_2", 24000, "sc_lantern_2", 400, level._effect[#"lantern_soul"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lantern_3", 24000, "sc_lantern_3", 400, level._effect[#"lantern_soul"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lantern_4", 24000, "sc_lantern_4", 400, level._effect[#"lantern_soul"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_lantern_end", 24000, "sc_lantern_end", 400, level._effect[#"lantern_soul"], level._effect[#"hash_7336b7a4cc9d2581"], undefined, undefined, 1);
 }
 
 /*
@@ -165,17 +165,17 @@ function function_f490f0e5(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval == 1)
 	{
-		util::playfxontag(localclientnum, level._effect[#"hash_2b1060af0c8f9976"], self, "tag_origin");
+		util::playfxontag(localclientnum, level._effect[#"lantern_moving"], self, "tag_origin");
 	}
 	else
 	{
 		if(newval == 2)
 		{
-			util::playfxontag(localclientnum, level._effect[#"hash_3f0f201f556a272f"], self, "tag_origin");
+			util::playfxontag(localclientnum, level._effect[#"lantern_waiting"], self, "tag_origin");
 		}
 		else if(newval == 3)
 		{
-			util::playfxontag(localclientnum, level._effect[#"hash_62ef18672d041a6f"], self, "tag_origin");
+			util::playfxontag(localclientnum, level._effect[#"lantern_charging"], self, "tag_origin");
 		}
 	}
 }

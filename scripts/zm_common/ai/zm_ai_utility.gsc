@@ -568,7 +568,7 @@ function function_a2e8fd7b(entity, player, var_3f120c4d = 4)
 	/#
 		assert(isplayer(player), "");
 	#/
-	if(getdvarint(#"hash_576f5cfc006ef831", 1))
+	if(getdvarint(#"zm_zone_pathing", 1))
 	{
 		zone_path = zm_zonemgr::function_54fc7938(player, entity);
 		if(isdefined(zone_path) && zone_path.cost >= var_3f120c4d)

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
@@ -70,14 +70,14 @@ function __init__()
 */
 function __main__()
 {
-	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		level thread function_6b6712e3();
 		level thread function_c9e23896();
 		var_35da56ee = zm_crafting::function_b18074d0(#"zblueprint_mansion_ww_lvl2");
-		var_35da56ee.var_670f9944.var_62a98b13 = #"hash_5b861e557c672a2b";
+		var_35da56ee.var_670f9944.var_62a98b13 = #"weapon_frame";
 		var_35da56ee.var_2e0a273a.var_62a98b13 = #"prima_materia";
-		zm_crafting::function_d1f16587(#"zblueprint_mansion_ww_lvl2", &function_1d1da682);
+		zm_crafting::function_d1f16587(#"zblueprint_mansion_ww_lvl2", &ww_lvl2_crafted);
 		callback::on_connect(&function_27b91fdb);
 	}
 	level flag::init(#"hash_1462d174d4023e58");
@@ -147,7 +147,7 @@ function function_6b6712e3()
 	level waittill(#"hash_2588983e2be22ca5");
 	s_loc = struct::get("s_wwlvl2_quest_pickup_1", "targetname");
 	var_ef5b83bb = mansion_util::function_89e9bca5(#"hash_5dba840c6ed3ea3b", s_loc.origin, s_loc.angles);
-	var_ef5b83bb clientfield::set("" + #"hash_524ec892754aeb34", 1);
+	var_ef5b83bb clientfield::set("" + #"ww_pickup_part", 1);
 }
 
 /*
@@ -251,12 +251,12 @@ function function_6231b511()
 	while(!level flag::get("ww_lvl2_crafting_completed"))
 	{
 		s_notify = undefined;
-		s_notify = level waittill(#"hash_656719782f57ca1a");
+		s_notify = level waittill(#"blueprint_completed");
 		if(s_notify.blueprint.name === "zblueprint_mansion_ww_lvl2")
 		{
 			level flag::set("ww_lvl2_crafting_completed");
 			callback::remove_on_connect(&function_27b91fdb);
-			level namespace_6747c550::function_7df6bb60(#"hash_5ddc0f3d5535879b", 1);
+			level zm_ui_inventory::function_7df6bb60(#"ww_phase", 1);
 		}
 	}
 }
@@ -345,7 +345,7 @@ function function_ea6f56ee()
 			var_21839a96 = #"hash_5dba850c6ed3ebee";
 			level thread function_29f66f1a(var_21839a96, var_57ec466d);
 			level.var_9332cecc = 1;
-			level namespace_6747c550::function_7df6bb60(#"ww_p1_2", 0);
+			level zm_ui_inventory::function_7df6bb60(#"ww_p1_2", 0);
 		}
 		else
 		{
@@ -354,14 +354,14 @@ function function_ea6f56ee()
 				var_21839a96 = #"hash_3f639544c52d4fa3";
 				level thread function_29f66f1a(var_21839a96, var_57ec466d);
 				level.var_f6a6ddae = 1;
-				level namespace_6747c550::function_7df6bb60(#"ww_p2_2", 0);
+				level zm_ui_inventory::function_7df6bb60(#"ww_p2_2", 0);
 			}
 			else if(level flag::get("flag_player_grabbed_nosferatu_material") && !level flag::get("flag_player_grabbed_nosferatu_prima"))
 			{
 				var_21839a96 = #"hash_3f639644c52d5156";
 				level thread function_29f66f1a(var_21839a96, var_57ec466d);
 				level.var_ea58030a = 1;
-				level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 0);
+				level zm_ui_inventory::function_7df6bb60(#"ww_p2_3", 0);
 			}
 		}
 		if(isdefined(level.var_9332cecc) && level.var_9332cecc && (isdefined(level.var_f6a6ddae) && level.var_f6a6ddae) && (isdefined(level.var_ea58030a) && level.var_ea58030a))
@@ -452,19 +452,19 @@ function function_b9cbdac6(e_holder, w_item)
 	{
 		case "hash_5dba850c6ed3ebee":
 		{
-			level namespace_6747c550::function_7df6bb60(#"ww_p1_2", 2);
+			level zm_ui_inventory::function_7df6bb60(#"ww_p1_2", 2);
 			level flag::set("flag_player_grabbed_werewolf_prima");
 			break;
 		}
 		case "hash_3f639544c52d4fa3":
 		{
-			level namespace_6747c550::function_7df6bb60(#"ww_p2_2", 2);
+			level zm_ui_inventory::function_7df6bb60(#"ww_p2_2", 2);
 			level flag::set("flag_player_grabbed_bat_prima");
 			break;
 		}
 		case "hash_3f639644c52d5156":
 		{
-			level namespace_6747c550::function_7df6bb60(#"ww_p2_3", 5);
+			level zm_ui_inventory::function_7df6bb60(#"ww_p2_3", 5);
 			level flag::set("flag_player_grabbed_nosferatu_prima");
 			break;
 		}
@@ -479,7 +479,7 @@ function function_b9cbdac6(e_holder, w_item)
 }
 
 /*
-	Name: function_1d1da682
+	Name: ww_lvl2_crafted
 	Namespace: ww_lvl2_quest
 	Checksum: 0x220D98A0
 	Offset: 0x1988
@@ -487,9 +487,9 @@ function function_b9cbdac6(e_holder, w_item)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1d1da682(e_player)
+function ww_lvl2_crafted(e_player)
 {
-	level notify(#"hash_24c45fc7880ee4f0");
+	level notify(#"ww_lvl2_crafted");
 	var_a70a763b = getentarray("ww_lvl2_quest_piece_on_table", "targetname");
 	array::run_all(var_a70a763b, &show);
 	unitrigger_stub = self.stub;

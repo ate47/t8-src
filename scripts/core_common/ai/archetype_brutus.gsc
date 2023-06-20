@@ -108,7 +108,7 @@ function private registerbehaviorscriptfunctions()
 function private function_f9f08bb1(message)
 {
 	/#
-		if(getdvarint(#"hash_4aefa984c0b2ea80", 0))
+		if(getdvarint(#"scr_brutusdebug", 0))
 		{
 			println("" + message);
 		}

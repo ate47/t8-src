@@ -184,7 +184,7 @@ function function_dbad2f5a()
 	self.var_da138ae4 = getvehiclenode("trials_lighthouse_start", "targetname");
 	vh_target.origin = self.var_da138ae4.origin;
 	vh_target.b_moving = 0;
-	vh_target val::set(#"hash_69024cc79ba5b8d3", "takedamage", 0);
+	vh_target val::set(#"lighthouse_target", "takedamage", 0);
 	self.vh_target = vh_target;
 	self zm_orange_lighthouse::function_1b488412(vh_target.origin, 1);
 	self.vh_target.e_spotlight = util::spawn_model("tag_origin", self.vh_target.origin);

@@ -13,7 +13,7 @@
 #using script_5660bae5b402a1eb;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
-#using script_5b1c3d314b9c88fb;
+#using scripts\wz_common\wz_ai_utils.gsc;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
 #using scripts\wz_common\wz_ai_zombie.gsc;
@@ -142,17 +142,17 @@ function private function_666b2409(entity)
 function function_debbd9da()
 {
 	self function_517fd069();
-	self namespace_b912c30b::function_9758722("walk");
+	self wz_ai_utils::function_9758722("walk");
 	aiutility::addaioverridedamagecallback(self, &function_83a6d3ae);
 	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_fc5aa54d);
 	self callback::function_d8abfc3d(#"hash_4e449871617e2c25", &function_6a482c74);
-	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
+	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_bad305c7();
 	self.var_65e57a10 = 1;
 	self.health = 6000;
 	self.hashelmet = 1;
-	self.var_deee6e55 = 0;
+	self.helmethits = 0;
 	self.var_96b5e3f1 = 0;
 	self.var_71ab4927 = 0;
 	self.var_905e4ce2 = self ai::function_9139c839().var_267bc182;
@@ -187,7 +187,7 @@ function function_6a482c74(params)
 	{
 		case 3:
 		{
-			self namespace_b912c30b::function_9758722("run");
+			self wz_ai_utils::function_9758722("run");
 			break;
 		}
 		default:
@@ -224,7 +224,7 @@ function function_bad305c7()
 function function_6090f71a()
 {
 	self.explosive_dmg_req = 50;
-	if(!getdvarint(#"hash_4cfef227405e3c46", 0))
+	if(!getdvarint(#"survival_prototype", 0))
 	{
 		self thread wz_ai_zombie::function_e261b81d();
 	}
@@ -245,7 +245,7 @@ function function_6090f71a()
 		node = getnode(self.ai_zone.zone_name + "_patrol", "targetname");
 		if(isdefined(node))
 		{
-			self.patrol_path = namespace_b912c30b::function_35eac38d(node);
+			self.patrol_path = wz_ai_utils::function_35eac38d(node);
 			self.var_5d58d4c0 = &function_b510a832;
 		}
 	}
@@ -410,7 +410,7 @@ function private function_1bd1ebe7(entity)
 	entity show();
 	entity clientfield::set("brutus_spawn_clientfield", 1);
 	entity pathmode("move allowed");
-	entity notify(#"hash_661885e7a60ccf04");
+	entity notify(#"not_underground");
 }
 
 /*
@@ -474,7 +474,7 @@ function private function_3bda3c55(entity)
 	{
 		return false;
 	}
-	if(!namespace_b912c30b::is_player_valid(entity.favoriteenemy))
+	if(!wz_ai_utils::is_player_valid(entity.favoriteenemy))
 	{
 		return false;
 	}
@@ -529,7 +529,7 @@ function private function_85e8940a(entity)
 	entity clientfield::increment("brutus_shock_attack", 1);
 	foreach(player in players)
 	{
-		if(!namespace_b912c30b::is_player_valid(player))
+		if(!wz_ai_utils::is_player_valid(player))
 		{
 			continue;
 		}
@@ -599,8 +599,8 @@ function private function_55bb9c72(attacker, damage, weapon, var_81dcad68, damag
 	{
 		return damage * var_81dcad68;
 	}
-	self.var_deee6e55++;
-	if(self.var_deee6e55 >= self.var_905e4ce2)
+	self.helmethits++;
+	if(self.helmethits >= self.var_905e4ce2)
 	{
 		self function_530c54e3();
 	}
@@ -643,7 +643,7 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 	}
 	if(isdefined(inflictor) && !isdefined(self.attackable) && isdefined(inflictor.var_b79a8ac7) && isarray(inflictor.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, weapon))
 	{
-		if(inflictor namespace_b912c30b::get_attackable_slot(self))
+		if(inflictor wz_ai_utils::get_attackable_slot(self))
 		{
 			self.attackable = inflictor;
 		}
@@ -656,13 +656,13 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 	final_damage = 0;
 	if(isdefined(meansofdeath) && (meansofdeath == "MOD_GRENADE" || meansofdeath == "MOD_GRENADE_SPLASH" || meansofdeath == "MOD_PROJECTILE" || meansofdeath == "MOD_PROJECTILE_SPLASH" || meansofdeath == "MOD_EXPLOSIVE"))
 	{
-		if(!isdefined(self.var_e24f0ce1))
+		if(!isdefined(self.explosivedmgtaken))
 		{
-			self.var_e24f0ce1 = 0;
+			self.explosivedmgtaken = 0;
 		}
-		self.var_e24f0ce1 = self.var_e24f0ce1 + damage;
+		self.explosivedmgtaken = self.explosivedmgtaken + damage;
 		scaler = var_9000ab2;
-		if(self.var_e24f0ce1 >= self.explosive_dmg_req && (isdefined(self.hashelmet) && self.hashelmet))
+		if(self.explosivedmgtaken >= self.explosive_dmg_req && (isdefined(self.hashelmet) && self.hashelmet))
 		{
 			self function_530c54e3();
 		}

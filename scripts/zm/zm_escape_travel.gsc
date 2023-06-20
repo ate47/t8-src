@@ -271,22 +271,22 @@ function establish_gondola_door_definition(mdl_door)
 	str_identifier = mdl_door.script_noteworthy;
 	switch(str_identifier)
 	{
-		case "hash_2955bd4df4740b38":
+		case "roof left":
 		{
 			self.door_roof_left = mdl_door;
 			break;
 		}
-		case "hash_279077bad833af6d":
+		case "roof right":
 		{
 			self.door_roof_right = mdl_door;
 			break;
 		}
-		case "hash_2c2583d55b9dbf1c":
+		case "docks left":
 		{
 			self.door_docks_left = mdl_door;
 			break;
 		}
-		case "hash_45988443f4a6fec9":
+		case "docks right":
 		{
 			self.door_docks_right = mdl_door;
 			break;
@@ -309,22 +309,22 @@ function establish_gondola_gate_definition(mdl_gate)
 	str_identifier = mdl_gate.script_noteworthy;
 	switch(str_identifier)
 	{
-		case "hash_2955bd4df4740b38":
+		case "roof left":
 		{
 			self.gate_roof_left = mdl_gate;
 			break;
 		}
-		case "hash_279077bad833af6d":
+		case "roof right":
 		{
 			self.gate_roof_right = mdl_gate;
 			break;
 		}
-		case "hash_2c2583d55b9dbf1c":
+		case "docks left":
 		{
 			self.gate_docks_left = mdl_gate;
 			break;
 		}
-		case "hash_45988443f4a6fec9":
+		case "docks right":
 		{
 			self.gate_docks_right = mdl_gate;
 			break;
@@ -346,22 +346,22 @@ function establish_gondola_landing_door_definition(mdl_door)
 	str_identifier = mdl_door.script_noteworthy;
 	switch(str_identifier)
 	{
-		case "hash_2955bd4df4740b38":
+		case "roof left":
 		{
 			self.landing_door_roof_left = mdl_door;
 			break;
 		}
-		case "hash_279077bad833af6d":
+		case "roof right":
 		{
 			self.landing_door_roof_right = mdl_door;
 			break;
 		}
-		case "hash_2c2583d55b9dbf1c":
+		case "docks left":
 		{
 			self.landing_door_docks_left = mdl_door;
 			break;
 		}
-		case "hash_45988443f4a6fec9":
+		case "docks right":
 		{
 			self.landing_door_docks_right = mdl_door;
 			break;
@@ -383,22 +383,22 @@ function establish_gondola_landing_gate_definition(mdl_gate)
 	str_identifier = mdl_gate.script_noteworthy;
 	switch(str_identifier)
 	{
-		case "hash_2955bd4df4740b38":
+		case "roof left":
 		{
 			self.landing_gate_roof_left = mdl_gate;
 			break;
 		}
-		case "hash_279077bad833af6d":
+		case "roof right":
 		{
 			self.landing_gate_roof_right = mdl_gate;
 			break;
 		}
-		case "hash_2c2583d55b9dbf1c":
+		case "docks left":
 		{
 			self.landing_gate_docks_left = mdl_gate;
 			break;
 		}
-		case "hash_45988443f4a6fec9":
+		case "docks right":
 		{
 			self.landing_gate_docks_right = mdl_gate;
 			break;
@@ -1108,7 +1108,7 @@ function function_6a4544e()
 	var_1b66809c = array_players_on_gondola();
 	if(var_1b66809c.size == 1)
 	{
-		var_1b66809c[0] zm_audio::create_and_play_dialog(#"gondola", #"hash_32d4a9333251b89f", undefined, 1);
+		var_1b66809c[0] zm_audio::create_and_play_dialog(#"gondola", #"ride_solo", undefined, 1);
 	}
 	else if(var_1b66809c.size > 1)
 	{

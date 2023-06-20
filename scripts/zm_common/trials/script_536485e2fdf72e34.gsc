@@ -36,7 +36,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5c3f988812660d49", &on_begin, &on_end);
+	zm_trial::register_challenge(#"acquire_perks", &on_begin, &on_end);
 }
 
 /*

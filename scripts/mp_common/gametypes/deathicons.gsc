@@ -121,7 +121,7 @@ function add(entity, dyingplayer, team)
 	{
 		return;
 	}
-	objectivename = (sessionmodeiswarzonegame() ? #"hash_2fc33ea98b703187" : #"headicon_dead");
+	objectivename = (sessionmodeiswarzonegame() ? #"headicon_dead_wz" : #"headicon_dead");
 	deathiconobjid = gameobjects::get_next_obj_id();
 	objective_add(deathiconobjid, "active", iconorg, objectivename, dyingplayer);
 	objective_setteam(deathiconobjid, team);

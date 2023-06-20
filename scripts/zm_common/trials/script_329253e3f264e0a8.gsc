@@ -103,7 +103,7 @@ function function_4172344e()
 		zm_trial_util::function_2976fa44(level.var_70135c38);
 		zm_trial_util::function_dace284(level.var_3de460b1, 1);
 		var_be17187b = undefined;
-		var_be17187b = level waittill(#"zombie_board_tear", #"hash_747f63d86cb99870", #"carpenter_finished");
+		var_be17187b = level waittill(#"zombie_board_tear", #"board_repaired", #"carpenter_finished");
 	}
 }
 

@@ -98,7 +98,7 @@ function defaultrole()
 	self vehicle_ai::get_state_callbacks("combat").update_func = &state_combat_update;
 	self vehicle_ai::get_state_callbacks("combat").exit_func = &state_combat_exit;
 	self vehicle_ai::get_state_callbacks("death").update_func = &state_death_update;
-	self vehicle_ai::add_state("malfunction", &function_39029b1a, &function_9664709f, &function_36201a5c);
+	self vehicle_ai::add_state("malfunction", &function_39029b1a, &malfunction_update, &function_36201a5c);
 	vehicle_ai::startinitialstate("combat");
 }
 
@@ -116,7 +116,7 @@ function function_39029b1a(params)
 }
 
 /*
-	Name: function_9664709f
+	Name: malfunction_update
 	Namespace: wing_drone
 	Checksum: 0xE9DD6E1F
 	Offset: 0x5C0
@@ -124,7 +124,7 @@ function function_39029b1a(params)
 	Parameters: 1
 	Flags: None
 */
-function function_9664709f(params)
+function malfunction_update(params)
 {
 	self endon(#"death");
 	ang_vel = self getangularvelocity();
@@ -248,7 +248,7 @@ function reload()
 }
 
 /*
-	Name: function_a205de0d
+	Name: attackthread
 	Namespace: wing_drone
 	Checksum: 0x1420025C
 	Offset: 0xA60
@@ -256,7 +256,7 @@ function reload()
 	Parameters: 0
 	Flags: None
 */
-function function_a205de0d()
+function attackthread()
 {
 	self endon(#"death");
 	self endon(#"change_state");
@@ -519,7 +519,7 @@ function state_combat_update(params)
 	self endon(#"change_state");
 	self endon(#"death");
 	self thread function_5ebe7443();
-	self thread function_a205de0d();
+	self thread attackthread();
 	for(;;)
 	{
 		if(isdefined(self.ignoreall) && self.ignoreall)

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -201,7 +201,7 @@ function function_6b8c9160()
 	wait(4);
 	if(!level flag::get(#"hash_621d31a87bd6d05b") && level.var_98138d6b >= 2)
 	{
-		level.var_1c53964e thread namespace_509a75d1::function_6a0d675d("vox_musicbox_first");
+		level.var_1c53964e thread zm_hms_util::function_6a0d675d("vox_musicbox_first");
 	}
 	level flag::set(#"hash_621d31a87bd6d05b");
 }

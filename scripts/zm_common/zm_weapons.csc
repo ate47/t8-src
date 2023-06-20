@@ -84,7 +84,7 @@ function private on_player_connect(localclientnum)
 	}
 	resetweaponcosts(localclientnum);
 	level flag::wait_till("weapon_table_loaded");
-	if(getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(getgametypesetting(#"zmwallbuysenabled"))
 	{
 		level flag::wait_till("weapon_wallbuys_created");
 	}
@@ -348,7 +348,7 @@ function init_weapons()
 */
 function load_weapon_spec_from_table(table, first_row)
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	index = first_row;
 	row = tablelookuprow(table, index);
 	while(isdefined(row))

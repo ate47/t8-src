@@ -161,7 +161,7 @@ function player_init_shield_health(weapon, var_cd9d17e0 = 0)
 			weapon = self.weaponriotshield;
 		}
 	}
-	switch(zm_custom::function_901b751c(#"hash_7ee9177eb922ddfa"))
+	switch(zm_custom::function_901b751c(#"zmshielddurability"))
 	{
 		case 0:
 		{
@@ -237,7 +237,7 @@ function function_d987f765()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_4d7676bba8e782b5");
+		var_be17187b = level waittill(#"carpenter_started");
 		if(zm_powerups::function_cfd04802(#"carpenter") && isplayer(var_be17187b.var_264cf1f9))
 		{
 			if(isdefined(var_be17187b.var_264cf1f9.hasriotshield) && var_be17187b.var_264cf1f9.hasriotshield && isdefined(var_be17187b.var_264cf1f9.player_shield_reset_health))

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_490759cf62a1abc8;
+#using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using scripts\mp_common\gametypes\ct_vo.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -82,14 +82,14 @@ function function_c9ff0dce()
 					case 5:
 					{
 						var_9cfc44ff = 1;
-						self thread namespace_d82263d5::function_9dc27b4f(#"sig_buckler_dw", array(#"sig_buckler_dw", #"eq_swat_grenade"), array(#"eq_swat_grenade"));
+						self thread ct_gadgets::function_9dc27b4f(#"sig_buckler_dw", array(#"sig_buckler_dw", #"eq_swat_grenade"), array(#"eq_swat_grenade"));
 						break;
 					}
 					case 6:
 					case 7:
 					{
 						var_9cfc44ff = 1;
-						self thread namespace_d82263d5::function_9dc27b4f(#"sig_buckler_dw", array(#"sig_buckler_dw", #"eq_swat_grenade"));
+						self thread ct_gadgets::function_9dc27b4f(#"sig_buckler_dw", array(#"sig_buckler_dw", #"eq_swat_grenade"));
 						break;
 					}
 				}
@@ -100,7 +100,7 @@ function function_c9ff0dce()
 			}
 			if(!var_9cfc44ff && (isdefined(level.b_bare_hands) && level.b_bare_hands))
 			{
-				self thread namespace_d82263d5::function_952b1db2();
+				self thread ct_gadgets::function_952b1db2();
 			}
 		}
 	}
@@ -113,13 +113,13 @@ function function_c9ff0dce()
 			{
 				case 1:
 				{
-					self val::set(#"hash_505a4c7da62f0c37", "ignoreall", 1);
+					self val::set(#"grenade_bot", "ignoreall", 1);
 					self thread function_58c62280(0);
 					break;
 				}
 				case 2:
 				{
-					self val::set(#"hash_505a4c7da62f0c37", "ignoreall", 1);
+					self val::set(#"grenade_bot", "ignoreall", 1);
 					self.script_accuracy = 0.3;
 					self thread function_58c62280(0);
 					break;
@@ -137,7 +137,7 @@ function function_c9ff0dce()
 				}
 				default:
 				{
-					self val::set(#"hash_505a4c7da62f0c37", "ignoreall", 1);
+					self val::set(#"grenade_bot", "ignoreall", 1);
 					self thread function_58c62280(1);
 					break;
 				}
@@ -482,13 +482,13 @@ function function_192a6db2()
 		{
 			if(isdefined(bot.var_ef9b6f0b) && bot.var_ef9b6f0b && (!(isdefined(bot.var_d31bfee0) && bot.var_d31bfee0)))
 			{
-				bot val::set(#"hash_339acd4058793522", "ignoreall", 1);
+				bot val::set(#"stunned_bot", "ignoreall", 1);
 				bot.var_d31bfee0 = 1;
 				continue;
 			}
 			if(isdefined(bot.var_d31bfee0) && bot.var_d31bfee0)
 			{
-				bot val::reset(#"hash_339acd4058793522", "ignoreall");
+				bot val::reset(#"stunned_bot", "ignoreall");
 				bot.var_d31bfee0 = 0;
 			}
 		}
@@ -656,7 +656,7 @@ function function_c6e7b0d9()
 			}
 			waitframe(1);
 		}
-		level notify(#"hash_5dde71b33e45f1cd");
+		level notify(#"guys_stunned");
 		level notify(#"stop_nag");
 		if(isdefined(waypoint))
 		{
@@ -716,7 +716,7 @@ function function_c6e7b0d9()
 */
 function function_f58c42e2()
 {
-	level endon(#"hash_5dde71b33e45f1cd", #"combattraining_logic_finished");
+	level endon(#"guys_stunned", #"combattraining_logic_finished");
 	while(true)
 	{
 		e_player = getplayers()[0];
@@ -754,7 +754,7 @@ function function_9d1bba67()
 {
 	level endon(#"combattraining_logic_finished");
 	level.var_de17b8a3 = 0;
-	level thread namespace_d82263d5::function_144e61da(2, "combattraining_logic_finished");
+	level thread ct_gadgets::function_144e61da(2, "combattraining_logic_finished");
 	var_3608d414 = array("vox_tvoi_tutor_ajax_shield_0");
 	level thread ct_vo::function_831e0584(var_3608d414, 0);
 	level thread ct_vo::function_14b08e49(array(#"hash_4aaf37a6e822c717"), "stop_nag");
@@ -1606,7 +1606,7 @@ function function_e9b5de80()
 	level notify(#"start_car_kill_collision");
 	e_player ct_utils::function_6ad0c151();
 	level.usingscorestreaks = 0;
-	level.var_64ce2685 = 0;
+	level.disablescoreevents = 0;
 	level.disablemomentum = 1;
 	level.usingmomentum = 0;
 	level notify(#"start_open_car_blocker_collision");
@@ -1778,7 +1778,7 @@ function function_58c62280(b_keyline)
 	}
 	if(level.var_ad7c0539 == 5)
 	{
-		self val::reset(#"hash_505a4c7da62f0c37", "ignoreall");
+		self val::reset(#"grenade_bot", "ignoreall");
 		self.health = 50;
 	}
 	else
@@ -1801,7 +1801,7 @@ function function_58c62280(b_keyline)
 		}
 	}
 	level waittill(#"hash_24bd25e0736c3ca3");
-	self val::reset(#"hash_505a4c7da62f0c37", "ignoreall");
+	self val::reset(#"grenade_bot", "ignoreall");
 	if(level.var_ad7c0539 == 2)
 	{
 		n_wait = randomfloatrange(0.1, 1);

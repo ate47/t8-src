@@ -141,11 +141,11 @@ class cwz_revive_prompt : cLUIelem
 		Parameters: 6
 		Flags: Linked
 	*/
-	function setup_clientfields(uid, var_c05c67e2, var_663a86fa, var_d65e5a18, var_f228b5fa, var_7cb8f98a)
+	function setup_clientfields(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa, var_7cb8f98a)
 	{
 		cLUIelem::setup_clientfields(uid);
 		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", var_c05c67e2);
-		cLUIelem::function_da693cbe("health", 1, 5, "float", var_663a86fa);
+		cLUIelem::function_da693cbe("health", 1, 5, "float", healthcallback);
 		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float", var_d65e5a18);
 		cLUIelem::function_da693cbe("cowardsWay", 17000, 1, "int", var_7cb8f98a);
 	}
@@ -163,10 +163,10 @@ class cwz_revive_prompt : cLUIelem
 	Parameters: 6
 	Flags: Linked
 */
-function register(uid, var_c05c67e2, var_663a86fa, var_d65e5a18, var_f228b5fa, var_7cb8f98a)
+function register(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa, var_7cb8f98a)
 {
 	elem = new cwz_revive_prompt();
-	[[ elem ]]->setup_clientfields(uid, var_c05c67e2, var_663a86fa, var_d65e5a18, var_f228b5fa, var_7cb8f98a);
+	[[ elem ]]->setup_clientfields(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa, var_7cb8f98a);
 	return elem;
 }
 

@@ -41,7 +41,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_376aa98c6fac7859", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_perks", &on_begin, &on_end);
 }
 
 /*
@@ -113,11 +113,11 @@ function private on_end(round_reset)
 */
 function is_active(var_34f09024 = 0)
 {
-	if(var_34f09024 && zm_trial::function_48736df9(#"hash_376aa98c6fac7859"))
+	if(var_34f09024 && zm_trial::function_48736df9(#"disable_perks"))
 	{
 		return 1;
 	}
-	challenge = zm_trial::function_a36e8c38(#"hash_376aa98c6fac7859");
+	challenge = zm_trial::function_a36e8c38(#"disable_perks");
 	return isdefined(challenge);
 }
 

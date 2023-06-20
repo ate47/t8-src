@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -39,13 +39,13 @@ function init()
 	level.var_95c10956 = &function_a0488ba8;
 	level flag::init(#"flag_gegenees_set_intro");
 	level flag::init(#"flag_skeleton_set_intro");
-	namespace_c3287616::function_cc103b38(#"catalyst", 7);
-	namespace_c3287616::function_cc103b38(#"blight_father", 14);
-	namespace_c3287616::function_2876740e(#"catalyst", &function_2ffc8cca);
-	namespace_c3287616::function_2876740e(#"blight_father", &function_ec882ff);
-	namespace_c3287616::function_2876740e(#"gegenees", &function_57fd9735);
-	namespace_c3287616::function_306ce518(#"blight_father", &function_fa00e485);
-	namespace_c3287616::function_306ce518(#"gegenees", &function_c1a0ea97);
+	zm_round_spawning::function_cc103b38(#"catalyst", 7);
+	zm_round_spawning::function_cc103b38(#"blight_father", 14);
+	zm_round_spawning::function_2876740e(#"catalyst", &function_2ffc8cca);
+	zm_round_spawning::function_2876740e(#"blight_father", &function_ec882ff);
+	zm_round_spawning::function_2876740e(#"gegenees", &function_57fd9735);
+	zm_round_spawning::function_306ce518(#"blight_father", &function_fa00e485);
+	zm_round_spawning::function_306ce518(#"gegenees", &function_c1a0ea97);
 	level thread function_6957c745(#"skeleton", 8, #"flag_skeleton_set_intro");
 	level thread function_6957c745(#"gegenees", 12, #"flag_gegenees_set_intro");
 	level thread function_990c303a();
@@ -66,7 +66,7 @@ function function_fa00e485(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"blight_father") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
+		if(zm_round_spawning::function_d0db51fc(#"blight_father") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
 		{
 			if(isdefined(level.var_9ce0f2a5))
 			{
@@ -91,7 +91,7 @@ function function_c1a0ea97(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"gegenees") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
+		if(zm_round_spawning::function_d0db51fc(#"gegenees") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
 		{
 			if(isdefined(level.var_9ce0f2a5))
 			{
@@ -277,7 +277,7 @@ function function_6957c745(str_archetype, n_round, var_b2239dab)
 		level flag::wait_till(var_b2239dab);
 		n_round = level.round_number;
 	}
-	namespace_c3287616::function_376e51ef(str_archetype, n_round);
+	zm_round_spawning::function_376e51ef(str_archetype, n_round);
 }
 
 /*

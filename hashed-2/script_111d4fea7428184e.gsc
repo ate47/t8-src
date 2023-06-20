@@ -64,12 +64,12 @@ function __init__()
 	clientfield::register("allplayers", "laststand_bleed", 1, 1, "int");
 	level.var_8e910e84 = 1;
 	level.var_5c13c13f = (isdefined(getgametypesetting(#"hash_4c7c8c4bd1b2a58b")) ? getgametypesetting(#"hash_4c7c8c4bd1b2a58b") : 0);
-	level.var_97a55bea = getgametypesetting(#"hash_3eb2b790db0345da");
-	level.var_46a21fe9 = (isdefined(getgametypesetting(#"hash_40f115f7ed3324f9")) ? getgametypesetting(#"hash_40f115f7ed3324f9") : 0);
+	level.skiplaststand = getgametypesetting(#"skiplaststand");
+	level.var_46a21fe9 = (isdefined(getgametypesetting(#"wzenablecowardswayout")) ? getgametypesetting(#"wzenablecowardswayout") : 0);
 	level.var_7d1eeba9 = 1;
 	level.var_b1ad0b64 = &function_b1ad0b64;
 	level.laststandweapon = getweapon(#"downed");
-	level.var_e273f858 = getweapon(#"hash_2ca35808b452d993");
+	level.var_e273f858 = getweapon(#"notdowned");
 	level.weaponrevivetool = getweapon("syrette");
 	level.var_e86679bd = [];
 	level.var_91c33dcb = getscriptbundle(#"finishers");
@@ -85,7 +85,7 @@ function __init__()
 	/#
 		level thread function_ce726eb4();
 	#/
-	setdvar(#"g_revivetime", getgametypesetting(#"hash_7148b13c0ace2cd7"));
+	setdvar(#"g_revivetime", getgametypesetting(#"laststandrevivetime"));
 }
 
 /*
@@ -166,12 +166,12 @@ function on_player_damage(params)
 {
 	if(self is_reviving_any())
 	{
-		if(isdefined(self.var_58525d55) && isdefined(self.var_58525d55.var_d75a6ff5))
+		if(isdefined(self.reviving_player) && isdefined(self.reviving_player.var_d75a6ff5))
 		{
-			self.var_58525d55.var_d75a6ff5.var_d733f8d7 = self.var_58525d55.var_d75a6ff5.var_d733f8d7 + params.idamage;
+			self.reviving_player.var_d75a6ff5.var_d733f8d7 = self.reviving_player.var_d75a6ff5.var_d733f8d7 + params.idamage;
 			if(self.health <= params.idamage)
 			{
-				self.var_58525d55.var_d75a6ff5.var_bb36e277 = 1;
+				self.reviving_player.var_d75a6ff5.var_bb36e277 = 1;
 			}
 		}
 	}
@@ -336,7 +336,7 @@ event function_e011eea6(eventstruct)
 */
 function function_263a2944(prompt, var_a1258c6b)
 {
-	var_a1258c6b waittill(#"player_revived", #"disconnect", #"bled_out", #"death", #"hash_b78fae039ab734b");
+	var_a1258c6b waittill(#"player_revived", #"disconnect", #"bled_out", #"death", #"player_finished");
 	if(isdefined(self))
 	{
 		[[ prompt ]]->close(self);
@@ -379,7 +379,7 @@ function function_60cc4433(prompt, var_a1258c6b)
 */
 function function_c025efba(prompt, var_a1258c6b)
 {
-	var_a1258c6b endon(#"player_revived", #"disconnect", #"bled_out", #"death", #"hash_b78fae039ab734b");
+	var_a1258c6b endon(#"player_revived", #"disconnect", #"bled_out", #"death", #"player_finished");
 	self endon(#"disconnect");
 	while(true)
 	{
@@ -566,11 +566,11 @@ function function_463b3f65()
 		self endon(#"player_revived", #"death");
 		while(true)
 		{
-			if(getdvarstring(#"hash_37d0f799458a380f", "") == "")
+			if(getdvarstring(#"scr_last_stand", "") == "")
 			{
 				self notify(#"auto_revive");
 				waittillframeend();
-				setdvar(#"hash_37d0f799458a380f", "");
+				setdvar(#"scr_last_stand", "");
 				return;
 			}
 			wait(0.1);
@@ -593,7 +593,7 @@ function function_ce726eb4()
 		level endon(#"game_ended");
 		while(true)
 		{
-			if(getdvarstring(#"hash_37d0f799458a380f", "") == "")
+			if(getdvarstring(#"scr_last_stand", "") == "")
 			{
 				host = util::gethostplayer();
 				angles = host getplayerangles();
@@ -607,7 +607,7 @@ function function_ce726eb4()
 					target = host;
 				}
 				target dodamage(1000, target.origin);
-				setdvar(#"hash_37d0f799458a380f", "");
+				setdvar(#"scr_last_stand", "");
 			}
 			wait(0.1);
 		}
@@ -690,7 +690,7 @@ function function_ed72859e()
 */
 function function_b1158c52(var_90c1e72d)
 {
-	if(isdefined(level.var_97a55bea) && level.var_97a55bea)
+	if(isdefined(level.skiplaststand) && level.skiplaststand)
 	{
 		return 1;
 	}
@@ -872,7 +872,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 	}
 	self clientfield::set("laststand_bleed", 1);
 	/#
-		bleedout_time = getdvarfloat(#"hash_4a4895710ba9de84", bleedout_time);
+		bleedout_time = getdvarfloat(#"overridebleedouttime", bleedout_time);
 	#/
 	self thread laststand_bleedout(bleedout_time, var_969fabf4);
 	self thread function_263492d9();
@@ -1443,7 +1443,7 @@ function revive_trigger_think()
 		}
 		self.revivetrigger sethintstring("");
 		/#
-			if(getdvarint(#"hash_63e053994442bba4", 0) && self attackbuttonpressed() && self throwbuttonpressed() && self fragbuttonpressed())
+			if(getdvarint(#"lastand_selfrevive", 0) && self attackbuttonpressed() && self throwbuttonpressed() && self fragbuttonpressed())
 			{
 				self thread revive_success(self);
 				self function_2907ce7a();
@@ -1912,7 +1912,7 @@ function revive_do_revive(playerbeingrevived)
 	{
 		playerbeingrevived.var_d75a6ff5.var_d10f3b9a++;
 	}
-	self.var_58525d55 = playerbeingrevived;
+	self.reviving_player = playerbeingrevived;
 	self clientfield::set_player_uimodel("hudItems.laststand.revivingClientNum", playerbeingrevived getentitynumber());
 	while(self is_reviving(playerbeingrevived, 0))
 	{
@@ -1967,7 +1967,7 @@ function revive_do_revive(playerbeingrevived)
 			playerbeingrevived.revivetrigger.beingrevived = 0;
 		}
 	}
-	self.var_58525d55 = undefined;
+	self.reviving_player = undefined;
 	self notify(#"do_revive_ended_normally");
 	self thread function_adecbc95();
 	return revived;
@@ -2011,12 +2011,12 @@ function function_adecbc95()
 */
 function function_c82a14d1(finisher)
 {
-	self endon(#"death", #"disconnect", #"hash_4db4d01d577965eb");
+	self endon(#"death", #"disconnect", #"finish_abort");
 	finisher endon(#"death", #"disconnect");
 	waitresult = undefined;
 	waitresult = self waittill(#"contact");
 	self flagsys::set(#"hash_40e3b09bdbcdac81");
-	self notify(#"hash_b78fae039ab734b");
+	self notify(#"player_finished");
 }
 
 /*
@@ -2168,7 +2168,7 @@ function revive_success(reviver, b_track_stats = 1)
 		self.pers[#"timesrevived"] = 0;
 	}
 	self.pers[#"timesrevived"]++;
-	function_58ca2822("player_revived", self, {#reviver:reviver});
+	voiceevent("player_revived", self, {#reviver:reviver});
 	var_d13a1b67 = {#attacker:attacker, #reviver:reviver};
 	callback::callback(#"on_player_revived", var_d13a1b67);
 }

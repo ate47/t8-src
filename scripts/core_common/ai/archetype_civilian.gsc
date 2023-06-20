@@ -464,7 +464,7 @@ function private civilianwanderservice(entity)
 */
 function private civilianfollowservice(entity)
 {
-	var_e590f9ad = 300 * 300;
+	followradiussq = 300 * 300;
 	followent = entity getblackboardattribute("follow");
 	if(!isentity(followent))
 	{
@@ -483,7 +483,7 @@ function private civilianfollowservice(entity)
 	forcedgoal = isdefined(var_1f2328d0.goalforced) && var_1f2328d0.goalforced;
 	isatscriptgoal = entity isatgoal() || entity isapproachinggoal();
 	itsbeenawhile = gettime() > entity.nextfindbestcovertime;
-	var_1ebff8de = itsbeenawhile || !isatscriptgoal || distsq < 0 || distsq > var_e590f9ad;
+	var_1ebff8de = itsbeenawhile || !isatscriptgoal || distsq < 0 || distsq > followradiussq;
 	if(!var_1ebff8de)
 	{
 		return false;

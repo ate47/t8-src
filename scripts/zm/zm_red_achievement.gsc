@@ -157,7 +157,7 @@ function private function_50e46434()
 function private function_863d6212()
 {
 	self endon(#"disconnect");
-	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4") || zm_utility::is_standard())
+	if(!zm_custom::function_901b751c(#"zmwonderweaponisenabled") || zm_utility::is_standard())
 	{
 		return;
 	}
@@ -192,7 +192,7 @@ function private function_863d6212()
 function private function_103e6827()
 {
 	self endon(#"disconnect");
-	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4") || zm_utility::is_standard())
+	if(!zm_custom::function_901b751c(#"zmwonderweaponisenabled") || zm_utility::is_standard())
 	{
 		return;
 	}
@@ -227,7 +227,7 @@ function private function_103e6827()
 function private function_3c39c720()
 {
 	self endoncallback(&function_a5f404e2, #"disconnect");
-	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4") || zm_utility::is_standard())
+	if(!zm_custom::function_901b751c(#"zmwonderweaponisenabled") || zm_utility::is_standard())
 	{
 		return;
 	}
@@ -241,7 +241,7 @@ function private function_3c39c720()
 		}
 		self.var_ec3e3f82 = 0;
 		level callback::on_ai_killed(&function_8a595f5);
-		self waittill(#"weapon_change", #"weapon_fired", #"hash_609518a5a35564bf");
+		self waittill(#"weapon_change", #"weapon_fired", #"stop_beaming");
 		level callback::remove_on_ai_killed(&function_8a595f5);
 		if(self.var_ec3e3f82 >= 20)
 		{
@@ -301,21 +301,21 @@ function private function_a5f404e2(var_c34665fc)
 function private function_74846734()
 {
 	self endoncallback(&function_8828b419, #"disconnect");
-	if(!zm_custom::function_901b751c(#"hash_541a4d5c476468f4") || zm_utility::is_standard())
+	if(!zm_custom::function_901b751c(#"zmwonderweaponisenabled") || zm_utility::is_standard())
 	{
 		return;
 	}
 	while(true)
 	{
 		s_result = undefined;
-		s_result = self waittill(#"hash_39bd256a221ddf79");
+		s_result = self waittill(#"start_beaming");
 		if(self flag::get(#"ww_combat_active"))
 		{
 			continue;
 		}
 		self.n_flung = 0;
 		level callback::on_ai_killed(&function_c6125761);
-		self waittill(#"weapon_change", #"weapon_fired", #"hash_609518a5a35564bf");
+		self waittill(#"weapon_change", #"weapon_fired", #"stop_beaming");
 		level callback::remove_on_ai_killed(&function_c6125761);
 		if(self.n_flung >= 20)
 		{

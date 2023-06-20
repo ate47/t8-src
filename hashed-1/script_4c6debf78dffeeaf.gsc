@@ -57,9 +57,9 @@ function callback_playerconnect()
 	self.hits = 0;
 	self.var_2641e022 = 0;
 	self.var_a7d7e50a = 0;
-	if(!isdefined(self.pers[#"hash_440789595d5d6bba"]))
+	if(!isdefined(self.pers[#"roundjoined"]))
 	{
-		self.pers[#"hash_440789595d5d6bba"] = (isdefined(game.roundsplayed) ? game.roundsplayed : 0);
+		self.pers[#"roundjoined"] = (isdefined(game.roundsplayed) ? game.roundsplayed : 0);
 	}
 	profilelog_begintiming(4, "ship");
 	level notify(#"connected", {#player:self});
@@ -192,7 +192,7 @@ function callback_playerconnect()
 	}
 	if(level.rankedmatch || level.leaguematch && !isdefined(self.pers[#"latejoin"]))
 	{
-		if(game.state == "playing" || self.pers[#"hash_440789595d5d6bba"] > 0)
+		if(game.state == "playing" || self.pers[#"roundjoined"] > 0)
 		{
 			self.pers[#"latejoin"] = 1;
 		}
@@ -227,7 +227,7 @@ function callback_playerconnect()
 	{
 		var_4c542e39 = getassignedteamname(self);
 		/#
-			var_b417b3ee = getdvarstring(#"hash_7f306a26ed0ddea1", "");
+			var_b417b3ee = getdvarstring(#"scr_playerteams", "");
 			playerteams = strtok(var_b417b3ee, "");
 			if(playerteams.size > 0)
 			{
@@ -525,7 +525,7 @@ function private init_character_index()
 				if(var_72964a59 != 0 && (isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising")))
 				{
 					rf = getplayerrolefields(var_72964a59, currentsessionmode());
-					if(isdefined(rf) && rf.unlockableitementry === #"hash_350d7fc2aca48b7f")
+					if(isdefined(rf) && rf.unlockableitementry === #"wz_character_spectre")
 					{
 						var_72964a59 = 0;
 					}
@@ -608,9 +608,9 @@ function private function_efa6e25f()
 {
 	self globallogic_score::initpersstat(#"score");
 	self globallogic_score::initpersstat(#"rolescore");
-	self globallogic_score::initpersstat(#"hash_6061882505788180");
+	self globallogic_score::initpersstat(#"objscore");
 	self globallogic_score::initpersstat(#"damagedone");
-	self globallogic_score::initpersstat(#"hash_8a2764095756a9a");
+	self globallogic_score::initpersstat(#"damagedoneheadshot");
 	self globallogic_score::initpersstat(#"downs");
 	self globallogic_score::initpersstat(#"revives");
 	self globallogic_score::initpersstat(#"cleanups");
@@ -623,14 +623,14 @@ function private function_efa6e25f()
 	{
 		self.pers[#"score"] = 0;
 		self.pers[#"rolescore"] = 0;
-		self.pers[#"hash_6061882505788180"] = 0;
+		self.pers[#"objscore"] = 0;
 		self.pers[#"downs"] = 0;
 		self.pers[#"revives"] = 0;
 		self.pers[#"cleanups"] = 0;
 	}
 	self.score = self.pers[#"score"];
 	self.rolescore = self.pers[#"rolescore"];
-	self.var_f22ee5e = self.pers[#"hash_6061882505788180"];
+	self.objscore = self.pers[#"objscore"];
 	self.damagedone = self.pers[#"damagedone"];
 	self.downs = self.pers[#"downs"];
 	self.revives = self.pers[#"revives"];
@@ -656,8 +656,8 @@ function private function_efa6e25f()
 	self.objectiveekia = self globallogic_score::getpersstat(#"objectiveekia");
 	self globallogic_score::initpersstat(#"objectivescore", 0);
 	self.objectivescore = self globallogic_score::getpersstat(#"objectivescore");
-	self globallogic_score::initpersstat(#"hash_2dadc7ba42ffd04d", 0);
-	self.var_604b21de = self globallogic_score::getpersstat(#"hash_2dadc7ba42ffd04d");
+	self globallogic_score::initpersstat(#"objectivedefends", 0);
+	self.objectivedefends = self globallogic_score::getpersstat(#"objectivedefends");
 	self globallogic_score::initpersstat(#"objectivetime", 0);
 	self.objectivetime = self globallogic_score::getpersstat(#"objectivetime");
 	self globallogic_score::initpersstat(#"kills");

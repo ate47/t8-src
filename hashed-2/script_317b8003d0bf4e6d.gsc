@@ -832,22 +832,22 @@ function private function_cdd9b388()
 				origin = players[0].origin;
 				if(itemtype == 13)
 				{
-					var_cc58c092 = function_91b29d2a(#"hash_776cf27e25f57c7a");
+					atv_spawn = function_91b29d2a(#"atv_spawn");
 					var_f5196a40 = function_91b29d2a(#"hash_44623cfed77fbb23");
 					var_dfebf4da = function_91b29d2a(#"hash_7e0f31597a8a30af");
 					heli_spawn = function_91b29d2a(#"heli_spawn");
 					var_56c17d74 = function_91b29d2a(#"hash_7f58537ca200b519");
-					var_77bdab14 = function_91b29d2a(#"zodiac_spawn");
+					zodiac_spawn = function_91b29d2a(#"zodiac_spawn");
 					var_e8750c36 = function_91b29d2a(#"hash_187ecf3003e27fce");
 					var_1901b1fa = function_91b29d2a(#"hash_2d6fce71eb390d50");
 					var_453c640c = function_91b29d2a(#"hash_781a27d230f31faf");
 					var_b351e4a0 = function_91b29d2a(#"hash_19db6f9cacbc79c3");
 					var_e4dc1e88 = function_91b29d2a(#"hash_60758a532bcf65bf");
 					var_b3103dc6 = function_91b29d2a(#"hash_48a5672439afc27f");
-					var_5cf9a6ca = function_91b29d2a(#"hash_5efb8d41fc3faa1d");
-					var_60f65e2 = function_91b29d2a(#"hash_1b0d6e065e6eb939");
-					var_ad7c20c4 = function_91b29d2a(#"hash_21fc3a6dd0e569af");
-					foreach(vehicle in var_cc58c092)
+					arav_spawn = function_91b29d2a(#"arav_spawn");
+					suv_spawn = function_91b29d2a(#"suv_spawn");
+					pbr_spawn = function_91b29d2a(#"pbr_spawn");
+					foreach(vehicle in atv_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;
@@ -897,7 +897,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, (1, 0, 1), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_77bdab14)
+					foreach(vehicle in zodiac_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;
@@ -967,7 +967,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, (0, 1, 1), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_60f65e2)
+					foreach(vehicle in suv_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;
@@ -977,7 +977,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, (0, 1, 1), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_5cf9a6ca)
+					foreach(vehicle in arav_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;
@@ -987,7 +987,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, vectorscale((1, 1, 0), 0.5019608), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_ad7c20c4)
+					foreach(vehicle in pbr_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;

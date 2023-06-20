@@ -61,7 +61,7 @@ function init()
 */
 function init_clientfields()
 {
-	clientfield::register("scriptmover", "" + #"hash_e49c6031d46d5fe", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"morse_star", 1, 1, "int");
 }
 
 /*
@@ -75,7 +75,7 @@ function init_clientfields()
 */
 function init_flags()
 {
-	level flag::init(#"hash_7ae1182e79a1d06e");
+	level flag::init(#"phonograph_playing");
 }
 
 /*
@@ -107,7 +107,7 @@ function function_904b119()
 */
 function function_a425bf07()
 {
-	s_doll = struct::get(#"hash_73fb993ed5a0cbfe");
+	s_doll = struct::get(#"creepy_friend");
 	s_trigger_loc = struct::get(s_doll.target);
 	var_39dbb29f = util::spawn_model(#"hash_249386b68e19b345", s_doll.origin, s_doll.angles);
 	s_unitrigger = s_trigger_loc zm_unitrigger::create(undefined, 32);
@@ -118,7 +118,7 @@ function function_a425bf07()
 	{
 		for(i = 0; i < var_2c8f1222.size; i++)
 		{
-			b_played = var_39dbb29f zm_vo::function_8e0f4696(var_2c8f1222[i]);
+			b_played = var_39dbb29f zm_vo::vo_say(var_2c8f1222[i]);
 			if(!(isdefined(b_played) && b_played))
 			{
 				i--;
@@ -170,9 +170,9 @@ function function_e7fd1a33()
 			wait(1);
 		}
 		n_rotate = randomintrange(160, 200);
-		var_5a5f5d36 = randomintrange(var_f21d9eb3, n_max_x);
+		n_x_move = randomintrange(var_f21d9eb3, n_max_x);
 		self rotateto((self.angles[0], n_rotate, self.angles[2]), 0.25);
-		self moveto((var_5a5f5d36, self.origin[1], self.origin[2]), 0.25);
+		self moveto((n_x_move, self.origin[1], self.origin[2]), 0.25);
 	}
 }
 
@@ -192,8 +192,8 @@ function function_7b89f32a()
 	{
 		return;
 	}
-	var_ff4b3a13 val::set(#"hash_53b16633b6e88995", "takedamage", 1);
-	var_ff4b3a13 val::set(#"hash_53b16633b6e88995", "allowdeath", 0);
+	var_ff4b3a13 val::set(#"painting_cipher", "takedamage", 1);
+	var_ff4b3a13 val::set(#"painting_cipher", "allowdeath", 0);
 	w_weapon = getweapon(#"bowie_knife");
 	n_attacks = 0;
 	while(n_attacks < 9)
@@ -244,8 +244,8 @@ function function_8a44027()
 function function_c3a5f1fe(a_ents)
 {
 	var_e96b5d4f = a_ents[getfirstarraykey(a_ents)];
-	var_e96b5d4f val::set(#"hash_6917ff944158c40d", "takedamage", 1);
-	var_e96b5d4f val::set(#"hash_6917ff944158c40d", "allowdeath", 0);
+	var_e96b5d4f val::set(#"raven_cipher", "takedamage", 1);
+	var_e96b5d4f val::set(#"raven_cipher", "allowdeath", 0);
 	w_weapon = getweapon(#"ww_tricannon_earth_t8");
 	var_eb115bf1 = getweapon(#"ww_tricannon_earth_t8_upgraded");
 	while(true)
@@ -277,7 +277,7 @@ function function_c3a5f1fe(a_ents)
 */
 function function_59ecbee4()
 {
-	level waittill(#"hash_29cfd2a7a3f9f175");
+	level waittill(#"water_initialized");
 	level thread function_240b713f();
 	var_5c608f55 = getent("yoshi_doshi", "targetname");
 	while(true)
@@ -345,7 +345,7 @@ function function_240b713f()
 */
 function function_d3a41243()
 {
-	t_damage = spawn("trigger_damage", struct::get(#"hash_7dc6a17096359ecd").origin, 0, 6, 6);
+	t_damage = spawn("trigger_damage", struct::get(#"macaroni_boom").origin, 0, 6, 6);
 	w_sticky = getweapon(#"eq_acid_bomb");
 	while(true)
 	{
@@ -353,9 +353,9 @@ function function_d3a41243()
 		s_result = t_damage waittill(#"damage");
 		if(s_result.weapon === w_sticky)
 		{
-			mdl_fx = util::spawn_model("tag_origin", struct::get(#"hash_351dccee011931a").origin);
+			mdl_fx = util::spawn_model("tag_origin", struct::get(#"macaroni_puddle").origin);
 			mdl_fx linkto(level.var_56665536);
-			mdl_fx clientfield::set("" + #"hash_e49c6031d46d5fe", 1);
+			mdl_fx clientfield::set("" + #"morse_star", 1);
 			break;
 		}
 	}
@@ -476,12 +476,12 @@ function function_63c3fd24(var_314c1b5a)
 				self.var_68c35930 playsound(#"hash_343bf66b64f5830e");
 				e_player.var_68c35930 = undefined;
 			}
-			if(!isdefined(self.var_68c35930) || level flag::get(#"hash_7ae1182e79a1d06e"))
+			if(!isdefined(self.var_68c35930) || level flag::get(#"phonograph_playing"))
 			{
 				continue;
 			}
 			self.var_68c35930 thread function_64834acd();
-			level flag::set(#"hash_7ae1182e79a1d06e");
+			level flag::set(#"phonograph_playing");
 			self.var_68c35930 notify(#"hash_2b02b5a5a9af36e0");
 			self.var_68c35930 notify(#"hash_44144f80f295a13f");
 			self.var_68c35930 playsound(#"hash_7c91fa775c8a0134");
@@ -509,7 +509,7 @@ function function_63c3fd24(var_314c1b5a)
 			}
 			wait(1);
 			self.var_68c35930 zm_vo::function_cf1e151c(var_314c1b5a[self.var_68c35930.script_int]);
-			level flag::clear(#"hash_7ae1182e79a1d06e");
+			level flag::clear(#"phonograph_playing");
 			self.var_68c35930 notify(#"hash_53eb32eaa511640c");
 			self.var_68c35930 stoploopsound();
 			self.var_68c35930 playsound(#"hash_376eaa517cd09530");
@@ -599,7 +599,7 @@ function function_ad05f6f3()
 */
 function function_558936ed()
 {
-	s_flag = struct::get(#"hash_1ff61dc18e3fe8c");
+	s_flag = struct::get(#"spin_cycle");
 	var_87e0cf0b = spawn("trigger_damage", s_flag.origin - vectorscale((0, 0, 1), 10), 0, 12, 10);
 	var_c75fe44b = util::spawn_model(#"hash_2ce772d39f43cc44" + "a", s_flag.origin, s_flag.angles);
 	var_c75fe44b setscale(0.18);
@@ -1029,9 +1029,9 @@ function function_678d6318()
 		player = s_result.e_who;
 		if(isalive(player) && isplayer(player))
 		{
-			if(isdefined(player.var_4618dc52) && isdefined(s_unitrigger.trigger))
+			if(isdefined(player.e_storm) && isdefined(s_unitrigger.trigger))
 			{
-				if(player.var_4618dc52 istouching(s_unitrigger.trigger))
+				if(player.e_storm istouching(s_unitrigger.trigger))
 				{
 					break;
 				}

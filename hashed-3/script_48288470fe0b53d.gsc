@@ -153,7 +153,7 @@ class czm_red_challenges_hud : cLUIelem
 			}
 			else
 			{
-				if(#"hash_5b34afcc0d053940" == state_name)
+				if(#"visiblepc" == state_name)
 				{
 					player clientfield::function_9bf78ef8(var_47e79fc, "_state", 2);
 				}

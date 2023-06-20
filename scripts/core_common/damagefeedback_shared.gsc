@@ -555,7 +555,7 @@ function update(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shit
 		return;
 	}
 	var_32f65675 = 0;
-	if(isdefined(victim) && damagestage == 5 && isdefined(level.var_b1ad0b64) && (!(isdefined(level.var_97a55bea) && level.var_97a55bea)) && (!(isdefined(victim.laststand) && victim.laststand)) && isplayer(victim))
+	if(isdefined(victim) && damagestage == 5 && isdefined(level.var_b1ad0b64) && (!(isdefined(level.skiplaststand) && level.skiplaststand)) && (!(isdefined(victim.laststand) && victim.laststand)) && isplayer(victim))
 	{
 		var_32f65675 = 1;
 	}

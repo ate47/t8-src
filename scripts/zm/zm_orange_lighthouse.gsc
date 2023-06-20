@@ -2,7 +2,7 @@
 #using scripts\zm\zm_orange_pap.gsc;
 #using script_5660bae5b402a1eb;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -378,7 +378,7 @@ function function_320f5fb3()
 			if(zm_custom::function_901b751c(#"zmpowerstate") != 2)
 			{
 				wait(3);
-				level.var_1c53964e namespace_509a75d1::function_6a0d675d("vox_power_switch_2_activate");
+				level.var_1c53964e zm_hms_util::function_6a0d675d("vox_power_switch_2_activate");
 				level thread zm_orange_util::function_fd24e47f("vox_power_switch_2_activate");
 			}
 			level thread zm_orange_util::function_3d6809e9();
@@ -391,7 +391,7 @@ function function_320f5fb3()
 			if(zm_custom::function_901b751c(#"zmpowerstate") != 2)
 			{
 				wait(3);
-				level.var_1c53964e thread namespace_509a75d1::function_6a0d675d("vox_power_switch_3_activate");
+				level.var_1c53964e thread zm_hms_util::function_6a0d675d("vox_power_switch_3_activate");
 			}
 			break;
 		}
@@ -817,7 +817,7 @@ function function_576ecbe6(v_pos)
 function function_27304b98(var_a5a067c5, var_a75e9b3b)
 {
 	var_82224aaf = (isdefined(var_a5a067c5.var_82224aaf) ? var_a5a067c5.var_82224aaf : 500);
-	var_548dce62 = var_a5a067c5.origin + (var_82224aaf * namespace_509a75d1::function_b649cf93());
+	var_548dce62 = var_a5a067c5.origin + (var_82224aaf * zm_hms_util::function_b649cf93());
 	self function_1b488412(var_548dce62, var_a75e9b3b);
 }
 
@@ -956,7 +956,7 @@ function function_93284efd()
 function trap_switch_init()
 {
 	self.var_223285b1 = getvehiclenode(self.var_40d27c6d, "targetname");
-	a_pieces = namespace_509a75d1::function_bffcedde(self.target, "targetname", "script_noteworthy");
+	a_pieces = zm_hms_util::function_bffcedde(self.target, "targetname", "script_noteworthy");
 	self.var_c275b624 = a_pieces[#"switch"];
 	self.var_307df34b = a_pieces[#"light"];
 	self.s_panel = struct::get(self.target);
@@ -977,13 +977,13 @@ function function_85d3d607(e_player)
 {
 	if(level.var_98138d6b < 1)
 	{
-		self namespace_509a75d1::function_b2e1326(1);
+		self zm_hms_util::function_b2e1326(1);
 	}
 	else
 	{
 		if(isdefined(level.var_4f7df1ac) && level.var_4f7df1ac)
 		{
-			self namespace_509a75d1::function_b2e1326(0);
+			self zm_hms_util::function_b2e1326(0);
 		}
 		else
 		{
@@ -991,23 +991,23 @@ function function_85d3d607(e_player)
 			{
 				case 0:
 				{
-					self namespace_509a75d1::function_b2e1326(0);
+					self zm_hms_util::function_b2e1326(0);
 					break;
 				}
 				case 1:
 				{
-					self namespace_509a75d1::function_b2e1326(4);
+					self zm_hms_util::function_b2e1326(4);
 					break;
 				}
 				case 2:
 				{
 					if(level flag::get(#"half_price_traps"))
 					{
-						self namespace_509a75d1::function_b2e1326(2, int(500));
+						self zm_hms_util::function_b2e1326(2, int(500));
 					}
 					else
 					{
-						self namespace_509a75d1::function_b2e1326(2, 1000);
+						self zm_hms_util::function_b2e1326(2, 1000);
 					}
 					break;
 				}
@@ -1017,7 +1017,7 @@ function function_85d3d607(e_player)
 				case 6:
 				case 7:
 				{
-					self namespace_509a75d1::function_b2e1326(3);
+					self zm_hms_util::function_b2e1326(3);
 					break;
 				}
 			}
@@ -1315,7 +1315,7 @@ function private function_f5a342bc()
 function private devgui()
 {
 	/#
-		level.var_10f86d56 = namespace_509a75d1::function_2719d4c0("", "", "");
+		level.var_10f86d56 = zm_hms_util::function_2719d4c0("", "", "");
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");

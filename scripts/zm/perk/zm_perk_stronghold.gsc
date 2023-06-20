@@ -40,7 +40,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	enable_stronghold_perk_for_level();
-	zm_armor::register(#"hash_56a6e63a38d904e3", 0);
+	zm_armor::register(#"stronghold_armor", 0);
 }
 
 /*
@@ -69,17 +69,17 @@ function enable_stronghold_perk_for_level()
 {
 	if(function_8b1a219a())
 	{
-		zm_perks::register_perk_basic_info(#"hash_34c7d1e8a059f87e", #"perk_stronghold", 2500, #"hash_cd87686e9c80e75", getweapon("zombie_perk_bottle_stronghold"), getweapon("zombie_perk_totem_stronghold"), #"hash_5690c4dcc61973ec");
+		zm_perks::register_perk_basic_info(#"specialty_camper", #"perk_stronghold", 2500, #"hash_cd87686e9c80e75", getweapon("zombie_perk_bottle_stronghold"), getweapon("zombie_perk_totem_stronghold"), #"hash_5690c4dcc61973ec");
 	}
 	else
 	{
-		zm_perks::register_perk_basic_info(#"hash_34c7d1e8a059f87e", #"perk_stronghold", 2500, #"zombie/perk_stronghold", getweapon("zombie_perk_bottle_stronghold"), getweapon("zombie_perk_totem_stronghold"), #"hash_5690c4dcc61973ec");
+		zm_perks::register_perk_basic_info(#"specialty_camper", #"perk_stronghold", 2500, #"zombie/perk_stronghold", getweapon("zombie_perk_bottle_stronghold"), getweapon("zombie_perk_totem_stronghold"), #"hash_5690c4dcc61973ec");
 	}
-	zm_perks::register_perk_precache_func(#"hash_34c7d1e8a059f87e", &function_e03779ee);
-	zm_perks::register_perk_clientfields(#"hash_34c7d1e8a059f87e", &function_356a31cb, &function_721cc6dc);
-	zm_perks::register_perk_machine(#"hash_34c7d1e8a059f87e", &function_f15d3355, &function_eaf3e7f1);
-	zm_perks::register_perk_threads(#"hash_34c7d1e8a059f87e", &function_1dd08a86, &function_9a3871b7);
-	zm_perks::register_actor_damage_override(#"hash_34c7d1e8a059f87e", &function_11154900);
+	zm_perks::register_perk_precache_func(#"specialty_camper", &function_e03779ee);
+	zm_perks::register_perk_clientfields(#"specialty_camper", &function_356a31cb, &function_721cc6dc);
+	zm_perks::register_perk_machine(#"specialty_camper", &function_f15d3355, &function_eaf3e7f1);
+	zm_perks::register_perk_threads(#"specialty_camper", &function_1dd08a86, &function_9a3871b7);
+	zm_perks::register_actor_damage_override(#"specialty_camper", &function_11154900);
 }
 
 /*
@@ -112,10 +112,10 @@ function function_e03779ee()
 		return;
 	}
 	level._effect[#"divetonuke_light"] = #"hash_2225287695ddf9c9";
-	level.machine_assets[#"hash_34c7d1e8a059f87e"] = spawnstruct();
-	level.machine_assets[#"hash_34c7d1e8a059f87e"].weapon = getweapon("zombie_perk_bottle_stronghold");
-	level.machine_assets[#"hash_34c7d1e8a059f87e"].off_model = "p7_zm_vending_nuke";
-	level.machine_assets[#"hash_34c7d1e8a059f87e"].on_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_camper"] = spawnstruct();
+	level.machine_assets[#"specialty_camper"].weapon = getweapon("zombie_perk_bottle_stronghold");
+	level.machine_assets[#"specialty_camper"].off_model = "p7_zm_vending_nuke";
+	level.machine_assets[#"specialty_camper"].on_model = "p7_zm_vending_nuke";
 }
 
 /*
@@ -193,7 +193,7 @@ function function_1dd08a86()
 */
 function function_9a3871b7(b_pause, str_perk, str_result, n_slot)
 {
-	self notify(#"hash_34c7d1e8a059f87e" + "_take");
+	self notify(#"specialty_camper" + "_take");
 	self function_7b5fc171();
 }
 
@@ -208,7 +208,7 @@ function function_9a3871b7(b_pause, str_perk, str_result, n_slot)
 */
 function function_7424eebb()
 {
-	self endon(#"hash_34c7d1e8a059f87e" + "_take", #"disconnect");
+	self endon(#"specialty_camper" + "_take", #"disconnect");
 	while(true)
 	{
 		if(!self laststand::player_is_in_laststand() && !self util::is_spectating() && !level flag::get("round_reset"))
@@ -253,7 +253,7 @@ function function_7424eebb()
 function function_7b5fc171()
 {
 	self clientfield::set_to_player("" + #"hash_24e322568c9492c5", 0);
-	self zm_armor::remove(#"hash_56a6e63a38d904e3", 1);
+	self zm_armor::remove(#"stronghold_armor", 1);
 	self.var_3748ec02 = undefined;
 	self.var_807f94d7 = undefined;
 	self.var_7ffce6e0 = undefined;
@@ -296,7 +296,7 @@ function function_a84fcb78(var_3a553e99)
 */
 function function_7e0559c1()
 {
-	self zm_armor::add(#"hash_56a6e63a38d904e3", 5, 50, #"");
+	self zm_armor::add(#"stronghold_armor", 5, 50, #"");
 }
 
 /*

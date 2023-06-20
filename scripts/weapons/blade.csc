@@ -161,11 +161,11 @@ function melee_event(eventstruct)
 */
 function private function_e79ccfd8(localclientnum)
 {
-	function_e9f518c7(localclientnum);
+	stop_postfx(localclientnum);
 }
 
 /*
-	Name: function_e9f518c7
+	Name: stop_postfx
 	Namespace: blade
 	Checksum: 0xC3F9FCD9
 	Offset: 0x590
@@ -173,7 +173,7 @@ function private function_e79ccfd8(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e9f518c7(localclientnum)
+function stop_postfx(localclientnum)
 {
 	if(function_148ccc79(localclientnum, #"hash_4bc228d5f3bcffe5"))
 	{
@@ -233,7 +233,7 @@ function watch_timeout(localclientnum)
 	self.var_2ba49f48.blendout = 1;
 	util::lerp_generic(localclientnum, 375, &function_2789edf8);
 	self.var_2ba49f48 = undefined;
-	function_e9f518c7(localclientnum);
+	stop_postfx(localclientnum);
 }
 
 /*

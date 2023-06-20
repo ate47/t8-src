@@ -144,7 +144,7 @@ function function_4e325cd6(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function private function_d05553c6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_28d2c6df1a547302");
 	}

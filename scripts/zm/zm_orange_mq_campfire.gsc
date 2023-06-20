@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -164,9 +164,9 @@ function function_1ad84248()
 		if(level.var_80c25d0a < 7)
 		{
 			/#
-				if(getdvarint(#"hash_11ad6a9695943217", 0))
+				if(getdvarint(#"zm_debug_ee", 0))
 				{
-					if(getdvarint(#"hash_11ad6a9695943217", 0))
+					if(getdvarint(#"zm_debug_ee", 0))
 					{
 						iprintlnbold("" + function_9e72a96(story));
 						println("" + function_9e72a96(story));
@@ -212,9 +212,9 @@ function function_561d9cff()
 		self.vessel setmodel("p8_zm_ora_elemental_vessel");
 	}
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold("");
 				println("");
@@ -235,7 +235,7 @@ function function_561d9cff()
 	level flag::set(#"hash_e8247a060147428");
 	exploder::stop_exploder("fxexp_narr_campfire");
 	exploder::exploder("fxexp_narr_campfire_blue");
-	namespace_509a75d1::function_314447b(1, 1);
+	zm_hms_util::function_314447b(1, 1);
 	level flag::set(#"hold_round_end");
 	level.sndvoxoverride = 1;
 	wait(5);
@@ -259,9 +259,9 @@ function function_561d9cff()
 		}
 	}
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold("" + function_9e72a96(story));
 				println("" + function_9e72a96(story));
@@ -273,7 +273,7 @@ function function_561d9cff()
 	wait(n_wait);
 	level.sndvoxoverride = undefined;
 	level flag::clear(#"hold_round_end");
-	namespace_509a75d1::function_314447b(0);
+	zm_hms_util::function_314447b(0);
 	exploder::stop_exploder("fxexp_narr_campfire_blue");
 	exploder::exploder("fxexp_narr_campfire");
 	level flag::clear(#"hash_e8247a060147428");

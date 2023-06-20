@@ -419,7 +419,7 @@ function get_loot_weapons()
 	/#
 		assert(isplayer(self));
 	#/
-	if(!(isdefined(getgametypesetting(#"hash_7c8ad12994670d63")) ? getgametypesetting(#"hash_7c8ad12994670d63") : 0))
+	if(!(isdefined(getgametypesetting(#"wzlootlockers")) ? getgametypesetting(#"wzlootlockers") : 0))
 	{
 		return array();
 	}

@@ -234,7 +234,7 @@ function tesla_death(player)
 		if(weapon.statname == #"bowie_knife")
 		{
 			player stats::function_e24eec31(weapon, #"hash_657e22dcdd18da77", 1);
-			player stats::inc_stat(#"hash_162f9b6a10fa7d66", weapon.name, #"hash_657e22dcdd18da77", #"statvalue", 1);
+			player stats::inc_stat(#"item_stats", weapon.name, #"hash_657e22dcdd18da77", #"statvalue", 1);
 		}
 	}
 	self dodamage(self.health + 1, self.origin, player, undefined, undefined, "MOD_ELECTROCUTED", 0, level.var_78032351);

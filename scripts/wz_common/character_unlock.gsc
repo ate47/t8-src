@@ -125,7 +125,7 @@ function function_d7e6fa92(unlock_name)
 	var_2b469a7d = var_9ba1646c.var_2b469a7d;
 	if(function_d89ef6af(unlock_name))
 	{
-		if(isdefined(stats::get_stat(#"hash_3ee8b4a6073f7825", var_2b469a7d)) && stats::get_stat(#"hash_3ee8b4a6073f7825", var_2b469a7d))
+		if(isdefined(stats::get_stat(#"unlockedtags", var_2b469a7d)) && stats::get_stat(#"unlockedtags", var_2b469a7d))
 		{
 			return true;
 		}
@@ -446,7 +446,7 @@ function function_fb689837()
 		{
 			if(function_d89ef6af(unlock_name))
 			{
-				self stats::set_stat(#"hash_3ee8b4a6073f7825", var_2b469a7d, 1);
+				self stats::set_stat(#"unlockedtags", var_2b469a7d, 1);
 			}
 			else
 			{

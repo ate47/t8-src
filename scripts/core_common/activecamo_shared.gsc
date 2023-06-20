@@ -451,28 +451,28 @@ function function_d005b26d(activecamo, var_3a8a1e00, isdeath)
 				}
 				if(isdefined(stage.info.var_d2eac588))
 				{
-					var_b4b21bd = self stats::get_stat_global(stage.info.var_d2eac588);
-					if(isdefined(var_b4b21bd) && var_b4b21bd < stage.info.var_e2dbd42d)
+					camo_stat = self stats::get_stat_global(stage.info.var_d2eac588);
+					if(isdefined(camo_stat) && camo_stat < stage.info.var_e2dbd42d)
 					{
 						var_7dfd59c3 = (isdefined(stats::function_af5584ca(stage.info.var_d2eac588)) ? stats::function_af5584ca(stage.info.var_d2eac588) : 0);
 						if(var_7dfd59c3 > 0)
 						{
-							var_b4b21bd = stage.info.var_e2dbd42d;
-							self stats::set_stat_global(stage.info.var_d2eac588, var_b4b21bd);
-							self stats::function_efbbc38f(stage.info.var_d2eac588, var_b4b21bd);
+							camo_stat = stage.info.var_e2dbd42d;
+							self stats::set_stat_global(stage.info.var_d2eac588, camo_stat);
+							self stats::set_stat_challenge(stage.info.var_d2eac588, camo_stat);
 						}
 					}
-					if(isdefined(var_b4b21bd))
+					if(isdefined(camo_stat))
 					{
-						stage.var_dd54a13b[activecamo.baseweapon].statvalue = var_b4b21bd;
+						stage.var_dd54a13b[activecamo.baseweapon].statvalue = camo_stat;
 					}
 				}
 				else if(isdefined(stage.info.permanent) && stage.info.permanent && isdefined(stage.info.statname))
 				{
-					var_b4b21bd = self stats::get_stat_global(stage.info.statname);
-					if(isdefined(var_b4b21bd))
+					camo_stat = self stats::get_stat_global(stage.info.statname);
+					if(isdefined(camo_stat))
 					{
-						stage.var_dd54a13b[activecamo.baseweapon].statvalue = var_b4b21bd;
+						stage.var_dd54a13b[activecamo.baseweapon].statvalue = camo_stat;
 					}
 				}
 				if(!reset && (isdefined(stage.var_dd54a13b[activecamo.baseweapon].cleared) && stage.var_dd54a13b[activecamo.baseweapon].cleared))
@@ -1322,7 +1322,7 @@ function function_a80cb651(activecamo, stagenum)
 function function_8530ef96(message, weapon)
 {
 	/#
-		if(getdvarint(#"hash_518dde27e19a971b", 0) > 0)
+		if(getdvarint(#"activecamo_debug", 0) > 0)
 		{
 			weaponname = "";
 			if(isdefined(weapon))
@@ -1347,7 +1347,7 @@ function function_8530ef96(message, weapon)
 function debug_print(message, weapon)
 {
 	/#
-		if(getdvarint(#"hash_518dde27e19a971b", 0) > 0)
+		if(getdvarint(#"activecamo_debug", 0) > 0)
 		{
 			weaponname = "";
 			if(isdefined(weapon))
@@ -1645,7 +1645,7 @@ function devgui_think()
 				}
 				case "debugprints":
 				{
-					setdvar(#"hash_518dde27e19a971b", !getdvarint(#"hash_518dde27e19a971b", 0));
+					setdvar(#"activecamo_debug", !getdvarint(#"activecamo_debug", 0));
 					break;
 				}
 				case "reset":
@@ -1658,12 +1658,12 @@ function devgui_think()
 					function_cc5baf7f(&function_382462ff);
 					break;
 				}
-				case "hash_6985742982f8702b":
+				case "stage_next":
 				{
 					function_cc5baf7f(&function_3ac4d286, 0);
 					break;
 				}
-				case "hash_e0ffa943d37b40b":
+				case "stage_prev":
 				{
 					function_cc5baf7f(&function_3ac4d286, 1);
 					break;
@@ -1782,23 +1782,23 @@ function function_779a9561(stagenum)
 				{
 					foreach(key, stage in activecamo.stages)
 					{
-						var_33bbde4f = 0;
+						statcount = 0;
 						if(key < stagenum)
 						{
-							var_33bbde4f = stage.info.var_e2dbd42d;
+							statcount = stage.info.var_e2dbd42d;
 						}
 						if(isdefined(stage.info.var_d2eac588))
 						{
-							self stats::set_stat_global(stage.info.var_d2eac588, var_33bbde4f);
+							self stats::set_stat_global(stage.info.var_d2eac588, statcount);
 						}
 						else if(isdefined(stage.info.statname))
 						{
 							if(isdefined(stage.info.permanent) && stage.info.permanent)
 							{
-								self stats::set_stat_global(stage.info.statname, var_33bbde4f);
+								self stats::set_stat_global(stage.info.statname, statcount);
 							}
 						}
-						stage.var_dd54a13b[activecamo.baseweapon].statvalue = var_33bbde4f;
+						stage.var_dd54a13b[activecamo.baseweapon].statvalue = statcount;
 						stage.var_dd54a13b[activecamo.baseweapon].cleared = undefined;
 					}
 				}
@@ -1807,28 +1807,28 @@ function function_779a9561(stagenum)
 					activecamo.var_dd54a13b[activecamo.baseweapon].var_8fc208a8 = undefined;
 					foreach(key, stage in activecamo.stages)
 					{
-						var_33bbde4f = 0;
+						statcount = 0;
 						if(key < stagenum)
 						{
-							var_33bbde4f = stage.info.var_e2dbd42d;
+							statcount = stage.info.var_e2dbd42d;
 						}
 						if(isdefined(stage.info.var_d2eac588))
 						{
-							self stats::set_stat_global(stage.info.var_d2eac588, var_33bbde4f);
+							self stats::set_stat_global(stage.info.var_d2eac588, statcount);
 						}
 						else if(isdefined(stage.info.statname))
 						{
-							var_33bbde4f = 0;
+							statcount = 0;
 							if(key == stagenum)
 							{
-								var_33bbde4f = stage.info.var_e2dbd42d;
+								statcount = stage.info.var_e2dbd42d;
 							}
 							if(isdefined(stage.info.permanent) && stage.info.permanent)
 							{
-								self stats::set_stat_global(stage.info.statname, var_33bbde4f);
+								self stats::set_stat_global(stage.info.statname, statcount);
 							}
 						}
-						stage.var_dd54a13b[activecamo.baseweapon].statvalue = var_33bbde4f;
+						stage.var_dd54a13b[activecamo.baseweapon].statvalue = statcount;
 						stage.var_dd54a13b[activecamo.baseweapon].cleared = undefined;
 					}
 				}
@@ -1905,13 +1905,13 @@ function function_633fbf17(weapon, back)
 						var_ee939e0c = (isdefined(activecamo.var_dd54a13b[activecamo.var_dd54a13b[activecamo.baseweapon].baseweapon].stagenum) ? activecamo.var_dd54a13b[activecamo.baseweapon].stagenum : -1);
 						if(back)
 						{
-							var_632b0128 = ((var_ee939e0c - 1) + activecamo.stages.size) % activecamo.stages.size;
+							nextstage = ((var_ee939e0c - 1) + activecamo.stages.size) % activecamo.stages.size;
 						}
 						else
 						{
-							var_632b0128 = (var_ee939e0c + 1) % activecamo.stages.size;
+							nextstage = (var_ee939e0c + 1) % activecamo.stages.size;
 						}
-						self function_779a9561(var_632b0128);
+						self function_779a9561(nextstage);
 					}
 				}
 			}

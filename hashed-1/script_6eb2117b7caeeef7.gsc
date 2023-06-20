@@ -129,7 +129,7 @@ function function_6c288c45(spawnorigin, spawnangles)
 	turretvehicle.var_aac73d6c = 1;
 	turretvehicle.var_7eb3ebd5 = [];
 	turretvehicle.var_4ab08c1d = 1;
-	turretvehicle.var_ed35eeb2 = 1;
+	turretvehicle.ignorelaststandplayers = 1;
 	turretvehicle vehicle::disconnect_paths(0, 0);
 	turretvehicle function_bc7568f1();
 	turretvehicle thread function_d4f9ecb(turretvehicle.killstreak_duration);
@@ -270,7 +270,7 @@ function onturretdeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vd
 	{
 		return;
 	}
-	turretvehicle notify(#"hash_6f331ac7d2a40217");
+	turretvehicle notify(#"death_started");
 	turretvehicle.dead = 1;
 	eattacker = turretvehicle [[level.figure_out_attacker]](eattacker);
 	if(isdefined(eattacker) && isplayer(eattacker))
@@ -394,7 +394,7 @@ function function_fefefcc4()
 {
 	turretvehicle = self;
 	turret_index = 0;
-	turretvehicle endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	turretvehicle endon(#"death", #"death_started", #"end_turret_scanning");
 	wait(0.8);
 	bundle = get_killstreak_bundle();
 	var_beeadda8 = (isdefined(bundle.var_5fa88c50) ? bundle.var_5fa88c50 : 300);
@@ -435,12 +435,12 @@ function function_fefefcc4()
 					}
 				}
 			}
-			else if(turretvehicle.var_3413afc5 != #"hash_3cf9b05c0d2cb80e")
+			else if(turretvehicle.var_3413afc5 != #"standard_sight")
 			{
 				turretvehicle function_bc7568f1();
 			}
 		}
-		wait_time = (turretvehicle.var_3413afc5 == #"hash_3cf9b05c0d2cb80e" ? 0.25 : 0.1);
+		wait_time = (turretvehicle.var_3413afc5 == #"standard_sight" ? 0.25 : 0.1);
 		wait(wait_time);
 	}
 }
@@ -546,7 +546,7 @@ function get_target_offset(target)
 function turretscanning()
 {
 	turretvehicle = self;
-	turretvehicle endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	turretvehicle endon(#"death", #"death_started", #"end_turret_scanning");
 	turretvehicle.turret_target = undefined;
 	turretvehicle.do_not_clear_targets_during_think = 1;
 	wait(0.8);
@@ -590,7 +590,7 @@ function turretscanning()
 				continue;
 			}
 			var_2aa33bf1 = 0;
-			if(distancesquared(turretvehicle.enemy.origin, turretvehicle.origin) > turretvehicle.var_38e6355c && turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()] === #"hash_704614cf51e8952f")
+			if(distancesquared(turretvehicle.enemy.origin, turretvehicle.origin) > turretvehicle.var_38e6355c && turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()] === #"forwardscan")
 			{
 				var_2aa33bf1 = 1;
 			}
@@ -608,7 +608,7 @@ function turretscanning()
 			if(!isdefined(turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()]) && turretvehicle namespace_14c38db0::function_1c169b3a(turretvehicle.enemy))
 			{
 				turretvehicle.var_c8072bcc = gettime();
-				turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()] = #"hash_704614cf51e8952f";
+				turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()] = #"forwardscan";
 			}
 		}
 		if(turretvehicle has_active_enemy(bundle) && isdefined(turretvehicle.enemy) && isalive(turretvehicle.enemy))

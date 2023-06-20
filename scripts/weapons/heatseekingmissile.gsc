@@ -1107,9 +1107,9 @@ function lockingon(target, lock)
 			target notify(#"locking on");
 			target.locking_on = target.locking_on | (1 << clientnum);
 			self thread watchclearlockingon(target, clientnum);
-			if(isdefined(level.var_cef454e8))
+			if(isdefined(level.playkillstreakthreat))
 			{
-				self thread [[level.var_cef454e8]](target);
+				self thread [[level.playkillstreakthreat]](target);
 			}
 		}
 	}
@@ -1755,7 +1755,7 @@ function missiletarget_proximitydetonate(missile, attacker, weapon, endon1, endo
 			missile missile_settarget(newtarget, (isdefined(target_getoffset(newtarget)) ? target_getoffset(newtarget) : (0, 0, 0)));
 			missiletarget = newtarget;
 			scoreevents::processscoreevent(#"flare_assist", attacker, undefined, weapon);
-			self notify(#"hash_63404ad70a51f8ca");
+			self notify(#"flare_deployed");
 			return;
 		}
 		if(curdist < mindist)

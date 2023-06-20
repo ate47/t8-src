@@ -2,7 +2,7 @@
 #using scripts\zm\powerup\zm_powerup_nuke.gsc;
 #using script_2c5daa95f8fec03c;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -46,8 +46,8 @@ function __init__()
 	level.var_735451fc = getentarray("zombie_gladiator_marauder_spawner", "script_noteworthy");
 	level.var_4d136b9a = arraycombine(level.var_fc0d2372, level.var_735451fc, 0, 0);
 	level.var_7e0bfb6 = 0;
-	namespace_c3287616::register_archetype(#"gladiator_destroyer", &function_c251d29f, &function_bb067153, &function_2efc00db, 225);
-	namespace_c3287616::register_archetype(#"gladiator_marauder", &function_c251d29f, &function_60e6998a, &function_c9cd31, 75);
+	zm_round_spawning::register_archetype(#"gladiator_destroyer", &function_c251d29f, &function_bb067153, &function_2efc00db, 225);
+	zm_round_spawning::register_archetype(#"gladiator_marauder", &function_c251d29f, &function_60e6998a, &function_c9cd31, 75);
 }
 
 /*
@@ -128,7 +128,7 @@ function vo()
 		{
 			level.var_7e0bfb6 = 1;
 			line = array::random(a_vo);
-			if(zm_vo::function_8e0f4696(line))
+			if(zm_vo::vo_say(line))
 			{
 				arrayremovevalue(a_vo, line);
 				if(!a_vo.size)

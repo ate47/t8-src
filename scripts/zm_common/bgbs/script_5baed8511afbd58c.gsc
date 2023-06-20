@@ -82,7 +82,7 @@ function disable()
 */
 function validation()
 {
-	if(!zm_custom::function_901b751c(#"hash_51a2cf319e12d9ae"))
+	if(!zm_custom::function_901b751c(#"zmwallbuysenabled"))
 	{
 		return false;
 	}

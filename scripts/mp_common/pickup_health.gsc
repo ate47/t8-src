@@ -165,11 +165,11 @@ function private onhealthregen(slot, weapon)
 function private offhealthregen(slot, weapon)
 {
 	self gadgetdeactivate(self.gadget_health_regen_slot, self.gadget_health_regen_weapon);
-	thread function_a01a8a21();
+	thread healingdone();
 }
 
 /*
-	Name: function_a01a8a21
+	Name: healingdone
 	Namespace: pickup_health
 	Checksum: 0x62B0B445
 	Offset: 0x6B0
@@ -177,7 +177,7 @@ function private offhealthregen(slot, weapon)
 	Parameters: 0
 	Flags: Private
 */
-function private function_a01a8a21()
+function private healingdone()
 {
 	wait(0.5);
 	self function_2bcfabea();

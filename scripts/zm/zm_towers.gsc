@@ -99,7 +99,7 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "zombie_head_pickup_glow", 1, 1, "int");
 	clientfield::register("scriptmover", "blue_glow", 1, 1, "int");
 	clientfield::register("allplayers", "force_pap_models", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_32782b46ea19f365", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"chaos_ball", 1, 1, "int");
 	clientfield::register("scriptmover", "sentinel_artifact_fx_mist", 1, 1, "int");
 	clientfield::register("world", "crowd_react", 1, 2, "int");
 	clientfield::register("world", "crowd_react_boss", 1, 1, "int");
@@ -124,7 +124,7 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "trap_switch_red", 1, 1, "int");
 	clientfield::register("scriptmover", "trap_switch_smoke", 1, 1, "int");
 	clientfield::register("toplayer", "acid_trap_postfx", 1, 1, "int");
-	clientfield::register("toplayer", "" + #"hash_7478ffee8332e21e", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"pickup_dung", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_2bbcb9e09bd7bb26", 1, 1, "counter");
 	clientfield::register("scriptmover", "entry_gate_dust", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_16b9e3d69cb7a017", 1, 1, "int");
@@ -135,7 +135,7 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_4d547bf36c6cb2d8", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_38ba3ad0902aa355", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_24d7233bb17e6558", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_3dca6eaa62a8f783", 1, 1, "counter");
+	clientfield::register("scriptmover", "" + #"ww_quest_melting", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"hash_2c6f04d08665dbda", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_2a332df32456c86f", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_48ad84f9cf6a33f0", 1, 1, "counter");
@@ -143,7 +143,7 @@ event main(eventstruct)
 	clientfield::register("zbarrier", "" + #"hash_3a51c9895d4afcf7", 1, 1, "int");
 	clientfield::register("zbarrier", "" + #"hash_1add6939914df65a", 1, 1, "int");
 	clientfield::register("zbarrier", "" + #"hash_5dc6f97e5850e1d1", 1, 1, "int");
-	clientfield::register("toplayer", "" + #"hash_47e0e1e96b037286", 1, 1, "counter");
+	clientfield::register("toplayer", "" + #"ww_quest_earthquake", 1, 1, "counter");
 	clientfield::register("world", "" + #"hash_2383fd01b106ced8", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_3c58464f16d8a1be", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_6ff3eb2dd0078a51", 1, 1, "counter");
@@ -152,7 +152,7 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "" + #"hash_3f79f6da0222ebc2", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_c382c02584ba249", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_273efcc293063e5e", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_4a963ca015392163", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"fertilizer_smell", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_5a3e1454226ef7a4", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_73088ea3053b96f1", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_233e31d0c2b47b1b", 1, 1, "int");
@@ -168,11 +168,11 @@ event main(eventstruct)
 	clientfield::register("scriptmover", "" + #"hash_4e7b1766cc26a866", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_1814d4cc1867739c", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_314d3a2e542805c0", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_522e903485969f46", 1, 1, "counter");
+	clientfield::register("scriptmover", "" + #"maelstrom_discharge", 1, 1, "counter");
 	clientfield::register("actor", "" + #"maelstrom_death", 1, 1, "counter");
-	clientfield::register("toplayer", "" + #"hash_17002d8f9d5c197b", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"maelstrom_storm", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_182c03ff2a21c07c", 1, 1, "counter");
-	clientfield::register("toplayer", "" + #"hash_137bf198b0b91ba9", 1, 1, "int");
+	clientfield::register("toplayer", "" + #"maelstrom_ending", 1, 1, "int");
 	clientfield::register("world", "" + #"hash_1f09a5290d31eb37", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"hash_63e758aa5387132a", 1, 1, "counter");
 	clientfield::register("scriptmover", "" + #"hash_23ba00d2f804acc2", 1, 1, "int");
@@ -1482,7 +1482,7 @@ function function_2bb502f5()
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			adddebugcommand("");
 			adddebugcommand("");
@@ -1522,28 +1522,28 @@ function function_8d6c5e6e(cmd)
 			}
 			case "hash_4c5e426034ea40ef":
 			{
-				level notify(#"hash_53319c10defe971b");
+				level notify(#"quit_crying");
 				level.var_f2dc2287.var_12b6c455 = 4;
 				level thread namespace_2d756999::function_2cb83322(#"hash_1404102ec1359017", #"hash_71fcbb6090ff031e");
 				break;
 			}
 			case "hash_4c5e436034ea42a2":
 			{
-				level notify(#"hash_53319c10defe971b");
+				level notify(#"quit_crying");
 				level.var_f2dc2287.var_12b6c455 = 5;
 				level thread namespace_2d756999::function_2cb83322(#"hash_1736e8c7a79a7db8", #"hash_2251bd5cecd3ebdb");
 				break;
 			}
 			case "hash_4c5e446034ea4455":
 			{
-				level notify(#"hash_53319c10defe971b");
+				level notify(#"quit_crying");
 				level.var_f2dc2287.var_12b6c455 = 6;
 				level thread namespace_2d756999::function_2cb83322(#"hash_642834b4c1587ac9", #"hash_6b02638730f2f88c");
 				break;
 			}
 			case "hash_4c5e3d6034ea3870":
 			{
-				level notify(#"hash_53319c10defe971b");
+				level notify(#"quit_crying");
 				level.var_f2dc2287.var_12b6c455 = 7;
 				level thread namespace_2d756999::function_2cb83322(#"hash_4ccddcb7cba5b2d2", #"hash_2897f70604cc0fb6");
 				break;
@@ -1694,13 +1694,13 @@ function function_8d6c5e6e(cmd)
 				return true;
 				break;
 			}
-			case "hash_31ebe5f3e866cec9":
+			case "force_marauders":
 			{
 				level thread zm_towers_pap_quest::function_883e88be("");
 				return true;
 				break;
 			}
-			case "hash_42709656cacf1035":
+			case "force_tigers":
 			{
 				level thread zm_towers_pap_quest::function_883e88be("");
 				return true;
@@ -1784,7 +1784,7 @@ function function_9dc8cf3()
 			if(namespace_52d8d460::function_65a59ce0(e_player getcurrentweapon()))
 			{
 				e_player.var_c9d375dc.n_charge_level++;
-				e_player clientfield::set("" + #"hash_58757f4a64fedf21", e_player.var_c9d375dc.n_charge_level);
+				e_player clientfield::set("" + #"charge_gem", e_player.var_c9d375dc.n_charge_level);
 				if(e_player.var_c9d375dc.n_charge_level >= 3)
 				{
 					e_player thread namespace_52d8d460::player_flame_on();

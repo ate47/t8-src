@@ -77,7 +77,7 @@ function private function_ea95685(commander)
 			altars[altars.size] = var_bc510a14;
 		}
 	}
-	blackboard::setstructblackboardattribute(commander, #"hash_789c87157aa8ed0c", altars);
+	blackboard::setstructblackboardattribute(commander, #"zm_altars", altars);
 }
 
 /*
@@ -231,20 +231,20 @@ function private function_48fcded4(commander)
 	switchents = getentarray("use_elec_switch", "targetname");
 	if(isarray(switchents))
 	{
-		foreach(var_5ef756b8 in switchents)
+		foreach(switchent in switchents)
 		{
-			if(!isdefined(var_5ef756b8))
+			if(!isdefined(switchent))
 			{
 				continue;
 			}
 			var_b353dc21 = array();
-			var_b353dc21[#"origin"] = var_5ef756b8.origin;
-			var_b353dc21[#"cost"] = var_5ef756b8.zombie_cost;
+			var_b353dc21[#"origin"] = switchent.origin;
+			var_b353dc21[#"cost"] = switchent.zombie_cost;
 			if(!isdefined(var_b353dc21[#"__unsafe__"]))
 			{
 				var_b353dc21[#"__unsafe__"] = array();
 			}
-			var_b353dc21[#"__unsafe__"][#"switch"] = var_5ef756b8;
+			var_b353dc21[#"__unsafe__"][#"switch"] = switchent;
 			switches[switches.size] = var_b353dc21;
 		}
 	}

@@ -6,7 +6,7 @@
 #using script_522aeb6ae906391e;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
-#using script_5b1c3d314b9c88fb;
+#using scripts\wz_common\wz_ai_utils.gsc;
 #using script_6809bf766eba194a;
 #using scripts\wz_common\wz_ai_zombie.gsc;
 #using script_caf007e2a98afa2;
@@ -89,7 +89,7 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 	self player::function_74a5d514(eattacker, idamage, smeansofdeath, weapon, shitloc);
 	if(isdefined(einflictor) && !isdefined(self.attackable) && isdefined(einflictor.var_b79a8ac7) && isarray(einflictor.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, weapon))
 	{
-		if(einflictor namespace_b912c30b::get_attackable_slot(self))
+		if(einflictor wz_ai_utils::get_attackable_slot(self))
 		{
 			self.attackable = einflictor;
 		}
@@ -111,7 +111,7 @@ function function_b9d56970()
 	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_45b50cc48ee7f9d8", &function_69c3e2ac);
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_ae78134);
-	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_b912c30b::function_16e2f075);
+	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_8e13b81e();
 	aiutility::addaioverridedamagecallback(self, &function_cef412a7);
 	self.var_65e57a10 = 1;
@@ -127,10 +127,10 @@ function function_b9d56970()
 	self.var_2c628c0f = 1;
 	self.var_20e07206 = 1;
 	self.var_721a3dbd = 1;
-	function_bfd55b1a();
+	zombiedogintro();
 	if(isdefined(self))
 	{
-		if(!getdvarint(#"hash_4cfef227405e3c46", 0))
+		if(!getdvarint(#"survival_prototype", 0))
 		{
 			self thread wz_ai_zombie::function_e261b81d();
 		}
@@ -260,7 +260,7 @@ function private archetypezombiedogonanimscriptedcallback(entity)
 }
 
 /*
-	Name: function_bfd55b1a
+	Name: zombiedogintro
 	Namespace: wz_ai_zombie_dog
 	Checksum: 0x54A47B71
 	Offset: 0xDC0
@@ -268,7 +268,7 @@ function private archetypezombiedogonanimscriptedcallback(entity)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_bfd55b1a()
+function private zombiedogintro()
 {
 	self endon(#"death");
 	self ghost();
@@ -370,7 +370,7 @@ function bb_getshouldrunstatus()
 			return "";
 		}
 	#/
-	if(isdefined(self.hasseenfavoriteenemy) && self.hasseenfavoriteenemy || (ai::hasaiattribute(self, "sprint") && ai::getaiattribute(self, "sprint")) || (getdvarint(#"hash_4cfef227405e3c46", 0) && isdefined(self.current_state) && self.current_state.name === #"chase"))
+	if(isdefined(self.hasseenfavoriteenemy) && self.hasseenfavoriteenemy || (ai::hasaiattribute(self, "sprint") && ai::getaiattribute(self, "sprint")) || (getdvarint(#"survival_prototype", 0) && isdefined(self.current_state) && self.current_state.name === #"chase"))
 	{
 		return "run";
 	}
@@ -597,10 +597,10 @@ function function_a5103696(behaviortreeentity)
 function private function_1980a07a(behaviortreeentity)
 {
 	behaviortreeentity endon(#"death");
-	behaviortreeentity function_bfd55b1a();
+	behaviortreeentity zombiedogintro();
 	behaviortreeentity pathmode("move allowed");
 	behaviortreeentity.var_8ba6ede3 = undefined;
-	behaviortreeentity notify(#"hash_661885e7a60ccf04");
+	behaviortreeentity notify(#"not_underground");
 }
 
 /*

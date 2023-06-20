@@ -19,7 +19,7 @@ event main(eventstruct)
 	{
 		level waittill(#"load_main_complete");
 	}
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	switch(gametype)
 	{
 		case "zstandard":

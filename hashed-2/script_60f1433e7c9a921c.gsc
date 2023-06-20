@@ -361,13 +361,13 @@ function private function_337c2c5d(commander)
 	}
 	commanderteam = blackboard::getstructblackboardattribute(commander, #"team");
 	zone = [];
-	var_96c47a91 = [];
-	var_96c47a91[#"origin"] = level.zone.origin;
-	if(!isdefined(var_96c47a91[#"__unsafe__"]))
+	cachedzone = [];
+	cachedzone[#"origin"] = level.zone.origin;
+	if(!isdefined(cachedzone[#"__unsafe__"]))
 	{
-		var_96c47a91[#"__unsafe__"] = array();
+		cachedzone[#"__unsafe__"] = array();
 	}
-	var_96c47a91[#"__unsafe__"][#"kothzone"] = level.zone;
+	cachedzone[#"__unsafe__"][#"kothzone"] = level.zone;
 	if(!isdefined(zone))
 	{
 		zone = [];
@@ -376,7 +376,7 @@ function private function_337c2c5d(commander)
 	{
 		zone = array(zone);
 	}
-	zone[zone.size] = var_96c47a91;
+	zone[zone.size] = cachedzone;
 	blackboard::setstructblackboardattribute(commander, "mp_kothZone", zone);
 }
 
@@ -490,7 +490,7 @@ function private function_7e03c94a(commander)
 		return;
 	}
 	commanderteam = blackboard::getstructblackboardattribute(commander, #"team");
-	var_8ddd85d1 = [];
+	defuseobj = [];
 	var_30b29fd3 = [];
 	var_30b29fd3[#"origin"] = level.defuseobject.origin;
 	if(!isdefined(var_30b29fd3[#"__unsafe__"]))
@@ -498,16 +498,16 @@ function private function_7e03c94a(commander)
 		var_30b29fd3[#"__unsafe__"] = array();
 	}
 	var_30b29fd3[#"__unsafe__"][#"sddefuseobj"] = level.defuseobject;
-	if(!isdefined(var_8ddd85d1))
+	if(!isdefined(defuseobj))
 	{
-		var_8ddd85d1 = [];
+		defuseobj = [];
 	}
-	else if(!isarray(var_8ddd85d1))
+	else if(!isarray(defuseobj))
 	{
-		var_8ddd85d1 = array(var_8ddd85d1);
+		defuseobj = array(defuseobj);
 	}
-	var_8ddd85d1[var_8ddd85d1.size] = var_30b29fd3;
-	blackboard::setstructblackboardattribute(commander, "mp_sdDefuseObj", var_8ddd85d1);
+	defuseobj[defuseobj.size] = var_30b29fd3;
+	blackboard::setstructblackboardattribute(commander, "mp_sdDefuseObj", defuseobj);
 }
 
 /*
@@ -1315,12 +1315,12 @@ function private function_7a9a7a24(planner, constants)
 		assert(squadindex >= 0, "");
 	#/
 	bots = planner::getblackboardattribute(planner, "doppelbots", squadindex);
-	var_8ddd85d1 = planner::getblackboardattribute(planner, "mp_sdDefuseObj");
-	if(!isdefined(var_8ddd85d1))
+	defuseobj = planner::getblackboardattribute(planner, "mp_sdDefuseObj");
+	if(!isdefined(defuseobj))
 	{
 		return spawnstruct();
 	}
-	var_a9e623b5 = function_c0e398c4(bots, var_8ddd85d1, "sdDefuseObj");
+	var_a9e623b5 = function_c0e398c4(bots, defuseobj, "sdDefuseObj");
 	planner::setblackboardattribute(planner, "mp_pathable_sdDefuseObj", var_a9e623b5, squadindex);
 	return spawnstruct();
 }

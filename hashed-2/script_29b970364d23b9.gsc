@@ -139,7 +139,7 @@ function function_4e68b0f4()
 	s_info = undefined;
 	s_info = var_baa069fa waittill(#"trigger");
 	e_player = s_info.activator;
-	e_player thread zm_audio::create_and_play_dialog(#"hash_64207dd7a5dc4420", #"react", undefined, 1);
+	e_player thread zm_audio::create_and_play_dialog(#"exam_room", #"react", undefined, 1);
 }
 
 /*
@@ -175,7 +175,7 @@ function function_29543c()
 			if(distancesquared(e_nikolai.origin, e_player.origin) < 589824)
 			{
 				var_9a0250b7 = #"hash_465a6e7feb94a61d";
-				e_nikolai zm_vo::function_8e0f4696(var_9a0250b7, 0, 0, 9999);
+				e_nikolai zm_vo::vo_say(var_9a0250b7, 0, 0, 9999);
 			}
 		}
 	}
@@ -395,7 +395,7 @@ function function_350029c6()
 	s_info = undefined;
 	s_info = self waittill(#"trigger");
 	e_player = s_info.activator;
-	e_player thread zm_audio::create_and_play_dialog(#"hash_b5b3ba3a669576", #"turn_on");
+	e_player thread zm_audio::create_and_play_dialog(#"build_64", #"turn_on");
 }
 
 /*
@@ -502,14 +502,14 @@ function private function_49189399()
 	}
 	if(level.players.size > 1)
 	{
-		e_player thread zm_audio::create_and_play_dialog(#"hash_3eb2a18d21c3a5db", #"react", undefined, 1);
+		e_player thread zm_audio::create_and_play_dialog(#"cell_block", #"react", undefined, 1);
 	}
 	else
 	{
 		e_richtofen = namespace_69ddf44f::function_b1203924();
 		if(isalive(e_richtofen))
 		{
-			e_richtofen thread zm_audio::create_and_play_dialog(#"hash_3eb2a18d21c3a5db", #"react", undefined, 1);
+			e_richtofen thread zm_audio::create_and_play_dialog(#"cell_block", #"react", undefined, 1);
 		}
 	}
 	level flag::set(#"hash_732657441f7793dc");
@@ -642,7 +642,7 @@ function function_818b85eb()
 	if(!self flag::get(#"hash_1308e79a11093c1e"))
 	{
 		self flag::set(#"hash_1308e79a11093c1e");
-		self thread zm_audio::create_and_play_dialog(#"hellhole", #"hash_18fc0277d6348d4");
+		self thread zm_audio::create_and_play_dialog(#"hellhole", #"enter_first");
 	}
 	else
 	{
@@ -669,7 +669,7 @@ function function_c179111e()
 		e_player = array::random(a_e_players);
 		if(isalive(e_player))
 		{
-			e_player thread zm_audio::create_and_play_dialog(#"hash_440246191b63e903", #"react");
+			e_player thread zm_audio::create_and_play_dialog(#"elev_crash", #"react");
 		}
 	}
 }

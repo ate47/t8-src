@@ -33,7 +33,7 @@ class cscavenger_icon : cLUIelem
 	}
 
 	/*
-		Name: function_693a2be8
+		Name: increment_pulse
 		Namespace: cscavenger_icon
 		Checksum: 0x86C117DA
 		Offset: 0x2C0
@@ -41,7 +41,7 @@ class cscavenger_icon : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_693a2be8(player)
+	function increment_pulse(player)
 	{
 		player clientfield::function_bb878fc3(var_47e79fc, "pulse");
 	}
@@ -152,7 +152,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_693a2be8
+	Name: increment_pulse
 	Namespace: scavenger_icon
 	Checksum: 0x4173E362
 	Offset: 0x1A0
@@ -160,8 +160,8 @@ function is_open(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_693a2be8(player)
+function increment_pulse(player)
 {
-	[[ self ]]->function_693a2be8(player);
+	[[ self ]]->increment_pulse(player);
 }
 

@@ -8,7 +8,7 @@
 #using script_4b0b3de126cf7c9a;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_537b0d808c4cac25;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
@@ -946,7 +946,7 @@ function function_3450100a(str_event, ai_killed, params)
 	{
 		case 20:
 		{
-			level thread zm_audio::sndannouncerplayvox(#"hash_1da7eef4cc220ec9", self);
+			level thread zm_audio::sndannouncerplayvox(#"multiplier_rising", self);
 			break;
 		}
 		case 50:
@@ -3164,12 +3164,12 @@ function function_cab8ebff(var_5707265b = 120)
 */
 function get_zombie_count_for_round(n_round, n_player_count)
 {
-	if(!isdefined(level.var_ea47b206) || !isdefined(level.var_ea47b206[n_round]) || !isdefined(level.var_ea47b206[n_round].var_2695bc4a))
+	if(!isdefined(level.var_ea47b206) || !isdefined(level.var_ea47b206[n_round]) || !isdefined(level.var_ea47b206[n_round].n_count_total))
 	{
 		return -1;
 	}
-	var_2695bc4a = level.var_ea47b206[n_round].var_2695bc4a;
-	return var_2695bc4a + (int(ceil((var_2695bc4a * 0.1) * (n_player_count - 1))));
+	n_count_total = level.var_ea47b206[n_round].n_count_total;
+	return n_count_total + (int(ceil((n_count_total * 0.1) * (n_player_count - 1))));
 }
 
 /*
@@ -3227,12 +3227,12 @@ function function_399fa32()
 function function_f26f8251(str_archetype, n_player_count)
 {
 	level endon(#"end_game");
-	var_2695bc4a = self.var_2695bc4a;
+	n_count_total = self.n_count_total;
 	if(n_player_count > 2)
 	{
-		var_2695bc4a = var_2695bc4a + (int(ceil(var_2695bc4a / 2)));
+		n_count_total = n_count_total + (int(ceil(n_count_total / 2)));
 	}
-	for(i = 0; i < var_2695bc4a; i++)
+	for(i = 0; i < n_count_total; i++)
 	{
 		if(i == 0 && isdefined(self.var_37dc6df8))
 		{

@@ -100,7 +100,7 @@ function function_83904681(location, usedcallback, killstreakname)
 			{
 				self [[level.var_1492d026]](killstreakname, team, killstreak_id);
 			}
-			self stats::function_e24eec31(params.var_1ab696c6, #"used", 1);
+			self stats::function_e24eec31(params.ksweapon, #"used", 1);
 		}
 		return self [[usedcallback]](location, killstreak_id);
 	}

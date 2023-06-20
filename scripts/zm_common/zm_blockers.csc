@@ -188,9 +188,9 @@ function power_debris_bought_fx(localclientnum, oldval, newval, bnewent, binitia
 	Parameters: 4
 	Flags: Linked
 */
-function function_aa07bb71(str_fx_name, var_bd367366, var_6142f944, var_ee0af263)
+function function_aa07bb71(str_fx_name, var_bd367366, var_6142f944, n_new_val)
 {
-	if(var_ee0af263)
+	if(n_new_val)
 	{
 		if(isdefined(self) && !isdefined(self.var_907b36d0))
 		{
@@ -218,9 +218,9 @@ function function_aa07bb71(str_fx_name, var_bd367366, var_6142f944, var_ee0af263
 	Parameters: 4
 	Flags: Linked
 */
-function function_e6eed4fe(str_fx_name, var_d34b6d2b, var_6142f944, var_ee0af263)
+function function_e6eed4fe(str_fx_name, var_d34b6d2b, var_6142f944, n_new_val)
 {
-	if(var_ee0af263)
+	if(n_new_val)
 	{
 		if(!isdefined(self.var_4da473fc))
 		{

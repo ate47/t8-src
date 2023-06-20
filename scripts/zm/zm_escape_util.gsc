@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
@@ -755,7 +755,7 @@ function function_cd3a65e0()
 		case 2:
 		{
 			level.next_dog_round = level.round_number + function_21a3a673(5, 7);
-			namespace_c3287616::function_376e51ef(#"zombie_dog", level.next_dog_round + 1);
+			zm_round_spawning::function_376e51ef(#"zombie_dog", level.next_dog_round + 1);
 			break;
 		}
 		case 3:
@@ -837,15 +837,15 @@ function dog_spawn_func()
 				{
 					if(isdefined(player.am_i_valid) && player.am_i_valid)
 					{
-						var_e3c2bfe4 = distancesquared(loc.origin, player.origin);
-						if(var_e3c2bfe4 < 9000000)
+						sqr_dist = distancesquared(loc.origin, player.origin);
+						if(sqr_dist < 9000000)
 						{
-							if(var_e3c2bfe4 > 1000000 && spawn_list != 2)
+							if(sqr_dist > 1000000 && spawn_list != 2)
 							{
 								spawn_list = 1;
 								continue;
 							}
-							if(var_e3c2bfe4 > 250000)
+							if(sqr_dist > 250000)
 							{
 								spawn_list = 2;
 								continue;
@@ -1042,13 +1042,13 @@ function function_67710e66(b_enable = 0)
 	{
 		level zm_audio::function_6191af93(#"brutus", #"react", "", "");
 		level zm_audio::function_6191af93(#"brutus", #"helm_off", "", "");
-		level zm_audio::function_6191af93(#"brutus", #"hash_ab5f4c79d856526", "", "");
+		level zm_audio::function_6191af93(#"brutus", #"smoke_react", "", "");
 	}
 	else
 	{
 		level zm_audio::function_e1666976(#"brutus", #"react");
 		level zm_audio::function_e1666976(#"brutus", #"helm_off");
-		level zm_audio::function_e1666976(#"brutus", #"hash_ab5f4c79d856526");
+		level zm_audio::function_e1666976(#"brutus", #"smoke_react");
 	}
 }
 
@@ -1066,12 +1066,12 @@ function private function_5d3c7c04()
 	while(true)
 	{
 		s_result = undefined;
-		s_result = level waittill(#"hash_1f4ca5309de396c3", #"hash_6a9b254ddc7d0e93");
+		s_result = level waittill(#"brutus_locked", #"unlock_purchased");
 		if(s_result.s_stub.targetname !== "crafting_trigger")
 		{
 			continue;
 		}
-		if(s_result._notify == #"hash_1f4ca5309de396c3")
+		if(s_result._notify == #"brutus_locked")
 		{
 			var_89ddd572 = util::spawn_model("tag_origin", s_result.s_stub.origin, s_result.s_stub.angles);
 			var_89ddd572 clientfield::set("" + #"hash_59be891b288663cc", 1);

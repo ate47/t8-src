@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\array_shared.gsc;
@@ -53,8 +53,8 @@ function __init__()
 		var_362056e0.script_forcespawn = 1;
 	}
 	zm_score::function_e5d6e6dd(#"werewolf", 250);
-	namespace_c3287616::register_archetype(#"werewolf", &function_45bed901, &round_spawn, &function_47a88a0c, 300);
-	namespace_c3287616::function_306ce518(#"werewolf", &function_d7a8d5a8);
+	zm_round_spawning::register_archetype(#"werewolf", &function_45bed901, &round_spawn, &function_47a88a0c, 300);
+	zm_round_spawning::function_306ce518(#"werewolf", &function_d7a8d5a8);
 	namespace_32192f7::function_95c1dd81(#"werewolf", &function_fb4cbb48);
 }
 
@@ -407,7 +407,7 @@ function function_47a88a0c(n_to_spawn = 1, var_1fafa3fc, b_force_spawn = 0, var_
 */
 function function_774f6e70(s_spawn_loc, var_58a8a3cb = 1, var_cda6f9a7 = undefined, var_d5e7e76d = undefined)
 {
-	self endon(#"death", #"hash_1783be2ff62b582c");
+	self endon(#"death", #"patrol_done");
 	if(!(isdefined(self.b_patrol) && self.b_patrol))
 	{
 		return;
@@ -460,7 +460,7 @@ function function_d7a8d5a8(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"werewolf") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
+		if(zm_round_spawning::function_d0db51fc(#"werewolf") && (!(isdefined(level.var_153e9058) && level.var_153e9058)))
 		{
 			level.var_d7b601b9++;
 			level.var_2c03ab22 = level.round_number + function_21a3a673(3, 5);

@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_1cae21fec7ac065e", &on_begin, &on_end);
+	zm_trial::register_challenge(#"reset_points", &on_begin, &on_end);
 }
 
 /*
@@ -62,12 +62,12 @@ function private on_begin(var_899c6d17)
 	wait(6);
 	foreach(player in getplayers())
 	{
-		player thread function_25f2b64(var_899c6d17);
+		player thread reset_points(var_899c6d17);
 	}
 }
 
 /*
-	Name: function_25f2b64
+	Name: reset_points
 	Namespace: namespace_473cb198
 	Checksum: 0xB06211FD
 	Offset: 0x218
@@ -75,7 +75,7 @@ function private on_begin(var_899c6d17)
 	Parameters: 1
 	Flags: Private
 */
-function private function_25f2b64(var_899c6d17)
+function private reset_points(var_899c6d17)
 {
 	if(self bgb::is_enabled(#"zm_bgb_shopping_free"))
 	{

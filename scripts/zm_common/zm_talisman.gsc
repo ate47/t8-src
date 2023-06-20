@@ -158,7 +158,7 @@ function private function_954b9083(var_240061ef)
 	self endon(#"disconnect");
 	level waittill(#"start_zombie_round_logic");
 	wait(getdvarint(#"hash_4e0eefe07702cb87", 60));
-	self stats::inc_stat(#"hash_2718ba6536e331ce", var_240061ef, #"used", #"statvalue", 1);
+	self stats::inc_stat(#"talisman_stats", var_240061ef, #"used", #"statvalue", 1);
 	self zm_stats::increment_challenge_stat(#"talisman_used");
 	self reportlootconsume(var_240061ef, 1);
 }

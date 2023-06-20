@@ -87,7 +87,7 @@ function private on_end(round_reset)
 {
 	level clientfield::set_world_uimodel("ZMHudGlobal.trials.hudDeactivated", 0);
 	level.var_dc60105c = undefined;
-	if(level flag::get("round_reset") || level flag::get(#"hash_6acab8bde7078239"))
+	if(level flag::get("round_reset") || level flag::get(#"trial_failed"))
 	{
 		return;
 	}

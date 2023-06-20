@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1c72973fb240f263;
 #using script_3f9e0dc8454d98e1;
-#using script_421e0a3702e22de;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm\zm_orange_pablo.gsc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_orange_mq_mgr.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -48,7 +48,7 @@ function preload()
 function init()
 {
 	level flag::init(#"hash_2c3411c8b8b421d8");
-	namespace_85e029d3::register_drop_off(16, #"hash_18dcf44bdd7a747c", #"hash_459899940f28d8f0", &function_b5f900c3);
+	zm_orange_pablo::register_drop_off(16, #"hash_18dcf44bdd7a747c", #"hash_459899940f28d8f0", &function_b5f900c3);
 }
 
 /*
@@ -62,7 +62,7 @@ function init()
 */
 function function_5309464a(var_5ea5c94d)
 {
-	namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 11);
+	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 11);
 	level.var_80c25d0a = 115;
 	if(isdefined(level.chests))
 	{
@@ -77,7 +77,7 @@ function function_5309464a(var_5ea5c94d)
 	if(!var_5ea5c94d)
 	{
 		level thread function_39c9e020();
-		namespace_85e029d3::function_d83490c5(16);
+		zm_orange_pablo::function_d83490c5(16);
 		level flag::wait_till(#"hash_2c3411c8b8b421d8");
 	}
 }
@@ -109,7 +109,7 @@ function function_b5f900c3()
 	/#
 		iprintlnbold("");
 	#/
-	level notify(#"hash_7b1d7041d240c3da");
+	level notify(#"sendoff_started");
 	level thread sun_deck_watcher();
 }
 
@@ -128,7 +128,7 @@ function function_39c9e020()
 	a_str_zones = array("main_entrance", "loading_platform");
 	while(true)
 	{
-		if(namespace_509a75d1::any_player_in_zone(a_str_zones))
+		if(zm_hms_util::any_player_in_zone(a_str_zones))
 		{
 			break;
 		}
@@ -176,7 +176,7 @@ function sun_deck_watcher()
 	level endon(#"end_game");
 	while(true)
 	{
-		if(namespace_509a75d1::any_player_in_zone("sun_deck"))
+		if(zm_hms_util::any_player_in_zone("sun_deck"))
 		{
 			break;
 		}
@@ -214,9 +214,9 @@ function function_d096f18f()
 	var_6740ea1e linkto(e_mover);
 	level.npc_pablo linkto(e_mover);
 	e_mover moveto(s_start.origin, 1);
-	level thread namespace_85e029d3::function_e44c7c0c(#"hash_1a974fe7a0edddab");
+	level thread zm_orange_pablo::function_e44c7c0c(#"hash_1a974fe7a0edddab");
 	wait(1);
-	namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 12);
+	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 12);
 	e_mover moveto(e_mover.origin + vectorscale((0, 0, 1), 4000), var_6df66af8 - 1);
 	wait(var_6df66af8 - 3);
 	exploder::stop_exploder("fxexp_portal_115_start");
@@ -228,7 +228,7 @@ function function_d096f18f()
 	level thread function_bf106bdf();
 	level zm_orange_util::function_fd24e47f(#"hash_1a974fe7a0edddab");
 	wait(1);
-	level.var_1c53964e thread namespace_509a75d1::function_6a0d675d(#"hash_635ca3634ea94ee9");
+	level.var_1c53964e thread zm_hms_util::function_6a0d675d(#"hash_635ca3634ea94ee9");
 }
 
 /*

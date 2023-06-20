@@ -53,12 +53,12 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.hero_weapon[#"gravityspikes"][0] = getweapon(#"hash_1d3a5509fa2c9ee6");
-	level.hero_weapon[#"gravityspikes"][1] = getweapon(#"hash_1d3a5409fa2c9d33");
-	level.hero_weapon[#"gravityspikes"][2] = getweapon(#"hash_1d3a5309fa2c9b80");
-	zm_loadout::register_hero_weapon_for_level(#"hash_1d3a5509fa2c9ee6");
-	zm_loadout::register_hero_weapon_for_level(#"hash_1d3a5409fa2c9d33");
-	zm_loadout::register_hero_weapon_for_level(#"hash_1d3a5309fa2c9b80");
+	level.hero_weapon[#"gravityspikes"][0] = getweapon(#"hero_gravityspikes_t8_lv1");
+	level.hero_weapon[#"gravityspikes"][1] = getweapon(#"hero_gravityspikes_t8_lv2");
+	level.hero_weapon[#"gravityspikes"][2] = getweapon(#"hero_gravityspikes_t8_lv3");
+	zm_loadout::register_hero_weapon_for_level(#"hero_gravityspikes_t8_lv1");
+	zm_loadout::register_hero_weapon_for_level(#"hero_gravityspikes_t8_lv2");
+	zm_loadout::register_hero_weapon_for_level(#"hero_gravityspikes_t8_lv3");
 	callback::on_connect(&function_326aec56);
 	callback::on_player_damage(&player_invulnerable_during_gravityspike_slam);
 	level.n_zombies_lifted_for_ragdoll = 0;
@@ -482,7 +482,7 @@ function gravityspikes_altfire_watcher(var_4052dd74)
 			self.var_de01b5c2 = 1;
 			self playrumbleonentity("damage_heavy");
 			self thread function_26a4b7f5(var_4052dd74);
-			self waittilltimeout(5, #"hash_52f82ae8ebe874e5");
+			self waittilltimeout(5, #"stop_shockwave");
 			self.var_de01b5c2 = undefined;
 		}
 	}
@@ -727,7 +727,7 @@ function function_28be8532(var_4052dd74)
 		{
 			if(isdefined(self.var_de01b5c2) && self.var_de01b5c2)
 			{
-				self notify(#"hash_52f82ae8ebe874e5");
+				self notify(#"stop_shockwave");
 				self.var_de01b5c2 = undefined;
 			}
 			self thread plant_gravity_trap(var_4052dd74);
@@ -1440,7 +1440,7 @@ function private zombie_lift(player, v_attack_source, n_push_away, n_lift_height
 				self dodamage(self.maxhealth * 0.1, self.origin, player, player, "torso_upper", "MOD_ELECTROCUTED", 0, var_4052dd74);
 				self thread track_lifted_for_ragdoll_count();
 				self.var_42d5176d = 1;
-				self val::set(#"hash_77bfbbee3d2c15d", "ignoreall", 1);
+				self val::set(#"trap_ignore", "ignoreall", 1);
 				v_pos = groundtrace(self.origin + vectorscale((0, 0, 1), 100), self.origin + (vectorscale((0, 0, -1), 1000)), 0, self)[#"position"];
 				if(!isdefined(v_pos))
 				{
@@ -1454,7 +1454,7 @@ function private zombie_lift(player, v_attack_source, n_push_away, n_lift_height
 				self waittill(#"gravity_trap_complete");
 				if(isdefined(self))
 				{
-					self val::reset(#"hash_77bfbbee3d2c15d", "ignoreall");
+					self val::reset(#"trap_ignore", "ignoreall");
 					self clientfield::set("sparky_beam_fx", 0);
 					self clientfield::set("sparky_zombie_fx", 0);
 					self clientfield::set("sparky_zombie_trail_fx", 1);

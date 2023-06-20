@@ -31,7 +31,7 @@ class cscavenger_icon : cLUIelem
 	}
 
 	/*
-		Name: function_693a2be8
+		Name: increment_pulse
 		Namespace: cscavenger_icon
 		Checksum: 0xE043B1B9
 		Offset: 0x320
@@ -39,7 +39,7 @@ class cscavenger_icon : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_693a2be8(localclientnum)
+	function increment_pulse(localclientnum)
 	{
 		current_val = [[ self ]]->get_data(localclientnum, "pulse");
 		new_val = (current_val + 1) % 2;
@@ -183,7 +183,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_693a2be8
+	Name: increment_pulse
 	Namespace: scavenger_icon
 	Checksum: 0xC168E99F
 	Offset: 0x1C8
@@ -191,8 +191,8 @@ function is_open(localclientnum)
 	Parameters: 1
 	Flags: None
 */
-function function_693a2be8(localclientnum)
+function increment_pulse(localclientnum)
 {
-	[[ self ]]->function_693a2be8(localclientnum);
+	[[ self ]]->increment_pulse(localclientnum);
 }
 

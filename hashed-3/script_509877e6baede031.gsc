@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -270,19 +270,19 @@ function function_7dbe8985()
 {
 	if(level.var_c2e6ed5a == 0)
 	{
-		namespace_509a75d1::function_e308175e(#"hash_10486eedc1e9fad", self.origin);
+		zm_hms_util::function_e308175e(#"hash_10486eedc1e9fad", self.origin);
 		level flag::set(#"hash_7d5f27392b7264ae");
 	}
 	else
 	{
 		if(level.var_c2e6ed5a == 1)
 		{
-			namespace_509a75d1::function_e308175e(#"hash_6742a63120f41d3b", self.origin);
+			zm_hms_util::function_e308175e(#"hash_6742a63120f41d3b", self.origin);
 			level flag::set(#"hash_7d5f26392b7262fb");
 		}
 		else
 		{
-			namespace_509a75d1::function_e308175e(#"hash_1678ea887d624d95", self.origin);
+			zm_hms_util::function_e308175e(#"hash_1678ea887d624d95", self.origin);
 			level flag::set(#"hash_51ae2a56153f7f83");
 		}
 	}

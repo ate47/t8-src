@@ -142,7 +142,7 @@ function private function_dc856fd8()
 	self allowads(0);
 	while(true)
 	{
-		self waittill(#"hash_7fd32c9551894e64", #"hash_424834e6dee13bc3", #"bgb_update");
+		self waittill(#"crafting_fail", #"crafting_success", #"bgb_update");
 		if(isalive(self))
 		{
 			self allowads(0);

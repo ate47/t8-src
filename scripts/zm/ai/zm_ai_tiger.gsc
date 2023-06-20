@@ -51,7 +51,7 @@ function __init__()
 	zm_player::register_player_damage_callback(&function_9808e44f);
 	spawner::add_archetype_spawn_function(#"tiger", &tiger_init);
 	/#
-		spawner::add_archetype_spawn_function(#"tiger", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"tiger", &zombie_utility::updateanimationrate);
 	#/
 	/#
 		if(!zm_score::function_e5ca5733(#"tiger"))
@@ -88,11 +88,11 @@ function private function_d5ccdca1()
 	/#
 		assert(isscriptfunctionptr(&function_10687511));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_61f243f0abc94839", &function_10687511, 1);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"zmtigertargetservice", &function_10687511, 1);
 	/#
 		assert(isscriptfunctionptr(&function_8709c761));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_3f99b564459b7db8", &function_8709c761);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"zmtigershouldmelee", &function_8709c761);
 	/#
 		assert(isscriptfunctionptr(&function_6c513e36));
 	#/

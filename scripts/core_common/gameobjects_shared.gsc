@@ -80,7 +80,7 @@ class cinteractobj
 	destructor()
 	{
 		/#
-			if(getdvarint(#"hash_69e71fbd49bdaa8a", 0))
+			if(getdvarint(#"scr_debug_gameobjects", 0))
 			{
 				iprintlnbold("");
 			}
@@ -135,13 +135,13 @@ class cinteractobj
 					voiceparams = {#targetname:e_object.var_f66cebb1, #side:var_9c2f0815, #team:m_str_team};
 					if(isdefined(e_object.var_fa2dfcb4))
 					{
-						function_58ca2822("itfr_dis_obj", undefined, voiceparams);
+						voiceevent("itfr_dis_obj", undefined, voiceparams);
 					}
 					else
 					{
 						if(isdefined(e_object.var_ff3c99c5))
 						{
-							function_58ca2822("mini_hint_itct", undefined, voiceparams);
+							voiceevent("mini_hint_itct", undefined, voiceparams);
 						}
 						else if(isdefined(var_426bccfd))
 						{
@@ -149,32 +149,32 @@ class cinteractobj
 							{
 								case "door":
 								{
-									function_58ca2822("door_hint_itct", undefined, voiceparams);
+									voiceevent("door_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "panel":
 								{
-									function_58ca2822("panl_hint_itct", undefined, voiceparams);
+									voiceevent("panl_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "radio":
 								{
-									function_58ca2822("rdio_hint_itct", undefined, voiceparams);
+									voiceevent("rdio_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "console":
 								{
-									function_58ca2822("cnsl_hint_itct", undefined, voiceparams);
+									voiceevent("cnsl_hint_itct", undefined, voiceparams);
 									break;
 								}
 								case "climb":
 								{
-									function_58ca2822("clmb_hint_itct", undefined, voiceparams);
+									voiceevent("clmb_hint_itct", undefined, voiceparams);
 									break;
 								}
 								default:
 								{
-									function_58ca2822("gobj_hint_itct", undefined, voiceparams);
+									voiceevent("gobj_hint_itct", undefined, voiceparams);
 									break;
 								}
 							}
@@ -3882,7 +3882,7 @@ function check_gameobject_reenable()
 	}
 	if(!(isdefined(self.b_reusable) && self.b_reusable))
 	{
-		self.e_object flagsys::set(#"hash_3c75783d64e76e20");
+		self.e_object flagsys::set(#"gameobject_destroyed");
 		util::wait_network_frame();
 		self thread destroy_object(1, 1);
 	}
@@ -5960,7 +5960,7 @@ function destroy_object(deletetrigger, forcehide, b_connect_paths = 0, b_success
 	mdl_gameobject = function_fd4a5f2f();
 	if(isdefined(mdl_gameobject.e_object))
 	{
-		mdl_gameobject.e_object flagsys::set(#"hash_3c75783d64e76e20");
+		mdl_gameobject.e_object flagsys::set(#"gameobject_destroyed");
 	}
 	mdl_gameobject endon(#"death");
 	if(!isdefined(forcehide))
@@ -5972,7 +5972,7 @@ function destroy_object(deletetrigger, forcehide, b_connect_paths = 0, b_success
 	{
 		if(isdefined(self.c_door.m_e_door))
 		{
-			self.c_door.m_e_door notify(#"hash_d46ecc32678f28a");
+			self.c_door.m_e_door notify(#"door_cleared");
 		}
 	}
 	waittillframeend();
@@ -7234,7 +7234,7 @@ function function_c6fa00c2()
 		var_9b38d2c0 = contribution.player;
 		percentage = (100 * contribution.contribution) / self.usetime;
 		var_9b38d2c0.var_759a143b = int(0.5 + percentage);
-		if(var_9b38d2c0.var_759a143b > getgametypesetting(#"hash_1c94fa23e276efe9"))
+		if(var_9b38d2c0.var_759a143b > getgametypesetting(#"contributionmin"))
 		{
 			if(!isdefined(var_5b307a20))
 			{

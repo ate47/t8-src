@@ -19,7 +19,7 @@
 */
 event main(eventstruct)
 {
-	level.var_13361577 = mp_infect_timer::register("InfectTimer");
+	level.infect_timer = mp_infect_timer::register("InfectTimer");
 	clientfield::register("allplayers", "Infected.player_infected", 15000, 1, "int", &function_fd78da38, 0, 0);
 }
 

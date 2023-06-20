@@ -98,7 +98,7 @@ function __main__()
 	{
 		level.pap_zbarrier_state_func = &process_pap_zbarrier_state;
 	}
-	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"zmpapenabled") == 0)
 	{
 		var_ed82708a = getentarray("zm_pack_a_punch", "targetname");
 		foreach(var_4db9b7a6 in var_ed82708a)
@@ -368,11 +368,11 @@ function private function_c6d69354()
 */
 function private get_start_state()
 {
-	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"zmpapenabled") == 0)
 	{
 		return false;
 	}
-	if(isdefined(level.var_ef785c4c) && level.var_ef785c4c || zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
+	if(isdefined(level.var_ef785c4c) && level.var_ef785c4c || zm_custom::function_901b751c(#"zmpapenabled") == 2)
 	{
 		return true;
 	}
@@ -390,7 +390,7 @@ function private get_start_state()
 */
 function function_615ef6fe()
 {
-	self endon(#"hash_404acc7ce223033");
+	self endon(#"pack_removed");
 	self flag::wait_till("Pack_A_Punch_on");
 	self thread pap_power_on_init();
 }
@@ -905,9 +905,9 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 	pap_machine flag::set("pap_taking_gun");
 	pap_machine.unitrigger_stub.current_weapon = current_weapon;
 	upgrade_weapon = zm_weapons::get_upgrade_weapon(current_weapon);
-	var_eaad2188 = self getweaponoptions(current_weapon);
+	current_weaponoptions = self getweaponoptions(current_weapon);
 	self thread function_f0fe4bae(pap_machine.unitrigger_stub);
-	self third_person_weapon_upgrade(current_weapon, var_eaad2188, upgrade_weapon, packa_rollers, pap_machine);
+	self third_person_weapon_upgrade(current_weapon, current_weaponoptions, upgrade_weapon, packa_rollers, pap_machine);
 	pap_machine flag::clear("pap_taking_gun");
 	pap_machine flag::set("pap_offering_gun");
 	pap_machine thread wait_for_timeout(pap_machine.unitrigger_stub.current_weapon, pap_machine.packa_timer, self, pap_machine.var_a86430cb, var_9c076b6, var_aa0d72d4);
@@ -920,7 +920,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 		{
 			weaponidx = matchrecordgetweaponindex(current_weapon);
 		}
-		self zm_stats::function_c0c6ab19(#"hash_c027c40f4adea57");
+		self zm_stats::function_c0c6ab19(#"weapons_packed");
 		self contracts::function_5b88297d(#"hash_b6b948aac4bd4c");
 		if(!pap_machine.var_a86430cb)
 		{
@@ -933,7 +933,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 			#/
 			self zm_stats::increment_challenge_stat(#"hash_203688d7883cf38c");
 			self zm_stats::increment_challenge_stat(#"hash_2126e77556d8e66b");
-			self stats::inc_stat(#"hash_162f9b6a10fa7d66", current_weapon.name, #"packed", #"statvalue", 1);
+			self stats::inc_stat(#"item_stats", current_weapon.name, #"packed", #"statvalue", 1);
 		}
 		if(pap_machine.var_a86430cb || var_9c076b6 || var_aa0d72d4)
 		{
@@ -948,7 +948,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 					self zm_challenges::debug_print("");
 				#/
 				self zm_stats::increment_challenge_stat(#"hash_300fdf15a515feda", undefined, 1);
-				self stats::inc_stat(#"hash_162f9b6a10fa7d66", current_weapon.name, #"hash_5d5a976d59876880", #"statvalue", 1);
+				self stats::inc_stat(#"item_stats", current_weapon.name, #"doublepacked", #"statvalue", 1);
 				self zm_challenges::function_e40c9d13();
 			}
 		}
@@ -978,7 +978,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgrade_weapon, packa_rollers, pap_machine)
+function private third_person_weapon_upgrade(current_weapon, current_weaponoptions, upgrade_weapon, packa_rollers, pap_machine)
 {
 	pap_machine endon(#"hash_672bc8ddbec0fa33");
 	var_d85decd8 = self getbuildkitweapon(current_weapon);
@@ -992,11 +992,11 @@ function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgra
 		}
 	#/
 	pap_machine.unitrigger_stub.current_weapon = var_d85decd8;
-	var_27024943 = self zm_camos::function_6f75f3d3(var_d85decd8, var_eaad2188);
+	var_27024943 = self zm_camos::function_6f75f3d3(var_d85decd8, current_weaponoptions);
 	pap_machine.unitrigger_stub.var_f716c676 = self zm_camos::function_7c982eb6(var_d85decd8);
 	pap_machine.unitrigger_stub.current_weapon_options = self getbuildkitweaponoptions(pap_machine.unitrigger_stub.current_weapon, var_27024943, pap_machine.unitrigger_stub.var_f716c676);
 	pap_machine.unitrigger_stub.upgrade_weapon = var_1eca29de;
-	pap_machine.unitrigger_stub.var_3ded6a21 = self zm_camos::function_4f727cf5(var_d85decd8, var_eaad2188, 1);
+	pap_machine.unitrigger_stub.var_3ded6a21 = self zm_camos::function_4f727cf5(var_d85decd8, current_weaponoptions, 1);
 	pap_machine.unitrigger_stub.upgrade_weapon_options = self getbuildkitweaponoptions(pap_machine.unitrigger_stub.upgrade_weapon, pap_machine.unitrigger_stub.var_3ded6a21, pap_machine.unitrigger_stub.var_f716c676);
 	pap_machine setweapon(pap_machine.unitrigger_stub.current_weapon);
 	pap_machine setweaponoptions(pap_machine.unitrigger_stub.current_weapon_options);
@@ -1020,7 +1020,7 @@ function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgra
 	}
 	else
 	{
-		if(util::function_5df4294() === #"zstandard")
+		if(util::get_game_type() === #"zstandard")
 		{
 			pap_machine playsound(#"hash_552a43efc3f770d");
 		}
@@ -1342,7 +1342,7 @@ function private function_f0fe4bae(s_unitrigger_stub)
 		{
 			s_unitrigger_stub.var_59f1d079 = 1;
 		}
-		self notify(#"hash_12922c9c5f12df1", {#w_current:original_weapon});
+		self notify(#"packing_weapon", {#w_current:original_weapon});
 		self takeweapon(original_weapon);
 	}
 	if(!(isdefined(self.intermission) && self.intermission) && (!(isdefined(self.is_drinking) && self.is_drinking)))
@@ -1362,7 +1362,7 @@ function private function_f0fe4bae(s_unitrigger_stub)
 */
 function private shutoffpapsounds(pap_machine, var_884bde3, var_1e9dad36)
 {
-	pap_machine endon(#"hash_404acc7ce223033");
+	pap_machine endon(#"pack_removed");
 	while(true)
 	{
 		pap_machine flag::wait_till("Pack_A_Punch_off");

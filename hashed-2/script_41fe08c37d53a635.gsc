@@ -53,21 +53,21 @@ function __init__()
 			piecestruct.hitlocation = destructible.(("piece" + index) + "_hitlocation");
 			piecestruct.hidetag = destructible.(("piece" + index) + "_hidetag");
 			piecestruct.detachmodel = destructible.(("piece" + index) + "_detachmodel");
-			piecestruct.var_1377a2a4 = destructible.(("piece" + index) + "_detachtag");
+			piecestruct.detachtag = destructible.(("piece" + index) + "_detachtag");
 			if(isdefined(destructible.(("piece" + index) + "_hittags")))
 			{
-				piecestruct.var_d8fa3d82 = [];
+				piecestruct.hittags = [];
 				foreach(var_5440c126 in destructible.(("piece" + index) + "_hittags"))
 				{
-					if(!isdefined(piecestruct.var_d8fa3d82))
+					if(!isdefined(piecestruct.hittags))
 					{
-						piecestruct.var_d8fa3d82 = [];
+						piecestruct.hittags = [];
 					}
-					else if(!isarray(piecestruct.var_d8fa3d82))
+					else if(!isarray(piecestruct.hittags))
 					{
-						piecestruct.var_d8fa3d82 = array(piecestruct.var_d8fa3d82);
+						piecestruct.hittags = array(piecestruct.hittags);
 					}
-					piecestruct.var_d8fa3d82[piecestruct.var_d8fa3d82.size] = var_5440c126.var_f16c2276;
+					piecestruct.hittags[piecestruct.hittags.size] = var_5440c126.hittag;
 				}
 			}
 			destructbundle.pieces[destructbundle.pieces.size] = piecestruct;
@@ -190,15 +190,15 @@ function destructhitlocpieces(entity, hitloc)
 	Parameters: 2
 	Flags: Linked
 */
-function function_629a8d54(entity, var_f16c2276)
+function function_629a8d54(entity, hittag)
 {
-	if(isdefined(var_f16c2276) && isdefined(entity.destructibledef))
+	if(isdefined(hittag) && isdefined(entity.destructibledef))
 	{
 		destructbundle = _getdestructibledef(entity);
 		for(index = 1; index <= destructbundle.pieces.size; index++)
 		{
 			piece = destructbundle.pieces[index - 1];
-			if(isdefined(piece.var_d8fa3d82) && isinarray(piece.var_d8fa3d82, var_f16c2276))
+			if(isdefined(piece.hittags) && isinarray(piece.hittags, hittag))
 			{
 				destructpiece(entity, index);
 			}
@@ -271,12 +271,12 @@ function destructpiece(entity, piecenumber)
 	}
 	if(isdefined(piece.detachmodel) && entity isattached(piece.detachmodel))
 	{
-		var_1377a2a4 = "";
-		if(isdefined(piece.var_1377a2a4))
+		detachtag = "";
+		if(isdefined(piece.detachtag))
 		{
-			var_1377a2a4 = piece.var_1377a2a4;
+			detachtag = piece.detachtag;
 		}
-		entity detach(piece.detachmodel, var_1377a2a4);
+		entity detach(piece.detachmodel, detachtag);
 	}
 }
 
@@ -499,14 +499,14 @@ function reapplydestructedpieces(entity)
 		}
 		if(isdefined(piece.detachmodel))
 		{
-			var_1377a2a4 = "";
-			if(isdefined(piece.var_1377a2a4))
+			detachtag = "";
+			if(isdefined(piece.detachtag))
 			{
-				var_1377a2a4 = piece.var_1377a2a4;
+				detachtag = piece.detachtag;
 			}
-			if(entity isattached(piece.detachmodel, var_1377a2a4))
+			if(entity isattached(piece.detachmodel, detachtag))
 			{
-				entity detach(piece.detachmodel, var_1377a2a4);
+				entity detach(piece.detachmodel, detachtag);
 			}
 		}
 	}

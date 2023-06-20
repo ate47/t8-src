@@ -130,7 +130,7 @@ function function_1c4b5097(item)
 		}
 		level.var_ca57a3b8[level.var_ca57a3b8.size] = self;
 	}
-	else if(var_a6762160.name == #"hash_206ddd5a88e8c7c1")
+	else if(var_a6762160.name == #"cu17_item")
 	{
 		var_c503939b = globallogic::function_e9e52d05();
 		if(var_c503939b <= function_c816ea5b())
@@ -240,7 +240,7 @@ function function_2043936c(trigger_struct)
 	item = player function_80635b6f();
 	if(isdefined(item))
 	{
-		point = function_4ba8fde(#"hash_206ddd5a88e8c7c1");
+		point = function_4ba8fde(#"cu17_item");
 		if(isdefined(point) && isdefined(point.var_a6762160))
 		{
 			forward = anglestoforward(player.angles);

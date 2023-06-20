@@ -6,7 +6,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4d00889cf8c807d5;
 #using script_5660bae5b402a1eb;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
@@ -52,7 +52,7 @@ function init()
 	clientfield::register("actor", "" + #"zombie_breakout", 16000, 1, "counter");
 	clientfield::register("actor", "" + #"zombie_delete", 16000, 1, "counter");
 	clientfield::register("actor", "" + #"hash_6d5686b05e69fcb0", 16000, 1, "counter");
-	clientfield::register("actor", "" + #"hash_76696d393fa512bf", 16000, 2, "int");
+	clientfield::register("actor", "" + #"pegasus_beam", 16000, 2, "int");
 	if(!zm_utility::is_trials())
 	{
 		clientfield::register("scriptmover", "" + #"hash_440ca00839d907a8", -17000, 1, "int");
@@ -61,12 +61,12 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_3ec0452110ea5621", 16000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_5da65e20d966c63f", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"artifact_glow", 16000, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_78015e57e42c1e9a", 16000, 1, "counter");
-	clientfield::register("scriptmover", "" + #"hash_39815108525ba28b", 16000, 1, "int");
+	clientfield::register("scriptmover", "" + #"perseus_teleport", 16000, 1, "counter");
+	clientfield::register("scriptmover", "" + #"pegasus_teleport", 16000, 1, "int");
 	clientfield::register("scriptmover", "" + #"pegasus_ambient", 16000, 1, "int");
 	clientfield::register("vehicle", "" + #"hash_5da65e20d966c63f", 16000, 1, "counter");
 	clientfield::register("vehicle", "" + #"hash_463ff879b8d656bb", 16000, 1, "int");
-	clientfield::register("vehicle", "" + #"hash_13ec9477957fe921", 16000, 1, "int");
+	clientfield::register("vehicle", "" + #"perseus_energy", 16000, 1, "int");
 	clientfield::register("world", "" + #"hash_6e61536372d6546d", 16000, 1, "int");
 	level.var_2f2b78fb = spawnstruct();
 	level.var_5cc61d5f = 0;
@@ -202,7 +202,7 @@ function function_bda82828()
 		level thread function_63102269();
 	}
 	level thread perseus_amphitheater();
-	level flag::wait_till(#"hash_3db8e78cda787136");
+	level flag::wait_till(#"perseus_exits");
 	level thread function_d8db57f6();
 	level flag::wait_till(#"spartoi_dead");
 	wait(4);
@@ -210,7 +210,7 @@ function function_bda82828()
 	level thread function_aa54541d();
 	level thread function_30da273d();
 	level thread function_a5b8e88f();
-	level flag::wait_till(#"hash_6471231d75af61b9");
+	level flag::wait_till(#"pegasus_rescue");
 	wait(1);
 	function_e059d0e1();
 	level flag::clear(#"hash_70efff113b745513");
@@ -226,7 +226,7 @@ function function_bda82828()
 	wait(1);
 	foreach(player in util::get_active_players())
 	{
-		player thread zm_vo::function_8e0f4696(#"hash_33e1e5be84d42bba", 0, 1, 9999, 1, 1, 1);
+		player thread zm_vo::vo_say(#"hash_33e1e5be84d42bba", 0, 1, 9999, 1, 1, 1);
 	}
 	vol_amphitheater = getent("vol_power_quest_kill_zone", "targetname");
 	if(isdefined(vol_amphitheater))
@@ -809,7 +809,7 @@ function perseus_amphitheater()
 	level.musicsystemoverride = 1;
 	music::setmusicstate("poweron_event_start");
 	waitframe(1);
-	var_3edd432d clientfield::increment("" + #"hash_78015e57e42c1e9a");
+	var_3edd432d clientfield::increment("" + #"perseus_teleport");
 	wait(1.5);
 	var_3edd432d playsound(#"hash_7e17c0850b86d621");
 	var_3edd432d playloopsound(#"hash_4572307d016259a6");
@@ -825,7 +825,7 @@ function perseus_amphitheater()
 		wait(0.1);
 	}
 	wait(2.5);
-	level flag::set(#"hash_3db8e78cda787136");
+	level flag::set(#"perseus_exits");
 	var_3edd432d stoploopsound();
 	var_3edd432d playsound(#"hash_4917791296076e1d");
 	wait(4);
@@ -849,9 +849,9 @@ function perseus_amphitheater()
 function function_a8f1dc6b(nd_start)
 {
 	self endon(#"death");
-	self clientfield::set("" + #"hash_13ec9477957fe921", 1);
+	self clientfield::set("" + #"perseus_energy", 1);
 	self vehicle::get_on_and_go_path(nd_start);
-	self clientfield::set("" + #"hash_13ec9477957fe921", 0);
+	self clientfield::set("" + #"perseus_energy", 0);
 	self playsound(#"hash_7c51534a91103a32");
 	self delete();
 }
@@ -948,7 +948,7 @@ function function_aab4eb23()
 {
 	level endon(#"hash_dc34ebe02d09532");
 	self endon(#"death");
-	self val::set(#"hash_380f047d8df05b1", "takedamage", 1);
+	self val::set(#"dormant_takedamage", "takedamage", 1);
 	self.health = 99999999;
 	while(true)
 	{
@@ -1014,7 +1014,7 @@ function function_969cb6b2(e_player)
 		var_39b20ef6 = e_player zm_utility::is_player_looking_at(mdl_sentinel_artifact.origin + (0, 0, -16), 0.95 + -0.15);
 		b_is_valid = zm_utility::is_player_valid(e_player, 0, 0);
 		b_disable = 0;
-		var_3a6fab91 = namespace_c3287616::function_f6cd912d(1);
+		var_3a6fab91 = zm_round_spawning::function_f6cd912d(1);
 		if(isdefined(var_3a6fab91))
 		{
 			var_f40360e8 = var_3a6fab91.n_round;
@@ -1223,7 +1223,7 @@ function function_a5b8e88f(var_ddab7294 = 0)
 	level thread function_1e9b5c67();
 	level thread function_c577b1bf();
 	level thread function_56c68db();
-	level flag::wait_till(#"hash_6471231d75af61b9");
+	level flag::wait_till(#"pegasus_rescue");
 	wait(0.5);
 	level function_9ead836c();
 	foreach(mdl_zombie in level.var_26450f62)
@@ -1298,18 +1298,18 @@ function function_c577b1bf()
 	level.var_10d4f67d = var_10d4f67d;
 	level.var_10d4f67d setteam(#"allies");
 	wait(0.1);
-	level flag::set(#"hash_7fc5886c894cf1f4");
+	level flag::set(#"pegasus_entry");
 	level.musicsystemoverride = 0;
 	level thread zm_audio::sndmusicsystem_playstate("poweron_event_complete", zm_utility::is_trials());
 	level thread function_350204ca(#"hash_62be5a478a16c968");
 	playsoundatposition(#"hash_2642ecae6103f09b", var_10d4f67d.origin);
-	var_10d4f67d clientfield::increment("" + #"hash_19edb07afd0faeb7");
-	var_10d4f67d clientfield::set("" + #"hash_39815108525ba28b", 1);
-	level flag::set(#"hash_50172adaa660c417");
+	var_10d4f67d clientfield::increment("" + #"register_pegasus");
+	var_10d4f67d clientfield::set("" + #"pegasus_teleport", 1);
+	level flag::set(#"pegasus_ready");
 	wait(0.5);
 	level thread function_c4f5840a();
 	wait(8);
-	level flag::set(#"hash_6471231d75af61b9");
+	level flag::set(#"pegasus_rescue");
 	var_10d4f67d playrumbleonentity("zm_red_pegasus_clear_rumble");
 	playsoundatposition(#"hash_737ff3246a85fd0e", var_10d4f67d.origin);
 	level flag::wait_till(#"hash_4d8091aa6a26d815");
@@ -1317,8 +1317,8 @@ function function_c577b1bf()
 	{
 		var_10d4f67d.linkto delete();
 	}
-	var_10d4f67d function_ce24f67b();
-	level flag::set(#"hash_5587d659c08d5af1");
+	var_10d4f67d pegasus_exit();
+	level flag::set(#"pegasus_exited");
 	if(isdefined(var_10d4f67d))
 	{
 		var_10d4f67d delete();
@@ -1326,7 +1326,7 @@ function function_c577b1bf()
 }
 
 /*
-	Name: function_ce24f67b
+	Name: pegasus_exit
 	Namespace: zm_red_power_quest
 	Checksum: 0x7C9EDD4
 	Offset: 0x5A28
@@ -1334,7 +1334,7 @@ function function_c577b1bf()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ce24f67b()
+function pegasus_exit()
 {
 	nd_entry = getvehiclenode("pegasus_exit_start", "targetname");
 	var_b56bded7 = undefined;
@@ -1383,10 +1383,10 @@ function function_4b198b8f(a_ents)
 function function_1e9b5c67()
 {
 	var_81f76694 = getent("pegasus_cloud", "targetname");
-	var_81f76694 clientfield::set("" + #"hash_5e74ad0afcfe7364", 1);
-	var_81f76694 clientfield::increment("" + #"hash_19edb07afd0faeb7");
+	var_81f76694 clientfield::set("" + #"electric_storm", 1);
+	var_81f76694 clientfield::increment("" + #"register_pegasus");
 	wait(1);
-	level flag::wait_till(#"hash_7fc5886c894cf1f4");
+	level flag::wait_till(#"pegasus_entry");
 	wait(2);
 	foreach(ai_zombie in getaiteamarray(level.zombie_team))
 	{
@@ -1399,7 +1399,7 @@ function function_1e9b5c67()
 	s_poi zm_utility::create_zombie_point_of_interest(800, 32, 10000);
 	level flag::wait_till(#"hash_4d8091aa6a26d815");
 	s_poi zm_utility::deactivate_zombie_point_of_interest();
-	var_81f76694 clientfield::set("" + #"hash_5e74ad0afcfe7364", 0);
+	var_81f76694 clientfield::set("" + #"electric_storm", 0);
 }
 
 /*
@@ -1413,7 +1413,7 @@ function function_1e9b5c67()
 */
 function function_31a4a4d9(a_players)
 {
-	level endon(#"hash_50172adaa660c417");
+	level endon(#"pegasus_ready");
 	while(true)
 	{
 		for(i = 0; i < a_players.size; i++)
@@ -1446,10 +1446,10 @@ function function_31a4a4d9(a_players)
 */
 function function_c4f5840a()
 {
-	level endon(#"hash_6471231d75af61b9");
+	level endon(#"pegasus_rescue");
 	while(true)
 	{
-		level.var_10d4f67d waittill(#"hash_650e71405864012e");
+		level.var_10d4f67d waittill(#"pegasus_clap");
 		level.var_10d4f67d function_c0e19f04();
 		level.var_10d4f67d thread function_75162692(level.var_b26291ed, 3);
 		level.var_10d4f67d thread function_75162692(level.var_bc021123, 3);
@@ -1546,11 +1546,11 @@ function function_208a0da4(ai_zombie)
 		n_dot = self math::get_dot_right(ai_zombie.origin);
 		if(n_dot > 0)
 		{
-			ai_zombie clientfield::set("" + #"hash_76696d393fa512bf", 2);
+			ai_zombie clientfield::set("" + #"pegasus_beam", 2);
 		}
 		else
 		{
-			ai_zombie clientfield::set("" + #"hash_76696d393fa512bf", 1);
+			ai_zombie clientfield::set("" + #"pegasus_beam", 1);
 		}
 		ai_zombie thread function_52a818f();
 	}
@@ -1596,8 +1596,8 @@ function function_52a818f()
 */
 function function_56c68db()
 {
-	level endon(#"hash_6471231d75af61b9");
-	level flag::wait_till(#"hash_7fc5886c894cf1f4");
+	level endon(#"pegasus_rescue");
+	level flag::wait_till(#"pegasus_entry");
 	a_mdl_zombies = array::randomize(level.var_26450f62);
 	foreach(mdl_zombie in a_mdl_zombies)
 	{
@@ -1825,10 +1825,10 @@ function function_b8848794(n_section, n_delay = 0.5)
 	Parameters: 3
 	Flags: None
 */
-function reinforcements_think(var_17e78c4a, var_f153be86 = 0, var_a294702 = 0)
+function reinforcements_think(str_spawns, var_f153be86 = 0, var_a294702 = 0)
 {
 	level endon(#"end_game", #"hash_a3780ca3fcd7d5f", #"hash_4d8091aa6a26d815");
-	a_s_spawns = struct::get_array(var_17e78c4a);
+	a_s_spawns = struct::get_array(str_spawns);
 	var_8e8ab42 = array::randomize(a_s_spawns);
 	while(true)
 	{
@@ -1898,7 +1898,7 @@ function function_2a80a9cc(b_run = 0, b_sprint = 0)
 	waitframe(1);
 	self.completed_emerging_into_playable_area = 1;
 	self notify(#"completed_emerging_into_playable_area");
-	if(level flag::get(#"hash_7fc5886c894cf1f4"))
+	if(level flag::get(#"pegasus_entry"))
 	{
 		return;
 	}
@@ -1993,7 +1993,7 @@ function function_d8db57f6()
 	}
 	wait(3);
 	function_350204ca(#"hash_6e38772014019f10");
-	level flag::wait_till(#"hash_5ab27713447940f3");
+	level flag::wait_till(#"spartoi_resurrect");
 	var_1679e8e = function_22230e37();
 	if(isdefined(var_1679e8e))
 	{
@@ -2075,7 +2075,7 @@ function function_f95a14a0()
 		s_scene struct::delete();
 	}
 	self waittill(#"hash_782dbc5eec90f62f");
-	level flag::set(#"hash_5ab27713447940f3");
+	level flag::set(#"spartoi_resurrect");
 }
 
 /*
@@ -2144,10 +2144,10 @@ function registerpromenade_chillout_props_traversal(a_ents)
 		return;
 	}
 	var_10d4f67d setteam(#"allies");
-	var_10d4f67d clientfield::increment("" + #"hash_19edb07afd0faeb7");
+	var_10d4f67d clientfield::increment("" + #"register_pegasus");
 	var_10d4f67d thread function_342bd17b();
 	level waittill(#"hash_28fd121552fe5ef3");
-	level flag::set(#"hash_6471231d75af61b9");
+	level flag::set(#"pegasus_rescue");
 }
 
 /*
@@ -2350,9 +2350,9 @@ function devgui_complete()
 	/#
 		level flag::set(#"hash_dc34ebe02d09532");
 		level flag::set(#"hash_3dba794053dea40e");
-		level flag::set(#"hash_3db8e78cda787136");
+		level flag::set(#"perseus_exits");
 		level flag::set(#"spartoi_dead");
-		level flag::set(#"hash_6471231d75af61b9");
+		level flag::set(#"pegasus_rescue");
 		level flag::set(#"hash_4d8091aa6a26d815");
 		level flag::set(#"flag_skeleton_set_intro");
 		var_71da3f5a = getentarray("", "");
@@ -2370,7 +2370,7 @@ function devgui_complete()
 				mdl_zombie delete();
 			}
 		}
-		level flag::set(#"hash_3db8e78cda787136");
+		level flag::set(#"perseus_exits");
 		level flag::set(#"spartoi_dead");
 		level flag::wait_till("");
 		level flag::wait_till("");

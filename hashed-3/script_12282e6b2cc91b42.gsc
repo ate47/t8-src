@@ -17,7 +17,7 @@
 function autoexec function_d776b402()
 {
 	clientfield::register("clientuimodel", "zmhud.damage_point_shake", 1, 1, "counter", undefined, 0, 0);
-	if(util::function_5df4294() == "zclassic")
+	if(util::get_game_type() == "zclassic")
 	{
 		clientfield::register("worlduimodel", "ZMHudGlobal.trials.gameStartTime", 1, 31, "int", undefined, 0, 0);
 	}
@@ -27,7 +27,7 @@ function autoexec function_d776b402()
 	{
 		return;
 	}
-	if((isdefined(getgametypesetting(#"hash_54dfa988db5db24c")) ? getgametypesetting(#"hash_54dfa988db5db24c") : 0))
+	if((isdefined(getgametypesetting(#"zmhealthdrain")) ? getgametypesetting(#"zmhealthdrain") : 0))
 	{
 		level.var_7db2b064 = &function_ecc5a0b9;
 	}
@@ -125,7 +125,7 @@ function function_772f66bd(localclientnum)
 */
 function function_e49dbc72()
 {
-	var_97a0e767 = (isdefined(getgametypesetting(#"hash_70517c36d49b4ee0")) ? getgametypesetting(#"hash_70517c36d49b4ee0") : 0);
+	var_97a0e767 = (isdefined(getgametypesetting(#"zmlaststandduration")) ? getgametypesetting(#"zmlaststandduration") : 0);
 	switch(var_97a0e767)
 	{
 		case 0:

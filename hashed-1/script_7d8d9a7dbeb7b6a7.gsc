@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_34d5428126b56bc3;
+#using scripts\wz_common\wz_common_fixup.csc;
 #using script_731df012f3a3c2fc;
 
 #namespace namespace_1bfb9327;
@@ -37,9 +37,9 @@ function function_a38f195f()
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	if(isdefined(getgametypesetting(#"hash_2e25d475b271a700")) && getgametypesetting(#"hash_2e25d475b271a700"))
 	{
-		namespace_da5c04c3::function_149cbc84(var_d2223309, var_74257310, #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc");
+		wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc");
 	}
-	if(isdefined(getgametypesetting(#"hash_189c8ca60451e9e9")) && getgametypesetting(#"hash_189c8ca60451e9e9"))
+	if(isdefined(getgametypesetting(#"wzgreeneyes")) && getgametypesetting(#"wzgreeneyes"))
 	{
 		maxteamplayers = (isdefined(getgametypesetting(#"maxteamplayers")) ? getgametypesetting(#"maxteamplayers") : 1);
 		if(maxteamplayers == 1)

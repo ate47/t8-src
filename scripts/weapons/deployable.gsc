@@ -56,7 +56,7 @@ function __init__()
 	Parameters: 6
 	Flags: Linked
 */
-function function_2e088f73(weapon, var_c0064c29, var_94b4fa08 = undefined, var_3733072 = undefined, var_a39cb3db = undefined, var_fe12c0d9 = undefined)
+function function_2e088f73(weapon, var_c0064c29, var_94b4fa08 = undefined, placehintstr = undefined, var_a39cb3db = undefined, var_fe12c0d9 = undefined)
 {
 	if(!isdefined(level._deployable_weapons))
 	{
@@ -73,7 +73,7 @@ function function_2e088f73(weapon, var_c0064c29, var_94b4fa08 = undefined, var_3
 	level._deployable_weapons[weapon.statindex].var_159652c0 = &function_6654310c;
 	level._deployable_weapons[weapon.statindex].var_9f2c21ea = var_c0064c29;
 	level._deployable_weapons[weapon.statindex].var_1463c9a8 = var_94b4fa08;
-	level._deployable_weapons[weapon.statindex].var_3733072 = var_3733072;
+	level._deployable_weapons[weapon.statindex].placehintstr = placehintstr;
 	level._deployable_weapons[weapon.statindex].var_a39cb3db = var_a39cb3db;
 	level._deployable_weapons[weapon.statindex].var_fe12c0d9 = var_fe12c0d9;
 }
@@ -247,24 +247,24 @@ function function_81598103(var_a2a6139a)
 	Parameters: 1
 	Flags: None
 */
-function function_416f03e6(var_de56bf19)
+function function_416f03e6(deployableweapon)
 {
 	if(!isdefined(self))
 	{
 		return;
 	}
-	var_4d5b521e = self gadgetgetslot(var_de56bf19);
-	if(isdefined(var_de56bf19))
+	var_4d5b521e = self gadgetgetslot(deployableweapon);
+	if(isdefined(deployableweapon))
 	{
 		self function_69b5c53c(var_4d5b521e, 0);
 	}
-	if(isdefined(var_de56bf19) && var_de56bf19.issupplydropweapon !== 1)
+	if(isdefined(deployableweapon) && deployableweapon.issupplydropweapon !== 1)
 	{
 		self setriotshieldfailhint();
 	}
 	if(isdefined(level.var_cf16ff75))
 	{
-		self [[level.var_cf16ff75]](var_de56bf19);
+		self [[level.var_cf16ff75]](deployableweapon);
 	}
 }
 
@@ -600,9 +600,9 @@ function private function_f0adf9c()
 		var_7a3f3edf = player function_b3d993e9(deployable_weapon);
 		if(var_7a3f3edf)
 		{
-			if(isdefined(level._deployable_weapons[deployable_weapon.statindex].var_3733072))
+			if(isdefined(level._deployable_weapons[deployable_weapon.statindex].placehintstr))
 			{
-				player sethintstring(level._deployable_weapons[deployable_weapon.statindex].var_3733072);
+				player sethintstring(level._deployable_weapons[deployable_weapon.statindex].placehintstr);
 			}
 		}
 		else if(isdefined(level._deployable_weapons[deployable_weapon.statindex].var_a39cb3db))
@@ -748,15 +748,15 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	water_bottom = hit_location;
 	if(var_d22ba639)
 	{
-		var_7af8b86b = anglestoforward((0, var_421003af[1], 0));
+		forward2d = anglestoforward((0, var_421003af[1], 0));
 		var_f7e67f28 = previs_weapon.var_f7e67f28;
 		var_75e7a61 = var_503cdc82 + (0, 0, previs_weapon.var_227c90e1);
-		var_1a606e14 = var_75e7a61 + (var_7af8b86b * var_f7e67f28);
+		var_1a606e14 = var_75e7a61 + (forward2d * var_f7e67f28);
 		var_b6085963 = bullettrace(var_75e7a61, var_1a606e14, 0, ignore_entity);
 		if(var_b6085963[#"fraction"] > 0)
 		{
 			var_f7e67f28 = (previs_weapon.var_f7e67f28 * var_b6085963[#"fraction"]) - var_f94d59f8;
-			var_14b67847 = (var_503cdc82 + (var_7af8b86b * var_f7e67f28)) + (0, 0, previs_weapon.var_227c90e1);
+			var_14b67847 = (var_503cdc82 + (forward2d * var_f7e67f28)) + (0, 0, previs_weapon.var_227c90e1);
 			var_c9851f67 = var_14b67847 - (0, 0, previs_weapon.var_227c90e1 - previs_weapon.var_849af6b4);
 			var_4bc118b9 = groundtrace(var_14b67847, var_c9851f67, 0, ignore_entity);
 			hitent = var_4bc118b9[#"entity"];

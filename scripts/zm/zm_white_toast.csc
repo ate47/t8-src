@@ -27,11 +27,11 @@
 */
 function init_clientfields()
 {
-	namespace_617a54f4::function_d8383812(#"sc_toast_apd", 8000, "cp_toast_apd", 400, level._effect[#"hash_62bdaf9239d8b792"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_79bfedd79fde9574", 8000, "cp_toast_diner", 400, level._effect[#"hash_62bdaf9239d8b792"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_6de0dca7b8c02116", 8000, "cp_toast_lounge", 400, level._effect[#"hash_62bdaf9239d8b792"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_63c249049e8fab1d", 8000, "cp_toast_storage", 400, level._effect[#"hash_62bdaf9239d8b792"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"hash_65c89350fbe358b0", 8000, "cp_toast_beds", 400, level._effect[#"hash_62bdaf9239d8b792"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"sc_toast_apd", 8000, "cp_toast_apd", 400, level._effect[#"apd_projectile"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"hash_79bfedd79fde9574", 8000, "cp_toast_diner", 400, level._effect[#"apd_projectile"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"hash_6de0dca7b8c02116", 8000, "cp_toast_lounge", 400, level._effect[#"apd_projectile"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"hash_63c249049e8fab1d", 8000, "cp_toast_storage", 400, level._effect[#"apd_projectile"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"hash_65c89350fbe358b0", 8000, "cp_toast_beds", 400, level._effect[#"apd_projectile"], level._effect[#"hash_2ccbbf521f943fc4"], undefined, undefined, 1);
 	clientfield::register("scriptmover", "soul_capture_filled", 1, 1, "int", &function_2a58f409, 0, 0);
 	clientfield::register("scriptmover", "soul_capture_depleted", 1, 1, "int", &function_6295ef8c, 0, 0);
 	clientfield::register("zbarrier", "discharge_pap", 1, 1, "int", &discharge_pap, 0, 0);
@@ -50,7 +50,7 @@ function init_clientfields()
 */
 function init_fx()
 {
-	level._effect[#"hash_62bdaf9239d8b792"] = #"maps/zm_white/fx8_power_wisp";
+	level._effect[#"apd_projectile"] = #"maps/zm_white/fx8_power_wisp";
 	level._effect[#"hash_50817e52341b2129"] = #"maps/zm_white/fx8_power_wisp_lg";
 	level._effect[#"hash_2ccbbf521f943fc4"] = #"hash_4b9c72e8053cbd1e";
 	level._effect[#"hash_6a86077d83942719"] = #"hash_51c50bab95b10eb4";

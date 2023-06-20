@@ -871,9 +871,9 @@ function hide_ents()
 {
 	foreach(ent in getentarray())
 	{
-		if(isdefined(ent.var_8c43d611) && ent.var_8c43d611)
+		if(isdefined(ent.script_hide) && ent.script_hide)
 		{
-			ent val::set(#"hash_231dddc2afe6275f", "hide", 1);
+			ent val::set(#"script_hide", "hide", 1);
 		}
 	}
 }

@@ -5,7 +5,7 @@
 #using script_39e954a546d3baf;
 #using scripts\zm\zm_towers_crowd.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -60,7 +60,7 @@ function init_level_vars()
 	level.var_55e562f9 = 20;
 	level.zombie_hints[#"default_treasure_chest"] = #"hash_57a34375dddce337";
 	callback::function_74872db6(&function_74872db6);
-	level thread function_ca35fa36();
+	level thread defend_areas();
 }
 
 /*
@@ -312,7 +312,7 @@ function activate_pap_altar()
 }
 
 /*
-	Name: function_ca35fa36
+	Name: defend_areas
 	Namespace: zm_towers_zstandard
 	Checksum: 0xB3865742
 	Offset: 0x15B0
@@ -320,7 +320,7 @@ function activate_pap_altar()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ca35fa36()
+function defend_areas()
 {
 	level endon(#"end_game");
 	function_84139b27();
@@ -390,14 +390,14 @@ function function_ca35fa36()
 	level thread activate_pap_altar();
 	wait(45);
 	zm_zonemgr::zone_wait_till_enabled(#"zone_pap_room");
-	namespace_c3287616::function_306ce518(#"gladiator_marauder", &function_69d1ce85);
+	zm_round_spawning::function_306ce518(#"gladiator_marauder", &function_69d1ce85);
 	s_defend_area = zm_utility::function_a877cd10(#"temple");
 	level thread zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	level flag::wait_till("started_defend_area");
-	level util::delay(5, "end_game", &namespace_c3287616::function_376e51ef, #"gladiator_marauder");
+	level util::delay(5, "end_game", &zm_round_spawning::function_376e51ef, #"gladiator_marauder");
 	level waittill(#"hash_7a04a7fb98fa4e4d");
 	zm_utility::function_fef4b36a(#"temple");
-	level util::delay(5, "end_game", &namespace_c3287616::function_376e51ef, #"tiger");
+	level util::delay(5, "end_game", &zm_round_spawning::function_376e51ef, #"tiger");
 	level notify(#"hash_2ff6268271a25ffa");
 	var_f79ff5ec = array::random(array(#"odin", #"zeus"));
 	var_2803cfda = var_f79ff5ec;
@@ -415,8 +415,8 @@ function function_ca35fa36()
 	level notify(#"hash_6a0d2b5af489c227");
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
-	namespace_c3287616::function_306ce518(#"gladiator_destroyer", &function_af36af51);
-	level util::delay("started_defend_area", "end_game", &namespace_c3287616::function_376e51ef, #"gladiator_destroyer");
+	zm_round_spawning::function_306ce518(#"gladiator_destroyer", &function_af36af51);
+	level util::delay("started_defend_area", "end_game", &zm_round_spawning::function_376e51ef, #"gladiator_destroyer");
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_f79ff5ec = #"arena";
@@ -442,8 +442,8 @@ function function_ca35fa36()
 	level zm_utility::open_door(var_420e4589, undefined, 8, 1);
 	util::delay(4, undefined, &zm_utility::function_11101458, var_f79ff5ec);
 	wait(45);
-	namespace_c3287616::function_306ce518(#"blight_father", &intro_blight_father);
-	level util::delay("started_defend_area", "end_game", &namespace_c3287616::function_376e51ef, #"blight_father");
+	zm_round_spawning::function_306ce518(#"blight_father", &intro_blight_father);
+	level util::delay("started_defend_area", "end_game", &zm_round_spawning::function_376e51ef, #"blight_father");
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
 	zm_zonemgr::function_8caa21df(s_defend_area.a_str_zones);
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7);
@@ -582,11 +582,11 @@ function function_ac904e5e()
 		var_a535d72c++;
 		var_a535d72c = math::clamp(var_a535d72c, 16, 24);
 	}
-	namespace_c3287616::function_306ce518(#"gladiator_destroyer", &function_e073793e);
-	namespace_c3287616::function_306ce518(#"gladiator_marauder", &function_20d7ebbb);
-	namespace_c3287616::function_306ce518(#"catalyst", &function_40dfd00b);
-	namespace_c3287616::function_306ce518(#"blight_father", &function_dcf7377c);
-	namespace_c3287616::function_cc103b38(#"catalyst", 6);
+	zm_round_spawning::function_306ce518(#"gladiator_destroyer", &function_e073793e);
+	zm_round_spawning::function_306ce518(#"gladiator_marauder", &function_20d7ebbb);
+	zm_round_spawning::function_306ce518(#"catalyst", &function_40dfd00b);
+	zm_round_spawning::function_306ce518(#"blight_father", &function_dcf7377c);
+	zm_round_spawning::function_cc103b38(#"catalyst", 6);
 	level thread function_11962516();
 }
 
@@ -608,7 +608,7 @@ function function_11962516()
 	{
 		var_1a397ef++;
 	}
-	namespace_c3287616::function_b4a8f95a(#"tiger", var_1a397ef, &zm_towers_special_rounds::function_f63225b8, &zm_towers_special_rounds::function_9a74f284, &zm_towers_special_rounds::function_a5dc8595, &namespace_3fe4d0d7::function_ffa01525);
+	zm_round_spawning::function_b4a8f95a(#"tiger", var_1a397ef, &zm_towers_special_rounds::function_f63225b8, &zm_towers_special_rounds::function_9a74f284, &zm_towers_special_rounds::function_a5dc8595, &namespace_3fe4d0d7::function_ffa01525);
 	zm_utility::function_fdb0368(var_1a397ef);
 	wait(2);
 	zm_utility::function_9b7bc715(#"tiger", 1);

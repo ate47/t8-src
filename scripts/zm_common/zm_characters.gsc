@@ -486,8 +486,8 @@ function function_dc232a80(character)
 		{
 			if(isinarray(character, var_c81b1496.name))
 			{
-				var_9e4224f8 = getplayerrolefields(var_c81b1496.characterindex, currentsessionmode());
-				return var_9e4224f8.var_3e570307;
+				rolefields = getplayerrolefields(var_c81b1496.characterindex, currentsessionmode());
+				return rolefields.var_3e570307;
 			}
 		}
 		/#

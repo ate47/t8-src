@@ -3055,7 +3055,7 @@ function function_b7f2c635(player)
 		self sethintstringforplayer(player, #"hash_55d25caf8f7bbb2f");
 		return 1;
 	}
-	if(zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f") || zm_trial_randomize_perks::is_active())
+	if(zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"zmperksactive") || zm_trial_randomize_perks::is_active())
 	{
 		self sethintstringforplayer(player, #"hash_77db65489366a43");
 		return 1;
@@ -3139,7 +3139,7 @@ function function_f5da744e()
 		{
 			continue;
 		}
-		if(!vending_trigger_can_player_use(player, 1) || zm_trial_disable_buys::is_active() || zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f"))
+		if(!vending_trigger_can_player_use(player, 1) || zm_trial_disable_buys::is_active() || zm_trial_disable_perks::is_active() || !zm_custom::function_901b751c(#"zmperksactive"))
 		{
 			wait(0.1);
 			continue;
@@ -3294,13 +3294,13 @@ function taking_cover_tanks_(player, perk, n_slot, var_3468124)
 	var_3468124 thread function_e9df56d1();
 	player perk_give_bottle_begin(perk);
 	evt = undefined;
-	evt = player waittilltimeout(3, #"fake_death", #"death", #"player_downed", #"hash_7b6a55a9b65e3194", #"perk_abort_drinking", #"disconnect");
+	evt = player waittilltimeout(3, #"fake_death", #"death", #"player_downed", #"offhand_fire", #"perk_abort_drinking", #"disconnect");
 	player.perk_purchased = undefined;
 	if(isdefined(player.intermission) && player.intermission)
 	{
 		return;
 	}
-	if(evt._notify == #"hash_7b6a55a9b65e3194" || evt._notify == #"timeout")
+	if(evt._notify == #"offhand_fire" || evt._notify == #"timeout")
 	{
 		if(player.var_47654123[n_slot])
 		{
@@ -3493,7 +3493,7 @@ function function_9bdf581f(perk, n_slot, b_bought = 0)
 		self zm_stats::function_c0c6ab19(#"perks_used");
 		if(zm_utility::is_standard())
 		{
-			self zm_stats::function_c0c6ab19(#"hash_1c390bca074e806a");
+			self zm_stats::function_c0c6ab19(#"perks_activated");
 		}
 	}
 	if(n_slot < 4)
@@ -3508,11 +3508,11 @@ function function_9bdf581f(perk, n_slot, b_bought = 0)
 		{
 			self function_fb633f9d(n_slot, 6);
 		}
-		self stats::inc_stat(#"hash_409332e5f180ebd", var_9a0250b7, #"given", #"statvalue", 1);
+		self stats::inc_stat(#"perk_stats", var_9a0250b7, #"given", #"statvalue", 1);
 	}
 	else
 	{
-		self stats::inc_stat(#"hash_409332e5f180ebd", level._custom_perks[perk].var_60e3692f, #"hash_3665254f9bca8d1e", #"statvalue", 1);
+		self stats::inc_stat(#"perk_stats", level._custom_perks[perk].var_60e3692f, #"modifier_given", #"statvalue", 1);
 	}
 	if(isdefined(level._custom_perks[perk]) && isdefined(level._custom_perks[perk].player_thread_give))
 	{
@@ -3907,7 +3907,7 @@ function function_29387491(var_16c042b8, n_slot)
 	}
 	self perk_give_bottle_begin(var_16c042b8);
 	s_result = undefined;
-	s_result = self waittilltimeout(3, #"hash_7b6a55a9b65e3194");
+	s_result = self waittilltimeout(3, #"offhand_fire");
 	if(isdefined(n_slot))
 	{
 		if(isdefined(var_ddd879da) && var_ddd879da)
@@ -3998,7 +3998,7 @@ function private function_7723353c()
 	{
 		return;
 	}
-	self waittill(#"hash_6983c1a427fa8913");
+	self waittill(#"perks_initialized");
 	s_perk = undefined;
 	if(isdefined(self.talisman_perk_start_1) && self.talisman_perk_start_1 && isdefined(self.var_c27f1e90[0]))
 	{
@@ -4726,7 +4726,7 @@ function function_28ac0614(var_bbb2c705, var_613b7621 = 0)
 	{
 		var_cd5d9345 = [];
 	}
-	var_cd0340f4 = isdefined(var_bbb2c705) && zombie_utility::function_d2dfacfd("perks_decay") && zm_custom::function_901b751c(#"hash_3ddb6198e7837062") == 1;
+	var_cd0340f4 = isdefined(var_bbb2c705) && zombie_utility::function_d2dfacfd("perks_decay") && zm_custom::function_901b751c(#"zmperkdecay") == 1;
 	if(var_cd0340f4)
 	{
 		self function_dc10fc94(var_cd5d9345, var_bbb2c705);
@@ -4743,11 +4743,11 @@ function function_28ac0614(var_bbb2c705, var_613b7621 = 0)
 			}
 			if(b_wait && (!(isdefined(self.var_39c78617) && self.var_39c78617)))
 			{
-				self waittilltimeout(var_bbb2c705, #"hash_257d7f8fe6f97830");
+				self waittilltimeout(var_bbb2c705, #"instakill_player");
 			}
 		}
 	}
-	else if(level.enable_magic && (isdefined(zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f")) && zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f")))
+	else if(level.enable_magic && (isdefined(zm_custom::function_901b751c(#"zmperksactive")) && zm_custom::function_901b751c(#"zmperksactive")))
 	{
 		for(i = 3; i >= 0; i--)
 		{
@@ -4850,10 +4850,10 @@ function private set_bleedout_progress(var_bbb2c705, var_b0696a17)
 	n_time_elapsed = 0;
 	while(var_73db1c5d < 4)
 	{
-		var_21243f81 = math::clamp(n_time_elapsed / var_bbb2c705, 0, 1);
-		var_78835e6 = (1 * (var_21243f81 + var_73db1c5d)) / 4;
+		n_perc = math::clamp(n_time_elapsed / var_bbb2c705, 0, 1);
+		var_78835e6 = (1 * (n_perc + var_73db1c5d)) / 4;
 		self clientfield::set_player_uimodel("hudItems.perkVapor.bleedoutProgress", 1 - var_78835e6);
-		if(var_21243f81 == 1)
+		if(n_perc == 1)
 		{
 			n_time_elapsed = 0;
 			var_73db1c5d++;
@@ -5204,7 +5204,7 @@ function function_545a79c()
 				case "hash_2c6e9bd17e4c70e5":
 				case "hash_3547aac06cbbd656":
 				{
-					str_perk = #"hash_5b141f82a55645a9";
+					str_perk = #"specialty_berserker";
 					var_8d1a1acc = strtok(cmd, "");
 					var_eb4c64e8 = int(var_8d1a1acc[1]) - 1;
 					break;
@@ -5224,7 +5224,7 @@ function function_545a79c()
 				case "hash_37f041c2ceccaa32":
 				case "hash_60a8ca620122ce03":
 				{
-					str_perk = #"hash_34c7d1e8a059f87e";
+					str_perk = #"specialty_camper";
 					var_8d1a1acc = strtok(cmd, "");
 					var_eb4c64e8 = int(var_8d1a1acc[1]) - 1;
 					break;

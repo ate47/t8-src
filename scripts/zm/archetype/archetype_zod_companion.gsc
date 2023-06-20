@@ -786,12 +786,12 @@ function private function_d0371e1e()
 function private function_a2ba1ce8(target_entity, max_distance)
 {
 	entity = self;
-	var_85e6dc61 = target_entity.origin;
-	if(distancesquared(entity.origin, var_85e6dc61) > max_distance * max_distance)
+	target_location = target_entity.origin;
+	if(distancesquared(entity.origin, target_location) > max_distance * max_distance)
 	{
 		return false;
 	}
-	path = entity calcapproximatepathtoposition(var_85e6dc61);
+	path = entity calcapproximatepathtoposition(target_location);
 	segmentlength = 0;
 	for(index = 1; index < path.size; index++)
 	{

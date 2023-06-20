@@ -215,7 +215,7 @@ function on_player_killed(params)
 	if(isdefined(player.var_b6672e47) && player.var_b6672e47 && player === player.var_9db94fe3 && util::function_fbce7263(player.team, attacker.team))
 	{
 		attacker activecamo::function_896ac347(weapon, #"showstopper", 1);
-		scoreevents::processscoreevent(#"hash_32b207d17e4776c1", attacker, player.var_9db94fe3, weapon);
+		scoreevents::processscoreevent(#"tak5_shutdown", attacker, player.var_9db94fe3, weapon);
 	}
 }
 
@@ -313,7 +313,7 @@ function regen_health(weapon, source_player, var_7b8559d4)
 		player status_effect::function_408158ef(var_d3c0f4a7.setype, var_d3c0f4a7.var_18d16a6b);
 		if(player != source_player)
 		{
-			scoreevents::processscoreevent(#"hash_443259a06e49440f", source_player, player, weapon);
+			scoreevents::processscoreevent(#"tak5_boosted", source_player, player, weapon);
 			source_player.localheal.var_e2e4899c = source_player.localheal.var_e2e4899c + 1;
 		}
 		player.localheal.var_21de13e3 = player.localheal.var_21de13e3 + var_7b8559d4;
@@ -391,16 +391,16 @@ function function_9fe3d492()
 */
 function function_ee175021(array, entnum)
 {
-	var_66ac8e3e = undefined;
+	inarray = undefined;
 	foreach(var_8712c5b8 in array)
 	{
 		if(var_8712c5b8.entnum == entnum)
 		{
-			var_66ac8e3e = var_8712c5b8;
+			inarray = var_8712c5b8;
 			break;
 		}
 	}
-	return var_66ac8e3e;
+	return inarray;
 }
 
 /*
@@ -507,7 +507,7 @@ function function_6628dc23(slot, weapon)
 			player status_effect::function_6519f95f();
 		}
 	}
-	self luinotifyevent(#"hash_1c27b5e4f3724ea3", 2, player.var_b6971302, var_1edc9e27);
+	self luinotifyevent(#"localheal_fire", 2, player.var_b6971302, var_1edc9e27);
 }
 
 /*

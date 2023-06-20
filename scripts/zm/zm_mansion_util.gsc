@@ -3,7 +3,7 @@
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\zm_mansion_jordans.gsc;
 #using scripts\zm_common\zm_characters.gsc;
@@ -460,7 +460,7 @@ function waittill_player_nearby(e_player, var_5a365909 = 0)
 */
 function function_6a523c8c(v_wobble = (0, 0, 1))
 {
-	self endoncallback(&function_43ac0bb7, #"death", #"stop_wobble", #"hash_7e05ecbcf6c25592");
+	self endoncallback(&function_43ac0bb7, #"death", #"stop_wobble", #"finish_wobble");
 	if(!isdefined(self.v_start_origin))
 	{
 		self.v_start_origin = self.origin;
@@ -517,8 +517,8 @@ function function_43ac0bb7(str_notify)
 */
 function function_da5cd631(v_spin = vectorscale((0, 0, 1), 180))
 {
-	self endon(#"death", #"hash_3946eb0fdd8a2c0e");
-	self notify(#"hash_7e05ecbcf6c25592");
+	self endon(#"death", #"stop_spin");
+	self notify(#"finish_wobble");
 	n_wait = 6;
 	while(true)
 	{
@@ -668,7 +668,7 @@ function function_e7d4e4f0()
 	if(!level flag::get("flag_player_grabbed_werewolf_material"))
 	{
 		e_holder thread zm_vo::function_a2bd5a0c(#"hash_161206ddd7dcc321", 1);
-		level namespace_6747c550::function_7df6bb60(#"ww_p1_2", 1);
+		level zm_ui_inventory::function_7df6bb60(#"ww_p1_2", 1);
 		self.var_817342a7 delete();
 		self struct::delete();
 		level.var_98cb7c84 = undefined;
@@ -1336,7 +1336,7 @@ function draw_arrow(org, ang, opcolor, str)
 	Parameters: 9
 	Flags: Linked
 */
-function function_2057ddc1(v_loc, var_9fa0c0f, var_bff0cf99, var_440d7980, var_d8ad5f6e, var_1ef7b21 = 10, b_wait_if_busy = 1, var_39238c39 = 0, var_eb20a7c = 0)
+function function_2057ddc1(v_loc, str_cat, var_bff0cf99, var_440d7980, var_d8ad5f6e, var_1ef7b21 = 10, b_wait_if_busy = 1, var_39238c39 = 0, var_eb20a7c = 0)
 {
 	level endon(#"end_game", #"intermission");
 	if(!isdefined(level.var_f1028094))
@@ -1373,7 +1373,7 @@ function function_2057ddc1(v_loc, var_9fa0c0f, var_bff0cf99, var_440d7980, var_d
 				{
 					vox_idgun_upgrade_ready_orb_ = 0;
 				}
-				str_vo = (((((("vox_" + var_9fa0c0f) + "_") + var_bff0cf99) + "_plr_") + n_character_index) + "_") + vox_idgun_upgrade_ready_orb_;
+				str_vo = (((((("vox_" + str_cat) + "_") + var_bff0cf99) + "_plr_") + n_character_index) + "_") + vox_idgun_upgrade_ready_orb_;
 				if(isdefined(var_eb20a7c) && var_eb20a7c)
 				{
 					e_player stopsounds();
@@ -1381,7 +1381,7 @@ function function_2057ddc1(v_loc, var_9fa0c0f, var_bff0cf99, var_440d7980, var_d
 				}
 				if(isalive(e_player))
 				{
-					e_player zm_vo::function_8e0f4696(str_vo, 0, b_wait_if_busy, 9999);
+					e_player zm_vo::vo_say(str_vo, 0, b_wait_if_busy, 9999);
 				}
 				wait(var_1ef7b21);
 				level.var_f1028094[var_d8ad5f6e] = 0;

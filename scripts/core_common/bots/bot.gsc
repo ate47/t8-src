@@ -2092,17 +2092,17 @@ function function_2d5436be(origin, spiral)
 	Parameters: 3
 	Flags: None
 */
-function devgui_add_fixed_spawn_bots(botarg, var_b27e53da, var_8baa0e51)
+function devgui_add_fixed_spawn_bots(botarg, var_b27e53da, countarg)
 {
 	team = devgui_relative_team(self, botarg);
 	trace = self eye_trace();
 	spawndir = self.origin - trace[#"position"];
 	spawnangles = vectortoangles(spawndir);
-	if(!isdefined(var_8baa0e51))
+	if(!isdefined(countarg))
 	{
-		var_8baa0e51 = 1;
+		countarg = 1;
 	}
-	count = max(int(var_8baa0e51), 1);
+	count = max(int(countarg), 1);
 	bots = [];
 	offset = vectorscale((0, 0, 1), 5);
 	origin = trace[#"position"] + offset;
@@ -2298,7 +2298,7 @@ function function_41f90224(host, botarg)
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
 	{
-		setdvar(#"hash_6028c4687677bbc9", 1);
+		setdvar(#"bg_boastenabled", 1);
 		bot function_c6775cf9("dev_boast_tpose");
 	}
 }

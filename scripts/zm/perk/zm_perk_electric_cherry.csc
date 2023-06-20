@@ -34,7 +34,7 @@ function __init__()
 	zm_perks::register_perk_clientfields(#"specialty_electriccherry", &electric_cherry_client_field_func, &electric_cherry_code_callback_func);
 	zm_perks::register_perk_effects(#"specialty_electriccherry", "electric_cherry_light");
 	zm_perks::register_perk_init_thread(#"specialty_electriccherry", &init_electric_cherry);
-	zm_perks::function_b60f4a9f(#"specialty_electriccherry", #"p8_zm_vapor_altar_icon_01_electricburst", "zombie/fx8_perk_altar_symbol_ambient_electric_cherry", #"hash_77c5cc2d9b6ca16c");
+	zm_perks::function_b60f4a9f(#"specialty_electriccherry", #"p8_zm_vapor_altar_icon_01_electricburst", "zombie/fx8_perk_altar_symbol_ambient_electric_cherry", #"zmperkselectricburst");
 	zm_perks::function_f3c80d73("zombie_perk_bottle_cherry", "zombie_perk_totem_electric_burst");
 }
 

@@ -50,7 +50,7 @@ class cbarricade : cdoor
 	*/
 	function function_6c15ac46()
 	{
-		m_e_door endon(#"delete", #"hash_430683d292f4ba43");
+		m_e_door endon(#"delete", #"barricade_removed");
 		while(true)
 		{
 			m_e_door endon(#"delete");
@@ -78,7 +78,7 @@ class cbarricade : cdoor
 	*/
 	function function_da5abae9()
 	{
-		m_e_door endon(#"delete", #"hash_430683d292f4ba43");
+		m_e_door endon(#"delete", #"barricade_removed");
 		while(true)
 		{
 			m_e_door waittill(#"hash_7166c13e79b73f9");
@@ -135,7 +135,7 @@ class cbarricade : cdoor
 							m_e_door scene::play(m_s_bundle.var_8124c17f, m_e_door);
 						}
 						m_e_door notify(#"gameobject_deleted");
-						m_e_door notify(#"hash_430683d292f4ba43");
+						m_e_door notify(#"barricade_removed");
 						waitframe(1);
 						m_e_door.mdl_gameobject delete();
 						m_e_door delete();

@@ -680,7 +680,7 @@ function function_efe33e13()
 function function_fba5f0e1(n_index)
 {
 	self thread global_cooldown(n_index);
-	self thread function_87ad6161(n_index);
+	self thread slot_cooldown(n_index);
 }
 
 /*
@@ -704,7 +704,7 @@ function global_cooldown(n_index)
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
-	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"zmelixirscooldown"))
 	{
 		case 1:
 		default:
@@ -768,7 +768,7 @@ function function_6f7d5230(n_index)
 }
 
 /*
-	Name: function_87ad6161
+	Name: slot_cooldown
 	Namespace: bgb_pack
 	Checksum: 0x32B87F8B
 	Offset: 0x1AD0
@@ -776,7 +776,7 @@ function function_6f7d5230(n_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_87ad6161(n_index)
+function slot_cooldown(n_index)
 {
 	self endon(#"disconnect");
 	var_ce5ed2e9 = self.bgb_pack[n_index];
@@ -859,7 +859,7 @@ function function_87ad6161(n_index)
 			}
 		}
 	}
-	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"zmelixirscooldown"))
 	{
 		case 1:
 		default:
@@ -1080,9 +1080,9 @@ function function_7b91e81c(slot_index, item_index)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1d5d39b0(slot_index, var_365a98bd)
+function function_1d5d39b0(slot_index, cooldown_perc)
 {
-	self clientfield::set_player_uimodel(("zmhud.bgb_carousel." + slot_index) + ".cooldown_perc", var_365a98bd);
+	self clientfield::set_player_uimodel(("zmhud.bgb_carousel." + slot_index) + ".cooldown_perc", cooldown_perc);
 }
 
 /*
@@ -1094,9 +1094,9 @@ function function_1d5d39b0(slot_index, var_365a98bd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4650bb90(var_365a98bd)
+function function_4650bb90(cooldown_perc)
 {
-	self clientfield::set_player_uimodel("zmhud.bgb_carousel.global_cooldown", var_365a98bd);
+	self clientfield::set_player_uimodel("zmhud.bgb_carousel.global_cooldown", cooldown_perc);
 }
 
 /*
@@ -1430,7 +1430,7 @@ function private function_c1091a8f(str_cmd, key)
 				level.var_7c3d4959 = 1;
 				break;
 			}
-			case "hash_db8a858c62b82f":
+			case "default_cooldowns":
 			{
 				level.var_7c3d4959 = 0;
 				break;

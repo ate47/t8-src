@@ -27,22 +27,22 @@ function init_clientfields()
 {
 	level._effect[#"hash_2321fa1d61c16113"] = #"hash_3b34b1e477be8113";
 	level._effect[#"hash_231b0e1d61bb6461"] = #"hash_3b2dc5e477b88461";
-	level._effect[#"hash_2f7d514a39482700"] = #"hash_59977c4c851916e0";
+	level._effect[#"kp_projectile"] = #"hash_59977c4c851916e0";
 	level._effect[#"hash_27063b90fbaa52"] = #"hash_1a06427eff8dfe13";
 	level._effect[#"hash_2e3e645052f77846"] = #"hash_78712d347cdd5147";
 	level._effect[#"hash_3953ee06542d1089"] = #"hash_795ee7d89d6f10d2";
 	level._effect[#"hash_48b3ee505e47cbfc"] = #"hash_69f0c87c19162d91";
 	clientfield::register("allplayers", "" + #"shield_fire", 8000, 1, "int", &function_da63d789, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_14f3f35558fd380b", 8000, getminbitcountfornum(3), "int", &function_6831e926, 0, 0);
+	clientfield::register("scriptmover", "" + #"triad_beam", 8000, getminbitcountfornum(3), "int", &triad_beam, 0, 0);
 	clientfield::register("scriptmover", "" + #"wisp_fx", 8000, 2, "int", &function_41640257, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_2108935a0c33f89a", 8000, getminbitcountfornum(3), "int", &function_b24b4025, 0, 0);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp1", 8000, #"kp_1", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp2", 8000, #"kp_2", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp3", 8000, #"kp_3", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"kp_1_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"kp_2_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"kp_3_halfway", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
-	namespace_617a54f4::function_d8383812(#"soul_capture_forest", 8000, #"kp_forest", 400, level._effect[#"hash_2f7d514a39482700"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp1", 8000, #"kp_1", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp2", 8000, #"kp_2", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp3", 8000, #"kp_3", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp1_halfway", 8000, #"kp_1_halfway", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp2_halfway", 8000, #"kp_2_halfway", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"kp_3_halfway", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
+	namespace_617a54f4::function_d8383812(#"soul_capture_forest", 8000, #"kp_forest", 400, level._effect[#"kp_projectile"], level._effect[#"hash_27063b90fbaa52"], undefined, undefined, 1);
 }
 
 /*
@@ -159,7 +159,7 @@ function function_da5e1d54(localclientnum, fx_blue_fire)
 }
 
 /*
-	Name: function_6831e926
+	Name: triad_beam
 	Namespace: mansion_triad
 	Checksum: 0x85757F4A
 	Offset: 0xBF0
@@ -167,7 +167,7 @@ function function_da5e1d54(localclientnum, fx_blue_fire)
 	Parameters: 7
 	Flags: Linked
 */
-function function_6831e926(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function triad_beam(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval > 0)
 	{

@@ -22,20 +22,20 @@
 	Parameters: 2
 	Flags: None
 */
-function is_winner(outcome, var_512330f1)
+function is_winner(outcome, team_or_player)
 {
-	if(isplayer(var_512330f1))
+	if(isplayer(team_or_player))
 	{
-		if(outcome.players.size && outcome.players[0] == var_512330f1)
+		if(outcome.players.size && outcome.players[0] == team_or_player)
 		{
 			return true;
 		}
-		if(isdefined(outcome.team) && outcome.team == var_512330f1.team)
+		if(isdefined(outcome.team) && outcome.team == team_or_player.team)
 		{
 			return true;
 		}
 	}
-	else if(isdefined(outcome.team) && outcome.team == var_512330f1)
+	else if(isdefined(outcome.team) && outcome.team == team_or_player)
 	{
 		return true;
 	}

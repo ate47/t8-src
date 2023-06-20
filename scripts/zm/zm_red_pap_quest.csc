@@ -23,14 +23,14 @@ function init_clientfield()
 	clientfield::register("scriptmover", "" + #"hash_38dbf4f346c0b609", -15000, 1, "counter", &function_56b9111c, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_9055852bfeb9f00", -15000, 1, "counter", &function_f2332be2, 0, 0);
 	clientfield::register("scriptmover", "" + #"crystal_explosion", 16000, 1, "counter", &crystal_explosion_func, 0, 0);
-	clientfield::register("vehicle", "" + #"hash_68f13836e5123974", 16000, 1, "counter", &function_417c12e1, 0, 0);
+	clientfield::register("vehicle", "" + #"spartoi_charge", 16000, 1, "counter", &function_417c12e1, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_687fbbd292ea6be0", 16000, 1, "int", &function_5783c958, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_25518e9ed7ed3a00", 16000, 1, "int", &function_e83bf3a, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_63d76935e1b33990", 16000, 1, "int", &function_11d62eb0, 0, 0);
+	clientfield::register("toplayer", "" + #"pegasus_shellshock", 16000, 1, "int", &function_e83bf3a, 0, 0);
+	clientfield::register("toplayer", "" + #"waterfall_passthrough", 16000, 1, "int", &function_11d62eb0, 0, 0);
 	clientfield::register("world", "" + #"hash_28eb5e403f599ce2", 17000, 1, "int", &function_6c40f793, 0, 0);
 	level._effect[#"hash_38dbf4f346c0b609"] = #"hash_66e87f89740f4b2c";
 	level._effect[#"crystal_explosion"] = #"hash_6e87fbd77320ada5";
-	level._effect[#"hash_641b95473df6f630"] = #"hash_1a06427eff8dfe13";
+	level._effect[#"spartoi_charged"] = #"hash_1a06427eff8dfe13";
 }
 
 /*
@@ -93,11 +93,11 @@ function function_e83bf3a(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(newval == 1)
 	{
-		self thread postfx::playpostfxbundle(#"hash_3b0eec5d73aa6243");
+		self thread postfx::playpostfxbundle(#"pstfx_slowed");
 	}
 	else
 	{
-		self thread postfx::exitpostfxbundle(#"hash_3b0eec5d73aa6243");
+		self thread postfx::exitpostfxbundle(#"pstfx_slowed");
 	}
 }
 

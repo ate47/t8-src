@@ -114,7 +114,7 @@ function main()
 	game._team1_num = 0;
 	game._team2_num = 0;
 	map_name = level.script;
-	mode = util::function_5df4294();
+	mode = util::get_game_type();
 	if(!isdefined(mode) || mode == "" && isdefined(level.default_game_mode))
 	{
 		mode = level.default_game_mode;
@@ -136,7 +136,7 @@ function main()
 	{
 		game.switchedsides = 0;
 	}
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	game.dialog[#"gametype"] = gametype + "_start";
 	game.dialog[#"gametype_hardcore"] = gametype + "_start";
 	game.dialog[#"offense_obj"] = "generic_boost";
@@ -638,7 +638,7 @@ function menu_init()
 	game.menu[#"menu_changeclass"] = "ChooseClass_InGame";
 	game.menu[#"menu_changeclass_offline"] = "ChooseClass_InGame";
 	game.menu[#"menu_changeclass_custom"] = "changeclass_custom";
-	game.menu[#"hash_644a9c94f3d35a8a"] = "PositionDraft";
+	game.menu[#"menu_draft"] = "PositionDraft";
 	game.menu[#"menu_controls"] = "ingame_controls";
 	game.menu[#"menu_options"] = "ingame_options";
 	game.menu[#"menu_leavegame"] = "popup_leavegame";

@@ -499,7 +499,7 @@ function private function_c179676a()
 	{
 		self switchtoweaponimmediate(var_3ba4bf7d[0], 1);
 	}
-	self waittill(#"hash_66790eb1100e11a2");
+	self waittill(#"fasttravel_finished");
 	self switchtoweaponimmediate(w_current, 1);
 }
 
@@ -600,9 +600,9 @@ function function_429e121c(var_5cc91e3c, var_8d5d092c, var_67cba496, var_374f0c4
 */
 function function_eef4fa8c(var_8d5d092c, var_418e2265)
 {
-	var_97326008 = "global_cooldown_watcher_" + var_8d5d092c;
-	level notify(var_97326008);
-	level endon(var_97326008);
+	str_notify_endon = "global_cooldown_watcher_" + var_8d5d092c;
+	level notify(str_notify_endon);
+	level endon(str_notify_endon);
 	if(level.var_8f8f85f5)
 	{
 		level.var_261ad4d[var_8d5d092c] = 1;

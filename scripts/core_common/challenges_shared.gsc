@@ -1090,15 +1090,15 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 		}
 		if(getdvarint(#"hash_522a538e0f11b88e", 1))
 		{
-			credit_multiplier = max(player function_c52bcf79(), getdvarfloat(#"hash_3ff4f2f1f645d6f0", 1));
+			credit_multiplier = max(player function_c52bcf79(), getdvarfloat(#"scr_credit_scale", 1));
 			credits = credits * credit_multiplier;
-			var_3595e9d5 = player stats::function_ff8f4f17(#"hash_680995704209a5b1");
-			if(isdefined(var_3595e9d5) && var_3595e9d5 > 0)
+			tier_boost = player stats::function_ff8f4f17(#"tier_boost");
+			if(isdefined(tier_boost) && tier_boost > 0)
 			{
-				var_3595e9d5 = min(var_3595e9d5, getdvarint(#"hash_20997c814ed4b7ed", 25));
-				credits = credits + (credits * (var_3595e9d5 / 100));
+				tier_boost = min(tier_boost, getdvarint(#"hash_20997c814ed4b7ed", 25));
+				credits = credits + (credits * (tier_boost / 100));
 				/#
-					println((("" + player.name) + "") + var_3595e9d5);
+					println((("" + player.name) + "") + tier_boost);
 				#/
 			}
 			var_15a07618 = player stats::function_ff8f4f17(#"hash_46bff228e40d37d7");
@@ -1154,7 +1154,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 					}
 					if(player.pers[#"hash_6344af0b142ed0b6"])
 					{
-						player function_cce105c8(#"hash_53d1279e51b610a9", 1, 1, 2, modeindex);
+						player function_cce105c8(#"tier_skip", 1, 1, 2, modeindex);
 					}
 				}
 				if(sessionmodeismultiplayergame() && getdvarint(#"hash_ed47eb88ebf25b2", 1) || (sessionmodeiswarzonegame() && getdvarint(#"hash_eb27cb88ea23be6", 1)))

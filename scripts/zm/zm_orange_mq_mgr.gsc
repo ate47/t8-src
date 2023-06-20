@@ -14,10 +14,10 @@
 #using scripts\zm\zm_orange_mq_sendoff.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm\zm_orange_mq_fuse.gsc;
-#using script_7bc1d63f5e0e027;
+#using scripts\zm\zm_orange_lights.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -180,9 +180,9 @@ function play_outro()
 		}
 		array::thread_all(a_e_players, &zm_player::spectator_respawn_player);
 	}
-	namespace_509a75d1::function_3c173d37();
+	zm_hms_util::function_3c173d37();
 	level zm_audio::sndvoxoverride(1);
-	lui::play_movie(#"hash_13e1b680be72dcd3", "fullscreen", 1, 0, 0, #"hash_1d54dda4d1e82bc3", undefined, 0);
+	lui::play_movie(#"zm_orange_outro", "fullscreen", 1, 0, 0, #"hash_1d54dda4d1e82bc3", undefined, 0);
 }
 
 /*
@@ -196,8 +196,8 @@ function play_outro()
 */
 function function_d4147875(var_5ea5c94d)
 {
-	namespace_509a75d1::function_314447b(1, 0);
-	namespace_db48768d::function_b1c6d4f2();
+	zm_hms_util::function_314447b(1, 0);
+	zm_orange_lights::function_b1c6d4f2();
 	level flag::set(#"hold_round_end");
 	level thread play_outro();
 	wait(320);
@@ -206,7 +206,7 @@ function function_d4147875(var_5ea5c94d)
 	#/
 	level thread lui::screen_flash(0.2, 7, 7, 1, "black");
 	wait(0.3);
-	level.var_583a0efc = getstatuseffect(#"hash_13e1b680be72dcd3");
+	level.var_583a0efc = getstatuseffect(#"zm_orange_outro");
 	/#
 		println("");
 	#/
@@ -232,7 +232,7 @@ function function_d4147875(var_5ea5c94d)
 	/#
 		println("");
 	#/
-	namespace_db48768d::function_e9f6e0f7();
+	zm_orange_lights::function_e9f6e0f7();
 	/#
 		println("");
 	#/

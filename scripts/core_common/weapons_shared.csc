@@ -183,11 +183,11 @@ function function_ec73770b(local_client_num)
 	player = self;
 	player endon(#"death", #"disconnect");
 	wait(randomfloatrange(0.1, 0.5));
-	var_935615f7 = #"hash_1e34233a951a9cdb";
+	var_935615f7 = #"mountable_point";
 	obj_id = undefined;
 	var_8e35a928 = 0;
 	var_4798772a = 0;
-	var_53dceb67 = (0, 0, 0);
+	mountable_point = (0, 0, 0);
 	var_982f06c8 = 0;
 	var_5a5b4ff7 = 0;
 	while(true)
@@ -196,12 +196,12 @@ function function_ec73770b(local_client_num)
 		{
 			if(!var_5a5b4ff7 && var_8e35a928)
 			{
-				objective_add(local_client_num, obj_id, "active", var_935615f7, var_53dceb67);
+				objective_add(local_client_num, obj_id, "active", var_935615f7, mountable_point);
 				objective_setgamemodeflags(local_client_num, obj_id, var_982f06c8);
 				/#
 					if(getdvarint(#"hash_45f38774fd8ac214", 0) > 0)
 					{
-						sphere(var_53dceb67, 2, (0.1, 0.9, 0.1), 0.8, 1, 16, 1);
+						sphere(mountable_point, 2, (0.1, 0.9, 0.1), 0.8, 1, 16, 1);
 					}
 				#/
 			}
@@ -248,7 +248,7 @@ function function_ec73770b(local_client_num)
 			continue;
 		}
 		origin = getlocalclientpos(local_client_num);
-		var_53dceb67 = origin;
+		mountable_point = origin;
 		cam_angles = getcamanglesbylocalclientnum(local_client_num);
 		forward = anglestoforward(cam_angles);
 		forward = vectornormalize((forward[0], forward[1], 0));
@@ -284,7 +284,7 @@ function function_ec73770b(local_client_num)
 					var_f7fa6d81 = var_dd4ed37 + (vectorscale((0, 0, -1), var_8e88861f[#"fraction"] * var_3ee12918));
 					var_1b1c8c9f = var_f7fa6d81[2];
 				}
-				var_53dceb67 = (trace_result[#"position"][0], trace_result[#"position"][1], var_1b1c8c9f);
+				mountable_point = (trace_result[#"position"][0], trace_result[#"position"][1], var_1b1c8c9f);
 				if(var_8e35a928)
 				{
 					if(hit_distance < current_weapon.var_cddb5cd0 + player_radius)

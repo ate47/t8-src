@@ -176,7 +176,7 @@ function function_f358791()
 		tanks = getentarray("talon", "targetname");
 		foreach(tank in tanks)
 		{
-			if(self function_932034ba(tank))
+			if(self cantargettank(tank))
 			{
 				targets[targets.size] = tank;
 			}
@@ -429,7 +429,7 @@ function cantargetplayer(player)
 }
 
 /*
-	Name: function_932034ba
+	Name: cantargettank
 	Namespace: lead_drone
 	Checksum: 0x30EF5EB5
 	Offset: 0x13C8
@@ -437,7 +437,7 @@ function cantargetplayer(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_932034ba(tank)
+function cantargettank(tank)
 {
 	if(!isdefined(tank))
 	{
@@ -527,7 +527,7 @@ function reload()
 }
 
 /*
-	Name: function_a205de0d
+	Name: attackthread
 	Namespace: lead_drone
 	Checksum: 0x8F49926
 	Offset: 0x15E0
@@ -535,7 +535,7 @@ function reload()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a205de0d()
+function attackthread()
 {
 	self endon(#"death", #"change_state", #"end_attack_thread");
 	while(true)
@@ -718,7 +718,7 @@ function state_combat_update(params)
 {
 	self endon(#"change_state", #"death");
 	self thread function_5ebe7443();
-	self thread function_a205de0d();
+	self thread attackthread();
 	for(;;)
 	{
 		if(isdefined(self.ignoreall) && self.ignoreall)

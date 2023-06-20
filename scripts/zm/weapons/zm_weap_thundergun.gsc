@@ -243,7 +243,7 @@ function thundergun_get_enemies_in_range()
 	forward_view_angles = self getweaponforwarddir();
 	end_pos = view_pos + vectorscale(forward_view_angles, zombie_utility::function_d2dfacfd(#"thundergun_knockdown_range"));
 	/#
-		if(2 == getdvarint(#"hash_7480352d82b9b2d4", 0))
+		if(2 == getdvarint(#"scr_thundergun_debug", 0))
 		{
 			near_circle_pos = view_pos + vectorscale(forward_view_angles, 2);
 			circle(near_circle_pos, zombie_utility::function_d2dfacfd(#"thundergun_cylinder_radius"), (1, 0, 0), 0, 0, 100);
@@ -367,7 +367,7 @@ function function_742cb66e()
 function thundergun_debug_print(msg, color)
 {
 	/#
-		if(!getdvarint(#"hash_7480352d82b9b2d4", 0))
+		if(!getdvarint(#"scr_thundergun_debug", 0))
 		{
 			return;
 		}

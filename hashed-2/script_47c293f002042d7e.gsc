@@ -26,15 +26,15 @@
 function init()
 {
 	clientfield::register("scriptmover", "" + #"hash_65a58403194ef1b4", 8000, 1, "int", &function_438d8674, 0, 0);
-	clientfield::register("world", "" + #"hash_d8f7d3d92b32a26", 8000, 1, "int", &function_73f3709a, 0, 0);
+	clientfield::register("world", "" + #"start_billiards", 8000, 1, "int", &start_billiards, 0, 0);
 	serverfield::register("billiard_ball_sunk_sf", 8000, getminbitcountfornum(9), "int");
 	clientfield::register("world", "" + #"hash_354bb8ac5de6640a", 8000, getminbitcountfornum(9), "int", &function_954a27a2, 0, 0);
 	clientfield::register("world", "" + #"hash_75594bca6b54706e", 8000, 1, "int", &function_68e49445, 0, 0);
 	clientfield::register("world", "" + #"hash_2c115514da4cee51", 17000, 1, "int", &function_2dbadedf, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_4103918642e9fdf9", 8000, 1, "counter", &function_3e37bb63, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_74f15de74cd5b883", 8000, 1, "counter", &function_5e130882, 0, 0);
-	level._effect[#"hash_4103918642e9fdf9"] = #"hash_657c3b5d3d9bfdfa";
-	level._effect[#"hash_7560d7dddb99e5e1"] = #"hash_42bcb312df258591";
+	clientfield::register("scriptmover", "" + #"barrel_drip", 8000, 1, "counter", &function_3e37bb63, 0, 0);
+	clientfield::register("scriptmover", "" + #"barrel_spray", 8000, 1, "counter", &function_5e130882, 0, 0);
+	level._effect[#"barrel_drip"] = #"hash_657c3b5d3d9bfdfa";
+	level._effect[#"barrel_splash"] = #"hash_42bcb312df258591";
 	level._effect[#"hash_6a63e8eb86cc88e2"] = #"hash_5934158bcfb9c884";
 	level._effect[#"hash_345c6b60fb9b8682"] = #"hash_782ae54493a94c4a";
 }
@@ -64,7 +64,7 @@ function function_438d8674(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_3e37bb63(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.fx = util::playfxontag(localclientnum, level._effect[#"hash_4103918642e9fdf9"], self, "tag_origin");
+	self.fx = util::playfxontag(localclientnum, level._effect[#"barrel_drip"], self, "tag_origin");
 }
 
 /*
@@ -87,7 +87,7 @@ function function_5e130882(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_73f3709a
+	Name: start_billiards
 	Namespace: namespace_c2ad41c5
 	Checksum: 0xE2E2489F
 	Offset: 0x8B0
@@ -95,7 +95,7 @@ function function_5e130882(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_73f3709a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function start_billiards(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
@@ -120,9 +120,9 @@ function function_ccfd819c()
 		setdynentenabled(var_5268e682[i], 1);
 		var_5268e682[i].script_int = i + 1;
 	}
-	foreach(var_9d68990a in var_5268e682)
+	foreach(e_ball in var_5268e682)
 	{
-		var_9d68990a thread function_eb218e8d();
+		e_ball thread function_eb218e8d();
 	}
 }
 
@@ -137,7 +137,7 @@ function function_ccfd819c()
 */
 function function_eb218e8d()
 {
-	level endon(#"hash_26b4b7b0dcb290a6");
+	level endon(#"billiards_done");
 	self endon(#"death");
 	n_elev = self.origin[2] - 4;
 	b_correct = 0;

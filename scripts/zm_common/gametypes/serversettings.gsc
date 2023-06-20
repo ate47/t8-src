@@ -68,7 +68,7 @@ function main()
 		level.allow_teamchange = 1;
 	}
 	setdvar(#"ui_allow_teamchange", level.allow_teamchange);
-	level.friendlyfire = getgametypesetting(#"hash_3f8f02e8109b6e93");
+	level.friendlyfire = getgametypesetting(#"zmfriendlyfiretype");
 	setdvar(#"ui_friendlyfire", level.friendlyfire);
 	if(!isdefined(getdvar(#"scr_mapsize")))
 	{
@@ -135,7 +135,7 @@ function updateserversettings()
 		level.allowvote = g_allowvote;
 		setdvar(#"ui_allowvote", level.allowvote);
 	}
-	scr_friendlyfire = getgametypesetting(#"hash_3f8f02e8109b6e93");
+	scr_friendlyfire = getgametypesetting(#"zmfriendlyfiretype");
 	if(level.friendlyfire != scr_friendlyfire)
 	{
 		level.friendlyfire = scr_friendlyfire;

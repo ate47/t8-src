@@ -75,7 +75,7 @@ function private registerbehaviorscriptfunctions()
 }
 
 /*
-	Name: function_e286179f
+	Name: spawnblightfather
 	Namespace: archetypeblightfather
 	Checksum: 0x73605095
 	Offset: 0x210
@@ -83,7 +83,7 @@ function private registerbehaviorscriptfunctions()
 	Parameters: 2
 	Flags: None
 */
-function function_e286179f(spawner, location)
+function spawnblightfather(spawner, location)
 {
 	spawner.script_forcespawn = 1;
 	entity = zombie_utility::spawn_zombie(spawner, undefined, location);

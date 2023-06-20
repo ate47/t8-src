@@ -5,10 +5,10 @@
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm\zm_office_floors.gsc;
@@ -108,7 +108,7 @@ function function_b540b576()
 	level.var_5849269a[4] = {#vo_line:var_68e586cf, #hash_85f707f6:0};
 	level.var_e046b238 = struct::get(#"hash_5201d44a6f57e32a");
 	level.var_94b00cff = spawn("script_model", level.var_e046b238.origin);
-	level.var_ba07f1de = namespace_509a75d1::function_bffcedde("office_audio_reel", "targetname", "script_int");
+	level.var_ba07f1de = zm_hms_util::function_bffcedde("office_audio_reel", "targetname", "script_int");
 	level.var_804a56e3 = 0;
 	foreach(var_2e2b46e8 in level.var_ba07f1de)
 	{
@@ -261,7 +261,7 @@ function function_8352562a()
 				level.var_94b00cff playloopsound(#"hash_48cebe2e9cc70ddc");
 			}
 			wait(2);
-			namespace_509a75d1::function_52c3fe8d(s_log.vo_line, level.var_94b00cff.origin);
+			zm_hms_util::function_52c3fe8d(s_log.vo_line, level.var_94b00cff.origin);
 			var_e578920c++;
 			level.var_94b00cff stoploopsound();
 			level.var_94b00cff playsound(#"hash_1f5fc24563134758");
@@ -731,15 +731,15 @@ function function_2767c5d7(e_player)
 {
 	if(isdefined(self.stub) && isdefined(self.stub.blueprint))
 	{
-		var_4b912983 = self.stub;
+		t_crafting = self.stub;
 	}
 	else if(isdefined(self.blueprint))
 	{
-		var_4b912983 = self;
+		t_crafting = self;
 	}
-	if(var_4b912983.blueprint.name == #"hash_6ab8e8ea32e97a22")
+	if(t_crafting.blueprint.name == #"hash_6ab8e8ea32e97a22")
 	{
-		var_4b912983.var_4f749ffe show();
+		t_crafting.var_4f749ffe show();
 		if(function_8b1a219a())
 		{
 			level.var_279a11a3 = self.stub.var_4f749ffe zm_unitrigger::create(#"hash_36ff79a9f968a5ee", 64, &function_73e06b11);
@@ -777,7 +777,7 @@ function function_73e06b11()
 */
 function function_80df67ff()
 {
-	level notify(#"hash_2fb169c8e0e47ffd");
+	level notify(#"modifier_acquired");
 	self playsound(#"hash_104670ec9247d6c");
 	level.var_279a11a3.related_parent setinvisibletoall();
 	zm_unitrigger::unregister_unitrigger(level.var_279a11a3);
@@ -795,7 +795,7 @@ function function_80df67ff()
 function function_a27356f6()
 {
 	self triggerenable(0);
-	level waittill(#"hash_2fb169c8e0e47ffd");
+	level waittill(#"modifier_acquired");
 	self triggerenable(1);
 	self usetriggerrequirelookat();
 	self setcursorhint("HINT_NOICON");
@@ -1140,7 +1140,7 @@ function hold_round_end(b_hold)
 */
 function function_5e893125()
 {
-	level.var_dc235a55 = namespace_509a75d1::function_2719d4c0("cage_debris", "targetname", "script_int");
+	level.var_dc235a55 = zm_hms_util::function_2719d4c0("cage_debris", "targetname", "script_int");
 	level.var_24629e70 = 1;
 	array::run_all(level.var_dc235a55, &function_3290d759);
 }
@@ -1247,7 +1247,7 @@ function function_55ca39d8()
 	array::thread_all(self.var_ddcda303, &zm_blockers::debris_zbarrier_move);
 	var_19400951 = spawn("script_origin", self.origin);
 	var_19400951 playloopsound(#"hash_5fcc4dd87aec52c7", 0.5);
-	if(util::function_5df4294() != #"zstandard")
+	if(util::get_game_type() != #"zstandard")
 	{
 		wait(3);
 	}
@@ -1255,7 +1255,7 @@ function function_55ca39d8()
 	var_19400951 stoploopsound(0.5);
 	var_19400951 delete();
 	array::run_all(self.a_e_clip, &delete);
-	if(util::function_5df4294() != #"zstandard")
+	if(util::get_game_type() != #"zstandard")
 	{
 		if(self.var_ceff30c0.size > 1)
 		{

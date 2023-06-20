@@ -75,13 +75,13 @@ function enable_cooldown_perk_for_level()
 	}
 	zm_perks::register_perk_precache_func(#"specialty_cooldown", &function_14afd300);
 	zm_perks::register_perk_clientfields(#"specialty_cooldown", &function_eaa4f1a1, &function_bfc02d23);
-	zm_perks::register_perk_machine(#"specialty_cooldown", &function_cf203b00, &function_a2d341cc);
+	zm_perks::register_perk_machine(#"specialty_cooldown", &function_cf203b00, &init_cooldown);
 	zm_perks::register_perk_host_migration_params(#"specialty_cooldown", "p7_zm_vending_nuke", "divetonuke_light");
 	zm_perks::register_perk_threads(#"specialty_cooldown", &function_44cf89d3, &function_d0623d8c);
 }
 
 /*
-	Name: function_a2d341cc
+	Name: init_cooldown
 	Namespace: zm_perk_cooldown
 	Checksum: 0x80F724D1
 	Offset: 0x440
@@ -89,7 +89,7 @@ function enable_cooldown_perk_for_level()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a2d341cc()
+function init_cooldown()
 {
 }
 

@@ -147,7 +147,7 @@ function function_e04728e4(local_client_num)
 	while(true)
 	{
 		result = undefined;
-		result = level waittill(#"demo_jump", #"killcam_begin", #"killcam_end", #"player_switch", #"joined_team", #"localplayer_spawned", #"hash_7f642789ed08aae0", #"hash_2452fc0a6548ed2d");
+		result = level waittill(#"demo_jump", #"killcam_begin", #"killcam_end", #"player_switch", #"joined_team", #"localplayer_spawned", #"hash_7f642789ed08aae0", #"thermal_toggle");
 		if(result._notify == "killcam_end")
 		{
 			function_9129cbe3(local_client_num);

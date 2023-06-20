@@ -52,24 +52,24 @@ function __init__()
 	clientfield::register("allplayers", "minigun_launcher_muzzle_fx", 1, 1, "counter");
 	clientfield::register("missile", "minigun_nuke_rob", 1, 1, "int");
 	clientfield::register("toplayer", "minigun_nuke_rumble", 1, 1, "counter");
-	level.hero_weapon[#"minigun"][0] = getweapon(#"hash_74dd67dd8a46d144");
-	level.hero_weapon[#"minigun"][1] = getweapon(#"hash_74dd6add8a46d65d");
-	level.hero_weapon[#"minigun"][2] = getweapon(#"hash_74dd69dd8a46d4aa");
-	zm_loadout::register_hero_weapon_for_level(#"hash_74dd67dd8a46d144");
-	zm_loadout::register_hero_weapon_for_level(#"hash_74dd6add8a46d65d");
-	zm_loadout::register_hero_weapon_for_level(#"hash_74dd69dd8a46d4aa");
+	level.hero_weapon[#"minigun"][0] = getweapon(#"hero_minigun_t8_lv1");
+	level.hero_weapon[#"minigun"][1] = getweapon(#"hero_minigun_t8_lv2");
+	level.hero_weapon[#"minigun"][2] = getweapon(#"hero_minigun_t8_lv3");
+	zm_loadout::register_hero_weapon_for_level(#"hero_minigun_t8_lv1");
+	zm_loadout::register_hero_weapon_for_level(#"hero_minigun_t8_lv2");
+	zm_loadout::register_hero_weapon_for_level(#"hero_minigun_t8_lv3");
 	zm_hero_weapon::function_7eabd65d(getweapon(#"hash_492e530f9862f6cc"));
 	zm_hero_weapon::function_7eabd65d(getweapon(#"hash_628d99860c78650f"));
-	level._effect[#"hash_41de5d1fefd715d0"] = #"hash_65b54823a8e8631e";
+	level._effect[#"launcher_flash"] = #"hash_65b54823a8e8631e";
 	if(!isdefined(level.var_90e0e2a0))
 	{
 		level.var_90e0e2a0 = new throttle();
 		[[ level.var_90e0e2a0 ]]->initialize(4, 0.1);
 	}
 	callback::on_connect(&function_9592c5c1);
-	zm::function_84d343d(#"hash_74dd67dd8a46d144", &function_34a75fed);
-	zm::function_84d343d(#"hash_74dd6add8a46d65d", &function_34a75fed);
-	zm::function_84d343d(#"hash_74dd69dd8a46d4aa", &function_34a75fed);
+	zm::function_84d343d(#"hero_minigun_t8_lv1", &function_34a75fed);
+	zm::function_84d343d(#"hero_minigun_t8_lv2", &function_34a75fed);
+	zm::function_84d343d(#"hero_minigun_t8_lv3", &function_34a75fed);
 	zm::function_84d343d(#"hash_492e530f9862f6cc", &function_34a75fed);
 	zm::function_84d343d(#"hash_628d99860c78650f", &function_34a75fed);
 }
@@ -266,9 +266,9 @@ function function_34a75fed(inflictor, attacker, damage, flags, meansofdeath, wea
 			}
 			break;
 		}
-		case "hash_74dd67dd8a46d144":
-		case "hash_74dd69dd8a46d4aa":
-		case "hash_74dd6add8a46d65d":
+		case "hero_minigun_t8_lv1":
+		case "hero_minigun_t8_lv3":
+		case "hero_minigun_t8_lv2":
 		{
 			if(meansofdeath === "MOD_RIFLE_BULLET")
 			{
@@ -392,12 +392,12 @@ function function_bce04a11(w_minigun)
 {
 	switch(w_minigun.name)
 	{
-		case "hash_74dd6add8a46d65d":
+		case "hero_minigun_t8_lv2":
 		{
 			var_c4d00e65 = 0.12;
 			break;
 		}
-		case "hash_74dd69dd8a46d4aa":
+		case "hero_minigun_t8_lv3":
 		{
 			var_c4d00e65 = 0.15;
 			break;
@@ -412,8 +412,8 @@ function function_bce04a11(w_minigun)
 	{
 		self.maxhealth = self.health;
 	}
-	var_24a53699 = var_c4d00e65 * self.maxhealth;
-	return max(var_24a53699, w_minigun.maxdamage);
+	n_percent_health = var_c4d00e65 * self.maxhealth;
+	return max(n_percent_health, w_minigun.maxdamage);
 }
 
 /*
@@ -435,14 +435,14 @@ function function_ebaedcdd(w_minigun)
 		if(s_result.weapon == w_minigun)
 		{
 			var_79db2feb = self gettagorigin("tag_flash2");
-			var_a993e05e = anglestoforward(self getplayerangles());
+			v_forward_angles = anglestoforward(self getplayerangles());
 			v_up = anglestoup(self getplayerangles());
 			var_98739a5 = v_up * 10;
 			var_52594630 = anglestoright(self getplayerangles()) * 5;
 			clientfield::increment("minigun_launcher_muzzle_fx");
-			var_70346f17 = var_a993e05e[0] * 1650;
-			var_5a76439b = var_a993e05e[1] * 1650;
-			var_4bbea62c = (var_a993e05e[2] * 1650) + 250;
+			var_70346f17 = v_forward_angles[0] * 1650;
+			var_5a76439b = v_forward_angles[1] * 1650;
+			var_4bbea62c = (v_forward_angles[2] * 1650) + 250;
 			var_a460aa94 = (var_70346f17, var_5a76439b, var_4bbea62c);
 			self magicgrenadetype(getweapon(#"hash_492e530f9862f6cc"), (var_79db2feb + var_98739a5) + var_52594630, var_a460aa94);
 			waitframe(1);
@@ -473,10 +473,10 @@ function function_9d166ae8(w_minigun)
 			self thread zm_hero_weapon::function_4e984e83(w_minigun, 1);
 			var_79db2feb = self gettagorigin("tag_weapon_right");
 			var_79db2feb = var_79db2feb + vectorscale((0, 0, 1), 15);
-			var_a993e05e = anglestoforward(self getplayerangles());
-			var_70346f17 = var_a993e05e[0] * 850;
-			var_5a76439b = var_a993e05e[1] * 850;
-			var_4bbea62c = (var_a993e05e[2] * 850) + 150;
+			v_forward_angles = anglestoforward(self getplayerangles());
+			var_70346f17 = v_forward_angles[0] * 850;
+			var_5a76439b = v_forward_angles[1] * 850;
+			var_4bbea62c = (v_forward_angles[2] * 850) + 150;
 			var_a460aa94 = (var_70346f17, var_5a76439b, var_4bbea62c);
 			var_40076092 = vectorscale((0, 0, 1), 12);
 			e_grenade = self magicgrenadetype(getweapon(#"hash_628d99860c78650f"), var_79db2feb, var_a460aa94, 2);

@@ -39,7 +39,7 @@ function __init__()
 	level._effect[#"eye_glow"] = #"zm_ai/fx8_zombie_eye_glow_orange";
 	level._effect[#"eye_glow_blue"] = #"wz/fx8_zombie_eye_glow_blue_wz";
 	level._effect[#"eye_glow_green"] = #"wz/fx8_zombie_eye_glow_green_wz";
-	level._effect[#"hash_76082fa5488f0127"] = #"hash_6b67cc3e876119c1";
+	level._effect[#"microwave_attack"] = #"hash_6b67cc3e876119c1";
 }
 
 /*
@@ -155,7 +155,7 @@ function function_bee29da4(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval)
 	{
-		self.var_165c58d7 = util::playfxontag(localclientnum, level._effect[#"hash_76082fa5488f0127"], self, "j_head");
+		self.var_165c58d7 = util::playfxontag(localclientnum, level._effect[#"microwave_attack"], self, "j_head");
 	}
 }
 

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3621aba9bbd431fd;
-#using script_3dae322e94d5b4e0;
+#using scripts\mp_common\gametypes\ct_ai_blight_father.csc;
+#using scripts\mp_common\gametypes\ct_ai_zombie.csc;
 #using script_4293197b43dc9fef;
 #using script_6d7c7d238494d395;
 #using scripts\mp_common\gametypes\ct_core.csc;

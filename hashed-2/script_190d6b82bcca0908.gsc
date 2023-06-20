@@ -63,7 +63,7 @@ class czm_game_over : cLUIelem
 		}
 		else
 		{
-			if(#"hash_6a6a4ebfc877658c" == state_name)
+			if(#"gatewayopened" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_47e79fc, "_state", 1);
 			}

@@ -458,12 +458,12 @@ function private function_9ace0fb6(localclientnum)
 		}
 		info.visible = 1;
 		info.var_1fe906d8 = time;
-		var_eeb85f21 = int(bundle.tag_time * 1000);
+		tagtime = int(bundle.tag_time * 1000);
 		if(target hasperk(localclientnum, #"specialty_nokillstreakreticle"))
 		{
-			var_eeb85f21 = var_eeb85f21 * bundle.var_59b7880b;
+			tagtime = tagtime * bundle.var_59b7880b;
 		}
-		if(info.var_1fe906d8 - info.first_visible > var_eeb85f21)
+		if(info.var_1fe906d8 - info.first_visible > tagtime)
 		{
 			if(isdefined(self.owner) && target function_21c0fa55() && !info.var_aaf744fe && !function_f95544c4(self.owner.team, target.team))
 			{
@@ -884,9 +884,9 @@ function function_3759fcf(localclientnum, var_c5e2f09a)
 */
 function function_2e07be71(localclientnum)
 {
-	var_fa108926 = (localclientnum + "_") + self getentitynumber();
-	self notify("4decd014c80f6da7" + var_fa108926);
-	self endon("4decd014c80f6da7" + var_fa108926);
+	notifyparam = (localclientnum + "_") + self getentitynumber();
+	self notify("4decd014c80f6da7" + notifyparam);
+	self endon("4decd014c80f6da7" + notifyparam);
 	/#
 		assert(isdefined(self.owner));
 	#/
@@ -951,21 +951,21 @@ function private function_8487fabe(localclientnum)
 		}
 		now = gettime();
 		vehicle = getplayervehicle(player);
-		var_27781be7 = level.var_eba5e1cc[player getstance()];
+		stance_offset = level.var_eba5e1cc[player getstance()];
 		if(isdefined(vehicle))
 		{
-			var_27781be7 = level.var_eba5e1cc[#"crouch"];
+			stance_offset = level.var_eba5e1cc[#"crouch"];
 		}
-		toplayer = vectornormalize((player.origin + var_27781be7) - self.origin);
+		toplayer = vectornormalize((player.origin + stance_offset) - self.origin);
 		in_sight = 0;
 		var_131803ce = vectordot(toplayer, forward) >= bundle.tag_fov;
 		if(var_131803ce)
 		{
-			in_sight = bullettracepassed(self.origin, player.origin + var_27781be7, 0, self, player, 1);
+			in_sight = bullettracepassed(self.origin, player.origin + stance_offset, 0, self, player, 1);
 			bullet_traces_this_frame++;
 			if(!in_sight && isdefined(vehicle))
 			{
-				trace_result = bullettrace(self.origin, player.origin + var_27781be7, 0, self);
+				trace_result = bullettrace(self.origin, player.origin + stance_offset, 0, self);
 				if(trace_result[#"fraction"] < 1 && trace_result[#"entity"] === vehicle)
 				{
 					in_sight = 1;

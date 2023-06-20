@@ -41,7 +41,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_576c8d43b54453d0", &on_begin, &on_end);
+	zm_trial::register_challenge(#"restrict_controls", &on_begin, &on_end);
 }
 
 /*
@@ -80,7 +80,7 @@ function private on_begin(var_bd9d962 = #"invert")
 			callback::on_spawned(&function_eaba7c6f);
 			break;
 		}
-		case "hash_9378b865415ee5c":
+		case "half_speed":
 		{
 			foreach(player in getplayers())
 			{
@@ -129,7 +129,7 @@ function private on_end(round_reset)
 			callback::remove_on_spawned(&function_eaba7c6f);
 			break;
 		}
-		case "hash_9378b865415ee5c":
+		case "half_speed":
 		{
 			foreach(player in getplayers())
 			{
@@ -208,7 +208,7 @@ function private function_dc856fd8()
 	self allowsprint(0);
 	while(true)
 	{
-		self waittill(#"hash_7fd32c9551894e64", #"hash_424834e6dee13bc3", #"bgb_update");
+		self waittill(#"crafting_fail", #"crafting_success", #"bgb_update");
 		if(isalive(self))
 		{
 			self allowjump(0);

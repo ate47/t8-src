@@ -105,7 +105,7 @@ function private devgui()
 					level thread zm_orange_pap::function_79946aff();
 					break;
 				}
-				case "hash_5aeb6018289cc278":
+				case "lava_toggle":
 				{
 					zm_orange_mq_hell::lava_control();
 					break;
@@ -205,7 +205,7 @@ function private devgui()
 					zm_orange_pap::function_ccc079bc("");
 					break;
 				}
-				case "hash_5175915502a19219":
+				case "full_unlock":
 				{
 					zm_devgui::zombie_devgui_open_sesame();
 					namespace_99a6629b::function_80a9077f();

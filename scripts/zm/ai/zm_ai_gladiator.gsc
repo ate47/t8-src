@@ -128,7 +128,7 @@ function __init__()
 		{
 			level thread function_24a38427();
 		}
-		spawner::add_archetype_spawn_function(#"gladiator", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"gladiator", &zombie_utility::updateanimationrate);
 	#/
 	animationstatenetwork::registernotetrackhandlerfunction("dropgun_left", &detachleft);
 	animationstatenetwork::registernotetrackhandlerfunction("dropgun_right", &detachright);
@@ -284,9 +284,9 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_19966227fe912af8", &function_7468904d);
 	/#
-		assert(isscriptfunctionptr(&function_a7bbb8e4));
+		assert(isscriptfunctionptr(&gladiatorshouldreact));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_359e69141220779c", &function_a7bbb8e4);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"gladiatorshouldreact", &gladiatorshouldreact);
 	/#
 		assert(isscriptfunctionptr(&function_c1b97472));
 	#/
@@ -296,13 +296,13 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_7114ad7e891644ce", &function_fe0ecd9f);
 	/#
-		assert(isscriptfunctionptr(&function_ceea5a43));
+		assert(isscriptfunctionptr(&gladiatorpickaxe));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_3e4e8836668c7ddd", &function_ceea5a43);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"gladiatorpickaxe", &gladiatorpickaxe);
 	/#
-		assert(isscriptfunctionptr(&function_ceea5a43));
+		assert(isscriptfunctionptr(&gladiatorpickaxe));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal(#"hash_3e4e8836668c7ddd", &function_ceea5a43);
+	behaviorstatemachine::registerbsmscriptapiinternal(#"gladiatorpickaxe", &gladiatorpickaxe);
 	/#
 		assert(isscriptfunctionptr(&function_7891bd9b));
 	#/
@@ -571,7 +571,7 @@ function private function_4660925e(entity)
 }
 
 /*
-	Name: function_ceea5a43
+	Name: gladiatorpickaxe
 	Namespace: zm_ai_gladiator
 	Checksum: 0x120564BA
 	Offset: 0x2460
@@ -579,7 +579,7 @@ function private function_4660925e(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ceea5a43(entity)
+function private gladiatorpickaxe(entity)
 {
 	if(math::cointoss())
 	{
@@ -1036,7 +1036,7 @@ function private function_7468904d(entity)
 }
 
 /*
-	Name: function_a7bbb8e4
+	Name: gladiatorshouldreact
 	Namespace: zm_ai_gladiator
 	Checksum: 0xD40AC10D
 	Offset: 0x2FE8
@@ -1044,7 +1044,7 @@ function private function_7468904d(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a7bbb8e4(entity)
+function private gladiatorshouldreact(entity)
 {
 	if(isdefined(entity.var_908a5d30) && entity.var_908a5d30)
 	{
@@ -1256,10 +1256,10 @@ function registerhud_message_electricity_(entity, mocompanim, mocompanimblendout
 		self.var_cd8354e0.var_cb28f380 = entity localtoworldcoords(var_e397f54c);
 		/#
 			movedelta = getmovedelta(mocompanim, 0, 1, entity);
-			var_6b8f735f = entity localtoworldcoords(movedelta);
-			distance = distance(entity.origin, var_6b8f735f);
-			recordcircle(var_6b8f735f, 3, (0, 1, 0), "");
-			record3dtext("" + distance, var_6b8f735f, (0, 1, 0), "");
+			animendpos = entity localtoworldcoords(movedelta);
+			distance = distance(entity.origin, animendpos);
+			recordcircle(animendpos, 3, (0, 1, 0), "");
+			record3dtext("" + distance, animendpos, (0, 1, 0), "");
 		#/
 	}
 }
@@ -1292,9 +1292,9 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		var_83fd29ee = vectornormalize(predictedenemypos - entity.origin);
 		var_1efb2395 = predictedenemypos - (var_83fd29ee * entity getpathfindingradius());
-		self.var_cd8354e0.var_736d2cce = var_1efb2395;
-		var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.var_736d2cce);
-		var_65cbfb52 = distancesquared(self.var_cd8354e0.var_9bfa8497, self.var_cd8354e0.var_736d2cce);
+		self.var_cd8354e0.adjustedendpos = var_1efb2395;
+		var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.adjustedendpos);
+		var_65cbfb52 = distancesquared(self.var_cd8354e0.var_9bfa8497, self.var_cd8354e0.adjustedendpos);
 		if(var_776ddabf <= (20 * 20))
 		{
 			/#
@@ -1321,7 +1321,7 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		if(self.var_cd8354e0.var_425c4c8b)
 		{
-			var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.var_736d2cce);
+			var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.adjustedendpos);
 			var_beabc994 = anglestoforward(self.angles);
 			var_1c3641f2 = (entity.favoriteenemy.origin[0], entity.favoriteenemy.origin[1], entity.origin[2]);
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
@@ -1344,7 +1344,7 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 			#/
 			if(var_425c4c8b)
 			{
-				var_90c3cdd2 = length(self.var_cd8354e0.var_736d2cce - self.var_cd8354e0.var_cb28f380);
+				var_90c3cdd2 = length(self.var_cd8354e0.adjustedendpos - self.var_cd8354e0.var_cb28f380);
 				timestep = function_60d95f53();
 				animlength = getanimlength(mocompanim) * 1000;
 				starttime = self.var_cd8354e0.var_98bc84b7 * animlength;
@@ -1352,7 +1352,7 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 				starttime = floor(starttime / timestep);
 				stoptime = floor(stoptime / timestep);
 				adjustduration = stoptime - starttime;
-				self.var_cd8354e0.var_10b8b6d1 = vectornormalize(self.var_cd8354e0.var_736d2cce - self.var_cd8354e0.var_cb28f380);
+				self.var_cd8354e0.var_10b8b6d1 = vectornormalize(self.var_cd8354e0.adjustedendpos - self.var_cd8354e0.var_cb28f380);
 				self.var_cd8354e0.var_8b9a15a6 = var_90c3cdd2 / adjustduration;
 				self.var_cd8354e0.var_425c4c8b = 1;
 				self.var_cd8354e0.adjustmentstarted = 1;
@@ -1370,7 +1370,7 @@ function function_3f15e557(entity, mocompanim, mocompanimblendouttime, mocompani
 		#/
 		/#
 			recordsphere(self.var_cd8354e0.var_cb28f380, 3, (0, 1, 0), "");
-			recordsphere(self.var_cd8354e0.var_736d2cce, 3, (0, 0, 1), "");
+			recordsphere(self.var_cd8354e0.adjustedendpos, 3, (0, 0, 1), "");
 		#/
 		adjustedorigin = entity.origin + (entity.var_cd8354e0.var_10b8b6d1 * self.var_cd8354e0.var_8b9a15a6);
 		entity forceteleport(adjustedorigin);
@@ -1591,7 +1591,7 @@ function private function_894d3d57(entity)
 	{
 		if(isdefined(entity.axe_model))
 		{
-			entity notify(#"hash_78e94482c724d141");
+			entity notify(#"arm_destroyed");
 			entity.axe_model delete();
 		}
 	}
@@ -1712,7 +1712,7 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 		{
 			namespace_81245006::function_ef87b7e8(var_dd54fdb1, adjusted_damage);
 			/#
-				if(getdvarint(#"hash_50608e24a3f5f666", 0) > 0)
+				if(getdvarint(#"scr_weakpoint_debug", 0) > 0)
 				{
 					iprintlnbold("" + var_dd54fdb1.health);
 				}
@@ -1720,7 +1720,7 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 			if(namespace_81245006::function_f29756fe(var_dd54fdb1) === 3 || (var_ae30c5b0 && self.var_5dc26e42 >= 1000))
 			{
 				/#
-					if(getdvarint(#"hash_50608e24a3f5f666", 0) > 0)
+					if(getdvarint(#"scr_weakpoint_debug", 0) > 0)
 					{
 						iprintlnbold("");
 					}
@@ -1874,7 +1874,7 @@ function private function_3b8907b9(s_params)
 */
 function private function_fbc2806e(var_a4388d06, var_9e7687f8)
 {
-	self endon(#"death", #"hash_78e94482c724d141");
+	self endon(#"death", #"arm_destroyed");
 	var_23f0c5b3 = self gettagorigin(var_a4388d06);
 	var_ecc54f32 = self gettagangles(var_a4388d06);
 	invert = 1;
@@ -2090,7 +2090,7 @@ function private function_c3712093(axe, var_a4388d06, var_bb95ea0c)
 function private function_137ed431(axe, var_a4388d06, var_9e7687f8)
 {
 	tag_pos = self gettagorigin(var_a4388d06);
-	var_c6488229 = self gettagangles(var_a4388d06);
+	tag_ang = self gettagangles(var_a4388d06);
 	var_bf72b943 = distance(axe.origin, tag_pos);
 	var_bb95ea0c = 1200;
 	interval_dist = var_bb95ea0c * 0.1;

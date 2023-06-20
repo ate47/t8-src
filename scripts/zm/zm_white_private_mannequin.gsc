@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_52c6c2d1a2ef1b46;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using script_78e9e286015f2ec;
 #using scripts\core_common\array_shared.gsc;
@@ -298,7 +298,7 @@ function timer_countdown()
 {
 	level flag::clear(#"hash_7524c96c167377ef");
 	self endon(#"hash_7524c96c167377ef");
-	level.countdown_clock namespace_7d8e6ec3::function_4955480();
+	level.countdown_clock namespace_7d8e6ec3::clock_countdown();
 	/#
 		iprintlnbold("");
 	#/
@@ -346,9 +346,9 @@ function function_eb06b83()
 	var_be17187b = self waittill(#"trigger_activated");
 	e_who = var_be17187b.e_who;
 	e_who playsound("zmb_ee_key_pickup");
-	e_who thread zm_audio::create_and_play_dialog(#"hash_44b4edd3d705820d", #"generic");
+	e_who thread zm_audio::create_and_play_dialog(#"component_pickup", #"generic");
 	level flag::set("pernell_key_acquired");
-	namespace_6747c550::function_7df6bb60("zm_white_private_mannequin_key_part", 1);
+	zm_ui_inventory::function_7df6bb60("zm_white_private_mannequin_key_part", 1);
 	var_f0aefc5c = getent("pernell_key", "targetname");
 	if(isdefined(var_f0aefc5c))
 	{
@@ -396,10 +396,10 @@ function function_65066810()
 function play_start_vo()
 {
 	self endon(#"hash_78e2cadb25129fa2");
-	level namespace_509a75d1::function_3c173d37();
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_start", 0, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_start", 1, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_start", 2, 0, 1);
+	level zm_hms_util::function_3c173d37();
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_start", 0, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_start", 1, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_start", 2, 0, 1);
 }
 
 /*
@@ -415,10 +415,10 @@ function function_d1086c12()
 {
 	self notify(#"hash_78e2cadb25129fa2");
 	self endon(#"hash_78e2cadb25129fa2");
-	level namespace_509a75d1::function_3c173d37();
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_sawyer", 0, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_sawyer", 1, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_sawyer", 2, 0, 1);
+	level zm_hms_util::function_3c173d37();
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_sawyer", 0, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_sawyer", 1, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_sawyer", 2, 0, 1);
 }
 
 /*
@@ -434,10 +434,10 @@ function function_5de15b91()
 {
 	self notify(#"hash_78e2cadb25129fa2");
 	self endon(#"hash_78e2cadb25129fa2");
-	level namespace_509a75d1::function_3c173d37();
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_mccain", 0, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_mccain", 1, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_mccain", 2, 0, 1);
+	level zm_hms_util::function_3c173d37();
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_mccain", 0, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_mccain", 1, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_mccain", 2, 0, 1);
 }
 
 /*
@@ -453,10 +453,10 @@ function visit_prototype_minigun()
 {
 	self notify(#"hash_78e2cadb25129fa2");
 	self endon(#"hash_78e2cadb25129fa2");
-	level namespace_509a75d1::function_3c173d37();
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_pernell", 0, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d("vox_adam_code_pernell", 1, 0, 1);
-	level.var_f13364b4.var_12633dc5 namespace_509a75d1::function_51b752a9("vox_adam_code_pernell", 2, 0);
+	level zm_hms_util::function_3c173d37();
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_pernell", 0, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d("vox_adam_code_pernell", 1, 0, 1);
+	level.var_f13364b4.var_12633dc5 zm_hms_util::function_51b752a9("vox_adam_code_pernell", 2, 0);
 }
 
 /*
@@ -572,7 +572,7 @@ function function_1e88595a()
 		else
 		{
 			e_who zm_score::minus_to_player_score(self.s_unitrigger.cost);
-			e_who thread function_e4459089();
+			e_who thread adam_activated_vo();
 			var_6ba58f5f = 1;
 		}
 	}
@@ -679,13 +679,13 @@ function function_88265619()
 			level.mannequin_ally thread function_e29e2b0b();
 		}
 		wait(1.5);
-		level.mannequin_ally thread namespace_509a75d1::function_6a0d675d("vox_adam_activated");
+		level.mannequin_ally thread zm_hms_util::function_6a0d675d("vox_adam_activated");
 		var_a2c75164 function_a51b6403(0);
 	}
 }
 
 /*
-	Name: function_e4459089
+	Name: adam_activated_vo
 	Namespace: zm_white_private_mannequin
 	Checksum: 0x2AFC20C1
 	Offset: 0x2368
@@ -693,9 +693,9 @@ function function_88265619()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e4459089()
+function adam_activated_vo()
 {
-	self namespace_509a75d1::function_51b752a9("vox_adam_activate");
+	self zm_hms_util::function_51b752a9("vox_adam_activate");
 }
 
 /*
@@ -808,7 +808,7 @@ function timer_actual(kills, time)
 		{
 			if(isdefined(level.mannequin_ally))
 			{
-				level.mannequin_ally namespace_509a75d1::function_6a0d675d("vox_adam_multi_kill", function_f20dfe6a(), 0, 1);
+				level.mannequin_ally zm_hms_util::function_6a0d675d("vox_adam_multi_kill", function_f20dfe6a(), 0, 1);
 			}
 			if(math::cointoss())
 			{
@@ -821,7 +821,7 @@ function timer_actual(kills, time)
 					}
 					if(sighttracepassed(self.origin + vectorscale((0, 0, 1), 30), e_player.origin + vectorscale((0, 0, 1), 30), 0, undefined))
 					{
-						e_player zm_audio::create_and_play_dialog(#"kill", #"hash_2d97bed6f4e21bb7");
+						e_player zm_audio::create_and_play_dialog(#"kill", #"streak_adam");
 						continue;
 					}
 				}
@@ -875,7 +875,7 @@ function function_e453faa6(e_reviver)
 		results = self waittill(#"player_revived");
 		if(isdefined(level.mannequin_ally) && results.reviver === level.mannequin_ally)
 		{
-			level.mannequin_ally namespace_509a75d1::function_6a0d675d("vox_adam_revive", function_9368a51d(), 0, 1);
+			level.mannequin_ally zm_hms_util::function_6a0d675d("vox_adam_revive", function_9368a51d(), 0, 1);
 			self thread zm_audio::create_and_play_dialog(#"revive", #"adam", undefined, 1);
 		}
 	}

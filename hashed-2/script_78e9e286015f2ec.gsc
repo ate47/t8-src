@@ -2,7 +2,7 @@
 #using script_2da1a66a13e2bbe1;
 #using script_2f877a0752174fc1;
 #using script_3f9e0dc8454d98e1;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -167,7 +167,7 @@ function function_4da0eaff()
 	level.var_f13364b4.s_keypad zm_unitrigger::create("", 32);
 	level.var_f13364b4.s_keypad thread function_44748fe7();
 	zm_unitrigger::function_89380dda(level.var_f13364b4.s_keypad.s_unitrigger, 1);
-	level.var_f13364b4.a_s_keys = namespace_509a75d1::function_2719d4c0("keypad_keys", "targetname", "script_int");
+	level.var_f13364b4.a_s_keys = zm_hms_util::function_2719d4c0("keypad_keys", "targetname", "script_int");
 	function_52838f02("keypad", 1);
 	level function_9a2a7f26();
 	if(zm_utility::function_e51dc2d8())
@@ -187,7 +187,7 @@ function function_4da0eaff()
 */
 function function_44748fe7()
 {
-	level endon(#"hash_5157b4b2b1edc64e");
+	level endon(#"end_computer");
 	while(true)
 	{
 		var_be17187b = undefined;
@@ -522,7 +522,7 @@ function function_f4c88568()
 */
 function function_ff176ced()
 {
-	level thread namespace_fddd83bd::function_e0b95486();
+	level thread namespace_fddd83bd::brew();
 }
 
 /*
@@ -869,7 +869,7 @@ function function_ac121b1c()
 */
 function function_7e966dbe()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_3d3b83078e638263", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3d3b83078e638263", 0, 1);
 }
 
 /*
@@ -883,7 +883,7 @@ function function_7e966dbe()
 */
 function function_9b96f239()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_24f10736d61f17be", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_24f10736d61f17be", 0, 1);
 }
 
 /*
@@ -897,7 +897,7 @@ function function_9b96f239()
 */
 function function_c36b1f94()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_5f8cf3a67798b7ab", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_5f8cf3a67798b7ab", 0, 1);
 }
 
 /*
@@ -927,7 +927,7 @@ function function_27d39a4f()
 */
 function function_998eba45()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_5ec22c1b18a29d51", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_5ec22c1b18a29d51", 0, 1);
 }
 
 /*
@@ -941,7 +941,7 @@ function function_998eba45()
 */
 function function_be76c1b8()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_346e9556bd641875", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_346e9556bd641875", 0, 1);
 }
 
 /*
@@ -955,7 +955,7 @@ function function_be76c1b8()
 */
 function function_fadd27d6()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_774ea9ca1a48e4d", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_774ea9ca1a48e4d", 0, 1);
 }
 
 /*
@@ -969,7 +969,7 @@ function function_fadd27d6()
 */
 function function_cd2168cb()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_3d1ea1a6ac1bd74c", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3d1ea1a6ac1bd74c", 0, 1);
 }
 
 /*
@@ -983,7 +983,7 @@ function function_cd2168cb()
 */
 function function_6b002f3c()
 {
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_57bcd7bd5e8ab56e", 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_57bcd7bd5e8ab56e", 0, 1);
 }
 
 /*
@@ -1271,12 +1271,12 @@ function function_7ee18649()
 {
 	level thread function_a02dfba();
 	var_127789d1 = randomint(3);
-	var_2ec8989 = namespace_509a75d1::function_bffcedde("mesh_code_display_01", "script_noteworthy", "script_int");
+	var_2ec8989 = zm_hms_util::function_bffcedde("mesh_code_display_01", "script_noteworthy", "script_int");
 	level.var_f140d610 = var_2ec8989[var_127789d1];
 	level.var_f140d610 function_f0af359();
 	level.var_f140d610 function_66365668(function_da24090c(level.var_f13364b4.var_a7450be4));
 	level.var_f140d610 showpart("tag_code_paper_1");
-	var_dad3f7bf = namespace_509a75d1::function_bffcedde("sawyer_authorization_code", "targetname", "script_int");
+	var_dad3f7bf = zm_hms_util::function_bffcedde("sawyer_authorization_code", "targetname", "script_int");
 	for(i = 0; i < var_2ec8989.size; i++)
 	{
 		if(i != var_127789d1)
@@ -1433,7 +1433,7 @@ function clock_init(n_id)
 }
 
 /*
-	Name: function_4955480
+	Name: clock_countdown
 	Namespace: namespace_7d8e6ec3
 	Checksum: 0xECEE6903
 	Offset: 0x47B8
@@ -1441,7 +1441,7 @@ function clock_init(n_id)
 	Parameters: 0
 	Flags: Linked
 */
-function function_4955480()
+function clock_countdown()
 {
 	self.var_4cdc88ae = 1;
 	level.var_18f1ca6e function_b2fba7f5();
@@ -2061,7 +2061,7 @@ function rushmore_speech_hamilton()
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
 		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
 		{
-			level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_3bb62fc3dd0ef854", 0, 0);
+			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3bb62fc3dd0ef854", 0, 0);
 			b_spoke = 1;
 		}
 		else
@@ -2098,7 +2098,7 @@ function rushmore_speech_franklin()
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
 		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
 		{
-			level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_3d5961d25aa763a8", 0, 0);
+			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3d5961d25aa763a8", 0, 0);
 			b_spoke = 1;
 		}
 		else
@@ -2135,7 +2135,7 @@ function rushmore_speech_madison()
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
 		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
 		{
-			level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_6bbfaf4e608a79b8", 0, 0);
+			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_6bbfaf4e608a79b8", 0, 0);
 			b_spoke = 1;
 		}
 		else
@@ -2172,7 +2172,7 @@ function rushmore_speech_jefferson()
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
 		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
 		{
-			level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_c11fc3ab92db957", 0, 0);
+			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_c11fc3ab92db957", 0, 0);
 			b_spoke = 1;
 		}
 		else
@@ -2231,10 +2231,10 @@ function rushmore_speech_flag()
 function function_5b16217f()
 {
 	level endon(#"hash_1a91b42d31e0b28d");
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_45f67ba6693762f7", 0, 0);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_45f67ba6693762f7", 1, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_45f67ba6693762f7", 2, 0, 1);
-	level.var_5dd0d3ff namespace_509a75d1::function_6a0d675d(#"hash_45f67ba6693762f7", 3, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_45f67ba6693762f7", 0, 0);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_45f67ba6693762f7", 1, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_45f67ba6693762f7", 2, 0, 1);
+	level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_45f67ba6693762f7", 3, 0, 1);
 }
 
 /*

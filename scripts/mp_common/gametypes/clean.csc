@@ -58,7 +58,7 @@ function private on_localclient_connect(localclientnum)
 */
 function function_11abf5b2(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self notify(#"hash_7117a0f5c62d8c3d");
+	self notify(#"stopbounce");
 	if(isdefined(self.var_47b256ef))
 	{
 		self.var_47b256ef unlink();
@@ -132,7 +132,7 @@ function function_81431153(localclientnum)
 */
 function function_d1834e16(localclientnum)
 {
-	self endon(#"hash_7117a0f5c62d8c3d");
+	self endon(#"stopbounce");
 	self endon(#"death");
 	toppos = self.origin + vectorscale((0, 0, 1), 12);
 	bottompos = self.origin;

@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
-#using script_421e0a3702e22de;
-#using script_52c6c2d1a2ef1b46;
-#using script_58c342edd81589fb;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_orange_pablo.gsc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm_common\zm_round_spawning.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
@@ -125,12 +125,12 @@ function scene_test_with_reachs()
 */
 function function_d878e1ee(var_a276c861)
 {
-	namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 4);
+	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 4);
 	if(!var_a276c861)
 	{
-		namespace_85e029d3::function_3f9e02b8(7, #"hash_3a5a3e5c65b49526", #"hash_f90cca21dd0dd02", &function_a9c8883f);
+		zm_orange_pablo::function_3f9e02b8(7, #"hash_3a5a3e5c65b49526", #"hash_f90cca21dd0dd02", &function_a9c8883f);
 		waitframe(1);
-		namespace_85e029d3::function_d83490c5(7);
+		zm_orange_pablo::function_d83490c5(7);
 		level flag::wait_till(#"hash_710c2f40baf302c8");
 		level thread function_1c744b3f();
 		var_4eed727b = getent("papa_bear", "targetname");
@@ -259,7 +259,7 @@ function function_88a86ef8(n_position)
 */
 function function_476d4cb5()
 {
-	level endon(#"hash_341a7cd7ac11b979");
+	level endon(#"soapstone_placed");
 	level endon(#"hash_3a8a317fc0b5e5b0");
 	s_activation = undefined;
 	s_activation = self waittill(#"trigger_activated");
@@ -304,7 +304,7 @@ function function_476d4cb5()
 	}
 	level.s_soapstone.s_placement = self;
 	self thread function_b4ad839e();
-	level notify(#"hash_341a7cd7ac11b979");
+	level notify(#"soapstone_placed");
 }
 
 /*
@@ -330,7 +330,7 @@ function function_b4ad839e()
 		self.var_28f1732d hide();
 	}
 	level.s_soapstone.s_placement = undefined;
-	level notify(#"hash_3e843e8fbb4920ef");
+	level notify(#"soapstone_collected");
 }
 
 /*
@@ -355,7 +355,7 @@ function function_1c744b3f()
 		{
 			s_soapstone thread function_476d4cb5();
 		}
-		level waittill(#"hash_3e843e8fbb4920ef");
+		level waittill(#"soapstone_collected");
 	}
 	foreach(s_soapstone in level.var_9369090c)
 	{
@@ -379,7 +379,7 @@ function function_557d25c1()
 	while(true)
 	{
 		level.var_6b37a126 thread function_2b438f6f();
-		level waittill(#"hash_3e843e8fbb4920ef");
+		level waittill(#"soapstone_collected");
 	}
 	level.var_6b37a126 zm_unitrigger::unregister_unitrigger(level.var_6b37a126.s_unitrigger);
 }
@@ -396,7 +396,7 @@ function function_557d25c1()
 function function_2b438f6f()
 {
 	level endon(#"hash_3a8a317fc0b5e5b0");
-	level endon(#"hash_341a7cd7ac11b979");
+	level endon(#"soapstone_placed");
 	s_activation = undefined;
 	s_activation = self waittill(#"trigger_activated");
 	if(!level.s_soapstone.is_charged)
@@ -441,7 +441,7 @@ function function_2b438f6f()
 	level.s_soapstone.s_placement = self;
 	level.s_soapstone.var_e15f0d15 = 0;
 	self thread function_a9511f0f();
-	level notify(#"hash_341a7cd7ac11b979");
+	level notify(#"soapstone_placed");
 }
 
 /*
@@ -467,7 +467,7 @@ function function_a9511f0f()
 		self.var_28f1732d hide();
 	}
 	level.s_soapstone.s_placement = undefined;
-	level notify(#"hash_3e843e8fbb4920ef");
+	level notify(#"soapstone_collected");
 }
 
 /*

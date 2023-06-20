@@ -3,8 +3,8 @@
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -132,12 +132,12 @@ function function_24167ed8()
 */
 function function_ab07399f()
 {
-	foreach(var_4b912983 in level.var_4fe2f84d[#"hash_33a1f55aa9d0ac8e"])
+	foreach(t_crafting in level.var_4fe2f84d[#"hash_33a1f55aa9d0ac8e"])
 	{
-		if(isdefined(var_4b912983.var_4f749ffe))
+		if(isdefined(t_crafting.var_4f749ffe))
 		{
-			var_4b912983.var_ae360c37 = getent(var_4b912983.var_4f749ffe.target, "targetname");
-			var_4b912983.var_ae360c37 ghost();
+			t_crafting.var_ae360c37 = getent(t_crafting.var_4f749ffe.target, "targetname");
+			t_crafting.var_ae360c37 ghost();
 		}
 	}
 }
@@ -155,16 +155,16 @@ function function_5702b2e7(e_player)
 {
 	if(isdefined(self.stub) && isdefined(self.stub.blueprint))
 	{
-		var_4b912983 = self.stub;
+		t_crafting = self.stub;
 	}
 	else if(isdefined(self.blueprint))
 	{
-		var_4b912983 = self;
+		t_crafting = self;
 	}
-	if(var_4b912983.blueprint.name == #"hash_ef185e110c83ded")
+	if(t_crafting.blueprint.name == #"hash_ef185e110c83ded")
 	{
-		var_4b912983.var_4f749ffe show();
-		var_4b912983.var_ae360c37 show();
+		t_crafting.var_4f749ffe show();
+		t_crafting.var_ae360c37 show();
 		level flag::set(#"hash_2120a14c5eeab590");
 		if(function_8b1a219a())
 		{
@@ -174,7 +174,7 @@ function function_5702b2e7(e_player)
 		{
 			level.var_279a11a3 = self.stub.var_4f749ffe zm_unitrigger::create(#"hash_57249497bfb88a5", 64, &function_735e7b);
 		}
-		namespace_6747c550::function_7df6bb60("zm_whiteteleporter_phase_num", 1);
+		zm_ui_inventory::function_7df6bb60("zm_whiteteleporter_phase_num", 1);
 	}
 	else
 	{
@@ -213,13 +213,13 @@ function function_735e7b()
 function function_e0a8fc52()
 {
 	level.var_868c98df = 2;
-	level notify(#"hash_2fb169c8e0e47ffd");
+	level notify(#"modifier_acquired");
 	self playsound(#"hash_59436c2037092176");
 	level.var_279a11a3.related_parent setinvisibletoall();
 	var_ae360c37 = getent(level.var_279a11a3.related_parent.target, "targetname");
 	var_ae360c37 setinvisibletoall();
-	namespace_6747c550::function_7df6bb60("teleporter_pad_1", 1);
-	namespace_6747c550::function_7df6bb60("teleporter_pad_2", 1);
+	zm_ui_inventory::function_7df6bb60("teleporter_pad_1", 1);
+	zm_ui_inventory::function_7df6bb60("teleporter_pad_2", 1);
 	zm_unitrigger::unregister_unitrigger(level.var_279a11a3);
 }
 
@@ -268,7 +268,7 @@ function function_71e1c159()
 function teleporter_init()
 {
 	level.teleport_ae_funcs = [];
-	level flag::init(#"hash_53a41180dac96fff");
+	level flag::init(#"portals_active");
 	level.var_868c98df = 0;
 	level thread setup_portals();
 	level.s_zombie_teleport_room = struct::get("zombie_teleport_room", "targetname");
@@ -465,7 +465,7 @@ function teleport_player(user)
 	}
 	destination = var_298e4578.var_52a6f692;
 	user clientfield::increment_to_player("teleporter_depart", 1);
-	playfx(level._effect[#"hash_42067f50e6d7e946"], self.origin, (1, 0, 0), (0, 0, 1));
+	playfx(level._effect[#"portal_origin"], self.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_out", self.origin);
 	level thread function_fe50866d(user, self, var_298e4578);
 	self function_134670b9(1);
@@ -479,7 +479,7 @@ function teleport_player(user)
 	user playsoundtoplayer(#"hash_39876bf613387fef", user);
 	wait(0.5);
 	user function_96e88318();
-	user notify(#"hash_50f6086baea9ad83");
+	user notify(#"teleporting_done");
 	util::setclientsysstate("levelNotify", "cool_fx", user);
 	util::setclientsysstate("levelNotify", "ae1", user);
 }
@@ -511,7 +511,7 @@ function function_96e88318(str_notify)
 function function_c234a5ce()
 {
 	self endoncallback(&function_4f5d4783, #"death");
-	self val::set(#"hash_72fb2bd98173a203", "ignoreme", 1);
+	self val::set(#"teleport_exit", "ignoreme", 1);
 	wait(1);
 	self function_4f5d4783();
 }
@@ -527,7 +527,7 @@ function function_c234a5ce()
 */
 function function_4f5d4783(str_notify)
 {
-	self val::reset(#"hash_72fb2bd98173a203", "ignoreme");
+	self val::reset(#"teleport_exit", "ignoreme");
 }
 
 /*
@@ -824,7 +824,7 @@ function function_e9848fa7()
 */
 function function_9d689cc4(portal, portal_exit)
 {
-	self endoncallback(&function_2ef25d40, #"damage", #"death", #"hash_2016cf7b5d5069a7");
+	self endoncallback(&function_2ef25d40, #"damage", #"death", #"cancel_teleport");
 	if(!isdefined(portal))
 	{
 		portal = self function_e9848fa7();
@@ -842,13 +842,13 @@ function function_9d689cc4(portal, portal_exit)
 	{
 		wait(0.1);
 	}
-	self notify(#"hash_7d54550de1041808");
+	self notify(#"reached_portal");
 	self.var_3f667178 = undefined;
 	if(!isdefined(portal_exit))
 	{
 		if(!isdefined(self.favoriteenemy))
 		{
-			self.favoriteenemy = namespace_509a75d1::function_3815943c();
+			self.favoriteenemy = zm_hms_util::function_3815943c();
 		}
 		if(!isdefined(self.favoriteenemy))
 		{
@@ -877,7 +877,7 @@ function function_9d689cc4(portal, portal_exit)
 */
 function function_2ef25d40(str_notify)
 {
-	self notify(#"hash_7d54550de1041808");
+	self notify(#"reached_portal");
 	self.b_ignore_cleanup = self.var_693b80bb;
 	self.var_3f667178 = undefined;
 }
@@ -894,8 +894,8 @@ function function_2ef25d40(str_notify)
 function function_71be28e1(zombie, start_portal, end_portal)
 {
 	self endon(#"death");
-	playfx(level._effect[#"hash_61fb06e6b1e29b45"], zombie.origin);
-	playfx(level._effect[#"hash_42067f50e6d7e946"], start_portal.origin, (1, 0, 0), (0, 0, 1));
+	playfx(level._effect[#"teleport_depart"], zombie.origin);
+	playfx(level._effect[#"portal_origin"], start_portal.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_out", zombie.origin);
 	zombie function_1f034d46(end_portal.origin);
 	zombie.b_ignore_cleanup = 1;
@@ -910,7 +910,7 @@ function function_71be28e1(zombie, start_portal, end_portal)
 	zombie setentitypaused(0);
 	zombie forceteleport(end_portal.origin + (anglestoforward(end_portal.angles) * randomfloatrange(0, 32)), end_target.angles);
 	zombie function_1f034d46();
-	playfx(level._effect[#"hash_692bbec56d4f9a18"], zombie.origin);
+	playfx(level._effect[#"teleport_arrive"], zombie.origin);
 	playfx(level._effect[#"portal_dest"], end_portal.origin, (1, 0, 0), (0, 0, 1));
 	playsoundatposition(#"evt_teleporter_go", zombie.origin);
 	self.b_ignore_cleanup = self.var_693b80bb;
@@ -927,7 +927,7 @@ function function_71be28e1(zombie, start_portal, end_portal)
 */
 function function_554c780b()
 {
-	self endon(#"death", #"hash_7d54550de1041808");
+	self endon(#"death", #"reached_portal");
 	wait(2);
 	self.b_ignore_cleanup = self.var_693b80bb;
 }
@@ -1028,7 +1028,7 @@ function portal_init()
 	{
 		self.var_d99a94d9 = 14;
 	}
-	self.var_52a6f692 = namespace_509a75d1::function_2719d4c0(self.target, "targetname", "script_int");
+	self.var_52a6f692 = zm_hms_util::function_2719d4c0(self.target, "targetname", "script_int");
 	var_c60b7f6d = getentarray(self.target, "targetname");
 	foreach(e in var_c60b7f6d)
 	{
@@ -1214,7 +1214,7 @@ function function_a09d62f1()
 		{
 			if(zm_utility::is_player_valid(e_user) && math::cointoss())
 			{
-				e_user thread namespace_509a75d1::function_51b752a9(#"hash_7832a05d73569401");
+				e_user thread zm_hms_util::function_51b752a9(#"hash_7832a05d73569401");
 			}
 			level.var_868c98df--;
 			self.b_active = 1;
@@ -1261,20 +1261,20 @@ function function_a09d62f1()
 		{
 			case 0:
 			{
-				namespace_6747c550::function_7df6bb60("teleporter_pad_1", 0);
-				namespace_6747c550::function_7df6bb60("teleporter_pad_2", 0);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_1", 0);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_2", 0);
 				break;
 			}
 			case 1:
 			{
-				namespace_6747c550::function_7df6bb60("teleporter_pad_1", 0);
-				namespace_6747c550::function_7df6bb60("teleporter_pad_2", 1);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_1", 0);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_2", 1);
 				break;
 			}
 			case 2:
 			{
-				namespace_6747c550::function_7df6bb60("teleporter_pad_1", 1);
-				namespace_6747c550::function_7df6bb60("teleporter_pad_2", 1);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_1", 1);
+				zm_ui_inventory::function_7df6bb60("teleporter_pad_2", 1);
 				break;
 			}
 			default:
@@ -1463,7 +1463,7 @@ function function_ea199c46()
 		a_s_portals[i] portal_activate();
 		a_s_portals[i] portal_ready();
 	}
-	level flag::set(#"hash_53a41180dac96fff");
+	level flag::set(#"portals_active");
 	level clientfield::set("portal_maps_initialize_lights", 1);
 }
 
@@ -1538,7 +1538,7 @@ function function_a6bb56f6()
 	Parameters: 2
 	Flags: Linked
 */
-function function_3566160b(str_location, var_fb122039)
+function function_3566160b(str_location, n_newval)
 {
 	str_clientfield = "";
 	switch(str_location)
@@ -1594,7 +1594,7 @@ function function_3566160b(str_location, var_fb122039)
 			break;
 		}
 	}
-	self clientfield::set(str_clientfield, var_fb122039);
+	self clientfield::set(str_clientfield, n_newval);
 }
 
 /*
@@ -1655,7 +1655,7 @@ function function_16ccd69f(var_1e62b431 = 1)
 */
 function on_player_spawn()
 {
-	if(level flag::get(#"hash_53a41180dac96fff"))
+	if(level flag::get(#"portals_active"))
 	{
 		foreach(s_portal in level.a_s_portals)
 		{

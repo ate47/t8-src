@@ -10,7 +10,7 @@
 #using script_444bc5b4fa0fe14f;
 #using script_4d85e8de54b02198;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
@@ -100,10 +100,10 @@ function __init__()
 	level thread aat::register_immunity("zm_aat_brain_decay", #"catalyst", 1, 1, 0);
 	level thread aat::register_immunity("zm_aat_kill_o_watt", #"catalyst", 1, 1, 0);
 	zm_spawner::register_zombie_death_event_callback(&killed_callback);
-	namespace_c3287616::register_archetype(#"catalyst", &function_55f82550, &round_spawn, undefined, 25);
-	namespace_c3287616::function_306ce518(#"catalyst", &function_587a3171);
+	zm_round_spawning::register_archetype(#"catalyst", &function_55f82550, &round_spawn, undefined, 25);
+	zm_round_spawning::function_306ce518(#"catalyst", &function_587a3171);
 	/#
-		spawner::add_archetype_spawn_function(#"catalyst", &zombie_utility::function_27ba8249);
+		spawner::add_archetype_spawn_function(#"catalyst", &zombie_utility::updateanimationrate);
 	#/
 	spawner::add_archetype_spawn_function(#"zombie", &function_59e10bc5);
 	spawner::function_89a2cd87(#"catalyst", &function_47fdbfbb);
@@ -212,7 +212,7 @@ function private registerbehaviorscriptfunctions()
 	/#
 		assert(!isdefined(&function_6c92ebda) || isscriptfunctionptr(&function_6c92ebda));
 	#/
-	behaviortreenetworkutility::registerbehaviortreeaction(#"hash_7b47cc66161f357c", &function_21cbb589, undefined, &function_6c92ebda);
+	behaviortreenetworkutility::registerbehaviortreeaction(#"electriccatalystelectricburst", &function_21cbb589, undefined, &function_6c92ebda);
 	/#
 		assert(isscriptfunctionptr(&function_1043897a));
 	#/
@@ -235,7 +235,7 @@ function private registerbehaviorscriptfunctions()
 	animationstatenetwork::registernotetrackhandlerfunction("corrosive_hide_model", &function_4329a51b);
 	animationstatenetwork::registernotetrackhandlerfunction("corrosive_hide_gas", &function_247a46c1);
 	animationstatenetwork::registernotetrackhandlerfunction("tag_fx_corrosive_death", &function_cda81e65);
-	animationstatenetwork::registernotetrackhandlerfunction("ghost_catalyst", &function_c8f01c4b);
+	animationstatenetwork::registernotetrackhandlerfunction("ghost_catalyst", &ghostcatalyst);
 }
 
 /*
@@ -403,11 +403,11 @@ function private killed_callback(e_attacker)
 	}
 	else if(isdefined(self.damageweapon) && isdefined(e_attacker.var_b01de37))
 	{
-		var_e5088518 = aat::function_702fb333(self.damageweapon);
+		weapon_root = aat::function_702fb333(self.damageweapon);
 		a_keys = getarraykeys(e_attacker.var_b01de37);
-		if(isinarray(a_keys, var_e5088518))
+		if(isinarray(a_keys, weapon_root))
 		{
-			if(self.catalyst_type === e_attacker.var_b01de37[var_e5088518])
+			if(self.catalyst_type === e_attacker.var_b01de37[weapon_root])
 			{
 				e_attacker zm_stats::increment_challenge_stat(#"aat_catalyst_kills");
 				self thread function_d0673f24(e_attacker, self getcentroid());
@@ -432,7 +432,7 @@ function private killed_callback(e_attacker)
 }
 
 /*
-	Name: function_c8f01c4b
+	Name: ghostcatalyst
 	Namespace: zm_ai_catalyst
 	Checksum: 0xF3BC27BE
 	Offset: 0x1D38
@@ -440,7 +440,7 @@ function private killed_callback(e_attacker)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_c8f01c4b(behaviortreeentity)
+function private ghostcatalyst(behaviortreeentity)
 {
 	behaviortreeentity ghost();
 	behaviortreeentity notsolid();
@@ -1823,8 +1823,8 @@ function function_439c457c(inflictor, attacker, damage, flags, meansofdeath, wea
 {
 	if(isdefined(attacker) && isplayer(attacker) && isdefined(self.catalyst_type) && isdefined(weapon) && isdefined(attacker.var_b01de37))
 	{
-		var_e5088518 = aat::function_702fb333(weapon);
-		if(self.catalyst_type === attacker.var_b01de37[var_e5088518])
+		weapon_root = aat::function_702fb333(weapon);
+		if(self.catalyst_type === attacker.var_b01de37[weapon_root])
 		{
 			damage = damage * 2;
 			if(damage >= self.health || attacker zm_powerups::is_insta_kill_active())
@@ -1989,7 +1989,7 @@ function function_587a3171(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"catalyst"))
+		if(zm_round_spawning::function_d0db51fc(#"catalyst"))
 		{
 			if(isdefined(var_f31e767a))
 			{

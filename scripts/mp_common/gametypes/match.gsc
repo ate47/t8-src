@@ -225,7 +225,7 @@ function get_winning_team()
 }
 
 /*
-	Name: function_ebd67076
+	Name: is_winning_team
 	Namespace: match
 	Checksum: 0x99F509C5
 	Offset: 0x408
@@ -233,7 +233,7 @@ function get_winning_team()
 	Parameters: 1
 	Flags: None
 */
-function function_ebd67076(team)
+function is_winning_team(team)
 {
 	if(isdefined(game.outcome.team) && team == game.outcome.team)
 	{
@@ -348,9 +348,9 @@ function function_9b24638f()
 	Parameters: 1
 	Flags: None
 */
-function function_d1e740f6(var_512330f1)
+function function_d1e740f6(team_or_player)
 {
-	outcome::function_d1e740f6(game.outcome, var_512330f1);
+	outcome::function_d1e740f6(game.outcome, team_or_player);
 }
 
 /*

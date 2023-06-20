@@ -128,18 +128,18 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `hero_hammer_lv1` (ZM/Chaos) Hammer LVL1
 - `hero_hammer_lv2` (ZM/Chaos) Hammer LVL2
 - `hero_hammer_lv3` (ZM/Chaos) Hammer LVL3
-- `hash_18829d56b3fbd75b` (ZM/Aether) Firethrower LV1
-- `hash_18829e56b3fbd90e` (ZM/Aether) Firethrower LV2
-- `hash_18829f56b3fbdac1` (ZM/Aether) Firethrower LV3
-- `hash_1d3a5509fa2c9ee6` (ZM/Aether) Ragnarok LV1
-- `hash_1d3a5409fa2c9d33` (ZM/Aether) Ragnarok LV2
-- `hash_1d3a5309fa2c9b80` (ZM/Aether) Ragnarok LV3
-- `hash_6627879099b8a337` (ZM/Aether) Katana LV1
-- `hash_6627889099b8a4ea` (ZM/Aether) Katana LV2
-- `hash_6627899099b8a69d` (ZM/Aether) Katana LV3
-- `hash_74dd67dd8a46d144` (ZM/Aether) Minigun LV1
-- `hash_74dd6add8a46d65d` (ZM/Aether) Minigun LV2
-- `hash_74dd69dd8a46d4aa` (ZM/Aether) Minigun LV3
+- `hero_flamethrower_t8_lv1` (ZM/Aether) Firethrower LV1
+- `hero_flamethrower_t8_lv2` (ZM/Aether) Firethrower LV2
+- `hero_flamethrower_t8_lv3` (ZM/Aether) Firethrower LV3
+- `hero_gravityspikes_t8_lv1` (ZM/Aether) Ragnarok LV1
+- `hero_gravityspikes_t8_lv2` (ZM/Aether) Ragnarok LV2
+- `hero_gravityspikes_t8_lv3` (ZM/Aether) Ragnarok LV3
+- `hero_katana_t8_lv1` (ZM/Aether) Katana LV1
+- `hero_katana_t8_lv2` (ZM/Aether) Katana LV2
+- `hero_katana_t8_lv3` (ZM/Aether) Katana LV3
+- `hero_minigun_t8_lv1` (ZM/Aether) Minigun LV1
+- `hero_minigun_t8_lv2` (ZM/Aether) Minigun LV2
+- `hero_minigun_t8_lv3` (ZM/Aether) Minigun LV3
 
 ### Specials
 
@@ -188,7 +188,8 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `ww_blundergat_fire_t8` - Magmagat (escape ww) 
 - `ww_blundergat_acid_t8` - Acidgat (escape ww)
 - `hash_3de0926b89369160` - Acidgat dart (magic bullet) (escape ww)
-- `hash_494f5501b3f8e1e9` - Acidgat tempered (escape ww)
+- `hash_494f5501b3f8e1e9` - Acidgat dart (magic bullet) (escape ww)
+- `hash_617dcc39334959ce` - Magmagat tempered (escape ww)
 - `ww_crossbow_t8` - IX WW (zm_towers/blk)
 - `ww_crossbow_charged_t8` - IX WW (charged shot) (zm_towers)
 - `ww_freezegun_t8` - Classified WW (zm_office/zm_orange/blk)
@@ -255,8 +256,10 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `tomahawk_t8_upgraded` - hell retriver upgraded (zm/botd)
 - `trophy_system` - trophy system (mp/blk)
 - `gadget_jammer` - jammer (prototype)
+- `eq_shroud` - jammer
 - `waterballoon` - water balloon (blk)
 - `homunculus` - homunculus (zm)
+- `homunculus_leprechaun` - leprechaun homunculus (zm), needs the dvar `zm_holiday_event` set to true to work
 - `cymbal_monkey` - cymbal monkey (zm)
 - `snowball` - snowball (zm/tag) (blk)
 - `snowball_upgraded` - snowball upgraded (zm/tag)

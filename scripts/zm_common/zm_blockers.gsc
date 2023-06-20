@@ -181,7 +181,7 @@ function door_init()
 			targets[i].og_angles = targets[i].angles;
 		}
 	}
-	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") == 0)
+	if(zm_custom::function_901b751c(#"zmdoorstate") == 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -945,7 +945,7 @@ function door_think()
 		{
 			case "local_electric_door":
 			{
-				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"zmpowerdoorstate") == 0)
 				{
 					return;
 				}
@@ -986,7 +986,7 @@ function door_think()
 			}
 			case "electric_door":
 			{
-				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"zmpowerdoorstate") == 0)
 				{
 					return;
 				}
@@ -1031,7 +1031,7 @@ function door_think()
 			}
 			case "electric_buyable_door":
 			{
-				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") == 0)
+				if(zm_custom::function_901b751c(#"zmpowerdoorstate") == 0)
 				{
 					return;
 				}
@@ -1407,7 +1407,7 @@ function debris_init()
 		self zm_utility::set_hint_string(self, "default_buy_debris", n_cost);
 	}
 	self setcursorhint("HINT_NOICON");
-	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") == 0)
+	if(zm_custom::function_901b751c(#"zmdoorstate") == 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -2773,7 +2773,7 @@ function blocker_trigger_think()
 				break;
 			}
 			player handle_post_board_repair_rewards(cost, self);
-			level notify(#"hash_747f63d86cb99870", {#s_board:self, #player:player});
+			level notify(#"board_repaired", {#s_board:self, #player:player});
 			if(zm_utility::all_chunks_intact(self, self.barrier_chunks))
 			{
 				self notify(#"all_boards_repaired");
@@ -3317,7 +3317,7 @@ function replace_chunk(barrier, chunk, has_perk, via_powerup)
 }
 
 /*
-	Name: function_b193ea5c
+	Name: open_zbarrier
 	Namespace: zm_blockers
 	Checksum: 0x214329D3
 	Offset: 0x97A8
@@ -3325,7 +3325,7 @@ function replace_chunk(barrier, chunk, has_perk, via_powerup)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b193ea5c(barrier, var_56646e12 = 0)
+function open_zbarrier(barrier, var_56646e12 = 0)
 {
 	if(isdefined(barrier.zbarrier))
 	{
@@ -3366,7 +3366,7 @@ function open_all_zbarriers()
 {
 	foreach(barrier in level.exterior_goals)
 	{
-		function_b193ea5c(barrier);
+		open_zbarrier(barrier);
 	}
 }
 

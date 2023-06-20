@@ -2,7 +2,7 @@
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_366b8782ff72bb1d;
-#using script_490759cf62a1abc8;
+#using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using script_557a707073a952db;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
@@ -241,7 +241,7 @@ function function_ba542258(mode)
 	{
 		self.var_71a70093 = level.var_1ecfe3a2;
 	}
-	self thread namespace_d82263d5::function_19181566();
+	self thread ct_gadgets::function_19181566();
 	var_61ca8276 = 420000;
 	self function_9270ab93(0, var_61ca8276);
 	self loadout::function_cdb86a18();
@@ -286,8 +286,8 @@ function function_9270ab93(var_db89c655, var_27875ecd)
 	var_e7cc5e43[#"mp_silo"][1] = 240000;
 	var_e7cc5e43[#"mp_silo"][2] = 180000;
 	var_e7cc5e43[#"mp_silo"][3] = 120000;
-	var_b1cb18f1 = hash(getrootmapname());
-	ct_utils::function_7a21ac57(var_db89c655, var_27875ecd, var_e7cc5e43[var_b1cb18f1][1], var_e7cc5e43[var_b1cb18f1][2], var_e7cc5e43[var_b1cb18f1][3]);
+	str_map = hash(getrootmapname());
+	ct_utils::function_7a21ac57(var_db89c655, var_27875ecd, var_e7cc5e43[str_map][1], var_e7cc5e43[str_map][2], var_e7cc5e43[str_map][3]);
 }
 
 /*
@@ -304,7 +304,7 @@ function function_b89106ad(gamedifficulty)
 	level endon(#"combattraining_logic_finished");
 	level notify(#"hash_2a473e02881ca991");
 	level.usingscorestreaks = 0;
-	level.var_64ce2685 = 1;
+	level.disablescoreevents = 1;
 	level.disablemomentum = 1;
 	if(gamedifficulty == 0)
 	{

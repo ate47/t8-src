@@ -419,8 +419,8 @@ function get_best_brutus_spawn_pos(zone_name)
 		{
 			var_2a291abf = 412;
 		}
-		var_8ee30071 = arraygetclosest(level.var_57d61da9[i].origin, level.players, var_2a291abf);
-		if(isdefined(var_8ee30071))
+		e_player_closest = arraygetclosest(level.var_57d61da9[i].origin, level.players, var_2a291abf);
+		if(isdefined(e_player_closest))
 		{
 			continue;
 		}
@@ -1191,7 +1191,7 @@ function private function_61263ebc()
 */
 function function_b02aec83()
 {
-	self endon(#"death", #"brutus_cleanup", #"hash_1b66eece3c394df8");
+	self endon(#"death", #"brutus_cleanup", #"ignore_cleanup");
 	while(true)
 	{
 		if(isdefined(self.favoriteenemy))
@@ -1241,15 +1241,15 @@ function function_ba497d2d(e_brutus)
 		e_brutus notify(#"brutus_cleanup");
 		e_brutus delete();
 	}
-	var_103768a7 = 0;
-	while(!var_103768a7)
+	found_target = 0;
+	while(!found_target)
 	{
 		var_1cc3df76 = util::get_active_players();
 		foreach(e_target in var_1cc3df76)
 		{
 			if(zombie_utility::is_player_valid(e_target, 1))
 			{
-				var_103768a7 = 1;
+				found_target = 1;
 				break;
 			}
 		}

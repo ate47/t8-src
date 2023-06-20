@@ -19,8 +19,8 @@
 function init()
 {
 	clientfield::register("missile", "" + #"hash_64910f94ebb8d66a", 16000, 2, "int", &function_6e3ecc82, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_584149c4564f2d95", 16000, 1, "counter", &function_d7fa0a53, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_77ad8ced9471eae9", 16000, 1, "int", &function_272aa016, 0, 0);
+	clientfield::register("scriptmover", "" + #"pegasus_emerge", 16000, 1, "counter", &pegasus_emerge, 0, 0);
+	clientfield::register("scriptmover", "" + #"pegasus_storm", 16000, 1, "int", &function_272aa016, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_73e309ffb25bf63d", 16000, 1, "int", &function_a27b945a, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_3bb8b5cda11eecc6", 16000, 1, "counter", &function_b9329291, 0, 0);
 	clientfield::register("scriptmover", "" + #"lightning_impact_fx", 16000, 1, "int", &function_ed1d0231, 0, 0);
@@ -30,8 +30,8 @@ function init()
 	level._effect[#"hash_52f038f656770d3f"] = #"hash_433034414b39f1ef";
 	level._effect[#"hash_52f039f656770ef2"] = #"hash_433035414b39f3a2";
 	level._effect[#"hash_52f03af6567710a5"] = #"hash_7a9a94bbcf902878";
-	level._effect[#"hash_584149c4564f2d95"] = #"hash_9c7935d1106ec1d";
-	level._effect[#"hash_6c266b19031d2c09"] = #"hash_4dd46a244305d465";
+	level._effect[#"pegasus_emerge"] = #"hash_9c7935d1106ec1d";
+	level._effect[#"storm_radius"] = #"hash_4dd46a244305d465";
 	level.s_boss_battle = spawnstruct();
 }
 
@@ -69,7 +69,7 @@ function function_6e3ecc82(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_d7fa0a53
+	Name: pegasus_emerge
 	Namespace: red_boss_battle
 	Checksum: 0x39975A05
 	Offset: 0x6C0
@@ -77,9 +77,9 @@ function function_6e3ecc82(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_d7fa0a53(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function pegasus_emerge(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	util::playfxontag(localclientnum, level._effect[#"hash_584149c4564f2d95"], self, "tag_origin");
+	util::playfxontag(localclientnum, level._effect[#"pegasus_emerge"], self, "tag_origin");
 }
 
 /*
@@ -97,7 +97,7 @@ function function_272aa016(localclientnum, oldval, newval, bnewent, binitialsnap
 	self endon("1eb9df21273269b8");
 	if(newval)
 	{
-		self.fx_id = util::playfxontag(localclientnum, level._effect[#"hash_6c266b19031d2c09"], self, "tag_origin");
+		self.fx_id = util::playfxontag(localclientnum, level._effect[#"storm_radius"], self, "tag_origin");
 		if(!isdefined(self.sfx_id))
 		{
 			self.sfx_id = self playloopsound(#"hash_5760b615b9b749d2");
@@ -215,14 +215,14 @@ function private function_e9aa9e80(localclientnum)
 	{
 		waitframe(1);
 	}
-	var_9d68990a = level.var_76234ae5[localclientnum];
-	var_9d68990a endon(#"death");
+	e_ball = level.var_76234ae5[localclientnum];
+	e_ball endon(#"death");
 	util::server_wait(localclientnum, randomfloatrange(0.05, 0.1));
-	if(!isdefined(var_9d68990a))
+	if(!isdefined(e_ball))
 	{
 		return;
 	}
-	self.e_fx = util::spawn_model(localclientnum, #"tag_origin", var_9d68990a.origin);
+	self.e_fx = util::spawn_model(localclientnum, #"tag_origin", e_ball.origin);
 	self.fx_arc = util::playfxontag(localclientnum, level._effect[#"lightning_arc"], self.e_fx, "tag_origin");
 	while(true)
 	{
@@ -237,11 +237,11 @@ function private function_e9aa9e80(localclientnum)
 			self.e_fx moveto(self.origin, 0.1);
 		}
 		util::server_wait(localclientnum, 0.1);
-		if(!isdefined(var_9d68990a))
+		if(!isdefined(e_ball))
 		{
 			return;
 		}
-		self.e_fx moveto(var_9d68990a.origin, 0.1);
+		self.e_fx moveto(e_ball.origin, 0.1);
 		util::server_wait(localclientnum, 0.1);
 	}
 }

@@ -794,8 +794,8 @@ function function_d1768e8e()
 */
 function function_c6fe9951()
 {
-	self notify(#"hash_25663702210244cc");
-	callback::callback(#"hash_25663702210244cc");
+	self notify(#"done_healing");
+	callback::callback(#"done_healing");
 }
 
 /*

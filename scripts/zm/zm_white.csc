@@ -220,7 +220,7 @@ function function_61c6d401(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_magicbox_lights_init(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_magicbox_lights_init(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	level.var_17199db2[0] = "tag_start_chest1";
 	level.var_17199db2[1] = "tag_start_chest2";
@@ -244,7 +244,7 @@ function portal_map_magicbox_lights_init(localclientnum, oldval, newval, bnewent
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_start_chest1(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_start_chest1(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -265,7 +265,7 @@ function portal_map_start_chest1(localclientnum, oldval, newval, bnewent, biniti
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_start_chest2(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_start_chest2(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -286,7 +286,7 @@ function portal_map_start_chest2(localclientnum, oldval, newval, bnewent, biniti
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_green_backyard_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_green_backyard_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -307,7 +307,7 @@ function portal_map_green_backyard_chest(localclientnum, oldval, newval, bnewent
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_yellow_backyard_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_yellow_backyard_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -328,7 +328,7 @@ function portal_map_yellow_backyard_chest(localclientnum, oldval, newval, bnewen
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_bunker1_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_bunker1_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -349,7 +349,7 @@ function portal_map_bunker1_chest(localclientnum, oldval, newval, bnewent, binit
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_bunker2_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_bunker2_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -370,7 +370,7 @@ function portal_map_bunker2_chest(localclientnum, oldval, newval, bnewent, binit
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_cul_de_sac_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_cul_de_sac_chest(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{
@@ -391,7 +391,7 @@ function portal_map_cul_de_sac_chest(localclientnum, oldval, newval, bnewent, bi
 	Parameters: 7
 	Flags: Linked
 */
-function portal_map_fire_sale(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function portal_map_fire_sale(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(!isdefined(level.var_8f14a19))
 	{
@@ -474,7 +474,7 @@ function function_86b85486(localclientnum, tag)
 	Parameters: 7
 	Flags: Linked
 */
-function power_pbg_control(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, var_1e231644)
+function power_pbg_control(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejum)
 {
 	if(newval == 1)
 	{

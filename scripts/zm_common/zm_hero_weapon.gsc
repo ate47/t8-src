@@ -71,7 +71,7 @@ function __init__()
 		level.var_a1feaa28 = 0.5;
 	}
 	ability_player::register_gadget_activation_callbacks(11, &hero_weapon_on, &hero_weapon_off);
-	ability_player::register_gadget_ready_callbacks(11, &function_dec6d32d);
+	ability_player::register_gadget_ready_callbacks(11, &hero_weapon_ready);
 	/#
 		level thread function_281b4073();
 		level.var_124446e = &function_124446e;
@@ -397,7 +397,7 @@ function hero_weapon_player_init()
 		self.var_d11656b = 0;
 		self.var_9cef1b1e = 0;
 	}
-	if(zm_custom::function_901b751c(#"hash_b066c34278e6394"))
+	if(zm_custom::function_901b751c(#"zmspecweaponisenabled"))
 	{
 		self hero_give_weapon(self.var_fd05e363, 0);
 		if(self.var_fd05e363.isgadget)
@@ -432,7 +432,7 @@ function function_f8bf706f()
 	self.var_184a3854 = 0;
 	self.var_d11656b = 0;
 	self.var_9cef1b1e = 0;
-	if(zm_custom::function_901b751c(#"hash_b066c34278e6394"))
+	if(zm_custom::function_901b751c(#"zmspecweaponisenabled"))
 	{
 		self hero_give_weapon(self.var_fd05e363, 0);
 		if(self.var_fd05e363.isgadget)
@@ -589,7 +589,7 @@ function hero_give_weapon(weapon, enabled, var_b94ec3d9 = 0)
 */
 function function_1297aefe(weapon)
 {
-	var_328c1d6e = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hero_scepter_lv3", #"hero_sword_pistol_lv3", #"hash_18829f56b3fbdac1", #"hash_1d3a5309fa2c9b80", #"hash_6627899099b8a69d", #"hash_74dd69dd8a46d4aa");
+	var_328c1d6e = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hero_scepter_lv3", #"hero_sword_pistol_lv3", #"hero_flamethrower_t8_lv3", #"hero_gravityspikes_t8_lv3", #"hero_katana_t8_lv3", #"hero_minigun_t8_lv3");
 	i = 0;
 	var_8e233987 = [];
 	do
@@ -684,7 +684,7 @@ function hero_weapon_off(n_slot, w_hero)
 }
 
 /*
-	Name: function_dec6d32d
+	Name: hero_weapon_ready
 	Namespace: zm_hero_weapon
 	Checksum: 0xCC310A0D
 	Offset: 0x1E08
@@ -692,7 +692,7 @@ function hero_weapon_off(n_slot, w_hero)
 	Parameters: 2
 	Flags: Linked
 */
-function function_dec6d32d(n_slot, w_hero)
+function hero_weapon_ready(n_slot, w_hero)
 {
 	self thread zm_audio::function_2d93d659(w_hero);
 	if(bgb::is_enabled(#"zm_bgb_arsenal_accelerator"))

@@ -182,19 +182,19 @@ function private registerbehaviorscriptfunctions()
 	Parameters: 1
 	Flags: Linked
 */
-function function_67525edc(var_3f1f1429)
+function function_67525edc(dustball)
 {
 	enemies = util::function_81ccf6d3(self.team);
 	foreach(target in enemies)
 	{
 		if(isplayer(target))
 		{
-			distsq = distancesquared(var_3f1f1429.origin, target.origin);
+			distsq = distancesquared(dustball.origin, target.origin);
 			if(distsq <= (150 * 150))
 			{
 				params = getstatuseffect(#"hash_12a64221f4d27f9b");
 				weapon = getweapon(#"eq_molotov");
-				target status_effect::status_effect_apply(params, weapon, var_3f1f1429, 0, 3000, undefined, var_3f1f1429.origin);
+				target status_effect::status_effect_apply(params, weapon, dustball, 0, 3000, undefined, dustball.origin);
 			}
 		}
 	}
@@ -307,12 +307,12 @@ function elephantstartdeath(elephant)
 	phase = elephant.ai.phase;
 	elephant.skipdeath = 1;
 	elephant.diedinscriptedanim = 1;
-	elephant.var_8cf9d4df = spawn("script_model", elephant.origin);
-	elephant.var_8cf9d4df setmodel(model);
-	elephant.var_8cf9d4df useanimtree("generic");
-	elephant.var_8cf9d4df thread animation::play(animname, elephant.origin, elephant.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
-	elephant.var_8cf9d4df clientfield::set("entrails_model_cf", 1);
-	var_8cf9d4df = elephant.var_8cf9d4df;
+	elephant.entrailsmodel = spawn("script_model", elephant.origin);
+	elephant.entrailsmodel setmodel(model);
+	elephant.entrailsmodel useanimtree("generic");
+	elephant.entrailsmodel thread animation::play(animname, elephant.origin, elephant.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
+	elephant.entrailsmodel clientfield::set("entrails_model_cf", 1);
+	entrailsmodel = elephant.entrailsmodel;
 	origin = elephant.origin;
 	angles = elephant.angles;
 	var_55ec4bbf = elephant.ai.phase == #"hash_266f53fb994e6120";
@@ -341,7 +341,7 @@ function elephantstartdeath(elephant)
 	{
 		level flag::set("both_towers_bosses_killed");
 	}
-	var_8cf9d4df thread function_78f4a0d1();
+	entrailsmodel thread function_78f4a0d1();
 	level thread function_106b6b29();
 	if(var_55ec4bbf)
 	{
@@ -995,7 +995,7 @@ function private function_2798bb2(elephant, rider)
 {
 	rider endon(#"death", #"hash_45ddc9393cf1b3e2");
 	elephant endon(#"death");
-	var_f662e4fa = struct::get("tag_align_boss_doors", "targetname");
+	alignstruct = struct::get("tag_align_boss_doors", "targetname");
 	if(elephant.ai.phase == #"hash_266f56fb994e6639")
 	{
 		rider ghost();
@@ -1006,7 +1006,7 @@ function private function_2798bb2(elephant, rider)
 	{
 		rider unlink();
 		rider.takedamage = 0;
-		rider animation::play(rider.ai.var_61a678fe, var_f662e4fa.origin, var_f662e4fa.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
+		rider animation::play(rider.ai.var_61a678fe, alignstruct.origin, alignstruct.angles, 1, 0.2, 0.1, undefined, undefined, undefined, 0);
 		rider.takedamage = 1;
 		/#
 			assert(isdefined(rider.ai.var_4f12fc77));
@@ -1338,10 +1338,10 @@ function private function_1d65bc12(enemy, elephant, var_60e4c6b7 = 1)
 	{
 		return false;
 	}
-	var_f2fb414f = anglestoforward(elephant.angles);
-	var_9349139f = enemy.origin - elephant.origin;
-	var_3e3c8075 = (var_9349139f[0], var_9349139f[1], 0);
-	var_c2ee8451 = (var_f2fb414f[0], var_f2fb414f[1], 0);
+	facingvec = anglestoforward(elephant.angles);
+	enemyvec = enemy.origin - elephant.origin;
+	var_3e3c8075 = (enemyvec[0], enemyvec[1], 0);
+	var_c2ee8451 = (facingvec[0], facingvec[1], 0);
 	var_3e3c8075 = vectornormalize(var_3e3c8075);
 	var_c2ee8451 = vectornormalize(var_c2ee8451);
 	if(var_60e4c6b7)
@@ -1715,11 +1715,11 @@ function function_ee23b15d(inflictor, attacker, damage, idflags, meansofdeath, w
 	#/
 	if(isdefined(level.var_b394f92f))
 	{
-		var_72c8f5ac = [[level.var_b394f92f]](attacker, weapon, boneindex, hitloc, point);
-		damage = damage * var_72c8f5ac;
+		damage_scalar = [[level.var_b394f92f]](attacker, weapon, boneindex, hitloc, point);
+		damage = damage * damage_scalar;
 	}
 	function_e864f0da(self.ai.elephant, damage, attacker, point, dir);
-	level notify(#"hash_5588a95b63ca4e19");
+	level notify(#"basket_hit");
 	return damage;
 }
 
@@ -2083,10 +2083,10 @@ function function_ce8fe2b0(entity, var_ab9f62ef)
 	{
 		var_6629fd0d = entity.origin + (forwarddist * forwardvec);
 	}
-	var_cbdae441 = getclosestpointonnavmesh(var_6629fd0d, 500, 200);
-	if(isdefined(var_cbdae441))
+	closestpointonnavmesh = getclosestpointonnavmesh(var_6629fd0d, 500, 200);
+	if(isdefined(closestpointonnavmesh))
 	{
-		trace = groundtrace(var_cbdae441 + vectorscale((0, 0, 1), 200), var_cbdae441 + (vectorscale((0, 0, -1), 200)), 0, undefined);
+		trace = groundtrace(closestpointonnavmesh + vectorscale((0, 0, 1), 200), closestpointonnavmesh + (vectorscale((0, 0, -1), 200)), 0, undefined);
 		if(isdefined(trace[#"position"]))
 		{
 			newpos = trace[#"position"];
@@ -2094,10 +2094,10 @@ function function_ce8fe2b0(entity, var_ab9f62ef)
 		/#
 			recordsphere(newpos, 15, (1, 0.5, 0), "");
 		#/
-		var_3f1f1429 = spawnvehicle(#"hash_6be593a62b8b87a5", newpos, entity.angles, "dynamic_spawn_ai");
-		if(isdefined(var_3f1f1429))
+		dustball = spawnvehicle(#"hash_6be593a62b8b87a5", newpos, entity.angles, "dynamic_spawn_ai");
+		if(isdefined(dustball))
 		{
-			var_3f1f1429.var_6353e3f1 = 1;
+			dustball.var_6353e3f1 = 1;
 			entity.ai.var_f2d193df = gettime() + randomintrange(5000, 8000);
 			if(isdefined(self.var_fe41477d) && self.var_fe41477d)
 			{
@@ -2126,9 +2126,9 @@ function function_ce8fe2b0(entity, var_ab9f62ef)
 	{
 		return;
 	}
-	if(targets.size > 1 && self.ai.phase == #"hash_266f56fb994e6639" && isdefined(var_3f1f1429) && isalive(var_3f1f1429) && !isdefined(var_ab9f62ef))
+	if(targets.size > 1 && self.ai.phase == #"hash_266f56fb994e6639" && isdefined(dustball) && isalive(dustball) && !isdefined(var_ab9f62ef))
 	{
-		function_ce8fe2b0(self, var_3f1f1429.origin);
+		function_ce8fe2b0(self, dustball.origin);
 	}
 }
 
@@ -2856,7 +2856,7 @@ function setup_devgui()
 					}
 					break;
 				}
-				case "hash_490a8c840885559":
+				case "charge_enable":
 				{
 					elephants = getaiarchetypearray(#"elephant");
 					foreach(elephant in elephants)
@@ -2865,7 +2865,7 @@ function setup_devgui()
 					}
 					break;
 				}
-				case "hash_3c1047155c4a19f2":
+				case "charge_disable":
 				{
 					elephants = getaiarchetypearray(#"elephant");
 					foreach(elephant in elephants)

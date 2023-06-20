@@ -187,7 +187,7 @@ function private function_176c97f8(substate)
 	{
 		return 0;
 	}
-	return substate == #"pain" || substate == #"inplace_pain" || substate == #"hash_2dfc6883f8726e18" || substate == #"hash_29ce220830069fad" || substate == #"hash_38b6db4d481c96d6" || substate == #"hash_544567ec9ed768d5";
+	return substate == #"pain" || substate == #"inplace_pain" || substate == #"pain_intro" || substate == #"pain_outro" || substate == #"painrecovery" || substate == #"pronepain";
 }
 
 /*

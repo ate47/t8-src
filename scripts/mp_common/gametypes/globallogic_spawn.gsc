@@ -227,7 +227,7 @@ function function_82ca1565(spawnpoint, gametype)
 		}
 		case "dem_overtime":
 		{
-			return isdefined(spawnpoint.var_21f814f) && spawnpoint.var_21f814f;
+			return isdefined(spawnpoint.demolition_overtime) && spawnpoint.demolition_overtime;
 			break;
 		}
 		case "hash_7cb9d0a58715cebe":
@@ -700,7 +700,7 @@ function timeuntilspawn(includeteamkilldelay)
 			respawndelay = respawndelay + player::function_821200bb();
 		}
 	}
-	if(isdefined(level.var_f220c297) && level.var_f220c297)
+	if(isdefined(level.deathcirclerespawn) && level.deathcirclerespawn)
 	{
 		return self function_ac5b273c(respawndelay);
 	}

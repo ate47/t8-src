@@ -369,7 +369,7 @@ function function_123bcbcf()
 			{
 				a_str_rewards[a_str_rewards.size] = #"aat";
 			}
-			if(zm_custom::function_901b751c(#"hash_b066c34278e6394") && zm_custom::function_901b751c(#"zmpowerupsactive"))
+			if(zm_custom::function_901b751c(#"zmspecweaponisenabled") && zm_custom::function_901b751c(#"zmpowerupsactive"))
 			{
 				a_str_rewards[a_str_rewards.size] = #"weapon_power";
 			}
@@ -401,7 +401,7 @@ function function_123bcbcf()
 				self.var_123836f9 = 0;
 			}
 			a_str_rewards = array(#"weapon");
-			if(zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f") && self.var_123836f9 < 2)
+			if(zm_custom::function_901b751c(#"zmperksactive") && self.var_123836f9 < 2)
 			{
 				a_str_rewards[a_str_rewards.size] = #"free_perk";
 			}
@@ -411,7 +411,7 @@ function function_123bcbcf()
 				a_str_rewards[a_str_rewards.size] = #"extra_life";
 			}
 			var_b42aa272 = 1;
-			wpn_pegasus = getweapon(#"hash_27e4878539bc7f72");
+			wpn_pegasus = getweapon(#"thunderstorm");
 			if(self hasweapon(wpn_pegasus))
 			{
 				n_ammo = self getammocount(wpn_pegasus);
@@ -420,7 +420,7 @@ function function_123bcbcf()
 					var_b42aa272 = 0;
 				}
 			}
-			if(var_b42aa272 && zm_custom::function_901b751c(#"hash_65a1298089d361f1") && zm_weapons::get_is_in_box(level.var_49d60273))
+			if(var_b42aa272 && zm_custom::function_901b751c(#"zmequipmentisenabled") && zm_weapons::get_is_in_box(level.var_49d60273))
 			{
 				a_str_rewards[a_str_rewards.size] = #"pegasus";
 			}
@@ -446,7 +446,7 @@ function function_123bcbcf()
 				}
 				case "pegasus":
 				{
-					self thread function_11be5095(undefined, 15, 0, #"hash_27e4878539bc7f72");
+					self thread function_11be5095(undefined, 15, 0, #"thunderstorm");
 					break;
 				}
 			}
@@ -727,7 +727,7 @@ function function_11be5095(var_7ed75e97, var_6c9485fc = 15, b_upgraded = 0, var_
 	}
 	var_4d0b3b87 = zm_utility::spawn_buildkit_weapon_model(self, getweapon(str_weapon_name), undefined, v_loc, v_angles);
 	b_rotate = 1;
-	if(str_weapon_name == #"hash_27e4878539bc7f72")
+	if(str_weapon_name == #"thunderstorm")
 	{
 		b_rotate = 0;
 	}
@@ -1123,7 +1123,7 @@ function function_a8243f37()
 	{
 		level.var_fc2d4a2[level.var_fc2d4a2.size] = #"ar_galil_t8";
 	}
-	if(zm_custom::function_901b751c(#"hash_edfb07f798aaab5"))
+	if(zm_custom::function_901b751c(#"zmweaponsshotgun"))
 	{
 		level.var_fc2d4a2[level.var_fc2d4a2.size] = #"shotgun_fullauto_t8";
 	}
@@ -1148,15 +1148,15 @@ function function_a8243f37()
 	level.var_de18c954 = 0;
 	level.var_592fbce6 = [];
 	level.var_592fbce6[#"bowie_knife"] = 0;
-	level.var_592fbce6[#"hash_cd53ea4d4ee864c"] = 5;
+	level.var_592fbce6[#"pistol_standard_t8_upgraded"] = 5;
 	level.var_592fbce6[#"pistol_burst_t8_upgraded"] = 5;
 	level.var_592fbce6[#"smg_drum_pistol_t8_upgraded"] = 5;
-	level.var_592fbce6[#"hash_3ce59657b420dbb2"] = -1;
+	level.var_592fbce6[#"ar_galil_t8_upgraded"] = -1;
 	level.var_592fbce6[#"shotgun_fullauto_t8_upgraded"] = -1;
-	level.var_592fbce6[#"hash_3041cc761d495272"] = 9;
+	level.var_592fbce6[#"smg_folding_t8_upgraded"] = 9;
 	level.var_592fbce6[#"smg_fastburst_t8_upgraded"] = 4;
-	level.var_592fbce6[#"hash_40788017f1c860f0"] = 0;
-	level.var_592fbce6[#"hash_27e4878539bc7f72"] = 8;
+	level.var_592fbce6[#"ar_standard_t8_upgraded"] = 0;
+	level.var_592fbce6[#"thunderstorm"] = 8;
 	level.var_592fbce6[#"sniper_powersemi_t8"] = 0;
 }
 
@@ -1600,7 +1600,7 @@ function function_6c62f074(var_9e09931e)
 		}
 		case 4:
 		{
-			if(zm_custom::function_901b751c(#"hash_b066c34278e6394") && zm_custom::function_901b751c(#"zmpowerupsactive"))
+			if(zm_custom::function_901b751c(#"zmspecweaponisenabled") && zm_custom::function_901b751c(#"zmpowerupsactive"))
 			{
 				var_c481f7e6 = randomint(1000);
 				if(var_c481f7e6 <= 250)
@@ -1641,7 +1641,7 @@ function function_6c62f074(var_9e09931e)
 function function_4071e6d()
 {
 	var_c481f7e6 = randomint(1000);
-	if(var_c481f7e6 < 166 && zm_custom::function_901b751c(#"hash_65a1298089d361f1"))
+	if(var_c481f7e6 < 166 && zm_custom::function_901b751c(#"zmequipmentisenabled"))
 	{
 		self thread function_e08e4c9c(#"zm_bgb_equip_mint", self.s_tribute_bowl.var_8f683ef8);
 	}
@@ -1741,7 +1741,7 @@ function function_abd417dc(var_7ed75e97, var_5876e0e2 = undefined, b_upgraded = 
 */
 function function_e08e4c9c(str_bgb, var_8b84b3ce)
 {
-	if(!zm_custom::function_901b751c(#"hash_137eb8d53913f781"))
+	if(!zm_custom::function_901b751c(#"zmelixirsenabled"))
 	{
 		return;
 	}
@@ -2031,7 +2031,7 @@ function function_8b1e1959()
 */
 function function_529e8585(var_fd6264f6)
 {
-	self endon(#"powerup_timedout", #"hash_49edf44e71eee3d3", #"death");
+	self endon(#"powerup_timedout", #"powerup_stolen", #"death");
 	self playsound(#"hash_e3e5f7c83015171");
 	self playloopsound(#"hash_2adfa98b79668366");
 	wait(var_fd6264f6);

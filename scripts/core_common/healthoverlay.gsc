@@ -415,7 +415,7 @@ function private function_f09367a0(var_dc77251f, regen_delay)
 	{
 		var_dc77251f.var_ba47a7a3 = 1;
 	}
-	if(!(isdefined(self.ignore_health_regen_delay) && self.ignore_health_regen_delay) && (var_dc77251f.var_fc296337 - var_dc77251f.var_ba47a7a3) < regen_delay)
+	if(!(isdefined(self.ignore_health_regen_delay) && self.ignore_health_regen_delay) && (var_dc77251f.time_now - var_dc77251f.var_ba47a7a3) < regen_delay)
 	{
 		return false;
 	}
@@ -549,9 +549,9 @@ function private heal(var_dc77251f)
 	{
 		return;
 	}
-	if(var_dc77251f.var_fc296337 - var_dc77251f.var_7cb44c56 > regen_delay)
+	if(var_dc77251f.time_now - var_dc77251f.var_7cb44c56 > regen_delay)
 	{
-		var_dc77251f.var_7cb44c56 = var_dc77251f.var_fc296337;
+		var_dc77251f.var_7cb44c56 = var_dc77251f.time_now;
 		self notify(#"snd_breathing_better");
 	}
 	var_bc840360 = player function_f8139729();
@@ -728,15 +728,15 @@ function private function_8f2722f6()
 	var_dc77251f.ratio = player.health / var_bc840360;
 	var_dc77251f.var_ec8863bf = var_dc77251f.ratio;
 	player function_69e7b01c(player.health / player.maxhealth);
-	var_dc77251f.var_fc296337 = gettime();
+	var_dc77251f.time_now = gettime();
 	if(player.health < var_dc77251f.old_health)
 	{
-		player.breathingstoptime = var_dc77251f.var_fc296337 + 6000;
-		var_dc77251f.var_ba47a7a3 = var_dc77251f.var_fc296337;
+		player.breathingstoptime = var_dc77251f.time_now + 6000;
+		var_dc77251f.var_ba47a7a3 = var_dc77251f.time_now;
 	}
 	else
 	{
-		var_dc77251f.time_elapsed = var_dc77251f.var_fc296337 - var_dc77251f.var_d1e06a5f;
+		var_dc77251f.time_elapsed = var_dc77251f.time_now - var_dc77251f.var_d1e06a5f;
 		player heal(var_dc77251f);
 		if(var_dc77251f.var_ec8863bf <= 0)
 		{

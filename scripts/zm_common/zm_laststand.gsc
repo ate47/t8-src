@@ -692,9 +692,9 @@ function function_5ff83684()
 	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_fullauto_t8");
 	level.pistol_value_solo_replace_below = level.pistol_values.size - 1;
 	level.pistol_values[level.pistol_values.size] = level.default_solo_laststandpistol;
-	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_cd53ea4d4ee864c");
+	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_standard_t8_upgraded");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_burst_t8_upgraded");
-	level.pistol_values[level.pistol_values.size] = getweapon(#"hash_c2a620242d1636a");
+	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_revolver_t8_upgraded");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"pistol_fullauto_t8_upgraded");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"ray_gun");
 	level.pistol_values[level.pistol_values.size] = getweapon(#"ray_gun_upgraded");
@@ -1021,7 +1021,7 @@ function wait_switch_weapon(n_delay, w_weapon)
 */
 function laststand_bleedout(delay)
 {
-	self endon(#"player_revived", #"zombified", #"disconnect", #"hash_257d7f8fe6f97830");
+	self endon(#"player_revived", #"zombified", #"disconnect", #"instakill_player");
 	level endon(#"end_game", #"round_reset");
 	if(level flag::get("round_reset"))
 	{
@@ -1315,7 +1315,7 @@ function function_b7c101fa()
 	{
 		self_revive_count = self.var_5d4c5daf;
 	}
-	var_48f2f554 = zm_custom::function_901b751c(#"hash_21ae4d5b707b063");
+	var_48f2f554 = zm_custom::function_901b751c(#"zmselfreviveamount");
 	if(var_48f2f554)
 	{
 		self.var_d66589da = int(var_48f2f554);
@@ -2279,7 +2279,7 @@ function revive_hud_think()
 				{
 					continue;
 				}
-				if(util::function_5df4294() == "vs")
+				if(util::get_game_type() == "vs")
 				{
 					if(players[i].team != playertorevive.team)
 					{
@@ -2475,7 +2475,7 @@ function is_reviving_via_override(e_revivee)
 }
 
 /*
-	Name: function_16c5dddd
+	Name: instakill_player
 	Namespace: zm_laststand
 	Checksum: 0x3871D187
 	Offset: 0x6658
@@ -2483,10 +2483,10 @@ function is_reviving_via_override(e_revivee)
 	Parameters: 0
 	Flags: Linked
 */
-function function_16c5dddd()
+function instakill_player()
 {
 	self.var_39c78617 = 1;
-	self notify(#"hash_257d7f8fe6f97830");
+	self notify(#"instakill_player");
 	if(self laststand::player_is_in_laststand())
 	{
 		level.var_ff482f76 zm_laststand_client::close(self);

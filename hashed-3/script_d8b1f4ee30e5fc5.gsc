@@ -1070,10 +1070,10 @@ function function_a4f5b046(entity, mocompanim, mocompanimblendouttime, mocompani
 		self.var_cd8354e0.var_cb28f380 = entity localtoworldcoords(var_e397f54c);
 		/#
 			movedelta = getmovedelta(mocompanim, 0, 1, entity);
-			var_6b8f735f = entity localtoworldcoords(movedelta);
-			distance = distance(entity.origin, var_6b8f735f);
-			recordcircle(var_6b8f735f, 3, (0, 1, 0), "");
-			record3dtext("" + distance, var_6b8f735f, (0, 1, 0), "");
+			animendpos = entity localtoworldcoords(movedelta);
+			distance = distance(entity.origin, animendpos);
+			recordcircle(animendpos, 3, (0, 1, 0), "");
+			record3dtext("" + distance, animendpos, (0, 1, 0), "");
 		#/
 	}
 }
@@ -1114,9 +1114,9 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		var_83fd29ee = vectornormalize(predictedenemypos - entity.origin);
 		var_1efb2395 = predictedenemypos - (var_83fd29ee * entity getpathfindingradius());
-		self.var_cd8354e0.var_736d2cce = var_1efb2395;
-		var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.var_736d2cce);
-		var_65cbfb52 = distancesquared(self.var_cd8354e0.var_9bfa8497, self.var_cd8354e0.var_736d2cce);
+		self.var_cd8354e0.adjustedendpos = var_1efb2395;
+		var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.adjustedendpos);
+		var_65cbfb52 = distancesquared(self.var_cd8354e0.var_9bfa8497, self.var_cd8354e0.adjustedendpos);
 		if(var_776ddabf <= (35 * 35))
 		{
 			/#
@@ -1143,7 +1143,7 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 		}
 		if(self.var_cd8354e0.var_425c4c8b)
 		{
-			var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.var_736d2cce);
+			var_776ddabf = distancesquared(self.var_cd8354e0.var_cb28f380, self.var_cd8354e0.adjustedendpos);
 			var_beabc994 = anglestoforward(self.angles);
 			var_1c3641f2 = (entity.enemy.origin[0], entity.enemy.origin[1], entity.origin[2]);
 			dirtoenemy = vectornormalize(var_1c3641f2 - entity.origin);
@@ -1166,7 +1166,7 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 			#/
 			if(var_425c4c8b)
 			{
-				var_90c3cdd2 = length(self.var_cd8354e0.var_736d2cce - self.var_cd8354e0.var_cb28f380);
+				var_90c3cdd2 = length(self.var_cd8354e0.adjustedendpos - self.var_cd8354e0.var_cb28f380);
 				timestep = function_60d95f53();
 				animlength = getanimlength(mocompanim) * 1000;
 				starttime = self.var_cd8354e0.var_98bc84b7 * animlength;
@@ -1174,7 +1174,7 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 				starttime = floor(starttime / timestep);
 				stoptime = floor(stoptime / timestep);
 				adjustduration = stoptime - starttime;
-				self.var_cd8354e0.var_10b8b6d1 = vectornormalize(self.var_cd8354e0.var_736d2cce - self.var_cd8354e0.var_cb28f380);
+				self.var_cd8354e0.var_10b8b6d1 = vectornormalize(self.var_cd8354e0.adjustedendpos - self.var_cd8354e0.var_cb28f380);
 				self.var_cd8354e0.var_8b9a15a6 = var_90c3cdd2 / adjustduration;
 				self.var_cd8354e0.var_425c4c8b = 1;
 				self.var_cd8354e0.adjustmentstarted = 1;
@@ -1194,7 +1194,7 @@ function function_2e8439bf(entity, mocompanim, mocompanimblendouttime, mocompani
 		#/
 		/#
 			recordsphere(self.var_cd8354e0.var_cb28f380, 3, (0, 1, 0), "");
-			recordsphere(self.var_cd8354e0.var_736d2cce, 3, (0, 0, 1), "");
+			recordsphere(self.var_cd8354e0.adjustedendpos, 3, (0, 0, 1), "");
 		#/
 		adjustedorigin = entity.origin + (entity.var_cd8354e0.var_10b8b6d1 * self.var_cd8354e0.var_8b9a15a6);
 	}

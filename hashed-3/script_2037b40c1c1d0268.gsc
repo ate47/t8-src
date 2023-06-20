@@ -59,13 +59,13 @@ class cct_progressbar_status : cLUIelem
 				}
 				else
 				{
-					if(#"hash_4730cb5d57cb0f20" == state_name)
+					if(#"connection_lost" == state_name)
 					{
 						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
-						if(#"hash_4f1ec9353f4eee22" == state_name)
+						if(#"downloading1" == state_name)
 						{
 							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
@@ -77,7 +77,7 @@ class cct_progressbar_status : cLUIelem
 							}
 							else
 							{
-								if(#"hash_af852d7b85b0c03" == state_name)
+								if(#"awaitingconnection" == state_name)
 								{
 									[[ self ]]->set_data(localclientnum, "_state", 6);
 								}
@@ -89,13 +89,13 @@ class cct_progressbar_status : cLUIelem
 									}
 									else
 									{
-										if(#"hash_a890619c656ded5" == state_name)
+										if(#"sabotagedata" == state_name)
 										{
 											[[ self ]]->set_data(localclientnum, "_state", 8);
 										}
 										else
 										{
-											if(#"hash_3db441cc059cbd6c" == state_name)
+											if(#"sabotagedata1" == state_name)
 											{
 												[[ self ]]->set_data(localclientnum, "_state", 9);
 											}

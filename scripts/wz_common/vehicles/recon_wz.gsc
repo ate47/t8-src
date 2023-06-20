@@ -256,8 +256,8 @@ function private function_ec1a4a6b()
 	{
 		speed = abs(self getspeedmph());
 		velocity = self getvelocity();
-		var_80c2b29 = abs(velocity[2]);
-		if(speed < 0.1 && var_80c2b29 < 0.1)
+		zvelocity = abs(velocity[2]);
+		if(speed < 0.1 && zvelocity < 0.1)
 		{
 			self notify(#"hash_363004a4e0ccc1f");
 			return;

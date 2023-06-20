@@ -117,11 +117,11 @@ function function_95c61f07(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(newval > 0)
 	{
-		self.var_f043b10a = 1;
+		self.nonplayeroobusage = 1;
 	}
 	else
 	{
-		self.var_f043b10a = undefined;
+		self.nonplayeroobusage = undefined;
 	}
 }
 
@@ -157,7 +157,7 @@ function onoutofboundschange(localclientnum, oldval, newval, bnewent, binitialsn
 			filter::init_filter_oob(localplayer);
 			filter::enable_filter_oob(localclientnum, 0);
 			localplayer.oob_effect_enabled = 1;
-			if(util::function_5df4294() === #"zstandard")
+			if(util::get_game_type() === #"zstandard")
 			{
 				level.oob_sound_ent[localclientnum] playloopsound(#"hash_6da7ae12f538ef5e", 0.5);
 			}
@@ -195,7 +195,7 @@ function onoutofboundschange(localclientnum, oldval, newval, bnewent, binitialsn
 			}
 			self.oob_active_duration = self.oob_active_duration + (self.oob_end_time - self.oob_start_time);
 		}
-		if(isdefined(self.var_f043b10a) && self.var_f043b10a)
+		if(isdefined(self.nonplayeroobusage) && self.nonplayeroobusage)
 		{
 			self.oob_active_duration = undefined;
 		}

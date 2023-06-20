@@ -708,7 +708,7 @@ function function_a6c704c(bgb)
 	level endon(#"end_game");
 	self thread function_b331a28c(bgb);
 	self thread function_1f3eb76f(bgb);
-	util::delay(#"hash_7b6a55a9b65e3194", "death", &zm_audio::create_and_play_dialog, #"elixir", #"drink");
+	util::delay(#"offhand_fire", "death", &zm_audio::create_and_play_dialog, #"elixir", #"drink");
 	if(isdefined(level.bgb[bgb].var_4a9b0cdc) && level.bgb[bgb].var_4a9b0cdc || self function_e98aa964(1))
 	{
 		self notify(#"hash_27b238d082f65849", bgb);

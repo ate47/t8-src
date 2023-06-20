@@ -53,7 +53,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("actor", "" + #"gaia_impact_zombie", 16000, 1, "counter");
-	clientfield::register("scriptmover", "" + #"hash_90f855c336338af", 16000, 1, "counter");
+	clientfield::register("scriptmover", "" + #"gaia_shoot", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"gaia_impact", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"spike_explode", 16000, 1, "counter");
 	clientfield::register("scriptmover", "" + #"spike_spawn", 16000, 1, "counter");
@@ -391,7 +391,7 @@ function function_78de2d2e(n_index)
 	self endon(#"death");
 	self.n_index = n_index;
 	wait(0.1);
-	self clientfield::increment("" + #"hash_90f855c336338af");
+	self clientfield::increment("" + #"gaia_shoot");
 }
 
 /*
@@ -747,7 +747,7 @@ function function_39e8ed04()
 	a_trace = bullettrace(var_2ed6f142, v_end, 0, self);
 	if(isdefined(level.var_1e60b889))
 	{
-		level notify(#"hash_7841606423d6fe4c", {#v_position:a_trace[#"position"], #e_entity:a_trace[#"entity"], #player:self});
+		level notify(#"ww_gaia_hit", {#v_position:a_trace[#"position"], #e_entity:a_trace[#"entity"], #player:self});
 	}
 	return a_trace[#"position"];
 }
@@ -963,7 +963,7 @@ function function_1d315fcd(e_target)
 */
 function function_1e39fbc5()
 {
-	self endon(#"death", #"hash_609518a5a35564bf", #"weapon_change");
+	self endon(#"death", #"stop_beaming", #"weapon_change");
 	while(zm_utility::is_player_valid(self) && self attackbuttonpressed() && !self fragbuttonpressed())
 	{
 		n_ammo = self getweaponammoclip(level.w_hand_gaia);

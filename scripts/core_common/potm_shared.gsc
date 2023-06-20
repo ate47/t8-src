@@ -398,7 +398,7 @@ function function_b5433e55(bookmark)
 	var_cef89b92.var_9b2cab54 = function_ec9661b4(bookmark.var_81538b15);
 	var_cef89b92.otherclientnum = bookmark.otherclientnum;
 	var_cef89b92.var_3b8a36fd = function_ec9661b4(bookmark.var_f28fb772);
-	var_cef89b92.var_28e3f41b = bookmark.var_28e3f41b;
+	var_cef89b92.scoreaddition = bookmark.scoreaddition;
 	var_cef89b92.scoremultiplier = bookmark.scoremultiplier;
 	var_cef89b92.scoreeventpriority = bookmark.scoreeventpriority;
 	var_cef89b92.inflictorentnum = bookmark.inflictorentnum;
@@ -1280,7 +1280,7 @@ function function_b6a5e7fa(var_a7f35e6d = 1)
 	}
 	if(isdefined(game.potmevents[0]) && isdefined(game.potmevents[0].clientnum))
 	{
-		luinotifyevent(#"hash_655f54e72449f4e3", 1, game.potmevents[0].clientnum);
+		luinotifyevent(#"potm_client", 1, game.potmevents[0].clientnum);
 	}
 	level function_65839288(game.potmevents[0]);
 	setslowmotion(1, 1, 0);
@@ -1330,7 +1330,7 @@ function function_b6a5e7fa(var_a7f35e6d = 1)
 			startplayofthematch(eventindex);
 			thread function_b1b3bfc5(event, var_50c26ba);
 			level.var_5e18ae78 = eventindex;
-			level notify(#"hash_5bd03d5f0b1a7f3d");
+			level notify(#"potm_selected");
 			foreach(player in level.players)
 			{
 				player setclientuivisibilityflag("hud_visible", 1);
@@ -1400,7 +1400,7 @@ function function_b6a5e7fa(var_a7f35e6d = 1)
 	}
 	stopplayofthematch();
 	setmatchflag("potm", 0);
-	luinotifyevent(#"hash_655f54e72449f4e3", 1, -1);
+	luinotifyevent(#"potm_client", 1, -1);
 	luinotifyevent(#"clear_notification_queue");
 	level.infinalkillcam = 0;
 	level notify(#"potm_finished");
@@ -1716,18 +1716,18 @@ function private function_2da4a527()
 */
 function private function_fff1ad7e(var_740b4e7b)
 {
-	var_526f1e6d = 0;
+	foundplayer = 0;
 	foreach(var_e705c59f in game.var_b2ee45db)
 	{
 		if(var_e705c59f.xuid == var_740b4e7b)
 		{
 			var_e705c59f.weight = game.var_c7826a3f;
-			var_526f1e6d = 1;
+			foundplayer = 1;
 			continue;
 		}
 		var_e705c59f.weight = min(var_e705c59f.weight + game.var_b924522a, 1);
 	}
-	if(!var_526f1e6d)
+	if(!foundplayer)
 	{
 		array::add(game.var_b2ee45db, {#weight:game.var_c7826a3f, #xuid:var_740b4e7b}, 0);
 	}
@@ -1928,9 +1928,9 @@ function private function_e81fe19d(bookmark)
 		{
 			var_567b8be5 = var_567b8be5 + ("" + function_ec9661b4(bookmark.var_f28fb772));
 		}
-		if(isdefined(bookmark.var_28e3f41b))
+		if(isdefined(bookmark.scoreaddition))
 		{
-			var_567b8be5 = var_567b8be5 + ("" + bookmark.var_28e3f41b);
+			var_567b8be5 = var_567b8be5 + ("" + bookmark.scoreaddition);
 		}
 		if(isdefined(bookmark.scoremultiplier))
 		{
@@ -2101,7 +2101,7 @@ function function_5b1e9ed4(modulename, var_65e76577, time, var_81538b15, var_f28
 	}
 	if(var_7491f0eb)
 	{
-		bookmark.var_28e3f41b = [[game.var_4afb166c]](var_900768bc);
+		bookmark.scoreaddition = [[game.var_4afb166c]](var_900768bc);
 		bookmark.scoremultiplier = [[game.var_2e431430]](var_900768bc, var_81538b15);
 		if(var_900768bc.var_10400a6f)
 		{
@@ -2646,7 +2646,7 @@ function private function_a273a8ff(bookmark, var_e567d17)
 			var_12058023 = var_12058023 + var_4e28bc2b;
 		}
 	}
-	var_12058023 = var_12058023 + bookmark.var_28e3f41b;
+	var_12058023 = var_12058023 + bookmark.scoreaddition;
 	var_12058023 = var_12058023 * bookmark.scoremultiplier;
 	return var_12058023;
 }
@@ -3015,8 +3015,8 @@ function private function_bbbd20cc(var_fee35d3a)
 	for(i = 0; i < game.var_aafe322f.size; i++)
 	{
 		var_ad2d5156 = game.var_aafe322f[i];
-		var_c3542efd = function_3aa16058(var_ad2d5156) + game.var_b9a7e65f;
-		if(var_fee35d3a || (var_ad2d5156.var_3444056b && (gettime() - var_ad2d5156.var_ba8bdc4c.endtime) >= var_c3542efd))
+		thresholdtime = function_3aa16058(var_ad2d5156) + game.var_b9a7e65f;
+		if(var_fee35d3a || (var_ad2d5156.var_3444056b && (gettime() - var_ad2d5156.var_ba8bdc4c.endtime) >= thresholdtime))
 		{
 			function_9ad04689(var_ad2d5156);
 			array::push(var_3fea636b, i, var_3fea636b.size);
@@ -3194,9 +3194,9 @@ function private updatedebugmenudata(forceupdate)
 		}
 		hostplayer setluimenudata(menu, #"count", game.potmevents.size);
 		hostplayer setluimenudata(menu, #"eventnum", int(debugeventnum));
-		hostplayer setluimenudata(menu, #"hash_7af66390f2195e21", infoindex);
-		hostplayer setluimenudata(menu, #"hash_168fe7e1766826b4", int(starttime));
-		hostplayer setluimenudata(menu, #"hash_2da38643144cb82d", int(endtime));
+		hostplayer setluimenudata(menu, #"eventinfoindex", infoindex);
+		hostplayer setluimenudata(menu, #"eventstarttime", int(starttime));
+		hostplayer setluimenudata(menu, #"eventendtime", int(endtime));
 		hostplayer setluimenudata(menu, #"eventduration", int(duration));
 		hostplayer setluimenudata(menu, #"scoreeventpriority", int(priority));
 		hostplayer setluimenudata(menu, #"hash_752b983964003a68", int(var_e567d17));

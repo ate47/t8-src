@@ -35,7 +35,7 @@ function main()
 	callback::on_spawned(&on_player_spawned);
 	callback::on_localclient_connect(&on_localclient_connect);
 	buildandvalidatefacialanimationlist(0);
-	animation::add_notetrack_func(#"clientfaceanim::deathanimshutdown", &function_d55dc6af);
+	animation::add_notetrack_func(#"clientfaceanim::deathanimshutdown", &deathanimshutdown);
 }
 
 /*
@@ -392,7 +392,7 @@ function private applydeathanim(localclientnum)
 }
 
 /*
-	Name: function_d55dc6af
+	Name: deathanimshutdown
 	Namespace: clientfaceanim
 	Checksum: 0x58E4A504
 	Offset: 0xEE0
@@ -400,7 +400,7 @@ function private applydeathanim(localclientnum)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_d55dc6af(notifystring, param3)
+function private deathanimshutdown(notifystring, param3)
 {
 	self clearallfacialanims(self.localclientnum);
 }

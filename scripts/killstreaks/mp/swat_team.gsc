@@ -260,14 +260,14 @@ function function_87bf6422(killstreak)
 	context.droptagoffset = (-32, 0, 23);
 	context.killstreaktype = killstreak;
 	context.killstreakref = "swat_team";
-	context.var_597ac911 = &function_d00082ce;
+	context.var_597ac911 = &stopkillstreak;
 	context.var_43dc1011 = player.team;
 	killstreak_id = killstreakrules::killstreakstart("swat_team", self.team, 0, 1);
 	context.killstreak_id = killstreak_id;
 	ksbundle = killstreak_bundles::get_bundle(context);
 	if(isdefined(ksbundle))
 	{
-		context.time = ksbundle.var_1a58d0e4;
+		context.time = ksbundle.kstime;
 		context.fx_name = ksbundle.var_3af79d7e;
 	}
 	waterdepth = self depthofplayerinwater();
@@ -741,8 +741,8 @@ function private function_fb9f1f3b(entity)
 		if(nextstate == "engage_left")
 		{
 			var_5612239e = anglestoright(angles) * -1;
-			var_d1ba5d77 = entity.origin + vectorscale(var_5612239e, randomintrange(60, 200));
-			tacpoint = getclosesttacpoint(var_d1ba5d77);
+			movepos = entity.origin + vectorscale(var_5612239e, randomintrange(60, 200));
+			tacpoint = getclosesttacpoint(movepos);
 			if(isdefined(tacpoint) && tracepassedonnavmesh(entity.origin, tacpoint.origin, 18))
 			{
 				newspot = tacpoint.origin;
@@ -754,8 +754,8 @@ function private function_fb9f1f3b(entity)
 			if(nextstate == "engage_right")
 			{
 				var_c254b075 = anglestoright(angles);
-				var_d1ba5d77 = entity.origin + vectorscale(var_c254b075, randomintrange(60, 200));
-				tacpoint = getclosesttacpoint(var_d1ba5d77);
+				movepos = entity.origin + vectorscale(var_c254b075, randomintrange(60, 200));
+				tacpoint = getclosesttacpoint(movepos);
 				if(isdefined(tacpoint) && tracepassedonnavmesh(entity.origin, tacpoint.origin, 18))
 				{
 					newspot = tacpoint.origin;
@@ -1219,14 +1219,14 @@ function private function_8fa2faa5(swat, helicopter, position)
 */
 function private function_67260255(swat, helicopter, killstreak_id)
 {
-	swat endon(#"hash_251a6c153b9f57c3", #"death");
+	swat endon(#"swat_landed", #"death");
 	helicopter endon(#"death");
 	params = undefined;
 	params = helicopter waittill(#"hash_216c905d79c8bbea");
 	if(isdefined(swat.script_owner))
 	{
 		swat.script_owner notify(#"hash_216c905d79c8bbea");
-		swat.script_owner notify(#"hash_d843795c594bf0e");
+		swat.script_owner notify(#"payload_fail");
 	}
 	if(isdefined(swat.ai) && !swat.ai.var_f185cb34 === 1 && !isdefined(helicopter.var_7faf41b4))
 	{
@@ -1257,7 +1257,7 @@ function private function_67260255(swat, helicopter, killstreak_id)
 */
 function private function_ab6f69a1(swat)
 {
-	swat endon(#"hash_251a6c153b9f57c3");
+	swat endon(#"swat_landed");
 	swat waittill(#"death");
 	if(isdefined(swat) && !function_3132f113(swat))
 	{
@@ -1267,7 +1267,7 @@ function private function_ab6f69a1(swat)
 }
 
 /*
-	Name: function_e24bfb9f
+	Name: swat_deploy
 	Namespace: swat_team
 	Checksum: 0x136414F5
 	Offset: 0x4110
@@ -1275,7 +1275,7 @@ function private function_ab6f69a1(swat)
 	Parameters: 5
 	Flags: Linked
 */
-function function_e24bfb9f(swat, helicopter, position, var_a298d55b, var_eead001f)
+function swat_deploy(swat, helicopter, position, var_a298d55b, var_eead001f)
 {
 	swat endon(#"death");
 	level endon(#"game_ended");
@@ -1343,7 +1343,7 @@ function function_e24bfb9f(swat, helicopter, position, var_a298d55b, var_eead001
 			swat setgoal(var_a298d55b);
 		}
 	}
-	swat notify(#"hash_251a6c153b9f57c3");
+	swat notify(#"swat_landed");
 }
 
 /*
@@ -1486,12 +1486,12 @@ function private function_5ca48510(helicopter, var_1c996690)
 {
 	helicopter endon(#"death", #"heli_leave");
 	level endon(#"game_ended");
-	var_88a01f7c = var_1c996690;
+	namesstruct_n = var_1c996690;
 	lerp_duration = max(((helicopter.origin[2] - var_1c996690[2]) - 600) / 625, 0.8);
-	helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", var_88a01f7c, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, lerp_duration);
+	helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", namesstruct_n, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, lerp_duration);
 	while(true)
 	{
-		helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", var_88a01f7c, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, 0.8);
+		helicopter animation::play("ai_swat_rifle_ent_litlbird_rappel_stn_vehicle2", namesstruct_n, (0, helicopter.angles[1], 0), 1, 0.1, 0.2, 0.8);
 	}
 }
 
@@ -1620,7 +1620,7 @@ function private function_67c394f2(helicopter, destination)
 		continue_waiting = current_distance_from_goal_squared < last_distance_from_goal_squared && current_distance_from_goal_squared > (4 * 4);
 		last_distance_from_goal_squared = current_distance_from_goal_squared;
 		/#
-			if(getdvarint(#"hash_2f40f6aa0b2a337e", 0))
+			if(getdvarint(#"swat_debug", 0))
 			{
 				sphere(destination, 8, (1, 0, 0), 0.9, 0, 20, 1);
 			}
@@ -1628,7 +1628,7 @@ function private function_67c394f2(helicopter, destination)
 		if(continue_waiting)
 		{
 			/#
-				if(getdvarint(#"hash_2f40f6aa0b2a337e", 0))
+				if(getdvarint(#"swat_debug", 0))
 				{
 					iprintln("" + distance2d(helicopter.origin, destination));
 				}
@@ -1637,7 +1637,7 @@ function private function_67c394f2(helicopter, destination)
 		}
 	}
 	/#
-		if(getdvarint(#"hash_2f40f6aa0b2a337e", 0))
+		if(getdvarint(#"swat_debug", 0))
 		{
 			iprintln("" + distance2d(helicopter.origin, destination));
 		}
@@ -2103,7 +2103,7 @@ function function_18a9058c()
 */
 function private function_75277c27(tacpoint, context)
 {
-	if(tacpoint.var_eadc2c7d >= 4000)
+	if(tacpoint.ceilingheight >= 4000)
 	{
 		/#
 			recordsphere(tacpoint.origin, 2, (0, 1, 0), "");
@@ -2430,7 +2430,7 @@ function function_263d3e9e(var_1c996690, context, owner, var_9f26686a = 0)
 */
 function function_fe13a227(helicopter, var_1c996690, destination)
 {
-	helicopter endon(#"death", #"hash_6736343f5a9c98f2", #"hash_216c905d79c8bbea");
+	helicopter endon(#"death", #"payload_delivered", #"hash_216c905d79c8bbea");
 	while(true)
 	{
 		/#
@@ -2556,8 +2556,8 @@ function private function_820e7c92(owner, var_1c996690, nodes, context)
 		context.ir_model notify(#"hash_1e4c945d50deb21d");
 	}
 	helicopter thread function_5ca48510(helicopter, var_1c996690);
-	var_19f450c9 = gettime();
-	while((helicopter.origin[2] - var_1c996690[2]) > 620 && (gettime() - var_19f450c9) < 1000)
+	wait_start = gettime();
+	while((helicopter.origin[2] - var_1c996690[2]) > 620 && (gettime() - wait_start) < 1000)
 	{
 		wait(0.1);
 	}
@@ -2569,11 +2569,11 @@ function private function_820e7c92(owner, var_1c996690, nodes, context)
 		{
 			if(position == 0)
 			{
-				swat thread function_e24bfb9f(swat, helicopter, position, nodes[position], 1);
+				swat thread swat_deploy(swat, helicopter, position, nodes[position], 1);
 			}
 			else
 			{
-				swat thread function_e24bfb9f(swat, helicopter, position, nodes[position], 0);
+				swat thread swat_deploy(swat, helicopter, position, nodes[position], 0);
 			}
 		}
 		position++;
@@ -2582,8 +2582,8 @@ function private function_820e7c92(owner, var_1c996690, nodes, context)
 	helicopter thread function_21f27c75(helicopter);
 	context.deployed = 1;
 	helicopter thread function_9fe56d0b(helicopter);
-	helicopter notify(#"hash_6736343f5a9c98f2");
-	owner notify(#"hash_6736343f5a9c98f2");
+	helicopter notify(#"payload_delivered");
+	owner notify(#"payload_delivered");
 }
 
 /*
@@ -2597,13 +2597,13 @@ function private function_820e7c92(owner, var_1c996690, nodes, context)
 */
 function function_5479b133(team, killstreak_id)
 {
-	self endon(#"hash_6736343f5a9c98f2", #"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist");
-	self waittill(#"hash_d843795c594bf0e");
+	self endon(#"payload_delivered", #"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist");
+	self waittill(#"payload_fail");
 	if(isdefined(self.var_6c0553ea.deployed) && self.var_6c0553ea.deployed)
 	{
 		return;
 	}
-	self function_d00082ce(self.var_6c0553ea);
+	self stopkillstreak(self.var_6c0553ea);
 }
 
 /*
@@ -3078,7 +3078,7 @@ function function_fb8614cc(killstreak_id)
 	self.var_5f43fa0c = "swat_escort";
 	function_4c2ed78d(self, 1);
 	self thread swat_escort(0);
-	self waittill(#"hash_6736343f5a9c98f2");
+	self waittill(#"payload_delivered");
 	if(isplayer(self))
 	{
 		if(!self gamepadusedlast())
@@ -3262,8 +3262,8 @@ function function_4c2ed78d(owner, forced = 0)
 	{
 		return;
 	}
-	var_17db3d7b = result[#"point"];
-	if(!isdefined(var_17db3d7b))
+	owner_origin = result[#"point"];
+	if(!isdefined(owner_origin))
 	{
 		return;
 	}
@@ -3286,16 +3286,16 @@ function function_4c2ed78d(owner, forced = 0)
 		}
 		if(isdefined(owner.var_546b8137))
 		{
-			var_56bd1bef = var_17db3d7b + vectorscale(vectornormalize(owner.var_546b8137), 200);
+			var_56bd1bef = owner_origin + vectorscale(vectornormalize(owner.var_546b8137), 200);
 		}
 		else
 		{
-			var_56bd1bef = var_17db3d7b + vectorscale(anglestoforward(owner.angles), 200);
+			var_56bd1bef = owner_origin + vectorscale(anglestoforward(owner.angles), 200);
 		}
 	}
 	else
 	{
-		var_56bd1bef = var_17db3d7b;
+		var_56bd1bef = owner_origin;
 	}
 	result = function_9cc082d2(var_56bd1bef, 1000);
 	if(isdefined(result))
@@ -3382,7 +3382,7 @@ function function_4c2ed78d(owner, forced = 0)
 			waitframe(1);
 			continue;
 		}
-		var_eca4744a = vectornormalize(var_56bd1bef - var_17db3d7b);
+		var_eca4744a = vectornormalize(var_56bd1bef - owner_origin);
 		tacpoint = getclosesttacpoint(var_56bd1bef);
 		shouldmove = 0;
 		if(isdefined(tacpoint))
@@ -3423,7 +3423,7 @@ function swat_escort(playgesture = 1)
 {
 	owner = self;
 	owner endon(#"hash_71a1db99eb99dcff", #"disconnect", #"joined_team");
-	owner waittill(#"hash_6736343f5a9c98f2");
+	owner waittill(#"payload_delivered");
 	owner function_d738127f();
 	if(isdefined(owner) && playgesture)
 	{
@@ -3795,7 +3795,7 @@ function function_50adbe51(destroy_heli)
 		self function_d738127f();
 		if(isdefined(self.var_6c0553ea.killstreak_id) && isdefined(self.var_6c0553ea.var_43dc1011))
 		{
-			function_d00082ce(self.var_6c0553ea);
+			stopkillstreak(self.var_6c0553ea);
 		}
 		if(isdefined(self.var_6c0553ea.remoteweapon))
 		{
@@ -4110,12 +4110,12 @@ function checkweaponchange(team, killstreak_id)
 {
 	self endon(#"hash_27be2db04a0908d5", #"spawned_player", #"disconnect", #"trigger_weapon_shutdown", #"death");
 	self waittill(#"weapon_change");
-	function_d00082ce(self.var_6c0553ea);
+	stopkillstreak(self.var_6c0553ea);
 	self notify(#"cleanup_marker");
 }
 
 /*
-	Name: function_d00082ce
+	Name: stopkillstreak
 	Namespace: swat_team
 	Checksum: 0xFBCF28C6
 	Offset: 0xBF78
@@ -4123,7 +4123,7 @@ function checkweaponchange(team, killstreak_id)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d00082ce(context)
+function stopkillstreak(context)
 {
 	if(isdefined(context.var_45453b2a) && context.var_45453b2a)
 	{

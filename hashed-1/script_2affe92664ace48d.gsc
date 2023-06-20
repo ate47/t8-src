@@ -2,7 +2,7 @@
 #using scripts\zm\ai\zm_ai_tiger.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4aeb3279b6b23a91;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_d8b1f4ee30e5fc5;
 #using scripts\core_common\ai_shared.gsc;
@@ -50,7 +50,7 @@ function __init__()
 		#/
 		return;
 	}
-	namespace_c3287616::register_archetype(#"tiger", &function_235d0eb6, &round_spawn, &spawn_single, 25);
+	zm_round_spawning::register_archetype(#"tiger", &function_235d0eb6, &round_spawn, &spawn_single, 25);
 }
 
 /*

@@ -34,9 +34,9 @@
 */
 function init_shared()
 {
-	if(!isdefined(level.var_af634c52))
+	if(!isdefined(level.ultimate_turret_shared))
 	{
-		level.var_af634c52 = {};
+		level.ultimate_turret_shared = {};
 		killstreaks::register_killstreak("killstreak_ultimate_turret", &activateturret);
 		killstreaks::register_alt_weapon("ultimate_turret", getweapon("ultimate_turret_deploy"));
 		killstreaks::function_b013c2d3("ultimate_turret", getweapon("ultimate_turret_deploy"));
@@ -103,7 +103,7 @@ function function_127fb8f3(turret, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_86e3d17a]]() * 1000;
 		if(_station_up_to_detention_center_triggers > 0)
 		{
-			turret notify(#"hash_602ae7ca650d6287");
+			turret notify(#"cancel_timeout");
 			turret thread killstreaks::waitfortimeout("ultimate_turret", _station_up_to_detention_center_triggers, &function_be04d904, "delete", "death");
 		}
 		if(isdefined(level.var_1794f85f))
@@ -142,7 +142,7 @@ function function_bff5c062(turret, attackingplayer)
 			_station_up_to_detention_center_triggers = int([[level.var_f1edf93f]]() * 1000);
 			if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 			{
-				turret notify(#"hash_602ae7ca650d6287");
+				turret notify(#"cancel_timeout");
 				turret thread killstreaks::waitfortimeout("ultimate_turret", _station_up_to_detention_center_triggers, &function_be04d904, "delete", "death");
 			}
 		}
@@ -375,7 +375,7 @@ function function_3be2d17f(watcher, player)
 	self weaponobjects::onspawnuseweaponobject(watcher, player);
 	self hide();
 	self.canthack = 1;
-	self.var_24d0abd1 = 1;
+	self.ignoreemp = 1;
 	var_83ed455 = 0;
 	if(var_83ed455 && isdefined(player))
 	{
@@ -475,7 +475,7 @@ function function_7f9eb7f()
 	owner = self.owner;
 	owner endon(#"disconnect");
 	waitresult = undefined;
-	waitresult = self waittill(#"death", #"hash_6f331ac7d2a40217");
+	waitresult = self waittill(#"death", #"death_started");
 	if(!isdefined(self))
 	{
 		arrayremovevalue(owner.var_85988a58, undefined);
@@ -820,7 +820,7 @@ function ondeathafterframeend(einflictor, eattacker, idamage, smeansofdeath, wea
 function ondeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime)
 {
 	turretvehicle = self;
-	turretvehicle notify(#"hash_6f331ac7d2a40217");
+	turretvehicle notify(#"death_started");
 	if(turretvehicle.dead === 1)
 	{
 		return;
@@ -1131,7 +1131,7 @@ function function_fefefcc4()
 {
 	veh = self;
 	turret_index = 0;
-	veh endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	veh endon(#"death", #"death_started", #"end_turret_scanning");
 	wait(0.8);
 	bundle = get_killstreak_bundle();
 	var_beeadda8 = (isdefined(bundle.var_5fa88c50) ? bundle.var_5fa88c50 : 300);
@@ -1172,12 +1172,12 @@ function function_fefefcc4()
 					}
 				}
 			}
-			else if(veh.var_3413afc5 != #"hash_3cf9b05c0d2cb80e")
+			else if(veh.var_3413afc5 != #"standard_sight")
 			{
 				veh function_bc7568f1();
 			}
 		}
-		wait_time = (veh.var_3413afc5 == #"hash_3cf9b05c0d2cb80e" ? 0.25 : 0.1);
+		wait_time = (veh.var_3413afc5 == #"standard_sight" ? 0.25 : 0.1);
 		wait(wait_time);
 	}
 }
@@ -1261,7 +1261,7 @@ function function_bc7568f1()
 	self.sightlatency = 100;
 	self.fovcosine = 0.5;
 	self.fovcosinebusy = 0.5;
-	self.var_3413afc5 = #"hash_3cf9b05c0d2cb80e";
+	self.var_3413afc5 = #"standard_sight";
 }
 
 /*
@@ -1343,7 +1343,7 @@ function function_b8952a40(turret_index)
 function turretscanning()
 {
 	veh = self;
-	veh endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	veh endon(#"death", #"death_started", #"end_turret_scanning");
 	veh.turret_target = undefined;
 	veh.do_not_clear_targets_during_think = 1;
 	wait(0.8);
@@ -1392,7 +1392,7 @@ function turretscanning()
 				continue;
 			}
 			var_2aa33bf1 = 0;
-			if(distancesquared(veh.enemy.origin, veh.origin) > veh.var_38e6355c && veh.var_7eb3ebd5[veh.enemy getentitynumber()] === #"hash_704614cf51e8952f")
+			if(distancesquared(veh.enemy.origin, veh.origin) > veh.var_38e6355c && veh.var_7eb3ebd5[veh.enemy getentitynumber()] === #"forwardscan")
 			{
 				var_2aa33bf1 = 1;
 			}
@@ -1410,7 +1410,7 @@ function turretscanning()
 			if(!isdefined(veh.var_7eb3ebd5[veh.enemy getentitynumber()]) && veh namespace_14c38db0::function_1c169b3a(veh.enemy))
 			{
 				veh.var_c8072bcc = gettime();
-				veh.var_7eb3ebd5[veh.enemy getentitynumber()] = #"hash_704614cf51e8952f";
+				veh.var_7eb3ebd5[veh.enemy getentitynumber()] = #"forwardscan";
 			}
 		}
 		if(veh has_active_enemy(bundle) && isdefined(veh.enemy) && isalive(veh.enemy))
@@ -1542,7 +1542,7 @@ function turretscanning()
 }
 
 /*
-	Name: function_9a2c2b78
+	Name: turretshutdown
 	Namespace: ultimate_turret
 	Checksum: 0xF430D429
 	Offset: 0x5290
@@ -1550,7 +1550,7 @@ function turretscanning()
 	Parameters: 2
 	Flags: Linked
 */
-function function_9a2c2b78(killstreakid, team)
+function turretshutdown(killstreakid, team)
 {
 	turret = self;
 	if(turret.shuttingdown === 1)
@@ -1584,7 +1584,7 @@ function watchturretshutdown(player, killstreakid, team)
 	player thread function_d6c5b32b(player, killstreakid, team);
 	turret = self;
 	self waittill(#"hash_5f4a0ea8f3f4e0d0", #"death");
-	function_9a2c2b78(killstreakid, team);
+	turretshutdown(killstreakid, team);
 }
 
 /*
@@ -1602,7 +1602,7 @@ function function_d6c5b32b(player, killstreakid, team)
 	player waittill(#"disconnect", #"joined_team", #"joined_spectators");
 	if(isdefined(turret))
 	{
-		turret function_9a2c2b78(killstreakid, team);
+		turret turretshutdown(killstreakid, team);
 	}
 }
 

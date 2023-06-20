@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14feb11d757fd194;
+#using scripts\core_common\voice\voice.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_debug_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

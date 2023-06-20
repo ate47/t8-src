@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_50c040e371c1c35f;
+#using scripts\zm_common\zm_lockdown_util.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -54,7 +54,7 @@ function create(var_9d80e6ef = "", var_e0bc0661 = 64, func_unitrigger_logic = &f
 		}
 		else
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				unitrigger_set_hint_string(s_unitrigger, var_9d80e6ef);
 			}
@@ -375,7 +375,7 @@ function unregister_unitrigger_internal(unitrigger_stub, var_a68f8009 = 0)
 	}
 	if(var_a68f8009)
 	{
-		namespace_cb42c6c0::function_6b9e848(unitrigger_stub);
+		zm_lockdown_util::function_6b9e848(unitrigger_stub);
 	}
 	unitrigger_stub.registered = 0;
 	if(isdefined(unitrigger_stub.trigger_per_player) && unitrigger_stub.trigger_per_player)
@@ -1158,7 +1158,7 @@ function private function_ba088f52(trigger)
 		{
 			if(isdefined(self.current_trigger.stub))
 			{
-				self.current_trigger.stub notify(#"hash_d0ee404fc39206", {#player:self});
+				self.current_trigger.stub notify(#"unitrigger_deactivated", {#player:self});
 			}
 		}
 		self.current_trigger = trigger;
@@ -1166,7 +1166,7 @@ function private function_ba088f52(trigger)
 		{
 			if(isdefined(self.current_trigger.stub))
 			{
-				self.current_trigger.stub notify(#"hash_396aa901be0c0eaf", {#player:self});
+				self.current_trigger.stub notify(#"unitrigger_activated", {#player:self});
 			}
 		}
 	}

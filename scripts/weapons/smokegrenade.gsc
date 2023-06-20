@@ -230,7 +230,7 @@ function spawnsmokegrenadetrigger(smokeweapon, duration, owner)
 	radius = function_79d42bea(smokeweapon);
 	trigger = spawn("trigger_radius", self.origin, 0, radius, radius);
 	trigger.owner = owner;
-	self.var_b999539c = trigger;
+	self.smoketrigger = trigger;
 	anchor = spawn("script_model", self.origin);
 	if(isdefined(owner))
 	{
@@ -280,34 +280,34 @@ function function_b4a975f1(attacker, victim, weapon, attackerweapon, meansofdeat
 	{
 		return false;
 	}
-	var_b999539c = victim function_367ce00e();
-	if(isdefined(var_b999539c))
+	smoketrigger = victim function_367ce00e();
+	if(isdefined(smoketrigger))
 	{
-		if(attacker === var_b999539c.owner)
+		if(attacker === smoketrigger.owner)
 		{
 			if(isdefined(attackerweapon) && attackerweapon !== level.var_8e2aec59)
 			{
-				if(isdefined(level.playgadgetsuccess) && !isdefined(var_b999539c.var_25db02aa))
+				if(isdefined(level.playgadgetsuccess) && !isdefined(smoketrigger.var_25db02aa))
 				{
-					var_b999539c.kills = (isdefined(var_b999539c.kills) ? var_b999539c.kills : 0) + 1;
+					smoketrigger.kills = (isdefined(smoketrigger.kills) ? smoketrigger.kills : 0) + 1;
 					if(isdefined(level.var_ac6052e9))
 					{
 						var_9194a036 = [[level.var_ac6052e9]]("muteSmokeSuccessLineCount", 0);
 					}
-					if(var_b999539c.kills == (isdefined(var_9194a036) ? var_9194a036 : 3))
+					if(smoketrigger.kills == (isdefined(var_9194a036) ? var_9194a036 : 3))
 					{
 						attacker [[level.playgadgetsuccess]](getweapon(#"eq_smoke"), undefined, victim, undefined);
-						var_b999539c.var_25db02aa = 1;
+						smoketrigger.var_25db02aa = 1;
 					}
 				}
 			}
 			return true;
 		}
-		if(isdefined(var_b999539c.owner) && isplayer(var_b999539c.owner) && isalive(var_b999539c.owner) && util::function_fbce7263(var_b999539c.owner.team, victim.team))
+		if(isdefined(smoketrigger.owner) && isplayer(smoketrigger.owner) && isalive(smoketrigger.owner) && util::function_fbce7263(smoketrigger.owner.team, victim.team))
 		{
 			if(level.teambased)
 			{
-				scoreevents::processscoreevent(#"hash_2ffa19a7dfef2ea0", var_b999539c.owner, undefined, getweapon(#"eq_smoke"));
+				scoreevents::processscoreevent(#"smoke_assist", smoketrigger.owner, undefined, getweapon(#"eq_smoke"));
 			}
 		}
 	}
@@ -444,19 +444,19 @@ function private function_579815a1(weapon)
 */
 function function_87d0a127(grenadeent, smokeweapon)
 {
-	if(!isdefined(grenadeent.var_b999539c))
+	if(!isdefined(grenadeent.smoketrigger))
 	{
 		return;
 	}
 	grenadeteam = grenadeent.team;
-	owner = grenadeent.var_b999539c.owner;
+	owner = grenadeent.smoketrigger.owner;
 	while(true)
 	{
 		waitresult = undefined;
 		waitresult = grenadeent waittilltimeout(0.25, #"death");
 		if(isdefined(owner))
 		{
-			if(isdefined(grenadeent) && isdefined(grenadeent.var_b999539c) && owner istouching(grenadeent.var_b999539c) && waitresult._notify == #"timeout")
+			if(isdefined(grenadeent) && isdefined(grenadeent.smoketrigger) && owner istouching(grenadeent.smoketrigger) && waitresult._notify == #"timeout")
 			{
 				owner clientfield::set("inenemysmoke", 1);
 			}
@@ -483,7 +483,7 @@ function function_87d0a127(grenadeent, smokeweapon)
 */
 function function_8b6ddd71(grenadeent, smokeweapon)
 {
-	if(!isdefined(grenadeent.var_b999539c))
+	if(!isdefined(grenadeent.smoketrigger))
 	{
 		return;
 	}
@@ -495,7 +495,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 		foreach(player in level.players)
 		{
 			curval = player clientfield::get("insmoke");
-			if(isdefined(grenadeent) && isdefined(grenadeent.var_b999539c) && player istouching(grenadeent.var_b999539c) && waitresult._notify == #"timeout")
+			if(isdefined(grenadeent) && isdefined(grenadeent.smoketrigger) && player istouching(grenadeent.smoketrigger) && waitresult._notify == #"timeout")
 			{
 				if(player util::isenemyteam(grenadeteam))
 				{
@@ -520,7 +520,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				trig = undefined;
 				if(isdefined(grenadeent))
 				{
-					trig = function_4cc4db89(grenadeteam, grenadeent.var_b999539c);
+					trig = function_4cc4db89(grenadeteam, grenadeent.smoketrigger);
 				}
 				if(!isdefined(trig))
 				{
@@ -528,7 +528,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				}
 			}
 		}
-		if(!isdefined(grenadeent) || waitresult._notify != "timeout" || (!isdefined(grenadeent.var_b999539c) && grenadeent.item === getweapon(#"spectre_grenade")))
+		if(!isdefined(grenadeent) || waitresult._notify != "timeout" || (!isdefined(grenadeent.smoketrigger) && grenadeent.item === getweapon(#"spectre_grenade")))
 		{
 			break;
 		}

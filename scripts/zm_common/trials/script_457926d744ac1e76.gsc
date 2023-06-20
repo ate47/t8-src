@@ -45,7 +45,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5b4dc34d166627cb", &on_begin, &on_end);
+	zm_trial::register_challenge(#"moving_hill", &on_begin, &on_end);
 }
 
 /*
@@ -240,7 +240,7 @@ function private function_452ec7b3()
 		{
 			self.var_247c8132 = undefined;
 		}
-		level notify(#"hash_29877ed061231191");
+		level notify(#"hill_moving");
 		var_2fe28f97++;
 		zm_utility::function_75fd65f9(self.var_f7f308cd, 0);
 		foreach(player in getplayers())
@@ -271,7 +271,7 @@ function private function_452ec7b3()
 */
 function private function_492f4c79()
 {
-	level endon(#"hash_7646638df88a3656", #"hash_29877ed061231191");
+	level endon(#"hash_7646638df88a3656", #"hill_moving");
 	zm_utility::function_75fd65f9(self.var_f7f308cd, 1);
 }
 
@@ -344,7 +344,7 @@ function private function_2191cc5d()
 function private zone_watcher(challenge, var_2d5ebf67, var_530e040f, timeout)
 {
 	self endon(#"disconnect");
-	level endon(#"hash_7646638df88a3656", #"hash_29877ed061231191", #"host_migration_begin");
+	level endon(#"hash_7646638df88a3656", #"hill_moving", #"host_migration_begin");
 	self.var_356935bb = {#hash_530e040f:var_530e040f, #hash_2d5ebf67:var_2d5ebf67, #challenge:challenge, #timeout:timeout, #start_time:level.time};
 	self.var_4cb0b91f = 0;
 	self zm_utility::function_ba39d198(challenge.var_df62490a, 1);
@@ -396,7 +396,7 @@ function private zone_watcher(challenge, var_2d5ebf67, var_530e040f, timeout)
 function private damage_watcher()
 {
 	self endon(#"disconnect");
-	level endon(#"hash_7646638df88a3656", #"hash_29877ed061231191", #"host_migration_begin");
+	level endon(#"hash_7646638df88a3656", #"hill_moving", #"host_migration_begin");
 	while(true)
 	{
 		/#

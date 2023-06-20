@@ -45,7 +45,7 @@ function autoexec __init__()
 function function_2eb2c17c(origin, item)
 {
 	traceoffset = vectorscale((0, 0, 1), 4);
-	var_5d97fed1 = item.var_8e092725 === -1;
+	var_5d97fed1 = item.hidetime === -1;
 	var_8e2d9611 = item.origin + traceoffset;
 	var_b0fbfe59 = bullettrace(origin, var_8e2d9611, 0, self, 0);
 	if(var_b0fbfe59[#"fraction"] < 1 && var_b0fbfe59[#"entity"] !== item)
@@ -207,7 +207,7 @@ function function_6061a15(var_f4b807cb, maxdist, origin, angles, forward, var_4b
 		neardist = util::function_4c1656d5();
 		var_9b882d22.isfar = neardist < maxdist && distance2dsquared(origin, var_9b882d22.origin) > (neardist * neardist);
 		var_9b882d22.isclose = distance2dsquared(origin, var_9b882d22.origin) < (128 - 12) * (128 - 12);
-		var_9b882d22.var_5d97fed1 = var_9b882d22.var_8e092725 === -1;
+		var_9b882d22.var_5d97fed1 = var_9b882d22.hidetime === -1;
 	}
 	return var_9b882d22;
 }
@@ -384,8 +384,8 @@ function function_6af455de(localclientnum, origin, angles)
 		{
 			continue;
 		}
-		var_f902212b = vectornormalize(vehicle.origin - origin);
-		dot = vectordot(forward, var_f902212b);
+		tovehicle = vectornormalize(vehicle.origin - origin);
+		dot = vectordot(forward, tovehicle);
 		var_aba3faed = distance2dsquared(vehicle.origin, origin);
 		if(dot >= 0.965 && (!isdefined(var_e664ecda) || var_aba3faed < var_e664ecda))
 		{
@@ -493,12 +493,12 @@ function can_pick_up(item, servertime = undefined)
 	}
 	if(isdefined(servertime))
 	{
-		if(item.var_8e092725 > 0 && item.var_8e092725 <= servertime)
+		if(item.hidetime > 0 && item.hidetime <= servertime)
 		{
 			return false;
 		}
 	}
-	else if(item.var_8e092725 > 0 && item.var_8e092725 != -1)
+	else if(item.hidetime > 0 && item.hidetime != -1)
 	{
 		return false;
 	}

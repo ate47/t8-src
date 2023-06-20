@@ -32,7 +32,7 @@ function autoexec __init__system__()
 */
 function private __init__()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype !== #"warzone_hot_pursuit" && gametype !== #"warzone_heavy_metal" && gametype !== #"hash_753fcf1725358921" && gametype !== #"warzone_heavy_metal_heroes")
 	{
 		return;
@@ -49,7 +49,7 @@ function private __init__()
 			level.var_317fb13c = &function_a9b8fa06;
 		}
 	}
-	if((isdefined(getgametypesetting(#"hash_24918193d72a5866")) ? getgametypesetting(#"hash_24918193d72a5866") : 0))
+	if((isdefined(getgametypesetting(#"wzheavymetalheroes")) ? getgametypesetting(#"wzheavymetalheroes") : 0))
 	{
 		level.var_5c14d2e6 = &function_9de0644f;
 		level.var_317fb13c = &function_9de0644f;
@@ -450,7 +450,7 @@ function function_9de0644f()
 */
 function private function_58190f52()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
 	{
 		pistol = function_ba18c3e5(#"hash_5cc9b5e23093ac03");
@@ -489,7 +489,7 @@ function private function_58190f52()
 */
 function private function_6667abef()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
 	{
 		pistol = function_ba18c3e5(#"hash_5cc9b5e23093ac03");
@@ -567,7 +567,7 @@ function private function_6667abef()
 */
 function private function_7376c60d()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
 	{
 		smg = function_ba18c3e5(#"hash_6a992c957fb327bb");
@@ -614,7 +614,7 @@ function private function_7376c60d()
 */
 function private function_1f091d2f()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
 	{
 		smg = function_ba18c3e5(#"hash_6a992c957fb327bb");
@@ -690,7 +690,7 @@ function private function_1f091d2f()
 */
 function private function_2d31b980()
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
 	{
 		smg = function_ba18c3e5(#"hash_6a992c957fb327bb");

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_white_special_rounds.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_white_mee.gsc;
 #using script_724752ab26bff81b;
 #using script_ab862743b3070a;
@@ -80,7 +80,7 @@ function private function_3db5079()
 		}
 		foreach(var_ab611263 in level.var_d4a0b9f4)
 		{
-			if(var_ab611263[#"hash_5ec516364540f76a"] == #"active")
+			if(var_ab611263[#"goo_state"] == #"active")
 			{
 				var_ab611263[#"gas_cloud"] zm_white_special_rounds::function_27a8604b(var_ab611263[#"group"]);
 			}
@@ -144,32 +144,32 @@ function private devgui()
 				case "hash_67d502f654392103":
 				{
 					e_player = getplayers()[0];
-					namespace_6747c550::function_7df6bb60("", 0, e_player);
-					namespace_6747c550::function_7df6bb60("", 2, e_player);
+					zm_ui_inventory::function_7df6bb60("", 0, e_player);
+					zm_ui_inventory::function_7df6bb60("", 2, e_player);
 					e_player.var_f7694097 = 0;
 					break;
 				}
 				case "hash_67d510f6543938cd":
 				{
 					e_player = getplayers()[0];
-					namespace_6747c550::function_7df6bb60("", 1, e_player);
-					namespace_6747c550::function_7df6bb60("", 2, e_player);
+					zm_ui_inventory::function_7df6bb60("", 1, e_player);
+					zm_ui_inventory::function_7df6bb60("", 2, e_player);
 					e_player.var_f7694097 = 1;
 					break;
 				}
 				case "hash_67d50ff65439371a":
 				{
 					e_player = getplayers()[0];
-					namespace_6747c550::function_7df6bb60("", 2, e_player);
-					namespace_6747c550::function_7df6bb60("", 2, e_player);
+					zm_ui_inventory::function_7df6bb60("", 2, e_player);
+					zm_ui_inventory::function_7df6bb60("", 2, e_player);
 					e_player.var_f7694097 = 2;
 					break;
 				}
 				case "hash_67d50ef654393567":
 				{
 					e_player = getplayers()[0];
-					namespace_6747c550::function_7df6bb60("", 3, e_player);
-					namespace_6747c550::function_7df6bb60("", 2, e_player);
+					zm_ui_inventory::function_7df6bb60("", 3, e_player);
+					zm_ui_inventory::function_7df6bb60("", 2, e_player);
 					e_player.var_f7694097 = 3;
 					break;
 				}

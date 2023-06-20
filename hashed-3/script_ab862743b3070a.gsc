@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\aat_shared.gsc;
@@ -67,13 +67,13 @@ function __init__()
 	level thread aat::register_immunity("zm_aat_plasmatic_burst", #"zombie_dog", 0, 1, 1);
 	dog_spawner_init();
 	level thread dog_clip_monitor();
-	namespace_c3287616::register_archetype(#"zombie_dog", &function_b168b424, &dog_round_spawn, &function_62db7b1c, 25);
+	zm_round_spawning::register_archetype(#"zombie_dog", &function_b168b424, &dog_round_spawn, &function_62db7b1c, 25);
 	zm_score::function_e5d6e6dd(#"zombie_dog", 60);
 	callback::function_74872db6(&function_81f9083e);
 }
 
 /*
-	Name: function_aec3446d
+	Name: dog_enable_rounds
 	Namespace: namespace_c402654
 	Checksum: 0x9EE88C84
 	Offset: 0x610
@@ -81,7 +81,7 @@ function __init__()
 	Parameters: 1
 	Flags: None
 */
-function function_aec3446d(b_ignore_cleanup = 1)
+function dog_enable_rounds(b_ignore_cleanup = 1)
 {
 	if(!zm_custom::function_901b751c(#"hash_4deb3ae7a73c87f3") || (isdefined(level.var_15747fb1) && level.var_15747fb1))
 	{
@@ -482,14 +482,14 @@ function dog_round_tracker(var_634c65f0)
 	{
 		level.next_dog_round = level.round_number + randomintrange(4, 7);
 	}
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &dog_round_stop, &function_dd162858, &waiting_for_next_dog_spawn, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &dog_round_stop, &function_dd162858, &waiting_for_next_dog_spawn, level.var_dc50acfa);
 	if(!(isdefined(var_634c65f0) && var_634c65f0))
 	{
-		namespace_c3287616::function_df803678(&function_ed67c5e7);
+		zm_round_spawning::function_df803678(&function_ed67c5e7);
 	}
 	if(isdefined(level.var_3ef0606f) && level.var_3ef0606f)
 	{
-		namespace_c3287616::function_376e51ef(#"zombie_dog", level.next_dog_round + 1);
+		zm_round_spawning::function_376e51ef(#"zombie_dog", level.next_dog_round + 1);
 	}
 	/#
 		level thread function_de0a6ae4();
@@ -510,11 +510,11 @@ function function_246a0760()
 	level endon(#"game_ended");
 	level.dog_round_count = 1;
 	level.next_dog_round = 6;
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &function_5f1ef789, &function_20aadb5e, &function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &function_5f1ef789, &function_20aadb5e, &function_d544de30, level.var_dc50acfa);
 	zm_utility::function_fdb0368(7);
 	level.dog_round_count = 3;
 	level.next_dog_round = 24;
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &function_5f1ef789, &function_20aadb5e, &function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &function_5f1ef789, &function_20aadb5e, &function_d544de30, level.var_dc50acfa);
 	/#
 		level thread function_de0a6ae4();
 	#/
@@ -604,7 +604,7 @@ function dog_round_stop(var_d25bbdd5)
 	{
 		level.next_dog_round = level.round_number + randomintrange(5, 7);
 	}
-	namespace_c3287616::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &dog_round_stop, &function_dd162858, &waiting_for_next_dog_spawn, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &dog_round_start, &dog_round_stop, &function_dd162858, &waiting_for_next_dog_spawn, level.var_dc50acfa);
 	/#
 		getplayers()[0] iprintln("" + level.next_dog_round);
 	#/
@@ -1143,8 +1143,8 @@ function function_62db7b1c(b_force_spawn = 0, var_eb3a8721)
 			foreach(str_zone in adj_zone_names)
 			{
 				s_zone = level.zones[str_zone];
-				var_dca08900 = getarraykeys(s_zone.adjacent_zones);
-				foreach(str_adj_zone in var_dca08900)
+				a_str_adj_zone = getarraykeys(s_zone.adjacent_zones);
+				foreach(str_adj_zone in a_str_adj_zone)
 				{
 					if(s_zone.adjacent_zones[str_adj_zone].is_connected)
 					{
@@ -1171,8 +1171,8 @@ function function_62db7b1c(b_force_spawn = 0, var_eb3a8721)
 			{
 				if(isinarray(var_24f5d9f8, v_loc.zone_name))
 				{
-					var_a46b11c1 = distancesquared(v_loc.origin, e_target.origin);
-					if(173056 < var_a46b11c1 && var_a46b11c1 < 376996)
+					n_sqr_dist = distancesquared(v_loc.origin, e_target.origin);
+					if(173056 < n_sqr_dist && n_sqr_dist < 376996)
 					{
 						if(!isdefined(var_e99dec8e))
 						{
@@ -1185,7 +1185,7 @@ function function_62db7b1c(b_force_spawn = 0, var_eb3a8721)
 						var_e99dec8e[var_e99dec8e.size] = v_loc;
 						continue;
 					}
-					if(var_a46b11c1 > 376996)
+					if(n_sqr_dist > 376996)
 					{
 						if(!isdefined(var_22b984bd))
 						{

@@ -473,7 +473,7 @@ function function_8e8c4fef(time, pos)
 {
 	self notify("230f045151c08d1e");
 	self endon("230f045151c08d1e");
-	self endon(#"death", #"hash_6bdfdee9ee47f086");
+	self endon(#"death", #"fishing_done");
 	wait(time);
 	self.origin = pos;
 }
@@ -503,7 +503,7 @@ function function_b828bd39(player, dynent)
 	{
 		return;
 	}
-	self endon(#"hash_6bdfdee9ee47f086");
+	self endon(#"fishing_done");
 	player endon(#"death", #"hash_61bb9580151c93d5");
 	dynent.var_3fa8a746 = 0;
 	self.origin = dynent.var_be4b82e0;
@@ -591,7 +591,7 @@ function function_ed446f40(dynent)
 	dynent.var_fb09ad1c = 0;
 	if(isdefined(dynent.buoy))
 	{
-		dynent.buoy notify(#"hash_6bdfdee9ee47f086");
+		dynent.buoy notify(#"fishing_done");
 		dynent.buoy moveto(dynent.var_87de0f0d, 1);
 		dynent.buoy hide();
 	}
@@ -657,7 +657,7 @@ function function_54a3ec41(dynent)
 	}
 	else if(isdefined(dynent.buoy))
 	{
-		dynent.buoy notify(#"hash_6bdfdee9ee47f086");
+		dynent.buoy notify(#"fishing_done");
 	}
 }
 
@@ -691,7 +691,7 @@ function function_73532e4f()
 		rock.isfishing = 0;
 		if(isdefined(rock.buoy) && isdefined(rock.var_87de0f0d))
 		{
-			rock.buoy notify(#"hash_6bdfdee9ee47f086");
+			rock.buoy notify(#"fishing_done");
 			rock.buoy moveto(rock.var_87de0f0d, 0.1);
 			rock.buoy hide();
 		}

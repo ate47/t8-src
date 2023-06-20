@@ -268,7 +268,7 @@ function can_process_contracts()
 	{
 		return false;
 	}
-	if(util::function_5df4294() == "ztutorial")
+	if(util::get_game_type() == "ztutorial")
 	{
 		return false;
 	}
@@ -302,7 +302,7 @@ function function_5b88297d(var_38280f2f, delta = 1, var_86024473)
 		}
 		foreach(var_86603201 in var_86024473)
 		{
-			if(var_86603201 == util::function_5df4294())
+			if(var_86603201 == util::get_game_type())
 			{
 				return;
 			}
@@ -346,18 +346,18 @@ function private function_902ef0de(var_38280f2f, delta)
 	if(new_progress != old_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].current_value = new_progress;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.var_90031a39[var_38280f2f], new_progress);
+			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.contract_ids[var_38280f2f], new_progress);
 		}
 	}
 	if(old_progress < target_value && target_value <= new_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = self.pers[#"time_played_total"];
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
 			zm_stats::function_ea5b4947(0);
-			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.var_90031a39[var_38280f2f]);
+			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.contract_ids[var_38280f2f]);
 		}
 	}
 	/#
@@ -666,10 +666,10 @@ function function_1d4fae71()
 function devgui_setup()
 {
 	/#
-		var_74757534 = "";
+		devgui_base = "";
 		wait(3);
-		function_e07e542b(var_74757534, undefined);
-		function_295a8005(var_74757534);
+		function_e07e542b(devgui_base, undefined);
+		function_295a8005(devgui_base);
 	#/
 }
 

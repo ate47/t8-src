@@ -143,7 +143,7 @@ function group_mega_round_end_abcd_talking(localclientnum = 0)
 	level endon("previs_deployable_" + localclientnum);
 	wait(10);
 	previs_model = spawn(localclientnum, (0, 0, 0), "script_model");
-	previs_weapon = getweapon(#"hash_49441cf211e409b9");
+	previs_weapon = getweapon(#"eq_alarm");
 	var_5929417d = 0;
 	var_2e40ce22 = 0;
 	var_d4d81eb4 = 0;

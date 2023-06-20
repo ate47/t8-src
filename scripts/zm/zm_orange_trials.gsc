@@ -212,7 +212,7 @@ function function_ff59ba7a(is_game_over)
 			player gadgetpowerset(n_slot, player.var_e01bb56);
 			player.var_3b55baa1 = undefined;
 			player.var_e01bb56 = undefined;
-			player notify(#"hash_2ef9a0f78a628812");
+			player notify(#"grenade_change");
 		}
 	}
 }

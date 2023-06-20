@@ -147,7 +147,7 @@ function function_51f76fdb(inflictor, attacker, damage, flags, smeansofdeath, we
 		{
 			return -1;
 		}
-		if(isdefined(self.var_2c2980d3) && self.var_2c2980d3 || self.archetype == #"hash_165d4f75a46540bb" || self.archetype == #"hash_3b41c3299f47fb7f")
+		if(isdefined(self.var_2c2980d3) && self.var_2c2980d3 || self.archetype == #"elephant_rider" || self.archetype == #"dust_ball")
 		{
 			return -1;
 		}
@@ -176,9 +176,9 @@ function function_8426ad52(weapon)
 		return false;
 	}
 	var_57b07826 = function_d8effeda(weapon);
-	var_510d7f2b = self getweaponammostock(var_57b07826);
+	n_ammo_stock = self getweaponammostock(var_57b07826);
 	n_ammo_clip = self getweaponammoclip(var_57b07826);
-	if(var_510d7f2b >= 4 && n_ammo_clip > 0 || n_ammo_clip > 5)
+	if(n_ammo_stock >= 4 && n_ammo_clip > 0 || n_ammo_clip > 5)
 	{
 		return true;
 	}
@@ -365,7 +365,7 @@ function function_615d8c38(params)
 					{
 						params.eattacker zm_score::player_add_points("crossbow_crawler", 20);
 						self zombie_utility::makezombiecrawler(1);
-						level notify(#"hash_5198ca6a3343ece8", {#weapon:params.weapon, #player:params.eattacker, #zombie:self});
+						level notify(#"crawler_created", {#weapon:params.weapon, #player:params.eattacker, #zombie:self});
 						self thread function_6119da66();
 					}
 				}
@@ -493,7 +493,7 @@ function function_c805f2f9(params)
 		player.var_7cfd8159 = [];
 	}
 	player.var_7cfd8159 = array::remove_dead(player.var_7cfd8159);
-	if(isdefined(var_5ff12d5f.var_99100b64) && var_5ff12d5f.var_99100b64 || !function_c6da1395(w_crossbow) || (isdefined(self.var_1df64653) && self.var_1df64653) || (isdefined(self.var_427e5396) && self.var_427e5396) || (isdefined(self.var_2c2980d3) && self.var_2c2980d3) || params.smeansofdeath === "MOD_MELEE" || self.archetype == #"hash_165d4f75a46540bb" || self.archetype == #"hash_3b41c3299f47fb7f")
+	if(isdefined(var_5ff12d5f.var_99100b64) && var_5ff12d5f.var_99100b64 || !function_c6da1395(w_crossbow) || (isdefined(self.var_1df64653) && self.var_1df64653) || (isdefined(self.var_427e5396) && self.var_427e5396) || (isdefined(self.var_2c2980d3) && self.var_2c2980d3) || params.smeansofdeath === "MOD_MELEE" || self.archetype == #"elephant_rider" || self.archetype == #"dust_ball")
 	{
 		if(isdefined(self.var_427e5396) && self.var_427e5396 || (isdefined(self.var_2c2980d3) && self.var_2c2980d3))
 		{
@@ -722,9 +722,9 @@ function function_c6da1395(weapon, player)
 	if(isdefined(player))
 	{
 		var_57b07826 = function_d8effeda(weapon);
-		var_510d7f2b = player getweaponammostock(var_57b07826);
+		n_ammo_stock = player getweaponammostock(var_57b07826);
 		n_ammo_clip = player getweaponammoclip(var_57b07826);
-		if(n_ammo_clip >= 5 || var_510d7f2b >= 4 && (weapon === level.w_crossbow_charged || weapon === level.w_crossbow_charged_upgraded))
+		if(n_ammo_clip >= 5 || n_ammo_stock >= 4 && (weapon === level.w_crossbow_charged || weapon === level.w_crossbow_charged_upgraded))
 		{
 			return true;
 		}
@@ -795,7 +795,7 @@ function function_e1c4ab06(params)
 		}
 		foreach(ai in a_zombies)
 		{
-			if(isalive(ai) && ai function_8a514a61(v_origin, w_crossbow) && ai.archetype !== #"hash_3b41c3299f47fb7f")
+			if(isalive(ai) && ai function_8a514a61(v_origin, w_crossbow) && ai.archetype !== #"dust_ball")
 			{
 				if(!(isdefined(ai.var_427e5396) && ai.var_427e5396))
 				{
@@ -1177,7 +1177,7 @@ function function_62d37304(weapon)
 		v_start = self getweaponmuzzlepoint();
 		v_end = v_start + (self getweaponforwarddir() * 1000);
 		s_trace = bullettrace(v_start, v_end, 0, self);
-		level notify(#"hash_1720dddfc9bf0b2f", {#position:s_trace[#"position"], #player:self});
+		level notify(#"xbow_hit", {#position:s_trace[#"position"], #player:self});
 	}
 	if(isarray(self.weaponobjectwatcherarray))
 	{
@@ -1197,10 +1197,10 @@ function function_62d37304(weapon)
 	if(function_c6da1395(weapon, self))
 	{
 		var_57b07826 = function_d8effeda(weapon);
-		var_510d7f2b = self getweaponammostock(var_57b07826) - 4;
-		var_510d7f2b = math::clamp(var_510d7f2b, 0, var_57b07826.maxammo);
+		n_ammo_stock = self getweaponammostock(var_57b07826) - 4;
+		n_ammo_stock = math::clamp(n_ammo_stock, 0, var_57b07826.maxammo);
 		n_ammo_clip = self getweaponammoclip(var_57b07826);
-		self setweaponammostock(var_57b07826, var_510d7f2b);
+		self setweaponammostock(var_57b07826, n_ammo_stock);
 	}
 }
 

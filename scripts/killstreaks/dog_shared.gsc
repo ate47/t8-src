@@ -103,7 +103,7 @@ function spawned(type)
 	{
 		if(isdefined(bundle) && isdefined(level.var_228e8cd6))
 		{
-			player [[level.var_228e8cd6]](bundle.var_1ab696c6);
+			player [[level.var_228e8cd6]](bundle.ksweapon);
 		}
 		if(isdefined(bundle.var_502a0e23))
 		{
@@ -115,7 +115,7 @@ function spawned(type)
 	{
 		if(isdefined(bundle) && isdefined(level.var_228e8cd6))
 		{
-			player [[level.var_228e8cd6]](bundle.var_1ab696c6);
+			player [[level.var_228e8cd6]](bundle.ksweapon);
 		}
 		return false;
 	}
@@ -125,13 +125,13 @@ function spawned(type)
 	{
 		if(isdefined(bundle) && isdefined(level.var_228e8cd6))
 		{
-			player [[level.var_228e8cd6]](bundle.var_1ab696c6);
+			player [[level.var_228e8cd6]](bundle.ksweapon);
 		}
 		return false;
 	}
 	dog killstreak_bundles::spawned(bundle);
 	dog influencers::create_entity_enemy_influencer("dog", player.team);
-	ability_player::function_c22f319e(bundle.var_1ab696c6);
+	ability_player::function_c22f319e(bundle.ksweapon);
 	dog clientfield::set("enemyvehicle", 1);
 	return true;
 }
@@ -297,7 +297,7 @@ function spawn_dog(bundle, owner)
 	dog.ai.var_b1248bd1 = 1;
 	dog set_state(1, 1);
 	owner thread function_458bc8de(dog);
-	owner thread function_2f6f43cf(dog, bundle.var_1ab696c6);
+	owner thread function_2f6f43cf(dog, bundle.ksweapon);
 	dog thread killstreaks::function_fff56140(owner, &function_747a6ed6);
 	dog callback::function_d8abfc3d(#"on_end_game", &function_a1b9ccf1);
 	if(isdefined(bundle.ksduration))

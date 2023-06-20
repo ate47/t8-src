@@ -60,13 +60,13 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	if(newval == 2)
 	{
 		registerplayer_lift_clipbamfupdate = "zombie/fx_idgun_vortex_ug_zod_zmb";
-		var_800bc32d = "zombie/fx_idgun_vortex_explo_ug_zod_zmb";
+		fx_vortex_explosion = "zombie/fx_idgun_vortex_explo_ug_zod_zmb";
 		n_vortex_time = 10;
 	}
 	else
 	{
 		registerplayer_lift_clipbamfupdate = "zombie/fx_idgun_vortex_zod_zmb";
-		var_800bc32d = "zombie/fx_idgun_vortex_explo_zod_zmb";
+		fx_vortex_explosion = "zombie/fx_idgun_vortex_explo_zod_zmb";
 		n_vortex_time = 5;
 	}
 	vortex_fx_handle = playfx(localclientnum, registerplayer_lift_clipbamfupdate, vposition);
@@ -74,7 +74,7 @@ function start_vortex(localclientnum, oldval, newval, bnewent, binitialsnap, fie
 	playsound(0, #"wpn_idgun_portal_start", vposition);
 	audio::playloopat("wpn_idgun_portal_loop", vposition);
 	self thread vortex_shake_and_rumble(localclientnum, vposition);
-	self thread function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, var_800bc32d, n_vortex_time);
+	self thread function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, fx_vortex_explosion, n_vortex_time);
 }
 
 /*
@@ -126,7 +126,7 @@ function vision_blur(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 	Parameters: 5
 	Flags: Linked
 */
-function function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, var_800bc32d, n_vortex_time)
+function function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, fx_vortex_explosion, n_vortex_time)
 {
 	e_player = function_5c10bd79(localclientnum);
 	n_starttime = e_player getclienttime();
@@ -142,7 +142,7 @@ function function_2dd3c5bc(localclientnum, vortex_fx_handle, vposition, var_800b
 	playsound(0, #"wpn_idgun_portal_stop", vposition);
 	wait(0.15);
 	self notify(#"vortex_stop");
-	var_ad8208a9 = playfx(localclientnum, var_800bc32d, vposition);
+	var_ad8208a9 = playfx(localclientnum, fx_vortex_explosion, vposition);
 	setfxignorepause(localclientnum, var_ad8208a9, 1);
 	playsound(0, #"wpn_idgun_portal_explode", vposition);
 	waitframe(1);

@@ -37,7 +37,7 @@ function __init__()
 	clientfield::register("allplayers", "" + #"lightning_bolt_fx", 1, 1, "counter", &function_37d03e44, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_61e96e3005ea1d49", 1, 1, "counter", &function_6765f5b4, 0, 0);
 	clientfield::register("scriptmover", "" + #"lightning_miss_fx", 1, 1, "int", &function_93d275f2, 0, 0);
-	clientfield::register("scriptmover", "" + #"hammer_storm", 1, 1, "int", &function_c03894bd, 0, 0);
+	clientfield::register("scriptmover", "" + #"hammer_storm", 1, 1, "int", &hammer_storm, 0, 0);
 	clientfield::register("actor", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter", &function_e6845153, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter", &function_e6845153, 0, 0);
 	clientfield::register("actor", "" + #"lightning_impact_fx", 1, 1, "int", &function_54b0b1b, 0, 0);
@@ -68,11 +68,11 @@ function __init__()
 */
 function function_37d03e44(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	thread function_8beb8552(localclientnum, self, self.origin);
+	thread lightning_bolt_fx(localclientnum, self, self.origin);
 }
 
 /*
-	Name: function_8beb8552
+	Name: lightning_bolt_fx
 	Namespace: zm_weap_hammer
 	Checksum: 0x802A1CDC
 	Offset: 0x7C8
@@ -80,7 +80,7 @@ function function_37d03e44(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 3
 	Flags: Linked
 */
-function function_8beb8552(localclientnum, owner, position)
+function lightning_bolt_fx(localclientnum, owner, position)
 {
 	if(self zm_utility::function_f8796df3(localclientnum))
 	{
@@ -111,7 +111,7 @@ function function_e6845153(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_c03894bd
+	Name: hammer_storm
 	Namespace: zm_weap_hammer
 	Checksum: 0xD0F0A564
 	Offset: 0x968
@@ -119,7 +119,7 @@ function function_e6845153(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_c03894bd(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function hammer_storm(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{
@@ -237,14 +237,14 @@ function private function_7dac3bb6(localclientnum)
 	{
 		waitframe(1);
 	}
-	var_9d68990a = level.var_76234ae5[localclientnum];
-	var_9d68990a endon(#"death");
+	e_ball = level.var_76234ae5[localclientnum];
+	e_ball endon(#"death");
 	util::server_wait(localclientnum, randomfloatrange(0.05, 0.1));
-	if(!isdefined(var_9d68990a))
+	if(!isdefined(e_ball))
 	{
 		return;
 	}
-	self.e_fx = util::spawn_model(localclientnum, #"tag_origin", var_9d68990a.origin);
+	self.e_fx = util::spawn_model(localclientnum, #"tag_origin", e_ball.origin);
 	self.fx_arc = util::playfxontag(localclientnum, level._effect[#"lightning_arc"], self.e_fx, "tag_origin");
 	while(true)
 	{
@@ -258,11 +258,11 @@ function private function_7dac3bb6(localclientnum)
 			self.e_fx moveto(self.origin, 0.1);
 		}
 		util::server_wait(localclientnum, 0.1);
-		if(!isdefined(var_9d68990a))
+		if(!isdefined(e_ball))
 		{
 			return;
 		}
-		self.e_fx moveto(var_9d68990a.origin, 0.1);
+		self.e_fx moveto(e_ball.origin, 0.1);
 		util::server_wait(localclientnum, 0.1);
 	}
 }
@@ -324,7 +324,7 @@ function private function_85050f7f(localclientnum)
 */
 function private function_6765f5b4(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(newvalue && !namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(newvalue && !namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_74fd0cf7c91d14d0");
 	}

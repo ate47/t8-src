@@ -699,7 +699,7 @@ function private function_1ba093e()
 	level flag::wait_till("pap_machine_active");
 	while(true)
 	{
-		self waittill(#"hash_12922c9c5f12df1");
+		self waittill(#"packing_weapon");
 		if(isdefined(pap_machine.unitrigger_stub.current_weapon) && zm_weapons::is_wonder_weapon(pap_machine.unitrigger_stub.current_weapon))
 		{
 			continue;
@@ -935,7 +935,7 @@ function private function_c3778d8a(n_boon, n_delay = undefined)
 		}
 	}
 	self clientfield::set_to_player("" + #"hash_403e80cafccc207c", 1);
-	b_say = self zm_vo::function_8e0f4696(var_8b7ccae4, 0, 1, 9999, 1, 1, 1);
+	b_say = self zm_vo::vo_say(var_8b7ccae4, 0, 1, 9999, 1, 1, 1);
 	self clientfield::set_to_player("" + #"hash_403e80cafccc207c", 0);
 	if(b_say && self zm_audio::function_65e5c19a() && (!(isdefined(self.var_e0ffa699) && self.var_e0ffa699)))
 	{

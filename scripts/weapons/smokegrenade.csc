@@ -41,7 +41,7 @@ function init_shared()
 function on_local_player_spawned(local_client_num)
 {
 	thread function_e69d0e4d(local_client_num);
-	thread function_16e642d6(local_client_num);
+	thread track_grenades(local_client_num);
 	players = getplayers(local_client_num);
 	foreach(player in players)
 	{
@@ -53,7 +53,7 @@ function on_local_player_spawned(local_client_num)
 }
 
 /*
-	Name: function_16e642d6
+	Name: track_grenades
 	Namespace: smokegrenade
 	Checksum: 0x2CDA032F
 	Offset: 0x3D8
@@ -61,10 +61,10 @@ function on_local_player_spawned(local_client_num)
 	Parameters: 1
 	Flags: None
 */
-function function_16e642d6(local_client_num)
+function track_grenades(local_client_num)
 {
-	self notify(#"hash_69c8c6c8ba675506");
-	self endon(#"hash_69c8c6c8ba675506", #"death", #"disconnect");
+	self notify(#"track_grenades");
+	self endon(#"track_grenades", #"death", #"disconnect");
 	waitresult = undefined;
 	waitresult = self waittill(#"grenade_fire");
 	grenade = waitresult.projectile;
@@ -348,8 +348,8 @@ function vehicle_transition(local_client_num, oldval, newval, bnewent, binitials
 */
 function function_4fc900e1(local_client_num)
 {
-	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_2b9d344f3679c3d4", #"hash_8120ecc0ceec5c6");
-	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_148067bf5c254455", #"hash_224b6b4d7364dbb5");
+	self renderoverridebundle::function_c8d97b8e(local_client_num, #"friendly_smoke", #"hash_8120ecc0ceec5c6");
+	self renderoverridebundle::function_c8d97b8e(local_client_num, #"enemy_smoke", #"hash_224b6b4d7364dbb5");
 }
 
 /*

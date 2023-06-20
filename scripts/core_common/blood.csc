@@ -83,7 +83,7 @@ function private function_e79ccfd8(localclientnum)
 	{
 		codestoppostfxbundlelocal(localclientnum, #"hash_73c750f53749d44d");
 	}
-	self.var_957f4b6b = #"hash_44dcb6ac5e8787e0";
+	self.pstfx_blood = #"hash_44dcb6ac5e8787e0";
 	self.var_36732900 = "rob_wound_blood_splatter";
 	function_162fe6ec(localclientnum);
 	self.var_9861062 = 0;
@@ -209,7 +209,7 @@ function private play_critical_health_rumble(localclientnum)
 	var_cf155b98 = "new_health_stage_critical";
 	while(true)
 	{
-		self waittill(#"hash_7b55313d89ce26ed");
+		self waittill(#"pulse_blood");
 		self playrumbleonentity(localclientnum, var_cf155b98);
 		name = self getmpdialogname();
 		if(!isdefined(name))
@@ -443,7 +443,7 @@ function private function_27d3ba05(localclientnum)
 	{
 		return false;
 	}
-	if(level.var_4ecf5754 === #"hash_65cfe78dc61dd3af")
+	if(level.var_4ecf5754 === #"silent_film")
 	{
 		return false;
 	}
@@ -516,7 +516,7 @@ function private player_splatter(localclientnum)
 	level endon("player_splatter" + localclientnum);
 	while(true)
 	{
-		level waittill(#"hash_518e8873ad943492");
+		level waittill(#"splatters_active");
 		while(true)
 		{
 			splatter = getsplatter(localclientnum);
@@ -682,7 +682,7 @@ function function_441ef0ca(currenttime, elapsedtime, localclientnum, duration, v
 	splatter = getsplatter(localclientnum);
 	if(amount > 0 && isdefined(splatter.splatters[var_cd141ca2][key]) && splatter.splatters[var_cd141ca2][key] == 0)
 	{
-		level notify(#"hash_518e8873ad943492");
+		level notify(#"splatters_active");
 	}
 	splatter.splatters[var_cd141ca2][key] = amount;
 }
@@ -729,19 +729,19 @@ function private function_55d01d42()
 	fields = getcharacterfields(character_index, currentsessionmode());
 	if(isdefined(fields) && (isdefined(fields.digitalblood) ? fields.digitalblood : 0))
 	{
-		self.var_957f4b6b = #"hash_21152915158b09dd";
+		self.pstfx_blood = #"hash_21152915158b09dd";
 		self.var_36732900 = "rob_wound_blood_splatter_reaper";
 	}
 	else
 	{
 		if(util::is_mature())
 		{
-			self.var_957f4b6b = #"hash_263a0659c7ff81ad";
+			self.pstfx_blood = #"hash_263a0659c7ff81ad";
 			self.var_36732900 = "rob_wound_blood_splatter";
 		}
 		else
 		{
-			self.var_957f4b6b = #"hash_44dcb6ac5e8787e0";
+			self.pstfx_blood = #"hash_44dcb6ac5e8787e0";
 			self.var_36732900 = "rob_wound_blood_splatter";
 		}
 	}
@@ -793,7 +793,7 @@ function private function_87544c4a(localclientnum)
 			}
 			else if(isdefined(self.blood_enabled) && self.blood_enabled)
 			{
-				self function_436ee4c2(localclientnum, self.var_957f4b6b);
+				self function_436ee4c2(localclientnum, self.pstfx_blood);
 			}
 			priorplayerhealth = playerhealth;
 			var_a234f6c2 = var_406028bf;
@@ -806,7 +806,7 @@ function private function_87544c4a(localclientnum)
 		}
 		else if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_436ee4c2(localclientnum, self.var_957f4b6b);
+			self function_436ee4c2(localclientnum, self.pstfx_blood);
 		}
 		waitframe(1);
 	}
@@ -837,11 +837,11 @@ function private function_8d8880(localclientnum)
 		{
 			for(pulse = 0; pulse < 2; pulse++)
 			{
-				self notify(#"hash_7b55313d89ce26ed");
-				self thread function_c0cdd1f2(localclientnum, 0, 1, level.blood.var_f2de135e.var_562c41de[pulse], #"hash_152dbb4add22b951", self.var_957f4b6b);
+				self notify(#"pulse_blood");
+				self thread function_c0cdd1f2(localclientnum, 0, 1, level.blood.var_f2de135e.var_562c41de[pulse], #"hash_152dbb4add22b951", self.pstfx_blood);
 				wait(float(level.blood.var_f2de135e.var_562c41de[pulse]) / 1000);
 				wait(float(level.blood.var_f2de135e.var_18f673f1[pulse]) / 1000);
-				self thread function_c0cdd1f2(localclientnum, 1, 0, level.blood.var_f2de135e.var_92fc0d45[pulse], #"hash_152dbb4add22b951", self.var_957f4b6b);
+				self thread function_c0cdd1f2(localclientnum, 1, 0, level.blood.var_f2de135e.var_92fc0d45[pulse], #"hash_152dbb4add22b951", self.pstfx_blood);
 				wait(float(level.blood.var_f2de135e.var_92fc0d45[pulse]) / 1000);
 				wait(float(level.blood.var_f2de135e.var_5b5500f7[pulse]) / 1000);
 			}
@@ -861,7 +861,7 @@ function private function_8d8880(localclientnum)
 function private function_493a8fbc(localclientnum)
 {
 	self waittill(#"death");
-	self function_436ee4c2(localclientnum, self.var_957f4b6b);
+	self function_436ee4c2(localclientnum, self.pstfx_blood);
 }
 
 /*
@@ -903,7 +903,7 @@ function private function_e91b92e2(localclientnum, new_blood_stage, prior_blood_
 		self enter_critical_health(localclientnum);
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_116b95e5(self.var_957f4b6b, #"hash_152dbb4add22b951", 1);
+			self function_116b95e5(self.pstfx_blood, #"hash_152dbb4add22b951", 1);
 		}
 		if(isdefined(level.blood.scriptbundle.pulse_loop))
 		{
@@ -920,7 +920,7 @@ function private function_e91b92e2(localclientnum, new_blood_stage, prior_blood_
 		self.var_9861062 = 0;
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_116b95e5(self.var_957f4b6b, #"hash_152dbb4add22b951", 0);
+			self function_116b95e5(self.pstfx_blood, #"hash_152dbb4add22b951", 0);
 		}
 	}
 	if(new_blood_stage < 4)
@@ -1026,18 +1026,18 @@ function private function_9a8dc0ec(localclientnum, playerhealth, forceupdate)
 	if(new_blood_stage != prior_blood_stage || forceupdate)
 	{
 		ramptime = (prior_blood_stage > new_blood_stage ? level.blood.var_49774f1 : level.blood.var_587ce5b0);
-		self thread function_c0cdd1f2(localclientnum, level.blood.fade[prior_blood_stage], level.blood.fade[new_blood_stage], ramptime, #"fade", self.var_957f4b6b);
-		self thread function_c0cdd1f2(localclientnum, level.blood.opacity[prior_blood_stage], level.blood.opacity[new_blood_stage], ramptime, #"opacity", self.var_957f4b6b);
-		self thread function_c0cdd1f2(localclientnum, level.blood.var_4c8629ad[prior_blood_stage], level.blood.var_4c8629ad[new_blood_stage], ramptime, #"hash_4719d5a85c54db22", self.var_957f4b6b);
-		self thread function_c0cdd1f2(localclientnum, level.blood.var_ea220db3[prior_blood_stage], level.blood.var_ea220db3[new_blood_stage], ramptime, #"hash_703cc9e25857079", self.var_957f4b6b);
-		self thread function_c0cdd1f2(localclientnum, level.blood.blur[prior_blood_stage], level.blood.blur[new_blood_stage], ramptime, #"blur", self.var_957f4b6b);
+		self thread function_c0cdd1f2(localclientnum, level.blood.fade[prior_blood_stage], level.blood.fade[new_blood_stage], ramptime, #"fade", self.pstfx_blood);
+		self thread function_c0cdd1f2(localclientnum, level.blood.opacity[prior_blood_stage], level.blood.opacity[new_blood_stage], ramptime, #"opacity", self.pstfx_blood);
+		self thread function_c0cdd1f2(localclientnum, level.blood.var_4c8629ad[prior_blood_stage], level.blood.var_4c8629ad[new_blood_stage], ramptime, #"hash_4719d5a85c54db22", self.pstfx_blood);
+		self thread function_c0cdd1f2(localclientnum, level.blood.var_ea220db3[prior_blood_stage], level.blood.var_ea220db3[new_blood_stage], ramptime, #"hash_703cc9e25857079", self.pstfx_blood);
+		self thread function_c0cdd1f2(localclientnum, level.blood.blur[prior_blood_stage], level.blood.blur[new_blood_stage], ramptime, #"blur", self.pstfx_blood);
 		if(level.blood.var_e9d8aaf5)
 		{
-			self thread function_c0cdd1f2(localclientnum, level.blood.refraction[prior_blood_stage], level.blood.refraction[new_blood_stage], ramptime, #"refraction", self.var_957f4b6b);
+			self thread function_c0cdd1f2(localclientnum, level.blood.refraction[prior_blood_stage], level.blood.refraction[new_blood_stage], ramptime, #"refraction", self.pstfx_blood);
 		}
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_116b95e5(self.var_957f4b6b, #"hash_3886e6a5c0c3df4c", level.blood.var_d3813c3a[new_blood_stage]);
+			self function_116b95e5(self.pstfx_blood, #"hash_3886e6a5c0c3df4c", level.blood.var_d3813c3a[new_blood_stage]);
 		}
 		self function_56419db8(new_blood_stage);
 		self function_5a719e5(localclientnum, new_blood_stage, prior_blood_stage);
@@ -1095,14 +1095,14 @@ function function_b0298a0(currenttime, elapsedtime, localclientnum, duration, va
 */
 function private function_70299400(localclientnum)
 {
-	if(level.var_4ecf5754 === #"hash_65cfe78dc61dd3af")
+	if(level.var_4ecf5754 === #"silent_film")
 	{
 		return;
 	}
 	self.blood_enabled = 1;
 	if(isdefined(self.blood_enabled) && self.blood_enabled)
 	{
-		self codeplaypostfxbundle(self.var_957f4b6b);
+		self codeplaypostfxbundle(self.pstfx_blood);
 	}
 }
 
@@ -1115,14 +1115,14 @@ function private function_70299400(localclientnum)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_436ee4c2(localclientnum, var_957f4b6b)
+function private function_436ee4c2(localclientnum, pstfx_blood)
 {
 	self notify(#"hash_6d50f64fe99aed76");
 	if(isdefined(self))
 	{
-		if(self function_d2cb869e(var_957f4b6b))
+		if(self function_d2cb869e(pstfx_blood))
 		{
-			self codestoppostfxbundle(var_957f4b6b);
+			self codestoppostfxbundle(pstfx_blood);
 		}
 		if(self function_d2cb869e(#"hash_73c750f53749d44d"))
 		{
@@ -1132,9 +1132,9 @@ function private function_436ee4c2(localclientnum, var_957f4b6b)
 	}
 	else
 	{
-		if(function_148ccc79(localclientnum, var_957f4b6b))
+		if(function_148ccc79(localclientnum, pstfx_blood))
 		{
-			codestoppostfxbundlelocal(localclientnum, var_957f4b6b);
+			codestoppostfxbundlelocal(localclientnum, pstfx_blood);
 		}
 		if(function_148ccc79(localclientnum, #"hash_73c750f53749d44d"))
 		{

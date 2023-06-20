@@ -138,7 +138,7 @@ function function_d69c301b()
 */
 function function_fe50c802(str_model, n_z_diff)
 {
-	level waittill(#"hash_656719782f57ca1a");
+	level waittill(#"blueprint_completed");
 	var_e007f14b = getent(str_model, "targetname");
 	var_5c7b8d71 = spawn("trigger_radius_new", var_e007f14b.origin + (0, 0, n_z_diff), 0, 614);
 	var_5c7b8d71 thread function_91fabcb(var_e007f14b);

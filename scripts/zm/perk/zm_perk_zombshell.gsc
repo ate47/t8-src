@@ -89,7 +89,7 @@ function enable_zombshell_perk_for_level()
 */
 function function_137d1be7()
 {
-	clientfield::register("scriptmover", "" + #"hash_7199d465a80b4f59", 15000, 1, "int");
+	clientfield::register("scriptmover", "" + #"zombshell_aoe", 15000, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_5f545b88ba3e2938", 15000, 1, "int");
 	clientfield::register("actor", "" + #"zombshell_explosion", 15000, 1, "counter");
 }
@@ -212,7 +212,7 @@ function shell_explosion(e_attacker, w_weapon)
 		e_attacker.var_c153f587 = util::spawn_model("tag_origin", v_origin);
 	}
 	e_attacker.var_c153f587.origin = v_origin;
-	e_attacker.var_c153f587 clientfield::set("" + #"hash_7199d465a80b4f59", 1);
+	e_attacker.var_c153f587 clientfield::set("" + #"zombshell_aoe", 1);
 	a_enemies = getaiteamarray(#"axis");
 	if(isdefined(self))
 	{
@@ -234,8 +234,8 @@ function shell_explosion(e_attacker, w_weapon)
 	{
 		wait(8);
 	}
-	e_attacker.var_c153f587 clientfield::set("" + #"hash_7199d465a80b4f59", 0);
-	e_attacker notify(#"hash_7199d465a80b4f59");
+	e_attacker.var_c153f587 clientfield::set("" + #"zombshell_aoe", 0);
+	e_attacker notify(#"zombshell_aoe");
 	e_attacker function_993d228c();
 	e_attacker thread function_f32db45b(e_attacker.var_c0832831);
 	e_attacker.var_491bd66d++;
@@ -286,7 +286,7 @@ function zombie_death_gib(e_attacker, w_weapon)
 */
 function function_4e547cfd(var_4eaa1f4c)
 {
-	self endon(#"death", #"hash_7199d465a80b4f59", #"scene_ready", #"specialty_zombshell" + "_take");
+	self endon(#"death", #"zombshell_aoe", #"scene_ready", #"specialty_zombshell" + "_take");
 	while(true)
 	{
 		array::thread_all(level.activeplayers, &function_279e31b8, self);
@@ -311,7 +311,7 @@ function function_4e547cfd(var_4eaa1f4c)
 */
 function function_6b9dcec(var_fc7bb684)
 {
-	self endon(#"death", #"hash_7199d465a80b4f59", #"specialty_zombshell" + "_take");
+	self endon(#"death", #"zombshell_aoe", #"specialty_zombshell" + "_take");
 	a_enemies = getaiteamarray(#"axis");
 	a_ai_zombies = arraysortclosest(a_enemies, var_fc7bb684, undefined, undefined, 128);
 	a_ai_zombies = array::filter(a_ai_zombies, 0, &function_c3af2a78);
@@ -361,7 +361,7 @@ function function_c3af2a78(ai_enemy)
 */
 function function_17a24d7f(e_player)
 {
-	e_player endon(#"death", #"hash_7199d465a80b4f59");
+	e_player endon(#"death", #"zombshell_aoe");
 	if(isalive(self) && isdefined(self.var_6f84b820))
 	{
 		if(isalive(self) && isactor(self) && (!(isdefined(self.var_36c260a2) && self.var_36c260a2)) && !self function_dd070839())
@@ -434,7 +434,7 @@ function function_279e31b8(e_owner)
 {
 	self notify("b24e157aae48642");
 	self endon("b24e157aae48642");
-	self endoncallback(&function_26c2620, #"death", #"hash_7199d465a80b4f59", #"scene_ready", #"specialty_zombshell" + "_take");
+	self endoncallback(&function_26c2620, #"death", #"zombshell_aoe", #"scene_ready", #"specialty_zombshell" + "_take");
 	var_bbf6e7fd = 16384;
 	var_fc7bb684 = e_owner.var_c153f587.origin;
 	while(isdefined(e_owner.var_c153f587) && distancesquared(self.origin, var_fc7bb684) < var_bbf6e7fd && self hasperk(#"specialty_mod_zombshell"))

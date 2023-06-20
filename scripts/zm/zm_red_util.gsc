@@ -607,7 +607,7 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_499d5f58bb808122";
 			break;
 		}
-		case "hash_495032b77ee384a6":
+		case "interact_automaton":
 		{
 			str_vo_line = #"hash_48e9f010df79bf6b";
 			break;
@@ -627,7 +627,7 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_26935699e93f1db7";
 			break;
 		}
-		case "hash_6fdd85df000603d4":
+		case "interact_sandals":
 		{
 			str_vo_line = #"hash_13ae4ec246717759";
 			break;
@@ -637,7 +637,7 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_4125f996df00a018";
 			break;
 		}
-		case "hash_1a07eae6ed334037":
+		case "interact_forge":
 		{
 			str_vo_line = #"hash_10cbb1b8573a0040";
 			break;
@@ -652,7 +652,7 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_1ca7575800b7ff57";
 			break;
 		}
-		case "hash_26990fb3fc664144":
+		case "statue_pedestal":
 		{
 			str_vo_line = #"hash_5e56b7fe2e124bbd";
 			break;
@@ -672,7 +672,7 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_3d675b5319c334b7";
 			break;
 		}
-		case "hash_1822f9abde6c45e":
+		case "statue_female":
 		{
 			str_vo_line = #"hash_60fc5081c4fd6b7";
 			break;
@@ -682,7 +682,7 @@ function function_8916aa62(str_line)
 			return;
 		}
 	}
-	b_say = self zm_vo::function_8e0f4696(str_vo_line, 0, 1, 9999, 1, 1, 1);
+	b_say = self zm_vo::vo_say(str_vo_line, 0, 1, 9999, 1, 1, 1);
 }
 
 /*
@@ -698,43 +698,43 @@ function function_eb6f144(str_line, mdl_collectible)
 {
 	switch(str_line)
 	{
-		case "hash_3cdee5e460e84228":
+		case "scroll_1":
 		{
 			str_vo_line = #"hash_53d277c8b1114728";
 			var_bfdd8441 = #"hash_c7f396aed80374b";
 			break;
 		}
-		case "hash_3cdee8e460e84741":
+		case "scroll_2":
 		{
 			str_vo_line = #"hash_e3e70858f5614e3";
 			var_bfdd8441 = #"hash_c7f396aed80374b";
 			break;
 		}
-		case "hash_3cdee7e460e8458e":
+		case "scroll_3":
 		{
 			str_vo_line = #"hash_748ebfa215a02be6";
 			var_bfdd8441 = #"hash_3d24b9655233513d";
 			break;
 		}
-		case "hash_3cdeeae460e84aa7":
+		case "scroll_4":
 		{
 			str_vo_line = #"hash_52c2f244c43714a9";
 			var_bfdd8441 = #"hash_29c7b1f9e28de2ee";
 			break;
 		}
-		case "hash_3cdee9e460e848f4":
+		case "scroll_5":
 		{
 			str_vo_line = #"hash_2d2ebb39be31994c";
 			var_bfdd8441 = #"hash_22dbce472ee3015b";
 			break;
 		}
-		case "hash_3cdeece460e84e0d":
+		case "scroll_6":
 		{
 			str_vo_line = #"hash_7cd8582798401757";
 			var_bfdd8441 = #"hash_29c7b0f9e28de13b";
 			break;
 		}
-		case "hash_3cdeebe460e84c5a":
+		case "scroll_7":
 		{
 			str_vo_line = #"hash_4081f86f16c90f9a";
 			var_bfdd8441 = #"hash_29c7aff9e28ddf88";
@@ -746,7 +746,7 @@ function function_eb6f144(str_line, mdl_collectible)
 			var_bfdd8441 = #"hash_73ae4e30dfdf732d";
 			break;
 		}
-		case "hash_3cdedde460e83490":
+		case "scroll_9":
 		{
 			str_vo_line = "";
 			var_bfdd8441 = "";

@@ -48,7 +48,7 @@ function _init_()
 	clientfield::register("actor", "" + #"hash_259cdeffe60fe48f", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_1aa3522b88c2b76f", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_5ad28d5f104a6e3b", 1, 1, "int");
-	namespace_9ff9f642::register_slowdown(#"hash_7706017a8f91f35c", 0.85, 10);
+	namespace_9ff9f642::register_slowdown(#"freezegun_slowdown", 0.85, 10);
 	namespace_9ff9f642::register_slowdown(#"hash_5a1a7bceb3b8fded", 0.65, 15);
 	level.var_58e6238 = &mp_dom_flag_d_captured_byinterfaceattributes;
 	level.var_f975b6ae = &function_9a01c5b0;
@@ -112,7 +112,7 @@ function function_b65fd5ae(params)
 	{
 		self.var_4592c713 = 0;
 	}
-	var_bdbde2d2 = #"hash_7706017a8f91f35c";
+	var_bdbde2d2 = #"freezegun_slowdown";
 	if(self.var_4592c713 || params.weapon == level.var_2f3fae68)
 	{
 		var_bdbde2d2 = #"hash_5a1a7bceb3b8fded";
@@ -219,7 +219,7 @@ function freezegun_get_enemies_in_range(is_upgraded)
 	forward_view_angles = self getweaponforwarddir();
 	end_pos = view_pos + vectorscale(forward_view_angles, outer_range);
 	/#
-		if(2 == getdvarint(#"hash_1f9b7149df8b7dcb", 0))
+		if(2 == getdvarint(#"scr_freezegun_debug", 0))
 		{
 			near_circle_pos = view_pos + vectorscale(forward_view_angles, 2);
 			circle(near_circle_pos, cylinder_radius, (1, 0, 0), 0, 0, 100);
@@ -788,7 +788,7 @@ function freezegun_get_shatter_outer_damage(is_upgraded)
 function freezegun_debug_print(msg, color)
 {
 	/#
-		if(!getdvarint(#"hash_1f9b7149df8b7dcb", 0))
+		if(!getdvarint(#"scr_freezegun_debug", 0))
 		{
 			return;
 		}

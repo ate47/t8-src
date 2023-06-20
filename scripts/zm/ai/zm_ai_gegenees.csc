@@ -39,11 +39,11 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level._effect[#"hash_35b000ce20f352c4"] = "zm_ai/fx8_gegenees_shield_blast";
-	level._effect[#"hash_1d5fb38898d7b977"] = "zm_ai/fx8_gegenees_shield_guard";
-	level._effect[#"hash_4797d76df83752cb"] = "zm_ai/fx8_gegenees_spear_tip_flame";
-	level._effect[#"hash_1591eb84f9cddd23"] = "zm_ai/fx8_gegenees_spear_tip_tell";
-	level._effect[#"hash_4713a53b947f1e25"] = "zm_ai/fx8_stoker_dest_weak_point_exp_generic";
+	level._effect[#"fx8_gegenees_shield_blast"] = "zm_ai/fx8_gegenees_shield_blast";
+	level._effect[#"fx8_gegenees_shield_guard"] = "zm_ai/fx8_gegenees_shield_guard";
+	level._effect[#"fx8_gegenees_spear_tip_flame"] = "zm_ai/fx8_gegenees_spear_tip_flame";
+	level._effect[#"fx8_gegenees_spear_tip_tell"] = "zm_ai/fx8_gegenees_spear_tip_tell";
+	level._effect[#"fx8_stoker_dest_weak_point_exp_generic"] = "zm_ai/fx8_stoker_dest_weak_point_exp_generic";
 	footsteps::registeraitypefootstepcb(#"gegenees", &function_d00809d8);
 	clientfield::register("actor", "gegenees_shield_blast_effect", 16000, 1, "counter", &function_8745f9df, 0, 0);
 	clientfield::register("actor", "gegenees_shield_guard_effect", 16000, 1, "int", &function_ae96bf9a, 0, 0);
@@ -137,7 +137,7 @@ function private function_d00809d8(localclientnum, pos, surface, notetrack, bone
 */
 function private function_8745f9df(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.var_cafcaa0a = util::playfxontag(localclientnum, level._effect[#"hash_35b000ce20f352c4"], self, "tag_shield_fx");
+	self.var_cafcaa0a = util::playfxontag(localclientnum, level._effect[#"fx8_gegenees_shield_blast"], self, "tag_shield_fx");
 }
 
 /*
@@ -153,7 +153,7 @@ function private function_ae96bf9a(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval)
 	{
-		self.var_7c984f = util::playfxontag(localclientnum, level._effect[#"hash_1d5fb38898d7b977"], self, "tag_shield_fx");
+		self.var_7c984f = util::playfxontag(localclientnum, level._effect[#"fx8_gegenees_shield_guard"], self, "tag_shield_fx");
 	}
 	else if(isdefined(self.var_7c984f))
 	{
@@ -175,7 +175,7 @@ function private function_33dedae1(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval)
 	{
-		self.var_645626ad = util::playfxontag(localclientnum, level._effect[#"hash_4797d76df83752cb"], self, "tag_spear_tip_fx");
+		self.var_645626ad = util::playfxontag(localclientnum, level._effect[#"fx8_gegenees_spear_tip_flame"], self, "tag_spear_tip_fx");
 	}
 	else if(isdefined(self.var_645626ad))
 	{
@@ -197,7 +197,7 @@ function private function_421757ab(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval)
 	{
-		self.var_55203ff4 = util::playfxontag(localclientnum, level._effect[#"hash_1591eb84f9cddd23"], self, "tag_spear_tip_fx");
+		self.var_55203ff4 = util::playfxontag(localclientnum, level._effect[#"fx8_gegenees_spear_tip_tell"], self, "tag_spear_tip_fx");
 	}
 	else if(isdefined(self.var_55203ff4))
 	{
@@ -287,7 +287,7 @@ function private function_d54aae3e(localclientnum, oldval, newval, bnewent, bini
 {
 	if(newval)
 	{
-		self.fx_helmet = util::playfxontag(localclientnum, level._effect[#"hash_4713a53b947f1e25"], self, "j_head");
+		self.fx_helmet = util::playfxontag(localclientnum, level._effect[#"fx8_stoker_dest_weak_point_exp_generic"], self, "j_head");
 	}
 }
 

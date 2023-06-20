@@ -385,8 +385,8 @@ function function_1493a309(e_player)
 	if(self.powerup_name === "dung")
 	{
 		e_player playsound(#"hash_66a500811a472fac");
-		e_player clientfield::set_to_player("" + #"hash_7478ffee8332e21e", 1);
-		e_player util::delay(5, "disconnect", &clientfield::set_to_player, "" + #"hash_7478ffee8332e21e", 0);
+		e_player clientfield::set_to_player("" + #"pickup_dung", 1);
+		e_player util::delay(5, "disconnect", &clientfield::set_to_player, "" + #"pickup_dung", 0);
 		level notify(#"hash_694f58e8bc5dd48", {#e_player:e_player});
 	}
 }
@@ -422,10 +422,10 @@ function function_2d074f7d(params)
 		}
 		case "elephant":
 		{
-			str_event = #"hash_8686f01be1cd8b5";
+			str_event = #"elephant_kill";
 			break;
 		}
-		case "hash_165d4f75a46540bb":
+		case "elephant_rider":
 		{
 			str_event = #"hash_29a47f9b217e8b1c";
 			break;
@@ -1073,7 +1073,7 @@ function function_b8dfa139(str_event)
 			}
 			break;
 		}
-		case "hash_8686f01be1cd8b5":
+		case "elephant_kill":
 		{
 			var_9c93ba8f = 30;
 			var_ac39950d = 1;
@@ -1177,7 +1177,7 @@ function function_b8dfa139(str_event)
 			var_9c93ba8f = -12;
 			break;
 		}
-		case "hash_5198ca6a3343ece8":
+		case "crawler_created":
 		{
 			var_9c93ba8f = -1;
 			break;
@@ -1202,12 +1202,12 @@ function function_b8dfa139(str_event)
 			var_9c93ba8f = -15;
 			break;
 		}
-		case "hash_1480b76eb0f2efe8":
+		case "broken_shield":
 		{
 			var_9c93ba8f = -10;
 			break;
 		}
-		case "hash_60f39c53ee3e0ec7":
+		case "hazard_hit":
 		{
 			var_9c93ba8f = -10;
 			break;
@@ -1808,10 +1808,10 @@ function function_8e83be5d()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_5198ca6a3343ece8", #"trap_kill", #"trap_activated");
+		waitresult = level waittill(#"crawler_created", #"trap_kill", #"trap_activated");
 		switch(waitresult._notify)
 		{
-			case "hash_5198ca6a3343ece8":
+			case "crawler_created":
 			{
 				e_player = waitresult.player;
 				if(!isplayer(e_player))
@@ -1872,7 +1872,7 @@ function function_7469866d()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"player_downed", #"bled_out", #"player_did_a_revive", #"hash_53620e40c7e139b9", #"destroy_riotshield", #"hash_74fc45698491be88", #"hash_60f39c53ee3e0ec7");
+		waitresult = self waittill(#"player_downed", #"bled_out", #"player_did_a_revive", #"hash_53620e40c7e139b9", #"destroy_riotshield", #"hash_74fc45698491be88", #"hazard_hit");
 		switch(waitresult._notify)
 		{
 			case "player_downed":
@@ -1907,12 +1907,12 @@ function function_7469866d()
 			}
 			case "destroy_riotshield":
 			{
-				str_event = #"hash_1480b76eb0f2efe8";
+				str_event = #"broken_shield";
 				break;
 			}
-			case "hash_60f39c53ee3e0ec7":
+			case "hazard_hit":
 			{
-				str_event = #"hash_60f39c53ee3e0ec7";
+				str_event = #"hazard_hit";
 				break;
 			}
 			case "hash_74fc45698491be88":
@@ -1945,7 +1945,7 @@ function function_308a32f0(e_player)
 	while(isalive(self))
 	{
 		wait(10);
-		e_player function_b8dfa139(#"hash_5198ca6a3343ece8");
+		e_player function_b8dfa139(#"crawler_created");
 	}
 }
 
@@ -1969,7 +1969,7 @@ function function_fbf74c49()
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			adddebugcommand("");
 		}
@@ -2156,11 +2156,11 @@ function function_e0bb973(cmd)
 			}
 			case "hash_131b705484b2876":
 			case "hash_689abcb17111463":
-			case "hash_8686f01be1cd8b5":
+			case "elephant_kill":
 			case "hash_c65bc15b1aeb1bb":
 			case "hash_c65bd15b1aeb36e":
 			case "hash_c65be15b1aeb521":
-			case "hash_1480b76eb0f2efe8":
+			case "broken_shield":
 			case "hash_158076998c9b511f":
 			case "hash_15b4f3726a962ee0":
 			case "hash_197ae1fc115dc636":
@@ -2175,11 +2175,11 @@ function function_e0bb973(cmd)
 			case "hash_3d85834be3aff6d2":
 			case "hash_4122108abe671eb7":
 			case "trap_kill":
-			case "hash_5198ca6a3343ece8":
+			case "crawler_created":
 			case "trap_activated":
 			case "hash_5986c925a370e137":
 			case "hash_5d587a946bd4f958":
-			case "hash_60f39c53ee3e0ec7":
+			case "hazard_hit":
 			case "player_down":
 			case "player_death":
 			case "hash_74fc45698491be88":

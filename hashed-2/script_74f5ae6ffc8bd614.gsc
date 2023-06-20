@@ -16,7 +16,7 @@
 function init()
 {
 	clientfield::register("scriptmover", "medallion_fx", 1, 1, "int", &function_6624b679, 0, 0);
-	level._effect[#"hash_2c71b21e072366c2"] = #"hash_4960d9278d639297";
+	level._effect[#"medallion_exp"] = #"hash_4960d9278d639297";
 }
 
 /*
@@ -34,7 +34,7 @@ function function_6624b679(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		up = anglestoup(self.angles + (0, -90, -90));
 		forward = anglestoforward(self.angles + (0, -90, -90));
-		playfx(localclientnum, level._effect[#"hash_2c71b21e072366c2"], self.origin, forward, up);
+		playfx(localclientnum, level._effect[#"medallion_exp"], self.origin, forward, up);
 		playsound(localclientnum, #"hash_23ed06ab941bc579", self.origin);
 	}
 }

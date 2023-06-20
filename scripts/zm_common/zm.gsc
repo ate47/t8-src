@@ -13,7 +13,7 @@
 #using scripts\zm_common\talisman\zm_talisman_extra_miniturret.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\talisman\zm_talisman_box_guarantee_lmg.gsc;
-#using script_299f56e6d0b16416;
+#using scripts\zm_common\zm_quick_spawning.gsc;
 #using script_2c5daa95f8fec03c;
 #using scripts\zm_common\zm_playerzombie.gsc;
 #using scripts\zm\weapons\zm_weap_mini_turret.gsc;
@@ -47,7 +47,7 @@
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_permanent_4.gsc;
-#using script_5f7a85316133915b;
+#using scripts\zm_common\zm_vapor_random.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm\powerup\zm_powerup_bonus_points_player.gsc;
 #using scripts\zm_common\talisman\zm_talisman_special_startlv3.gsc;
@@ -192,7 +192,7 @@ function __init__()
 	{
 		level.zombie_vars = [];
 	}
-	level.scr_zm_ui_gametype = util::function_5df4294();
+	level.scr_zm_ui_gametype = util::get_game_type();
 	level.scr_zm_ui_gametype_group = "";
 	level.scr_zm_map_start_location = "";
 	level.var_aaf21bbb = 0;
@@ -264,7 +264,7 @@ function init()
 	level.zmb_laugh_alias = "zmb_player_outofbounds";
 	level.sndannouncerisrich = 1;
 	level.curr_gametype_affects_rank = 0;
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	if("zclassic" == gametype || "zstandard" == gametype)
 	{
 		level.curr_gametype_affects_rank = 1;
@@ -462,7 +462,7 @@ function onallplayersready()
 	{
 		waitframe(1);
 	}
-	if("zclassic" == util::function_5df4294())
+	if("zclassic" == util::get_game_type())
 	{
 		changeadvertisedstatus(1);
 	}
@@ -903,7 +903,7 @@ function init_levelvars()
 	level.start_round = getgametypesetting(#"startround");
 	level.round_number = level.start_round;
 	level.enable_magic = getgametypesetting(#"magic");
-	level.headshots_only = getgametypesetting(#"hash_4cb15aed177a8ef5");
+	level.headshots_only = getgametypesetting(#"zmheadshotsonly");
 	level.player_starting_points = function_b10f6843();
 	level.round_start_time = 0;
 	level.pro_tips_start_time = 0;
@@ -1029,7 +1029,7 @@ function function_1442d44f()
 	zombie_utility::set_zombie_var(#"retain_weapons", var_c6ceb446[#"plyretainweapons"], 0);
 	zombie_utility::set_zombie_var(#"perks_decay", var_c6ceb446[#"plyperksdecay"], 0);
 	zombie_utility::set_zombie_var(#"hash_1ab42b4d7db4cb3c", var_c6ceb446[#"plyxpmodfier"], 1);
-	zombie_utility::set_zombie_var(#"hash_44737d225ec3b9d7", var_c6ceb446[#"plyhighlightcraftables"], 0);
+	zombie_utility::set_zombie_var(#"highlight_craftables", var_c6ceb446[#"plyhighlightcraftables"], 0);
 	zombie_utility::set_zombie_var(#"zombie_point_scalar", var_c6ceb446[#"zompointscalar"], undefined, undefined, 1);
 	zombie_utility::set_zombie_var(#"hash_3a4a041c1d674898", var_c6ceb446[#"zommixedstart"], 0);
 	zombie_utility::set_zombie_var(#"hash_762b7db4166c70aa", var_c6ceb446[#"zommixedstartsolo"], 0);
@@ -1500,7 +1500,7 @@ function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath,
 	{
 		damage = damage * 2;
 	}
-	if(isdefined(level.var_4804edae) && level.var_4804edae && isbot(attacker))
+	if(isdefined(level.zm_bots_scale) && level.zm_bots_scale && isbot(attacker))
 	{
 		damage = int(damage * zm_bot::function_e16b5033(self));
 	}
@@ -2201,7 +2201,7 @@ function end_game()
 			level.var_7c7c6c35 zm_game_over::set_rounds(players[i], (level.round_number - zm_custom::function_901b751c(#"startround")) + var_5c965b78);
 		}
 	}
-	else if("ztrials" == util::function_5df4294())
+	else if("ztrials" == util::get_game_type())
 	{
 		zm_trial_util::function_2ee2d021();
 	}
@@ -2231,7 +2231,7 @@ function end_game()
 			player zm_stats::function_ae547e45("boas_gameType", level.var_211e3a53);
 			continue;
 		}
-		player zm_stats::function_ae547e45("boas_gameType", util::function_5df4294());
+		player zm_stats::function_ae547e45("boas_gameType", util::get_game_type());
 	}
 	zm_stats::function_ea5b4947(1);
 	bb::logroundevent("end_game");

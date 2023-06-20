@@ -2002,7 +2002,7 @@ event function_a1ad9b51(eventstruct)
 */
 event function_fbeb26f6(eventstruct)
 {
-	self callback(#"hash_1d3c7b07ff527f3e", eventstruct.localclientnum, eventstruct);
+	self callback(#"updateactivecamo", eventstruct.localclientnum, eventstruct);
 }
 
 /*

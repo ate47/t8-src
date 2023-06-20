@@ -26,13 +26,13 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_74fc30de57a0657a", 16000, 3, "int", &function_de1bffd6, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_21f5fab6a3d22093", 16000, 3, "int", &function_9ed71eeb, 0, 0);
 	clientfield::register("scriptmover", "" + #"keyline_model", 16000, 1, "int", &keyline_model, 0, 0);
-	clientfield::register("scriptmover", "" + #"pickup_glow", 16000, 1, "int", &function_a7ee082f, 0, 0);
+	clientfield::register("scriptmover", "" + #"pickup_glow", 16000, 1, "int", &pickup_glow, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_8b48433c3fe40e4", 16000, 3, "int", &function_75ac8f21, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_4bde11d71410ea67", 16000, 3, "int", &function_250bbf4e, 0, 0);
-	clientfield::register("world", "" + #"hash_34bdcd0feba3d912", 16000, 1, "int", &function_4b8846c3, 0, 0);
+	clientfield::register("world", "" + #"cleanup_challenges", 16000, 1, "int", &cleanup_challenges, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_47490b879090eb55", 16000, 3, "int", &function_840d5e0b, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_7b1dd5c08e2585c", 16000, 3, "int", &function_c63a4f32, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_118e9445b028d4bf", 16000, 1, "int", &function_beb03b41, 0, 0);
+	clientfield::register("scriptmover", "" + #"rob_coals", 16000, 1, "int", &rob_coals, 0, 0);
 	level._effect[#"hash_379eadfebd945316"] = #"hash_556b5a8aa255768d";
 	level._effect[#"hash_3229d3874a037840"] = #"hash_48053ee21dfed9c9";
 	level._effect[#"hash_31c3f08749acf655"] = #"hash_482741e21e1bc548";
@@ -217,7 +217,7 @@ function keyline_model(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 }
 
 /*
-	Name: function_a7ee082f
+	Name: pickup_glow
 	Namespace: zm_red_challenges
 	Checksum: 0x455F4549
 	Offset: 0x1048
@@ -225,7 +225,7 @@ function keyline_model(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 	Parameters: 7
 	Flags: Linked
 */
-function function_a7ee082f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function pickup_glow(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	util::playfxontag(localclientnum, level._effect[#"pickup_glow"], self, "tag_origin");
 }
@@ -302,7 +302,7 @@ function function_250bbf4e(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_4b8846c3
+	Name: cleanup_challenges
 	Namespace: zm_red_challenges
 	Checksum: 0xB85BA97
 	Offset: 0x12D0
@@ -310,7 +310,7 @@ function function_250bbf4e(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_4b8846c3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function cleanup_challenges(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(isdefined(level.var_7987392b) && isarray(level.var_7987392b))
 	{
@@ -404,7 +404,7 @@ function fake_physicslaunch(target_pos, power, var_4862f668)
 }
 
 /*
-	Name: function_beb03b41
+	Name: rob_coals
 	Namespace: zm_red_challenges
 	Checksum: 0x22DF4E2
 	Offset: 0x1848
@@ -412,7 +412,7 @@ function fake_physicslaunch(target_pos, power, var_4862f668)
 	Parameters: 7
 	Flags: Linked
 */
-function function_beb03b41(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function rob_coals(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{

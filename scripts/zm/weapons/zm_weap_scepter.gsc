@@ -232,7 +232,7 @@ function private function_4521ac7e(w_curr, n_lvl)
 		self clientfield::set("" + #"hash_6635e6da6fcfe594", n_lvl);
 		self.var_1de56cc8 = 1;
 		self thread function_be8ae52f(w_curr);
-		self notify(#"hash_7d855302d88c6701", {#weapon:w_curr});
+		self notify(#"ammo_reduction", {#weapon:w_curr});
 		wait(0.1);
 		var_43b42a60 = 1;
 		do
@@ -241,7 +241,7 @@ function private function_4521ac7e(w_curr, n_lvl)
 			var_43b42a60 = var_43b42a60 - (float(function_60d95f53()) / 1000);
 			if(var_43b42a60 <= 0)
 			{
-				self notify(#"hash_7d855302d88c6701", {#weapon:w_curr});
+				self notify(#"ammo_reduction", {#weapon:w_curr});
 				var_43b42a60 = 1;
 			}
 		}
@@ -650,8 +650,8 @@ function function_be8ae52f(w_curr)
 					}
 					default:
 					{
-						var_24a53699 = var_c4d00e65 * e_last_target.health;
-						n_damage = max(var_24a53699, n_base_damage);
+						n_percent_health = var_c4d00e65 * e_last_target.health;
+						n_damage = max(n_percent_health, n_base_damage);
 						if(isactor(e_last_target) && (!(isdefined(e_last_target.var_61435d9) && e_last_target.var_61435d9)) && !namespace_6b49f66b::is_active(1))
 						{
 							e_last_target.var_4857363e = 1;
@@ -1331,7 +1331,7 @@ function function_b603ab34(w_beacon)
 	{
 		self thread function_d3dc001e(w_beacon);
 		zm_utility::function_3e549e65();
-		self waittill(#"beacon_off", #"beacon_retrieved", #"death", #"hash_2b69105d9436130a");
+		self waittill(#"beacon_off", #"beacon_retrieved", #"death", #"destroy_beacon");
 		zm_utility::function_b7e5029f();
 	}
 	if(isdefined(self))
@@ -1342,7 +1342,7 @@ function function_b603ab34(w_beacon)
 		self.var_6d772cb = undefined;
 		self.var_d6fe2916 = 0;
 		self.disable_hero_power_charging = 0;
-		self notify(#"hash_2b69105d9436130a");
+		self notify(#"destroy_beacon");
 	}
 }
 

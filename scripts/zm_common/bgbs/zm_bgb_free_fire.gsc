@@ -114,8 +114,8 @@ function function_1ff1beff()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"weapon_change");
-		var_1c114591 = s_notify.weapon;
-		if(isdefined(var_1c114591.isheroweapon) && var_1c114591.isheroweapon || zm_weapons::is_wonder_weapon(var_1c114591))
+		w_check = s_notify.weapon;
+		if(isdefined(w_check.isheroweapon) && w_check.isheroweapon || zm_weapons::is_wonder_weapon(w_check))
 		{
 			if(self hasperk("specialty_freefire"))
 			{
@@ -128,7 +128,7 @@ function function_1ff1beff()
 			{
 				self perks::perk_setperk("specialty_freefire");
 			}
-			self function_9d347621(var_1c114591);
+			self function_9d347621(w_check);
 		}
 	}
 }
@@ -142,15 +142,15 @@ function function_1ff1beff()
 	Parameters: 1
 	Flags: Linked
 */
-function function_9d347621(var_1c114591)
+function function_9d347621(w_check)
 {
 	n_ammo_total = 0;
-	var_510d7f2b = self getweaponammostock(var_1c114591);
-	n_ammo_clip = self getweaponammoclip(var_1c114591);
-	n_ammo_total = n_ammo_total + (var_510d7f2b + n_ammo_clip);
+	n_ammo_stock = self getweaponammostock(w_check);
+	n_ammo_clip = self getweaponammoclip(w_check);
+	n_ammo_total = n_ammo_total + (n_ammo_stock + n_ammo_clip);
 	if(n_ammo_total == 0)
 	{
-		self setweaponammoclip(var_1c114591, 1);
+		self setweaponammoclip(w_check, 1);
 	}
 }
 

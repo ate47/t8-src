@@ -48,8 +48,8 @@ function init()
 		clientfield::register("", "" + #"hash_4d30672cd0a2ef31", 8000, 1, "");
 	#/
 	function_c739f755();
-	zm_sq::start(#"hash_391f247dda2377a9");
-	zm_sq::start(#"hash_1fa9e2a949df3866");
+	zm_sq::start(#"zm_jordans_painting");
+	zm_sq::start(#"zm_jordans_reward");
 	level thread function_da66169f();
 }
 
@@ -64,12 +64,12 @@ function init()
 */
 function function_c739f755()
 {
-	zm_sq::register(#"hash_391f247dda2377a9", #"step_1", #"hash_21ed75bc8122939c", &function_f62d9f65, &function_6134319c);
-	zm_sq::register(#"hash_1fa9e2a949df3866", #"step_1", #"hash_af33b9072da5dc1", &function_653412f4, &function_f1611d1);
-	zm_sq::register(#"hash_1fa9e2a949df3866", #"step_2", #"hash_af3389072da58a8", &function_db5aff40, &function_4056f452);
-	zm_sq::register(#"hash_1fa9e2a949df3866", #"step_3", #"hash_af3399072da5a5b", &function_c7da583f, &function_2a93c8cc);
-	zm_sq::register(#"hash_1fa9e2a949df3866", #"step_4", #"hash_af33e9072da62da", &function_ae072499, &function_57e9237a);
-	zm_sq::register(#"hash_1fa9e2a949df3866", #"step_5", #"hash_af33f9072da648d", &function_9c3b8102, &function_4a0f87c7);
+	zm_sq::register(#"zm_jordans_painting", #"step_1", #"hash_21ed75bc8122939c", &function_f62d9f65, &function_6134319c);
+	zm_sq::register(#"zm_jordans_reward", #"step_1", #"hash_af33b9072da5dc1", &function_653412f4, &function_f1611d1);
+	zm_sq::register(#"zm_jordans_reward", #"step_2", #"hash_af3389072da58a8", &function_db5aff40, &function_4056f452);
+	zm_sq::register(#"zm_jordans_reward", #"step_3", #"hash_af3399072da5a5b", &function_c7da583f, &function_2a93c8cc);
+	zm_sq::register(#"zm_jordans_reward", #"step_4", #"hash_af33e9072da62da", &function_ae072499, &function_57e9237a);
+	zm_sq::register(#"zm_jordans_reward", #"step_5", #"hash_af33f9072da648d", &function_9c3b8102, &function_4a0f87c7);
 }
 
 /*
@@ -420,7 +420,7 @@ function function_fefbf8c2(e_grenade)
 					if(var_4ef73a79.script_int === level.var_46169cd9)
 					{
 						level.var_46169cd9++;
-						level.var_403919f2[var_4ef73a79.script_int] notify(#"hash_189a9352bff55b80");
+						level.var_403919f2[var_4ef73a79.script_int] notify(#"step_done");
 						if(isdefined(self))
 						{
 							self notify(#"hash_5bef9c261ba48023");
@@ -515,7 +515,7 @@ function function_4056f452(var_a276c861, ended_early)
 function function_8ead19be()
 {
 	level endon(#"game_ended");
-	self endon(#"hash_189a9352bff55b80");
+	self endon(#"step_done");
 	self thread function_84eca8f8();
 	self.var_ce3d3ff6 setcandamage(1);
 	self.var_ce3d3ff6.health = 9999;
@@ -547,7 +547,7 @@ function function_8ead19be()
 function function_84eca8f8()
 {
 	level endon(#"game_ended");
-	self endon(#"hash_189a9352bff55b80");
+	self endon(#"step_done");
 	var_4acd2b1 = self.origin + vectorscale((0, 0, 1), 8);
 	while(true)
 	{
@@ -640,7 +640,7 @@ function function_b094be90(var_5cae7dc6 = 0)
 	}
 	if(var_5cae7dc6)
 	{
-		self notify(#"hash_189a9352bff55b80");
+		self notify(#"step_done");
 	}
 }
 
@@ -732,7 +732,7 @@ function function_c7da583f(var_a276c861)
 				playsoundatposition(#"hash_ef68ee749dfd885" + level.var_352e1e6f, level.var_a690f86[var_be17187b.var_9ea53c54].origin);
 				level.var_352e1e6f++;
 				zm_unitrigger::unregister_unitrigger(level.var_a690f86[var_be17187b.var_9ea53c54].s_unitrigger_stub);
-				level.var_a690f86[var_be17187b.var_9ea53c54] notify(#"hash_189a9352bff55b80");
+				level.var_a690f86[var_be17187b.var_9ea53c54] notify(#"step_done");
 			}
 			else
 			{
@@ -984,7 +984,7 @@ function function_1d7382d0()
 				{
 					var_10372151 notify(#"hash_72fd666f6ed5a284");
 					level.var_55a2003d notify(#"hash_72fd666f6ed5a284");
-					var_10372151 notify(#"hash_189a9352bff55b80");
+					var_10372151 notify(#"step_done");
 					level.var_7a27d2bc = e_player;
 				}
 			}
@@ -1882,7 +1882,7 @@ function function_95b6c945()
 			e_object.script_int = self.script_int;
 		}
 		e_object clientfield::set("" + #"hash_3efe70d8ad68a07d", e_object.script_int + 1);
-		self waittill(#"hash_189a9352bff55b80", #"death");
+		self waittill(#"step_done", #"death");
 		if(isdefined(e_object) && !isstruct(e_object))
 		{
 			e_object delete();

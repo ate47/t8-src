@@ -20,7 +20,7 @@
 */
 function init()
 {
-	ai_state::function_e9b061a8(1, &function_ae92f67d, &function_92ed3ce9, undefined, &function_5d31deb6, &function_4af1ff64, &function_a78474f2, &function_a1891b01);
+	ai_state::function_e9b061a8(1, &function_ae92f67d, &function_92ed3ce9, undefined, &function_5d31deb6, &function_4af1ff64, &function_a78474f2, &update_debug);
 }
 
 /*
@@ -548,7 +548,7 @@ function function_5d31deb6()
 }
 
 /*
-	Name: function_a1891b01
+	Name: update_debug
 	Namespace: ai_escort
 	Checksum: 0x80F724D1
 	Offset: 0x14B0
@@ -556,7 +556,7 @@ function function_5d31deb6()
 	Parameters: 0
 	Flags: None
 */
-function function_a1891b01()
+function update_debug()
 {
 }
 

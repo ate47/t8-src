@@ -50,7 +50,7 @@ function __init__()
 {
 	clientfield::register("allplayers", "" + #"hash_26af481b9a9d41ce", 1, 1, "counter");
 	clientfield::register("allplayers", "" + #"hash_18fc1da5f1785e6b", 1, 1, "counter");
-	clientfield::register("allplayers", "" + #"hash_58757f4a64fedf21", 1, 2, "int");
+	clientfield::register("allplayers", "" + #"charge_gem", 1, 2, "int");
 	clientfield::register("allplayers", "" + #"hash_275debebcd185ea1", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_dc971935944f005", 1, 1, "counter");
 	clientfield::register("toplayer", "" + #"hash_6b725eefec5d09d1", 1, 1, "counter");
@@ -358,12 +358,12 @@ function function_4591fd41()
 		{
 			if(function_ed81d8f5(var_be17187b.last_weapon))
 			{
-				self clientfield::set("" + #"hash_58757f4a64fedf21", 0);
+				self clientfield::set("" + #"charge_gem", 0);
 				self clientfield::increment("" + #"hash_18fc1da5f1785e6b", 1);
 			}
 			else if(function_ed81d8f5(var_be17187b.weapon))
 			{
-				self clientfield::set("" + #"hash_58757f4a64fedf21", self.var_c9d375dc.n_charge_level);
+				self clientfield::set("" + #"charge_gem", self.var_c9d375dc.n_charge_level);
 			}
 			if(function_a57b8fca(var_be17187b.weapon) && self.var_c9d375dc.b_charged)
 			{
@@ -376,7 +376,7 @@ function function_4591fd41()
 		}
 		else if(var_be17187b._notify == "destroy_riotshield" || var_be17187b._notify == "flame_off" || var_be17187b._notify == "fake_death")
 		{
-			self clientfield::set("" + #"hash_58757f4a64fedf21", 0);
+			self clientfield::set("" + #"charge_gem", 0);
 			self clientfield::set("" + #"hash_275debebcd185ea1", 0);
 			self.var_c9d375dc.var_6c90fb3f = 0;
 			self.var_c9d375dc.n_charge_level = 0;
@@ -503,7 +503,7 @@ function function_f3137e13(s_params)
 		{
 			e_attacker.var_c9d375dc.var_6c90fb3f = 0;
 			e_attacker.var_c9d375dc.n_charge_level++;
-			e_attacker clientfield::set("" + #"hash_58757f4a64fedf21", e_attacker.var_c9d375dc.n_charge_level);
+			e_attacker clientfield::set("" + #"charge_gem", e_attacker.var_c9d375dc.n_charge_level);
 			if(e_attacker.var_c9d375dc.n_charge_level >= 3)
 			{
 				e_attacker notify(#"flame_on", {#ai_killed:self});

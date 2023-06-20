@@ -96,7 +96,7 @@ function setup_arc(weapon, var_26b2b1bb)
 */
 function function_8d134256(var_26b2b1bb)
 {
-	var_26b2b1bb.var_34afccf5 = var_26b2b1bb.range * var_26b2b1bb.range;
+	var_26b2b1bb.range_sqr = var_26b2b1bb.range * var_26b2b1bb.range;
 	var_26b2b1bb.var_1c1be14 = var_26b2b1bb.max_range * var_26b2b1bb.max_range;
 	callback::add_weapon_damage(var_26b2b1bb.weapon, var_26b2b1bb.var_874bd25a);
 }
@@ -190,7 +190,7 @@ function function_7a0599d(var_955a2e18, range, depth, var_94a1d56d)
 function distancecheck(var_26b2b1bb, target, arc_source_pos, arc_source_origin)
 {
 	distancesq = distancesquared(target.origin, arc_source_pos);
-	if(distancesq > var_26b2b1bb.var_34afccf5)
+	if(distancesq > var_26b2b1bb.range_sqr)
 	{
 		return false;
 	}

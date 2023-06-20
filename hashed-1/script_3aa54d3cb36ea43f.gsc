@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2c5daa95f8fec03c;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;
@@ -51,13 +51,13 @@ function __init__()
 	level thread function_b656013e();
 	if(zm_utility::is_standard())
 	{
-		namespace_c3287616::register_archetype(#"gegenees", &function_7107da88, &round_spawn, undefined, int(level.var_b3d6ef3b[0] ai::function_9139c839().var_dbb3ef3d / 2));
+		zm_round_spawning::register_archetype(#"gegenees", &function_7107da88, &round_spawn, undefined, int(level.var_b3d6ef3b[0] ai::function_9139c839().var_dbb3ef3d / 2));
 	}
 	else
 	{
-		namespace_c3287616::register_archetype(#"gegenees", &function_7107da88, &round_spawn, undefined, level.var_b3d6ef3b[0] ai::function_9139c839().var_dbb3ef3d);
+		zm_round_spawning::register_archetype(#"gegenees", &function_7107da88, &round_spawn, undefined, level.var_b3d6ef3b[0] ai::function_9139c839().var_dbb3ef3d);
 	}
-	namespace_c3287616::function_306ce518(#"gegenees", &function_c1a0ea97);
+	zm_round_spawning::function_306ce518(#"gegenees", &function_c1a0ea97);
 }
 
 /*
@@ -565,7 +565,7 @@ function function_c1a0ea97(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"gegenees"))
+		if(zm_round_spawning::function_d0db51fc(#"gegenees"))
 		{
 			level.var_a5355505++;
 			if(level.var_a5355505 == 3)

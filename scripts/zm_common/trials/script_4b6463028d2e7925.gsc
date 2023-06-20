@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_4afdb00097a95776", &on_begin, &on_end);
+	zm_trial::register_challenge(#"forge_magmagat", &on_begin, &on_end);
 }
 
 /*

@@ -87,19 +87,19 @@ class cct_shared_ingame_hint : cLUIelem
 						}
 						else
 						{
-							if(#"hash_d88afb16dd24291" == state_name)
+							if(#"green_fadeout" == state_name)
 							{
 								player clientfield::function_9bf78ef8(var_47e79fc, "_state", 5);
 							}
 							else
 							{
-								if(#"hash_595d7b53cd00c77f" == state_name)
+								if(#"grey_fadeout" == state_name)
 								{
 									player clientfield::function_9bf78ef8(var_47e79fc, "_state", 6);
 								}
 								else
 								{
-									if(#"hash_1bf30d1307f73c31" == state_name)
+									if(#"red_fadeout" == state_name)
 									{
 										player clientfield::function_9bf78ef8(var_47e79fc, "_state", 7);
 									}

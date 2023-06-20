@@ -53,7 +53,7 @@ function __init__()
 */
 function __main__()
 {
-	if(zm_custom::function_901b751c(#"hash_541a4d5c476468f4"))
+	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled"))
 	{
 		level thread function_716f2019();
 	}
@@ -90,7 +90,7 @@ function function_716f2019()
 	level thread function_5d870c2c();
 	level thread function_2325482e();
 	function_688bcac2();
-	array::thread_all(level.var_79f3b34b, &function_8bb2971c);
+	array::thread_all(level.var_79f3b34b, &init_lock);
 	level thread function_8476e19();
 	zm_weapons::function_603af7a8(level.var_f086136b);
 }
@@ -139,7 +139,7 @@ function function_20d38ac0(a_ents)
 */
 function function_53e45f4e()
 {
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	self endon(#"death");
 	var_8618ad82 = 1250 * 1250;
 	while(true)
@@ -237,7 +237,7 @@ function function_7706457d(e_player)
 */
 function function_7310e1e0()
 {
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	while(true)
 	{
 		waitresult = undefined;
@@ -249,7 +249,7 @@ function function_7310e1e0()
 			{
 				if(zombie_utility::is_player_valid(e_player) && e_player function_8b4cc6ae(e_lock.origin, 10, 1, e_lock) && (!(isdefined(self.var_86dbb82b) && self.var_86dbb82b)))
 				{
-					e_lock function_f4ae6e44();
+					e_lock lock_rotate();
 					break;
 				}
 			}
@@ -262,7 +262,7 @@ function function_7310e1e0()
 }
 
 /*
-	Name: function_f4ae6e44
+	Name: lock_rotate
 	Namespace: ww_lvl1_quest
 	Checksum: 0xC6F046DE
 	Offset: 0xD28
@@ -270,13 +270,13 @@ function function_7310e1e0()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f4ae6e44()
+function lock_rotate()
 {
 	self endon(#"death", #"destroyed");
 	self.var_86dbb82b = 1;
 	self rotateroll(-90, 0.5);
 	self playsound(#"hash_1902d49433a38eba");
-	self notify(#"hash_17ed60240cc5b0a8");
+	self notify(#"rotate_lock");
 	self waittill(#"rotatedone");
 	self playsound(#"hash_41879bbde78fcc85");
 	self.var_86dbb82b = 0;
@@ -317,7 +317,7 @@ function function_2325482e()
 	var_cb31d9aa = getent("trigger_lookat_ww_case", "targetname");
 	var_cb31d9aa thread function_7e7626b5();
 	level flag::wait_till(#"hash_65224b2f37fb9446");
-	level notify(#"hash_767a32d351763f32");
+	level notify(#"ww_case_completed");
 	if(isdefined(var_cb31d9aa))
 	{
 		var_cb31d9aa delete();
@@ -342,7 +342,7 @@ function function_2325482e()
 function function_7e7626b5()
 {
 	self endon(#"death");
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	while(true)
 	{
 		var_be17187b = undefined;
@@ -407,7 +407,7 @@ function function_f4f7650b()
 }
 
 /*
-	Name: function_8bb2971c
+	Name: init_lock
 	Namespace: ww_lvl1_quest
 	Checksum: 0x6C99B0B
 	Offset: 0x1300
@@ -415,9 +415,9 @@ function function_f4f7650b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8bb2971c()
+function init_lock()
 {
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	switch(self.script_int)
 	{
 		case 0:
@@ -464,7 +464,7 @@ function function_229f868f(var_3aadd17)
 {
 	for(i = 0; i < var_3aadd17; i++)
 	{
-		self notify(#"hash_17ed60240cc5b0a8");
+		self notify(#"rotate_lock");
 		self playsound(#"hash_559df0c493fb2378");
 		self rotateroll(-90, 0.5);
 		self waittill(#"rotatedone");
@@ -485,11 +485,11 @@ function function_229f868f(var_3aadd17)
 */
 function function_175e4696(var_1e30344b)
 {
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	self.n_rotation = 0;
 	while(true)
 	{
-		self waittill(#"hash_17ed60240cc5b0a8");
+		self waittill(#"rotate_lock");
 		self.n_rotation = self.n_rotation + 1;
 		if(self.n_rotation == 4)
 		{
@@ -517,7 +517,7 @@ function function_175e4696(var_1e30344b)
 */
 function function_8476e19()
 {
-	level endon(#"hash_767a32d351763f32");
+	level endon(#"ww_case_completed");
 	while(true)
 	{
 		level waittill(#"hash_7ed0b257f8849c85");

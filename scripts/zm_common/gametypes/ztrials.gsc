@@ -81,7 +81,7 @@ event levelinit(eventstruct)
 {
 	var_189d26ca = "";
 	/#
-		var_189d26ca = getdvarstring(#"hash_14ee5e66e7bb1ed7");
+		var_189d26ca = getdvarstring(#"ztrial_name");
 	#/
 	var_3b363b7a = getgametypesetting(#"zmtrialsvariant");
 	if(isdefined(var_3b363b7a) && var_3b363b7a > 0)
@@ -170,7 +170,7 @@ function private function_8277ff43()
 */
 function private function_491101ba(player)
 {
-	if(player hasperk(#"hash_5b141f82a55645a9") && (!(isdefined(player.var_a4630f64) && player.var_a4630f64)))
+	if(player hasperk(#"specialty_berserker") && (!(isdefined(player.var_a4630f64) && player.var_a4630f64)))
 	{
 		return true;
 	}
@@ -226,7 +226,7 @@ function private function_491101ba(player)
 		return true;
 	}
 	/#
-		assert(level flag::get(#"hash_6acab8bde7078239"));
+		assert(level flag::get(#"trial_failed"));
 	#/
 	return false;
 }
@@ -249,7 +249,7 @@ function private function_61fd0e87()
 	{
 		level thread zm_trial::function_361e2cb0();
 	}
-	if(!level flag::get("round_reset") && !level flag::get(#"hash_6acab8bde7078239"))
+	if(!level flag::get("round_reset") && !level flag::get(#"trial_failed"))
 	{
 		zm_trial_util::function_96e10d88(1);
 		wait(3);

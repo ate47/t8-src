@@ -351,9 +351,9 @@ function autoexec registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"shouldattackobject", &shouldattackobject);
 	/#
-		assert(isscriptfunctionptr(&function_81c32010));
+		assert(isscriptfunctionptr(&generictryreacquireservice));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_554e27065bc759d9", &function_81c32010);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"generictryreacquireservice", &generictryreacquireservice);
 	behaviortreenetworkutility::registerbehaviortreeaction(#"defaultaction", undefined, undefined, undefined);
 	archetype_aivsaimelee::registeraivsaimeleebehaviorfunctions();
 }
@@ -3786,7 +3786,7 @@ function phalanxattributecallback(entity, attribute, oldvalue, value)
 }
 
 /*
-	Name: function_81c32010
+	Name: generictryreacquireservice
 	Namespace: aiutility
 	Checksum: 0x728C26EA
 	Offset: 0x9848
@@ -3794,7 +3794,7 @@ function phalanxattributecallback(entity, attribute, oldvalue, value)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_81c32010(behaviortreeentity)
+function private generictryreacquireservice(behaviortreeentity)
 {
 	if(!isdefined(behaviortreeentity.reacquire_state))
 	{

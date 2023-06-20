@@ -66,7 +66,7 @@ function function_27e22ee8()
 */
 function init_clientfields()
 {
-	clientfield::register("scriptmover", "" + #"hash_e49c6031d46d5fe", 1, 1, "int", &function_3653f153, 0, 0);
+	clientfield::register("scriptmover", "" + #"morse_star", 1, 1, "int", &function_3653f153, 0, 0);
 }
 
 /*

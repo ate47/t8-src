@@ -449,14 +449,14 @@ function private function_816f4052(planner, doppelbots, bundles)
 	/#
 		assert(isarray(bundles));
 	#/
-	var_8c6da8a9 = [];
+	pathablebundles = [];
 	if(bundles.size <= 0)
 	{
-		return var_8c6da8a9;
+		return pathablebundles;
 	}
 	if(doppelbots.size <= 0)
 	{
-		return var_8c6da8a9;
+		return pathablebundles;
 	}
 	for(var_22edb3dc = 0; var_22edb3dc < bundles.size; var_22edb3dc++)
 	{
@@ -508,7 +508,7 @@ function private function_816f4052(planner, doppelbots, bundles)
 			path = array();
 			path[#"distance"] = longestpath;
 			path[#"bundle"] = bundles[var_22edb3dc];
-			var_8c6da8a9[var_8c6da8a9.size] = path;
+			pathablebundles[pathablebundles.size] = path;
 		}
 		if(getrealtime() - planner.planstarttime > planner.maxframetime)
 		{
@@ -528,7 +528,7 @@ function private function_816f4052(planner, doppelbots, bundles)
 			planner.planstarttime = getrealtime();
 		}
 	}
-	return var_8c6da8a9;
+	return pathablebundles;
 }
 
 /*
@@ -548,14 +548,14 @@ function private function_77cd4593(planner, doppelbots, components)
 	/#
 		assert(isarray(components));
 	#/
-	var_3fc85ed1 = [];
+	pathablecomponents = [];
 	if(components.size <= 0)
 	{
-		return var_3fc85ed1;
+		return pathablecomponents;
 	}
 	if(doppelbots.size <= 0)
 	{
-		return var_3fc85ed1;
+		return pathablecomponents;
 	}
 	var_80e29ead = 0;
 	for(botindex = 0; botindex < doppelbots.size; botindex++)
@@ -635,7 +635,7 @@ function private function_77cd4593(planner, doppelbots, components)
 			path = array();
 			path[#"distance"] = longestpath;
 			path[#"objective"] = components[var_16b9ef20];
-			var_3fc85ed1[var_3fc85ed1.size] = path;
+			pathablecomponents[pathablecomponents.size] = path;
 		}
 		if(getrealtime() - planner.planstarttime > planner.maxframetime)
 		{
@@ -655,7 +655,7 @@ function private function_77cd4593(planner, doppelbots, components)
 			planner.planstarttime = getrealtime();
 		}
 	}
-	return var_3fc85ed1;
+	return pathablecomponents;
 }
 
 /*
@@ -1052,7 +1052,7 @@ function private daemonupdateclients(commander)
 			players[players.size] = cachedclient;
 		}
 	}
-	blackboard::setstructblackboardattribute(commander, #"hash_916ad083496a876", vehicles);
+	blackboard::setstructblackboardattribute(commander, #"bot_vehicles", vehicles);
 	blackboard::setstructblackboardattribute(commander, #"doppelbots", doppelbots);
 	blackboard::setstructblackboardattribute(commander, #"players", players);
 }
@@ -1082,7 +1082,7 @@ function private daemonupdategameobjects(commander)
 		{
 			excludedmap[excludename] = 1;
 		}
-		restrict = blackboard::getstructblackboardattribute(commander, #"hash_5a8e9789fd37580e");
+		restrict = blackboard::getstructblackboardattribute(commander, #"gameobjects_restrict");
 		var_fffabd2 = array();
 		foreach(var_c96f243d in restrict)
 		{
@@ -1160,7 +1160,7 @@ function private daemonupdategameobjects(commander)
 			}
 		}
 		blackboard::setstructblackboardattribute(commander, #"gameobjects", gameobjects);
-		blackboard::setstructblackboardattribute(commander, #"hash_1cf72c0289954423", var_aa8d6440);
+		blackboard::setstructblackboardattribute(commander, #"gameobjects_vehicles", var_aa8d6440);
 	}
 }
 
@@ -1245,14 +1245,14 @@ function private function_7706a6fa(commander)
 		var_35301d62[#"hash_6e9081699001bcd9"] = array();
 		var_35301d62[#"hash_3bf68fbcb5c53b6c"] = array();
 		var_35301d62[#"hash_4984fd4b0ba666a2"] = array();
-		foreach(var_5fbc7570 in level.var_8239a46c)
+		foreach(missioncomponent in level.var_8239a46c)
 		{
-			if(!strategiccommandutility::function_f867cce0(var_5fbc7570, commanderteam))
+			if(!strategiccommandutility::function_f867cce0(missioncomponent, commanderteam))
 			{
 				continue;
 			}
-			component = var_5fbc7570.var_36f0c06d;
-			type = var_5fbc7570.scriptbundlename;
+			component = missioncomponent.var_36f0c06d;
+			type = missioncomponent.scriptbundlename;
 			var_b313868d = array();
 			switch(type)
 			{
@@ -1280,7 +1280,7 @@ function private function_7706a6fa(commander)
 					else
 					{
 						/#
-							println(("" + var_5fbc7570.origin) + "");
+							println(("" + missioncomponent.origin) + "");
 						#/
 						continue;
 					}
@@ -1291,7 +1291,7 @@ function private function_7706a6fa(commander)
 					continue;
 				}
 			}
-			var_b313868d[#"strategy"] = strategiccommandutility::function_423cfbc1(var_31b80437, undefined, var_5fbc7570);
+			var_b313868d[#"strategy"] = strategiccommandutility::function_423cfbc1(var_31b80437, undefined, missioncomponent);
 			if(strategiccommandutility::function_f59ca353(var_b313868d[#"strategy"]))
 			{
 				continue;
@@ -1300,7 +1300,7 @@ function private function_7706a6fa(commander)
 			{
 				var_b313868d[#"__unsafe__"] = array();
 			}
-			var_b313868d[#"__unsafe__"][#"hash_57b897c5ec9b1b71"] = var_5fbc7570;
+			var_b313868d[#"__unsafe__"][#"mission_component"] = missioncomponent;
 			if(!isdefined(var_b313868d[#"__unsafe__"]))
 			{
 				var_b313868d[#"__unsafe__"] = array();
@@ -1319,7 +1319,7 @@ function private function_7706a6fa(commander)
 				aiprofile_beginentry("daemonMissionComponents");
 			}
 		}
-		blackboard::setstructblackboardattribute(commander, #"hash_1eb0ee71cbc01785", components);
+		blackboard::setstructblackboardattribute(commander, #"missioncomponents", components);
 		foreach(componenttype, var_c414ebaa in var_35301d62)
 		{
 			blackboard::setstructblackboardattribute(commander, componenttype, var_c414ebaa);
@@ -1583,7 +1583,7 @@ function private function_e0092cfc(planner, constant)
 function private function_86270cca(planner, constant)
 {
 	target = planner::getblackboardattribute(planner, #"current_target");
-	validsquads = planner::getblackboardattribute(planner, #"hash_4661e4151a0f3f7d");
+	validsquads = planner::getblackboardattribute(planner, #"valid_squads");
 	if(getdvarint(#"hash_6cad7fcde98d23ee", 0))
 	{
 		var_41ecbdf4 = array();
@@ -1612,12 +1612,12 @@ function private function_86270cca(planner, constant)
 		{
 			foreach(squad in validsquads)
 			{
-				var_3fc85ed1 = function_77cd4593(planner, squad, array(target));
-				if(var_3fc85ed1.size > 0)
+				pathablecomponents = function_77cd4593(planner, squad, array(target));
+				if(pathablecomponents.size > 0)
 				{
 					var_3703551e = array();
 					var_3703551e[#"squad"] = squad;
-					var_3703551e[#"hash_1afef53505df03e"] = var_3fc85ed1;
+					var_3703551e[#"pathablecomponents"] = pathablecomponents;
 					var_41ecbdf4[var_41ecbdf4.size] = var_3703551e;
 				}
 			}
@@ -1627,12 +1627,12 @@ function private function_86270cca(planner, constant)
 		{
 			foreach(squad in validsquads)
 			{
-				var_8c6da8a9 = function_816f4052(planner, squad, array(target));
-				if(var_8c6da8a9.size > 0)
+				pathablebundles = function_816f4052(planner, squad, array(target));
+				if(pathablebundles.size > 0)
 				{
 					var_3703551e = array();
 					var_3703551e[#"squad"] = squad;
-					var_3703551e[#"hash_8b60f743ed9b0d3"] = var_8c6da8a9;
+					var_3703551e[#"pathablebundles"] = pathablebundles;
 					var_41ecbdf4[var_41ecbdf4.size] = var_3703551e;
 				}
 			}
@@ -1664,7 +1664,7 @@ function private function_86270cca(planner, constant)
 */
 function private function_14c766b3(planner, constant)
 {
-	var_3d32e488 = planner::getblackboardattribute(planner, #"hash_6df1f48e5a0dda8");
+	possiblesquads = planner::getblackboardattribute(planner, #"possible_squads");
 	target = planner::getblackboardattribute(planner, #"current_target");
 	var_3db29cab = 0;
 	if(target[#"type"] == "gameobject")
@@ -1683,7 +1683,7 @@ function private function_14c766b3(planner, constant)
 	groundvehicles = strategiccommandutility::function_54032f13(target[#"strategy"]);
 	var_eda803e5 = groundvehicles;
 	validsquads = [];
-	foreach(squad in var_3d32e488)
+	foreach(squad in possiblesquads)
 	{
 		foreach(member in squad)
 		{
@@ -1719,7 +1719,7 @@ function private function_14c766b3(planner, constant)
 			}
 		}
 	}
-	planner::setblackboardattribute(planner, #"hash_4661e4151a0f3f7d", validsquads);
+	planner::setblackboardattribute(planner, #"valid_squads", validsquads);
 	return spawnstruct();
 }
 
@@ -1918,11 +1918,11 @@ function private function_166d74b2(planner, constants)
 		assert(squadindex > 0, "");
 	#/
 	currentsquad = planner::getblackboardattribute(planner, "doppelbots", squadindex);
-	var_3d32e488 = planner::getblackboardattribute(planner, #"hash_6df1f48e5a0dda8");
-	for(i = 0; i < var_3d32e488.size; i++)
+	possiblesquads = planner::getblackboardattribute(planner, #"possible_squads");
+	for(i = 0; i < possiblesquads.size; i++)
 	{
 		var_b44338e1 = 1;
-		foreach(possiblemember in var_3d32e488[i])
+		foreach(possiblemember in possiblesquads[i])
 		{
 			var_5dc382b8 = 0;
 			foreach(currentmember in currentsquad)
@@ -1941,15 +1941,15 @@ function private function_166d74b2(planner, constants)
 		}
 		if(var_b44338e1)
 		{
-			arrayremoveindex(var_3d32e488, i);
+			arrayremoveindex(possiblesquads, i);
 			break;
 		}
 	}
-	planner::setblackboardattribute(planner, #"hash_6df1f48e5a0dda8", var_3d32e488);
+	planner::setblackboardattribute(planner, #"possible_squads", possiblesquads);
 	idlebots = array();
-	for(squadindex = 0; squadindex < var_3d32e488.size; squadindex++)
+	for(squadindex = 0; squadindex < possiblesquads.size; squadindex++)
 	{
-		squad = var_3d32e488[squadindex];
+		squad = possiblesquads[squadindex];
 		for(var_353877ef = 0; var_353877ef < squad.size; var_353877ef++)
 		{
 			idlebots[idlebots.size] = squad[var_353877ef];
@@ -4056,9 +4056,9 @@ function private function_a65b2be5(commander, squad, constants)
 		}
 		if(var_fcee18d7[#"type"] === "destroy" || var_fcee18d7[#"type"] === "goto")
 		{
-			var_5fbc7570 = var_fcee18d7[#"__unsafe__"][#"hash_57b897c5ec9b1b71"];
+			missioncomponent = var_fcee18d7[#"__unsafe__"][#"mission_component"];
 			commanderteam = blackboard::getstructblackboardattribute(commander, #"team");
-			if(!strategiccommandutility::function_f867cce0(var_5fbc7570, commanderteam))
+			if(!strategiccommandutility::function_f867cce0(missioncomponent, commanderteam))
 			{
 				return 0;
 			}

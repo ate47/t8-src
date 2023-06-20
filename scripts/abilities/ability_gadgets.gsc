@@ -167,7 +167,7 @@ event gadget_ready_callback(eventstruct)
 	if(level flag::get("all_players_spawned"))
 	{
 		params = {#slot:eventstruct.slot};
-		function_58ca2822("specialist_equipment_ready", eventstruct.entity, params);
+		voiceevent("specialist_equipment_ready", eventstruct.entity, params);
 	}
 	eventstruct.entity ability_player::gadget_ready(eventstruct.slot, eventstruct.weapon);
 }
@@ -189,7 +189,7 @@ event gadget_on_callback(eventstruct)
 	if(level flag::get("all_players_spawned"))
 	{
 		params = {#slot:eventstruct.slot};
-		function_58ca2822("specialist_equipment_using", eventstruct.entity, params);
+		voiceevent("specialist_equipment_using", eventstruct.entity, params);
 	}
 	eventstruct.entity ability_player::turn_gadget_on(eventstruct.slot, eventstruct.weapon);
 }

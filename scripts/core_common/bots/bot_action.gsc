@@ -54,7 +54,7 @@ function function_66dacac1()
 	register_action(#"use_gameobject", &rank_priority, &function_3cb4c00e, &use_gameobject);
 	register_action(#"switch_to_weapon", &best_stowed_primary_weapon_rank, &switch_to_weapon_weight, &switch_to_weapon);
 	register_action(#"hash_78881ac649c38041", &rank_priority, &function_5647e838, &function_40aa6f87);
-	register_action(#"hash_7a6c10e55fac2c60", &current_melee_weapon_rank, &function_abf40e98, &function_c8ae6981);
+	register_action(#"melee_glass", &current_melee_weapon_rank, &function_abf40e98, &melee_glass);
 	register_action(#"melee_enemy", &current_melee_weapon_rank, &melee_enemy_weight, &melee_enemy);
 	register_action(#"reload_weapon", &current_weapon_rank, &reload_weapon_weight, &reload_weapon);
 	register_action(#"look_for_enemy", &current_weapon_rank, &look_for_enemy_weight, &look_for_enemy);
@@ -1219,7 +1219,7 @@ function function_317d4797(weapon, var_c300ee65)
 }
 
 /*
-	Name: registermus_gramophone_electricreactidgunterminate
+	Name: function_6d366261
 	Namespace: bot_action
 	Checksum: 0xB843615C
 	Offset: 0x3558
@@ -1227,7 +1227,7 @@ function function_317d4797(weapon, var_c300ee65)
 	Parameters: 2
 	Flags: None
 */
-function registermus_gramophone_electricreactidgunterminate(weapon, var_c300ee65)
+function function_6d366261(weapon, var_c300ee65)
 {
 	self set_weapon_rank(weapon, 998, "Secondary offhand weapon");
 	self factor_ammo(weapon, var_c300ee65);
@@ -2449,7 +2449,7 @@ function function_abf40e98(actionparams)
 }
 
 /*
-	Name: function_c8ae6981
+	Name: melee_glass
 	Namespace: bot_action
 	Checksum: 0xA5EBB960
 	Offset: 0x64A0
@@ -2457,7 +2457,7 @@ function function_abf40e98(actionparams)
 	Parameters: 1
 	Flags: Linked
 */
-function function_c8ae6981(actionparams)
+function melee_glass(actionparams)
 {
 	self look_along_path();
 	self bottapbutton(2);
@@ -2534,9 +2534,9 @@ function melee_enemy_weight(actionparams)
 	if(!isdefined(self.bot.var_d8397b2) || (gettime() - self.bot.var_d8397b2) > 1000)
 	{
 		self.bot.var_d8397b2 = gettime();
-		self.bot.var_9a77751a = randomfloat(1) < (isdefined(self.bot.tacbundle.var_ecf6111e) ? self.bot.tacbundle.var_ecf6111e : 0);
+		self.bot.meleeallowed = randomfloat(1) < (isdefined(self.bot.tacbundle.var_ecf6111e) ? self.bot.tacbundle.var_ecf6111e : 0);
 	}
-	if(!self.bot.var_9a77751a)
+	if(!self.bot.meleeallowed)
 	{
 		/#
 			if(!isdefined(actionparams.debug))
@@ -4467,8 +4467,8 @@ function function_2b8f7067()
 		while(var_b43277fd.size > 0)
 		{
 			currentpoint = var_b43277fd[0];
-			var_e8f2a3ea = function_9086d9a4(currentpoint);
-			foreach(point in var_e8f2a3ea)
+			newpoints = function_9086d9a4(currentpoint);
+			foreach(point in newpoints)
 			{
 				if(!(isdefined(point.searched) && point.searched))
 				{

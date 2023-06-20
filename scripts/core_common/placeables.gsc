@@ -206,8 +206,8 @@ function function_b7fcffdd(placeable)
 	player = self;
 	player endon(#"disconnect", #"death");
 	placeable endon(#"placed", #"cancelled");
-	player notify(#"hash_6a6d790b6c192aee");
-	player endon(#"hash_6a6d790b6c192aee");
+	player notify(#"placeable_deployable");
+	player endon(#"placeable_deployable");
 	placeable notsolid();
 	if(isdefined(placeable.vehicle))
 	{
@@ -540,9 +540,9 @@ function watchplacement(placeable)
 	Parameters: 1
 	Flags: None
 */
-function function_613a226a(var_844f9de6)
+function function_613a226a(allow_alt)
 {
-	self.var_e3be448 = var_844f9de6;
+	self.var_e3be448 = allow_alt;
 }
 
 /*

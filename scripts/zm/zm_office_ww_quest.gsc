@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_items.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -209,7 +209,7 @@ function function_74c94af4()
 			n_count++;
 		}
 	}
-	level.s_code_machine.var_f8a3f316 = namespace_509a75d1::function_bffcedde("code_screen", "targetname", "script_int");
+	level.s_code_machine.var_f8a3f316 = zm_hms_util::function_bffcedde("code_screen", "targetname", "script_int");
 	array::run_all(level.s_code_machine.var_f8a3f316, &hide);
 	level.s_code_machine.var_8e3c257e = 0;
 	level.s_code_machine.n_attempt = 0;
@@ -813,7 +813,7 @@ function function_d486a10()
 	level.s_code_drawer = struct::get("code_drawer");
 	level.s_code_drawer.var_d1cdd613 = getent("code_drawer", "targetname");
 	key = getent("code2_key", "targetname");
-	if(util::function_5df4294() != #"zstandard")
+	if(util::get_game_type() != #"zstandard")
 	{
 		key namespace_2e9c09b3::function_e8661563(&function_b32c1898);
 	}
@@ -830,7 +830,7 @@ function function_d486a10()
 */
 function function_b32c1898(e_item)
 {
-	if(util::function_5df4294() != #"zstandard")
+	if(util::get_game_type() != #"zstandard")
 	{
 		level.s_code_drawer zm_unitrigger::create("", 64, &function_3410748f);
 	}
@@ -1012,7 +1012,7 @@ function function_85bd10()
 {
 	function_65337201(5, level.s_code_machine.a_n_codes[3], 30);
 	wait(1);
-	level.var_dc646e84 notify(#"hash_4cb40f363a232dfd");
+	level.var_dc646e84 notify(#"code_revealed");
 	level.var_dc646e84.var_354f5b9b = 0;
 	level thread function_f25bac74("t_code4_photo", #"hash_799f9af88bb20656");
 }
@@ -1043,13 +1043,13 @@ function function_90489a6()
 */
 function function_c056a0ad()
 {
-	level.var_dc646e84 endon(#"hash_4cb40f363a232dfd", #"death");
+	level.var_dc646e84 endon(#"code_revealed", #"death");
 	function_81ed41a8();
 	while(true)
 	{
 		self hide();
 		level.panic_room_monitor_light.fx delete();
-		level.var_dc646e84 waittill(#"hash_74fd82df195e029c");
+		level.var_dc646e84 waittill(#"code_available");
 		self show();
 		function_81ed41a8();
 		level waittill(#"pack_room_reset");
@@ -1098,7 +1098,7 @@ function function_fec4fc26(s_switch)
 	{
 		level.var_dc646e84.var_32830f90++;
 		level.var_dc646e84.var_263aa7ff = level.var_dc646e84.var_32830f90 > 3;
-		level.var_dc646e84 notify(#"hash_74fd82df195e029c");
+		level.var_dc646e84 notify(#"code_available");
 	}
 	else
 	{
@@ -1133,7 +1133,7 @@ function function_c9559668()
 */
 function function_28e65bfe()
 {
-	self endon(#"hash_4cb40f363a232dfd", #"death");
+	self endon(#"code_revealed", #"death");
 	while(true)
 	{
 		level waittill(#"pack_room_reset");

@@ -75,7 +75,7 @@ function function_4a46cf14()
 		return;
 	}
 	level flagsys::wait_till(#"all_players_spawned");
-	if(self.var_49377865[#"lethal_grenade"] === getweapon(#"claymore"))
+	if(self.slot_weapons[#"lethal_grenade"] === getweapon(#"claymore"))
 	{
 		self takeweapon(getweapon(#"claymore"));
 		self giveweapon(getweapon(#"claymore_extra"));

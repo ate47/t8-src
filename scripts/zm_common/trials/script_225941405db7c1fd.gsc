@@ -37,7 +37,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_29ed25a648820a10", &on_begin, &on_end);
+	zm_trial::register_challenge(#"double_damage", &on_begin, &on_end);
 }
 
 /*
@@ -92,7 +92,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_29ed25a648820a10");
+	challenge = zm_trial::function_a36e8c38(#"double_damage");
 	return isdefined(challenge);
 }
 

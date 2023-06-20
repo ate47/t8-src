@@ -188,7 +188,7 @@ function function_dcaa7a4a(e_grenade, var_bbab4f84, var_c4a5788c, var_2f916462)
 		return;
 	}
 	var_515e20e6 = e_grenade.weapon == level.w_homunculus_upgraded;
-	if(e_grenade.weapon == getweapon(#"hash_2b3a2f2eeada34a8"))
+	if(e_grenade.weapon == getweapon(#"homunculus_leprechaun"))
 	{
 		var_9ddf478 = #"hash_5e7f95fc402bc5f8";
 	}
@@ -926,7 +926,7 @@ function function_4d71ac38(str_alias, var_f2aa64f7 = 0)
 	}
 	if(self depthinwater() < 6)
 	{
-		self.mdl_anchor zm_vo::function_8e0f4696(str_alias, undefined, undefined, undefined, 1, undefined, 1);
+		self.mdl_anchor zm_vo::vo_say(str_alias, undefined, undefined, undefined, 1, undefined, 1);
 	}
 }
 

@@ -48,12 +48,12 @@ function __init__()
 	clientfield::register("toplayer", "" + #"hash_55539d0cf92a8855", 1, 1, "counter");
 	clientfield::register("allplayers", "" + #"hash_13ccfca7b26cec97", 1, 1, "int");
 	clientfield::register("allplayers", "" + #"hash_7e2af117e18cb9fa", 1, 1, "int");
-	level.hero_weapon[#"katana"][0] = getweapon(#"hash_6627879099b8a337");
-	level.hero_weapon[#"katana"][1] = getweapon(#"hash_6627889099b8a4ea");
-	level.hero_weapon[#"katana"][2] = getweapon(#"hash_6627899099b8a69d");
-	zm_loadout::register_hero_weapon_for_level(#"hash_6627879099b8a337");
-	zm_loadout::register_hero_weapon_for_level(#"hash_6627889099b8a4ea");
-	zm_loadout::register_hero_weapon_for_level(#"hash_6627899099b8a69d");
+	level.hero_weapon[#"katana"][0] = getweapon(#"hero_katana_t8_lv1");
+	level.hero_weapon[#"katana"][1] = getweapon(#"hero_katana_t8_lv2");
+	level.hero_weapon[#"katana"][2] = getweapon(#"hero_katana_t8_lv3");
+	zm_loadout::register_hero_weapon_for_level(#"hero_katana_t8_lv1");
+	zm_loadout::register_hero_weapon_for_level(#"hero_katana_t8_lv2");
+	zm_loadout::register_hero_weapon_for_level(#"hero_katana_t8_lv3");
 	level.var_9ea358cc = 0;
 	if(!isdefined(level.var_3594d33a))
 	{
@@ -61,9 +61,9 @@ function __init__()
 		[[ level.var_3594d33a ]]->initialize(3, 0.1);
 	}
 	callback::on_connect(&function_9a0f234b);
-	zm::function_84d343d(#"hash_6627879099b8a337", &function_4e81317c);
-	zm::function_84d343d(#"hash_6627889099b8a4ea", &function_4e81317c);
-	zm::function_84d343d(#"hash_6627899099b8a69d", &function_4e81317c);
+	zm::function_84d343d(#"hero_katana_t8_lv1", &function_4e81317c);
+	zm::function_84d343d(#"hero_katana_t8_lv2", &function_4e81317c);
+	zm::function_84d343d(#"hero_katana_t8_lv3", &function_4e81317c);
 }
 
 /*
@@ -307,9 +307,9 @@ function function_af221ee1(s_params)
 			{
 				if(s_params.shitloc === "head" || (s_params.shitloc === "helmet" && (isdefined(self.hashelmet) && self.hashelmet)))
 				{
-					if(isdefined(self.var_deee6e55 && isdefined(self.var_905e4ce2)))
+					if(isdefined(self.helmethits && isdefined(self.var_905e4ce2)))
 					{
-						self.var_deee6e55 = self.var_905e4ce2;
+						self.helmethits = self.var_905e4ce2;
 						waitframe(1);
 						if(isalive(self))
 						{
@@ -353,7 +353,7 @@ function function_8d02f57b(w_katana)
 	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
 	while(true)
 	{
-		if(w_katana.name == #"hash_6627899099b8a69d")
+		if(w_katana.name == #"hero_katana_t8_lv3")
 		{
 			s_result = undefined;
 			s_result = self waittill(#"weapon_melee_power");

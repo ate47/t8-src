@@ -31,7 +31,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!(isdefined(getgametypesetting(#"hash_56ab3c042b783de6")) ? getgametypesetting(#"hash_56ab3c042b783de6") : 0))
+	if(!(isdefined(getgametypesetting(#"usabledynents")) ? getgametypesetting(#"usabledynents") : 0))
 	{
 		return;
 	}
@@ -185,7 +185,7 @@ function private function_2f394f36()
 	viewheight = self getplayerviewheight();
 	vieworigin = self.origin + (0, 0, viewheight);
 	viewangles = self getplayerangles();
-	var_7303a80a = anglestoforward(viewangles);
+	viewforward = anglestoforward(viewangles);
 	var_e86a4d9 = function_db4bc717(var_5ed7231a, bounds);
 	var_c61b7280 = undefined;
 	var_97684497 = undefined;
@@ -195,7 +195,7 @@ function private function_2f394f36()
 		centroid = function_c5689a6a(dynent);
 		var_966ddbb9 = centroid - vieworigin;
 		var_966ddbb9 = vectornormalize((var_966ddbb9[0], var_966ddbb9[1], 0));
-		var_755fcbbd = vectordot(var_7303a80a, var_966ddbb9);
+		var_755fcbbd = vectordot(viewforward, var_966ddbb9);
 		/#
 			if(debug)
 			{

@@ -679,7 +679,7 @@ function get_weighted_random_perk(player)
 		keys = player [[level.custom_random_perk_weights]]();
 	}
 	/#
-		forced_perk = getdvarstring(#"hash_75ebbe3ba39d710c");
+		forced_perk = getdvarstring(#"scr_force_perk");
 		if(forced_perk != "" && isdefined(level._random_perk_machine_perk_list[forced_perk]))
 		{
 			arrayinsert(keys, forced_perk, 0);
@@ -1114,23 +1114,23 @@ function wunderfizz_devgui_callback(cmd)
 		e_wunderfizz = arraygetclosest(getplayers()[0].origin, a_e_wunderfizzes);
 		switch(cmd)
 		{
-			case "hash_46e6a7af05a90762":
+			case "wunderfizz_leaving":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;
 			}
-			case "hash_34799eff9c33da56":
+			case "wunderfizz_arriving":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;
 			}
-			case "hash_640683d8e6a17e67":
+			case "wunderfizz_vending":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				e_wunderfizz notify(#"bottle_spawned");
 				break;
 			}
-			case "hash_5b5333433c9a486c":
+			case "wunderfizz_idle":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;
@@ -1140,12 +1140,12 @@ function wunderfizz_devgui_callback(cmd)
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;
 			}
-			case "hash_2ade87deaa281fe6":
+			case "wunderfizz_initial":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;
 			}
-			case "hash_6d7b7089efa5d0c0":
+			case "wunderfizz_away":
 			{
 				e_wunderfizz thread set_perk_random_machine_state("");
 				break;

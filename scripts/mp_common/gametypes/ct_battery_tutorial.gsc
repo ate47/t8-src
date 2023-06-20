@@ -6,7 +6,7 @@
 #using script_2cc4bd7902c3f711;
 #using scripts\core_common\bots\bot_util.gsc;
 #using scripts\core_common\vehicles\amws.gsc;
-#using script_490759cf62a1abc8;
+#using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using scripts\killstreaks\planemortar_shared.gsc;
 #using scripts\mp_common\gametypes\ct_vo.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
@@ -874,7 +874,7 @@ function function_8d7d4d37()
 		}
 		if(!level flag::get("patrol_dead"))
 		{
-			level notify(#"hash_1ed85b84698bdac7");
+			level notify(#"bounce_failed");
 			wait(0.5);
 			level.players[0] ct_utils::function_49e0c5bc(0, 0);
 			ct_vo::function_c72e58c1();
@@ -1109,7 +1109,7 @@ function function_be0b44be()
 	level.var_d4668c34 = undefined;
 	function_8e068518();
 	level.var_e72728b8 = array(#"eq_cluster_semtex_grenade", #"hero_pineapplegun");
-	level notify(#"hash_539b96e43f1642f7");
+	level notify(#"scorestreak_earned");
 	level notify(#"stop_score_nag");
 	level thread ct_vo::play_vo(#"hash_6ca8fb135975685a", 0);
 	function_e17f2b8a();
@@ -1181,7 +1181,7 @@ function function_30128519()
 function function_f7113889()
 {
 	self endon(#"death");
-	level endon(#"hash_539b96e43f1642f7", #"scorestreak_done");
+	level endon(#"scorestreak_earned", #"scorestreak_done");
 	wait(60);
 	level thread ct_vo::function_14b08e49(array(#"hash_417649333d51a8d1"), "stop_score_nag");
 }
@@ -1389,7 +1389,7 @@ function function_e17f2b8a()
 function function_7f8a8489()
 {
 	setdvar(#"hash_3e06b14c41136e95", 0);
-	namespace_d82263d5::function_350dd8ec(#"planemortar");
+	ct_gadgets::function_350dd8ec(#"planemortar");
 	setdvar(#"hash_3e06b14c41136e95", 1);
 }
 
@@ -1441,13 +1441,13 @@ function function_fcc78b2c()
 function spawn_mantis(str_loc, n_wait)
 {
 	self endon(#"death");
-	var_94c758f2 = struct::get_array(str_loc);
-	for(i = 0; i < var_94c758f2.size; i++)
+	a_s_loc = struct::get_array(str_loc);
+	for(i = 0; i < a_s_loc.size; i++)
 	{
-		var_c361acde = ct_ai::function_4c8f915a(var_94c758f2[i].origin);
+		var_c361acde = ct_ai::function_4c8f915a(a_s_loc[i].origin);
 		if(isdefined(var_c361acde))
 		{
-			var_c361acde thread function_119c4576(var_94c758f2[i]);
+			var_c361acde thread function_119c4576(a_s_loc[i]);
 			var_c361acde.maxhealth = 150;
 			var_c361acde thread ai_tank::setup_gameplay_think("tank_robot");
 			var_c361acde.overridevehicledamage = &function_2aab1550;
@@ -1639,7 +1639,7 @@ function function_58c62280(b_keyline, b_ignoreall)
 	self endon(#"death");
 	if(isdefined(b_ignoreall) && b_ignoreall)
 	{
-		self val::set(#"hash_505a4c7da62f0c37", "ignoreall", 1);
+		self val::set(#"grenade_bot", "ignoreall", 1);
 	}
 	if(isdefined(b_keyline) && b_keyline)
 	{
@@ -1665,7 +1665,7 @@ function function_58c62280(b_keyline, b_ignoreall)
 		{
 			s_goal = struct::get(s_loc.target);
 			self thread ct_utils::function_5b59f3b7(s_goal.origin, s_goal.angles, 32);
-			self val::reset(#"hash_505a4c7da62f0c37", "ignoreall");
+			self val::reset(#"grenade_bot", "ignoreall");
 		}
 	}
 	wait(0.1);
@@ -1868,7 +1868,7 @@ function function_35ea89f8(s_loc)
 	level flag::wait_till("enemy_arrived");
 	self setmovespeedscale(1);
 	self setlowready(0);
-	self val::reset(#"hash_505a4c7da62f0c37", "ignoreall");
+	self val::reset(#"grenade_bot", "ignoreall");
 	self ct_utils::function_4caeacf6();
 }
 
@@ -1925,7 +1925,7 @@ function function_fdf5f193(s_loc)
 	s_goal = struct::get(s_loc.target);
 	self thread ct_utils::function_5b59f3b7(s_goal.origin, s_goal.angles, 32);
 	self thread ct_bots::function_35e77034(getweapon(#"ar_accurate_t8"), 1);
-	self val::set(#"hash_505a4c7da62f0c37", "ignoreall", 1);
+	self val::set(#"grenade_bot", "ignoreall", 1);
 	wait(4);
 	self.var_2925fedc = s_target.origin;
 	while(isalive(self))
@@ -2452,7 +2452,7 @@ function function_c35855fd(n_index)
 function function_4f228e34()
 {
 	self endon(#"death");
-	level endon(#"hash_1ed85b84698bdac7");
+	level endon(#"bounce_failed");
 	ct_utils::function_654280be();
 	wait(1);
 	level flag::set("patrol_dead");

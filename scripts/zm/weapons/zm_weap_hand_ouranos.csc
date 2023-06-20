@@ -43,7 +43,7 @@ function __init__()
 	clientfield::register("actor", "" + #"hash_c5b1d12b0fd3651", 16000, getminbitcountfornum(3), "int", &function_a1d614f9, 0, 1);
 	clientfield::register("actor", "" + #"hash_28af05433c1d1a2e", 16000, 1, "counter", &function_1322534b, 0, 0);
 	serverfield::register("ouranos_feather_hit", 16000, getminbitcountfornum(3), "int");
-	level._effect[#"hash_7a9b30609a5988e3"] = #"hash_3ee5b689d09f0824";
+	level._effect[#"ouranos_wind"] = #"hash_3ee5b689d09f0824";
 	level._effect[#"ouranos_trail"] = #"hash_62f4ee1a2e3c46fc";
 	level._effect[#"ouranos_impact"] = #"hash_5869597389a55f7b";
 	level._effect[#"hash_c5b1d12b0fd3651"] = #"hash_215ead487c4bef59";

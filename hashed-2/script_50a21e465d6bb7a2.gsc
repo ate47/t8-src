@@ -101,10 +101,10 @@ function init_flags()
 {
 	if(zm_utility::function_e51dc2d8())
 	{
-		level flag::init(#"hash_684fc43e0573043f");
+		level flag::init(#"shed_waiting");
 		level flag::init(#"hash_a54ffd2751ba9de");
 		level flag::init(#"hash_13cf89176254a394");
-		level flag::init(#"hash_136314b16639d725");
+		level flag::init(#"tv_broken");
 		level flag::init(#"hash_eb582974245f076");
 		level flag::init(#"hash_12b747be855cc622");
 		level flag::init(#"hash_7cd09ec15b9808a9");
@@ -214,9 +214,9 @@ function function_e62b987d(var_5ea5c94d)
 		while(!level flag::get(#"hash_a54ffd2751ba9de"))
 		{
 			level flag::wait_till(#"hash_35762ecd1ee8f3c1");
-			function_d8c5450b();
+			reset_wisp();
 			level thread function_d7fe6be2();
-			a_flags = array(#"hash_35762ecd1ee8f3c1", #"hash_684fc43e0573043f");
+			a_flags = array(#"hash_35762ecd1ee8f3c1", #"shed_waiting");
 			level flag::wait_till_clear_any(a_flags);
 			if(!level flag::get(#"hash_35762ecd1ee8f3c1"))
 			{
@@ -272,8 +272,8 @@ function function_d7fe6be2()
 {
 	self endon(#"end_game", #"hash_227a6fc118040203");
 	var_9d62fe6f = getent("insanity_mode_wisp_start_trigger", "targetname");
-	level flag::set(#"hash_684fc43e0573043f");
-	while(level flag::get(#"hash_684fc43e0573043f"))
+	level flag::set(#"shed_waiting");
+	while(level flag::get(#"shed_waiting"))
 	{
 		a_e_players = getplayers();
 		foreach(e_player in a_e_players)
@@ -283,7 +283,7 @@ function function_d7fe6be2()
 				/#
 					iprintlnbold("");
 				#/
-				level flag::clear(#"hash_684fc43e0573043f");
+				level flag::clear(#"shed_waiting");
 			}
 		}
 		wait(0.25);
@@ -291,7 +291,7 @@ function function_d7fe6be2()
 }
 
 /*
-	Name: function_d8c5450b
+	Name: reset_wisp
 	Namespace: namespace_29f39efb
 	Checksum: 0x24C1AA1D
 	Offset: 0xFD0
@@ -299,7 +299,7 @@ function function_d7fe6be2()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d8c5450b()
+function reset_wisp()
 {
 	nd_start = getvehiclenode("insanity_mode_wisp_path_start", "targetname");
 	level.var_d416f0ff.vh_wisp.origin = nd_start.origin;
@@ -434,7 +434,7 @@ function function_77a0aab6(var_5ea5c94d)
 			if(waitresult.weapon == getweapon(#"bowie_knife_story_1"))
 			{
 				level thread namespace_7d8e6ec3::function_60f15ca8();
-				level flag::set(#"hash_136314b16639d725");
+				level flag::set(#"tv_broken");
 				break;
 			}
 		}
@@ -455,7 +455,7 @@ function function_e78c6006(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
-		level flag::set(#"hash_136314b16639d725");
+		level flag::set(#"tv_broken");
 	}
 }
 
@@ -535,7 +535,7 @@ function timer_countdown()
 {
 	level flag::clear(#"hash_12b747be855cc622");
 	level endon(#"hash_12b747be855cc622");
-	level.countdown_clock namespace_7d8e6ec3::function_4955480();
+	level.countdown_clock namespace_7d8e6ec3::clock_countdown();
 	level flag::set(#"hash_12b747be855cc622");
 	/#
 		iprintlnbold("");

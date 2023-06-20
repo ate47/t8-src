@@ -42,7 +42,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_4c1b3f603272e5fc", &on_begin, &on_end);
+	zm_trial::register_challenge(#"eyes_open", &on_begin, &on_end);
 }
 
 /*
@@ -168,7 +168,7 @@ function teleport_player()
 */
 function private on_player_damage(params)
 {
-	if(isai(params.eattacker) || isai(params.einflictor) && (params.idamage > 0 || (isdefined(self.armor) && self.armor > 0)) && params.eattacker.archetype === #"hash_777dead372b3a736")
+	if(isai(params.eattacker) || isai(params.einflictor) && (params.idamage > 0 || (isdefined(self.armor) && self.armor > 0)) && params.eattacker.archetype === #"weeping_angel")
 	{
 		var_57807cdc = [];
 		array::add(var_57807cdc, self, 0);

@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3e5ec44cfab7a201;
 #using script_3f9e0dc8454d98e1;
-#using script_421e0a3702e22de;
-#using script_58c342edd81589fb;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_orange_pablo.gsc;
+#using scripts\zm_common\zm_round_spawning.gsc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
@@ -144,7 +144,7 @@ function function_742dfdb5(var_a276c861)
 		if(level.var_98138d6b > 1)
 		{
 			wait(2);
-			level.var_1c53964e namespace_509a75d1::function_6a0d675d("vox_fuse_lighthouse", 0, 0, 1);
+			level.var_1c53964e zm_hms_util::function_6a0d675d("vox_fuse_lighthouse", 0, 0, 1);
 		}
 		level.var_9d5b2598 setcandamage(1);
 		level.var_9d5b2598 val::set("mq_fuse_step", "allowDeath", 0);
@@ -158,7 +158,7 @@ function function_742dfdb5(var_a276c861)
 		}
 		if(level.var_98138d6b > 1)
 		{
-			level.var_1c53964e namespace_509a75d1::function_6a0d675d("vox_fuse_partial_charge", 0, 0, 1);
+			level.var_1c53964e zm_hms_util::function_6a0d675d("vox_fuse_partial_charge", 0, 0, 1);
 		}
 	}
 }
@@ -227,7 +227,7 @@ function door_think()
 	level function_206702d8();
 	if(level.var_98138d6b > 1)
 	{
-		level.var_1c53964e thread namespace_509a75d1::function_6a0d675d("vox_shard_reveal", 0, 0, 1);
+		level.var_1c53964e thread zm_hms_util::function_6a0d675d("vox_shard_reveal", 0, 0, 1);
 	}
 }
 
@@ -391,7 +391,7 @@ function function_c723e684(var_a276c861)
 		}
 		if(level.var_98138d6b > 1)
 		{
-			level.var_1c53964e thread namespace_509a75d1::function_6a0d675d("vox_fuse_complete_charge", 0, 0, 1);
+			level.var_1c53964e thread zm_hms_util::function_6a0d675d("vox_fuse_complete_charge", 0, 0, 1);
 		}
 		wait(3);
 		level exploder::stop_exploder("fxexp_electric_arcs_fx_to_lighthouse_base_1");

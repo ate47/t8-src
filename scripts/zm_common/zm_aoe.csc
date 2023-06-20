@@ -181,8 +181,8 @@ function private function_dcc24343(localclientnum, oldval, newval, bnewent, bini
 		return;
 	}
 	player = function_5c10bd79(localclientnum);
-	var_12cdcde0 = self.origin;
-	distsq = distancesquared(player.origin, var_12cdcde0);
+	aoeorigin = self.origin;
+	distsq = distancesquared(player.origin, aoeorigin);
 	var_46f1b5eb = function_e969e75(self.aoeid);
 	if(!isdefined(var_46f1b5eb))
 	{

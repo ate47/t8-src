@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_stats.gsc;
-#using script_5b1c3d314b9c88fb;
+#using scripts\wz_common\wz_ai_utils.gsc;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -186,7 +186,7 @@ function function_7a1e21a9(v_loc)
 	{
 		v_loc = trace[#"position"];
 	}
-	time = self namespace_b912c30b::fake_physicslaunch(v_loc, 100);
+	time = self wz_ai_utils::fake_physicslaunch(v_loc, 100);
 	wait(time);
 	if(isdefined(self))
 	{

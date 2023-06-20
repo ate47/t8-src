@@ -72,7 +72,7 @@ function __init__()
 */
 function function_bad944b5()
 {
-	if(!zm_custom::function_901b751c(#"hash_65a1298089d361f1") || zm_utility::is_standard())
+	if(!zm_custom::function_901b751c(#"zmequipmentisenabled") || zm_utility::is_standard())
 	{
 		return;
 	}
@@ -117,7 +117,7 @@ function function_bad944b5()
 */
 function __main__()
 {
-	if(zm_custom::function_901b751c(#"hash_65a1298089d361f1") && !zm_utility::is_standard())
+	if(zm_custom::function_901b751c(#"zmequipmentisenabled") && !zm_utility::is_standard())
 	{
 		level thread tomahawk_pickup();
 	}
@@ -139,10 +139,10 @@ function on_player_connect()
 	{
 		var_29b8f3d0 = undefined;
 		var_29b8f3d0 = self waittill("new_" + "lethal_grenade");
-		var_3759bc11 = var_29b8f3d0.weapon;
+		w_newweapon = var_29b8f3d0.weapon;
 		var_22e180dd = self zm_loadout::get_player_lethal_grenade();
 		w_tomahawk = getweapon(#"tomahawk_t8");
-		if(var_3759bc11 == w_tomahawk || var_22e180dd === w_tomahawk)
+		if(w_newweapon == w_tomahawk || var_22e180dd === w_tomahawk)
 		{
 			if(self flag::exists(#"hash_46915cd7994e2d33"))
 			{
@@ -290,9 +290,9 @@ function function_e40e9d94(n_eating_anim, ai_zombie, var_64c09f7f)
 	{
 		ai_zombie clientfield::set("" + #"hash_588871862d19b97d", 1);
 	}
-	var_f79d91ef = self.s_scene.origin - var_678e573f.origin;
-	var_17deee3d = vectorscale(var_f79d91ef, 0.2);
-	v_angles_forward = vectortoangles(var_f79d91ef);
+	vec_dir = self.s_scene.origin - var_678e573f.origin;
+	var_17deee3d = vectorscale(vec_dir, 0.2);
+	v_angles_forward = vectortoangles(vec_dir);
 	var_678e573f moveto(var_678e573f.origin + var_17deee3d, var_66a8d5fc, var_66a8d5fc);
 	if(self.var_43bd3b5 == 0)
 	{
@@ -302,7 +302,7 @@ function function_e40e9d94(n_eating_anim, ai_zombie, var_64c09f7f)
 	{
 		wait(var_66a8d5fc);
 	}
-	self notify(#"hash_481def0c42ce94e0");
+	self notify(#"wolf_eating");
 	if(self.var_43bd3b5 < 5)
 	{
 		self thread function_e07f0c65(var_64c09f7f);
@@ -461,8 +461,8 @@ function soul_catcher_state_manager()
 */
 function function_ee929ece()
 {
-	self notify(#"hash_6d1b4e0ea35336a7");
-	self endon(#"hash_481def0c42ce94e0", #"hash_1c2dd0a16f7ac134", #"hash_6d1b4e0ea35336a7");
+	self notify(#"wolf_idling");
+	self endon(#"wolf_eating", #"hash_1c2dd0a16f7ac134", #"wolf_idling");
 	while(true)
 	{
 		var_ba0da6c = array::random(level.var_22f00ccf);
@@ -615,7 +615,7 @@ function first_wolf_encounter_vo(var_64c09f7f)
 	{
 		if(!(isdefined(a_closest[i].dontspeak) && a_closest[i].dontspeak))
 		{
-			a_closest[i] thread zm_audio::create_and_play_dialog(#"wolf_head", #"hash_4c424d9a6fe3214c", undefined, 1);
+			a_closest[i] thread zm_audio::create_and_play_dialog(#"wolf_head", #"feed_first", undefined, 1);
 			level.wolf_encounter_vo_played = 1;
 			break;
 		}
@@ -786,7 +786,7 @@ function function_f0ef3897(e_player)
 		var_f8807d03 = #"hash_77bbe7cec9945ff5";
 		if(!(isdefined(e_player.var_e9c9a450) && e_player.var_e9c9a450))
 		{
-			e_player thread zm_audio::create_and_play_dialog(#"hash_3238b63089543463", #"pickup", undefined, 1);
+			e_player thread zm_audio::create_and_play_dialog(#"ax_upgrade", #"pickup", undefined, 1);
 			e_player.var_e9c9a450 = 1;
 		}
 	}
@@ -812,7 +812,7 @@ function function_f0ef3897(e_player)
 	}
 	e_player clientfield::set_to_player("tomahawk_in_use", 1);
 	e_player notify(#"player_obtained_tomahawk");
-	level notify(#"hash_be544b0040afa0b");
+	level notify(#"tomahawk_aquired");
 	e_player zm_stats::increment_client_stat("prison_tomahawk_acquired", 0);
 	if(e_player flag::exists(#"hash_11ab20934759ebc3") && e_player flag::get(#"hash_11ab20934759ebc3"))
 	{

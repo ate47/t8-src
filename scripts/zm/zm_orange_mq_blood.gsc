@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -46,8 +46,8 @@ function preload()
 */
 function main()
 {
-	level flag::init(#"hash_17356796e22e1247");
-	level flag::init(#"hash_28fbeeac800ae782");
+	level flag::init(#"blood_waiting");
+	level flag::init(#"blood_active");
 	level.s_mq_blood_vessel_loc = struct::get("mq_blood_vessel_loc", "targetname");
 	level.s_mq_blood_vessel_loc.vessel = getent(level.s_mq_blood_vessel_loc.target, "targetname");
 	level.s_mq_blood_vessel_loc.vessel hide();
@@ -58,8 +58,8 @@ function main()
 	level.var_4adebdfc.a_wisps = [];
 	level.var_9e3c632e = 1;
 	level.var_ed1e7d4d = 0;
-	level.var_63a35083 = namespace_509a75d1::function_2719d4c0("mq_blood_loc", "targetname", "script_int");
-	level.var_e70fa660 = namespace_509a75d1::function_2719d4c0("mq_blood_whisp_loc", "targetname", "script_int");
+	level.var_63a35083 = zm_hms_util::function_2719d4c0("mq_blood_loc", "targetname", "script_int");
+	level.var_e70fa660 = zm_hms_util::function_2719d4c0("mq_blood_whisp_loc", "targetname", "script_int");
 	level waittill(#"start_zombie_round_logic");
 	level.s_mq_blood_vessel_loc thread function_ad37e626();
 	level.var_4adebdfc moveto(level.var_63a35083[0].origin, 1, 0.1, 0.3);
@@ -84,27 +84,27 @@ function function_8d43b840(var_5ea5c94d)
 {
 	if(!var_5ea5c94d)
 	{
-		level flag::set(#"hash_17356796e22e1247");
-		level.s_mq_blood_vessel_loc notify(#"hash_17356796e22e1247");
+		level flag::set(#"blood_waiting");
+		level.s_mq_blood_vessel_loc notify(#"blood_waiting");
 		switch(level.var_9e3c632e)
 		{
 			case 1:
 			{
-				namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 3);
+				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 3);
 				break;
 			}
 			case 2:
 			{
-				namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 5);
+				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 5);
 				break;
 			}
 			case 3:
 			{
-				namespace_6747c550::function_7df6bb60(#"hash_2fbec633e5118bab", 7);
+				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 7);
 				break;
 			}
 		}
-		while(!namespace_509a75d1::any_player_in_zone(array("artifact_storage")))
+		while(!zm_hms_util::any_player_in_zone(array("artifact_storage")))
 		{
 			waitframe(1);
 		}
@@ -112,17 +112,17 @@ function function_8d43b840(var_5ea5c94d)
 		{
 			case 1:
 			{
-				level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(#"hash_3cd0832e040f6c84", -1, 0, 1);
+				level.var_60b08c24 thread zm_hms_util::function_6a0d675d(#"hash_3cd0832e040f6c84", -1, 0, 1);
 				break;
 			}
 			case 2:
 			{
-				level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(#"hash_65bb9d30e635b942", -1, 0, 1);
+				level.var_60b08c24 thread zm_hms_util::function_6a0d675d(#"hash_65bb9d30e635b942", -1, 0, 1);
 				break;
 			}
 			case 3:
 			{
-				level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(#"hash_6222894db8f79c0c", -1, 0, 1);
+				level.var_60b08c24 thread zm_hms_util::function_6a0d675d(#"hash_6222894db8f79c0c", -1, 0, 1);
 				break;
 			}
 		}
@@ -149,9 +149,9 @@ function function_2d9e1e29(var_5ea5c94d, ended_early)
 		level notify(#"hash_6cbede8616798eb");
 		level.s_mq_blood_vessel_loc.vessel hide();
 		level.s_mq_blood_vessel_loc thread function_ad37e626();
-		if(level flag::get(#"hash_28fbeeac800ae782"))
+		if(level flag::get(#"blood_active"))
 		{
-			level flag::clear(#"hash_28fbeeac800ae782");
+			level flag::clear(#"blood_active");
 		}
 		level.var_9e3c632e++;
 		level.var_4adebdfc clientfield::set("" + #"hash_10906b9ce905bda8", level.var_9e3c632e);
@@ -182,10 +182,10 @@ function function_ad37e626()
 	self notify("27bec720b5d077a2");
 	self endon("27bec720b5d077a2");
 	level endon(#"end_game");
-	while(!level flag::get(#"hash_17356796e22e1247"))
+	while(!level flag::get(#"blood_waiting"))
 	{
 		s_notify = undefined;
-		s_notify = self waittill(#"trigger_activated", #"hash_17356796e22e1247");
+		s_notify = self waittill(#"trigger_activated", #"blood_waiting");
 		player = s_notify.e_who;
 		if(s_notify._notify === "trigger_activated")
 		{
@@ -214,7 +214,7 @@ function function_ad37e626()
 			{
 				player thread function_15f8d6f0();
 			}
-			if(level flag::get(#"hash_a540a0cd7df9166"))
+			if(level flag::get(#"blood_hints"))
 			{
 				level.var_4adebdfc playsoundtoplayer(level.var_60b08c24.var_489c2917 + "_apot_0", player);
 			}
@@ -244,11 +244,11 @@ function function_ee4a200b()
 	self.vessel show();
 	self.vessel playsound("zmb_vessel_drop");
 	level notify(#"hash_6fb77fda0e7419a6");
-	level waittill(#"hash_4ba30dc6fa45aabb");
+	level waittill(#"blood_collected");
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				iprintlnbold("");
 				println("");
@@ -261,8 +261,8 @@ function function_ee4a200b()
 	self.vessel hide();
 	self.vessel playsound("zmb_vessel_pickup");
 	self.vessel clientfield::set("" + #"hash_1b72c208f2964e24", 0);
-	level notify(#"hash_5c300c026d5f688f");
-	level flag::clear(#"hash_17356796e22e1247");
+	level notify(#"vessel_collected");
+	level flag::clear(#"blood_waiting");
 	wait(2);
 	level.s_mq_blood_vessel_loc thread function_ad37e626();
 }
@@ -298,7 +298,7 @@ function blood_event()
 	level endon(#"hash_1f0238cda598f6e9", #"end_game");
 	level waittill(#"hash_6fb77fda0e7419a6");
 	level flag::set(#"infinite_round_spawning");
-	level flag::set(#"hash_28fbeeac800ae782");
+	level flag::set(#"blood_active");
 	var_84f1a7ae = zombie_utility::ai_calculate_health(3000, level.round_number) * level.var_9e3c632e;
 	level.var_4adebdfc.health = var_84f1a7ae;
 	wait(2);
@@ -308,19 +308,19 @@ function blood_event()
 	{
 		waitframe(1);
 	}
-	self notify(#"hash_1b991f6cf2f6430a");
+	self notify(#"threshold_hit");
 	level thread function_9a991dc2(0);
 	while(level.var_4adebdfc.health > int(var_84f1a7ae * 0.3333333))
 	{
 		waitframe(1);
 	}
-	self notify(#"hash_1b991f6cf2f6430a");
+	self notify(#"threshold_hit");
 	level thread function_9a991dc2(1);
 	while(level.var_4adebdfc.health > 2)
 	{
 		waitframe(1);
 	}
-	level flag::clear(#"hash_28fbeeac800ae782");
+	level flag::clear(#"blood_active");
 	level thread function_9a991dc2(2);
 	self moveto(level.var_63a35083[0].origin, 1, 0.1, 0.5);
 	self.var_d0fed9fb = undefined;
@@ -337,7 +337,7 @@ function blood_event()
 		}
 		case 3:
 		{
-			level.var_60b08c24 thread namespace_509a75d1::function_6a0d675d(#"hash_554da7ef3c71bc2a", -1, 0, 1);
+			level.var_60b08c24 thread zm_hms_util::function_6a0d675d(#"hash_554da7ef3c71bc2a", -1, 0, 1);
 			break;
 		}
 	}
@@ -345,14 +345,14 @@ function blood_event()
 	{
 		waitframe(1);
 	}
-	level notify(#"hash_4ba30dc6fa45aabb");
+	level notify(#"blood_collected");
 	switch(level.var_9e3c632e)
 	{
 		case 2:
 		{
 			if(level.var_98138d6b > 1)
 			{
-				level.var_1c53964e thread namespace_509a75d1::function_6a0d675d(#"hash_1ab690c8635a053b", -1, 0, 1);
+				level.var_1c53964e thread zm_hms_util::function_6a0d675d(#"hash_1ab690c8635a053b", -1, 0, 1);
 			}
 			break;
 		}
@@ -362,7 +362,7 @@ function blood_event()
 			break;
 		}
 	}
-	level waittill(#"hash_5c300c026d5f688f");
+	level waittill(#"vessel_collected");
 }
 
 /*
@@ -378,7 +378,7 @@ function function_7535dc08()
 {
 	level endon(#"end_game");
 	zm_orange_util::function_fd24e47f(#"hash_17d537f3403651e2");
-	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_17d537f3403651e2");
+	level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_17d537f3403651e2");
 }
 
 /*
@@ -393,8 +393,8 @@ function function_7535dc08()
 function function_df1ea27()
 {
 	level endon(#"end_game");
-	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_359fe3561c4d0623", 0, 0, 1);
-	level.var_60b08c24 namespace_509a75d1::function_6a0d675d(#"hash_359fe3561c4d0623", 1, 0, 1);
+	level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_359fe3561c4d0623", 0, 0, 1);
+	level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_359fe3561c4d0623", 1, 0, 1);
 }
 
 /*
@@ -409,7 +409,7 @@ function function_df1ea27()
 function function_a9d35d2()
 {
 	level endon(#"end_game");
-	while(level flag::get(#"hash_28fbeeac800ae782"))
+	while(level flag::get(#"blood_active"))
 	{
 		stance_any_step = array::remove_index(level.var_63a35083, 0);
 		if(isdefined(self.var_d0fed9fb))
@@ -420,7 +420,7 @@ function function_a9d35d2()
 		self moveto(s_point.origin, 0.5, 0.1, 0.2);
 		self.var_d0fed9fb = s_point.script_int;
 		s_result = undefined;
-		s_result = self waittilltimeout(function_21a3a673(4 - level.var_9e3c632e, 6 - level.var_9e3c632e), #"hash_1b991f6cf2f6430a");
+		s_result = self waittilltimeout(function_21a3a673(4 - level.var_9e3c632e, 6 - level.var_9e3c632e), #"threshold_hit");
 	}
 }
 
@@ -533,9 +533,9 @@ function function_a4fa2df0(n_index)
 			}
 			while(zone == self.zone);
 			/#
-				if(getdvarint(#"hash_11ad6a9695943217", 0))
+				if(getdvarint(#"zm_debug_ee", 0))
 				{
-					if(getdvarint(#"hash_11ad6a9695943217", 0))
+					if(getdvarint(#"zm_debug_ee", 0))
 					{
 						iprintlnbold("" + zone);
 						println("" + zone);

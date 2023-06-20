@@ -71,7 +71,7 @@ function __init__()
 */
 function init()
 {
-	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"zmtrapsenabled"))
 	{
 		return;
 	}
@@ -90,7 +90,7 @@ function init()
 */
 function __main__()
 {
-	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"zmtrapsenabled"))
 	{
 		return;
 	}

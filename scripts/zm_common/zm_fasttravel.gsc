@@ -476,8 +476,8 @@ function function_6cde5436()
 			continue;
 		}
 		player zm_score::minus_to_player_score(n_cost);
-		level notify(#"hash_e66663be8ba322f", {#player:player});
-		player notify(#"hash_e66663be8ba322f");
+		level notify(#"fasttravel_bought", {#player:player});
+		player notify(#"fasttravel_bought");
 		if(isdefined(level.var_352c9e03))
 		{
 			player [[level.var_352c9e03]](self);
@@ -836,7 +836,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	{
 		if(isdefined(var_12230d08) && var_12230d08.script_noteworthy === "flinger")
 		{
-			self thread function_bb9a788b(var_6c365dbf, var_12230d08);
+			self thread fasttravel_flinger(var_6c365dbf, var_12230d08);
 		}
 		else
 		{
@@ -885,7 +885,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		self util::clear_streamer_hint();
 	}
 	self.var_5817f611 = undefined;
-	self notify(#"hash_66790eb1100e11a2", {#hash_9fa6220c:var_12230d08});
+	self notify(#"fasttravel_finished", {#hash_9fa6220c:var_12230d08});
 	foreach(e_player in getplayers())
 	{
 		e_player clientfield::set_player_uimodel(("WorldSpaceIndicators.bleedOutModel" + self getentitynumber()) + ".hide", 0);
@@ -1516,7 +1516,7 @@ function function_60d91d03(var_f0bbde5, a_e_players)
 }
 
 /*
-	Name: function_bb9a788b
+	Name: fasttravel_flinger
 	Namespace: zm_fasttravel
 	Checksum: 0xF5B76070
 	Offset: 0x43C8
@@ -1524,7 +1524,7 @@ function function_60d91d03(var_f0bbde5, a_e_players)
 	Parameters: 2
 	Flags: None
 */
-function function_bb9a788b(var_6c365dbf, var_12230d08)
+function fasttravel_flinger(var_6c365dbf, var_12230d08)
 {
 	level endon(#"end_game");
 	self endoncallback(&function_672d56c7, #"death");

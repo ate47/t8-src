@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;
@@ -45,7 +45,7 @@ function __init__()
 	level.var_f4f794bf = array(5, 7, 9, 12);
 	level.nova_crawler_spawner = getent("nova_crawler_spawner", "script_noteworthy");
 	spawner::add_archetype_spawn_function(#"nova_crawler", &nova_crawler_init);
-	namespace_c3287616::register_archetype(#"nova_crawler", &function_c73902fd, &crawler_round_spawn, &spawn_nova_crawler, 10);
+	zm_round_spawning::register_archetype(#"nova_crawler", &function_c73902fd, &crawler_round_spawn, &spawn_nova_crawler, 10);
 	zm_score::function_e5d6e6dd(#"nova_crawler", 60);
 }
 
@@ -196,7 +196,7 @@ function function_4748fb49()
 */
 function setup_crawler_round(n_round)
 {
-	namespace_c3287616::function_b4a8f95a(#"nova_crawler", n_round, &crawler_round_start, &water_drop_triggerreactidgunterminate, &function_f6e748b, &function_f726e44, 0);
+	zm_round_spawning::function_b4a8f95a(#"nova_crawler", n_round, &crawler_round_start, &water_drop_triggerreactidgunterminate, &function_f6e748b, &function_f726e44, 0);
 }
 
 /*
@@ -499,7 +499,7 @@ function function_c44636f2(b_ignore_cleanup = 1)
 function function_5b0522fa()
 {
 	level.var_f5419c22 = 20;
-	namespace_c3287616::function_b4a8f95a(#"nova_crawler", level.var_f5419c22, &function_9e97e0f7, &function_de265920, &function_70a8e26c, &function_d7e9e2ff, level.var_8167b1e);
+	zm_round_spawning::function_b4a8f95a(#"nova_crawler", level.var_f5419c22, &function_9e97e0f7, &function_de265920, &function_70a8e26c, &function_d7e9e2ff, level.var_8167b1e);
 	zm_utility::function_fdb0368(11);
 	level flagsys::set(#"hash_2a1fc2e349c48462");
 }

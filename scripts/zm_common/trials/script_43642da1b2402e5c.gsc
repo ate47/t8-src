@@ -200,11 +200,11 @@ function private function_29ee24dd()
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656");
 	a_w_weapons = self getweaponslist(0);
-	self function_af55104(1);
+	self reset_ammo(1);
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = self waittill(#"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"melee_reload", #"hash_52d48b9173a9eeec");
+		var_be17187b = self waittill(#"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"melee_reload", #"wallbuy_done");
 		w_current = self getcurrentweapon();
 		if(var_be17187b._notify == "melee_reload")
 		{
@@ -257,7 +257,7 @@ function private on_ai_killed(params)
 }
 
 /*
-	Name: function_af55104
+	Name: reset_ammo
 	Namespace: namespace_a9e73d8d
 	Checksum: 0x38076A49
 	Offset: 0xB78
@@ -265,7 +265,7 @@ function private on_ai_killed(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_af55104(var_f2c84b6b)
+function private reset_ammo(var_f2c84b6b)
 {
 	self notify("70d94e798e24bb1e");
 	self endon("70d94e798e24bb1e");

@@ -40,23 +40,23 @@
 function autoexec function_313e9d31()
 {
 	callback::on_start_gametype(&function_dd840c5f);
-	level.var_660101f = getgametypesetting(#"specialisthealingenabled_allies_1");
+	level.specialisthealingenabled = getgametypesetting(#"specialisthealingenabled_allies_1");
 	level.specialistabilityenabled = getgametypesetting(#"specialistabilityenabled_allies_1");
-	level.var_9c086117 = getgametypesetting(#"specialistequipmentenabled_allies_1");
+	level.specialistequipmentenabled = getgametypesetting(#"specialistequipmentenabled_allies_1");
 	level.var_50e97365 = getgametypesetting(#"hash_7684a70eb68f1ebb");
-	level.var_aaf688d = getgametypesetting(#"specialistabilityreadyonrespawn_allies_1");
-	level.var_3c9de4f = getgametypesetting(#"specialistequipmentreadyonrespawn_allies_1");
+	level.specialistabilityreadyonrespawn = getgametypesetting(#"specialistabilityreadyonrespawn_allies_1");
+	level.specialistequipmentreadyonrespawn = getgametypesetting(#"specialistequipmentreadyonrespawn_allies_1");
 	level.var_86fd5bf3 = [];
 	level.var_86fd5bf3[0] = getscriptbundle(#"hash_133d2a86644e762d");
-	if(isdefined(getgametypesetting(#"hash_ec059b9a7f28627")) && getgametypesetting(#"hash_ec059b9a7f28627"))
+	if(isdefined(getgametypesetting(#"scorestreaksbarebones")) && getgametypesetting(#"scorestreaksbarebones"))
 	{
-		level.var_5c3d0fba = [];
-		level.var_5c3d0fba[0] = 126;
-		level.var_5c3d0fba[1] = 130;
-		level.var_5c3d0fba[2] = 134;
+		level.scorestreaksbarebones = [];
+		level.scorestreaksbarebones[0] = 126;
+		level.scorestreaksbarebones[1] = 130;
+		level.scorestreaksbarebones[2] = 134;
 	}
-	var_7496e9fb = getscriptbundle(#"hash_4af43f6babe27d21");
-	foreach(wildcard in var_7496e9fb.var_7496e9fb)
+	wildcardtable = getscriptbundle(#"wildcardtable");
+	foreach(wildcard in wildcardtable.wildcardtable)
 	{
 		var_43645456 = wildcard.var_86fd5bf3;
 		var_86fd5bf3 = getscriptbundle(var_43645456);
@@ -204,7 +204,7 @@ function function_9f888e75(weapons_table)
 	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeamuletfist;
 	level.weaponshotgunenergy = getweapon(#"shotgun_energy");
 	level.weaponpistolenergy = getweapon(#"pistol_energy");
-	level.var_c1954e36 = getweapon(#"hash_721bd01efec90239");
+	level.var_c1954e36 = getweapon(#"ac130_chaingun");
 }
 
 /*
@@ -291,7 +291,7 @@ function mp_init()
 	function_9f888e75();
 	function_5f206535();
 	callback::on_connecting(&on_player_connecting);
-	if(isdefined(level.var_660101f) && !level.var_660101f)
+	if(isdefined(level.specialisthealingenabled) && !level.specialisthealingenabled)
 	{
 		ability_player::register_gadget_activation_callbacks(23, undefined, &offhealthregen);
 	}
@@ -556,9 +556,9 @@ function private function_f8157311(weaponclass, killstreaknum)
 	{
 		return getdvarint("custom_" + killstreakstring, 0);
 	}
-	if(isdefined(level.var_5c3d0fba) && isdefined(level.var_5c3d0fba[killstreaknum - 1]))
+	if(isdefined(level.scorestreaksbarebones) && isdefined(level.scorestreaksbarebones[killstreaknum - 1]))
 	{
-		return level.var_5c3d0fba[killstreaknum - 1];
+		return level.scorestreaksbarebones[killstreaknum - 1];
 	}
 	return self getloadoutitem(weaponclass, killstreakstring);
 }
@@ -828,7 +828,7 @@ function private function_c84c77d8(loadoutslot)
 }
 
 /*
-	Name: function_c0a72f5c
+	Name: give_talents
 	Namespace: loadout
 	Checksum: 0x7FB3A6A8
 	Offset: 0x2900
@@ -836,9 +836,9 @@ function private function_c84c77d8(loadoutslot)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_c0a72f5c()
+function private give_talents()
 {
-	pixbeginevent(#"hash_73501a4f12a7c2bc");
+	pixbeginevent(#"give_talents");
 	self.var_c8836f02 = self function_fd62a2aa(self.class_num);
 	foreach(var_ebdddedf in self.var_c8836f02)
 	{
@@ -856,7 +856,7 @@ function private function_c0a72f5c()
 }
 
 /*
-	Name: function_5ac66375
+	Name: give_perks
 	Namespace: loadout
 	Checksum: 0x635F5A44
 	Offset: 0x2A88
@@ -864,9 +864,9 @@ function private function_c0a72f5c()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5ac66375()
+function give_perks()
 {
-	pixbeginevent(#"hash_6c72a313fd27cbe");
+	pixbeginevent(#"give_perks");
 	self.specialty = self getloadoutperks(self.class_num);
 	self setplayerstateloadoutweapons(self.class_num);
 	self setplayerstateloadoutbonuscards(self.class_num);
@@ -1477,7 +1477,7 @@ function private give_weapons(previous_weapon)
 	{
 		spawn_weapon = self give_hero_gadget(previous_weapon, spawn_weapon, &function_215f4f21);
 	}
-	spawn_weapon = self function_f20f595a(previous_weapon, spawn_weapon, &function_c4d5300a);
+	spawn_weapon = self function_f20f595a(previous_weapon, spawn_weapon, &give_ultimate);
 	self function_d98a8122(spawn_weapon);
 	self function_da96d067();
 	self function_ee9b8d55();
@@ -1583,7 +1583,7 @@ function private function_8e961216(slot, previous_weapon)
 		primaryoffhand = level.weaponnone;
 		primaryoffhandcount = 0;
 	}
-	if(primaryoffhand == level.weaponnone || (isdefined(level.var_9c086117) && !level.var_9c086117))
+	if(primaryoffhand == level.weaponnone || (isdefined(level.specialistequipmentenabled) && !level.specialistequipmentenabled))
 	{
 		primaryoffhand = level.var_34d27b26;
 		primaryoffhandcount = 0;
@@ -1597,7 +1597,7 @@ function private function_8e961216(slot, previous_weapon)
 		loadout.weapon = primaryoffhand;
 		loadout.count = primaryoffhandcount;
 		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, changedspecialist);
-		if(isdefined(level.var_3c9de4f) && level.var_3c9de4f)
+		if(isdefined(level.specialistequipmentreadyonrespawn) && level.specialistequipmentreadyonrespawn)
 		{
 			self ability_util::function_36a15b60(primaryoffhand);
 		}
@@ -1662,7 +1662,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 		{
 			secondaryoffhand = getweapon(#"gadget_medicalinjectiongun");
 		}
-		else if(level.var_660101f)
+		else if(level.specialisthealingenabled)
 		{
 			secondaryoffhand = getweapon(#"gadget_health_regen");
 		}
@@ -1748,7 +1748,7 @@ function private function_215f4f21(slot, previous_weapon)
 		loadout.weapon = specialoffhand;
 		loadout.count = specialoffhandcount;
 		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, changedspecialist);
-		if(isdefined(level.var_aaf688d) && level.var_aaf688d)
+		if(isdefined(level.specialistabilityreadyonrespawn) && level.specialistabilityreadyonrespawn)
 		{
 			self ability_util::function_36a15b60(specialoffhand);
 		}
@@ -1764,7 +1764,7 @@ function private function_215f4f21(slot, previous_weapon)
 }
 
 /*
-	Name: function_c4d5300a
+	Name: give_ultimate
 	Namespace: loadout
 	Checksum: 0x9F01897F
 	Offset: 0x5230
@@ -1772,9 +1772,9 @@ function private function_215f4f21(slot, previous_weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_c4d5300a(slot, previous_weapon)
+function private give_ultimate(slot, previous_weapon)
 {
-	pixbeginevent(#"hash_2a6b8fa16718b02a");
+	pixbeginevent(#"give_ultimate");
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
@@ -1906,9 +1906,9 @@ function give_loadout(team, weaponclass)
 			if(var_c8f2f688)
 			{
 				self function_e6f9e3cd();
-				function_c0a72f5c();
+				give_talents();
 			}
-			function_5ac66375();
+			give_perks();
 			give_weapons(current_weapon);
 			function_5536bd9e();
 			function_f8ae6f87();

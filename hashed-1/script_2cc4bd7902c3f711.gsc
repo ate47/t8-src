@@ -63,7 +63,7 @@ class cct_shared_warning : cLUIelem
 		}
 		else
 		{
-			if(#"hash_80e92cf4cdaae12" == state_name)
+			if(#"warnheal_fadeout" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_47e79fc, "_state", 1);
 			}
@@ -87,13 +87,13 @@ class cct_shared_warning : cLUIelem
 						}
 						else
 						{
-							if(#"hash_626c7058df1977f5" == state_name)
+							if(#"warnheal_cycle1" == state_name)
 							{
 								player clientfield::function_9bf78ef8(var_47e79fc, "_state", 5);
 							}
 							else
 							{
-								if(#"hash_626c6d58df1972dc" == state_name)
+								if(#"warnheal_cycle2" == state_name)
 								{
 									player clientfield::function_9bf78ef8(var_47e79fc, "_state", 6);
 								}

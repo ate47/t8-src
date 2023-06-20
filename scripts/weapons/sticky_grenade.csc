@@ -38,11 +38,11 @@ function __init__()
 	callback::add_weapon_type(#"hash_4b92b1a2aa3037f5", &spawned);
 	callback::add_weapon_type(#"eq_cluster_semtex_grenade", &spawned);
 	callback::add_weapon_type(#"hash_66401df7cd6bf292", &function_6054cc1e);
-	callback::add_weapon_type(#"hash_18c353e6053566bd", &function_117f61b8);
+	callback::add_weapon_type(#"sig_bow_explosive", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e1edad9bd44fd", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e1ddad9bd434a", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e18dad9bd3acb", &function_117f61b8);
-	callback::add_weapon_type(#"hash_40380537847df901", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot", &spawned_arrow);
 	callback::add_weapon_type(#"hash_1d2a1056220e71a9", &spawned_arrow);
 	callback::add_weapon_type(#"hash_1d2a0f56220e6ff6", &spawned_arrow);
 	callback::add_weapon_type(#"hash_1d2a1256220e750f", &spawned_arrow);

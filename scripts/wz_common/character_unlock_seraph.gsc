@@ -107,7 +107,7 @@ function function_211772b5()
 				setdynentenabled(box, 0);
 			}
 		}
-		var_590fbce8 = function_91b29d2a(#"hash_58b98d5fbe6b1570");
+		var_590fbce8 = function_91b29d2a(#"annihilator_spawn");
 		if(isdefined(var_590fbce8) && var_590fbce8.size > 1)
 		{
 			var_590fbce8 = arraysortclosest(var_590fbce8, var_65688262.origin);

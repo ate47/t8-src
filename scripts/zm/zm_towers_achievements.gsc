@@ -383,7 +383,7 @@ function function_6fdb733f()
 function function_cbdb5e70()
 {
 	level endon(#"end_game");
-	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
+	if(zm_custom::function_901b751c(#"zmpapenabled") == 2)
 	{
 		return;
 	}

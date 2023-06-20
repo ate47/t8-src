@@ -175,7 +175,7 @@ function private function_a82534d(params, unitrigger, var_c060d2c8)
 */
 function private player_progress_bar_update(start_time, use_time)
 {
-	self endon(#"entering_last_stand", #"death", #"hash_17d245ea00b65b48");
+	self endon(#"entering_last_stand", #"death", #"progress_end");
 	while(isdefined(self) && (gettime() - start_time) < use_time)
 	{
 		progress = (gettime() - start_time) / use_time;
@@ -305,7 +305,7 @@ function private function_f8b39299(player, params, var_c060d2c8)
 		}
 		if(isdefined(player))
 		{
-			player notify(#"hash_17d245ea00b65b48");
+			player notify(#"progress_end");
 			if(_from_temple_geyser)
 			{
 				player zm_weapons::switch_back_primary_weapon(orgweapon);

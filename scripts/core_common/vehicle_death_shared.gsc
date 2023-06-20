@@ -303,7 +303,7 @@ function play_death_audio()
 */
 function play_spinning_plane_sound()
 {
-	if(self.vehicletype == #"hash_4043fb66689f91c8")
+	if(self.vehicletype == #"veh_dart_wz")
 	{
 		return;
 	}

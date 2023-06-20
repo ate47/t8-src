@@ -139,10 +139,10 @@ function function_d45a1f8d(einflictor, attacker, idamage, smeansofdeath, weapon,
 	{
 		return;
 	}
-	if(einflictor.owner == attacker && weapon == getweapon(#"cobra_20mm_comlink") && (isdefined(einflictor.var_6ac0633e) ? einflictor.var_6ac0633e : 0) < gettime())
+	if(einflictor.owner == attacker && weapon == getweapon(#"cobra_20mm_comlink") && (isdefined(einflictor.lastkillvo) ? einflictor.lastkillvo : 0) < gettime())
 	{
 		einflictor killstreaks::play_pilot_dialog_on_owner("kill", "helicopter_comlink", einflictor.killstreak_id);
-		einflictor.var_6ac0633e = gettime() + 5000;
+		einflictor.lastkillvo = gettime() + 5000;
 	}
 }
 

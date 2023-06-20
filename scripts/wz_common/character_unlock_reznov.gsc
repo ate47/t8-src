@@ -125,9 +125,9 @@ function on_player_killed()
 	{
 		return;
 	}
-	var_db4add2b = self.laststandparams.attackerorigin;
+	attacker_origin = self.laststandparams.attackerorigin;
 	var_e5b7c28e = self.laststandparams.victimorigin;
-	if(!isdefined(var_db4add2b) || !isdefined(var_e5b7c28e))
+	if(!isdefined(attacker_origin) || !isdefined(var_e5b7c28e))
 	{
 		return;
 	}
@@ -135,7 +135,7 @@ function on_player_killed()
 	{
 		return;
 	}
-	dist_to_target_sq = distancesquared(var_db4add2b, var_e5b7c28e);
+	dist_to_target_sq = distancesquared(attacker_origin, var_e5b7c28e);
 	if(dist_to_target_sq < 7800 * 7800)
 	{
 		return;

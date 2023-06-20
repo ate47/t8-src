@@ -109,7 +109,7 @@ function private function_7650d9fb(n_timer, var_f97d1a30)
 		}
 		self start_timer(n_timer, var_f97d1a30);
 		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(n_timer, #"hash_e66663be8ba322f");
+		var_be17187b = self waittilltimeout(n_timer, #"fasttravel_bought");
 		self stop_timer();
 		if(var_be17187b._notify == "timeout")
 		{
@@ -118,7 +118,7 @@ function private function_7650d9fb(n_timer, var_f97d1a30)
 			return;
 		}
 		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_66790eb1100e11a2");
+		var_be17187b = self waittill(#"fasttravel_finished");
 	}
 }
 

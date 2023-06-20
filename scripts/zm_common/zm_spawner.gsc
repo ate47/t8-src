@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_299f56e6d0b16416;
+#using scripts\zm_common\zm_quick_spawning.gsc;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using scripts\core_common\player\player_stats.gsc;
@@ -2135,10 +2135,10 @@ function function_dce9f1a6(spots)
 	a_candidates = [];
 	if(isdefined(player_info) && isdefined(player_info.player))
 	{
-		v_player_dir = player_info.player namespace_df043b58::function_c5ea0b0();
+		v_player_dir = player_info.player zm_quick_spawning::function_c5ea0b0();
 		if(lengthsquared(v_player_dir) > 0)
 		{
-			zones = namespace_df043b58::function_f1ec5df(player_info.player, v_player_dir, 1);
+			zones = zm_quick_spawning::function_f1ec5df(player_info.player, v_player_dir, 1);
 			for(i = 0; i < spots.size; i++)
 			{
 				if(isdefined(spots[i].var_d51f4e2d) && (gettime() - spots[i].var_d51f4e2d) < 3000)

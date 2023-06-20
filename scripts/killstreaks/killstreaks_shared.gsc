@@ -396,7 +396,7 @@ function private function_e48aca4d(type, bundle, weapon, vehicle, var_c0a31091, 
 */
 function register_bundle(bundle, var_c0a31091)
 {
-	function_e48aca4d(bundle.var_d3413870, bundle, bundle.var_1ab696c6, bundle.ksvehicle, var_c0a31091, 0);
+	function_e48aca4d(bundle.var_d3413870, bundle, bundle.ksweapon, bundle.ksvehicle, var_c0a31091, 0);
 	if(isdefined(bundle.var_fc0c8eae) && bundle.var_fc0c8eae.name != #"none")
 	{
 		function_e48aca4d("inventory_" + bundle.var_d3413870, bundle, bundle.var_fc0c8eae, undefined, var_c0a31091, 1);
@@ -412,10 +412,10 @@ function register_bundle(bundle, var_c0a31091)
 	Parameters: 2
 	Flags: None
 */
-function register_killstreak(bundlename, var_832677ec)
+function register_killstreak(bundlename, use_function)
 {
 	bundle = struct::get_script_bundle("killstreak", bundlename);
-	register_bundle(bundle, var_832677ec);
+	register_bundle(bundle, use_function);
 }
 
 /*
@@ -4476,13 +4476,13 @@ function function_8cd96439(killstreakref, killstreakid, onplacecallback, oncance
 	Parameters: 4
 	Flags: None
 */
-function function_84da1341(damagecallback, var_b6f10e7c, var_1891d3cd, var_2053fdc6)
+function function_84da1341(damagecallback, destroyedcallback, var_1891d3cd, var_2053fdc6)
 {
 	waitframe(1);
 	placeable = self;
 	if(isdefined(level.var_8ddb1b0e))
 	{
-		placeable thread [[level.var_8ddb1b0e]](placeable.killstreakref, placeable.health, var_b6f10e7c, 0, undefined, var_1891d3cd, var_2053fdc6, 1);
+		placeable thread [[level.var_8ddb1b0e]](placeable.killstreakref, placeable.health, destroyedcallback, 0, undefined, var_1891d3cd, var_2053fdc6, 1);
 	}
 }
 
@@ -5136,7 +5136,7 @@ function waitfortimeout(killstreak, duration, callback, endcondition1, endcondit
 			return;
 		}
 	#/
-	self endon(#"killstreak_hacked", #"hash_602ae7ca650d6287");
+	self endon(#"killstreak_hacked", #"cancel_timeout");
 	if(isdefined(endcondition1))
 	{
 		self endon(endcondition1);

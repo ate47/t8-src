@@ -642,15 +642,15 @@ function function_1da54a84(var_841324bd)
 					org = entity.origin + vectorscale((0, 0, 1), 70);
 					print3d(org, level.var_f4f73ef7[entity.var_3c5a5d29], (0, 1, 0), 1, 0.75);
 				}
-				var_2f8d622d = 0;
+				ai_cansee = 0;
 				if(isdefined(entity.enemy) && entity cansee(entity.enemy))
 				{
-					var_2f8d622d = 1;
+					ai_cansee = 1;
 				}
 				if(isdefined(entity.var_5a8f690))
 				{
 					org = entity.origin + vectorscale((0, 0, 1), 60);
-					print3d(org, ((("" + entity.var_5a8f690) + "") + var_2f8d622d) + "", (1, 0.5, 0), 1, 0.75);
+					print3d(org, ((("" + entity.var_5a8f690) + "") + ai_cansee) + "", (1, 0.5, 0), 1, 0.75);
 				}
 			}
 			axis = getaiteamarray(#"axis");
@@ -667,15 +667,15 @@ function function_1da54a84(var_841324bd)
 					org = entity.origin + vectorscale((0, 0, 1), 85);
 					print3d(org, level.var_486b7db0[entity.var_10a6d7df], (1, 0.5, 0), 1, 1);
 				}
-				var_2f8d622d = 0;
+				ai_cansee = 0;
 				if(isdefined(entity.enemy) && entity cansee(entity.enemy))
 				{
-					var_2f8d622d = 1;
+					ai_cansee = 1;
 				}
 				if(isdefined(entity.var_5a8f690))
 				{
 					org = entity.origin + vectorscale((0, 0, 1), 70);
-					print3d(org, ((("" + entity.var_5a8f690) + "") + var_2f8d622d) + "", (1, 0.5, 0), 1, 1);
+					print3d(org, ((("" + entity.var_5a8f690) + "") + ai_cansee) + "", (1, 0.5, 0), 1, 1);
 				}
 				if(isdefined(entity.var_9a79d89d))
 				{
@@ -1053,7 +1053,7 @@ function function_956b904a()
 			self function_cc9c6a13(self.var_10a6d7df);
 			self.var_10a6d7df = self.var_ef59b90;
 			self function_b8eff92a(self.var_10a6d7df);
-			self notify(#"hash_795f82c293077362");
+			self notify(#"reset_pathing");
 			self.navmeshpoint = undefined;
 			self.var_86ba7e6d = 0;
 			self.var_ef59b90 = undefined;
@@ -1230,7 +1230,7 @@ function function_b8eff92a(var_edab5327)
 */
 function checkfortimeout(waittime)
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"reset_pathing");
 	if(isdefined(waittime))
 	{
 		wait(waittime);
@@ -1251,7 +1251,7 @@ function checkfortimeout(waittime)
 */
 function registerspecialty_earnmoremomentumspawnstart()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"bot_goal_reached", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"bot_goal_reached", #"reset_pathing");
 	if(isdefined(self.var_fc5b0b7f))
 	{
 		wait(self.var_fc5b0b7f);
@@ -1276,7 +1276,7 @@ function registerspecialty_earnmoremomentumspawnstart()
 */
 function function_eff20434()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"reset_pathing");
 	self thread registerspecialty_earnmoremomentumspawnstart();
 	self waittill(#"bot_goal_reached", #"stop_wander", #"stop_chase");
 	self.navmeshpoint = undefined;
@@ -1294,10 +1294,10 @@ function function_eff20434()
 */
 function function_6390598e()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"reset_pathing");
 	self waittill(#"bot_goal_reached", #"stop_wander", #"stop_chase");
-	self val::set(#"hash_c637930c9d7c49a", "ignoreme", 1);
-	self val::set(#"hash_c637930c9d7c49a", "ignoreall", 1);
+	self val::set(#"revived_bot", "ignoreme", 1);
+	self val::set(#"revived_bot", "ignoreall", 1);
 }
 
 /*
@@ -1311,7 +1311,7 @@ function function_6390598e()
 */
 function function_f83f2862()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_1213d70444c626d4", #"reset_pathing");
 	self waittill(#"hash_69dbfbd660f8c53e");
 	if(!(isdefined(self.var_9f73d035) && self.var_9f73d035))
 	{
@@ -1334,7 +1334,7 @@ function function_f83f2862()
 */
 function function_6c89913a(var_daa4b90a = 1)
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_795f82c293077362");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"reset_pathing");
 	self.var_2925fedc = self.origin + vectorscale((1, 0, 0), 10);
 	wait(var_daa4b90a);
 	self.var_2925fedc = self.origin + (vectorscale((-1, 0, 0), 10));
@@ -1368,7 +1368,7 @@ function function_fad5456d()
 */
 function function_eca43db6()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_30e42661d25c8bcc", #"hash_795f82c293077362", #"hash_658257c9e391c92c");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_lookaround", #"reset_pathing", #"hash_658257c9e391c92c");
 	self notify(#"hash_12a5c1fba387d037");
 	if(!isdefined(self.navmeshpoint))
 	{
@@ -1438,7 +1438,7 @@ function function_911f9e8f(var_dfb36d05, n_threat = 0.5)
 */
 function function_3abfdc6b()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_30e42661d25c8bcc", #"hash_795f82c293077362", #"hash_658257c9e391c92c");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_lookaround", #"reset_pathing", #"hash_658257c9e391c92c");
 	self notify(#"hash_42a76c06b057248e");
 	if(!isdefined(self.navmeshpoint) && isdefined(self.var_9a79d89d))
 	{
@@ -1495,7 +1495,7 @@ function function_3abfdc6b()
 */
 function function_4b111722()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_wander", #"hash_795f82c293077362", #"hash_658257c9e391c92c");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_wander", #"reset_pathing", #"hash_658257c9e391c92c");
 	self notify(#"hash_37ed6c252b08c1a4");
 	if(!isdefined(self.navmeshpoint))
 	{
@@ -1551,7 +1551,7 @@ function function_4b111722()
 */
 function function_7bb67fd()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_chase", #"hash_795f82c293077362", #"hash_658257c9e391c92c");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_chase", #"reset_pathing", #"hash_658257c9e391c92c");
 	self notify(#"hash_7672894fd864263d");
 	a_players = util::get_players(#"allies");
 	e_enemy = self get_enemy();
@@ -1633,7 +1633,7 @@ function function_7bb67fd()
 */
 function function_9125af5f()
 {
-	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"hash_30e42661d25c8bcc", #"hash_795f82c293077362", #"hash_658257c9e391c92c");
+	self endon(#"death", #"disconnect", #"joined_team", #"joined_spectators", #"stop_lookaround", #"reset_pathing", #"hash_658257c9e391c92c");
 	switch(self.var_3c5a5d29)
 	{
 		case 1:
@@ -1650,7 +1650,7 @@ function function_9125af5f()
 		{
 			self.resurrect_not_allowed_by = 1;
 			level.var_986d14aa = undefined;
-			level notify(#"hash_1b2f366c8974d17a");
+			level notify(#"friendly_revived");
 			friendlies = getplayers(self.team);
 			foreach(player in friendlies)
 			{

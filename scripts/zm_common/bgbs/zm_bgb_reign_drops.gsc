@@ -84,7 +84,7 @@ function activation()
 	{
 		level thread bgb::function_c6cd71d5("carpenter", self function_dfc73f65(4), 96);
 	}
-	if(zm_custom::function_3ac936c6("zm_bgb_on_the_house") && zm_custom::function_901b751c(#"hash_3d18f84f48bd5d1f"))
+	if(zm_custom::function_3ac936c6("zm_bgb_on_the_house") && zm_custom::function_901b751c(#"zmperksactive"))
 	{
 		level thread bgb::function_c6cd71d5("free_perk", self function_dfc73f65(5), 96);
 	}

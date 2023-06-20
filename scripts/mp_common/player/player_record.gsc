@@ -469,8 +469,8 @@ function function_ea5da381()
 	}
 	if(sessionmodeiswarzonegame())
 	{
-		self persistence::set_recent_stat(0, 0, #"hash_95906bc03912ac4", self.pers[#"hash_95906bc03912ac4"]);
-		self persistence::set_recent_stat(0, 0, #"hash_50ee08d8d2973448", self.pers[#"hash_50ee08d8d2973448"]);
+		self persistence::set_recent_stat(0, 0, #"placement_team", self.pers[#"placement_team"]);
+		self persistence::set_recent_stat(0, 0, #"placement_player", self.pers[#"placement_player"]);
 		self persistence::set_recent_stat(0, 0, #"timeplayed", self.timeplayed[#"total"]);
 	}
 }
@@ -500,7 +500,7 @@ function function_7569c0fb()
 	self persistence::set_recent_stat(0, 0, #"damage", self.pers[#"damagedone"]);
 	self persistence::set_recent_stat(0, 0, #"objectiveekia", self.pers[#"objectiveekia"]);
 	self persistence::set_recent_stat(0, 0, #"objectivescore", self.pers[#"objectivescore"]);
-	self persistence::set_recent_stat(0, 0, #"hash_2dadc7ba42ffd04d", self.pers[#"hash_2dadc7ba42ffd04d"]);
+	self persistence::set_recent_stat(0, 0, #"objectivedefends", self.pers[#"objectivedefends"]);
 	self persistence::set_recent_stat(0, 0, #"objectivetime", self.pers[#"objectivetime"]);
 	self function_ea5da381();
 	self stats::function_81f5c0fe(self.pers[#"outcome"], 1);

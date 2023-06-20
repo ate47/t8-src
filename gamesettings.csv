@@ -1,11 +1,11 @@
 id,mode,type,desc
-hash_6f1440098d849316,zm,boolean,allow to buy pistol
-hash_edfb07f798aaab5,zm,boolean,allow to buy cqb
-hash_1f6665b5581f6b6e,zm,boolean,allow to buy smg
-hash_1d5c8e6f0e20201a,zm,boolean,allow to buy assault
+zmweaponspistol,zm,boolean,allow to buy pistol
+zmweaponsshotgun,zm,boolean,allow to buy shotguns
+zmweaponssmg,zm,boolean,allow to buy smg
+zmweaponsar,zm,boolean,allow to buy assault
 zmweaponstr,zm,boolean,allow to buy tactical
-hash_2f6740b518dbeb8f,zm,boolean,allow to buy lmg
-hash_5bfd047c58816496,zm,boolean,allow to buy sniper
+zmweaponslmg,zm,boolean,allow to buy lmg
+zmweaponssniper,zm,boolean,allow to buy sniper
 zmweaponsknife,zm,boolean,allow to buy knife
 zmdifficulty,zm,int[0-3],difficulty 0 = easy; 1 = normal; 2 = hard; 3 = insane
 zmtrialsvariant,zm,int,variant of a trials; 0 = default; 1 = hard?
@@ -71,24 +71,30 @@ hash_35c2d850e39fa704,wz,int,max player count
 magic,zm,boolean,enable magic
 hash_7695bdd7b20cdda,wz,boolean,allow to convert the replacer's muscle car
 drafttime,mp,int,time to select specialists (seconds)
-hash_36c4caf5bc327807,wz,boolean,set spawner brutus
-hash_64b6849360a2bc86,wz,boolean,set spawner brutus boss
-hash_29a8b0865154e079,wz,boolean,set spawner avogadro
-hash_7dd54269f48d6047,wz,boolean,set spawner blight father
-hash_530fdf750e69c0d6,wz,boolean,set spawner dog (bugged)
+wzbrutuseverywhere,wz,boolean,set spawner brutus
+wzbrutuslargeeverywhere,wz,boolean,set spawner brutus boss
+wzavogadroeverywhere,wz,boolean,set spawner avogadro
+wzblightfatherseverywhere,wz,boolean,set spawner blight father
+wzhellhoundseverywhere,wz,boolean,set spawner dog (bugged)
 wzavogadro,wz,boolean,spawn avogadro
 wzblightfather,wz,boolean,spawn blight father
-hash_6c65796bd239e3c,wz,boolean,spawn dog (bugged)
+wzhellhounds,wz,boolean,spawn dog (bugged)
 startround,zm,int,start round
 zmroundcap,zm,int,maximum round
 zmtimecap,zm,int,maximum time
 zmpowerupsactive,zm,allow powerups
-hash_137eb8d53913f781,zm,boolean,Allow elixirs
-hash_3ab7cedcfef7eacc,zm,boolean,Allow elixir type 1
-hash_5374d50efd1e6b59,zm,boolean,Allow elixir type 2
-hash_5e1f08b8335a0ce0,zm,boolean,Allow elixir type 3
-hash_7ea1426ffa93f34d,zm,boolean,Allow elixir type 4
-hash_5746674cbab8264d,zm,boolean,Allow elixir type 5
+zmelixirsenabled,zm,boolean,Allow elixirs
+hash_3ab7cedcfef7eacc,zm,boolean,Allow elixir type loadout
+zmelixirscommon,zm,boolean,Allow elixir type common
+zmelixirsrare,zm,boolean,Allow elixir type rare
+zmelixirslegendary,zm,boolean,Allow elixir type legendary
+zmelixirsepic,zm,boolean,Allow elixir type epic
+zmtalismansenabled,zm,boolean,Allow talismans
+zmtalismanscommon,zm,boolean,Allow type common
+zmtalismansrare,zm,boolean,Allow type rare
+zmtalismanslegendary,zm,boolean,Allow type legendary
+zmtalismansepic,zm,boolean,Allow type epic
+zmtalismansultra,zm,boolean,Allow type ultra
 hash_3d18f84f48bd5d1f,zm,boolean,Allow perks
 hash_4b16b22d8a0d3301,zm,boolean,Allow traps
 hash_2a5dc43e6de87347,zm,boolean,Highlight craftables items
@@ -103,7 +109,7 @@ hash_b066c34278e6394,zm,boolean,allow hero weapon
 hash_3f8f02e8109b6e93,core,boolean,allow friendly fire
 zmminibossstate,zm,boolean,allow miniboss entity
 zmheavystate,zm,boolean,allow heavy entity
-hash_5f8aca8340761fce,zm,boolean,allow dog/tiger entity
+zmpopcornstate,zm,boolean,allow dog/tiger entity
 zmenhancedstate,zm,boolean,allow enhanced entity
 zmpowerupnuke,zm,boolean,allow powerup nuke
 zmpowerupdouble,zm,boolean,allow powerup double
@@ -166,22 +172,56 @@ zmelixirtemporalgift,zm,boolean,allow elixir temporalgift
 zmelixirundeadmanwalking,zm,boolean,allow elixir undeadmanwalking
 zmelixirwallpower,zm,boolean,allow elixir wallpower
 zmelixirwhoskeepingscore,zm,boolean,allow elixir whoskeepingscore
-hash_7520ccdc8dcaee8d,zm,boolean,allow perk armorvest
-hash_8edd17a31990450,zm,boolean,allow perk fastreload
+zmtalismanboxguaranteeboxonly,zm,boolean,allow talisman box guarantee box only
+zmtalismanboxguaranteelmg,zm,boolean,allow talisman box guarantee lmg
+zmtalismancoagulant,zm,boolean,allow talisman coagulant
+zmtalismanextraclaymore,zm,boolean,allow talisman extra claymore
+zmtalismanextrafrag,zm,boolean,allow talisman extra frag
+zmtalismanextraminiturret,zm,boolean,allow talisman extra miniturret
+zmtalismanextramolotov,zm,boolean,allow talisman extra molotov
+zmtalismanextrasemtex,zm,boolean,allow talisman extra semtex
+zmtalismanimpatient,zm,boolean,allow talisman impatient
+zmtalismanperkmodsingle,zm,boolean,allow talisman perk modsingle
+zmtalismanperkpermanent1,zm,boolean,allow talisman perk permanent 1
+zmtalismanperkpermanent2,zm,boolean,allow talisman perk permanent 2
+zmtalismanperkpermanent3,zm,boolean,allow talisman perk permanent 3
+zmtalismanperkpermanent4,zm,boolean,allow talisman perk permanent 4
+zmtalismanperkreducecost1,zm,boolean,allow talisman perk reducecost 1
+zmtalismanperkreducecost2,zm,boolean,allow talisman perk reducecost 2
+zmtalismanperkreducecost3,zm,boolean,allow talisman perk reducecost 3
+zmtalismanperkreducecost4,zm,boolean,allow talisman perk reducecost 4
+zmtalismanperkstart1,zm,boolean,allow talisman perks tart 1
+zmtalismanperkstart2,zm,boolean,allow talisman perks tart 2
+zmtalismanperkstart3,zm,boolean,allow talisman perks tart 3
+zmtalismanperkstart4,zm,boolean,allow talisman perks tart 4
+zmtalismanshielddurabilitylegendary,zm,boolean,allow talisman shield durability legendary
+zmtalismanshielddurabilityrare,zm,boolean,allow talisman shield durability rare
+zmtalismanshieldprice,zm,boolean,allow talisman shield price
+zmtalismanspecialstartlvl2,zm,boolean,allow talisman special start level 2
+zmtalismanspecialstartlvl3,zm,boolean,allow talisman special start level 3
+zmtalismanspecialxprate,zm,boolean,allow talisman specialxprate
+zmtalismanstartweaponar,zm,boolean,allow talisman start weapon assault rifle
+zmtalismanstartweaponlmg,zm,boolean,allow talisman start weapon lmg
+zmtalismanstartweaponsmg,zm,boolean,allow talisman start weapon smg
+zmtalismanreducepapcost,zm,boolean,allow talisman reduce pap cost
+zmtalismanpermanentheroweaparmor,zm,boolean,allow talisman permanent hero weapon armor
+zmtalismanextraselfrevive,zm,boolean,allow talisman extra self revive
+zmperksjuggernaut,zm,boolean,allow perk juggernaut
+zmperksspeed,zm,boolean,allow perk speed
 zmperksquickrevive,zm,boolean,allow perk quickrevive
 hash_557e3edd7fe168c3,zm,boolean,allow perk widowswine
 zmperksstaminup,zm,boolean,allow perk staminup
 zmperksmulekick,zm,boolean,allow perk additionalprimaryweapon
-hash_77c5cc2d9b6ca16c,zm,boolean,allow perk electriccherry
+zmperkselectricburst,zm,boolean,allow perk electric cherry
 zmperksdeadshot,zm,boolean,allow perk deadshot
 zmperkscooldown,zm,boolean,allow perk cooldown
 zmperksdyingwish,zm,boolean,allow perk dying_wish
 zmperksphdslider,zm,boolean,allow perk phdflopper
 hash_5690c4dcc61973ec,zm,boolean,allow perk stronghold
-hash_1bdfb5736ad174a3,zm,boolean,allow perk extraammo
+zmperksbandolier,zm,boolean,allow perk extraammo
 zmperksdeathperception,zm,boolean,allow perk awareness
-hash_2dd9d538ca5bc2d6,zm,boolean,allow perk shield
-hash_179ae09979e80714,zm,boolean,allow perk mystery
+zmperksvictorious,zm,boolean,allow perk shield
+zmperkssecretsauce,zm,boolean,allow perk mystery
 zmperksetherealrazor,zm,boolean,allow perk etherealrazor
 zmperkszombshell,zm,boolean,allow perk zombshell
 zmperkswolfprotector,zm,boolean,allow perk wolf_protector
@@ -197,7 +237,7 @@ hash_33d1ac5e99fb0584,wz,boolean,spawn water balloons
 hash_437b759bd6885560,wz,boolean,Spawn snowballs
 hash_6fbf57e2af153e5f,wz,boolean,spawn homunculus ee
 hash_53b5887dea69a320,wz,boolean,enable spring homunculus ee
-hash_7c8ad12994670d63,wz,boolean,spawn blackjack crates
+wzlootlockers,wz,boolean,spawn blackjack crates
 hash_451245a24412d90f,all,int,time before checking for inactivity
 hash_410c5c7c1e60b534,all,int,values for inactivity checks (unknown)
 hash_6ae29c8144cb7659,all,int,values for inactivity checks (unknown)
@@ -309,13 +349,13 @@ wzenableperkreinforced,wz,boolean,enable perk reinforced
 wzenableperksquadlink,wz,boolean,enable perk squadlink
 hash_9fa187740ff5e40,wz,boolean,enable perk unknown (probably tracker)
 hash_78e459ad87509a46,wz,boolean,enable perk unknown (probably skulker)
+wzwetworks,wz,boolean,wetwork event settings
 wzenablelasersight,wz,boolean,enable laster sight
-hash_7e60451699436d76,wz,boolean,vehicle spawn related unknown
+wztestallvehicles,wz,boolean,enable all vehicles
+wzenablelittlebird,wz,boolean,enable littlebird
 hash_78bfea2b72e79da3,wz,boolean,vehicle spawn related unknown
-hash_767052b9f54e554a,wz,boolean,vehicle spawn related unknown
 hash_695d922e24b41e31,wz,boolean,vehicle spawn related unknown
 hash_3f91bba5e05b0f34,wz,boolean,vehicle spawn related unknown
-hash_31a92a9f4a213a7c,wz,boolean,vehicle spawn related unknown
 hash_2951c2ca77068ac9,wz,boolean,vehicle spawn related unknown
 hash_23e09b48546a7e3b,wz,boolean,vehicle spawn related unknown
 hash_1c3b95e54e6f178c,wz,boolean,vehicle spawn related unknown
@@ -330,27 +370,59 @@ wzenablerazorwire,wz,boolean,enable razorwire
 wzenablesensordart,wz,boolean,enable sensordart
 wzenablecombataxe,wz,boolean,enable combataxe
 wzenablesuppressor,wz,boolean,enable suppressor
+hash_701bac755292fab2,wz,boolean,spawn icarus
 hash_230f75891223e1f5,wz,boolean,enable attachment unknown
 hash_76563462cf31f5c,wz,boolean,enable attachment unknown
-hash_62181bb12898aef6,wz,boolean,enable attachment unknown
+wzenableextbarrel,wz,boolean,enable extended barrel
 hash_daba3be8725aaab,wz,boolean,enable attachment unknown
-hash_34f53d28a9bbfae9,wz,boolean,enable attachment unknown
+wzenableforegrip,wz,boolean,enable foregrip
 hash_1b28296927171330,wz,boolean,enable attachment unknown
+zmdoorstate,zm,int,door state
+zmshowtimer,zm,boolean,show game timer
+voipkillershearvictim,core,bool,killers hear victim voice chat
+voipeveryonehearseveryone,core,bool,everyone hears everyone voice chat
+voipdeadhearteamliving,core,bool,hear living team voice chat
+voipdeadhearkiller,core,bool,victim hear killer voice chat
+voipdeadhearallliving,core,bool,hear all living voice chat
+voipdeadchatwithteam,core,bool,dead chat with team
+voipdeadchatwithdead,core,bool,dead chat with dead
+timelimit,mp,int,time limit 0 for infinite
+multibomb,mp,bool,multiple bomb in sd
+defusetime,mp,int,defuse time in sd
+planttime,mp,int,plant time in sd
+bombtimer,mp,int,time before bomb explosion in sd
+drafteveryround,mp,bool,draft every round
+draftenabled,mp,bool,enable draft
+disableweapondrop,mp,bool,disable weapon drop
+disabletacinsert,mp,bool,disable tactical insertion
+disablecontracts,mp,bool,disable contracts
+disableclassselection,mp,bool,disable class selection
+disablecac,mp,bool,disable custom class
+disableattachments,mp,bool,disable attachments
+hash_464afa49c60793b7,wz,bool,detach gun from fav when shoot
+hash_3e111be61438fd22,wz,float,detach gun damage computation; default 1
+hash_5ba752e23e79af9d,wz,float,detach gun damage computation; default 5
+hash_36c2eeb3865325f2,wz,float,detach gun damage computation; default 0.25
+hash_4cb15aed177a8ef5,zm,bool,headshots only
+specialistfriendlyfire_allies_1,mp,int,friendly fire type
+friendlyfiretype,wz,int,friendly fire type
+roundstartfriendlyfiretype,mp,int,pre-timer friendly fire type
+hash_5d5f4ee35c9977c7,mp,int,friendly fire type timer 0 for none
+hash_68e3f54e05f57d85,mp,int,friendly fire kills before warning for type 4
+hash_51e989796c38cd87,mp,int,friendly fire kills after warning to be kick for type 4
+hash_5c918cbf75e16116,mp,int,friendly fire score compute element
+hash_ecf2124e9108fc4,mp,int,friendly fire score compute element
+wzzombiesmaxcount,wz,int,zombies count
+laststandrevivetime,mp,int,revive time
+wzspawnspecial,wz,bool,spawn special AI
 
-voipkillershearvictim,unknown,unknown,unknown
-voipeveryonehearseveryone,unknown,unknown,unknown
-voipdeadhearteamliving,unknown,unknown,unknown
-voipdeadhearkiller,unknown,unknown,unknown
-voipdeadhearallliving,unknown,unknown,unknown
-voipdeadchatwithteam,unknown,unknown,unknown
-voipdeadchatwithdead,unknown,unknown,unknown
+draftrequiredclients,unknown,unknown,unknown
 vehiclestimed,unknown,unknown,unknown
 vehiclesenabled,unknown,unknown,unknown
 usespawngroups,unknown,unknown,unknown
 useitemspawns,unknown,unknown,unknown
 use_doors,unknown,unknown,unknown
 totalkillsmax,unknown,unknown,unknown
-timelimit,unknown,unknown,unknown
 ticketslostontimeinterval,unknown,unknown,unknown
 ticketslostontimeamount,unknown,unknown,unknown
 ticketslostondeath,unknown,unknown,unknown
@@ -373,7 +445,6 @@ specialistonlyheadshots_allies_1,unknown,unknown,unknown
 specialistmaxhealth_allies_1,unknown,unknown,unknown
 specialisthealspeed_allies_1,unknown,unknown,unknown
 specialisthealingenabled_allies_1,unknown,unknown,unknown
-specialistfriendlyfire_allies_1,unknown,unknown,unknown
 specialistequipmentreadyonrespawn_allies_1,unknown,unknown,unknown
 specialistequipmentenabled_allies_1,unknown,unknown,unknown
 specialistabilityreadyonrespawn_allies_1,unknown,unknown,unknown
@@ -407,12 +478,10 @@ playermaxhealth,unknown,unknown,unknown
 playerkillsmax,unknown,unknown,unknown
 playerhealthregentime,unknown,unknown,unknown
 playerforcerespawn,unknown,unknown,unknown
-planttime,unknown,unknown,unknown
 perksenabled,unknown,unknown,unknown
 onlyheadshots,unknown,unknown,unknown
 oldschoolmode,unknown,unknown,unknown
 objectivepingtime,unknown,unknown,unknown
-multibomb,unknown,unknown,unknown
 maxteamplayers,unknown,unknown,unknown
 maxsuicidesbeforekick,unknown,unknown,unknown
 maxplayofthematchevents,unknown,unknown,unknown
@@ -427,7 +496,6 @@ incrementalspawndelay,unknown,unknown,unknown
 headshotsonly,unknown,unknown,unknown
 hash_f1e30f8dfc57d39,unknown,unknown,unknown
 hash_f04393e2e028c01,unknown,unknown,unknown
-hash_ecf2124e9108fc4,unknown,unknown,unknown
 hash_ec059b9a7f28627,unknown,unknown,unknown
 hash_e66ea1c74a48224,unknown,unknown,unknown
 hash_bd1199baafe11fe,unknown,unknown,unknown
@@ -457,10 +525,8 @@ hash_731aac1992af2669,unknown,unknown,unknown
 hash_731988b03dc6ee17,unknown,unknown,unknown
 hash_72baa3480316bf55,unknown,unknown,unknown
 hash_71b2b43696e16252,unknown,unknown,unknown
-hash_7148b13c0ace2cd7,unknown,unknown,unknown
 hash_712f4c2a96bca56e,unknown,unknown,unknown
 hash_70517c36d49b4ee0,unknown,unknown,unknown
-hash_701bac755292fab2,unknown,unknown,unknown
 hash_70072ee20a43ae21,unknown,unknown,unknown
 hash_6fb11b1e304d533c,unknown,unknown,unknown
 hash_6f272bb00e2d646e,unknown,unknown,unknown
@@ -471,12 +537,10 @@ hash_6cc7b012775d9662,unknown,unknown,unknown
 hash_6aba2f652c6f4e07,unknown,unknown,unknown
 hash_6a2434c947c86b9b,unknown,unknown,unknown
 hash_69ad073972c1c4ea,unknown,unknown,unknown
-hash_68e3f54e05f57d85,unknown,unknown,unknown
 hash_6881c7cab0dcef39,unknown,unknown,unknown
 hash_6873fc00b59bcd39,unknown,unknown,unknown
 hash_67d54bbc52811921,unknown,unknown,unknown
 hash_67b94d37f2e44ee2,unknown,unknown,unknown
-hash_66dce2e3aa29ab2e,unknown,unknown,unknown
 hash_661ee23f114191c1,unknown,unknown,unknown
 hash_64aba694bd70856c,unknown,unknown,unknown
 hash_648fb3af9bc11566,unknown,unknown,unknown
@@ -490,11 +554,8 @@ hash_5f99f52d9081044e,unknown,unknown,unknown
 hash_5f76e2d55ad861ed,unknown,unknown,unknown
 hash_5e9a89fe817a3fac,unknown,unknown,unknown
 hash_5d93a4005fc11d4f,unknown,unknown,unknown
-hash_5d5f4ee35c9977c7,unknown,unknown,unknown
 hash_5cc4c3042b7d4935,unknown,unknown,unknown
-hash_5c918cbf75e16116,unknown,unknown,unknown
 hash_5c6371ef701d7485,unknown,unknown,unknown
-hash_5ba752e23e79af9d,unknown,unknown,unknown
 hash_5b7b817a91ce3534,unknown,unknown,unknown
 hash_59ab05f71c3789c7,unknown,unknown,unknown
 hash_57743f417c14e3f9,unknown,unknown,unknown
@@ -508,7 +569,6 @@ hash_54dfa988db5db24c,unknown,unknown,unknown
 hash_542ec48cf30b74c0,unknown,unknown,unknown
 hash_5408e974098bc234,unknown,unknown,unknown
 hash_53b5887dea69a320,unknown,unknown,unknown
-hash_51e989796c38cd87,unknown,unknown,unknown
 hash_51a2cf319e12d9ae,unknown,unknown,unknown
 hash_512aec4c9e79844f,unknown,unknown,unknown
 hash_50c10372c80d0a6b,unknown,unknown,unknown
@@ -517,7 +577,6 @@ hash_4f4a73f236278ba8,unknown,unknown,unknown
 hash_4e4352bd1aaeedfe,unknown,unknown,unknown
 hash_4d6cfd0b3ee4cc7d,unknown,unknown,unknown
 hash_4d3b84d98e3a83d4,unknown,unknown,unknown
-hash_4cb15aed177a8ef5,unknown,unknown,unknown
 hash_4ca06c610b5d53bd,unknown,unknown,unknown
 hash_4c7c8c4bd1b2a58b,unknown,unknown,unknown
 hash_4bf99a809542e4ea,unknown,unknown,unknown
@@ -529,7 +588,6 @@ hash_49e5e9c2e7812462,unknown,unknown,unknown
 hash_49746a22bfe5fb83,unknown,unknown,unknown
 hash_48670d9509071424,unknown,unknown,unknown
 hash_46f957248efbd39a,unknown,unknown,unknown
-hash_464afa49c60793b7,unknown,unknown,unknown
 hash_450463e38ea8bf1,unknown,unknown,unknown
 hash_44c7473eab6e5459,unknown,unknown,unknown
 hash_446a66a4499c4e5d,unknown,unknown,unknown
@@ -542,13 +600,11 @@ hash_3eb2b790db0345da,unknown,unknown,unknown
 hash_3e8ed24e99b27614,unknown,unknown,unknown
 hash_3e62d9528eca0a13,unknown,unknown,unknown
 hash_3e13b420d6773b4c,unknown,unknown,unknown
-hash_3e111be61438fd22,unknown,unknown,unknown
 hash_3da025c068c34bcb,unknown,unknown,unknown
 hash_3d9a364d54750dca,unknown,unknown,unknown
 hash_3c96c4ddb442526d,unknown,unknown,unknown
 hash_3778ec3bd924f17c,unknown,unknown,unknown
 hash_36d000592fe3c302,unknown,unknown,unknown
-hash_36c2eeb3865325f2,unknown,unknown,unknown
 hash_368f9b5b4992b8da,unknown,unknown,unknown
 hash_3668350e780332a3,unknown,unknown,unknown
 hash_3624143624604b4c,unknown,unknown,unknown
@@ -561,7 +617,6 @@ hash_3083d02ea0f5761c,unknown,unknown,unknown
 hash_2fd89902533bd300,unknown,unknown,unknown
 hash_2fa72a7ec2d86741,unknown,unknown,unknown
 hash_2f4adaa9de981357,unknown,unknown,unknown
-hash_2f350927e92f2156,unknown,unknown,unknown
 hash_2f1217d530d06c4c,unknown,unknown,unknown
 hash_2e25d475b271a700,unknown,unknown,unknown
 hash_2d4ff63e866cdd74,unknown,unknown,unknown
@@ -593,7 +648,6 @@ hash_20787bdeafae5592,unknown,unknown,unknown
 hash_1fdc18ec4c85b70d,unknown,unknown,unknown
 hash_1fb467bbf02b5835,unknown,unknown,unknown
 hash_1f3825ba2a669400,unknown,unknown,unknown
-hash_1d45d6254eafda02,unknown,unknown,unknown
 hash_1d02e28ba907a343,unknown,unknown,unknown
 hash_1c94fa23e276efe9,unknown,unknown,unknown
 hash_1bcb7e5d76212b76,unknown,unknown,unknown
@@ -618,20 +672,9 @@ gameadvertisementruletimeleft,unknown,unknown,unknown
 gameadvertisementrulescorepercent,unknown,unknown,unknown
 gameadvertisementruleroundswon,unknown,unknown,unknown
 gameadvertisementruleround,unknown,unknown,unknown
-friendlyfiretype,unknown,unknown,unknown
 forwardspawnteamspecificspawns,unknown,unknown,unknown
 forceradar,unknown,unknown,unknown
 droppedtagrespawn,unknown,unknown,unknown
-draftrequiredclients,unknown,unknown,unknown
-drafteveryround,unknown,unknown,unknown
-draftenabled,unknown,unknown,unknown
-disableweapondrop,unknown,unknown,unknown
-disabletacinsert,unknown,unknown,unknown
-disablecontracts,unknown,unknown,unknown
-disableclassselection,unknown,unknown,unknown
-disablecac,unknown,unknown,unknown
-disableattachments,unknown,unknown,unknown
-defusetime,unknown,unknown,unknown
 deathpointloss,unknown,unknown,unknown
 deathcircle,unknown,unknown,unknown
 cumulativeroundscores,unknown,unknown,unknown
@@ -643,7 +686,6 @@ cleandepositonlinetime,unknown,unknown,unknown
 carrier_manualdrop,unknown,unknown,unknown
 bulletdamagescalar,unknown,unknown,unknown
 bountybagomoneymoney,unknown,unknown,unknown
-bombtimer,unknown,unknown,unknown
 boastenabled,unknown,unknown,unknown
 boastallowcam,unknown,unknown,unknown
 antiboostdistance,unknown,unknown,unknown
@@ -658,7 +700,6 @@ hash_1513b70c43495cc0,unknown,unknown,unknown
 hash_19d48a0d4490b0a2,unknown,unknown,unknown
 hash_21ae4d5b707b063,unknown,unknown,unknown
 hash_29004a67830922b6,unknown,unknown,unknown
-hash_2c6b5594940cc305,unknown,unknown,unknown
 hash_2d34a5d9024db85f,unknown,unknown,unknown
 hash_2f03c6055447a6b1,unknown,unknown,unknown
 hash_393fb6bd6c5874aa,unknown,unknown,unknown

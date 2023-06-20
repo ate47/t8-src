@@ -47,7 +47,7 @@ function __init__()
 	}
 	init_clientfields();
 	wz_wingsuit_hud::register("wz_wingsuit_hud");
-	level.var_f220c297 = getgametypesetting(#"hash_19400c3e10b77e6b");
+	level.deathcirclerespawn = getgametypesetting(#"deathcirclerespawn");
 	callback::on_localclient_connect(&on_localclient_connect);
 }
 

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3657077a08b7f19e;
 #using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
@@ -28,7 +28,7 @@
 */
 function main()
 {
-	namespace_c3287616::register_archetype(#"zombie_electric", &function_5df3e3dd, &function_c7e59327, &function_27695a82, 5);
+	zm_round_spawning::register_archetype(#"zombie_electric", &function_5df3e3dd, &function_c7e59327, &function_27695a82, 5);
 	zm_score::function_e5d6e6dd(#"zombie_electric", zombie_utility::function_d2dfacfd(#"hash_6f24d1fbe8a09727"));
 	zm_cleanup::function_cdf5a512(#"zombie", &function_a2f2a9a3);
 	level.var_621701e5 = array(getent("zombie_electric_spawner", "script_noteworthy"));
@@ -36,11 +36,11 @@ function main()
 	level.var_1c921b2b = 0;
 	if(zm_utility::is_classic())
 	{
-		if(zm_custom::function_901b751c(#"hash_5f8aca8340761fce") != 0)
+		if(zm_custom::function_901b751c(#"zmpopcornstate") != 0)
 		{
-			namespace_c402654::function_aec3446d(0);
+			namespace_c402654::dog_enable_rounds(0);
 			level.var_2f14be05 = 15;
-			namespace_c3287616::function_376e51ef(#"zombie_dog", level.var_2f14be05);
+			zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
 		}
 		level thread function_2eb8970d();
 	}
@@ -48,7 +48,7 @@ function main()
 	{
 		namespace_32192f7::function_95c1dd81(#"zombie_electric", &function_c7e59327);
 		namespace_32192f7::function_95c1dd81(#"zombie_dog", &function_82e6d4e0);
-		namespace_c3287616::function_376e51ef(#"zombie_dog", 15);
+		zm_round_spawning::function_376e51ef(#"zombie_dog", 15);
 		level thread function_2eb8970d();
 	}
 }
@@ -67,7 +67,7 @@ function function_2eb8970d()
 	level waittill(#"power_on2");
 	if(zm_custom::function_901b751c(#"zmenhancedstate") != 0)
 	{
-		namespace_c3287616::function_376e51ef(#"zombie_electric", level.round_number);
+		zm_round_spawning::function_376e51ef(#"zombie_electric", level.round_number);
 	}
 }
 

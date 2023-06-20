@@ -264,7 +264,7 @@ event main(eventstruct)
 	clientfield::function_a8bbc967("hudItems.numPropChanges", 16000, 2, "int", 0);
 	clientfield::function_a8bbc967("hudItems.numPropDecoys", 16000, 4, "int", 0);
 	clientfield::register("toplayer", "realtime_multiplay", 16000, 1, "int");
-	level.var_82e6af5d = mp_prop_timer::register("HideTimer");
+	level.hide_timer = mp_prop_timer::register("HideTimer");
 	level.prop_controls = mp_prop_controls::register("PropControls");
 }
 
@@ -712,7 +712,7 @@ function function_75b4c8bc()
 	level endon(#"game_ended");
 	foreach(player in level.players)
 	{
-		level.var_82e6af5d mp_prop_timer::close(player);
+		level.hide_timer mp_prop_timer::close(player);
 	}
 }
 
@@ -731,20 +731,20 @@ function function_7913d068(var_fae892d1)
 	var_fb3f700 = (var_fae892d1 * 1000) + gettime();
 	foreach(player in level.players)
 	{
-		level.var_82e6af5d mp_prop_timer::open(player, 1);
+		level.hide_timer mp_prop_timer::open(player, 1);
 		if(player util::isprop())
 		{
-			level.var_82e6af5d mp_prop_timer::set_isProp(player, 1);
+			level.hide_timer mp_prop_timer::set_isProp(player, 1);
 			level.prop_controls mp_prop_controls::open(player, 1);
 			continue;
 		}
-		level.var_82e6af5d mp_prop_timer::set_isProp(player, 0);
+		level.hide_timer mp_prop_timer::set_isProp(player, 0);
 	}
 	while(true)
 	{
 		foreach(player in level.players)
 		{
-			level.var_82e6af5d mp_prop_timer::set_timeRemaining(player, int((var_fb3f700 - gettime()) / 1000));
+			level.hide_timer mp_prop_timer::set_timeRemaining(player, int((var_fb3f700 - gettime()) / 1000));
 		}
 		n_current_time = (var_fb3f700 - gettime()) / 1000;
 		var_4dd94c4c = int(n_current_time);
@@ -959,7 +959,7 @@ function whistlestarttimer_internal(counttime)
 function useprophudserver()
 {
 	/#
-		if(getdvarint(#"hash_38ca626afad6fe7d", 0) != 0)
+		if(getdvarint(#"scr_ph_useprophudserver", 0) != 0)
 		{
 			return true;
 		}
@@ -1125,8 +1125,8 @@ function get_alive_nonspecating_players(team)
 */
 function function_3a38741e()
 {
-	level notify(#"hash_611b967582940077");
-	level endon(#"hash_611b967582940077", #"game_ended");
+	level notify(#"huntersforfeit");
+	level endon(#"huntersforfeit", #"game_ended");
 	wait(5);
 	numhunters = 0;
 	foreach(player in level.players)
@@ -1615,8 +1615,8 @@ function propwhistle()
 				level.whistling.alpha = 1;
 				level.whistling.alpha = 0.6;
 			}
-			var_5e03f315 = arraysortclosest(level.players, var_b87d1ed);
-			foreach(player in var_5e03f315)
+			sortedplayers = arraysortclosest(level.players, var_b87d1ed);
+			foreach(player in sortedplayers)
 			{
 				if(!isdefined(player))
 				{
@@ -1980,9 +1980,9 @@ function propwatchprematchsettings()
 	Parameters: 1
 	Flags: None
 */
-function organizeproplist(var_66ac8e3e)
+function organizeproplist(inarray)
 {
-	return array::randomize(var_66ac8e3e);
+	return array::randomize(inarray);
 }
 
 /*
@@ -2132,7 +2132,7 @@ function populateproplist()
 	{
 		modelname = tablelookupbyrow(var_a01224f2, rowindex, 0);
 		propsizetext = tablelookupbyrow(var_a01224f2, rowindex, 1);
-		var_9846ca56 = float(tablelookupbyrow(var_a01224f2, rowindex, 2));
+		propscale = float(tablelookupbyrow(var_a01224f2, rowindex, 2));
 		offsetx = int(tablelookupbyrow(var_a01224f2, rowindex, 3));
 		offsety = int(tablelookupbyrow(var_a01224f2, rowindex, 4));
 		offsetz = int(tablelookupbyrow(var_a01224f2, rowindex, 5));
@@ -2151,9 +2151,9 @@ function populateproplist()
 		{
 			rotation = (rotationx, rotationy, rotationz);
 		}
-		if(!isdefined(var_9846ca56) || var_9846ca56 == 0)
+		if(!isdefined(propscale) || propscale == 0)
 		{
-			var_9846ca56 = 1;
+			propscale = 1;
 		}
 		propsize = getpropsize(propsizetext);
 		if(!isdefined(propheight) || propheight == "")
@@ -2172,7 +2172,7 @@ function populateproplist()
 		{
 			proprange = int(proprange);
 		}
-		addproptolist(modelname, propsize, offset, rotation, propsizetext, var_9846ca56, propheight, proprange);
+		addproptolist(modelname, propsize, offset, rotation, propsizetext, propscale, propheight, proprange);
 	}
 	if(var_c6e6d665 == 0)
 	{
@@ -2222,7 +2222,7 @@ function setupprop()
 	self.prop = spawn("script_model", self.propent.origin);
 	self.prop.targetname = "prop";
 	self.prop setmodel(propinfo.modelname);
-	self.prop setscale(propinfo.var_9846ca56);
+	self.prop setscale(propinfo.propscale);
 	self.prop setcandamage(1);
 	self.prop setowner(self);
 	self.prop.xyzoffset = propinfo.xyzoffset;
@@ -2274,13 +2274,13 @@ function function_63d4897()
 		var_309e583f.anglesoffset = self.prop.info.anglesoffset;
 		var_309e583f.propheight = self.prop.info.propheight;
 		var_309e583f.proprange = self.prop.info.proprange;
-		var_309e583f.var_9846ca56 = self.prop.info.var_9846ca56;
+		var_309e583f.propscale = self.prop.info.propscale;
 		while(true)
 		{
 			var_94903b3f = 0;
-			offsetx = getdvarfloat(#"hash_1fc47d2e76f07df6", -0.0123);
-			offsety = getdvarfloat(#"hash_1fc47e2e76f07fa9", -0.0123);
-			offsetz = getdvarfloat(#"hash_1fc47b2e76f07a90", -0.0123);
+			offsetx = getdvarfloat(#"prop_offsetx", -0.0123);
+			offsety = getdvarfloat(#"prop_offsety", -0.0123);
+			offsetz = getdvarfloat(#"prop_offsetz", -0.0123);
 			if(offsetx != -0.0123 && offsetx != var_309e583f.xyzoffset[0])
 			{
 				var_309e583f.xyzoffset = (offsetx, var_309e583f.xyzoffset[1], var_309e583f.xyzoffset[2]);
@@ -2331,7 +2331,7 @@ function function_63d4897()
 				self applyanglesoffset();
 				self.prop linkto(self.propent);
 			}
-			height = getdvarint(#"hash_187deb59bde0efa2", -1);
+			height = getdvarint(#"prop_height", -1);
 			if(height != -1 && height != var_309e583f.propheight)
 			{
 				var_309e583f.propheight = height;
@@ -2339,7 +2339,7 @@ function function_63d4897()
 				self.thirdpersonheightoffset = height;
 				clientfield::set_to_player("", int(self.thirdpersonheightoffset / 10));
 			}
-			range = getdvarint(#"hash_2994877143792932", -1);
+			range = getdvarint(#"prop_range", -1);
 			if(range != -1 && range != var_309e583f.proprange)
 			{
 				var_309e583f.proprange = range;
@@ -2347,11 +2347,11 @@ function function_63d4897()
 				self.thirdpersonrange = range;
 				clientfield::set_to_player("", int(self.thirdpersonrange / 10));
 			}
-			scale = getdvarfloat(#"hash_41d2895b4805ea11", -0.0123);
-			if(scale != -0.0123 && scale != var_309e583f.var_9846ca56)
+			scale = getdvarfloat(#"prop_scale", -0.0123);
+			if(scale != -0.0123 && scale != var_309e583f.propscale)
 			{
-				var_309e583f.var_9846ca56 = scale;
-				self.prop.info.var_9846ca56 = scale;
+				var_309e583f.propscale = scale;
+				self.prop.info.propscale = scale;
 				self.prop setscale(scale);
 			}
 			waitframe(1);
@@ -2491,7 +2491,7 @@ function getpropsize(propsizetext)
 	Parameters: 8
 	Flags: None
 */
-function addproptolist(modelname, propsize, xyzoffset, anglesoffset, propsizetext, var_9846ca56, propheight, proprange)
+function addproptolist(modelname, propsize, xyzoffset, anglesoffset, propsizetext, propscale, propheight, proprange)
 {
 	if(!isdefined(level.proplist))
 	{
@@ -2507,7 +2507,7 @@ function addproptolist(modelname, propsize, xyzoffset, anglesoffset, propsizetex
 	}
 	propinfo = spawnstruct();
 	propinfo.modelname = modelname;
-	propinfo.var_9846ca56 = var_9846ca56;
+	propinfo.propscale = propscale;
 	propinfo.propsize = int(propsize);
 	propinfo.propsizetext = propsizetext;
 	if(isdefined(xyzoffset))
@@ -2872,7 +2872,7 @@ function choosebestpropforkillcam(var_545f0775, var_57713248)
 function function_d25cfae3(setclientfield)
 {
 	self show();
-	self notify(#"hash_7fe1b861ea89d531");
+	self notify(#"showplayer");
 	if(setclientfield)
 	{
 		self clientfield::set("hideTeamPlayer", 0);
@@ -2914,7 +2914,7 @@ function function_832a882d(team, setclientfield)
 function function_aa8a29ee(team)
 {
 	level endon(#"game_ended");
-	self endon(#"disconnect", #"hash_7fe1b861ea89d531");
+	self endon(#"disconnect", #"showplayer");
 	waitframe(1);
 	teamint = 1;
 	if(team == "axis")
@@ -2936,7 +2936,7 @@ function function_aa8a29ee(team)
 function function_3ea2519e(team)
 {
 	level endon(#"game_ended");
-	self endon(#"disconnect", #"hash_7fe1b861ea89d531");
+	self endon(#"disconnect", #"showplayer");
 	while(true)
 	{
 		res = undefined;
@@ -2958,7 +2958,7 @@ function function_3ea2519e(team)
 function function_8e69759(player, team)
 {
 	level endon(#"game_ended");
-	self endon(#"disconnect", #"hash_7fe1b861ea89d531");
+	self endon(#"disconnect", #"showplayer");
 	player endon(#"disconnect");
 	if(self util::isprop())
 	{
@@ -3330,8 +3330,8 @@ function function_70d75619()
 		level waittill(#"host_migration_begin");
 		starttime = gettime();
 		level waittill(#"host_migration_end");
-		var_2329780a = gettime() - starttime;
-		level.var_ac79a938 = level.var_ac79a938 + var_2329780a;
+		passedtime = gettime() - starttime;
+		level.var_ac79a938 = level.var_ac79a938 + passedtime;
 	}
 }
 
@@ -3367,7 +3367,7 @@ function function_1ee6f124(remainingtime)
 */
 function function_e32f6296(remainingtime)
 {
-	level endon(#"hash_72a9d8619c126022");
+	level endon(#"cancelcountdown");
 	hostmigration::waitlongdurationwithhostmigrationpause(remainingtime);
 	return true;
 }

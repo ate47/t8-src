@@ -38,7 +38,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3d1eec1f4849b380", &on_begin, &on_end);
+	zm_trial::register_challenge(#"random_teleport", &on_begin, &on_end);
 }
 
 /*
@@ -90,7 +90,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_3d1eec1f4849b380");
+	challenge = zm_trial::function_a36e8c38(#"random_teleport");
 	return isdefined(challenge);
 }
 

@@ -173,17 +173,17 @@ function function_8d93c592(w_curr)
 */
 function function_f8fdc6ad(w_curr)
 {
-	self endoncallback(&function_d3f42ccc, #"death");
+	self endoncallback(&stop_beam, #"death");
 	wait(0.1);
 	while(zm_utility::is_player_valid(self) && self isfiring() && self getweaponammoclip(w_curr) > 0 && !self ismeleeing() && !self isswitchingweapons())
 	{
 		waitframe(1);
 	}
-	self function_d3f42ccc();
+	self stop_beam();
 }
 
 /*
-	Name: function_d3f42ccc
+	Name: stop_beam
 	Namespace: zm_weap_ray_gun_mk2v
 	Checksum: 0xCB572EDF
 	Offset: 0x9A0
@@ -191,7 +191,7 @@ function function_f8fdc6ad(w_curr)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d3f42ccc(s_notify)
+function stop_beam(s_notify)
 {
 	self clientfield::set("" + #"hash_15cff60ea68de320", 0);
 	self clientfield::set("" + #"hash_7f4f3fbb9ccded2e", 0);

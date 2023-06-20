@@ -60,7 +60,7 @@ function defcon_sign_setup()
 	self sethintstring(#"hash_71158766520dc432");
 	level waittill(#"hash_2124984d1ece329c");
 	self.lights = getentarray(self.target, "targetname");
-	if(isdefined(self.lights) && util::function_5df4294() != #"zstandard")
+	if(isdefined(self.lights) && util::get_game_type() != #"zstandard")
 	{
 		for(j = 0; j < self.lights.size; j++)
 		{
@@ -416,7 +416,7 @@ function pentagon_ignore_spawner(spawner)
 function pack_door_init()
 {
 	trigger = getent("pack_room_door", "targetname");
-	if(util::function_5df4294() === #"zstandard")
+	if(util::get_game_type() === #"zstandard")
 	{
 		trigger hide();
 	}

@@ -12,14 +12,14 @@
 #using scripts\zm\zm_orange_ee_yellow_snow.gsc;
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_421e0a3702e22de;
+#using scripts\zm\zm_orange_pablo.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4333a03353e1e13a;
 #using script_48586eea5c3542a4;
 #using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using scripts\zm\zm_orange_trials.gsc;
 #using scripts\zm\zm_orange_freeze_trap.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_orange_audiologs.gsc;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;
 #using scripts\zm\zm_orange_special_rounds.gsc;
@@ -29,7 +29,7 @@
 #using scripts\zm_common\zm_trial.gsc;
 #using script_652cf01d4f20aeb5;
 #using script_67c9a990c0db216c;
-#using script_6a3f43063dfd1bdc;
+#using scripts\zm\zm_hms_util.gsc;
 #using script_6b6fff322a8a64eb;
 #using script_6e3c826b1814cab6;
 #using scripts\zm\zm_orange_mq_fuse.gsc;
@@ -111,7 +111,7 @@ event main(eventstruct)
 	level._uses_taser_knuckles = 1;
 	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
 	zm::init_fx();
-	level.custom_spawner_entry[#"crawl"] = &namespace_509a75d1::function_45bb11e4;
+	level.custom_spawner_entry[#"crawl"] = &zm_hms_util::function_45bb11e4;
 	level.var_c02e63 = &zm_orange_util::function_583cad13;
 	clientfield::register("actor", "sndActorUnderwater", 28000, 1, "int");
 	level._effect[#"headshot"] = "zombie/fx_bul_flesh_head_fatal_zmb";
@@ -181,7 +181,7 @@ event main(eventstruct)
 	level._zombiemode_custom_box_move_logic = &function_c3d2b3ee;
 	level flag::init(#"hash_142bf0da77232815");
 	level thread sndfunctions();
-	level thread namespace_85e029d3::init();
+	level thread zm_orange_pablo::init();
 	level thread zm_orange_challenges::main();
 	level thread namespace_f9df92f::main();
 	level thread zm_orange_ee_dynamite::main();
@@ -459,10 +459,10 @@ function setup_personality_character_exerts()
 	level.exert_sounds[18][#"underwater_gasp"] = "vox_mist_exert_underwater_emerge_gasp";
 	level.exert_sounds[19][#"underwater_gasp"] = "vox_marl_exert_underwater_emerge_gasp";
 	level.exert_sounds[20][#"underwater_gasp"] = "vox_russ_exert_underwater_emerge_gasp";
-	level.exert_sounds[17][#"hash_65836673931273db"] = array("vox_freeze_exert_plr_17_0", "vox_freeze_exert_plr_17_1", "vox_freeze_exert_plr_17_2");
-	level.exert_sounds[18][#"hash_65836673931273db"] = array("vox_freeze_exert_plr_18_0", "vox_freeze_exert_plr_18_1", "vox_freeze_exert_plr_18_2");
-	level.exert_sounds[19][#"hash_65836673931273db"] = array("vox_freeze_exert_plr_19_0", "vox_freeze_exert_plr_19_1", "vox_freeze_exert_plr_19_2");
-	level.exert_sounds[20][#"hash_65836673931273db"] = array("vox_freeze_exert_plr_20_0", "vox_freeze_exert_plr_20_1", "vox_freeze_exert_plr_20_2");
+	level.exert_sounds[17][#"freeze_exert"] = array("vox_freeze_exert_plr_17_0", "vox_freeze_exert_plr_17_1", "vox_freeze_exert_plr_17_2");
+	level.exert_sounds[18][#"freeze_exert"] = array("vox_freeze_exert_plr_18_0", "vox_freeze_exert_plr_18_1", "vox_freeze_exert_plr_18_2");
+	level.exert_sounds[19][#"freeze_exert"] = array("vox_freeze_exert_plr_19_0", "vox_freeze_exert_plr_19_1", "vox_freeze_exert_plr_19_2");
+	level.exert_sounds[20][#"freeze_exert"] = array("vox_freeze_exert_plr_20_0", "vox_freeze_exert_plr_20_1", "vox_freeze_exert_plr_20_2");
 }
 
 /*
@@ -580,7 +580,7 @@ function setupmusic()
 */
 function function_c3d2b3ee()
 {
-	if(!level flag::get(#"hash_24952374a6e863b8"))
+	if(!level flag::get(#"facility_available"))
 	{
 		var_15612e55 = level.chests[level.chest_index].script_noteworthy;
 		level.chests = array::randomize(level.chests);
@@ -858,7 +858,7 @@ function function_681c28c9()
 	level._effect[#"hash_4048cb4967032c4a"] = #"hash_7e272f1a9f143051";
 	level._effect[#"lght_marker"] = #"hash_7dec2fde8393c0f4";
 	level._effect[#"lght_marker_flare"] = #"hash_11347f5077a17dcb";
-	level._effect[#"hash_578e608ef34f517a"] = #"hash_11347f5077a17dcb";
+	level._effect[#"poltergeist_magicbox"] = #"hash_11347f5077a17dcb";
 	level._effect[#"hash_572a14944ad27060"] = #"zombie/fx_weapon_box_marker_zmb";
 }
 
@@ -952,7 +952,7 @@ function function_b5695720()
 */
 function function_bdf62232()
 {
-	self thread zm_orange_util::function_865209df(#"hash_755b2f3c6e5db17", #"hash_6d9b683b3abbb981");
+	self thread zm_orange_util::function_865209df(#"935_zombie", #"hash_6d9b683b3abbb981");
 }
 
 /*
@@ -966,7 +966,7 @@ function function_bdf62232()
 */
 function function_6be9c49c()
 {
-	self thread zm_orange_util::function_865209df(#"hash_1c326d6810f4e3ee", #"hash_42f42c8c6a56a111");
+	self thread zm_orange_util::function_865209df(#"german_zombie", #"hash_42f42c8c6a56a111");
 }
 
 /*

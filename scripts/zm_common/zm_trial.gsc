@@ -387,7 +387,7 @@ function function_63bdc1da(var_cfb434d8)
 */
 function fail(reason = undefined, var_eeb30248 = undefined)
 {
-	if(level flag::get("round_reset") || level flag::get(#"hash_6acab8bde7078239"))
+	if(level flag::get("round_reset") || level flag::get(#"trial_failed"))
 	{
 		return;
 	}
@@ -472,7 +472,7 @@ function function_361e2cb0()
 */
 function function_18b797ec()
 {
-	level flag::set(#"hash_6acab8bde7078239");
+	level flag::set(#"trial_failed");
 	level notify(#"end_round_think");
 	playsoundatposition(#"hash_24ecb9cb90a831b7", (0, 0, 0));
 	setmatchflag("disableIngameMenu", 1);

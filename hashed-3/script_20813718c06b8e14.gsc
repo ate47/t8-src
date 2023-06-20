@@ -73,13 +73,13 @@ class cct_timer_mod_ticks : cLUIelem
 				}
 				else
 				{
-					if(#"hash_7a6dd10b5ae58ff6" == state_name)
+					if(#"plus_destroyedobj" == state_name)
 					{
 						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
-						if(#"hash_41b001c31e1930c" == state_name)
+						if(#"plus_dogkill" == state_name)
 						{
 							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
@@ -91,7 +91,7 @@ class cct_timer_mod_ticks : cLUIelem
 							}
 							else
 							{
-								if(#"hash_39924d1c5b636e37" == state_name)
+								if(#"plus_multikill" == state_name)
 								{
 									[[ self ]]->set_data(localclientnum, "_state", 6);
 								}

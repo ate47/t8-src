@@ -217,7 +217,7 @@ function function_b0c5c975(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_24ce643c(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
-	if(!namespace_a6aea2c6::is_active(#"hash_65cfe78dc61dd3af"))
+	if(!namespace_a6aea2c6::is_active(#"silent_film"))
 	{
 		self thread postfx::playpostfxbundle(#"hash_1663ca7cc81f9b17");
 	}
