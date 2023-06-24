@@ -2,7 +2,7 @@
 #using scripts\zm\zm_escape_travel.gsc;
 #using script_4cc2542101cb7973;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

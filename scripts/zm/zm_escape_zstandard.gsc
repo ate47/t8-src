@@ -3,9 +3,9 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_39e954a546d3baf;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;

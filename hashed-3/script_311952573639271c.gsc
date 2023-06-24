@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm\powerup\zm_powerup_fire_sale.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
@@ -3654,16 +3654,16 @@ function function_d684005e(a_keys)
 	Parameters: 1
 	Flags: Linked
 */
-function function_281b6803(var_19aaca46)
+function function_281b6803(zbarrier_magicbox)
 {
 	v_float = anglestoup(self.angles) * 40;
-	switch(var_19aaca46.weapon.name)
+	switch(zbarrier_magicbox.weapon.name)
 	{
 		case "hero_hammer_lv3":
 		case "hero_hammer_lv2":
 		case "hero_hammer_lv1":
 		{
-			self.origin = self.origin + (vectornormalize(anglestoforward(var_19aaca46.angles)) * 8);
+			self.origin = self.origin + (vectornormalize(anglestoforward(zbarrier_magicbox.angles)) * 8);
 			self.angles = self.angles + vectorscale((1, 0, 0), 90);
 			break;
 		}
@@ -3671,7 +3671,7 @@ function function_281b6803(var_19aaca46)
 		case "hero_scepter_lv2":
 		case "hero_scepter_lv1":
 		{
-			self.origin = self.origin + (vectornormalize(anglestoforward(var_19aaca46.angles)) * 24);
+			self.origin = self.origin + (vectornormalize(anglestoforward(zbarrier_magicbox.angles)) * 24);
 			break;
 		}
 		case "hero_sword_pistol_lv2":
@@ -3680,12 +3680,12 @@ function function_281b6803(var_19aaca46)
 		{
 			if(self.model === #"wpn_t8_zm_melee_dw_hand_cannon_lvl1_world" || self.model === #"hash_d22c09c0aec2fc6" || self.model === #"wpn_t8_zm_melee_dw_hand_cannon_lvl3_world")
 			{
-				self.origin = self.origin + (vectornormalize(anglestoforward(var_19aaca46.angles)) * 10);
-				self.origin = self.origin + (vectornormalize(anglestoup(var_19aaca46.angles)) * 4);
+				self.origin = self.origin + (vectornormalize(anglestoforward(zbarrier_magicbox.angles)) * 10);
+				self.origin = self.origin + (vectornormalize(anglestoup(zbarrier_magicbox.angles)) * 4);
 			}
 			else
 			{
-				self.origin = self.origin + (vectornormalize(anglestoforward(var_19aaca46.angles)) * 16);
+				self.origin = self.origin + (vectornormalize(anglestoforward(zbarrier_magicbox.angles)) * 16);
 				self.angles = self.angles + vectorscale((1, 0, 0), 90);
 			}
 			break;

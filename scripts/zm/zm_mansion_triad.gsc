@@ -2,11 +2,11 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using script_387eab232fe22983;
 #using script_3e5ec44cfab7a201;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1975,7 +1975,7 @@ function function_a78b58f6(n_active, var_e05ded9, var_39cddd2a)
 		}
 		if(level.var_34ac013b < n_active)
 		{
-			ai_werewolf = namespace_977da60::function_47a88a0c(1, undefined, 1, s_loc, 20);
+			ai_werewolf = zombie_werewolf_util::function_47a88a0c(1, undefined, 1, s_loc, 20);
 			if(isdefined(ai_werewolf))
 			{
 				level.var_34ac013b++;

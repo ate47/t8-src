@@ -4,17 +4,17 @@
 #using scripts\zm_common\zm_quick_spawning.gsc;
 #using script_35598499769dbb3d;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
-#using script_3657077a08b7f19e;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_puppeteer_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -97,7 +97,7 @@ function __init__()
 	level flag::init(#"infinite_round_spawning");
 	level flag::init(#"hold_round_end");
 	level flag::init("round_active");
-	namespace_32192f7::function_95c1dd81(#"zombie", &function_f5c01f5);
+	zm_trial_special_enemy::function_95c1dd81(#"zombie", &function_f5c01f5);
 }
 
 /*

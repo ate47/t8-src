@@ -3,7 +3,7 @@
 #using script_14af1fd264ffe8cc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

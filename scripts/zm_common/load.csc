@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_12282e6b2cc91b42;
+#using scripts\zm_common\zm_customgame.csc;
 #using scripts\zm_common\zm_aoe.csc;
 #using scripts\core_common\vehicles\driving_fx.csc;
 #using scripts\weapons\zm\weaponobjects.csc;

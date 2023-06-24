@@ -3,12 +3,12 @@
 #using scripts\abilities\ability_player.gsc;
 #using script_301f64a4090c381a;
 #using script_35d3717bf2cbee8f;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_armor.gsc;
-#using script_db06eb511bd9b36;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -77,7 +77,7 @@ function __init__()
 		level.var_124446e = &function_124446e;
 	#/
 	level.var_ff96c5e4 = 0;
-	zm_armor::register(#"hash_5c9caf0397b30f1e", 0);
+	zm_armor::register(#"hero_weapon_armor", 0);
 }
 
 /*
@@ -655,8 +655,8 @@ function hero_weapon_on(n_slot, w_hero)
 	self addweaponstat(w_hero, #"used", 1);
 	level.var_ff96c5e4 = 1;
 	self.var_479965f7 = 1;
-	level notify(#"hash_2eed9998dba1b252", {#weapon:w_hero, #e_player:self});
-	self notify(#"hash_2eed9998dba1b252");
+	level notify(#"hero_weapon_activated", {#weapon:w_hero, #e_player:self});
+	self notify(#"hero_weapon_activated");
 	self thread zm_audio::function_cb8103f6(w_hero);
 	self thread function_60878f7f(w_hero);
 	self zm_stats::increment_client_stat("special_weapon_used");
@@ -1121,11 +1121,11 @@ function function_ac9f4b22()
 			array::thread_all(a_ai_targets, &function_c2dea172, self, w_current);
 			if(isdefined(self.var_bacee63b) && self.var_bacee63b)
 			{
-				self thread zm_armor::add(#"hash_5c9caf0397b30f1e", 100, 100);
+				self thread zm_armor::add(#"hero_weapon_armor", 100, 100);
 			}
 			else
 			{
-				self thread zm_armor::add(#"hash_5c9caf0397b30f1e", 50, 50);
+				self thread zm_armor::add(#"hero_weapon_armor", 50, 50);
 			}
 		}
 		else if(zm_loadout::is_hero_weapon(w_previous) || (w_previous == level.weaponnone && isdefined(var_a88b79c6)))
@@ -1137,14 +1137,14 @@ function function_ac9f4b22()
 			var_a88b79c6 = undefined;
 			if(!(isdefined(self.var_bacee63b) && self.var_bacee63b))
 			{
-				self thread zm_armor::remove(#"hash_5c9caf0397b30f1e", 1);
+				self thread zm_armor::remove(#"hero_weapon_armor", 1);
 			}
 			if(w_current != level.weaponnone)
 			{
 				self thread function_a1004d47();
 			}
 		}
-		self notify(#"hash_219c7081783c2153", {#last_weapon:w_previous, #weapon:w_current});
+		self notify(#"hero_weapon_change", {#last_weapon:w_previous, #weapon:w_current});
 	}
 }
 
@@ -1201,7 +1201,7 @@ function function_29e4516d()
 */
 function private function_9f3a3d48()
 {
-	return namespace_6b49f66b::is_active(1) || namespace_fc5170d1::is_active();
+	return zm_trial_restrict_loadout::is_active(1) || namespace_fc5170d1::is_active();
 }
 
 /*

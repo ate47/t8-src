@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_38dc72b5220a1a67;
-#using script_4b8246c6211876df;
+#using scripts\mp_common\gametypes\ct_crash_tutorial.csc;
 #using scripts\mp_common\gametypes\ct_core.csc;
 #using script_ef0f46d70331b6f;
 #using scripts\core_common\clientfield_shared.csc;
@@ -20,6 +20,6 @@ event main(eventstruct)
 {
 	ct_core::function_46e95cc7();
 	ct_core::function_fa03fc55();
-	namespace_47ace5cf::init();
+	ct_crash_tutorial::init();
 }
 

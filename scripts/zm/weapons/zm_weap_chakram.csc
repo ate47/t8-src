@@ -33,8 +33,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("actor", "" + #"hash_653c87db0114ac83", 1, 2, "counter", &function_8e1552b1, 1, 0);
-	clientfield::register("actor", "" + #"hash_1dd21bd7be62210e", 1, 2, "counter", &function_6831ee4b, 1, 0);
+	clientfield::register("actor", "" + #"zombie_slice_right", 1, 2, "counter", &function_8e1552b1, 1, 0);
+	clientfield::register("actor", "" + #"zombie_slice_left", 1, 2, "counter", &function_6831ee4b, 1, 0);
 	clientfield::register("allplayers", "" + #"hash_aefa3d014b0fa1b", 1, 1, "counter", &function_97e2da8c, 1, 0);
 	clientfield::register("actor", "" + #"hash_1e22d429435cc148", 1, 1, "int", &function_f8183854, 1, 0);
 	clientfield::register("vehicle", "" + #"hash_1e22d429435cc148", 1, 1, "int", &function_f8183854, 1, 0);

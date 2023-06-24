@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\trials\zm_trial_disable_bgbs.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

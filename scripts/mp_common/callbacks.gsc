@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\player\player_callbacks.gsc;
-#using script_184abbae9afad370;
+#using scripts\mp_common\player\player_damage.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_29ed825598140ca0;
+#using scripts\mp_common\player\player_killed.gsc;
 #using scripts\core_common\bots\bot_traversals.gsc;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_43956600fe6c6be1;
-#using script_4c6debf78dffeeaf;
-#using script_6f416ed516b814a3;
+#using scripts\mp_common\player\player_connect.gsc;
+#using scripts\mp_common\player\player_disconnect.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
@@ -370,7 +370,7 @@ function function_aa7d1d97()
 			{
 				if(waitresult.area === "left_arm" || waitresult.area === "right_arm")
 				{
-					if(waitresult.entity.damageweapon !== getweapon(#"hash_42a45d43be3dba42"))
+					if(waitresult.entity.damageweapon !== getweapon(#"zhield_spectral_dw"))
 					{
 						waitresult.attacker create_and_play_dialog(#"general", #"gib");
 					}
@@ -961,7 +961,7 @@ function function_2d93d659(w_weapon)
 		if(self.var_8095a228 === n_variant)
 		{
 			self.var_8095a228++;
-			self thread create_and_play_dialog(#"hero_ready", str_weapon_name, n_variant, 1, #"hash_2eed9998dba1b252");
+			self thread create_and_play_dialog(#"hero_ready", str_weapon_name, n_variant, 1, #"hero_weapon_activated");
 		}
 	}
 }
@@ -3598,8 +3598,8 @@ function checkforvalidweapon(weapon)
 	b_isvalid = 1;
 	switch(weapon.name)
 	{
-		case "hash_42a45d43be3dba42":
-		case "hash_78e66b21aa05c753":
+		case "zhield_spectral_dw":
+		case "zhield_spectral_dw_upgraded":
 		{
 			b_isvalid = 0;
 			break;
@@ -3677,7 +3677,7 @@ event function_320145f7(eventstruct)
 			}
 			else
 			{
-				if(isdefined(self.sinkhole_charges_detonatedteleportterminate) && self.sinkhole_charges_detonatedteleportterminate)
+				if(isdefined(self.bgb_quacknarok) && self.bgb_quacknarok)
 				{
 					level thread zmbaivox_playvox(self, "death_quack", 1, 4);
 				}

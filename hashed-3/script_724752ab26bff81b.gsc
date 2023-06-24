@@ -8,7 +8,7 @@
 #using script_5f9141e04e4e94a2;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_74608ad5d25450b1;
 #using script_78e9e286015f2ec;
 #using scripts\core_common\array_shared.gsc;
@@ -103,7 +103,7 @@ function function_dd535733()
 	level.s_ww_printer_compartment = struct::get("ww_printer_compartment", "targetname");
 	level.s_ww_printer_compartment scene::play("init");
 	level.s_ww_printer_compartment flagsys::wait_till(#"scene_ents_ready");
-	level.s_ww_printer_compartment.entity = level.s_ww_printer_compartment.scene_ents[#"hash_7aff0ee60ddd937b"];
+	level.s_ww_printer_compartment.entity = level.s_ww_printer_compartment.scene_ents[#"prop 1"];
 	for(i = 0; i < 4; i++)
 	{
 		level.s_ww_printer_compartment.entity hidepart("tag_gun_full_" + i);

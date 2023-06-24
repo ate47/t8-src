@@ -9,7 +9,7 @@
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -116,7 +116,7 @@ function private on_player_spawned()
 function private function_7c52f40()
 {
 	self endon(#"death");
-	self.var_ef46cd4 = #"hash_462c11ee0f1f9550";
+	self.var_ef46cd4 = #"zombie_e1_itemlist";
 	self.clamptonavmesh = 0;
 	self.ignorepathenemyfightdist = 1;
 	self.var_bb185cc5 = 0;

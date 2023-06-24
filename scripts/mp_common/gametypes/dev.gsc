@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\bots\bot.gsc;
-#using script_269e356734524812;
+#using scripts\mp_common\gametypes\dev_spawn.gsc;
 #using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -92,7 +92,7 @@ function init()
 		thread devhelipathdebugdraw();
 		thread devstraferunpathdebugdraw();
 		thread dev_class::dev_cac_init();
-		thread namespace_af53555a::function_d8049496();
+		thread dev_spawn::function_d8049496();
 		thread globallogic_score::setplayermomentumdebug();
 		setdvar(#"scr_giveperk", "");
 		setdvar(#"scr_forceevent", "");
@@ -475,7 +475,7 @@ function updatedevsettings()
 {
 	/#
 		player = util::gethostplayer();
-		namespace_af53555a::function_c28b3d26();
+		dev_spawn::function_c28b3d26();
 		updateminimapsetting();
 		if(level.players.size > 0)
 		{
@@ -855,7 +855,7 @@ function updatedevsettings()
 																											for(i = 0; i < level.radios.size; i++)
 																											{
 																												color = (1, 0, 0);
-																												level namespace_af53555a::showonespawnpoint(level.radios[i], color, "", 32, "");
+																												level dev_spawn::showonespawnpoint(level.radios[i], color, "", 32, "");
 																											}
 																										}
 																										else

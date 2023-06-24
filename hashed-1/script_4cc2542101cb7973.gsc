@@ -6,7 +6,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\bots\bot_util.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_vo.gsc;
@@ -15,9 +15,9 @@
 #using scripts\zm_common\zm_sq.gsc;
 #using script_7c62f55ce3a557ff;
 #using script_ab862743b3070a;
-#using script_b00fcbc28051f15;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -294,7 +294,7 @@ function step_1(var_a276c861)
 		s_result.e_brutus thread function_b4ab4a64();
 	}
 	var_d388f9de = struct::get(#"hash_1fb558842bdc2690");
-	var_db15362c = var_d388f9de.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_db15362c = var_d388f9de.scene_ents[#"prop 1"];
 	var_db15362c clientfield::set("" + #"hash_376c030aee1d6ccb", 1);
 	level thread function_1f975a04();
 	var_38e9df50 = struct::get(#"s_r_w_a_r");
@@ -366,7 +366,7 @@ function step_1_cleanup(var_a276c861, var_19e802fa)
 			level flag::set("activate_warden_house_2_attic");
 		}
 		var_d388f9de = struct::get(#"hash_1fb558842bdc2690");
-		var_db15362c = var_d388f9de.scene_ents[#"hash_7aff0ee60ddd937b"];
+		var_db15362c = var_d388f9de.scene_ents[#"prop 1"];
 		var_db15362c clientfield::set("" + #"hash_376c030aee1d6ccb", 2);
 		var_d7cbafba = struct::get(#"hash_32ae80e5cfea37c3");
 		if(!isdefined(var_d7cbafba.mdl_fx))
@@ -584,7 +584,7 @@ function function_cf51e21a()
 	var_d388f9de thread scene::play();
 	playsoundatposition(#"hash_4731813c2e1aa578", var_d388f9de.origin);
 	wait(0.5);
-	var_db15362c = var_d388f9de.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_db15362c = var_d388f9de.scene_ents[#"prop 1"];
 	var_db15362c clientfield::set("" + #"hash_376c030aee1d6ccb", 2);
 	var_d7cbafba = struct::get(#"hash_32ae80e5cfea37c3");
 	var_d7cbafba.mdl_fx = util::spawn_model(#"tag_origin", var_d7cbafba.origin, var_d7cbafba.angles);
@@ -2981,7 +2981,7 @@ function function_3035b012()
 			e_player playsound(#"hash_503df109f2de7783");
 			if(isdefined(e_player.s_loadout))
 			{
-				if(e_player.s_loadout.current == getweapon(#"hash_42a45d43be3dba42") || e_player.s_loadout.current == getweapon(#"hash_78e66b21aa05c753"))
+				if(e_player.s_loadout.current == getweapon(#"zhield_spectral_dw") || e_player.s_loadout.current == getweapon(#"zhield_spectral_dw_upgraded"))
 				{
 					e_player.var_3b5e1037 = 1;
 				}
@@ -3599,7 +3599,7 @@ function private function_26609819()
 		}
 		if(zombie_utility::get_current_zombie_count() < zombie_utility::function_d2dfacfd(#"zombie_max_ai"))
 		{
-			ai_dog = namespace_c402654::function_62db7b1c(1, undefined);
+			ai_dog = zombie_dog_util::function_62db7b1c(1, undefined);
 			waitframe(1);
 		}
 		if(isdefined(ai_dog))
@@ -3937,7 +3937,7 @@ function private function_5deecaa4()
 		{
 			if(level.brutus_count < level.brutus_max_count)
 			{
-				namespace_961cf978::attempt_brutus_spawn(1);
+				zombie_brutus_util::attempt_brutus_spawn(1);
 				break;
 			}
 		}
@@ -3983,7 +3983,7 @@ function private function_f28c854b()
 		a_e_brutus = getaiarchetypearray(#"brutus");
 		if(a_e_brutus.size == 0)
 		{
-			namespace_961cf978::attempt_brutus_spawn(1);
+			zombie_brutus_util::attempt_brutus_spawn(1);
 		}
 		wait(2);
 	}
@@ -4799,7 +4799,7 @@ function function_8ffd93bf(a_ents)
 function function_512a6b36(a_ents)
 {
 	mdl_door = getent("jar_1", "targetname");
-	a_ents[#"hash_7aff0ee60ddd937b"] linkto(mdl_door, "tag_door_anim", (0, 0, 0));
+	a_ents[#"prop 1"] linkto(mdl_door, "tag_door_anim", (0, 0, 0));
 }
 
 /*
@@ -5190,7 +5190,7 @@ function boss_intro(a_ents)
 	a_ents[#"boss"] clientfield::increment("" + #"hash_29d283d7f747d358");
 	wait(0.3);
 	a_ents[#"boss"] hide();
-	a_ents[#"hash_7aff0ee60ddd937b"] hide();
+	a_ents[#"prop 1"] hide();
 }
 
 /*
@@ -5553,7 +5553,7 @@ function function_efbccd91()
 	var_c22bb85c = 0;
 	foreach(player in util::get_active_players())
 	{
-		if(player hasweapon(getweapon(#"hash_42a45d43be3dba42")) || player hasweapon(getweapon(#"hash_78e66b21aa05c753")))
+		if(player hasweapon(getweapon(#"zhield_spectral_dw")) || player hasweapon(getweapon(#"zhield_spectral_dw_upgraded")))
 		{
 			var_c22bb85c = 1;
 			break;
@@ -5575,7 +5575,7 @@ function give_player_shield(var_e9e88745)
 {
 	s_info = undefined;
 	s_info = self waittill(#"trigger");
-	s_info.activator giveweapon(getweapon(#"hash_42a45d43be3dba42"));
+	s_info.activator giveweapon(getweapon(#"zhield_spectral_dw"));
 	var_e9e88745 delete();
 	self delete();
 }
@@ -5659,7 +5659,7 @@ function function_a4e995fb(n_brutus, var_49770f00 = 0)
 	var_9bc12626 = array("brutus_spawned", "brutus_spawn_failed");
 	while(level.var_dcff743c)
 	{
-		namespace_961cf978::attempt_brutus_spawn(1, "zone_west_side_exterior_upper_03", 1);
+		zombie_brutus_util::attempt_brutus_spawn(1, "zone_west_side_exterior_upper_03", 1);
 		s_waittill = undefined;
 		s_waittill = level waittill(var_9bc12626);
 		if(isdefined(s_waittill.ai_brutus))
@@ -5844,7 +5844,7 @@ function function_f1eda79e()
 	}
 	var_3ded86ce.health = int(ceil(2961 / (4 - (util::get_active_players().size - 1))));
 	var_3ded86ce.b_ignore_cleanup = 1;
-	var_3ded86ce thread namespace_961cf978::brutus_spawn(undefined, undefined, undefined, undefined, "zone_west_side_exterior_upper_03");
+	var_3ded86ce thread zombie_brutus_util::brutus_spawn(undefined, undefined, undefined, undefined, "zone_west_side_exterior_upper_03");
 	var_3ded86ce.var_ece4a895 = &function_bba62242;
 	var_3ded86ce ai::set_behavior_attribute("can_ground_slam", 1);
 	var_3ded86ce.var_db8b3627 = 1;
@@ -7098,17 +7098,17 @@ function private function_30bab0b0(b_taken = 1)
 	self endon(#"death", #"disconnect");
 	if(b_taken)
 	{
-		if(self hasweapon(getweapon(#"hash_78e66b21aa05c753")))
+		if(self hasweapon(getweapon(#"zhield_spectral_dw_upgraded")))
 		{
 			self.var_a4d61ba4 = 1;
-			weapon = getweapon(#"hash_78e66b21aa05c753");
+			weapon = getweapon(#"zhield_spectral_dw_upgraded");
 		}
 		else
 		{
-			if(self hasweapon(getweapon(#"hash_42a45d43be3dba42")))
+			if(self hasweapon(getweapon(#"zhield_spectral_dw")))
 			{
 				self.var_719ddec1 = 1;
-				weapon = getweapon(#"hash_42a45d43be3dba42");
+				weapon = getweapon(#"zhield_spectral_dw");
 			}
 			else
 			{
@@ -7131,14 +7131,14 @@ function private function_30bab0b0(b_taken = 1)
 		if(isdefined(self.var_a4d61ba4) && self.var_a4d61ba4)
 		{
 			self.var_a4d61ba4 = undefined;
-			self giveweapon(getweapon(#"hash_78e66b21aa05c753"));
+			self giveweapon(getweapon(#"zhield_spectral_dw_upgraded"));
 		}
 		else
 		{
 			if(isdefined(self.var_719ddec1) && self.var_719ddec1)
 			{
 				self.var_719ddec1 = undefined;
-				self giveweapon(getweapon(#"hash_42a45d43be3dba42"));
+				self giveweapon(getweapon(#"zhield_spectral_dw"));
 			}
 			else
 			{
@@ -7150,7 +7150,7 @@ function private function_30bab0b0(b_taken = 1)
 		{
 			self.var_9fd623ed = self.var_b3032361;
 			self.var_b3032361 = undefined;
-			self thread namespace_b4a066ff::function_804309c();
+			self thread zm_weap_spectral_shield::function_804309c();
 			self zm_weapons::set_stowed_weapon(self.weaponriotshield);
 		}
 	}

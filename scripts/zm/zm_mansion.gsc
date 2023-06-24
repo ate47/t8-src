@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1035f8d62d51bc68;
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_18e21a7011416ce0;
+#using scripts\zm_common\zm_audio_sq.gsc;
 #using script_18eb520705898614;
 #using script_190d6b82bcca0908;
 #using scripts\zm_common\zm_transformation.gsc;
@@ -13,22 +13,22 @@
 #using script_387eab232fe22983;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3e5ec44cfab7a201;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_mansion_triad.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm_common\zm_items.gsc;
-#using script_4ce221fa76511ddd;
+#using scripts\zm\zm_mansion_trap_werewolfer.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm\zm_mansion_ww_lvl1_quest.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using script_56827ded777071f1;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_5e6956db6de5b044;
+#using scripts\zm\zm_mansion_traps_firegates.gsc;
 #using scripts\zm\zm_mansion_ww_lvl2_quest.gsc;
-#using script_68b63ff01433d9ea;
+#using scripts\zm\zm_mansion_storage.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_mansion_jordans.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using scripts\zm\zm_mansion_impaler.gsc;
@@ -40,7 +40,7 @@
 #using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\zm\zm_mansion_silver_bullet.gsc;
 #using scripts\zm\zm_mansion_ww_lvl3_quest.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -149,7 +149,7 @@ event main(eventstruct)
 	level.w_knife = getweapon(#"knife");
 	level.w_bowie_knife = getweapon(#"bowie_knife");
 	zm::init_fx();
-	namespace_c2ad41c5::init();
+	mansion_storage::init();
 	mansion_pap::init_clientfields();
 	mansion_pap::function_7255025f();
 	namespace_a8113e97::init();
@@ -159,7 +159,7 @@ event main(eventstruct)
 	namespace_59d4913f::init();
 	mansion_jordans::init();
 	mansion_achievements::init();
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 	clientfield::register("clientuimodel", "player_lives", 8000, 2, "int");
 	clientfield::register("clientuimodel", "zmhud.ammoModifierActive", 8000, 1, "int");
 	clientfield::register("world", "" + #"hash_42e03f9ae74a1070", 8000, 1, "int");
@@ -206,7 +206,7 @@ event main(eventstruct)
 	level.zombiemode_reusing_pack_a_punch = 1;
 	level.custom_spawner_entry[#"crawl"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"zombie_jump_in"] = &function_4b4b59ed;
-	level.custom_spawner_entry[#"hash_21e32c4c500397a2"] = &function_d05b12f;
+	level.custom_spawner_entry[#"zombie_wallcrack"] = &function_d05b12f;
 	level thread function_fc9d7a1f();
 	callback::on_spawned(&on_player_spawned);
 	callback::on_ai_killed(&mansion_util::function_9e147e0c);
@@ -337,7 +337,7 @@ function on_player_spawned()
 		self zm_audio::function_87714659(&zm_mansion_sound::function_e432aeb6, #"pap", #"wait");
 		self zm_audio::function_87714659(&zm_mansion_sound::function_658ce256, #"hero_activate", #"sword_pistol");
 		self zm_audio::function_87714659(&zm_mansion_sound::function_edae33b5, #"kill", #"sword");
-		self zm_audio::function_87714659(&zm_mansion_sound::function_fe8cce7a, #"hash_6a87c913e3ecd37a", #"hammer");
+		self zm_audio::function_87714659(&zm_mansion_sound::function_fe8cce7a, #"hero_level_3", #"hammer");
 		self zm_audio::function_87714659(&zm_mansion_sound::function_bb1888fe, #"hero_ready", #"scepter");
 		self zm_audio::function_87714659(&zm_mansion_sound::function_f26d178f, #"hero_activate", #"scepter");
 		self zm_audio::function_87714659(&zm_mansion_sound::function_1f4ab5ec, #"perk", #"generic");
@@ -2170,7 +2170,7 @@ function function_f996845d(a_ents)
 */
 function function_389e7c22(var_404e4288, var_8dd554ee)
 {
-	ai = namespace_977da60::function_47a88a0c(1, undefined, 1);
+	ai = zombie_werewolf_util::function_47a88a0c(1, undefined, 1);
 	if(isdefined(ai))
 	{
 		level.zombie_total--;
@@ -2625,18 +2625,18 @@ function function_3f147b12(cmd)
 				if(isdefined(level.zm_loc_types[#"werewolf_location"]) && level.zm_loc_types[#"werewolf_location"].size > 0)
 				{
 					s_spawn = array::random(level.zm_loc_types[#"werewolf_location"]);
-					namespace_977da60::function_47a88a0c(1, undefined, 1, s_spawn);
+					zombie_werewolf_util::function_47a88a0c(1, undefined, 1, s_spawn);
 				}
 				break;
 			}
 			case "hash_5bf31fb6caf6eac5":
 			{
-				namespace_977da60::function_47a88a0c(1, undefined, 1);
+				zombie_werewolf_util::function_47a88a0c(1, undefined, 1);
 				break;
 			}
 			case "hash_141442e4fca71a1d":
 			{
-				namespace_c402654::function_62db7b1c(1, undefined);
+				zombie_dog_util::function_62db7b1c(1, undefined);
 				break;
 			}
 			case "hash_50f5df2c61fab9c0":

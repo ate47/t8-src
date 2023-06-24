@@ -703,7 +703,7 @@ function function_bd6468f()
 	level.players[0] thread ct_utils::function_61c3d59c(var_1c549f7d, undefined);
 	level thread ct_vo::function_14b08e49(array(#"hash_707aff02c0ababb9"), "stop_gib_nag");
 	level.var_e72728b8 = array(#"eq_cluster_semtex_grenade");
-	level.players[0] waittill(#"hash_6706cbd0ce1c0c09");
+	level.players[0] waittill(#"hero_weapon_active");
 	level flag::set("war_machine");
 	ct_utils::function_c2a10fc();
 	level notify(#"stop_gib_nag");

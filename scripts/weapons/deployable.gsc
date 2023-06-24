@@ -48,7 +48,7 @@ function __init__()
 }
 
 /*
-	Name: function_2e088f73
+	Name: register_deployable
 	Namespace: deployable
 	Checksum: 0x14A156B1
 	Offset: 0x200
@@ -56,7 +56,7 @@ function __init__()
 	Parameters: 6
 	Flags: Linked
 */
-function function_2e088f73(weapon, var_c0064c29, var_94b4fa08 = undefined, placehintstr = undefined, var_a39cb3db = undefined, var_fe12c0d9 = undefined)
+function register_deployable(weapon, var_c0064c29, var_94b4fa08 = undefined, placehintstr = undefined, var_a39cb3db = undefined, var_fe12c0d9 = undefined)
 {
 	if(!isdefined(level._deployable_weapons))
 	{

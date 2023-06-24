@@ -3,7 +3,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\wz_ai_zombie.gsc;
 #using scripts\mp_common\item_world.gsc;
-#using script_c60e21cd69c9db2;
+#using scripts\wz_common\wz_ai_vehicle.gsc;
 #using script_cb32d07c95e5628;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -79,7 +79,7 @@ function private __init__()
 			level.zombie_itemlist = #"zombie_itemlist";
 		}
 	}
-	level.var_db43cbd7 = #"hash_3165784c9d75971c";
+	level.var_db43cbd7 = #"zombie_raygun_itemlist";
 	level.var_1b7acd6d = #"hash_33bdf9068c8cfb57";
 	level.var_72151997 = #"hash_3e1e0d5abe4173f2";
 	level.var_14364e26 = #"hash_1d5141b0fcc5b473";

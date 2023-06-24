@@ -6,7 +6,7 @@
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_orange_lighthouse.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -173,7 +173,7 @@ function private function_88228c58()
 */
 function function_c6e61ebb(a_ents)
 {
-	self.entity = a_ents[#"hash_7aff0ee60ddd937b"];
+	self.entity = a_ents[#"prop 1"];
 }
 
 /*

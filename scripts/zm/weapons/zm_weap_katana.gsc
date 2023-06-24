@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -120,7 +120,7 @@ function private function_9a0f234b()
 		else if(isinarray(level.hero_weapon[#"katana"], wpn_prev))
 		{
 			self function_c43691a9(0);
-			self notify(#"hash_36afc85dcef683d2");
+			self notify(#"hero_katana_expired");
 			self.var_5605c31e = undefined;
 		}
 		if(wpn_cur == level.hero_weapon[#"katana"][0])
@@ -170,7 +170,7 @@ function private function_9fdcf13f()
 	self endon(#"disconnect");
 	wait(1);
 	callback::on_ai_damage(&function_af221ee1);
-	self waittill(#"death", #"hash_36afc85dcef683d2");
+	self waittill(#"death", #"hero_katana_expired");
 	callback::remove_on_ai_damage(&function_af221ee1);
 }
 
@@ -335,7 +335,7 @@ function function_af221ee1(s_params)
 function private function_1475944a()
 {
 	level.var_9ea358cc++;
-	self waittill(#"death", #"hash_36afc85dcef683d2");
+	self waittill(#"death", #"hero_katana_expired");
 	level.var_9ea358cc--;
 }
 
@@ -350,7 +350,7 @@ function private function_1475944a()
 */
 function function_8d02f57b(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired");
 	while(true)
 	{
 		if(w_katana.name == #"hero_katana_t8_lv3")
@@ -381,7 +381,7 @@ function function_8d02f57b(w_katana)
 */
 function function_119af40d(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired");
 	while(true)
 	{
 		s_result = undefined;
@@ -415,7 +415,7 @@ function function_119af40d(w_katana)
 */
 function function_7903608c(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2", #"hash_50c324a04c7e0b09");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired", #"hash_50c324a04c7e0b09");
 	str_hitloc = "head";
 	while(true)
 	{
@@ -501,7 +501,7 @@ function private function_bbe55589(e_player, w_katana, str_hitloc)
 */
 function function_fcc26273(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired");
 	while(true)
 	{
 		s_result = undefined;
@@ -536,8 +536,8 @@ function function_bed1fd9f()
 	self clientfield::set("" + #"hash_7e2af117e18cb9fa", 1);
 	self clientfield::set("" + #"hash_13ccfca7b26cec97", 1);
 	waitresult = undefined;
-	waitresult = self waittill(#"hash_36afc85dcef683d2", #"hash_6c803e34b0b06d90");
-	if(waitresult._notify == #"hash_36afc85dcef683d2")
+	waitresult = self waittill(#"hero_katana_expired", #"hash_6c803e34b0b06d90");
+	if(waitresult._notify == #"hero_katana_expired")
 	{
 		self playsound(#"hash_58397a948dd38b37");
 	}
@@ -622,14 +622,14 @@ function function_c43691a9(var_2e56d8e5)
 */
 function function_478a4910(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_melee_juke");
 		if(s_result.weapon == w_katana)
 		{
-			if(1 === zm_audio::create_and_play_dialog(#"hash_6a87ca13e3ecd52d", #"katana"))
+			if(1 === zm_audio::create_and_play_dialog(#"hero_level_2", #"katana"))
 			{
 				break;
 			}
@@ -648,14 +648,14 @@ function function_478a4910(w_katana)
 */
 function function_68ff89f7(w_katana)
 {
-	self endon(#"disconnect", #"bled_out", #"death", #"hash_36afc85dcef683d2");
+	self endon(#"disconnect", #"bled_out", #"death", #"hero_katana_expired");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_melee");
 		if(s_result.weapon == w_katana)
 		{
-			if(1 === zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"katana"))
+			if(1 === zm_audio::create_and_play_dialog(#"hero_level_3", #"katana"))
 			{
 				break;
 			}

@@ -1172,7 +1172,7 @@ function function_ca9bfe21(a_ents, e_player)
 {
 	self notify("79b726cd6d4f2032");
 	self endon("79b726cd6d4f2032");
-	var_1520674d = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_1520674d = a_ents[#"prop 1"];
 	var_1520674d setinvisibletoall();
 	var_1520674d setvisibletoplayer(e_player);
 	self waittill(#"scene_done");
@@ -1650,11 +1650,11 @@ function function_efd25c9()
 				player giveweapon(getweapon(#"tomahawk_t8_upgraded"));
 				player switchtoweapon(w_current);
 			}
-			if(!player hasweapon(getweapon(#"hash_42a45d43be3dba42")))
+			if(!player hasweapon(getweapon(#"zhield_spectral_dw")))
 			{
 				player.var_67e1d531 = player._gadgets_player[1];
 				w_current = player.currentweapon;
-				player giveweapon(getweapon(#"hash_42a45d43be3dba42"));
+				player giveweapon(getweapon(#"zhield_spectral_dw"));
 				player switchtoweapon(w_current);
 			}
 			player clientfield::set_to_player("", 0);

@@ -2,14 +2,14 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
 #using scripts\zm\weapons\zm_weap_sword_pistol.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_43642da1b2402e5c;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using scripts\zm\weapons\zm_weap_scepter.gsc;
 #using scripts\zm\weapons\zm_weap_chakram.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\weapons\weapons.gsc;

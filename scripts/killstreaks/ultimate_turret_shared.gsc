@@ -60,7 +60,7 @@ function init_shared()
 		weaponobjects::function_e6400478(#"ultimate_turret", &function_305bbc35, undefined);
 		weaponobjects::function_e6400478(#"inventory_ultimate_turret", &function_305bbc35, undefined);
 		level.var_43e52789 = 0;
-		deployable::function_2e088f73(getweapon("ultimate_turret"), undefined);
+		deployable::register_deployable(getweapon("ultimate_turret"), undefined);
 		callback::on_finalize_initialization(&function_1c601b99);
 	}
 }

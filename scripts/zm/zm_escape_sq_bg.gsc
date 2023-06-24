@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\weapons\zm_weap_tomahawk.gsc;
 #using scripts\zm\weapons\zm_weap_blundergat.gsc;
-#using script_6e3c826b1814cab6;
-#using script_b00fcbc28051f15;
+#using scripts\zm_common\zm_customgame.gsc;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -96,7 +96,7 @@ function wait_for_initial_conditions()
 		}
 	}
 	array::thread_all(level.sq_bg_macguffins, &sq_bg_macguffin_think);
-	array::thread_all(level.sq_bg_macguffins, &namespace_b4a066ff::function_16dd8932);
+	array::thread_all(level.sq_bg_macguffins, &zm_weap_spectral_shield::function_16dd8932);
 	if(!isdefined(level.a_tomahawk_pickup_funcs))
 	{
 		level.a_tomahawk_pickup_funcs = [];
@@ -303,7 +303,7 @@ function give_sq_bg_reward(var_dd7441ab)
 	t_near = spawn("trigger_radius", var_dd7441ab.origin, 0, 196, 64);
 	t_near thread sq_bg_spawn_rumble();
 	var_4d0b3b87 = zm_utility::spawn_weapon_model(getweapon(#"ww_blundergat_t8"), undefined, var_dd7441ab.origin + vectorscale((0, 0, 1), 6), var_dd7441ab.angles);
-	var_4d0b3b87 clientfield::set("" + #"hash_f03061885875815", 1);
+	var_4d0b3b87 clientfield::set("" + #"bg_spawn_fx", 1);
 	var_4d0b3b87 thread scene::play(#"p8_fxanim_zm_esc_blundergat_fireplace_hover_bundle", var_4d0b3b87);
 	while(isdefined(self))
 	{
@@ -357,7 +357,7 @@ function give_sq_bg_reward(var_dd7441ab)
 */
 function private function_d61275a7()
 {
-	self clientfield::set("" + #"hash_f03061885875815", 0);
+	self clientfield::set("" + #"bg_spawn_fx", 0);
 	self ghost();
 	wait(5);
 	self delete();

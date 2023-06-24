@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -333,7 +333,7 @@ function function_36936eeb()
 	{
 		level.characters = [];
 		level.validcharacters = [];
-		fields = namespace_cb7cafc3::function_10672567();
+		fields = zm_maptable::function_10672567();
 		/#
 			if(!isdefined(fields) || !isdefined(fields.zmcharacters))
 			{
@@ -411,7 +411,7 @@ function function_36936eeb()
 */
 function function_9004475c(character)
 {
-	fields = namespace_cb7cafc3::function_10672567();
+	fields = zm_maptable::function_10672567();
 	foreach(var_c81b1496 in fields.zmcharacters)
 	{
 		if(isinarray(character, var_c81b1496.name))
@@ -481,7 +481,7 @@ function function_dc232a80(character)
 	}
 	else if(isarray(character))
 	{
-		fields = namespace_cb7cafc3::function_10672567();
+		fields = zm_maptable::function_10672567();
 		foreach(var_c81b1496 in fields.zmcharacters)
 		{
 			if(isinarray(character, var_c81b1496.name))

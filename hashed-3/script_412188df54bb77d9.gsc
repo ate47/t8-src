@@ -33,7 +33,7 @@ function init()
 	level._effect[#"hash_294b19c300d1b482"] = #"hash_29ac72c5aa5398bc";
 	level._effect[#"hash_4391e5c4b43c63c9"] = #"hash_709cca7d0048aa72";
 	level._effect[#"hash_5647f8e593893bce"] = #"hash_69af1783a31b44f7";
-	level._effect[#"hash_13b6f9efa3cf588a"] = #"hash_526060b70ce93d7e";
+	level._effect[#"zombie_eye_trail"] = #"hash_526060b70ce93d7e";
 	level._effect[#"spinning_blood"] = #"hash_358533e8293f131d";
 	level._effect[#"hash_44ccd33973542202"] = #"hash_5fdb13b4843bc710";
 }
@@ -360,7 +360,7 @@ function spinning_trap_eye_fx(localclientnum, oldval, newval, bnewent, binitials
 	}
 	if(newval == 1)
 	{
-		self.n_spinning_trap_eye_fx = util::playfxontag(localclientnum, level._effect[#"hash_13b6f9efa3cf588a"], self, "tag_eye");
+		self.n_spinning_trap_eye_fx = util::playfxontag(localclientnum, level._effect[#"zombie_eye_trail"], self, "tag_eye");
 	}
 }
 

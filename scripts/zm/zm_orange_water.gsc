@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using script_37752a01e45812b8;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_orange_trials.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;

@@ -140,7 +140,7 @@ function function_cd252d6e(e_attacker, w_weapon)
 		self dodamage(var_70ab6bc, self.origin, e_attacker, undefined, "none", "MOD_AAT", 0, w_weapon);
 		if(!isalive(self) && isplayer(e_attacker))
 		{
-			e_attacker zm_stats::increment_challenge_stat(#"hash_1edc9326989aa0fa");
+			e_attacker zm_stats::increment_challenge_stat(#"zombie_hunter_plasmatic_burst");
 		}
 		wait(0.5);
 	}
@@ -189,7 +189,7 @@ function zombie_death_gib(e_attacker, w_weapon)
 	self dodamage(self.health, self.origin, e_attacker, e_attacker, "none", "MOD_AAT", 0, w_weapon);
 	if(isplayer(e_attacker))
 	{
-		e_attacker zm_stats::increment_challenge_stat(#"hash_1edc9326989aa0fa");
+		e_attacker zm_stats::increment_challenge_stat(#"zombie_hunter_plasmatic_burst");
 	}
 }
 

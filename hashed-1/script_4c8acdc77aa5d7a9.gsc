@@ -16,7 +16,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_4b0893282c45ca4", &__init__, undefined, #"hash_29467933d0da473b");
+	system::register(#"hash_4b0893282c45ca4", &__init__, undefined, #"zombie_dog_util");
 }
 
 /*

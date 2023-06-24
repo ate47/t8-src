@@ -11,10 +11,10 @@
 #using script_4bf952f6ba31bb17;
 #using script_4c5c4a64a59247a2;
 #using script_522aeb6ae906391e;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\zm\archetype\archetype_zod_companion_interface.gsc;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
 #using script_caf007e2a98afa2;

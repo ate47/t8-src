@@ -2,7 +2,7 @@
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using scripts\mp_common\gametypes\ct_ai.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\killstreaks\ai_tank_shared.gsc;
 #using scripts\mp_common\gametypes\ct_battery_tutorial.gsc;
 #using script_3819e7a1427df6d2;
@@ -996,7 +996,7 @@ function function_4293d37b(einflictor, eattacker, idamage, smeansofdeath, weapon
 		if(isdefined(self.var_95d9bf2e))
 		{
 			e_player thread function_e12a129();
-			if(self.var_95d9bf2e == getweapon(#"hash_1db9fa8f7231f179") || self.var_95d9bf2e == getweapon(#"eq_cluster_semtex_grenade"))
+			if(self.var_95d9bf2e == getweapon(#"hero_pineapple_gun") || self.var_95d9bf2e == getweapon(#"eq_cluster_semtex_grenade"))
 			{
 				n_points = 5;
 			}

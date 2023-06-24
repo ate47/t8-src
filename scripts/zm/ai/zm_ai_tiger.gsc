@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_d8b1f4ee30e5fc5;
+#using scripts\core_common\ai\archetype_tiger.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -155,7 +155,7 @@ function private function_10687511(entity)
 	}
 	if(!(isdefined(entity.hasseenfavoriteenemy) && entity.hasseenfavoriteenemy))
 	{
-		if(isdefined(entity.favoriteenemy) && entity namespace_dea34b6a::need_to_run())
+		if(isdefined(entity.favoriteenemy) && entity tigerbehavior::need_to_run())
 		{
 			entity.hasseenfavoriteenemy = 1;
 			entity setblackboardattribute("_seen_enemy", "has_seen");
@@ -322,7 +322,7 @@ function function_8709c761(entity)
 	{
 		return false;
 	}
-	if(!entity namespace_dea34b6a::function_8de56915(102 * 102))
+	if(!entity tigerbehavior::function_8de56915(102 * 102))
 	{
 		return false;
 	}
@@ -344,7 +344,7 @@ function function_8709c761(entity)
 */
 function function_6c513e36(entity)
 {
-	if(!entity namespace_dea34b6a::function_8de56915(180 * 180))
+	if(!entity tigerbehavior::function_8de56915(180 * 180))
 	{
 		return false;
 	}

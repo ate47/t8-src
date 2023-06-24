@@ -49,7 +49,7 @@ function __init__()
 */
 function zombie_arm_blood_splash(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	bathtub = struct::get(#"hash_53bbab305c87572a", "targetname");
+	bathtub = struct::get(#"zombie_bathub", "targetname");
 	if(isdefined(bathtub))
 	{
 		playfx(localclientnum, #"hash_6e2b2bcea07134d1", bathtub.origin, (0, 0, 1));
@@ -68,7 +68,7 @@ function zombie_arm_blood_splash(localclientnum, oldval, newval, bnewent, biniti
 function bathtub_fake_soul_sfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	wait(0.2);
-	bathtub = struct::get(#"hash_53bbab305c87572a", "targetname");
+	bathtub = struct::get(#"zombie_bathub", "targetname");
 	if(isdefined(bathtub))
 	{
 		playsound(localclientnum, #"zmb_sq_souls_impact", bathtub.origin);

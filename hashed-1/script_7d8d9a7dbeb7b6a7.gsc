@@ -37,7 +37,7 @@ function function_a38f195f()
 	var_f8a4c541 = &namespace_b0722f43::function_6991057;
 	if(isdefined(getgametypesetting(#"hash_2e25d475b271a700")) && getgametypesetting(#"hash_2e25d475b271a700"))
 	{
-		wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc");
+		wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc");
 	}
 	if(isdefined(getgametypesetting(#"wzgreeneyes")) && getgametypesetting(#"wzgreeneyes"))
 	{

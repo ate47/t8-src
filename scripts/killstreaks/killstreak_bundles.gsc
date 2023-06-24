@@ -353,10 +353,10 @@ function get_shots_to_kill(weapon, meansofdeath, bundle)
 		case "hero_bowlauncher2":
 		case "hero_bowlauncher3":
 		case "hero_bowlauncher4":
-		case "hash_1d2a0f56220e6ff6":
-		case "hash_1d2a1056220e71a9":
-		case "hash_1d2a1156220e735c":
-		case "hash_1d2a1256220e750f":
+		case "sig_bow_quickshot3":
+		case "sig_bow_quickshot2":
+		case "sig_bow_quickshot5":
+		case "sig_bow_quickshot4":
 		case "sig_bow_quickshot":
 		case "hero_bowlauncher":
 		{

@@ -2538,7 +2538,7 @@ function function_7f377150(s_event_calling_task, n_value = 1)
 	{
 		if((var_e4edaaf0 + n_value) >= s_event_calling_task.var_e226ec4f)
 		{
-			self luinotifyevent(#"hash_675b38b81564449", 4, 0, level.var_1aa5a6d6, self function_3e561f63(), self getentitynumber());
+			self luinotifyevent(#"zombie_callings_notification", 4, 0, level.var_1aa5a6d6, self function_3e561f63(), self getentitynumber());
 			self stats::set_stat(#"hash_3b52e51401f0229c", level.var_6ad5a223, #"progress", 0);
 			self stats::inc_stat(#"hash_3b52e51401f0229c", level.var_6ad5a223, #"tiercompleted", 1);
 			self addrankxpvalue("event_calling_task", s_event_calling_task.n_xp);
@@ -2613,7 +2613,7 @@ function function_55109709(s_daily_calling_task, n_value = 1)
 		if((var_e4edaaf0 + n_value) >= s_daily_calling_task.var_e226ec4f)
 		{
 			self stats::set_stat(#"hash_18e3320ccf4091e5", #"progress", s_daily_calling_task.var_e226ec4f);
-			self luinotifyevent(#"hash_675b38b81564449", 3, 1, s_daily_calling_task.var_de86e878, self getentitynumber());
+			self luinotifyevent(#"zombie_callings_notification", 3, 1, s_daily_calling_task.var_de86e878, self getentitynumber());
 			self addrankxpvalue("daily_calling_task", s_daily_calling_task.n_xp);
 			var_ae857992 = getdvarint(#"hash_60d812bef0f782fb", 2);
 			self function_e8f77739(#"hash_74ccf1507183e99f", var_ae857992);

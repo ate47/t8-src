@@ -1,18 +1,18 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_14af1fd264ffe8cc;
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_18e21a7011416ce0;
+#using scripts\zm_common\zm_audio_sq.gsc;
 #using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\zm_red_special_rounds.gsc;
 #using scripts\zm\zm_red_achievement.gsc;
-#using script_2978eda7f776f14f;
+#using scripts\zm\zm_red_oracle_boons.gsc;
 #using scripts\zm\zm_red_power_quest.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\zm\weapons\zm_weap_bowie.gsc;
 #using script_3aa54d3cb36ea43f;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using scripts\zm\weapons\zm_weap_hand_ouranos.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
 #using scripts\zm_common\zm_items.gsc;
@@ -31,8 +31,8 @@
 #using script_6c983b627f4a3d51;
 #using scripts\zm\weapons\zm_weap_hand_charon.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
-#using script_6e6f46aab3707786;
+#using scripts\zm_common\zm_customgame.gsc;
+#using scripts\zm\weapons\zm_weap_thunderstorm.gsc;
 #using scripts\zm\weapons\zm_weap_hand_hemera.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
@@ -177,7 +177,7 @@ event main(eventstruct)
 	zm_red_challenges::init();
 	zm_red_util::init();
 	red_boss_battle::init();
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 	load::main();
 	scene::add_scene_func(#"hash_649bf4517c6d8d25", &function_509bbc5b, "sh290");
 	scene::add_scene_func(#"hash_649bf4517c6d8d25", &function_924ba3d, "sh320");
@@ -1307,8 +1307,8 @@ function function_6f6cc58(e_player)
 			if(isdefined(s_play))
 			{
 				var_fc14780a = s_play.var_fc14780a;
-				var_2c03c1e4 = self.var_8ca159b2;
-				e_target = var_fc14780a[var_2c03c1e4];
+				str_ww = self.var_8ca159b2;
+				e_target = var_fc14780a[str_ww];
 				if(isdefined(e_target) && e_target != e_player)
 				{
 					return false;
@@ -2107,7 +2107,7 @@ function function_7722c6f0(var_404e4288, var_8dd554ee)
 	}
 	else
 	{
-		ai = namespace_75cbf125::spawn_single(1);
+		ai = zombie_gegenees_util::spawn_single(1);
 		if(isdefined(ai))
 		{
 			ai.ignore_enemy_count = 0;
@@ -2138,7 +2138,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 	}
 	else
 	{
-		var_862206ea = namespace_bc12435c::function_1ea880bd(1);
+		var_862206ea = zombie_skeleton_util::function_1ea880bd(1);
 		if(isdefined(var_862206ea))
 		{
 			level.zombie_total--;
@@ -3180,7 +3180,7 @@ function function_f39d0796()
 function function_3594d78b()
 {
 	/#
-		namespace_75cbf125::spawn_single(1);
+		zombie_gegenees_util::spawn_single(1);
 	#/
 }
 
@@ -3196,7 +3196,7 @@ function function_3594d78b()
 function function_590ce3bd()
 {
 	/#
-		namespace_bc12435c::function_1ea880bd(1);
+		zombie_skeleton_util::function_1ea880bd(1);
 	#/
 }
 

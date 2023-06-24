@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\aats\zm_aat_brain_decay.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -183,7 +183,7 @@ function turn_z(player)
 		}
 		if(isplayer(player))
 		{
-			player zm_stats::increment_challenge_stat(#"hash_6196f68daba14ab0");
+			player zm_stats::increment_challenge_stat(#"zombie_hunter_brain_decay");
 			self.var_443d78cc = player;
 		}
 		self thread zm_aat_brain_decay::function_8e97a3a4(player, level.var_78032351);

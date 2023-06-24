@@ -156,11 +156,11 @@ function private function_c18360f6(var_11a83c3a, params)
 	{
 		return;
 	}
-	var_8b745faa = getweapon(#"gadget_icepick");
+	icepickweapon = getweapon(#"gadget_icepick");
 	if(isdefined(var_11a83c3a.var_e2131267) && var_11a83c3a.var_e2131267 == params.eattacker)
 	{
-		scoreevents::processscoreevent(#"hacked_kill", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
-		params.eattacker function_be7a08a8(var_8b745faa, 1);
+		scoreevents::processscoreevent(#"hacked_kill", var_11a83c3a.var_e2131267, undefined, icepickweapon);
+		params.eattacker function_be7a08a8(icepickweapon, 1);
 		time = gettime();
 		if(!isdefined(params.eattacker.var_7b9616d6))
 		{
@@ -178,13 +178,13 @@ function private function_c18360f6(var_11a83c3a, params)
 		params.eattacker.var_7b9616d6 = time;
 		if(params.eattacker.var_bcae5314 == 2)
 		{
-			scoreevents::processscoreevent(#"hash_e18a9f29b8e1132", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
+			scoreevents::processscoreevent(#"hash_e18a9f29b8e1132", var_11a83c3a.var_e2131267, undefined, icepickweapon);
 			params.eattacker.var_bcae5314 = 0;
 		}
 	}
 	else if(isdefined(var_11a83c3a.var_e2131267.team) && isdefined(params.eattacker.team) && var_11a83c3a.var_e2131267.team == params.eattacker.team)
 	{
-		scoreevents::processscoreevent(#"hacked_assist", var_11a83c3a.var_e2131267, undefined, var_8b745faa);
+		scoreevents::processscoreevent(#"hacked_assist", var_11a83c3a.var_e2131267, undefined, icepickweapon);
 	}
 }
 
@@ -605,10 +605,10 @@ function function_6c031486(hacker)
 	{
 		return;
 	}
-	var_8b745faa = getweapon(#"gadget_icepick");
+	icepickweapon = getweapon(#"gadget_icepick");
 	hacker notify(#"hash_7b4714f415b8f49e");
-	var_3e361f1a = hacker gadgetgetslot(var_8b745faa);
-	hacker gadgetdeactivate(var_3e361f1a, var_8b745faa);
+	var_3e361f1a = hacker gadgetgetslot(icepickweapon);
+	hacker gadgetdeactivate(var_3e361f1a, icepickweapon);
 	hacker switchtoweapon();
 }
 
@@ -623,8 +623,8 @@ function function_6c031486(hacker)
 */
 function function_13f4415c()
 {
-	var_8b745faa = getweapon(#"gadget_icepick");
-	return getscriptbundle(var_8b745faa.customsettings);
+	icepickweapon = getweapon(#"gadget_icepick");
+	return getscriptbundle(icepickweapon.customsettings);
 }
 
 /*
@@ -720,8 +720,8 @@ function private starthack(player)
 	player endoncallback(&function_4802ca63, #"death", #"hash_7b4714f415b8f49e");
 	level.var_fdb0a658 = 1;
 	player clientfield::set_player_uimodel("IcePickInfo.hackStarted", 1);
-	var_8b745faa = getweapon(#"gadget_icepick");
-	var_3e361f1a = player gadgetgetslot(var_8b745faa);
+	icepickweapon = getweapon(#"gadget_icepick");
+	var_3e361f1a = player gadgetgetslot(icepickweapon);
 	player gadgetpowerset(var_3e361f1a, 0);
 	player.var_c269451a = 0;
 	player.var_86f63ff1 = 0;
@@ -770,9 +770,9 @@ function private starthack(player)
 	{
 		return;
 	}
-	var_8b745faa = getweapon(#"gadget_icepick");
-	var_3e361f1a = player gadgetgetslot(var_8b745faa);
-	player gadgetdeactivate(var_3e361f1a, var_8b745faa);
+	icepickweapon = getweapon(#"gadget_icepick");
+	var_3e361f1a = player gadgetgetslot(icepickweapon);
+	player gadgetdeactivate(var_3e361f1a, icepickweapon);
 	player switchtoweapon();
 	player.var_c1911c44 = 0;
 	level.var_fdb0a658 = 0;
@@ -781,7 +781,7 @@ function private starthack(player)
 		var_9194a036 = [[level.var_ac6052e9]]("icePickHackSuccessLineCount", 1);
 		if(player.var_86f63ff1 >= (isdefined(var_9194a036) ? var_9194a036 : 1))
 		{
-			player [[level.playgadgetsuccess]](var_8b745faa);
+			player [[level.playgadgetsuccess]](icepickweapon);
 		}
 	}
 	player.var_86f63ff1 = undefined;
@@ -951,9 +951,9 @@ function function_4802ca63(str_notify)
 		return;
 	}
 	self clientfield::set_player_uimodel("IcePickInfo.hackFinished", 1);
-	var_8b745faa = getweapon(#"gadget_icepick");
-	var_3e361f1a = self gadgetgetslot(var_8b745faa);
-	self gadgetdeactivate(var_3e361f1a, var_8b745faa);
+	icepickweapon = getweapon(#"gadget_icepick");
+	var_3e361f1a = self gadgetgetslot(icepickweapon);
+	self gadgetdeactivate(var_3e361f1a, icepickweapon);
 	self.var_c1911c44 = 0;
 	level.var_fdb0a658 = 0;
 	if(isdefined(self.var_982faa7c) && isplayer(self.var_982faa7c))
@@ -1029,10 +1029,10 @@ function function_29f4ff02(attackingplayer, entity)
 	}
 	if(entityweapon.var_b8a85edd)
 	{
-		var_8b745faa = getweapon(#"gadget_icepick");
+		icepickweapon = getweapon(#"gadget_icepick");
 		if(isentity(entity))
 		{
-			entity kill(entity.origin, attackingplayer, self, var_8b745faa);
+			entity kill(entity.origin, attackingplayer, self, icepickweapon);
 		}
 		function_d545fd0a(attackingplayer, entityweapon);
 	}
@@ -1129,8 +1129,8 @@ function private function_aadad2c(attackingplayer, var_11a83c3a)
 	/#
 		assert(isdefined(var_11a83c3a));
 	#/
-	var_8b745faa = getweapon(#"gadget_icepick");
-	scoreevents::processscoreevent(#"hacked_enemy", attackingplayer, var_11a83c3a, var_8b745faa);
+	icepickweapon = getweapon(#"gadget_icepick");
+	scoreevents::processscoreevent(#"hacked_enemy", attackingplayer, var_11a83c3a, icepickweapon);
 	var_11a83c3a clientfield::set_player_uimodel("hudItems.hackedRebootProgress", 0);
 	var_11a83c3a thread killstreaks::play_taacom_dialog("specialistHackBegin", undefined, undefined, undefined, undefined, undefined, 1);
 	var_11a83c3a.var_9b4cc45c = gettime();
@@ -1176,8 +1176,8 @@ function private function_a9987363(var_559f4f0a, attackingplayer, var_11a83c3a)
 		return;
 	}
 	var_575cc792 = var_11a83c3a.var_e92132fd - gettime();
-	var_8b745faa = getweapon(#"gadget_icepick");
-	var_11a83c3a status_effect::status_effect_apply(var_559f4f0a, var_8b745faa, attackingplayer, 0, var_575cc792);
+	icepickweapon = getweapon(#"gadget_icepick");
+	var_11a83c3a status_effect::status_effect_apply(var_559f4f0a, icepickweapon, attackingplayer, 0, var_575cc792);
 	var_11a83c3a clientfield::set("hackStatus", 2);
 	var_11a83c3a clientfield::set_player_uimodel("hudItems.hacked", 1);
 	var_11a83c3a ability_player::function_116ec442();
@@ -1195,14 +1195,14 @@ function private function_a9987363(var_559f4f0a, attackingplayer, var_11a83c3a)
 function private function_bf744a1e(attackingplayer, var_11a83c3a)
 {
 	var_11a83c3a.var_e2131267 = attackingplayer;
-	var_8b745faa = getweapon(#"gadget_icepick");
-	scoreevents::processscoreevent(#"hacked_enemy", attackingplayer, var_11a83c3a, var_8b745faa);
+	icepickweapon = getweapon(#"gadget_icepick");
+	scoreevents::processscoreevent(#"hacked_enemy", attackingplayer, var_11a83c3a, icepickweapon);
 	settingsbundle = function_13f4415c();
 	var_e7af1dd4 = (var_11a83c3a function_6c32d092(#"talent_resistance") ? (isdefined(settingsbundle.var_4624074e) ? settingsbundle.var_4624074e : 1) : 1);
 	statuseffect = getstatuseffect("hacked");
 	var_645d17c2 = (statuseffect.var_77449e9 * var_e7af1dd4) * (isdefined(settingsbundle.var_9b5b082d) ? settingsbundle.var_9b5b082d : 1);
 	var_11a83c3a.var_e92132fd = var_11a83c3a.var_e92132fd + var_645d17c2;
-	var_11a83c3a status_effect::status_effect_apply(statuseffect, var_8b745faa, attackingplayer, 0, var_645d17c2);
+	var_11a83c3a status_effect::status_effect_apply(statuseffect, icepickweapon, attackingplayer, 0, var_645d17c2);
 }
 
 /*
@@ -1396,7 +1396,7 @@ function private function_d1f6e8d0(player)
 	player function_124efc19(1);
 	player function_de8a54a6(1);
 	var_559f4f0a = getstatuseffect("hacking");
-	var_8b745faa = getweapon(#"gadget_icepick");
+	icepickweapon = getweapon(#"gadget_icepick");
 	settingsbundle = function_13f4415c();
 	while(true)
 	{
@@ -1408,7 +1408,7 @@ function private function_d1f6e8d0(player)
 			player.var_6704e6fa = (isdefined(settingsbundle.var_c424ffde) ? settingsbundle.var_c424ffde : 1);
 			if(isdefined(var_559f4f0a))
 			{
-				player status_effect::status_effect_apply(var_559f4f0a, var_8b745faa, player, 0);
+				player status_effect::status_effect_apply(var_559f4f0a, icepickweapon, player, 0);
 			}
 			var_3e6425fc = 1;
 		}
@@ -1768,8 +1768,8 @@ function function_d545fd0a(player, weapon)
 	}
 	if(isdefined(var_d975dd49))
 	{
-		var_8b745faa = getweapon(#"gadget_icepick");
-		scoreevents::processscoreevent(var_d975dd49, player, undefined, var_8b745faa);
+		icepickweapon = getweapon(#"gadget_icepick");
+		scoreevents::processscoreevent(var_d975dd49, player, undefined, icepickweapon);
 	}
 }
 

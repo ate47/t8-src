@@ -2,8 +2,8 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\bots\mp_bot.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_29ed825598140ca0;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_killed.gsc;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -1102,17 +1102,17 @@ function spawnplayer()
 		gender = self getplayergendertype();
 		var_34ba1b60 = self function_3d1a97c6();
 		var_8fa79650 = self function_564cfaeb();
-		var_9cc50881 = self function_e1c06cd0();
+		decallootid = self function_e1c06cd0();
 		var_b3d9cfaa = self function_11d0e790();
 		var_f8e6b703 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 		if(isdefined(var_f8e6b703))
 		{
 			self match_record::set_stat(#"lives", var_f8e6b703, #"character_gender", gender);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_7f98574cf2a03360", var_9cc50881);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_38198df3d9b2c8b8", var_be574bd8);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_77e4495eb46e7e2b", var_8fa79650);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_decal_lootid", decallootid);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_outfit_lootid", var_be574bd8);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_warpaint_lootid", var_8fa79650);
 			self match_record::set_stat(#"lives", var_f8e6b703, #"character_outfit", outfitindex);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_3e4aa1baa6e0dd0f", var_34ba1b60);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_warpaint_outfit", var_34ba1b60);
 			for(i = 0; i < var_b3d9cfaa.size; i++)
 			{
 				self match_record::set_stat(#"lives", var_f8e6b703, #"hash_20d6751cb2f9ca09", i, var_b3d9cfaa[i]);

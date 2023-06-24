@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2c6ff91addfd14b7;
+#using scripts\core_common\vehicles\smart_bomb.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_ai_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
@@ -45,7 +45,7 @@ function __init__()
 */
 function function_91ea9492()
 {
-	namespace_c2dce87e::function_c6f75619();
+	smart_bomb::function_c6f75619();
 	self.detonate_sides_disabled = 1;
 	self useanimtree("generic");
 	self initsounds();
@@ -68,10 +68,10 @@ function function_91ea9492()
 function defaultrole()
 {
 	self vehicle_ai::init_state_machine_for_role("default");
-	self vehicle_ai::get_state_callbacks("combat").update_func = &namespace_c2dce87e::state_combat_update;
-	self vehicle_ai::get_state_callbacks("driving").update_func = &namespace_c2dce87e::state_scripted_update;
-	self vehicle_ai::get_state_callbacks("death").update_func = &namespace_c2dce87e::state_death_update;
-	self vehicle_ai::get_state_callbacks("emped").update_func = &namespace_c2dce87e::state_emped_update;
+	self vehicle_ai::get_state_callbacks("combat").update_func = &smart_bomb::state_combat_update;
+	self vehicle_ai::get_state_callbacks("driving").update_func = &smart_bomb::state_scripted_update;
+	self vehicle_ai::get_state_callbacks("death").update_func = &smart_bomb::state_death_update;
+	self vehicle_ai::get_state_callbacks("emped").update_func = &smart_bomb::state_emped_update;
 	self vehicle_ai::call_custom_add_state_callbacks();
 	vehicle_ai::startinitialstate("combat");
 }

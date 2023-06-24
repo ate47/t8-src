@@ -44,8 +44,8 @@ function __init__()
 	clientfield::register("vehicle", "" + #"lightning_impact_fx", 1, 1, "int", &function_54b0b1b, 0, 0);
 	clientfield::register("actor", "" + #"lightning_arc_fx", 1, 1, "int", &function_311f3501, 0, 0);
 	clientfield::register("vehicle", "" + #"lightning_arc_fx", 1, 1, "int", &function_311f3501, 0, 0);
-	clientfield::register("actor", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int", &function_cd968d6, 0, 0);
-	clientfield::register("vehicle", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int", &function_cd968d6, 0, 0);
+	clientfield::register("actor", "" + #"hero_hammer_stun", 1, 1, "int", &function_cd968d6, 0, 0);
+	clientfield::register("vehicle", "" + #"hero_hammer_stun", 1, 1, "int", &function_cd968d6, 0, 0);
 	clientfield::register("toplayer", "" + #"hammer_rumble", 1, 1, "counter", &hammer_rumble, 0, 0);
 	level._effect[#"hammer_storm"] = #"hash_20c78a023629447a";
 	level._effect[#"lightning_miss"] = #"hash_211c80023671737b";

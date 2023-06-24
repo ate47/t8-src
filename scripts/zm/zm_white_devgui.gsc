@@ -57,7 +57,7 @@ function private function_2639784()
 		{
 			zm_devgui::zombie_devgui_open_sesame();
 		}
-		level.old_dog_spawn = &namespace_c402654::function_62db7b1c;
+		level.old_dog_spawn = &zombie_dog_util::function_62db7b1c;
 		zm_white_special_rounds::function_6acd363d(1);
 	#/
 }

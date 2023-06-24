@@ -6,10 +6,10 @@
 #using script_2c5daa95f8fec03c;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;
 #using script_35598499769dbb3d;
-#using script_3657077a08b7f19e;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_41fe08c37d53a635;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_489b835a247c990e;
@@ -18,19 +18,19 @@
 #using script_4d85e8de54b02198;
 #using scripts\zm_common\zm_lockdown_util.gsc;
 #using script_522aeb6ae906391e;
-#using script_567f1ada8fe29a1c;
+#using scripts\zm_common\trials\zm_trial_force_archetypes.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai\archetype_blight_father_interface.gsc;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 #using script_caf007e2a98afa2;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -138,7 +138,7 @@ function __init__()
 	}
 	level.var_c2981ce9 = [#"tag_eggsack_weakspot_ri":&function_33b2c99e, #"tag_eggsack_weakspot_le":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"tag_mouth_weakspot":&function_fa7c080];
 	zm_ai_utility::function_2ad308c4(#"blight_father", &function_744be31d);
-	namespace_32192f7::function_95c1dd81(#"blight_father", &function_2315440d);
+	zm_trial_special_enemy::function_95c1dd81(#"blight_father", &function_2315440d);
 	namespace_9ff9f642::register_slowdown(#"hash_2fd5f5f16583a427", 0.8);
 	callback::add_callback(#"hash_4d2043b190b84792", &function_ef860973);
 	callback::add_callback(#"hash_137b937fd26992be", &function_6fa41b21);
@@ -212,7 +212,7 @@ function private function_7c52f40()
 	self endon(#"death");
 	self.zombie_move_speed = "sprint";
 	self zombie_utility::function_df5afb5e(0);
-	if(!(isdefined(level.var_a2831281) && level.var_a2831281) && !namespace_32192f7::is_active() && !namespace_5869722f::function_ff2a74e7(#"blight_father") && (!(isdefined(level.var_f300b600) && level.var_f300b600)))
+	if(!(isdefined(level.var_a2831281) && level.var_a2831281) && !zm_trial_special_enemy::is_active() && !zm_trial_force_archetypes::function_ff2a74e7(#"blight_father") && (!(isdefined(level.var_f300b600) && level.var_f300b600)))
 	{
 		self.ignore_enemy_count = 1;
 	}
@@ -4086,7 +4086,7 @@ function function_fa00e485(n_round_number)
 */
 function function_633d7436(var_dbce0c44)
 {
-	forced = namespace_5869722f::function_ff2a74e7(#"blight_father");
+	forced = zm_trial_force_archetypes::function_ff2a74e7(#"blight_father");
 	var_8cf00d40 = int(floor(var_dbce0c44 / 300));
 	if(isdefined(level.var_bd626b54) && level.round_number < level.var_bd626b54 && !forced)
 	{

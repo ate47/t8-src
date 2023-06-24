@@ -3,7 +3,7 @@
 #using scripts\abilities\ability_player.gsc;
 #using script_35598499769dbb3d;
 #using scripts\zm_common\zm_armor.gsc;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -56,8 +56,8 @@ function __init__()
 	clientfield::register("vehicle", "" + #"hash_1e850b3e1aaeb945", 1, 1, "counter");
 	clientfield::register("actor", "" + #"lightning_arc_fx", 1, 1, "int");
 	clientfield::register("vehicle", "" + #"lightning_arc_fx", 1, 1, "int");
-	clientfield::register("actor", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int");
-	clientfield::register("vehicle", "" + #"hash_227b5ad1ba4c6b6d", 1, 1, "int");
+	clientfield::register("actor", "" + #"hero_hammer_stun", 1, 1, "int");
+	clientfield::register("vehicle", "" + #"hero_hammer_stun", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hammer_rumble", 1, 1, "counter");
 	level.hero_weapon[#"hammer"][0] = getweapon(#"hero_hammer_lv1");
 	level.hero_weapon[#"hammer"][1] = getweapon(#"hero_hammer_lv2");
@@ -175,7 +175,7 @@ function function_1286cbf(s_params)
 	if(isplayer(s_params.eattacker) && function_f820b73(s_params.weapon, 1) && s_params.smeansofdeath == "MOD_MELEE")
 	{
 		player = s_params.eattacker;
-		var_d695a618 = 50 - player zm_armor::get(#"hash_5c9caf0397b30f1e");
+		var_d695a618 = 50 - player zm_armor::get(#"hero_weapon_armor");
 		if(var_d695a618 >= 10)
 		{
 			var_20694322 = 10;
@@ -203,7 +203,7 @@ function private function_82466b73(weapon)
 	while(true)
 	{
 		self waittill(#"weapon_melee_power_left");
-		if(!namespace_6b49f66b::function_5fbf572(weapon))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 		{
 			continue;
 		}
@@ -293,7 +293,7 @@ function private function_4493c71b(weapon)
 	while(true)
 	{
 		self waittill(#"weapon_melee_power");
-		if(!namespace_6b49f66b::function_5fbf572(weapon, 1))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon, 1))
 		{
 			continue;
 		}
@@ -364,7 +364,7 @@ function private activate_armor(weapon)
 */
 function private set_armor(n_armor)
 {
-	self thread zm_armor::add(#"hash_5c9caf0397b30f1e", n_armor, 50);
+	self thread zm_armor::add(#"hero_weapon_armor", n_armor, 50);
 }
 
 /*
@@ -382,7 +382,7 @@ function private function_7399cd86(weapon)
 	while(true)
 	{
 		self waittill(#"weapon_melee");
-		if(!namespace_6b49f66b::function_5fbf572(weapon))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 		{
 			continue;
 		}
@@ -730,9 +730,9 @@ function function_97429d68()
 	}
 	self ai::stun();
 	self.var_c6aafbdb = 1;
-	if(!self clientfield::get("" + #"hash_227b5ad1ba4c6b6d"))
+	if(!self clientfield::get("" + #"hero_hammer_stun"))
 	{
-		self clientfield::set("" + #"hash_227b5ad1ba4c6b6d", 1);
+		self clientfield::set("" + #"hero_hammer_stun", 1);
 		if(self.archetype == #"zombie")
 		{
 			function_6eac4ca1(self, "electrocute");
@@ -740,7 +740,7 @@ function function_97429d68()
 	}
 	wait(0.2);
 	self ai::function_62795e55();
-	self clientfield::set("" + #"hash_227b5ad1ba4c6b6d", 0);
+	self clientfield::set("" + #"hero_hammer_stun", 0);
 	self.var_c6aafbdb = 0;
 }
 
@@ -1252,14 +1252,14 @@ function hammer_rumble(n_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_478a4910(var_6ed98fb9)
+function function_478a4910(w_hammer)
 {
 	self endon(#"weapon_change", #"disconnect", #"bled_out");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee_power_left");
-	if(s_result.weapon == var_6ed98fb9)
+	if(s_result.weapon == w_hammer)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87ca13e3ecd52d", #"hammer");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_2", #"hammer");
 	}
 }
 
@@ -1272,14 +1272,14 @@ function function_478a4910(var_6ed98fb9)
 	Parameters: 1
 	Flags: Linked
 */
-function function_68ff89f7(var_6ed98fb9)
+function function_68ff89f7(w_hammer)
 {
 	self endon(#"weapon_change", #"disconnect", #"bled_out");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee");
-	if(s_result.weapon === var_6ed98fb9)
+	if(s_result.weapon === w_hammer)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"hammer");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"hammer");
 	}
 }
 

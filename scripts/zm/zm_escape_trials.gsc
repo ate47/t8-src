@@ -2,14 +2,14 @@
 #using script_112484f657ccd8b7;
 #using script_1d1e3c193b0a51d;
 #using scripts\zm_common\trials\zm_trial_door_lockdown.gsc;
-#using script_2cbdf0fe879d9488;
+#using scripts\zm_common\trials\zm_trial_zombie_speed_changes.gsc;
 #using script_2f9a68261f6a17be;
 #using script_30ba61ad5559c51d;
-#using script_4b6463028d2e7925;
-#using script_601aa78407bf29f3;
+#using scripts\zm_common\trials\zm_trial_escape_forge_magmagat.gsc;
+#using scripts\zm_common\trials\zm_trial_reset_points.gsc;
 #using script_67da0c3654a906b6;
 #using script_6ff72d27da99fb12;
-#using script_7083ccf195dacba1;
+#using scripts\zm_common\trials\zm_trial_forced_reload.gsc;
 #using script_71683688316a8eea;
 #using script_770e34dfe9b07f3c;
 

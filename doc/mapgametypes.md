@@ -162,6 +162,7 @@ switchmap_switch();
 - `warzone_hardcore_solo` - hardcore solo
 - `warzone_hardcore_duo` - hardcore duo
 - `warzone_hardcore_quad` - hardcore quad
+- `warzone_escape_solo` - escape solo
 - `warzone_pandemic_quad` - pandemic (**script error with alcatraz, only for the base map**)
 - `warzone_ambush_solo` - Ambush solo (**script error**)
 - `warzone_ambush_duo` - Ambush duo (**script error**)

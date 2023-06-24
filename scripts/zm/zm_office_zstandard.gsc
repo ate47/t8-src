@@ -4,7 +4,7 @@
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm\zm_office_special_rounds.gsc;
-#using script_39e954a546d3baf;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
 #using script_4bae07eadc57bb51;
 #using scripts\zm\zm_office_elevators.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
@@ -153,7 +153,7 @@ function intro_zombie_dog(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		e_nova_crawler = namespace_c402654::function_62db7b1c(1, undefined);
+		e_nova_crawler = zombie_dog_util::function_62db7b1c(1, undefined);
 		if(isdefined(e_nova_crawler))
 		{
 			n_spawn_count++;
@@ -261,7 +261,7 @@ function defend_areas()
 	zm_utility::function_fef4b36a(var_f79ff5ec);
 	var_f79ff5ec = array::random(array(#"server_room", #"war_room_lower"));
 	s_defend_area = zm_utility::function_a877cd10(var_f79ff5ec);
-	namespace_c402654::dog_enable_rounds(0);
+	zombie_dog_util::dog_enable_rounds(0);
 	var_3e4bb460 = "elevator2";
 	level zm_utility::open_door("elev2_blocker", undefined, undefined, 1);
 	function_cc31fe55(var_3e4bb460);

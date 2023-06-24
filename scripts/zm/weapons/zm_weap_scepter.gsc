@@ -3,8 +3,8 @@
 #using script_24c32478acf44108;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_3f9e0dc8454d98e1;
-#using script_fb16bd158a3e3e7;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -54,10 +54,10 @@ function autoexec __init__system__()
 function __init__()
 {
 	clientfield::register("allplayers", "" + #"hash_70c8a5d240e431ec", 1, 1, "counter");
-	clientfield::register("allplayers", "" + #"hash_dce196aefa0c9d", 1, 1, "counter");
-	clientfield::register("allplayers", "" + #"hash_50aa88683b97ef09", 1, 1, "counter");
-	clientfield::register("actor", "" + #"hash_18aecd09c861f097", 1, 1, "int");
-	clientfield::register("vehicle", "" + #"hash_18aecd09c861f097", 1, 1, "int");
+	clientfield::register("allplayers", "" + #"zombie_scepter_melee", 1, 1, "counter");
+	clientfield::register("allplayers", "" + #"zombie_scepter_heal", 1, 1, "counter");
+	clientfield::register("actor", "" + #"zombie_scepter_stun", 1, 1, "int");
+	clientfield::register("vehicle", "" + #"zombie_scepter_stun", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"beacon_fx", 1, 1, "int");
 	clientfield::register("allplayers", "" + #"skull_turret_beam_fire", 1, 2, "int");
 	clientfield::register("allplayers", "" + #"hash_6635e6da6fcfe594", 1, 2, "int");
@@ -121,7 +121,7 @@ function private function_63e57124()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_219c7081783c2153");
+		waitresult = self waittill(#"hero_weapon_change");
 		wpn_cur = waitresult.weapon;
 		wpn_prev = waitresult.last_weapon;
 		if(wpn_prev == level.hero_weapon[#"scepter"][0] || wpn_prev == level.hero_weapon[#"scepter"][1] || wpn_prev == level.hero_weapon[#"scepter"][2])
@@ -210,7 +210,7 @@ function private function_304a3c9b(var_c34665fc)
 */
 function private function_4521ac7e(w_curr, n_lvl)
 {
-	self endoncallback(&function_304a3c9b, #"hash_219c7081783c2153", #"player_downed", #"disconnect", #"hero_weapon_power_off");
+	self endoncallback(&function_304a3c9b, #"hero_weapon_change", #"player_downed", #"disconnect", #"hero_weapon_power_off");
 	while(true)
 	{
 		s_result = undefined;
@@ -219,7 +219,7 @@ function private function_4521ac7e(w_curr, n_lvl)
 		{
 			continue;
 		}
-		if(!namespace_6b49f66b::function_5fbf572(w_curr))
+		if(!zm_trial_restrict_loadout::function_5fbf572(w_curr))
 		{
 			continue;
 		}
@@ -264,7 +264,7 @@ function private function_4521ac7e(w_curr, n_lvl)
 */
 function private function_4493c71b(weapon, n_lvl = 1)
 {
-	self endon(#"hash_219c7081783c2153", #"bled_out", #"disconnect");
+	self endon(#"hero_weapon_change", #"bled_out", #"disconnect");
 	while(true)
 	{
 		if(n_lvl < 3)
@@ -275,11 +275,11 @@ function private function_4493c71b(weapon, n_lvl = 1)
 		{
 			self waittill(#"weapon_melee_power_left");
 		}
-		if(!namespace_6b49f66b::function_5fbf572(weapon, 1))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon, 1))
 		{
 			continue;
 		}
-		weapon thread function_6dfe361b(self);
+		weapon thread scepter_melee(self);
 	}
 }
 
@@ -341,12 +341,12 @@ function private function_89fc5431()
 */
 function private function_e874c3e1(weapon)
 {
-	self endon(#"hash_219c7081783c2153", #"death");
+	self endon(#"hero_weapon_change", #"death");
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_melee");
-		if(!namespace_6b49f66b::function_5fbf572(weapon))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 		{
 			continue;
 		}
@@ -402,7 +402,7 @@ function function_fe3f086c(e_target, weapon = level.weaponnone)
 */
 function chop_actor(e_target, weapon = level.weaponnone)
 {
-	self endon(#"hash_219c7081783c2153", #"bled_out", #"disconnect");
+	self endon(#"hero_weapon_change", #"bled_out", #"disconnect");
 	if(!isalive(e_target))
 	{
 		return;
@@ -479,7 +479,7 @@ function melee_zombies(weapon = level.weaponnone)
 	view_pos = self getweaponmuzzlepoint();
 	forward_view_angles = self getweaponforwarddir();
 	var_537e767d = 130 * 130;
-	self clientfield::increment("" + #"hash_dce196aefa0c9d");
+	self clientfield::increment("" + #"zombie_scepter_melee");
 	a_e_targets = zm_hero_weapon::function_7c3681f7();
 	var_f3edb3a6 = 0;
 	foreach(e_target in a_e_targets)
@@ -525,7 +525,7 @@ function melee_zombies(weapon = level.weaponnone)
 }
 
 /*
-	Name: function_6dfe361b
+	Name: scepter_melee
 	Namespace: zm_weap_scepter
 	Checksum: 0x7335183
 	Offset: 0x1BC0
@@ -533,7 +533,7 @@ function melee_zombies(weapon = level.weaponnone)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6dfe361b(player)
+function scepter_melee(player)
 {
 	player thread scepter_rumble(2);
 	player thread melee_zombies(self);
@@ -613,7 +613,7 @@ function function_be8ae52f(w_curr)
 			e_last_target = a_trace[#"entity"];
 			if(isdefined(e_last_target.var_6f84b820) && e_last_target.team !== #"allies")
 			{
-				if(namespace_6b49f66b::is_active(1))
+				if(zm_trial_restrict_loadout::is_active(1))
 				{
 					self zm_trial_util::function_97444b02();
 					return;
@@ -652,7 +652,7 @@ function function_be8ae52f(w_curr)
 					{
 						n_percent_health = var_c4d00e65 * e_last_target.health;
 						n_damage = max(n_percent_health, n_base_damage);
-						if(isactor(e_last_target) && (!(isdefined(e_last_target.var_61435d9) && e_last_target.var_61435d9)) && !namespace_6b49f66b::is_active(1))
+						if(isactor(e_last_target) && (!(isdefined(e_last_target.var_61435d9) && e_last_target.var_61435d9)) && !zm_trial_restrict_loadout::is_active(1))
 						{
 							e_last_target.var_4857363e = 1;
 							e_last_target thread function_75e6e51c(5, self);
@@ -992,7 +992,7 @@ function function_1f6199f0(e_reviver)
 		{
 			n_health_regen = int(self.health + 5);
 			self.health = math::clamp(n_health_regen, 1, self.var_66cb03ad);
-			self clientfield::increment("" + #"hash_50aa88683b97ef09", 1);
+			self clientfield::increment("" + #"zombie_scepter_heal", 1);
 			e_reviver.var_ec334996 = e_reviver.var_ec334996 + 1;
 		}
 	}
@@ -1090,11 +1090,11 @@ function function_97429d68(n_time = 5)
 			self thread namespace_9ff9f642::slowdown(#"hash_6c580993aa401a5b");
 		}
 	}
-	self clientfield::set("" + #"hash_18aecd09c861f097", 1);
+	self clientfield::set("" + #"zombie_scepter_stun", 1);
 	wait(n_time);
 	if(!(isdefined(self.var_693f4e69) && self.var_693f4e69))
 	{
-		self clientfield::set("" + #"hash_18aecd09c861f097", 0);
+		self clientfield::set("" + #"zombie_scepter_stun", 0);
 	}
 	self.var_25cb9682 = 0;
 	self.var_1b6dab30 = undefined;
@@ -1130,14 +1130,14 @@ function function_75e6e51c(n_time = 5, e_attacker)
 	{
 		self thread namespace_9ff9f642::slowdown(#"hash_6c580993aa401a5b");
 	}
-	self clientfield::set("" + #"hash_18aecd09c861f097", 1);
+	self clientfield::set("" + #"zombie_scepter_stun", 1);
 	for(x = 0; x < n_time / 0.5; x++)
 	{
 		wait(0.5);
 		[[ level.var_cfeea502 ]]->waitinqueue(self);
 		self dodamage(n_damage, self.origin, e_attacker, e_attacker);
 	}
-	self clientfield::set("" + #"hash_18aecd09c861f097", 0);
+	self clientfield::set("" + #"zombie_scepter_stun", 0);
 	self.var_61435d9 = 0;
 }
 
@@ -1217,7 +1217,7 @@ function weapon_change_watcher()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_219c7081783c2153");
+		var_be17187b = self waittill(#"hero_weapon_change");
 		if(isdefined(var_be17187b.w_previous) && zm_loadout::is_hero_weapon(var_be17187b.w_current))
 		{
 			self.var_7e973e30 = var_be17187b.w_previous;
@@ -1427,7 +1427,7 @@ function function_f67f53a7(var_4eaa1f4c)
 	self.var_6afa034c notsolid();
 	self.var_6afa034c show();
 	waitframe(1);
-	if(!namespace_6b49f66b::is_active(1))
+	if(!zm_trial_restrict_loadout::is_active(1))
 	{
 		self.var_6afa034c thread beacon_smash(self);
 	}
@@ -1591,7 +1591,7 @@ function beacon_loop(w_beacon, var_4eaa1f4c)
 		if(self gadgetpowerget(slot) > 0)
 		{
 			array::thread_all(level.players, &function_888d5bd9, self);
-			if(!namespace_6b49f66b::is_active(1))
+			if(!zm_trial_restrict_loadout::is_active(1))
 			{
 				n_frame = self function_15c2525e(var_4eaa1f4c, 0.25);
 				var_adaf2ccb = math::clamp(0.25 - (n_frame * 0.05), 0.05, 0.25);
@@ -1858,9 +1858,9 @@ function function_cc91b3fe(e_attacker)
 	{
 		return;
 	}
-	if(self clientfield::get("" + #"hash_18aecd09c861f097"))
+	if(self clientfield::get("" + #"zombie_scepter_stun"))
 	{
-		self clientfield::set("" + #"hash_18aecd09c861f097", 0);
+		self clientfield::set("" + #"zombie_scepter_stun", 0);
 	}
 }
 
@@ -2002,14 +2002,14 @@ function scepter_rumble(var_b2e05bae)
 	Parameters: 1
 	Flags: Linked
 */
-function function_68ff89f7(var_fe4f91c7)
+function function_68ff89f7(w_scepter)
 {
-	self endon(#"hash_219c7081783c2153", #"disconnect", #"bled_out");
+	self endon(#"hero_weapon_change", #"disconnect", #"bled_out");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee");
-	if(s_result.weapon == var_fe4f91c7)
+	if(s_result.weapon == w_scepter)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"scepter");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"scepter");
 	}
 }
 

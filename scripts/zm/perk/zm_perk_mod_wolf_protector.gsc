@@ -2,7 +2,7 @@
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
 #using scripts\zm\powerup\zm_powerup_small_ammo.gsc;
 #using scripts\zm\powerup\zm_powerup_bonus_points_player.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

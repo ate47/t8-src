@@ -2,13 +2,13 @@
 #using script_1ef0852930d362dc;
 #using scripts\zm\ai\zm_ai_bat.gsc;
 #using script_3e5ec44cfab7a201;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using scripts\zm\zm_mansion_special_rounds.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -38,11 +38,11 @@
 #using scripts\zm_common\zm_weapons.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_1bf74f9e;
+#namespace mansion_ww_lvl3_quest;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x6FE9146E
 	Offset: 0x4C0
 	Size: 0x44
@@ -51,12 +51,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_46962ccd84e04308", &__init__, &__main__, undefined);
+	system::register(#"mansion_ww_lvl3_quest", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x80FBBEE0
 	Offset: 0x510
 	Size: 0x404
@@ -94,7 +94,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x72AC5737
 	Offset: 0x920
 	Size: 0xEC
@@ -116,7 +116,7 @@ function __main__()
 
 /*
 	Name: function_e92f09d0
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x9972D4EF
 	Offset: 0xA18
 	Size: 0x16C
@@ -150,7 +150,7 @@ function function_e92f09d0(einflictor, eattacker, idamage, idflags, smeansofdeat
 
 /*
 	Name: function_3da8da85
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x8BE2CFAD
 	Offset: 0xB90
 	Size: 0xDC
@@ -174,7 +174,7 @@ function function_3da8da85(params)
 
 /*
 	Name: function_e217ba73
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xF2B93F07
 	Offset: 0xC78
 	Size: 0x32C
@@ -232,7 +232,7 @@ function function_e217ba73(v_pos, v_velocity)
 
 /*
 	Name: function_9a0471ab
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xF3E53B71
 	Offset: 0xFB0
 	Size: 0x84
@@ -252,7 +252,7 @@ function function_9a0471ab(params)
 
 /*
 	Name: function_6e094214
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x2EEF8DAE
 	Offset: 0x1040
 	Size: 0x56E
@@ -333,7 +333,7 @@ function function_6e094214()
 
 /*
 	Name: function_fc4f1886
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x29CA38A6
 	Offset: 0x15B8
 	Size: 0x2F6
@@ -385,7 +385,7 @@ function function_fc4f1886()
 
 /*
 	Name: function_6730d7f4
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x9B80AA43
 	Offset: 0x18B8
 	Size: 0xD4
@@ -403,7 +403,7 @@ function function_6730d7f4(var_74f1c6f6, var_1fc5672)
 
 /*
 	Name: function_afb9c21c
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x5777AABE
 	Offset: 0x1998
 	Size: 0x192
@@ -432,7 +432,7 @@ function function_afb9c21c(var_74f1c6f6)
 
 /*
 	Name: function_927ac839
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xBC972591
 	Offset: 0x1B38
 	Size: 0x36
@@ -448,7 +448,7 @@ function function_927ac839()
 
 /*
 	Name: function_30210e26
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xADD258BB
 	Offset: 0x1B78
 	Size: 0x18C
@@ -480,7 +480,7 @@ function function_30210e26()
 
 /*
 	Name: function_7229d73c
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x10249827
 	Offset: 0x1D10
 	Size: 0x154
@@ -510,7 +510,7 @@ function function_7229d73c()
 
 /*
 	Name: function_4999f099
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x191CA6C6
 	Offset: 0x1E70
 	Size: 0x410
@@ -582,7 +582,7 @@ function function_4999f099(var_9427f9e7)
 
 /*
 	Name: function_fd7c6bd1
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x9DE53CB9
 	Offset: 0x2288
 	Size: 0x94
@@ -601,7 +601,7 @@ function function_fd7c6bd1()
 
 /*
 	Name: function_3c9915f4
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x395D17FD
 	Offset: 0x2328
 	Size: 0x210
@@ -627,7 +627,7 @@ function function_3c9915f4(var_9427f9e7, var_2bab3af1)
 
 /*
 	Name: function_a8fd8406
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xFC966DFA
 	Offset: 0x2540
 	Size: 0x8C
@@ -646,7 +646,7 @@ function function_a8fd8406()
 
 /*
 	Name: function_58439640
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x6E6883FF
 	Offset: 0x25D8
 	Size: 0x138
@@ -672,7 +672,7 @@ function function_58439640()
 
 /*
 	Name: function_44a776ee
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xF1891EE5
 	Offset: 0x2718
 	Size: 0x2EC
@@ -723,7 +723,7 @@ function function_44a776ee()
 
 /*
 	Name: function_c73f430e
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x6B46D728
 	Offset: 0x2A10
 	Size: 0x144
@@ -756,7 +756,7 @@ function function_c73f430e()
 
 /*
 	Name: function_68a875b
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x286A65C9
 	Offset: 0x2B60
 	Size: 0x40C
@@ -845,7 +845,7 @@ function function_68a875b(v_pos)
 
 /*
 	Name: function_cfffc455
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x2B6A5AFC
 	Offset: 0x2F78
 	Size: 0x28C
@@ -902,7 +902,7 @@ function function_cfffc455()
 
 /*
 	Name: function_dca0343
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xAEA9931D
 	Offset: 0x3210
 	Size: 0xAC
@@ -929,7 +929,7 @@ function function_dca0343()
 
 /*
 	Name: function_fb72da74
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xD74FE1B0
 	Offset: 0x32C8
 	Size: 0x46
@@ -945,7 +945,7 @@ function function_fb72da74()
 
 /*
 	Name: function_c60245c1
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x8EC03588
 	Offset: 0x3318
 	Size: 0xDC
@@ -970,7 +970,7 @@ function function_c60245c1(e_player)
 
 /*
 	Name: function_366a1f08
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xC343690F
 	Offset: 0x3400
 	Size: 0x76
@@ -988,7 +988,7 @@ function function_366a1f08()
 
 /*
 	Name: function_c7c9f8d3
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4FCBE28F
 	Offset: 0x3480
 	Size: 0x68
@@ -1004,7 +1004,7 @@ function function_c7c9f8d3(player)
 
 /*
 	Name: function_21db5b62
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x8A19EF43
 	Offset: 0x34F0
 	Size: 0x68
@@ -1020,7 +1020,7 @@ function function_21db5b62(player)
 
 /*
 	Name: function_7b5a8c15
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x487ED26A
 	Offset: 0x3560
 	Size: 0xDC
@@ -1040,7 +1040,7 @@ function function_7b5a8c15()
 
 /*
 	Name: function_5ccad751
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xF38968A9
 	Offset: 0x3648
 	Size: 0x116
@@ -1067,7 +1067,7 @@ function function_5ccad751()
 
 /*
 	Name: function_5ce9ff7a
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xDFEB3C04
 	Offset: 0x3768
 	Size: 0x4C
@@ -1081,7 +1081,7 @@ function function_5ce9ff7a(s_notify)
 
 /*
 	Name: function_13547ea4
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xD0D107E0
 	Offset: 0x37C0
 	Size: 0x68
@@ -1097,7 +1097,7 @@ function function_13547ea4(player)
 
 /*
 	Name: function_9d36c592
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xAC6CD5C
 	Offset: 0x3830
 	Size: 0x130
@@ -1136,7 +1136,7 @@ function function_9d36c592()
 
 /*
 	Name: function_d8648a1e
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xFDA23C78
 	Offset: 0x3968
 	Size: 0x1D4
@@ -1168,7 +1168,7 @@ function function_d8648a1e(e_player)
 
 /*
 	Name: function_42c889b7
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x5B18D526
 	Offset: 0x3B48
 	Size: 0x134
@@ -1190,7 +1190,7 @@ function function_42c889b7(e_player)
 
 /*
 	Name: function_79b81681
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x55A831B3
 	Offset: 0x3C88
 	Size: 0x7A
@@ -1208,7 +1208,7 @@ function function_79b81681(a_ents)
 
 /*
 	Name: function_2c0edc3d
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xB398776D
 	Offset: 0x3D10
 	Size: 0x7A
@@ -1227,7 +1227,7 @@ function function_2c0edc3d(a_ents)
 
 /*
 	Name: function_d2278936
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x44AAF57A
 	Offset: 0x3D98
 	Size: 0x266
@@ -1296,7 +1296,7 @@ function function_d2278936(e_player)
 
 /*
 	Name: function_be3fbc6f
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4A17C487
 	Offset: 0x4008
 	Size: 0x1EC
@@ -1326,7 +1326,7 @@ function function_be3fbc6f(s_params)
 
 /*
 	Name: function_6f3f4e18
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x9F3951EF
 	Offset: 0x4200
 	Size: 0x374
@@ -1379,7 +1379,7 @@ function function_6f3f4e18(s_loc)
 
 /*
 	Name: function_7b8d385
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4D350F76
 	Offset: 0x4580
 	Size: 0x94
@@ -1402,7 +1402,7 @@ function function_7b8d385(s_notify)
 
 /*
 	Name: function_fdc93dd2
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x2311E7FB
 	Offset: 0x4620
 	Size: 0xB0
@@ -1425,7 +1425,7 @@ function function_fdc93dd2(player)
 
 /*
 	Name: function_c1c2fc5b
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xC49DA8B6
 	Offset: 0x46D8
 	Size: 0x278
@@ -1479,7 +1479,7 @@ function function_c1c2fc5b(n_to_spawn)
 
 /*
 	Name: function_ee901070
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xFE8F228
 	Offset: 0x4958
 	Size: 0x234
@@ -1528,7 +1528,7 @@ function function_ee901070(e_attacker)
 
 /*
 	Name: function_ff107ee6
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4B1EAB7D
 	Offset: 0x4B98
 	Size: 0x34
@@ -1545,7 +1545,7 @@ function function_ff107ee6(str_notify)
 
 /*
 	Name: function_2e1a2c88
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x40883A2A
 	Offset: 0x4BD8
 	Size: 0x9C
@@ -1565,7 +1565,7 @@ function function_2e1a2c88()
 
 /*
 	Name: function_bc8c390e
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x13B84EC1
 	Offset: 0x4C80
 	Size: 0x120
@@ -1588,7 +1588,7 @@ function function_bc8c390e()
 
 /*
 	Name: function_de394c52
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xD0BB0A5A
 	Offset: 0x4DA8
 	Size: 0x68
@@ -1607,7 +1607,7 @@ function function_de394c52()
 
 /*
 	Name: function_4eca0031
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4147605A
 	Offset: 0x4E18
 	Size: 0x11C
@@ -1633,7 +1633,7 @@ function function_4eca0031()
 
 /*
 	Name: function_75636add
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xEEB110A6
 	Offset: 0x4F40
 	Size: 0x98
@@ -1655,7 +1655,7 @@ function function_75636add(var_f1935ec8)
 
 /*
 	Name: function_a2256244
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xC5E3BADE
 	Offset: 0x4FE0
 	Size: 0x1E6
@@ -1690,7 +1690,7 @@ function function_a2256244(var_f9105ee8, var_f1935ec8)
 
 /*
 	Name: function_6a21ff38
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x451DE41
 	Offset: 0x51D0
 	Size: 0x34
@@ -1705,7 +1705,7 @@ function function_6a21ff38()
 
 /*
 	Name: function_a167efd7
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x460CC32F
 	Offset: 0x5210
 	Size: 0xB0
@@ -1729,7 +1729,7 @@ function function_a167efd7()
 
 /*
 	Name: function_1b4df249
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x409407B8
 	Offset: 0x52C8
 	Size: 0x2E
@@ -1747,7 +1747,7 @@ function function_1b4df249()
 
 /*
 	Name: function_25058256
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xC99D4271
 	Offset: 0x5300
 	Size: 0xA2
@@ -1765,7 +1765,7 @@ function function_25058256()
 
 /*
 	Name: ww_lvl3_crafted
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x6A695DA8
 	Offset: 0x53B0
 	Size: 0x14E
@@ -1792,7 +1792,7 @@ function ww_lvl3_crafted(e_player)
 
 /*
 	Name: function_c834e06
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xB92A1500
 	Offset: 0x5508
 	Size: 0xAC
@@ -1809,7 +1809,7 @@ function function_c834e06()
 
 /*
 	Name: function_7aa50bb7
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x5184FC5
 	Offset: 0x55C0
 	Size: 0xE8

@@ -76,7 +76,7 @@ function private function_654bd68b(localclientnum, oldvalue, newvalue, bnewent, 
 	{
 		if(self flag::exists(#"friendly"))
 		{
-			self renderoverridebundle::stop_bundle(#"friendly", (sessionmodeiscampaigngame() ? #"hash_461520942fd1154d" : #"rob_sonar_set_friendlyequip_mp"), 0);
+			self renderoverridebundle::stop_bundle(#"friendly", (sessionmodeiscampaigngame() ? #"rob_sonar_set_friendlyequip_cp" : #"rob_sonar_set_friendlyequip_mp"), 0);
 		}
 	}
 }

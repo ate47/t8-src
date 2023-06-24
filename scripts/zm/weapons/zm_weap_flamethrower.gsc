@@ -3,7 +3,7 @@
 #using script_24c32478acf44108;
 #using scripts\abilities\ability_player.gsc;
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_armor.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -138,7 +138,7 @@ function private function_f5430720()
 		else if(isinarray(level.hero_weapon[#"flamethrower"], wpn_prev))
 		{
 			self function_8cbc7c8f(0);
-			self notify(#"hash_5d832df3b9639676");
+			self notify(#"hero_flamethrower_expired");
 			level callback::remove_on_ai_killed(&function_1d6d54c0);
 		}
 		if(wpn_cur == level.hero_weapon[#"flamethrower"][0])
@@ -209,7 +209,7 @@ function function_1d6d54c0(s_params)
 	if(isplayer(s_params.eattacker) && function_b1dc801b(s_params.weapon, 1) && (!(isdefined(self.var_d9e7a08a) && self.var_d9e7a08a)) && s_params.smeansofdeath == "MOD_BURNED")
 	{
 		e_player = s_params.eattacker;
-		var_d695a618 = 50 - e_player zm_armor::get(#"hash_5c9caf0397b30f1e");
+		var_d695a618 = 50 - e_player zm_armor::get(#"hero_weapon_armor");
 		if(var_d695a618 >= 5)
 		{
 			var_20694322 = 5;
@@ -218,7 +218,7 @@ function function_1d6d54c0(s_params)
 		{
 			var_20694322 = var_d695a618;
 		}
-		e_player thread zm_armor::add(#"hash_5c9caf0397b30f1e", var_20694322, 50);
+		e_player thread zm_armor::add(#"hero_weapon_armor", var_20694322, 50);
 	}
 }
 
@@ -351,7 +351,7 @@ function private function_d8e7e308(v_position)
 */
 function function_58bc825e(w_flamethrower)
 {
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired");
 	while(true)
 	{
 		s_result = undefined;
@@ -469,7 +469,7 @@ function function_31a142a2(w_flamethrower)
 */
 function function_16f31337(w_flamethrower)
 {
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired");
 	while(true)
 	{
 		s_result = undefined;
@@ -658,7 +658,7 @@ function function_ea906434(e_player, w_flamethrower)
 */
 function function_29bbc43a(w_flamethrower)
 {
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired");
 	while(true)
 	{
 		s_result = undefined;
@@ -683,7 +683,7 @@ function function_29bbc43a(w_flamethrower)
 function function_3be93b07(w_flamethrower)
 {
 	self notify(#"hash_2ca901b5ada4f20f");
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676", #"hash_2ca901b5ada4f20f");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired", #"hash_2ca901b5ada4f20f");
 	var_a85d39a2 = [];
 	var_2ed6f142 = self getweaponmuzzlepoint();
 	v_forward_angles = self getweaponforwarddir();
@@ -756,7 +756,7 @@ function function_95195ac0()
 	}
 	var_be72e7c2 = self.var_be72e7c2;
 	var_be72e7c2 endon(#"death");
-	self waittill(#"death", #"hash_5d832df3b9639676");
+	self waittill(#"death", #"hero_flamethrower_expired");
 	if(isdefined(self))
 	{
 		self notify(#"hash_751e0293eed9a1cf");
@@ -1225,12 +1225,12 @@ function function_8cbc7c8f(var_2fb75486)
 */
 function function_478a4910(w_flamethrower)
 {
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee_power_left");
 	if(s_result.weapon == w_flamethrower)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87ca13e3ecd52d", #"flamethrower");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_2", #"flamethrower");
 	}
 }
 
@@ -1245,12 +1245,12 @@ function function_478a4910(w_flamethrower)
 */
 function function_68ff89f7(w_flamethrower)
 {
-	self endon(#"bled_out", #"death", #"hash_5d832df3b9639676");
+	self endon(#"bled_out", #"death", #"hero_flamethrower_expired");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee");
 	if(s_result.weapon == w_flamethrower)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"flamethrower");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"flamethrower");
 	}
 }
 

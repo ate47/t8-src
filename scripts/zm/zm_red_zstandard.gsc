@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_transformation.gsc;
-#using script_39e954a546d3baf;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
 #using script_3aa54d3cb36ea43f;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_4d00889cf8c807d5;
@@ -231,7 +231,7 @@ function function_40dfd00b(n_round_number)
 function function_41342d7(n_round)
 {
 	zm_utility::function_9b7bc715(#"gegenees", 1);
-	namespace_75cbf125::spawn_single(1, undefined, n_round);
+	zombie_gegenees_util::spawn_single(1, undefined, n_round);
 }
 
 /*
@@ -246,7 +246,7 @@ function function_41342d7(n_round)
 function function_9f77f5c8(n_round)
 {
 	zm_utility::function_9b7bc715(#"skeleton", 1);
-	namespace_bc12435c::function_1ea880bd(1, undefined, n_round);
+	zombie_skeleton_util::function_1ea880bd(1, undefined, n_round);
 }
 
 /*

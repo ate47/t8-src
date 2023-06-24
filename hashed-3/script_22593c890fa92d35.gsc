@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player_insertion.gsc;
-#using script_6de2f7255a97ab00;
+#using scripts\mp_common\item_supply_drop.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -118,7 +118,7 @@ function function_f3dbfe8d(einflictor, eattacker, idamage, idflags, smeansofdeat
 		self ghost();
 		if(!(isdefined(level.var_f2ea2755) && level.var_f2ea2755))
 		{
-			namespace_8f74625a::function_8366d4d6(self.origin, #"hash_6bf51ee970d5ba5e");
+			item_supply_drop::function_8366d4d6(self.origin, #"hash_6bf51ee970d5ba5e");
 			level.var_f2ea2755 = 1;
 		}
 	}

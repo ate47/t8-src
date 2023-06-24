@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e0dc8454d98e1;
-#using script_fb16bd158a3e3e7;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -197,7 +197,7 @@ function function_81058b09(var_d92ac80e)
 {
 	a_ai = self getenemiesinradius(self.origin, 320);
 	a_ai = arraysortclosest(a_ai, self.origin);
-	if(namespace_6b49f66b::is_active())
+	if(zm_trial_restrict_loadout::is_active())
 	{
 		a_ai = [];
 	}

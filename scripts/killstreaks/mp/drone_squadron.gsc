@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_2eeea8e6fc9ffec5;
-#using script_308727214b5f8162;
+#using scripts\killstreaks\ai\lead_drone.gsc;
+#using scripts\killstreaks\qrdrone.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_48e84d96b02dc660;
+#using scripts\killstreaks\ai\wing_drone.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\vehicles\wasp.gsc;

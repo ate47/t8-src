@@ -42,7 +42,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.var_7048dda4 = getweapon("ultimate_turret");
-	deployable::function_2e088f73(level.var_7048dda4, undefined, &function_b02e4a26);
+	deployable::register_deployable(level.var_7048dda4, undefined, &function_b02e4a26);
 	callback::on_item_use(&on_item_use);
 }
 

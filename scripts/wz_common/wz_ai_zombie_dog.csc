@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_c402654;
+#namespace zombie_dog_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xA93CF59
 	Offset: 0x120
 	Size: 0x3C
@@ -18,12 +18,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_29467933d0da473b", &__init__, undefined, undefined);
+	system::register(#"zombie_dog_util", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x837F2A35
 	Offset: 0x168
 	Size: 0xA4
@@ -39,7 +39,7 @@ function __init__()
 
 /*
 	Name: init_dog_fx
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x4510B12
 	Offset: 0x218
 	Size: 0x182
@@ -60,7 +60,7 @@ function init_dog_fx()
 
 /*
 	Name: dog_fx
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x334EB110
 	Offset: 0x3A8
 	Size: 0x3CC
@@ -105,7 +105,7 @@ function dog_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname
 
 /*
 	Name: dog_spawn_fx
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x9936920C
 	Offset: 0x780
 	Size: 0x74

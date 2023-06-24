@@ -75,7 +75,7 @@ function on_ai_killed(params)
 	if(isplayer(params.eattacker))
 	{
 		attacker = params.eattacker;
-		bathtub = struct::get(#"hash_53bbab305c87572a", "targetname");
+		bathtub = struct::get(#"zombie_bathub", "targetname");
 		if(isdefined(bathtub))
 		{
 			distance = distance(bathtub.origin, attacker.origin);
@@ -271,7 +271,7 @@ function function_7eabf705()
 			if(getdvarint(#"hash_7e7b9e2edcf6d1ee", 0))
 			{
 				players = getplayers();
-				bathtub = struct::get(#"hash_53bbab305c87572a", "");
+				bathtub = struct::get(#"zombie_bathub", "");
 				function_613448ed(players[0], bathtub);
 				level notify(#"hash_671b150516dd9870");
 				break;

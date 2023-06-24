@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_184abbae9afad370;
+#using scripts\mp_common\player\player_damage.gsc;
 #using script_243ea03c7a285692;
 #using script_5394c653bafe1358;
 #using scripts\weapons\weapon_utils.gsc;
@@ -692,7 +692,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 	}
 	self clientfield::set("laststand_bleed", 1);
 	self thread laststand_bleedout(bleedout_time, var_969fabf4);
-	self thread function_263492d9();
+	self thread laststand_invulnerability();
 	demo::bookmark(#"player_downed", gettime(), self);
 	potm::bookmark(#"player_downed", gettime(), self);
 	self thread laststand::function_d4c9e1b5();
@@ -889,7 +889,7 @@ function laststand_bleedout(bleedouttime, var_969fabf4)
 }
 
 /*
-	Name: function_263492d9
+	Name: laststand_invulnerability
 	Namespace: laststand_mp
 	Checksum: 0x742E2006
 	Offset: 0x2D28
@@ -897,7 +897,7 @@ function laststand_bleedout(bleedouttime, var_969fabf4)
 	Parameters: 0
 	Flags: None
 */
-function function_263492d9()
+function laststand_invulnerability()
 {
 	self endon(#"disconnect", #"death");
 	self enableinvulnerability();

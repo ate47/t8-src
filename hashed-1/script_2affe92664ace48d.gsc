@@ -1,10 +1,10 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\ai\zm_ai_tiger.gsc;
-#using script_3f9e0dc8454d98e1;
-#using script_4aeb3279b6b23a91;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\trials\zm_trial_add_special.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_d8b1f4ee30e5fc5;
+#using scripts\core_common\ai\archetype_tiger.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -15,11 +15,11 @@
 #using scripts\zm_common\zm_score.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_3fe4d0d7;
+#namespace zombie_tiger_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x3F99401F
 	Offset: 0x140
 	Size: 0x54
@@ -28,12 +28,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_2a747ac7e33453cc", &__init__, &__main__, #"zm_ai_tiger");
+	system::register(#"zombie_tiger_util", &__init__, &__main__, #"zm_ai_tiger");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x61F94A66
 	Offset: 0x1A0
 	Size: 0xB4
@@ -55,7 +55,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x8288F6F7
 	Offset: 0x260
 	Size: 0x7C
@@ -70,7 +70,7 @@ function __main__()
 
 /*
 	Name: function_fe4c8547
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0xE65FA07
 	Offset: 0x2E8
 	Size: 0xAC
@@ -90,7 +90,7 @@ function function_fe4c8547()
 
 /*
 	Name: spawn_single
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x1C76925C
 	Offset: 0x3A0
 	Size: 0x1E8
@@ -141,7 +141,7 @@ function spawn_single(b_force_spawn = 0, var_eb3a8721)
 
 /*
 	Name: function_66cfd7d
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x7BEC0D6F
 	Offset: 0x590
 	Size: 0x9A
@@ -161,7 +161,7 @@ function function_66cfd7d()
 
 /*
 	Name: function_cbfb0da4
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0xA22240BC
 	Offset: 0x638
 	Size: 0xF8
@@ -194,7 +194,7 @@ function function_cbfb0da4()
 			break;
 		}
 	}
-	if(namespace_fd89d870::is_active(#"tiger"))
+	if(zm_trial_add_special::is_active(#"tiger"))
 	{
 		var_ed61bfaa = var_ed61bfaa * 4;
 	}
@@ -203,7 +203,7 @@ function function_cbfb0da4()
 
 /*
 	Name: function_ba8172ca
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x4779DA8C
 	Offset: 0x738
 	Size: 0xBC
@@ -226,7 +226,7 @@ function function_ba8172ca()
 
 /*
 	Name: function_ffa01525
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0xCB62AB7E
 	Offset: 0x800
 	Size: 0xD0
@@ -264,7 +264,7 @@ function function_ffa01525()
 
 /*
 	Name: function_94c9b195
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x4FD8C79D
 	Offset: 0x8D8
 	Size: 0x54
@@ -282,7 +282,7 @@ function function_94c9b195()
 
 /*
 	Name: function_235d0eb6
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0xA4DA1771
 	Offset: 0x938
 	Size: 0xC2
@@ -302,7 +302,7 @@ function function_235d0eb6(var_dbce0c44)
 
 /*
 	Name: round_spawn
-	Namespace: namespace_3fe4d0d7
+	Namespace: zombie_tiger_util
 	Checksum: 0x4E3B861D
 	Offset: 0xA08
 	Size: 0x3C

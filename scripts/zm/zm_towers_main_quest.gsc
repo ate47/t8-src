@@ -7,7 +7,7 @@
 #using scripts\zm\zm_towers_special_rounds.gsc;
 #using script_35598499769dbb3d;
 #using scripts\zm\zm_towers_crowd.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_aoe.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\abilities\ability_util.gsc;
@@ -17,7 +17,7 @@
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\weapons\zm_weap_crossbow.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -341,7 +341,7 @@ function function_4e1d219c(a_ents)
 {
 	if(self.targetname === "s_fertilizer_dangle")
 	{
-		var_71cb7fcb = a_ents[#"hash_7aff0ee60ddd937b"];
+		var_71cb7fcb = a_ents[#"prop 1"];
 		var_6e231fa2 = getent("mdl_fertilizer_component_1", "targetname");
 		var_6e231fa2 linkto(var_71cb7fcb, "shackle_attach_jnt");
 	}
@@ -751,7 +751,7 @@ function function_965e1613()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_2eed9998dba1b252");
+		var_be17187b = level waittill(#"hero_weapon_activated");
 		if(!isdefined(var_be17187b.e_player))
 		{
 			continue;
@@ -1697,7 +1697,7 @@ function spawn_ra_destroyer(var_95f17a69, str_zone = "")
 	ai_destroyer = undefined;
 	while(!isdefined(ai_destroyer))
 	{
-		ai_destroyer = namespace_acd9c698::function_69f309b(1, "ranged", &function_59d775d2, 1, s_spawn);
+		ai_destroyer = zombie_gladiator_util::function_69f309b(1, "ranged", &function_59d775d2, 1, s_spawn);
 		waitframe(1);
 	}
 }
@@ -4433,17 +4433,17 @@ function function_ba568d37(str_enemy, a_s_spawns)
 		{
 			case "marauder":
 			{
-				ai_enemy = namespace_acd9c698::function_bfa79e98(undefined, s_spawn, "melee");
+				ai_enemy = zombie_gladiator_util::function_bfa79e98(undefined, s_spawn, "melee");
 				break;
 			}
 			case "destroyer":
 			{
-				ai_enemy = namespace_acd9c698::function_bfa79e98(undefined, s_spawn, "ranged");
+				ai_enemy = zombie_gladiator_util::function_bfa79e98(undefined, s_spawn, "ranged");
 				break;
 			}
 			case "tiger":
 			{
-				ai_enemy = namespace_3fe4d0d7::spawn_single(1, s_spawn);
+				ai_enemy = zombie_tiger_util::spawn_single(1, s_spawn);
 				break;
 			}
 		}
@@ -5637,12 +5637,12 @@ function private defend_spawn(var_4bf95f4c)
 				}
 				case "glad_m":
 				{
-					namespace_acd9c698::function_69f309b(1, "melee", undefined, 1, var_6454115e);
+					zombie_gladiator_util::function_69f309b(1, "melee", undefined, 1, var_6454115e);
 					break;
 				}
 				case "glad_r":
 				{
-					namespace_acd9c698::function_69f309b(1, "ranged", undefined, 1, var_6454115e);
+					zombie_gladiator_util::function_69f309b(1, "ranged", undefined, 1, var_6454115e);
 					break;
 				}
 				case "blight":
@@ -6470,13 +6470,13 @@ function function_e9d463a0()
 				case 0:
 				{
 					var_6454115e = array::random(var_bfa27650);
-					level thread namespace_acd9c698::function_69f309b(1, "melee", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
+					level thread zombie_gladiator_util::function_69f309b(1, "melee", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
 					break;
 				}
 				case 1:
 				{
 					var_6454115e = array::random(var_bfa27650);
-					level thread namespace_acd9c698::function_69f309b(1, "ranged", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
+					level thread zombie_gladiator_util::function_69f309b(1, "ranged", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
 					break;
 				}
 				case 2:
@@ -6530,13 +6530,13 @@ function function_c84b435()
 				{
 					var_6454115e = function_30868c0b(a_s_spawners, "gladiator_location");
 					var_6454115e = array::random(struct::get_array("boss_temp_gate_tele", "targetname"));
-					level thread namespace_acd9c698::function_69f309b(1, "melee", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
+					level thread zombie_gladiator_util::function_69f309b(1, "melee", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
 					break;
 				}
 				case 1:
 				{
 					var_6454115e = array::random(struct::get_array("boss_temp_gate_tele", "targetname"));
-					level thread namespace_acd9c698::function_69f309b(1, "ranged", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
+					level thread zombie_gladiator_util::function_69f309b(1, "ranged", &function_94f7ef12, 1, var_6454115e, max(25, level.round_number));
 					break;
 				}
 				default:

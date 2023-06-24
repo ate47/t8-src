@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1602,7 +1602,7 @@ function function_623b460a()
 	level flag::set(#"hash_11cbce4fcf9f3aec");
 	var_97b7cff3 = scene::get_active_scenes(#"p8_fxanim_zm_man_pjs_bundle");
 	var_70c77e28 = var_97b7cff3[0];
-	var_35694f3f = var_70c77e28.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_35694f3f = var_70c77e28.scene_ents[#"prop 1"];
 	/#
 		/#
 			assert(isdefined(var_35694f3f), "");

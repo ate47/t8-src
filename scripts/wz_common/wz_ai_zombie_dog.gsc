@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_184abbae9afad370;
+#using scripts\mp_common\player\player_damage.gsc;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
 #using script_4bf952f6ba31bb17;
@@ -7,7 +7,7 @@
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\wz_common\wz_ai_utils.gsc;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\wz_common\wz_ai_zombie.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\activecamo_shared.csc;
-#using script_18a9e529264a3d29;
+#using scripts\zm_common\zm_maptable.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -642,7 +642,7 @@ function function_ae3780f1(localclientnum, n_fx_id, var_3ab46b9)
 */
 function get_cast()
 {
-	return namespace_cb7cafc3::get_cast();
+	return zm_maptable::get_cast();
 }
 
 /*
@@ -656,7 +656,7 @@ function get_cast()
 */
 function get_story()
 {
-	return namespace_cb7cafc3::get_story();
+	return zm_maptable::get_story();
 }
 
 /*

@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_white_portals.gsc;
 #using script_3e5ec44cfab7a201;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
@@ -1563,7 +1563,7 @@ function function_be93a2bf()
 {
 	if(level.var_65e355f > 1 && level.var_5233174e > 4)
 	{
-		ai = namespace_c402654::function_62db7b1c(0);
+		ai = zombie_dog_util::function_62db7b1c(0);
 		if(isdefined(ai))
 		{
 			level.var_5233174e = 0;

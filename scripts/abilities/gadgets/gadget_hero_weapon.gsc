@@ -128,7 +128,7 @@ function gadget_hero_weapon_on_activate(slot, weapon)
 	self.heavyweaponkillcount = 0;
 	self.heavyweaponshots = 0;
 	self.heavyweaponhits = 0;
-	self notify(#"hash_6706cbd0ce1c0c09");
+	self notify(#"hero_weapon_active");
 	if(function_de324246(slot, weapon))
 	{
 		self hero_give_ammo(slot, weapon);

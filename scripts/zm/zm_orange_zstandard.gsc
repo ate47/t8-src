@@ -2,8 +2,8 @@
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm\zm_orange_pap.gsc;
-#using script_39e954a546d3baf;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm\zm_orange_special_rounds.gsc;
 #using scripts\zm\zm_hms_util.gsc;
@@ -375,7 +375,7 @@ function intro_zombie_dog(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		e_nova_crawler = namespace_c402654::function_62db7b1c(1, undefined);
+		e_nova_crawler = zombie_dog_util::function_62db7b1c(1, undefined);
 		if(isdefined(e_nova_crawler))
 		{
 			n_spawn_count++;
@@ -458,7 +458,7 @@ function function_a39e7a56()
 			level.defend_spawns = 0;
 			if(level flag::get(#"hash_50990d5b9376f50d"))
 			{
-				ai = namespace_c402654::function_62db7b1c(0);
+				ai = zombie_dog_util::function_62db7b1c(0);
 			}
 		}
 		else

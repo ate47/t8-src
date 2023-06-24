@@ -8,7 +8,7 @@
 #using script_27a4aedb3d2a899b;
 #using script_28144a2871e71a78;
 #using scripts\zm_common\zm_characters.csc;
-#using script_2cb5724648b5b416;
+#using scripts\zm\zm_white_insanity_mode.csc;
 #using scripts\zm\zm_white_special_rounds.csc;
 #using scripts\zm\weapons\zm_weap_minigun.csc;
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
@@ -83,8 +83,8 @@ event main(eventstruct)
 	clientfield::register("world", "portal_map_fire_sale", 1, 1, "int", &portal_map_fire_sale, 0, 0);
 	clientfield::register("world", "portal_map_cul_de_sac_chest", 1, 1, "int", &portal_map_cul_de_sac_chest, 0, 0);
 	clientfield::register("world", "power_pbg_control", 1, 1, "int", &power_pbg_control, 0, 0);
-	namespace_29f39efb::init_fx();
-	namespace_29f39efb::init_clientfields();
+	zm_white_insanity_mode::init_fx();
+	zm_white_insanity_mode::init_clientfields();
 	white_main_quest::init_fx();
 	white_main_quest::init_clientfields();
 	zm_white_toast::init_fx();

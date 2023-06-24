@@ -44,7 +44,7 @@ function __init__()
 	clientfield::register("clientuimodel", "hudItems.isSpectre", 16000, 1, "int");
 	clientfield::register("world", "showSpectreSwordBeams", 16000, 1, "int");
 	callback::add_callback(#"inventory_reset", &function_4467066e);
-	callback::add_callback(#"hash_4d3e34c3c8f8bb2a", &function_4467066e);
+	callback::add_callback(#"on_drop_item", &function_4467066e);
 	callback::on_item_pickup(&function_4467066e);
 	callback::add_callback(#"on_player_downed", &function_ef53914c);
 	callback::on_player_killed_with_params(&function_de83cc91);
@@ -82,7 +82,7 @@ function private function_4467066e(params)
 		foreach(item in self.inventory.items)
 		{
 			var_a6762160 = item.var_a6762160;
-			if(isdefined(item.var_a6762160) && item.var_a6762160.name == #"hash_43aca7fcfd3e5949")
+			if(isdefined(item.var_a6762160) && item.var_a6762160.name == #"sig_blade_wz_item")
 			{
 				var_ec8e239d = 1;
 				break;

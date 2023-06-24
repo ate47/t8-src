@@ -16,7 +16,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"character_unlock_stanton", &__init__, undefined, #"hash_bff403c2cb59a3a");
+	system::register(#"character_unlock_stanton", &__init__, undefined, #"character_unlock_stanton_fixup");
 }
 
 /*

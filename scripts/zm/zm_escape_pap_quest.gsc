@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_29b970364d23b9;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7c62f55ce3a557ff;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -401,13 +401,13 @@ function function_1ab4e68()
 		level flag::wait_till("power_on1");
 		if(!level flag::get("power_on"))
 		{
-			level thread namespace_961cf978::attempt_brutus_spawn(1, "zone_studio");
+			level thread zombie_brutus_util::attempt_brutus_spawn(1, "zone_studio");
 		}
 	}
 	level waittill(#"hash_222aa78f79091e7");
 	if(zm_custom::function_901b751c(#"zmpapenabled") != 2 && (!(isdefined(level.var_af325495) && level.var_af325495)))
 	{
-		level thread namespace_961cf978::attempt_brutus_spawn(1, "zone_roof");
+		level thread zombie_brutus_util::attempt_brutus_spawn(1, "zone_roof");
 	}
 }
 

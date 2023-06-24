@@ -163,6 +163,7 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 - `"wzspectrerising"` - Is WZ Spectrer rising mode (true|false)
 - `"wzhardcore"` - Is WZ Hardcore mode (true|false)
+- `"wzheavymetalheroes"` - Is WZ Heavy metal heroes mode (true|false)
 - `"wzzombieapocalypse"` - Is WZ Pandemic mode (true|false)
 - `"wzambush"` - Is WZ Ambush mode (true|false)
 - `"wzwetworks"` - Is WZ Wetworks event (only affect vehicle spewn) (true|false)
@@ -176,15 +177,16 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 #### Items
 
 - `"wzenablebackpack"` - Enable backpack
+- `"wzenableflareguns"` - Enable flare guns
 - `"wzenablehawk"` - Enable Hawk
 - `"wzenabledart"` - Enable Dart
 - `"wzenablesentrygun"` - Enable Sentry gun
 - `"wzenablelv1armor"` - Enable armor lvl 1
 - `"wzenablelv2armor"` - Enable armor lvl 2
 - `"wzenablelv3armor"` - Enable armor lvl 3
-- `"hash_5e9a89fe817a3fac"` - Enable bandage (+25)
+- `"wzenablebandages"` - Enable bandage (+25)
 - `"wzenablemedkit"` - Enable medkit (+50)
-- `"hash_18a48cc68a5ea51b"` - Enable health kit (+200)
+- `"wzenabletraumakit"` - Enable trauma kit (+200)
 - `"wzenabletak5"` - Enable tak5 (disabled?)
 
 #### Heros
@@ -299,10 +301,12 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablerazorwire"` - Enable razor wire
 - `"wzenablesensordart"` - Enable sensor dart
 - `"wzenablebarricade"` Enable barricade
+- `"wzenablereconcar"` Enable recon car
 - `"wzenabletrophysystem"` Enable trophy
-- `"hash_7c6aa297d67f94c1"` Enable unknown equipment
+- `"wzenablemeshmines"` Enable mesh mines
+- `"wzenablespectregrenade"` Enable spectre grenade
+- `"wzenablehellsretriever"` Enable hell retriever
 - `"hash_2e25d475b271a700"` Enable unknown equipment
-- `"hash_2fa72a7ec2d86741"` Enable unknown equipment
 - `"hash_20787bdeafae5592"` Enable unknown equipment
 - `"hash_16f10373ec8e6906"` Enable unknown equipment
 #### Perks
@@ -339,7 +343,7 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"hash_76563462cf31f5c"` Enable attachment unknown
 - `"hash_daba3be8725aaab"` Enable attachment unknown
 - `"wzenableforegrip"` Enable foregrip
-- `"hash_1b28296927171330"` Enable attachment unknown
+- `"wzenablepistolgrip"` Enable pistol grip
 
 ### Vehicle spawn
 
@@ -573,12 +577,6 @@ Or by talisman:
 - `"zmperkszombshell"` allow perk zombshell
 - `"zmperkswolfprotector"` allow perk wolf_protector
 - `"zmperksdeathdash"` allow perk death_dash
-
-### Rounds
-
-- `"zombie_health_increase_multiplier"` - The multiplier to apply to the zombies' health
-- `"zombie_health_increase"` - The increase to add after the multipler
-- `"zombie_health_start"` - The start health
 
 ### Allow weapon wallbuy
 

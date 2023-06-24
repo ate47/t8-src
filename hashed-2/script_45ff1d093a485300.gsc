@@ -3,7 +3,7 @@
 #using script_35598499769dbb3d;
 #using script_4c5c4a64a59247a2;
 #using script_4d85e8de54b02198;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 
 #namespace animationstatenetwork;

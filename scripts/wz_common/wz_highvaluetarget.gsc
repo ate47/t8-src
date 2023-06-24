@@ -3,7 +3,7 @@
 #using scripts\mp_common\item_inventory.gsc;
 #using script_673e73d0695d82b8;
 #using script_6b993fdc7adc35ec;
-#using script_6de2f7255a97ab00;
+#using scripts\mp_common\item_supply_drop.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -101,7 +101,7 @@ function private function_77a44aec()
 			{
 				player playsoundtoplayer(#"hash_321dbeea036e0e68", player);
 				player luinotifyevent(#"hash_6b67aa04e378d681", 1, 12);
-				namespace_8f74625a::drop_supply_drop(player.origin);
+				item_supply_drop::drop_supply_drop(player.origin);
 			}
 			continue;
 		}
@@ -264,7 +264,7 @@ function private function_3f8e4156(params)
 	}
 	attacker playsoundtoplayer(#"hash_619bf069e410b863", attacker);
 	attacker luinotifyevent(#"hash_6b67aa04e378d681", 1, 11);
-	namespace_8f74625a::drop_supply_drop(attacker.origin);
+	item_supply_drop::drop_supply_drop(attacker.origin);
 }
 
 /*

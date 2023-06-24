@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm\weapons\zm_weap_tomahawk.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -371,7 +371,7 @@ function function_e40e9d94(n_eating_anim, ai_zombie, var_64c09f7f)
 function function_37937b33()
 {
 	self endon(#"death");
-	self waittill(#"hash_60ba27e6f0456c32");
+	self waittill(#"zombie_eaten_hide");
 	self clientfield::increment("" + #"hash_338ecd1287d0623b");
 	self ghost();
 }

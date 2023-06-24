@@ -8,7 +8,7 @@
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using script_6b6fff322a8a64eb;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -1280,7 +1280,7 @@ function flinger_init()
 {
 	self thread scene::play("init");
 	self flagsys::wait_till(#"scene_ents_ready");
-	self.var_9d07d8dd = self.scene_ents[#"hash_7aff0ee60ddd937b"];
+	self.var_9d07d8dd = self.scene_ents[#"prop 1"];
 	if(self.targetname != "flinger_island")
 	{
 		self thread function_e468b4be();

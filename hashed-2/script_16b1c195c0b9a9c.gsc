@@ -5,7 +5,7 @@
 #using scripts\core_common\ai\planner_squad.gsc;
 #using scripts\core_common\ai\planner_squad_utility.gsc;
 #using script_522aeb6ae906391e;
-#using script_53b37ee2382572eb;
+#using scripts\core_common\ai\region_utility.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai\strategic_command.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -168,7 +168,7 @@ function private function_3ecc52d9(var_d3547bb1, laneNum)
 	{
 		var_55e8adf1 = tpoint.region;
 		var_8c8aa14d = spawnstruct();
-		var_8c8aa14d.path = self namespace_cb7fdaf1::function_b0f112ca(var_55e8adf1, var_d3547bb1, laneNum);
+		var_8c8aa14d.path = self region_utility::function_b0f112ca(var_55e8adf1, var_d3547bb1, laneNum);
 		var_8c8aa14d.var_91fc28f4 = 0;
 		if(var_8c8aa14d.path.size == 0)
 		{

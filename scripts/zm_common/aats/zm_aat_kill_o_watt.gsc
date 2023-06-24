@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -47,7 +47,7 @@ function __init__()
 	level.var_7fe61e7a.head_gib_chance = 0;
 	level.var_7fe61e7a.network_death_choke = 4;
 	level.var_7fe61e7a.should_kill_enemies = 0;
-	level.var_7fe61e7a.challenge_stat_name = #"hash_52038d902d42f5c2";
+	level.var_7fe61e7a.challenge_stat_name = #"zombie_hunter_kill_o_watt";
 	level.var_7fe61e7a.no_fx = 1;
 	level.var_7fe61e7a.clientside_fx = 0;
 	level.var_7fe61e7a.str_mod = "MOD_AAT";

@@ -4,10 +4,10 @@
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

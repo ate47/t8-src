@@ -7,7 +7,7 @@
 #using scripts\wz\wz_escape_elevators.gsc;
 #using script_71e26f08f03b7a7a;
 #using scripts\wz_common\wz_nixie_tubes.gsc;
-#using script_78fb87cbf5b3ed1d;
+#using scripts\wz_common\wz_blackjack_stash.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1139,7 +1139,7 @@ function devgui_weapon_think()
 	/#
 		for(;;)
 		{
-			weapon_index = getdvarint(#"hash_56266bf001df762b", 0);
+			weapon_index = getdvarint(#"scr_give_wz_item", 0);
 			switch(weapon_index)
 			{
 				case 1:
@@ -1148,7 +1148,7 @@ function devgui_weapon_think()
 					break;
 				}
 			}
-			setdvar(#"hash_56266bf001df762b", 0);
+			setdvar(#"scr_give_wz_item", 0);
 			wait(0.5);
 		}
 	#/
@@ -1166,7 +1166,7 @@ function devgui_weapon_think()
 function devgui_handle_player_command(playercallback, pcb_param_1, pcb_param_2)
 {
 	/#
-		pid = getdvarint(#"hash_56266bf001df762b", 0);
+		pid = getdvarint(#"scr_give_wz_item", 0);
 		if(pid > 0)
 		{
 			player = getplayers()[pid - 1];
@@ -1193,7 +1193,7 @@ function devgui_handle_player_command(playercallback, pcb_param_1, pcb_param_2)
 		{
 			array::thread_all(getplayers(), playercallback, pcb_param_1, pcb_param_2);
 		}
-		setdvar(#"hash_56266bf001df762b", -1);
+		setdvar(#"scr_give_wz_item", -1);
 	#/
 }
 
@@ -1215,7 +1215,7 @@ function private function_1880c93d()
 		/#
 			assert(isplayer(self));
 		#/
-		item = wz_loadouts::function_ba18c3e5(#"hash_50b970644e43947b");
+		item = wz_loadouts::function_ba18c3e5(#"ultimate_turret_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		self item_world::function_de2018e3(item, self, var_fa3df96);
 	#/

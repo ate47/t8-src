@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1017,7 +1017,7 @@ function function_7bd8cfde(var_64c09f7f, s_trap)
 		self clientfield::set("spinning_trap_blood_fx", 1);
 	}
 	self playsound(#"hash_42c6cc2204b7fbbd");
-	v_hook = s_trap.e_trap.scene_ents[#"hash_7aff0ee60ddd937b"] gettagorigin("tag_fan_blade_A_2");
+	v_hook = s_trap.e_trap.scene_ents[#"prop 1"] gettagorigin("tag_fan_blade_A_2");
 	n_dist = distance2d(self.origin, v_hook);
 	if(!(isdefined(s_trap.var_705682df) && s_trap.var_705682df) && self.var_6f84b820 === #"basic" && n_dist <= 128 && self.team != #"allies")
 	{
@@ -1065,8 +1065,8 @@ function function_bcfd9acb(s_trap)
 	s_trap.var_705682df = 1;
 	self.var_bd4627e1 = 1;
 	self clientfield::set("spinning_trap_eye_fx", 1);
-	var_e72c9959 = util::spawn_model("tag_origin", s_trap.e_trap.scene_ents[#"hash_7aff0ee60ddd937b"] gettagorigin("tag_fan_blade_A_2"), s_trap.e_trap.scene_ents[#"hash_7aff0ee60ddd937b"] gettagangles("tag_fan_blade_A_2"));
-	var_e72c9959 linkto(s_trap.e_trap.scene_ents[#"hash_7aff0ee60ddd937b"], "tag_fan_blade_A_2");
+	var_e72c9959 = util::spawn_model("tag_origin", s_trap.e_trap.scene_ents[#"prop 1"] gettagorigin("tag_fan_blade_A_2"), s_trap.e_trap.scene_ents[#"prop 1"] gettagangles("tag_fan_blade_A_2"));
+	var_e72c9959 linkto(s_trap.e_trap.scene_ents[#"prop 1"], "tag_fan_blade_A_2");
 	self val::set("spinning_trap", "ignoreall", 1);
 	self val::set("spinning_trap", "allowdeath", 0);
 	self.b_ignore_cleanup = 1;

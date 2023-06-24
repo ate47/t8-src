@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -121,7 +121,7 @@ function function_5d870c2c()
 */
 function function_20d38ac0(a_ents)
 {
-	var_955a6e11 = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_955a6e11 = a_ents[#"prop 1"];
 	if(isdefined(var_955a6e11))
 	{
 		var_955a6e11 function_53e45f4e();

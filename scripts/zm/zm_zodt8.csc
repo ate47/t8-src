@@ -9,7 +9,7 @@
 #using script_5504fe574aed77a8;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\zm\powerup\zm_powerup_free_perk.csc;
-#using script_74f5ae6ffc8bd614;
+#using scripts\zm_common\zm_audio_sq.csc;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -93,7 +93,7 @@ event main(eventstruct)
 	namespace_4a807bff::init();
 	namespace_b45e3f05::init();
 	namespace_57873b62::init();
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 	load::main();
 	function_99e9d1fa();
 	init_flags();

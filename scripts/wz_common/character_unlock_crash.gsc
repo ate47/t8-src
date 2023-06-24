@@ -51,7 +51,7 @@ function function_2613aeec(enabled)
 	if(enabled)
 	{
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4d3e34c3c8f8bb2a", &function_155ab49c);
+		callback::add_callback(#"on_drop_item", &on_drop_item);
 		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
 		callback::on_item_pickup(&on_item_pickup);
 		callback::on_item_use(&on_item_use);
@@ -100,7 +100,7 @@ function function_1c4b5097(item)
 }
 
 /*
-	Name: function_155ab49c
+	Name: on_drop_item
 	Namespace: character_unlock_crash
 	Checksum: 0xADF214B7
 	Offset: 0x440
@@ -108,7 +108,7 @@ function function_1c4b5097(item)
 	Parameters: 1
 	Flags: Linked
 */
-function function_155ab49c(params)
+function on_drop_item(params)
 {
 	if(!isplayer(self))
 	{

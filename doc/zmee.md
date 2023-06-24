@@ -172,7 +172,7 @@ struct ee_step {
     // name of the step ee
     hash name = step_name;
     // is the step ee cleanup
-    bool var_24e42ded = false;
+    bool cleaned_up = false;
     // is the step ee completed
     bool completed = false;
     // is the step started
@@ -217,7 +217,7 @@ This process is cancelled if the **step** object receive the event `"end_early"`
 
 #### Cleanup
 
-Once the setup is done, the cleanup function is started (unlike the setup function, it can't be cancelled), it set `step.var_24e42ded = true` and the flag `step_flag_name + "_completed"`
+Once the setup is done, the cleanup function is started (unlike the setup function, it can't be cancelled), it set `step.cleaned_up = true` and the flag `step_flag_name + "_completed"`
 
 #### Next
 
@@ -683,29 +683,29 @@ TODO
   - name: `#"hash_12ea405f7c5f915c"`, flag name: `#"zm_white_main_quest_step8"`
   - name: `#"hash_3a9a71b60d9f9435"`, flag name: `#"zm_white_main_quest_step9"`
 
-#### `#"hash_26a9aef6e9be5b86"` (Crawler step)
+#### `#"zm_white_mq_crawler"` (Crawler step)
 
 **steps**
 
-  - name: `#"crawler_start"`, flag name: `#"hash_6dd6bf1a83b01f98"`
+  - name: `#"crawler_start"`, flag name: `#"zm_white_mq_crawler_step1"`
 
-#### `#"hash_75f9f80c2256f3d3"` (Canister step)
-
-**steps**
-
-  - name: `#"canister_start"`, flag name: `#"hash_3c45f2a0212121a5"`
-
-#### `#"hash_19d484735f237f45"` (Circuit step)
+#### `#"zm_white_mq_canister"` (Canister step)
 
 **steps**
 
-  - name: `#"hash_f301a963b67d8a3"`, flag name: `#"hash_d7eabbef3c0ad57"`
+  - name: `#"canister_start"`, flag name: `#"zm_white_mq_canister_step1"`
 
-#### `#"hash_ab36ea0a749269d"` (main quest related)
+#### `#"zm_white_mq_circuit"` (Circuit step)
 
 **steps**
 
-  - name: `#"hash_1bd37826d376d83d"`, flag name: `#"hash_66cc75d9d9624f3f"`
+  - name: `#"circuit_start"`, flag name: `#"zm_white_mq_circuit_step1"`
+
+#### `#"zm_white_mq_server"` (Server step)
+
+**steps**
+
+  - name: `#"server_start"`, flag name: `#"zm_white_mq_server_step1"`
 
 #### `#"hash_8ad205f0a62b56e"` (main quest related)
 
@@ -893,13 +893,12 @@ TODO
 
 Need triage
 
-#### `#"hash_6bd65802877ef7e0"` (zm_orange?)
+#### `#"pernell_archive"` (zm_white?)
 
 **steps**
 
-  - name: `#"step_1"`, flag name: `#"hash_5bd2150946a6e992"`
-  - name: `#"step_2"`, flag name: `#"hash_5bd2140946a6e7df"`
-
+  - name: `#"step_1"`, flag name: `#"pernell_archive_step1"`
+  - name: `#"step_2"`, flag name: `#"pernell_archive_step2"`
 
 #### `#"hash_22d9cdbaac99885"` (zm_office?)
 

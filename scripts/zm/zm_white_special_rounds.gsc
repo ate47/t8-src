@@ -2,18 +2,18 @@
 #using script_174ebb9642933bf7;
 #using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
-#using script_3657077a08b7f19e;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\ai\zm_ai_white_nova_crawler.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -100,7 +100,7 @@ function init()
 		level thread function_2791c411();
 		level thread function_5daa45ac();
 		level thread function_3fc75ca6();
-		namespace_32192f7::function_95c1dd81(#"nova_crawler", &function_75309b09);
+		zm_trial_special_enemy::function_95c1dd81(#"nova_crawler", &function_75309b09);
 		zm_round_spawning::function_376e51ef(#"zombie_dog", 15);
 	}
 	level thread function_2790a022();
@@ -195,14 +195,14 @@ function enable_dog_rounds()
 				level.var_2f14be05 = 10;
 			}
 			zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
-			level.dog_round_track_override = &namespace_c402654::function_246a0760;
+			level.dog_round_track_override = &zombie_dog_util::function_246a0760;
 		}
 		else if(zm_utility::is_standard())
 		{
 			level.var_2f14be05 = 10;
 		}
 	}
-	namespace_c402654::dog_enable_rounds(0);
+	zombie_dog_util::dog_enable_rounds(0);
 	level thread function_dc9c5c32();
 }
 
@@ -338,7 +338,7 @@ function function_dc9c5c32()
 			}
 			for(i = 0; i < var_a9e4d1ee; i++)
 			{
-				ai = namespace_c402654::function_62db7b1c(0);
+				ai = zombie_dog_util::function_62db7b1c(0);
 				if(isdefined(ai))
 				{
 					level.zombie_total = level.zombie_total + 1;
@@ -2572,7 +2572,7 @@ function function_e2260632()
 	}
 	else
 	{
-		ai = namespace_c402654::function_62db7b1c(0, level function_d39f2f3e());
+		ai = zombie_dog_util::function_62db7b1c(0, level function_d39f2f3e());
 		level.var_9291cfb3 = #"zombie_dog";
 		if(isdefined(ai))
 		{

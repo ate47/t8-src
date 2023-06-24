@@ -2,9 +2,9 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using script_2affe92664ace48d;
 #using scripts\zm\zm_towers_special_rounds.gsc;
-#using script_39e954a546d3baf;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
 #using scripts\zm\zm_towers_crowd.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -141,7 +141,7 @@ function function_84139b27()
 */
 function function_69d1ce85(n_round_number)
 {
-	namespace_acd9c698::function_c9cd31(1);
+	zombie_gladiator_util::function_c9cd31(1);
 }
 
 /*
@@ -155,7 +155,7 @@ function function_69d1ce85(n_round_number)
 */
 function function_af36af51(n_round_number)
 {
-	namespace_acd9c698::function_2efc00db(1);
+	zombie_gladiator_util::function_2efc00db(1);
 }
 
 /*
@@ -608,7 +608,7 @@ function function_11962516()
 	{
 		var_1a397ef++;
 	}
-	zm_round_spawning::function_b4a8f95a(#"tiger", var_1a397ef, &zm_towers_special_rounds::function_f63225b8, &zm_towers_special_rounds::function_9a74f284, &zm_towers_special_rounds::function_a5dc8595, &namespace_3fe4d0d7::function_ffa01525);
+	zm_round_spawning::function_b4a8f95a(#"tiger", var_1a397ef, &zm_towers_special_rounds::function_f63225b8, &zm_towers_special_rounds::function_9a74f284, &zm_towers_special_rounds::function_a5dc8595, &zombie_tiger_util::function_ffa01525);
 	zm_utility::function_fdb0368(var_1a397ef);
 	wait(2);
 	zm_utility::function_9b7bc715(#"tiger", 1);

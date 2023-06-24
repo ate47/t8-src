@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_escape_travel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -267,7 +267,7 @@ function function_7273c33d(s_loc, var_2c30f72f = 1)
 	/#
 		assert(zm_utility::is_magic_bullet_shield_enabled(self), "");
 	#/
-	self namespace_c402654::zombie_setup_attack_properties_dog();
+	self zombie_dog_util::zombie_setup_attack_properties_dog();
 	self util::stop_magic_bullet_shield();
 	wait(0.1);
 	self show();
@@ -406,7 +406,7 @@ function function_8164716a()
 		var_5601237b = zm_crafting::function_31d883d7();
 		foreach(var_6645c992 in var_5601237b)
 		{
-			if(var_6645c992.var_54a97edd == getweapon(#"hash_42a45d43be3dba42"))
+			if(var_6645c992.var_54a97edd == getweapon(#"zhield_spectral_dw"))
 			{
 				level flag::set(#"hash_7039457b1cc827de");
 				break;
@@ -795,7 +795,7 @@ function function_cd3a65e0()
 function dog_spawn_func()
 {
 	s_spawn_loc = undefined;
-	target = namespace_c402654::function_a5abd591();
+	target = zombie_dog_util::function_a5abd591();
 	if(!isdefined(target))
 	{
 		return undefined;

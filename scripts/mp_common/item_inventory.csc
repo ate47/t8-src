@@ -105,7 +105,7 @@ function private function_38ebb2a1(localclientnum, oldval, newval, bnewent, bini
 		clientdata.var_ff9e7e43 = 1;
 		if(function_a5c2a6b8(localclientnum))
 		{
-			clientdata.var_f0f7e918 = [];
+			clientdata.groupitems = [];
 			if(isdefined(level.var_102be329) && level.var_102be329)
 			{
 				setuimodelvalue(createuimodel(getuimodelforcontroller(localclientnum), "hudItems.inventory.canUseQuickInventory"), 0);
@@ -116,7 +116,7 @@ function private function_38ebb2a1(localclientnum, oldval, newval, bnewent, bini
 	{
 		if(newval == 0)
 		{
-			clientdata.var_f0f7e918 = [];
+			clientdata.groupitems = [];
 			player = function_27673a7(localclientnum);
 			if(isplayer(player) && isalive(player))
 			{
@@ -964,10 +964,10 @@ function private function_7f35a045(localclientnum)
 		}
 		if(!isdefined(inventoryitem) && function_a5c2a6b8(localclientnum) && self clientfield::get_player_uimodel("hudItems.multiItemPickup.status") == 2)
 		{
-			arrayremovevalue(data.var_f0f7e918, undefined, 0);
-			for(index = 0; index < data.var_f0f7e918.size; index++)
+			arrayremovevalue(data.groupitems, undefined, 0);
+			for(index = 0; index < data.groupitems.size; index++)
 			{
-				var_81bb13f5 = data.var_f0f7e918[index];
+				var_81bb13f5 = data.groupitems[index];
 				if(var_81bb13f5.var_bd027dd9 === var_bd027dd9)
 				{
 					if(var_81bb13f5.var_a6762160.itemtype != #"ammo" && var_81bb13f5.var_a6762160.itemtype != #"weapon")
@@ -1644,7 +1644,7 @@ function private function_8bb02a48(localclientnum)
 	var_7007b688 = [];
 	if(isdefined(var_b8f1b496.var_a6762160))
 	{
-		var_7007b688 = namespace_ad5a0cd6::function_4cbb6617(data.inventory, #"equipment", array(#"hash_53a2516ec1d3a096", #"hash_3074c41bb205ed8c", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"wraithfire_wz_item", #"hash_5752a7e130ea202a", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"dart_wz_item", #"hawk_wz_item", #"hash_50b970644e43947b", #"hash_627144159973c325", #"hash_1a7edb90a484158b", #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc", #"hash_213093d947c30be6", #"hash_7e8c84081fafaea4", #"hash_665eccfe5d58f636", #"hash_68b64725de40edae", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
+		var_7007b688 = namespace_ad5a0cd6::function_4cbb6617(data.inventory, #"equipment", array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"hash_16a1f841da0b877d", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{
@@ -2157,7 +2157,7 @@ function private function_3e624606(localclientnum)
 		if(self clientfield::get_player_uimodel("hudItems.multiItemPickup.status") == 2)
 		{
 			var_bd027dd9 = waitresult.id;
-			index = item_world::function_73436347(clientdata.var_f0f7e918, var_bd027dd9);
+			index = item_world::function_73436347(clientdata.groupitems, var_bd027dd9);
 			itemid = item_world::function_28b42f1c(localclientnum, var_bd027dd9);
 			if(itemid == 32767)
 			{
@@ -3067,7 +3067,7 @@ function function_42e2bb1a(localclientnum)
 */
 function function_dab42db1(localclientnum)
 {
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_initialized");
 	foreach(ammotype in array(#"hash_182fdef2ad243e20", #"hash_212b01feaa916a00", #"hash_3bf6ed4e3a22e9f3", #"hash_1f72dec518451f8c", #"hash_3b5119f663e783b1", #"hash_7ebaa4e1e2f5d8a2", #"hash_46dd75a1a3f70780", #"hash_394e9478cf4f8d9d"))
 	{
 		point = function_4ba8fde(ammotype);
@@ -3092,9 +3092,9 @@ function function_dab42db1(localclientnum)
 */
 function function_cf96d951(localclientnum)
 {
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_initialized");
 	data = item_world::function_a7e98a1a(localclientnum);
-	point = function_4ba8fde(#"hash_2e33ce38d6cda617");
+	point = function_4ba8fde(#"armor_shard_item");
 	if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.itemtype == #"armor_shard")
 	{
 		if(data.inventory.items[16].var_bd027dd9 == 32767)
@@ -3115,7 +3115,7 @@ function function_cf96d951(localclientnum)
 */
 function function_d7869556(localclientnum)
 {
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_initialized");
 	data = item_world::function_a7e98a1a(localclientnum);
 	point = function_4ba8fde(#"hash_5e9c3f9821e1ee0a");
 	if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.itemtype == #"resource")
@@ -3847,10 +3847,10 @@ function function_9116bb0e(localclientnum, closed = 0)
 	clientdata = item_world::function_a7e98a1a(localclientnum);
 	var_6e2c91d0 = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.multiItemPickup");
 	var_cc67e8b = createuimodel(var_6e2c91d0, "count");
-	if(isdefined(clientdata.var_f0f7e918) && !closed)
+	if(isdefined(clientdata.groupitems) && !closed)
 	{
-		arrayremovevalue(clientdata.var_f0f7e918, undefined, 0);
-		foreach(i, itemdef in clientdata.var_f0f7e918)
+		arrayremovevalue(clientdata.groupitems, undefined, 0);
+		foreach(i, itemdef in clientdata.groupitems)
 		{
 			itemmodel = createuimodel(var_6e2c91d0, "item" + i);
 			setuimodelvalue(createuimodel(itemmodel, "id"), itemdef.var_bd027dd9);
@@ -3948,7 +3948,7 @@ function function_9116bb0e(localclientnum, closed = 0)
 			}
 		}
 		currentcount = getuimodelvalue(var_cc67e8b);
-		setuimodelvalue(var_cc67e8b, clientdata.var_f0f7e918.size);
+		setuimodelvalue(var_cc67e8b, clientdata.groupitems.size);
 		var_aaa1adcb = createuimodel(var_6e2c91d0, "forceNotifyAmmoList");
 		forcenotifyuimodel(var_aaa1adcb);
 	}

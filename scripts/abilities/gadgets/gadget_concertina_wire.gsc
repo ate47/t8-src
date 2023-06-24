@@ -45,7 +45,7 @@ function init_shared(var_4b51853b)
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_killed_with_params(&onplayerkilled);
 	callback::on_start_gametype(&startgametype);
-	deployable::function_2e088f73(level.var_87226c31.var_3e7344ee, &function_e5fdca70, &function_6fe5a945, undefined, undefined, 1);
+	deployable::register_deployable(level.var_87226c31.var_3e7344ee, &function_e5fdca70, &function_6fe5a945, undefined, undefined, 1);
 	level.var_87226c31.var_357db326 = 10000;
 	clientfield::register("scriptmover", "concertinaWire_placed", 1, 5, "float");
 	clientfield::register("scriptmover", "concertinaWireDestroyed", 1, 1, "int");

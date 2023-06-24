@@ -25,7 +25,7 @@ function init_shared()
 	level.var_5101157d.previewmodels = [];
 	level.var_5101157d.var_aef370a9 = [];
 	level.var_5101157d.weapon = getweapon(#"ability_smart_cover");
-	deployable::function_2e088f73(level.var_5101157d.weapon, 1);
+	deployable::register_deployable(level.var_5101157d.weapon, 1);
 	if(sessionmodeismultiplayergame())
 	{
 		level.var_5101157d.bundle = getscriptbundle(#"hash_25c242b3e86ced05");

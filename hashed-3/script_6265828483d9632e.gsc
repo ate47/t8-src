@@ -178,19 +178,19 @@ function function_496d0824(var_3bc2d545, var_e8456387, team, killstreak_id)
 	var_9bed4193 = bundle.var_32e69cad;
 	var_66e0652a = 26000;
 	height = getplaneflyheight(bundle);
-	var_81ac0168 = (level.mapcenter[0], level.mapcenter[1], height);
+	plane_start = (level.mapcenter[0], level.mapcenter[1], height);
 	var_dca1c8d4 = self getteamcenter(self.team);
 	var_d1769adf = vectornormalize((var_dca1c8d4[0], var_dca1c8d4[1], height) - (level.mapcenter[0], level.mapcenter[1], height));
 	var_675219e7 = (level.mapcenter[0], level.mapcenter[1], height) + vectorscale(var_d1769adf, var_9bed4193);
 	var_aff95821 = vectorcross((0, 0, 1), var_d1769adf);
-	var_81ac0168 = var_675219e7 - vectorscale(var_aff95821, var_6c36c4dd);
+	plane_start = var_675219e7 - vectorscale(var_aff95821, var_6c36c4dd);
 	var_f348056 = var_675219e7 + vectorscale(var_aff95821, var_66e0652a);
 	var_fe427c32 = vectortoangles(var_aff95821);
 	if(isdefined(bundle.var_c28c2429))
 	{
 		var_fe427c32 = (var_fe427c32[0], var_fe427c32[1], bundle.var_c28c2429 * 0.75);
 	}
-	plane = spawnvehicle(bundle.var_f8ca3420, var_81ac0168, var_fe427c32);
+	plane = spawnvehicle(bundle.var_f8ca3420, plane_start, var_fe427c32);
 	plane setowner(owner);
 	plane notsolid();
 	plane killstreaks::configure_team("artillery_barrage", killstreak_id, owner, undefined, undefined, &configurechopperteampost);

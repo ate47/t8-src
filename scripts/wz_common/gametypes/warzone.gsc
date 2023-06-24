@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_111d4fea7428184e;
+#using scripts\mp_common\laststand_warzone.gsc;
 #using script_164ba4a711296dd5;
-#using script_16cb0a6a492a6a4f;
+#using scripts\mp_common\teams\team_assignment.gsc;
 #using scripts\wz_common\wz_rat.gsc;
 #using scripts\mp_common\teams\platoons.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using scripts\wz_common\wz_contracts.gsc;
-#using script_29ed825598140ca0;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_killed.gsc;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\wz_common\wz_ai_zonemgr.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\core_common\player\player_stats.gsc;
@@ -244,7 +244,7 @@ function function_5d7553c9()
 		{
 			return;
 		}
-		if(level flagsys::get(#"hash_38a387462f3a9ad"))
+		if(level flagsys::get(#"item_world_reset"))
 		{
 			return;
 		}
@@ -296,7 +296,7 @@ function private function_c2a75696()
 		while(true)
 		{
 			waitframe(1);
-			string = getdvarstring(#"hash_68a6ac70f8821d9d", "");
+			string = getdvarstring(#"warzone_devgui_cmd", "");
 			switch(string)
 			{
 				case "start":
@@ -309,7 +309,7 @@ function private function_c2a75696()
 					break;
 				}
 			}
-			setdvar(#"hash_68a6ac70f8821d9d", "");
+			setdvar(#"warzone_devgui_cmd", "");
 		}
 	#/
 }
@@ -398,7 +398,7 @@ function private function_23600e7d()
 	level.var_7dc1df3a = spawnstruct();
 	level.var_7dc1df3a.var_e2382b29 = level.var_8fcd8a61;
 	var_e09e5160 = level.activeplayers.size;
-	var_761c5049 = 0;
+	evolution = 0;
 	/#
 		println("" + starttime);
 	#/
@@ -438,7 +438,7 @@ function private function_23600e7d()
 			println("");
 		#/
 		/#
-			println("" + var_761c5049);
+			println("" + evolution);
 		#/
 		if(getdvarint(#"hash_2cc9b0ef1896d89a", 1) != 0)
 		{
@@ -557,12 +557,12 @@ function private function_23600e7d()
 				var_e09e5160 = level.activeplayers.size;
 				wait(2);
 				/#
-					println("" + var_761c5049);
+					println("" + evolution);
 				#/
 				continue;
 			}
 		}
-		var_761c5049++;
+		evolution++;
 		var_e09e5160 = level.activeplayers.size;
 		/#
 			println("" + level.var_9290cd7c);

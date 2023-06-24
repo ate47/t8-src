@@ -134,9 +134,9 @@ function init_quest()
 		assert(isdefined(var_453ce50f), "");
 	#/
 	var_453ce50f hide();
-	zm_sq::register(#"hash_6bd65802877ef7e0", #"step_1", #"hash_5bd2150946a6e992", &function_bdadef61, &function_be13a68b);
-	zm_sq::register(#"hash_6bd65802877ef7e0", #"step_2", #"hash_5bd2140946a6e7df", &function_b3b228e2, &function_dd89f412);
-	zm_sq::start(#"hash_6bd65802877ef7e0");
+	zm_sq::register(#"pernell_archive", #"step_1", #"pernell_archive_step1", &function_bdadef61, &function_be13a68b);
+	zm_sq::register(#"pernell_archive", #"step_2", #"pernell_archive_step2", &function_b3b228e2, &function_dd89f412);
+	zm_sq::start(#"pernell_archive");
 	level thread function_afb5905e();
 }
 

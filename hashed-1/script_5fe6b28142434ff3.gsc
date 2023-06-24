@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_hms_util.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;

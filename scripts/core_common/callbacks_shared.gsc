@@ -1498,7 +1498,7 @@ function on_item_pickup(func, obj)
 }
 
 /*
-	Name: function_7897dfe6
+	Name: on_item_drop
 	Namespace: callback
 	Checksum: 0xC70847ED
 	Offset: 0x23F0
@@ -1506,9 +1506,9 @@ function on_item_pickup(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_7897dfe6(func, obj)
+function on_item_drop(func, obj)
 {
-	add_callback(#"hash_4d3e34c3c8f8bb2a", func, obj);
+	add_callback(#"on_drop_item", func, obj);
 }
 
 /*

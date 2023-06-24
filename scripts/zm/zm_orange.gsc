@@ -11,7 +11,7 @@
 #using script_37752a01e45812b8;
 #using scripts\zm\zm_orange_ee_yellow_snow.gsc;
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_orange_pablo.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4333a03353e1e13a;
@@ -31,7 +31,7 @@
 #using script_67c9a990c0db216c;
 #using scripts\zm\zm_hms_util.gsc;
 #using script_6b6fff322a8a64eb;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_orange_mq_fuse.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\zm\zm_orange_ee_dynamite.gsc;
@@ -1054,7 +1054,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 function function_e5086229(var_404e4288, var_8dd554ee)
 {
 	level flag::set(#"disable_special_rounds");
-	ai = namespace_c402654::function_62db7b1c(1);
+	ai = zombie_dog_util::function_62db7b1c(1);
 	if(isdefined(ai))
 	{
 		level.zombie_total--;

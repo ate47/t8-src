@@ -5,7 +5,7 @@
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -366,9 +366,9 @@ function function_4b15ba35(a_ents)
 {
 	level endon(#"hash_7ffc33bb45377f5e");
 	level waittill(#"hash_68c10418963ac1fc", #"hash_425e8c53dcecb85d");
-	if(isdefined(a_ents[#"hash_7aff0ee60ddd937b"]))
+	if(isdefined(a_ents[#"prop 1"]))
 	{
-		a_ents[#"hash_7aff0ee60ddd937b"] delete();
+		a_ents[#"prop 1"] delete();
 	}
 }
 
@@ -1410,8 +1410,8 @@ function function_50955e48()
 */
 function function_599edfb8(a_ents)
 {
-	level.var_e34d55ef = a_ents[#"hash_7aff0ee60ddd937b"];
-	level.var_e34d55ef.var_71c444c7 = a_ents[#"hash_7aff0ee60ddd937b"].model;
+	level.var_e34d55ef = a_ents[#"prop 1"];
+	level.var_e34d55ef.var_71c444c7 = a_ents[#"prop 1"].model;
 	wait(0.2);
 	level notify(#"hash_68c10418963ac1fc");
 }
@@ -2350,7 +2350,7 @@ function function_642fbf42()
 		}
 		level flag::set(#"hash_29b12646045186fa");
 		function_9c6147b1();
-		ai_werewolf = namespace_977da60::function_47a88a0c(1, undefined, 1, s_loc, 20);
+		ai_werewolf = zombie_werewolf_util::function_47a88a0c(1, undefined, 1, s_loc, 20);
 		if(isdefined(ai_werewolf))
 		{
 			level.var_a908db33++;

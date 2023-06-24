@@ -25,7 +25,7 @@ function init()
 	clientfield::register("toplayer", "park_to_fountain", 16000, 2, "int", &function_ec7e76a8, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_52693a3ba1bbc7ea", 16000, 1, "counter", &override_fasttravel_end_fx, 0, 0);
 	clientfield::register("world", "" + #"hash_761511e09cb8324e", 16000, 1, "int", &function_e968fd4f, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_1c11bf07cb27dfaa", 16000, 1, "int", &function_fe50c802, 0, 0);
+	clientfield::register("scriptmover", "" + #"forcestream_crafted_item", 16000, 1, "int", &forcestream_crafted_item, 0, 0);
 	level._effect[#"hash_7844498a1d0272cf"] = #"hash_36a8758df9221bce";
 	level._effect[#"hash_1485000e3492adb9"] = #"hash_240783e54de51f0";
 	level._effect[#"hash_359655df3976b4e0"] = #"hash_4df6f1dbc41bc9c3";
@@ -172,7 +172,7 @@ function function_e968fd4f(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_fe50c802
+	Name: forcestream_crafted_item
 	Namespace: zm_red_fasttravel
 	Checksum: 0x7A299AA6
 	Offset: 0xB58
@@ -180,7 +180,7 @@ function function_e968fd4f(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_fe50c802(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function forcestream_crafted_item(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

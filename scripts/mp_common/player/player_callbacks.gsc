@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_184abbae9afad370;
+#using scripts\mp_common\player\player_damage.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\util_shared.gsc;

@@ -8,7 +8,7 @@
 #using script_46cea9e5d4ef9e21;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -142,7 +142,7 @@ function function_6b107487()
 	level flag::set(#"hash_ed90925c898d1b0");
 	self thread scene::play("Shot 1");
 	wait(1);
-	var_e690c4cd = self.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_e690c4cd = self.scene_ents[#"prop 1"];
 	var_e690c4cd thread function_5ae9d41e();
 	level thread namespace_a0f5c7fc::function_c179111e();
 	self thread scene::play("Shot 2");

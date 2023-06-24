@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_29b970364d23b9;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_7c62f55ce3a557ff;
-#using script_b00fcbc28051f15;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -490,7 +490,7 @@ function private function_c179676a()
 {
 	self endon(#"disconnect");
 	w_current = self getcurrentweapon();
-	if(!namespace_b4a066ff::function_98890cd8(w_current))
+	if(!zm_weap_spectral_shield::function_98890cd8(w_current))
 	{
 		return;
 	}

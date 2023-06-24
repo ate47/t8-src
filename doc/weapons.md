@@ -167,7 +167,9 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `special_ballisticknife_t8_dw` - Ballistic knife
 - `special_crossbow_t8` - Crossbow
 - `special_crossbow_t8_sas` - Crossbow (Sticks and stones)
+- `hero_annihilator_oic` - Annihilator (One in the chamber)
 - `basketball` - basketball (blk)
+- `zhield_spectral_dw` - shield (zm/botd)
 
 ### Gametypes
 
@@ -242,7 +244,7 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 ## Equipment
 
 - `music_box` - Sam's box (zm/tag)
-- `hash_27e4878539bc7f72` - Pegasus (zm/ae)
+- `thunderstorm` - Pegasus (zm/ae)
 - `eq_emp_grenade` - emp (mp)
 - `eq_acid_bomb` - acid bomb (all)
 - `claymore` - claymore (all)

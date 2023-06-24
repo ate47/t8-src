@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -196,7 +196,7 @@ function private function_6fe1307b(weapon)
 		{
 			self waittill(#"weapon_melee_power", #"weapon_melee");
 		}
-		if(!namespace_6b49f66b::function_5fbf572(weapon, 1))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon, 1))
 		{
 			continue;
 		}
@@ -429,7 +429,7 @@ function function_7d2970bc(e_target, weapon, n_damage)
 */
 function function_5922a7dc(weapon)
 {
-	if(!namespace_6b49f66b::function_5fbf572(weapon))
+	if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 	{
 		return;
 	}
@@ -842,7 +842,7 @@ function private function_be6cef79(weapon)
 	while(true)
 	{
 		self waittill(#"weapon_melee");
-		if(!namespace_6b49f66b::function_5fbf572(weapon))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 		{
 			continue;
 		}
@@ -1324,14 +1324,14 @@ function swordpistol_rumble(var_b2e05bae)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_68ff89f7(var_2b1f344f)
+function private function_68ff89f7(w_swordpistol)
 {
 	self endon(#"weapon_change", #"disconnect", #"bled_out");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee");
-	if(s_result.weapon === var_2b1f344f)
+	if(s_result.weapon === w_swordpistol)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"sword_pistol");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"sword_pistol");
 	}
 }
 

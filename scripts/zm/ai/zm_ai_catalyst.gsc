@@ -3,10 +3,10 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\ai\archetype_catalyst.gsc;
 #using script_35598499769dbb3d;
-#using script_3657077a08b7f19e;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_444bc5b4fa0fe14f;
 #using script_4d85e8de54b02198;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
@@ -14,7 +14,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -85,7 +85,7 @@ function __init__()
 	zm_player::register_player_damage_callback(&function_22e12b7);
 	zm_cleanup::function_39553a7c(#"catalyst", &function_5ea7ae19);
 	zm_cleanup::function_cdf5a512(#"catalyst", &function_3eaa8337);
-	namespace_32192f7::function_95c1dd81(#"catalyst", &function_52ce9654);
+	zm_trial_special_enemy::function_95c1dd81(#"catalyst", &function_52ce9654);
 	level.var_3ecc60fc[0] = 1;
 	level.var_3ecc60fc[2] = 3;
 	level.var_3ecc60fc[1] = 2;

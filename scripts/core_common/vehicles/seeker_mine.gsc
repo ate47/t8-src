@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_2440e8ed4d15391b;
+#using scripts\weapons\arc.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_2c6ff91addfd14b7;
+#using scripts\core_common\vehicles\smart_bomb.gsc;
 #using scripts\core_common\globallogic\globallogic_score.gsc;
 #using script_751513c609504a42;
 #using scripts\core_common\ai_shared.gsc;
@@ -111,7 +111,7 @@ function is_in_water(location)
 function function_b23e4b45()
 {
 	self.settings = struct::get_script_bundle("vehiclecustomsettings", self.scriptbundlesettings);
-	self.allowfriendlyfiredamageoverride = &namespace_c2dce87e::function_bf16c9ed;
+	self.allowfriendlyfiredamageoverride = &smart_bomb::function_bf16c9ed;
 	self.var_1dab821a = 0;
 	self.var_e962dfaf = 0;
 	self.delete_on_death = 1;

@@ -415,7 +415,13 @@ hash_ecf2124e9108fc4,mp,int,friendly fire score compute element
 wzzombiesmaxcount,wz,int,zombies count
 laststandrevivetime,mp,int,revive time
 wzspawnspecial,wz,bool,spawn special AI
+wzenablespraycans,wz,bool,enable spray cans
+wzheavymetalheroes,wz,bool,is wz heavy metal heroes
 
+hash_21ab1ca7e18bddcd,wz,boolean,unknown
+hash_2560dae45cc112e3,mp,bool,?count killstreak in score
+hash_232750b87390cbff,wz,bool,wall buy related
+player_reduction,wz,int,unknown
 draftrequiredclients,unknown,unknown,unknown
 vehiclestimed,unknown,unknown,unknown
 vehiclesenabled,unknown,unknown,unknown
@@ -570,7 +576,6 @@ hash_542ec48cf30b74c0,unknown,unknown,unknown
 hash_5408e974098bc234,unknown,unknown,unknown
 hash_53b5887dea69a320,unknown,unknown,unknown
 hash_51a2cf319e12d9ae,unknown,unknown,unknown
-hash_512aec4c9e79844f,unknown,unknown,unknown
 hash_50c10372c80d0a6b,unknown,unknown,unknown
 hash_50352319697250b,unknown,unknown,unknown
 hash_4f4a73f236278ba8,unknown,unknown,unknown
@@ -631,18 +636,13 @@ hash_28a3a35c24fe616,unknown,unknown,unknown
 hash_28233b1037888945,unknown,unknown,unknown
 hash_26f00de198472b81,unknown,unknown,unknown
 hash_26c067f1dd032ebc,unknown,unknown,unknown
-hash_2560dae45cc112e3,unknown,unknown,unknown
 hash_24e281e778894ac9,unknown,unknown,unknown
 hash_24a3def3bbc35dfa,unknown,unknown,unknown
-hash_24918193d72a5866,unknown,unknown,unknown
 hash_236b15ded103132a,unknown,unknown,unknown
 hash_234ae2f2ff58263f,unknown,unknown,unknown
-hash_232750b87390cbff,unknown,unknown,unknown
 hash_230e67d5ddfb2c06,unknown,unknown,unknown
 hash_22431a9369b5d7c0,unknown,unknown,unknown
 hash_221008a2c793dfa1,unknown,unknown,unknown
-hash_21e0d28e8692d5a,wz,int,unknown
-hash_21ab1ca7e18bddcd,wz,boolean,unknown
 hash_211486dd31982753,unknown,unknown,unknown
 hash_20787bdeafae5592,unknown,unknown,unknown
 hash_1fdc18ec4c85b70d,unknown,unknown,unknown

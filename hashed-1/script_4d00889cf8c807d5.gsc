@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3657077a08b7f19e;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -13,11 +13,11 @@
 #using scripts\zm_common\zm_score.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_bc12435c;
+#namespace zombie_skeleton_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x56488435
 	Offset: 0x1B0
 	Size: 0x44
@@ -26,12 +26,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_381a5b2deb7adc74", &__init__, undefined, #"zm_ai_skeleton");
+	system::register(#"zombie_skeleton_util", &__init__, undefined, #"zm_ai_skeleton");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xF22766C8
 	Offset: 0x200
 	Size: 0x296
@@ -51,7 +51,7 @@ function private __init__()
 		zm_round_spawning::register_archetype(#"skeleton", &function_cf877849, &round_spawn, &function_1ea880bd, 25);
 	}
 	zm_cleanup::function_cdf5a512(#"skeleton", &function_ad4293a8);
-	namespace_32192f7::function_95c1dd81(#"skeleton", &function_8609d56e);
+	zm_trial_special_enemy::function_95c1dd81(#"skeleton", &function_8609d56e);
 	level.var_5fc2833 = getentarray("zombie_skeleton_spawner", "script_noteworthy");
 	level.var_7b7fd31e = getentarray("zombie_skeleton_spear_spawner", "script_noteworthy");
 	level.var_ea48e91 = getentarray("zombie_skeleton_helmet_spawner", "script_noteworthy");
@@ -63,7 +63,7 @@ function private __init__()
 
 /*
 	Name: function_cf877849
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xC05A246E
 	Offset: 0x4A0
 	Size: 0x102
@@ -87,7 +87,7 @@ function function_cf877849(var_dbce0c44)
 
 /*
 	Name: round_spawn
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xE9ABC68B
 	Offset: 0x5B0
 	Size: 0x3C
@@ -107,7 +107,7 @@ function round_spawn()
 
 /*
 	Name: function_8609d56e
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x5CA6E145
 	Offset: 0x5F8
 	Size: 0x2A
@@ -122,7 +122,7 @@ function private function_8609d56e()
 
 /*
 	Name: function_1ea880bd
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xDD0A0993
 	Offset: 0x630
 	Size: 0x310
@@ -212,7 +212,7 @@ function function_1ea880bd(b_force_spawn = 0, var_eb3a8721, round_number, b_spea
 
 /*
 	Name: function_bdd7ec59
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x241349AE
 	Offset: 0x948
 	Size: 0xBA
@@ -232,7 +232,7 @@ function function_bdd7ec59()
 
 /*
 	Name: function_d3195b0c
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xB1EF834B
 	Offset: 0xA10
 	Size: 0x8A
@@ -268,7 +268,7 @@ function function_d3195b0c()
 
 /*
 	Name: function_331e9312
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xE5370AF7
 	Offset: 0xAA8
 	Size: 0xBC
@@ -291,7 +291,7 @@ function function_331e9312()
 
 /*
 	Name: function_d325f6a4
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xD2EA6EEB
 	Offset: 0xB70
 	Size: 0x24A
@@ -340,7 +340,7 @@ function function_d325f6a4(entity)
 
 /*
 	Name: get_favorite_enemy
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x6F97D4DF
 	Offset: 0xDC8
 	Size: 0x136
@@ -380,7 +380,7 @@ function get_favorite_enemy()
 
 /*
 	Name: function_ad4293a8
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x134AEB2E
 	Offset: 0xF08
 	Size: 0x2B8
@@ -431,7 +431,7 @@ function function_ad4293a8()
 
 /*
 	Name: function_3ce1516d
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x649345AF
 	Offset: 0x11C8
 	Size: 0x108
@@ -466,7 +466,7 @@ function private function_3ce1516d(a_s_spawn_locs)
 
 /*
 	Name: alloc_dynamic_buffer
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0x699A8326
 	Offset: 0x12D8
 	Size: 0x7A
@@ -483,7 +483,7 @@ function alloc_dynamic_buffer(origin, radius, half_height)
 
 /*
 	Name: function_9ac81c11
-	Namespace: namespace_bc12435c
+	Namespace: zombie_skeleton_util
 	Checksum: 0xC51FA8C1
 	Offset: 0x1360
 	Size: 0x46

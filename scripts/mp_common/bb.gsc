@@ -233,7 +233,7 @@ function function_6661621a()
 	mploadout.var_942f949 = (talents.size > 0 ? talents[0] : 0);
 	mploadout.talent1 = (talents.size > 1 ? talents[1] : 0);
 	mploadout.talent2 = (talents.size > 2 ? talents[2] : 0);
-	mploadout.var_9c409f5e = (talents.size > 3 ? talents[3] : 0);
+	mploadout.talent3 = (talents.size > 3 ? talents[3] : 0);
 	mploadout.talent4 = (talents.size > 4 ? talents[4] : 0);
 	mploadout.talent5 = (talents.size > 5 ? talents[5] : 0);
 	wildcards = self function_6f2c0492(self.class_num);

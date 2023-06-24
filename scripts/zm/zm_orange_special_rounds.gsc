@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3657077a08b7f19e;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;
@@ -29,7 +29,7 @@
 function main()
 {
 	zm_round_spawning::register_archetype(#"zombie_electric", &function_5df3e3dd, &function_c7e59327, &function_27695a82, 5);
-	zm_score::function_e5d6e6dd(#"zombie_electric", zombie_utility::function_d2dfacfd(#"hash_6f24d1fbe8a09727"));
+	zm_score::function_e5d6e6dd(#"zombie_electric", zombie_utility::function_d2dfacfd(#"zombie_score_kill"));
 	zm_cleanup::function_cdf5a512(#"zombie", &function_a2f2a9a3);
 	level.var_621701e5 = array(getent("zombie_electric_spawner", "script_noteworthy"));
 	array::thread_all(level.var_621701e5, &spawner::add_spawn_function, &zm_behavior::function_57d3b5eb);
@@ -38,7 +38,7 @@ function main()
 	{
 		if(zm_custom::function_901b751c(#"zmpopcornstate") != 0)
 		{
-			namespace_c402654::dog_enable_rounds(0);
+			zombie_dog_util::dog_enable_rounds(0);
 			level.var_2f14be05 = 15;
 			zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
 		}
@@ -46,8 +46,8 @@ function main()
 	}
 	if(zm_utility::is_trials())
 	{
-		namespace_32192f7::function_95c1dd81(#"zombie_electric", &function_c7e59327);
-		namespace_32192f7::function_95c1dd81(#"zombie_dog", &function_82e6d4e0);
+		zm_trial_special_enemy::function_95c1dd81(#"zombie_electric", &function_c7e59327);
+		zm_trial_special_enemy::function_95c1dd81(#"zombie_dog", &function_82e6d4e0);
 		zm_round_spawning::function_376e51ef(#"zombie_dog", 15);
 		level thread function_2eb8970d();
 	}
@@ -171,7 +171,7 @@ function function_c7e59327()
 */
 function function_82e6d4e0()
 {
-	ai = namespace_c402654::function_62db7b1c();
+	ai = zombie_dog_util::function_62db7b1c();
 	if(isdefined(ai))
 	{
 		return true;

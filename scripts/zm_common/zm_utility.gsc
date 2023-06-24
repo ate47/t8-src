@@ -1,16 +1,16 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_399c912938783695;
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\zm_common\zm_maptable.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -249,7 +249,7 @@ function function_d6046228(var_67441581, var_756ee4e5, var_bcb9de3e, var_299ea95
 */
 function get_cast()
 {
-	return namespace_cb7cafc3::get_cast();
+	return zm_maptable::get_cast();
 }
 
 /*
@@ -263,7 +263,7 @@ function get_cast()
 */
 function get_story()
 {
-	return namespace_cb7cafc3::get_story();
+	return zm_maptable::get_story();
 }
 
 /*
@@ -3643,7 +3643,7 @@ function get_current_zone(return_zone = 0)
 				var_3e5dca65 = self.last_valid_position;
 			}
 		}
-		self.var_3b65cdd7 = function_52c1730(var_3e5dca65, level.var_5f6d543e, 500);
+		self.var_3b65cdd7 = function_52c1730(var_3e5dca65, level.zone_nodes, 500);
 		if(isdefined(self.var_3b65cdd7))
 		{
 			if(node !== self.var_3b65cdd7 || (isdefined(node) && node.targetname !== self.var_3b65cdd7.targetname))
@@ -5195,11 +5195,11 @@ function function_e64ac3b6(type_id, var_c857a96d)
 {
 	if(isplayer(self))
 	{
-		self luinotifyevent(#"hash_4e47c74793854333", 3, type_id, var_c857a96d, self getentitynumber());
+		self luinotifyevent(#"zombie_special_notification", 3, type_id, var_c857a96d, self getentitynumber());
 	}
 	else
 	{
-		luinotifyevent(#"hash_4e47c74793854333", 2, type_id, var_c857a96d);
+		luinotifyevent(#"zombie_special_notification", 2, type_id, var_c857a96d);
 	}
 }
 
@@ -5825,7 +5825,7 @@ function is_point_inside_enabled_zone(v_origin, ignore_zone)
 {
 	if(function_21f4ac36())
 	{
-		node = function_52c1730(v_origin, level.var_5f6d543e, 500);
+		node = function_52c1730(v_origin, level.zone_nodes, 500);
 		if(isdefined(node))
 		{
 			zone = level.zones[node.targetname];

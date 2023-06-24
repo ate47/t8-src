@@ -614,7 +614,7 @@ function function_6bb302ba(weapon, playerbundle)
 			var_cf38843b = playerbundle.var_dbd1897a;
 			break;
 		}
-		case "hash_1d2a1256220e750f":
+		case "sig_bow_quickshot4":
 		{
 			var_cf38843b = playerbundle.var_3841aa5a;
 			break;

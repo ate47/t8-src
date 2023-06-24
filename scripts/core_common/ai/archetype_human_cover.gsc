@@ -2,7 +2,7 @@
 #using script_3aa0f32b70d4f7cb;
 #using script_4a3f9b8905878272;
 #using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_7b7ed6e4bc963a51;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;

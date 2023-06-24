@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7c62f55ce3a557ff;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -645,17 +645,17 @@ function private function_15aa00e7()
 	{
 		if(zm_zonemgr::get_players_in_zone("zone_citadel_stairs") > 0)
 		{
-			level.var_19fe84f5 = namespace_961cf978::attempt_brutus_spawn(1, "zone_citadel_stairs");
+			level.var_19fe84f5 = zombie_brutus_util::attempt_brutus_spawn(1, "zone_citadel_stairs");
 		}
 		else
 		{
 			if(zm_zonemgr::get_players_in_zone("zone_citadel_basement") > 0)
 			{
-				level.var_19fe84f5 = namespace_961cf978::attempt_brutus_spawn(1, "zone_citadel_basement");
+				level.var_19fe84f5 = zombie_brutus_util::attempt_brutus_spawn(1, "zone_citadel_basement");
 			}
 			else if(zm_zonemgr::get_players_in_zone("zone_citadel") > 0)
 			{
-				level.var_19fe84f5 = namespace_961cf978::attempt_brutus_spawn(1, "zone_citadel");
+				level.var_19fe84f5 = zombie_brutus_util::attempt_brutus_spawn(1, "zone_citadel");
 			}
 		}
 	}

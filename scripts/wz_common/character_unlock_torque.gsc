@@ -110,7 +110,7 @@ function function_a2877194(params)
 		return;
 	}
 	item_name = params.item.var_a6762160.name;
-	if(item_name === #"hash_14b578e446580ad5")
+	if(item_name === #"concertina_wire_wz_item")
 	{
 		if(!isdefined(self.var_41ae08e8))
 		{
@@ -122,7 +122,7 @@ function function_a2877194(params)
 			self character_unlock::function_c8beca5e(#"torque_unlock", #"hash_a9ec4883fd0293d", 1);
 		}
 	}
-	else if(item_name === #"hash_2b06a3f530395182")
+	else if(item_name === #"barricade_wz_item")
 	{
 		if(!isdefined(self.var_c0bc1135))
 		{

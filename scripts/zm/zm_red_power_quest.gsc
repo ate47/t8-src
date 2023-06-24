@@ -2,15 +2,15 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\perk\zm_perk_electric_cherry.gsc;
 #using script_35598499769dbb3d;
-#using script_39e954a546d3baf;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4d00889cf8c807d5;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_customgame.gsc;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1363,7 +1363,7 @@ function pegasus_exit()
 */
 function function_4b198b8f(a_ents)
 {
-	var_10d4f67d = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_10d4f67d = a_ents[#"prop 1"];
 	if(isdefined(var_10d4f67d))
 	{
 		var_10d4f67d setteam(#"allies");
@@ -1847,7 +1847,7 @@ function reinforcements_think(str_spawns, var_f153be86 = 0, var_a294702 = 0)
 				}
 				if(b_spartoi)
 				{
-					ai_zombie = namespace_bc12435c::function_1ea880bd(1, var_8e8ab42[0]);
+					ai_zombie = zombie_skeleton_util::function_1ea880bd(1, var_8e8ab42[0]);
 				}
 				else
 				{
@@ -1968,7 +1968,7 @@ function function_d8db57f6()
 		s_spawn = struct::spawn(v_origin, v_angles);
 		while(true)
 		{
-			var_862206ea = namespace_bc12435c::function_1ea880bd(1, s_spawn, level.round_number);
+			var_862206ea = zombie_skeleton_util::function_1ea880bd(1, s_spawn, level.round_number);
 			if(isdefined(var_862206ea))
 			{
 				break;
@@ -2138,7 +2138,7 @@ function function_1f25fb54()
 */
 function registerpromenade_chillout_props_traversal(a_ents)
 {
-	var_10d4f67d = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_10d4f67d = a_ents[#"prop 1"];
 	if(!isdefined(var_10d4f67d))
 	{
 		return;

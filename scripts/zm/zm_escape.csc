@@ -19,7 +19,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using script_673ffe64518b7ffb;
 #using script_675455e5e6c0c5ad;
-#using script_6a0e50bc15d725a9;
+#using scripts\zm\weapons\zm_weap_spectral_shield.csc;
 #using script_711bbbba637da80;
 #using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\zm\weapons\zm_weap_katana.csc;

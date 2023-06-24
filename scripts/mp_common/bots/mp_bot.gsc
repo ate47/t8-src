@@ -10,7 +10,7 @@
 #using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\ai\planner_mp_control_commander.gsc;
-#using script_53b37ee2382572eb;
+#using scripts\core_common\ai\region_utility.gsc;
 #using scripts\mp_common\bots\mp_bot_position.gsc;
 #using scripts\mp_common\ai\planner_mp_koth_squad.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -130,7 +130,7 @@ function init()
 		level flag::wait_till("all_players_connected");
 	}
 	level thread populate_bots();
-	level thread namespace_cb7fdaf1::function_755c26d1();
+	level thread region_utility::function_755c26d1();
 }
 
 /*

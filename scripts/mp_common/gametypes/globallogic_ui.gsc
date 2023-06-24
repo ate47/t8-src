@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_16cb0a6a492a6a4f;
+#using scripts\mp_common\teams\team_assignment.gsc;
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\player\player.gsc;
 #using scripts\mp_common\teams\platoons.gsc;

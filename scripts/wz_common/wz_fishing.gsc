@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_111d4fea7428184e;
+#using scripts\mp_common\laststand_warzone.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using script_cb32d07c95e5628;
@@ -47,7 +47,7 @@ function __init__()
 	{
 		callback::on_downed(&function_7bf61c45);
 		callback::function_f77ced93(&function_e2877ac6);
-		callback::function_7897dfe6(&function_57232538);
+		callback::on_item_drop(&function_57232538);
 		foreach(rock in fishing_rocks)
 		{
 			rock.onuse = &function_4cfd3896;

@@ -321,7 +321,7 @@ function function_30d4f8c4(attacker, smeansofdeath, weapon)
 			str_alias = #"hash_16cc324cc4a290fc";
 			break;
 		}
-		case "hash_1d2a1156220e735c":
+		case "sig_bow_quickshot5":
 		{
 			str_alias = #"hash_1732b1323f11b7bf";
 			break;

@@ -1,31 +1,31 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\trials\zm_trial_disable_regen.gsc;
-#using script_19ecf96b79d14bf;
+#using scripts\zm\zm_orange_trial_shoot_from_water.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_28bfe6df1650ab79;
 #using scripts\zm\zm_orange_snowball_piles.gsc;
 #using scripts\zm\zm_orange_water.gsc;
-#using script_3605d6b6522b3f7a;
-#using script_3657077a08b7f19e;
-#using script_3b2485bc23c27132;
+#using scripts\zm_common\trials\zm_trial_magicbox_hunt.gsc;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
+#using scripts\zm_common\trials\zm_trial_safe_zone.gsc;
 #using script_3d07a022f5c96f45;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4109fe9f86c53247;
-#using script_445395629d822a9;
-#using script_4491b82ef72751cd;
+#using scripts\zm\zm_orange_trial_lighthouse_beam.gsc;
+#using scripts\zm_common\trials\zm_trial_flag_check.gsc;
 #using script_4f1abd7be75f8a2f;
-#using script_512d27609721ec85;
+#using scripts\zm_common\trials\zm_trial_acquire_weapon.gsc;
 #using scripts\zm\zm_orange_special_rounds.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_67da0c3654a906b6;
-#using script_6d813fcbc979603a;
+#using scripts\zm_common\trials\zm_trial_defend_area.gsc;
 #using script_ddbbb750404a64b;
 #using script_e03b0e7919299ab;
-#using script_e56ea76d6c36d39;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_upgrade_multiple.gsc;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -251,7 +251,7 @@ function function_b4bd25ef()
 		{
 			if(isdefined(level.var_526d919))
 			{
-				self namespace_6b49f66b::function_f0e03d3(0);
+				self zm_trial_restrict_loadout::function_f0e03d3(0);
 				foreach(weapon in self getweaponslist(1))
 				{
 					if(isdefined(level.var_526d919[weapon.name]))
@@ -270,7 +270,7 @@ function function_b4bd25ef()
 		{
 			if(isdefined(level.var_526d919))
 			{
-				self namespace_6b49f66b::function_f0e03d3(0);
+				self zm_trial_restrict_loadout::function_f0e03d3(0);
 				foreach(weapon in self getweaponslist(1))
 				{
 					if(isdefined(level.var_526d919[weapon.name]))
@@ -309,7 +309,7 @@ function function_b4bd25ef()
 		}
 		case 21:
 		{
-			if(self namespace_309b53e1::function_91f0d131())
+			if(self zm_orange_trial_lighthouse_beam::function_91f0d131())
 			{
 				self enableoffhandspecial();
 				self enableoffhandweapons();
@@ -322,7 +322,7 @@ function function_b4bd25ef()
 		{
 			if(isdefined(level.var_526d919))
 			{
-				self namespace_6b49f66b::function_f0e03d3(0);
+				self zm_trial_restrict_loadout::function_f0e03d3(0);
 				foreach(weapon in self getweaponslist(1))
 				{
 					if(isdefined(level.var_526d919[weapon.name]))

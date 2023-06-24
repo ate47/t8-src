@@ -1,12 +1,12 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_1781ac145d783f87;
 #using script_2affe92664ace48d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -66,7 +66,7 @@ function init()
 		zm_round_spawning::function_cc103b38(#"gladiator_marauder", 8);
 		zm_round_spawning::function_cc103b38(#"gladiator_destroyer", 10);
 		zm_round_spawning::function_cc103b38(#"blight_father", 15);
-		zm_round_spawning::function_b4a8f95a(#"gladiator_marauder", 9, &function_66d172e9, &function_1e895d4, &registerpathing_units_, &namespace_acd9c698::function_5d0001ad);
+		zm_round_spawning::function_b4a8f95a(#"gladiator_marauder", 9, &function_66d172e9, &function_1e895d4, &registerpathing_units_, &zombie_gladiator_util::function_5d0001ad);
 	}
 	else if(!zm_utility::is_standard())
 	{
@@ -77,7 +77,7 @@ function init()
 		zm_round_spawning::function_cc103b38(#"gladiator_marauder", 8);
 		zm_round_spawning::function_cc103b38(#"gladiator_destroyer", 10);
 		zm_round_spawning::function_cc103b38(#"blight_father", 15);
-		zm_round_spawning::function_b4a8f95a(#"tiger", 9, &function_f63225b8, &function_9a74f284, &function_a5dc8595, &namespace_3fe4d0d7::function_ffa01525);
+		zm_round_spawning::function_b4a8f95a(#"tiger", 9, &function_f63225b8, &function_9a74f284, &function_a5dc8595, &zombie_tiger_util::function_ffa01525);
 	}
 }
 
@@ -281,11 +281,11 @@ function function_9a74f284(var_d25bbdd5)
 		#/
 		if(zm_utility::is_standard())
 		{
-			zm_round_spawning::function_b4a8f95a(#"tiger", var_f40360e8, &function_f63225b8, &function_9a74f284, &function_a5dc8595, &namespace_3fe4d0d7::function_ffa01525);
+			zm_round_spawning::function_b4a8f95a(#"tiger", var_f40360e8, &function_f63225b8, &function_9a74f284, &function_a5dc8595, &zombie_tiger_util::function_ffa01525);
 		}
 		else
 		{
-			zm_round_spawning::function_b4a8f95a(#"gladiator_destroyer", var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &namespace_acd9c698::function_5d0001ad);
+			zm_round_spawning::function_b4a8f95a(#"gladiator_destroyer", var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &zombie_gladiator_util::function_5d0001ad);
 		}
 	}
 	level notify(#"hash_7b9245ff51f3d4f7");
@@ -353,11 +353,11 @@ function function_93b3cc13(var_d25bbdd5)
 		#/
 		if(level.var_f8ae1232 > 1)
 		{
-			zm_round_spawning::function_b4a8f95a(array(#"gladiator_marauder", #"gladiator_destroyer", #"tiger"), var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &namespace_acd9c698::function_5d0001ad);
+			zm_round_spawning::function_b4a8f95a(array(#"gladiator_marauder", #"gladiator_destroyer", #"tiger"), var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &zombie_gladiator_util::function_5d0001ad);
 		}
 		else
 		{
-			zm_round_spawning::function_b4a8f95a(#"gladiator_marauder", var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &namespace_acd9c698::function_5d0001ad);
+			zm_round_spawning::function_b4a8f95a(#"gladiator_marauder", var_f40360e8, &function_66d172e9, &function_93b3cc13, &function_f8ae1232, &zombie_gladiator_util::function_5d0001ad);
 		}
 	}
 	level notify(#"hash_7b9245ff51f3d4f7");

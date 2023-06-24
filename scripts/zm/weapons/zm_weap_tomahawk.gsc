@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -405,7 +405,7 @@ function private tomahawk_thrown(e_grenade)
 				if(var_94b59fd.health < 0)
 				{
 					var_643ef1e3++;
-					var_94b59fd namespace_6b49f66b::function_bb33631e(#"spoon");
+					var_94b59fd zm_trial_restrict_loadout::function_bb33631e(#"spoon");
 				}
 				var_94b59fd.hit_by_tomahawk = 1;
 				var_26defc9d = var_94b59fd;
@@ -681,7 +681,7 @@ function private function_c7ddedb2(var_6e6ec518, ai_zombie, var_bfed4a7 = 0.25)
 			ai_zombie dodamage(n_tomahawk_damage, var_6e6ec518.origin, self, var_6e6ec518, "none", "MOD_GRENADE", 0, getweapon(self.var_4f8fb07f));
 			if(ai_zombie.health < 0)
 			{
-				ai_zombie namespace_6b49f66b::function_bb33631e(#"spoon");
+				ai_zombie zm_trial_restrict_loadout::function_bb33631e(#"spoon");
 			}
 			self zm_score::add_to_player_score(10, undefined, undefined, ai_zombie.var_12745932);
 		}
@@ -907,7 +907,7 @@ function private calculate_tomahawk_damage(ai_target_zombie, n_tomahawk_power, t
 */
 function function_c34db78(einflictor, eattacker, idamage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
-	if(namespace_6b49f66b::is_active() && namespace_6b49f66b::function_937e218c() === #"spoon" && isplayer(eattacker))
+	if(zm_trial_restrict_loadout::is_active() && zm_trial_restrict_loadout::function_937e218c() === #"spoon" && isplayer(eattacker))
 	{
 		self.var_12745932 = 1;
 	}

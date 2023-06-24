@@ -2,10 +2,10 @@
 #using script_24c32478acf44108;
 #using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
 #using script_48dd035d23bf8844;
-#using script_50a21e465d6bb7a2;
+#using scripts\zm\zm_white_insanity_mode.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -186,7 +186,7 @@ function guns()
 			while(w_random == level.weaponnone || isdefined(array::find(var_4cd7f83c, w_random)));
 			if(is_weapon_upgraded)
 			{
-				w_random = namespace_29f39efb::get_upgrade(w_random);
+				w_random = zm_white_insanity_mode::get_upgrade(w_random);
 			}
 			if(var_fe8af21d > 0)
 			{
@@ -527,10 +527,10 @@ function door()
 		iprintlnbold("");
 	#/
 	level thread zm_white_util::function_ec34b5ee(#"hash_2c4fa652fb89d231");
-	var_df1533c0 = getentarray("zombie_door", "targetname");
-	var_13a6b1a7 = getentarray("zombie_debris", "targetname");
+	a_e_zombie_doors = getentarray("zombie_door", "targetname");
+	a_e_zombie_debris = getentarray("zombie_debris", "targetname");
 	a_script_flags = [];
-	foreach(var_6620353d in var_df1533c0)
+	foreach(var_6620353d in a_e_zombie_doors)
 	{
 		if(isdefined(var_6620353d.script_noteworthy) && var_6620353d.script_noteworthy == "electric_door")
 		{
@@ -549,7 +549,7 @@ function door()
 			a_script_flags[a_script_flags.size] = var_6620353d.script_flag;
 		}
 	}
-	foreach(var_dc373a8d in var_13a6b1a7)
+	foreach(var_dc373a8d in a_e_zombie_debris)
 	{
 		if(!isdefined(a_script_flags))
 		{
@@ -668,7 +668,7 @@ function shed()
 		level thread namespace_456de992::perks_behind_door();
 		if(!level flag::get(#"hash_a54ffd2751ba9de"))
 		{
-			level thread namespace_29f39efb::function_4bcfb4d9();
+			level thread zm_white_insanity_mode::function_4bcfb4d9();
 		}
 		/#
 			iprintlnbold("");
@@ -676,8 +676,8 @@ function shed()
 	}
 	else
 	{
-		var_df1533c0 = getentarray("zombie_door", "targetname");
-		foreach(var_6620353d in var_df1533c0)
+		a_e_zombie_doors = getentarray("zombie_door", "targetname");
+		foreach(var_6620353d in a_e_zombie_doors)
 		{
 			if(isdefined(var_6620353d.script_flag) && var_6620353d.script_flag == "yellow_backyard_to_ammo_door")
 			{

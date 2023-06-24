@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_transformation.gsc;
-#using script_3657077a08b7f19e;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm_score.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_977da60;
+#namespace zombie_werewolf_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x54860100
 	Offset: 0x180
 	Size: 0x54
@@ -25,12 +25,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_482f0758be7584b2", &__init__, &__main__, #"zm_ai_werewolf");
+	system::register(#"zombie_werewolf_util", &__init__, &__main__, #"zm_ai_werewolf");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xB63C130D
 	Offset: 0x1E0
 	Size: 0x1BC
@@ -55,12 +55,12 @@ function __init__()
 	zm_score::function_e5d6e6dd(#"werewolf", 250);
 	zm_round_spawning::register_archetype(#"werewolf", &function_45bed901, &round_spawn, &function_47a88a0c, 300);
 	zm_round_spawning::function_306ce518(#"werewolf", &function_d7a8d5a8);
-	namespace_32192f7::function_95c1dd81(#"werewolf", &function_fb4cbb48);
+	zm_trial_special_enemy::function_95c1dd81(#"werewolf", &function_fb4cbb48);
 }
 
 /*
 	Name: __main__
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x5657A7B0
 	Offset: 0x3A8
 	Size: 0x6C
@@ -74,7 +74,7 @@ function __main__()
 
 /*
 	Name: function_39212989
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x5F7684BD
 	Offset: 0x420
 	Size: 0x1E
@@ -92,7 +92,7 @@ function private function_39212989()
 
 /*
 	Name: function_5c0a0b26
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xE21A923B
 	Offset: 0x448
 	Size: 0x14
@@ -105,7 +105,7 @@ function private function_5c0a0b26(zombie, var_167b5341)
 
 /*
 	Name: function_6268b69f
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xFEF87E04
 	Offset: 0x468
 	Size: 0xBC
@@ -128,7 +128,7 @@ function function_6268b69f()
 
 /*
 	Name: function_15d944aa
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xC61E8B74
 	Offset: 0x530
 	Size: 0xBC
@@ -148,7 +148,7 @@ function function_15d944aa()
 
 /*
 	Name: function_1f269f0f
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xB9352EF9
 	Offset: 0x5F8
 	Size: 0x8A
@@ -184,7 +184,7 @@ function function_1f269f0f()
 
 /*
 	Name: function_cd674a85
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x80F3006E
 	Offset: 0x690
 	Size: 0xB0
@@ -221,7 +221,7 @@ function function_cd674a85()
 
 /*
 	Name: function_fb4cbb48
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x30A276C6
 	Offset: 0x748
 	Size: 0x2A
@@ -236,7 +236,7 @@ function private function_fb4cbb48()
 
 /*
 	Name: function_a7a6a96c
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x4F9DBFEF
 	Offset: 0x780
 	Size: 0xD8
@@ -263,7 +263,7 @@ function function_a7a6a96c(spawner, s_spot, n_round_number)
 
 /*
 	Name: get_favorite_enemy
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x13FBFE00
 	Offset: 0x860
 	Size: 0x136
@@ -303,7 +303,7 @@ function get_favorite_enemy()
 
 /*
 	Name: round_spawn
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x6554F926
 	Offset: 0x9A0
 	Size: 0x3C
@@ -323,7 +323,7 @@ function round_spawn()
 
 /*
 	Name: function_47a88a0c
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x3969A656
 	Offset: 0x9E8
 	Size: 0x2FC
@@ -398,7 +398,7 @@ function function_47a88a0c(n_to_spawn = 1, var_1fafa3fc, b_force_spawn = 0, var_
 
 /*
 	Name: function_774f6e70
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x7050067E
 	Offset: 0xCF0
 	Size: 0x184
@@ -429,7 +429,7 @@ function function_774f6e70(s_spawn_loc, var_58a8a3cb = 1, var_cda6f9a7 = undefin
 
 /*
 	Name: function_7c14f53f
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xCA271B31
 	Offset: 0xE80
 	Size: 0x1C
@@ -443,7 +443,7 @@ function function_7c14f53f()
 
 /*
 	Name: function_d7a8d5a8
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0x4DD4CED4
 	Offset: 0xEA8
 	Size: 0xE2
@@ -470,7 +470,7 @@ function function_d7a8d5a8(n_round_number)
 
 /*
 	Name: function_45bed901
-	Namespace: namespace_977da60
+	Namespace: zombie_werewolf_util
 	Checksum: 0xE080D718
 	Offset: 0xF98
 	Size: 0x222

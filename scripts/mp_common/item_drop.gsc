@@ -1279,7 +1279,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, itemid, position, 
 	#/
 	dropitem.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(dropitem);
 	dropitem.var_a6762160 = item.var_a6762160;
-	if(item.var_a6762160.name == #"hash_43aca7fcfd3e5949" && isdefined(level.var_5b2a8d88))
+	if(item.var_a6762160.name == #"sig_blade_wz_item" && isdefined(level.var_5b2a8d88))
 	{
 		level.var_5b2a8d88[dropitem.var_bd027dd9] = 1;
 	}
@@ -1339,7 +1339,7 @@ function drop_item(weapon = undefined, count = 0, amount = 0, itemid, position, 
 	params = {#hash_4961f577:deathstash, #item:dropitem};
 	if(isplayer(self))
 	{
-		self callback::callback(#"hash_4d3e34c3c8f8bb2a", params);
+		self callback::callback(#"on_drop_item", params);
 	}
 	if(isdefined(weapon))
 	{

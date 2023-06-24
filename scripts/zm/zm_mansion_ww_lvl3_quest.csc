@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_12282e6b2cc91b42;
+#using scripts\zm_common\zm_customgame.csc;
 #using scripts\zm_common\zm_wallbuy.csc;
 #using scripts\zm\ai\zm_ai_stoker.csc;
 #using script_624a704d0f6bf28d;
@@ -12,11 +12,11 @@
 #using scripts\zm_common\zm_utility.csc;
 #using scripts\zm_common\zm_weapons.csc;
 
-#namespace namespace_1bf74f9e;
+#namespace mansion_ww_lvl3_quest;
 
 /*
 	Name: init
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x44786535
 	Offset: 0x110
 	Size: 0x5A2
@@ -53,7 +53,7 @@ function init()
 
 /*
 	Name: function_41ad73f5
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xE16DA332
 	Offset: 0x6C0
 	Size: 0xB2
@@ -75,7 +75,7 @@ function function_41ad73f5(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3ab850d6
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x26BA68CF
 	Offset: 0x780
 	Size: 0xB2
@@ -97,7 +97,7 @@ function function_3ab850d6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c08eda18
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xABBE797D
 	Offset: 0x840
 	Size: 0x7C
@@ -114,7 +114,7 @@ function function_c08eda18(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_d19e8c30
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x2F76424D
 	Offset: 0x8C8
 	Size: 0xEA
@@ -144,7 +144,7 @@ function function_d19e8c30(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9c99bb9c
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x5329BCDB
 	Offset: 0x9C0
 	Size: 0x74
@@ -158,7 +158,7 @@ function function_9c99bb9c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_2a76a74e
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0xF3419159
 	Offset: 0xA40
 	Size: 0xEA
@@ -181,7 +181,7 @@ function function_2a76a74e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6bc1e300
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x3E1E1F38
 	Offset: 0xB38
 	Size: 0x8C
@@ -202,7 +202,7 @@ function function_6bc1e300(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_fdbcb111
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x68BF350A
 	Offset: 0xBD0
 	Size: 0xB2
@@ -224,7 +224,7 @@ function function_fdbcb111(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ea733c8f
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x2F81538C
 	Offset: 0xC90
 	Size: 0x7C
@@ -241,7 +241,7 @@ function function_ea733c8f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_d96d1ec8
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x8224004E
 	Offset: 0xD18
 	Size: 0xB2
@@ -263,7 +263,7 @@ function function_d96d1ec8(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: ww_lvl3_crafting_table_fx
-	Namespace: namespace_1bf74f9e
+	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x4C79FC
 	Offset: 0xDD8
 	Size: 0xB2

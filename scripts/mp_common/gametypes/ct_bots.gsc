@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;

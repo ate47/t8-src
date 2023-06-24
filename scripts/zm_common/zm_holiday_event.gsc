@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_transformation.gsc;
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\zm\weapons\zm_weap_homunculus.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -59,7 +59,7 @@ function __init__()
 */
 function __main__()
 {
-	if(getdvarint(#"zm_holiday_event", 0) && zm_utility::is_classic() && (!(isdefined(level.var_aa2d5655) && level.var_aa2d5655)) && namespace_cb7cafc3::get_story() == 2)
+	if(getdvarint(#"zm_holiday_event", 0) && zm_utility::is_classic() && (!(isdefined(level.var_aa2d5655) && level.var_aa2d5655)) && zm_maptable::get_story() == 2)
 	{
 		level.var_3b96ad73 = getweapon(#"homunculus_leprechaun");
 		if(!isdefined(level.var_fe96a4c4))

@@ -14,7 +14,7 @@
 #using scripts\zm\zm_escape_spoon.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_escape_pebble.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm\zm_escape_achievement.gsc;
@@ -33,13 +33,13 @@
 #using script_61ef84ea1a82c001;
 #using script_668c4fbb94671fb4;
 #using scripts\zm\zm_escape_trials.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\zm\zm_escape_magicbox.gsc;
 #using scripts\zm\weapons\zm_weap_golden_knife.gsc;
 #using script_7c62f55ce3a557ff;
 #using script_ab862743b3070a;
-#using script_b00fcbc28051f15;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -201,7 +201,7 @@ event main(eventstruct)
 	{
 		level.dog_round_track_override = &function_246a0760;
 		level.var_539f36cd = &function_2723556b;
-		namespace_c402654::dog_enable_rounds(0);
+		zombie_dog_util::dog_enable_rounds(0);
 	}
 	else
 	{
@@ -245,14 +245,14 @@ function function_246a0760()
 	{
 		level.next_dog_round = 11;
 	}
-	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
-	zm_round_spawning::function_df803678(&namespace_c402654::function_ed67c5e7);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &zombie_dog_util::dog_round_start, &zombie_dog_util::function_5f1ef789, &zombie_dog_util::function_20aadb5e, &zombie_dog_util::function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_df803678(&zombie_dog_util::function_ed67c5e7);
 	zm_utility::function_fdb0368(level.next_dog_round + 1);
 	level.dog_round_count = 3;
 	level.next_dog_round = 22;
-	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &namespace_c402654::dog_round_start, &namespace_c402654::function_5f1ef789, &namespace_c402654::function_20aadb5e, &namespace_c402654::function_d544de30, level.var_dc50acfa);
+	zm_round_spawning::function_b4a8f95a(#"zombie_dog", level.next_dog_round, &zombie_dog_util::dog_round_start, &zombie_dog_util::function_5f1ef789, &zombie_dog_util::function_20aadb5e, &zombie_dog_util::function_d544de30, level.var_dc50acfa);
 	/#
-		level thread namespace_c402654::function_de0a6ae4();
+		level thread zombie_dog_util::function_de0a6ae4();
 	#/
 }
 
@@ -311,7 +311,7 @@ function function_7722c6f0(var_404e4288, var_8dd554ee)
 	ai_brutus = zombie_utility::spawn_zombie(level.var_d668eae7[0]);
 	if(isdefined(ai_brutus))
 	{
-		ai_brutus namespace_961cf978::brutus_spawn();
+		ai_brutus zombie_brutus_util::brutus_spawn();
 		if(isalive(ai_brutus))
 		{
 			level.zombie_total--;
@@ -335,7 +335,7 @@ function function_7722c6f0(var_404e4288, var_8dd554ee)
 */
 function function_e5086229(var_404e4288, var_8dd554ee)
 {
-	ai = namespace_c402654::function_62db7b1c(1);
+	ai = zombie_dog_util::function_62db7b1c(1);
 	if(isdefined(ai))
 	{
 		level.zombie_total--;
@@ -1014,8 +1014,8 @@ function function_17ac86f7()
 function function_9f50079d()
 {
 	level.var_9d1d502c = 1;
-	zm_loadout::register_tactical_grenade_for_level(#"hash_42a45d43be3dba42", 1);
-	zm_loadout::register_tactical_grenade_for_level(#"hash_78e66b21aa05c753");
+	zm_loadout::register_tactical_grenade_for_level(#"zhield_spectral_dw", 1);
+	zm_loadout::register_tactical_grenade_for_level(#"zhield_spectral_dw_upgraded");
 }
 
 /*

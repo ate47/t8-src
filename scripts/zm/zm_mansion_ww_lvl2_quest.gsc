@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -136,7 +136,7 @@ function function_6b6712e3()
 	level flagsys::wait_till("start_zombie_round_logic");
 	var_ca45945a = scene::get_active_scenes(#"p8_fxanim_zm_man_bookcase_04_bundle");
 	var_48e18d96 = var_ca45945a[0];
-	var_80c684f = var_48e18d96.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_80c684f = var_48e18d96.scene_ents[#"prop 1"];
 	var_728bcf6e = getent("ww_l2_part_clip_right", "targetname");
 	var_728bcf6e linkto(var_80c684f, "tag_animate_02");
 	var_45e56423 = getent("ww_l2_part_clip_left", "targetname");

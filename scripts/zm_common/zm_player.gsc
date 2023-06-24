@@ -3,13 +3,13 @@
 #using script_20ac552ee498eb9d;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4194df57536e11ed;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_armor.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

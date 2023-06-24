@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\killstreaks\emp_shared.gsc;
 #using scripts\killstreaks\mp\uav.gsc;
 #using scripts\killstreaks\mp\counteruav.gsc;

@@ -251,7 +251,7 @@ function function_1a2f062a(localclientnum)
 		{
 			self.var_f809ca21 = 1;
 		}
-		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 		/#
 			var_a193c879 = self.var_f809ca21 * 100;
 			debug2dtext((5, 540, 0), "" + var_a193c879, (1, 1, 0), 1, (0, 0, 0), 0.5, 1, 30);
@@ -288,7 +288,7 @@ function function_7c64a377(localclientnum)
 		{
 			self.var_f809ca21 = 1;
 		}
-		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 		/#
 			var_a193c879 = self.var_f809ca21 * 100;
 			debug2dtext((5, 540, 0), "" + var_a193c879, (1, 1, 0), 1, (0, 0, 0), 0.5, 1, 30);
@@ -321,7 +321,7 @@ function function_17e6f9f3(localclientnum)
 		{
 			self.var_f809ca21 = 0.5;
 		}
-		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 		/#
 			var_a193c879 = self.var_f809ca21 * 100;
 			debug2dtext((5, 540, 0), "" + var_a193c879, (1, 1, 0), 1, (0, 0, 0), 0.5, 1, 30);
@@ -365,7 +365,7 @@ function function_39cdeb29(localclientnum)
 {
 	self.var_7c8ad424 = 0;
 	self.var_f809ca21 = 0.5;
-	self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+	self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 	if(self postfx::function_556665f2("pstfx_frost_loop_fullscreen_zmo"))
 	{
 		self postfx::stoppostfxbundle("pstfx_frost_loop_fullscreen_zmo");
@@ -388,14 +388,14 @@ function function_6b5ed7f9(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		self.var_7c8ad424 = 0;
 		self.var_f809ca21 = 0.9;
-		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 		self thread util::playfxontag(localclientnum, level._effect[#"hash_28591d0dc8bbbf02"], self, "J_Spine4");
 	}
 	else if(newval === 1)
 	{
 		self.var_7c8ad424 = 0;
 		self.var_f809ca21 = 0.8;
-		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"hash_5f1523667e6fa863", self.var_f809ca21);
+		self postfx::function_c8b5f318("pstfx_frost_loop_fullscreen_zmo", #"reveal threshold", self.var_f809ca21);
 		self thread util::playfxontag(localclientnum, level._effect[#"hash_28591d0dc8bbbf02"], self, "J_Spine4");
 	}
 }

@@ -3,7 +3,7 @@
 #using script_1c72973fb240f263;
 #using script_24c32478acf44108;
 #using scripts\zm\zm_white_main_quest.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\zm_hms_util.gsc;

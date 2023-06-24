@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -25,11 +25,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_c402654;
+#namespace zombie_dog_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x33CFD6C2
 	Offset: 0x318
 	Size: 0x44
@@ -38,12 +38,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_29467933d0da473b", &__init__, undefined, #"aat");
+	system::register(#"zombie_dog_util", &__init__, undefined, #"aat");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xCDA09F4D
 	Offset: 0x368
 	Size: 0x29C
@@ -74,7 +74,7 @@ function __init__()
 
 /*
 	Name: dog_enable_rounds
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x9EE88C84
 	Offset: 0x610
 	Size: 0xBC
@@ -98,7 +98,7 @@ function dog_enable_rounds(b_ignore_cleanup = 1)
 
 /*
 	Name: dog_spawner_init
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x76B2F9BC
 	Offset: 0x6D8
 	Size: 0x1AC
@@ -133,7 +133,7 @@ function dog_spawner_init()
 
 /*
 	Name: function_dd162858
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x47B279E9
 	Offset: 0x890
 	Size: 0x5E
@@ -156,7 +156,7 @@ function function_dd162858()
 
 /*
 	Name: function_20aadb5e
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x999FF6
 	Offset: 0x8F8
 	Size: 0x62
@@ -172,7 +172,7 @@ function function_20aadb5e()
 
 /*
 	Name: waiting_for_next_dog_spawn
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x6FC6F890
 	Offset: 0x968
 	Size: 0xFC
@@ -216,7 +216,7 @@ function waiting_for_next_dog_spawn(count, max)
 
 /*
 	Name: function_d544de30
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xA101C50C
 	Offset: 0xA70
 	Size: 0xC
@@ -230,7 +230,7 @@ function function_d544de30()
 
 /*
 	Name: function_ed67c5e7
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x6BFEAF78
 	Offset: 0xA88
 	Size: 0x64
@@ -247,7 +247,7 @@ function function_ed67c5e7(s_params)
 
 /*
 	Name: dog_spawn_fx
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x52F10FF2
 	Offset: 0xAF8
 	Size: 0x368
@@ -297,7 +297,7 @@ function dog_spawn_fx(ai, ent)
 
 /*
 	Name: dog_spawn_factory_logic
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x4CC25A54
 	Offset: 0xE68
 	Size: 0x114
@@ -325,7 +325,7 @@ function dog_spawn_factory_logic(favorite_enemy)
 
 /*
 	Name: function_81f9083e
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x14976062
 	Offset: 0xF88
 	Size: 0x96
@@ -344,7 +344,7 @@ function function_81f9083e()
 
 /*
 	Name: function_a5abd591
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xC9E46491
 	Offset: 0x1028
 	Size: 0x132
@@ -384,7 +384,7 @@ function function_a5abd591()
 
 /*
 	Name: get_favorite_enemy
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x170DE508
 	Offset: 0x1168
 	Size: 0x10A
@@ -424,7 +424,7 @@ function get_favorite_enemy()
 
 /*
 	Name: dog_health_increase
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x192DD65F
 	Offset: 0x1280
 	Size: 0xCA
@@ -464,7 +464,7 @@ function dog_health_increase()
 
 /*
 	Name: dog_round_tracker
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xFDA15081
 	Offset: 0x1358
 	Size: 0x17C
@@ -498,7 +498,7 @@ function dog_round_tracker(var_634c65f0)
 
 /*
 	Name: function_246a0760
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x12FE1DBA
 	Offset: 0x14E0
 	Size: 0x16C
@@ -522,7 +522,7 @@ function function_246a0760()
 
 /*
 	Name: function_de0a6ae4
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x9D399B3A
 	Offset: 0x1658
 	Size: 0x62
@@ -545,7 +545,7 @@ function function_de0a6ae4()
 
 /*
 	Name: dog_round_start
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x2CF6D6AE
 	Offset: 0x16C8
 	Size: 0xEC
@@ -567,7 +567,7 @@ function dog_round_start()
 
 /*
 	Name: function_c5ab118d
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x2AAD5430
 	Offset: 0x17C0
 	Size: 0x24
@@ -581,7 +581,7 @@ function function_c5ab118d()
 
 /*
 	Name: dog_round_stop
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x595CFA42
 	Offset: 0x17F0
 	Size: 0x1CC
@@ -613,7 +613,7 @@ function dog_round_stop(var_d25bbdd5)
 
 /*
 	Name: function_5f1ef789
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xC067A33D
 	Offset: 0x19C8
 	Size: 0xAC
@@ -632,7 +632,7 @@ function function_5f1ef789(var_d25bbdd5)
 
 /*
 	Name: play_dog_round
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x103D20E3
 	Offset: 0x1A80
 	Size: 0x8C
@@ -650,7 +650,7 @@ function play_dog_round()
 
 /*
 	Name: dog_init
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x85EC1CAA
 	Offset: 0x1B18
 	Size: 0x430
@@ -721,7 +721,7 @@ function dog_init()
 
 /*
 	Name: dog_death
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xE0633BE7
 	Offset: 0x1F50
 	Size: 0x44E
@@ -798,7 +798,7 @@ function dog_death()
 
 /*
 	Name: dog_explode_fx
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xAF13756F
 	Offset: 0x23A8
 	Size: 0x8C
@@ -817,7 +817,7 @@ function dog_explode_fx(dog, origin)
 
 /*
 	Name: zombie_setup_attack_properties_dog
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xB32458CC
 	Offset: 0x2440
 	Size: 0xD4
@@ -843,7 +843,7 @@ function zombie_setup_attack_properties_dog()
 
 /*
 	Name: stop_dog_sound_on_death
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xBE367CCA
 	Offset: 0x2520
 	Size: 0x34
@@ -861,7 +861,7 @@ function stop_dog_sound_on_death()
 
 /*
 	Name: dog_behind_audio
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x9D853873
 	Offset: 0x2560
 	Size: 0x22C
@@ -898,7 +898,7 @@ function dog_behind_audio()
 
 /*
 	Name: dog_clip_monitor
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x5630AD70
 	Offset: 0x2798
 	Size: 0x206
@@ -946,7 +946,7 @@ function dog_clip_monitor()
 
 /*
 	Name: dog_run_think
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xDD8AE0D0
 	Offset: 0x29A8
 	Size: 0x120
@@ -983,7 +983,7 @@ function dog_run_think()
 
 /*
 	Name: dog_stalk_audio
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x68846B40
 	Offset: 0x2AD0
 	Size: 0xA8
@@ -1003,7 +1003,7 @@ function dog_stalk_audio()
 
 /*
 	Name: dog_thundergun_knockdown
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x14582371
 	Offset: 0x2B80
 	Size: 0x7C
@@ -1019,7 +1019,7 @@ function dog_thundergun_knockdown(player, gib)
 
 /*
 	Name: function_b168b424
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xDA192A69
 	Offset: 0x2C08
 	Size: 0xE2
@@ -1049,7 +1049,7 @@ function function_b168b424(var_dbce0c44)
 
 /*
 	Name: dog_round_spawn
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x7F9747C3
 	Offset: 0x2CF8
 	Size: 0x3C
@@ -1069,7 +1069,7 @@ function dog_round_spawn()
 
 /*
 	Name: function_62db7b1c
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xD5E55241
 	Offset: 0x2D40
 	Size: 0x900
@@ -1251,7 +1251,7 @@ function function_62db7b1c(b_force_spawn = 0, var_eb3a8721)
 
 /*
 	Name: function_c1faf4d5
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xC891F5BC
 	Offset: 0x3648
 	Size: 0x96
@@ -1271,7 +1271,7 @@ function function_c1faf4d5()
 
 /*
 	Name: function_71e3c90d
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0x42208EF5
 	Offset: 0x36E8
 	Size: 0xE2
@@ -1319,7 +1319,7 @@ function function_71e3c90d()
 
 /*
 	Name: function_bb101706
-	Namespace: namespace_c402654
+	Namespace: zombie_dog_util
 	Checksum: 0xF9FC6F0C
 	Offset: 0x37D8
 	Size: 0xBC

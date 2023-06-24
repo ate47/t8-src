@@ -11,14 +11,14 @@
 #using scripts\zm\zm_mansion_ww_lvl3_quest.csc;
 #using script_3cd7be071a3f1ce0;
 #using script_42dd312945896668;
-#using script_47c293f002042d7e;
+#using scripts\zm\zm_mansion_storage.csc;
 #using script_5fb8da2731850d9e;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\zm\zm_mansion_silver_bullet.csc;
 #using script_6c494cd6189bb8dc;
-#using script_74f5ae6ffc8bd614;
+#using scripts\zm_common\zm_audio_sq.csc;
 #using scripts\zm_common\zm_ui_inventory.csc;
-#using script_7ef002db7fb88ad0;
+#using scripts\zm\zm_mansion_traps_firegates.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -125,15 +125,15 @@ event main(eventstruct)
 	namespace_a8113e97::init_clientfields();
 	namespace_b6ca3ccc::init_clientfields();
 	mansion_triad::init_clientfields();
-	mansion_impaler::init_clientfields(); // ww_crossbow_impaler_t8 quests
-	namespace_c2ad41c5::init(); // billiard balls
+	mansion_impaler::init_clientfields();
+	mansion_storage::init();
 	mansion_pap::init_fx();
 	mansion_pap::init_clientfields();
-	namespace_1bf74f9e::init(); // ww lvl3 quest
+	mansion_ww_lvl3_quest::init();
 	mansion_silver_bullet::init();
 	namespace_59d4913f::init(); // stake knife
 	mansion_jordans::init();
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 	ai::add_archetype_spawn_function(#"zombie_dog", &zombie_dog_spawned);
 	load::main();
 	util::waitforclient(0);

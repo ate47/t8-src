@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_59f07c660e6710a5;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 
 #namespace catalystinterface;
 

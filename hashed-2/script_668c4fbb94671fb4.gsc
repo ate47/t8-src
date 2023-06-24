@@ -1,15 +1,15 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_46cea9e5d4ef9e21;
 #using script_4cc2542101cb7973;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7c62f55ce3a557ff;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_b00fcbc28051f15;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1687,7 +1687,7 @@ function private function_b88f57f9()
 		if(isalive(ai_brutus))
 		{
 			ai_brutus endon(#"death");
-			ai_brutus namespace_961cf978::brutus_spawn(undefined, undefined, undefined, undefined, undefined);
+			ai_brutus zombie_brutus_util::brutus_spawn(undefined, undefined, undefined, undefined, undefined);
 			ai_brutus forceteleport(s_brutus_location.origin, s_brutus_location.angles);
 			ai_brutus playsound(#"zmb_ai_brutus_spawn_2d");
 			ai_brutus val::set(#"ai_brutus", "ignoreall", 1);
@@ -4629,7 +4629,7 @@ function private function_b952c1b(var_4bdd091b, str_tag = "j_spinelower")
 		{
 			n_current_time = gettime();
 			n_total_time = (n_current_time - n_start_time) / 1000;
-			n_move_time = var_4bdd091b namespace_b4a066ff::function_f40aa0ef(var_88f24b00, n_total_time);
+			n_move_time = var_4bdd091b zm_weap_spectral_shield::function_f40aa0ef(var_88f24b00, n_total_time);
 			if(n_move_time == 0)
 			{
 				break;
@@ -4733,8 +4733,8 @@ function private function_252499a3(v_pos)
 */
 function private function_2c4516ae(str_door_name)
 {
-	var_df1533c0 = getentarray(str_door_name, "target");
-	foreach(zombie_door in var_df1533c0)
+	a_e_zombie_doors = getentarray(str_door_name, "target");
+	foreach(zombie_door in a_e_zombie_doors)
 	{
 		if(isdefined(zombie_door.b_opened) && zombie_door.b_opened)
 		{
@@ -4782,7 +4782,7 @@ function private function_ff88f6aa(v_teleport_position)
 function private function_9b1d9d6a()
 {
 	var_2d52f9db = struct::get("p_l_exp");
-	var_fe4d15a4 = var_2d52f9db.scene_ents[#"hash_7aff0ee60ddd937b"];
+	var_fe4d15a4 = var_2d52f9db.scene_ents[#"prop 1"];
 	var_2287bf7c = [];
 	foreach(e_player in util::get_players())
 	{

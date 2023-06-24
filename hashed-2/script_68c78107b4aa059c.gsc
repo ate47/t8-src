@@ -345,7 +345,7 @@ function private _spawn_item(point, row, stashitem = 0)
 		}
 	}
 	function_43cd95f4(point.id, item_name);
-	if(item_name == #"hash_43aca7fcfd3e5949")
+	if(item_name == #"sig_blade_wz_item")
 	{
 		level.var_5b2a8d88[point.id] = 1;
 	}
@@ -825,7 +825,7 @@ function function_3095d12a()
 		return;
 	}
 	level.var_ccc3aaf = 1;
-	flagsys::set(#"hash_14b8213ddc0feac");
+	flagsys::set(#"item_world_traces");
 }
 
 /*
@@ -1452,7 +1452,7 @@ function setup_groups(reset = 1)
 	{
 		level flagsys::set(#"hash_11c9cde7b522c5a9");
 	}
-	flagsys::wait_till(#"hash_14b8213ddc0feac");
+	flagsys::wait_till(#"item_world_traces");
 	/#
 		if(!isdefined(level.var_55f723bd))
 		{

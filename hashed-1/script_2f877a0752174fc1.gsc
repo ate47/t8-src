@@ -199,7 +199,7 @@ function function_9e497c58()
 		var_f711229a.var_808cd5ad = var_f711229a.n_station;
 		var_f711229a.scene scene::play("idle_off_" + var_f711229a.n_station);
 		var_f711229a.scene flagsys::wait_till(#"scene_ents_ready");
-		var_f711229a.var_21da1bbc = var_f711229a.scene.scene_ents[#"hash_7aff0ee60ddd937b"];
+		var_f711229a.var_21da1bbc = var_f711229a.scene.scene_ents[#"prop 1"];
 		var_f711229a.scene.var_eb397f67 = var_f711229a.var_21da1bbc gettagorigin("tag_tuner_knob");
 		level.var_96fdae0e[var_f711229a.script_int] = var_f711229a;
 	}

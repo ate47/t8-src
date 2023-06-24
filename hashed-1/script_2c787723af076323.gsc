@@ -76,7 +76,7 @@ function function_63ad593a()
 		wz_common_fixup::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_13ba73311ab5250f", #"hash_58c8b457cdf56278");
 		if(isdefined(getgametypesetting(#"wzenablespectregrenade")) && getgametypesetting(#"wzenablespectregrenade"))
 		{
-			wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"hash_745d80b3e4f28da1", #"hash_7e8c84081fafaea4");
+			wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"smoke_grenade_wz_item", #"spectre_grenade_wz_item");
 		}
 	}
 }

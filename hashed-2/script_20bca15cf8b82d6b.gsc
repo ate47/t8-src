@@ -7,11 +7,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_961cf978;
+#namespace zombie_brutus_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xC892978
 	Offset: 0xD8
 	Size: 0x3C
@@ -20,12 +20,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_722ef8a2296d547e", &__init__, undefined, undefined);
+	system::register(#"zombie_brutus_util", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x4305C72
 	Offset: 0x120
 	Size: 0x4C
@@ -39,7 +39,7 @@ function __init__()
 
 /*
 	Name: function_6f198c81
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xEB380BAD
 	Offset: 0x178
 	Size: 0xBC

@@ -24,7 +24,7 @@ function init_shared(var_4b51853b)
 	level.var_87226c31.var_3e7344ee = getweapon(#"eq_concertina_wire");
 	level.var_87226c31.var_546a220c = "concertina_wire_objective_default";
 	level.var_87226c31.var_925bbb2 = [];
-	deployable::function_2e088f73(level.var_87226c31.var_3e7344ee, 1);
+	deployable::register_deployable(level.var_87226c31.var_3e7344ee, 1);
 }
 
 /*

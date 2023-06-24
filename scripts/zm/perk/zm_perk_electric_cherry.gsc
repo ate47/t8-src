@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_6951ea86fdae9ae0;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -218,7 +218,7 @@ function electric_cherry_laststand()
 		a_zombies = util::get_array_of_closest(self.origin, a_zombies, undefined, undefined, 500);
 		for(i = 0; i < a_zombies.size; i++)
 		{
-			if(isalive(self) && isalive(a_zombies[i]) && !namespace_6b49f66b::is_active())
+			if(isalive(self) && isalive(a_zombies[i]) && !zm_trial_restrict_loadout::is_active())
 			{
 				if(a_zombies[i].health <= 1000)
 				{
@@ -428,7 +428,7 @@ function electric_cherry_reload_attack()
 			n_zombies_hit = 0;
 			for(i = 0; i < a_zombies.size; i++)
 			{
-				if(isalive(self) && isalive(a_zombies[i]) && !namespace_6b49f66b::is_active())
+				if(isalive(self) && isalive(a_zombies[i]) && !zm_trial_restrict_loadout::is_active())
 				{
 					if(isdefined(n_zombie_limit))
 					{

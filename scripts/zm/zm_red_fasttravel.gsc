@@ -29,7 +29,7 @@ function init()
 	clientfield::register("toplayer", "park_to_column", 16000, 2, "int");
 	clientfield::register("toplayer", "park_to_fountain", 16000, 2, "int");
 	clientfield::register("allplayers", "" + #"hash_52693a3ba1bbc7ea", 16000, 1, "counter");
-	clientfield::register("scriptmover", "" + #"hash_1c11bf07cb27dfaa", 16000, 1, "int");
+	clientfield::register("scriptmover", "" + #"forcestream_crafted_item", 16000, 1, "int");
 	clientfield::register("world", "" + #"hash_761511e09cb8324e", 16000, 1, "int");
 	level.var_5bfd847e = #"zm_red_fasttravel_open";
 	level.var_91f96fcd = struct::get_array("fasttravel_trigger", "targetname");
@@ -51,8 +51,8 @@ function init()
 		}
 	}
 	callback::on_spawned(&on_player_spawned);
-	level thread function_fe50c802("mdl_zhield_zpear", -61);
-	level thread function_fe50c802("eq_red_strike", -29);
+	level thread forcestream_crafted_item("mdl_zhield_zpear", -61);
+	level thread forcestream_crafted_item("eq_red_strike", -29);
 	level thread function_e49ceeb9("forcestream_shrub");
 }
 
@@ -128,7 +128,7 @@ function function_d69c301b()
 }
 
 /*
-	Name: function_fe50c802
+	Name: forcestream_crafted_item
 	Namespace: zm_red_fasttravel
 	Checksum: 0xC565A67E
 	Offset: 0xA78
@@ -136,7 +136,7 @@ function function_d69c301b()
 	Parameters: 2
 	Flags: Linked
 */
-function function_fe50c802(str_model, n_z_diff)
+function forcestream_crafted_item(str_model, n_z_diff)
 {
 	level waittill(#"blueprint_completed");
 	var_e007f14b = getent(str_model, "targetname");
@@ -164,9 +164,9 @@ function function_91fabcb(var_e007f14b, b_clean_up = 0)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"trigger");
-		var_e007f14b clientfield::set("" + #"hash_1c11bf07cb27dfaa", 1);
+		var_e007f14b clientfield::set("" + #"forcestream_crafted_item", 1);
 		wait(3);
-		var_e007f14b clientfield::set("" + #"hash_1c11bf07cb27dfaa", 0);
+		var_e007f14b clientfield::set("" + #"forcestream_crafted_item", 0);
 		while(isdefined(s_result.activator) && s_result.activator istouching(self))
 		{
 			wait(1.6);

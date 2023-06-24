@@ -4,7 +4,7 @@
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\zm\zm_mansion_special_rounds.gsc;
@@ -2235,7 +2235,7 @@ function wave_2()
 		if(isdefined(var_69024a6a))
 		{
 			level.var_20f423f6++;
-			var_69024a6a namespace_c402654::dog_init();
+			var_69024a6a zombie_dog_util::dog_init();
 			var_69024a6a.var_126d7bef = 1;
 			var_69024a6a.ignore_round_spawn_failsafe = 1;
 			var_69024a6a.ignore_enemy_count = 1;
@@ -2375,7 +2375,7 @@ function wave_3()
 			level flag::set(#"hash_29b12646045186fa");
 		}
 		s_loc = array::random(a_s_locs);
-		var_69024a6a = namespace_977da60::function_47a88a0c(1, undefined, 1, s_loc, 20);
+		var_69024a6a = zombie_werewolf_util::function_47a88a0c(1, undefined, 1, s_loc, 20);
 		if(isalive(var_69024a6a))
 		{
 			level.var_4b9e58af++;

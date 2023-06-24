@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_127edb82eabcb791;
-#using script_3487c470617b596f;
+#using scripts\mp_common\gametypes\ct_firebreak_tutorial.csc;
 #using scripts\mp_common\gametypes\ct_core.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\oob.csc;
@@ -22,6 +22,6 @@ event main(eventstruct)
 	ct_core::function_46e95cc7();
 	ct_core::function_fa03fc55();
 	level.ct_firebreak_multi_kill = ct_firebreak_multi_kill::register("ct_firebreak_multi_kill");
-	namespace_154e6230::init();
+	ct_firebreak_tutorial::init();
 }
 

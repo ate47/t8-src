@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18fed4d66b0b9c1;
+#using scripts\core_common\loot_tracking.gsc;
 #using script_1d29de500c266470;
 #using scripts\wz_common\wz_contracts.gsc;
 #using script_39bd5b6b799b1c9c;

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18a9e529264a3d29;
+#using scripts\zm_common\zm_maptable.csc;
 #using scripts\core_common\util_shared.csc;
 
 #namespace zm_inventory;
@@ -44,7 +44,7 @@ function private function_cb96f01d(mappingname, internalname, numbits, var_7f12f
 function function_c7c05a13()
 {
 	level.var_a16c38d9 = [];
-	fields = namespace_cb7cafc3::function_10672567();
+	fields = zm_maptable::function_10672567();
 	if(!isdefined(fields) || !isdefined(fields.zm_inventory))
 	{
 		return;

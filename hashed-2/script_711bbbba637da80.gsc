@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6a0e50bc15d725a9;
+#using scripts\zm\weapons\zm_weap_spectral_shield.csc;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\exploder_shared.csc;
@@ -351,7 +351,7 @@ function function_58397147(localclientnum, oldval, newval, bnewent, binitialsnap
 		self.var_922c0c5c = &function_36e09e98;
 		self.var_ffeecdb6 = &function_77fbeefa;
 		player = function_5c10bd79(localclientnum);
-		var_9094730f = namespace_b4a066ff::function_98890cd8(player.weapon, 1);
+		var_9094730f = zm_weap_spectral_shield::function_98890cd8(player.weapon, 1);
 		if(!var_9094730f)
 		{
 			if(newval == 2 && self isai() && self.archetype == #"ghost")

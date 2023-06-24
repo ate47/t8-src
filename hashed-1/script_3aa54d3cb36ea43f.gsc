@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_2c5daa95f8fec03c;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -18,11 +18,11 @@
 #using scripts\zm_common\zm_spawner.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_75cbf125;
+#namespace zombie_gegenees_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xD30799B1
 	Offset: 0x1D8
 	Size: 0x54
@@ -31,12 +31,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_44c6201436ba267e", &__init__, &__main__, #"zm_ai_gegenees");
+	system::register(#"zombie_gegenees_util", &__init__, &__main__, #"zm_ai_gegenees");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x32BE42C2
 	Offset: 0x238
 	Size: 0x1B4
@@ -62,7 +62,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xA93DB46
 	Offset: 0x3F8
 	Size: 0x4C
@@ -76,7 +76,7 @@ function __main__()
 
 /*
 	Name: function_b656013e
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xA6D94C4
 	Offset: 0x450
 	Size: 0xDE
@@ -100,7 +100,7 @@ function private function_b656013e()
 
 /*
 	Name: function_ea46ca6f
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x3D1F1BE9
 	Offset: 0x538
 	Size: 0x10E
@@ -127,7 +127,7 @@ function function_ea46ca6f()
 
 /*
 	Name: gegenees_init
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x10040D60
 	Offset: 0x650
 	Size: 0xA4
@@ -145,7 +145,7 @@ function gegenees_init()
 
 /*
 	Name: function_7640eac2
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x84F53A00
 	Offset: 0x700
 	Size: 0x2A8
@@ -202,7 +202,7 @@ function function_7640eac2()
 
 /*
 	Name: function_9a9b5f49
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x992CE860
 	Offset: 0x9B0
 	Size: 0x244
@@ -243,7 +243,7 @@ function function_9a9b5f49(spot)
 
 /*
 	Name: function_7e791d5d
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x5DA9B680
 	Offset: 0xC00
 	Size: 0x130
@@ -269,7 +269,7 @@ function private function_7e791d5d(einflictor, eattacker, idamage, idflags, smea
 
 /*
 	Name: function_7107da88
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x558CE1E4
 	Offset: 0xD38
 	Size: 0x292
@@ -339,7 +339,7 @@ function function_7107da88(var_dbce0c44)
 
 /*
 	Name: round_spawn
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x96DE9A1
 	Offset: 0xFD8
 	Size: 0x3C
@@ -359,7 +359,7 @@ function round_spawn()
 
 /*
 	Name: spawn_single
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x7BFA1897
 	Offset: 0x1020
 	Size: 0x280
@@ -418,7 +418,7 @@ function spawn_single(b_force_spawn = 0, var_eb3a8721, var_bc66d64b)
 
 /*
 	Name: function_48c60fc2
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xD0824853
 	Offset: 0x12A8
 	Size: 0xBC
@@ -438,7 +438,7 @@ function function_48c60fc2()
 
 /*
 	Name: function_5685dac6
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xA1F44ADD
 	Offset: 0x1370
 	Size: 0xAA
@@ -475,7 +475,7 @@ function function_5685dac6()
 
 /*
 	Name: function_13080a96
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xB2E2199D
 	Offset: 0x1428
 	Size: 0xDC
@@ -502,7 +502,7 @@ function function_13080a96()
 
 /*
 	Name: function_2ce6dcd4
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0xC11A6C3E
 	Offset: 0x1510
 	Size: 0x90
@@ -522,7 +522,7 @@ function function_2ce6dcd4(spawner, s_spot, var_bc66d64b)
 
 /*
 	Name: function_c1a0ea97
-	Namespace: namespace_75cbf125
+	Namespace: zombie_gegenees_util
 	Checksum: 0x46E6D4C6
 	Offset: 0x15A8
 	Size: 0x1B2

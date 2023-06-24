@@ -5,7 +5,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

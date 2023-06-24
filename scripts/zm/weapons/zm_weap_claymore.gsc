@@ -50,8 +50,8 @@ function __init__()
 {
 	weaponobjects::function_e6400478(#"claymore", &createclaymorewatcher, 0);
 	weaponobjects::function_e6400478(#"claymore_extra", &createclaymorewatcher, 0);
-	deployable::function_2e088f73(getweapon(#"claymore"), &function_4ed6fbd5, undefined, undefined, #"hash_1f65f161716fb57b");
-	deployable::function_2e088f73(getweapon(#"claymore_extra"), &function_4ed6fbd5, undefined, undefined, #"hash_1f65f161716fb57b");
+	deployable::register_deployable(getweapon(#"claymore"), &function_4ed6fbd5, undefined, undefined, #"hash_1f65f161716fb57b");
+	deployable::register_deployable(getweapon(#"claymore_extra"), &function_4ed6fbd5, undefined, undefined, #"hash_1f65f161716fb57b");
 	zm::function_84d343d(#"claymore", &function_84072422);
 	zm::function_84d343d(#"claymore_extra", &function_84072422);
 	level.var_817314af = 0;

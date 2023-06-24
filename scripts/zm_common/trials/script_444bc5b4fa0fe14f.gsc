@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_4aeb3279b6b23a91;
+#using scripts\zm_common\trials\zm_trial_add_special.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -83,9 +83,9 @@ function private on_begin(var_49d0b42a, var_d2d5c522, var_17d04dfe, var_6a68f1d6
 	zm_trial_util::function_2976fa44(level.var_88bac0b7);
 	zm_trial_util::function_dace284(level.var_fb0b57a7);
 	level.var_1c7412f9 = #"catalyst";
-	zm_round_spawning::function_c1571721(&namespace_fd89d870::function_51ec9e09);
-	zm_round_spawning::function_54fee373(&namespace_fd89d870::function_1b1d71e7);
-	zm_round_spawning::function_2876740e(level.var_1c7412f9, &namespace_fd89d870::function_a7c00976);
+	zm_round_spawning::function_c1571721(&zm_trial_add_special::function_51ec9e09);
+	zm_round_spawning::function_54fee373(&zm_trial_add_special::function_1b1d71e7);
+	zm_round_spawning::function_2876740e(level.var_1c7412f9, &zm_trial_add_special::function_a7c00976);
 	level.var_ed006fe8 = array(1, 2, 3, 4);
 	level thread function_cb35d440();
 }
@@ -102,9 +102,9 @@ function private on_begin(var_49d0b42a, var_d2d5c522, var_17d04dfe, var_6a68f1d6
 function private on_end(round_reset)
 {
 	zm_trial_util::function_f3dbeda7();
-	zm_round_spawning::function_510039c1(&namespace_fd89d870::function_51ec9e09);
-	zm_round_spawning::function_375519eb(&namespace_fd89d870::function_1b1d71e7);
-	zm_round_spawning::function_9bf14a10(level.var_1c7412f9, &namespace_fd89d870::function_a7c00976);
+	zm_round_spawning::function_510039c1(&zm_trial_add_special::function_51ec9e09);
+	zm_round_spawning::function_375519eb(&zm_trial_add_special::function_1b1d71e7);
+	zm_round_spawning::function_9bf14a10(level.var_1c7412f9, &zm_trial_add_special::function_a7c00976);
 	if(!round_reset)
 	{
 		if(level.var_fb0b57a7 < level.var_88bac0b7)

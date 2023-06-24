@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_towers_crowd.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
@@ -103,7 +103,7 @@ function init()
 */
 function function_73808ab9(a_ents)
 {
-	var_f57bbec0 = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_f57bbec0 = a_ents[#"prop 1"];
 	s_fx = struct::get(#"hash_495fb43788e05676");
 	mdl_fx = util::spawn_model("tag_origin", s_fx.origin, s_fx.angles);
 	s_fx struct::delete();

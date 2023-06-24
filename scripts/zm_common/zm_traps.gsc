@@ -2,8 +2,8 @@
 #using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using script_2f9a68261f6a17be;
 #using script_301f64a4090c381a;
-#using script_5660bae5b402a1eb;
-#using script_6e3c826b1814cab6;
+#using scripts\core_common\ai\zombie_death.gsc;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

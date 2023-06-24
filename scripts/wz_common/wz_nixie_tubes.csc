@@ -109,7 +109,7 @@ function on_local_client_connect(localclientnum)
 	{
 		return;
 	}
-	level flagsys::wait_till(#"hash_38a387462f3a9ad");
+	level flagsys::wait_till(#"item_world_reset");
 	level thread function_f98a4376(localclientnum);
 }
 

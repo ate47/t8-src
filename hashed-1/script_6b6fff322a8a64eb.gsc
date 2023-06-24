@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\bgbs\zm_bgb_nowhere_but_there.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_orange_pablo.gsc;
 #using script_4333a03353e1e13a;
 #using scripts\zm_common\zm_ui_inventory.gsc;
@@ -10,7 +10,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -334,7 +334,7 @@ function function_a092874()
 	}
 	level.var_c03f9529 = 1;
 	callback::on_laststand(&function_500dfb49);
-	zm_round_spawning::function_5bc2cea1(&namespace_c402654::function_ed67c5e7);
+	zm_round_spawning::function_5bc2cea1(&zombie_dog_util::function_ed67c5e7);
 	level thread zm_audio::sndmusicsystem_playstate("dog_start");
 }
 
@@ -389,7 +389,7 @@ function function_a1b4b25d(var_d25bbdd5)
 		level thread function_8b0417eb();
 	}
 	callback::function_53888e7f(&function_500dfb49);
-	zm_round_spawning::function_df803678(&namespace_c402654::function_ed67c5e7);
+	zm_round_spawning::function_df803678(&zombie_dog_util::function_ed67c5e7);
 	level thread zm_audio::sndmusicsystem_playstate("dog_end");
 	level.zombie_round_start_delay = undefined;
 	wait(5);

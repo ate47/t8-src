@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_111d4fea7428184e;
+#using scripts\mp_common\laststand_warzone.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\flagsys_shared.gsc;

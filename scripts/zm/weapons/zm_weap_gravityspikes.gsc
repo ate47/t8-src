@@ -2,8 +2,8 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
-#using script_6f7b2cd5eb7f3e6d;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_vortex.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1037,7 +1037,7 @@ function plant_gravity_trap(var_4052dd74)
 	self notify(#"hash_55b145e95edc2ebe");
 	self thread zm_hero_weapon::function_4e984e83(var_4052dd74, 0.35);
 	self.var_80612bea = 1;
-	self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"gravityspikes");
+	self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"gravityspikes");
 	v_forward = anglestoforward(self.angles);
 	v_right = anglestoright(self.angles);
 	v_spawn_pos_right = self.origin + vectorscale((0, 0, 1), 32);
@@ -1829,7 +1829,7 @@ function function_478a4910(var_4052dd74)
 	s_result = self waittill(#"weapon_melee_power_left");
 	if(s_result.weapon == var_4052dd74)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87ca13e3ecd52d", #"gravityspikes");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_2", #"gravityspikes");
 	}
 }
 

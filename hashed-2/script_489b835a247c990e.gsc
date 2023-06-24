@@ -2,7 +2,7 @@
 #using script_178024232e91b0a1;
 #using script_3aa0f32b70d4f7cb;
 #using script_4a3f9b8905878272;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\math_shared.gsc;
 

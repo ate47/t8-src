@@ -3,11 +3,11 @@
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_73e11da2;
+#namespace character_unlock_stanton_fixup;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_73e11da2
+	Namespace: character_unlock_stanton_fixup
 	Checksum: 0x7F84C6F1
 	Offset: 0x80
 	Size: 0x44
@@ -16,12 +16,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_bff403c2cb59a3a", &__init__, undefined, #"character_unlock_fixup");
+	system::register(#"character_unlock_stanton_fixup", &__init__, undefined, #"character_unlock_fixup");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_73e11da2
+	Namespace: character_unlock_stanton_fixup
 	Checksum: 0xE06F66F8
 	Offset: 0xD0
 	Size: 0x64
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: function_d95e620c
-	Namespace: namespace_73e11da2
+	Namespace: character_unlock_stanton_fixup
 	Checksum: 0xCAB99194
 	Offset: 0x140
 	Size: 0xB2

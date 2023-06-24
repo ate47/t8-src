@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_29b970364d23b9;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7c62f55ce3a557ff;
 #using script_ab862743b3070a;
 #using scripts\core_common\ai_shared.gsc;
@@ -396,7 +396,7 @@ function function_7b6777c5(t_spawner)
 				e_enemy = zombie_utility::spawn_zombie(level.var_d668eae7[0], undefined, s_enemy_spawn);
 				waitframe(1);
 			}
-			e_enemy namespace_961cf978::brutus_spawn(250, 0);
+			e_enemy zombie_brutus_util::brutus_spawn(250, 0);
 			continue;
 		}
 		if(isdefined(level.var_2b94ce72) && level.var_2b94ce72)
@@ -637,7 +637,7 @@ function function_7ab912f2(s_loc)
 	/#
 		assert(zm_utility::is_magic_bullet_shield_enabled(self), "");
 	#/
-	self namespace_c402654::zombie_setup_attack_properties_dog();
+	self zombie_dog_util::zombie_setup_attack_properties_dog();
 	self util::stop_magic_bullet_shield();
 	wait(0.1);
 	self show();
@@ -743,17 +743,17 @@ function play_brutus_scene_done(a_ents)
 	{
 		if(level.zones[#"zone_catwalk_04"].is_active)
 		{
-			namespace_961cf978::attempt_brutus_spawn(1, "zone_catwalk_04");
+			zombie_brutus_util::attempt_brutus_spawn(1, "zone_catwalk_04");
 		}
 		else
 		{
 			if(level.zones[#"zone_catwalk_03"].is_active)
 			{
-				namespace_961cf978::attempt_brutus_spawn(1, "zone_catwalk_03");
+				zombie_brutus_util::attempt_brutus_spawn(1, "zone_catwalk_03");
 			}
 			else
 			{
-				namespace_961cf978::attempt_brutus_spawn(1);
+				zombie_brutus_util::attempt_brutus_spawn(1);
 			}
 		}
 		level.var_43bca751 = undefined;
@@ -824,7 +824,7 @@ function function_993f4add()
 	{
 		if(isdefined(self))
 		{
-			level thread namespace_c402654::dog_explode_fx(self, self.origin);
+			level thread zombie_dog_util::dog_explode_fx(self, self.origin);
 		}
 		level.var_43bca751 = 1;
 	}
@@ -901,7 +901,7 @@ function function_e11ac4f5()
 	if(!level.dog_rounds_enabled)
 	{
 		level.var_973488a5 = level.round_number + 1;
-		level thread namespace_c402654::dog_enable_rounds(1);
+		level thread zombie_dog_util::dog_enable_rounds(1);
 	}
 	if(isdefined(level.var_2ea46461))
 	{

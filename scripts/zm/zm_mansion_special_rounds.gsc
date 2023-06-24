@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_387eab232fe22983;
 #using scripts\zm\ai\zm_ai_stoker.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -51,7 +51,7 @@ function init()
 	level.var_d9334d8b = &function_2438d55e;
 	level.var_ae4acb3f = &function_18f5f327;
 	level.var_b106cd7a = &function_50ec1ddf;
-	level.var_7e40409b = &namespace_977da60::function_774f6e70;
+	level.var_7e40409b = &zombie_werewolf_util::function_774f6e70;
 	level.var_aab23eac = &function_84c5200d;
 	level.var_8a5c1a7a = 1;
 	level.custom_dog_target_validity_check = &function_bc0facd3;
@@ -336,7 +336,7 @@ function function_c79d744e(s_spawn_loc)
 	/#
 		assert(isalive(self), "");
 	#/
-	self namespace_c402654::zombie_setup_attack_properties_dog();
+	self zombie_dog_util::zombie_setup_attack_properties_dog();
 	wait(0.1);
 	self show();
 	self setfreecameralockonallowed(1);
@@ -811,7 +811,7 @@ function function_d1371239(var_a9e4d1ee)
 		var_18f8f237 = 5;
 		do
 		{
-			ai = namespace_c402654::function_62db7b1c(1, undefined);
+			ai = zombie_dog_util::function_62db7b1c(1, undefined);
 			var_18f8f237--;
 			waitframe(1);
 		}

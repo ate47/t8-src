@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_melee_weapon.gsc;
@@ -66,7 +66,7 @@ function private __main__()
 	level.var_8e4168e9 = "bowie_knife";
 	level.var_63af3e00 = "bowie_flourish";
 	var_57858dd5 = "zombie_fists_bowie";
-	if(namespace_cb7cafc3::get_story() == 1)
+	if(zm_maptable::get_story() == 1)
 	{
 		level.var_8e4168e9 = "bowie_knife_story_1";
 		level.var_63af3e00 = "bowie_flourish_story_1";

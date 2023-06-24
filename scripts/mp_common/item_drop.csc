@@ -66,7 +66,7 @@ function private function_b8f6e02f()
 	while(true)
 	{
 		item_world::function_1b11e73c();
-		reset = isdefined(level flagsys::get(#"hash_38a387462f3a9ad")) && level flagsys::get(#"hash_38a387462f3a9ad");
+		reset = isdefined(level flagsys::get(#"item_world_reset")) && level flagsys::get(#"item_world_reset");
 		var_d68d9a4d = level.var_d49a1a10.size;
 		for(index = 0; index < var_d68d9a4d; index++)
 		{
@@ -136,7 +136,7 @@ function private function_67189b6b(localclientnum, newval)
 			{
 				self.var_a6762160 = function_b1702735(self.id).var_a6762160;
 				self function_1fe1281(localclientnum, clientfield::get("dynamic_item_drop_count"));
-				if(self.var_a6762160.name == #"hash_43aca7fcfd3e5949" && isdefined(level.var_5b2a8d88))
+				if(self.var_a6762160.name == #"sig_blade_wz_item" && isdefined(level.var_5b2a8d88))
 				{
 					level.var_5b2a8d88[self.var_bd027dd9] = 1;
 				}

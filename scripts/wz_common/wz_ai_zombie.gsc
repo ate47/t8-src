@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\abilities\gadgets\gadget_concertina_wire.gsc;
 #using script_178024232e91b0a1;
-#using script_184abbae9afad370;
+#using scripts\mp_common\player\player_damage.gsc;
 #using scripts\abilities\wz\gadgets\gadget_concertina_wire.gsc;
 #using scripts\abilities\gadgets\gadget_homunculus.gsc;
 #using script_35598499769dbb3d;
@@ -14,7 +14,7 @@
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\wz_common\wz_ai_utils.gsc;
 #using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -2102,14 +2102,14 @@ function private function_d2106375()
 */
 function private function_dad6ba0e(name, enter, update, exit, target_update, debug_update)
 {
-	if(!isdefined(level.var_6082a6e3))
+	if(!isdefined(level.zombie_states))
 	{
-		level.var_6082a6e3 = [];
+		level.zombie_states = [];
 	}
 	/#
-		assert(!isdefined(level.var_6082a6e3[name]));
+		assert(!isdefined(level.zombie_states[name]));
 	#/
-	level.var_6082a6e3[name] = {#hash_27aeff3b:debug_update, #hash_1bef5880:target_update, #exit_func:exit, #update_func:update, #enter_func:enter, #name:name};
+	level.zombie_states[name] = {#hash_27aeff3b:debug_update, #hash_1bef5880:target_update, #exit_func:exit, #update_func:update, #enter_func:enter, #name:name};
 }
 
 /*
@@ -2125,10 +2125,10 @@ function private set_state(entity, state_name)
 {
 	/#
 		/#
-			assert(isdefined(level.var_6082a6e3[state_name]), "" + (ishash(state_name) ? function_9e72a96(state_name) : state_name));
+			assert(isdefined(level.zombie_states[state_name]), "" + (ishash(state_name) ? function_9e72a96(state_name) : state_name));
 		#/
 	#/
-	state = level.var_6082a6e3[state_name];
+	state = level.zombie_states[state_name];
 	if(isdefined(entity.current_state))
 	{
 		if(isdefined(entity.current_state.exit_func))
@@ -3301,11 +3301,11 @@ function private function_36151fe3()
 	}
 	if(function_d8b225ae(self))
 	{
-		val::set(#"hash_78a241ed40e1671e", "blockingpain", 1);
+		val::set(#"zombie_combat_state", "blockingpain", 1);
 	}
 	else
 	{
-		val::reset(#"hash_78a241ed40e1671e", "blockingpain");
+		val::reset(#"zombie_combat_state", "blockingpain");
 	}
 }
 

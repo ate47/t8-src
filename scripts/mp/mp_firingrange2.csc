@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1f62ee992cbc4a17;
-#using script_2a86d86371f69648;
+#using scripts\mp\mp_firingrange2_sound.csc;
+#using scripts\mp\mp_firingrange2_fx.csc;
 #using script_7b95b0c4948e03f8;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
@@ -27,8 +27,8 @@ event main(eventstruct)
 	setsaveddvar(#"wind_global_low_strength_percent", 100);
 	level.var_bbb8810e = #"ui_cam_draft_common";
 	level.var_482af62e = #"hash_12263e5d70551bf9";
-	namespace_85d9c4b1::main();
-	namespace_f502774c::main();
+	mp_firingrange2_fx::main();
+	mp_firingrange2_sound::main();
 	load::main();
 	level.domflagbasefxoverride = &dom_flag_base_fx_override;
 	level.domflagcapfxoverride = &dom_flag_cap_fx_override;

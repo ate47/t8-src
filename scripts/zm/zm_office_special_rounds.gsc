@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ebb9642933bf7;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -35,7 +35,7 @@ function init()
 {
 	if(zm_utility::is_classic())
 	{
-		namespace_c402654::dog_enable_rounds(0);
+		zombie_dog_util::dog_enable_rounds(0);
 		level.var_2f14be05 = 15;
 		level.var_35a23da4 = 25;
 		zm_round_spawning::function_376e51ef(#"nova_crawler");
@@ -50,11 +50,11 @@ function init()
 			level.var_35a23da4 = 11;
 			zm_round_spawning::function_376e51ef(#"nova_crawler");
 			zm_round_spawning::function_376e51ef(#"zombie_dog", level.var_2f14be05);
-			level.dog_round_track_override = &namespace_c402654::function_246a0760;
-			namespace_c402654::dog_enable_rounds(0);
+			level.dog_round_track_override = &zombie_dog_util::function_246a0760;
+			zombie_dog_util::dog_enable_rounds(0);
 			level.var_807ffa2e = &namespace_df88241c::function_5b0522fa;
 			namespace_df88241c::function_c44636f2(0);
-			zm_round_spawning::function_df803678(&namespace_c402654::function_ed67c5e7);
+			zm_round_spawning::function_df803678(&zombie_dog_util::function_ed67c5e7);
 		}
 		else if(zm_utility::is_standard())
 		{
@@ -126,7 +126,7 @@ function function_6fa16bd2(b_force_spawn = 0, var_eb3a8721)
 	}
 	else
 	{
-		b_result = namespace_c402654::function_62db7b1c(b_force_spawn, var_eb3a8721);
+		b_result = zombie_dog_util::function_62db7b1c(b_force_spawn, var_eb3a8721);
 	}
 	return b_result;
 }

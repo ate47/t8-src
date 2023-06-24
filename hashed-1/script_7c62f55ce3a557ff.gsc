@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\ai\zm_ai_brutus.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_41fe08c37d53a635;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\core_common\ai\archetype_brutus.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -28,11 +28,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_961cf978;
+#namespace zombie_brutus_util;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x64D26825
 	Offset: 0x2D8
 	Size: 0x54
@@ -41,12 +41,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_722ef8a2296d547e", &__init__, &__main__, #"zm_ai_brutus");
+	system::register(#"zombie_brutus_util", &__init__, &__main__, #"zm_ai_brutus");
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x153B769E
 	Offset: 0x338
 	Size: 0xC4
@@ -72,7 +72,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x47905BBC
 	Offset: 0x408
 	Size: 0x1C
@@ -86,7 +86,7 @@ function __main__()
 
 /*
 	Name: enable_brutus
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x8A53CA4D
 	Offset: 0x430
 	Size: 0x346
@@ -150,7 +150,7 @@ function enable_brutus()
 
 /*
 	Name: brutus_prespawn
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x80F724D1
 	Offset: 0x780
 	Size: 0x4
@@ -163,7 +163,7 @@ function brutus_prespawn()
 
 /*
 	Name: brutus_spawning_logic
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x45AE6285
 	Offset: 0x790
 	Size: 0x2A0
@@ -215,7 +215,7 @@ function brutus_spawning_logic()
 
 /*
 	Name: function_f332f2b7
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x321D4C2C
 	Offset: 0xA38
 	Size: 0x1F0
@@ -259,7 +259,7 @@ function private function_f332f2b7(n_spawn, str_zone_name, var_dde9ff11, var_68f
 
 /*
 	Name: zombie_setup_attack_properties
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x5C9A01AC
 	Offset: 0xC30
 	Size: 0x5E
@@ -277,7 +277,7 @@ function zombie_setup_attack_properties()
 
 /*
 	Name: brutus_spawn
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x8610BDF6
 	Offset: 0xC98
 	Size: 0x5CE
@@ -391,7 +391,7 @@ function brutus_spawn(starting_health, has_helmet, helmet_hits, explosive_dmg_ta
 
 /*
 	Name: get_best_brutus_spawn_pos
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x7A8F6248
 	Offset: 0x1270
 	Size: 0x18C
@@ -440,7 +440,7 @@ function get_best_brutus_spawn_pos(zone_name)
 
 /*
 	Name: get_brutus_spawn_pos_val
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xBE50AEF8
 	Offset: 0x1408
 	Size: 0x198
@@ -479,7 +479,7 @@ function get_brutus_spawn_pos_val(brutus_pos)
 
 /*
 	Name: brutus_spawn_prologue
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x59CF2594
 	Offset: 0x15A8
 	Size: 0x3A
@@ -494,7 +494,7 @@ function brutus_spawn_prologue(spawn_pos)
 
 /*
 	Name: function_6340fe2
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xE4C22509
 	Offset: 0x15F0
 	Size: 0x7E
@@ -515,7 +515,7 @@ function function_6340fe2()
 
 /*
 	Name: enable_brutus_rounds
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xCD265544
 	Offset: 0x1678
 	Size: 0x44
@@ -531,7 +531,7 @@ function enable_brutus_rounds()
 
 /*
 	Name: brutus_round_tracker
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xFB7F8378
 	Offset: 0x16C8
 	Size: 0x2A2
@@ -587,7 +587,7 @@ function brutus_round_tracker()
 
 /*
 	Name: function_7265bed3
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xCF550378
 	Offset: 0x1978
 	Size: 0x76
@@ -616,7 +616,7 @@ function private function_7265bed3()
 
 /*
 	Name: brutus_round_spawn_failsafe_respawn
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xDD77D90B
 	Offset: 0x19F8
 	Size: 0x36
@@ -637,7 +637,7 @@ function brutus_round_spawn_failsafe_respawn()
 
 /*
 	Name: attempt_brutus_spawn
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x72929065
 	Offset: 0x1A38
 	Size: 0x13C
@@ -660,7 +660,7 @@ function attempt_brutus_spawn(n_spawn_num, str_zone_name, var_dde9ff11 = 0, var_
 
 /*
 	Name: function_5e4d2f31
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xAF2AD1EE
 	Offset: 0x1B80
 	Size: 0x20
@@ -675,7 +675,7 @@ function function_5e4d2f31()
 
 /*
 	Name: brutus_death
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xCFC8E1FF
 	Offset: 0x1BA8
 	Size: 0x806
@@ -716,7 +716,7 @@ function brutus_death()
 	var_6e022a91 = zm_crafting::function_31d883d7();
 	foreach(var_6645c992 in var_6e022a91)
 	{
-		if(var_6645c992.var_54a97edd == getweapon(#"hash_42a45d43be3dba42"))
+		if(var_6645c992.var_54a97edd == getweapon(#"zhield_spectral_dw"))
 		{
 			var_1982af82 = 1;
 			break;
@@ -780,7 +780,7 @@ function brutus_death()
 
 /*
 	Name: function_4621cb04
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x4BFE8379
 	Offset: 0x23B8
 	Size: 0x16C
@@ -805,7 +805,7 @@ function function_4621cb04(w_component)
 
 /*
 	Name: function_f57a7d55
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xEEAC69B5
 	Offset: 0x2530
 	Size: 0x168
@@ -829,7 +829,7 @@ function function_f57a7d55(w_item)
 
 /*
 	Name: function_69740610
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x7B95C8A7
 	Offset: 0x26A0
 	Size: 0x114
@@ -872,7 +872,7 @@ function function_69740610(w_item)
 
 /*
 	Name: brutus_cleanup
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x573003D4
 	Offset: 0x27C0
 	Size: 0xAA
@@ -901,7 +901,7 @@ function brutus_cleanup()
 
 /*
 	Name: brutus_cleanup_at_end_of_grief_round
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x784C918F
 	Offset: 0x2878
 	Size: 0x74
@@ -918,7 +918,7 @@ function brutus_cleanup_at_end_of_grief_round()
 
 /*
 	Name: wait_on_box_alarm
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xFC080F85
 	Offset: 0x28F8
 	Size: 0x196
@@ -970,7 +970,7 @@ function wait_on_box_alarm()
 
 /*
 	Name: check_perk_machine_valid
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x8C750A8C
 	Offset: 0x2A98
 	Size: 0xAC
@@ -996,7 +996,7 @@ function check_perk_machine_valid(player)
 
 /*
 	Name: check_craftable_table_valid
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x3D3E54D5
 	Offset: 0x2B50
 	Size: 0x194
@@ -1033,7 +1033,7 @@ function check_craftable_table_valid(player)
 
 /*
 	Name: brutus_check_zone
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x1BAE3B10
 	Offset: 0x2CF0
 	Size: 0x154
@@ -1069,7 +1069,7 @@ function brutus_check_zone()
 
 /*
 	Name: brutus_watch_enemy
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x82564694
 	Offset: 0x2E50
 	Size: 0xB0
@@ -1096,7 +1096,7 @@ function brutus_watch_enemy()
 
 /*
 	Name: function_9a78baba
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xE198FE0
 	Offset: 0x2F08
 	Size: 0x11E
@@ -1131,7 +1131,7 @@ function private function_9a78baba(var_1cc3df76)
 
 /*
 	Name: brutus_lockdown_client_effects
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xEB6C131C
 	Offset: 0x3030
 	Size: 0xA4
@@ -1159,7 +1159,7 @@ function brutus_lockdown_client_effects(delay)
 
 /*
 	Name: function_61263ebc
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x4106727E
 	Offset: 0x30E0
 	Size: 0xAE
@@ -1182,7 +1182,7 @@ function private function_61263ebc()
 
 /*
 	Name: function_b02aec83
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xB0A05BAD
 	Offset: 0x3198
 	Size: 0xB0
@@ -1213,7 +1213,7 @@ function function_b02aec83()
 
 /*
 	Name: function_ba497d2d
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x1DD2FD09
 	Offset: 0x3250
 	Size: 0x274
@@ -1260,7 +1260,7 @@ function function_ba497d2d(e_brutus)
 
 /*
 	Name: function_9398e511
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x3FB5167F
 	Offset: 0x34D0
 	Size: 0x6C
@@ -1280,7 +1280,7 @@ function private function_9398e511()
 
 /*
 	Name: function_60f8374c
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0xBD2ED08D
 	Offset: 0x3548
 	Size: 0x44
@@ -1297,7 +1297,7 @@ function function_60f8374c()
 
 /*
 	Name: function_2e0d129b
-	Namespace: namespace_961cf978
+	Namespace: zombie_brutus_util
 	Checksum: 0x1D49B56B
 	Offset: 0x3598
 	Size: 0x72

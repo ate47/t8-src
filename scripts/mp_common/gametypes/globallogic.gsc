@@ -8,7 +8,7 @@
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\killstreaks\mp\killstreaks.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\mp_common\gametypes\radar_sweeps.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\core_common\high_value_operative.gsc;
@@ -2937,7 +2937,7 @@ function private function_159d7b6f()
 						item_data[item_data.size] = data;
 						if(item_data.size >= 100)
 						{
-							var_cae7fe15 = {#event_count:item_data.size, #seed:level.var_cca3647d};
+							var_cae7fe15 = {#event_count:item_data.size, #seed:level.item_spawn_seed};
 							function_92d1707f(#"hash_67dcbe8b30edd15a", #"summary", var_cae7fe15, #"entries", item_data);
 							item_data = [];
 							wait(0.1);
@@ -2949,7 +2949,7 @@ function private function_159d7b6f()
 	}
 	if(item_data.size > 0)
 	{
-		var_cae7fe15 = {#event_count:item_data.size, #seed:level.var_cca3647d};
+		var_cae7fe15 = {#event_count:item_data.size, #seed:level.item_spawn_seed};
 		function_92d1707f(#"hash_67dcbe8b30edd15a", #"summary", var_cae7fe15, #"entries", item_data);
 	}
 }

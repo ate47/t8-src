@@ -5,7 +5,7 @@
 #using script_3aa54d3cb36ea43f;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using scripts\zm\weapons\zm_weap_hand_ouranos.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_aoe.gsc;
 #using script_48288470fe0b53d;
 #using scripts\zm\ai\zm_ai_blight_father.gsc;
@@ -16,7 +16,7 @@
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm\weapons\zm_weap_hand_charon.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\weapons\zm_weap_hand_hemera.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using scripts\zm_common\bgbs\zm_bgb_shields_up.gsc;
@@ -3009,7 +3009,7 @@ function spawn_miniboss()
 				}
 			}
 		}
-		else if(namespace_75cbf125::function_48c60fc2())
+		else if(zombie_gegenees_util::function_48c60fc2())
 		{
 			str_scene = array::random(level.s_boss_battle.var_2624492f);
 			level scene::play(str_scene, "targetname");

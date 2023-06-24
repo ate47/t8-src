@@ -97,7 +97,7 @@ function function_43cda488()
 	Parameters: 2
 	Flags: None
 */
-function function_f71ec759(var_7bef340a, var_5ce08260)
+function function_f71ec759(suppliers, var_5ce08260)
 {
 	if(isdefined(self.team))
 	{
@@ -114,7 +114,7 @@ function function_f71ec759(var_7bef340a, var_5ce08260)
 			}
 			if(teammate gadget_combat_efficiency_enabled())
 			{
-				var_7bef340a[teammate getentitynumber()] = teammate;
+				suppliers[teammate getentitynumber()] = teammate;
 			}
 		}
 	}

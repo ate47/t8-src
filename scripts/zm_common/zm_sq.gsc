@@ -299,7 +299,7 @@ function private run_step(ee, step, var_5ea5c94d)
 			println((function_9e72a96(ee.name) + "") + function_9e72a96(step.name) + "");
 		}
 	#/
-	step.var_24e42ded = 1;
+	step.cleaned_up = 1;
 	if(game.state === "postgame")
 	{
 		return;

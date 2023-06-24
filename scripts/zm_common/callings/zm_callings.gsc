@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\callings\zm_callings_devgui.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\zm_common\zm_spawner.gsc;
@@ -302,7 +302,7 @@ function private function_104c5d35()
 		}
 		if(isdefined(var_1e9f2834) && var_1e9f2834 && (isdefined(var_ed9fe2be) && var_ed9fe2be))
 		{
-			self luinotifyevent(#"hash_675b38b81564449", 4, 3, function_7b01d125(self.var_e06cb519, self.var_d0b65bbe) + 1, self.var_e06cb519 + 1, self getentitynumber());
+			self luinotifyevent(#"zombie_callings_notification", 4, 3, function_7b01d125(self.var_e06cb519, self.var_d0b65bbe) + 1, self.var_e06cb519 + 1, self getentitynumber());
 			self stats::inc_stat(#"playercalling", #"seasons", self.var_e06cb519, #"factions", self.var_d0b65bbe, #"hash_7a54171ce10db54f", 1);
 			/#
 				iprintln((("" + function_9e72a96(var_acbd7392)) + "") + function_9e72a96(self.var_d0b65bbe));
@@ -331,7 +331,7 @@ function function_4368582a(var_d1017f27, n_value = 1)
 			var_d1017f27.var_89ed7b39 = 1;
 			self function_a6a40735(var_d1017f27, self.var_e06cb519, self.var_bf6f8ec3, n_target, 1);
 			self addrankxpvalue("faction_calling_task", var_d1017f27.n_xp);
-			self luinotifyevent(#"hash_675b38b81564449", 3, 2, var_d1017f27.var_de86e878, self getentitynumber());
+			self luinotifyevent(#"zombie_callings_notification", 3, 2, var_d1017f27.var_de86e878, self getentitynumber());
 			/#
 				iprintln((((self.name + "") + function_9e72a96(var_d1017f27.var_ad971622) + "") + var_d1017f27.n_xp) + "");
 			#/

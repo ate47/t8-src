@@ -52,12 +52,12 @@ function private __init__()
 	level.var_19cf0be9 = [];
 	level.var_418d51ad = array(#"hash_3bf6ed4e3a22e9f3", #"hash_1f72dec518451f8c", #"hash_46dd75a1a3f70780", #"hash_182fdef2ad243e20", #"hash_212b01feaa916a00", #"hash_3b5119f663e783b1", #"hash_7ebaa4e1e2f5d8a2", #"hash_394e9478cf4f8d9d");
 	level.var_69ee9282 = array(#"hash_568173e016d45c2a", #"hash_8578856a247ab60", #"hash_6f80136c3b79d9e");
-	level.var_6cb314b1 = array(#"sniperscope_wz_item", #"hash_23c6d9e19274be66", #"hash_a1deb882d59a069", #"acog_wz_item", #"dualoptic_wz_item", #"holo_wz_item", #"reflex_wz_item", #"hash_559f58d5af0b432d", #"hash_460aadea32c22c61", #"hash_2a10ad247a663aaa", #"hash_43b78d5eff27f2f7", #"extmag_wz_item", #"fastmag_wz_item", #"hash_38821d90f8209d05", #"hash_43d8944b55b1e63c", #"hash_7bdf38527a146679", #"stock_wz_item");
-	level.var_3fd5d8f0 = array(#"hash_53a2516ec1d3a096", #"hash_3074c41bb205ed8c", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"wraithfire_wz_item", #"hash_5752a7e130ea202a", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"dart_wz_item", #"hawk_wz_item", #"hash_50b970644e43947b", #"hash_627144159973c325", #"hash_1a7edb90a484158b", #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc", #"hash_213093d947c30be6", #"hash_7e8c84081fafaea4", #"hash_665eccfe5d58f636", #"hash_68b64725de40edae", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon");
+	level.var_6cb314b1 = array(#"sniperscope_wz_item", #"acog_plus_wz_item", #"reddot_wz_item", #"acog_wz_item", #"dualoptic_wz_item", #"holo_wz_item", #"reflex_wz_item", #"hash_559f58d5af0b432d", #"suppressor_wz_item", #"extbarrel_wz_item", #"hash_43b78d5eff27f2f7", #"extmag_wz_item", #"fastmag_wz_item", #"foregrip_wz_item", #"laser_sight_wz_item", #"pistol_grip_wz_item", #"stock_wz_item");
+	level.var_3fd5d8f0 = array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"hash_16a1f841da0b877d", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon");
 	level.var_9bc8c1bc = array(#"hash_1abfcce0e9955057", #"hash_ff50c93155e445f", #"hash_80292d121740f6f", #"hash_45ced3880667df22");
 	level.var_683c7e30 = array(#"hash_5df4c523191c9bf7", #"hash_799f875c8f064a83", #"hash_332dd2a4956f495f", #"hash_5d7898105fc6595a", #"hash_1f0f67f0ad9a766", #"hash_61d6c77ca964fa5b", #"hash_2011eafeff274fc8", #"hash_3ccd209713ecb085", #"hash_58c7fc0e9b3387bf", #"hash_1b898a6e72d622d8", #"hash_5d35f83e51965781", #"hash_1a79c2970ba8bf79", #"hash_35f5430256d9c158", #"hash_750be705a5c4201e", #"hash_3d82033b67579745");
-	level.var_e93e16b = array(#"hash_347dc9157efc6a42", #"warmachine_wz_item", #"hash_2f73719d945fc6b5", #"hash_6d33368b7b126df8", #"hash_1caa1516c9ea66af", #"hash_199230a69a867bf8", #"hash_1efebec8697e5720", #"hash_59da79c0dcf9cf76", #"hash_21779574e3841392", #"hash_52083f0c0759df13", #"hash_321c0010d0c7fdc5", #"hash_7a53240a3664fe64", #"hash_52d37104fb5e6eb5", #"hash_363ed03cee79d627", #"hash_1b69ed326eaa32c4", #"hash_2a4214db930e08a7", #"hash_6fbf66e753d55ddd", #"hash_7dced4169cb1c6bd", #"hash_6857c7a83fc6cdb1", #"hash_e0a40edfec418ef", #"hash_1bd3cb5b4becaad9", #"hash_9dcbf9df7b19434", #"hash_2799bb4fa8f20048", #"hash_1bfc7320c1335797", #"hash_524268075ef65e1e", #"hash_499748ba05372c7", #"hash_250876d81f2e6f6e", #"hash_32834da10f1048b0");
-	level.var_b9917a92 = array(#"hash_347dc9157efc6a42", #"warmachine_wz_item", #"hash_2f73719d945fc6b5", #"hash_7313f9c02b023a53", #"hash_6cfcc2143e6ee6ee", #"hash_38628762fb7c16eb", #"hash_75ed0988ff325bea", #"hash_298f2c53101e30eb", #"hash_75c91bcbb2ac5f3", #"hash_154ee1cd494fed23", #"hash_75142ec69bd0df71", #"hash_29f4e28734c2613d", #"hash_938a51cfa9e21fe", #"hash_6c6c011df03c8f18", #"hash_3aa75724345f7f87", #"hash_47b346d1e63e6488", #"hash_36349aad8f680651", #"hash_67066bd07e97f183", #"hash_4e96ed69230e28a2", #"hash_11366e8cbf37dea7", #"hash_38406c9af972cfc8", #"hash_7868873aabca7422", #"hash_15f30a19a23c0190", #"hash_36978e3a9321b430", #"hash_15cefca07f84f894", #"hash_73ba92c06ae7102a", #"hash_6e9c599da45ee952", #"hash_25b4ece6d3e0173c", #"hash_59cfdb25a9e268d7", #"hash_60d59d946f08ce33", #"hash_6a992c957fb327bb", #"hash_4de51ae74e7ee746", #"hash_6bbeca41cf389982", #"hash_2e486f8abfbeba49", #"hash_5cc9b5e23093ac03", #"hash_20a15fcfdd27d464", #"hash_2c228a7b8b32e6b9", #"hash_3d4da55492286012", #"hash_1027e27ab32a64ef", #"hash_32c805d452b5f91b");
+	level.var_e93e16b = array(#"annihilator_wz_item", #"warmachine_wz_item", #"flamethrower_wz_item", #"hash_6d33368b7b126df8", #"hash_1caa1516c9ea66af", #"hash_199230a69a867bf8", #"hash_1efebec8697e5720", #"hash_59da79c0dcf9cf76", #"hash_21779574e3841392", #"hash_52083f0c0759df13", #"hash_321c0010d0c7fdc5", #"hash_7a53240a3664fe64", #"hash_52d37104fb5e6eb5", #"hash_363ed03cee79d627", #"hash_1b69ed326eaa32c4", #"hash_2a4214db930e08a7", #"hash_6fbf66e753d55ddd", #"hash_7dced4169cb1c6bd", #"hash_6857c7a83fc6cdb1", #"hash_e0a40edfec418ef", #"hash_1bd3cb5b4becaad9", #"hash_9dcbf9df7b19434", #"hash_2799bb4fa8f20048", #"hash_1bfc7320c1335797", #"hash_524268075ef65e1e", #"hash_499748ba05372c7", #"hash_250876d81f2e6f6e", #"hash_32834da10f1048b0");
+	level.var_b9917a92 = array(#"annihilator_wz_item", #"warmachine_wz_item", #"flamethrower_wz_item", #"hash_7313f9c02b023a53", #"launcher_standard_t8_item", #"sniper_fastrechamber_t8_item", #"sniper_powerbolt_t8_item", #"sniper_powersemi_t8_item", #"sniper_quickscope_t8_item", #"tr_leveraction_t8_item", #"tr_longburst_t8_item", #"tr_midburst_t8_item", #"tr_powersemi_t8_item", #"ar_accurate_t8_item", #"ar_damage_t8_item", #"ar_fastfire_t8_item", #"ar_galil_t8_item", #"ar_mg1909_t8_item", #"ar_modular_t8_item", #"ar_stealth_t8_item", #"lmg_double_t8_item", #"lmg_heavy_t8_item", #"lmg_spray_t8_item", #"lmg_standard_t8_item", #"smg_accurate_t8_item", #"smg_capacity_t8_item", #"smg_drum_pistol_t8_item", #"smg_fastfire_t8_item", #"smg_handling_t8_item", #"smg_mp40_t8_item", #"smg_standard_t8_item", #"smg_thompson_t8_item", #"pistol_burst_t8_item", #"pistol_revolver_t8_item", #"pistol_standard_t8_item", #"pistol_topbreak_t8_item", #"shotgun_pump_t8_item", #"shotgun_semiauto_t8_item", #"shotgun_trenchgun_t8_item", #"hash_32c805d452b5f91b");
 	level.weaponbasemeleeheld = getweapon(#"bare_hands");
 	level.var_c49f422c = 125;
 	level.var_927fd418 = 75;
@@ -136,9 +136,9 @@ function private function_37175e73(var_fee74908)
 	level flagsys::wait_till_clear(#"hash_2d3b2a4d082ba5ee");
 	if((var_fee74908[var_fee74908.size - 1]) == 1)
 	{
-		level flagsys::wait_till(#"hash_38a387462f3a9ad");
+		level flagsys::wait_till(#"item_world_reset");
 	}
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_initialized");
 	for(var_5473c308 = 0; var_5473c308 < var_fee74908.size - 1; var_5473c308++)
 	{
 		for(shaderanimopacity_opacity = 0; shaderanimopacity_opacity < 32; shaderanimopacity_opacity++)
@@ -924,27 +924,27 @@ function private function_9e4552fe(var_fee74908)
 function private function_9160538(localclientnum, eventtype, eventdata, var_c5a66313, var_567004a8)
 {
 	waitframe(1);
-	reset = isdefined(level flagsys::get(#"hash_38a387462f3a9ad")) && level flagsys::get(#"hash_38a387462f3a9ad");
+	reset = isdefined(level flagsys::get(#"item_world_reset")) && level flagsys::get(#"item_world_reset");
 	if(reset && eventtype == 1)
 	{
 		return;
 	}
 	if(issplitscreen() && eventtype == 1)
 	{
-		if(!level flagsys::get(#"hash_51daecff754729dc"))
+		if(!level flagsys::get(#"item_world_initialized"))
 		{
 			return;
 		}
 	}
 	if(issplitscreen() && !issplitscreenhost(localclientnum) && eventtype == 2)
 	{
-		if(!level flagsys::get(#"hash_51daecff754729dc"))
+		if(!level flagsys::get(#"item_world_initialized"))
 		{
 			return;
 		}
 	}
-	level flagsys::wait_till(#"hash_51daecff754729dc");
-	if(reset != (isdefined(level flagsys::get(#"hash_38a387462f3a9ad")) && level flagsys::get(#"hash_38a387462f3a9ad")))
+	level flagsys::wait_till(#"item_world_initialized");
+	if(reset != (isdefined(level flagsys::get(#"item_world_reset")) && level flagsys::get(#"item_world_reset")))
 	{
 		return;
 	}
@@ -958,7 +958,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 	{
 		case 1:
 		{
-			if(level flagsys::get(#"hash_38a387462f3a9ad"))
+			if(level flagsys::get(#"item_world_reset"))
 			{
 				return;
 			}
@@ -984,14 +984,14 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 		case 3:
 		{
 			var_bd027dd9 = eventdata;
-			var_5a0fa544 = isdefined(var_c5a66313) && var_c5a66313;
+			resetitem = isdefined(var_c5a66313) && var_c5a66313;
 			showitem = isdefined(var_567004a8) && var_567004a8;
-			if(var_5a0fa544)
+			if(resetitem)
 			{
 				function_4de3ca98();
 				waittillframeend();
 			}
-			else if(level flagsys::get(#"hash_38a387462f3a9ad"))
+			else if(level flagsys::get(#"item_world_reset"))
 			{
 				return;
 			}
@@ -1140,7 +1140,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 */
 function private function_60386766(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_initialized");
 	foreach(supply_stash in level.var_5862f2ce)
 	{
 		setdynentenabled(supply_stash, !newval);
@@ -1171,25 +1171,25 @@ function private function_4e9220ab(localclientnum, oldval, newval, bnewent, bini
 		}
 		level flagsys::wait_till_clear(#"hash_2d3b2a4d082ba5ee");
 		level flagsys::set(#"hash_2d3b2a4d082ba5ee");
-		if(level flagsys::get(#"hash_38a387462f3a9ad"))
+		if(level flagsys::get(#"item_world_reset"))
 		{
 			return;
 		}
 		seed = newval >> 1;
 		reset = newval & 1;
-		level.var_cca3647d = seed;
+		level.item_spawn_seed = seed;
 		if(isdemoplaying() && !reset)
 		{
 			level flagsys::clear(#"hash_2d3b2a4d082ba5ee");
-			level flagsys::clear(#"hash_51daecff754729dc");
+			level flagsys::clear(#"item_world_initialized");
 			return;
 		}
 		if(reset)
 		{
-			level flagsys::set(#"hash_38a387462f3a9ad");
+			level flagsys::set(#"item_world_reset");
 		}
 		setdvar(#"hash_21e070fbb56cf0f", 0);
-		level flagsys::clear(#"hash_51daecff754729dc");
+		level flagsys::clear(#"item_world_initialized");
 		level item_inventory::function_42e2bb1a(localclientnum);
 		clientdata = function_a7e98a1a(localclientnum);
 		if(isdefined(clientdata) && isdefined(clientdata.modellist))
@@ -1223,7 +1223,7 @@ function private function_4e9220ab(localclientnum, oldval, newval, bnewent, bini
 		}
 		player = function_5c10bd79(localclientnum);
 		player.var_5f6ea063 = 1;
-		level flagsys::set(#"hash_51daecff754729dc");
+		level flagsys::set(#"item_world_initialized");
 		level flagsys::clear(#"hash_2d3b2a4d082ba5ee");
 		if(isdemoplaying())
 		{
@@ -1860,7 +1860,7 @@ function private function_b0af857f(localclientnum)
 				if(!isdefined(self.var_9b882d22))
 				{
 					self.var_54d9f4a6 = 1;
-					foreach(item in clientdata.var_f0f7e918)
+					foreach(item in clientdata.groupitems)
 					{
 						if(self namespace_ad5a0cd6::can_pick_up(item))
 						{
@@ -1915,8 +1915,8 @@ function private function_802915bc(localclientnum)
 		hinttext = #"wz/supply_stash";
 		if(var_1ba7b9c8.size > 0)
 		{
-			var_d8c17bc2 = var_1ba7b9c8[0].stash_type === 2;
-			hinttext = (var_d8c17bc2 ? #"hash_7b3fd580a423c4ef" : #"wz/supply_drop");
+			isdeathstash = var_1ba7b9c8[0].stash_type === 2;
+			hinttext = (isdeathstash ? #"wz/death_stash" : #"wz/supply_drop");
 		}
 		else
 		{
@@ -2367,18 +2367,18 @@ function private function_7c84312d(localclientnum, origin, angles)
 	if(isdefined(self.var_9b882d22))
 	{
 		var_433d429 = 14;
-		var_f0f7e918 = function_2e3efdda(self.var_9b882d22.origin, undefined, 128, var_433d429, undefined, 1);
-		var_f0f7e918 = self function_43d3ebe1(var_f0f7e918);
+		groupitems = function_2e3efdda(self.var_9b882d22.origin, undefined, 128, var_433d429, undefined, 1);
+		groupitems = self function_43d3ebe1(groupitems);
 		if(!isdefined(self))
 		{
 			return;
 		}
-		arrayremovevalue(var_f0f7e918, undefined, 0);
-		clientdata.var_f0f7e918 = function_83e328e1(clientdata.var_f0f7e918, var_f0f7e918);
+		arrayremovevalue(groupitems, undefined, 0);
+		clientdata.groupitems = function_83e328e1(clientdata.groupitems, groupitems);
 	}
 	else
 	{
-		clientdata.var_f0f7e918 = [];
+		clientdata.groupitems = [];
 	}
 	self item_inventory::function_9116bb0e(localclientnum);
 }
@@ -2908,9 +2908,9 @@ function function_222205a3(localclientnum, var_bd027dd9)
 			arrayremoveindex(clientdata.var_89e328b4, var_bd027dd9, 1);
 			function_2990e5f(localclientnum, clientdata.var_89e328b4[var_bd027dd9]);
 		}
-		if(isarray(clientdata.var_f0f7e918))
+		if(isarray(clientdata.groupitems))
 		{
-			foreach(item in clientdata.var_f0f7e918)
+			foreach(item in clientdata.groupitems)
 			{
 				if(isdefined(item) && item.var_bd027dd9 === var_bd027dd9)
 				{
@@ -2998,9 +2998,9 @@ function function_b78a9820(localclientnum)
 */
 function function_1b11e73c()
 {
-	reset = isdefined(level flagsys::get(#"hash_38a387462f3a9ad")) && level flagsys::get(#"hash_38a387462f3a9ad");
-	level flagsys::wait_till(#"hash_51daecff754729dc");
-	if(reset != (isdefined(level flagsys::get(#"hash_38a387462f3a9ad")) && level flagsys::get(#"hash_38a387462f3a9ad")))
+	reset = isdefined(level flagsys::get(#"item_world_reset")) && level flagsys::get(#"item_world_reset");
+	level flagsys::wait_till(#"item_world_initialized");
+	if(reset != (isdefined(level flagsys::get(#"item_world_reset")) && level flagsys::get(#"item_world_reset")))
 	{
 		return false;
 	}
@@ -3019,7 +3019,7 @@ function function_1b11e73c()
 function function_4de3ca98()
 {
 	level flagsys::wait_till_clear(#"hash_2d3b2a4d082ba5ee");
-	level flagsys::wait_till(#"hash_38a387462f3a9ad");
-	level flagsys::wait_till(#"hash_51daecff754729dc");
+	level flagsys::wait_till(#"item_world_reset");
+	level flagsys::wait_till(#"item_world_initialized");
 }
 

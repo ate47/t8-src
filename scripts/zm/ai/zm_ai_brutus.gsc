@@ -8,7 +8,7 @@
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_41fe08c37d53a635;
 #using script_489b835a247c990e;
 #using script_4bf952f6ba31bb17;
@@ -16,17 +16,17 @@
 #using scripts\core_common\ai\archetype_brutus.gsc;
 #using scripts\zm_common\zm_lockdown_util.gsc;
 #using script_522aeb6ae906391e;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
 #using script_7c62f55ce3a557ff;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 #using script_caf007e2a98afa2;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1267,7 +1267,7 @@ function function_88efcb()
 	}
 	else if(level.zm_loc_types[#"brutus_location"].size > 0)
 	{
-		s_spawn_loc = namespace_961cf978::get_best_brutus_spawn_pos();
+		s_spawn_loc = zombie_brutus_util::get_best_brutus_spawn_pos();
 	}
 	if(!isdefined(s_spawn_loc))
 	{
@@ -1282,7 +1282,7 @@ function function_88efcb()
 	self zm_ai_utility::function_a8dc3363(s_spawn_loc);
 	if(isdefined(self))
 	{
-		self thread namespace_961cf978::brutus_lockdown_client_effects();
+		self thread zombie_brutus_util::brutus_lockdown_client_effects();
 		self playsound(#"zmb_ai_brutus_spawn_2d");
 	}
 	return true;

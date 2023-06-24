@@ -66,7 +66,7 @@ function __init__()
 	level.var_dc8edcba = &function_827486aa;
 	setupcallbacks();
 	setupclientfields();
-	deployable::function_2e088f73(level.var_934fb97.weapon, &function_1f8cd247);
+	deployable::register_deployable(level.var_934fb97.weapon, &function_1f8cd247);
 	globallogic_score::function_5a241bd8(getweapon(#"gadget_supplypod"), &function_92856c6);
 	callback::on_finalize_initialization(&function_1c601b99);
 }

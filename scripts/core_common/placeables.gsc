@@ -98,7 +98,7 @@ function function_e4fd9a4c(placeable)
 		{
 			if(placeable.weapon.deployable)
 			{
-				deployable::function_2e088f73(placeable.weapon, placeable.var_8f4513d1, undefined, placeable.placehintstring, placeable.invalidlocationhintstring);
+				deployable::register_deployable(placeable.weapon, placeable.var_8f4513d1, undefined, placeable.placehintstring, placeable.invalidlocationhintstring);
 				if(isplayer(player))
 				{
 					player giveweapon(placeable.weapon);

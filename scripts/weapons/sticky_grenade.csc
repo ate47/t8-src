@@ -43,10 +43,10 @@ function __init__()
 	callback::add_weapon_type(#"hash_494e1ddad9bd434a", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e18dad9bd3acb", &function_117f61b8);
 	callback::add_weapon_type(#"sig_bow_quickshot", &spawned_arrow);
-	callback::add_weapon_type(#"hash_1d2a1056220e71a9", &spawned_arrow);
-	callback::add_weapon_type(#"hash_1d2a0f56220e6ff6", &spawned_arrow);
-	callback::add_weapon_type(#"hash_1d2a1256220e750f", &spawned_arrow);
-	callback::add_weapon_type(#"hash_1d2a1156220e735c", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot2", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot3", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot4", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot5", &spawned_arrow);
 }
 
 /*

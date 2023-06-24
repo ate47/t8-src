@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_1781ac145d783f87;
-#using script_18e21a7011416ce0;
+#using scripts\zm_common\zm_audio_sq.gsc;
 #using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\zm_towers_shield.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
@@ -9,7 +9,7 @@
 #using scripts\zm\zm_towers_special_rounds.gsc;
 #using scripts\zm\weapons\zm_weap_bowie.gsc;
 #using scripts\zm\zm_towers_crowd.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using scripts\zm\ai\zm_ai_elephant.gsc;
 #using script_5e036f43dab5ec66;
@@ -17,13 +17,13 @@
 #using script_6334bf874cddcc13;
 #using script_684097158a90b5c3;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_towers_trials.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using scripts\zm\powerup\zm_powerup_free_perk.gsc;
 #using script_891797ced4432ca;
 #using scripts\zm_common\zm_characters.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -190,7 +190,7 @@ event main(eventstruct)
 	level.default_start_location = "zone_starting_area_ra";
 	level.default_game_mode = "zclassic";
 	level.var_cd8b6cd0 = 2;
-	level thread namespace_8f39dfb1::init();
+	level thread zm_audio_sq::init();
 	if(!zm_utility::is_standard())
 	{
 		level.round_wait_func = &function_ebe4d15c;
@@ -333,11 +333,11 @@ function function_389e7c22(var_404e4288, var_8dd554ee)
 {
 	if(math::cointoss())
 	{
-		ai = namespace_acd9c698::function_60e6998a();
+		ai = zombie_gladiator_util::function_60e6998a();
 	}
 	else
 	{
-		ai = namespace_acd9c698::function_bb067153();
+		ai = zombie_gladiator_util::function_bb067153();
 	}
 	return true;
 }
@@ -363,7 +363,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 	}
 	else
 	{
-		ai = namespace_3fe4d0d7::round_spawn();
+		ai = zombie_tiger_util::round_spawn();
 	}
 	return true;
 }

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_4b8e80d5d6c93ae1;
+#using scripts\core_common\ai\zombie_vortex.csc;
 #using script_70ab01a7690ea256;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

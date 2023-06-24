@@ -168,7 +168,7 @@ function remove(var_7c8fcded, var_2cd89ceb = 0)
 			var_d42adc5 = 0;
 			foreach(key in a_keys)
 			{
-				if(key !== var_7c8fcded && (level.var_9555ebfb[key] || (isdefined(self.var_bacee63b) && self.var_bacee63b && key == #"hash_5c9caf0397b30f1e")))
+				if(key !== var_7c8fcded && (level.var_9555ebfb[key] || (isdefined(self.var_bacee63b) && self.var_bacee63b && key == #"hero_weapon_armor")))
 				{
 					var_d42adc5 = var_d42adc5 + get(key);
 				}

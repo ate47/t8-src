@@ -91,7 +91,7 @@ function function_cb307051(a_ents)
 {
 	if(!isdefined(self.script_int))
 	{
-		a_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_green", 1);
+		a_ents[#"prop 1"] clientfield::set("trap_switch_green", 1);
 	}
 }
 
@@ -207,8 +207,8 @@ function function_eac89317()
 function function_8cfecd54()
 {
 	self thread scene::play("Shot 1");
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_green", 0);
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_red", 1);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_green", 0);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_red", 1);
 }
 
 /*
@@ -223,8 +223,8 @@ function function_8cfecd54()
 function function_707cb9a9()
 {
 	self thread scene::play("Shot 2");
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_smoke", 0);
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_green", 1);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_smoke", 0);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_green", 1);
 }
 
 /*
@@ -238,8 +238,8 @@ function function_707cb9a9()
 */
 function function_baf2d8eb()
 {
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_red", 0);
-	self.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_smoke", 1);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_red", 0);
+	self.scene_ents[#"prop 1"] clientfield::set("trap_switch_smoke", 1);
 }
 
 /*
@@ -281,7 +281,7 @@ function function_ea998c9(b_unitrigger = 0, b_eyes = 0)
 	{
 		var_541193d8 = struct::get_array(#"s_trap_button");
 		s_switch = arraygetclosest(self.origin, var_541193d8);
-		s_switch.scene_ents[#"hash_7aff0ee60ddd937b"] clientfield::set("trap_switch_green", 1);
+		s_switch.scene_ents[#"prop 1"] clientfield::set("trap_switch_green", 1);
 	}
 	if(b_unitrigger)
 	{

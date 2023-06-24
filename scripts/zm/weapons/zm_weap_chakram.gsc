@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_35598499769dbb3d;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -39,8 +39,8 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	clientfield::register("actor", "" + #"hash_653c87db0114ac83", 1, 2, "counter");
-	clientfield::register("actor", "" + #"hash_1dd21bd7be62210e", 1, 2, "counter");
+	clientfield::register("actor", "" + #"zombie_slice_right", 1, 2, "counter");
+	clientfield::register("actor", "" + #"zombie_slice_left", 1, 2, "counter");
 	clientfield::register("allplayers", "" + #"hash_aefa3d014b0fa1b", 1, 1, "counter");
 	clientfield::register("actor", "" + #"hash_1e22d429435cc148", 1, 1, "int");
 	clientfield::register("vehicle", "" + #"hash_1e22d429435cc148", 1, 1, "int");
@@ -131,7 +131,7 @@ function private function_1d807685()
 		wpn_prev = waitresult.last_weapon;
 		if(isinarray(level.hero_weapon[#"chakram"], wpn_cur))
 		{
-			self notify(#"hash_33f0ae42d16f878f");
+			self notify(#"hero_chakram_activated");
 			self thread function_c965a5a9(wpn_cur);
 			self thread function_20644ac2(wpn_cur);
 		}
@@ -199,7 +199,7 @@ function private function_7bef3ea0(w_hero)
 {
 	self endon(#"death");
 	s_result = undefined;
-	s_result = self waittilltimeout(5, #"seeker_done", #"hash_33f0ae42d16f878f");
+	s_result = self waittilltimeout(5, #"seeker_done", #"hero_chakram_activated");
 	if(s_result._notify !== #"seeker_done")
 	{
 		self notify(#"seeker_done");
@@ -233,7 +233,7 @@ function private function_c965a5a9(weapon)
 		{
 			self waittill(#"weapon_melee_power", #"weapon_melee");
 		}
-		if(!namespace_6b49f66b::function_5fbf572(weapon, 1))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon, 1))
 		{
 			continue;
 		}
@@ -256,11 +256,11 @@ function private blood_death_fx(var_14ef0a6c)
 	{
 		if(var_14ef0a6c)
 		{
-			self clientfield::increment("" + #"hash_1dd21bd7be62210e", 1);
+			self clientfield::increment("" + #"zombie_slice_left", 1);
 		}
 		else
 		{
-			self clientfield::increment("" + #"hash_653c87db0114ac83", 1);
+			self clientfield::increment("" + #"zombie_slice_right", 1);
 		}
 	}
 }
@@ -459,7 +459,7 @@ function function_eac789ca(player)
 function function_cec4ebbd(weapon)
 {
 	player = self;
-	if(!namespace_6b49f66b::function_5fbf572(weapon))
+	if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 	{
 		return;
 	}
@@ -1009,7 +1009,7 @@ function private function_b475223e(weapon)
 	while(self getcurrentweapon() == weapon)
 	{
 		self waittill(#"weapon_melee");
-		if(!namespace_6b49f66b::function_5fbf572(weapon))
+		if(!zm_trial_restrict_loadout::function_5fbf572(weapon))
 		{
 			continue;
 		}
@@ -1207,15 +1207,15 @@ function chakram_rumble(var_b2e05bae)
 	Parameters: 1
 	Flags: Linked
 */
-function function_68ff89f7(var_648cbd6d)
+function function_68ff89f7(w_chakram)
 {
 	self endon(#"disconnect", #"weapon_change", #"bled_out", #"entering_last_stand");
 	level endoncallback(&function_7d1739b8, #"round_reset");
 	s_result = undefined;
 	s_result = self waittill(#"weapon_melee");
-	if(s_result.weapon === var_648cbd6d)
+	if(s_result.weapon === w_chakram)
 	{
-		self thread zm_audio::create_and_play_dialog(#"hash_6a87c913e3ecd37a", #"chakram");
+		self thread zm_audio::create_and_play_dialog(#"hero_level_3", #"chakram");
 	}
 }
 

@@ -52,7 +52,7 @@ function __init__()
 	vehicle::add_main_callback("veh_mini_turret_zm", &initturret);
 	weaponobjects::function_e6400478(#"mini_turret", &function_c41ea657, undefined);
 	callback::on_revived(&on_player_revived);
-	deployable::function_2e088f73(getweapon(#"mini_turret"), &function_2994c93, undefined, undefined, #"hash_2afe1c9235ce67ab");
+	deployable::register_deployable(getweapon(#"mini_turret"), &function_2994c93, undefined, undefined, #"hash_2afe1c9235ce67ab");
 	zm::function_84d343d(#"mini_turret", &function_58c4db23);
 	zm::function_84d343d(#"gun_mini_turret", &function_58c4db23);
 }

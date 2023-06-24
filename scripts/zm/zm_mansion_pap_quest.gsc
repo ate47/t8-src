@@ -4,11 +4,11 @@
 #using script_35598499769dbb3d;
 #using script_387eab232fe22983;
 #using script_3e5ec44cfab7a201;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\ai\zm_ai_nosferatu.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
@@ -916,7 +916,7 @@ function function_72e53e19()
 	level endon(#"end_game");
 	while(!isdefined(level.var_a6583e6d))
 	{
-		level.var_a6583e6d = namespace_977da60::function_47a88a0c(1, undefined, 1, struct::get("zone_forest_n", "script_noteworthy"));
+		level.var_a6583e6d = zombie_werewolf_util::function_47a88a0c(1, undefined, 1, struct::get("zone_forest_n", "script_noteworthy"));
 		waitframe(1);
 	}
 	level.var_a6583e6d.var_126d7bef = 1;
@@ -996,7 +996,7 @@ function function_74bb3b2()
 	var_20c9365c = struct::get_array("gate_greeter_wolf", "targetname");
 	foreach(var_32caf0b0 in var_20c9365c)
 	{
-		var_8469be27 = namespace_c402654::function_62db7b1c(1, var_32caf0b0);
+		var_8469be27 = zombie_dog_util::function_62db7b1c(1, var_32caf0b0);
 		if(isdefined(var_8469be27))
 		{
 			var_8469be27.var_126d7bef = 1;
@@ -2386,7 +2386,7 @@ function function_ff4485b6(a_ents, mdl_key, var_3128fb28)
 			mdl_key thread function_debf98ad();
 		}
 	#/
-	mdl_prop = a_ents[#"hash_7aff0ee60ddd937b"];
+	mdl_prop = a_ents[#"prop 1"];
 	switch(mdl_prop.model)
 	{
 		case "p8_fxanim_zm_man_pap_drawers_mod":

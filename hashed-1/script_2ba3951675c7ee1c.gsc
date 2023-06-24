@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7c62f55ce3a557ff;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -58,7 +58,7 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"hash_247e2f70c08b01f6", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_f8ff865403f6655", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_6954721e3aab6b22", 1, 2, "int");
-	clientfield::register("scriptmover", "" + #"hash_f03061885875815", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"bg_spawn_fx", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_1a9944b03fae8660", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_c79e0b124c4b75", 1, 1, "counter");
 	clientfield::register("toplayer", "" + #"hash_39d19b76b846a27f", 1, 1, "counter");
@@ -1389,7 +1389,7 @@ function function_d3db303d()
 				}
 				if(!level flag::get(#"hash_38c04d24b5213b00"))
 				{
-					namespace_961cf978::attempt_brutus_spawn(1, "zone_new_industries");
+					zombie_brutus_util::attempt_brutus_spawn(1, "zone_new_industries");
 				}
 				level flag::set(#"hash_38c04d24b5213b00");
 				self.stub.var_cec3094a = undefined;

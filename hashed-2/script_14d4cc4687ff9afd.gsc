@@ -8,7 +8,7 @@
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_orange_pap.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm\zm_hms_util.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -475,15 +475,15 @@ function function_1baa684c(str_flag)
 */
 function function_ad646ef8(n_state)
 {
-	var_5606acc0 = level.var_ab11c23d;
-	if(var_5606acc0.var_58df9892 !== n_state)
+	e_lighthouse = level.var_ab11c23d;
+	if(e_lighthouse.var_58df9892 !== n_state)
 	{
-		var_5606acc0 notify(#"hash_1aa56851d9d4ec0d");
-		var_5606acc0.var_58df9892 = n_state;
+		e_lighthouse notify(#"hash_1aa56851d9d4ec0d");
+		e_lighthouse.var_58df9892 = n_state;
 		/#
-			iprintln("" + level.var_4b3d7dc1[var_5606acc0.var_58df9892]);
+			iprintln("" + level.var_4b3d7dc1[e_lighthouse.var_58df9892]);
 		#/
-		switch(var_5606acc0.var_58df9892)
+		switch(e_lighthouse.var_58df9892)
 		{
 			case 0:
 			{
@@ -492,15 +492,15 @@ function function_ad646ef8(n_state)
 			}
 			case 1:
 			{
-				var_5606acc0 notify(#"hash_6e9ab520bd7ba3c");
+				e_lighthouse notify(#"hash_6e9ab520bd7ba3c");
 				function_d85bd834();
 				array::run_all(level.var_f92c8836, &function_f7e6bf61, 0);
-				n_cooldown = zm_traps::function_da13db45(60, var_5606acc0.var_d9ae30d6);
-				var_5606acc0.var_a5a067c5 = undefined;
-				var_5606acc0.var_d9ae30d6 = undefined;
-				var_5606acc0.activated_by_player = undefined;
-				var_5606acc0.v_trap_target = undefined;
-				var_5606acc0 thread function_74b930af(n_cooldown, 2);
+				n_cooldown = zm_traps::function_da13db45(60, e_lighthouse.var_d9ae30d6);
+				e_lighthouse.var_a5a067c5 = undefined;
+				e_lighthouse.var_d9ae30d6 = undefined;
+				e_lighthouse.activated_by_player = undefined;
+				e_lighthouse.v_trap_target = undefined;
+				e_lighthouse thread function_74b930af(n_cooldown, 2);
 				break;
 			}
 			case 2:
@@ -510,40 +510,40 @@ function function_ad646ef8(n_state)
 			}
 			case 3:
 			{
-				var_5606acc0 notify(#"hash_78fc5bbd712046b0");
-				var_5606acc0 thread function_71399d9c();
+				e_lighthouse notify(#"hash_78fc5bbd712046b0");
+				e_lighthouse thread function_71399d9c();
 				break;
 			}
 			case 4:
 			{
-				var_5606acc0 thread function_ef69a891(var_5606acc0.var_a5a067c5, var_5606acc0.var_d9ae30d6);
+				e_lighthouse thread function_ef69a891(e_lighthouse.var_a5a067c5, e_lighthouse.var_d9ae30d6);
 				break;
 			}
 			case 5:
 			{
-				var_5606acc0 thread function_72ff128e(var_5606acc0.v_trap_target);
+				e_lighthouse thread function_72ff128e(e_lighthouse.v_trap_target);
 				break;
 			}
 			case 6:
 			{
-				var_5606acc0 thread shoot_trap_target(var_5606acc0.v_trap_target, var_5606acc0.var_d9ae30d6);
+				e_lighthouse thread shoot_trap_target(e_lighthouse.v_trap_target, e_lighthouse.var_d9ae30d6);
 				break;
 			}
 			case 7:
 			{
-				var_5606acc0.v_trap_target = undefined;
-				var_5606acc0 thread function_ea089392();
-				var_5606acc0 thread function_74b930af(3, 4);
+				e_lighthouse.v_trap_target = undefined;
+				e_lighthouse thread function_ea089392();
+				e_lighthouse thread function_74b930af(3, 4);
 				break;
 			}
 			case 8:
 			{
-				var_5606acc0 thread function_74a24d00();
+				e_lighthouse thread function_74a24d00();
 				break;
 			}
 			case 9:
 			{
-				var_5606acc0 thread function_76ff758d();
+				e_lighthouse thread function_76ff758d();
 				break;
 			}
 		}

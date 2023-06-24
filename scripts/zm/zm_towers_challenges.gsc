@@ -6,9 +6,9 @@
 #using scripts\zm_common\zm_vapor_random.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\weapons\zm_weap_crossbow.gsc;
-#using script_d8b1f4ee30e5fc5;
+#using scripts\core_common\ai\archetype_tiger.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

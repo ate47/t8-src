@@ -2,9 +2,9 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_transformation.gsc;
 #using script_387eab232fe22983;
-#using script_39e954a546d3baf;
+#using scripts\zm_common\zm_utility_zstandard.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
@@ -252,7 +252,7 @@ function function_2ce29db3(n_round)
 function function_124d3657(n_round)
 {
 	zm_utility::function_9b7bc715(#"werewolf", 1);
-	namespace_977da60::function_47a88a0c(1, undefined, 1);
+	zombie_werewolf_util::function_47a88a0c(1, undefined, 1);
 }
 
 /*

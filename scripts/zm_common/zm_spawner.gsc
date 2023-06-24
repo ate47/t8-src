@@ -2,12 +2,12 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_quick_spawning.gsc;
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
-#using script_7e63597649100b1c;
+#using scripts\core_common\ai\zombie_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

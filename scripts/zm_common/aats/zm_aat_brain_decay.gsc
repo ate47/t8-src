@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -97,7 +97,7 @@ function result(death, attacker, mod, weapon)
 	}
 	if(isplayer(attacker))
 	{
-		attacker zm_stats::increment_challenge_stat(#"hash_6196f68daba14ab0");
+		attacker zm_stats::increment_challenge_stat(#"zombie_hunter_brain_decay");
 		self.var_443d78cc = attacker;
 	}
 	self thread function_8e97a3a4(attacker, weapon);

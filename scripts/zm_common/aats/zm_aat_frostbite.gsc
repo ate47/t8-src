@@ -225,7 +225,7 @@ function frostbite_explosion(var_4589e270, var_23255fc5, attacker, mod, weapon)
 	if(isplayer(attacker))
 	{
 		attacker.aat_cooldown_start[#"zm_aat_frostbite_explosion"] = float(gettime()) / 1000;
-		attacker zm_stats::increment_challenge_stat(#"hash_4b615433ed6a8afd");
+		attacker zm_stats::increment_challenge_stat(#"zombie_hunter_frostbite");
 	}
 	a_potential_targets = array::get_all_closest(var_23255fc5, level.ai[#"axis"], undefined, undefined, 128);
 	foreach(e_target in a_potential_targets)
@@ -270,7 +270,7 @@ function function_11c85ac6(var_23255fc5, e_attacker, weapon)
 	self dodamage(n_damage, var_23255fc5, e_attacker, undefined, "none", "MOD_AAT", 0, weapon);
 	if(!isalive(self) && isplayer(e_attacker))
 	{
-		e_attacker zm_stats::increment_challenge_stat(#"hash_4b615433ed6a8afd");
+		e_attacker zm_stats::increment_challenge_stat(#"zombie_hunter_frostbite");
 	}
 }
 

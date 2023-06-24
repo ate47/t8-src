@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_522aeb6ae906391e;
 #using scripts\zm_common\zm_ui_inventory.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_7e63597649100b1c;
+#using scripts\core_common\ai\zombie_shared.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -172,10 +172,10 @@ function function_358c899d()
 function function_5ac8947e()
 {
 	/#
-		setdvar(#"hash_61188b3af8b69084", "");
+		setdvar(#"zombie_devgui_hud", "");
 		while(true)
 		{
-			cmd = getdvar(#"hash_61188b3af8b69084", "");
+			cmd = getdvar(#"zombie_devgui_hud", "");
 			if(cmd == "")
 			{
 				wait(0.1);
@@ -195,7 +195,7 @@ function function_5ac8947e()
 					}
 				}
 			}
-			setdvar(#"hash_61188b3af8b69084", "");
+			setdvar(#"zombie_devgui_hud", "");
 		}
 	#/
 }

@@ -7,7 +7,7 @@
 #using script_35598499769dbb3d;
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_41fe08c37d53a635;
 #using script_489b835a247c990e;
 #using script_4bf952f6ba31bb17;
@@ -15,11 +15,11 @@
 #using script_522aeb6ae906391e;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;
 #using script_caf007e2a98afa2;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

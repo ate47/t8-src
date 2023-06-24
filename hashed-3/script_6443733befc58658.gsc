@@ -81,7 +81,7 @@ function private function_53d906fd(localclientnum)
 					if(namespace_ad5a0cd6::function_2c7fc531(i))
 					{
 						point = function_b1702735(i);
-						if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.name === #"hash_43aca7fcfd3e5949")
+						if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.name === #"sig_blade_wz_item")
 						{
 							point function_6b5dfd6c(localclientnum, playfx, 0, i, player);
 						}
@@ -92,7 +92,7 @@ function private function_53d906fd(localclientnum)
 					}
 					else if(namespace_ad5a0cd6::function_da09de95(i))
 					{
-						if(isdefined(level.var_a4a4012e[i]) && isdefined(level.var_a4a4012e[i].var_a6762160) && level.var_a4a4012e[i].var_a6762160.name === #"hash_43aca7fcfd3e5949")
+						if(isdefined(level.var_a4a4012e[i]) && isdefined(level.var_a4a4012e[i].var_a6762160) && level.var_a4a4012e[i].var_a6762160.name === #"sig_blade_wz_item")
 						{
 							level.var_a4a4012e[i] function_6b5dfd6c(localclientnum, playfx, 1, i);
 						}

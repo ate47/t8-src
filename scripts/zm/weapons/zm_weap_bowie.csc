@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_18a9e529264a3d29;
+#using scripts\zm_common\zm_maptable.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace zm_weap_bowie;
@@ -45,7 +45,7 @@ function private __main__()
 	level.var_8e4168e9 = "bowie_knife";
 	level.var_63af3e00 = "bowie_flourish";
 	var_57858dd5 = "zombie_fists_bowie";
-	if(namespace_cb7cafc3::get_story() == 1)
+	if(zm_maptable::get_story() == 1)
 	{
 		level.var_8e4168e9 = "bowie_knife_story_1";
 		level.var_63af3e00 = "bowie_flourish_story_1";

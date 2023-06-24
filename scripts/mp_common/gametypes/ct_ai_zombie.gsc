@@ -4,7 +4,7 @@
 #using script_3819e7a1427df6d2;
 #using script_3aa0f32b70d4f7cb;
 #using script_4d85e8de54b02198;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\zombie.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

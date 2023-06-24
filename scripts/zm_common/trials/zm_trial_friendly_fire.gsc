@@ -4,7 +4,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\core_common\bots\bot_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;

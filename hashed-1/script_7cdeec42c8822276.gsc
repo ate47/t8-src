@@ -2,10 +2,10 @@
 #using scripts\zm\zm_office_teleporters.gsc;
 #using script_174ebb9642933bf7;
 #using scripts\zm\zm_office_special_rounds.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_ab862743b3070a;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -257,7 +257,7 @@ function spawn_archetype(str_archetype)
 		}
 		case "zombie_dog":
 		{
-			ai = namespace_c402654::function_62db7b1c();
+			ai = zombie_dog_util::function_62db7b1c();
 			break;
 		}
 		case "nova_crawler":

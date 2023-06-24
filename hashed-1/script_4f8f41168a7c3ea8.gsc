@@ -37,7 +37,7 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"hash_247e2f70c08b01f6", 1, 1, "int", &function_38caf7f2, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_f8ff865403f6655", 1, 1, "int", &function_82423f02, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_6954721e3aab6b22", 1, 2, "int", &function_aed4dc35, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_f03061885875815", 1, 1, "int", &function_4707df22, 0, 0);
+	clientfield::register("scriptmover", "" + #"bg_spawn_fx", 1, 1, "int", &function_4707df22, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_1a9944b03fae8660", 1, 1, "int", &function_beeca5c7, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_c79e0b124c4b75", 1, 1, "counter", &function_ffeeebf3, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_39d19b76b846a27f", 1, 1, "counter", &function_fcb0f78b, 0, 0);
@@ -54,8 +54,8 @@ function __init__()
 	level._effect[#"hash_1553e20e5242f527"] = #"hash_ce21486cbb74ba2";
 	level._effect[#"hash_d9adad5b2ead852"] = #"hash_1a2b69544013ee25";
 	level._effect[#"magma_glow"] = #"hash_69324137a8ab8427";
-	level._effect[#"hash_5a5e898738a573b3"] = #"hash_1636a510bead42c2";
-	level._effect[#"hash_29ac4d67fd8a9872"] = #"hash_4a9c1f83345c624b";
+	level._effect[#"bg_quest_spawn"] = #"hash_1636a510bead42c2";
+	level._effect[#"bg_quest_despawn"] = #"hash_4a9c1f83345c624b";
 	level._effect[#"hash_40c10e05964e71b5"] = #"hash_4c5e26f94f35e7fb";
 	level._effect[#"magma_urn"] = #"hash_2529982fe72e4e4";
 	level._effect[#"hash_577c7197e639a24b"] = #"hash_6ce5c811700c8c4";
@@ -574,12 +574,12 @@ function function_4707df22(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		stopfx(localclientnum, self.var_85dab00b);
 		self.var_85dab00b = undefined;
-		playfx(localclientnum, level._effect[#"hash_29ac4d67fd8a9872"], self.origin);
+		playfx(localclientnum, level._effect[#"bg_quest_despawn"], self.origin);
 		playsound(localclientnum, #"hash_c9e5d07bd26090d", self.origin);
 	}
 	if(newval == 1)
 	{
-		self.var_85dab00b = util::playfxontag(localclientnum, level._effect[#"hash_5a5e898738a573b3"], self, "tag_origin");
+		self.var_85dab00b = util::playfxontag(localclientnum, level._effect[#"bg_quest_spawn"], self, "tag_origin");
 		playsound(localclientnum, #"hash_4cd38326868832c7", self.origin);
 	}
 }

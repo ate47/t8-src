@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\abilities\ability_util.gsc;
@@ -232,9 +232,9 @@ function givecustomloadout()
 		loadout.count = secondaryoffhandcount;
 		self ability_util::function_36a15b60(secondaryoffhand);
 	}
-	if(isbot(self) && !isdefined(level.botweapons[#"hash_67d4fc759f718a27"]))
+	if(isbot(self) && !isdefined(level.botweapons[#"hero_annihilator_oic"]))
 	{
-		bot_action::function_ab03ca93(#"hash_67d4fc759f718a27");
+		bot_action::function_ab03ca93(#"hero_annihilator_oic");
 	}
 	return weapon;
 }

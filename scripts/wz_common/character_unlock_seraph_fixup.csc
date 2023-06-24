@@ -45,7 +45,7 @@ function autoexec function_f031a77f()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"seraph_unlock", #"hash_17c02481305f0e24", #"hash_347dc9157efc6a42", &function_d95e620c, #"hash_633d185cd2140f1a", #"hash_633d175cd2140d67");
+	character_unlock_fixup::register_character_unlock(#"seraph_unlock", #"hash_17c02481305f0e24", #"annihilator_wz_item", &function_d95e620c, #"hash_633d185cd2140f1a", #"hash_633d175cd2140d67");
 }
 
 /*
@@ -74,10 +74,10 @@ function function_d95e620c()
 */
 function private function_f5a58e15()
 {
-	var_a6762160 = getscriptbundle(#"hash_347dc9157efc6a42");
+	var_a6762160 = getscriptbundle(#"annihilator_wz_item");
 	if(isdefined(var_a6762160))
 	{
-		namespace_b0722f43::function_96ff7b88(#"hash_347dc9157efc6a42");
+		namespace_b0722f43::function_96ff7b88(#"annihilator_wz_item");
 	}
 }
 

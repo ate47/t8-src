@@ -3,7 +3,7 @@
 #using scripts\zm\zm_orange_mq_campfire.gsc;
 #using scripts\zm\zm_orange_mq_blood.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_48586eea5c3542a4;
 #using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using script_4b80fc97d8469299;

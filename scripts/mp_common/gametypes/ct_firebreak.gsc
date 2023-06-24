@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\gametypes\ct_core.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_366b8782ff72bb1d;
 #using scripts\mp_common\gametypes\ct_gadgets.gsc;
-#using script_557a707073a952db;
+#using scripts\mp_common\gametypes\ct_firebreak_tutorial.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
@@ -56,7 +56,7 @@ event main(eventstruct)
 	level.var_2392bd18 = level.a_s_beacons.size;
 	if(level.var_cd9d597c == 0)
 	{
-		level namespace_154e6230::init();
+		level ct_firebreak_tutorial::init();
 	}
 	level flag::init("combat_training_started");
 }
@@ -76,7 +76,7 @@ function function_7c4ef26b(predictedspawn)
 	spawning::onspawnplayer(predictedspawn);
 	if(level.var_cd9d597c == 0)
 	{
-		self namespace_154e6230::function_c9ff0dce();
+		self ct_firebreak_tutorial::function_c9ff0dce();
 		return;
 	}
 	if(self.team == #"allies")
@@ -149,7 +149,7 @@ function function_9d65db70(einflictor, attacker, idamage, smeansofdeath, weapon,
 {
 	if(level.var_cd9d597c == 0)
 	{
-		self namespace_154e6230::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
+		self ct_firebreak_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
 	}
 	if(self.team == #"allies")
@@ -247,7 +247,7 @@ function function_ba542258(mode)
 	self loadout::function_cdb86a18();
 	if(level.var_cd9d597c == 0)
 	{
-		level namespace_154e6230::setup();
+		level ct_firebreak_tutorial::setup();
 	}
 	else
 	{
@@ -308,7 +308,7 @@ function function_b89106ad(gamedifficulty)
 	level.disablemomentum = 1;
 	if(gamedifficulty == 0)
 	{
-		namespace_154e6230::function_9b9525e9();
+		ct_firebreak_tutorial::function_9b9525e9();
 	}
 	else
 	{

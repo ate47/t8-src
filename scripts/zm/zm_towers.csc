@@ -5,7 +5,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\zm\powerup\zm_powerup_free_perk.csc;
 #using scripts\zm\ai\zm_ai_elephant.csc;
-#using script_74f5ae6ffc8bd614;
+#using scripts\zm_common\zm_audio_sq.csc;
 #using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\audio_shared.csc;
@@ -209,7 +209,7 @@ event main(eventstruct)
 	level._effect[#"hash_63e758aa5387132a"] = #"hash_7df55a8e3d87037a";
 	level._effect[#"hash_23ba00d2f804acc2"] = #"hash_56b121a7e7eee303";
 	level._effect[#"hash_5afda864f8b64f5c"] = #"hash_5f48f8d916a0f612";
-	level thread namespace_8f39dfb1::init();
+	level thread zm_audio_sq::init();
 	level.var_d0ab70a2 = #"hash_42dcec7533a676b0";
 	level.var_210ce105 = zm_towers_crowd_meter::register("zm_towers_crowd_meter");
 	load::main();

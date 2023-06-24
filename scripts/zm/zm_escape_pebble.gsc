@@ -1,18 +1,18 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\weapons\zm_weap_tomahawk.gsc;
 #using scripts\zm\weapons\zm_weap_katana.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;
 #using script_668c4fbb94671fb4;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
-#using script_b00fcbc28051f15;
-#using script_db06eb511bd9b36;
+#using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -714,7 +714,7 @@ function private function_c7c805fa()
 	while(true)
 	{
 		s_result = undefined;
-		s_result = level waittill(#"hash_2eed9998dba1b252");
+		s_result = level waittill(#"hero_weapon_activated");
 		if(isplayer(s_result.e_player) && distance2d(s_result.e_player.origin, var_ffa14ea6.origin) <= 128)
 		{
 			break;
@@ -834,7 +834,7 @@ function function_6272b55b()
 		var_288eb627 = s_result.e_grenade;
 		while(isdefined(var_288eb627))
 		{
-			if(distancesquared(var_288eb627.origin, var_f67ecd64.origin) < 10000 && (isdefined(var_f67ecd64.var_1e4fbc72) && var_f67ecd64.var_1e4fbc72) && !isdefined(var_f67ecd64.var_3d3748c4) && !self hasweapon(getweapon(#"hash_78e66b21aa05c753")))
+			if(distancesquared(var_288eb627.origin, var_f67ecd64.origin) < 10000 && (isdefined(var_f67ecd64.var_1e4fbc72) && var_f67ecd64.var_1e4fbc72) && !isdefined(var_f67ecd64.var_3d3748c4) && !self hasweapon(getweapon(#"zhield_spectral_dw_upgraded")))
 			{
 				var_f67ecd64.var_3d3748c4 = 1;
 				var_f67ecd64.var_d86e9c27 = self;
@@ -898,14 +898,14 @@ function function_8996bf17(var_6e6ec518, var_f67ecd64)
 		waitframe(1);
 	}
 	var_f67ecd64 delete();
-	if(self hasweapon(getweapon(#"hash_42a45d43be3dba42")))
+	if(self hasweapon(getweapon(#"zhield_spectral_dw")))
 	{
-		self takeweapon(getweapon(#"hash_42a45d43be3dba42"));
+		self takeweapon(getweapon(#"zhield_spectral_dw"));
 	}
-	self giveweapon(getweapon(#"hash_78e66b21aa05c753"));
-	self switchtoweapon(getweapon(#"hash_78e66b21aa05c753"));
+	self giveweapon(getweapon(#"zhield_spectral_dw_upgraded"));
+	self switchtoweapon(getweapon(#"zhield_spectral_dw_upgraded"));
 	self.var_5ba94c1e = 1;
-	level thread namespace_b4a066ff::function_265e517c(self);
+	level thread zm_weap_spectral_shield::function_265e517c(self);
 	self thread zm_audio::create_and_play_dialog(#"shield", #"upgrade", undefined, 1);
 }
 
@@ -1829,13 +1829,13 @@ function function_442fe4d3()
 		s_result = self waittill(#"trigger");
 		if(isplayer(s_result.activator) && isalive(s_result.activator))
 		{
-			var_24cc214c = array(getweapon(#"hash_42a45d43be3dba42"), getweapon(#"hash_78e66b21aa05c753"), getweapon(#"hash_185abc5c82e9d849"), getweapon(#"hash_158041aab1e14f3a"));
+			var_24cc214c = array(getweapon(#"zhield_spectral_dw"), getweapon(#"zhield_spectral_dw_upgraded"), getweapon(#"hash_185abc5c82e9d849"), getweapon(#"hash_158041aab1e14f3a"));
 			w_current = s_result.activator.currentweapon;
 			if(array::contains(var_24cc214c, w_current))
 			{
 				s_result.activator.var_9fd623ed = s_result.activator.var_9fd623ed + 12;
 				s_result.activator.var_9fd623ed = math::clamp(s_result.activator.var_9fd623ed, 0, s_result.activator.var_f7c822b5 * 3);
-				s_result.activator thread namespace_b4a066ff::function_804309c();
+				s_result.activator thread zm_weap_spectral_shield::function_804309c();
 				s_result.activator notify(#"hash_22a49f7903e394a5");
 				s_result.activator playsound(#"hash_19d5ba8ff22edcce");
 				break;

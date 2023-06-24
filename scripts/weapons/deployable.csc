@@ -42,7 +42,7 @@ function __init__()
 }
 
 /*
-	Name: function_2e088f73
+	Name: register_deployable
 	Namespace: deployable
 	Checksum: 0x67CA2A1
 	Offset: 0x1C0
@@ -50,7 +50,7 @@ function __init__()
 	Parameters: 2
 	Flags: None
 */
-function function_2e088f73(weapon, var_7ec218c6)
+function register_deployable(weapon, var_7ec218c6)
 {
 	if(weapon.name == "#none")
 	{

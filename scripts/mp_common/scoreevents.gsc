@@ -396,7 +396,7 @@ function scoreeventplayerkill(data, time)
 			{
 				processscoreevent(#"kill_enemy_while_flashbanged", attacker, victim, weapon);
 			}
-			if(victim.currentweapon == getweapon(#"sig_bow_quickshot") || victim.currentweapon == getweapon(#"hash_1d2a1056220e71a9") || victim.currentweapon == getweapon(#"hash_1d2a0f56220e6ff6") || victim.currentweapon == getweapon(#"hash_1d2a1256220e750f"))
+			if(victim.currentweapon == getweapon(#"sig_bow_quickshot") || victim.currentweapon == getweapon(#"sig_bow_quickshot2") || victim.currentweapon == getweapon(#"sig_bow_quickshot3") || victim.currentweapon == getweapon(#"sig_bow_quickshot4"))
 			{
 				processscoreevent(#"hash_6530935b474f2e11", attacker, victim, weapon);
 			}
@@ -1141,9 +1141,9 @@ function heavyweaponkill(attacker, victim, weapon)
 		case "hero_bowlauncher2":
 		case "hero_bowlauncher3":
 		case "hero_bowlauncher4":
-		case "hash_1d2a0f56220e6ff6":
-		case "hash_1d2a1056220e71a9":
-		case "hash_1d2a1256220e750f":
+		case "sig_bow_quickshot3":
+		case "sig_bow_quickshot2":
+		case "sig_bow_quickshot4":
 		case "sig_bow_quickshot":
 		case "hero_bowlauncher":
 		{

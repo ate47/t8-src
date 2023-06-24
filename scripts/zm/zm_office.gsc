@@ -22,7 +22,7 @@
 #using scripts\zm_common\zm_trial.gsc;
 #using script_63da2325262612ba;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_office_floors.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7b75a29159ce123e;
@@ -294,7 +294,7 @@ function function_c8ce0a17(var_404e4288, var_8dd554ee)
 function function_e5086229(var_404e4288, var_8dd554ee)
 {
 	level flag::set(#"disable_special_rounds");
-	ai = namespace_c402654::function_62db7b1c(1);
+	ai = zombie_dog_util::function_62db7b1c(1);
 	if(isdefined(ai))
 	{
 		level.zombie_total--;
@@ -315,8 +315,8 @@ function registergondola_moving_watcher()
 {
 	level clientfield::set("flicker_function_controller", 1);
 	level clientfield::set("flicker_function_controller_persistant", 1);
-	level._effect[#"hash_7b7bc6f5ca3952ff"] = #"hash_e1d8f427f2f23c6";
-	level.var_6579276 = level._effect[#"hash_7b7bc6f5ca3952ff"];
+	level._effect[#"zombie_light_board"] = #"hash_e1d8f427f2f23c6";
+	level.var_6579276 = level._effect[#"zombie_light_board"];
 	var_4ef1324a = getentarray("yellow_conf_screen_part", "script_noteworthy");
 	var_4d8e3426 = getent("fx_light_origin", "script_noteworthy");
 	var_4d8e3426.fx_ent = util::spawn_model("tag_origin", var_4d8e3426.origin);

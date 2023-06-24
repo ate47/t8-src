@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4d85e8de54b02198;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\ai\archetype_nova_crawler.gsc;

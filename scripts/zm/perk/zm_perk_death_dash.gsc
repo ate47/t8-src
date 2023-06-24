@@ -3,8 +3,8 @@
 #using script_2f9a68261f6a17be;
 #using script_35598499769dbb3d;
 #using script_6951ea86fdae9ae0;
-#using script_db06eb511bd9b36;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -602,7 +602,7 @@ function function_9227a4d8()
 */
 function private function_69153101()
 {
-	if(namespace_6b49f66b::is_active())
+	if(zm_trial_restrict_loadout::is_active())
 	{
 		return false;
 	}

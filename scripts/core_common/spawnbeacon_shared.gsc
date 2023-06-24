@@ -62,7 +62,7 @@ function init_shared()
 	setupcallbacks();
 	setupclientfields();
 	callback::on_finalize_initialization(&function_1c601b99);
-	deployable::function_2e088f73(getweapon("gadget_spawnbeacon"), &function_9aafb7bb, undefined);
+	deployable::register_deployable(getweapon("gadget_spawnbeacon"), &function_9aafb7bb, undefined);
 }
 
 /*

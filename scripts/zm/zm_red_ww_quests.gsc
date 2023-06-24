@@ -6,19 +6,19 @@
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3e5ec44cfab7a201;
 #using scripts\zm\weapons\zm_weap_hand_ouranos.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4d00889cf8c807d5;
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using scripts\zm\weapons\zm_weap_hand_charon.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\weapons\zm_weap_hand_hemera.gsc;
 #using scripts\zm\perk\zm_perk_mod_additionalprimaryweapon.gsc;
 #using scripts\zm\weapons\zm_weap_hand_gaia.gsc;
 #using script_8dca41f2d7c91bc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\zm\perk\zm_perk_mod_quick_revive.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
@@ -435,7 +435,7 @@ function function_7e94450c()
 	}
 	e_brick clientfield::set("" + #"hash_23ba81a7c071845d", 0);
 	t_damage delete();
-	self notify(#"hash_6858bc0ef6a5b4b1", {#hash_2db8b01a:e_brick.scene_ents[#"hash_7aff0ee60ddd937b"], #e_player:e_player});
+	self notify(#"hash_6858bc0ef6a5b4b1", {#hash_2db8b01a:e_brick.scene_ents[#"prop 1"], #e_player:e_player});
 }
 
 /*
@@ -1709,9 +1709,9 @@ function function_4c66319a(var_fc6baa64)
 */
 function function_6e84f472()
 {
-	self clientfield::set("" + #"hash_1c11bf07cb27dfaa", 1);
+	self clientfield::set("" + #"forcestream_crafted_item", 1);
 	wait(3);
-	self clientfield::set("" + #"hash_1c11bf07cb27dfaa", 0);
+	self clientfield::set("" + #"forcestream_crafted_item", 0);
 }
 
 /*
@@ -1725,29 +1725,29 @@ function function_6e84f472()
 */
 function function_a7e94e36(a_ents)
 {
-	if(!isdefined(a_ents[#"hash_7aff0ee60ddd937b"]))
+	if(!isdefined(a_ents[#"prop 1"]))
 	{
 		return;
 	}
 	if(self.targetname === #"mdl_ww_uncharged_hand_air")
 	{
-		a_ents[#"hash_7aff0ee60ddd937b"] clientfield::set(level.var_d225ea18[#"air"].var_ea3032ca, 1);
+		a_ents[#"prop 1"] clientfield::set(level.var_d225ea18[#"air"].var_ea3032ca, 1);
 	}
 	else
 	{
 		if(self.targetname === #"mdl_ww_uncharged_hand_death")
 		{
-			a_ents[#"hash_7aff0ee60ddd937b"] clientfield::set(level.var_d225ea18[#"death"].var_ea3032ca, 1);
+			a_ents[#"prop 1"] clientfield::set(level.var_d225ea18[#"death"].var_ea3032ca, 1);
 		}
 		else
 		{
 			if(self.targetname === #"mdl_ww_uncharged_hand_light")
 			{
-				a_ents[#"hash_7aff0ee60ddd937b"] clientfield::set(level.var_d225ea18[#"light"].var_ea3032ca, 1);
+				a_ents[#"prop 1"] clientfield::set(level.var_d225ea18[#"light"].var_ea3032ca, 1);
 			}
 			else if(self.targetname === #"mdl_ww_uncharged_hand_earth")
 			{
-				a_ents[#"hash_7aff0ee60ddd937b"] clientfield::set(level.var_d225ea18[#"earth"].var_ea3032ca, 1);
+				a_ents[#"prop 1"] clientfield::set(level.var_d225ea18[#"earth"].var_ea3032ca, 1);
 			}
 		}
 	}
@@ -3188,7 +3188,7 @@ function function_79a8a785(var_542837e6, e_player)
 */
 function function_85a789f1()
 {
-	level endon(#"hash_7ec672df602e95a4", #"door_opened");
+	level endon(#"zombie_kill_breakout", #"door_opened");
 	level waittill(#"junk purchased");
 	level endon(#"junk purchased");
 	for(i = 0; i < 3; i++)
@@ -4158,7 +4158,7 @@ function function_1775f520()
 */
 function function_ab1bce1d(a_ents)
 {
-	level.var_643e7b15 = a_ents[#"hash_7aff0ee60ddd937b"];
+	level.var_643e7b15 = a_ents[#"prop 1"];
 	level.var_643e7b15 hidepart("sprout_lt_root", "", 1);
 	level.var_643e7b15 hidepart("sprout_rt_root", "", 1);
 	level.var_643e7b15 hidepart("sprout_mid_root", "", 1);
@@ -4826,7 +4826,7 @@ function function_cb939976(s_params)
 	{
 		return;
 	}
-	level notify(#"hash_7ec672df602e95a4");
+	level notify(#"zombie_kill_breakout");
 	if(isdefined(self.var_94c53b42) && self.var_94c53b42 && s_params.eattacker === self.var_70f0d23c)
 	{
 		s_params.eattacker.var_ac8a5779++;
@@ -5889,7 +5889,7 @@ function function_6df333f3(e_player)
 					if(self.targetname === #"air")
 					{
 						s_spawn = array::random(a_s_spawns);
-						ai_zombie = namespace_bc12435c::function_1ea880bd(1, s_spawn, undefined, undefined, 1);
+						ai_zombie = zombie_skeleton_util::function_1ea880bd(1, s_spawn, undefined, undefined, 1);
 						n_wait_time = 0.5;
 					}
 					else
@@ -5901,7 +5901,7 @@ function function_6df333f3(e_player)
 								return;
 							}
 							s_spawn = array::random(struct::get_array("s_ww_quest_light_spawn_gegenees"));
-							ai_zombie = namespace_75cbf125::spawn_single(1, s_spawn);
+							ai_zombie = zombie_gegenees_util::spawn_single(1, s_spawn);
 							n_wait_time = 2;
 						}
 						else if(self.targetname === #"death")

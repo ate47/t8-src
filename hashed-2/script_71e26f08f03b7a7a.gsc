@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_6de2f7255a97ab00;
+#using scripts\mp_common\item_supply_drop.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -17,7 +17,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_280fe2667ed2d300", &__init__, undefined, #"hash_c70352f852fda84");
+	system::register(#"hash_280fe2667ed2d300", &__init__, undefined, #"item_supply_drop");
 }
 
 /*
@@ -65,7 +65,7 @@ function private function_2d47ee1e(var_6ed927a6, var_caba78c2, waittime, var_ef5
 	}
 	voiceevent = !var_ef5e1b44.var_7f40d76c;
 	var_ef5e1b44.var_7f40d76c = 1;
-	level thread namespace_8f74625a::function_418e26fe(var_6ed927a6, var_d6388d1, voiceevent, var_ef5e1b44.heightoffset, var_d6388d1, vehicletype);
+	level thread item_supply_drop::function_418e26fe(var_6ed927a6, var_d6388d1, voiceevent, var_ef5e1b44.heightoffset, var_d6388d1, vehicletype);
 	var_ef5e1b44.heightoffset = var_ef5e1b44.heightoffset + 600;
 }
 
@@ -290,7 +290,7 @@ function function_1c1e1a45(var_b3b96cdb = undefined, var_47d17dcb = 0)
 		{
 			return;
 		}
-		level thread namespace_8f74625a::function_7d4a448f(var_47d17dcb);
+		level thread item_supply_drop::function_7d4a448f(var_47d17dcb);
 		var_3d3a70a8++;
 		if(isdefined(var_b3b96cdb) && var_3d3a70a8 > var_b3b96cdb)
 		{

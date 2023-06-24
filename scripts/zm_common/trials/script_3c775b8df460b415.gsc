@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6d813fcbc979603a;
+#using scripts\zm_common\trials\zm_trial_defend_area.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -114,14 +114,14 @@ function private movement_watcher()
 		{
 			if(isdefined(self.armor) && self.armor > 0)
 			{
-				if(!namespace_115c602a::is_active() || (namespace_115c602a::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc)))
+				if(!zm_trial_defend_area::is_active() || (zm_trial_defend_area::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc)))
 				{
 					self playsoundtoplayer(#"hash_6df374d848ba6a60", self);
 					self dodamage(11, self.origin);
 					var_89276ce9 = 1;
 				}
 			}
-			else if(!namespace_115c602a::is_active() || (namespace_115c602a::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc)))
+			else if(!zm_trial_defend_area::is_active() || (zm_trial_defend_area::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc)))
 			{
 				self playsoundtoplayer(#"hash_6df374d848ba6a60", self);
 				self dodamage(6, self.origin);
@@ -130,7 +130,7 @@ function private movement_watcher()
 		}
 		if(var_89276ce9)
 		{
-			if(namespace_115c602a::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc))
+			if(zm_trial_defend_area::is_active() && (isdefined(self.var_ccee13fc) && self.var_ccee13fc))
 			{
 				wait(1);
 			}

@@ -2,7 +2,7 @@
 #using scripts\zm\zm_office_teleporters.gsc;
 #using scripts\zm\zm_office_defcon.gsc;
 #using script_1c72973fb240f263;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
@@ -10,7 +10,7 @@
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_office_floors.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\array_shared.gsc;
@@ -1049,7 +1049,7 @@ function function_1abaab3d()
 				var_4974e492[var_4974e492.size] = loc;
 			}
 		}
-		e_dog = namespace_c402654::function_62db7b1c(0, array::random(var_4974e492));
+		e_dog = zombie_dog_util::function_62db7b1c(0, array::random(var_4974e492));
 		if(isdefined(e_dog))
 		{
 			var_a9e4d1ee--;

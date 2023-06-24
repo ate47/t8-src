@@ -62,7 +62,7 @@ function init_shared()
 	weaponobjects::function_e6400478(#"ability_smart_cover", &function_21e722f6, 1);
 	callback::on_spawned(&on_player_spawned);
 	level.var_5101157d.var_f115c746 = [];
-	deployable::function_2e088f73(level.var_5101157d.var_8d86ade8, &function_b7f5b1cc, &function_a47ce1c2, undefined, undefined, 1);
+	deployable::register_deployable(level.var_5101157d.var_8d86ade8, &function_b7f5b1cc, &function_a47ce1c2, undefined, undefined, 1);
 	level.var_5101157d.var_357db326 = 10000;
 	level.var_5101157d.var_ff1a491d = level.var_5101157d.bundle.var_76d79155 * level.var_5101157d.bundle.var_76d79155;
 	if(!sessionmodeiswarzonegame())

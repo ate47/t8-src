@@ -30,7 +30,7 @@
 #using scripts\zm_common\talisman\zm_talisman_shield_durability_rare.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_start_2.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4194df57536e11ed;
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_2.gsc;
 #using scripts\zm_common\aats\zm_aat_brain_decay.gsc;
@@ -42,7 +42,7 @@
 #using script_48f7c4ab73137f8;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\talisman\zm_talisman_special_xp_rate.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_vo.gsc;
@@ -54,7 +54,7 @@
 #using scripts\zm_common\talisman\zm_talisman_box_guarantee_box_only.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\talisman\zm_talisman_shield_durability_legendary.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\talisman\zm_talisman_extra_claymore.gsc;
 #using scripts\zm_common\talisman\zm_talisman_impatient.gsc;
 #using scripts\zm_common\aats\zm_aat_kill_o_watt.gsc;
@@ -71,7 +71,7 @@
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\zm_common\talisman\zm_talisman_shield_price.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_mod_single.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_start_4.gsc;
 #using scripts\zm_common\talisman\zm_talisman_perk_reducecost_4.gsc;
 #using scripts\core_common\aat_shared.gsc;
@@ -962,7 +962,7 @@ function init_levelvars()
 	zombie_utility::set_zombie_var(#"zombie_between_round_time", 15);
 	zombie_utility::set_zombie_var(#"zombie_intermission_time", 15);
 	zombie_utility::set_zombie_var(#"hash_6bae95928bbe8f1", 10);
-	zombie_utility::set_zombie_var(#"hash_6f24d1fbe8a09727", 90);
+	zombie_utility::set_zombie_var(#"zombie_score_kill", 90);
 	zombie_utility::set_zombie_var(#"zombie_score_bonus_melee", 60);
 	zombie_utility::set_zombie_var(#"zombie_score_bonus_head", 30);
 	zombie_utility::set_zombie_var(#"hash_68aa9b4c8de33261", 50);
@@ -976,7 +976,7 @@ function init_levelvars()
 	level.speed_change_max = 0;
 	level.speed_change_num = 0;
 	zm_round_logic::set_round_number(level.round_number);
-	zm_score::function_e5d6e6dd(#"zombie", zombie_utility::function_d2dfacfd(#"hash_6f24d1fbe8a09727"));
+	zm_score::function_e5d6e6dd(#"zombie", zombie_utility::function_d2dfacfd(#"zombie_score_kill"));
 }
 
 /*

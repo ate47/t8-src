@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_shared.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\wz_common\wz_ai_utils.gsc;
 #using scripts\wz_common\wz_ai_zombie.gsc;
 #using scripts\mp_common\item_world.gsc;
@@ -63,7 +63,7 @@ function __init__()
 	level.var_c4c0fb68 = (isdefined(getgametypesetting(#"hash_3668350e780332a3")) ? getgametypesetting(#"hash_3668350e780332a3") : 0);
 	level.warzonespawnanywhere = (isdefined(getgametypesetting(#"wzspawnanywhere")) ? getgametypesetting(#"wzspawnanywhere") : 0);
 	level.var_d373b4e4 = (isdefined(getgametypesetting(#"hash_14019eb043d9e43b")) ? getgametypesetting(#"hash_14019eb043d9e43b") : 0);
-	level.var_aad912ad = (isdefined(getgametypesetting(#"wzzombiesmaxcount")) ? getgametypesetting(#"wzzombiesmaxcount") : 8);
+	level.warzonezombiesmaxcount = (isdefined(getgametypesetting(#"wzzombiesmaxcount")) ? getgametypesetting(#"wzzombiesmaxcount") : 8);
 	level.var_7b5ba689 = (isdefined(getgametypesetting(#"wzgreeneyes")) ? getgametypesetting(#"wzgreeneyes") : 0);
 	level.var_754d756 = (isdefined(getgametypesetting(#"hash_3e2d2cf6b1cc6c68")) ? getgametypesetting(#"hash_3e2d2cf6b1cc6c68") : 0) || (isdefined(getgametypesetting(#"hash_1b4a66a008f60927")) ? getgametypesetting(#"hash_1b4a66a008f60927") : 0);
 	level.warzoneminibosses = (isdefined(getgametypesetting(#"wzminibosses")) ? getgametypesetting(#"wzminibosses") : 0);
@@ -75,7 +75,7 @@ function __init__()
 		{
 			iprintlnbold((("Initing " + numzm) + " zombies ") + "\n");
 			level.var_d373b4e4 = 1;
-			level.var_aad912ad = numzm;
+			level.warzonezombiesmaxcount = numzm;
 		}
 	}
 	level.var_d06e67bc = (isdefined(getgametypesetting(#"wzzonerandom")) ? getgametypesetting(#"wzzonerandom") : 0);
@@ -1292,9 +1292,9 @@ function function_71d1b294()
 						}
 					}
 					print3d(drawpos + vectorscale((0, 0, 1), 40), "" + ai_zone.zone_name, zonecolor);
-					for(i = 0; i < ai_zone.var_cd0f88ec.size; i++)
+					for(i = 0; i < ai_zone.zone_category.size; i++)
 					{
-						print3d(drawpos + (0, 0, 55 + (15 * i)), "" + ai_zone.var_cd0f88ec[i], zonecolor);
+						print3d(drawpos + (0, 0, 55 + (15 * i)), "" + ai_zone.zone_category[i], zonecolor);
 					}
 					circle(drawpos, 40, zonecolor, 0, 1);
 				}
@@ -1566,7 +1566,7 @@ function function_462b41e2(zone_name, spawner_type, var_fdb90fbe, var_b0c2952a, 
 	Parameters: 6
 	Flags: Linked
 */
-function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09)
+function function_5f0d105a(zone_category, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09)
 {
 	if(!isdefined(spawner_type))
 	{
@@ -1595,7 +1595,7 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	var_a59ba023 = function_aacb2027(zone_name, spawner_type);
 	if(isdefined(var_a59ba023))
 	{
-		var_a59ba023.var_cd0f88ec[var_a59ba023.var_cd0f88ec.size] = var_cd0f88ec;
+		var_a59ba023.zone_category[var_a59ba023.zone_category.size] = zone_category;
 		return var_a59ba023;
 	}
 	var_a6ca601f = function_bbff22d(zone_name);
@@ -1613,8 +1613,8 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	var_a59ba023.is_occupied = 0;
 	var_a59ba023.is_disabled = 0;
 	var_a59ba023.is_active = 0;
-	var_a59ba023.var_cd0f88ec = [];
-	var_a59ba023.var_cd0f88ec[0] = var_cd0f88ec;
+	var_a59ba023.zone_category = [];
+	var_a59ba023.zone_category[0] = zone_category;
 	var_a59ba023.var_aeae9f59 = var_aeae9f59;
 	var_a59ba023.var_10f73408 = var_f1fbce84;
 	var_a59ba023.var_c3bb4e09 = var_c3bb4e09;
@@ -1674,9 +1674,9 @@ function function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, 
 	Parameters: 6
 	Flags: None
 */
-function function_adf8c26d(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09)
+function function_adf8c26d(zone_category, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09)
 {
-	var_a59ba023 = function_5f0d105a(var_cd0f88ec, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09);
+	var_a59ba023 = function_5f0d105a(zone_category, zone_name, spawner_type, var_aeae9f59, var_f1fbce84, var_c3bb4e09);
 	if(isdefined(var_a59ba023))
 	{
 		var_a59ba023.var_1cbdb7bb = 1;
@@ -2165,9 +2165,9 @@ event function_3981d015(eventstruct)
 */
 function function_250e9641(ai_zone, category)
 {
-	for(i = 0; i < ai_zone.var_cd0f88ec.size; i++)
+	for(i = 0; i < ai_zone.zone_category.size; i++)
 	{
-		if(ai_zone.var_cd0f88ec[i] == category)
+		if(ai_zone.zone_category[i] == category)
 		{
 			return true;
 		}
@@ -2365,7 +2365,7 @@ function function_41101f23(zone, var_d42412dc)
 			zone.var_c3bb4e09 = getdvarint(#"zone_prespawn", 2);
 			zone.var_aeae9f59 = getdvarint(#"zone_maxcount", 10);
 			zone.var_10f73408 = getdvarint(#"zone_alivecount", 5);
-			zone.spawn_delay = getdvarint(#"hash_29fdd928ac0dd846", 5);
+			zone.spawn_delay = getdvarint(#"zone_spawndelay", 5);
 		}
 	#/
 	if(!(isdefined(var_d42412dc) && var_d42412dc) && (isdefined(zone.var_8f95a80f) && (isdefined(level.var_65d14681) && level.var_65d14681)))

@@ -53,7 +53,7 @@ function function_b01adb59()
 	if(isdefined(getgametypesetting(#"wzenablehotpursuit")) && getgametypesetting(#"wzenablehotpursuit"))
 	{
 		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b898a6e72d622d8");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_3e2adcfef9a6105b");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"recon_car_wz_item");
 	}
 	if(isdefined(getgametypesetting(#"wzenablebountyhuntervehicles")) && getgametypesetting(#"wzenablebountyhuntervehicles"))
 	{

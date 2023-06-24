@@ -7,7 +7,7 @@
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using script_681abc4248c2bc7d;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

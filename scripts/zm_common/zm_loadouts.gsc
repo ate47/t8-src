@@ -1,8 +1,8 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -963,7 +963,7 @@ function register_offhand_weapons_for_level_defaults()
 	register_lethal_grenade_for_level(#"sticky_grenade");
 	level.zombie_lethal_grenade_player_init = getweapon(#"eq_frag_grenade");
 	register_melee_weapon_for_level(level.weaponbasemelee.name);
-	if(namespace_cb7cafc3::get_story() == 1)
+	if(zm_maptable::get_story() == 1)
 	{
 		register_melee_weapon_for_level(#"bowie_knife_story_1");
 	}

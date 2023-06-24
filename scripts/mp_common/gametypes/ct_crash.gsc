@@ -2,11 +2,11 @@
 #using scripts\mp_common\gametypes\ct_core.gsc;
 #using script_20a30e3aaa7368c9;
 #using scripts\core_common\bots\bot.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_2fe3a06d826114db;
 #using scripts\mp_common\gametypes\ct_gadgets.gsc;
 #using scripts\mp_common\gametypes\ct_utils.gsc;
-#using script_6fdaf2c63629994b;
+#using scripts\mp_common\gametypes\ct_crash_tutorial.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\mp_common\gametypes\ct_bots.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -55,7 +55,7 @@ event main(eventstruct)
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
 	if(level.var_cd9d597c == 0)
 	{
-		level namespace_47ace5cf::init();
+		level ct_crash_tutorial::init();
 	}
 }
 
@@ -136,7 +136,7 @@ function function_7c4ef26b(predictedspawn)
 {
 	if(level.var_cd9d597c == 0)
 	{
-		self namespace_47ace5cf::function_c9ff0dce();
+		self ct_crash_tutorial::function_c9ff0dce();
 		return;
 	}
 	self thread ct_core::function_d2845186();
@@ -170,7 +170,7 @@ function function_9d65db70(einflictor, attacker, idamage, smeansofdeath, weapon,
 {
 	if(level.var_cd9d597c == 0)
 	{
-		self namespace_47ace5cf::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
+		self ct_crash_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
 	}
 	if(self.team == #"allies")
@@ -288,7 +288,7 @@ function function_b89106ad(gamedifficulty)
 	level.disablemomentum = 1;
 	if(gamedifficulty == 0)
 	{
-		namespace_47ace5cf::function_9b9525e9();
+		ct_crash_tutorial::function_9b9525e9();
 	}
 	else
 	{

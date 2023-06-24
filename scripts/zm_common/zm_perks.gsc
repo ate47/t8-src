@@ -2,10 +2,10 @@
 #using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\trials\zm_trial_randomize_perks.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -4100,7 +4100,7 @@ function function_8b413937(var_3468124)
 */
 function function_72c30be7(var_dd74d130, var_3468124)
 {
-	var_3468124.var_73bd396b = var_dd74d130[#"hash_7aff0ee60ddd937b"];
+	var_3468124.var_73bd396b = var_dd74d130[#"prop 1"];
 	var_3468124.var_73bd396b clientfield::set("" + #"hash_cf74c35ecc5a49", 1);
 }
 
@@ -5174,11 +5174,11 @@ function function_756e6a6d()
 function function_545a79c()
 {
 	/#
-		level notify(#"hash_1a64f4b3c49b2509");
-		level endon(#"hash_1a64f4b3c49b2509");
+		level notify(#"zombie_vapor_devgui");
+		level endon(#"zombie_vapor_devgui");
 		for(;;)
 		{
-			cmd = getdvarstring(#"hash_1a64f4b3c49b2509");
+			cmd = getdvarstring(#"zombie_vapor_devgui");
 			str_perk = undefined;
 			var_eb4c64e8 = undefined;
 			var_f79903dc = undefined;
@@ -5580,7 +5580,7 @@ function function_545a79c()
 					}
 				}
 			}
-			setdvar(#"hash_1a64f4b3c49b2509", "");
+			setdvar(#"zombie_vapor_devgui", "");
 			wait(0.5);
 		}
 	#/

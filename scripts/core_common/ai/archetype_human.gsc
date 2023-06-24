@@ -5,7 +5,7 @@
 #using script_522aeb6ae906391e;
 #using script_59f07c660e6710a5;
 #using scripts\core_common\ai\archetype_human_interface.gsc;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_7b7ed6e4bc963a51;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

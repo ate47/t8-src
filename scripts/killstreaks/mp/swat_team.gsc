@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_178024232e91b0a1;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_3819e7a1427df6d2;
@@ -12,7 +12,7 @@
 #using script_52d2de9b438adc78;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\core_common\ai\archetype_human_interface.gsc;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;

@@ -629,7 +629,7 @@ function function_f3c29d33(a_ents)
 {
 	level scene::remove_scene_func(self.scriptbundlename, &function_f3c29d33, "init");
 	self scene::stop();
-	var_1ab50f4 = a_ents[#"hash_7aff0ee60ddd937b"];
+	var_1ab50f4 = a_ents[#"prop 1"];
 	var_1ab50f4 delete();
 }
 
@@ -929,7 +929,7 @@ function function_89add587(a_ents)
 	if(s_closest == self)
 	{
 		level scene::remove_scene_func(self.scriptbundlename, &function_89add587, "play");
-		var_110cafc1 = a_ents[#"hash_7aff0ee60ddd937b"];
+		var_110cafc1 = a_ents[#"prop 1"];
 		var_8a88c4c8 linkto(var_110cafc1, var_8a88c4c8.var_ab585079);
 	}
 }

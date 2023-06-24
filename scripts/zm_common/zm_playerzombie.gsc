@@ -4,9 +4,9 @@
 #using script_35598499769dbb3d;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;

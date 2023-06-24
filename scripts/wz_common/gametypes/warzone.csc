@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\player\player_reinsertion.csc;
 #using scripts\core_common\player_insertion.csc;
-#using script_3575fbea89393aba;
+#using scripts\mp_common\laststand_warzone.csc;
 #using scripts\wz_common\wz_ai.csc;
 #using scripts\core_common\map.csc;
 #using script_71f2f8a6fc184b69;

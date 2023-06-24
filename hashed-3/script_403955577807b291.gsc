@@ -446,8 +446,8 @@ function function_9e88e881(local_client_num)
 		var_9411ea0++;
 		var_a9705012[0]++;
 	}
-	var_8b745faa = getweapon(#"gadget_icepick");
-	var_a4739e20 = getscriptbundle(var_8b745faa.customsettings);
+	icepickweapon = getweapon(#"gadget_icepick");
+	var_a4739e20 = getscriptbundle(icepickweapon.customsettings);
 	var_9b81203 = var_a4739e20.var_a65e249e;
 	var_f998f517 = 0;
 	foreach(var_20651f4 in hackableitems[1])

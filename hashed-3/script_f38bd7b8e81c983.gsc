@@ -30,6 +30,6 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	deployable::function_2e088f73(getweapon("ultimate_turret"), 1);
+	deployable::register_deployable(getweapon("ultimate_turret"), 1);
 }
 

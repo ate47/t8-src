@@ -276,7 +276,7 @@ function on_player_killed()
 */
 function function_1c4b5097(item)
 {
-	if(isdefined(item.var_a6762160) && item.var_a6762160.name === #"hash_347dc9157efc6a42")
+	if(isdefined(item.var_a6762160) && item.var_a6762160.name === #"annihilator_wz_item")
 	{
 		var_c503939b = globallogic::function_e9e52d05();
 		if(var_c503939b <= function_c816ea5b())
