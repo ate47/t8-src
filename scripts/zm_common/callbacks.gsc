@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_20ac552ee498eb9d;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\bots\bot_traversals.gsc;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
@@ -88,7 +88,7 @@ function setdefaultcallbacks()
 	level.callbackplayermelee = &globallogic_player::callback_playermelee;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;
 	level.callbackactorcloned = &globallogic_actor::callback_actorcloned;
-	level.var_6788bf11 = &namespace_e42b3e24::function_8c7ec52f;
+	level.var_6788bf11 = &globallogic_scriptmover::function_8c7ec52f;
 	level.callbackvehiclespawned = &globallogic_vehicle::callback_vehiclespawned;
 	level.callbackplayermigrated = &globallogic_player::callback_playermigrated;
 	level.callbackhostmigration = &hostmigration::callback_hostmigration;

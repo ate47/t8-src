@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_15f2170e202ce012;
+#using scripts\wz_common\wz_firing_range.gsc;
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\wz_common\character_unlock_seraph_fixup.gsc;
@@ -73,7 +73,7 @@ function function_2613aeec(enabled)
 		callback::on_player_killed(&on_player_killed);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
 		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
-		namespace_72c1550b::function_ea0556fc(#"hash_3af83a27a707345a");
+		wz_firing_range::function_ea0556fc(#"hash_3af83a27a707345a");
 		level.var_d27ee2e7 = 1;
 		level thread function_211772b5();
 	}

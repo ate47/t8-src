@@ -2,7 +2,7 @@
 #using scripts\killstreaks\remote_weapons.gsc;
 #using script_59f07c660e6710a5;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -77,7 +77,7 @@ function private function_e8549ef6()
 	self.ai.bulletsinclip = 60;
 	defaultrole();
 	self.overridevehicledamage = &function_9bbb40ab;
-	self thread namespace_14c38db0::function_7e1a12ce(3500);
+	self thread targetting_delay::function_7e1a12ce(3500);
 }
 
 /*
@@ -419,8 +419,8 @@ function cantargetplayer(player)
 	{
 		return false;
 	}
-	var_2910def0 = self namespace_14c38db0::function_1c169b3a(player);
-	namespace_14c38db0::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.05) * 1000));
+	var_2910def0 = self targetting_delay::function_1c169b3a(player);
+	targetting_delay::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.05) * 1000));
 	if(!var_2910def0)
 	{
 		return false;

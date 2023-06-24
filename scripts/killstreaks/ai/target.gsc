@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace ai_target;

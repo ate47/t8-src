@@ -51,11 +51,11 @@ class class_b382833a
 
 }
 
-#namespace namespace_598c63f4;
+#namespace zm_ai_wolf_ally;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xAB4EC432
 	Offset: 0x1B0
 	Size: 0x44
@@ -64,12 +64,12 @@ class class_b382833a
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_71cd66f517d8bc47", &__init__, &__main__, undefined);
+	system::register(#"zm_ai_wolf_ally", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x882D267E
 	Offset: 0x200
 	Size: 0x3EC
@@ -118,7 +118,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x80F724D1
 	Offset: 0x5F8
 	Size: 0x4
@@ -131,7 +131,7 @@ function __main__()
 
 /*
 	Name: function_7728abc3
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xFA6E0874
 	Offset: 0x608
 	Size: 0x104
@@ -140,7 +140,7 @@ function __main__()
 */
 function private function_7728abc3()
 {
-	if(isdefined(self.var_9fde8624) && self.var_9fde8624 == #"hash_44aa977896e18e7f")
+	if(isdefined(self.var_9fde8624) && self.var_9fde8624 == #"zombie_wolf_ally")
 	{
 		aiutility::addaioverridedamagecallback(self, &function_462df450);
 		self allowpitchangle(1);
@@ -161,7 +161,7 @@ function private function_7728abc3()
 
 /*
 	Name: function_6ca1cd82
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xFCC5C3A3
 	Offset: 0x718
 	Size: 0x250
@@ -213,7 +213,7 @@ function private function_6ca1cd82(entity, player, duration, color)
 
 /*
 	Name: function_462df450
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x902F6697
 	Offset: 0x970
 	Size: 0x66
@@ -227,7 +227,7 @@ function private function_462df450(inflictor, attacker, damage, flags, meansofda
 
 /*
 	Name: function_bd0a9007
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xFF7DE26E
 	Offset: 0x9E0
 	Size: 0xE6
@@ -246,7 +246,7 @@ function private function_bd0a9007(entity, target)
 
 /*
 	Name: function_e0b49b0b
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x3D2F9788
 	Offset: 0xAD0
 	Size: 0x102
@@ -276,7 +276,7 @@ function private function_e0b49b0b(left, right)
 
 /*
 	Name: get_favorite_enemy
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x3CCC07B0
 	Offset: 0xBE0
 	Size: 0x28A
@@ -328,7 +328,7 @@ function private get_favorite_enemy(entity)
 
 /*
 	Name: function_af59b7a5
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xB44184D5
 	Offset: 0xE78
 	Size: 0x634
@@ -437,7 +437,7 @@ function private function_af59b7a5(entity)
 
 /*
 	Name: function_dba8e076
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x7AF2F05A
 	Offset: 0x14B8
 	Size: 0x96
@@ -463,7 +463,7 @@ function private function_dba8e076(entity)
 
 /*
 	Name: function_3e4b2405
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x4B14F764
 	Offset: 0x1558
 	Size: 0x268
@@ -507,7 +507,7 @@ function private function_3e4b2405(entity)
 
 /*
 	Name: function_f00b611e
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xBC827D0B
 	Offset: 0x17C8
 	Size: 0x4A
@@ -530,7 +530,7 @@ function private function_f00b611e()
 
 /*
 	Name: function_18da2db6
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xB78C9711
 	Offset: 0x1820
 	Size: 0xAA
@@ -550,7 +550,7 @@ function private function_18da2db6()
 
 /*
 	Name: function_804dd716
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x3E7AA94
 	Offset: 0x18D8
 	Size: 0x1C
@@ -564,7 +564,7 @@ function private function_804dd716(entity)
 
 /*
 	Name: function_ba0f4046
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xE427273
 	Offset: 0x1900
 	Size: 0x128
@@ -588,7 +588,7 @@ function private function_ba0f4046(entity)
 
 /*
 	Name: function_f7c7a416
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xB5371596
 	Offset: 0x1A30
 	Size: 0x47C
@@ -672,7 +672,7 @@ function private function_f7c7a416(entity)
 
 /*
 	Name: pick_new_movement_point
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x292208A4
 	Offset: 0x1EB8
 	Size: 0x19E
@@ -711,7 +711,7 @@ function private pick_new_movement_point()
 
 /*
 	Name: function_4e970354
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xCD3A711B
 	Offset: 0x2060
 	Size: 0x7C
@@ -731,7 +731,7 @@ function private function_4e970354(entity)
 
 /*
 	Name: function_87660c12
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x8287C38C
 	Offset: 0x20E8
 	Size: 0xA6
@@ -757,7 +757,7 @@ function private function_87660c12(entity)
 
 /*
 	Name: function_14a8c157
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xB10A34EC
 	Offset: 0x2260
 	Size: 0x2EA
@@ -813,7 +813,7 @@ function function_14a8c157(entity)
 
 /*
 	Name: function_26fcd34f
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0x57534057
 	Offset: 0x2558
 	Size: 0x45C
@@ -869,7 +869,7 @@ function function_26fcd34f(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_e023eac9
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xED8A56C1
 	Offset: 0x29C0
 	Size: 0xD4C
@@ -1007,7 +1007,7 @@ function function_e023eac9(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_643e9ba3
-	Namespace: namespace_598c63f4
+	Namespace: zm_ai_wolf_ally
 	Checksum: 0xF8284498
 	Offset: 0x3718
 	Size: 0xBE

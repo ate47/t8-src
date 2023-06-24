@@ -15,7 +15,7 @@
 #using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\ai\archetype_human.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
@@ -2858,7 +2858,7 @@ function private function_d1c52e08()
 		waittillframeend();
 		if(isdefined(self.enemy) && isplayer(self.enemy) && self cansee(self.enemy))
 		{
-			self.holdfire = !self namespace_14c38db0::function_1c169b3a(self.enemy);
+			self.holdfire = !self targetting_delay::function_1c169b3a(self.enemy);
 		}
 		else
 		{
@@ -2896,7 +2896,7 @@ function function_48d57bc8()
 		}
 		clientfield::set("swat_light_strobe", 1);
 		self.var_ab84134 = function_60d95f53() / 1000;
-		self thread namespace_14c38db0::function_7e1a12ce();
+		self thread targetting_delay::function_7e1a12ce();
 		self thread function_d1c52e08();
 		self thread function_ace0a9bc();
 		self thread function_416a0a80(self.script_owner);

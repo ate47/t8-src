@@ -38,6 +38,7 @@
 #using scripts\mp_common\gametypes\ct_vo.gsc;
 #using scripts\mp_common\gametypes\ct_utils.csc;
 #using scripts\mp_common\gametypes\ct_torque.gsc;
+#using scripts\mp_common\gametypes\ct_seraph_tutorial.gsc;
 #using scripts\mp_common\gametypes\ct_seraph.gsc;
 #using scripts\mp_common\gametypes\ct_seraph.csc;
 #using scripts\mp_common\gametypes\ct_ruin_tutorial.csc;
@@ -47,7 +48,10 @@
 #using scripts\mp_common\gametypes\ct_nomad.gsc;
 #using scripts\mp_common\gametypes\ct_nomad.csc;
 #using scripts\mp_common\gametypes\ct_gadgets.gsc;
+#using scripts\mp_common\gametypes\ct_firebreak_tutorial.gsc;
 #using scripts\mp_common\gametypes\ct_difficulty.gsc;
+#using scripts\mp_common\gametypes\ct_crash_tutorial.gsc;
+#using scripts\mp_common\gametypes\ct_crash_tutorial.csc;
 #using scripts\mp_common\gametypes\ct_core.csc;
 #using scripts\mp_common\gametypes\ct_battery.csc;
 #using scripts\mp_common\gametypes\ct_ajax.gsc;
@@ -57,6 +61,8 @@
 #using scripts\mp_common\gametypes\control.gsc;
 #using scripts\mp_common\gametypes\control.csc;
 #using scripts\mp_common\gametypes\conf.gsc;
+#using scripts\mp_common\gametypes\classicmode.gsc;
+#using scripts\mp_common\gametypes\classicmode.csc;
 #using scripts\mp_common\gametypes\bounty.gsc;
 #using scripts\mp_common\gametypes\bounty.csc;
 #using scripts\mp_common\dynamic_loadout.csc;
@@ -80,6 +86,9 @@
 #using scripts\killstreaks\mp\ai_tank.csc;
 #using scripts\killstreaks\mp\ac130.gsc;
 #using scripts\killstreaks\mp\ac130.csc;
+#using scripts\core_common\ai\robot_phalanx.gsc;
+#using scripts\core_common\ai\archetype_robot.gsc;
+#using scripts\core_common\ai\archetype_robot.csc;
 #using scripts\core\core_frontend.gsc;
 #using scripts\core\core_frontend.csc;
 #using scripts\abilities\mp\gadgets\gadget_vision_pulse.gsc;
@@ -94,11 +103,9 @@
 #using script_7fbe83932fecabc5;
 #using script_7c91731bcca649f9;
 #using script_7c4b080c0766fedc;
-#using scripts\core_common\ai\archetype_robot.gsc;
 #using script_70d43928bc32cdad;
 #using script_709365db819af2c2;
 #using script_702b73ee97d18efe;
-#using scripts\mp_common\gametypes\ct_crash_tutorial.gsc;
 #using script_6d8831640a918235;
 #using script_6d83a991329d10c1;
 #using script_6d7c7d238494d395;
@@ -106,7 +113,6 @@
 #using script_67b81035ebe2a4fe;
 #using script_677f3ac857d46f22;
 #using script_668aba6ee6d1fb9a;
-#using script_650e6e555841428a;
 #using script_640ee26e1d271011;
 #using script_6385c57b560a995b;
 #using script_5fece3526d2da5d4;
@@ -120,10 +126,6 @@
 #using script_5978de81803f618a;
 #using script_59157d6c8f781088;
 #using script_584aa5c163fc30cf;
-#using scripts\core_common\ai\archetype_robot.csc;
-#using scripts\mp_common\gametypes\ct_firebreak_tutorial.gsc;
-#using scripts\mp_common\gametypes\ct_seraph_tutorial.gsc;
-#using script_532e3973d4301bd3;
 #using script_521a49867d9871b5;
 #using script_50b169791779fa9d;
 #using script_504e8d28aa61a621;
@@ -133,11 +135,9 @@
 #using script_4ca7b9db6ce6a236;
 #using script_4c8dba49908aecc2;
 #using script_4c89d1237266da29;
-#using scripts\mp_common\gametypes\ct_crash_tutorial.csc;
 #using script_480b4ef11b7c73ec;
 #using script_473e9ef285385a00;
 #using script_446da318d52124e0;
-#using script_441bc2554613491e;
 #using script_43928ec8431e6b96;
 #using script_4293197b43dc9fef;
 #using script_3e8feb7abcba788e;

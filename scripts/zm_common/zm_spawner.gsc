@@ -1350,7 +1350,7 @@ function zombie_death_points(origin, mod, hit_location, attacker, inflictor, zom
 	str_event = "death";
 	if(isdefined(player))
 	{
-		if(inflictor.var_9fde8624 === #"hash_44aa977896e18e7f")
+		if(inflictor.var_9fde8624 === #"zombie_wolf_ally")
 		{
 			zombie.var_12745932 = 1;
 		}

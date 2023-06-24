@@ -3,7 +3,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\ultimate_turret_shared.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -141,7 +141,7 @@ function function_6c288c45(spawnorigin, spawnangles)
 	turretvehicle turret::set_target_leading(0);
 	turretvehicle thread turret_laser_watch();
 	turretvehicle thread setup_death_watch_for_new_targets();
-	turretvehicle thread namespace_14c38db0::function_7e1a12ce(bundle.var_2aeadfa0);
+	turretvehicle thread targetting_delay::function_7e1a12ce(bundle.var_2aeadfa0);
 	callback::callback(#"hash_6d9bdacc6c29cfa5", {#owner:self, #turret:turretvehicle});
 }
 
@@ -241,7 +241,7 @@ function onturretdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, 
 			turretvehicle.favoriteenemy = einflictor;
 			turretvehicle.var_c8072bcc = gettime();
 			turretvehicle.var_7eb3ebd5[einflictor getentitynumber()] = #"damage";
-			turretvehicle namespace_14c38db0::function_a4d6d6d8(einflictor);
+			turretvehicle targetting_delay::function_a4d6d6d8(einflictor);
 		}
 	}
 	else if(isalive(eattacker) && issentient(eattacker) && (!(isplayer(eattacker) && eattacker isremotecontrolling())) && is_valid_target(eattacker, turretvehicle.team))
@@ -249,7 +249,7 @@ function onturretdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, 
 		turretvehicle.favoriteenemy = eattacker;
 		turretvehicle.var_c8072bcc = gettime();
 		turretvehicle.var_7eb3ebd5[eattacker getentitynumber()] = #"damage";
-		turretvehicle namespace_14c38db0::function_a4d6d6d8(eattacker);
+		turretvehicle targetting_delay::function_a4d6d6d8(eattacker);
 	}
 	return idamage;
 }
@@ -420,7 +420,7 @@ function function_fefefcc4()
 						{
 							continue;
 						}
-						if(turretvehicle namespace_14c38db0::function_1c169b3a(nearby_enemy) == 0)
+						if(turretvehicle targetting_delay::function_1c169b3a(nearby_enemy) == 0)
 						{
 							continue;
 						}
@@ -605,7 +605,7 @@ function turretscanning()
 				wait(0.1);
 				continue;
 			}
-			if(!isdefined(turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()]) && turretvehicle namespace_14c38db0::function_1c169b3a(turretvehicle.enemy))
+			if(!isdefined(turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()]) && turretvehicle targetting_delay::function_1c169b3a(turretvehicle.enemy))
 			{
 				turretvehicle.var_c8072bcc = gettime();
 				turretvehicle.var_7eb3ebd5[turretvehicle.enemy getentitynumber()] = #"forwardscan";

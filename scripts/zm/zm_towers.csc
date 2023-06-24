@@ -123,7 +123,7 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_4e5e2b411c997804", 1, 1, "int", &function_98d53b6b, 0, 0);
 	clientfield::register("toplayer", "" + #"maelstrom_initiate", 1, 1, "counter", &maelstrom_initiate, 0, 0);
 	clientfield::register("world", "" + #"maelstrom_initiate_fx", 1, 1, "int", &maelstrom_initiate_fx, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_4e7b1766cc26a866", 1, 1, "int", &function_9d72720a, 0, 0);
+	clientfield::register("scriptmover", "" + #"maelstrom_conduct", 1, 1, "int", &maelstrom_conduct, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_1814d4cc1867739c", 1, 1, "int", &function_e21e7dbe, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_314d3a2e542805c0", 1, 1, "int", &function_4a9243dc, 0, 0);
 	clientfield::register("scriptmover", "" + #"maelstrom_discharge", 1, 1, "counter", &maelstrom_discharge, 0, 0);
@@ -201,7 +201,7 @@ event main(eventstruct)
 	level._effect[#"hash_416143285a01f73d"] = #"hash_28479dabebe445ee";
 	level._effect[#"hash_df4673638509cab"] = #"hash_2543453edaf343d4";
 	level._effect[#"hash_df475363850b475"] = #"hash_259b253edb3d834a";
-	level._effect[#"hash_4e7b1766cc26a866"] = #"zm_ai/fx8_elec_bolt";
+	level._effect[#"maelstrom_conduct"] = #"zm_ai/fx8_elec_bolt";
 	level._effect[#"hash_1814d4cc1867739c"] = #"hash_13f09e4051884309";
 	level._effect[#"hash_314d3a2e542805c0"] = #"zombie/fx_powerup_on_red_zmb";
 	level._effect[#"maelstrom_death"] = #"hash_6a5c671e82cb5243";
@@ -2807,7 +2807,7 @@ function maelstrom_initiate_fx(localclientnum, oldval, newval, bnewent, binitial
 }
 
 /*
-	Name: function_9d72720a
+	Name: maelstrom_conduct
 	Namespace: zm_towers
 	Checksum: 0x953B1181
 	Offset: 0xBC88
@@ -2815,11 +2815,11 @@ function maelstrom_initiate_fx(localclientnum, oldval, newval, bnewent, binitial
 	Parameters: 7
 	Flags: Linked
 */
-function function_9d72720a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function maelstrom_conduct(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(newval)
 	{
-		self.var_7ef98b90 = util::playfxontag(localclientnum, level._effect[#"hash_4e7b1766cc26a866"], self, "tag_origin");
+		self.var_7ef98b90 = util::playfxontag(localclientnum, level._effect[#"maelstrom_conduct"], self, "tag_origin");
 		self playsound(localclientnum, #"hash_68123d3c746fe40c");
 	}
 	else if(isdefined(self.var_7ef98b90))

@@ -873,7 +873,7 @@ function function_89db94b3(e_attacker, n_damage, e_inflictor)
 	}
 	if(n_points)
 	{
-		if(isdefined(e_inflictor) && e_inflictor.var_9fde8624 === #"hash_44aa977896e18e7f")
+		if(isdefined(e_inflictor) && e_inflictor.var_9fde8624 === #"zombie_wolf_ally")
 		{
 			e_attacker player_add_points("damage_points", 70, undefined, undefined, undefined, undefined, undefined, self.var_12745932);
 			self.var_f256a4d9 = self.var_f256a4d9 - n_points;

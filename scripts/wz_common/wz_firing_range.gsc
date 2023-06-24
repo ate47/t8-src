@@ -2,11 +2,11 @@
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_72c1550b;
+#namespace wz_firing_range;
 
 /*
 	Name: function_ea0556fc
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0xB8F48EBE
 	Offset: 0x88
 	Size: 0xB8
@@ -27,7 +27,7 @@ function function_ea0556fc(targetname)
 
 /*
 	Name: init_target
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0x134EA81B
 	Offset: 0x148
 	Size: 0x162
@@ -66,7 +66,7 @@ function private init_target()
 
 /*
 	Name: function_5bab934a
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0xBC9B85E1
 	Offset: 0x2B8
 	Size: 0x84
@@ -86,7 +86,7 @@ function private function_5bab934a(struct, var_d1d733b4)
 
 /*
 	Name: follow_path
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0x3A533AA
 	Offset: 0x348
 	Size: 0x166
@@ -116,7 +116,7 @@ function private follow_path()
 
 /*
 	Name: function_209450ae
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0xAC4A61C7
 	Offset: 0x4B8
 	Size: 0x1E6

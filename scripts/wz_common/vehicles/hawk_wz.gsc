@@ -473,7 +473,7 @@ function function_1e7eecd7(vehicle, var_44e9a475)
 			self playsoundtoplayer("gdt_hawk_pov_out", self);
 			if(!(isdefined(vehicle.being_destroyed) && vehicle.being_destroyed))
 			{
-				vehicle notify(#"hash_47147249212b6a46");
+				vehicle notify(#"hawk_settled");
 			}
 			return;
 		}
@@ -603,7 +603,7 @@ function watch_team_change(hawk)
 	{
 		return;
 	}
-	hawk notify(#"hash_47147249212b6a46");
+	hawk notify(#"hawk_settled");
 }
 
 /*

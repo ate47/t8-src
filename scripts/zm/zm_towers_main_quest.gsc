@@ -3525,10 +3525,10 @@ function function_29a062fa(v_origin, mdl_spike)
 	params = level.var_7fe61e7a;
 	v_destination = mdl_spike.var_9d236056;
 	mdl_fx = util::spawn_model("tag_origin", v_origin);
-	mdl_fx clientfield::set("" + #"hash_4e7b1766cc26a866", 1);
+	mdl_fx clientfield::set("" + #"maelstrom_conduct", 1);
 	mdl_fx moveto(v_destination, params.arc_travel_time);
 	mdl_fx waittill(#"movedone");
-	mdl_fx clientfield::set("" + #"hash_4e7b1766cc26a866", 0);
+	mdl_fx clientfield::set("" + #"maelstrom_conduct", 0);
 	mdl_fx delete();
 }
 
@@ -4538,7 +4538,7 @@ function function_2bcefa9c()
 	for(i = 0; i < 3; i++)
 	{
 		mdl_fx = util::spawn_model("tag_origin", v_start);
-		mdl_fx clientfield::set("" + #"hash_4e7b1766cc26a866", 1);
+		mdl_fx clientfield::set("" + #"maelstrom_conduct", 1);
 		mdl_fx moveto(v_end, n_travel_time);
 		if(!isdefined(var_c2a873f6))
 		{
@@ -4579,7 +4579,7 @@ function function_2bcefa9c()
 	var_c2a873f6[0] waittilltimeout(n_travel_time, #"movedone");
 	foreach(mdl_fx in var_c2a873f6)
 	{
-		mdl_fx clientfield::set("" + #"hash_4e7b1766cc26a866", 0);
+		mdl_fx clientfield::set("" + #"maelstrom_conduct", 0);
 		mdl_fx delete();
 	}
 }

@@ -72,7 +72,7 @@ function private __init__()
 	{
 		if(isdefined(getgametypesetting(#"hash_42471cb0cbc19544")) && getgametypesetting(#"hash_42471cb0cbc19544"))
 		{
-			level.zombie_itemlist = #"hash_3a93829b52b54c36";
+			level.zombie_itemlist = #"zombie_itemlist_ammo";
 		}
 		else
 		{

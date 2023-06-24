@@ -62,7 +62,7 @@ function __init__()
 	clientfield::register("allplayers", "" + #"skull_turret_beam_fire", 1, 2, "int");
 	clientfield::register("allplayers", "" + #"hash_6635e6da6fcfe594", 1, 2, "int");
 	clientfield::register("toplayer", "" + #"hash_2964d1cb7c4bd175", 1, 1, "counter");
-	clientfield::register("allplayers", "" + #"hash_412d8d5f8625ca52", 1, 1, "int");
+	clientfield::register("allplayers", "" + #"zombie_scepter_revive", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"scepter_rumble", 1, 3, "counter");
 	level.hero_weapon[#"scepter"][0] = getweapon(#"hero_scepter_lv1");
 	level.hero_weapon[#"scepter"][1] = getweapon(#"hero_scepter_lv2");
@@ -866,11 +866,11 @@ function function_f47257d7(s_params)
 		e_revivee.var_4fc8bf2a = undefined;
 		wait(0.2);
 		e_revivee.var_fbc66a96 = undefined;
-		if(e_revivee clientfield::get("" + #"hash_412d8d5f8625ca52"))
+		if(e_revivee clientfield::get("" + #"zombie_scepter_revive"))
 		{
 			if(isdefined(e_revivee))
 			{
-				e_revivee clientfield::set("" + #"hash_412d8d5f8625ca52", 0);
+				e_revivee clientfield::set("" + #"zombie_scepter_revive", 0);
 			}
 		}
 	}
@@ -1022,7 +1022,7 @@ function function_fa095da6(e_reviver)
 		self.var_84280a99 = e_reviver;
 		self.var_4fc8bf2a = 1;
 		self.var_fbc66a96 = 1;
-		self clientfield::set("" + #"hash_412d8d5f8625ca52", 1);
+		self clientfield::set("" + #"zombie_scepter_revive", 1);
 	}
 }
 
@@ -1817,7 +1817,7 @@ function function_cd010531(e_reviver, var_84280a99)
 	{
 		return 1;
 	}
-	if(self clientfield::get("" + #"hash_412d8d5f8625ca52"))
+	if(self clientfield::get("" + #"zombie_scepter_revive"))
 	{
 		return 1;
 	}

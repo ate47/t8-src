@@ -305,18 +305,18 @@ function catwalk_arm_scene_init()
 */
 function function_817220a9(a_ents)
 {
-	a_ents[#"hash_5c7ef403f151a585"] setcandamage(1);
-	a_ents[#"hash_5c7ef403f151a585"].health = 10000;
+	a_ents[#"arm_grasp"] setcandamage(1);
+	a_ents[#"arm_grasp"].health = 10000;
 	var_44ec6b44 = getent(self.target, "targetname");
-	a_ents[#"hash_5c7ef403f151a585"].var_ead5d884 = 1;
+	a_ents[#"arm_grasp"].var_ead5d884 = 1;
 	if(!zm_utility::is_standard())
 	{
-		var_44ec6b44 thread function_1abf5396(a_ents[#"hash_5c7ef403f151a585"]);
+		var_44ec6b44 thread function_1abf5396(a_ents[#"arm_grasp"]);
 	}
 	while(true)
 	{
 		s_result = undefined;
-		s_result = a_ents[#"hash_5c7ef403f151a585"] waittill(#"damage");
+		s_result = a_ents[#"arm_grasp"] waittill(#"damage");
 		if(isplayer(s_result.attacker) && isalive(s_result.attacker))
 		{
 			if(isdefined(s_result.attacker.var_7e008e0c) && s_result.attacker.var_7e008e0c > 0)
@@ -330,7 +330,7 @@ function function_817220a9(a_ents)
 			s_result.attacker zm_score::add_to_player_score(n_points);
 		}
 		self thread scene::play("Shot 1");
-		a_ents[#"hash_5c7ef403f151a585"].var_ead5d884 = 0;
+		a_ents[#"arm_grasp"].var_ead5d884 = 0;
 		var_44ec6b44 notify(#"hash_4a3551167bd870c2");
 		break;
 	}

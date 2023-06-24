@@ -5,7 +5,7 @@
 #using scripts\mp_common\player\player_killed.gsc;
 #using scripts\core_common\bots\bot_traversals.gsc;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
-#using script_43956600fe6c6be1;
+#using scripts\mp_common\gametypes\globallogic_scriptmover.gsc;
 #using scripts\mp_common\player\player_connect.gsc;
 #using scripts\mp_common\player\player_disconnect.gsc;
 #using scripts\weapons\deployable.gsc;
@@ -104,7 +104,7 @@ function set_default_callbacks()
 	level.callbackactordamage = &globallogic_actor::callback_actordamage;
 	level.callbackactorkilled = &globallogic_actor::callback_actorkilled;
 	level.callbackactorcloned = &globallogic_actor::callback_actorcloned;
-	level.var_6788bf11 = &namespace_e42b3e24::function_8c7ec52f;
+	level.var_6788bf11 = &globallogic_scriptmover::function_8c7ec52f;
 	level.callbackvehiclespawned = &globallogic_vehicle::callback_vehiclespawned;
 	level.callbackvehicledamage = &globallogic_vehicle::callback_vehicledamage;
 	level.callbackvehiclekilled = &globallogic_vehicle::callback_vehiclekilled;

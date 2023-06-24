@@ -765,6 +765,7 @@ var_92ee6d8f,e_red
 var_92e86779,spectatorteam
 var_92d8ea2e,a_s_code
 var_92bbb1fd,secondaryreticle
+var_9290cd7c,evolution_interval
 var_923d12da,t_power
 var_920c5fbb,w_perk
 var_9204e482,w_wonder
@@ -865,6 +866,7 @@ var_84c4b3e6,strobed
 var_84963f35,w_ray_gun_mk2
 var_84792f3e,rightweapon
 var_84704ed7,attachmentitem
+var_8469be27,ai_wolf
 var_845efb9f,weakpointpos
 var_844f9de6,allow_alt
 var_84200bb4,ai_ghost
@@ -1840,10 +1842,12 @@ script_762c97e89cc1f6ae,scripts/zm_common/bgbs/zm_bgb_shields_up.gsc
 script_760946ab27d685b4,scripts/zm/zm_mansion_jordans.gsc
 script_75ce7fc4212a82af,scripts/core_common/ai/archetype_human.gsc
 script_75be2950b381443,scripts/core_common/platoons.gsc
+script_756c6b0e0e5bb886,scripts/wz_common/wz_firing_range.csc
 script_7567e234a3e0abb4,scripts/mp_common/gametypes/ct_battery.csc
 script_753664c125baf473,scripts/wz_common/character_unlock_ix_scarlett_fixup.csc
 script_7532c0fda252cfc1,scripts/weapons/mp/proximity_grenade.csc
 script_752617902eadf2e3,scripts/weapons/spike_charge_siegebot.csc
+script_751513c609504a42,scripts/core_common/targetting_delay.gsc
 script_7510e6cc8220a052,scripts/core_common/bots/bot_animation.gsc
 script_74f5ae6ffc8bd614,scripts/zm_common/zm_audio_sq.csc
 script_74dcfa80e284e9fc,scripts/weapons/riotshield.gsc
@@ -2038,6 +2042,7 @@ script_6534f40ab3b29dfd,scripts/zm/zm_escape_pebble.csc
 script_6530f4e0155b9888,scripts/wz_common/vehicles/hawk_wz.csc
 script_65206f3a5652e056,scripts/zm/perk/zm_perk_death_dash.csc
 script_6515201b6fa1ce23,scripts/killstreaks/dog_shared.gsc
+script_650e6e555841428a,scripts/mp_common/gametypes/classicmode.csc
 script_65086f6606f4824a,scripts/killstreaks/ai/dog.csc
 script_64fb3f43e2d83b19,scripts/mp/mp_cairo.gsc
 script_64f700698e8805fc,scripts/zm/ai/zm_ai_werewolf_interface.gsc
@@ -2160,6 +2165,7 @@ script_59c6bfe164142356,scripts/weapons/smokegrenade.gsc
 script_59abbd3afb4260b8,scripts/zm_common/talisman/zm_talisman_special_xp_rate.gsc
 script_59849e2f0ece00c0,scripts/zm/weapons/zm_weap_ray_gun.csc
 script_597ea8217ee0bcf9,scripts/core_common/status_effects/status_effect_blind.csc
+script_5971282fa1e50330,scripts/core_common/flowgraph/flowgraph_core.gsc
 script_595302e1b4481312,scripts/wz_common/vehicles/recon_wz.gsc
 script_5952de6cb4902e97,scripts/wz_common/character_unlock_scarlett_fixup.csc
 script_59408f14f772675a,scripts/abilities/gadgets/gadget_hero_weapon.gsc
@@ -2234,6 +2240,7 @@ script_53b37ee2382572eb,scripts/core_common/ai/region_utility.gsc
 script_5399f402045d7abd,scripts/weapons/weapon_utils.gsc
 script_536485e2fdf72e34,scripts/zm_common/trials/zm_trial_acquire_perks.gsc
 script_5346195733ec825,scripts/mp_common/ai/planner_mp_control_commander.gsc
+script_532e3973d4301bd3,scripts/core_common/ai/robot_phalanx.gsc
 script_532c00a956dd2cd4,scripts/wz_common/character_unlock_recon_fixup.gsc
 script_5308229e5eff848c,scripts/wz_common/gametypes/warzone_fixup.gsc
 script_52f584056ffc5d28,scripts/zm/weapons/zm_weap_sword_pistol.csc
@@ -2407,11 +2414,13 @@ script_44567d2960922c47,scripts/wz_common/character_unlock_richtofen_fixup.csc
 script_445395629d822a9,scripts/zm/zm_orange_trial_lighthouse_beam.gsc
 script_442a4e554bcd7c3b,scripts/zm/zm_orange_mq_blood.csc
 script_44257f94fbb49121,scripts/mp_common/item_inventory.csc
+script_441bc2554613491e,scripts/mp_common/gametypes/classicmode.gsc
 script_440e02ac831aad64,scripts/mp_common/gametypes/svz.csc
 script_43e752475599d64c,scripts/zm/powerup/zm_powerup_hero_weapon_power.gsc
 script_43d4b638fd908b44,scripts/core_common/flowgraph/flowgraph_spawn.gsc
 script_43cf0005237c9838,scripts/zm_common/bgbs/zm_bgb_refresh_mint.csc
 script_43ae0ea48690a36f,scripts/wz_common/character_unlock_diego_fixup.csc
+script_43956600fe6c6be1,scripts/mp_common/gametypes/globallogic_scriptmover.gsc
 script_43808e214c232a5c,scripts/zm/weapons/zm_weap_chakram.csc
 script_43787b357a978d13,scripts/zm/powerup/zm_powerup_insta_kill.gsc
 script_435c51ae43d7d9c7,scripts/zm/zm_orange_zstandard.gsc
@@ -2459,6 +2468,7 @@ script_3eb41f1152506dc6,scripts/zm/zm_white_mee.csc
 script_3e8c1d1a6e50b75b,scripts/zm/ai/zm_ai_stoker.gsc
 script_3e87d9314f0597ef,scripts/zm_common/zm_vapor_random.csc
 script_3e77545072bcbd08,scripts/zm/weapons/zm_weap_hand_ouranos.gsc
+script_3e2d49a0925ef716,scripts/zm/ai/zm_ai_wolf_ally.gsc
 script_3e0559d29de23b1e,scripts/wz_common/character_unlock_battery_fixup.gsc
 script_3de2c97248c90849,scripts/zm/powerup/zm_powerup_shield_charge.gsc
 script_3dae322e94d5b4e0,scripts/mp_common/gametypes/ct_ai_zombie.csc
@@ -2788,6 +2798,7 @@ script_20fd7f934ca00a83,scripts/wz_common/character_unlock_ix_bruno_fixup.csc
 script_20f0345a320cc189,scripts/zm_common/aats/zm_aat_plasmatic_burst.gsc
 script_20e5a8ab48193dcb,scripts/zm/weapons/zm_weap_snowball.gsc
 script_20d7669868834bae,scripts/core_common/ai/archetype_stoker.gsc
+script_20ac552ee498eb9d,scripts/zm_common/gametypes/globallogic_scriptmover.gsc
 script_2085e6c323075d03,scripts/zm/weapons/zm_weap_sticky_grenade.csc
 script_20790635d34d58be,scripts/killstreaks/mp/helicopter.gsc
 script_206ec365324e16da,scripts/wz_common/character_unlock_scarlett.gsc
@@ -2906,6 +2917,7 @@ script_1650e0411c055aa7,scripts/abilities/gadgets/gadget_concertina_wire.gsc
 script_1616ed3143b1793e,scripts/mp/mp_hacienda_alt.csc
 script_1615105f580458d3,scripts/zm/weapons/zm_weap_tomahawk.gsc
 script_1611421ee9b880d3,scripts/zm_common/zm_wallbuy.csc
+script_15f2170e202ce012,scripts/wz_common/wz_firing_range.gsc
 script_15ed4e34b5b16680,scripts/mp_common/gametypes/ct_battery.gsc
 script_15cf879d751a553f,scripts/mp/mp_offshore.gsc
 script_15c45f6ceed8c664,scripts/zm_common/talisman/zm_talisman_extra_molotov.gsc
@@ -3037,6 +3049,7 @@ namespace_e5d48e46,cscavenger_icon
 namespace_e4df2f52,zm_trial_no_powerups
 namespace_e4918a50,wz_escape
 namespace_e437d293,cprototype_defend_timer
+namespace_e42b3e24,globallogic_scriptmover
 namespace_e3447716,zm_trial_survive
 namespace_e313550c,zm_white_sound
 namespace_e2ddd1d6,wz_supply_stash
@@ -3328,6 +3341,7 @@ namespace_73e1c3e3,ct_utils
 namespace_73e11da2,character_unlock_stanton_fixup
 namespace_738ed435,zm_weap_tricannon
 namespace_738d4870,ct_ui
+namespace_72c1550b,wz_firing_range
 namespace_7279878a,zm_trial_white_nukerun
 namespace_72344d49,character_unlock_dempsey_fixup
 namespace_71c799ba,cct_shared_ingame_objective
@@ -3389,6 +3403,7 @@ namespace_5c160465,zm_white_special_rounds
 namespace_5bcf4508,zm_weap_spknifeork
 namespace_5b53bc56,zm_white_lighting
 namespace_59ff1d6c,zm_custom
+namespace_598c63f4,zm_ai_wolf_ally
 namespace_594230df,ct_recon_tutorial
 namespace_58d68fd0,ct_battery_tutorial
 namespace_5869722f,zm_trial_force_archetypes
@@ -3552,6 +3567,7 @@ namespace_16541c1c,blightfatherinterface
 namespace_16057557,plannermpkothcommander
 namespace_159b5b5b,zm_red_util
 namespace_154e6230,ct_firebreak_tutorial
+namespace_14c38db0,targetting_delay
 namespace_14c378fe,wz_spectre
 namespace_1444e236,character_unlock_mason_fixup
 namespace_14224618,cfull_screen_black
@@ -3695,6 +3711,7 @@ hash_bc7bcc75f63dc7b,conf_dogtags
 hash_bc364c8d078a4b9,attacker_index
 hash_bbe8adfda44e21c,wzenablefastmag
 hash_bbe0d2619357e0a,hc_games_played
+hash_badd57d27fc7652,ai_composition
 hash_badd57d27fc7652,ai_composition
 hash_b8caa10d3844e9a,instakill_off
 hash_b8ac6bada03e328,shoot_roots_completed
@@ -4198,6 +4215,7 @@ hash_71f1a84d7208bd57,wzenablealistairsfolly
 hash_71eb2efdbdffb45a,ekia_minimap_awareness_tracker
 hash_71e9be4174b5740e,contractgamemode
 hash_71db431c3e2ea07d,keyline_me
+hash_71cd66f517d8bc47,zm_ai_wolf_ally
 hash_71c8e53319a84a5e,soapstone_cold
 hash_7199d465a80b4f59,zombshell_aoe
 hash_7199c0c1e12de89a,shields_built
@@ -4529,6 +4547,7 @@ hash_66fb6e37bb9527da,impaler_step_5
 hash_66fb6a37bb95210e,impaler_step_1
 hash_66fb6937bb951f5b,impaler_step_2
 hash_66fb6837bb951da8,impaler_step_3
+hash_66f790c2630deace,zombie_stash_graveyard_quest
 hash_66e8377fa1876239,kill_after_shot_in_back
 hash_66e6fbe3cc2aff65,specialty_mystery
 hash_66dce2e3aa29ab2e,roundstartfriendlyfiretype
@@ -4696,6 +4715,7 @@ hash_61d9ba9310d827ea,blue_ray
 hash_61d61f092d2739eb,rush_points
 hash_61d578a98d57a51e,wz_dynents
 hash_61ab63365479456b,wzzombieshouldmeleeattackable
+hash_61a8ff6c7866b2d4,ships_engineer
 hash_61a4f87f1c6225d0,wzzombieshouldmove
 hash_61a4cd8ae6b0d4c7,voice_events
 hash_6196f68daba14ab0,zombie_hunter_brain_decay
@@ -4847,6 +4867,7 @@ hash_5caf5318fed765da,fl1
 hash_5cadbeaa35cf0a4b,stock_wz_item
 hash_5cac930f08cac52b,p8_wz_door_01_frame_wooden
 hash_5c9caf0397b30f1e,hero_weapon_armor
+hash_5c7ef403f151a585,arm_grasp
 hash_5c754451cae73035,ley_reset
 hash_5c6b0ba6c540d07d,zm_perk_mod_stronghold
 hash_5c658b9685a8e220,p8_zm_esc_rock_small_blue
@@ -5303,6 +5324,7 @@ hash_4eba302dfad99d61,acid_bomb
 hash_4ea975785ad6baf9,wz_test_mode
 hash_4ea793630d0a487c,hide_chests
 hash_4e96ed69230e28a2,ar_modular_t8_item
+hash_4e7b1766cc26a866,maelstrom_conduct
 hash_4e794284db75a3f5,sentinel_aura
 hash_4e5c10f358ec1319,ekia_hipfire_moving_steadyaim2_burstaccelerator_wildfire_firingunit
 hash_4e52eaf46d61c98f,main_ee
@@ -5537,6 +5559,7 @@ hash_4730cb5d57cb0f20,connection_lost
 hash_472f084dd231c176,reinsel_house
 hash_4725bfd390369cc6,saturn_glow
 hash_4723e346254cb334,specialty_mod_wolf_protector
+hash_47147249212b6a46,hawk_settled
 hash_4713a53b947f1e25,fx8_stoker_dest_weak_point_exp_generic
 hash_47128b68c7cfdeb8,shield_gegenees
 hash_470ffa9697b6bf4d,p8_fxanim_zm_red_ww_shell_rubble_mod
@@ -5607,6 +5630,7 @@ hash_44c6201436ba267e,zombie_gegenees_util
 hash_44c24161e9b3945c,ekia_debuffed_enemies_specialized_weapon_equipment
 hash_44b6188b744c7daf,marker_ready
 hash_44b4edd3d705820d,component_pickup
+hash_44aa977896e18e7f,zombie_wolf_ally
 hash_44a4a0cd8c49d1ab,timeout_away
 hash_448dd62e83fdf39e,kills_frag_grenade
 hash_448716023024b395,zmelixirconflagrationliquidation
@@ -5705,6 +5729,7 @@ hash_4150230c4105dc11,gamedata/weapons/cp/cp_gunlevels.csv
 hash_4149860c20496820,highcost
 hash_413cdfff74818010,player_mp
 hash_413cdf3a155d7eb5,billiards_room
+hash_412d8d5f8625ca52,zombie_scepter_revive
 hash_412846638d8a5d6d,p8_fxanim_zm_perk_vending_soda_mod
 hash_411235ee3f5d491c,contracts_shared
 hash_410b4c975bc3f66f,tripwire_placement
@@ -5771,6 +5796,7 @@ hash_3ef0b277331a6967,wzenableempgrenade
 hash_3eeb31180b204955,mee_galvaknuckle
 hash_3ee97a6ab720cc15,zmelixirinplainsight
 hash_3ee8b4a6073f7825,unlockedtags
+hash_3ee4fa74a546cbcd,board_everything
 hash_3ed99d3b2e3e929f,amb_rushmore
 hash_3ed6c4b17c019144,player3_minhealth
 hash_3ec2a334a55d8215,pack_a_punch_pickedup
@@ -5907,6 +5933,7 @@ hash_3aa426e2698f6962,keyline_always
 hash_3aa06a6c00e61474,kills_special_weapons
 hash_3a9e56ae10cf58c9,zmelixirequipmint
 hash_3a97fe5c4d642a3b,fx8_destroyer_axe_trail
+hash_3a93829b52b54c36,zombie_itemlist_ammo
 hash_3a92adec8c38ead3,wzenableblundergat
 hash_3a90323ee061faef,total_update
 hash_3a8caf1d07ba0251,shoutcaster_flag
@@ -6029,6 +6056,7 @@ hash_36afc85dcef683d2,hero_katana_expired
 hash_36a6454f13b54f18,gun_ultimate_turret
 hash_36a4d25bb12449c0,ekia_concussed_enemy
 hash_36978e3a9321b430,lmg_standard_t8_item
+hash_368f9b5b4992b8da,evolution_interval
 hash_36698e3567c4b204,menendez_unlock
 hash_366807a48fc105bb,preamble_started
 hash_3665254f9bca8d1e,modifier_given
@@ -6195,6 +6223,7 @@ hash_30c9f7c5634dd1dc,fx8_aat_opposite_exp
 hash_30bc7882ac1af823,component_lost
 hash_30b1d3352d2c1900,mantis_deployed
 hash_3095132b48d216f5,portal_cooldown
+hash_308758c2f91807aa,zombie_stash_graveyard_ee
 hash_308049a67e5afecf,eq_molotov_extra
 hash_306a7f142403b7c6,jump_scare
 hash_30656ca97fa97a81,fx8_cata_plasma_blast
@@ -7014,6 +7043,9 @@ hash_16044c4b951b7bdd,sniper_powerbolt_t8_upgraded
 hash_1602170960924fc2,wood_completed
 hash_15f30a19a23c0190,lmg_spray_t8_item
 hash_15cefca07f84f894,smg_accurate_t8_item
+hash_15cc62cdb33796d,ships_engineer_step_3
+hash_15cc52cdb3377ba,ships_engineer_step_2
+hash_15cc42cdb337607,ships_engineer_step_1
 hash_15c9785b530a6563,cleanuphide
 hash_15c2f8dd431370f9,lmg_kills
 hash_15bbfece95507937,catalysts
@@ -7449,6 +7481,7 @@ function_a01a8a21,healingdone
 function_9f3a66e0,_play_banter
 function_9e7b3f4d,on_end
 function_9d7ae85f,createwatcher
+function_9d72720a,maelstrom_conduct
 function_9d6e1370,start_vehicle
 function_9cd54463,set_startAlpha
 function_9caa803,ley_lines

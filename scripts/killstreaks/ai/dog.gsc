@@ -14,7 +14,7 @@
 #using script_59f07c660e6710a5;
 #using scripts\killstreaks\ai\patrol.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using script_caf007e2a98afa2;
 #using scripts\killstreaks\ai\target.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -178,7 +178,7 @@ function private function_ef4b81af()
 	self.ai.var_54b19f55 = 1;
 	self.ai.lookaround = new lookaround();
 	self.ai.var_bd3490ad = new class_bd3490ad();
-	self thread namespace_14c38db0::function_7e1a12ce(4000);
+	self thread targetting_delay::function_7e1a12ce(4000);
 	self thread function_8f876521();
 	self callback::function_d8abfc3d(#"hash_c3f225c9fa3cb25", &function_3fb68a86);
 	aiutility::addaioverridedamagecallback(self, &function_d6d0a32e);
@@ -716,7 +716,7 @@ function can_see_enemy(enemy)
 	{
 		return false;
 	}
-	if(!self namespace_14c38db0::function_1c169b3a(enemy, 0))
+	if(!self targetting_delay::function_1c169b3a(enemy, 0))
 	{
 		return false;
 	}
@@ -965,7 +965,7 @@ function target_enemy(entity)
 	if(!entity ai_target::is_target_valid(entity.favoriteenemy))
 	{
 		entity.favoriteenemy = entity get_favorite_enemy();
-		entity namespace_14c38db0::function_a4d6d6d8(entity.favoriteenemy, 0);
+		entity targetting_delay::function_a4d6d6d8(entity.favoriteenemy, 0);
 	}
 	if(!(isdefined(entity.ai.hasseenfavoriteenemy) && entity.ai.hasseenfavoriteenemy))
 	{

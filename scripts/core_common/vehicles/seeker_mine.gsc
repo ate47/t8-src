@@ -3,7 +3,7 @@
 #using scripts\core_common\player\player_shared.gsc;
 #using scripts\core_common\vehicles\smart_bomb.gsc;
 #using scripts\core_common\globallogic\globallogic_score.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -239,7 +239,7 @@ function function_b23e4b45()
 	vehicle_ai::startinitialstate("seek");
 	self thread function_d00f14e3();
 	self thread function_2651fb42();
-	self thread namespace_14c38db0::function_7e1a12ce();
+	self thread targetting_delay::function_7e1a12ce();
 }
 
 /*
@@ -1140,7 +1140,7 @@ function function_3e3b6ce1()
 			{
 				var_cbf5ba86 = 1;
 			}
-			var_b9733045 = self namespace_14c38db0::function_1c169b3a(target, 0);
+			var_b9733045 = self targetting_delay::function_1c169b3a(target, 0);
 			canseetarget = var_b9733045 && target sightconetrace(self function_d3a9800e(), self, anglestoforward(self.angles), self.settings.var_e7260470);
 			if(isdefined(level.var_6cfbe5a))
 			{
@@ -1176,7 +1176,7 @@ function function_45eb6b84(target)
 {
 	if(isdefined(self.favoriteenemy) && self.favoriteenemy != target)
 	{
-		self namespace_14c38db0::function_a4d6d6d8(target);
+		self targetting_delay::function_a4d6d6d8(target);
 		self notify(#"switch_enemy");
 	}
 	self.favoriteenemy = target;

@@ -165,7 +165,7 @@ event main(eventstruct)
 	clientfield::register("world", "" + #"hash_4e5e2b411c997804", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"maelstrom_initiate", 1, 1, "counter");
 	clientfield::register("world", "" + #"maelstrom_initiate_fx", 1, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_4e7b1766cc26a866", 1, 1, "int");
+	clientfield::register("scriptmover", "" + #"maelstrom_conduct", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_1814d4cc1867739c", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_314d3a2e542805c0", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"maelstrom_discharge", 1, 1, "counter");

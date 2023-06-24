@@ -5,7 +5,7 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -577,7 +577,7 @@ function onplaceturret(turret)
 	turret.vehicle thread vehicle::watch_freeze_on_flash(3);
 	turret.vehicle thread turretscanning();
 	turret.vehicle thread function_fefefcc4();
-	turret.vehicle thread namespace_14c38db0::function_7e1a12ce(bundle.var_2aeadfa0);
+	turret.vehicle thread targetting_delay::function_7e1a12ce(bundle.var_2aeadfa0);
 	player notify(#"ultimate_turret_deployed", {#turret:turret.vehicle});
 }
 
@@ -762,7 +762,7 @@ function onturretdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, 
 				self.favoriteenemy = einflictor;
 				self.var_c8072bcc = gettime();
 				self.var_7eb3ebd5[einflictor getentitynumber()] = #"damage";
-				self namespace_14c38db0::function_a4d6d6d8(einflictor);
+				self targetting_delay::function_a4d6d6d8(einflictor);
 			}
 		}
 		else if(isalive(eattacker) && issentient(eattacker) && (!(isplayer(eattacker) && eattacker isremotecontrolling())) && is_valid_target(eattacker, self.team))
@@ -770,7 +770,7 @@ function onturretdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, 
 			self.favoriteenemy = eattacker;
 			self.var_c8072bcc = gettime();
 			self.var_7eb3ebd5[eattacker getentitynumber()] = #"damage";
-			self namespace_14c38db0::function_a4d6d6d8(eattacker);
+			self targetting_delay::function_a4d6d6d8(eattacker);
 		}
 	}
 	return idamage;
@@ -1157,7 +1157,7 @@ function function_fefefcc4()
 						{
 							continue;
 						}
-						if(veh namespace_14c38db0::function_1c169b3a(nearby_enemy) == 0)
+						if(veh targetting_delay::function_1c169b3a(nearby_enemy) == 0)
 						{
 							continue;
 						}
@@ -1407,7 +1407,7 @@ function turretscanning()
 				wait(0.1);
 				continue;
 			}
-			if(!isdefined(veh.var_7eb3ebd5[veh.enemy getentitynumber()]) && veh namespace_14c38db0::function_1c169b3a(veh.enemy))
+			if(!isdefined(veh.var_7eb3ebd5[veh.enemy getentitynumber()]) && veh targetting_delay::function_1c169b3a(veh.enemy))
 			{
 				veh.var_c8072bcc = gettime();
 				veh.var_7eb3ebd5[veh.enemy getentitynumber()] = #"forwardscan";
@@ -1630,7 +1630,7 @@ function has_active_enemy(bundle)
 		{
 			return 0;
 		}
-		if(self namespace_14c38db0::function_1c169b3a(self.favoriteenemy) == 0)
+		if(self targetting_delay::function_1c169b3a(self.favoriteenemy) == 0)
 		{
 			return 0;
 		}
@@ -1641,7 +1641,7 @@ function has_active_enemy(bundle)
 		{
 			return 0;
 		}
-		if(self namespace_14c38db0::function_1c169b3a(self.enemy) == 0)
+		if(self targetting_delay::function_1c169b3a(self.enemy) == 0)
 		{
 			return 0;
 		}

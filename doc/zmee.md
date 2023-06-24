@@ -313,13 +313,13 @@ TODO
   - name: `#"step_1"`, flag name: `#"hash_4ba91dee7d31240b"`
   - name: `#"step_2"`, flag name: `#"hash_4ba91eee7d3125be"`
 
-#### `#"hash_61a8ff6c7866b2d4"`
+#### `#"ships_engineer"`
 
 **steps**
 
-  - name: `#"step_1"`, flag name: `#"hash_15cc42cdb337607"`
-  - name: `#"step_2"`, flag name: `#"hash_15cc52cdb3377ba"`
-  - name: `#"step_3"`, flag name: `#"hash_15cc62cdb33796d"`
+  - name: `#"step_1"`, flag name: `#"ships_engineer_step_1"`
+  - name: `#"step_2"`, flag name: `#"ships_engineer_step_2"`
+  - name: `#"step_3"`, flag name: `#"ships_engineer_step_3"`
 
 #### `#"boss_fight"` (eye boss fight)
 

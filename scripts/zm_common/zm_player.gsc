@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_20ac552ee498eb9d;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
 #using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;

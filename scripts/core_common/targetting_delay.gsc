@@ -1,9 +1,9 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#namespace namespace_14c38db0;
+#namespace targetting_delay;
 
 /*
 	Name: function_7e1a12ce
-	Namespace: namespace_14c38db0
+	Namespace: targetting_delay
 	Checksum: 0x2143ACDD
 	Offset: 0x68
 	Size: 0x41A
@@ -78,7 +78,7 @@ function function_7e1a12ce(radius)
 
 /*
 	Name: function_1c169b3a
-	Namespace: namespace_14c38db0
+	Namespace: targetting_delay
 	Checksum: 0x19CD9B92
 	Offset: 0x490
 	Size: 0x12E
@@ -110,7 +110,7 @@ function function_1c169b3a(enemy, defaultdelay = 250)
 
 /*
 	Name: function_a4d6d6d8
-	Namespace: namespace_14c38db0
+	Namespace: targetting_delay
 	Checksum: 0xB2733336
 	Offset: 0x5C8
 	Size: 0x13E

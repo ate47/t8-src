@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\callbacks_shared.gsc;
 
-#namespace namespace_e42b3e24;
+#namespace globallogic_scriptmover;
 
 /*
 	Name: function_8c7ec52f
-	Namespace: namespace_e42b3e24
+	Namespace: globallogic_scriptmover
 	Checksum: 0x3DBCADCD
 	Offset: 0x70
 	Size: 0x2BC

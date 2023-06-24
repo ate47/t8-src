@@ -1,11 +1,11 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\core_common\struct.csc;
 
-#namespace namespace_72c1550b;
+#namespace wz_firing_range;
 
 /*
 	Name: function_ea0556fc
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0xE585E823
 	Offset: 0x80
 	Size: 0xB8
@@ -26,7 +26,7 @@ function function_ea0556fc(targetname)
 
 /*
 	Name: init_target
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0x72974D9A
 	Offset: 0x140
 	Size: 0x152
@@ -64,7 +64,7 @@ function private init_target()
 
 /*
 	Name: function_5bab934a
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0x4BAA7E07
 	Offset: 0x2A0
 	Size: 0x94
@@ -84,7 +84,7 @@ function private function_5bab934a(struct, var_d1d733b4)
 
 /*
 	Name: follow_path
-	Namespace: namespace_72c1550b
+	Namespace: wz_firing_range
 	Checksum: 0xA521A7AD
 	Offset: 0x340
 	Size: 0x1E0

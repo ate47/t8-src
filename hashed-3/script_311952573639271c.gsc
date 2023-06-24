@@ -148,9 +148,9 @@ function function_ec9e5cf2()
 	zm_sq::register(#"portal_pass", #"step_2", #"portal_pass_step_2", &function_a30b39c3, &function_16dff790);
 	zm_sq::register(#"hash_68677a02650cad00", #"step_1", #"hash_4ba91dee7d31240b", &function_b87c71d7, &function_46a445cd);
 	zm_sq::register(#"hash_68677a02650cad00", #"step_2", #"hash_4ba91eee7d3125be", &function_9a209775, &function_2ae7b2a6);
-	zm_sq::register(#"hash_61a8ff6c7866b2d4", #"step_1", #"hash_15cc42cdb337607", &function_422a07e8, &function_3ce98642);
-	zm_sq::register(#"hash_61a8ff6c7866b2d4", #"step_2", #"hash_15cc52cdb3377ba", &function_3435c03, &function_4514c7b5);
-	zm_sq::register(#"hash_61a8ff6c7866b2d4", #"step_3", #"hash_15cc62cdb33796d", &function_c8919eef, &function_f1979a);
+	zm_sq::register(#"ships_engineer", #"step_1", #"ships_engineer_step_1", &function_422a07e8, &function_3ce98642);
+	zm_sq::register(#"ships_engineer", #"step_2", #"ships_engineer_step_2", &function_3435c03, &function_4514c7b5);
+	zm_sq::register(#"ships_engineer", #"step_3", #"ships_engineer_step_3", &function_c8919eef, &function_f1979a);
 	callback::on_disconnect(&on_disconnect);
 	if(zm_utility::function_e51dc2d8())
 	{
@@ -162,7 +162,7 @@ function function_ec9e5cf2()
 	zm_sq::start(#"fishy_offering");
 	zm_sq::start(#"portal_pass");
 	zm_sq::start(#"hash_68677a02650cad00");
-	zm_sq::start(#"hash_61a8ff6c7866b2d4");
+	zm_sq::start(#"ships_engineer");
 }
 
 /*

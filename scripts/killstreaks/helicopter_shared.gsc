@@ -7,7 +7,7 @@
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\killstreaks\flak_drone.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -841,7 +841,7 @@ function heli_think(owner, startnode, heli_team, missilesenabled, protectlocatio
 	chopper thread attack_targets(missilesenabled, hardpointtype);
 	chopper thread heli_targeting(missilesenabled, hardpointtype);
 	chopper thread heli_missile_regen();
-	chopper thread namespace_14c38db0::function_7e1a12ce(level.killstreakbundle[#"helicopter_comlink"].var_2aeadfa0);
+	chopper thread targetting_delay::function_7e1a12ce(level.killstreakbundle[#"helicopter_comlink"].var_2aeadfa0);
 	chopper thread heatseekingmissile::missiletarget_proximitydetonateincomingmissile("crashing", "death");
 	chopper thread create_flare_ent(vectorscale((0, 0, -1), 150));
 }
@@ -1117,8 +1117,8 @@ function cantargetplayer_turret(player, hardpointtype)
 	{
 		return false;
 	}
-	var_2910def0 = self namespace_14c38db0::function_1c169b3a(player);
-	namespace_14c38db0::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.25) * 1000));
+	var_2910def0 = self targetting_delay::function_1c169b3a(player);
+	targetting_delay::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.25) * 1000));
 	if(!var_2910def0)
 	{
 		return false;
@@ -1249,7 +1249,7 @@ function cantargetplayer_missile(player, hardpointtype)
 	{
 		return 0;
 	}
-	if(self namespace_14c38db0::function_1c169b3a(player) == 0)
+	if(self targetting_delay::function_1c169b3a(player) == 0)
 	{
 		return 0;
 	}

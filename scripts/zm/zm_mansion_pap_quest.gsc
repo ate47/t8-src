@@ -996,14 +996,14 @@ function function_74bb3b2()
 	var_20c9365c = struct::get_array("gate_greeter_wolf", "targetname");
 	foreach(var_32caf0b0 in var_20c9365c)
 	{
-		var_8469be27 = zombie_dog_util::function_62db7b1c(1, var_32caf0b0);
-		if(isdefined(var_8469be27))
+		ai_wolf = zombie_dog_util::function_62db7b1c(1, var_32caf0b0);
+		if(isdefined(ai_wolf))
 		{
-			var_8469be27.var_126d7bef = 1;
-			var_8469be27.ignore_round_spawn_failsafe = 1;
-			var_8469be27.ignore_enemy_count = 1;
-			var_8469be27.b_ignore_cleanup = 1;
-			var_8469be27.no_powerups = 1;
+			ai_wolf.var_126d7bef = 1;
+			ai_wolf.ignore_round_spawn_failsafe = 1;
+			ai_wolf.ignore_enemy_count = 1;
+			ai_wolf.b_ignore_cleanup = 1;
+			ai_wolf.no_powerups = 1;
 		}
 		wait(0.5);
 	}

@@ -16,7 +16,7 @@
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -880,7 +880,7 @@ function function_9b13ebf(drone)
 	{
 		drone vehicle_ai::startinitialstate("combat");
 	}
-	drone thread namespace_14c38db0::function_7e1a12ce(level.killstreakbundle[#"tank_robot"].var_2aeadfa0);
+	drone thread targetting_delay::function_7e1a12ce(level.killstreakbundle[#"tank_robot"].var_2aeadfa0);
 }
 
 /*
@@ -1687,8 +1687,8 @@ function cantargetplayer(player)
 	{
 		return false;
 	}
-	var_2910def0 = self namespace_14c38db0::function_1c169b3a(player);
-	namespace_14c38db0::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.25) * 1000));
+	var_2910def0 = self targetting_delay::function_1c169b3a(player);
+	targetting_delay::function_a4d6d6d8(player, int((isdefined(self.targeting_delay) ? self.targeting_delay : 0.25) * 1000));
 	if(!var_2910def0)
 	{
 		return false;

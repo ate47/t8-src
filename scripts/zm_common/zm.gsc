@@ -6,7 +6,7 @@
 #using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm_common\talisman\zm_talisman_start_weapon_smg.gsc;
 #using scripts\zm_common\talisman\zm_talisman_start_weapon_ar.gsc;
-#using script_20ac552ee498eb9d;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
 #using scripts\zm_common\aats\zm_aat_plasmatic_burst.gsc;
 #using scripts\zm_common\zm_attachments.gsc;
 #using scripts\zm_common\talisman\zm_talisman_start_weapon_lmg.gsc;
@@ -1155,7 +1155,7 @@ function init_function_overrides()
 	level.prevent_player_damage = &zm_player::player_prevent_damage;
 	level.callbackactorkilled = &actor_killed_override;
 	level.callbackactordamage = &actor_damage_override_wrapper;
-	level.var_6788bf11 = &namespace_e42b3e24::function_8c7ec52f;
+	level.var_6788bf11 = &globallogic_scriptmover::function_8c7ec52f;
 	level.callbackvehicledamage = &vehicle_damage_override;
 	level.callbackvehiclekilled = &globallogic_vehicle::callback_vehiclekilled;
 	level.callbackvehicleradiusdamage = &globallogic_vehicle::callback_vehicleradiusdamage;

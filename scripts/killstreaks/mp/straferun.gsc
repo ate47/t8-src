@@ -7,7 +7,7 @@
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -188,7 +188,7 @@ function usekillstreakstraferun(hardpointtype)
 	plane thread vehicle::get_on_and_go_path(startnode);
 	plane thread heatseekingmissile::missiletarget_proximitydetonateincomingmissile("death");
 	plane thread watchforownerexit(self);
-	plane thread namespace_14c38db0::function_7e1a12ce(12000);
+	plane thread targetting_delay::function_7e1a12ce(12000);
 	plane thread function_c24cc26a();
 	util::function_5a68c330(21, self.team, self getentitynumber(), level.killstreaks[#"straferun"].uiname);
 	aiutility::addaioverridedamagecallback(plane, &function_16abaea4);
@@ -946,8 +946,8 @@ function cantargetplayer(player)
 	{
 		return 0;
 	}
-	var_2910def0 = self namespace_14c38db0::function_1c169b3a(player);
-	self namespace_14c38db0::function_a4d6d6d8(player, int((isdefined(level.straferunrocketdelay) ? level.straferunrocketdelay : 0.35) * 1000));
+	var_2910def0 = self targetting_delay::function_1c169b3a(player);
+	self targetting_delay::function_a4d6d6d8(player, int((isdefined(level.straferunrocketdelay) ? level.straferunrocketdelay : 0.35) * 1000));
 	if(!var_2910def0)
 	{
 		return 0;

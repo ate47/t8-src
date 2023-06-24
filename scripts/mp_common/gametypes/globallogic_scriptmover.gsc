@@ -4,11 +4,11 @@
 #using scripts\core_common\damage.gsc;
 #using scripts\core_common\weapons_shared.gsc;
 
-#namespace namespace_e42b3e24;
+#namespace globallogic_scriptmover;
 
 /*
 	Name: function_8c7ec52f
-	Namespace: namespace_e42b3e24
+	Namespace: globallogic_scriptmover
 	Checksum: 0x6A1A1149
 	Offset: 0x88
 	Size: 0x3A4

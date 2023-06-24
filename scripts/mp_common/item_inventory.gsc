@@ -5228,7 +5228,7 @@ function function_956a8ecd()
 	{
 		return;
 	}
-	self waittill(#"hash_363004a4e0ccc1f", #"hash_47147249212b6a46", #"death", #"stationary");
+	self waittill(#"hash_363004a4e0ccc1f", #"hawk_settled", #"death", #"stationary");
 	var_d783088e = [];
 	foreach(sensordart in level.sensor_darts)
 	{

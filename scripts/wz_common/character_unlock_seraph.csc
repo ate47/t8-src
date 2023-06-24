@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\wz_common\character_unlock_fixup.csc;
 #using scripts\mp_common\item_world.csc;
-#using script_756c6b0e0e5bb886;
+#using scripts\wz_common\wz_firing_range.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\system_shared.csc;
@@ -65,7 +65,7 @@ function function_2613aeec(enabled)
 {
 	if(enabled)
 	{
-		namespace_72c1550b::function_ea0556fc(#"hash_3af83a27a707345a");
+		wz_firing_range::function_ea0556fc(#"hash_3af83a27a707345a");
 		level thread function_211772b5();
 	}
 	else

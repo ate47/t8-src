@@ -382,16 +382,16 @@ function private function_23600e7d()
 	level.var_8fcd8a61 = (isdefined(getgametypesetting(#"hash_35c2d850e39fa704")) ? getgametypesetting(#"hash_35c2d850e39fa704") : 100);
 	level.var_e9d6c52f = (isdefined(getgametypesetting(#"hash_46f957248efbd39a")) ? getgametypesetting(#"hash_46f957248efbd39a") : 10);
 	level.player_reduction = (isdefined(getgametypesetting(#"player_reduction")) ? getgametypesetting(#"player_reduction") : 4);
-	level.var_9290cd7c = (isdefined(getgametypesetting(#"hash_368f9b5b4992b8da")) ? getgametypesetting(#"hash_368f9b5b4992b8da") : 20);
+	level.evolution_interval = (isdefined(getgametypesetting(#"evolution_interval")) ? getgametypesetting(#"evolution_interval") : 20);
 	level.var_8ca0499 = (isdefined(getgametypesetting(#"hash_ad6c0d1cd92c1fe")) ? getgametypesetting(#"hash_ad6c0d1cd92c1fe") : 30);
 	level.var_493d04d3 = (isdefined(getgametypesetting(#"hash_28233b1037888945")) ? getgametypesetting(#"hash_28233b1037888945") : 15);
 	level.max_wait_time = (isdefined(getgametypesetting(#"max_wait_time")) ? getgametypesetting(#"max_wait_time") : 0);
 	level.var_3f631d69 = (isdefined(getgametypesetting(#"hash_2d4ff63e866cdd74")) ? getgametypesetting(#"hash_2d4ff63e866cdd74") : 120);
-	if(level.var_9290cd7c <= 0)
+	if(level.evolution_interval <= 0)
 	{
-		level.var_9290cd7c = 1;
+		level.evolution_interval = 1;
 	}
-	level.var_25fc8e84 = int(ceil((level.max_wait_time * 60) / level.var_9290cd7c));
+	level.var_25fc8e84 = int(ceil((level.max_wait_time * 60) / level.evolution_interval));
 	starttime = gettime();
 	var_fb9555e1 = 3;
 	level.var_a132ca2b = level.var_8fcd8a61;
@@ -412,7 +412,7 @@ function private function_23600e7d()
 		println("" + level.player_reduction);
 	#/
 	/#
-		println("" + level.var_9290cd7c);
+		println("" + level.evolution_interval);
 	#/
 	/#
 		println("" + level.var_8ca0499);
@@ -565,9 +565,9 @@ function private function_23600e7d()
 		evolution++;
 		var_e09e5160 = level.activeplayers.size;
 		/#
-			println("" + level.var_9290cd7c);
+			println("" + level.evolution_interval);
 		#/
-		timeleft = level.var_9290cd7c;
+		timeleft = level.evolution_interval;
 		while(timeleft > 0)
 		{
 			timeleft = timeleft - 1;

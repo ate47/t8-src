@@ -38,7 +38,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3ee4fa74a546cbcd", &on_begin, &on_end);
+	zm_trial::register_challenge(#"board_everything", &on_begin, &on_end);
 }
 
 /*
