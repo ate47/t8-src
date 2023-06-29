@@ -74,7 +74,7 @@ class czm_location : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_location
 		Checksum: 0xD11D3009
 		Offset: 0x280
@@ -82,9 +82,9 @@ class czm_location : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -123,7 +123,7 @@ function register(uid, var_5c0f4d11)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_location
 	Checksum: 0x61FDE613
 	Offset: 0x110
@@ -131,10 +131,10 @@ function register(uid, var_5c0f4d11)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_location();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

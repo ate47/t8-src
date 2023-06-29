@@ -536,7 +536,7 @@ function function_8d107060()
 	ct_utils::function_e9ab1003(undefined);
 	e_player = getplayers()[0];
 	e_player thread ct_utils::function_61c3d59c(#"hash_23bd73ced8c3ea9a", undefined);
-	e_player callback::function_78ccee50(&function_78ccee50);
+	e_player callback::on_weapon_fired(&on_weapon_fired);
 	level thread ct_vo::function_831e0584(array(#"hash_6ece725489e4c1a4"));
 	level thread ct_vo::function_14b08e49(array(#"hash_233e42de1d3dc67d"), "stop_nag");
 	ct_utils::function_d3bbbf8a("s_sensor_dart_target_2", 1, 40, undefined, array(#"eq_sensor"));
@@ -618,7 +618,7 @@ function function_6728bf85()
 	playfxontag(#"hash_1307839267d89579", sensor_dart, "tag_fx");
 	sensor_dart clientfield::set("sensor_dart_state", 1);
 	sensor_dart thread function_40e2147a();
-	level.var_2a5b7055 ct_bots::function_991ccf1a();
+	level.var_2a5b7055 ct_bots::disablebot();
 	level.var_2a5b7055 = undefined;
 	level thread function_a71a97eb(undefined, undefined, "s_approach_enemy_dart", "s_bot_enemy_dart_loc");
 	waitframe(1);
@@ -1481,7 +1481,7 @@ function function_b1b0c7e9()
 {
 	self endon(#"death");
 	wait(0.2);
-	self ct_bots::function_991ccf1a();
+	self ct_bots::disablebot();
 }
 
 /*
@@ -1693,7 +1693,7 @@ function function_9b0a398a(s_loc)
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: ct_recon_tutorial
 	Checksum: 0xC05D38B7
 	Offset: 0x72E0
@@ -1701,7 +1701,7 @@ function function_9b0a398a(s_loc)
 	Parameters: 1
 	Flags: None
 */
-function function_78ccee50(params)
+function on_weapon_fired(params)
 {
 	level.var_4fbc6865 = 1;
 }

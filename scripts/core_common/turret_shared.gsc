@@ -1640,7 +1640,7 @@ function _index(n_index)
 function _get_best_target(n_index)
 {
 	e_best_target = undefined;
-	self util::function_c596f193();
+	self util::make_sentient();
 	switch(n_index)
 	{
 		case 0:

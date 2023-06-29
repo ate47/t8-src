@@ -59,7 +59,7 @@ function __init__()
 */
 function private on_begin(var_ed49e96e, var_ea5e88ac, str_return, var_c728f1dd, var_aed178c2)
 {
-	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::add_callback(#"on_host_migration_end", &function_ff66b979);
 	level flag::set(#"infinite_round_spawning");
 	level flag::set(#"pause_round_timeout");
 	level.var_2bb6b2ba = [];
@@ -82,7 +82,7 @@ function private on_begin(var_ed49e96e, var_ea5e88ac, str_return, var_c728f1dd, 
 */
 function private on_end(round_reset)
 {
-	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::remove_callback(#"on_host_migration_end", &function_ff66b979);
 	arrayremovevalue(level.var_2bb6b2ba, undefined);
 	array::delete_all(level.var_2bb6b2ba);
 	level.var_2bb6b2ba = undefined;
@@ -500,8 +500,8 @@ function private function_ff66b979()
 			player thread damage_watcher();
 			continue;
 		}
-		var_d1659cdf = var_a0328dd5 - player.var_356935bb.start_time;
-		timeout = int(max(player.var_356935bb.timeout - (float(var_d1659cdf) / 1000), 0));
+		timer_delta = var_a0328dd5 - player.var_356935bb.start_time;
+		timeout = int(max(player.var_356935bb.timeout - (float(timer_delta) / 1000), 0));
 		player thread zone_watcher(player.var_356935bb.challenge, player.var_356935bb.var_2d5ebf67, player.var_356935bb.var_530e040f, timeout);
 		player thread damage_watcher();
 	}

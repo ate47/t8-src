@@ -3167,12 +3167,12 @@ function function_1e0d693b(goal, enemy)
 				{
 					point._scoredebug = [];
 				}
-				if(!isdefined(point._scoredebug[#"hash_3f8a9579ce4600de"]))
+				if(!isdefined(point._scoredebug[#"no visibility"]))
 				{
-					point._scoredebug[#"hash_3f8a9579ce4600de"] = spawnstruct();
+					point._scoredebug[#"no visibility"] = spawnstruct();
 				}
-				point._scoredebug[#"hash_3f8a9579ce4600de"].score = -5000;
-				point._scoredebug[#"hash_3f8a9579ce4600de"].scorename = "";
+				point._scoredebug[#"no visibility"].score = -5000;
+				point._scoredebug[#"no visibility"].scorename = "";
 			#/
 			point.score = point.score + -5000;
 		}

@@ -200,11 +200,11 @@ function private function_6fa5c86()
 */
 function on_ai_spawned()
 {
-	self thread function_d52378b3();
+	self thread track_spawns();
 }
 
 /*
-	Name: function_d52378b3
+	Name: track_spawns
 	Namespace: zm_trial_red_tribute
 	Checksum: 0xD641D94
 	Offset: 0x808
@@ -212,7 +212,7 @@ function on_ai_spawned()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d52378b3()
+function private track_spawns()
 {
 	self endon(#"death");
 	level endon(#"hash_7646638df88a3656");

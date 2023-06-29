@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\weapons\zm_weap_minigun.gsc;
-#using script_14d4cc4687ff9afd;
+#using scripts\zm\zm_orange_fasttravel_ziplines.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm\weapons\zm_weap_katana.gsc;
 #using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
@@ -15,7 +15,7 @@
 #using scripts\zm\zm_orange_pablo.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_4333a03353e1e13a;
-#using script_48586eea5c3542a4;
+#using scripts\zm\zm_orange_trophies.gsc;
 #using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using scripts\zm\zm_orange_trials.gsc;
 #using scripts\zm\zm_orange_freeze_trap.gsc;
@@ -109,7 +109,7 @@ event main(eventstruct)
 	level._uses_default_wallbuy_fx = 1;
 	level._uses_sticky_grenades = 1;
 	level._uses_taser_knuckles = 1;
-	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
+	level thread lui::add_luimenu("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
 	zm::init_fx();
 	level.custom_spawner_entry[#"crawl"] = &zm_hms_util::function_45bb11e4;
 	level.var_c02e63 = &zm_orange_util::function_583cad13;
@@ -148,7 +148,7 @@ event main(eventstruct)
 	level zm_orange_ee_tundragun::init();
 	level namespace_5449c7ba::init();
 	level zm_orange_ee_yellow_snow::preload();
-	level namespace_99a6629b::init();
+	level zm_orange_fasttravel_ziplines::init();
 	level namespace_6036de69::init();
 	level zm_orange_freeze_trap::init();
 	level zm_orange_snowball_piles::init();
@@ -159,7 +159,7 @@ event main(eventstruct)
 	level zm_orange_water::init();
 	level zm_orange_ww_quest::init();
 	level zm_orange_audiologs::preload();
-	level namespace_e9563b61::init();
+	level zm_orange_trophies::init();
 	level zm_orange_trials::preload();
 	load::main();
 	setdvar(#"zombie_unlock_all", 0);
@@ -189,7 +189,7 @@ event main(eventstruct)
 	level thread namespace_5449c7ba::main();
 	level thread namespace_565e073b::main();
 	level thread namespace_6036de69::main();
-	level thread namespace_99a6629b::main();
+	level thread zm_orange_fasttravel_ziplines::main();
 	level thread zm_orange_freeze_trap::main();
 	level thread zm_orange_mq_mgr::main();
 	level thread zm_orange_mq_fuse::main();
@@ -203,12 +203,12 @@ event main(eventstruct)
 	level thread zm_orange_ee_yellow_snow::main();
 	level thread zm_orange_ice_slide::init();
 	level thread zm_orange_audiologs::init();
-	level thread namespace_e9563b61::main();
+	level thread zm_orange_trophies::main();
 	level thread function_681c28c9();
 	level thread function_486119ea();
 	level thread function_30829a12();
 	callback::function_74872db6(&play_avalanche);
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		e_ind = getent("ee_ind", "targetname");
 		if(isdefined(e_ind))

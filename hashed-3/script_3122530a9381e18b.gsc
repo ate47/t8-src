@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_white_special_rounds.gsc;
 #using script_174ce72cc0f850;
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
@@ -200,7 +200,7 @@ function private function_b60df00d()
 	}
 	else
 	{
-		s_unitrigger = level.var_9eccff99.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
+		s_unitrigger = level.var_9eccff99.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
 		zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	}
 	level.var_9eccff99.n_step = 1;
@@ -248,7 +248,7 @@ function private function_d41d20b1()
 	v_force = v_force * 0.2;
 	createdynentandlaunch(self.dyn, self.origin, self.angles, self.origin, v_force);
 	exploder::stop_exploder("fxexp_quest_raygun_m2_v_stage_1" + level.var_9eccff99.s_start.exploder_id);
-	s_unitrigger = level.var_9eccff99.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
+	s_unitrigger = level.var_9eccff99.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 }
 
@@ -496,7 +496,7 @@ function private function_195e54c()
 function private function_a66f0de2()
 {
 	namespace_bd74bbd2::end(#"sc_mk2v");
-	s_unitrigger = level.var_9eccff99.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_e90f6026, &function_f6048ee, &function_5b4f9f76);
+	s_unitrigger = level.var_9eccff99.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_e90f6026, &function_f6048ee, &function_5b4f9f76);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	level.var_9eccff99.var_fead3ae9 setmodel("p8_zm_whi_fuse_pickup_fluid_yellow");
 	level.var_9eccff99.var_fead3ae9 clientfield::set("" + #"hash_7b37fadc13d402a3", 1);

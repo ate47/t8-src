@@ -937,7 +937,7 @@ function private function_c3778d8a(n_boon, n_delay = undefined)
 	self clientfield::set_to_player("" + #"hash_403e80cafccc207c", 1);
 	b_say = self zm_vo::vo_say(var_8b7ccae4, 0, 1, 9999, 1, 1, 1);
 	self clientfield::set_to_player("" + #"hash_403e80cafccc207c", 0);
-	if(b_say && self zm_audio::function_65e5c19a() && (!(isdefined(self.var_e0ffa699) && self.var_e0ffa699)))
+	if(b_say && self zm_audio::can_speak() && (!(isdefined(self.var_e0ffa699) && self.var_e0ffa699)))
 	{
 		self.var_e0ffa699 = 1;
 		self zm_vo::function_a2bd5a0c(#"hash_1cf28dc8ff858000", 0.5, 1, 9999, 0, 0, 1);
@@ -959,7 +959,7 @@ function private function_3b81466e(n_boon)
 	{
 		return false;
 	}
-	if(isdefined(self.var_b22aca27[n_boon].b_available) && self.var_b22aca27[n_boon].b_available && (isdefined(self.var_6a885e6e) && !self.var_6a885e6e) && self zm_audio::function_65e5c19a())
+	if(isdefined(self.var_b22aca27[n_boon].b_available) && self.var_b22aca27[n_boon].b_available && (isdefined(self.var_6a885e6e) && !self.var_6a885e6e) && self zm_audio::can_speak())
 	{
 		self.var_b22aca27[n_boon].b_available = 0;
 		self thread function_5e8518bb(n_boon);

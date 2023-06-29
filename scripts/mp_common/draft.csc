@@ -203,7 +203,7 @@ function play_intro_cinematic(localclientnum)
 }
 
 /*
-	Name: function_469f6fc7
+	Name: show_cam
 	Namespace: draft
 	Checksum: 0x77CE5FE7
 	Offset: 0x4188
@@ -211,7 +211,7 @@ function play_intro_cinematic(localclientnum)
 	Parameters: 4
 	Flags: Linked
 */
-function function_469f6fc7(localclientnum, xcam, animname, lerpduration)
+function show_cam(localclientnum, xcam, animname, lerpduration)
 {
 	if(isdefined(level.var_84e5adfd) && level.var_84e5adfd)
 	{
@@ -269,7 +269,7 @@ function stop_cameras(localclientnum)
 */
 function function_532dfc0b(localclientnum, lerpduration)
 {
-	function_469f6fc7(localclientnum, level.var_482af62e, "cam_draft_zoom", lerpduration);
+	show_cam(localclientnum, level.var_482af62e, "cam_draft_zoom", lerpduration);
 }
 
 /*
@@ -283,7 +283,7 @@ function function_532dfc0b(localclientnum, lerpduration)
 */
 function function_e79c182b(localclientnum, lerpduration)
 {
-	function_469f6fc7(localclientnum, level.var_bbb8810e, "cam_draft_ingame", lerpduration);
+	show_cam(localclientnum, level.var_bbb8810e, "cam_draft_ingame", lerpduration);
 }
 
 /*
@@ -297,11 +297,11 @@ function function_e79c182b(localclientnum, lerpduration)
 */
 function function_fccaf2ed(localclientnum, lerpduration)
 {
-	function_469f6fc7(localclientnum, "ui_cam_frontend_loadout_mp", "cam_loadout_mp", lerpduration);
+	show_cam(localclientnum, "ui_cam_frontend_loadout_mp", "cam_loadout_mp", lerpduration);
 }
 
 /*
-	Name: function_1dccd222
+	Name: enable_lights
 	Namespace: draft
 	Checksum: 0xB75654DF
 	Offset: 0x4478
@@ -309,7 +309,7 @@ function function_fccaf2ed(localclientnum, lerpduration)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1dccd222(localclientnum)
+function enable_lights(localclientnum)
 {
 	team = function_c4dfe16e(localclientnum);
 	if(isdefined(level.var_1f0933dc[team]))
@@ -1091,7 +1091,7 @@ function function_9afd868e(localclientnum)
 		level.draftactive[localclientnum] = 1;
 		setup_team(localclientnum);
 		play_intro_cinematic(localclientnum);
-		function_1dccd222(localclientnum);
+		enable_lights(localclientnum);
 		level thread watchupdate(localclientnum);
 		level thread watchteamchange(localclientnum);
 		if(!(isdefined(level.var_f6501ae8) && level.var_f6501ae8))

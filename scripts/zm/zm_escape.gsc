@@ -21,7 +21,7 @@
 #using script_464d52643f5d868f;
 #using script_46cea9e5d4ef9e21;
 #using scripts\zm\powerup\zm_powerup_zombie_blood.gsc;
-#using script_4cc2542101cb7973;
+#using scripts\zm\zm_escape_paschal.gsc;
 #using scripts\zm\weapons\zm_weap_spork.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_round_spawning.gsc;
@@ -149,7 +149,7 @@ event main(eventstruct)
 	level.var_a9c40fde = &function_2d2f3503;
 	level.var_1e480ea7 = &function_bcc6a9d8;
 	namespace_b99141ed::init();
-	namespace_69ddf44f::init();
+	paschal::init();
 	zm_escape_achievement::init();
 	level.custom_spawner_entry[#"crawl"] = &zm_spawner::function_45bb11e4;
 	level.custom_spawner_entry[#"hash_67303f9697bd0645"] = &zm_spawner::function_45bb11e4;
@@ -213,7 +213,7 @@ event main(eventstruct)
 	level thread zm_escape_util::function_d89227a0("power_building64", "power_on1");
 	level thread zm_escape_util::function_d89227a0("power_powerhouse", "power_on2");
 	level thread zm_escape_util::function_2def6c82();
-	level thread namespace_69ddf44f::main();
+	level thread paschal::main();
 	level thread function_172ac1b5();
 	/#
 		level thread function_acb5b0ec();
@@ -1333,7 +1333,7 @@ function function_adac5e49(a_keys)
 */
 function function_3511e2af(w_weapon, e_player)
 {
-	if(w_weapon == getweapon(#"ww_blundergat_t8") && (e_player hasweapon(getweapon(#"ww_blundergat_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_upgraded")) || e_player hasweapon(getweapon(#"hash_617dcc39334959ce"))))
+	if(w_weapon == getweapon(#"ww_blundergat_t8") && (e_player hasweapon(getweapon(#"ww_blundergat_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_upgraded")) || e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"))))
 	{
 		return false;
 	}

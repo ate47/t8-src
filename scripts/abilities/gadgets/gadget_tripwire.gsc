@@ -159,7 +159,7 @@ function function_9f97e1a3(watcher)
 	watcher.ownergetsassist = 1;
 	watcher.ignoredirection = 1;
 	watcher.immediatedetonation = 0;
-	watcher.onspawn = &function_32854cb2;
+	watcher.onspawn = &on_tripwire_spawn;
 	watcher.ondamage = &function_7a905654;
 	watcher.ondestroyed = &function_9b3a657f;
 	watcher.var_994b472b = &function_9a98f669;
@@ -223,7 +223,7 @@ function function_9366bdf9(tripwire, owner)
 }
 
 /*
-	Name: function_32854cb2
+	Name: on_tripwire_spawn
 	Namespace: gadget_tripwire
 	Checksum: 0xB60A245
 	Offset: 0xB00
@@ -231,7 +231,7 @@ function function_9366bdf9(tripwire, owner)
 	Parameters: 2
 	Flags: Linked
 */
-function function_32854cb2(watcher, player)
+function on_tripwire_spawn(watcher, player)
 {
 	player endon(#"disconnect");
 	level endon(#"game_ended");
@@ -242,7 +242,7 @@ function function_32854cb2(watcher, player)
 	self setweapon(level.var_c27600b0);
 	waitresult = undefined;
 	waitresult = self waittill(#"stationary");
-	self util::function_c596f193();
+	self util::make_sentient();
 	self.hitnormal = waitresult.normal;
 	self.origin = function_ec88b3b9(waitresult.position);
 	killcament = spawn("script_model", self.origin + (self.hitnormal * 5));

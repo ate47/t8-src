@@ -51,7 +51,7 @@ function private on_begin()
 {
 	foreach(player in getplayers())
 	{
-		player thread function_7bc122af();
+		player thread monitor_loadout();
 	}
 }
 
@@ -97,7 +97,7 @@ function private on_end(round_reset)
 }
 
 /*
-	Name: function_7bc122af
+	Name: monitor_loadout
 	Namespace: zm_trial_full_loadout
 	Checksum: 0x57784878
 	Offset: 0x368
@@ -105,7 +105,7 @@ function private on_end(round_reset)
 	Parameters: 0
 	Flags: Private
 */
-function private function_7bc122af()
+function private monitor_loadout()
 {
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656", #"end_game");

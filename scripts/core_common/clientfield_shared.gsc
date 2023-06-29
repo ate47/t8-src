@@ -18,7 +18,7 @@ function register(str_pool_name, str_name, n_version, n_bits, str_type)
 }
 
 /*
-	Name: function_a8bbc967
+	Name: register_clientuimodel
 	Namespace: clientfield
 	Checksum: 0x47C4A28D
 	Offset: 0xF8
@@ -26,7 +26,7 @@ function register(str_pool_name, str_name, n_version, n_bits, str_type)
 	Parameters: 5
 	Flags: Linked
 */
-function function_a8bbc967(str_name, n_version, n_bits, str_type, var_59f69872)
+function register_clientuimodel(str_name, n_version, n_bits, str_type, var_59f69872)
 {
 	registerclientfield("clientuimodel", str_name, n_version, n_bits, str_type, var_59f69872);
 }
@@ -46,7 +46,7 @@ function register_luielem(unique_name, field_name, n_version, n_bits, str_type, 
 }
 
 /*
-	Name: function_78175813
+	Name: register_bgcache
 	Namespace: clientfield
 	Checksum: 0xC2706AC
 	Offset: 0x1D8
@@ -54,7 +54,7 @@ function register_luielem(unique_name, field_name, n_version, n_bits, str_type, 
 	Parameters: 5
 	Flags: Linked
 */
-function function_78175813(poolname, var_b693fec6, uniqueid, version, var_59f69872)
+function register_bgcache(poolname, var_b693fec6, uniqueid, version, var_59f69872)
 {
 	function_3ff577e6(poolname, var_b693fec6, uniqueid, version, var_59f69872);
 }

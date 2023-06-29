@@ -186,7 +186,7 @@ function function_a66ba8cc(water_depth)
 }
 
 /*
-	Name: function_330c2616
+	Name: get_water_depth
 	Namespace: wraith_fire
 	Checksum: 0x846D9BB4
 	Offset: 0x7F0
@@ -194,7 +194,7 @@ function function_a66ba8cc(water_depth)
 	Parameters: 1
 	Flags: Linked
 */
-function function_330c2616(position)
+function get_water_depth(position)
 {
 	return getwaterheight(position) - position[2];
 }
@@ -344,7 +344,7 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, weapon
 			while(z > lowestz)
 			{
 				newpos = (x, y, z);
-				water_depth = function_330c2616(newpos);
+				water_depth = get_water_depth(newpos);
 				if(function_a66ba8cc(water_depth) || function_f4e48434(newpos))
 				{
 					newpos = newpos - (0, 0, water_depth);
@@ -469,7 +469,7 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 			{
 				function_85ff22aa(var_e5d1793d[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locations[#"loc"][count] = var_e5d1793d[#"position"];
-				water_depth = function_330c2616(var_e5d1793d[#"position"]);
+				water_depth = get_water_depth(var_e5d1793d[#"position"]);
 				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][count] = (0, 0, 1);
@@ -497,7 +497,7 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 				function_85ff22aa(var_9417df90[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locindex = count + (fxcount * (var_ecef2fde + 1));
 				locations[#"loc"][locindex] = var_9417df90[#"position"];
-				water_depth = function_330c2616(var_9417df90[#"position"]);
+				water_depth = get_water_depth(var_9417df90[#"position"]);
 				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][locindex] = (0, 0, 1);
@@ -1402,12 +1402,12 @@ function resetfiredamage(entnum, time)
 function function_85ff22aa(origin, radius, color, alpha, time)
 {
 	/#
-		var_9f49d7d = getdvarint(#"hash_66232b46a7e21dec", 0);
-		if(var_9f49d7d > 0)
+		debug_fire = getdvarint(#"hash_66232b46a7e21dec", 0);
+		if(debug_fire > 0)
 		{
-			if(var_9f49d7d > 1)
+			if(debug_fire > 1)
 			{
-				radius = int(radius / var_9f49d7d);
+				radius = int(radius / debug_fire);
 			}
 			util::debug_sphere(origin, radius, color, alpha, time);
 		}

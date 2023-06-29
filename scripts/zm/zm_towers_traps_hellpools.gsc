@@ -575,7 +575,7 @@ function function_db9410fa(e_trap)
 		if(isplayer(e_trap.activated_by_player))
 		{
 			e_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			e_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			e_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 		if(self.var_6f84b820 == #"miniboss" || self.var_6f84b820 == #"heavy")
 		{
@@ -616,7 +616,7 @@ function function_506285c3(t_damage)
 				{
 					params.dotdamage = int(params.dotdamage / 4);
 				}
-				if(zm_utility::function_e51dc2d8() && self flag::get(#"hash_6757075afacfc1b4"))
+				if(zm_utility::is_ee_enabled() && self flag::get(#"hash_6757075afacfc1b4"))
 				{
 					params.dotdamage = int(params.dotdamage * 0.1);
 				}

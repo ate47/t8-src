@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5da9076b8e4f6d28;
+#using scripts\mp_common\item_world_util.csc;
 #using scripts\mp_common\item_drop.csc;
 #using scripts\core_common\flagsys_shared.csc;
 #using scripts\core_common\struct.csc;
@@ -1311,7 +1311,7 @@ function is_enabled()
 }
 
 /*
-	Name: function_6a80751c
+	Name: reset_items
 	Namespace: namespace_65181344
 	Checksum: 0x4ECA765
 	Offset: 0x45B0
@@ -1319,7 +1319,7 @@ function is_enabled()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6a80751c()
+function reset_items()
 {
 	var_f6e761cd = function_c77ddcd6();
 	for(pointid = 0; pointid < var_f6e761cd; pointid++)
@@ -1482,7 +1482,7 @@ function setup_groups(reset = 1)
 	}
 	if(reset)
 	{
-		function_6a80751c();
+		reset_items();
 	}
 	function_e88ecf7f();
 	function_9e9f43cd();

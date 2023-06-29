@@ -69,7 +69,7 @@ function onplayerspawned()
 function onplayerconnect()
 {
 	level endon(#"game_ended");
-	self callback::function_20263b9e(&function_20263b9e);
+	self callback::on_grenade_fired(&on_grenade_fired);
 	self callback::on_death(&on_player_death);
 }
 
@@ -106,7 +106,7 @@ function on_joined_team(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: influencers
 	Checksum: 0x9F5C575F
 	Offset: 0x2F8
@@ -114,7 +114,7 @@ function on_joined_team(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	weapon = params.weapon;

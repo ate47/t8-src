@@ -105,14 +105,14 @@ function function_3383b382(player, poster_trigger)
 	player endon(#"death");
 	poster_trigger endon(#"death");
 	var_bd332bd5 = 0;
-	var_f94ce854 = self getvelocity();
-	if(!isdefined(var_f94ce854))
+	projectile_velocity = self getvelocity();
+	if(!isdefined(projectile_velocity))
 	{
 		return;
 	}
-	while(isdefined(self) && !var_bd332bd5 && abs(var_f94ce854[0]) > 0 && abs(var_f94ce854[1]) > 0)
+	while(isdefined(self) && !var_bd332bd5 && abs(projectile_velocity[0]) > 0 && abs(projectile_velocity[1]) > 0)
 	{
-		var_f94ce854 = self getvelocity();
+		projectile_velocity = self getvelocity();
 		if(self istouching(poster_trigger))
 		{
 			if(isdefined(poster_trigger.target))

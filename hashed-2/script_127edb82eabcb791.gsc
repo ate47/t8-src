@@ -59,7 +59,7 @@ class cct_firebreak_multi_kill : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_firebreak_multi_kill
 		Checksum: 0xBB3E3E47
 		Offset: 0x1F8
@@ -67,9 +67,9 @@ class cct_firebreak_multi_kill : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -107,7 +107,7 @@ function register(uid)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_firebreak_multi_kill
 	Checksum: 0xCD6EBB5D
 	Offset: 0xE8
@@ -115,10 +115,10 @@ function register(uid)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_firebreak_multi_kill();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

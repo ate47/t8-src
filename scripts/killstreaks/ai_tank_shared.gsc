@@ -3139,7 +3139,7 @@ function endtankremotecontrol(drone, exitrequestedbyowner)
 	}
 	if(exitrequestedbyowner && not_dead)
 	{
-		if(isdefined(drone.settings.var_d9d35b44) && drone.settings.var_d9d35b44)
+		if(isdefined(drone.settings.ai_enabled) && drone.settings.ai_enabled)
 		{
 			drone vehicle_ai::set_state("combat");
 		}

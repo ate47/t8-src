@@ -95,13 +95,13 @@ function callback_vehiclespawned(spawner)
 */
 function function_a8f929b0()
 {
-	if(isdefined(self.var_cf144acb) && self.var_cf144acb >= 0 && self.var_cf144acb < 2)
+	if(isdefined(self.ai_forceslots) && self.ai_forceslots >= 0 && self.ai_forceslots < 2)
 	{
 		level flagsys::wait_till("all_players_spawned");
 		a_e_players = util::get_players(self.team);
-		if(isdefined(a_e_players[self.var_cf144acb]))
+		if(isdefined(a_e_players[self.ai_forceslots]))
 		{
-			self.owner = a_e_players[self.var_cf144acb];
+			self.owner = a_e_players[self.ai_forceslots];
 		}
 	}
 }

@@ -48,7 +48,7 @@ function on_player_spawned()
 {
 	self endon(#"disconnect");
 	self clearaptarget();
-	self callback::function_f77ced93(&function_f77ced93);
+	self callback::on_weapon_change(&on_weapon_change);
 }
 
 /*
@@ -140,7 +140,7 @@ event function_bfb94991(eventstruct)
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: multilockap_guidance
 	Checksum: 0xF8B90A9C
 	Offset: 0x518
@@ -148,7 +148,7 @@ event function_bfb94991(eventstruct)
 	Parameters: 1
 	Flags: None
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	weapon = params.weapon;
 	while(weapon.lockontype == "AP Multi")

@@ -51,7 +51,7 @@ function function_2613aeec(enabled)
 	if(enabled)
 	{
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_84d8c1164d90313", &function_4ac25840);
+		callback::add_callback(#"on_last_alive", &function_4ac25840);
 		level.var_e1b226fb = 1;
 		level thread function_6cba9a1a();
 	}
@@ -91,7 +91,7 @@ function function_6cba9a1a()
 	{
 		foreach(item in var_e32947b9)
 		{
-			item_world::function_7730442c(item);
+			item_world::consume_item(item);
 		}
 	}
 }

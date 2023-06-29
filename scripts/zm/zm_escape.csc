@@ -5,7 +5,7 @@
 #using script_20bca15cf8b82d6b;
 #using scripts\zm\weapons\zm_weap_gravityspikes.csc;
 #using scripts\zm_common\zm_fasttravel.csc;
-#using script_28d5e820ed15e2a7;
+#using scripts\zm\zm_escape_paschal.csc;
 #using scripts\zm_common\zm_characters.csc;
 #using scripts\zm\weapons\zm_weap_minigun.csc;
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
@@ -86,7 +86,7 @@ event main(eventstruct)
 	namespace_f2502da8::init_clientfields();
 	namespace_9d58c1cd::init_clientfields();
 	zm_escape_util::init_clientfields();
-	namespace_69ddf44f::init();
+	paschal::init();
 	namespace_1063645::init_clientfields();
 	namespace_b99141ed::init_clientfields();
 	zm_utility::function_beed5764("rob_zm_eyes_red", #"zm_ai/fx8_zombie_eye_glow_red");

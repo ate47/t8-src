@@ -2331,7 +2331,7 @@ function function_4167ea4e(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: killstreaks
 	Checksum: 0xCF979E48
 	Offset: 0x6768
@@ -2339,7 +2339,7 @@ function function_4167ea4e(params)
 	Parameters: 1
 	Flags: None
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	grenadeweaponid = params.weapon;
@@ -2359,7 +2359,7 @@ function function_20263b9e(params)
 }
 
 /*
-	Name: function_ce4a7c15
+	Name: on_offhand_fire
 	Namespace: killstreaks
 	Checksum: 0x44F55126
 	Offset: 0x6850
@@ -2367,7 +2367,7 @@ function function_20263b9e(params)
 	Parameters: 1
 	Flags: None
 */
-function function_ce4a7c15(params)
+function on_offhand_fire(params)
 {
 	grenadeweaponid = params.weapon;
 	if(grenadeweaponid == level.var_239dc073)
@@ -3019,10 +3019,10 @@ function on_player_spawned()
 	pixbeginevent(#"hash_1d81325f0403ec55");
 	self thread give_owned();
 	self.killcamkilledbyent = undefined;
-	self callback::function_f77ced93(&function_4f415d8e);
-	self callback::function_f77ced93(&function_4167ea4e);
-	self callback::function_20263b9e(&function_20263b9e);
-	self callback::function_ce4a7c15(&function_ce4a7c15);
+	self callback::on_weapon_change(&function_4f415d8e);
+	self callback::on_weapon_change(&function_4167ea4e);
+	self callback::on_grenade_fired(&on_grenade_fired);
+	self callback::on_offhand_fire(&on_offhand_fire);
 	self thread initialspawnprotection();
 	pixendevent();
 }
@@ -3355,7 +3355,7 @@ function function_73566ec7(attacker, weapon, owner)
 	{
 		scoreevents::processscoreevent(bundle.var_ebd92bbc, attacker, owner, weapon);
 		attacker stats::function_dad108fa(#"stats_destructions", 1);
-		attacker contracts::function_a54e2068(#"hash_317a8b8df3aa8838");
+		attacker contracts::increment_contract(#"hash_317a8b8df3aa8838");
 		self.var_c5bb583d = 1;
 		if(isdefined(self.attackers) && self.attackers.size > 0)
 		{
@@ -3388,7 +3388,7 @@ function function_73566ec7(attacker, weapon, owner)
 				}
 				scoreevents::processscoreevent(bundle.var_74711af9, assister, owner, self.attackerdamage[assister.clientid].weapon);
 				assister stats::function_dad108fa(#"stats_destructions", 1);
-				assister contracts::function_a54e2068(#"hash_317a8b8df3aa8838");
+				assister contracts::increment_contract(#"hash_317a8b8df3aa8838");
 			}
 		}
 	}

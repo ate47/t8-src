@@ -104,7 +104,7 @@ class cmp_revive_prompt : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmp_revive_prompt
 		Checksum: 0xF1CFF2F5
 		Offset: 0x380
@@ -112,9 +112,9 @@ class cmp_revive_prompt : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -129,9 +129,9 @@ class cmp_revive_prompt : cLUIelem
 	function setup_clientfields(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", var_c05c67e2);
-		cLUIelem::function_da693cbe("health", 1, 5, "float", healthcallback);
-		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float", var_d65e5a18);
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int", var_c05c67e2);
+		cLUIelem::add_clientfield("health", 1, 5, "float", healthcallback);
+		cLUIelem::add_clientfield("reviveProgress", 1, 5, "float", var_d65e5a18);
 	}
 
 }
@@ -155,7 +155,7 @@ function register(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mp_revive_prompt
 	Checksum: 0x7B55C31A
 	Offset: 0x148
@@ -163,10 +163,10 @@ function register(uid, var_c05c67e2, healthcallback, var_d65e5a18, var_f228b5fa)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cmp_revive_prompt();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

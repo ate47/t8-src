@@ -35,7 +35,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_13a41fe1a6435995", &on_begin, &on_end);
+	zm_trial::register_challenge(#"disable_teleporters_elevators", &on_begin, &on_end);
 }
 
 /*

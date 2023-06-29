@@ -477,8 +477,8 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		}
 		self.alivetimecurrentindex = (self.alivetimecurrentindex + 1) % level.alivetimemaxcount;
 	}
-	attacker = function_4ac2aefc(attacker, weapon);
-	einflictor = function_91cd8b0d(einflictor);
+	attacker = update_attacker(attacker, weapon);
+	einflictor = update_inflictor(einflictor);
 	smeansofdeath = self function_b029639e(attacker, einflictor, weapon, smeansofdeath, shitloc);
 	if(!isdefined(obituarymeansofdeath))
 	{
@@ -524,7 +524,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 	#/
 	if(bledout == 0)
 	{
-		self function_4e516ee6(attacker, weapon);
+		self update_killstreaks(attacker, weapon);
 	}
 	lpselfnum = self getentitynumber();
 	lpselfname = self.name;
@@ -855,7 +855,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		body = self cloneplayer(deathanimduration, clone_weapon, attacker, vdir);
 		if(isdefined(body) && !level.inprematchperiod)
 		{
-			self function_10f480f(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, vattackerorigin, deathanimduration, einflictor, body);
+			self create_body(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, vattackerorigin, deathanimduration, einflictor, body);
 			self battlechatter::play_death_vox(body, attacker, weapon, smeansofdeath);
 			if(isdefined(var_a1d415ee))
 			{
@@ -1381,7 +1381,7 @@ function private function_b029639e(attacker, einflictor, weapon, smeansofdeath, 
 }
 
 /*
-	Name: function_4e516ee6
+	Name: update_killstreaks
 	Namespace: player
 	Checksum: 0x1B00543E
 	Offset: 0x4C88
@@ -1389,7 +1389,7 @@ function private function_b029639e(attacker, einflictor, weapon, smeansofdeath, 
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_4e516ee6(attacker, weapon)
+function private update_killstreaks(attacker, weapon)
 {
 	if(!isdefined(self.switching_teams) && !self.var_4ef33446)
 	{
@@ -1857,7 +1857,7 @@ function function_f632c17e(weapon)
 	}
 	switch(weapon.name)
 	{
-		case "hash_216eeca7a4295e4":
+		case "ar_accurate_t8_swat":
 		case "hash_17df39d53492b0bf":
 		case "tank_robot_launcher_turret":
 		case "ac130_chaingun":
@@ -2016,7 +2016,7 @@ function private post_game_death(einflictor, attacker, idamage, smeansofdeath, w
 	body = self cloneplayer(deathanimduration, clone_weapon, attacker, vdir);
 	if(isdefined(body))
 	{
-		self function_10f480f(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, (0, 0, 0), deathanimduration, einflictor, body);
+		self create_body(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, (0, 0, 0), deathanimduration, einflictor, body);
 	}
 }
 
@@ -2194,7 +2194,7 @@ function private start_generator_captureshouldshowpain()
 }
 
 /*
-	Name: function_10f480f
+	Name: create_body
 	Namespace: player
 	Checksum: 0x46FF87CD
 	Offset: 0x7778
@@ -2202,7 +2202,7 @@ function private start_generator_captureshouldshowpain()
 	Parameters: 10
 	Flags: Linked, Private
 */
-function private function_10f480f(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, vattackerorigin, deathanimduration, einflictor, body)
+function private create_body(attacker, idamage, smeansofdeath, weapon, shitloc, vdir, vattackerorigin, deathanimduration, einflictor, body)
 {
 	if(smeansofdeath == "MOD_HIT_BY_OBJECT" && self getstance() == "prone")
 	{
@@ -2652,7 +2652,7 @@ function private delayed_ragdoll(ent, shitloc, vdir, weapon, einflictor, smeanso
 }
 
 /*
-	Name: function_4ac2aefc
+	Name: update_attacker
 	Namespace: player
 	Checksum: 0x58FEAECE
 	Offset: 0x8710
@@ -2660,7 +2660,7 @@ function private delayed_ragdoll(ent, shitloc, vdir, weapon, einflictor, smeanso
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_4ac2aefc(attacker, weapon)
+function private update_attacker(attacker, weapon)
 {
 	if(isai(attacker) && isdefined(attacker.script_owner))
 	{
@@ -2726,7 +2726,7 @@ function private function_4ac2aefc(attacker, weapon)
 }
 
 /*
-	Name: function_91cd8b0d
+	Name: update_inflictor
 	Namespace: player
 	Checksum: 0x2BE8B65B
 	Offset: 0x8A48
@@ -2734,7 +2734,7 @@ function private function_4ac2aefc(attacker, weapon)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_91cd8b0d(einflictor)
+function private update_inflictor(einflictor)
 {
 	if(isdefined(einflictor) && einflictor.classname == "script_vehicle")
 	{
@@ -2828,13 +2828,13 @@ function function_ed2725ad(einflictor, attacker, weapon)
 					if((attacker.pers[#"cur_kill_streak"] % 5) == 0)
 					{
 						attacker activecamo::function_896ac347(weapon, #"killstreak_5", 1);
-						attacker contracts::function_a54e2068(#"hash_4c15367eed618401");
-						attacker contracts::function_a54e2068(#"hash_3f1070327daed588");
+						attacker contracts::increment_contract(#"hash_4c15367eed618401");
+						attacker contracts::increment_contract(#"hash_3f1070327daed588");
 					}
 					if((attacker.pers[#"cur_kill_streak"] % 10) == 0)
 					{
 						attacker challenges::killstreakten();
-						attacker contracts::function_a54e2068(#"hash_73a8663654fdba0b");
+						attacker contracts::increment_contract(#"hash_73a8663654fdba0b");
 					}
 					if(attacker.pers[#"cur_kill_streak"] <= 30)
 					{

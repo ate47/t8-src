@@ -302,7 +302,7 @@ function private lc_flag_hit(enemy, hit)
 						enemy[i] ai::stun();
 						continue;
 					}
-					enemy[i] ai::function_62795e55();
+					enemy[i] ai::clear_stun();
 				}
 			}
 		}
@@ -314,7 +314,7 @@ function private lc_flag_hit(enemy, hit)
 			}
 			else
 			{
-				enemy ai::function_62795e55();
+				enemy ai::clear_stun();
 			}
 		}
 	}

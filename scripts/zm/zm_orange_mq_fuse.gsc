@@ -64,11 +64,11 @@ function main()
 {
 	level init_transformers();
 	level function_6bd2a719();
-	level function_808135c6();
+	level init_fuse();
 }
 
 /*
-	Name: function_808135c6
+	Name: init_fuse
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0x85F1D13F
 	Offset: 0x558
@@ -76,7 +76,7 @@ function main()
 	Parameters: 0
 	Flags: Linked
 */
-function function_808135c6()
+function init_fuse()
 {
 	level.s_fuse = struct::get("tin_foil", "targetname");
 	level.s_fuse.e_model = getent(level.s_fuse.target, "targetname");
@@ -266,12 +266,12 @@ function function_16386d70()
 {
 	var_ee92bf8c = getent("chicken_nugget", "targetname");
 	s_unitrigger = var_ee92bf8c zm_unitrigger::create("", 96);
-	var_ee92bf8c function_c303e169();
+	var_ee92bf8c shard_think();
 	var_ee92bf8c zm_unitrigger::unregister_unitrigger(s_unitrigger);
 }
 
 /*
-	Name: function_c303e169
+	Name: shard_think
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0x9B6EB719
 	Offset: 0xD30
@@ -279,7 +279,7 @@ function function_16386d70()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c303e169()
+function shard_think()
 {
 	s_activation = undefined;
 	s_activation = self waittill(#"trigger_activated");

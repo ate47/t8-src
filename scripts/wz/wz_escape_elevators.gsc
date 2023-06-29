@@ -166,12 +166,12 @@ function function_211e7277(point, var_8bd17d7d)
 	nearby_players = getplayers(undefined, point.origin, 256);
 	move_pos = point.origin;
 	var_93a4284 = 0;
-	var_ff951b7a = 0;
+	check_count = 0;
 	if(nearby_players.size > 0)
 	{
 		var_93a4284 = 1;
 	}
-	while(var_93a4284 && var_ff951b7a < 20)
+	while(var_93a4284 && check_count < 20)
 	{
 		foreach(player in nearby_players)
 		{
@@ -186,7 +186,7 @@ function function_211e7277(point, var_8bd17d7d)
 			}
 			var_93a4284 = 0;
 		}
-		var_ff951b7a++;
+		check_count++;
 	}
 	self setorigin(move_pos);
 }
@@ -418,7 +418,7 @@ function function_26ab1b5e(t_damage)
 	Parameters: 2
 	Flags: Linked
 */
-function function_76ad6828(position, var_19dc5b0 = 0)
+function function_76ad6828(position, is_end_position = 0)
 {
 	self endon(#"death");
 	if(isdefined(self.script_noteworthy) && isdefined(position))
@@ -435,7 +435,7 @@ function function_76ad6828(position, var_19dc5b0 = 0)
 			while(var_d011282b > 16)
 			{
 				var_d011282b = distancesquared(self.origin, position.origin);
-				if(var_19dc5b0)
+				if(is_end_position)
 				{
 					if(var_d011282b <= 5000)
 					{

@@ -33,7 +33,7 @@ function autoexec __init__system__()
 function private __init__()
 {
 	gametype = util::get_game_type();
-	if(gametype !== #"warzone_hot_pursuit" && gametype !== #"warzone_heavy_metal" && gametype !== #"hash_753fcf1725358921" && gametype !== #"warzone_heavy_metal_heroes")
+	if(gametype !== #"warzone_hot_pursuit" && gametype !== #"warzone_heavy_metal" && gametype !== #"warzone_bigteam_dbno_quad" && gametype !== #"warzone_heavy_metal_heroes")
 	{
 		return;
 	}
@@ -44,7 +44,7 @@ function private __init__()
 	if((isdefined(getgametypesetting(#"hash_4149d5d65eb07138")) ? getgametypesetting(#"hash_4149d5d65eb07138") : 0))
 	{
 		level.var_317fb13c = &function_3fed57dd;
-		if(gametype === #"hash_753fcf1725358921")
+		if(gametype === #"warzone_bigteam_dbno_quad")
 		{
 			level.var_317fb13c = &function_a9b8fa06;
 		}
@@ -57,7 +57,7 @@ function private __init__()
 }
 
 /*
-	Name: function_ba18c3e5
+	Name: _get_item
 	Namespace: wz_loadouts
 	Checksum: 0x25E817C0
 	Offset: 0x2F0
@@ -65,7 +65,7 @@ function private __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_ba18c3e5(itemname)
+function _get_item(itemname)
 {
 	if(isdefined(level.var_4afb8f5a[itemname]) && level.var_4afb8f5a[itemname] != #"")
 	{
@@ -212,24 +212,24 @@ function function_9de0644f()
 		{
 			case 1:
 			{
-				smg = function_ba18c3e5(#"smg_fastburst_t8_item");
+				smg = _get_item(#"smg_fastburst_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 				smg.attachments = [];
-				attachment = function_ba18c3e5(#"fastmag_wz_item");
+				attachment = _get_item(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+				attachment = _get_item(#"tritium_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				attachment = function_ba18c3e5(#"laser_sight_wz_item");
+				attachment = _get_item(#"laser_sight_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -238,41 +238,41 @@ function function_9de0644f()
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
-				ammo = function_ba18c3e5(#"hash_212b01feaa916a00");
+				ammo = _get_item(#"hash_212b01feaa916a00");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				armor = function_ba18c3e5(#"hash_8578856a247ab60");
+				armor = _get_item(#"hash_8578856a247ab60");
 				var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 				self item_world::function_de2018e3(armor, self, var_fa3df96);
-				health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+				health = _get_item(#"hash_1abfcce0e9955057");
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"backpack_item");
+				backpack = _get_item(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				armorShard = function_ba18c3e5(#"armor_shard_item");
+				armorShard = _get_item(#"armor_shard_item");
 				armorShard.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
 				self item_world::function_de2018e3(armorShard, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
 			}
 			case 2:
 			{
-				smg = function_ba18c3e5(#"smg_capacity_t8_item");
+				smg = _get_item(#"smg_capacity_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 				smg.attachments = [];
-				attachment = function_ba18c3e5(#"fastmag_wz_item");
+				attachment = _get_item(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+				attachment = _get_item(#"tritium_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -282,34 +282,34 @@ function function_9de0644f()
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
-				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"hash_182fdef2ad243e20");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				armor = function_ba18c3e5(#"hash_6f80136c3b79d9e");
+				armor = _get_item(#"hash_6f80136c3b79d9e");
 				var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 				self item_world::function_de2018e3(armor, self, var_fa3df96);
-				health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+				health = _get_item(#"hash_1abfcce0e9955057");
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"backpack_item");
+				backpack = _get_item(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				armorShard = function_ba18c3e5(#"armor_shard_item");
+				armorShard = _get_item(#"armor_shard_item");
 				armorShard.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
 				self item_world::function_de2018e3(armorShard, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
 			}
 			case 3:
 			{
-				smg = function_ba18c3e5(#"smg_standard_t8_item");
+				smg = _get_item(#"smg_standard_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 				smg.attachments = [];
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+				attachment = _get_item(#"tritium_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -319,34 +319,34 @@ function function_9de0644f()
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
-				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"hash_182fdef2ad243e20");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+				health = _get_item(#"hash_1abfcce0e9955057");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"backpack_item");
+				backpack = _get_item(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
 			}
 			case 4:
 			{
-				pistol = function_ba18c3e5(#"pistol_burst_t8_item");
+				pistol = _get_item(#"pistol_burst_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
-				attachment = function_ba18c3e5(#"fastmag_wz_item");
+				attachment = _get_item(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+				attachment = _get_item(#"tritium_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -356,28 +356,28 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"hash_182fdef2ad243e20");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+				health = _get_item(#"hash_1abfcce0e9955057");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				backpack = function_ba18c3e5(#"backpack_item");
+				backpack = _get_item(#"backpack_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 				self item_world::function_de2018e3(backpack, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
 			}
 			case 5:
 			{
-				pistol = function_ba18c3e5(#"pistol_burst_t8_item");
+				pistol = _get_item(#"pistol_burst_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
-				attachment = function_ba18c3e5(#"fastmag_wz_item");
+				attachment = _get_item(#"tritium_wz_item");
+				attachment = _get_item(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -393,31 +393,31 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"hash_182fdef2ad243e20");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+				health = _get_item(#"hash_1abfcce0e9955057");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
 			}
 			default:
 			{
-				pistol = function_ba18c3e5(#"pistol_burst_t8_item");
+				pistol = _get_item(#"pistol_burst_t8_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 				pistol.attachments = [];
-				attachment = function_ba18c3e5(#"fastmag_wz_item");
+				attachment = _get_item(#"fastmag_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
 				var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 				var_e38a0464.var_a6762160 = attachment.var_a6762160;
 				namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-				attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+				attachment = _get_item(#"tritium_wz_item");
 				var_e38a0464 = item_inventory::function_520b16d6();
 				var_e38a0464.count = 1;
 				var_e38a0464.id = attachment.id;
@@ -427,10 +427,10 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"hash_182fdef2ad243e20");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				grapple = function_ba18c3e5(#"unlimited_grapple_wz_item");
+				grapple = _get_item(#"unlimited_grapple_wz_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(grapple);
 				self item_world::function_de2018e3(grapple, self, var_fa3df96);
 				break;
@@ -451,12 +451,12 @@ function function_9de0644f()
 function private function_58190f52()
 {
 	gametype = util::get_game_type();
-	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
+	if(gametype == #"warzone_hot_pursuit" || gametype == #"warzone_bigteam_dbno_quad")
 	{
-		pistol = function_ba18c3e5(#"pistol_standard_t8_item");
+		pistol = _get_item(#"pistol_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
-		ammo = function_ba18c3e5(#"hash_212b01feaa916a00");
+		ammo = _get_item(#"hash_212b01feaa916a00");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
 	}
@@ -464,10 +464,10 @@ function private function_58190f52()
 	{
 		if(gametype == #"warzone_heavy_metal")
 		{
-			weapon = function_ba18c3e5(#"lmg_spray_t8_item");
+			weapon = _get_item(#"lmg_spray_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = function_ba18c3e5(#"hash_3bf6ed4e3a22e9f3");
+			ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
 		}
@@ -490,19 +490,19 @@ function private function_58190f52()
 function private function_6667abef()
 {
 	gametype = util::get_game_type();
-	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
+	if(gametype == #"warzone_hot_pursuit" || gametype == #"warzone_bigteam_dbno_quad")
 	{
-		pistol = function_ba18c3e5(#"pistol_standard_t8_item");
+		pistol = _get_item(#"pistol_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 		pistol.attachments = [];
-		attachment = function_ba18c3e5(#"fastmag_wz_item");
+		attachment = _get_item(#"fastmag_wz_item");
 		var_e38a0464 = item_inventory::function_520b16d6();
 		var_e38a0464.count = 1;
 		var_e38a0464.id = attachment.id;
 		var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 		var_e38a0464.var_a6762160 = attachment.var_a6762160;
 		namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
-		attachment = function_ba18c3e5(#"hash_559f58d5af0b432d");
+		attachment = _get_item(#"tritium_wz_item");
 		var_e38a0464 = item_inventory::function_520b16d6();
 		var_e38a0464.count = 1;
 		var_e38a0464.id = attachment.id;
@@ -511,10 +511,10 @@ function private function_6667abef()
 		namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
 		pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
-		ammo = function_ba18c3e5(#"hash_212b01feaa916a00");
+		ammo = _get_item(#"hash_212b01feaa916a00");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+		health = _get_item(#"hash_1abfcce0e9955057");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -523,17 +523,17 @@ function private function_6667abef()
 	{
 		if(gametype == #"warzone_heavy_metal")
 		{
-			weapon = function_ba18c3e5(#"lmg_spray_t8_item");
+			weapon = _get_item(#"lmg_spray_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"fastmag_wz_item");
+			attachment = _get_item(#"fastmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"acog_wz_item");
+			attachment = _get_item(#"acog_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -542,10 +542,10 @@ function private function_6667abef()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = function_ba18c3e5(#"hash_3bf6ed4e3a22e9f3");
+			ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = function_ba18c3e5(#"hash_80292d121740f6f");
+			health = _get_item(#"hash_80292d121740f6f");
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
 		}
@@ -568,15 +568,15 @@ function private function_6667abef()
 function private function_7376c60d()
 {
 	gametype = util::get_game_type();
-	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
+	if(gametype == #"warzone_hot_pursuit" || gametype == #"warzone_bigteam_dbno_quad")
 	{
-		smg = function_ba18c3e5(#"smg_standard_t8_item");
+		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"hash_182fdef2ad243e20");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+		health = _get_item(#"hash_1abfcce0e9955057");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -585,13 +585,13 @@ function private function_7376c60d()
 	{
 		if(gametype == #"warzone_heavy_metal")
 		{
-			weapon = function_ba18c3e5(#"lmg_standard_t8_item");
+			weapon = _get_item(#"lmg_standard_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = function_ba18c3e5(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"hash_1f72dec518451f8c");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = function_ba18c3e5(#"hash_80292d121740f6f");
+			health = _get_item(#"hash_80292d121740f6f");
 			health.count = 2;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -615,25 +615,25 @@ function private function_7376c60d()
 function private function_1f091d2f()
 {
 	gametype = util::get_game_type();
-	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
+	if(gametype == #"warzone_hot_pursuit" || gametype == #"warzone_bigteam_dbno_quad")
 	{
-		smg = function_ba18c3e5(#"smg_standard_t8_item");
+		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"hash_182fdef2ad243e20");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		attachment = function_ba18c3e5(#"laser_sight_wz_item");
+		attachment = _get_item(#"laser_sight_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+		health = _get_item(#"hash_1abfcce0e9955057");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
-		armor = function_ba18c3e5(#"hash_6f80136c3b79d9e");
+		armor = _get_item(#"hash_6f80136c3b79d9e");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
-		armorShard = function_ba18c3e5(#"armor_shard_item");
+		armorShard = _get_item(#"armor_shard_item");
 		armorShard.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
 		self item_world::function_de2018e3(armorShard, self, var_fa3df96);
@@ -642,17 +642,17 @@ function private function_1f091d2f()
 	{
 		if(gametype == #"warzone_heavy_metal")
 		{
-			weapon = function_ba18c3e5(#"lmg_standard_t8_item");
+			weapon = _get_item(#"lmg_standard_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"fastmag_wz_item");
+			attachment = _get_item(#"fastmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"acog_wz_item");
+			attachment = _get_item(#"acog_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -661,14 +661,14 @@ function private function_1f091d2f()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = function_ba18c3e5(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"hash_1f72dec518451f8c");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = function_ba18c3e5(#"hash_80292d121740f6f");
+			health = _get_item(#"hash_80292d121740f6f");
 			health.count = 3;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
-			armor = function_ba18c3e5(#"hash_568173e016d45c2a");
+			armor = _get_item(#"hash_568173e016d45c2a");
 			var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 			self item_world::function_de2018e3(armor, self, var_fa3df96);
 		}
@@ -691,31 +691,31 @@ function private function_1f091d2f()
 function private function_2d31b980()
 {
 	gametype = util::get_game_type();
-	if(gametype == #"warzone_hot_pursuit" || gametype == #"hash_753fcf1725358921")
+	if(gametype == #"warzone_hot_pursuit" || gametype == #"warzone_bigteam_dbno_quad")
 	{
-		smg = function_ba18c3e5(#"smg_standard_t8_item");
+		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = function_ba18c3e5(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"hash_182fdef2ad243e20");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		attachment = function_ba18c3e5(#"laser_sight_wz_item");
+		attachment = _get_item(#"laser_sight_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		attachment = function_ba18c3e5(#"holo_wz_item");
+		attachment = _get_item(#"holo_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		attachment = function_ba18c3e5(#"extbarrel_wz_item");
+		attachment = _get_item(#"extbarrel_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		health = function_ba18c3e5(#"hash_1abfcce0e9955057");
+		health = _get_item(#"hash_1abfcce0e9955057");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
-		armor = function_ba18c3e5(#"hash_8578856a247ab60");
+		armor = _get_item(#"hash_8578856a247ab60");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
-		armorShard = function_ba18c3e5(#"armor_shard_item");
+		armorShard = _get_item(#"armor_shard_item");
 		armorShard.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
 		self item_world::function_de2018e3(armorShard, self, var_fa3df96);
@@ -724,24 +724,24 @@ function private function_2d31b980()
 	{
 		if(gametype == #"warzone_heavy_metal")
 		{
-			weapon = function_ba18c3e5(#"lmg_standard_t8_item");
+			weapon = _get_item(#"lmg_standard_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			weapon.attachments = [];
-			attachment = function_ba18c3e5(#"extmag_wz_item");
+			attachment = _get_item(#"extmag_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"reddot_wz_item");
+			attachment = _get_item(#"reddot_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
 			var_e38a0464.var_bd027dd9 = var_e38a0464.id;
 			var_e38a0464.var_a6762160 = attachment.var_a6762160;
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
-			attachment = function_ba18c3e5(#"extbarrel_wz_item");
+			attachment = _get_item(#"extbarrel_wz_item");
 			var_e38a0464 = item_inventory::function_520b16d6();
 			var_e38a0464.count = 1;
 			var_e38a0464.id = attachment.id;
@@ -750,17 +750,17 @@ function private function_2d31b980()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = function_ba18c3e5(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"hash_1f72dec518451f8c");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = function_ba18c3e5(#"hash_80292d121740f6f");
+			health = _get_item(#"hash_80292d121740f6f");
 			health.count = 3;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
-			armor = function_ba18c3e5(#"hash_568173e016d45c2a");
+			armor = _get_item(#"hash_568173e016d45c2a");
 			var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 			self item_world::function_de2018e3(armor, self, var_fa3df96);
-			armorShard = function_ba18c3e5(#"armor_shard_item");
+			armorShard = _get_item(#"armor_shard_item");
 			armorShard.count = 5;
 			var_fa3df96 = self item_inventory::function_e66dcff5(armorShard);
 			self item_world::function_de2018e3(armorShard, self, var_fa3df96);
@@ -783,30 +783,30 @@ function private function_2d31b980()
 */
 function private function_f56a5599()
 {
-	weapon = function_ba18c3e5(#"lmg_stealth_t8_item");
+	weapon = _get_item(#"lmg_stealth_t8_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 	self item_world::function_de2018e3(weapon, self, var_fa3df96);
-	ammo = function_ba18c3e5(#"hash_3bf6ed4e3a22e9f3");
+	ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
 	var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 	self item_world::function_de2018e3(ammo, self, var_fa3df96);
-	weapon = function_ba18c3e5(#"ar_peacekeeper_t8_item");
+	weapon = _get_item(#"ar_peacekeeper_t8_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 	self item_world::function_de2018e3(weapon, self, var_fa3df96);
-	ammo = function_ba18c3e5(#"hash_3bf6ed4e3a22e9f3");
+	ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
 	var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 	self item_world::function_de2018e3(ammo, self, var_fa3df96);
-	health = function_ba18c3e5(#"hash_45ced3880667df22");
+	health = _get_item(#"hash_45ced3880667df22");
 	health.count = 5;
 	var_fa3df96 = self item_inventory::function_e66dcff5(health);
 	self item_world::function_de2018e3(health, self, var_fa3df96);
-	armor = function_ba18c3e5(#"hash_8578856a247ab60");
+	armor = _get_item(#"hash_8578856a247ab60");
 	var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 	self item_world::function_de2018e3(armor, self, var_fa3df96);
-	var_57fd914e = function_ba18c3e5(#"dart_wz_item");
+	var_57fd914e = _get_item(#"dart_wz_item");
 	var_57fd914e.count = 5;
 	var_fa3df96 = self item_inventory::function_e66dcff5(var_57fd914e);
 	self item_world::function_de2018e3(health, self, var_fa3df96);
-	var_82e4671b = function_ba18c3e5(#"ultimate_turret_wz_item");
+	var_82e4671b = _get_item(#"ultimate_turret_wz_item");
 	var_82e4671b.count = 5;
 	var_fa3df96 = self item_inventory::function_e66dcff5(var_82e4671b);
 	self item_world::function_de2018e3(health, self, var_fa3df96);

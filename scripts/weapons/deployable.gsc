@@ -543,7 +543,7 @@ function on_player_spawned()
 {
 	self.var_3abd9b54 = 0;
 	self clientfield::set_to_player("gameplay_allows_deploy", 1);
-	self callback::function_f77ced93(&function_f77ced93);
+	self callback::on_weapon_change(&on_weapon_change);
 }
 
 /*
@@ -663,7 +663,7 @@ function function_db9eb027(entity)
 	Parameters: 5
 	Flags: None
 */
-function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weapon, ignore_entity)
+function function_54d27855(client_pos, client_angles, var_36baa3f1, previs_weapon, ignore_entity)
 {
 	results = spawnstruct();
 	var_5130f5dd = 0;
@@ -675,13 +675,13 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	var_f94d59f8 = 2;
 	var_5adff8ce = (0, 0, 0);
 	var_4c59d56 = (0, 0, 0);
-	forward = anglestoforward(var_421003af);
+	forward = anglestoforward(client_angles);
 	var_6c16750a = previs_weapon.var_f7e67f28;
 	if(previs_weapon.var_9111ccc0 && previs_weapon.var_5ac2e7a4 > previs_weapon.var_f7e67f28)
 	{
 		var_6c16750a = previs_weapon.var_5ac2e7a4;
 	}
-	trace_distance = var_6c16750a / abs(cos(var_421003af[0]));
+	trace_distance = var_6c16750a / abs(cos(client_angles[0]));
 	forward_vector = vectorscale(forward, trace_distance);
 	trace_start = var_36baa3f1;
 	trace_result = bullettrace(trace_start, trace_start + forward_vector, 0, ignore_entity);
@@ -697,11 +697,11 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 		var_db3ce012 = trace_result[#"normal"];
 		var_6165e0de = var_db3ce012[2] < 0.7;
 		hit_distance = trace_result[#"fraction"] * trace_distance;
-		if(distance2dsquared(var_503cdc82, hit_location) < previs_weapon.var_f7e67f28 * previs_weapon.var_f7e67f28)
+		if(distance2dsquared(client_pos, hit_location) < previs_weapon.var_f7e67f28 * previs_weapon.var_f7e67f28)
 		{
 			var_caa96e8a = 1;
 		}
-		height_offset = hit_location[2] - var_503cdc82[2];
+		height_offset = hit_location[2] - client_pos[2];
 		if(var_def28dc4 && var_6165e0de)
 		{
 			if(height_offset <= previs_weapon.var_ab300840 && height_offset >= previs_weapon.var_849af6b4)
@@ -709,8 +709,8 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 				var_a7bfb = 1;
 			}
 			var_e76d3149 = 1;
-			var_f131a86 = vectordot(forward * -1, var_db3ce012);
-			if(var_f131a86 > cos(previs_weapon.var_c4aae0fa))
+			wall_dot = vectordot(forward * -1, var_db3ce012);
+			if(wall_dot > cos(previs_weapon.var_c4aae0fa))
 			{
 				var_68e91c5c = 1;
 			}
@@ -733,7 +733,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 			}
 			if(!var_def28dc4 && var_6165e0de)
 			{
-				hit_location = var_503cdc82 + ((forward_vector[0], forward_vector[1], 0) * trace_result[#"fraction"]);
+				hit_location = client_pos + ((forward_vector[0], forward_vector[1], 0) * trace_result[#"fraction"]);
 				var_db3ce012 = (0, 0, 1);
 				var_ae7d780d = 1;
 				var_d22ba639 = 0;
@@ -748,15 +748,15 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	water_bottom = hit_location;
 	if(var_d22ba639)
 	{
-		forward2d = anglestoforward((0, var_421003af[1], 0));
+		forward2d = anglestoforward((0, client_angles[1], 0));
 		var_f7e67f28 = previs_weapon.var_f7e67f28;
-		var_75e7a61 = var_503cdc82 + (0, 0, previs_weapon.var_227c90e1);
+		var_75e7a61 = client_pos + (0, 0, previs_weapon.var_227c90e1);
 		var_1a606e14 = var_75e7a61 + (forward2d * var_f7e67f28);
 		var_b6085963 = bullettrace(var_75e7a61, var_1a606e14, 0, ignore_entity);
 		if(var_b6085963[#"fraction"] > 0)
 		{
 			var_f7e67f28 = (previs_weapon.var_f7e67f28 * var_b6085963[#"fraction"]) - var_f94d59f8;
-			var_14b67847 = (var_503cdc82 + (forward2d * var_f7e67f28)) + (0, 0, previs_weapon.var_227c90e1);
+			var_14b67847 = (client_pos + (forward2d * var_f7e67f28)) + (0, 0, previs_weapon.var_227c90e1);
 			var_c9851f67 = var_14b67847 - (0, 0, previs_weapon.var_227c90e1 - previs_weapon.var_849af6b4);
 			var_4bc118b9 = groundtrace(var_14b67847, var_c9851f67, 0, ignore_entity);
 			hitent = var_4bc118b9[#"entity"];
@@ -787,9 +787,9 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 		else
 		{
 			hit_angles = vectortoangles(var_db3ce012);
-			var_503578d3 = var_421003af[1];
+			var_503578d3 = client_angles[1];
 			pitch = angleclamp180(hit_angles[0] + 90);
-			var_18f32ba4 = absangleclamp360(hit_angles[1] - var_421003af[1]);
+			var_18f32ba4 = absangleclamp360(hit_angles[1] - client_angles[1]);
 			var_aba68694 = cos(var_18f32ba4);
 			var_c59a47b6 = sin(var_18f32ba4) * -1;
 			var_89135834 = pitch * var_aba68694;
@@ -814,7 +814,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: deployable
 	Checksum: 0x8BEF1CD0
 	Offset: 0x2080
@@ -822,7 +822,7 @@ function function_54d27855(var_503cdc82, var_421003af, var_36baa3f1, previs_weap
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f77ced93(params)
+function private on_weapon_change(params)
 {
 	self setplacementhint(1);
 	self clientfield::set_to_player("gameplay_allows_deploy", 1);

@@ -340,7 +340,7 @@ function function_1aeaebae()
 	e_player endon(#"death");
 	e_player thread ct_ui::function_6889bb61(0);
 	level waittill(#"hash_3779df13251ba6f7");
-	return level.var_cd9d597c;
+	return level.ctdifficulty;
 }
 
 /*
@@ -481,7 +481,7 @@ function function_a217c7b4(b_success)
 	{
 		var_cd803a6b = level thread [[level.var_8b9d690e]](b_success);
 	}
-	level thread ct_bots::function_87cf954e();
+	level thread ct_bots::deactivate_bots();
 	axis = getaiteamarray(#"axis");
 	foreach(entity in axis)
 	{
@@ -539,7 +539,7 @@ function function_45a4f027()
 function on_end_game(params)
 {
 	ct_utils::function_64f9f527();
-	ct_utils::function_c3a6c010();
+	ct_utils::cleanup_globals();
 	e_player = ct_utils::get_player();
 	if(isdefined(e_player))
 	{

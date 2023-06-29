@@ -1062,7 +1062,7 @@ function on_player_connect()
 	self flag::init(#"ww_combat_active");
 	self flag::init(#"hash_3247dad158e8b329");
 	self flag::init("carrying_light_energy");
-	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+	if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 	{
 		self thread function_d0b13de1();
 		self thread function_aeaedb3c();
@@ -3337,13 +3337,13 @@ function function_65d82d13()
 function light_energy_carry(e_player)
 {
 	e_player endon(#"disconnect", #"hash_3f0faacb0cc98a9");
-	callback::function_f77ced93(&function_fbcb1210);
+	callback::on_weapon_change(&function_fbcb1210);
 	while(true)
 	{
 		if(e_player ismeleeing() && distance(e_player.origin, self.var_a1327d58.origin) < 150 && e_player getcurrentweapon() === self.w_uncharged_hand)
 		{
 			e_player notify(#"hash_3f0faacb0cc98a9", {#b_success:1});
-			callback::function_5a753d97(&function_fbcb1210);
+			callback::remove_on_weapon_change(&function_fbcb1210);
 			break;
 		}
 		waitframe(1);
@@ -4247,7 +4247,7 @@ function function_41cb93cc(e_player)
 	}
 	e_player waittill(#"weapon_change_complete");
 	e_player.var_7e19c3db = 0;
-	callback::function_f77ced93(&function_3462981);
+	callback::on_weapon_change(&function_3462981);
 	callback::function_33f0ddd3(&function_3b0917e6);
 	e_player enableweaponcycling();
 	self thread function_1c5aedd8(e_player);
@@ -4301,7 +4301,7 @@ function function_9ef120d8()
 {
 	level thread function_887b7e4b(#"earth", self.var_34e10757);
 	self.var_52666e80 thread function_ac211843(1);
-	callback::function_5a753d97(&function_3462981);
+	callback::remove_on_weapon_change(&function_3462981);
 	callback::function_824d206(&function_3b0917e6);
 }
 
@@ -4372,7 +4372,7 @@ function function_1c5aedd8(e_player)
 	s_quest = level.var_d225ea18[#"earth"];
 	s_result = undefined;
 	s_result = e_player waittill(#"seedling_dropped", #"fake_death");
-	callback::function_5a753d97(&function_3462981);
+	callback::remove_on_weapon_change(&function_3462981);
 	callback::function_824d206(&function_3b0917e6);
 	e_player.var_52666e80 = undefined;
 	if(s_result.str_result === "dropped" || s_result.str_result === "loadout_changed" || s_result._notify == "fake_death")
@@ -4701,7 +4701,7 @@ function function_74337491()
 }
 
 /*
-	Name: function_314447b
+	Name: pause_zombies
 	Namespace: zm_red_ww_quests
 	Checksum: 0x7E6A11F0
 	Offset: 0x114D8
@@ -4709,7 +4709,7 @@ function function_74337491()
 	Parameters: 2
 	Flags: None
 */
-function function_314447b(b_pause = 0, var_53458a86 = 1)
+function pause_zombies(b_pause = 0, var_53458a86 = 1)
 {
 	if(b_pause)
 	{

@@ -231,7 +231,7 @@ function ontrophysystemspawn(watcher, player)
 	}
 	self thread trophyactive(player);
 	self thread trophywatchhack();
-	self util::function_c596f193();
+	self util::make_sentient();
 	self setanim(#"p8_fxanim_mp_eqp_trophy_system_world_anim", 0);
 	self setanim(#"p8_fxanim_mp_eqp_trophy_system_world_open_anim", 1);
 	self clientfield::set("trophy_system_state", 2);

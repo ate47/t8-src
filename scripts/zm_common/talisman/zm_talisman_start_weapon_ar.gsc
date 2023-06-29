@@ -41,7 +41,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_talisman::function_88a60d36("talisman_start_weapon_ar", &activate_talisman);
+	zm_talisman::register_talisman("talisman_start_weapon_ar", &activate_talisman);
 }
 
 /*

@@ -68,9 +68,9 @@ function __init__()
 	zm::function_84d343d(#"hero_flamethrower_t8_lv3", &function_f63feeb6);
 	namespace_9ff9f642::register_slowdown(#"hash_6ff4731de876ab68", 0.6, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_6a420a16118789e1", 0.6, 3);
-	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv1", 16, 6);
-	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv2", 16, 6);
-	namespace_9ff9f642::function_9d45c058(#"hero_flamethrower_t8_lv3", 16, 6);
+	namespace_9ff9f642::register_burn(#"hero_flamethrower_t8_lv1", 16, 6);
+	namespace_9ff9f642::register_burn(#"hero_flamethrower_t8_lv2", 16, 6);
+	namespace_9ff9f642::register_burn(#"hero_flamethrower_t8_lv3", 16, 6);
 	level.n_zombies_lifted_for_ragdoll = 0;
 	if(!isdefined(level.var_f2f67d17))
 	{
@@ -80,7 +80,7 @@ function __init__()
 }
 
 /*
-	Name: function_b1dc801b
+	Name: is_flamethrower_weapon
 	Namespace: zm_weap_flamethrower
 	Checksum: 0x5CAAAB28
 	Offset: 0x6F0
@@ -88,7 +88,7 @@ function __init__()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b1dc801b(weapon, var_e7c11b0c = 1)
+function is_flamethrower_weapon(weapon, var_e7c11b0c = 1)
 {
 	if(!isdefined(weapon))
 	{
@@ -133,13 +133,13 @@ function private function_f5430720()
 			self clientfield::increment_to_player("hero_flamethrower_vigor_postfx");
 			self function_8cbc7c8f(1);
 			self thread function_58bc825e(wpn_cur);
-			level callback::on_ai_killed(&function_1d6d54c0);
+			level callback::on_ai_killed(&on_armor_kill);
 		}
 		else if(isinarray(level.hero_weapon[#"flamethrower"], wpn_prev))
 		{
 			self function_8cbc7c8f(0);
 			self notify(#"hero_flamethrower_expired");
-			level callback::remove_on_ai_killed(&function_1d6d54c0);
+			level callback::remove_on_ai_killed(&on_armor_kill);
 		}
 		if(wpn_cur == level.hero_weapon[#"flamethrower"][0])
 		{
@@ -188,7 +188,7 @@ function private function_82f451d4()
 		waitresult = undefined;
 		waitresult = self waittill(#"hero_weapon_give");
 		var_cad4df8e = waitresult.weapon;
-		if(function_b1dc801b(var_cad4df8e, 2))
+		if(is_flamethrower_weapon(var_cad4df8e, 2))
 		{
 			self clientfield::increment_to_player("hero_flamethrower_vigor_postfx");
 		}
@@ -196,7 +196,7 @@ function private function_82f451d4()
 }
 
 /*
-	Name: function_1d6d54c0
+	Name: on_armor_kill
 	Namespace: zm_weap_flamethrower
 	Checksum: 0xCD15F2FF
 	Offset: 0xBB8
@@ -204,9 +204,9 @@ function private function_82f451d4()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1d6d54c0(s_params)
+function on_armor_kill(s_params)
 {
-	if(isplayer(s_params.eattacker) && function_b1dc801b(s_params.weapon, 1) && (!(isdefined(self.var_d9e7a08a) && self.var_d9e7a08a)) && s_params.smeansofdeath == "MOD_BURNED")
+	if(isplayer(s_params.eattacker) && is_flamethrower_weapon(s_params.weapon, 1) && (!(isdefined(self.var_d9e7a08a) && self.var_d9e7a08a)) && s_params.smeansofdeath == "MOD_BURNED")
 	{
 		e_player = s_params.eattacker;
 		var_d695a618 = 50 - e_player zm_armor::get(#"hero_weapon_armor");

@@ -564,7 +564,7 @@ function private function_f8157311(weaponclass, killstreaknum)
 }
 
 /*
-	Name: function_8881abec
+	Name: clear_killstreaks
 	Namespace: loadout
 	Checksum: 0x455E8EC7
 	Offset: 0x2018
@@ -572,7 +572,7 @@ function private function_f8157311(weaponclass, killstreaknum)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8881abec()
+function clear_killstreaks()
 {
 	player = self;
 	if(isdefined(player.killstreak))
@@ -607,7 +607,7 @@ function function_8881abec()
 */
 function give_killstreaks()
 {
-	self function_8881abec();
+	self clear_killstreaks();
 	if(!level.loadoutkillstreaksenabled)
 	{
 		return;
@@ -765,12 +765,12 @@ function init_player(takeallweapons)
 		self takeallweapons();
 	}
 	self.specialty = [];
-	self function_8881abec();
+	self clear_killstreaks();
 	self notify(#"give_map");
 }
 
 /*
-	Name: function_f8ae6f87
+	Name: give_gesture
 	Namespace: loadout
 	Checksum: 0x2ADDE2BE
 	Offset: 0x27F8
@@ -778,9 +778,9 @@ function init_player(takeallweapons)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_f8ae6f87()
+function private give_gesture()
 {
-	self gestures::function_ae63f496();
+	self gestures::clear_gesture();
 }
 
 /*
@@ -965,7 +965,7 @@ function function_6972fdbb(weaponclass)
 	}
 	if(!isdefined(class_num))
 	{
-		class_num = self stats::get_stat(#"hash_2a738807be622e31");
+		class_num = self stats::get_stat(#"selectedcustomclass");
 		if(!isdefined(class_num))
 		{
 			class_num = 0;
@@ -1257,8 +1257,8 @@ function private function_3aa744b9(slot, weapon)
 	{
 		num_attachments--;
 	}
-	var_2c23a9e6 = function_e229fb1(weapon);
-	if(var_2c23a9e6)
+	has_uber = function_e229fb1(weapon);
+	if(has_uber)
 	{
 		num_attachments--;
 	}
@@ -1269,7 +1269,7 @@ function private function_3aa744b9(slot, weapon)
 		{
 			return false;
 		}
-		if(var_2c23a9e6 || weapon.isdualwield)
+		if(has_uber || weapon.isdualwield)
 		{
 			self.var_86fd5bf3.var_882b6b71--;
 			if(self.var_86fd5bf3.var_882b6b71 < 0)
@@ -1285,7 +1285,7 @@ function private function_3aa744b9(slot, weapon)
 		{
 			return false;
 		}
-		if(var_2c23a9e6 || weapon.isdualwield)
+		if(has_uber || weapon.isdualwield)
 		{
 			self.var_86fd5bf3.var_c3fc8c73--;
 			if(self.var_86fd5bf3.var_c3fc8c73 < 0)
@@ -1309,20 +1309,20 @@ function private function_3aa744b9(slot, weapon)
 function private function_d126318c(slot, weapon)
 {
 	var_b5bd8bd9 = 0;
-	var_5d05dc8 = 0;
+	remove_uber = 0;
 	if(slot === "primary")
 	{
 		var_b5bd8bd9 = self.var_86fd5bf3.var_355c3581;
-		var_5d05dc8 = self.var_86fd5bf3.var_882b6b71 < 0;
+		remove_uber = self.var_86fd5bf3.var_882b6b71 < 0;
 	}
 	else if(slot === "secondary")
 	{
 		var_b5bd8bd9 = self.var_86fd5bf3.var_934131b6;
-		var_5d05dc8 = self.var_86fd5bf3.var_c3fc8c73 < 0;
+		remove_uber = self.var_86fd5bf3.var_c3fc8c73 < 0;
 	}
 	attachments = arraycopy(weapon.attachments);
 	max_index = attachments.size + var_b5bd8bd9;
-	if(var_5d05dc8)
+	if(remove_uber)
 	{
 		arrayremovevalue(attachments, "uber");
 	}
@@ -1352,7 +1352,7 @@ function private function_d126318c(slot, weapon)
 */
 function private function_68c2f1dc(slot, previous_weapon, var_c41b864, var_fe5710f, var_60b97679)
 {
-	loadout = self function_e27dc453(slot);
+	loadout = self get_loadout_slot(slot);
 	var_8feec653 = loadout.weapon;
 	weapon = self function_2ada6938(slot);
 	if(weapon != level.weaponnull)
@@ -1475,7 +1475,7 @@ function private give_weapons(previous_weapon)
 	spawn_weapon = self function_cba7f33e("specialgrenade", previous_weapon, spawn_weapon, &function_c3448ab0);
 	if(!(isdefined(level.specialistabilityenabled) && !level.specialistabilityenabled))
 	{
-		spawn_weapon = self give_hero_gadget(previous_weapon, spawn_weapon, &function_215f4f21);
+		spawn_weapon = self give_hero_gadget(previous_weapon, spawn_weapon, &give_special_offhand);
 	}
 	spawn_weapon = self function_f20f595a(previous_weapon, spawn_weapon, &give_ultimate);
 	self function_d98a8122(spawn_weapon);
@@ -1593,7 +1593,7 @@ function private function_8e961216(slot, previous_weapon)
 		self giveweapon(primaryoffhand);
 		self setweaponammoclip(primaryoffhand, primaryoffhandcount);
 		self switchtooffhand(primaryoffhand);
-		loadout = self function_e27dc453(slot);
+		loadout = self get_loadout_slot(slot);
 		loadout.weapon = primaryoffhand;
 		loadout.count = primaryoffhandcount;
 		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, changedspecialist);
@@ -1673,7 +1673,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 		self giveweapon(secondaryoffhand);
 		self setweaponammoclip(secondaryoffhand, secondaryoffhandcount);
 		self switchtooffhand(secondaryoffhand);
-		loadout = self function_e27dc453(slot);
+		loadout = self get_loadout_slot(slot);
 		loadout.weapon = secondaryoffhand;
 		loadout.count = secondaryoffhandcount;
 		if(force_give_gadget_health_regen === 1)
@@ -1689,7 +1689,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 }
 
 /*
-	Name: function_215f4f21
+	Name: give_special_offhand
 	Namespace: loadout
 	Checksum: 0x3E208E7A
 	Offset: 0x4DD0
@@ -1697,9 +1697,9 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_215f4f21(slot, previous_weapon)
+function private give_special_offhand(slot, previous_weapon)
 {
-	pixbeginevent(#"hash_7ef6c9c82f604aa3");
+	pixbeginevent(#"give_special_offhand");
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
@@ -1744,7 +1744,7 @@ function private function_215f4f21(slot, previous_weapon)
 	{
 		self giveweapon(specialoffhand);
 		self setweaponammoclip(specialoffhand, specialoffhandcount);
-		loadout = self function_e27dc453("specialgrenade");
+		loadout = self get_loadout_slot("specialgrenade");
 		loadout.weapon = specialoffhand;
 		loadout.count = specialoffhandcount;
 		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, changedspecialist);
@@ -1812,7 +1812,7 @@ function private give_ultimate(slot, previous_weapon)
 	{
 		self giveweapon(ultimate);
 		self setweaponammoclip(ultimate, var_36aac800);
-		loadout = self function_e27dc453("ultimate");
+		loadout = self get_loadout_slot("ultimate");
 		loadout.weapon = ultimate;
 		loadout.count = var_36aac800;
 		self ability_util::gadget_reset(ultimate, changedclass, roundbased, firstround, changedspecialist);
@@ -1911,7 +1911,7 @@ function give_loadout(team, weaponclass)
 			give_perks();
 			give_weapons(current_weapon);
 			function_5536bd9e();
-			function_f8ae6f87();
+			give_gesture();
 			give_killstreaks();
 			self.attackeraccuracy = self function_968b6c6a();
 		}
@@ -2157,7 +2157,7 @@ function private cac_selector()
 function register_perks()
 {
 	perks = self.specialty;
-	perks::function_3cd6f625();
+	perks::perk_reset_all();
 	if(isdefined(perks) && (isdefined(level.perksenabled) && level.perksenabled))
 	{
 		for(i = 0; i < perks.size; i++)

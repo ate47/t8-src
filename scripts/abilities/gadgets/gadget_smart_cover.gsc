@@ -624,7 +624,7 @@ function function_3b96637(watcher, owner)
 		player clientfield::set_player_uimodel("huditems.abilityHoldToActivate", 2);
 	}
 	var_bf2bf1a.var_40bfd9cf = var_bf2bf1a influencers::create_entity_enemy_influencer("turret_close", owner.team);
-	var_bf2bf1a util::function_c596f193();
+	var_bf2bf1a util::make_sentient();
 	if(isdefined(level.var_5101157d.var_8d86ade8.var_414fa79e))
 	{
 		player playrumbleonentity(level.var_5101157d.var_8d86ade8.var_414fa79e);

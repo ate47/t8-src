@@ -413,10 +413,10 @@ function function_3b6be5ed(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_91bb8595(var_32a420b0)
+function function_91bb8595(gib_origin)
 {
 	start_pos = self.origin;
-	force = vectornormalize(var_32a420b0 - start_pos);
+	force = vectornormalize(gib_origin - start_pos);
 	force = force + (0, 0, randomfloatrange(0.4, 0.6));
 	force = force * randomfloatrange(0.8, 1.2);
 	return force;
@@ -529,15 +529,15 @@ function private function_3386e437(gibflag)
 */
 function private function_c4fded40(localclientnum, tag_name, gibflag, var_44146a38)
 {
-	var_32a420b0 = self gettagorigin(tag_name);
-	if(!self gibclientutils::isgibbed(localclientnum, self, gibflag) && isdefined(var_32a420b0))
+	gib_origin = self gettagorigin(tag_name);
+	if(!self gibclientutils::isgibbed(localclientnum, self, gibflag) && isdefined(gib_origin))
 	{
-		var_91b70bd5 = self gettagangles(tag_name);
-		gib_force = (var_44146a38 ? function_91bb8595(var_32a420b0) : (0, 0, 0));
+		gib_angles = self gettagangles(tag_name);
+		gib_force = (var_44146a38 ? function_91bb8595(gib_origin) : (0, 0, 0));
 		gib_model = function_3386e437(gibflag);
 		if(isdefined(gib_model))
 		{
-			createdynentandlaunch(localclientnum, gib_model, var_32a420b0, var_91b70bd5, var_32a420b0, gib_force, level._effect[#"hash_3864bbc0912cb852"], 1);
+			createdynentandlaunch(localclientnum, gib_model, gib_origin, gib_angles, gib_origin, gib_force, level._effect[#"hash_3864bbc0912cb852"], 1);
 		}
 	}
 }

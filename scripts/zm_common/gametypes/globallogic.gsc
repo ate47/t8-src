@@ -2120,7 +2120,7 @@ function callback_startgametype()
 		game.strings[#"change_class"] = #"hash_181a96fe9c28ada2";
 		game.strings[#"last_stand"] = #"hash_5732d212e4511a00";
 		game.strings[#"cowards_way"] = #"hash_268e464278a2f8ff";
-		game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
+		game.strings[#"tie"] = #"mp/match_tie";
 		game.strings[#"round_draw"] = #"mp/round_draw";
 		game.strings[#"enemies_eliminated"] = #"mp_enemies_eliminated";
 		game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";

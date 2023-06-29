@@ -126,7 +126,7 @@ function private _cleargameobject(bot)
 	{
 		if(!isdefined(bot.owner) || isbot(bot.owner))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 		}
 	}
 }
@@ -2108,7 +2108,7 @@ function private function_5ac5aed(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 			var_4b3d8f59 = 0;
 			if(sessionmodeiszombiesgame() && isdefined(params.bots[0]) && isalive(params.bots[0]))
 			{

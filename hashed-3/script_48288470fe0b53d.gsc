@@ -75,7 +75,7 @@ class czm_red_challenges_hud : cLUIelem
 	}
 
 	/*
-		Name: function_96972b9c
+		Name: increment_progress
 		Namespace: czm_red_challenges_hud
 		Checksum: 0x4BA442A0
 		Offset: 0x7C8
@@ -83,7 +83,7 @@ class czm_red_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_96972b9c(player)
+	function increment_progress(player)
 	{
 		player clientfield::function_bb878fc3(var_47e79fc, "progress");
 	}
@@ -216,14 +216,14 @@ class czm_red_challenges_hud : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 		cLUIelem::function_dcb34c80("string", "challengeText", 13000);
 		cLUIelem::function_dcb34c80("string", "bottomText", 13000);
-		cLUIelem::function_da693cbe("bInLocation", 13000, 1, "int");
-		cLUIelem::function_da693cbe("progress", 13000, 1, "counter");
-		cLUIelem::function_da693cbe("tributeAvailable", 13000, 3, "int");
-		cLUIelem::function_da693cbe("rewardHidden", 15000, 1, "int");
-		cLUIelem::function_da693cbe("challengeFailing", 15000, 1, "int");
+		cLUIelem::add_clientfield("bInLocation", 13000, 1, "int");
+		cLUIelem::add_clientfield("progress", 13000, 1, "counter");
+		cLUIelem::add_clientfield("tributeAvailable", 13000, 3, "int");
+		cLUIelem::add_clientfield("rewardHidden", 15000, 1, "int");
+		cLUIelem::add_clientfield("challengeFailing", 15000, 1, "int");
 	}
 
 }
@@ -345,7 +345,7 @@ function set_bInLocation(player, value)
 }
 
 /*
-	Name: function_96972b9c
+	Name: increment_progress
 	Namespace: zm_red_challenges_hud
 	Checksum: 0x641D0716
 	Offset: 0x2E0
@@ -353,9 +353,9 @@ function set_bInLocation(player, value)
 	Parameters: 1
 	Flags: None
 */
-function function_96972b9c(player)
+function increment_progress(player)
 {
-	[[ self ]]->function_96972b9c(player);
+	[[ self ]]->increment_progress(player);
 }
 
 /*

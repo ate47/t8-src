@@ -97,8 +97,8 @@ function private on_end(round_reset)
 			player.var_7864a0f6 = undefined;
 		}
 	}
-	callback::function_61f038c(&function_776fbeaf);
-	callback::function_53888e7f(&function_551412f6);
+	callback::remove_on_revived(&function_776fbeaf);
+	callback::remove_on_laststand(&function_551412f6);
 	zm_trial_util::function_302c6014();
 }
 

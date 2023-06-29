@@ -119,7 +119,7 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_zod_wonderweapon_quest
 		Checksum: 0x58321293
 		Offset: 0x3D0
@@ -127,9 +127,9 @@ class czm_zod_wonderweapon_quest : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -144,10 +144,10 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	function setup_clientfields(uid, var_89b4773e, var_703a7074, var_599a1ebc, var_c47850b)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("radiance", 1, 1, "int", var_89b4773e);
-		cLUIelem::function_da693cbe("plasma", 1, 1, "int", var_703a7074);
-		cLUIelem::function_da693cbe("purity", 1, 1, "int", var_599a1ebc);
-		cLUIelem::function_da693cbe("decay", 1, 1, "int", var_c47850b);
+		cLUIelem::add_clientfield("radiance", 1, 1, "int", var_89b4773e);
+		cLUIelem::add_clientfield("plasma", 1, 1, "int", var_703a7074);
+		cLUIelem::add_clientfield("purity", 1, 1, "int", var_599a1ebc);
+		cLUIelem::add_clientfield("decay", 1, 1, "int", var_c47850b);
 	}
 
 }
@@ -171,7 +171,7 @@ function register(uid, var_89b4773e, var_703a7074, var_599a1ebc, var_c47850b)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_zod_wonderweapon_quest
 	Checksum: 0xC77E6931
 	Offset: 0x140
@@ -179,10 +179,10 @@ function register(uid, var_89b4773e, var_703a7074, var_599a1ebc, var_c47850b)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_zod_wonderweapon_quest();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

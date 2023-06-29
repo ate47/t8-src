@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_39bd5b6b799b1c9c;
+#using scripts\mp_common\item_world_util.gsc;
 #using scripts\mp_common\item_world.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -196,13 +196,13 @@ function private function_b6ea080()
 			itemlist = function_91b29d2a(world_items[count]);
 			foreach(item in itemlist)
 			{
-				var_5819b8d4 = item_world::function_2e3efdda(item.origin, undefined, 1, 1, -1, 1);
-				if(var_5819b8d4.size > 0)
+				the_item = item_world::function_2e3efdda(item.origin, undefined, 1, 1, -1, 1);
+				if(the_item.size > 0)
 				{
 					type = "";
-					if(isdefined(var_5819b8d4[0].var_a6762160) && isdefined(var_5819b8d4[0].var_a6762160.itemtype))
+					if(isdefined(the_item[0].var_a6762160) && isdefined(the_item[0].var_a6762160.itemtype))
 					{
-						switch(var_5819b8d4[0].var_a6762160.itemtype)
+						switch(the_item[0].var_a6762160.itemtype)
 						{
 							case "ammo":
 							{
@@ -266,9 +266,9 @@ function private function_b6ea080()
 							}
 						}
 					}
-					if(isdefined(var_5819b8d4[0].var_a6762160))
+					if(isdefined(the_item[0].var_a6762160))
 					{
-						debug_string = ((((var_5819b8d4[0].var_a6762160.name + "") + function_9e72a96(var_5819b8d4[0].targetname) + "") + var_5819b8d4[0].origin) + "") + type;
+						debug_string = ((((the_item[0].var_a6762160.name + "") + function_9e72a96(the_item[0].targetname) + "") + the_item[0].origin) + "") + type;
 						fprintln(file, debug_string);
 						item_count++;
 					}
@@ -1439,7 +1439,7 @@ function function_c07eae4e()
 			item = function_b1702735(i);
 			if(isdefined(item.var_a6762160) && item.var_a6762160.itemtype == "" && item.var_a6762160.weapon.isprimary)
 			{
-				array::add(var_6e5bbee1, namespace_ad5a0cd6::function_35e06774(item.var_a6762160), 0);
+				array::add(var_6e5bbee1, item_world_util::function_35e06774(item.var_a6762160), 0);
 			}
 		}
 		var_6e5bbee1 = array::randomize(var_6e5bbee1);

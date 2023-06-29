@@ -200,7 +200,7 @@ function set(index, force)
 	{
 		if(currentsessionmode() == 2)
 		{
-			customloadoutindex = self stats::get_stat(#"hash_2a738807be622e31");
+			customloadoutindex = self stats::get_stat(#"selectedcustomclass");
 		}
 		else
 		{

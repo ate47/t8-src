@@ -6964,7 +6964,7 @@ function function_5d36c37a(str_tag = "tag_aim_target")
 }
 
 /*
-	Name: function_c596f193
+	Name: make_sentient
 	Namespace: util
 	Checksum: 0x41BA823E
 	Offset: 0xD350
@@ -6972,7 +6972,7 @@ function function_5d36c37a(str_tag = "tag_aim_target")
 	Parameters: 0
 	Flags: Linked
 */
-function function_c596f193()
+function make_sentient()
 {
 	if(!issentient(self))
 	{
@@ -7036,7 +7036,7 @@ function get_gametype_name()
 }
 
 /*
-	Name: function_419f0c21
+	Name: cleanup_fancycam
 	Namespace: util
 	Checksum: 0xDC4A8B6
 	Offset: 0xD468
@@ -7044,7 +7044,7 @@ function get_gametype_name()
 	Parameters: 0
 	Flags: Linked
 */
-function function_419f0c21()
+function cleanup_fancycam()
 {
 	self endon(#"disconnect");
 	if(isplayer(self) && !isbot(self))

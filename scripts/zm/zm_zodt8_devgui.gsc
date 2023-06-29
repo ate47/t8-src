@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_311952573639271c;
-#using script_733222d63341ad58;
+#using scripts\zm\zm_zodt8_sentinel_trial.gsc;
 #using script_7893277eec698972;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -67,7 +67,7 @@ function function_78c32556(cmd)
 			}
 			case "gear_up":
 			{
-				level thread namespace_74905749::gear_up();
+				level thread zodt8_sentinel::gear_up();
 				return true;
 			}
 			case "hash_672373a99384fb53":
@@ -401,13 +401,13 @@ function private function_51855e65(round_number)
 {
 	/#
 		var_efac84b3 = array(0, 500, 1000, 1000, 1400, 4000, 5000, 5500, 5500, 5500, 8000, 8000, 8000, 8000, 9000, 9000, 9000, 9500, 9500, 9500, 9500, 11000, 11000, 11000, 11000, 13000, 13000, 13000, 13000, 14000);
-		var_ef0a371f = round_number - 1;
+		round_index = round_number - 1;
 		/#
-			assert(var_ef0a371f >= 0 && var_ef0a371f < 30);
+			assert(round_index >= 0 && round_index < 30);
 		#/
 		foreach(player in getplayers())
 		{
-			player zm_score::function_c1f146ff(var_efac84b3[var_ef0a371f]);
+			player zm_score::function_c1f146ff(var_efac84b3[round_index]);
 		}
 		if(round_number >= 7)
 		{
@@ -436,7 +436,7 @@ function private function_51855e65(round_number)
 		}
 		if(round_number >= 9)
 		{
-			zm_trial_util::function_3e209fb6();
+			zm_trial_util::open_all_doors();
 		}
 		if(round_number >= 13)
 		{

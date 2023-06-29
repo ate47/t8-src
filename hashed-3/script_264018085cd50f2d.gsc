@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\wz_common\wz_common_fixup.gsc;
-#using script_170a9c130859c688;
+#using scripts\mp_common\item_world_fixup.gsc;
 
 #namespace namespace_e375ee62;
 
@@ -29,11 +29,11 @@ function autoexec __init__()
 */
 function function_22c36a1e()
 {
-	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
-	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
-	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::remove_item;
-	var_74257310 = &namespace_b0722f43::function_6da5e673;
-	var_f8a4c541 = &namespace_b0722f43::function_6991057;
+	var_a12b4736 = &item_world_fixup::function_96ff7b88;
+	var_d2223309 = &item_world_fixup::function_261ab7f5;
+	var_b5014996 = &item_world_fixup::function_19089c75;
+	var_87d0eef8 = &item_world_fixup::remove_item;
+	var_74257310 = &item_world_fixup::function_6da5e673;
+	var_f8a4c541 = &item_world_fixup::function_6991057;
 }
 

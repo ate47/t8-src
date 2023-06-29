@@ -131,10 +131,10 @@ function function_b7608e70(localclientnum, oldval, newval, bnewent, binitialsnap
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
 			foreach(var_56fd8656 in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.var_922c0c5c))
+				if(isdefined(var_56fd8656.show_function))
 				{
 					var_56fd8656.var_a5a0e616 = 1;
-					var_56fd8656 thread [[var_56fd8656.var_922c0c5c]](localclientnum);
+					var_56fd8656 thread [[var_56fd8656.show_function]](localclientnum);
 				}
 			}
 			self thread function_85e7adcf(localclientnum);
@@ -161,10 +161,10 @@ function function_b7608e70(localclientnum, oldval, newval, bnewent, binitialsnap
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
 			foreach(var_56fd8656 in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.var_ffeecdb6))
+				if(isdefined(var_56fd8656.hide_function))
 				{
 					var_56fd8656.var_a5a0e616 = undefined;
-					var_56fd8656 thread [[var_56fd8656.var_ffeecdb6]](localclientnum);
+					var_56fd8656 thread [[var_56fd8656.hide_function]](localclientnum);
 				}
 			}
 		}
@@ -196,10 +196,10 @@ function private function_85e7adcf(localclientnum)
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
 			foreach(var_56fd8656 in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.var_922c0c5c) && (!(isdefined(var_56fd8656.var_a5a0e616) && var_56fd8656.var_a5a0e616)))
+				if(isdefined(var_56fd8656.show_function) && (!(isdefined(var_56fd8656.var_a5a0e616) && var_56fd8656.var_a5a0e616)))
 				{
 					var_56fd8656.var_a5a0e616 = 1;
-					var_56fd8656 thread [[var_56fd8656.var_922c0c5c]](localclientnum);
+					var_56fd8656 thread [[var_56fd8656.show_function]](localclientnum);
 				}
 			}
 			var_61467197 = level.var_22a393d4.size;
@@ -254,15 +254,15 @@ function function_a694da18(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			level.var_22a393d4[level.var_22a393d4.size] = self;
 		}
-		self.var_922c0c5c = &function_f66111c5;
-		self.var_ffeecdb6 = &function_5681824;
+		self.show_function = &function_f66111c5;
+		self.hide_function = &function_5681824;
 		self hide();
 	}
 	else if(newval == 2)
 	{
 		self notify(#"set_grabbed");
 		self.b_seen = undefined;
-		self.var_ffeecdb6 = undefined;
+		self.hide_function = undefined;
 		self playrenderoverridebundle("rob_skull_grab");
 		self show();
 	}

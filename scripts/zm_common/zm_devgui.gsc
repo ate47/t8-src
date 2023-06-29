@@ -2830,7 +2830,7 @@ function zombie_devgui_think()
 					function_21f1fbf1();
 					break;
 				}
-				case "hash_5983a3913aa6221a":
+				case "debug_navmesh_zone":
 				{
 					function_e395a714();
 					break;
@@ -4236,12 +4236,12 @@ function zombie_devgui_toggle_ignore()
 		/#
 			assert(isalive(self));
 		#/
-		if(!isdefined(self.var_c0498fe5))
+		if(!isdefined(self.devgui_ignoreme))
 		{
-			self.var_c0498fe5 = 0;
+			self.devgui_ignoreme = 0;
 		}
-		self.var_c0498fe5 = !self.var_c0498fe5;
-		if(self.var_c0498fe5)
+		self.devgui_ignoreme = !self.devgui_ignoreme;
+		if(self.devgui_ignoreme)
 		{
 			self val::set(#"devgui", "");
 		}
@@ -6316,11 +6316,11 @@ function function_3a5618f8()
 		setdvar(#"runtime_time_scale", timescale);
 		while(level.round_number < var_a6f3b62c)
 		{
-			foreach(var_48c6ec2e in var_59ed21fc)
+			foreach(round_info in var_59ed21fc)
 			{
-				if(level.round_number < var_48c6ec2e[0])
+				if(level.round_number < round_info[0])
 				{
-					wait(var_48c6ec2e[1]);
+					wait(round_info[1]);
 					break;
 				}
 			}

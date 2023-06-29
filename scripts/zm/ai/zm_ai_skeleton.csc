@@ -69,13 +69,13 @@ function private function_3b8e5273(localclientnum)
 {
 	if(self.var_9fde8624 === #"hash_342763a42d8fbca" || self.var_9fde8624 === #"hash_fd7b9665529dd42")
 	{
-		if(!(isdefined(level.var_a08217e1) && level.var_a08217e1))
+		if(!(isdefined(level.shield_streaming) && level.shield_streaming))
 		{
-			level.var_a08217e1 = 1;
+			level.shield_streaming = 1;
 			forcestreamxmodel(#"c_t8_zmb_dlc2_skeleton_shield");
 			wait(3);
 			stopforcestreamingxmodel(#"c_t8_zmb_dlc2_skeleton_shield");
-			level.var_a08217e1 = 0;
+			level.shield_streaming = 0;
 		}
 	}
 }

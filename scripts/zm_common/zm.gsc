@@ -811,7 +811,7 @@ function init_shellshocks()
 */
 function init_strings()
 {
-	zm_utility::add_zombie_hint("undefined", #"hash_12e8fa7cbcc02ee4");
+	zm_utility::add_zombie_hint("undefined", #"zombie/undefined");
 	if(function_8b1a219a())
 	{
 		zm_utility::add_zombie_hint("default_treasure_chest", #"hash_52426a433be4aa00");
@@ -1994,7 +1994,7 @@ function function_51133aa1()
 		response = waitresult.response;
 		if(response == "restart_level_zm")
 		{
-			level thread zm_gametype::function_22d79e6e();
+			level thread zm_gametype::zm_map_restart();
 			wait(666);
 		}
 		else if(response == "resume_end_game")
@@ -2023,7 +2023,7 @@ function function_d723e40()
 }
 
 /*
-	Name: function_758406d8
+	Name: restart_prompt
 	Namespace: zm
 	Checksum: 0x89B5EEE
 	Offset: 0x7BE0
@@ -2031,7 +2031,7 @@ function function_d723e40()
 	Parameters: 0
 	Flags: Linked
 */
-function function_758406d8()
+function restart_prompt()
 {
 	players = getplayers();
 	foreach(player in players)
@@ -2267,7 +2267,7 @@ function end_game()
 	intermission();
 	if(getdvar(#"hash_4413f876155a89bd", 0))
 	{
-		function_758406d8();
+		restart_prompt();
 	}
 	if(zm_trial::function_b47f6aba())
 	{

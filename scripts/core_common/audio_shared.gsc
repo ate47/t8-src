@@ -125,7 +125,7 @@ function sndresetsoundsettings()
 */
 function on_player_connect()
 {
-	self callback::function_d8abfc3d(#"missile_lock", &function_9070d441);
+	self callback::function_d8abfc3d(#"missile_lock", &on_missile_lock);
 	self callback::function_d8abfc3d(#"hash_1a32e0fdeb70a76b", &function_c25f7d1);
 }
 
@@ -222,7 +222,7 @@ function playtargetmissilesound(alias, looping)
 }
 
 /*
-	Name: function_9070d441
+	Name: on_missile_lock
 	Namespace: audio
 	Checksum: 0x1A6DD9AB
 	Offset: 0x9C0
@@ -230,7 +230,7 @@ function playtargetmissilesound(alias, looping)
 	Parameters: 1
 	Flags: Linked
 */
-function function_9070d441(params)
+function on_missile_lock(params)
 {
 	/#
 		assert(isplayer(self));

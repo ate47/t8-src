@@ -178,7 +178,7 @@ function function_c52e8ba(player, var_8d5d092c)
 		}
 		else
 		{
-			if(level flag::get(#"hash_1b9ecc7979b0fcfb"))
+			if(level flag::get(#"disable_fast_travel"))
 			{
 				self.hint_string[n_player_index] = #"";
 			}

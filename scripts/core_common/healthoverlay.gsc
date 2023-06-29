@@ -537,7 +537,7 @@ function private heal(var_dc77251f)
 	regen_delay = 1;
 	if(healing_enabled && player.heal.var_c8777194 === 1)
 	{
-		regen_delay = (isdefined(player.var_edd3eb35) ? player.var_edd3eb35 : player.healthregentime);
+		regen_delay = (isdefined(player.n_regen_delay) ? player.n_regen_delay : player.healthregentime);
 		regen_delay = int(int(regen_delay * 1000));
 		specialty_healthregen_enabled = 0;
 		if(specialty_healthregen_enabled && player hasperk(#"specialty_healthregen") || player hasperk(#"specialty_quickrevive"))
@@ -607,7 +607,7 @@ function private heal(var_dc77251f)
 }
 
 /*
-	Name: function_c1efb72d
+	Name: check_max_health
 	Namespace: healthoverlay
 	Checksum: 0xF7B56EED
 	Offset: 0x14A0
@@ -615,7 +615,7 @@ function private heal(var_dc77251f)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_c1efb72d(var_dc77251f)
+function private check_max_health(var_dc77251f)
 {
 	player = self;
 	var_66cb03ad = (player.var_66cb03ad > 0 ? player.var_66cb03ad : player.maxhealth);
@@ -705,7 +705,7 @@ function private function_8f2722f6()
 		return;
 	}
 	var_dc77251f = player.var_dc77251f;
-	if(player function_c1efb72d(var_dc77251f))
+	if(player check_max_health(var_dc77251f))
 	{
 		var_dc77251f.var_e65dca8d = 0;
 		player function_2eee85c1();

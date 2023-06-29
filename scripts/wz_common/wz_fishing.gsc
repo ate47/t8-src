@@ -46,12 +46,12 @@ function __init__()
 	if(level.var_99ca6467)
 	{
 		callback::on_downed(&function_7bf61c45);
-		callback::function_f77ced93(&function_e2877ac6);
+		callback::on_weapon_change(&function_e2877ac6);
 		callback::on_item_drop(&function_57232538);
 		foreach(rock in fishing_rocks)
 		{
 			rock.onuse = &function_4cfd3896;
-			rock.var_575ef853 = 0;
+			rock.dropping_item = 0;
 			rock.var_fb09ad1c = 0;
 			rock.isfishing = 0;
 			if(isdefined(rock.target))
@@ -292,7 +292,7 @@ function function_7a1e21a9(fishing_rock, v_origin, player)
 	buoy thread fishing_splash();
 	time = self fake_physicslaunch(buoy.origin, final_origin, 200, height_offset);
 	wait(time);
-	fishing_rock.var_575ef853 = 0;
+	fishing_rock.dropping_item = 0;
 	if(isdefined(self))
 	{
 		self.origin = final_origin;
@@ -372,7 +372,7 @@ function function_4cfd3896(activator, laststate, state)
 		#/
 	}
 	self.fisherman = activator;
-	self.var_575ef853 = 0;
+	self.dropping_item = 0;
 	activator thread function_6c71782a(self);
 }
 
@@ -507,7 +507,7 @@ function function_b828bd39(player, dynent)
 	player endon(#"death", #"hash_61bb9580151c93d5");
 	dynent.var_3fa8a746 = 0;
 	self.origin = dynent.var_be4b82e0;
-	while(dynent.var_fb09ad1c == 2 && !dynent.var_575ef853)
+	while(dynent.var_fb09ad1c == 2 && !dynent.dropping_item)
 	{
 		time = randomintrange(5, 7);
 		wait(time);
@@ -587,7 +587,7 @@ function function_ed446f40(dynent)
 		self val::set(#"fishing", "disablegadgets", 0);
 		self clientfield::set_to_player("player_fishing", 0);
 	}
-	dynent.var_575ef853 = 0;
+	dynent.dropping_item = 0;
 	dynent.var_fb09ad1c = 0;
 	if(isdefined(dynent.buoy))
 	{
@@ -649,9 +649,9 @@ function function_54a3ec41(dynent)
 	if(isdefined(dynent.var_3fa8a746) && dynent.var_3fa8a746)
 	{
 		self waittill(#"hash_f330683a277a932");
-		if(dynent.var_575ef853 === 0)
+		if(dynent.dropping_item === 0)
 		{
-			dynent.var_575ef853 = 1;
+			dynent.dropping_item = 1;
 			dynent function_e8c63c15(self);
 		}
 	}
@@ -686,7 +686,7 @@ function function_73532e4f()
 	fishing_rocks = getdynentarray("fishing_rock");
 	foreach(rock in fishing_rocks)
 	{
-		rock.var_575ef853 = 0;
+		rock.dropping_item = 0;
 		rock.var_fb09ad1c = 0;
 		rock.isfishing = 0;
 		if(isdefined(rock.buoy) && isdefined(rock.var_87de0f0d))

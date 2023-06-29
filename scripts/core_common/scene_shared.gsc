@@ -59,7 +59,7 @@ function __init__()
 	level.inactive_scenes = [];
 	level.active_scenes = [];
 	level.sceneskippedcount = 0;
-	lui::function_b95a3ba5("cp_skip_scene_menu", &cp_skip_scene_menu::register, "cp_skip_scene_menu");
+	lui::add_luimenu("cp_skip_scene_menu", &cp_skip_scene_menu::register, "cp_skip_scene_menu");
 	streamerrequest("clear");
 	foreach(s_scenedef in getscriptbundles("scene"))
 	{

@@ -56,8 +56,8 @@ function main()
 	{
 		barrier notsolid();
 	}
-	zm_sq::register(#"freeze_mode", #"step_1", #"freeze_quest", &freeze_quest, &function_b5fd797c);
-	zm_sq::start(#"freeze_mode", zm_utility::function_e51dc2d8());
+	zm_sq::register(#"freeze_mode", #"step_1", #"freeze_quest", &freeze_quest, &freeze_quest_cleanup);
+	zm_sq::start(#"freeze_mode", zm_utility::is_ee_enabled());
 	callback::on_spawned(&function_1bb74851);
 }
 
@@ -76,7 +76,7 @@ function freeze_quest(var_a276c861)
 }
 
 /*
-	Name: function_b5fd797c
+	Name: freeze_quest_cleanup
 	Namespace: namespace_565e073b
 	Checksum: 0xEFFDEEE9
 	Offset: 0x498
@@ -84,7 +84,7 @@ function freeze_quest(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b5fd797c(var_a276c861, var_19e802fa)
+function freeze_quest_cleanup(var_a276c861, var_19e802fa)
 {
 	if(var_a276c861)
 	{

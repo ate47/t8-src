@@ -181,16 +181,16 @@ function private function_6ca1cd82(entity, player, duration, color)
 			player_owner = function_f00b611e();
 			if(isdefined(player_owner))
 			{
-				var_748152f4 = player_owner getcentroid();
+				player_centroid = player_owner getcentroid();
 				color = (1, 0, 0);
 				if(gettime() > self.var_84f9cc2e)
 				{
 					color = (0, 1, 0);
 				}
 				/#
-					line(var_748152f4, var_bf50a54d, color);
+					line(player_centroid, var_bf50a54d, color);
 					sphere(var_bf50a54d, 2, color, 1, 0, 4, 1);
-					distance = distance(var_748152f4, var_bf50a54d);
+					distance = distance(player_centroid, var_bf50a54d);
 					print3d(var_bf50a54d + vectorscale((0, 0, 1), 30), "" + distance, color, 1, 1, 1);
 				#/
 				locomotion_target = zm_ai_dog::get_locomotion_target(self);
@@ -597,7 +597,7 @@ function private function_ba0f4046(entity)
 */
 function private function_f7c7a416(entity)
 {
-	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
+	entity.melee_cooldown = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
 	if(isdefined(entity.enemy) && (!(isdefined(entity.marked_for_death) && entity.marked_for_death)) && (!(isdefined(entity.enemy.ignoreme) && entity.enemy.ignoreme)))
 	{
 		hit_enemy = entity melee();
@@ -666,7 +666,7 @@ function private function_f7c7a416(entity)
 			}
 			self.var_84f9cc2e = gettime() + 500;
 		}
-		entity callback::callback(#"hash_11aa32ad6d527054");
+		entity callback::callback(#"on_ai_melee");
 	}
 }
 

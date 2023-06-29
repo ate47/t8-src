@@ -22,7 +22,7 @@
 function init()
 {
 	zm_traps::register_trap_basic_info("boiling_bath", &trap_activate, &trap_audio);
-	zm_traps::register_trap_damage("boiling_bath", &function_c7393b8d, &trap_damage);
+	zm_traps::register_trap_damage("boiling_bath", &trap_player_damage, &trap_damage);
 	t_trap = getent("boiling_bath", "script_noteworthy");
 	t_trap._trap_duration = 20;
 	t_trap._trap_cooldown_time = 30;
@@ -90,7 +90,7 @@ function trap_audio()
 }
 
 /*
-	Name: function_c7393b8d
+	Name: trap_player_damage
 	Namespace: zm_red_trap_boiling_bath
 	Checksum: 0x4D7F9148
 	Offset: 0x530
@@ -98,7 +98,7 @@ function trap_audio()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c7393b8d(t_trap)
+function trap_player_damage(t_trap)
 {
 	if(isplayer(self) && zm_utility::is_player_valid(self, 0, 0, 0) && (!(isdefined(self.var_99557baf) && self.var_99557baf)))
 	{
@@ -193,7 +193,7 @@ function trap_damage(t_trap)
 		if(isplayer(t_trap.activated_by_player))
 		{
 			t_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			t_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			t_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 		self.b_trap_kill = 1;
 	}

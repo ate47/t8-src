@@ -209,7 +209,7 @@ class cLUIelemText : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cLUIelemText
 		Checksum: 0xC7AFAA4C
 		Offset: 0x6A0
@@ -217,9 +217,9 @@ class cLUIelemText : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -234,16 +234,16 @@ class cLUIelemText : cLUIelem
 	function setup_clientfields(uid, xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_f5852d69, horizontal_alignmentcallback)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("x", 1, 7, "int", xcallback);
-		cLUIelem::function_da693cbe("y", 1, 6, "int", ycallback);
-		cLUIelem::function_da693cbe("height", 1, 2, "int", heightcallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float", alphacallback);
-		cLUIelem::function_da693cbe("red", 1, 4, "float", redcallback);
-		cLUIelem::function_da693cbe("green", 1, 4, "float", greencallback);
-		cLUIelem::function_da693cbe("blue", 1, 4, "float", bluecallback);
+		cLUIelem::add_clientfield("x", 1, 7, "int", xcallback);
+		cLUIelem::add_clientfield("y", 1, 6, "int", ycallback);
+		cLUIelem::add_clientfield("height", 1, 2, "int", heightcallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("alpha", 1, 4, "float", alphacallback);
+		cLUIelem::add_clientfield("red", 1, 4, "float", redcallback);
+		cLUIelem::add_clientfield("green", 1, 4, "float", greencallback);
+		cLUIelem::add_clientfield("blue", 1, 4, "float", bluecallback);
 		cLUIelem::function_dcb34c80("string", "text", 1);
-		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int", horizontal_alignmentcallback);
+		cLUIelem::add_clientfield("horizontal_alignment", 1, 2, "int", horizontal_alignmentcallback);
 	}
 
 }
@@ -267,7 +267,7 @@ function register(uid, xcallback, ycallback, heightcallback, fadeOverTimecallbac
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielemtext
 	Checksum: 0x73DA1F93
 	Offset: 0x1D0
@@ -275,10 +275,10 @@ function register(uid, xcallback, ycallback, heightcallback, fadeOverTimecallbac
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cLUIelemText();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

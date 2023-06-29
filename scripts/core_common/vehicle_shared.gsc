@@ -82,26 +82,26 @@ function __init__()
 	clientfield::register("vehicle", "update_malfunction", 1, 2, "int");
 	if(!sessionmodeiszombiesgame() && (!(isdefined(level.var_7b05c4b5) && level.var_7b05c4b5)))
 	{
-		clientfield::function_a8bbc967("vehicle.ammoCount", 1, 10, "int", 0);
-		clientfield::function_a8bbc967("vehicle.ammoReloading", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.ammoLow", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.rocketAmmo", 1, 2, "int", 0);
-		clientfield::function_a8bbc967("vehicle.ammo2Count", 1, 10, "int", 0);
-		clientfield::function_a8bbc967("vehicle.ammo2Reloading", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.ammo2Low", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.collisionWarning", 1, 2, "int", 0);
-		clientfield::function_a8bbc967("vehicle.enemyInReticle", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.missileRepulsed", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.incomingMissile", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.missileLock", 1, 2, "int", 0);
-		clientfield::function_a8bbc967("vehicle.malfunction", 1, 2, "int", 0);
-		clientfield::function_a8bbc967("vehicle.showHoldToExitPrompt", 1, 1, "int", 0);
-		clientfield::function_a8bbc967("vehicle.holdToExitProgress", 1, 5, "float", 0);
-		clientfield::function_a8bbc967("vehicle.vehicleAttackMode", 1, 3, "int", 0);
-		clientfield::function_a8bbc967("vehicle.invalidLanding", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammoCount", 1, 10, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammoReloading", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammoLow", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.rocketAmmo", 1, 2, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammo2Count", 1, 10, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammo2Reloading", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.ammo2Low", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.collisionWarning", 1, 2, "int", 0);
+		clientfield::register_clientuimodel("vehicle.enemyInReticle", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.missileRepulsed", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.incomingMissile", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.missileLock", 1, 2, "int", 0);
+		clientfield::register_clientuimodel("vehicle.malfunction", 1, 2, "int", 0);
+		clientfield::register_clientuimodel("vehicle.showHoldToExitPrompt", 1, 1, "int", 0);
+		clientfield::register_clientuimodel("vehicle.holdToExitProgress", 1, 5, "float", 0);
+		clientfield::register_clientuimodel("vehicle.vehicleAttackMode", 1, 3, "int", 0);
+		clientfield::register_clientuimodel("vehicle.invalidLanding", 1, 1, "int", 0);
 		for(i = 0; i < 3; i++)
 		{
-			clientfield::function_a8bbc967(("vehicle.bindingCooldown" + i) + ".cooldown", 1, 5, "float", 0);
+			clientfield::register_clientuimodel(("vehicle.bindingCooldown" + i) + ".cooldown", 1, 5, "float", 0);
 		}
 	}
 	clientfield::register("toplayer", "toggle_dnidamagefx", 1, 1, "int");

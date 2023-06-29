@@ -287,7 +287,7 @@ function function_f4970a20(watcher, player)
 	player notify(#"hash_70f03cfbb15356c0", {#dart:self});
 	player clientfield::set_player_uimodel("hudItems.sensorDartCount", player.sensor_darts.size);
 	player stats::function_e24eec31(self.weapon, #"used", 1);
-	self util::function_c596f193();
+	self util::make_sentient();
 	self thread function_cc9ab1fc();
 	self thread function_cb672f03();
 	if(isdefined(level.var_6ec46eeb))

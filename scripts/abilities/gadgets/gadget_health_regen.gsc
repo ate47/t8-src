@@ -42,12 +42,12 @@ function __init__()
 	clientfield::register("clientuimodel", "hudItems.numHealthPickups", 1, 2, "int");
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_damage(&on_player_damage);
-	callback::add_callback(#"hash_4acc79bbf6402a39", &function_d3805306);
+	callback::add_callback(#"on_status_effect", &on_status_effect);
 	callback::add_callback(#"on_buff", &on_buff);
 }
 
 /*
-	Name: function_d3805306
+	Name: on_status_effect
 	Namespace: gadget_health_regen
 	Checksum: 0x9F13064B
 	Offset: 0x308
@@ -55,7 +55,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d3805306(var_756fda07)
+function on_status_effect(var_756fda07)
 {
 	if(isdefined(var_756fda07.var_29f71617) && var_756fda07.var_29f71617)
 	{

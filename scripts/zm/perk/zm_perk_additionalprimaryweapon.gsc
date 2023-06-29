@@ -109,7 +109,7 @@ function additional_primary_weapon_precache()
 */
 function additional_primary_weapon_register_clientfield()
 {
-	clientfield::function_a8bbc967("hudItems.perks.additional_primary_weapon", 1, 2, "int", 0);
+	clientfield::register_clientuimodel("hudItems.perks.additional_primary_weapon", 1, 2, "int", 0);
 }
 
 /*

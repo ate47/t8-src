@@ -119,7 +119,7 @@ class czm_towers_pap_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_towers_pap_hud
 		Checksum: 0x99D99EEF
 		Offset: 0x3E8
@@ -127,9 +127,9 @@ class czm_towers_pap_hud : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -144,10 +144,10 @@ class czm_towers_pap_hud : cLUIelem
 	function setup_clientfields(uid, var_54a6819c, var_6d3f4678, var_fad0d5ca, var_84879db6)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("danu_acquired", 1, 1, "int", var_54a6819c);
-		cLUIelem::function_da693cbe("ra_acquired", 1, 1, "int", var_6d3f4678);
-		cLUIelem::function_da693cbe("zeus_acquired", 1, 1, "int", var_fad0d5ca);
-		cLUIelem::function_da693cbe("odin_acquired", 1, 1, "int", var_84879db6);
+		cLUIelem::add_clientfield("danu_acquired", 1, 1, "int", var_54a6819c);
+		cLUIelem::add_clientfield("ra_acquired", 1, 1, "int", var_6d3f4678);
+		cLUIelem::add_clientfield("zeus_acquired", 1, 1, "int", var_fad0d5ca);
+		cLUIelem::add_clientfield("odin_acquired", 1, 1, "int", var_84879db6);
 	}
 
 }
@@ -171,7 +171,7 @@ function register(uid, var_54a6819c, var_6d3f4678, var_fad0d5ca, var_84879db6)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_towers_pap_hud
 	Checksum: 0x4409F7AC
 	Offset: 0x158
@@ -179,10 +179,10 @@ function register(uid, var_54a6819c, var_6d3f4678, var_fad0d5ca, var_84879db6)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_towers_pap_hud();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

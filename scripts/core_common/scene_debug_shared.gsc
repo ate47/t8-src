@@ -403,7 +403,7 @@ function display_scene_menu(str_type, str_scene)
 		{
 			selected = 0;
 		}
-		if(!b_shot_menu && !level flagsys::get(#"hash_20a4053fe3e70f8"))
+		if(!b_shot_menu && !level flagsys::get(#"scene_menu_disable"))
 		{
 			debug2dtext((150, 410 + 400, 0), "", (1, 1, 1), 1, (0, 0, 0), 1, 2);
 		}
@@ -706,7 +706,7 @@ function function_940c526f()
 function scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444abf97)
 {
 	/#
-		if(!level flagsys::get(#"hash_20a4053fe3e70f8"))
+		if(!level flagsys::get(#"scene_menu_disable"))
 		{
 			thread _scene_list_settext(strings, n_selected, str_title, b_shot_menu, var_444abf97);
 		}

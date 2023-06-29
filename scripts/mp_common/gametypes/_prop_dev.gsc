@@ -61,7 +61,7 @@ function function_93440c52()
 		var_94dbbfd9 = 0;
 		var_b948ae6c = 0;
 		minigame_on = getdvarint(#"scr_prop_minigame", 1);
-		var_95ae3da3 = getdvarint(#"scr_ph_useprophudserver", 1);
+		server_hud = getdvarint(#"scr_ph_useprophudserver", 1);
 		var_f6fe53f9 = getdvarfloat(#"player_swimdamage", 10);
 		util::set_dvar_int_if_unset("", 0);
 		util::set_dvar_int_if_unset("", 0);
@@ -136,9 +136,9 @@ function function_93440c52()
 				level.allow_teamchange = getdvarint(#"hash_7f436a7b31a003f3", 0);
 				level.var_a7997034 = getdvarint(#"hash_4819c54cbad5ed87", 0) != 0;
 			}
-			if(getdvarint(#"scr_ph_useprophudserver", 0) != var_95ae3da3 && isdefined(level.players))
+			if(getdvarint(#"scr_ph_useprophudserver", 0) != server_hud && isdefined(level.players))
 			{
-				var_95ae3da3 = getdvarint(#"scr_ph_useprophudserver", 0);
+				server_hud = getdvarint(#"scr_ph_useprophudserver", 0);
 				if(!isdefined(level.players[0].changepropkey))
 				{
 					iprintlnbold("");
@@ -149,10 +149,10 @@ function function_93440c52()
 					{
 						if(isdefined(player.team) && player util::isprop())
 						{
-							player prop_controls::propabilitykeysvisible(var_95ae3da3, 1);
+							player prop_controls::propabilitykeysvisible(server_hud, 1);
 						}
 					}
-					level.elim_hud.alpha = var_95ae3da3;
+					level.elim_hud.alpha = server_hud;
 				}
 			}
 			if(getdvarint(#"hash_2c678eea20875ddd", 0) != var_28c934a0 && isdefined(level.players))

@@ -137,7 +137,7 @@ class czm_towers_challenges_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_towers_challenges_hud
 		Checksum: 0xF1B271E3
 		Offset: 0x3D8
@@ -145,9 +145,9 @@ class czm_towers_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -162,10 +162,10 @@ class czm_towers_challenges_hud : cLUIelem
 	function setup_clientfields(uid, var_afaddf7a, var_c00108aa, var_db844c2)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("progress", 1, 7, "int", var_afaddf7a);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("progress", 1, 7, "int", var_afaddf7a);
 		cLUIelem::function_dcb34c80("string", "challenge_text", 1);
-		cLUIelem::function_da693cbe("required_goal", 1, 7, "int", var_db844c2);
+		cLUIelem::add_clientfield("required_goal", 1, 7, "int", var_db844c2);
 	}
 
 }
@@ -189,7 +189,7 @@ function register(uid, var_afaddf7a, var_c00108aa, var_db844c2)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_towers_challenges_hud
 	Checksum: 0xE9829B6B
 	Offset: 0x150
@@ -197,10 +197,10 @@ function register(uid, var_afaddf7a, var_c00108aa, var_db844c2)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_towers_challenges_hud();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

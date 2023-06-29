@@ -119,7 +119,7 @@ function onendgame(var_c1e98979)
 	{
 		[[level._setplayerscore]](player, [[level._getplayerscore]](player) + 1);
 	}
-	match::function_d1e740f6(player);
+	match::set_winner(player);
 }
 
 /*

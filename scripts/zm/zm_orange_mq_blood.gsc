@@ -61,7 +61,7 @@ function main()
 	level.var_63a35083 = zm_hms_util::function_2719d4c0("mq_blood_loc", "targetname", "script_int");
 	level.var_e70fa660 = zm_hms_util::function_2719d4c0("mq_blood_whisp_loc", "targetname", "script_int");
 	level waittill(#"start_zombie_round_logic");
-	level.s_mq_blood_vessel_loc thread function_ad37e626();
+	level.s_mq_blood_vessel_loc thread blood_think();
 	level.var_4adebdfc moveto(level.var_63a35083[0].origin, 1, 0.1, 0.3);
 	level.var_4adebdfc clientfield::set("" + #"hash_10906b9ce905bda8", level.var_9e3c632e);
 	level.var_9928b94b = [];
@@ -148,7 +148,7 @@ function function_2d9e1e29(var_5ea5c94d, ended_early)
 	{
 		level notify(#"hash_6cbede8616798eb");
 		level.s_mq_blood_vessel_loc.vessel hide();
-		level.s_mq_blood_vessel_loc thread function_ad37e626();
+		level.s_mq_blood_vessel_loc thread blood_think();
 		if(level flag::get(#"blood_active"))
 		{
 			level flag::clear(#"blood_active");
@@ -169,7 +169,7 @@ function function_2d9e1e29(var_5ea5c94d, ended_early)
 }
 
 /*
-	Name: function_ad37e626
+	Name: blood_think
 	Namespace: zm_orange_mq_blood
 	Checksum: 0x98AC63C6
 	Offset: 0xD60
@@ -177,7 +177,7 @@ function function_2d9e1e29(var_5ea5c94d, ended_early)
 	Parameters: 0
 	Flags: Linked
 */
-function function_ad37e626()
+function blood_think()
 {
 	self notify("27bec720b5d077a2");
 	self endon("27bec720b5d077a2");
@@ -264,7 +264,7 @@ function function_ee4a200b()
 	level notify(#"vessel_collected");
 	level flag::clear(#"blood_waiting");
 	wait(2);
-	level.s_mq_blood_vessel_loc thread function_ad37e626();
+	level.s_mq_blood_vessel_loc thread blood_think();
 }
 
 /*
@@ -303,7 +303,7 @@ function blood_event()
 	level.var_4adebdfc.health = var_84f1a7ae;
 	wait(2);
 	level.var_4adebdfc val::set(#"mq_blood", "takedamage", 1);
-	self thread function_a9d35d2();
+	self thread blood_move();
 	while(level.var_4adebdfc.health > int(var_84f1a7ae * 0.6666667))
 	{
 		waitframe(1);
@@ -398,7 +398,7 @@ function function_df1ea27()
 }
 
 /*
-	Name: function_a9d35d2
+	Name: blood_move
 	Namespace: zm_orange_mq_blood
 	Checksum: 0x4858A741
 	Offset: 0x1880
@@ -406,7 +406,7 @@ function function_df1ea27()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a9d35d2()
+function blood_move()
 {
 	level endon(#"end_game");
 	while(level flag::get(#"blood_active"))

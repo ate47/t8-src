@@ -290,7 +290,7 @@ function is_contract_active(var_38280f2f)
 }
 
 /*
-	Name: function_a54e2068
+	Name: increment_contract
 	Namespace: contracts
 	Checksum: 0xD8C90982
 	Offset: 0xBD8
@@ -298,7 +298,7 @@ function is_contract_active(var_38280f2f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_a54e2068(var_38280f2f, delta = 1)
+function increment_contract(var_38280f2f, delta = 1)
 {
 	if(self is_contract_active(var_38280f2f))
 	{
@@ -808,7 +808,7 @@ function function_507247e8(var_9224acc)
 	{
 		flags = flags | 8;
 	}
-	if(getdvarint(#"hash_21ab8e9a7fb70179", 0) != 0)
+	if(getdvarint(#"lootcontracts_daily_tier_skip", 0) != 0)
 	{
 		flags = flags | 16;
 	}

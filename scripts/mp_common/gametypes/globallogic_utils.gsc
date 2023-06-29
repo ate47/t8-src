@@ -828,7 +828,7 @@ function function_8d61a6c2(var_c1e98979)
 			assert(isdefined(level.var_336c35f1[var_c1e98979]));
 		#/
 		log_string = level.var_336c35f1[var_c1e98979];
-		winner = round::function_9b24638f();
+		winner = round::get_winner();
 		if(isplayer(winner))
 		{
 			print(((("" + winner getxuid()) + "") + winner.name) + "");

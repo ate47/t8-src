@@ -212,7 +212,7 @@ function private function_91a9db75(sourcetype, setype, namehash)
 	Parameters: 7
 	Flags: Linked
 */
-function status_effect_apply(var_756fda07, weapon, var_84171a6c, var_80e47495, var_ab5b905e, var_894859a2, location)
+function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var_ab5b905e, var_894859a2, location)
 {
 	/#
 		assert(isdefined(var_756fda07.setype));
@@ -257,12 +257,12 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, var_80e47495, v
 	}
 	self function_91a9db75(var_756fda07.var_18d16a6b, var_756fda07.setype, var_756fda07.namehash);
 	self function_52969ffe(var_756fda07);
-	self callback::callback(#"hash_4acc79bbf6402a39", var_756fda07);
+	self callback::callback(#"on_status_effect", var_756fda07);
 	var_275b5e13 = function_2ba2756c(var_756fda07.var_18d16a6b) > level.time;
 	var_b0144580 = var_84171a6c === self;
-	if(!isdefined(var_80e47495))
+	if(!isdefined(isadditive))
 	{
-		var_80e47495 = getdvarint(#"hash_6ce4aefbba354e2d", 0);
+		isadditive = getdvarint(#"hash_6ce4aefbba354e2d", 0);
 	}
 	effect = self.var_121392a1[var_756fda07.var_18d16a6b];
 	effect.var_4f6b79a4 = var_756fda07;
@@ -282,13 +282,13 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, var_80e47495, v
 	}
 	if(var_4df0ea83)
 	{
-		if(var_80e47495 && var_756fda07.setype != 4)
+		if(isadditive && var_756fda07.setype != 4)
 		{
 			effect function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon);
 		}
 		else
 		{
-			effect function_cc42cac2(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon);
+			effect update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon);
 		}
 	}
 	maxduration = effect function_f9ca1b6a(var_756fda07);
@@ -339,7 +339,7 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, var_80e47495, v
 	}
 	if(function_7d17822(var_756fda07.setype))
 	{
-		self thread function_47cad1aa(var_756fda07, var_80e47495);
+		self thread function_47cad1aa(var_756fda07, isadditive);
 	}
 	if(isdefined(weapon) && isdefined(var_84171a6c) && var_84171a6c != self && (isdefined(var_756fda07.var_3469b797) && var_756fda07.var_3469b797))
 	{
@@ -371,7 +371,7 @@ function private function_35d7925d(effect)
 		{
 			self [[level.var_d0ad09c5]](effect);
 		}
-		if(self gestures::function_b204f6e3(effect.var_b5207a36, undefined, 0))
+		if(self gestures::play_gesture(effect.var_b5207a36, undefined, 0))
 		{
 			return;
 		}
@@ -388,7 +388,7 @@ function private function_35d7925d(effect)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_47cad1aa(var_756fda07, var_80e47495)
+function private function_47cad1aa(var_756fda07, isadditive)
 {
 	var_18d16a6b = var_756fda07.var_18d16a6b;
 	setype = var_756fda07.setype;
@@ -401,7 +401,7 @@ function private function_47cad1aa(var_756fda07, var_80e47495)
 				/#
 					assert(!isfloat(self.var_121392a1[var_18d16a6b].duration), "");
 				#/
-				self applystatuseffect(var_756fda07.namehash, self.var_121392a1[var_18d16a6b].duration, var_80e47495);
+				self applystatuseffect(var_756fda07.namehash, self.var_121392a1[var_18d16a6b].duration, isadditive);
 			}
 		}
 	}
@@ -480,7 +480,7 @@ function private function_6bf7c434(status_effect_type)
 	}
 	if(isdefined(self.var_4b22e697))
 	{
-		self.var_4b22e697 globallogic_score::function_4842d1f6(self.var_4f6b79a4);
+		self.var_4b22e697 globallogic_score::allow_old_indexs(self.var_4f6b79a4);
 	}
 	if(isdefined(level._status_effects) && isdefined(level._status_effects[status_effect_type]) && isdefined(level._status_effects[status_effect_type].end))
 	{
@@ -712,7 +712,7 @@ function private function_40293e80(status_effect_type)
 }
 
 /*
-	Name: function_cc42cac2
+	Name: update_duration
 	Namespace: status_effect
 	Checksum: 0x65202781
 	Offset: 0x1930
@@ -720,7 +720,7 @@ function private function_40293e80(status_effect_type)
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private function_cc42cac2(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon)
+function private update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon)
 {
 	setype = var_756fda07.setype;
 	resistance = self function_a6613b51(var_756fda07);

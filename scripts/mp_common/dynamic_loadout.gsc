@@ -466,7 +466,7 @@ function private function_5b8256ca(package, isammo = 0, var_e120a933 = undefined
 	cost = package.purchasecost * registerend_prestige_imp;
 	if(isdefined(isammo) && isammo)
 	{
-		cost = package.var_847b7691 * (isdefined(getgametypesetting(#"hash_71b2b43696e16252")) ? getgametypesetting(#"hash_71b2b43696e16252") : 1);
+		cost = package.refillcost * (isdefined(getgametypesetting(#"hash_71b2b43696e16252")) ? getgametypesetting(#"hash_71b2b43696e16252") : 1);
 	}
 	else if(isdefined(var_e120a933))
 	{
@@ -937,7 +937,7 @@ function private function_c1932ad3(weap, data)
 */
 function private function_6a829089()
 {
-	healthgadget = getweapon(#"hash_76d1218de27081f6");
+	healthgadget = getweapon(#"pickup_health_regen");
 	if(isdefined(self.var_c7e6d7c7) && self.var_c7e6d7c7)
 	{
 		healthgadget = getweapon(#"gadget_medicalinjectiongun");

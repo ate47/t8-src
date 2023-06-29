@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ce72cc0f850;
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using script_24c32478acf44108;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
@@ -186,7 +186,7 @@ function private function_b60df00d()
 	}
 	else
 	{
-		s_unitrigger = level.var_ae5fb719.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 80);
+		s_unitrigger = level.var_ae5fb719.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 80);
 		zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	}
 	exploder::exploder("fxexp_mk2_x_smoke_emit_" + level.var_ae5fb719.s_start.exploder_id);
@@ -234,14 +234,14 @@ function private function_c0fc92d2()
 {
 	self endon(#"death");
 	exploder::stop_exploder("fxexp_mk2_x_smoke_emit_" + level.var_ae5fb719.s_start.exploder_id);
-	v_dest = self.origin + (8 * self.var_e1434cbd);
+	v_dest = self.origin + (8 * self.open_dir);
 	level.var_ae5fb719.var_fead3ae9 linkto(self);
 	self playsound("zmb_ee_drawer_open");
 	self moveto(v_dest, 0.1);
 	self waittill(#"movedone");
 	level.var_ae5fb719.var_fead3ae9 unlink();
 	level.var_ae5fb719.s_start.origin = level.var_ae5fb719.var_fead3ae9.origin;
-	s_unitrigger = level.var_ae5fb719.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 80);
+	s_unitrigger = level.var_ae5fb719.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 80);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	self.b_open = 1;
 }
@@ -382,7 +382,7 @@ function function_cdddec81(inflictor, attacker, damage, flags, meansofdeath, wea
 		{
 			if(self.var_7ba65499 !== 1)
 			{
-				self function_75edd32b(1);
+				self set_frozen(1);
 				self thread function_53817e75();
 			}
 			if(damage >= self.health)
@@ -405,7 +405,7 @@ function function_cdddec81(inflictor, attacker, damage, flags, meansofdeath, wea
 }
 
 /*
-	Name: function_75edd32b
+	Name: set_frozen
 	Namespace: namespace_3b2b9e06
 	Checksum: 0xEC0B0B60
 	Offset: 0x1248
@@ -413,7 +413,7 @@ function function_cdddec81(inflictor, attacker, damage, flags, meansofdeath, wea
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_75edd32b(b_frozen = 1)
+function private set_frozen(b_frozen = 1)
 {
 	if(b_frozen)
 	{
@@ -446,7 +446,7 @@ function function_c6c9eeef(s_params)
 {
 	if(self.var_7ba65499 === 1)
 	{
-		self function_75edd32b(0);
+		self set_frozen(0);
 	}
 }
 
@@ -463,7 +463,7 @@ function private function_53817e75()
 {
 	self endon(#"death");
 	wait(5);
-	self function_75edd32b(0);
+	self set_frozen(0);
 }
 
 /*
@@ -487,7 +487,7 @@ function private function_baec0416(v_pos, v_angles)
 		v_normal = getnavmeshfacenormal(v_drop, 32);
 		var_55ab02db = function_c1fa62a2(v_angles, v_normal);
 		var_a79daf1f = util::spawn_model("p8_zm_whi_goop_puddle_01", v_ground, var_55ab02db);
-		var_a79daf1f namespace_2e9c09b3::function_f1827cc6(&function_cf69599, "", &function_18a1849f, 96);
+		var_a79daf1f zm_item_pickup::create_item_pickup(&function_cf69599, "", &function_18a1849f, 96);
 		var_a79daf1f.targetname = "mk2x_goo";
 		level.var_ae5fb719.var_ad2870bb--;
 		waitframe(1);
@@ -567,7 +567,7 @@ function private cleanup_step_2()
 {
 	function_6f437b06();
 	var_5a7b8007 = getentarray("mk2x_goo", "targetname");
-	array::run_all(var_5a7b8007, &namespace_2e9c09b3::function_d6812b9d);
+	array::run_all(var_5a7b8007, &zm_item_pickup::function_d6812b9d);
 }
 
 /*
@@ -630,7 +630,7 @@ function private function_473f437()
 function private function_a66f0de2()
 {
 	namespace_bd74bbd2::end(#"sc_mk2x");
-	s_unitrigger = level.var_ae5fb719.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76);
+	s_unitrigger = level.var_ae5fb719.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	level.var_ae5fb719.var_fead3ae9 setmodel("p8_zm_whi_fuse_pickup_fluid_purple");
 	level.var_ae5fb719.var_fead3ae9 clientfield::set("" + #"hash_56a1bc72bf8de8f1", 1);

@@ -72,10 +72,10 @@ function __init__()
 		[[ level.var_ab6fef61 ]]->initialize(6, 0.1);
 	}
 	namespace_9ff9f642::register_slowdown(#"hash_7e8287b2e2587da1", 0.6, 3);
-	callback::function_34dea974(level.w_hand_hemera, &function_10b4d6ac);
-	callback::function_34dea974(level.w_hand_hemera_charged, &function_dd7bc108);
-	callback::function_34dea974(level.w_hand_hemera_uncharged, &function_10b4d6ac);
-	callback::function_34dea974(level.w_hand_hemera_upgraded, &function_10b4d6ac);
+	callback::add_weapon_fired(level.w_hand_hemera, &function_10b4d6ac);
+	callback::add_weapon_fired(level.w_hand_hemera_charged, &function_dd7bc108);
+	callback::add_weapon_fired(level.w_hand_hemera_uncharged, &function_10b4d6ac);
+	callback::add_weapon_fired(level.w_hand_hemera_upgraded, &function_10b4d6ac);
 	level.var_7148b584 = [];
 	level.var_e51fadba = [];
 }
@@ -191,7 +191,7 @@ function function_d8a9b5a6(weapon)
 		e_projectile = util::spawn_model("tag_origin", self gettagorigin("tag_flash"), self gettagangles("tag_flash"));
 		if(isdefined(e_projectile))
 		{
-			e_projectile thread function_78de2d2e(i);
+			e_projectile thread set_projectile(i);
 			if(isdefined(a_e_targets) && isdefined(a_e_targets[i]))
 			{
 				self thread function_8e7f5291(e_projectile, a_e_targets[i], n_damage);
@@ -419,7 +419,7 @@ function is_valid_target(e_target, n_range)
 }
 
 /*
-	Name: function_78de2d2e
+	Name: set_projectile
 	Namespace: zm_weap_hand_hemera
 	Checksum: 0xADDFCA11
 	Offset: 0x14F0
@@ -427,7 +427,7 @@ function is_valid_target(e_target, n_range)
 	Parameters: 1
 	Flags: Linked
 */
-function function_78de2d2e(n_index)
+function set_projectile(n_index)
 {
 	self endon(#"death");
 	self.n_index = n_index;
@@ -452,7 +452,7 @@ function function_8e7f5291(e_projectile, ai_zombie, n_damage)
 	{
 		ai_zombie.marked_for_death = 1;
 	}
-	e_projectile thread function_723b1d66();
+	e_projectile thread projectile_timeout();
 	v_end = self function_3f079da();
 	n_dist = distance(e_projectile.origin, v_end);
 	n_time = n_dist / 1500;
@@ -661,7 +661,7 @@ function function_30239376(e_target)
 }
 
 /*
-	Name: function_723b1d66
+	Name: projectile_timeout
 	Namespace: zm_weap_hand_hemera
 	Checksum: 0x86460139
 	Offset: 0x1F58
@@ -669,7 +669,7 @@ function function_30239376(e_target)
 	Parameters: 0
 	Flags: Linked
 */
-function function_723b1d66()
+function projectile_timeout()
 {
 	self endon(#"death");
 	wait(5);

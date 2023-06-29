@@ -100,8 +100,8 @@ class cself_revive_visuals : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("self_revive_progress_bar_fill", 1, 5, "float");
-		cLUIelem::function_da693cbe("revive_progress", 1, 5, "float");
+		cLUIelem::add_clientfield("self_revive_progress_bar_fill", 1, 5, "float");
+		cLUIelem::add_clientfield("revive_progress", 1, 5, "float");
 	}
 
 }

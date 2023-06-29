@@ -125,11 +125,11 @@ class cLUIelem
 	*/
 	function function_dcb34c80(var_2a0de052, field_name, version, var_59f69872 = 1)
 	{
-		clientfield::function_78175813("clientuimodel", var_2a0de052, (("luielement." + var_47e79fc) + ".") + field_name, version, var_59f69872);
+		clientfield::register_bgcache("clientuimodel", var_2a0de052, (("luielement." + var_47e79fc) + ".") + field_name, version, var_59f69872);
 	}
 
 	/*
-		Name: function_da693cbe
+		Name: add_clientfield
 		Namespace: cLUIelem
 		Checksum: 0x1FAE6DB3
 		Offset: 0x2A80
@@ -137,7 +137,7 @@ class cLUIelem
 		Parameters: 5
 		Flags: Linked
 	*/
-	function function_da693cbe(field_name, version, bits, type, var_59f69872 = 1)
+	function add_clientfield(field_name, version, bits, type, var_59f69872 = 1)
 	{
 		clientfield::register_luielem(var_47e79fc, field_name, version, bits, type, var_59f69872);
 	}
@@ -186,12 +186,12 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_spawned(&refresh_menu_values);
-	function_b95a3ba5("FullScreenBlack", &full_screen_black::register, "full_screen_black");
-	function_b95a3ba5("InitialBlack", &initial_black::register, "initial_black");
+	add_luimenu("FullScreenBlack", &full_screen_black::register, "full_screen_black");
+	add_luimenu("InitialBlack", &initial_black::register, "initial_black");
 }
 
 /*
-	Name: function_b95a3ba5
+	Name: add_luimenu
 	Namespace: lui
 	Checksum: 0x3CDAD5E4
 	Offset: 0x330
@@ -199,7 +199,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function function_b95a3ba5(alias, registerfunc, uid)
+function add_luimenu(alias, registerfunc, uid)
 {
 	if(!isdefined(level.luimenus))
 	{

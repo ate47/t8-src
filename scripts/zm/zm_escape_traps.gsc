@@ -193,7 +193,7 @@ function function_ea490292()
 		s_result = level waittill(#"trap_activated");
 		if(s_result.trap == self)
 		{
-			s_result.var_dd54ffdb zm_stats::increment_client_stat("prison_fan_trap_used", 0);
+			s_result.trap_activator zm_stats::increment_client_stat("prison_fan_trap_used", 0);
 		}
 	}
 }
@@ -313,7 +313,7 @@ function function_9c2d463d(t_damage)
 		if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 		{
 			t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 	}
 	else
@@ -342,7 +342,7 @@ function function_9c2d463d(t_damage)
 			if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 			{
 				t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-				t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+				t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 			}
 		}
 	}
@@ -703,7 +703,7 @@ function function_39f2d90f()
 		s_result = level waittill(#"trap_activated");
 		if(s_result.trap == self)
 		{
-			s_result.var_dd54ffdb zm_stats::increment_client_stat("prison_acid_trap_used", 0);
+			s_result.trap_activator zm_stats::increment_client_stat("prison_acid_trap_used", 0);
 		}
 	}
 }
@@ -834,7 +834,7 @@ function function_9699194a(t_damage)
 				if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 				{
 					t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-					t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+					t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 				}
 			}
 		}
@@ -862,7 +862,7 @@ function function_9699194a(t_damage)
 				if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 				{
 					t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-					t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+					t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 				}
 			}
 		}
@@ -1035,7 +1035,7 @@ function function_dcd775a()
 		s_result = level waittill(#"trap_activated");
 		if(s_result.trap == self)
 		{
-			s_result.var_dd54ffdb zm_stats::increment_client_stat("prison_spinning_trap_used", 0);
+			s_result.trap_activator zm_stats::increment_client_stat("prison_spinning_trap_used", 0);
 		}
 	}
 }
@@ -1213,7 +1213,7 @@ function function_1f7e661f(t_damage)
 			if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 			{
 				t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-				t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+				t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 			}
 		}
 		else
@@ -1225,7 +1225,7 @@ function function_1f7e661f(t_damage)
 				if(isdefined(t_damage.activated_by_player) && isplayer(t_damage.activated_by_player))
 				{
 					t_damage.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-					t_damage.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+					t_damage.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 				}
 			}
 			else

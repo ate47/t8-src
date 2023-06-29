@@ -1128,7 +1128,7 @@ function spawnplayer()
 			self ghost();
 			self notsolid();
 		}
-		self callback::function_10006d25(&doinitialspawnmessaging);
+		self callback::on_prematch_end(&doinitialspawnmessaging);
 	}
 	else
 	{

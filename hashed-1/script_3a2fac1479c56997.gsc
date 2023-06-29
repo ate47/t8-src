@@ -74,7 +74,7 @@ class czm_build_progress : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_build_progress
 		Checksum: 0xA0F86E98
 		Offset: 0x278
@@ -82,9 +82,9 @@ class czm_build_progress : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class czm_build_progress : cLUIelem
 	function setup_clientfields(uid, var_afaddf7a)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("progress", 1, 6, "float", var_afaddf7a);
+		cLUIelem::add_clientfield("progress", 1, 6, "float", var_afaddf7a);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_afaddf7a)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_build_progress
 	Checksum: 0x5F5D7922
 	Offset: 0x108
@@ -131,10 +131,10 @@ function register(uid, var_afaddf7a)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_build_progress();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

@@ -75,7 +75,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		return;
 	}
-	function_4ac2aefc(einflictor, eattacker, smeansofdeath);
+	update_attacker(einflictor, eattacker, smeansofdeath);
 	weapon = function_f4f77cfb(weapon, einflictor);
 	pixbeginevent(#"hash_5a86c546901702e2");
 	if(!isdefined(vdir))
@@ -468,8 +468,8 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 	is_melee = weapon_utils::ismeleemod(smeansofdeath);
 	var_8c8cca9b = function_f74d2943(weapon, 6);
 	var_e31583b3 = isdefined(var_8c8cca9b) && !is_melee;
-	var_9a429025 = function_f74d2943(weapon, 7);
-	var_7e7a6e97 = isdefined(var_9a429025) && !is_melee;
+	dot_params = function_f74d2943(weapon, 7);
+	var_7e7a6e97 = isdefined(dot_params) && !is_melee;
 	if(isdefined(self.var_213b4a61) && (smeansofdeath == "MOD_BURNED" || smeansofdeath == "MOD_DOT") || var_e31583b3 && self !== eattacker)
 	{
 		var_9277fb8e = idamage;
@@ -501,7 +501,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 			{
 				if(var_7e7a6e97)
 				{
-					params = var_9a429025;
+					params = dot_params;
 				}
 				else
 				{
@@ -529,10 +529,10 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 			var_284f3c1a = params.setype == 6;
 			if(var_7e7a6e97 && !var_284f3c1a)
 			{
-				var_25635954 = (var_e31583b3 ? var_8c8cca9b : getstatuseffect("wound"));
-				var_25635954.var_752c0834 = function_a31ab50c(var_7c61c7a1);
+				wound_params = (var_e31583b3 ? var_8c8cca9b : getstatuseffect("wound"));
+				wound_params.var_752c0834 = function_a31ab50c(var_7c61c7a1);
 				self.var_abe2db87 = 1;
-				self status_effect::status_effect_apply(var_25635954, weapon, eattacker, 0);
+				self status_effect::status_effect_apply(wound_params, weapon, eattacker, 0);
 			}
 		}
 		if(isdefined(params.var_73c88af2) && params.var_73c88af2)
@@ -1298,7 +1298,7 @@ function private modify_player_damage_meansofdeath(einflictor, eattacker, smeans
 }
 
 /*
-	Name: function_4ac2aefc
+	Name: update_attacker
 	Namespace: player
 	Checksum: 0x2479AF1A
 	Offset: 0x4B60
@@ -1306,7 +1306,7 @@ function private modify_player_damage_meansofdeath(einflictor, eattacker, smeans
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_4ac2aefc(einflictor, eattacker, smeansofdeath)
+function private update_attacker(einflictor, eattacker, smeansofdeath)
 {
 	if(isplayer(eattacker))
 	{

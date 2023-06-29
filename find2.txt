@@ -1,3 +1,0 @@
-
-function_62fdaf9e,zone_debugdamage_radius
-function_9fcf70e6,zone_z_cg_gun

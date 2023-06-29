@@ -171,11 +171,11 @@ class cfull_screen_movie : cLUIelem
 	{
 		cLUIelem::setup_clientfields(uid);
 		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
-		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int");
-		cLUIelem::function_da693cbe("looping", 1, 1, "int");
-		cLUIelem::function_da693cbe("additive", 1, 1, "int");
-		cLUIelem::function_da693cbe("playOutroMovie", 1, 1, "int");
-		cLUIelem::function_da693cbe("skippable", 1, 1, "int");
+		cLUIelem::add_clientfield("showBlackScreen", 1, 1, "int");
+		cLUIelem::add_clientfield("looping", 1, 1, "int");
+		cLUIelem::add_clientfield("additive", 1, 1, "int");
+		cLUIelem::add_clientfield("playOutroMovie", 1, 1, "int");
+		cLUIelem::add_clientfield("skippable", 1, 1, "int");
 		cLUIelem::function_dcb34c80("moviefile", "movieKey", 18000);
 	}
 

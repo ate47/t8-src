@@ -42,7 +42,7 @@ function __init__()
 	callback::add_callback(#"freefall", &function_c9a18304);
 	callback::add_callback(#"parachute", &function_26d46af3);
 	animation::add_notetrack_func("player_free_fall::parachute_detach", &parachute_detach);
-	level.var_4a2e0494 = isdefined(getgametypesetting(#"hash_6cf5f53d1fbb1066")) && getgametypesetting(#"hash_6cf5f53d1fbb1066");
+	level.add_trails = isdefined(getgametypesetting(#"hash_6cf5f53d1fbb1066")) && getgametypesetting(#"hash_6cf5f53d1fbb1066");
 }
 
 /*
@@ -160,12 +160,12 @@ function private function_26d46af3(eventstruct)
 		self function_57738ae7(eventstruct.localclientnum, eventstruct.parachute);
 		if(eventstruct.parachute)
 		{
-			self callback::add_entity_callback(#"oob", &function_1eeb50a5);
+			self callback::add_entity_callback(#"oob", &on_oob);
 		}
 		else
 		{
 			function_6564e987(eventstruct.localclientnum);
-			self callback::function_52ac9652(#"oob", &function_1eeb50a5);
+			self callback::function_52ac9652(#"oob", &on_oob);
 		}
 	}
 	if(eventstruct.parachute)
@@ -297,7 +297,7 @@ function function_ec3388e3(localclientnum, var_695a7111)
 {
 	if(self function_21c0fa55())
 	{
-		self callback::add_entity_callback(#"oob", &function_1eeb50a5);
+		self callback::add_entity_callback(#"oob", &on_oob);
 		self thread function_3f6dfc34(localclientnum);
 		self thread function_3a56fe1b(localclientnum);
 		self thread function_2bdd64a4(localclientnum);
@@ -327,7 +327,7 @@ function cleanup_player(params)
 }
 
 /*
-	Name: function_1eeb50a5
+	Name: on_oob
 	Namespace: player_free_fall
 	Checksum: 0x694B46DE
 	Offset: 0xDD8
@@ -335,7 +335,7 @@ function cleanup_player(params)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1eeb50a5(local_client_num, params)
+function on_oob(local_client_num, params)
 {
 	if(params.old_val > 0 && params.new_val > 0)
 	{
@@ -424,7 +424,7 @@ function function_e8a9e948(localclientnum, var_695a7111)
 				waitframe(1);
 				continue;
 			}
-			contrail_fx = namespace_eb06e24d::function_2328db2c();
+			contrail_fx = namespace_eb06e24d::get_trailfx();
 			if(isdefined(self.var_ba907ef1) && self.angles[2] < -20)
 			{
 				stopfx(localclientnum, self.var_ba907ef1);
@@ -473,7 +473,7 @@ function play_fx_on_tag(localclientnum, fx, tag = "tag_origin")
 */
 function function_a993866(localclientnum, var_9a17b15c)
 {
-	if(!level.var_4a2e0494)
+	if(!level.add_trails)
 	{
 		return;
 	}
@@ -485,7 +485,7 @@ function function_a993866(localclientnum, var_9a17b15c)
 	/#
 		println((self.name + "") + var_9a17b15c);
 	#/
-	trail_fx = namespace_eb06e24d::function_2328db2c();
+	trail_fx = namespace_eb06e24d::get_trailfx();
 	if(self function_21c0fa55())
 	{
 		if(isdefined(trail_fx.("body_trail")))
@@ -698,7 +698,7 @@ function freefallend(localclientnum)
 	if(self function_21c0fa55())
 	{
 		function_6564e987(localclientnum);
-		self callback::function_52ac9652(#"oob", &function_1eeb50a5);
+		self callback::function_52ac9652(#"oob", &on_oob);
 		self thread function_fe726f7(localclientnum);
 		if(self postfx::function_556665f2("pstfx_speedblur_wz"))
 		{
@@ -784,9 +784,9 @@ function function_5789287a()
 function function_fb8d00bf()
 {
 	local_client_num = self.localclientnum;
-	if(level.var_4a2e0494)
+	if(level.add_trails)
 	{
-		trail_fx = self namespace_eb06e24d::function_2328db2c();
+		trail_fx = self namespace_eb06e24d::get_trailfx();
 		if(isdefined(trail_fx.("dropoff")))
 		{
 			playfx(local_client_num, trail_fx.("dropoff"), self.origin);

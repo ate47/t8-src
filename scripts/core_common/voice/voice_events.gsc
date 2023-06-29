@@ -90,7 +90,7 @@ function function_840acc1c(event, handlerfunc, priority = 0, var_c10e92a2 = unde
 }
 
 /*
-	Name: function_a68ea306
+	Name: create_queue
 	Namespace: voice_events
 	Checksum: 0x63F2FE38
 	Offset: 0x368
@@ -98,7 +98,7 @@ function function_840acc1c(event, handlerfunc, priority = 0, var_c10e92a2 = unde
 	Parameters: 1
 	Flags: None
 */
-function function_a68ea306(queuename)
+function create_queue(queuename)
 {
 	/#
 		assert(isdefined(queuename), "");
@@ -116,7 +116,7 @@ function function_a68ea306(queuename)
 }
 
 /*
-	Name: function_820f34b4
+	Name: queue_event
 	Namespace: voice_events
 	Checksum: 0xFCE1DE89
 	Offset: 0x438
@@ -124,7 +124,7 @@ function function_a68ea306(queuename)
 	Parameters: 5
 	Flags: None
 */
-function function_820f34b4(queuename, event, handlerfunc, priority = 0, params = undefined)
+function queue_event(queuename, event, handlerfunc, priority = 0, params = undefined)
 {
 	/#
 		assert(isdefined(queuename), "");
@@ -160,7 +160,7 @@ function function_820f34b4(queuename, event, handlerfunc, priority = 0, params =
 	item.priority = priority;
 	item.handlerfunc = handlerfunc;
 	item.params = params;
-	function_2fa8afa4(queue, item);
+	queue_item(queue, item);
 }
 
 /*
@@ -202,13 +202,13 @@ function function_c710099c(event, params)
 		}
 		if(!isdefined(var_c10e92a2) || self [[var_c10e92a2]](name, queue, item))
 		{
-			function_2fa8afa4(queue, item);
+			queue_item(queue, item);
 		}
 	}
 }
 
 /*
-	Name: function_2fa8afa4
+	Name: queue_item
 	Namespace: voice_events
 	Checksum: 0x91382913
 	Offset: 0x908
@@ -216,7 +216,7 @@ function function_c710099c(event, params)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_2fa8afa4(queue, item)
+function private queue_item(queue, item)
 {
 	for(i = 0; i < queue.size; i++)
 	{

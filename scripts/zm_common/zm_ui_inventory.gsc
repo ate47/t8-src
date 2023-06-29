@@ -32,7 +32,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_connecting(&onconnect);
-	clientfield::function_78175813("clientuimodel", "string", "hudItems.zmFeatureDescription", 1, 1);
+	clientfield::register_bgcache("clientuimodel", "string", "hudItems.zmFeatureDescription", 1, 1);
 	zm_inventory::function_c7c05a13();
 	registeredfields = [];
 	foreach(mapping in level.var_a16c38d9)

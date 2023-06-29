@@ -86,7 +86,7 @@ class czm_build_progress : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("progress", 1, 6, "float");
+		cLUIelem::add_clientfield("progress", 1, 6, "float");
 	}
 
 }

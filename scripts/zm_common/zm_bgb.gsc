@@ -59,12 +59,12 @@ function private __init__()
 	level.weaponbgbgrab = getweapon(#"zombie_bgb_grab");
 	level.var_ddff6359 = array(getweapon(#"hash_d0f29de78e218ad"), getweapon(#"hash_5e07292c519531e6"), getweapon(#"hash_305e5faa9ecb625a"), getweapon(#"hash_23cc1f9c16b375c3"), getweapon(#"hash_155cc0a9ba3c3260"), getweapon(#"hash_2394c41f048f7d2"), getweapon(#"hash_4565adf3abc61ea3"));
 	level.bgb = [];
-	clientfield::function_a8bbc967("zmhud.bgb_current", 1, 8, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_display", 1, 1, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_timer", 1, 8, "float", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_activations_remaining", 1, 3, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_invalid_use", 1, 1, "counter", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_one_shot_use", 1, 1, "counter", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_current", 1, 8, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_display", 1, 1, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_timer", 1, 8, "float", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_activations_remaining", 1, 3, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_invalid_use", 1, 1, "counter", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_one_shot_use", 1, 1, "counter", 0);
 	clientfield::register("toplayer", "bgb_blow_bubble", 1, 1, "counter");
 	zm::register_vehicle_damage_callback(&vehicle_damage_override);
 	zm_perks::register_lost_perk_override(&lost_perk_override);

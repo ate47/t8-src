@@ -623,7 +623,7 @@ function function_a495d71f(entity)
 */
 function function_9ab1c000(entity)
 {
-	if(isdefined(entity.var_97a22974) && !entity.var_97a22974)
+	if(isdefined(entity.can_phase) && !entity.can_phase)
 	{
 		return 0;
 	}

@@ -215,7 +215,7 @@ function function_54cb37a4(weapon)
 		assert(self zm_weapons::player_can_use_content(weapon));
 	#/
 	weapon_limit = zm_utility::get_player_weapon_limit(self);
-	if(isdefined(weapon.var_52a84c7a) && weapon.var_52a84c7a)
+	if(isdefined(weapon.craftitem) && weapon.craftitem)
 	{
 		zm_items::player_pick_up(self, weapon);
 		return;

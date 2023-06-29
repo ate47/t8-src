@@ -79,12 +79,12 @@ function function_cb514c8b()
 	{
 		if(isdefined(var_5901fe7f) && var_5901fe7f)
 		{
-			item_world::function_7730442c(var_885c7eef[x]);
+			item_world::consume_item(var_885c7eef[x]);
 			continue;
 		}
 		if(distance2d(var_885c7eef[x].origin, var_8a9122c8.origin) < 4000)
 		{
-			item_world::function_7730442c(var_885c7eef[x]);
+			item_world::consume_item(var_885c7eef[x]);
 			continue;
 		}
 		var_5901fe7f = 1;

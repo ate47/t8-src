@@ -51,7 +51,7 @@ function __init__()
 function private on_begin(var_d34d02af)
 {
 	level.var_d34d02af = zm_trial::function_5769f26a(var_d34d02af);
-	callback::function_78ccee50(&function_78ccee50);
+	callback::on_weapon_fired(&on_weapon_fired);
 	foreach(player in getplayers())
 	{
 		player thread function_a5a431f6();
@@ -69,12 +69,12 @@ function private on_begin(var_d34d02af)
 */
 function private on_end(round_reset)
 {
-	callback::function_deba137d(&function_78ccee50);
+	callback::remove_on_weapon_fired(&on_weapon_fired);
 	level.var_d34d02af = undefined;
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: namespace_983e5028
 	Checksum: 0xBF560CD0
 	Offset: 0x268
@@ -82,9 +82,9 @@ function private on_end(round_reset)
 	Parameters: 1
 	Flags: Private
 */
-function private function_78ccee50(params)
+function private on_weapon_fired(params)
 {
-	if(zm_weapons::function_e17d0760(params.weapon))
+	if(zm_weapons::is_explosive_weapon(params.weapon))
 	{
 		self zm_score::player_reduce_points("take_specified", level.var_d34d02af * 2);
 	}

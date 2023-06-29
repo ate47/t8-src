@@ -340,10 +340,10 @@ function function_ea62f5af()
 */
 function function_8cef1872()
 {
-	if(isdefined(self.var_283bf712))
+	if(isdefined(self.spawn_anchor))
 	{
-		self.var_283bf712 delete();
-		self.var_283bf712 = undefined;
+		self.spawn_anchor delete();
+		self.spawn_anchor = undefined;
 	}
 	self clientfield::set_player_uimodel("hudItems.wzLoadFinished", 1);
 	self clientfield::set_player_uimodel("hudItems.streamerLoadFraction", 1);
@@ -367,8 +367,8 @@ function private function_c263fd97()
 	level endon(#"start_warzone");
 	self endon(#"disconnect");
 	self unlink();
-	self.var_283bf712 = spawn("script_origin", self.resurrect_origin);
-	self playerlinkto(self.var_283bf712);
+	self.spawn_anchor = spawn("script_origin", self.resurrect_origin);
+	self playerlinkto(self.spawn_anchor);
 	self setplayerangles(self.resurrect_angles);
 	self setclientuivisibilityflag("weapon_hud_visible", 0);
 	self ghost();

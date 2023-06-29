@@ -926,7 +926,7 @@ function electrocute_zombie()
 }
 
 /*
-	Name: function_93284efd
+	Name: electrocute_player
 	Namespace: zm_orange_lighthouse
 	Checksum: 0xFD219BBC
 	Offset: 0x2530
@@ -934,7 +934,7 @@ function electrocute_zombie()
 	Parameters: 0
 	Flags: None
 */
-function function_93284efd()
+function electrocute_player()
 {
 	shock_status_effect = getstatuseffect(#"hash_19533caf858a9f3b");
 	if(!(isdefined(self.b_no_trap_damage) && self.b_no_trap_damage))
@@ -1051,12 +1051,12 @@ function function_72d528e6()
 		{
 			if(level flag::get(#"half_price_traps"))
 			{
-				if(self.var_c275b624 zm_traps::function_3f0a4c65(e_who, int(500)))
+				if(self.var_c275b624 zm_traps::trap_purchase(e_who, int(500)))
 				{
 					e_who function_2ad3b642(self);
 				}
 			}
-			else if(self.var_c275b624 zm_traps::function_3f0a4c65(e_who, 1000))
+			else if(self.var_c275b624 zm_traps::trap_purchase(e_who, 1000))
 			{
 				e_who function_2ad3b642(self);
 			}
@@ -1169,7 +1169,7 @@ function function_2853c44e(e_trap)
 		if(isdefined(level.var_ab11c23d.activated_by_player) && isplayer(level.var_ab11c23d.activated_by_player))
 		{
 			level.var_ab11c23d.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			level.var_ab11c23d.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			level.var_ab11c23d.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 		self dodamage(20000, e_trap.origin, undefined, e_trap, undefined, "MOD_BURNED", 0, undefined);
 	}

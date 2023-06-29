@@ -211,7 +211,7 @@ function function_3c54cdb1()
 }
 
 /*
-	Name: function_2328db2c
+	Name: get_trailfx
 	Namespace: namespace_eb06e24d
 	Checksum: 0xAE8CD354
 	Offset: 0x5C8
@@ -219,7 +219,7 @@ function function_3c54cdb1()
 	Parameters: 0
 	Flags: Linked
 */
-function function_2328db2c()
+function get_trailfx()
 {
 	return function_6452f9c5(self function_37ae175b(1));
 }

@@ -347,13 +347,13 @@ function setup_objective(str_weapon, s_challenge)
 		}
 		foreach(player in getplayers())
 		{
-			player thread function_c305f695(s_challenge, a_weapons);
+			player thread monitor_objective(s_challenge, a_weapons);
 		}
 	}
 }
 
 /*
-	Name: function_c305f695
+	Name: monitor_objective
 	Namespace: zm_trial_acquire_weapon
 	Checksum: 0xCE66079F
 	Offset: 0x12A8
@@ -361,7 +361,7 @@ function setup_objective(str_weapon, s_challenge)
 	Parameters: 2
 	Flags: Private
 */
-function private function_c305f695(s_challenge, a_weapons)
+function private monitor_objective(s_challenge, a_weapons)
 {
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656");

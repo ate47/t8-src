@@ -116,7 +116,7 @@ function __main__()
 		#/
 	}
 	level flag::wait_till("start_zombie_round_logic");
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		foreach(e_player in level.players)
 		{
@@ -127,7 +127,7 @@ function __main__()
 	level flag::wait_till(#"hash_29dc018e9551ecf");
 	foreach(e_player in level.players)
 	{
-		if(zm_utility::function_e51dc2d8())
+		if(zm_utility::is_ee_enabled())
 		{
 			e_player thread function_cf58d5fe();
 		}

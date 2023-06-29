@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1af22ad25a2111f7;
+#using scripts\abilities\gadgets\gadget_jammer_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
 #using scripts\core_common\struct.gsc;

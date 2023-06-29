@@ -100,8 +100,8 @@ class cmulti_stage_friendly_lockon : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int");
-		cLUIelem::function_da693cbe("targetState", 1, 3, "int");
+		cLUIelem::add_clientfield("entNum", 1, 10, "int");
+		cLUIelem::add_clientfield("targetState", 1, 3, "int");
 	}
 
 }

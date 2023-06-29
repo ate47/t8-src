@@ -320,7 +320,7 @@ function beginclasschoice(comingfrommenu)
 		[[level.spawnspectator]]();
 		self userspawnselection::closespawnselect();
 		self userspawnselection::clearcacheforplayer();
-		self draft::function_2427a351();
+		self draft::clear_cooldown();
 		if(comingfrommenu || !player_role::is_valid(player_role::get()))
 		{
 			self draft::open();
@@ -580,8 +580,8 @@ function function_9ed118fe(characterindex)
 	}
 	spawns = self.pers[#"spawns"];
 	self draft::select_character(characterindex, 0);
-	var_2488d780 = getcharacterdisplayname(characterindex, currentsessionmode());
-	iprintln(#"hash_52f20b5836b29e3", self, var_2488d780);
+	specialist_name = getcharacterdisplayname(characterindex, currentsessionmode());
+	iprintln(#"hash_52f20b5836b29e3", self, specialist_name);
 	if(isdefined(self.pers[#"changed_specialist"]) && self.pers[#"changed_specialist"])
 	{
 		self notify(#"changed_specialist_death");
@@ -656,7 +656,7 @@ function menupositiondraft(response, intpayload)
 		{
 			if(response == "ready")
 			{
-				self draft::function_3e46326b();
+				self draft::client_ready();
 			}
 			else
 			{

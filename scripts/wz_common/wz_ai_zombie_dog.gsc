@@ -80,10 +80,10 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 	}
 	if(isdefined(weapon) && smeansofdeath !== "MOD_DOT")
 	{
-		var_9a429025 = function_f74d2943(weapon, 7);
-		if(isdefined(var_9a429025))
+		dot_params = function_f74d2943(weapon, 7);
+		if(isdefined(dot_params))
 		{
-			status_effect::status_effect_apply(var_9a429025, weapon, einflictor);
+			status_effect::status_effect_apply(dot_params, weapon, einflictor);
 		}
 	}
 	self player::function_74a5d514(eattacker, idamage, smeansofdeath, weapon, shitloc);
@@ -108,9 +108,9 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 */
 function function_b9d56970()
 {
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_melee", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_45b50cc48ee7f9d8", &function_69c3e2ac);
-	self callback::function_d8abfc3d(#"on_ai_killed", &function_ae78134);
+	self callback::function_d8abfc3d(#"on_ai_killed", &on_dog_killed);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_8e13b81e();
 	aiutility::addaioverridedamagecallback(self, &function_cef412a7);
@@ -304,7 +304,7 @@ function private zombiedogintro()
 }
 
 /*
-	Name: function_ae78134
+	Name: on_dog_killed
 	Namespace: wz_ai_zombie_dog
 	Checksum: 0xAF7D9B4C
 	Offset: 0x10F0
@@ -312,7 +312,7 @@ function private zombiedogintro()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ae78134(params)
+function private on_dog_killed(params)
 {
 	if(self ishidden())
 	{

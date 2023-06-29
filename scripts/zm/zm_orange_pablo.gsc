@@ -134,7 +134,7 @@ function private pablo_intro()
 	var_de23a374 = array("lighthouse_level_1", "lighthouse_level_2", "lighthouse_level_3");
 	while(true)
 	{
-		if(zm_hms_util::any_player_in_zone(var_de23a374) && level.pablo_npc zm_audio::function_65e5c19a())
+		if(zm_hms_util::any_player_in_zone(var_de23a374) && level.pablo_npc zm_audio::can_speak())
 		{
 			level function_e44c7c0c(#"hash_2a582565ea3add7e");
 			a_players = [];
@@ -154,7 +154,7 @@ function private pablo_intro()
 	level flag::set(#"pablo_intro");
 	while(true)
 	{
-		if(zm_hms_util::any_player_in_zone("lighthouse_level_4") && level.pablo_npc zm_audio::function_65e5c19a())
+		if(zm_hms_util::any_player_in_zone("lighthouse_level_4") && level.pablo_npc zm_audio::can_speak())
 		{
 			str_alias = #"hash_61f15b67b89a32a7";
 			if(level flag::get(#"hash_3310bb35ce396e49"))

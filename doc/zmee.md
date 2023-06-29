@@ -31,7 +31,7 @@
       - [`#"hash_39d41ab4004ca686"`](#hash_39d41ab4004ca686)
       - [`#"hash_1da6434ce50c3713"`](#hash_1da6434ce50c3713)
     - [Blood of the Dead (`zm_escape`)](#blood-of-the-dead-zm_escape)
-      - [`#"hash_62ca600e9c6f07c0"` (Main quest)](#hash_62ca600e9c6f07c0-main-quest)
+      - [`#"paschal_quest"` (Main quest)](#paschal_quest-main-quest)
       - [`#"jump_scare"` (catwalk sniper scope event)](#jump_scare-catwalk-sniper-scope-event)
       - [`#"drawings"` (drawing ee)](#drawings-drawing-ee)
       - [`#"narrative_room"`](#narrative_room)
@@ -407,17 +407,17 @@ TODO
 
 TODO
 
-#### `#"hash_62ca600e9c6f07c0"` (Main quest)
+#### `#"paschal_quest"` (Main quest)
 
 **steps**
 
-  - name: `#"1"`, flag name: `#"hash_53dd4dd26004594b"`
-  - name: `#"2"`, flag name: `#"hash_53dd4ed260045afe"`
-  - name: `#"3"`, flag name: `#"hash_53dd4fd260045cb1"`
-  - name: `#"4"`, flag name: `#"hash_53dd50d260045e64"`
-  - name: `#"5"`, flag name: `#"hash_53dd51d260046017"`
-  - name: `#"6"`, flag name: `#"hash_53dd52d2600461ca"`
-  - name: `#"7"`, flag name: `#"hash_53dd53d26004637d"`
+  - name: `#"1"`, flag name: `#"paschal_quest_step_1"`
+  - name: `#"2"`, flag name: `#"paschal_quest_step_2"`
+  - name: `#"3"`, flag name: `#"paschal_quest_step_3"`
+  - name: `#"4"`, flag name: `#"paschal_quest_step_4"`
+  - name: `#"5"`, flag name: `#"paschal_quest_step_5"`
+  - name: `#"6"`, flag name: `#"paschal_quest_step_6"`
+  - name: `#"7"`, flag name: `#"paschal_quest_step_7"`
   - name: `#"outro"`, flag name: `#"hash_4b2d3fa2839cfcf8"`
 
 #### `#"jump_scare"` (catwalk sniper scope event)

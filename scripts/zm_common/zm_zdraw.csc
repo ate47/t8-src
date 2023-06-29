@@ -463,7 +463,7 @@ function function_82f2d020(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -493,7 +493,7 @@ function function_f7176625(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -523,7 +523,7 @@ function function_cb18c560(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -553,7 +553,7 @@ function function_82201799(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -583,7 +583,7 @@ function function_a026f442(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -613,7 +613,7 @@ function function_912c8db9(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -663,7 +663,7 @@ function function_b59acc83(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -675,7 +675,7 @@ function function_b59acc83(var_a99ac828, startat)
 				function_96c207f("");
 				return startat;
 			}
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -687,7 +687,7 @@ function function_b59acc83(var_a99ac828, startat)
 				function_96c207f("");
 				return startat;
 			}
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -705,7 +705,7 @@ function function_b59acc83(var_a99ac828, startat)
 }
 
 /*
-	Name: function_6291f508
+	Name: revive_getdvar
 	Namespace: zm_zdraw
 	Checksum: 0xA04EEE9B
 	Offset: 0x1AC0
@@ -713,7 +713,7 @@ function function_b59acc83(var_a99ac828, startat)
 	Parameters: 2
 	Flags: None
 */
-function function_6291f508(var_a99ac828, startat)
+function revive_getdvar(var_a99ac828, startat)
 {
 	/#
 		if(isdefined(var_a99ac828[startat]))

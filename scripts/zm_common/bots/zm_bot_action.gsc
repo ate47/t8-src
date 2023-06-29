@@ -44,16 +44,16 @@ function __init__()
 */
 function __main__()
 {
-	level bot_action::function_66dacac1();
+	level bot_action::register_actions();
 	level bot_action::register_weapons();
 	level bot_action::function_25f1e3c1();
-	level function_66dacac1();
+	level register_actions();
 	level register_weapons();
 	level function_25f1e3c1();
 }
 
 /*
-	Name: function_66dacac1
+	Name: register_actions
 	Namespace: zm_bot_action
 	Checksum: 0xE0FE932E
 	Offset: 0x1B8
@@ -61,7 +61,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_66dacac1()
+function register_actions()
 {
 	bot_action::register_action(#"hash_4a5a38bf3502d071", &bot_action::current_melee_weapon_rank, &function_aa4daa54, &bot_action::melee_enemy);
 	bot_action::register_action(#"hash_22d98a5a241c78ba", &bot_action::rank_priority, &function_b4d8b7d6, &function_3c22de9a);
@@ -83,17 +83,17 @@ function function_66dacac1()
 */
 function register_weapons()
 {
-	bot_action::function_ab03ca93(#"ar_mg1909_t8");
-	bot_action::function_ab03ca93(#"minigun");
-	bot_action::function_ab03ca93(#"pistol_revolver38");
-	bot_action::function_ab03ca93(#"pistol_topbreak_t8");
-	bot_action::function_ab03ca93(#"shotgun_trenchgun_t8");
-	bot_action::function_ab03ca93(#"smg_drum_pistol_t8");
-	bot_action::function_ab03ca93(#"ww_tricannon_t8");
-	bot_action::function_ab03ca93(#"ww_tricannon_air_t8");
-	bot_action::function_ab03ca93(#"ww_tricannon_earth_t8");
-	bot_action::function_ab03ca93(#"ww_tricannon_fire_t8");
-	bot_action::function_ab03ca93(#"ww_tricannon_water_t8");
+	bot_action::register_bulletweapon(#"ar_mg1909_t8");
+	bot_action::register_bulletweapon(#"minigun");
+	bot_action::register_bulletweapon(#"pistol_revolver38");
+	bot_action::register_bulletweapon(#"pistol_topbreak_t8");
+	bot_action::register_bulletweapon(#"shotgun_trenchgun_t8");
+	bot_action::register_bulletweapon(#"smg_drum_pistol_t8");
+	bot_action::register_bulletweapon(#"ww_tricannon_t8");
+	bot_action::register_bulletweapon(#"ww_tricannon_air_t8");
+	bot_action::register_bulletweapon(#"ww_tricannon_earth_t8");
+	bot_action::register_bulletweapon(#"ww_tricannon_fire_t8");
+	bot_action::register_bulletweapon(#"ww_tricannon_water_t8");
 	self function_c31a5c42();
 }
 
@@ -447,7 +447,7 @@ function function_ae19f70f(actionparams)
 		#/
 		return undefined;
 	}
-	zombie_weapon_upgrade = self bot::function_f47bf51d();
+	zombie_weapon_upgrade = self bot::get_interact();
 	actionparams.zombie_weapon_upgrade = zombie_weapon_upgrade;
 	trigger = function_d41104ab(zombie_weapon_upgrade);
 	if(!isdefined(trigger))
@@ -533,7 +533,7 @@ function function_2c6e5988(actionparams)
 	trigger = zombie_weapon_upgrade.trigger_stub.playertrigger[self getentitynumber()];
 	trigger useby(self);
 	waitframe(1);
-	self bot::function_6c280dfe();
+	self bot::clear_interact();
 }
 
 /*
@@ -628,7 +628,7 @@ function function_b4d8b7d6(actionparams)
 		#/
 		return undefined;
 	}
-	interact = self bot::function_f47bf51d();
+	interact = self bot::get_interact();
 	actionparams.interact = interact;
 	trigger = function_d41104ab(interact);
 	if(!isdefined(trigger))
@@ -684,7 +684,7 @@ function function_3c22de9a(actionparams)
 		trigger useby(self);
 	}
 	waitframe(1);
-	self bot::function_6c280dfe();
+	self bot::clear_interact();
 }
 
 /*
@@ -700,9 +700,9 @@ function zombie_scan_for_threats(actionparams)
 {
 	targetvisible = self bot_action::is_target_visible(actionparams);
 	actionparams.targetvisible = targetvisible;
-	while(!self bot_action::function_cf788c22() && self bot_action::function_bb2a8f1b(actionparams) && actionparams.targetvisible == targetvisible)
+	while(!self bot_action::function_cf788c22() && self bot_action::is_target_enemy(actionparams) && actionparams.targetvisible == targetvisible)
 	{
-		trigger = function_d41104ab(bot::function_f47bf51d());
+		trigger = function_d41104ab(bot::get_interact());
 		if(isdefined(trigger) && self bot::function_914feddd() && function_f59547eb(trigger))
 		{
 			break;
@@ -770,14 +770,14 @@ function zombie_reload_weapon(actionparams)
 	self waittill(#"hash_347a612b61067eb3");
 	while(self isreloading())
 	{
-		if(self bot_action::function_bb2a8f1b(actionparams) && self bot_action::is_target_visible(actionparams))
+		if(self bot_action::is_target_enemy(actionparams) && self bot_action::is_target_visible(actionparams))
 		{
 			self bot_action::function_8a2b82ad(actionparams);
 			self bot_action::function_e69a1e2e(actionparams);
 		}
 		else
 		{
-			if(self bot_action::function_bb2a8f1b(actionparams) && self bot_action::function_3094610b(self.bot.tacbundle.var_82aa37d8))
+			if(self bot_action::is_target_enemy(actionparams) && self bot_action::function_3094610b(self.bot.tacbundle.var_82aa37d8))
 			{
 				if(self bot_action::function_ca71ffdb())
 				{

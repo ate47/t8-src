@@ -600,7 +600,7 @@ function function_fd7c6bd1()
 }
 
 /*
-	Name: function_3c9915f4
+	Name: wander_reporter
 	Namespace: mansion_ww_lvl3_quest
 	Checksum: 0x395D17FD
 	Offset: 0x2328
@@ -608,7 +608,7 @@ function function_fd7c6bd1()
 	Parameters: 2
 	Flags: None
 */
-function function_3c9915f4(var_9427f9e7, var_2bab3af1)
+function wander_reporter(var_9427f9e7, var_2bab3af1)
 {
 	/#
 		self endon(#"death", #"near_goal");
@@ -1786,7 +1786,7 @@ function ww_lvl3_crafted(e_player)
 	e_player thread zm_vo::function_a2bd5a0c(#"hash_1bee1f8c64cef00f", 1);
 	e_player zm_weapons::weapon_give(unitrigger_stub.blueprint.var_54a97edd);
 	wait(0.1);
-	unitrigger_stub zm_crafting::function_6dccf508();
+	unitrigger_stub zm_crafting::reset_table();
 	unitrigger_stub.prompt_and_visibility_func = &function_7aa50bb7;
 }
 

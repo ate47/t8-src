@@ -814,12 +814,12 @@ function function_2a67df65(modname, value, var_96a9fbf4, var_b861a047)
 		self.var_894f7879 = [];
 	}
 	self function_74598aba(var_96a9fbf4);
-	var_4addc45b = 1;
-	if(level.var_6adbdb63 === 1 && value < 0)
+	can_modify = 1;
+	if(level.wound_disabled === 1 && value < 0)
 	{
-		var_4addc45b = 0;
+		can_modify = 0;
 	}
-	if(var_4addc45b)
+	if(can_modify)
 	{
 		self.var_894f7879[modname] = value;
 	}

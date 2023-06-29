@@ -24,7 +24,7 @@
 function autoexec __init__()
 {
 	callback::on_spawned(&on_player_spawned);
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 }
 
 /*
@@ -172,7 +172,7 @@ function on_player_spawned()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: player
 	Checksum: 0xC032B4DB
 	Offset: 0x638
@@ -180,7 +180,7 @@ function on_player_spawned()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	level flagsys::set("game_start_doublexp");
 }

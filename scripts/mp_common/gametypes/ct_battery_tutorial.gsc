@@ -94,7 +94,7 @@ function function_c9ff0dce()
 	level endon(#"combattraining_logic_finished");
 	if(!isbot(self))
 	{
-		self callback::function_20263b9e(&function_20263b9e);
+		self callback::on_grenade_fired(&on_grenade_fired);
 		self.overrideplayerdamage = &callback_player_damage;
 		self thread function_8486a84b();
 		ct_utils::delete_corpses();
@@ -215,7 +215,7 @@ function function_753148fe()
 	self endon(#"death");
 	self ct_bots::function_fd2d220e(0);
 	self takeweapon(getweapon(#"ar_accurate_t8"));
-	self takeweapon(getweapon(#"hash_286a30586a6aed12"));
+	self takeweapon(getweapon(#"bare_hands_ct"));
 	self giveweapon(getweapon(#"ar_damage_t8", "holo", "damage", "damage2"));
 	self giveweapon(getweapon(#"pistol_standard_t8"));
 	var_3ba4bf7d = self getweaponslistprimaries();
@@ -391,7 +391,7 @@ function function_9b9525e9()
 	function_18161780();
 	level.var_ad7c0539 = 10;
 	function_be0b44be();
-	function_bb868a62();
+	clear_objectives();
 	level thread ct_utils::function_26283961();
 	level.givecustomloadout = &ct_core::function_1dd43d36;
 	globallogic_score::_setplayermomentum(e_player, 0);
@@ -399,7 +399,7 @@ function function_9b9525e9()
 }
 
 /*
-	Name: function_bb868a62
+	Name: clear_objectives
 	Namespace: ct_battery_tutorial
 	Checksum: 0x76A9BA09
 	Offset: 0x2218
@@ -407,7 +407,7 @@ function function_9b9525e9()
 	Parameters: 0
 	Flags: None
 */
-function function_bb868a62()
+function clear_objectives()
 {
 	level flag::clear("grenade_rock");
 	level flag::clear("grenade_stick");
@@ -1113,7 +1113,7 @@ function function_be0b44be()
 	level notify(#"stop_score_nag");
 	level thread ct_vo::play_vo(#"hash_6ca8fb135975685a", 0);
 	function_e17f2b8a();
-	callback::function_e2ca0af6(&ct_utils::function_944e4110);
+	callback::remove_on_player_killed_with_params(&ct_utils::function_944e4110);
 	wait(1);
 	ct_vo::function_3ca1b77d();
 	level ct_vo::play_vo("vox_tvoi_tutor_batt_end_0", 1);
@@ -1348,7 +1348,7 @@ function function_e17f2b8a()
 				if(isdefined(a_bots) && a_bots.size <= (n_alive * 0.5))
 				{
 					level flag::set("scorestreak_done");
-					level.players[0] ct_utils::function_8881abec();
+					level.players[0] ct_utils::clear_killstreaks();
 					level notify(#"stop_score_nag");
 				}
 				else
@@ -1558,7 +1558,7 @@ function function_d0bcce1(n_index)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: ct_battery_tutorial
 	Checksum: 0x44AD93A5
 	Offset: 0x6CB0
@@ -1566,7 +1566,7 @@ function function_d0bcce1(n_index)
 	Parameters: 1
 	Flags: None
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	self notify(#"hash_25cbcadbbeb229d8", {#e_grenade:grenade, #v_pos:grenade.origin});

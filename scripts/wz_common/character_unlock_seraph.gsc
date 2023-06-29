@@ -72,8 +72,8 @@ function function_2613aeec(enabled)
 	{
 		callback::on_player_killed(&on_player_killed);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
-		wz_firing_range::function_ea0556fc(#"hash_3af83a27a707345a");
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
+		wz_firing_range::init_targets(#"hash_3af83a27a707345a");
 		level.var_d27ee2e7 = 1;
 		level thread function_211772b5();
 	}
@@ -113,7 +113,7 @@ function function_211772b5()
 			var_590fbce8 = arraysortclosest(var_590fbce8, var_65688262.origin);
 			for(i = 1; i < var_590fbce8.size; i++)
 			{
-				item_world::function_7730442c(var_590fbce8[i]);
+				item_world::consume_item(var_590fbce8[i]);
 			}
 		}
 	}

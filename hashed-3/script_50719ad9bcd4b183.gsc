@@ -170,13 +170,13 @@ class cfull_screen_black : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("red", 1, 3, "float");
-		cLUIelem::function_da693cbe("green", 1, 3, "float");
-		cLUIelem::function_da693cbe("blue", 1, 3, "float");
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 12, "int");
-		cLUIelem::function_da693cbe("startAlpha", 1, 5, "float");
-		cLUIelem::function_da693cbe("endAlpha", 1, 5, "float");
-		cLUIelem::function_da693cbe("drawHUD", 1, 1, "int");
+		cLUIelem::add_clientfield("red", 1, 3, "float");
+		cLUIelem::add_clientfield("green", 1, 3, "float");
+		cLUIelem::add_clientfield("blue", 1, 3, "float");
+		cLUIelem::add_clientfield("fadeOverTime", 1, 12, "int");
+		cLUIelem::add_clientfield("startAlpha", 1, 5, "float");
+		cLUIelem::add_clientfield("endAlpha", 1, 5, "float");
+		cLUIelem::add_clientfield("drawHUD", 1, 1, "int");
 	}
 
 }

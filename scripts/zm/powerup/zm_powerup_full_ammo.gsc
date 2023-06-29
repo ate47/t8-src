@@ -123,7 +123,7 @@ function function_dae1df4d(var_7d81025, player)
 	}
 	if(player hasperk(#"specialty_widowswine"))
 	{
-		player zm_perk_widows_wine::function_46ad87c9();
+		player zm_perk_widows_wine::reset_charges();
 	}
 	player playsoundtoplayer(#"zmb_full_ammo", player);
 	if(isdefined(var_7d81025))
@@ -192,7 +192,7 @@ function full_ammo_powerup(drop_item, player)
 		}
 		if(player hasperk(#"specialty_widowswine"))
 		{
-			player zm_perk_widows_wine::function_46ad87c9();
+			player zm_perk_widows_wine::reset_charges();
 		}
 	}
 	level thread full_ammo_on_hud(drop_item, player.team);

@@ -118,7 +118,7 @@ class czm_tut_hint_text : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
 		cLUIelem::function_dcb34c80("string", "text", 1);
 	}
 

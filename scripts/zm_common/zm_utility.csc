@@ -325,7 +325,7 @@ function is_gametype_active(a_gametypes)
 }
 
 /*
-	Name: function_e51dc2d8
+	Name: is_ee_enabled
 	Namespace: zm_utility
 	Checksum: 0x14757BC2
 	Offset: 0x8F0
@@ -333,7 +333,7 @@ function is_gametype_active(a_gametypes)
 	Parameters: 0
 	Flags: Linked
 */
-function function_e51dc2d8()
+function is_ee_enabled()
 {
 	if(!getdvarint(#"zm_ee_enabled", 0))
 	{

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp_common\item_inventory.csc;
-#using script_5da9076b8e4f6d28;
+#using scripts\mp_common\item_world_util.csc;
 #using scripts\mp_common\item_world.csc;
 #using script_c1eebdc8cad5d78;
 #using scripts\core_common\clientfield_shared.csc;
@@ -126,7 +126,7 @@ function private function_67189b6b(localclientnum, newval)
 			{
 				return;
 			}
-			self.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(self);
+			self.var_bd027dd9 = item_world_util::function_1f0def85(self);
 			self.hidetime = 0;
 			if(stashitem)
 			{
@@ -155,7 +155,7 @@ function private function_67189b6b(localclientnum, newval)
 		else if(newval == 2)
 		{
 			self.hidetime = gettime();
-			self.var_bd027dd9 = namespace_ad5a0cd6::function_1f0def85(self);
+			self.var_bd027dd9 = item_world_util::function_1f0def85(self);
 			item_inventory::function_31868137(localclientnum, self);
 			item_world::function_b78a9820(localclientnum);
 			item_world::function_2990e5f(localclientnum, self);
@@ -164,7 +164,7 @@ function private function_67189b6b(localclientnum, newval)
 				level.var_a4a4012e[self.var_bd027dd9] = undefined;
 			}
 			player = function_5c10bd79(localclientnum);
-			player item_world::function_222205a3(localclientnum, self.var_bd027dd9);
+			player item_world::hide_item(localclientnum, self.var_bd027dd9);
 		}
 	}
 }

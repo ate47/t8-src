@@ -1872,15 +1872,15 @@ function private function_3b8907b9(s_params)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_fbc2806e(var_a4388d06, var_9e7687f8)
+function private function_fbc2806e(var_a4388d06, spin_dir)
 {
 	self endon(#"death", #"arm_destroyed");
 	var_23f0c5b3 = self gettagorigin(var_a4388d06);
 	var_ecc54f32 = self gettagangles(var_a4388d06);
 	invert = 1;
-	if(isdefined(var_9e7687f8))
+	if(isdefined(spin_dir))
 	{
-		invert = invert * var_9e7687f8;
+		invert = invert * spin_dir;
 	}
 	var_ecc54f32 = (0, self.angles[1], 0);
 	axe = util::spawn_model("tag_origin", var_23f0c5b3, var_ecc54f32);
@@ -1965,7 +1965,7 @@ function private function_fbc2806e(var_a4388d06, var_9e7687f8)
 			}
 		}
 	}
-	self function_137ed431(axe, var_a4388d06, var_9e7687f8);
+	self function_137ed431(axe, var_a4388d06, spin_dir);
 }
 
 /*
@@ -1977,14 +1977,14 @@ function private function_fbc2806e(var_a4388d06, var_9e7687f8)
 	Parameters: 1
 	Flags: None
 */
-function function_78b33d6c(var_9e7687f8 = 1)
+function function_78b33d6c(spin_dir = 1)
 {
 	self endon(#"death");
 	while(true)
 	{
-		var_ef1542c2 = 0.2;
-		self rotateyaw(360 * var_9e7687f8, var_ef1542c2);
-		wait(var_ef1542c2);
+		spin_rate = 0.2;
+		self rotateyaw(360 * spin_dir, spin_rate);
+		wait(spin_rate);
 	}
 }
 
@@ -2087,7 +2087,7 @@ function private function_c3712093(axe, var_a4388d06, var_bb95ea0c)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_137ed431(axe, var_a4388d06, var_9e7687f8)
+function private function_137ed431(axe, var_a4388d06, spin_dir)
 {
 	tag_pos = self gettagorigin(var_a4388d06);
 	tag_ang = self gettagangles(var_a4388d06);

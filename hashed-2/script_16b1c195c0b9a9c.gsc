@@ -1160,7 +1160,7 @@ function private function_3235898a(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 			goal = params.sdbomb.origin;
 			if(!ispointonnavmesh(goal, bot))
 			{
@@ -1276,7 +1276,7 @@ function private function_bb791fc6(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 			goal = params.sdbombzone;
 			bot setgoal(goal);
 			bot.goalradius = 128;
@@ -1372,7 +1372,7 @@ function private function_e7a81528(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 			bot setgoal(params.sddefuseobj);
 			bot.goalradius = 128;
 			bot bot::set_interact(params.sddefuseobj);

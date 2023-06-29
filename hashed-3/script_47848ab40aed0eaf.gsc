@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\wz_common\character_unlock_fixup.csc;
-#using script_731df012f3a3c2fc;
+#using scripts\mp_common\item_world_fixup.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\system_shared.csc;
 #using scripts\mp_common\gametypes\globallogic.csc;
@@ -34,7 +34,7 @@ function __init__()
 {
 	if((isdefined(getgametypesetting(#"hash_6fb11b1e304d533c")) ? getgametypesetting(#"hash_6fb11b1e304d533c") : 0))
 	{
-		namespace_b0722f43::function_e70fa91c(#"supply_stash_parent", #"hash_122a0d1e67363704", 3);
+		item_world_fixup::function_e70fa91c(#"supply_stash_parent", #"hash_122a0d1e67363704", 3);
 	}
 }
 

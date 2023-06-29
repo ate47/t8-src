@@ -42,7 +42,7 @@ function __init__()
 	level.s_tesla_gun.upgraded.var_38cd3d0e = lightning_chain::create_lightning_chain_params();
 	zm::function_84d343d(#"ww_tesla_gun_t8", &function_5ff12a45);
 	zm::function_84d343d(#"ww_tesla_gun_t8_upgraded", &function_52d66433);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	clientfield::register("toplayer", "" + #"hash_611f27e5d51d036f", 28000, 1, "int");
 }
 
@@ -77,7 +77,7 @@ function function_52d66433(inflictor, attacker, damage, flags, meansofdeath, wea
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: zm_weap_tesla_gun_t8
 	Checksum: 0xF11A83A2
 	Offset: 0x448
@@ -85,7 +85,7 @@ function function_52d66433(inflictor, attacker, damage, flags, meansofdeath, wea
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(s_params)
+function on_weapon_change(s_params)
 {
 	if(is_tesla_gun(s_params.weapon))
 	{

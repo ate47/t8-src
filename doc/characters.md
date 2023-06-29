@@ -163,7 +163,7 @@ Before setting any skin, it can be better to reset the skin, it can be done with
 
 ```c++
 self setcharacteroutfit(0);
-self function_9b48a8e5(0);
+self setcharacterwarpaintoutfit(0);
 self function_ab96a9b5("head", 0);
 self function_ab96a9b5("headgear", 0);
 self function_ab96a9b5("arms", 0);

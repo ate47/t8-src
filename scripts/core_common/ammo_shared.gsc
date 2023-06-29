@@ -84,7 +84,7 @@ function ammo_pouch_think()
 	{
 		weapon = offhand_weapons_and_alts[i];
 		maxammo = 0;
-		loadout = player loadout::function_1ee886f7(weapon);
+		loadout = player loadout::find_loadout_slot(weapon);
 		if(isdefined(loadout))
 		{
 			if(loadout.count > 0)

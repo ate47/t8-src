@@ -80,9 +80,9 @@ function __init__()
 	}
 	callback::on_connect(&function_eca0c19d);
 	callback::on_disconnect(&on_disconnect);
-	callback::function_34dea974(level.hero_weapon[#"sword_pistol"][0].dualwieldweapon, &function_5922a7dc);
-	callback::function_34dea974(level.hero_weapon[#"sword_pistol"][1].dualwieldweapon, &function_5922a7dc);
-	callback::function_34dea974(level.hero_weapon[#"sword_pistol"][2].dualwieldweapon, &function_5922a7dc);
+	callback::add_weapon_fired(level.hero_weapon[#"sword_pistol"][0].dualwieldweapon, &function_5922a7dc);
+	callback::add_weapon_fired(level.hero_weapon[#"sword_pistol"][1].dualwieldweapon, &function_5922a7dc);
+	callback::add_weapon_fired(level.hero_weapon[#"sword_pistol"][2].dualwieldweapon, &function_5922a7dc);
 }
 
 /*

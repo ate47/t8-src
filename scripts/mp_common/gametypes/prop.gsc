@@ -259,10 +259,10 @@ event main(eventstruct)
 	clientfield::register("toplayer", "PROP.cameraRange", 16000, 8, "int");
 	clientfield::register("toplayer", "PROP.hide_prop", 16000, 1, "int");
 	clientfield::register("worlduimodel", "hudItems.war.attackingTeam", 16000, 2, "int");
-	clientfield::function_a8bbc967("hudItems.numPropsAlive", 16000, 4, "int", 0);
-	clientfield::function_a8bbc967("hudItems.numPropConcusses", 16000, 2, "int", 0);
-	clientfield::function_a8bbc967("hudItems.numPropChanges", 16000, 2, "int", 0);
-	clientfield::function_a8bbc967("hudItems.numPropDecoys", 16000, 4, "int", 0);
+	clientfield::register_clientuimodel("hudItems.numPropsAlive", 16000, 4, "int", 0);
+	clientfield::register_clientuimodel("hudItems.numPropConcusses", 16000, 2, "int", 0);
+	clientfield::register_clientuimodel("hudItems.numPropChanges", 16000, 2, "int", 0);
+	clientfield::register_clientuimodel("hudItems.numPropDecoys", 16000, 4, "int", 0);
 	clientfield::register("toplayer", "realtime_multiplay", 16000, 1, "int");
 	level.hide_timer = mp_prop_timer::register("HideTimer");
 	level.prop_controls = mp_prop_controls::register("PropControls");
@@ -2538,7 +2538,7 @@ function addproptolist(modelname, propsize, xyzoffset, anglesoffset, propsizetex
 */
 function function_36f8016e(winning_team, var_c1e98979)
 {
-	round::function_d1e740f6(winning_team);
+	round::set_winner(winning_team);
 	thread globallogic::function_a3e3bd39(winning_team, var_c1e98979);
 }
 

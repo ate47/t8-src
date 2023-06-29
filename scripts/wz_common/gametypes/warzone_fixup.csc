@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_731df012f3a3c2fc;
+#using scripts\mp_common\item_world_fixup.csc;
 
 #namespace warzone_fixup;
 
@@ -71,8 +71,8 @@ function private function_c94723bd()
 	}
 	if(!(isdefined(getgametypesetting(#"hash_1d02e28ba907a343")) ? getgametypesetting(#"hash_1d02e28ba907a343") : 0))
 	{
-		namespace_b0722f43::function_96ff7b88(#"hash_3c5ee4ad37d65f4e");
-		namespace_b0722f43::remove_item(#"hash_3c5ee4ad37d65f4e");
+		item_world_fixup::function_96ff7b88(#"hash_3c5ee4ad37d65f4e");
+		item_world_fixup::remove_item(#"hash_3c5ee4ad37d65f4e");
 	}
 }
 
@@ -94,10 +94,10 @@ function private function_9b8d4d02(prematch = 0)
 		{
 			if(prematch)
 			{
-				namespace_b0722f43::function_96ff7b88(var_1461de43);
+				item_world_fixup::function_96ff7b88(var_1461de43);
 				continue;
 			}
-			namespace_b0722f43::remove_item(var_1461de43);
+			item_world_fixup::remove_item(var_1461de43);
 		}
 	}
 }
@@ -113,8 +113,8 @@ function private function_9b8d4d02(prematch = 0)
 */
 function private function_d0dc6619()
 {
-	namespace_b0722f43::function_96ff7b88(#"hash_35f5430256d9c158");
-	namespace_b0722f43::remove_item(#"hash_35f5430256d9c158");
+	item_world_fixup::function_96ff7b88(#"hash_35f5430256d9c158");
+	item_world_fixup::remove_item(#"hash_35f5430256d9c158");
 }
 
 /*

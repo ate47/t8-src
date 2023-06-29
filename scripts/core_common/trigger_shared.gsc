@@ -40,7 +40,7 @@ function __init__()
 }
 
 /*
-	Name: function_cbf8fb6b
+	Name: add_handler
 	Namespace: trigger
 	Checksum: 0x5956069
 	Offset: 0x2B0
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 4
 	Flags: Linked
 */
-function function_cbf8fb6b(var_60ffbed2, func_handler, func_init, var_114fa26c = 1)
+function add_handler(var_60ffbed2, func_handler, func_init, var_114fa26c = 1)
 {
 	if((isfunctionptr(var_60ffbed2) ? [[var_60ffbed2]]() : isdefined(self.(var_60ffbed2))))
 	{
@@ -56,7 +56,7 @@ function function_cbf8fb6b(var_60ffbed2, func_handler, func_init, var_114fa26c =
 		{
 			if(var_114fa26c)
 			{
-				self callback::function_a04381e0(func_handler);
+				self callback::on_trigger_once(func_handler);
 			}
 			else
 			{
@@ -98,18 +98,18 @@ function init_flags(str_kvp)
 function trigger_think()
 {
 	self endon(#"death");
-	function_cbf8fb6b("target", &trigger_spawner);
-	function_cbf8fb6b("script_flag_true", undefined, &init_flags);
-	function_cbf8fb6b("script_flag_true_any", undefined, &init_flags);
-	function_cbf8fb6b("script_flag_false_any", undefined, &init_flags);
-	function_cbf8fb6b("script_flag_false", undefined, &init_flags);
-	function_cbf8fb6b("script_flag_set", &flag_set_trigger, &init_flags);
-	function_cbf8fb6b("script_flag_clear", &flag_clear_trigger, &init_flags);
-	function_cbf8fb6b("script_trigger_group", &trigger_group);
-	function_cbf8fb6b("script_notify", &trigger_notify);
-	function_cbf8fb6b("script_killspawner", &kill_spawner_trigger);
-	function_cbf8fb6b("script_teleport_location", &teleport::team);
-	function_cbf8fb6b(&is_trigger_once, &trigger_once);
+	add_handler("target", &trigger_spawner);
+	add_handler("script_flag_true", undefined, &init_flags);
+	add_handler("script_flag_true_any", undefined, &init_flags);
+	add_handler("script_flag_false_any", undefined, &init_flags);
+	add_handler("script_flag_false", undefined, &init_flags);
+	add_handler("script_flag_set", &flag_set_trigger, &init_flags);
+	add_handler("script_flag_clear", &flag_clear_trigger, &init_flags);
+	add_handler("script_trigger_group", &trigger_group);
+	add_handler("script_notify", &trigger_notify);
+	add_handler("script_killspawner", &kill_spawner_trigger);
+	add_handler("script_teleport_location", &teleport::team);
+	add_handler(&is_trigger_once, &trigger_once);
 	if(isdefined(self.script_flag_set_on_touching) || isdefined(self.script_flag_set_on_not_touching))
 	{
 		level thread script_flag_set_touching(self);

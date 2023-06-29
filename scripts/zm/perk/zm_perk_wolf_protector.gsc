@@ -70,7 +70,7 @@ function function_27473e44()
 		zm_perks::register_perk_basic_info(#"specialty_wolf_protector", #"perk_wolf_protector", 3000, #"hash_5b2099ef891bc954", getweapon("zombie_perk_bottle_wolf_protector"), getweapon("zombie_perk_totem_wolf_protector"), #"zmperkswolfprotector");
 	}
 	zm_perks::register_perk_clientfields(#"specialty_wolf_protector", &register_clientfield, &set_clientfield);
-	zm_perks::register_perk_threads(#"specialty_wolf_protector", &give_perk, &take_perk, &function_9227a4d8);
+	zm_perks::register_perk_threads(#"specialty_wolf_protector", &give_perk, &take_perk, &reset_cooldown);
 	callback::on_ai_killed(&on_ai_killed);
 	callback::on_ai_damage(&on_ai_damaged);
 	callback::on_disconnect(&on_disconnect);
@@ -563,7 +563,7 @@ function function_166fb685(var_85dcb56c)
 	}
 	self thread function_7d72c6f9(var_85dcb56c);
 	wait(var_85dcb56c);
-	self thread function_9227a4d8();
+	self thread reset_cooldown();
 }
 
 /*
@@ -595,7 +595,7 @@ function function_7d72c6f9(var_85dcb56c)
 }
 
 /*
-	Name: function_9227a4d8
+	Name: reset_cooldown
 	Namespace: zm_perk_wolf_protector
 	Checksum: 0x5A631471
 	Offset: 0x1870
@@ -603,7 +603,7 @@ function function_7d72c6f9(var_85dcb56c)
 	Parameters: 0
 	Flags: Linked
 */
-function function_9227a4d8()
+function reset_cooldown()
 {
 	self notify(#"hash_7c5d9af32e10c147");
 	self.var_6577c75d = 0;

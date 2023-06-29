@@ -963,7 +963,7 @@ class csceneobject
 				_e startcameratween(n_camera_tween);
 			}
 		}
-		if(![[ _o_scene ]]->function_19015532())
+		if(![[ _o_scene ]]->has_next_shot())
 		{
 			n_blend_out = (isai(_e) ? 0.2 : 0);
 		}
@@ -4119,7 +4119,7 @@ class cscene
 			}
 		#/
 		b_run_next_scene = 0;
-		if(function_19015532(str_current_shot))
+		if(has_next_shot(str_current_shot))
 		{
 			if(!_b_stopped)
 			{
@@ -4158,7 +4158,7 @@ class cscene
 					{
 						b_run_next_scene = 1;
 					}
-					if(function_19015532(str_current_shot))
+					if(has_next_shot(str_current_shot))
 					{
 						if(isdefined(_s.nextscenebundle))
 						{
@@ -4166,7 +4166,7 @@ class cscene
 						}
 						else
 						{
-							var_1a15e649 = function_c9f40212(str_current_shot);
+							var_1a15e649 = get_next_shot(str_current_shot);
 							/#
 								if(getdvarint(#"debug_scene_skip", 0) > 0 && is_skipping_scene())
 								{
@@ -4197,7 +4197,7 @@ class cscene
 	}
 
 	/*
-		Name: function_c9f40212
+		Name: get_next_shot
 		Namespace: cscene
 		Checksum: 0x3503A512
 		Offset: 0xF498
@@ -4205,7 +4205,7 @@ class cscene
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_c9f40212(str_current_shot)
+	function get_next_shot(str_current_shot)
 	{
 		if(isdefined(var_2e9fdf35))
 		{
@@ -4223,7 +4223,7 @@ class cscene
 	}
 
 	/*
-		Name: function_19015532
+		Name: has_next_shot
 		Namespace: cscene
 		Checksum: 0xF0F9781D
 		Offset: 0xF370
@@ -4231,7 +4231,7 @@ class cscene
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_19015532(str_current_shot = _a_active_shots[0])
+	function has_next_shot(str_current_shot = _a_active_shots[0])
 	{
 		if(isdefined(var_2e9fdf35))
 		{
@@ -4658,7 +4658,7 @@ class cscene
 					{
 						var_3a6bcf6e = _str_name;
 					}
-					level flagsys::set(#"hash_20a4053fe3e70f8");
+					level flagsys::set(#"scene_menu_disable");
 					str_command = (((((((("" + depth) + "") + fps) + "") + fmt) + "") + _str_name) + "") + var_3a6bcf6e;
 					adddebugcommand("");
 					adddebugcommand(str_command);
@@ -4816,7 +4816,7 @@ class cscene
 				conv = getdvarstring(#"hash_7b946c8966b56a8e", "");
 				if(issubstr(_str_mode, "") || function_b260bdcc(str_shot) || getdvarint(#"hash_6a54249f0cc48945", 0) == 2)
 				{
-					level flagsys::clear(#"hash_20a4053fe3e70f8");
+					level flagsys::clear(#"scene_menu_disable");
 					adddebugcommand("" + conv);
 				}
 			}

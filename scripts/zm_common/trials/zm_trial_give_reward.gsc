@@ -145,7 +145,7 @@ function private function_e7254828()
 		player zm_stats::increment_challenge_stat(self.challenge_stat, 1);
 		if(level.round_number == 20)
 		{
-			player contracts::function_5b88297d(#"hash_4e5a4f28d918179c");
+			player contracts::increment_zm_contract(#"hash_4e5a4f28d918179c");
 		}
 		if(zm_trial::function_ba9853db() == 0)
 		{
@@ -155,7 +155,7 @@ function private function_e7254828()
 			}
 			if(level.round_number == 10)
 			{
-				player contracts::function_5b88297d(#"hash_e0f3cb0f4c8c82d");
+				player contracts::increment_zm_contract(#"hash_e0f3cb0f4c8c82d");
 			}
 		}
 	}

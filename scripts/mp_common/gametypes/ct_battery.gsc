@@ -41,7 +41,7 @@
 event main(eventstruct)
 {
 	ct_core::function_46e95cc7();
-	level.select_character = ct_utils::function_d153452e(#"prt_mp_battery");
+	level.select_character = ct_utils::get_roleindex(#"prt_mp_battery");
 	level.var_820c5561 = "BATTERY";
 	ct_utils::function_be3a76b7(level.var_820c5561);
 	level.var_d6d98fbe = 1;
@@ -56,12 +56,12 @@ event main(eventstruct)
 	level.var_cdb8ae2c = &ct_utils::function_a8da260c;
 	level.resurrect_override_spawn = &ct_utils::function_78469779;
 	level.var_e31c5d7a = &ct_bots::function_e31c5d7a;
-	callback::function_98a0917d(&ct_core::function_1e84c767);
+	callback::on_game_playing(&ct_core::function_1e84c767);
 	globallogic_spawn::addsupportedspawnpointtype("ct");
 	level flag::init("combat_training_started");
 	ct_utils::function_6046a5e3(#"ar_damage_t8", array(#"ar_damage_t8", "holo", "damage", "damage2"));
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		level ct_battery_tutorial::init();
 	}
@@ -78,7 +78,7 @@ event main(eventstruct)
 */
 function function_7c4ef26b(predictedspawn)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_battery_tutorial::function_c9ff0dce();
 		return;
@@ -114,7 +114,7 @@ function function_7c4ef26b(predictedspawn)
 */
 function function_9d65db70(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_battery_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
@@ -684,26 +684,26 @@ function function_560c5174(currentnode, startwait, hardpointtype)
 	wait(startwait);
 	while(isdefined(currentnode.target))
 	{
-		var_e2c8c9b6 = function_430510ec(currentnode.target, "targetname");
-		if(var_e2c8c9b6.size > 1)
+		a_nextnode = function_430510ec(currentnode.target, "targetname");
+		if(a_nextnode.size > 1)
 		{
 			if(isdefined(self.primarytarget))
 			{
 				nextnode = undefined;
-				while(var_e2c8c9b6.size > 0 && (!isdefined(nextnode) || currentnode === nextnode))
+				while(a_nextnode.size > 0 && (!isdefined(nextnode) || currentnode === nextnode))
 				{
-					nextnode = arraygetclosest(self.primarytarget.origin, var_e2c8c9b6);
-					arrayremovevalue(var_e2c8c9b6, nextnode, 0);
+					nextnode = arraygetclosest(self.primarytarget.origin, a_nextnode);
+					arrayremovevalue(a_nextnode, nextnode, 0);
 				}
 			}
 			else
 			{
-				nextnode = array::random(var_e2c8c9b6);
+				nextnode = array::random(a_nextnode);
 			}
 		}
 		else
 		{
-			nextnode = var_e2c8c9b6[0];
+			nextnode = a_nextnode[0];
 		}
 		/#
 			assert(isdefined(nextnode), "");

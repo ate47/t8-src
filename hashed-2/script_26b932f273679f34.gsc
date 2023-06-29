@@ -167,7 +167,7 @@ class cct_shared_aar_medals : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
 		cLUIelem::function_dcb34c80("string", "medalGoldThreshold", 1);
 		cLUIelem::function_dcb34c80("string", "medalSilverThreshold", 1);
 		cLUIelem::function_dcb34c80("string", "medalBronzeThreshold", 1);

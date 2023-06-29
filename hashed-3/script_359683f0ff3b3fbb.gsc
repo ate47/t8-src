@@ -299,7 +299,7 @@ class cprototype_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cprototype_hud
 		Checksum: 0x9255C0E2
 		Offset: 0xA40
@@ -307,9 +307,9 @@ class cprototype_hud : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -324,22 +324,22 @@ class cprototype_hud : cLUIelem
 	function setup_clientfields(uid, var_fdf544c8, var_33c5c30f, var_96284758, var_bde1ea58, var_9a41cc6b, var_532cdc1a, var_3e5d22, var_61c0f0c1, var_5dd927bd, var_7a99f2e1, var_f3632296, var_d59bef9f, var_be5884c9, var_b5ae72b8, var_2b966169, var_83a9258)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("barrier_prompt_visibility", 4000, 1, "int", var_fdf544c8);
-		cLUIelem::function_da693cbe("upgrade_resource_count", 4000, 8, "int", var_33c5c30f);
-		cLUIelem::function_da693cbe("defense_resource_count", 4000, 8, "int", var_96284758);
-		cLUIelem::function_da693cbe("resource_count_visibility", 4000, 1, "int", var_bde1ea58);
-		cLUIelem::function_da693cbe("craft_progress", 4000, 5, "float", var_9a41cc6b);
+		cLUIelem::add_clientfield("barrier_prompt_visibility", 4000, 1, "int", var_fdf544c8);
+		cLUIelem::add_clientfield("upgrade_resource_count", 4000, 8, "int", var_33c5c30f);
+		cLUIelem::add_clientfield("defense_resource_count", 4000, 8, "int", var_96284758);
+		cLUIelem::add_clientfield("resource_count_visibility", 4000, 1, "int", var_bde1ea58);
+		cLUIelem::add_clientfield("craft_progress", 4000, 5, "float", var_9a41cc6b);
 		cLUIelem::function_dcb34c80("string", "active_objective_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective1_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective2_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective3_string", 4000);
-		cLUIelem::function_da693cbe("objective_prompt_visibility", 4000, 1, "int", var_7a99f2e1);
-		cLUIelem::function_da693cbe("objective1_strike", 4000, 1, "int", var_f3632296);
-		cLUIelem::function_da693cbe("objective2_strike", 4000, 1, "int", var_d59bef9f);
-		cLUIelem::function_da693cbe("objective3_strike", 4000, 1, "int", var_be5884c9);
-		cLUIelem::function_da693cbe("fanfare_visibility", 4000, 1, "int", var_b5ae72b8);
-		cLUIelem::function_da693cbe("fail_fanfare_visibility", 4000, 1, "int", var_2b966169);
-		cLUIelem::function_da693cbe("deploy_prompt_visibility", 4000, 1, "int", var_83a9258);
+		cLUIelem::add_clientfield("objective_prompt_visibility", 4000, 1, "int", var_7a99f2e1);
+		cLUIelem::add_clientfield("objective1_strike", 4000, 1, "int", var_f3632296);
+		cLUIelem::add_clientfield("objective2_strike", 4000, 1, "int", var_d59bef9f);
+		cLUIelem::add_clientfield("objective3_strike", 4000, 1, "int", var_be5884c9);
+		cLUIelem::add_clientfield("fanfare_visibility", 4000, 1, "int", var_b5ae72b8);
+		cLUIelem::add_clientfield("fail_fanfare_visibility", 4000, 1, "int", var_2b966169);
+		cLUIelem::add_clientfield("deploy_prompt_visibility", 4000, 1, "int", var_83a9258);
 	}
 
 }
@@ -363,7 +363,7 @@ function register(uid, var_fdf544c8, var_33c5c30f, var_96284758, var_bde1ea58, v
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: prototype_hud
 	Checksum: 0x6ECBA657
 	Offset: 0x330
@@ -371,10 +371,10 @@ function register(uid, var_fdf544c8, var_33c5c30f, var_96284758, var_bde1ea58, v
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cprototype_hud();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

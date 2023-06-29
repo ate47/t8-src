@@ -84,7 +84,7 @@ function callback_playerconnect()
 	}
 	if(!level.splitscreen && !isdefined(self.pers[#"score"]))
 	{
-		iprintln(#"hash_2bff59245c345d80", self);
+		iprintln(#"mp/connected", self);
 	}
 	if(!isdefined(self.pers[#"score"]))
 	{

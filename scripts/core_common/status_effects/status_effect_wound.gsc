@@ -31,7 +31,7 @@ function autoexec __init__system__()
 function __init__()
 {
 	status_effect::register_status_effect_callback_apply(6, &wound_apply);
-	status_effect::function_5bae5120(6, &function_923bcb9c);
+	status_effect::function_5bae5120(6, &wound_end);
 	status_effect::function_6f4eaf88(getstatuseffect("wound"));
 }
 
@@ -134,7 +134,7 @@ function private function_f6fec56f()
 }
 
 /*
-	Name: function_923bcb9c
+	Name: wound_end
 	Namespace: status_effect_wound
 	Checksum: 0x167AA7BD
 	Offset: 0x548
@@ -142,7 +142,7 @@ function private function_f6fec56f()
 	Parameters: 0
 	Flags: Linked
 */
-function function_923bcb9c()
+function wound_end()
 {
 	self.owner player::function_b933de24(self.var_4a3f5865);
 }

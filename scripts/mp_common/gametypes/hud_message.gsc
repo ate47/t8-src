@@ -33,7 +33,7 @@ function init()
 	game.strings[#"codpoints_match_bonus"] = #"mp_codpoints_match_bonus_is";
 	game.strings[#"cod_caster_team_wins"] = #"mp/wins";
 	game.strings[#"cod_caster_team_eliminated"] = #"mp/team_eliminated";
-	game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
+	game.strings[#"tie"] = #"mp/match_tie";
 	game.strings[#"round_draw"] = #"mp/round_draw";
 	game.strings[#"enemies_eliminated"] = #"hash_3191d03a1c0615ad";
 	game.strings[#"team_eliminated"] = #"hash_5ebfcbc4ad2769b6";
@@ -396,7 +396,7 @@ function outcomenotify(outcome)
 	if(isdefined(team) && team == #"spectator" && outcome.var_7d5c2c5f)
 	{
 		outcometext = game.strings[#"cod_caster_team_wins"];
-		self luinotifyevent(#"show_outcome", 5, outcome.var_14f94126, outcometext, matchbonus, outcome::function_9b24638f(outcome), 0);
+		self luinotifyevent(#"show_outcome", 5, outcome.var_14f94126, outcometext, matchbonus, outcome::get_winner(outcome), 0);
 	}
 	else
 	{
@@ -500,7 +500,7 @@ function function_5b0c08ec(player, outcome)
 }
 
 /*
-	Name: function_b5b53318
+	Name: can_bg_draw
 	Namespace: hud_message
 	Checksum: 0x2994BE15
 	Offset: 0x1A30
@@ -508,7 +508,7 @@ function function_5b0c08ec(player, outcome)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b5b53318(outcome)
+function can_bg_draw(outcome)
 {
 	if(!outcome::is_winner(outcome, self))
 	{

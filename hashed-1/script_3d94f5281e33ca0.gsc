@@ -388,7 +388,7 @@ class cct_shared_ingame_objective : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_shared_ingame_objective
 		Checksum: 0x97961506
 		Offset: 0x358
@@ -396,9 +396,9 @@ class cct_shared_ingame_objective : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -413,9 +413,9 @@ class cct_shared_ingame_objective : cLUIelem
 	function setup_clientfields(uid, var_a584bc49, var_ea26adc8)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 6, "int");
+		cLUIelem::add_clientfield("_state", 1, 6, "int");
 		cLUIelem::function_dcb34c80("string", "objectiveText", 1);
-		cLUIelem::function_da693cbe("objpoints", 1, 11, "int", var_ea26adc8);
+		cLUIelem::add_clientfield("objpoints", 1, 11, "int", var_ea26adc8);
 	}
 
 }
@@ -439,7 +439,7 @@ function register(uid, var_a584bc49, var_ea26adc8)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_shared_ingame_objective
 	Checksum: 0x12AE69F9
 	Offset: 0x130
@@ -447,10 +447,10 @@ function register(uid, var_a584bc49, var_ea26adc8)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_shared_ingame_objective();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

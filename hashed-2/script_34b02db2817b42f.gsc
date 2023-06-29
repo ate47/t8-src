@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ce72cc0f850;
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm\zm_hms_util.gsc;
@@ -213,7 +213,7 @@ function private run_step_1()
 		exploder::stop_exploder("fxexp_mk2_Z_fire_closet_door_" + level.var_74170866.s_cabinet.script_string);
 		s_cabinet = level.var_74170866.s_cabinet;
 	}
-	s_unitrigger = level.var_74170866.s_cabinet.var_5760bda2 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
+	s_unitrigger = level.var_74170866.s_cabinet.var_5760bda2 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	waitframe(1);
 	zm_unitrigger::reregister_unitrigger_as_dynamic(level.var_74170866.s_cabinet.var_5760bda2.s_unitrigger);
@@ -483,7 +483,7 @@ function private function_473f437()
 function private function_a66f0de2()
 {
 	namespace_bd74bbd2::end(hash(level.var_74170866.s_fireplace.script_noteworthy));
-	s_unitrigger = level.var_74170866.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76, 96);
+	s_unitrigger = level.var_74170866.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76, 96);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	level.var_74170866.var_fead3ae9 setmodel("p8_zm_whi_fuse_pickup_fluid_magenta_pink");
 	level.var_74170866.var_fead3ae9 clientfield::set("" + #"hash_2184dd4e9090521f", 1);

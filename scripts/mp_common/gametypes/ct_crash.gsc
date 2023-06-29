@@ -33,7 +33,7 @@
 event main(eventstruct)
 {
 	ct_core::function_46e95cc7();
-	level.select_character = ct_utils::function_d153452e(#"prt_mp_buffassault");
+	level.select_character = ct_utils::get_roleindex(#"prt_mp_buffassault");
 	level.var_820c5561 = "CRASH";
 	ct_utils::function_be3a76b7(level.var_820c5561);
 	level.var_d6d98fbe = 1;
@@ -48,12 +48,12 @@ event main(eventstruct)
 	level.var_cdb8ae2c = &ct_utils::function_a8da260c;
 	level.resurrect_override_spawn = &ct_utils::function_78469779;
 	level.var_e31c5d7a = &ct_bots::function_e31c5d7a;
-	callback::function_98a0917d(&ct_core::function_1e84c767);
+	callback::on_game_playing(&ct_core::function_1e84c767);
 	globallogic_spawn::addsupportedspawnpointtype("ct");
 	level flag::init("combat_training_started");
 	ct_utils::function_6046a5e3(#"ar_fastfire_t8", array(#"ar_fastfire_t8", "elo", "fastreload", "fastreload2", "quickdraw", "quickdraw2"));
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		level ct_crash_tutorial::init();
 	}
@@ -134,7 +134,7 @@ function function_c5e29f2e()
 */
 function function_7c4ef26b(predictedspawn)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_crash_tutorial::function_c9ff0dce();
 		return;
@@ -168,7 +168,7 @@ function function_7c4ef26b(predictedspawn)
 */
 function function_9d65db70(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_crash_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
@@ -230,7 +230,7 @@ function function_ba542258(mode)
 	var_61ca8276 = 420000;
 	self function_9270ab93(0, var_61ca8276);
 	self loadout::function_cdb86a18();
-	if(level.var_cd9d597c != 0)
+	if(level.ctdifficulty != 0)
 	{
 		level flag::wait_till("bot_init_complete");
 		self thread function_587088a0();
@@ -727,7 +727,7 @@ function function_e60bbaf4()
 		return;
 	}
 	level.var_e6db911d = 1;
-	ct_bots::function_87cf954e();
+	ct_bots::deactivate_bots();
 	level flag::set("mission_success");
 }
 

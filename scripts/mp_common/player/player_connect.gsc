@@ -72,7 +72,7 @@ function callback_playerconnect()
 	{
 		if(!sessionmodeiswarzonegame())
 		{
-			iprintln(#"hash_2bff59245c345d80", self);
+			iprintln(#"mp/connected", self);
 		}
 	}
 	function_db0c0406();
@@ -555,7 +555,7 @@ function private init_character_index()
 							}
 						#/
 						rf = getplayerrolefields(i, currentsessionmode());
-						if(isdefined(rf) && (isdefined(rf.var_7376c393) && rf.var_7376c393))
+						if(isdefined(rf) && (isdefined(rf.isdefaultcharacter) && rf.isdefaultcharacter))
 						{
 							if(!isdefined(var_36918d27))
 							{

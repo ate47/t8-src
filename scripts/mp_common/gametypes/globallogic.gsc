@@ -138,7 +138,7 @@ function __init__()
 	level.var_bfce6749 = getweapon(#"hero_pineapple_grenade");
 	ability_power::function_9d78823f(level.var_462db2cf, level.var_bfce6749);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 }
 
 /*
@@ -294,7 +294,7 @@ function init()
 	clientfield::register("worlduimodel", "hudItems.team2.livesCount", 1, 8, "int");
 	clientfield::register("worlduimodel", "hudItems.team2.noRespawnsLeft", 1, 1, "int");
 	clientfield::register("worlduimodel", "hudItems.specialistSwitchIsLethal", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.playerLivesCount", 1, 8, "int", 0);
+	clientfield::register_clientuimodel("hudItems.playerLivesCount", 1, 8, "int", 0);
 	clientfield::register("clientuimodel", "hudItems.armorIsOnCooldown", 1, 1, "int");
 	level thread setroundswonuimodels();
 	level.figure_out_attacker = &player::figure_out_attacker;
@@ -506,7 +506,7 @@ function setup_callbacks()
 	{
 		level.var_b10e134d = &player_monitor::function_d35f877a;
 	}
-	level callback::add_callback(#"hash_84d8c1164d90313", &globallogic_defaults::function_dcf41142);
+	level callback::add_callback(#"on_last_alive", &globallogic_defaults::function_dcf41142);
 	level callback::add_callback(#"hash_6b7d26d34885b425", &function_b29d2423);
 	globallogic_ui::setupcallbacks();
 }
@@ -1202,7 +1202,7 @@ function dodeadeventupdates()
 				if(!function_7b75ee16(team))
 				{
 					level.teameliminated[team] = gettime();
-					level callback::callback(#"hash_4b1a02a87458f191", team);
+					level callback::callback(#"on_team_eliminated", team);
 					if(isdefined(level.ondeadevent))
 					{
 						[[level.ondeadevent]](team);
@@ -1210,11 +1210,11 @@ function dodeadeventupdates()
 				}
 			}
 		}
-		platoons::function_a1d82bd3();
+		platoons::update_status();
 		params = function_9c839e9();
 		if([[level.var_36a111f3]](params))
 		{
-			level callback::callback(#"hash_84d8c1164d90313", params);
+			level callback::callback(#"on_last_alive", params);
 			return true;
 		}
 	}
@@ -2058,7 +2058,7 @@ function function_9022da4e()
 	bb::function_a7ba460f(match::function_3624d032());
 	if(sessionmodeismultiplayergame())
 	{
-		mpmatchfacts = {#killstreakcount:level.globalkillstreakscalled, #winner:match::function_9b24638f(), #gametime:function_f8d53445()};
+		mpmatchfacts = {#killstreakcount:level.globalkillstreakscalled, #winner:match::get_winner(), #gametime:function_f8d53445()};
 		function_92d1707f(#"hash_7784f98b4b9750ec", mpmatchfacts);
 	}
 }
@@ -2362,7 +2362,7 @@ function private function_70171add()
 function private function_176452e3()
 {
 	winning_team = round::get_winning_team();
-	winner = round::function_9b24638f();
+	winner = round::get_winner();
 	if(isdefined(winner) && isdefined(level.teams[winning_team]))
 	{
 		level.finalkillcam_winner = winner;
@@ -2397,7 +2397,7 @@ function private function_9113e843()
 	if(!overtime_round || util::waslastround())
 	{
 		game.roundsplayed++;
-		game.roundwinner[game.roundsplayed] = round::function_9b24638f();
+		game.roundwinner[game.roundsplayed] = round::get_winner();
 		if(isdefined(game.stat[#"roundswon"][winning_team]))
 		{
 			game.stat[#"roundswon"][winning_team]++;
@@ -2464,7 +2464,7 @@ function private function_68bfd6d7()
 {
 	if(!is_game_over())
 	{
-		game_winner = round::function_9b24638f();
+		game_winner = round::get_winner();
 	}
 	else
 	{
@@ -2473,7 +2473,7 @@ function private function_68bfd6d7()
 		if(isdefined(var_8dbf2a6d) && isdefined(var_8dbf2a6d.var_9cd2c51d))
 		{
 			var_8dbf2a6d stats::function_dad108fa(#"top_scorer", 1);
-			var_8dbf2a6d contracts::function_a54e2068(#"hash_117aee9968655de3");
+			var_8dbf2a6d contracts::increment_contract(#"hash_117aee9968655de3");
 		}
 	}
 }
@@ -2530,7 +2530,7 @@ function private function_4720c07f(outcome)
 	updaterankedmatch(outcome);
 	setmatchtalkflag("EveryoneHearsEveryone", 1);
 	gamerep::gamerepupdateinformationforround();
-	thread challenges::roundend(round::function_9b24638f());
+	thread challenges::roundend(round::get_winner());
 	function_6c9e78d5(outcome.var_c1e98979);
 	gameobjects::function_407c83be();
 	globallogic_utils::function_8d61a6c2(outcome.var_c1e98979);
@@ -2633,7 +2633,7 @@ function function_a3e3bd39(winning_team, var_c1e98979)
 	{
 		globallogic_score::giveteamscoreforobjective_delaypostprocessing(winning_team, 1);
 	}
-	round::function_d1e740f6(winning_team);
+	round::set_winner(winning_team);
 	thread end_round(var_c1e98979);
 }
 
@@ -2671,7 +2671,7 @@ function function_543ac649()
 {
 	if(level.teambased)
 	{
-		round::function_d1e740f6(game.defenders);
+		round::set_winner(game.defenders);
 	}
 	end_round(2);
 }
@@ -2741,7 +2741,7 @@ function end_round(var_c1e98979)
 	outcome = hud_message::function_a2f30ab4(1, var_c1e98979, 0, round::function_f37f02fc());
 	function_4720c07f(outcome);
 	overtime::function_f435f4dd();
-	display_transition::function_26654e7e(outcome);
+	display_transition::display_round_end(outcome);
 	if(!function_d89bf8aa())
 	{
 		beacon_cp_biodomes_server_room_top_floor_door_rumble();
@@ -2993,7 +2993,7 @@ function private function_6a4a86()
 	{
 		thread function_2506a4ec();
 	}
-	winner = match::function_9b24638f();
+	winner = match::get_winner();
 	thread challenges::gameend(winner);
 	function_9022da4e();
 }
@@ -3131,11 +3131,11 @@ function function_4e7d44bd()
 	{
 		if(level.everexisted[team])
 		{
-			var_9b58638e = (isdefined(level.var_eed7c027[team]) ? level.var_eed7c027[team] : 1);
+			teamranking = (isdefined(level.var_eed7c027[team]) ? level.var_eed7c027[team] : 1);
 			players = getplayers(team);
 			foreach(player in players)
 			{
-				player luinotifyevent(#"team_eliminated", 1, var_9b58638e);
+				player luinotifyevent(#"team_eliminated", 1, teamranking);
 			}
 		}
 	}
@@ -4532,7 +4532,7 @@ function timelimitclock_intermission(waittime)
 }
 
 /*
-	Name: function_51350eb8
+	Name: set_game_playing
 	Namespace: globallogic
 	Checksum: 0x8BDCEEAC
 	Offset: 0xCDE8
@@ -4540,11 +4540,11 @@ function timelimitclock_intermission(waittime)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_51350eb8()
+function private set_game_playing()
 {
 	level notify(#"game_playing");
 	gamestate::set_state("playing");
-	level callback::callback(#"hash_361e06db4b210e");
+	level callback::callback(#"on_game_playing");
 	if(level.var_6aec2d48 > 0)
 	{
 		thread function_b4262bec();
@@ -4640,7 +4640,7 @@ function function_edb0e0f0()
 */
 function startgame()
 {
-	callback::function_98a0917d(&globallogic_utils::gametimer);
+	callback::on_game_playing(&globallogic_utils::gametimer);
 	level.timerstopped = 0;
 	level.playabletimerstopped = 0;
 	gamestate::set_state("pregame");
@@ -4657,7 +4657,7 @@ function startgame()
 	{
 		return;
 	}
-	function_51350eb8();
+	set_game_playing();
 	/#
 		rat::function_7d22c1c9();
 	#/
@@ -5001,7 +5001,7 @@ function function_8af3b312()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: globallogic
 	Checksum: 0xED08266F
 	Offset: 0xDF48
@@ -5009,7 +5009,7 @@ function function_8af3b312()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	wavedelay = level.waverespawndelay;
 	if(wavedelay)
@@ -5113,7 +5113,7 @@ function function_b9b7618()
 	{
 		game.playabletimepassed = 0;
 	}
-	round::function_6343685();
+	round::round_stats_init();
 	level.skipvote = 0;
 	level.gameended = 0;
 	level.exitlevel = 0;

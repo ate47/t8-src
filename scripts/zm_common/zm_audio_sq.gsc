@@ -63,7 +63,7 @@ function private function_3f739fed(var_a276c861, var_19e802fa)
 	{
 		if(var_19e802fa)
 		{
-			function_3b5f45c();
+			music_sq_cleanup();
 		}
 	}
 }
@@ -157,7 +157,7 @@ function function_c0862b9e()
 }
 
 /*
-	Name: function_3b5f45c
+	Name: music_sq_cleanup
 	Namespace: zm_audio_sq
 	Checksum: 0x5758A296
 	Offset: 0x598
@@ -165,7 +165,7 @@ function function_c0862b9e()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3b5f45c()
+function music_sq_cleanup()
 {
 	var_2361f0ab = struct::get_array(#"hash_ef13d6f1414e0f7", "targetname");
 	foreach(var_ebacacf2 in var_2361f0ab)

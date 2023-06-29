@@ -50,8 +50,8 @@ function __init__()
 	level.var_f3d38af6.no_fx = 1;
 	level.var_f3d38af6.clientside_fx = 0;
 	level.var_f3d38af6.str_mod = "MOD_ELECTROCUTED";
-	callback::function_34dea974(level.var_477ad229, &function_78ccee50);
-	callback::function_34dea974(level.var_5bda3938, &function_78ccee50);
+	callback::add_weapon_fired(level.var_477ad229, &on_weapon_fired);
+	callback::add_weapon_fired(level.var_5bda3938, &on_weapon_fired);
 	callback::function_4b58e5ab(&function_ae5c4e8b);
 	callback::on_ai_killed(&on_ai_killed);
 	clientfield::register("allplayers", "" + #"hash_15cff60ea68de320", 20000, 2, "int");
@@ -68,7 +68,7 @@ function __init__()
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: zm_weap_ray_gun_mk2v
 	Checksum: 0xFCC5D8F1
 	Offset: 0x538
@@ -76,7 +76,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_78ccee50(weapon)
+function on_weapon_fired(weapon)
 {
 	if(self.var_1de56cc8 !== 1)
 	{

@@ -45,7 +45,7 @@ function function_fb0bd6b9()
 	{
 		return;
 	}
-	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+	if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 	{
 		level.var_d8e7f0cf[0] = array(1, 1, 5);
 		level.var_d8e7f0cf[1] = array(8, 7, 2);
@@ -414,7 +414,7 @@ function function_290d172d()
 				break;
 			}
 		}
-		if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+		if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 		{
 			level thread function_bbca669b(s_result.activator);
 		}

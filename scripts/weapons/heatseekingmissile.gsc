@@ -41,7 +41,7 @@ function on_player_spawned()
 {
 	self endon(#"disconnect");
 	self clearirtarget();
-	self callback::function_f77ced93(&function_f77ced93);
+	self callback::on_weapon_change(&on_weapon_change);
 }
 
 /*
@@ -249,7 +249,7 @@ function stingerwaitforads()
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: heatseekingmissile
 	Checksum: 0x72E86EE8
 	Offset: 0xA90
@@ -257,7 +257,7 @@ function stingerwaitforads()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	self endon(#"death", #"disconnect");
 	weapon = self getappropriateplayerweapon(params.weapon);

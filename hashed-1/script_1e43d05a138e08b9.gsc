@@ -59,7 +59,7 @@ class cwz_wingsuit_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cwz_wingsuit_hud
 		Checksum: 0x1801DF20
 		Offset: 0x1F8
@@ -67,9 +67,9 @@ class cwz_wingsuit_hud : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -107,7 +107,7 @@ function register(uid)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: wz_wingsuit_hud
 	Checksum: 0xA8F05470
 	Offset: 0xE8
@@ -115,10 +115,10 @@ function register(uid)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cwz_wingsuit_hud();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

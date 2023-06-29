@@ -44,7 +44,7 @@ function function_6f51d1e9(event, players, victim, weapon)
 function processscoreevent(event, player, victim, weapon, var_36f23f1f)
 {
 	scoregiven = 0;
-	if(isdefined(level.scoreinfo[event]) && (isdefined(level.scoreinfo[event][#"hash_7b64eabf26f777c7"]) && level.scoreinfo[event][#"hash_7b64eabf26f777c7"]))
+	if(isdefined(level.scoreinfo[event]) && (isdefined(level.scoreinfo[event][#"is_deprecated"]) && level.scoreinfo[event][#"is_deprecated"]))
 	{
 		return scoregiven;
 	}
@@ -207,7 +207,7 @@ function uninterruptedobitfeedkills(attacker, weapon)
 	if(isdefined(attacker))
 	{
 		processscoreevent(#"uninterrupted_obit_feed_kills", attacker, self, weapon);
-		attacker contracts::function_a54e2068(#"hash_2e97dac7aef215da");
+		attacker contracts::increment_contract(#"hash_2e97dac7aef215da");
 	}
 }
 

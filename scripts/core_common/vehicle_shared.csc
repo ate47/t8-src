@@ -179,7 +179,7 @@ function spawned_callback(localclientnum)
 	}
 	if(self usessubtargets())
 	{
-		self thread function_529fa01();
+		self thread watch_vehicle_damage();
 	}
 	array::add(level.allvehicles, self, 0);
 	self callback::on_shutdown(&on_shutdown);
@@ -279,7 +279,7 @@ function on_shutdown(localclientnum)
 }
 
 /*
-	Name: function_529fa01
+	Name: watch_vehicle_damage
 	Namespace: vehicle
 	Checksum: 0x8B8B7A44
 	Offset: 0x1DE0
@@ -287,7 +287,7 @@ function on_shutdown(localclientnum)
 	Parameters: 0
 	Flags: Linked
 */
-function function_529fa01()
+function watch_vehicle_damage()
 {
 	self endon(#"death");
 	self.notifyonbulletimpact = 1;

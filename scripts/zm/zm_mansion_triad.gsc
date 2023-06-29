@@ -52,7 +52,7 @@ function init()
 	namespace_617a54f4::function_d8383812(#"soul_capture_kp3_halfway", 8000, #"kp_3_halfway", &function_ba203e13, &function_60bda2cf, 1);
 	namespace_617a54f4::function_d8383812(#"soul_capture_forest", 8000, #"kp_forest", &is_soul_capture_forest, &function_b570f926, 1);
 	init_flags();
-	function_c739f755();
+	register_steps();
 	level thread function_c6e2a4fd();
 	level thread function_6eb39fe4();
 	level thread function_b8cc9d7e();
@@ -70,7 +70,7 @@ function init()
 function function_6eb39fe4()
 {
 	level flag::wait_till("open_pap");
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		if(zm_custom::function_901b751c(#"hash_3c5363541b97ca3e") && zm_custom::function_901b751c(#"zmpapenabled") != 2)
 		{
@@ -214,7 +214,7 @@ function init_flags()
 }
 
 /*
-	Name: function_c739f755
+	Name: register_steps
 	Namespace: mansion_triad
 	Checksum: 0x5FD540DC
 	Offset: 0x16B8
@@ -222,7 +222,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c739f755()
+function register_steps()
 {
 	zm_sq::register(#"zm_mansion_triad", #"step_1", #"triad_step_1", &function_cdfe68a2, &cleanup_step_1);
 	zm_sq::register(#"zm_mansion_triad", #"step_2", #"triad_step_2", &function_a03f8d25, &cleanup_step_2);
@@ -467,17 +467,17 @@ function cleanup_step_3(var_5ea5c94d, ended_early)
 	if(isdefined(level.kp1))
 	{
 		level.kp1 clientfield::set("" + #"triad_beam", 0);
-		level.kp1 thread function_aea7ad83();
+		level.kp1 thread kp_cleanup();
 	}
 	if(isdefined(level.kp2))
 	{
 		level.kp2 clientfield::set("" + #"triad_beam", 0);
-		level.kp2 thread function_aea7ad83();
+		level.kp2 thread kp_cleanup();
 	}
 	if(isdefined(level.kp3))
 	{
 		level.kp3 clientfield::set("" + #"triad_beam", 0);
-		level.kp3 thread function_aea7ad83();
+		level.kp3 thread kp_cleanup();
 	}
 	var_4eed727b = getent("stone_forest", "targetname");
 	var_4eed727b playsound(#"hash_224d8c48960f71ee");
@@ -628,7 +628,7 @@ function cleanup_step_4(var_5ea5c94d, ended_early)
 }
 
 /*
-	Name: function_aea7ad83
+	Name: kp_cleanup
 	Namespace: mansion_triad
 	Checksum: 0x4D6EB4A3
 	Offset: 0x30A0
@@ -636,7 +636,7 @@ function cleanup_step_4(var_5ea5c94d, ended_early)
 	Parameters: 0
 	Flags: Linked
 */
-function function_aea7ad83()
+function kp_cleanup()
 {
 	wait(2);
 	if(isdefined(self))
@@ -2086,7 +2086,7 @@ function function_31e641f5()
 		wait(0.1);
 	}
 	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
-	level flag::set(#"hash_1b9ecc7979b0fcfb");
+	level flag::set(#"disable_fast_travel");
 	level clientfield::set("fasttravel_exploder", 0);
 	exploder::exploder("fxexp_barrier_gameplay_forest");
 	level thread mansion_util::function_f1c106b("loc2", 1);
@@ -2398,7 +2398,7 @@ function function_52529102()
 	mansion_util::function_5904a8e1();
 	exploder::stop_exploder("fxexp_barrier_gameplay_forest");
 	level thread mansion_util::function_f1c106b("loc2", 0);
-	level flag::clear(#"hash_1b9ecc7979b0fcfb");
+	level flag::clear(#"disable_fast_travel");
 	level clientfield::set("fasttravel_exploder", 1);
 }
 

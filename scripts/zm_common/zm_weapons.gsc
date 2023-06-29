@@ -201,7 +201,7 @@ event player_gunchallengecomplete(s_event)
 	if(s_event.is_lastrank)
 	{
 		var_8e617ca1 = 0;
-		a_w_guns = function_efd851e();
+		a_w_guns = get_guns();
 		foreach(weapon in a_w_guns)
 		{
 			str_weapon = weapon.name;
@@ -225,7 +225,7 @@ event player_gunchallengecomplete(s_event)
 }
 
 /*
-	Name: function_efd851e
+	Name: get_guns
 	Namespace: zm_weapons
 	Checksum: 0x839431EB
 	Offset: 0x948
@@ -233,7 +233,7 @@ event player_gunchallengecomplete(s_event)
 	Parameters: 0
 	Flags: Linked
 */
-function function_efd851e()
+function get_guns()
 {
 	a_w_guns = [];
 	foreach(s_weapon in level.zombie_weapons)
@@ -2848,7 +2848,7 @@ function is_tactical_rifle(w_to_check)
 }
 
 /*
-	Name: function_e17d0760
+	Name: is_explosive_weapon
 	Namespace: zm_weapons
 	Checksum: 0xF4BB57A8
 	Offset: 0x66E8
@@ -2856,7 +2856,7 @@ function is_tactical_rifle(w_to_check)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e17d0760(weapon)
+function is_explosive_weapon(weapon)
 {
 	if(weapon.explosioninnerdamage > 0 || weapon.explosionouterdamage > 0)
 	{

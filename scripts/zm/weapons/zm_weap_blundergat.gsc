@@ -65,7 +65,7 @@ function __init__()
 	callback::on_connect(&function_eaa9c593);
 	level flag::init(#"hash_72c4671390c83158");
 	level flag::init(#"hash_634424410f574c1c");
-	weaponobjects::function_e6400478(#"hash_617dcc39334959ce", &function_38eaed4c, 0);
+	weaponobjects::function_e6400478(#"ww_blundergat_fire_t8_unfinished", &function_38eaed4c, 0);
 	weaponobjects::function_e6400478(#"ww_blundergat_fire_t8", &function_38eaed4c, 0);
 	weaponobjects::function_e6400478(#"ww_blundergat_fire_t8_upgraded", &function_38eaed4c, 0);
 	namespace_9ff9f642::register_slowdown(#"hash_716657b9842cfd1b", 0.6, 1);
@@ -305,7 +305,7 @@ function function_efefda46(willbekilled, einflictor, eattacker, idamage, flags, 
 	}
 	w_blundergat_fire = getweapon(#"ww_blundergat_fire_t8");
 	w_blundergat_fire_upgraded = getweapon(#"ww_blundergat_fire_t8_upgraded");
-	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
+	var_e97d8c2c = getweapon(#"ww_blundergat_fire_t8_unfinished");
 	if(weapon == w_blundergat_fire || weapon == w_blundergat_fire_upgraded || weapon == var_e97d8c2c)
 	{
 		if(self.var_6f84b820 == #"basic" || self.var_6f84b820 == #"popcorn" || self.var_6f84b820 == #"enhanced")
@@ -921,7 +921,7 @@ function private get_closest_tag(v_pos)
 */
 function function_89bde454(weapon)
 {
-	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
+	var_e97d8c2c = getweapon(#"ww_blundergat_fire_t8_unfinished");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
 	w_blundergat_upg = getweapon(#"ww_blundergat_t8_upgraded");
 	w_blundergat_acid = getweapon(#"ww_blundergat_acid_t8");
@@ -952,7 +952,7 @@ function function_89bde454(weapon)
 */
 function function_bd27d397(oldweapondata, newweapondata)
 {
-	var_e97d8c2c = getweapon(#"hash_617dcc39334959ce");
+	var_e97d8c2c = getweapon(#"ww_blundergat_fire_t8_unfinished");
 	w_blundergat = getweapon(#"ww_blundergat_t8");
 	w_blundergat_upg = getweapon(#"ww_blundergat_t8_upgraded");
 	w_blundergat_acid = getweapon(#"ww_blundergat_acid_t8");

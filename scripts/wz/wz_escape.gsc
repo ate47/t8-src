@@ -195,8 +195,8 @@ function function_69e60a10(var_e4204b3)
 	var_8e3c3c5b = level.deathcircles[level.deathcircles.size - 1];
 	hint = struct::get(var_e4204b3);
 	var_8e3c3c5b.var_3b9f4abf = hint.origin;
-	var_8e3c3c5b.var_66b35636 = 1024;
-	var_8e3c3c5b.var_3b4ad673 = 1024;
+	var_8e3c3c5b.mapwidth = 1024;
+	var_8e3c3c5b.mapheight = 1024;
 }
 
 /*
@@ -303,11 +303,11 @@ function function_9cc59537()
 		var_1d9375fc = struct::get_array("", "");
 		foreach(group in var_1d9375fc)
 		{
-			group.var_4a3dcff2 = [];
+			group.debug_spawnpoints = [];
 			var_f0179f4a = getdvarstring(#"hash_230734aeaaf8671", "");
 			if(isstring(group.target) && (var_f0179f4a == "" || function_d72aa67e(var_f0179f4a, group.target)))
 			{
-				group.var_4a3dcff2 = function_91b29d2a(group.target);
+				group.debug_spawnpoints = function_91b29d2a(group.target);
 			}
 		}
 		var_7cb887a8 = [];
@@ -320,20 +320,20 @@ function function_9cc59537()
 			foreach(group in var_1d9375fc)
 			{
 				var_b91441dd = getscriptbundle(group.scriptbundlename);
-				if(!isdefined(var_b91441dd) || (isdefined(var_b91441dd.vehiclespawner) && var_b91441dd.vehiclespawner) || group.var_4a3dcff2.size == 0 || var_b91441dd.name === "" || var_b91441dd.name === "" || var_b91441dd.name === "")
+				if(!isdefined(var_b91441dd) || (isdefined(var_b91441dd.vehiclespawner) && var_b91441dd.vehiclespawner) || group.debug_spawnpoints.size == 0 || var_b91441dd.name === "" || var_b91441dd.name === "" || var_b91441dd.name === "")
 				{
 					continue;
 				}
 				else if(var_b91441dd.name === "")
 				{
-					var_df1e5fef = arraysortclosest(group.var_4a3dcff2, level.players[0].origin, 85, 1, 4000);
+					var_df1e5fef = arraysortclosest(group.debug_spawnpoints, level.players[0].origin, 85, 1, 4000);
 					foreach(point in var_df1e5fef)
 					{
 						sphere(point.origin, 16, (1, 1, 1), 1, 0, 16, 8);
 					}
 					continue;
 				}
-				spawn_points = arraysortclosest(group.var_4a3dcff2, level.players[0].origin, 85, 1, 4000);
+				spawn_points = arraysortclosest(group.debug_spawnpoints, level.players[0].origin, 85, 1, 4000);
 				foreach(point in spawn_points)
 				{
 					if(level.players[0] util::is_player_looking_at(point.origin, 0.8, 0))
@@ -1215,7 +1215,7 @@ function private function_1880c93d()
 		/#
 			assert(isplayer(self));
 		#/
-		item = wz_loadouts::function_ba18c3e5(#"ultimate_turret_wz_item");
+		item = wz_loadouts::_get_item(#"ultimate_turret_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		self item_world::function_de2018e3(item, self, var_fa3df96);
 	#/

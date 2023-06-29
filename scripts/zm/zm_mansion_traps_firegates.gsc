@@ -312,7 +312,7 @@ function function_5b8a557f()
 			}
 			if(zm_utility::is_player_valid(e_player) && (!(isdefined(e_trap._trap_in_use) && e_trap._trap_in_use)))
 			{
-				b_purchased = self zm_traps::function_3f0a4c65(e_player, e_trap.zombie_cost);
+				b_purchased = self zm_traps::trap_purchase(e_player, e_trap.zombie_cost);
 				if(!b_purchased)
 				{
 					continue;
@@ -476,7 +476,7 @@ function function_2a5a929(str_location, var_b7eee573)
 	var_47323b73 = mansion_util::create_unitrigger(s_loc, &function_b1bd4115, str_prompt, 0, undefined, 0);
 	var_47323b73.mdl = util::spawn_model(#"p8_zm_man_fire_trap_power_core_on", s_loc.origin, s_loc.angles);
 	var_47323b73.mdl notsolid();
-	var_47323b73.mdl thread function_ab6f51d9();
+	var_47323b73.mdl thread pickup_spin();
 	var_47323b73.str_location = str_location;
 	return var_47323b73;
 }
@@ -558,7 +558,7 @@ function function_7b170638(var_8163cc4, b_found)
 }
 
 /*
-	Name: function_ab6f51d9
+	Name: pickup_spin
 	Namespace: namespace_a35b43eb
 	Checksum: 0xCD0CF0A6
 	Offset: 0x1AE0
@@ -566,7 +566,7 @@ function function_7b170638(var_8163cc4, b_found)
 	Parameters: 0
 	Flags: Linked
 */
-function function_ab6f51d9()
+function pickup_spin()
 {
 	self endon(#"death");
 	self playloopsound(#"hash_3b9597774dea00d6");
@@ -840,7 +840,7 @@ function function_5ad19000(e_trap)
 			if(isdefined(e_trap.activated_by_player) && isplayer(e_trap.activated_by_player))
 			{
 				e_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-				e_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+				e_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 			}
 			self dodamage(20000, e_trap.origin, undefined, e_trap, undefined, "MOD_BURNED", 0, undefined);
 		}

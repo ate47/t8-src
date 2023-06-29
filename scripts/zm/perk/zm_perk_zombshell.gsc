@@ -68,7 +68,7 @@ function enable_zombshell_perk_for_level()
 		zm_perks::register_perk_basic_info(#"specialty_zombshell", #"perk_zombshell", 4000, #"zombie/perk_zombshell", getweapon("zombie_perk_bottle_zombshell"), getweapon("zombie_perk_totem_zombshell"), #"zmperkszombshell");
 	}
 	zm_perks::register_perk_clientfields(#"specialty_zombshell", &function_137d1be7, &function_1ab3592a);
-	zm_perks::register_perk_threads(#"specialty_zombshell", &function_a639586f, &function_7328ce94, &function_9227a4d8);
+	zm_perks::register_perk_threads(#"specialty_zombshell", &function_a639586f, &function_7328ce94, &reset_cooldown);
 	zm_perks::register_actor_damage_override(#"specialty_zombshell", &function_65a90069);
 	if(isdefined(level.var_241ad22d) && level.var_241ad22d)
 	{
@@ -237,7 +237,7 @@ function shell_explosion(e_attacker, w_weapon)
 	e_attacker.var_c153f587 clientfield::set("" + #"zombshell_aoe", 0);
 	e_attacker notify(#"zombshell_aoe");
 	e_attacker function_993d228c();
-	e_attacker thread function_f32db45b(e_attacker.var_c0832831);
+	e_attacker thread zombshell_cooldown(e_attacker.var_c0832831);
 	e_attacker.var_491bd66d++;
 	e_attacker.var_c0832831 = e_attacker.var_c0832831 + 15;
 	wait(0.1);
@@ -487,7 +487,7 @@ function function_26c2620(str_notify)
 }
 
 /*
-	Name: function_f32db45b
+	Name: zombshell_cooldown
 	Namespace: zm_perk_zombshell
 	Checksum: 0x30DD518C
 	Offset: 0x1600
@@ -495,7 +495,7 @@ function function_26c2620(str_notify)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f32db45b(var_85dcb56c)
+function zombshell_cooldown(var_85dcb56c)
 {
 	self endon(#"hash_4aaf55c36b37725e", #"disconnect");
 	self.var_69604b18 = 1;
@@ -505,7 +505,7 @@ function function_f32db45b(var_85dcb56c)
 	}
 	self thread function_7d72c6f9(var_85dcb56c);
 	wait(var_85dcb56c);
-	self thread function_9227a4d8();
+	self thread reset_cooldown();
 }
 
 /*
@@ -537,7 +537,7 @@ function function_7d72c6f9(var_85dcb56c)
 }
 
 /*
-	Name: function_9227a4d8
+	Name: reset_cooldown
 	Namespace: zm_perk_zombshell
 	Checksum: 0x9CF717AE
 	Offset: 0x1840
@@ -545,7 +545,7 @@ function function_7d72c6f9(var_85dcb56c)
 	Parameters: 0
 	Flags: Linked
 */
-function function_9227a4d8()
+function reset_cooldown()
 {
 	self notify(#"hash_4aaf55c36b37725e");
 	self.var_69604b18 = 0;

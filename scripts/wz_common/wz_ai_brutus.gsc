@@ -69,7 +69,7 @@ function __init__()
 	clientfield::register("actor", "brutus_shock_attack", 15000, 1, "counter");
 	clientfield::register("actor", "brutus_spawn_clientfield", 15000, 1, "int");
 	clientfield::register("toplayer", "brutus_shock_attack_player", 15000, 1, "counter");
-	callback::on_actor_killed(&function_fc5aa54d);
+	callback::on_actor_killed(&on_brutus_killed);
 }
 
 /*
@@ -144,8 +144,8 @@ function function_debbd9da()
 	self function_517fd069();
 	self wz_ai_utils::function_9758722("walk");
 	aiutility::addaioverridedamagecallback(self, &function_83a6d3ae);
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
-	self callback::function_d8abfc3d(#"on_ai_killed", &function_fc5aa54d);
+	self callback::function_d8abfc3d(#"on_ai_melee", &wz_ai_zombie::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_killed", &on_brutus_killed);
 	self callback::function_d8abfc3d(#"hash_4e449871617e2c25", &function_6a482c74);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_bad305c7();
@@ -245,7 +245,7 @@ function function_6090f71a()
 		node = getnode(self.ai_zone.zone_name + "_patrol", "targetname");
 		if(isdefined(node))
 		{
-			self.patrol_path = wz_ai_utils::function_35eac38d(node);
+			self.patrol_path = wz_ai_utils::get_pathnode_path(node);
 			self.var_5d58d4c0 = &function_b510a832;
 		}
 	}
@@ -267,7 +267,7 @@ function function_ea3e1b6c(entity)
 }
 
 /*
-	Name: function_fc5aa54d
+	Name: on_brutus_killed
 	Namespace: wz_ai_brutus
 	Checksum: 0x582B366
 	Offset: 0xAE0
@@ -275,7 +275,7 @@ function function_ea3e1b6c(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_fc5aa54d(params)
+function on_brutus_killed(params)
 {
 	self clientfield::set("brutus_spawn_clientfield", 0);
 	playsoundatposition(#"zmb_ai_brutus_death", self.origin);
@@ -635,10 +635,10 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 	self player::function_74a5d514(attacker, damage, meansofdeath, weapon, shitloc);
 	if(isdefined(weapon) && meansofdeath !== "MOD_DOT")
 	{
-		var_9a429025 = function_f74d2943(weapon, 7);
-		if(isdefined(var_9a429025))
+		dot_params = function_f74d2943(weapon, 7);
+		if(isdefined(dot_params))
 		{
-			status_effect::status_effect_apply(var_9a429025, weapon, inflictor);
+			status_effect::status_effect_apply(dot_params, weapon, inflictor);
 		}
 	}
 	if(isdefined(inflictor) && !isdefined(self.attackable) && isdefined(inflictor.var_b79a8ac7) && isarray(inflictor.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, weapon))

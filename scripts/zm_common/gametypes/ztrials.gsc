@@ -1,13 +1,13 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_10034e69dca1cdbd;
+#using scripts\zm_common\trials\zm_trial_turn_on_power.gsc;
 #using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\trials\zm_trial_give_reward.gsc;
 #using script_1496ada77dc2f2e2;
-#using script_1827ef4caab1c237;
+#using scripts\zm_common\trials\zm_trial_sprinters_only.gsc;
 #using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
 #using scripts\zm_common\trials\zm_trial_double_damage.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_27d214e32f50853d;
+#using scripts\zm_common\trials\zm_trial_damage_drains_points.gsc;
 #using script_35d3717bf2cbee8f;
 #using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
 #using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
@@ -356,13 +356,13 @@ function private function_1201b5da(medal)
 		/#
 			assert(isdefined(round));
 		#/
-		var_48c6ec2e = level.var_6d87ac05.rounds[round - 1];
+		round_info = level.var_6d87ac05.rounds[round - 1];
 		/#
-			assert(isdefined(var_48c6ec2e));
+			assert(isdefined(round_info));
 		#/
-		for(i = 0; i < var_48c6ec2e.challenges.size; i++)
+		for(i = 0; i < round_info.challenges.size; i++)
 		{
-			challenge = var_48c6ec2e.challenges[i];
+			challenge = round_info.challenges[i];
 			if(challenge.name == #"give_reward")
 			{
 				return challenge;
@@ -390,9 +390,9 @@ function private function_9a6b2309()
 		/#
 			assert(isdefined(level.var_6d87ac05));
 		#/
-		foreach(var_48c6ec2e in level.var_6d87ac05.rounds)
+		foreach(round_info in level.var_6d87ac05.rounds)
 		{
-			adddebugcommand((((((("" + var_48c6ec2e.round) + "") + function_9e72a96(var_48c6ec2e.name) + "") + var_48c6ec2e.round) + "") + var_48c6ec2e.round) + "");
+			adddebugcommand((((((("" + round_info.round) + "") + function_9e72a96(round_info.name) + "") + round_info.round) + "") + round_info.round) + "");
 		}
 		for(i = 0; i <= 3; i++)
 		{

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_170a9c130859c688;
+#using scripts\mp_common\item_world_fixup.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -250,11 +250,11 @@ function function_c67a5089()
 		}
 		if(!enabled)
 		{
-			item_name = var_9ba1646c.var_a531c26d;
+			item_name = var_9ba1646c.required_item;
 			var_a6762160 = getscriptbundle(item_name);
 			if(isdefined(var_a6762160))
 			{
-				namespace_b0722f43::remove_item(item_name);
+				item_world_fixup::remove_item(item_name);
 			}
 		}
 		if(isdefined(var_9ba1646c.activation_func))

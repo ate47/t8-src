@@ -164,7 +164,7 @@ class cfull_screen_movie : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cfull_screen_movie
 		Checksum: 0xB5DE22C
 		Offset: 0x558
@@ -172,9 +172,9 @@ class cfull_screen_movie : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -190,11 +190,11 @@ class cfull_screen_movie : cLUIelem
 	{
 		cLUIelem::setup_clientfields(uid);
 		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
-		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int", var_d5b04ae3);
-		cLUIelem::function_da693cbe("looping", 1, 1, "int", var_e4decd0);
-		cLUIelem::function_da693cbe("additive", 1, 1, "int", var_e545d4b9);
-		cLUIelem::function_da693cbe("playOutroMovie", 1, 1, "int", var_78184b90);
-		cLUIelem::function_da693cbe("skippable", 1, 1, "int", var_8ba396cb);
+		cLUIelem::add_clientfield("showBlackScreen", 1, 1, "int", var_d5b04ae3);
+		cLUIelem::add_clientfield("looping", 1, 1, "int", var_e4decd0);
+		cLUIelem::add_clientfield("additive", 1, 1, "int", var_e545d4b9);
+		cLUIelem::add_clientfield("playOutroMovie", 1, 1, "int", var_78184b90);
+		cLUIelem::add_clientfield("skippable", 1, 1, "int", var_8ba396cb);
 		cLUIelem::function_dcb34c80("moviefile", "movieKey", 18000);
 	}
 
@@ -219,7 +219,7 @@ function register(uid, var_f7b454f9, var_d5b04ae3, var_e4decd0, var_e545d4b9, va
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: full_screen_movie
 	Checksum: 0x157238F4
 	Offset: 0x1A8
@@ -227,10 +227,10 @@ function register(uid, var_f7b454f9, var_d5b04ae3, var_e4decd0, var_e545d4b9, va
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cfull_screen_movie();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

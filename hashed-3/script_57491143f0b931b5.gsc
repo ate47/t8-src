@@ -100,8 +100,8 @@ class cseeker_mine_prompt : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("progress", 1, 5, "float");
-		cLUIelem::function_da693cbe("promptState", 1, 2, "int");
+		cLUIelem::add_clientfield("progress", 1, 5, "float");
+		cLUIelem::add_clientfield("promptState", 1, 2, "int");
 	}
 
 }

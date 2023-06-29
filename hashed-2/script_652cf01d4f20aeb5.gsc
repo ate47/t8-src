@@ -68,13 +68,13 @@ function main()
 	level.var_79260935.e_vault_defend_blocker = getent("e_vault_defend_blocker", "targetname");
 	level.var_79260935.s_vault_reward = struct::get("s_vault_reward", "targetname");
 	level.var_79260935.var_7ff5dbc4 = struct::get("facility_vault_door_bundle", "targetname");
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_1", #"hash_6261200a332f0945", &function_88dec965, &function_3aa0b188);
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_2", #"hash_62611d0a332f042c", &function_ac7f503f, &function_7f4e2be3);
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_3", #"hash_62611e0a332f05df", &function_145d9203, &function_33b22107);
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_4", #"hash_62611b0a332f00c6", &function_e7991e06, &function_441f41e9);
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_5", #"hash_62611c0a332f0279", &function_bb9777b, &function_4b460950);
-	zm_sq::register(#"hash_3a6788f4daed8c33", #"step_6", #"hash_6261190a332efd60", &function_779b1320, &function_8a1848f8);
-	zm_sq::start(#"hash_3a6788f4daed8c33", !zm_utility::is_standard());
+	zm_sq::register(#"sams_box", #"step_1", #"hash_6261200a332f0945", &function_88dec965, &function_3aa0b188);
+	zm_sq::register(#"sams_box", #"step_2", #"hash_62611d0a332f042c", &function_ac7f503f, &function_7f4e2be3);
+	zm_sq::register(#"sams_box", #"step_3", #"hash_62611e0a332f05df", &function_145d9203, &function_33b22107);
+	zm_sq::register(#"sams_box", #"step_4", #"hash_62611b0a332f00c6", &function_e7991e06, &function_441f41e9);
+	zm_sq::register(#"sams_box", #"step_5", #"hash_62611c0a332f0279", &function_bb9777b, &function_4b460950);
+	zm_sq::register(#"sams_box", #"step_6", #"hash_6261190a332efd60", &function_779b1320, &function_8a1848f8);
+	zm_sq::start(#"sams_box", !zm_utility::is_standard());
 }
 
 /*

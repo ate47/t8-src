@@ -322,7 +322,7 @@ function function_1503c832(weapon)
 }
 
 /*
-	Name: function_748147c
+	Name: state_watch
 	Namespace: gadget_radiation_field
 	Checksum: 0x99469BF6
 	Offset: 0x12B0
@@ -330,7 +330,7 @@ function function_1503c832(weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_748147c(state_id, time)
+function state_watch(state_id, time)
 {
 	player = self;
 	player endon(#"radiation_shutdown");
@@ -418,7 +418,7 @@ function damage_state(state_id, weapon, min_radius, max_radius, min_height, max_
 	player = self;
 	if(state_id < 3)
 	{
-		player thread function_748147c(state_id, duration);
+		player thread state_watch(state_id, duration);
 	}
 	player endon("state_done_" + state_id, #"radiation_shutdown", #"death", #"disconnect");
 	var_adf90433 = getstatuseffect(var_32900164);
@@ -531,24 +531,24 @@ function damage_state(state_id, weapon, min_radius, max_radius, min_height, max_
 						var_7ba94ed3++;
 					}
 					var_a3ca7cb2.var_4dcf932b = player;
-					var_73d38846 = 1;
+					dot_scaler = 1;
 					if(dist < level.radiationfield_bundle.var_e914cf2b)
 					{
 						t = 1 - (dist / level.radiationfield_bundle.var_e914cf2b);
-						var_73d38846 = (1 - t) + (level.radiationfield_bundle.var_c3e28ba8 * t);
+						dot_scaler = (1 - t) + (level.radiationfield_bundle.var_c3e28ba8 * t);
 					}
 					if(level.hardcoremode)
 					{
-						var_73d38846 = var_73d38846 * (isdefined(level.radiationfield_bundle.var_78c1e37b) ? level.radiationfield_bundle.var_78c1e37b : 0.25);
+						dot_scaler = dot_scaler * (isdefined(level.radiationfield_bundle.var_78c1e37b) ? level.radiationfield_bundle.var_78c1e37b : 0.25);
 					}
 					if(isplayer(var_a3ca7cb2))
 					{
-						var_73d38846 = var_73d38846 * var_a3ca7cb2 function_4e7b9eed();
+						dot_scaler = dot_scaler * var_a3ca7cb2 function_4e7b9eed();
 					}
 					var_65939bc3 = var_adf90433.dotdamage;
 					var_a2755834 = var_adf90433.var_44ff1a4;
-					var_adf90433.dotdamage = int(var_adf90433.dotdamage * var_73d38846);
-					var_adf90433.var_44ff1a4 = int(var_adf90433.var_44ff1a4 * var_73d38846);
+					var_adf90433.dotdamage = int(var_adf90433.dotdamage * dot_scaler);
+					var_adf90433.var_44ff1a4 = int(var_adf90433.var_44ff1a4 * dot_scaler);
 					if(!isdefined(player.radiationDamage))
 					{
 						player.radiationDamage = 0;
@@ -755,7 +755,7 @@ function shutdown(var_fb096220)
 	player notify(#"hash_4aaf6d6479e7cf20");
 	if(isdefined(player) && player function_831bf182())
 	{
-		player function_a8d8842e();
+		player deactivate_gadget();
 	}
 	player clientfield::set_player_uimodel("hudItems.abilityHintIndex", 0);
 	player.radiationDamage = 0;
@@ -927,7 +927,7 @@ function get_power()
 }
 
 /*
-	Name: function_a8d8842e
+	Name: deactivate_gadget
 	Namespace: gadget_radiation_field
 	Checksum: 0x67BC91F5
 	Offset: 0x3120
@@ -935,7 +935,7 @@ function get_power()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a8d8842e()
+function deactivate_gadget()
 {
 	self setclientuivisibilityflag("weapon_hud_visible", 1);
 	self gadgetdeactivate(self.gadget_slot, self.gadget_weapon);

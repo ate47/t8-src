@@ -46,7 +46,7 @@ function __init__()
 function function_27473e44()
 {
 	zm_perks::register_perk_basic_info(#"specialty_extraammo", #"perk_bandolier", 3000, #"zombie/perk_bandolier", getweapon("zombie_perk_bottle_bandolier"), getweapon("zombie_perk_totem_bandolier"), #"zmperksbandolier");
-	zm_perks::register_perk_precache_func(#"specialty_extraammo", &function_8c3e9b8b);
+	zm_perks::register_perk_precache_func(#"specialty_extraammo", &perk_precache);
 	zm_perks::register_perk_clientfields(#"specialty_extraammo", &perk_register_clientfield, &perk_set_clientfield);
 	zm_perks::register_perk_machine(#"specialty_extraammo", &perk_machine_setup);
 	zm_perks::register_perk_host_migration_params(#"specialty_extraammo", "vending_bandolier", "sleight_light");
@@ -54,7 +54,7 @@ function function_27473e44()
 }
 
 /*
-	Name: function_8c3e9b8b
+	Name: perk_precache
 	Namespace: zm_perk_bandolier
 	Checksum: 0xACD5566C
 	Offset: 0x358
@@ -62,7 +62,7 @@ function function_27473e44()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8c3e9b8b()
+function perk_precache()
 {
 	if(isdefined(level.var_51552992))
 	{

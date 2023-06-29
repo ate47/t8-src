@@ -30,7 +30,7 @@ function register_luielem(unique_name, field_name, n_version, n_bits, str_type, 
 }
 
 /*
-	Name: function_78175813
+	Name: register_bgcache
 	Namespace: clientfield
 	Checksum: 0xC0D5C26F
 	Offset: 0x1A8
@@ -38,7 +38,7 @@ function register_luielem(unique_name, field_name, n_version, n_bits, str_type, 
 	Parameters: 7
 	Flags: Linked
 */
-function function_78175813(poolname, var_b693fec6, uniqueid, version, func_callback, b_host, b_callback_for_zero_when_new)
+function register_bgcache(poolname, var_b693fec6, uniqueid, version, func_callback, b_host, b_callback_for_zero_when_new)
 {
 	function_3ff577e6(poolname, var_b693fec6, uniqueid, version, func_callback, b_host, b_callback_for_zero_when_new);
 }

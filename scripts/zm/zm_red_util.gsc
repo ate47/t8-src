@@ -27,7 +27,7 @@ function init()
 {
 	clientfield::register("toplayer", "zm_red_timer", 16000, getminbitcountfornum(120), "int");
 	level.var_d0d80ff8 = zm_red_challenges_hud::register("zm_red_challenges_hud");
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level thread function_a3a07623();
 	}
@@ -255,7 +255,7 @@ function function_a6d4b55e(var_e2fdd04c)
 function function_34a533b1()
 {
 	self function_207cca50();
-	level.var_d0d80ff8 zm_red_challenges_hud::function_96972b9c(self);
+	level.var_d0d80ff8 zm_red_challenges_hud::increment_progress(self);
 }
 
 /*
@@ -557,22 +557,22 @@ function function_8916aa62(str_line)
 			str_vo_line = #"hash_6602f6ff55aea604";
 			break;
 		}
-		case "hash_408fb94f739c906a":
+		case "mural_acrisius":
 		{
 			str_vo_line = #"hash_1afd1c392812ecf3";
 			break;
 		}
-		case "hash_3cfaf80bf0ef01e3":
+		case "mural_bellerophon":
 		{
 			str_vo_line = #"hash_45da578907c2942c";
 			break;
 		}
-		case "hash_42bda6a5dfbf11a1":
+		case "mural_hesperides":
 		{
 			str_vo_line = #"hash_19881d774c4bb8ae";
 			break;
 		}
-		case "hash_77a4e6aa7a36c06":
+		case "mural_andromeda":
 		{
 			str_vo_line = #"hash_60a1b31d1e49dfef";
 			break;

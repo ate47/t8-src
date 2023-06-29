@@ -36,12 +36,12 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	vehicle::add_main_callback("hawk", &function_b0abff80);
+	vehicle::add_main_callback("hawk", &hawk_initialize);
 	callback::on_vehicle_killed(&on_vehicle_killed);
 }
 
 /*
-	Name: function_b0abff80
+	Name: hawk_initialize
 	Namespace: hawk
 	Checksum: 0x39F71F37
 	Offset: 0x248
@@ -49,7 +49,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b0abff80()
+function hawk_initialize()
 {
 	statemachine = self vehicle_ai::init_state_machine_for_role("default");
 	self vehicle_ai::get_state_callbacks("death").update_func = &vehicle_ai::defaultstate_death_update;
@@ -221,7 +221,7 @@ function hawk_destroy(var_bb2c398b = 0)
 		var_9e2fe80f = (isdefined(level.hawk_settings.bundle.var_2f47b335) ? level.hawk_settings.bundle.var_2f47b335 : 0.5);
 	}
 	var_5755b643 = var_6f6e4d4d == "futz";
-	hawk.var_d733e01c = 0;
+	hawk.can_control = 0;
 	owner = hawk.var_55dded30;
 	if(isdefined(owner) && owner.hawk.controlling)
 	{

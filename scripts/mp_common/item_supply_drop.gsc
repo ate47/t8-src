@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_39bd5b6b799b1c9c;
+#using scripts\mp_common\item_world_util.gsc;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\core_common\player_insertion.gsc;
 #using script_cb32d07c95e5628;
@@ -42,7 +42,7 @@ function private __init__()
 	{
 		return;
 	}
-	level.var_a5f063d = [];
+	level.item_supply_drops = [];
 	/#
 		level thread _setup_devgui();
 	#/
@@ -96,7 +96,7 @@ function private function_eaba72c9()
 			}
 			if(getdvarint(#"hash_5dc24c61c66f6fee", 0) > 0)
 			{
-				function_a88ee653();
+				debug_supply_drop();
 			}
 			if(getdvarint(#"hash_40d4ca5923d72b3d", 0) > 0)
 			{
@@ -123,7 +123,7 @@ function private function_eaba72c9()
 						}
 						case 4:
 						{
-							function_8366d4d6(players[0].origin);
+							spawn_supply_drop(players[0].origin);
 							break;
 						}
 						case 5:
@@ -172,7 +172,7 @@ function private _setup_devgui()
 }
 
 /*
-	Name: function_a88ee653
+	Name: debug_supply_drop
 	Namespace: item_supply_drop
 	Checksum: 0xFCAFE48E
 	Offset: 0xBB0
@@ -180,7 +180,7 @@ function private _setup_devgui()
 	Parameters: 0
 	Flags: Private
 */
-function private function_a88ee653()
+function private debug_supply_drop()
 {
 	/#
 		if(isdefined(level.supplydropveh))
@@ -310,16 +310,16 @@ function private function_c7bd0aa8(point, startpoint)
 function private function_13339b58(var_d4bce8be)
 {
 	self endon(#"death");
-	var_ee00b371 = #"hash_4f2b2f1b4df13119";
+	open_anim = #"hash_4f2b2f1b4df13119";
 	idle_anim = #"hash_39265b4ed372175a";
 	var_e1c31bea = #"hash_32ad963f25f115d2";
 	if(isdefined(var_d4bce8be) && var_d4bce8be)
 	{
-		var_ee00b371 = #"hash_77322c90462ba8c";
+		open_anim = #"hash_77322c90462ba8c";
 		idle_anim = #"hash_780b50c0a9393f1d";
 		var_e1c31bea = #"hash_ac2d4936b932903";
 	}
-	self animscripted("parachute_open", self.origin, self.angles, var_ee00b371, "normal", "root", 1, 0);
+	self animscripted("parachute_open", self.origin, self.angles, open_anim, "normal", "root", 1, 0);
 	self waittill(#"parachute_open");
 	if(!(isdefined(self.parachute_close) && self.parachute_close))
 	{
@@ -893,7 +893,7 @@ function private function_924a11ff(itemspawnlist)
 	self waittill(#"stationary");
 	var_e68facee = isdefined(self getlinkedent());
 	self clientfield::set("supply_drop_fx", 1);
-	if(!namespace_ad5a0cd6::function_74e1e547(self.origin))
+	if(!item_world_util::function_74e1e547(self.origin))
 	{
 		self delete();
 		return;
@@ -1009,9 +1009,9 @@ function function_ab6af198()
 	{
 		x = abs(var_6024133d[0].origin[0] - var_6024133d[1].origin[0]);
 		y = abs(var_6024133d[0].origin[1] - var_6024133d[1].origin[1]);
-		var_e39b9b61 = max(x, y);
-		var_e39b9b61 = var_e39b9b61 * 0.75;
-		return math::clamp(var_e39b9b61, 10000, var_e39b9b61);
+		max_width = max(x, y);
+		max_width = max_width * 0.75;
+		return math::clamp(max_width, 10000, max_width);
 	}
 	return 10000;
 }
@@ -1102,7 +1102,7 @@ function function_7d4a448f(var_47d17dcb = 0)
 	}
 	var_94f13d8b = 18000;
 	mapcenter = player_insertion::function_15945f95();
-	var_66b35636 = player_insertion::function_ab6af198();
+	mapwidth = player_insertion::function_ab6af198();
 	var_e1ae630e = nextdeathcircle.origin;
 	var_e1ae630e = (var_e1ae630e[0], var_e1ae630e[1], var_94f13d8b);
 	var_4f59c30d = nextdeathcircle.radius;
@@ -1184,7 +1184,7 @@ function function_418e26fe(var_2118f785 = undefined, helicopter = 0, voiceevent 
 	var_729c4495 = var_729c4495 + var_541c190b;
 	var_94f13d8b = 2000 + var_729c4495;
 	mapcenter = player_insertion::function_15945f95();
-	var_66b35636 = player_insertion::function_ab6af198();
+	mapwidth = player_insertion::function_ab6af198();
 	var_e1ae630e = nextdeathcircle.origin;
 	var_e1ae630e = (var_e1ae630e[0], var_e1ae630e[1], var_94f13d8b);
 	var_4f59c30d = nextdeathcircle.radius;
@@ -1283,7 +1283,7 @@ function function_b8dd1978(startpoint, endpoint, droppoint, var_2118f785 = undef
 	supplydropveh.supplydrop = supplydrop;
 	supplydropveh thread function_c2edbefb(var_57e06aea, droppoint, 0, var_2118f785);
 	supplydropveh thread function_9e8348e4();
-	level.var_a5f063d[level.var_a5f063d.size] = supplydrop;
+	level.item_supply_drops[level.item_supply_drops.size] = supplydrop;
 	return var_57e06aea;
 }
 
@@ -1340,7 +1340,7 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d = 0, ve
 	supplydropveh.supplydrop = supplydrop;
 	supplydropveh thread function_c2edbefb(var_57e06aea, droppoint);
 	supplydropveh thread function_9e8348e4();
-	level.var_a5f063d[level.var_a5f063d.size] = supplydrop;
+	level.item_supply_drops[level.item_supply_drops.size] = supplydrop;
 	level.supplydrop = supplydrop;
 	level.supplydropveh = supplydropveh;
 	level.var_57e06aea = var_57e06aea;
@@ -1397,7 +1397,7 @@ function drop_supply_drop(droppoint, helicopter = 0, var_d6388d1 = 0, vehicletyp
 }
 
 /*
-	Name: function_8366d4d6
+	Name: spawn_supply_drop
 	Namespace: item_supply_drop
 	Checksum: 0xA328D41
 	Offset: 0x51F8
@@ -1405,7 +1405,7 @@ function drop_supply_drop(droppoint, helicopter = 0, var_d6388d1 = 0, vehicletyp
 	Parameters: 2
 	Flags: Linked
 */
-function function_8366d4d6(spawnpoint, itemspawnlist)
+function spawn_supply_drop(spawnpoint, itemspawnlist)
 {
 	supplydrop = function_67d7d040(undefined);
 	supplydrop.origin = spawnpoint;

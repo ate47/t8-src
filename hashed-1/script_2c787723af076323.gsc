@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\wz_common\wz_common_fixup.csc;
-#using script_731df012f3a3c2fc;
+#using scripts\mp_common\item_world_fixup.csc;
 
 #namespace namespace_46ccc531;
 
@@ -48,7 +48,7 @@ function function_b9962a73()
 		chests = getdynentarray("world_ammo_stash_blackjack");
 		foreach(dynent in chests)
 		{
-			function_b562a1b4(dynent, #"hash_6a582b37e8f152b4");
+			add_helico(dynent, #"hash_6a582b37e8f152b4");
 		}
 	}
 }
@@ -64,19 +64,19 @@ function function_b9962a73()
 */
 function function_63ad593a()
 {
-	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
-	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
-	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::remove_item;
-	var_74257310 = &namespace_b0722f43::function_6da5e673;
-	var_f8a4c541 = &namespace_b0722f43::function_6991057;
-	var_edfbccd0 = &namespace_b0722f43::function_e70fa91c;
+	var_a12b4736 = &item_world_fixup::function_96ff7b88;
+	var_d2223309 = &item_world_fixup::function_261ab7f5;
+	var_b5014996 = &item_world_fixup::function_19089c75;
+	var_87d0eef8 = &item_world_fixup::remove_item;
+	var_74257310 = &item_world_fixup::function_6da5e673;
+	var_f8a4c541 = &item_world_fixup::function_6991057;
+	var_edfbccd0 = &item_world_fixup::function_e70fa91c;
 	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
-		wz_common_fixup::function_149cbc84(var_b5014996, var_f8a4c541, #"hash_13ba73311ab5250f", #"hash_58c8b457cdf56278");
+		wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_13ba73311ab5250f", #"hash_58c8b457cdf56278");
 		if(isdefined(getgametypesetting(#"wzenablespectregrenade")) && getgametypesetting(#"wzenablespectregrenade"))
 		{
-			wz_common_fixup::function_149cbc84(var_d2223309, var_74257310, #"smoke_grenade_wz_item", #"spectre_grenade_wz_item");
+			wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"smoke_grenade_wz_item", #"spectre_grenade_wz_item");
 		}
 	}
 }

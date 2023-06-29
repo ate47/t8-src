@@ -41,7 +41,7 @@ function __init__()
 	level.var_e724fe4e = getweapon(#"hash_a2556a2905fd952");
 	level.var_b1805d48 = array(getweapon(#"hash_7a42b57be462143f"), getweapon(#"hash_7264d6f24a950a5b"), getweapon(#"hash_291e1c117ebbf5e6"), getweapon(#"hash_579652e2459b8c74"));
 	level.var_e027f904 = array(level.var_a3e665cc, level.var_7f6e8568, level.var_cf62bc7a, level.var_e724fe4e);
-	callback::function_20263b9e(&function_20263b9e);
+	callback::on_grenade_fired(&on_grenade_fired);
 	zm_loadout::register_lethal_grenade_for_level(#"hash_7a42b57be462143f");
 	zm_loadout::register_lethal_grenade_for_level(#"hash_7264d6f24a950a5b");
 	zm_loadout::register_lethal_grenade_for_level(#"hash_291e1c117ebbf5e6");
@@ -92,7 +92,7 @@ function function_23cf8077(inflictor, attacker, damage, flags, meansofdeath, wea
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: namespace_8f0f0dc0
 	Checksum: 0x6B767185
 	Offset: 0x5C0
@@ -100,7 +100,7 @@ function function_23cf8077(inflictor, attacker, damage, flags, meansofdeath, wea
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(s_params)
+function on_grenade_fired(s_params)
 {
 	if(function_4fbe1544(s_params.weapon))
 	{

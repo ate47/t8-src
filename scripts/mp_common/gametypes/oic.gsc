@@ -227,14 +227,14 @@ function givecustomloadout()
 		self giveweapon(secondaryoffhand);
 		self setweaponammoclip(secondaryoffhand, secondaryoffhandcount);
 		self switchtooffhand(secondaryoffhand);
-		loadout = self loadout::function_e27dc453("specialgrenade");
+		loadout = self loadout::get_loadout_slot("specialgrenade");
 		loadout.weapon = secondaryoffhand;
 		loadout.count = secondaryoffhandcount;
 		self ability_util::function_36a15b60(secondaryoffhand);
 	}
 	if(isbot(self) && !isdefined(level.botweapons[#"hero_annihilator_oic"]))
 	{
-		bot_action::function_ab03ca93(#"hero_annihilator_oic");
+		bot_action::register_bulletweapon(#"hero_annihilator_oic");
 	}
 	return weapon;
 }
@@ -312,7 +312,7 @@ function onspawnplayer(predictedspawn)
 function onendgame(var_c1e98979)
 {
 	player = round::function_b5f4c9d8();
-	match::function_d1e740f6(player);
+	match::set_winner(player);
 }
 
 /*

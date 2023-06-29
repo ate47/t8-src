@@ -101,9 +101,9 @@ function __init__()
 	}
 	callback::on_connect(&function_1d807685);
 	callback::on_disconnect(&on_player_disconnect);
-	callback::function_34dea974(level.hero_weapon[#"chakram"][0].dualwieldweapon, &function_cec4ebbd);
-	callback::function_34dea974(level.hero_weapon[#"chakram"][1].dualwieldweapon, &function_cec4ebbd);
-	callback::function_34dea974(level.hero_weapon[#"chakram"][2].dualwieldweapon, &function_cec4ebbd);
+	callback::add_weapon_fired(level.hero_weapon[#"chakram"][0].dualwieldweapon, &function_cec4ebbd);
+	callback::add_weapon_fired(level.hero_weapon[#"chakram"][1].dualwieldweapon, &function_cec4ebbd);
+	callback::add_weapon_fired(level.hero_weapon[#"chakram"][2].dualwieldweapon, &function_cec4ebbd);
 }
 
 /*
@@ -133,7 +133,7 @@ function private function_1d807685()
 		{
 			self notify(#"hero_chakram_activated");
 			self thread function_c965a5a9(wpn_cur);
-			self thread function_20644ac2(wpn_cur);
+			self thread queue_setrotors(wpn_cur);
 		}
 		else if(isinarray(level.hero_weapon[#"chakram"], wpn_prev))
 		{
@@ -468,7 +468,7 @@ function function_cec4ebbd(weapon)
 }
 
 /*
-	Name: function_20644ac2
+	Name: queue_setrotors
 	Namespace: zm_weap_chakram
 	Checksum: 0x26713D2B
 	Offset: 0x1C68
@@ -476,7 +476,7 @@ function function_cec4ebbd(weapon)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_20644ac2(weapon)
+function private queue_setrotors(weapon)
 {
 	self setweaponammoclip(weapon.dualwieldweapon, 1);
 }

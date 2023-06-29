@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using script_35598499769dbb3d;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
@@ -204,7 +204,7 @@ function function_e93a8e82(v_pos, v_angles)
 			{
 				var_ae79b49 = util::spawn_model(w_part.worldmodel, v_ground);
 				waitframe(1);
-				s_unitrigger = var_ae79b49 namespace_2e9c09b3::function_f1827cc6(&function_ba26ccbb, &function_96b866fc, undefined, 96);
+				s_unitrigger = var_ae79b49 zm_item_pickup::create_item_pickup(&function_ba26ccbb, &function_96b866fc, undefined, 96);
 				var_ae79b49.targetname = "dynamite_item_drop";
 				var_ae79b49.var_8691c7d4 = 1;
 				var_ae79b49.w_part = w_part;
@@ -703,7 +703,7 @@ function function_6ecfea46()
 			{
 				if(isdefined(s_crafting.blueprint) && s_crafting.blueprint.name === "zblueprint_orange_dynamite_bomb" && (!(isdefined(s_crafting.registered) && s_crafting.registered)))
 				{
-					s_crafting zm_crafting::function_6dccf508();
+					s_crafting zm_crafting::reset_table();
 				}
 			}
 		}
@@ -713,7 +713,7 @@ function function_6ecfea46()
 			{
 				if(isdefined(s_crafting.blueprint) && s_crafting.blueprint.name === "zblueprint_orange_dynamite_bomb" && (!(isdefined(s_crafting.registered) && s_crafting.registered)))
 				{
-					s_crafting zm_crafting::function_6dccf508();
+					s_crafting zm_crafting::reset_table();
 				}
 			}
 		}

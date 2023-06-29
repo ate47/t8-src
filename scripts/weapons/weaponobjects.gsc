@@ -149,8 +149,8 @@ function on_player_spawned()
 		self.weaponobjectwatcherarray = [];
 	}
 	self thread watchweaponobjectspawn();
-	self callback::function_e0b66c97(&function_e0b66c97);
-	self callback::function_d800788e(&function_d800788e);
+	self callback::on_detonate(&on_detonate);
+	self callback::on_double_tap_detonate(&on_double_tap_detonate);
 	self trophy_system::ammo_reset();
 	pixendevent();
 }
@@ -2974,7 +2974,7 @@ function deleteonkillbrush(player)
 }
 
 /*
-	Name: function_d800788e
+	Name: on_double_tap_detonate
 	Namespace: weaponobjects
 	Checksum: 0x40AF2527
 	Offset: 0x6EC0
@@ -2982,7 +2982,7 @@ function deleteonkillbrush(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_d800788e()
+function on_double_tap_detonate()
 {
 	buttontime = 0;
 	if(!isalive(self) && !self util::isusingremote())
@@ -2999,7 +2999,7 @@ function function_d800788e()
 }
 
 /*
-	Name: function_e0b66c97
+	Name: on_detonate
 	Namespace: weaponobjects
 	Checksum: 0x7C681E0C
 	Offset: 0x6F70
@@ -3007,7 +3007,7 @@ function function_d800788e()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e0b66c97()
+function on_detonate()
 {
 	if(self isusingoffhand())
 	{
@@ -3093,7 +3093,7 @@ function saydamaged(orig, amount)
 function private function_c9fc5521(player, weapon)
 {
 	maxammo = 0;
-	loadout = player loadout::function_1ee886f7(weapon);
+	loadout = player loadout::find_loadout_slot(weapon);
 	if(isdefined(loadout))
 	{
 		if(loadout.count > 0)

@@ -243,19 +243,19 @@ function private function_10c80e10(eventstruct)
 	{
 		foreach(weapon in self getweaponslist(1))
 		{
-			var_568a2ffc = 1;
+			can_lock = 1;
 			if(isdefined(level.var_ddff6359))
 			{
 				foreach(w_perk in level.var_ddff6359)
 				{
 					if(w_perk == weapon)
 					{
-						var_568a2ffc = 0;
+						can_lock = 0;
 						break;
 					}
 				}
 			}
-			if(var_568a2ffc)
+			if(can_lock)
 			{
 				self function_28602a03(weapon, 1, 0);
 				if(weapon.dualwieldweapon != level.weaponnone)
@@ -497,7 +497,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 			level zm_trial::function_25ee130(1);
 			break;
 		}
-		case "hash_2a9cff6031a07658":
+		case "tommy_gun":
 		{
 			var_e7beaa5 = array(#"smg_thompson_t8", #"smg_thompson_t8_upgraded");
 			objective_struct = struct::get("smg_thompson_t8", "zombie_weapon_upgrade");
@@ -556,7 +556,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 		}
 	}
 	callback::function_33f0ddd3(&function_33f0ddd3);
-	callback::function_f77ced93(&zm_trial_util::function_79518194);
+	callback::on_weapon_change(&zm_trial_util::function_79518194);
 	zm_traps::function_6966417b();
 	self function_e20ebcfd();
 	if(isdefined(var_fda63ae3))
@@ -586,7 +586,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 		}
 		foreach(player in getplayers())
 		{
-			player thread function_c305f695(self);
+			player thread monitor_objective(self);
 		}
 	}
 }
@@ -612,7 +612,7 @@ function private on_end(round_reset)
 	}
 	level.var_869ea5a = undefined;
 	callback::function_824d206(&function_33f0ddd3);
-	callback::function_5a753d97(&zm_trial_util::function_79518194);
+	callback::remove_on_weapon_change(&zm_trial_util::function_79518194);
 	challenge = zm_trial::function_a36e8c38(#"restrict_loadout");
 	if(challenge.var_e097dc07 === #"snowballs")
 	{
@@ -851,7 +851,7 @@ function private function_f3fdd8f7()
 }
 
 /*
-	Name: function_c305f695
+	Name: monitor_objective
 	Namespace: zm_trial_restrict_loadout
 	Checksum: 0x8EF1F1ED
 	Offset: 0x3248
@@ -859,7 +859,7 @@ function private function_f3fdd8f7()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_c305f695(challenge)
+function private monitor_objective(challenge)
 {
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656");

@@ -345,7 +345,7 @@ function activateuav()
 	uav.weapon = getweapon("uav");
 	uav setweapon(uav.weapon);
 	uav.targetname = "uav";
-	uav util::function_c596f193();
+	uav util::make_sentient();
 	uav killstreaks::configure_team("uav", killstreak_id, self, undefined, undefined, &configureteampost);
 	uav killstreak_hacking::enable_hacking("uav", &hackedprefunction, undefined);
 	uav clientfield::set("enemyvehicle", 1);

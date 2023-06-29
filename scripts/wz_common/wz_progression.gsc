@@ -2,7 +2,7 @@
 #using scripts\core_common\loot_tracking.gsc;
 #using script_1d29de500c266470;
 #using scripts\wz_common\wz_contracts.gsc;
-#using script_39bd5b6b799b1c9c;
+#using scripts\mp_common\item_world_util.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\wz_common\gametypes\warzone.gsc;
 #using scripts\mp_common\player\player_record.gsc;
@@ -53,15 +53,15 @@ function __init__()
 	callback::on_item_pickup(&function_106be0dc);
 	callback::on_item_pickup(&on_item_pickup);
 	callback::on_item_use(&function_393ec79e);
-	callback::function_c55a0479(&function_6c478b00);
+	callback::on_stash_open(&function_6c478b00);
 	callback::add_callback(#"freefall", &function_c9a18304);
 	callback::on_challenge_complete(&on_challenge_complete);
-	callback::function_ed93a653(&function_ed93a653);
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_character_unlock(&on_character_unlock);
+	callback::on_game_playing(&on_game_playing);
 	callback::on_downed(&function_a117c988);
 	callback::on_player_killed_with_params(&on_player_killed);
 	callback::function_14dae612(&function_14dae612);
-	callback::function_1ae8059(&function_1ae8059);
+	callback::on_contract_complete(&on_contract_complete);
 	level.var_c8453874 = &function_35ac33e1;
 	level.var_959f44cf = &function_59c85637;
 	level.merits = {};
@@ -134,7 +134,7 @@ event codecallback_medal(eventstruct)
 }
 
 /*
-	Name: function_1ae8059
+	Name: on_contract_complete
 	Namespace: wz_progression
 	Checksum: 0x87622787
 	Offset: 0xCA8
@@ -142,7 +142,7 @@ event codecallback_medal(eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1ae8059(params)
+function on_contract_complete(params)
 {
 	player = params.player;
 	if(isdefined(player) && isdefined(player.pers) && isdefined(player.pers[#"contracts"]) && isdefined(player.pers[#"contracts"][params.var_38280f2f]))
@@ -685,7 +685,7 @@ function function_5648f82(team)
 }
 
 /*
-	Name: function_66fe9481
+	Name: on_vehicle_enter
 	Namespace: wz_progression
 	Checksum: 0x53EFD407
 	Offset: 0x2870
@@ -693,7 +693,7 @@ function function_5648f82(team)
 	Parameters: 3
 	Flags: Linked
 */
-function function_66fe9481(vehicle, player, seatindex)
+function on_vehicle_enter(vehicle, player, seatindex)
 {
 	if(level.inprematchperiod)
 	{
@@ -1543,7 +1543,7 @@ function function_16de96c7(player)
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: wz_progression
 	Checksum: 0x93268A2
 	Offset: 0x4FF0
@@ -1551,7 +1551,7 @@ function function_16de96c7(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_98a0917d(params)
+function on_game_playing(params)
 {
 	level.var_98df02a8 = gettime();
 	foreach(team, _ in level.teams)
@@ -1635,7 +1635,7 @@ function on_challenge_complete(params)
 }
 
 /*
-	Name: function_ed93a653
+	Name: on_character_unlock
 	Namespace: wz_progression
 	Checksum: 0xEBE27BDA
 	Offset: 0x55A8
@@ -1643,7 +1643,7 @@ function on_challenge_complete(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ed93a653(params)
+function on_character_unlock(params)
 {
 	if(isplayer(self))
 	{
@@ -1705,7 +1705,7 @@ function on_item_pickup(params)
 	count = params.count;
 	if(isplayer(self))
 	{
-		if(isdefined(item.var_a6762160) && item.var_a6762160.itemtype === #"resource" && namespace_ad5a0cd6::function_41f06d9d(item.var_a6762160) && count > 0)
+		if(isdefined(item.var_a6762160) && item.var_a6762160.itemtype === #"resource" && item_world_util::function_41f06d9d(item.var_a6762160) && count > 0)
 		{
 			self stats::function_dad108fa(#"items_paint_cans_collected", count);
 			self stats::function_b7f80d87("paint_cans_collected", count);

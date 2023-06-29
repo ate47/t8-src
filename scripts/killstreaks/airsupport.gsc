@@ -777,7 +777,7 @@ function function_e0e908c3(var_dbd23dc, path, stopatgoal)
 			var_baa92af9 = ispointinnavvolume(self.origin, "navvolume_big");
 			if(var_baa92af9)
 			{
-				self util::function_c596f193();
+				self util::make_sentient();
 				break;
 			}
 			waitframe(1);

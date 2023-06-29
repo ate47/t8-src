@@ -282,7 +282,7 @@ function on_finalize_initialization(func, obj)
 }
 
 /*
-	Name: function_d46d9315
+	Name: on_gameplay_started
 	Namespace: callback
 	Checksum: 0xF1F37C6A
 	Offset: 0xA18
@@ -290,9 +290,9 @@ function on_finalize_initialization(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d46d9315(func, obj)
+function on_gameplay_started(func, obj)
 {
-	add_callback(#"hash_53992479a389b987", func, obj);
+	add_callback(#"on_gameplay_started", func, obj);
 }
 
 /*
@@ -366,7 +366,7 @@ function on_laststand(func, obj)
 }
 
 /*
-	Name: function_53888e7f
+	Name: remove_on_laststand
 	Namespace: callback
 	Checksum: 0x9FD810F3
 	Offset: 0xBC8
@@ -374,7 +374,7 @@ function on_laststand(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_53888e7f(func, obj)
+function remove_on_laststand(func, obj)
 {
 	remove_callback(#"on_player_laststand", func, obj);
 }
@@ -408,7 +408,7 @@ function function_930e5d42(func, obj)
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: callback
 	Checksum: 0xB4149076
 	Offset: 0xCA0
@@ -416,7 +416,7 @@ function function_930e5d42(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_f77ced93(func, obj)
+function on_weapon_change(func, obj)
 {
 	self add_entity_callback(#"weapon_change", func, obj);
 }
@@ -520,7 +520,7 @@ function on_end_game(func, obj)
 }
 
 /*
-	Name: function_b195a021
+	Name: remove_on_end_game
 	Namespace: callback
 	Checksum: 0x10A71A9
 	Offset: 0xEE0
@@ -528,7 +528,7 @@ function on_end_game(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_b195a021(func, obj)
+function remove_on_end_game(func, obj)
 {
 	remove_callback(#"on_end_game", func, obj);
 }
@@ -590,7 +590,7 @@ function on_trigger(func, obj)
 }
 
 /*
-	Name: function_b74bf3e
+	Name: remove_on_trigger
 	Namespace: callback
 	Checksum: 0x9385B436
 	Offset: 0x1048
@@ -598,13 +598,13 @@ function on_trigger(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_b74bf3e(func, obj)
+function remove_on_trigger(func, obj)
 {
 	function_52ac9652(#"on_trigger", func, obj);
 }
 
 /*
-	Name: function_a04381e0
+	Name: on_trigger_once
 	Namespace: callback
 	Checksum: 0x1F05E6FB
 	Offset: 0x1090
@@ -612,13 +612,13 @@ function function_b74bf3e(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_a04381e0(func, obj)
+function on_trigger_once(func, obj)
 {
-	add_entity_callback(#"hash_46d459e3750a3345", func, obj);
+	add_entity_callback(#"on_trigger_once", func, obj);
 }
 
 /*
-	Name: function_3507ed1f
+	Name: remove_on_trigger_once
 	Namespace: callback
 	Checksum: 0x54D46E4
 	Offset: 0x10D8
@@ -626,9 +626,9 @@ function function_a04381e0(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3507ed1f(func, obj)
+function remove_on_trigger_once(func, obj)
 {
-	function_52ac9652(#"hash_46d459e3750a3345", func, obj);
+	function_52ac9652(#"on_trigger_once", func, obj);
 }
 
 /*
@@ -1845,8 +1845,8 @@ event function_6eb09118(eventstruct)
 	if(isdefined(level.var_a6c75fcb))
 	{
 		self callback(#"on_trigger", eventstruct);
-		self callback(#"hash_46d459e3750a3345", eventstruct);
-		self function_3507ed1f("all");
+		self callback(#"on_trigger_once", eventstruct);
+		self remove_on_trigger_once("all");
 	}
 }
 

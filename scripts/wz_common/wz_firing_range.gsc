@@ -5,7 +5,7 @@
 #namespace wz_firing_range;
 
 /*
-	Name: function_ea0556fc
+	Name: init_targets
 	Namespace: wz_firing_range
 	Checksum: 0xB8F48EBE
 	Offset: 0x88
@@ -13,7 +13,7 @@
 	Parameters: 1
 	Flags: Linked
 */
-function function_ea0556fc(targetname)
+function init_targets(targetname)
 {
 	targets = getdynentarray(targetname);
 	foreach(target in targets)

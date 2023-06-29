@@ -682,19 +682,19 @@ function private play_potm_on_player(event)
 		self [[game.var_321b0d80]](event.clientxuid);
 	}
 	var_f699686a = #"melee_amuletfist_t8";
-	var_45552e04 = 0;
+	hide_event = 0;
 	var_61d85ed2 = event.var_ba8bdc4c.var_61d85ed2;
 	if(isdefined(var_61d85ed2))
 	{
 		if(var_61d85ed2.weapon.name == var_f699686a)
 		{
-			var_45552e04 = 1;
+			hide_event = 1;
 			/#
 				println("");
 			#/
 		}
 	}
-	if(!var_45552e04)
+	if(!hide_event)
 	{
 		play_potm_on_player_internal(event);
 	}

@@ -841,7 +841,7 @@ function function_9d1d7efd()
 		}
 		if(a_players.size > 0 && level.pablo_npc.var_f75b1f16.size < 1)
 		{
-			if(a_players[0] zm_audio::function_65e5c19a() && !level flag::get(#"hell_on_earth"))
+			if(a_players[0] zm_audio::can_speak() && !level flag::get(#"hell_on_earth"))
 			{
 				player = array::random(a_players);
 				player thread zm_orange_util::function_51b752a9(#"hash_14a884c0dda265b2", -1, 0, 1);
@@ -907,7 +907,7 @@ function function_cbb8e588()
 			if(player zm_zonemgr::get_player_zone() === "artifact_storage" && player cansee(blood))
 			{
 				wait(1);
-				if(player cansee(blood) && player zm_audio::function_65e5c19a() && !level flag::get(#"hell_on_earth"))
+				if(player cansee(blood) && player zm_audio::can_speak() && !level flag::get(#"hell_on_earth"))
 				{
 					player zm_orange_util::function_51b752a9(#"hash_21c0a11438981749");
 					return;

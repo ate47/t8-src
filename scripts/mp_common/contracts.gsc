@@ -67,8 +67,8 @@ function finalize_init()
 		challenges::registerchallengescallback("playerKilled", &contract_kills);
 		challenges::registerchallengescallback("gameEnd", &function_a4c8ce2a);
 		globallogic_score::registercontractwinevent(&contract_win);
-		register_player_contract_event(#"ekia", &function_71eb8a5a, 1);
-		register_player_contract_event(#"objective_ekia", &function_660b0026);
+		register_player_contract_event(#"ekia", &on_ekia, 1);
+		register_player_contract_event(#"objective_ekia", &on_objective_ekia);
 		level.var_79a93566 = &function_902ef0de;
 		level.var_c3e2bb05 = 1;
 		/#
@@ -215,7 +215,7 @@ function function_a34653da(weapon)
 }
 
 /*
-	Name: function_71eb8a5a
+	Name: on_ekia
 	Namespace: contracts
 	Checksum: 0x1E57D6E3
 	Offset: 0x790
@@ -223,7 +223,7 @@ function function_a34653da(weapon)
 	Parameters: 1
 	Flags: None
 */
-function function_71eb8a5a(weapon)
+function on_ekia(weapon)
 {
 	player = self;
 	if(level.hardcoremode)
@@ -290,11 +290,11 @@ function function_71eb8a5a(weapon)
 	}
 	if(var_8a4cfbd)
 	{
-		player function_a54e2068(#"hash_6b52fb637a3c29cb");
+		player increment_contract(#"hash_6b52fb637a3c29cb");
 	}
 	else if(weapon.issignatureweapon)
 	{
-		player function_a54e2068(#"hash_31a6484e36a0a20f");
+		player increment_contract(#"hash_31a6484e36a0a20f");
 	}
 	loadout_primary_weapon = player loadout::function_18a77b37("primary");
 	loadout_secondary_weapon = player loadout::function_18a77b37("secondary");
@@ -326,7 +326,7 @@ function function_71eb8a5a(weapon)
 }
 
 /*
-	Name: function_660b0026
+	Name: on_objective_ekia
 	Namespace: contracts
 	Checksum: 0x506CC28A
 	Offset: 0xC10
@@ -334,9 +334,9 @@ function function_71eb8a5a(weapon)
 	Parameters: 0
 	Flags: None
 */
-function function_660b0026()
+function on_objective_ekia()
 {
-	self function_a54e2068(#"hash_674ddfad917fa524");
+	self increment_contract(#"hash_674ddfad917fa524");
 }
 
 /*

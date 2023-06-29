@@ -54,7 +54,7 @@ function function_2613aeec(enabled)
 		callback::add_callback(#"hash_3c09ead7e9d8a968", &function_19a80b40);
 		callback::add_callback(#"hash_6aa0232dd3c8376a", &function_8bf71bd6);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 	}
 }
 
@@ -94,10 +94,10 @@ function function_19a80b40(var_a0ffe134)
 	{
 		return;
 	}
-	var_232d0f3b = gate.origin + rotatepoint((100, 25, 0), gate.angles);
+	check_origin = gate.origin + rotatepoint((100, 25, 0), gate.angles);
 	/#
 	#/
-	if(distancesquared(var_a0ffe134.origin, var_232d0f3b) > 150 * 150)
+	if(distancesquared(var_a0ffe134.origin, check_origin) > 150 * 150)
 	{
 		return;
 	}
@@ -137,10 +137,10 @@ function function_8bf71bd6()
 	{
 		return;
 	}
-	var_232d0f3b = gate.origin + rotatepoint((100, 25, 0), gate.angles);
+	check_origin = gate.origin + rotatepoint((100, 25, 0), gate.angles);
 	/#
 	#/
-	if(distancesquared(self.origin, var_232d0f3b) > 150 * 150)
+	if(distancesquared(self.origin, check_origin) > 150 * 150)
 	{
 		return;
 	}

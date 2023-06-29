@@ -59,7 +59,7 @@ function shock_apply(var_756fda07, weapon, var_84171a6c)
 	if(self.var_52b189ce)
 	{
 		self.owner setelectrifiedstate(1);
-		self thread function_51356342(float(self.duration) / 1000);
+		self thread shock_rumble_loop(float(self.duration) / 1000);
 		self.owner playsound(#"hash_7d53dd7b886b60ae");
 	}
 }
@@ -91,7 +91,7 @@ function shock_end()
 }
 
 /*
-	Name: function_51356342
+	Name: shock_rumble_loop
 	Namespace: status_effect_shock
 	Checksum: 0x9FDA9772
 	Offset: 0x398
@@ -99,10 +99,10 @@ function shock_end()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_51356342(duration)
+function private shock_rumble_loop(duration)
 {
-	self notify(#"hash_50998937b8ffdf86");
-	self endon(#"hash_50998937b8ffdf86", #"endstatuseffect");
+	self notify(#"shock_rumble_loop");
+	self endon(#"shock_rumble_loop", #"endstatuseffect");
 	self.owner endon(#"disconnect", #"death");
 	goaltime = gettime() + (int(duration * 1000));
 	while(gettime() < goaltime && isdefined(self.owner))

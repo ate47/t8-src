@@ -77,13 +77,13 @@ function enable_stronghold_perk_for_level()
 	}
 	zm_perks::register_perk_precache_func(#"specialty_camper", &function_e03779ee);
 	zm_perks::register_perk_clientfields(#"specialty_camper", &function_356a31cb, &function_721cc6dc);
-	zm_perks::register_perk_machine(#"specialty_camper", &function_f15d3355, &function_eaf3e7f1);
+	zm_perks::register_perk_machine(#"specialty_camper", &function_f15d3355, &init_stronghold);
 	zm_perks::register_perk_threads(#"specialty_camper", &function_1dd08a86, &function_9a3871b7);
 	zm_perks::register_actor_damage_override(#"specialty_camper", &function_11154900);
 }
 
 /*
-	Name: function_eaf3e7f1
+	Name: init_stronghold
 	Namespace: zm_perk_stronghold
 	Checksum: 0x80F724D1
 	Offset: 0x488
@@ -91,7 +91,7 @@ function enable_stronghold_perk_for_level()
 	Parameters: 0
 	Flags: Linked
 */
-function function_eaf3e7f1()
+function init_stronghold()
 {
 }
 
@@ -280,13 +280,13 @@ function function_a84fcb78(var_3a553e99)
 	}
 	if((var_3a553e99 % var_cf385861) == 0)
 	{
-		self function_7e0559c1();
+		self add_armor();
 		self function_c25b980c();
 	}
 }
 
 /*
-	Name: function_7e0559c1
+	Name: add_armor
 	Namespace: zm_perk_stronghold
 	Checksum: 0x18AF00EA
 	Offset: 0xAB0
@@ -294,7 +294,7 @@ function function_a84fcb78(var_3a553e99)
 	Parameters: 0
 	Flags: Linked
 */
-function function_7e0559c1()
+function add_armor()
 {
 	self zm_armor::add(#"stronghold_armor", 5, 50, #"");
 }

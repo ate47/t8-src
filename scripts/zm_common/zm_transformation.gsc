@@ -385,7 +385,7 @@ function function_331869(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e95ec8df(var_163b90b4 = 0)
+function function_e95ec8df(clear_active = 0)
 {
 	foreach(transformation in level.var_b175714d)
 	{

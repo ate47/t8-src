@@ -235,7 +235,7 @@ function function_561d9cff()
 	level flag::set(#"hash_e8247a060147428");
 	exploder::stop_exploder("fxexp_narr_campfire");
 	exploder::exploder("fxexp_narr_campfire_blue");
-	zm_hms_util::function_314447b(1, 1);
+	zm_hms_util::pause_zombies(1, 1);
 	level flag::set(#"hold_round_end");
 	level.sndvoxoverride = 1;
 	wait(5);
@@ -273,7 +273,7 @@ function function_561d9cff()
 	wait(n_wait);
 	level.sndvoxoverride = undefined;
 	level flag::clear(#"hold_round_end");
-	zm_hms_util::function_314447b(0);
+	zm_hms_util::pause_zombies(0);
 	exploder::stop_exploder("fxexp_narr_campfire_blue");
 	exploder::exploder("fxexp_narr_campfire");
 	level flag::clear(#"hash_e8247a060147428");

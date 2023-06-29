@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_170a9c130859c688;
+#using scripts\mp_common\item_world_fixup.gsc;
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using scripts\wz_common\character_unlock.gsc;
@@ -52,14 +52,14 @@ function function_2613aeec(enabled)
 	{
 		callback::on_item_use(&function_a2877194);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 		if(isdefined(getgametypesetting(#"hash_17f17e92c2654659")) && getgametypesetting(#"hash_17f17e92c2654659"))
 		{
-			namespace_b0722f43::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_2b1e613a3cc4bf97", 2);
+			item_world_fixup::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_2b1e613a3cc4bf97", 2);
 		}
 		else
 		{
-			namespace_b0722f43::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_2b1e613a3cc4bf97", 6);
+			item_world_fixup::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_2b1e613a3cc4bf97", 6);
 		}
 	}
 }

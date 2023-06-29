@@ -51,7 +51,7 @@ function gameplay_started_callback(localclientnum, oldval, newval, bnewent, bini
 	setdvar(#"cg_isgameplayactive", newval);
 	if(newval)
 	{
-		level callback::callback(#"hash_53992479a389b987", localclientnum);
+		level callback::callback(#"on_gameplay_started", localclientnum);
 	}
 }
 

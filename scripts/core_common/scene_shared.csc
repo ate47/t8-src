@@ -1107,7 +1107,7 @@ class csceneobject : cscriptbundleobjectbase
 	}
 
 	/*
-		Name: function_dc9b0249
+		Name: find_entry
 		Namespace: csceneobject
 		Checksum: 0xB794EA6F
 		Offset: 0x1FB8
@@ -1115,7 +1115,7 @@ class csceneobject : cscriptbundleobjectbase
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_dc9b0249(n_shot = 0, str_entry_type)
+	function find_entry(n_shot = 0, str_entry_type)
 	{
 		if(isdefined(_s.shots[n_shot]) && isdefined(_s.shots[n_shot].entry))
 		{
@@ -1694,7 +1694,7 @@ class cscene : cscriptbundlebase
 	}
 
 	/*
-		Name: function_c9f40212
+		Name: get_next_shot
 		Namespace: cscene
 		Checksum: 0xE30369DB
 		Offset: 0x6B48
@@ -1702,7 +1702,7 @@ class cscene : cscriptbundlebase
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_c9f40212()
+	function get_next_shot()
 	{
 		if(_s.scenetype === "scene")
 		{
@@ -1851,7 +1851,7 @@ class cscene : cscriptbundlebase
 		}
 		else
 		{
-			var_1a15e649 = function_c9f40212();
+			var_1a15e649 = get_next_shot();
 			function_ea4a6812(str_current_shot);
 			if(isdefined(var_1a15e649))
 			{

@@ -115,7 +115,7 @@ function on_player_disconnect()
 }
 
 /*
-	Name: function_88a60d36
+	Name: register_talisman
 	Namespace: zm_talisman
 	Checksum: 0x203E3EE
 	Offset: 0x598
@@ -123,7 +123,7 @@ function on_player_disconnect()
 	Parameters: 2
 	Flags: Linked
 */
-function function_88a60d36(var_240061ef, activate_talisman)
+function register_talisman(var_240061ef, activate_talisman)
 {
 	/#
 		assert(isdefined(var_240061ef), "");

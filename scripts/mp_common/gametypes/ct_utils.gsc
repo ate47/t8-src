@@ -96,7 +96,7 @@ function __init__()
 	}
 	callback::on_spawned(&ct_bots::on_bot_spawned);
 	level.ct_shared_desc = ct_shared_desc::register("ct_shared_desc");
-	lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
+	lui::add_luimenu("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
 	level.var_e92a00d3 = &function_e92a00d3;
 	level.var_c3af52cc = &function_c3af52cc;
 	level._objective_zapper_tall = &_objective_zapper_tall;
@@ -510,7 +510,7 @@ function function_d6cbd165(statename)
 function function_be3a76b7(var_7756eaf3)
 {
 	level.var_13ae9d89 = [];
-	if(level.var_cd9d597c !== 0)
+	if(level.ctdifficulty !== 0)
 	{
 		level.var_13ae9d89[#"desc"] = hash(var_7756eaf3 + "_desc");
 		level.var_13ae9d89[#"fadeout"] = hash(var_7756eaf3 + "_fadeout");
@@ -1698,7 +1698,7 @@ function create_waypoint(var_1ce6b997, v_origin, v_normal, str_team, var_e9633e9
 		level thread highlight_sphere_on(v_origin, v_normal, var_9c8d914);
 		if(isdefined(waypoint))
 		{
-			waypoint thread function_4837e06f(v_origin, v_normal, var_9c8d914);
+			waypoint thread update_glow(v_origin, v_normal, var_9c8d914);
 			waypoint.var_6f8e529b = 1;
 		}
 	}
@@ -1706,7 +1706,7 @@ function create_waypoint(var_1ce6b997, v_origin, v_normal, str_team, var_e9633e9
 }
 
 /*
-	Name: function_4837e06f
+	Name: update_glow
 	Namespace: ct_utils
 	Checksum: 0x7F8CF3C1
 	Offset: 0x4358
@@ -1714,7 +1714,7 @@ function create_waypoint(var_1ce6b997, v_origin, v_normal, str_team, var_e9633e9
 	Parameters: 3
 	Flags: None
 */
-function function_4837e06f(var_c386a7d2, var_a97eacb3, var_9c8d914)
+function update_glow(var_c386a7d2, var_a97eacb3, var_9c8d914)
 {
 	self endon(#"death");
 	level endon(#"combattraining_logic_finished");
@@ -2647,7 +2647,7 @@ function function_4efa232a(str_flag)
 function function_f03da80a()
 {
 	wait(0.25);
-	if(level.var_cd9d597c === 0)
+	if(level.ctdifficulty === 0)
 	{
 		str_start = level.var_8758a1cf + "_tutorial";
 		a_s_start = struct::get_array(str_start, "script_noteworthy");
@@ -2979,7 +2979,7 @@ function function_292141a(_hash)
 }
 
 /*
-	Name: function_c3a6c010
+	Name: cleanup_globals
 	Namespace: ct_utils
 	Checksum: 0x634089BC
 	Offset: 0x7280
@@ -2987,7 +2987,7 @@ function function_292141a(_hash)
 	Parameters: 0
 	Flags: None
 */
-function function_c3a6c010()
+function cleanup_globals()
 {
 	setdvar(#"custom_killstreak_mode", 0);
 	setdvar(#"custom_killstreak1", "");
@@ -3013,10 +3013,10 @@ function function_c3a6c010()
 function function_c1699637()
 {
 	function_64f9f527();
-	function_c3a6c010();
+	cleanup_globals();
 	level.skipgameend = 1;
 	level.var_8eb8847f = 1;
-	round::function_d1e740f6(#"allies");
+	round::set_winner(#"allies");
 	globallogic::end_round(1);
 }
 
@@ -3031,10 +3031,10 @@ function function_c1699637()
 */
 function tutorial_goto(loc, str_waypoint = #"hash_1f1deaa6bff12db8", var_a0b3876d = 64, var_55ce88ff, var_3b37a003 = "tutorial_goto_done", var_8fe28ab0 = 0)
 {
-	level endoncallback(&function_4542f02, #"combattraining_logic_finished", #"hash_56fb6ae4bbd573d9");
+	level endoncallback(&tutorial_goto_end, #"combattraining_logic_finished", #"tutorial_goto_end");
 	if(isdefined(var_8fe28ab0) && var_8fe28ab0)
 	{
-		self endoncallback(&function_4542f02, #"death");
+		self endoncallback(&tutorial_goto_end, #"death");
 	}
 	if(isvec(loc))
 	{
@@ -3096,7 +3096,7 @@ function tutorial_goto(loc, str_waypoint = #"hash_1f1deaa6bff12db8", var_a0b3876
 }
 
 /*
-	Name: function_4542f02
+	Name: tutorial_goto_end
 	Namespace: ct_utils
 	Checksum: 0x71DD25BD
 	Offset: 0x7820
@@ -3104,7 +3104,7 @@ function tutorial_goto(loc, str_waypoint = #"hash_1f1deaa6bff12db8", var_a0b3876
 	Parameters: 1
 	Flags: None
 */
-function function_4542f02(_hash)
+function tutorial_goto_end(_hash)
 {
 	level notify(#"hash_360fb35e8476aec5");
 	if(isdefined(level.var_d811d31a))
@@ -3280,7 +3280,7 @@ function function_bcc0f2a2(_hash)
 }
 
 /*
-	Name: function_58bc60d5
+	Name: ai_stationary
 	Namespace: ct_utils
 	Checksum: 0xE25FF777
 	Offset: 0x7F58
@@ -3288,7 +3288,7 @@ function function_bcc0f2a2(_hash)
 	Parameters: 0
 	Flags: None
 */
-function function_58bc60d5()
+function ai_stationary()
 {
 	level endon(#"combattraining_logic_finished");
 	self endon(#"death", #"hash_2f17e3b45d334fa4");
@@ -3936,7 +3936,7 @@ function is_jumping()
 }
 
 /*
-	Name: function_56ae4d76
+	Name: get_trace
 	Namespace: ct_utils
 	Checksum: 0x9A7759E
 	Offset: 0x9548
@@ -3944,7 +3944,7 @@ function is_jumping()
 	Parameters: 2
 	Flags: None
 */
-function function_56ae4d76(old_position, new_position)
+function get_trace(old_position, new_position)
 {
 	size = 10;
 	height = size * 2;
@@ -3965,7 +3965,7 @@ function function_56ae4d76(old_position, new_position)
 */
 function function_b7f367ed(old_position, new_position)
 {
-	trace = function_56ae4d76(old_position, new_position);
+	trace = get_trace(old_position, new_position);
 	if(trace[#"fraction"] < 1)
 	{
 		return false;
@@ -4195,7 +4195,7 @@ function function_3e0767e2(b_play_fx = 1)
 		playfx("player/fx8_plyr_spawn_distortion", self.origin, anglestoforward(ex_elevator_overlight_indicator_), anglestoup(ex_elevator_overlight_indicator_));
 	}
 	self setorigin(vectorscale((-1, -1, -1), 10000));
-	self ct_bots::function_991ccf1a();
+	self ct_bots::disablebot();
 }
 
 /*
@@ -4351,7 +4351,7 @@ function function_c3e647e2(str_weapon, attachments)
 function function_84adcd1f()
 {
 	var_e6b5e0d7 = getdvar(#"hash_3fb2952874e511c2");
-	hands_weapon = getweapon((isdefined(var_e6b5e0d7) ? var_e6b5e0d7 : #"hash_286a30586a6aed12"));
+	hands_weapon = getweapon((isdefined(var_e6b5e0d7) ? var_e6b5e0d7 : #"bare_hands_ct"));
 	return hands_weapon;
 }
 
@@ -5707,7 +5707,7 @@ function function_31a67d65(e_target, var_6ae0852b)
 		{
 			if(isbot(e_target))
 			{
-				e_target ct_bots::function_991ccf1a();
+				e_target ct_bots::disablebot();
 			}
 			else
 			{
@@ -5975,7 +5975,7 @@ function delete_corpses()
 }
 
 /*
-	Name: function_d153452e
+	Name: get_roleindex
 	Namespace: ct_utils
 	Checksum: 0x3D6AE6E4
 	Offset: 0xE488
@@ -5983,7 +5983,7 @@ function delete_corpses()
 	Parameters: 1
 	Flags: None
 */
-function function_d153452e(name)
+function get_roleindex(name)
 {
 	sessionmode = currentsessionmode();
 	playerroletemplatecount = getplayerroletemplatecount(sessionmode);
@@ -6082,7 +6082,7 @@ function function_daa27144()
 }
 
 /*
-	Name: function_8881abec
+	Name: clear_killstreaks
 	Namespace: ct_utils
 	Checksum: 0xFE29E4D3
 	Offset: 0xE8B8
@@ -6090,7 +6090,7 @@ function function_daa27144()
 	Parameters: 0
 	Flags: None
 */
-function function_8881abec()
+function clear_killstreaks()
 {
 	weaponslist = self getweaponslist();
 	for(idx = 0; idx < weaponslist.size; idx++)

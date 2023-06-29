@@ -84,7 +84,7 @@ function private on_item_use(params)
 		return;
 	}
 	self waittill(#"grenade_fire");
-	self thread function_7dfe3289(params.item.id);
+	self thread spawn_hawk(params.item.id);
 }
 
 /*
@@ -119,7 +119,7 @@ function private function_900bb4f5(params)
 }
 
 /*
-	Name: function_7dfe3289
+	Name: spawn_hawk
 	Namespace: hawk_wz
 	Checksum: 0x7217D9C5
 	Offset: 0x530
@@ -127,7 +127,7 @@ function private function_900bb4f5(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7dfe3289(itemid)
+function spawn_hawk(itemid)
 {
 	self endon(#"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist", #"changed_specialist_death");
 	if(isdefined(self.hawk) && isdefined(self.hawk.vehicle))
@@ -199,7 +199,7 @@ function function_7dfe3289(itemid)
 				return;
 			}
 		}
-		vehicle.var_d733e01c = 1;
+		vehicle.can_control = 1;
 		if(var_a33bcd86)
 		{
 			self.hawk.controlling = 1;
@@ -214,8 +214,8 @@ function function_7dfe3289(itemid)
 			vehicle.var_e9f68b24 = var_865c71c9;
 		}
 		self thread function_1e7eecd7(vehicle, var_a33bcd86);
-		self thread function_76da409d(vehicle);
-		self thread function_df5590b(vehicle);
+		self thread watch_destroyed(vehicle);
+		self thread hawk_update(vehicle);
 		self create_missile_hud(vehicle, var_a33bcd86);
 		self thread watch_team_change(vehicle);
 		self thread oob::function_c5278cb0(vehicle);
@@ -246,7 +246,7 @@ function function_b162cdbd(einflictor, eattacker, idamage, idflags, smeansofdeat
 }
 
 /*
-	Name: function_df5590b
+	Name: hawk_update
 	Namespace: hawk_wz
 	Checksum: 0x33AD2170
 	Offset: 0xCA0
@@ -254,14 +254,14 @@ function function_b162cdbd(einflictor, eattacker, idamage, idflags, smeansofdeat
 	Parameters: 1
 	Flags: Linked
 */
-function function_df5590b(vehicle)
+function hawk_update(vehicle)
 {
 	self endon(#"disconnect", #"joined_team", #"joined_spectators", #"changed_specialist", #"changed_specialist_death");
 	vehicle endon(#"death");
 	playerorigin = self.origin;
 	while(true)
 	{
-		playerorigin = function_ed9fa4fc(vehicle, playerorigin);
+		playerorigin = update_range(vehicle, playerorigin);
 		if(isdefined(self.isjammed) && self.isjammed)
 		{
 			self thread function_1eddba48();
@@ -272,7 +272,7 @@ function function_df5590b(vehicle)
 }
 
 /*
-	Name: function_ed9fa4fc
+	Name: update_range
 	Namespace: hawk_wz
 	Checksum: 0xC36B01BD
 	Offset: 0xD90
@@ -280,7 +280,7 @@ function function_df5590b(vehicle)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ed9fa4fc(vehicle, playerorigin)
+function update_range(vehicle, playerorigin)
 {
 	if(isalive(self))
 	{
@@ -329,7 +329,7 @@ function function_ed9fa4fc(vehicle, playerorigin)
 }
 
 /*
-	Name: function_76da409d
+	Name: watch_destroyed
 	Namespace: hawk_wz
 	Checksum: 0x7E56B4D
 	Offset: 0x1070
@@ -337,7 +337,7 @@ function function_ed9fa4fc(vehicle, playerorigin)
 	Parameters: 1
 	Flags: Linked
 */
-function function_76da409d(vehicle)
+function watch_destroyed(vehicle)
 {
 	self endon(#"disconnect");
 	vehicle waittill(#"death");
@@ -361,7 +361,7 @@ function function_76da409d(vehicle)
 */
 function function_d89c1628(vehicle)
 {
-	if(!(isdefined(vehicle.var_d733e01c) && vehicle.var_d733e01c))
+	if(!(isdefined(vehicle.can_control) && vehicle.can_control))
 	{
 		return false;
 	}
@@ -409,7 +409,7 @@ function private function_1eddba48()
 		return;
 	}
 	hawk.var_720290e3 = 1;
-	hawk.var_d733e01c = 0;
+	hawk.can_control = 0;
 	self.hawk.controlling = 0;
 	self clientfield::set_to_player("static_postfx", 1);
 	var_9e2fe80f = (isdefined(level.hawk_settings.bundle.var_2f47b335) ? level.hawk_settings.bundle.var_2f47b335 : 0.5);
@@ -529,7 +529,7 @@ function function_1b057db2()
 	var_37ea2019 = 0;
 	while(!var_37ea2019 && isalive(self) && self.hawk.controlling)
 	{
-		if(self gestures::function_b204f6e3(var_10a85d23, undefined, 0))
+		if(self gestures::play_gesture(var_10a85d23, undefined, 0))
 		{
 			var_37ea2019 = 1;
 			self waittill(#"exit_vehicle", #"death");

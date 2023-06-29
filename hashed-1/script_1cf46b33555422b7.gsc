@@ -212,16 +212,16 @@ class cLUIelemText : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("x", 1, 7, "int");
-		cLUIelem::function_da693cbe("y", 1, 6, "int");
-		cLUIelem::function_da693cbe("height", 1, 2, "int");
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int");
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float");
-		cLUIelem::function_da693cbe("red", 1, 4, "float");
-		cLUIelem::function_da693cbe("green", 1, 4, "float");
-		cLUIelem::function_da693cbe("blue", 1, 4, "float");
+		cLUIelem::add_clientfield("x", 1, 7, "int");
+		cLUIelem::add_clientfield("y", 1, 6, "int");
+		cLUIelem::add_clientfield("height", 1, 2, "int");
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int");
+		cLUIelem::add_clientfield("alpha", 1, 4, "float");
+		cLUIelem::add_clientfield("red", 1, 4, "float");
+		cLUIelem::add_clientfield("green", 1, 4, "float");
+		cLUIelem::add_clientfield("blue", 1, 4, "float");
 		cLUIelem::function_dcb34c80("string", "text", 1);
-		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int");
+		cLUIelem::add_clientfield("horizontal_alignment", 1, 2, "int");
 	}
 
 }

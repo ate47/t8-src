@@ -127,10 +127,10 @@ function initscoreinfo()
 			var_1a39d14 = tablelookupcolumnforrow(scoreinfotablename, row, 18);
 			var_bdbfb0e = tablelookupcolumnforrow(scoreinfotablename, row, 19);
 			var_a434fd2d = tablelookupcolumnforrow(scoreinfotablename, row, 20);
-			var_f49811d1 = tablelookupcolumnforrow(scoreinfotablename, row, 21);
+			is_deprecated = tablelookupcolumnforrow(scoreinfotablename, row, 21);
 			bounty_reward = tablelookupcolumnforrow(scoreinfotablename, row, 22);
 			var_65181181 = int((isdefined(tablelookupcolumnforrow(scoreinfotablename, row, 24)) ? tablelookupcolumnforrow(scoreinfotablename, row, 24) : 0));
-			registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_objective, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, bounty_reward, var_65181181);
+			registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_objective, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, is_deprecated, bounty_reward, var_65181181);
 			if(!isdefined(game.scoreinfoinitialized))
 			{
 				setddlstat = tablelookupcolumnforrow(scoreinfotablename, row, 12);
@@ -180,7 +180,7 @@ function getrankxpcapped(inrankxp)
 	Parameters: 20
 	Flags: Linked
 */
-function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_obj, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, var_f49811d1, bounty_reward, var_65181181)
+function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_obj, label, medalname, job_type, var_b6593614, var_1a39d14, var_bdbfb0e, var_a434fd2d, is_deprecated, bounty_reward, var_65181181)
 {
 	overridedvar = (("scr_" + level.gametype) + "_score_") + type;
 	if(getdvarstring(overridedvar) != "")
@@ -267,9 +267,9 @@ function registerscoreinfo(type, row, lp, xp, sp, hs, res, var_e775f7ed, dp, is_
 		{
 			level.scoreinfo[type][#"hash_6f22dfa8ea741f95"] = var_a434fd2d;
 		}
-		if(isdefined(var_f49811d1) && var_f49811d1)
+		if(isdefined(is_deprecated) && is_deprecated)
 		{
-			level.scoreinfo[type][#"hash_7b64eabf26f777c7"] = var_f49811d1;
+			level.scoreinfo[type][#"is_deprecated"] = is_deprecated;
 		}
 		if(isdefined(bounty_reward) && bounty_reward)
 		{

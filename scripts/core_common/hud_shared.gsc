@@ -216,7 +216,7 @@ function function_6cf4a466()
 }
 
 /*
-	Name: function_1a5d6fff
+	Name: set_team_objective
 	Namespace: hud
 	Checksum: 0xB8789F55
 	Offset: 0x9A8
@@ -224,7 +224,7 @@ function function_6cf4a466()
 	Parameters: 6
 	Flags: Linked
 */
-function function_1a5d6fff(var_3c9f56bd, var_cc966c56, n_obj_id, n_widget, var_48d81699, b_pvp)
+function set_team_objective(var_3c9f56bd, var_cc966c56, n_obj_id, n_widget, var_48d81699, b_pvp)
 {
 	if(!isdefined(level.var_6371e281))
 	{
@@ -1358,10 +1358,10 @@ function set_pvp_objective(str_identifier, n_obj_id, n_widget, var_48d81699, var
 		if(isdefined(var_ae4241f) && var_ae4241f)
 		{
 			var_ae4241f = undefined;
-			self thread function_1a5d6fff(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
+			self thread set_team_objective(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
 			continue;
 		}
-		self function_1a5d6fff(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
+		self set_team_objective(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
 	}
 	flag::wait_till_all(array("pvp_objective_set_allies", "pvp_objective_set_axis"));
 	mission flag::clear("pvp_objectives_updating");

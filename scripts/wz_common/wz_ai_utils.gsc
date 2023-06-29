@@ -56,7 +56,7 @@ function private __init__()
 	level.var_2510617f = 0;
 	level.var_6eb6193a = 0;
 	level.var_7dff87f1 = 0;
-	level.var_31286808 = getdvarint(#"bg_gravity", 0);
+	level.item_gravity = getdvarint(#"bg_gravity", 0);
 	if(isdefined(getgametypesetting(#"hash_3109a8794543000f")) && getgametypesetting(#"hash_3109a8794543000f"))
 	{
 		if(isdefined(getgametypesetting(#"hash_42471cb0cbc19544")) && getgametypesetting(#"hash_42471cb0cbc19544"))
@@ -104,7 +104,7 @@ function function_b4f41a02()
 {
 	/#
 		level endon(#"game_ended");
-		aitypes = array(#"spawner_boct_zombie_wz", #"hash_618248fca82d83a6", #"hash_50c4ae7eab84983b", #"spawner_boct_zombie_dog_wz", #"hash_2d45c1aaf7808b60", #"spawner_boct_brutus_wz", #"hash_78b8c004294d69fe");
+		aitypes = array(#"spawner_boct_zombie_wz", #"hash_618248fca82d83a6", #"spawner_wz_blight_father", #"spawner_boct_zombie_dog_wz", #"spawner_boct_brutus_special_wz", #"spawner_boct_brutus_wz", #"spawner_boct_avogadro");
 		setdvar(#"hash_209287456d55fca1", "");
 		foreach(type in aitypes)
 		{
@@ -271,16 +271,16 @@ function debug_ai()
 							print3d(org, (("" + entity.surfacetype) + "") + entity.var_db912cfe, (1, 0.5, 0), 1, 0.2);
 						}
 					}
-					if(isdefined(entity.var_1e9a96f7))
+					if(isdefined(entity.is_special))
 					{
 						org = entity.origin + vectorscale((0, 0, 1), 200);
 						if(getdvarint(#"recorder_enablerec", 0))
 						{
-							record3dtext(((("" + entity.var_1e9a96f7) + "") + entity.var_1e9a96f7) + "", entity.origin, (1, 0.5, 0), "", entity);
+							record3dtext(((("" + entity.is_special) + "") + entity.is_special) + "", entity.origin, (1, 0.5, 0), "", entity);
 						}
 						else
 						{
-							print3d(org, ((("" + entity.var_1e9a96f7) + "") + entity.var_1e9a96f7) + "", (1, 0.5, 0), 1, 2);
+							print3d(org, ((("" + entity.is_special) + "") + entity.is_special) + "", (1, 0.5, 0), 1, 2);
 						}
 					}
 					if(isdefined(entity.movetime) && getdvarint(#"hash_1aebd3ffed21a22a", 0))
@@ -517,7 +517,7 @@ function function_92c7e9a9(ai_zone)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7adc1e46(ai_zone, var_1e9a96f7)
+function function_7adc1e46(ai_zone, is_special)
 {
 	level endon(#"game_ended");
 	self.ai_zone = ai_zone;
@@ -526,8 +526,8 @@ function function_7adc1e46(ai_zone, var_1e9a96f7)
 	self.var_ea34ab74 = undefined;
 	self.aistate = 0;
 	self.favoriteenemy = undefined;
-	self.var_1e9a96f7 = var_1e9a96f7;
-	if(isdefined(var_1e9a96f7) && var_1e9a96f7)
+	self.is_special = is_special;
+	if(isdefined(is_special) && is_special)
 	{
 		ai_zone.special_ai = self;
 		self thread function_92c7e9a9(ai_zone);
@@ -548,7 +548,7 @@ function function_7adc1e46(ai_zone, var_1e9a96f7)
 	{
 		var_80bea5a6 = self.ai_zone.var_80bea5a6;
 	}
-	if(isdefined(level.var_7b5ba689) && level.var_7b5ba689 && (isdefined(self.var_1e9a96f7) && self.var_1e9a96f7))
+	if(isdefined(level.var_7b5ba689) && level.var_7b5ba689 && (isdefined(self.is_special) && self.is_special))
 	{
 		self thread wz_ai_zombie::delayed_zombie_eye_glow(3);
 	}
@@ -741,7 +741,7 @@ function ai_wz_can_see()
 			players_in_zone[players_in_zone.size] = players[i];
 			continue;
 		}
-		if(isdefined(self.ai_zone) && (isdefined(self.ai_zone.var_36a9f8ba) && self.ai_zone.var_36a9f8ba))
+		if(isdefined(self.ai_zone) && (isdefined(self.ai_zone.is_global) && self.ai_zone.is_global))
 		{
 			if(!isdefined(players_in_zone))
 			{
@@ -841,7 +841,7 @@ function fake_physicslaunch(target_pos, power)
 	if(dist > 0.01)
 	{
 		time = dist / power;
-		drop = -0.5 * level.var_31286808 * (time * time);
+		drop = -0.5 * level.item_gravity * (time * time);
 		delta = target_pos - self.origin;
 		velocity = (delta[0] / time, delta[1] / time, (delta[2] - drop) / time);
 		self movegravity(velocity, time);
@@ -1189,7 +1189,7 @@ function function_9758722(speed)
 }
 
 /*
-	Name: function_35eac38d
+	Name: get_pathnode_path
 	Namespace: wz_ai_utils
 	Checksum: 0x122E30C
 	Offset: 0x3E68
@@ -1197,7 +1197,7 @@ function function_9758722(speed)
 	Parameters: 1
 	Flags: Linked
 */
-function function_35eac38d(pathnode)
+function get_pathnode_path(pathnode)
 {
 	path_struct = {#loops:0, #path:array(pathnode)};
 	var_592eaf7 = pathnode;

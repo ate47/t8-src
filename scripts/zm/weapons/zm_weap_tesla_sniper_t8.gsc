@@ -52,7 +52,7 @@ function __init__()
 	level.var_79959866.upgraded.var_38cd3d0e = lightning_chain::create_lightning_chain_params();
 	zm::function_84d343d(#"ww_tesla_sniper_t8", &function_5ff12a45);
 	zm::function_84d343d(#"ww_tesla_sniper_upgraded_t8", &function_5ff12a45);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	clientfield::register("toplayer", "" + #"hash_3aad9502fc3b54f2", 24000, 1, "int");
 	clientfield::register("actor", "zm_weapons/fx8_ww_tesla_sniper_impact_lg", 24000, 1, "counter");
 }
@@ -81,7 +81,7 @@ function function_5ff12a45(inflictor, attacker, damage, flags, meansofdeath, wea
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: zm_weap_tesla_sniper_t8
 	Checksum: 0x551E8E66
 	Offset: 0x5D0
@@ -89,7 +89,7 @@ function function_5ff12a45(inflictor, attacker, damage, flags, meansofdeath, wea
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(s_params)
+function on_weapon_change(s_params)
 {
 	if(function_b7a6f208(s_params.weapon))
 	{

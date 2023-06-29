@@ -59,7 +59,7 @@ class csuccess_screen : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: csuccess_screen
 		Checksum: 0x504C9D50
 		Offset: 0x1F8
@@ -67,9 +67,9 @@ class csuccess_screen : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -107,7 +107,7 @@ function register(uid)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: success_screen
 	Checksum: 0x7A5202CF
 	Offset: 0xE8
@@ -115,10 +115,10 @@ function register(uid)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new csuccess_screen();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

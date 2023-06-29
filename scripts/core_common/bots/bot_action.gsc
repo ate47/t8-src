@@ -40,7 +40,7 @@ function __init__()
 }
 
 /*
-	Name: function_66dacac1
+	Name: register_actions
 	Namespace: bot_action
 	Checksum: 0x79A8E4CC
 	Offset: 0x528
@@ -48,7 +48,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_66dacac1()
+function register_actions()
 {
 	register_action(#"revive_player", &rank_priority, &revive_player_weight, &revive_player);
 	register_action(#"use_gameobject", &rank_priority, &function_3cb4c00e, &use_gameobject);
@@ -83,33 +83,33 @@ function function_66dacac1()
 function register_weapons()
 {
 	register_weapon(#"none", &function_d9c35bee);
-	function_ab03ca93(#"ar_accurate_t8");
-	function_ab03ca93(#"ar_damage_t8");
-	function_ab03ca93(#"ar_fastfire_t8");
-	function_ab03ca93(#"ar_modular_t8");
-	function_ab03ca93(#"ar_stealth_t8");
-	function_ab03ca93(#"lmg_double_t8");
-	function_ab03ca93(#"lmg_heavy_t8");
-	function_ab03ca93(#"lmg_spray_t8");
-	function_ab03ca93(#"lmg_standard_t8");
-	function_ab03ca93(#"pistol_burst_t8");
-	function_ab03ca93(#"pistol_standard_t8");
-	function_ab03ca93(#"pistol_revolver_t8");
-	function_ab03ca93(#"shotgun_pump_t8");
-	function_ab03ca93(#"shotgun_semiauto_t8");
-	function_ab03ca93(#"smg_accurate_t8");
-	function_ab03ca93(#"smg_capacity_t8");
-	function_ab03ca93(#"smg_fastfire_t8");
-	function_ab03ca93(#"smg_handling_t8");
-	function_ab03ca93(#"smg_standard_t8");
-	function_1c642d2c(#"sniper_fastrechamber_t8");
-	function_1c642d2c(#"sniper_powerbolt_t8");
-	function_1c642d2c(#"sniper_powersemi_t8");
-	function_1c642d2c(#"sniper_quickscope_t8");
-	function_ab03ca93(#"tr_leveraction_t8");
-	function_ab03ca93(#"tr_longburst_t8");
-	function_ab03ca93(#"tr_midburst_t8");
-	function_ab03ca93(#"tr_powersemi_t8");
+	register_bulletweapon(#"ar_accurate_t8");
+	register_bulletweapon(#"ar_damage_t8");
+	register_bulletweapon(#"ar_fastfire_t8");
+	register_bulletweapon(#"ar_modular_t8");
+	register_bulletweapon(#"ar_stealth_t8");
+	register_bulletweapon(#"lmg_double_t8");
+	register_bulletweapon(#"lmg_heavy_t8");
+	register_bulletweapon(#"lmg_spray_t8");
+	register_bulletweapon(#"lmg_standard_t8");
+	register_bulletweapon(#"pistol_burst_t8");
+	register_bulletweapon(#"pistol_standard_t8");
+	register_bulletweapon(#"pistol_revolver_t8");
+	register_bulletweapon(#"shotgun_pump_t8");
+	register_bulletweapon(#"shotgun_semiauto_t8");
+	register_bulletweapon(#"smg_accurate_t8");
+	register_bulletweapon(#"smg_capacity_t8");
+	register_bulletweapon(#"smg_fastfire_t8");
+	register_bulletweapon(#"smg_handling_t8");
+	register_bulletweapon(#"smg_standard_t8");
+	register_sniperweapon(#"sniper_fastrechamber_t8");
+	register_sniperweapon(#"sniper_powerbolt_t8");
+	register_sniperweapon(#"sniper_powersemi_t8");
+	register_sniperweapon(#"sniper_quickscope_t8");
+	register_bulletweapon(#"tr_leveraction_t8");
+	register_bulletweapon(#"tr_longburst_t8");
+	register_bulletweapon(#"tr_midburst_t8");
+	register_bulletweapon(#"tr_powersemi_t8");
 	register_weapon(#"launcher_standard_t8", &function_317d4797);
 }
 
@@ -375,7 +375,7 @@ function function_36052a7f(weaponname)
 }
 
 /*
-	Name: function_ab03ca93
+	Name: register_bulletweapon
 	Namespace: bot_action
 	Checksum: 0xA99C6C5A
 	Offset: 0x16B0
@@ -383,7 +383,7 @@ function function_36052a7f(weaponname)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ab03ca93(weaponname)
+function register_bulletweapon(weaponname)
 {
 	register_weapon(weaponname, &function_22991a48);
 	function_a2c83569(weaponname, #"hash_7aaeac32a4e1bf84");
@@ -391,7 +391,7 @@ function function_ab03ca93(weaponname)
 }
 
 /*
-	Name: function_1c642d2c
+	Name: register_sniperweapon
 	Namespace: bot_action
 	Checksum: 0xD80AAF55
 	Offset: 0x1728
@@ -399,7 +399,7 @@ function function_ab03ca93(weaponname)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1c642d2c(weaponname)
+function register_sniperweapon(weaponname)
 {
 	register_weapon(weaponname, &function_22991a48);
 	function_a2c83569(weaponname, #"hash_4c707ba80bf09cec");
@@ -1587,7 +1587,7 @@ function look_for_enemy(actionparams)
 {
 	var_47851891 = self.enemy;
 	weapon = self getcurrentweapon();
-	while(!self function_cf788c22() && self function_ab4c3550() && self bot::in_combat() && self function_bb2a8f1b(actionparams) && !self is_target_visible(actionparams))
+	while(!self function_cf788c22() && self function_ab4c3550() && self bot::in_combat() && self is_target_enemy(actionparams) && !self is_target_visible(actionparams))
 	{
 		self function_d273d4e7();
 		self waittill(#"hash_347a612b61067eb3");
@@ -1652,7 +1652,7 @@ function function_1176a20b(actionparams)
 		return undefined;
 	}
 	actionparams.target = target;
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return 0;
 }
 
@@ -1670,7 +1670,7 @@ function function_e0dcb8c1(actionparams)
 	target = actionparams.target;
 	self setentitytarget(target);
 	self.bot.var_2a98e9ea = 1;
-	while(!self function_cf788c22() && !self.ignoreall && isdefined(target) && self function_bb2a8f1b(actionparams) && isalive(target) && !self is_target_visible(actionparams))
+	while(!self function_cf788c22() && !self.ignoreall && isdefined(target) && self is_target_enemy(actionparams) && isalive(target) && !self is_target_visible(actionparams))
 	{
 		self function_8a2b82ad(actionparams);
 		self aim_at_target(actionparams);
@@ -1709,7 +1709,7 @@ function function_728212e8(actionparams)
 function scan_for_threats_weight(actionparams)
 {
 	actionparams.target = self.enemy;
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return false;
 }
 
@@ -1726,7 +1726,7 @@ function scan_for_threats(actionparams)
 {
 	targetvisible = self is_target_visible(actionparams);
 	actionparams.targetvisible = targetvisible;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && actionparams.targetvisible == targetvisible)
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && actionparams.targetvisible == targetvisible)
 	{
 		if(targetvisible && self function_ee402bf6(actionparams))
 		{
@@ -1778,7 +1778,7 @@ function function_9e1d8dfe(actionparams)
 {
 	targetvisible = self is_target_visible(actionparams);
 	actionparams.targetvisible = targetvisible;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && actionparams.targetvisible == targetvisible)
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && actionparams.targetvisible == targetvisible)
 	{
 		if(targetvisible && self function_ee402bf6(actionparams))
 		{
@@ -2014,7 +2014,7 @@ function function_3cb4c00e(actionparams)
 		#/
 		return undefined;
 	}
-	gameobject = self bot::function_f47bf51d();
+	gameobject = self bot::get_interact();
 	actionparams.gameobject = gameobject;
 	if(self haspath())
 	{
@@ -2062,7 +2062,7 @@ function use_gameobject(actionparams)
 {
 	gameobject = actionparams.gameobject;
 	lookpoint = gameobject.trigger.origin;
-	while(isdefined(gameobject) && gameobject === self bot::function_f47bf51d() && self istouching(gameobject.trigger))
+	while(isdefined(gameobject) && gameobject === self bot::get_interact() && self istouching(gameobject.trigger))
 	{
 		self look_at_point(lookpoint, "Gameobject Trigger", (1, 1, 1));
 		if(self botgetlookdot() >= 0.76)
@@ -2072,12 +2072,12 @@ function use_gameobject(actionparams)
 		}
 		waitframe(1);
 	}
-	while(isdefined(gameobject) && gameobject === self bot::function_f47bf51d() && self istouching(gameobject.trigger) && !isdefined(self.claimtrigger))
+	while(isdefined(gameobject) && gameobject === self bot::get_interact() && self istouching(gameobject.trigger) && !isdefined(self.claimtrigger))
 	{
 		self bottapbutton(3);
 		waitframe(1);
 	}
-	if(isdefined(gameobject) && gameobject === self bot::function_f47bf51d() && (isdefined(gameobject.inuse) && gameobject.inuse) && isdefined(gameobject.trigger) && self.claimtrigger === gameobject.trigger)
+	if(isdefined(gameobject) && gameobject === self bot::get_interact() && (isdefined(gameobject.inuse) && gameobject.inuse) && isdefined(gameobject.trigger) && self.claimtrigger === gameobject.trigger)
 	{
 		self bottapbutton(3);
 		waitframe(1);
@@ -2225,7 +2225,7 @@ function reload_weapon_weight(actionparams)
 {
 	weapon = actionparams.weapon;
 	actionparams.target = self.enemy;
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	stockammo = self getweaponammostock(weapon);
 	/#
 		if(!isdefined(actionparams.debug))
@@ -2314,14 +2314,14 @@ function reload_weapon(actionparams)
 	self waittill(#"hash_347a612b61067eb3");
 	while(self isreloading())
 	{
-		if(self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams))
+		if(self is_target_enemy(actionparams) && self is_target_visible(actionparams))
 		{
 			self function_8a2b82ad(actionparams);
 			self function_e69a1e2e(actionparams);
 		}
 		else
 		{
-			if(self function_bb2a8f1b(actionparams) && self function_3094610b(self.bot.tacbundle.var_82aa37d8))
+			if(self is_target_enemy(actionparams) && self function_3094610b(self.bot.tacbundle.var_82aa37d8))
 			{
 				if(self function_ca71ffdb())
 				{
@@ -2551,7 +2551,7 @@ function melee_enemy_weight(actionparams)
 		#/
 		return undefined;
 	}
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return 100;
 }
 
@@ -2643,7 +2643,7 @@ function function_36505c2d(actionparams)
 		#/
 		return undefined;
 	}
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return 100;
 }
 
@@ -2659,7 +2659,7 @@ function function_36505c2d(actionparams)
 function function_a314673(actionparams)
 {
 	weapon = actionparams.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self function_e69a1e2e(actionparams);
@@ -2761,7 +2761,7 @@ function function_294f4909(actionparams)
 		#/
 		return undefined;
 	}
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return 100;
 }
 
@@ -2777,7 +2777,7 @@ function function_294f4909(actionparams)
 function function_e73c8946(actionparams)
 {
 	weapon = actionparams.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self aim_at_target(actionparams);
@@ -2810,7 +2810,7 @@ function function_22e2ba8c(actionparams)
 	/#
 		assert(weaponclass == #"weapon_sniper");
 	#/
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self aim_at_target(actionparams);
@@ -2920,7 +2920,7 @@ function function_2bc7472b(actionparams)
 		#/
 		return undefined;
 	}
-	self function_6d30e629(actionparams);
+	self set_target_aim(actionparams);
 	return 100;
 }
 
@@ -2937,7 +2937,7 @@ function function_36ca6d92(actionparams)
 {
 	weapon = actionparams.weapon;
 	self function_b74c1de4();
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self aim_at_target(actionparams);
@@ -3068,7 +3068,7 @@ function registersndrampend_death(actionparams)
 function fire_grenade(actionparams)
 {
 	weapon = actionparams.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self function_a3dfc4aa(actionparams);
@@ -3177,7 +3177,7 @@ function fire_locked_rocketlauncher(actionparams)
 	target = actionparams.target;
 	weapon = actionparams.weapon;
 	lockedflag = 1 << self getentitynumber();
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self function_daa4968(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self function_daa4968(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_ab6b1fc9(actionparams);
 		self aim_at_target(actionparams);
@@ -3282,7 +3282,7 @@ function fire_rocketlauncher(actionparams)
 {
 	target = actionparams.target;
 	weapon = actionparams.weapon;
-	while(!self function_cf788c22() && self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
+	while(!self function_cf788c22() && self is_target_enemy(actionparams) && self is_target_visible(actionparams) && self bot::weapon_loaded(weapon))
 	{
 		self function_8a2b82ad(actionparams);
 		self aim_at_target(actionparams);
@@ -3375,7 +3375,7 @@ function function_c27fa689(actionparams)
 */
 function function_5aa9dd1b(actionparams)
 {
-	if(self function_bb2a8f1b(actionparams) && self is_target_visible(actionparams))
+	if(self is_target_enemy(actionparams) && self is_target_visible(actionparams))
 	{
 		var_b4843bc3 = actionparams.aimpoint;
 		var_7c23d596 = actionparams.var_97065630;
@@ -3550,7 +3550,7 @@ function bleed_out(actionparams)
 }
 
 /*
-	Name: function_6d30e629
+	Name: set_target_aim
 	Namespace: bot_action
 	Checksum: 0xDF4D3B8B
 	Offset: 0x9558
@@ -3558,7 +3558,7 @@ function bleed_out(actionparams)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6d30e629(actionparams)
+function set_target_aim(actionparams)
 {
 	if(!isdefined(self.bot.var_67b4ea54))
 	{
@@ -3999,7 +3999,7 @@ function function_b70a8fcf(actionparams)
 }
 
 /*
-	Name: function_bb2a8f1b
+	Name: is_target_enemy
 	Namespace: bot_action
 	Checksum: 0x26BEDAF0
 	Offset: 0xA470
@@ -4007,7 +4007,7 @@ function function_b70a8fcf(actionparams)
 	Parameters: 1
 	Flags: Linked
 */
-function function_bb2a8f1b(actionparams)
+function is_target_enemy(actionparams)
 {
 	target = actionparams.target;
 	if(isvec(target))

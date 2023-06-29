@@ -89,7 +89,7 @@ function init()
 	level flag::init(#"hash_3e2ec4f6fb6b4bb0");
 	level flag::init(#"hash_1c0b421abe38d4e0");
 	level flag::init(#"boss_battle_complete");
-	zm_sq::register(#"boss_battle", #"stat_tracker", #"stat_tracker", &function_5ac09481, &function_43d699d6, 1);
+	zm_sq::register(#"boss_battle", #"stat_tracker", #"stat_tracker", &stat_tracker_setup, &stat_tracker_cleanup, 1);
 	zm_sq::start(#"boss_battle");
 	level._effect[#"storm_radius"] = #"hash_4dd46a244305d465";
 	level._effect[#"annihilator_bolt"] = #"hash_9a8432f2e39c8af";
@@ -139,7 +139,7 @@ function init()
 	level.s_boss_battle.var_86d9f46c = getstatuseffect(#"hash_19533caf858a9f3b");
 	level.s_boss_battle.var_b42f3b39 = getstatuseffect(#"hash_12a64221f4d27f9b");
 	/#
-		if(zm_utility::function_e51dc2d8())
+		if(zm_utility::is_ee_enabled())
 		{
 			setdvar(#"hash_336a4b6a4bdec400", 0);
 			setdvar(#"hash_2c5a53140f377a17", 0);
@@ -2273,7 +2273,7 @@ function function_caa7eeb()
 	level.musicsystemoverride = 0;
 	self thread function_ab699e09();
 	level flag::clear("spawn_zombies");
-	level thread function_135159d();
+	level thread cleanup_final();
 	foreach(player in getplayers())
 	{
 		player val::set("game_over_man", "takedamage", 0);
@@ -3105,8 +3105,8 @@ function function_6401a80e()
 				{
 					n_char_index = self zm_characters::function_d35e4c92();
 					str_vo_alias = "vox_plateau_jump_plr_" + n_char_index;
-					var_a5e8d5c7 = zm_audio::get_valid_lines(str_vo_alias);
-					self.var_2790fd8b thread zm_vo::vo_say(array::random(var_a5e8d5c7), 0, 1, 9999);
+					a_variants = zm_audio::get_valid_lines(str_vo_alias);
+					self.var_2790fd8b thread zm_vo::vo_say(array::random(a_variants), 0, 1, 9999);
 					self.var_362f68d6 = function_21a3a673(4, 8);
 				}
 				else
@@ -3222,7 +3222,7 @@ function private function_4c17036d(e_attacker, b_hero_weapon = 0)
 }
 
 /*
-	Name: function_5ac09481
+	Name: stat_tracker_setup
 	Namespace: red_boss_battle
 	Checksum: 0xB3975B7E
 	Offset: 0xA3E0
@@ -3230,7 +3230,7 @@ function private function_4c17036d(e_attacker, b_hero_weapon = 0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5ac09481(b_skipped)
+function stat_tracker_setup(b_skipped)
 {
 	level endon(#"end_game", #"stat_tracker" + "_ended_early");
 	while(!level flag::exists(#"hash_5a7f1f9adac6dc8c") || !level flag::exists(#"boss_battle_complete"))
@@ -3241,7 +3241,7 @@ function function_5ac09481(b_skipped)
 }
 
 /*
-	Name: function_43d699d6
+	Name: stat_tracker_cleanup
 	Namespace: red_boss_battle
 	Checksum: 0x3F85189C
 	Offset: 0xA4C0
@@ -3249,7 +3249,7 @@ function function_5ac09481(b_skipped)
 	Parameters: 2
 	Flags: Linked
 */
-function function_43d699d6(b_skipped, var_19e802fa)
+function stat_tracker_cleanup(b_skipped, var_19e802fa)
 {
 	level flag::set(#"boss_battle_complete");
 }
@@ -3324,7 +3324,7 @@ function function_9bc4f8cb()
 }
 
 /*
-	Name: function_135159d
+	Name: cleanup_final
 	Namespace: red_boss_battle
 	Checksum: 0x96F28C7F
 	Offset: 0xA768
@@ -3332,7 +3332,7 @@ function function_9bc4f8cb()
 	Parameters: 0
 	Flags: Linked
 */
-function function_135159d()
+function cleanup_final()
 {
 	wait(1);
 	foreach(ai_zombie in getaiteamarray(level.zombie_team))

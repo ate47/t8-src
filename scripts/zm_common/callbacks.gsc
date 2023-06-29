@@ -200,7 +200,7 @@ function on_round_end(func, obj)
 }
 
 /*
-	Name: function_ec6dfc37
+	Name: remove_on_round_end
 	Namespace: callback
 	Checksum: 0x1AEA7DE4
 	Offset: 0x5F0
@@ -208,7 +208,7 @@ function on_round_end(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ec6dfc37(func, obj)
+function remove_on_round_end(func, obj)
 {
 	remove_callback(#"on_round_end", func, obj);
 }

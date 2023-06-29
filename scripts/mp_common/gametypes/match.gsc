@@ -68,7 +68,7 @@ function private function_94003d29()
 	round::function_37f04b09();
 	if(overtime::is_overtime_round())
 	{
-		function_1362c7e0();
+		set_overtime();
 	}
 }
 
@@ -99,12 +99,12 @@ function private function_b6b94df8()
 {
 	if(overtime::is_overtime_round())
 	{
-		function_1362c7e0();
+		set_overtime();
 	}
 }
 
 /*
-	Name: function_1362c7e0
+	Name: set_overtime
 	Namespace: match
 	Checksum: 0x3163C761
 	Offset: 0x228
@@ -112,7 +112,7 @@ function private function_b6b94df8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_1362c7e0()
+function set_overtime()
 {
 	round::set_flag("overtime");
 	set_flag("overtime");
@@ -322,7 +322,7 @@ function function_b5f4c9d8()
 }
 
 /*
-	Name: function_9b24638f
+	Name: get_winner
 	Namespace: match
 	Checksum: 0x2320205A
 	Offset: 0x630
@@ -330,7 +330,7 @@ function function_b5f4c9d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9b24638f()
+function get_winner()
 {
 	if(isdefined(level.teambased) && level.teambased)
 	{
@@ -340,7 +340,7 @@ function function_9b24638f()
 }
 
 /*
-	Name: function_d1e740f6
+	Name: set_winner
 	Namespace: match
 	Checksum: 0xD1B4FE22
 	Offset: 0x690
@@ -348,9 +348,9 @@ function function_9b24638f()
 	Parameters: 1
 	Flags: None
 */
-function function_d1e740f6(team_or_player)
+function set_winner(team_or_player)
 {
-	outcome::function_d1e740f6(game.outcome, team_or_player);
+	outcome::set_winner(game.outcome, team_or_player);
 }
 
 /*
@@ -421,7 +421,7 @@ function function_d30d1a2e()
 */
 function function_6d0354e3()
 {
-	winner = round::function_9b24638f();
+	winner = round::get_winner();
 	if(game.outcome.var_aefc8b8d.var_c1e98979 != 7)
 	{
 		if(level.teambased && get_flag("overtime"))

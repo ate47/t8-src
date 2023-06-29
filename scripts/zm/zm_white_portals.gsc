@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
@@ -1229,8 +1229,8 @@ function function_a09d62f1()
 			{
 				level.a_s_active[0].n_dest = level.a_s_active[1].var_7b89ada3;
 				level.a_s_active[1].n_dest = level.a_s_active[0].var_7b89ada3;
-				level.a_s_active[0] thread function_16ccd69f();
-				level.a_s_active[1] thread function_16ccd69f();
+				level.a_s_active[0] thread reenable_teleporter();
+				level.a_s_active[1] thread reenable_teleporter();
 			}
 			foreach(s_portal in level.a_s_active)
 			{
@@ -1252,7 +1252,7 @@ function function_a09d62f1()
 			{
 				foreach(s_active in level.a_s_active)
 				{
-					s_active function_978923cd();
+					s_active disable_teleporter();
 				}
 			}
 			level thread function_3566160b(self.script_noteworthy, 0);
@@ -1525,7 +1525,7 @@ function function_a6bb56f6()
 {
 	foreach(s_portal in level.a_s_portals)
 	{
-		s_portal function_978923cd();
+		s_portal disable_teleporter();
 	}
 }
 
@@ -1598,7 +1598,7 @@ function function_3566160b(str_location, n_newval)
 }
 
 /*
-	Name: function_978923cd
+	Name: disable_teleporter
 	Namespace: zm_white_portals
 	Checksum: 0xD9FF2AE1
 	Offset: 0x4528
@@ -1606,7 +1606,7 @@ function function_3566160b(str_location, n_newval)
 	Parameters: 0
 	Flags: Linked
 */
-function function_978923cd()
+function disable_teleporter()
 {
 	self.var_cd2f1fed = 1;
 	self notify(#"hash_3c91bf90cecbe758");
@@ -1618,7 +1618,7 @@ function function_978923cd()
 }
 
 /*
-	Name: function_16ccd69f
+	Name: reenable_teleporter
 	Namespace: zm_white_portals
 	Checksum: 0xBB8BF0D1
 	Offset: 0x45E0
@@ -1626,7 +1626,7 @@ function function_978923cd()
 	Parameters: 1
 	Flags: Linked
 */
-function function_16ccd69f(var_1e62b431 = 1)
+function reenable_teleporter(var_1e62b431 = 1)
 {
 	self.var_cd2f1fed = 0;
 	self thread function_a54a70b3();
@@ -1719,7 +1719,7 @@ function function_5c2807fc()
 	a_s_portals = struct::get_array("white_portal");
 	foreach(s_portal in a_s_portals)
 	{
-		s_portal thread function_978923cd();
+		s_portal thread disable_teleporter();
 		s_portal.b_active = 0;
 		if(isdefined(s_portal.s_unitrigger))
 		{

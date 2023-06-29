@@ -330,7 +330,7 @@ function mantle_traversal(params)
 			record3dtext("", self.origin, (1, 1, 1), "", undefined, 0.5);
 		}
 	#/
-	function_b34ef250(params.starttrace, params.normal, 20);
+	edge_approach(params.starttrace, params.normal, 20);
 	jump(params.targetpos);
 	mantle(params.targetpos);
 }
@@ -387,7 +387,7 @@ function jump_traversal(params)
 			record3dtext("", self.origin, (1, 1, 0), "", undefined, 0.5);
 		}
 	#/
-	self function_b34ef250(params.starttrace, params.normal);
+	self edge_approach(params.starttrace, params.normal);
 	self jump(params.targetpos);
 	self fall();
 }
@@ -509,7 +509,7 @@ function mantle(var_2a1f4ab7)
 }
 
 /*
-	Name: function_b34ef250
+	Name: edge_approach
 	Namespace: bot
 	Checksum: 0x8C91A923
 	Offset: 0x1630
@@ -517,7 +517,7 @@ function mantle(var_2a1f4ab7)
 	Parameters: 3
 	Flags: Linked
 */
-function function_b34ef250(edgepos, normal, dist = 0)
+function edge_approach(edgepos, normal, dist = 0)
 {
 	/#
 		if(self should_record(""))

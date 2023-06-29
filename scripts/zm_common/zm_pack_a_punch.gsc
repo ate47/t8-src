@@ -921,7 +921,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 			weaponidx = matchrecordgetweaponindex(current_weapon);
 		}
 		self zm_stats::function_c0c6ab19(#"weapons_packed");
-		self contracts::function_5b88297d(#"hash_b6b948aac4bd4c");
+		self contracts::increment_zm_contract(#"hash_b6b948aac4bd4c");
 		if(!pap_machine.var_a86430cb)
 		{
 			if(isdefined(weaponidx))

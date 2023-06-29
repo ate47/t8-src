@@ -77,13 +77,13 @@ function playerspawn()
 	self.var_60a9eae7 = 0;
 	self.var_a6b00192 = 0;
 	self.var_7fff4605 = 0;
-	self callback::function_f77ced93(&function_f77ced93);
-	self callback::function_78ccee50(&function_78ccee50);
-	self callback::function_20263b9e(&function_20263b9e);
+	self callback::on_weapon_change(&on_weapon_change);
+	self callback::on_weapon_fired(&on_weapon_fired);
+	self callback::on_grenade_fired(&on_grenade_fired);
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: globallogic_score
 	Checksum: 0xA4A1EF74
 	Offset: 0x358
@@ -91,14 +91,14 @@ function playerspawn()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f77ced93(params)
+function private on_weapon_change(params)
 {
 	self.var_a6b00192 = 0;
 	self.var_7fff4605 = 0;
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: globallogic_score
 	Checksum: 0xE4B8F9EA
 	Offset: 0x388
@@ -106,7 +106,7 @@ function private function_f77ced93(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_78ccee50(params)
+function private on_weapon_fired(params)
 {
 	self function_5aa55c0a(params.weapon);
 }
@@ -138,7 +138,7 @@ function private function_f0d51d49(projectile, weapon)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: globallogic_score
 	Checksum: 0x2EDAD6EE
 	Offset: 0x4A0
@@ -146,7 +146,7 @@ function private function_f0d51d49(projectile, weapon)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_20263b9e(params)
+function private on_grenade_fired(params)
 {
 	weapon = params.weapon;
 	if(!isdefined(weapon) || !isdefined(weapon.var_2e4a8800))
@@ -298,7 +298,7 @@ function function_52ca9649(event)
 		return;
 	}
 	eventindex = level.scoreinfo[event][#"row"];
-	self luinotifyevent(#"hash_2ba26a631965ab0b", 1, eventindex);
+	self luinotifyevent(#"end_sustaining_action", 1, eventindex);
 	self.var_19f577f[event]--;
 }
 
@@ -756,7 +756,7 @@ function function_f7f7b14e(data)
 		scoreevents::processscoreevent(var_3d2a11cf.var_3143c814, attacker, victim, weapon);
 		victim.var_ad1472a2 = 1;
 		attacker stats::function_dad108fa(#"stats_shutdowns", 1);
-		attacker contracts::function_a54e2068(#"hash_26f8726bc08d080c");
+		attacker contracts::increment_contract(#"hash_26f8726bc08d080c");
 	}
 	baseweapon = weapons::getbaseweapon(weapon);
 	attacker updatemultikill(inflictor, meansofdeath, victim, attacker, function_3cbc4c6c(weapon.var_2e4a8800), weapon, weapon, baseweapon, time);
@@ -787,10 +787,10 @@ function private function_d68ae402(inflictor, meansofdeath, victim, attacker, sc
 	}
 	if(var_ac4c1 == #"frag_grenade" || var_ac4c1 == #"eq_molotov" || var_ac4c1 == #"hatchet")
 	{
-		attacker contracts::function_a54e2068(#"hash_3ffc3d28289d21bb");
+		attacker contracts::increment_contract(#"hash_3ffc3d28289d21bb");
 		if(var_ac4c1 == #"eq_molotov")
 		{
-			attacker contracts::function_a54e2068(#"hash_7aa4c7b37c66fcc1");
+			attacker contracts::increment_contract(#"hash_7aa4c7b37c66fcc1");
 		}
 	}
 	if(!isdefined(attacker.multikills) || !isdefined(attacker.multikills[var_ac4c1]))
@@ -818,14 +818,14 @@ function private function_d68ae402(inflictor, meansofdeath, victim, attacker, sc
 	{
 		if(attacker.multikills[var_ac4c1].kills >= 2)
 		{
-			attacker contracts::function_a54e2068(#"hash_6696408f54c6ada7");
+			attacker contracts::increment_contract(#"hash_6696408f54c6ada7");
 		}
 	}
 	if(var_ac4c1 == #"eq_molotov")
 	{
 		if(attacker.multikills[var_ac4c1].kills >= 2)
 		{
-			attacker contracts::function_a54e2068(#"hash_4a7d49c14e026e91");
+			attacker contracts::increment_contract(#"hash_4a7d49c14e026e91");
 		}
 	}
 	if(isdefined(scoreevents))
@@ -1317,7 +1317,7 @@ function function_61254438(weapon)
 }
 
 /*
-	Name: function_4842d1f6
+	Name: allow_old_indexs
 	Namespace: globallogic_score
 	Checksum: 0x60DCF20A
 	Offset: 0x3DF8
@@ -1325,7 +1325,7 @@ function function_61254438(weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4842d1f6(var_8d498080)
+function allow_old_indexs(var_8d498080)
 {
 	var_8725a10d = function_3cbc4c6c(var_8d498080.var_2e4a8800);
 	if(!isdefined(var_8725a10d) || !isdefined(var_8725a10d.var_14d1d5a1))

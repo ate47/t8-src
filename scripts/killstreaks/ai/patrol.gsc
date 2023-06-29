@@ -19,7 +19,7 @@
 */
 function init()
 {
-	ai_state::function_e9b061a8(0, &function_42ed4af0, &update_patrol, &function_97a138d5, &function_5d31deb6, &function_4af1ff64, &function_a78474f2);
+	ai_state::function_e9b061a8(0, &function_42ed4af0, &update_patrol, &function_97a138d5, &update_enemy, &function_4af1ff64, &function_a78474f2);
 }
 
 /*
@@ -459,7 +459,7 @@ function update_patrol()
 }
 
 /*
-	Name: function_5d31deb6
+	Name: update_enemy
 	Namespace: ai_patrol
 	Checksum: 0x3AA222E3
 	Offset: 0x11C8
@@ -467,7 +467,7 @@ function update_patrol()
 	Parameters: 0
 	Flags: None
 */
-function function_5d31deb6()
+function update_enemy()
 {
 	if(isdefined(self.ai.hasseenfavoriteenemy) && self.ai.hasseenfavoriteenemy)
 	{
@@ -612,7 +612,7 @@ function private function_7c779aaf()
 	self notify(#"hash_5824b020cde66d5");
 	self endon(#"hash_5824b020cde66d5");
 	fx_marker = self.var_74e8fd19;
-	var_943943a9 = self.var_e2aca908;
+	hud_marker = self.var_e2aca908;
 	self waittill(#"death", #"state_changed");
 	if(isdefined(self))
 	{
@@ -624,9 +624,9 @@ function private function_7c779aaf()
 		{
 			fx_marker delete();
 		}
-		if(isdefined(var_943943a9))
+		if(isdefined(hud_marker))
 		{
-			var_943943a9 delete();
+			hud_marker delete();
 		}
 	}
 }

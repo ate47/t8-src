@@ -107,7 +107,7 @@ class cvehicleturretoverheat : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cvehicleturretoverheat
 		Checksum: 0xA474A7F8
 		Offset: 0x2E0
@@ -115,9 +115,9 @@ class cvehicleturretoverheat : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -132,8 +132,8 @@ class cvehicleturretoverheat : cLUIelem
 	function setup_clientfields(uid, var_661989d5)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("bar_percent", 4000, 6, "float", var_661989d5);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("bar_percent", 4000, 6, "float", var_661989d5);
 	}
 
 }
@@ -157,7 +157,7 @@ function register(uid, var_661989d5)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: vehicleturretoverheat
 	Checksum: 0x3A57C5B5
 	Offset: 0x118
@@ -165,10 +165,10 @@ function register(uid, var_661989d5)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cvehicleturretoverheat();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

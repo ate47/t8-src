@@ -10,9 +10,9 @@
 	Parameters: 8
 	Flags: None
 */
-function function_e9b061a8(state, start, var_2ae5a795, end, var_5d31deb6, var_edc20efd, var_ff716a93, update_debug)
+function function_e9b061a8(state, start, update_goal, end, update_enemy, var_edc20efd, var_ff716a93, update_debug)
 {
-	level.extra_screen_electricity_.functions[state] = {#hash_a1891b01:update_debug, #hash_ff716a93:var_ff716a93, #hash_edc20efd:var_edc20efd, #hash_5d31deb6:var_5d31deb6, #end:end, #hash_2ae5a795:var_2ae5a795, #start:start};
+	level.extra_screen_electricity_.functions[state] = {#hash_a1891b01:update_debug, #hash_ff716a93:var_ff716a93, #hash_edc20efd:var_edc20efd, #hash_5d31deb6:update_enemy, #end:end, #hash_2ae5a795:update_goal, #start:start};
 }
 
 /*
@@ -33,7 +33,7 @@ function callback_start()
 }
 
 /*
-	Name: function_4e845c24
+	Name: callback_end
 	Namespace: ai_state
 	Checksum: 0x7C71AC12
 	Offset: 0x1C8
@@ -41,7 +41,7 @@ function callback_start()
 	Parameters: 0
 	Flags: None
 */
-function function_4e845c24()
+function callback_end()
 {
 	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].end))
 	{
@@ -60,9 +60,9 @@ function function_4e845c24()
 */
 function function_e8e7cf45()
 {
-	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].var_2ae5a795))
+	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].update_goal))
 	{
-		self [[level.extra_screen_electricity_.functions[self.ai.state].var_2ae5a795]]();
+		self [[level.extra_screen_electricity_.functions[self.ai.state].update_goal]]();
 	}
 }
 
@@ -77,9 +77,9 @@ function function_e8e7cf45()
 */
 function function_e0e1a7fc()
 {
-	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].var_5d31deb6))
+	if(isdefined(self.ai.state) && isdefined(level.extra_screen_electricity_.functions[self.ai.state].update_enemy))
 	{
-		self [[level.extra_screen_electricity_.functions[self.ai.state].var_5d31deb6]]();
+		self [[level.extra_screen_electricity_.functions[self.ai.state].update_enemy]]();
 	}
 }
 
@@ -138,7 +138,7 @@ function set_state(state)
 	{
 		if(isdefined(self.ai.state))
 		{
-			function_4e845c24();
+			callback_end();
 		}
 		self.ai.state = state;
 		callback_start();

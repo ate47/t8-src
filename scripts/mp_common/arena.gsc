@@ -36,7 +36,7 @@ function __init__()
 	callback::on_disconnect(&on_disconnect);
 	if(gamemodeisarena())
 	{
-		callback::function_98a0917d(&function_98a0917d);
+		callback::on_game_playing(&on_game_playing);
 		level.var_a962eeb6 = &function_51203700;
 	}
 }
@@ -248,7 +248,7 @@ function function_51203700()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: arena
 	Checksum: 0xE746A95E
 	Offset: 0x9D8
@@ -256,7 +256,7 @@ function function_51203700()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	function_e938380b();
 }

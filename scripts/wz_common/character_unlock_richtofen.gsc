@@ -54,7 +54,7 @@ function function_2613aeec(enabled)
 	if(enabled)
 	{
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 		spawn_struct = struct::get("cu17_trigger_struct", "targetname");
 		if(!isdefined(spawn_struct))
 		{

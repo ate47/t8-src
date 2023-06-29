@@ -99,7 +99,7 @@ class cct_shared_desc : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_shared_desc
 		Checksum: 0x8F17F6E6
 		Offset: 0x260
@@ -107,9 +107,9 @@ class cct_shared_desc : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class cct_shared_desc : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 	}
 
 }
@@ -148,7 +148,7 @@ function register(uid)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_shared_desc
 	Checksum: 0x3CC1832E
 	Offset: 0xF8
@@ -156,10 +156,10 @@ function register(uid)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_shared_desc();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

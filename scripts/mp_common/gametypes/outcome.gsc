@@ -132,7 +132,7 @@ function function_2e00fa44(outcome)
 	{
 		if(outcome flagsys::get(var_b4a9554f.flag))
 		{
-			flags = flags | var_b4a9554f.var_6cab3b8e;
+			flags = flags | var_b4a9554f.code_flag;
 		}
 	}
 	return flags;
@@ -207,7 +207,7 @@ function function_b5f4c9d8(outcome)
 }
 
 /*
-	Name: function_9b24638f
+	Name: get_winner
 	Namespace: outcome
 	Checksum: 0xC3977A02
 	Offset: 0x590
@@ -215,7 +215,7 @@ function function_b5f4c9d8(outcome)
 	Parameters: 1
 	Flags: Linked
 */
-function function_9b24638f(outcome)
+function get_winner(outcome)
 {
 	if(isdefined(outcome.team))
 	{
@@ -243,7 +243,7 @@ function function_d30d1a2e(outcome)
 }
 
 /*
-	Name: function_d1e740f6
+	Name: set_winner
 	Namespace: outcome
 	Checksum: 0x357C5877
 	Offset: 0x608
@@ -251,7 +251,7 @@ function function_d30d1a2e(outcome)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d1e740f6(outcome, team_or_player)
+function set_winner(outcome, team_or_player)
 {
 	if(!isdefined(team_or_player))
 	{
@@ -299,7 +299,7 @@ function function_af2e264f(outcome, winner)
 {
 	if(isdefined(winner))
 	{
-		function_d1e740f6(outcome, winner);
+		set_winner(outcome, winner);
 	}
 	else
 	{

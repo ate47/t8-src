@@ -107,7 +107,7 @@ class czm_game_over : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_game_over
 		Checksum: 0x26D0C695
 		Offset: 0x2D8
@@ -115,9 +115,9 @@ class czm_game_over : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -132,8 +132,8 @@ class czm_game_over : cLUIelem
 	function setup_clientfields(uid, var_ddbc37b7)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("rounds", 1, 8, "int", var_ddbc37b7);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("rounds", 1, 8, "int", var_ddbc37b7);
 	}
 
 }
@@ -157,7 +157,7 @@ function register(uid, var_ddbc37b7)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_game_over
 	Checksum: 0x3A0E1A2C
 	Offset: 0x110
@@ -165,10 +165,10 @@ function register(uid, var_ddbc37b7)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_game_over();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

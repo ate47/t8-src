@@ -4,7 +4,7 @@
 #using scripts\zm\zm_orange_mq_blood.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
-#using script_48586eea5c3542a4;
+#using scripts\zm\zm_orange_trophies.gsc;
 #using scripts\zm\zm_orange_mq_soapstone.gsc;
 #using script_4b80fc97d8469299;
 #using script_4ec1d631174f7283;
@@ -96,7 +96,7 @@ function main()
 	zm_sq::register(#"main_quest", #"hash_7d78cef11f6afb5e", #"main_quest_step13", &zm_orange_mq_hell::function_5309464a, &zm_orange_mq_hell::function_ae270d9e);
 	zm_sq::register(#"main_quest", #"hash_2bd81e2b05fccbed", #"main_quest_step14", &zm_orange_mq_sendoff::function_5309464a, &zm_orange_mq_sendoff::function_ae270d9e);
 	zm_sq::register(#"main_quest", #"hash_49b41abaa9addedd", #"main_quest_step15", &function_d4147875, &function_895265b1, 1);
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level thread function_93a140f7();
 	}
@@ -196,7 +196,7 @@ function play_outro()
 */
 function function_d4147875(var_5ea5c94d)
 {
-	zm_hms_util::function_314447b(1, 0);
+	zm_hms_util::pause_zombies(1, 0);
 	zm_orange_lights::function_b1c6d4f2();
 	level flag::set(#"hold_round_end");
 	level thread play_outro();
@@ -318,7 +318,7 @@ function music_watcher()
 */
 function function_895265b1(var_5ea5c94d, ended_early)
 {
-	namespace_e9563b61::function_ea67bd7c();
+	zm_orange_trophies::function_ea67bd7c();
 	level.var_9441bf02 delete();
 	level.musicsystemoverride = 0;
 	music::setmusicstate("none");

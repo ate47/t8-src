@@ -29,7 +29,7 @@ function init()
 	{
 		level.var_a962eeb6 = &default_rules;
 	}
-	callback::function_98a0917d(&sessionadvertisementcheck);
+	callback::on_game_playing(&sessionadvertisementcheck);
 }
 
 /*

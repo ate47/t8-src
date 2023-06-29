@@ -131,7 +131,7 @@ function previs(localclientnum, invalid)
 	function_3e8d9b27(!invalid, localclientnum);
 	while(true)
 	{
-		function_82a8db78(localclientnum, invalid);
+		update_previs(localclientnum, invalid);
 		waitframe(1);
 	}
 }
@@ -152,7 +152,7 @@ function spawn_previs(localclientnum)
 }
 
 /*
-	Name: function_82a8db78
+	Name: update_previs
 	Namespace: ir_strobe
 	Checksum: 0x6E1917C7
 	Offset: 0x698
@@ -160,7 +160,7 @@ function spawn_previs(localclientnum)
 	Parameters: 2
 	Flags: Linked
 */
-function function_82a8db78(localclientnum, invalid)
+function update_previs(localclientnum, invalid)
 {
 	player = self;
 	facing_angles = getlocalclientangles(localclientnum);

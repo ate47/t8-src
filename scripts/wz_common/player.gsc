@@ -44,11 +44,11 @@ function __init__()
 */
 function on_player_spawned()
 {
-	self callback::function_20263b9e(&function_20263b9e);
+	self callback::on_grenade_fired(&on_grenade_fired);
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: wz_player
 	Checksum: 0x4D69926E
 	Offset: 0x128
@@ -56,7 +56,7 @@ function on_player_spawned()
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	weapon = params.weapon;

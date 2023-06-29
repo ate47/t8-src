@@ -955,7 +955,7 @@ function private gegeneestargetservice(entity)
 		}
 	#/
 	/#
-		if(isdefined(entity.var_7671b967) && entity.var_7671b967)
+		if(isdefined(entity.devgui_stop_move) && entity.devgui_stop_move)
 		{
 			entity setgoal(entity.origin);
 			return 0;
@@ -1558,13 +1558,13 @@ function private function_c03e8d05()
 					{
 						if(isdefined(gegenees[0]))
 						{
-							if(!isdefined(gegenees[0].var_7671b967))
+							if(!isdefined(gegenees[0].devgui_stop_move))
 							{
-								gegenees[0].var_7671b967 = 1;
+								gegenees[0].devgui_stop_move = 1;
 							}
 							else
 							{
-								gegenees[0].var_7671b967 = !gegenees[0].var_7671b967;
+								gegenees[0].devgui_stop_move = !gegenees[0].devgui_stop_move;
 							}
 						}
 						break;

@@ -63,7 +63,7 @@ function arrow_spawned(localclientnum)
 */
 function player_init(localclientnum)
 {
-	self thread function_31a1aa18(localclientnum);
+	self thread on_game_ended(localclientnum);
 }
 
 /*
@@ -214,7 +214,7 @@ function private function_e3a084cd(localclientnum)
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: sensor_dart
 	Checksum: 0xFB5C6D7C
 	Offset: 0xAE0
@@ -222,7 +222,7 @@ function private function_e3a084cd(localclientnum)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_31a1aa18(localclientnum)
+function private on_game_ended(localclientnum)
 {
 	level waittill(#"game_ended");
 	disableallvisioncircles(localclientnum);

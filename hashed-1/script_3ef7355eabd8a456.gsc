@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_vo.gsc;
@@ -127,15 +127,15 @@ function init_quest()
 	level.var_3d015a65 = 0;
 	foreach(var_453ce50f in level.var_a035a0b9)
 	{
-		var_453ce50f namespace_2e9c09b3::function_e8661563(&function_e8d6a81b, 1);
+		var_453ce50f zm_item_pickup::function_e8661563(&function_e8d6a81b, 1);
 	}
 	var_453ce50f = getent("punch_card_anim", "targetname");
 	/#
 		assert(isdefined(var_453ce50f), "");
 	#/
 	var_453ce50f hide();
-	zm_sq::register(#"pernell_archive", #"step_1", #"pernell_archive_step1", &function_bdadef61, &function_be13a68b);
-	zm_sq::register(#"pernell_archive", #"step_2", #"pernell_archive_step2", &function_b3b228e2, &function_dd89f412);
+	zm_sq::register(#"pernell_archive", #"step_1", #"pernell_archive_step1", &pernell_archive_step1_setup, &pernell_archive_step1_cleanup);
+	zm_sq::register(#"pernell_archive", #"step_2", #"pernell_archive_step2", &pernell_archive_step2_setup, &pernell_archive_step2_cleanup);
 	zm_sq::start(#"pernell_archive");
 	level thread function_afb5905e();
 }
@@ -157,7 +157,7 @@ function function_afb5905e()
 }
 
 /*
-	Name: function_bdadef61
+	Name: pernell_archive_step1_setup
 	Namespace: namespace_87e11242
 	Checksum: 0x48CDFE02
 	Offset: 0xBA8
@@ -165,7 +165,7 @@ function function_afb5905e()
 	Parameters: 1
 	Flags: Linked
 */
-function function_bdadef61(var_5ea5c94d)
+function pernell_archive_step1_setup(var_5ea5c94d)
 {
 	if(!var_5ea5c94d)
 	{
@@ -192,7 +192,7 @@ function function_bdadef61(var_5ea5c94d)
 }
 
 /*
-	Name: function_be13a68b
+	Name: pernell_archive_step1_cleanup
 	Namespace: namespace_87e11242
 	Checksum: 0x12361BF5
 	Offset: 0xE68
@@ -200,7 +200,7 @@ function function_bdadef61(var_5ea5c94d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_be13a68b(var_5ea5c94d, ended_early)
+function pernell_archive_step1_cleanup(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
@@ -268,8 +268,8 @@ function function_a546fd97()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"damage");
-		var_16829d93 = s_notify.attacker aat::getaatonweapon(s_notify.weapon);
-		if(isdefined(var_16829d93) && var_16829d93.name === "zm_aat_kill_o_watt")
+		add_outtime = s_notify.attacker aat::getaatonweapon(s_notify.weapon);
+		if(isdefined(add_outtime) && add_outtime.name === "zm_aat_kill_o_watt")
 		{
 			var_863c08bb = var_863c08bb + s_notify.amount;
 			var_9ce2f88b = var_863c08bb / 15000;
@@ -299,7 +299,7 @@ function function_a546fd97()
 }
 
 /*
-	Name: function_b3b228e2
+	Name: pernell_archive_step2_setup
 	Namespace: namespace_87e11242
 	Checksum: 0x379FD1E3
 	Offset: 0x12B0
@@ -307,7 +307,7 @@ function function_a546fd97()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b3b228e2(var_5ea5c94d)
+function pernell_archive_step2_setup(var_5ea5c94d)
 {
 	if(!var_5ea5c94d)
 	{
@@ -316,7 +316,7 @@ function function_b3b228e2(var_5ea5c94d)
 }
 
 /*
-	Name: function_dd89f412
+	Name: pernell_archive_step2_cleanup
 	Namespace: namespace_87e11242
 	Checksum: 0x8377A2BA
 	Offset: 0x12E0
@@ -324,7 +324,7 @@ function function_b3b228e2(var_5ea5c94d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_dd89f412(var_5ea5c94d, ended_early)
+function pernell_archive_step2_cleanup(var_5ea5c94d, ended_early)
 {
 }
 
@@ -340,7 +340,7 @@ function function_dd89f412(var_5ea5c94d, ended_early)
 function function_e8d6a81b(e_item)
 {
 	s_punch_card = level.var_5a599dbf[level.var_3d015a65];
-	s_punch_card.var_85f707f6 = 1;
+	s_punch_card.in_inventory = 1;
 	self thread zm_vo::function_a2bd5a0c(#"hash_7e030fccc2c5a121");
 	if(isdefined(e_item))
 	{
@@ -364,7 +364,7 @@ function function_2f5993d6()
 	level.var_fcbb6a6b = undefined;
 	for(i = 0; i < level.var_5a599dbf.size; i++)
 	{
-		if(level.var_5a599dbf[i].var_85f707f6)
+		if(level.var_5a599dbf[i].in_inventory)
 		{
 			level.var_fcbb6a6b = level.var_5a599dbf[i];
 			break;
@@ -441,7 +441,7 @@ function function_54db89ef()
 		{
 			s_card = level.var_fcbb6a6b;
 			self.in_use = 1;
-			s_card.var_85f707f6 = 0;
+			s_card.in_inventory = 0;
 			function_2f5993d6();
 			level thread function_9f206255();
 			level flag::wait_till("card_inserted");

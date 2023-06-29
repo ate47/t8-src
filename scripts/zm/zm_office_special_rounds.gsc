@@ -386,7 +386,7 @@ function function_5b22eecf()
 	if(level.round_number > level.var_35a23da4 - 2)
 	{
 		level flag::set(#"hash_2a1fc2e349c48462");
-		callback::function_ec6dfc37(&function_5b22eecf);
+		callback::remove_on_round_end(&function_5b22eecf);
 	}
 }
 

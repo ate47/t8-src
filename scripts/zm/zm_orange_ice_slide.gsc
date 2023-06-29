@@ -43,7 +43,7 @@ function function_a8fc3bf1(s_info)
 			var_e098d474 linkto(e_player, "tag_origin");
 			var_e098d474 playloopsound("evt_ice_slide");
 		}
-		if(self.var_80360a02 === 0 && e_player zm_audio::function_65e5c19a())
+		if(self.var_80360a02 === 0 && e_player zm_audio::can_speak())
 		{
 			self.var_80360a02 = 1;
 			self.var_4ed9c192 = e_player;
@@ -98,7 +98,7 @@ function function_a8fc3bf1(s_info)
 */
 function function_9565c969()
 {
-	while(!self zm_audio::function_65e5c19a())
+	while(!self zm_audio::can_speak())
 	{
 		waitframe(1);
 	}

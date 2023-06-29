@@ -364,8 +364,8 @@ function function_2e07be71(localclientnum)
 	self waittill(#"death");
 	if(isdefined(var_3216cebd))
 	{
-		var_dff09cb4 = getentbynum(localclientnum, var_3216cebd);
-		if(isdefined(var_dff09cb4) && isplayer(var_dff09cb4) && var_dff09cb4 function_21c0fa55())
+		hawk_owner = getentbynum(localclientnum, var_3216cebd);
+		if(isdefined(hawk_owner) && isplayer(hawk_owner) && hawk_owner function_21c0fa55())
 		{
 			setuimodelvalue(createuimodel(getuimodelforcontroller(localclientnum), "hudItems.hawkActive"), 0);
 		}
@@ -387,7 +387,7 @@ function function_5a1bf101(localclientnum)
 	self notify("7f2100a11fa32baf" + notifyparam);
 	self endon("7f2100a11fa32baf" + notifyparam);
 	self endon(#"death");
-	var_dff09cb4 = self.owner;
+	hawk_owner = self.owner;
 	controllermodel = getuimodelforcontroller(localclientnum);
 	var_84528d5d = 0.5;
 	var_9acf630f = 0.3;
@@ -425,11 +425,11 @@ function function_5a1bf101(localclientnum)
 	stance_offsets[#"stand"] = vectorscale((0, 0, 1), 60);
 	stance_offsets[#"crouch"] = vectorscale((0, 0, 1), 40);
 	stance_offsets[#"prone"] = vectorscale((0, 0, 1), 12);
-	while(isdefined(var_dff09cb4) && isplayer(var_dff09cb4) && var_dff09cb4 function_21c0fa55())
+	while(isdefined(hawk_owner) && isplayer(hawk_owner) && hawk_owner function_21c0fa55())
 	{
-		if(var_dff09cb4 isremotecontrolling(localclientnum))
+		if(hawk_owner isremotecontrolling(localclientnum))
 		{
-			if(!isinvehicle(localclientnum, self) && isdefined(var_dff09cb4.weapon) && var_dff09cb4.weapon.statname == #"remote_missile")
+			if(!isinvehicle(localclientnum, self) && isdefined(hawk_owner.weapon) && hawk_owner.weapon.statname == #"remote_missile")
 			{
 				if(var_c0443ab2)
 				{
@@ -449,7 +449,7 @@ function function_5a1bf101(localclientnum)
 				var_98977cea = (isdefined(bundle.var_98977cea) ? bundle.var_98977cea : 2);
 			}
 		#/
-		now = var_dff09cb4 getclienttime();
+		now = hawk_owner getclienttime();
 		var_c0443ab2 = 1;
 		var_1d7ce7ba = project2dto3d(localclientnum, 0, 0, 12);
 		var_14569a7a = 0;
@@ -491,7 +491,7 @@ function function_5a1bf101(localclientnum)
 				{
 					var_6c8b920a[ti] = now;
 					var_14569a7a++;
-					trace = bullettrace(var_1d7ce7ba, target_player.origin + stance_offsets[target_player getstance()], 0, var_dff09cb4);
+					trace = bullettrace(var_1d7ce7ba, target_player.origin + stance_offsets[target_player getstance()], 0, hawk_owner);
 					if(isdefined(trace))
 					{
 						var_d7caaee9 = trace[#"fraction"] < 1;
@@ -503,7 +503,7 @@ function function_5a1bf101(localclientnum)
 		waitframe(1);
 		if(isdefined(self.owner))
 		{
-			var_dff09cb4 = self.owner;
+			hawk_owner = self.owner;
 		}
 	}
 }

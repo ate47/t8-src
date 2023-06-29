@@ -85,13 +85,13 @@ function end_killcam()
 	Parameters: 1
 	Flags: None
 */
-function function_2f7579f(var_167baaa)
+function function_2f7579f(weaponnamehash)
 {
 	if(!isdefined(level.var_ef3352fc))
 	{
 		level.var_ef3352fc = [];
 	}
-	level.var_ef3352fc[var_167baaa] = 1;
+	level.var_ef3352fc[weaponnamehash] = 1;
 }
 
 /*
@@ -261,7 +261,7 @@ function function_eb3deeec(spectatorclient, targetentityindex, killcam_entity_in
 }
 
 /*
-	Name: function_2c8aa45e
+	Name: has_deathcam
 	Namespace: killcam
 	Checksum: 0x67C12DB0
 	Offset: 0xB98
@@ -269,7 +269,7 @@ function function_eb3deeec(spectatorclient, targetentityindex, killcam_entity_in
 	Parameters: 0
 	Flags: Linked
 */
-function function_2c8aa45e()
+function has_deathcam()
 {
 	return isdefined(self.var_e59bd911);
 }
@@ -285,7 +285,7 @@ function function_2c8aa45e()
 */
 function start_deathcam()
 {
-	if(!self function_2c8aa45e())
+	if(!self has_deathcam())
 	{
 		self.sessionstate = "spectator";
 		self.spectatorclient = -1;

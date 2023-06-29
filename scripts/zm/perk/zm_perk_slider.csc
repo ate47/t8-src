@@ -49,12 +49,12 @@ function enable_slider_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"specialty_phdflopper", &function_4bb29d61, &function_90b5e96c);
 	zm_perks::register_perk_effects(#"specialty_phdflopper", "divetonuke_light");
-	zm_perks::register_perk_init_thread(#"specialty_phdflopper", &function_15d03600);
+	zm_perks::register_perk_init_thread(#"specialty_phdflopper", &init_slider);
 	zm_perks::function_b60f4a9f(#"specialty_phdflopper", #"p8_zm_vapor_altar_icon_01_phdslider", "zombie/fx8_perk_altar_symbol_ambient_slider", #"zmperksphdslider");
 }
 
 /*
-	Name: function_15d03600
+	Name: init_slider
 	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x2E0
@@ -62,7 +62,7 @@ function enable_slider_perk_for_level()
 	Parameters: 0
 	Flags: Linked
 */
-function function_15d03600()
+function init_slider()
 {
 }
 

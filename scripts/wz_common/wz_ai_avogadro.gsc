@@ -100,7 +100,7 @@ function private function_f34df3c()
 	self.var_8f61d7f4 = 1;
 	self wz_ai_utils::function_9758722("walk");
 	self callback::function_d8abfc3d(#"on_ai_damage", &function_ce2bd83c);
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &wz_ai_zombie::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_melee", &wz_ai_zombie::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_7140c3848cbefaa1", &function_e44ef704);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &wz_ai_utils::function_16e2f075);
 	self function_5ff730c7();
@@ -306,10 +306,10 @@ function function_ce2bd83c(params)
 	self player::function_74a5d514(params.eattacker, params.idamage, params.smeansofdeath, params.weapon, params.shitloc);
 	if(isdefined(params.einflictor) && isdefined(params.weapon) && params.smeansofdeath !== "MOD_DOT")
 	{
-		var_9a429025 = function_f74d2943(params.weapon, 7);
-		if(isdefined(var_9a429025))
+		dot_params = function_f74d2943(params.weapon, 7);
+		if(isdefined(dot_params))
 		{
-			status_effect::status_effect_apply(var_9a429025, params.weapon, params.einflictor);
+			status_effect::status_effect_apply(dot_params, params.weapon, params.einflictor);
 		}
 	}
 	if(isdefined(params.einflictor) && !isdefined(self.attackable) && isdefined(params.einflictor.var_b79a8ac7) && isarray(params.einflictor.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, params.weapon))

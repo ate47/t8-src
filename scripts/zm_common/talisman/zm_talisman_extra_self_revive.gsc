@@ -37,7 +37,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	zm_talisman::function_88a60d36("talisman_extra_self_revive", &activate_talisman);
+	zm_talisman::register_talisman("talisman_extra_self_revive", &activate_talisman);
 }
 
 /*

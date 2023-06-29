@@ -4012,12 +4012,12 @@ function gib_random_part()
 		return;
 	}
 	playsoundatposition(#"zmb_death_gibss", self.origin);
-	var_55633591 = randomint(5);
-	if(var_55633591 == 3 && gibserverutils::isgibbed(self, 32) || (var_55633591 == 4 && gibserverutils::isgibbed(self, 16)))
+	gib_index = randomint(5);
+	if(gib_index == 3 && gibserverutils::isgibbed(self, 32) || (gib_index == 4 && gibserverutils::isgibbed(self, 16)))
 	{
-		var_55633591 = randomint(3);
+		gib_index = randomint(3);
 	}
-	switch(var_55633591)
+	switch(gib_index)
 	{
 		case 0:
 		{

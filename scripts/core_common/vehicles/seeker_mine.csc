@@ -41,11 +41,11 @@ function spawned(localclientnum)
 	{
 		setsoundcontext("team", "enemy");
 	}
-	self thread function_710c1bb3(localclientnum);
+	self thread update_light(localclientnum);
 }
 
 /*
-	Name: function_710c1bb3
+	Name: update_light
 	Namespace: seeker_mine
 	Checksum: 0x600D58FB
 	Offset: 0x280
@@ -53,7 +53,7 @@ function spawned(localclientnum)
 	Parameters: 1
 	Flags: Private
 */
-function private function_710c1bb3(localclientnum)
+function private update_light(localclientnum)
 {
 	self endon(#"death");
 	self util::waittill_dobj(localclientnum);

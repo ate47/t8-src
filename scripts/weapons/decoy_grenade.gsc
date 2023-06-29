@@ -70,7 +70,7 @@ function on_spawn(watcher)
 {
 	self endon(#"death");
 	grenade = self;
-	grenade thread function_63b32852();
+	grenade thread play_footsteps();
 	grenade.var_f64cb8d = function_a5871d04(grenade);
 	grenade waittill(#"stationary");
 	grenade setcandamage(1);
@@ -83,7 +83,7 @@ function on_spawn(watcher)
 }
 
 /*
-	Name: function_63b32852
+	Name: play_footsteps
 	Namespace: decoygrenade
 	Checksum: 0x66FDB79F
 	Offset: 0x348
@@ -91,7 +91,7 @@ function on_spawn(watcher)
 	Parameters: 0
 	Flags: Linked
 */
-function function_63b32852()
+function play_footsteps()
 {
 	self endon(#"death", #"hash_5a09ded231e405ad");
 	wait(0.25);

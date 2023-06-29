@@ -42,7 +42,7 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"hash_136e9d44e7e2e888", 24000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_77a1a7cd8eb3e86c", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_4881cb6bc59fdc49", 24000, 1, "int");
-	callback::function_20263b9e(&function_20263b9e);
+	callback::on_grenade_fired(&on_grenade_fired);
 	zm_loadout::register_lethal_grenade_for_level(#"music_box");
 	if(!isdefined(level.var_14160fb0))
 	{
@@ -55,7 +55,7 @@ function __init__()
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: music_box
 	Checksum: 0x4C17517A
 	Offset: 0x3A8
@@ -63,7 +63,7 @@ function __init__()
 	Parameters: 1
 	Flags: None
 */
-function function_20263b9e(s_params)
+function on_grenade_fired(s_params)
 {
 	if(s_params.weapon === level.w_music_box && isdefined(s_params.projectile))
 	{

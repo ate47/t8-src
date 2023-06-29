@@ -4020,13 +4020,13 @@ function function_b7e5029f()
 	Parameters: 3
 	Flags: Linked
 */
-function can_use(e_player, var_ea5d26bb = 0, var_67fee570 = 0)
+function can_use(e_player, b_is_weapon = 0, var_67fee570 = 0)
 {
 	if(!is_player_valid(e_player, 0, var_67fee570) || e_player in_revive_trigger() || e_player isthrowinggrenade() || e_player isswitchingweapons() || e_player is_drinking())
 	{
 		return false;
 	}
-	if(var_ea5d26bb)
+	if(b_is_weapon)
 	{
 		w_current = e_player getcurrentweapon();
 		if(!e_player zm_magicbox::can_buy_weapon(0) || e_player bgb::is_enabled(#"zm_bgb_disorderly_combat") || zm_loadout::is_placeable_mine(w_current) || zm_equipment::is_equipment(w_current) || ability_util::is_weapon_gadget(w_current))
@@ -4395,7 +4395,7 @@ function enable_react()
 }
 
 /*
-	Name: function_e51dc2d8
+	Name: is_ee_enabled
 	Namespace: zm_utility
 	Checksum: 0x54EBDF86
 	Offset: 0x9B58
@@ -4403,7 +4403,7 @@ function enable_react()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e51dc2d8()
+function is_ee_enabled()
 {
 	if(isdefined(level.var_73d1e054) && level.var_73d1e054)
 	{
@@ -6106,7 +6106,7 @@ function private function_315c8e4(v_magnitude, e_attacker, n_damage = self.healt
 }
 
 /*
-	Name: function_e0448fec
+	Name: set_max_health
 	Namespace: zm_utility
 	Checksum: 0x979485C9
 	Offset: 0xD128
@@ -6114,7 +6114,7 @@ function private function_315c8e4(v_magnitude, e_attacker, n_damage = self.healt
 	Parameters: 1
 	Flags: Linked
 */
-function function_e0448fec(var_54cb21f6 = 0)
+function set_max_health(var_54cb21f6 = 0)
 {
 	if(self.health < self.var_66cb03ad)
 	{
@@ -6385,7 +6385,7 @@ function function_71071944(n_obj_id, var_b96be97f)
 		}
 		if(var_880caa89)
 		{
-			level flag::set(#"hash_1b9ecc7979b0fcfb");
+			level flag::set(#"disable_fast_travel");
 		}
 	}
 }

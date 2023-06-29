@@ -164,7 +164,7 @@ function givecustomloadout()
 	self setweaponammoclip(offhandprimary, 1);
 	self.grenadetypeprimary = offhandprimary;
 	self.grenadetypeprimarycount = 1;
-	loadout = self loadout::function_e27dc453("primarygrenade");
+	loadout = self loadout::get_loadout_slot("primarygrenade");
 	loadout.weapon = offhandprimary;
 	loadout.count = 1;
 	self ability_util::gadget_reset(offhandprimary, 0, 0, 1, 0);
@@ -177,7 +177,7 @@ function givecustomloadout()
 		secondaryoffhandcount = 0;
 		self giveweapon(secondaryoffhand);
 		self setweaponammoclip(secondaryoffhand, secondaryoffhandcount);
-		loadout = self loadout::function_e27dc453("specialgrenade");
+		loadout = self loadout::get_loadout_slot("specialgrenade");
 		loadout.weapon = secondaryoffhand;
 		loadout.count = secondaryoffhandcount;
 		self ability_util::function_36a15b60(secondaryoffhand);
@@ -189,7 +189,7 @@ function givecustomloadout()
 	self.killswithbothawarded = 0;
 	if(isbot(self) && !isdefined(level.botweapons[level.weapon_sas_primary_weapon.name]))
 	{
-		bot_action::function_ab03ca93(level.weapon_sas_primary_weapon.name);
+		bot_action::register_bulletweapon(level.weapon_sas_primary_weapon.name);
 	}
 	return defaultweapon;
 }
@@ -345,7 +345,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 function onendgame(var_c1e98979)
 {
 	player = round::function_b5f4c9d8();
-	match::function_d1e740f6(player);
+	match::set_winner(player);
 }
 
 /*

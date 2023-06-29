@@ -337,7 +337,7 @@ function electric_cherry_stun()
 	wait(4);
 	if(isdefined(self))
 	{
-		self ai::function_62795e55();
+		self ai::clear_stun();
 		self val::reset(#"electric_cherry_stun", "ignoreall");
 		self notify(#"stun_fx_end");
 	}

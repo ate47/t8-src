@@ -610,7 +610,7 @@ function on_player_killed()
 	{
 		return;
 	}
-	self function_6c280dfe();
+	self clear_interact();
 	self clear_revive_target();
 	if(isdefined(level.onbotkilled))
 	{
@@ -761,7 +761,7 @@ function update_loop()
 			self bot_stance::reset();
 			if(self function_dd750ead())
 			{
-				gameobject = self function_f47bf51d();
+				gameobject = self get_interact();
 				if(isdefined(gameobject.inuse) && gameobject.inuse && isdefined(gameobject.trigger) && self.claimtrigger === gameobject.trigger)
 				{
 					self bottapbutton(3);
@@ -785,14 +785,14 @@ function function_23c46f6e()
 {
 	if(self function_dd750ead())
 	{
-		gameobject = self function_f47bf51d();
+		gameobject = self get_interact();
 		if(!isdefined(gameobject.trigger) || !gameobject.trigger istriggerenabled() || !gameobject gameobjects::can_interact_with(self))
 		{
-			self function_6c280dfe();
+			self clear_interact();
 		}
 		else if(isdefined(gameobject.inuse) && gameobject.inuse && self.claimtrigger !== gameobject.trigger)
 		{
-			self function_6c280dfe();
+			self clear_interact();
 		}
 	}
 	else
@@ -805,12 +805,12 @@ function function_23c46f6e()
 			if(self function_43a720c7())
 			{
 			}
-			else if(self function_6b107944())
+			else if(self has_interact())
 			{
 				/#
 					self botprinterror("");
 				#/
-				self function_6c280dfe();
+				self clear_interact();
 			}
 		}
 	}
@@ -1108,7 +1108,7 @@ function set_interact(interact)
 }
 
 /*
-	Name: function_6c280dfe
+	Name: clear_interact
 	Namespace: bot
 	Checksum: 0xFA3D73BF
 	Offset: 0x29A0
@@ -1116,13 +1116,13 @@ function set_interact(interact)
 	Parameters: 0
 	Flags: Linked
 */
-function function_6c280dfe()
+function clear_interact()
 {
 	self.bot.interact = undefined;
 }
 
 /*
-	Name: function_f47bf51d
+	Name: get_interact
 	Namespace: bot
 	Checksum: 0x2CFA3D3B
 	Offset: 0x29C0
@@ -1130,13 +1130,13 @@ function function_6c280dfe()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f47bf51d()
+function get_interact()
 {
 	return self.bot.interact;
 }
 
 /*
-	Name: function_6b107944
+	Name: has_interact
 	Namespace: bot
 	Checksum: 0xDA4370EC
 	Offset: 0x29E0
@@ -1144,7 +1144,7 @@ function function_f47bf51d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6b107944()
+function has_interact()
 {
 	return isdefined(self.bot.interact);
 }
@@ -1258,11 +1258,11 @@ function function_43a720c7()
 */
 function function_bba89736()
 {
-	if(!self function_6b107944())
+	if(!self has_interact())
 	{
 		return undefined;
 	}
-	interact = self function_f47bf51d();
+	interact = self get_interact();
 	if(self function_dd750ead())
 	{
 		return interact.trigger;
@@ -1874,32 +1874,32 @@ function devgui_bot_loop()
 				}
 				case "ignoreall":
 				{
-					level function_7f17c614(host, args[1], int(args[2]));
+					level devgui_ignoreall(host, args[1], int(args[2]));
 					break;
 				}
 				case "primaryoffhand":
 				{
-					level function_c96c865c(host, "", args[1], int(args[2]));
+					level devgui_attribute(host, "", args[1], int(args[2]));
 					break;
 				}
 				case "secondaryoffhand":
 				{
-					level function_c96c865c(host, "", args[1], int(args[2]));
+					level devgui_attribute(host, "", args[1], int(args[2]));
 					break;
 				}
 				case "specialoffhand":
 				{
-					level function_c96c865c(host, "", args[1], int(args[2]));
+					level devgui_attribute(host, "", args[1], int(args[2]));
 					break;
 				}
 				case "scorestreak":
 				{
-					level function_c96c865c(host, "", args[1], int(args[2]));
+					level devgui_attribute(host, "", args[1], int(args[2]));
 					break;
 				}
 				case "usegadget":
 				{
-					level function_62c047e4(host, args[1], int(args[2]));
+					level devgui_use_gadget(host, args[1], int(args[2]));
 					break;
 				}
 				case "usekillstreak":
@@ -1909,7 +1909,7 @@ function devgui_bot_loop()
 				}
 				case "tpose":
 				{
-					level function_41f90224(host, args[1]);
+					level devgui_tpose(host, args[1]);
 					break;
 				}
 			}
@@ -1924,7 +1924,7 @@ function devgui_bot_loop()
 					}
 					case "set_target":
 					{
-						host function_f3b40e82(args[1], args[2]);
+						host devgui_set_target(args[1], args[2]);
 						break;
 					}
 					case "goal":
@@ -2210,7 +2210,7 @@ function devgui_remove_bots(host, botarg)
 }
 
 /*
-	Name: function_7f17c614
+	Name: devgui_ignoreall
 	Namespace: bot
 	Checksum: 0xA5F0999C
 	Offset: 0x5510
@@ -2218,7 +2218,7 @@ function devgui_remove_bots(host, botarg)
 	Parameters: 3
 	Flags: None
 */
-function function_7f17c614(host, botarg, cmdarg)
+function devgui_ignoreall(host, botarg, cmdarg)
 {
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
@@ -2228,7 +2228,7 @@ function function_7f17c614(host, botarg, cmdarg)
 }
 
 /*
-	Name: function_c96c865c
+	Name: devgui_attribute
 	Namespace: bot
 	Checksum: 0x358F53E1
 	Offset: 0x55D0
@@ -2236,7 +2236,7 @@ function function_7f17c614(host, botarg, cmdarg)
 	Parameters: 4
 	Flags: None
 */
-function function_c96c865c(host, attribute, botarg, cmdarg)
+function devgui_attribute(host, attribute, botarg, cmdarg)
 {
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
@@ -2249,7 +2249,7 @@ function function_c96c865c(host, attribute, botarg, cmdarg)
 }
 
 /*
-	Name: function_62c047e4
+	Name: devgui_use_gadget
 	Namespace: bot
 	Checksum: 0x1D47A057
 	Offset: 0x56F0
@@ -2257,7 +2257,7 @@ function function_c96c865c(host, attribute, botarg, cmdarg)
 	Parameters: 3
 	Flags: None
 */
-function function_62c047e4(host, botarg, cmdarg)
+function devgui_use_gadget(host, botarg, cmdarg)
 {
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
@@ -2285,7 +2285,7 @@ function function_8042b78a(host, botarg)
 }
 
 /*
-	Name: function_41f90224
+	Name: devgui_tpose
 	Namespace: bot
 	Checksum: 0x50A9CAD0
 	Offset: 0x5860
@@ -2293,7 +2293,7 @@ function function_8042b78a(host, botarg)
 	Parameters: 2
 	Flags: None
 */
-function function_41f90224(host, botarg)
+function devgui_tpose(host, botarg)
 {
 	bots = devgui_get_bots(host, botarg);
 	foreach(bot in bots)
@@ -2351,7 +2351,7 @@ function devgui_invulnerable(host, botarg, cmdarg)
 }
 
 /*
-	Name: function_f3b40e82
+	Name: devgui_set_target
 	Namespace: bot
 	Checksum: 0x9501804D
 	Offset: 0x5B88
@@ -2359,7 +2359,7 @@ function devgui_invulnerable(host, botarg, cmdarg)
 	Parameters: 2
 	Flags: None
 */
-function function_f3b40e82(botarg, cmdarg)
+function devgui_set_target(botarg, cmdarg)
 {
 	target = undefined;
 	switch(cmdarg)
@@ -2726,11 +2726,11 @@ function record_text(text, textcolor, dvarstr)
 function function_d45e8714()
 {
 	/#
-		if(!self function_6b107944())
+		if(!self has_interact())
 		{
 			return;
 		}
-		interact = self function_f47bf51d();
+		interact = self get_interact();
 		var_dda174e9 = self function_bba89736();
 		origin = interact.origin;
 		desc = "";

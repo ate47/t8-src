@@ -114,9 +114,9 @@ class czm_laststand_client : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("bleedout_progress", 1, 6, "float");
-		cLUIelem::function_da693cbe("revive_progress", 1, 5, "float");
-		cLUIelem::function_da693cbe("num_downs", 1, 8, "int");
+		cLUIelem::add_clientfield("bleedout_progress", 1, 6, "float");
+		cLUIelem::add_clientfield("revive_progress", 1, 5, "float");
+		cLUIelem::add_clientfield("num_downs", 1, 8, "int");
 	}
 
 }

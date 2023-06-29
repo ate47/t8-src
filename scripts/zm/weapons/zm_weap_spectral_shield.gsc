@@ -70,7 +70,7 @@ function __init__()
 	level.var_a6a70655[level.var_a6a70655.size] = "guts";
 	level.var_a6a70655[level.var_a6a70655.size] = "right_arm";
 	level.var_a6a70655[level.var_a6a70655.size] = "left_arm";
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level.var_f7d93c4e = &function_df8ce6e2;
 		level.var_932a1afb = &function_9693e041;
@@ -1429,7 +1429,7 @@ function function_35d74d73(e_attacker)
 			self clientfield::set("" + #"hash_1b02e77fdbc51a4d", 0);
 		}
 		self.var_5bf7575e = 0;
-		self ai::function_62795e55();
+		self ai::clear_stun();
 		self.instakill_func = undefined;
 	}
 }
@@ -1515,7 +1515,7 @@ function private function_8103698()
 	self thread function_da5e7ec0();
 	self ai::stun();
 	wait(1);
-	self ai::function_62795e55();
+	self ai::clear_stun();
 }
 
 /*
@@ -1572,7 +1572,7 @@ function private function_a370d183(e_attacker)
 			self clientfield::set("" + #"hash_1b02e77fdbc51a4d", 0);
 		}
 		self.var_5bf7575e = undefined;
-		self ai::function_62795e55();
+		self ai::clear_stun();
 	}
 }
 

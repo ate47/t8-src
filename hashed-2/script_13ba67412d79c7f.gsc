@@ -89,7 +89,7 @@ class czm_trial_timer : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_trial_timer
 		Checksum: 0x688FB4BF
 		Offset: 0x300
@@ -97,9 +97,9 @@ class czm_trial_timer : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -115,7 +115,7 @@ class czm_trial_timer : cLUIelem
 	{
 		cLUIelem::setup_clientfields(uid);
 		cLUIelem::function_dcb34c80("string", "timer_text", 1);
-		cLUIelem::function_da693cbe("under_round_rules", 5000, 1, "int", var_33be6591);
+		cLUIelem::add_clientfield("under_round_rules", 5000, 1, "int", var_33be6591);
 	}
 
 }
@@ -139,7 +139,7 @@ function register(uid, var_96b8e5ea, var_33be6591)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_trial_timer
 	Checksum: 0x4B9FFEC3
 	Offset: 0x130
@@ -147,10 +147,10 @@ function register(uid, var_96b8e5ea, var_33be6591)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_trial_timer();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

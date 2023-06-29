@@ -47,8 +47,8 @@ function function_6799fbc4(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			level.var_22a393d4[level.var_22a393d4.size] = self;
 		}
-		self.var_922c0c5c = &function_c06aed2;
-		self.var_ffeecdb6 = &function_59cd4ca1;
+		self.show_function = &function_c06aed2;
+		self.hide_function = &function_59cd4ca1;
 		self hide();
 	}
 	else

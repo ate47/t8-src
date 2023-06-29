@@ -379,7 +379,7 @@ function _spawnplayer()
 		print(((((("" + self.origin[0]) + "") + self.origin[1]) + "") + self.origin[2]) + "");
 	#/
 	setdvar(#"scr_selecting_location", "");
-	self zm_utility::function_e0448fec();
+	self zm_utility::set_max_health();
 	if(game.state == "postgame")
 	{
 		/#

@@ -169,7 +169,7 @@ function private finalize_clientfields()
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.playerCounterMax", 1, getminbitcountfornum(1000), "int");
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.gameState", 1, 2, "int");
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.failurePlayer", 1, 4, "int");
-	clientfield::function_78175813("worlduimodel", "string", "ZMHudGlobal.trials.failureReason", 1, 1);
+	clientfield::register_bgcache("worlduimodel", "string", "ZMHudGlobal.trials.failureReason", 1, 1);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.gameStartTime", 1, 31, "int");
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.showScoreboard", 1, getminbitcountfornum(1), "int");
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.globalCheckState", 1, getminbitcountfornum(2), "int");
@@ -1111,7 +1111,7 @@ function function_dc0859e(var_b5434dd5 = 1)
 }
 
 /*
-	Name: function_3e209fb6
+	Name: open_all_doors
 	Namespace: zm_trial_util
 	Checksum: 0xD3039C58
 	Offset: 0x3498
@@ -1119,7 +1119,7 @@ function function_dc0859e(var_b5434dd5 = 1)
 	Parameters: 0
 	Flags: None
 */
-function function_3e209fb6()
+function open_all_doors()
 {
 	/#
 		a_zombie_doors = getentarray("", "");

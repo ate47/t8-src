@@ -152,7 +152,7 @@ function function_fa0d912f(var_7b4ae7d1)
 		var_7b4ae7d1 = 17;
 	}
 	/#
-		thread function_1da54a84(var_7b4ae7d1);
+		thread debug_bots(var_7b4ae7d1);
 	#/
 	for(i = 0; i < var_7b4ae7d1; i++)
 	{
@@ -171,8 +171,8 @@ function function_fa0d912f(var_7b4ae7d1)
 			count = 0;
 			do
 			{
-				var_c96e180a = randomintrange(1, var_5ec2386a);
-				fields = getcharacterfields(var_c96e180a, currentsessionmode());
+				role_index = randomintrange(1, var_5ec2386a);
+				fields = getcharacterfields(role_index, currentsessionmode());
 				count = count + 1;
 				if(isdefined(fields) && (isdefined(fields.var_49a55967) && fields.var_49a55967))
 				{
@@ -182,9 +182,9 @@ function function_fa0d912f(var_7b4ae7d1)
 			while(count < var_5ec2386a);
 			if(!isdefined(fields) || (!(isdefined(fields.var_49a55967) && fields.var_49a55967)))
 			{
-				var_c96e180a = 1;
+				role_index = 1;
 			}
-			bot.var_29b433bd = var_c96e180a;
+			bot.var_29b433bd = role_index;
 		}
 		bot.pers[#"class"] = level.defaultclass;
 		bot.curclass = level.defaultclass;
@@ -537,7 +537,7 @@ function function_7d86a450()
 }
 
 /*
-	Name: function_1da54a84
+	Name: debug_bots
 	Namespace: ct_bots
 	Checksum: 0xFF071362
 	Offset: 0x11C8
@@ -545,7 +545,7 @@ function function_7d86a450()
 	Parameters: 1
 	Flags: None
 */
-function function_1da54a84(var_841324bd)
+function debug_bots(var_841324bd)
 {
 	/#
 		if(!(isdefined(level.var_5e97302a) && level.var_5e97302a))
@@ -774,7 +774,7 @@ function on_death(params)
 }
 
 /*
-	Name: function_991ccf1a
+	Name: disablebot
 	Namespace: ct_bots
 	Checksum: 0xE2C7F572
 	Offset: 0x2278
@@ -782,7 +782,7 @@ function on_death(params)
 	Parameters: 0
 	Flags: None
 */
-function function_991ccf1a()
+function disablebot()
 {
 	self.disablespawning = 1;
 	self.isinuse = 0;
@@ -905,7 +905,7 @@ function activate_bots(var_9bff2467, str_team, str_targetname, var_216e25ba = 0)
 }
 
 /*
-	Name: function_87cf954e
+	Name: deactivate_bots
 	Namespace: ct_bots
 	Checksum: 0xA6535FA3
 	Offset: 0x2740
@@ -913,14 +913,14 @@ function activate_bots(var_9bff2467, str_team, str_targetname, var_216e25ba = 0)
 	Parameters: 0
 	Flags: None
 */
-function function_87cf954e()
+function deactivate_bots()
 {
 	entities = bot::get_bots();
 	foreach(entity in entities)
 	{
 		if(isdefined(entity) && isdefined(entity.bot))
 		{
-			entity function_991ccf1a();
+			entity disablebot();
 			waitframe(1);
 		}
 	}

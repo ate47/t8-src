@@ -41,7 +41,7 @@ function __init__()
 	zm::function_84d343d(#"hash_753ba1d1412a4962", &function_2b4945e4);
 	zm::function_84d343d(#"hash_7d040bd867e93061", &function_2b4945e4);
 	zm::function_84d343d(#"hash_5624a55eb03372d0", &function_2b4945e4);
-	namespace_9ff9f642::function_9d45c058(#"eq_wraith_fire", 50, 5, "" + #"hash_682f9312e30af478", "" + #"hash_7fcff4f8340f11f7");
+	namespace_9ff9f642::register_burn(#"eq_wraith_fire", 50, 5, "" + #"hash_682f9312e30af478", "" + #"hash_7fcff4f8340f11f7");
 	clientfield::register("actor", "" + #"hash_682f9312e30af478", 1, 1, "int");
 	clientfield::register("actor", "" + #"hash_7fcff4f8340f11f7", 1, 1, "int");
 }

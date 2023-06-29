@@ -46,7 +46,7 @@ function __init__()
 	zm::function_84d343d(#"snowball_upgraded", &function_5ff12a45);
 	zm::function_84d343d(#"snowball_yellow", &function_ee240a8e);
 	zm::function_84d343d(#"snowball_yellow_upgraded", &function_ee240a8e);
-	callback::function_20263b9e(&function_20263b9e);
+	callback::on_grenade_fired(&on_grenade_fired);
 	zm_loadout::register_lethal_grenade_for_level(#"snowball");
 	zm_loadout::register_lethal_grenade_for_level(#"snowball_upgraded");
 	zm_loadout::register_lethal_grenade_for_level(#"snowball_yellow");
@@ -56,7 +56,7 @@ function __init__()
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: zm_weap_snowball
 	Checksum: 0xF127ADC0
 	Offset: 0x3E8
@@ -64,7 +64,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(s_params)
+function on_grenade_fired(s_params)
 {
 	self endon(#"death");
 	level endon(#"end_game");

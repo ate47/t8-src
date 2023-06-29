@@ -168,7 +168,7 @@ function private __main__()
 }
 
 /*
-	Name: function_b14456ef
+	Name: update_devgui
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x156E9F5D
 	Offset: 0x548
@@ -176,7 +176,7 @@ function private __main__()
 	Parameters: 0
 	Flags: Private
 */
-function private function_b14456ef()
+function private update_devgui()
 {
 	/#
 		if(!isdefined(level.var_a44d1e7))
@@ -529,7 +529,7 @@ function private function_ad40f5b3()
 */
 function private function_710cbc75(e_player, var_1ad9db60, b_branch)
 {
-	function_3ff920ca(self);
+	start_internal(self);
 }
 
 /*
@@ -756,7 +756,7 @@ function private function_d9af887b(var_dcd6c23)
 }
 
 /*
-	Name: function_4810b274
+	Name: stop_internal
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x9661876E
 	Offset: 0x22C0
@@ -764,7 +764,7 @@ function private function_d9af887b(var_dcd6c23)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_4810b274(var_dcd6c23, b_auto_delete)
+function private stop_internal(var_dcd6c23, b_auto_delete)
 {
 	if(var_dcd6c23 flag::get("stopped") || (var_dcd6c23 flag::get("cleared") && (!(isdefined(var_dcd6c23.var_f68bc980) && var_dcd6c23.var_f68bc980))))
 	{
@@ -789,7 +789,7 @@ function private function_4810b274(var_dcd6c23, b_auto_delete)
 }
 
 /*
-	Name: function_3ff920ca
+	Name: start_internal
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x8CB860AD
 	Offset: 0x2468
@@ -797,7 +797,7 @@ function private function_4810b274(var_dcd6c23, b_auto_delete)
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private function_3ff920ca(s_wave_manager_struct, str_team, b_looping, str_wavemanager, str_spawner_targets, var_e8332bc1)
+function private start_internal(s_wave_manager_struct, str_team, b_looping, str_wavemanager, str_spawner_targets, var_e8332bc1)
 {
 	var_dcd6c23 = new cwavemanager();
 	var_dcd6c23.m_s_bundle = struct::get_script_bundle("wave_manager", (isdefined(str_wavemanager) ? str_wavemanager : s_wave_manager_struct.scriptbundlename));
@@ -862,7 +862,7 @@ function private function_3ff920ca(s_wave_manager_struct, str_team, b_looping, s
 	init_flags(var_dcd6c23);
 	thread think(var_dcd6c23);
 	/#
-		function_b14456ef();
+		update_devgui();
 	#/
 	if(isdefined(s_wave_manager_struct))
 	{
@@ -1954,7 +1954,7 @@ function start(kvp, var_964c77e1, vararg)
 		var_e8332bc1 = new class_8e39177();
 		var_e8332bc1.var_964c77e1 = var_964c77e1;
 		var_e8332bc1.a_params = vararg;
-		namespace_96ff9fb2::function_3ff920ca(s_wave_manager, undefined, undefined, undefined, undefined, var_e8332bc1);
+		namespace_96ff9fb2::start_internal(s_wave_manager, undefined, undefined, undefined, undefined, var_e8332bc1);
 	}
 }
 
@@ -1972,7 +1972,7 @@ function function_be3a34f(var_b6ee6116, str_team, b_looping = 0, str_spawner_tar
 	var_e8332bc1 = new class_8e39177();
 	var_e8332bc1.var_964c77e1 = var_964c77e1;
 	var_e8332bc1.a_params = vararg;
-	return namespace_96ff9fb2::function_3ff920ca(undefined, str_team, b_looping, var_b6ee6116, str_spawner_targets, var_e8332bc1);
+	return namespace_96ff9fb2::start_internal(undefined, str_team, b_looping, var_b6ee6116, str_spawner_targets, var_e8332bc1);
 }
 
 /*
@@ -2429,7 +2429,7 @@ function stop(kvp, b_auto_delete = 0)
 	var_fed53aae = self namespace_96ff9fb2::function_32b947df(kvp);
 	foreach(var_dcd6c23 in var_fed53aae)
 	{
-		namespace_96ff9fb2::function_4810b274(var_dcd6c23, b_auto_delete);
+		namespace_96ff9fb2::stop_internal(var_dcd6c23, b_auto_delete);
 	}
 }
 

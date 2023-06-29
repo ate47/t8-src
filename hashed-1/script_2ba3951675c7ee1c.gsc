@@ -69,7 +69,7 @@ function __init__()
 	clientfield::register("scriptmover", "" + #"hash_7692067c56d8b6cc", 1, 2, "int");
 	level.var_8e6fc65e = getentarray("mg_al_skull", "targetname");
 	level.var_5f506a2b = getent("mg_ho_vol", "targetname");
-	zm_powerups::set_weapon_ignore_max_ammo(#"hash_617dcc39334959ce");
+	zm_powerups::set_weapon_ignore_max_ammo(#"ww_blundergat_fire_t8_unfinished");
 	var_e34de65b = struct::get("mg_door_frame_pos", "targetname");
 	level.var_760f9184 = util::spawn_model("tag_origin", var_e34de65b.origin, var_e34de65b.angles);
 	var_9eb4d270 = struct::get("mg_fp_pos", "targetname");
@@ -369,7 +369,7 @@ function function_fcf0a319(e_player, var_a29167c5)
 	{
 		self.var_607f49de delete();
 	}
-	self.var_607f49de = zm_utility::spawn_weapon_model(getweapon(#"hash_617dcc39334959ce"), undefined, self.v_weapon_origin, self.v_weapon_angles);
+	self.var_607f49de = zm_utility::spawn_weapon_model(getweapon(#"ww_blundergat_fire_t8_unfinished"), undefined, self.v_weapon_origin, self.v_weapon_angles);
 	self.var_a29167c5 = undefined;
 	level.var_cc5631a6 function_d586e457();
 	level flag::set(#"hash_1d5f5fbf80476490");
@@ -527,8 +527,8 @@ function private function_11efbb03(e_player)
 				{
 					e_player takeweapon(e_player.currentweapon);
 				}
-				e_player giveweapon(getweapon(#"hash_617dcc39334959ce"));
-				e_player switchtoweapon(getweapon(#"hash_617dcc39334959ce"));
+				e_player giveweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"));
+				e_player switchtoweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 				e_player clientfield::set_to_player("" + #"hash_1a9944b03fae8660", 1);
 				e_player.var_1ea09849 = 1;
 				level notify(#"hash_575b654fc5c59146", {#e_player:e_player});
@@ -746,7 +746,7 @@ function function_dd30dc9a(var_146228fb)
 	self clientfield::set("" + #"hash_1142930568dc278b", 1);
 	while(isdefined(var_146228fb))
 	{
-		self zm_escape_util::function_8b5765c6();
+		self zm_escape_util::make_wobble();
 	}
 }
 
@@ -866,10 +866,10 @@ function function_6222e98f()
 	}
 	if(isdefined(self.var_1ea09849) && self.var_1ea09849 && self.n_cooldown_time <= 0)
 	{
-		if(self hasweapon(getweapon(#"hash_617dcc39334959ce")))
+		if(self hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")))
 		{
 			self clientfield::set_to_player("" + #"hash_1a9944b03fae8660", 0);
-			self takeweapon(getweapon(#"hash_617dcc39334959ce"));
+			self takeweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 			playsoundatposition(#"hash_65b4e7aafb64c1a1", (0, 0, 0));
 		}
 		if(isdefined(self.var_22b64976))
@@ -918,16 +918,16 @@ function function_95a4deeb()
 		}
 		else
 		{
-			if(!(isdefined(b_player_downed) && b_player_downed) && s_result.last_weapon !== getweapon(#"hash_617dcc39334959ce"))
+			if(!(isdefined(b_player_downed) && b_player_downed) && s_result.last_weapon !== getweapon(#"ww_blundergat_fire_t8_unfinished"))
 			{
 				continue;
 			}
 			else
 			{
-				if(self hasweapon(getweapon(#"hash_617dcc39334959ce")))
+				if(self hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")))
 				{
 					self clientfield::set_to_player("" + #"hash_1a9944b03fae8660", 0);
-					self takeweapon(getweapon(#"hash_617dcc39334959ce"));
+					self takeweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 					playsoundatposition(#"hash_65b4e7aafb64c1a1", (0, 0, 0));
 				}
 				if(isdefined(self.var_22b64976))
@@ -959,10 +959,10 @@ function function_6b09dab1()
 {
 	self endon(#"death", #"disconnect", #"hash_5dc448a84a24492", #"hash_2c23d48f0925d266");
 	self waittill(#"fasttravel_over");
-	if(self hasweapon(getweapon(#"hash_617dcc39334959ce")))
+	if(self hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")))
 	{
 		self clientfield::set_to_player("" + #"hash_1a9944b03fae8660", 0);
-		self takeweapon(getweapon(#"hash_617dcc39334959ce"));
+		self takeweapon(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 		playsoundatposition(#"hash_65b4e7aafb64c1a1", (0, 0, 0));
 		if(isdefined(self.var_22b64976))
 		{
@@ -994,14 +994,14 @@ function function_7f19d274()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"weapon_fired");
-		if(s_result.weapon == getweapon(#"hash_617dcc39334959ce"))
+		if(s_result.weapon == getweapon(#"ww_blundergat_fire_t8_unfinished"))
 		{
 			/#
 				assert(isdefined(self.n_cooldown_time), "");
 			#/
 			self.n_cooldown_time = self.n_cooldown_time - 6;
 			self clientfield::increment_to_player("" + #"hash_39d19b76b846a27f");
-			self givemaxammo(getweapon(#"hash_617dcc39334959ce"));
+			self givemaxammo(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 		}
 	}
 }
@@ -1090,7 +1090,7 @@ function function_3e6b7a2d()
 			if(isalive(e_player) && (isdefined(e_player.var_1ea09849) && e_player.var_1ea09849))
 			{
 				e_player clientfield::increment_to_player("" + #"hash_c79e0b124c4b75");
-				e_player givemaxammo(getweapon(#"hash_617dcc39334959ce"));
+				e_player givemaxammo(getweapon(#"ww_blundergat_fire_t8_unfinished"));
 				if(!(isdefined(e_player.var_a40e9d01) && e_player.var_a40e9d01))
 				{
 					e_player.var_a40e9d01 = 1;
@@ -1170,7 +1170,7 @@ function function_77e65267(player)
 	{
 		return false;
 	}
-	if(player hasweapon(getweapon(#"hash_617dcc39334959ce")) && !isdefined(self.stub.var_cec3094a))
+	if(player hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")) && !isdefined(self.stub.var_cec3094a))
 	{
 		if(function_8b1a219a())
 		{
@@ -1290,9 +1290,9 @@ function function_d3db303d()
 		{
 			if(!level flag::get(#"hash_38c04d24b5213b00"))
 			{
-				if(e_player hasweapon(getweapon(#"hash_617dcc39334959ce")))
+				if(e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")))
 				{
-					var_fc074136 = #"hash_617dcc39334959ce";
+					var_fc074136 = #"ww_blundergat_fire_t8_unfinished";
 				}
 			}
 			else
@@ -1323,7 +1323,7 @@ function function_d3db303d()
 			if(isdefined(var_fc074136))
 			{
 				self.stub.var_cec3094a = 1;
-				if(var_fc074136 == #"hash_617dcc39334959ce")
+				if(var_fc074136 == #"ww_blundergat_fire_t8_unfinished")
 				{
 					e_player clientfield::set_to_player("" + #"hash_1a9944b03fae8660", 0);
 				}

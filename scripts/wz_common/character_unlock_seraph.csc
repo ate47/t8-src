@@ -65,7 +65,7 @@ function function_2613aeec(enabled)
 {
 	if(enabled)
 	{
-		wz_firing_range::function_ea0556fc(#"hash_3af83a27a707345a");
+		wz_firing_range::init_targets(#"hash_3af83a27a707345a");
 		level thread function_211772b5();
 	}
 	else

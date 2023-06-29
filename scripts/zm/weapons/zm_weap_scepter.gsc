@@ -75,8 +75,8 @@ function __init__()
 	zm_perks::register_lost_perk_override(&function_3a00c0a6);
 	callback::on_connect(&on_connect);
 	callback::on_disconnect(&on_player_disconnect);
-	callback::on_bleedout(&function_f47257d7);
-	callback::on_revived(&function_f47257d7);
+	callback::on_bleedout(&reset_override);
+	callback::on_revived(&reset_override);
 	callback::on_bleedout(&function_37946a1d);
 	namespace_9ff9f642::register_slowdown(#"hash_6c580993aa401a5b", 0.6, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_449bc314b0c3da73", 0.4, 3);
@@ -540,7 +540,7 @@ function scepter_melee(player)
 }
 
 /*
-	Name: function_4e055c08
+	Name: reflect_shot
 	Namespace: zm_weap_scepter
 	Checksum: 0x1A6EE741
 	Offset: 0x1C08
@@ -548,7 +548,7 @@ function scepter_melee(player)
 	Parameters: 2
 	Flags: None
 */
-function function_4e055c08(d, n)
+function reflect_shot(d, n)
 {
 	perp = 2 * vectordot(d, n);
 	var_50ffa80c = d - (perp * n);
@@ -839,7 +839,7 @@ function function_fa0a1b19()
 }
 
 /*
-	Name: function_f47257d7
+	Name: reset_override
 	Namespace: zm_weap_scepter
 	Checksum: 0x65B5539
 	Offset: 0x28E0
@@ -847,7 +847,7 @@ function function_fa0a1b19()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f47257d7(s_params)
+function reset_override(s_params)
 {
 	if(self != level)
 	{
@@ -1782,7 +1782,7 @@ function function_888d5bd9(e_player)
 	else if(isdefined(self.var_bbff3b76) && isinarray(self.var_bbff3b76, e_player.var_6afa034c))
 	{
 		arrayremovevalue(self.var_bbff3b76, e_player.var_6afa034c);
-		self function_f47257d7();
+		self reset_override();
 		self function_89fc5431();
 	}
 }

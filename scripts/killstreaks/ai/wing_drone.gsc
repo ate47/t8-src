@@ -98,12 +98,12 @@ function defaultrole()
 	self vehicle_ai::get_state_callbacks("combat").update_func = &state_combat_update;
 	self vehicle_ai::get_state_callbacks("combat").exit_func = &state_combat_exit;
 	self vehicle_ai::get_state_callbacks("death").update_func = &state_death_update;
-	self vehicle_ai::add_state("malfunction", &function_39029b1a, &malfunction_update, &function_36201a5c);
+	self vehicle_ai::add_state("malfunction", &malfunction_enter, &malfunction_update, &malfunction_end);
 	vehicle_ai::startinitialstate("combat");
 }
 
 /*
-	Name: function_39029b1a
+	Name: malfunction_enter
 	Namespace: wing_drone
 	Checksum: 0xD6AEB756
 	Offset: 0x5A8
@@ -111,7 +111,7 @@ function defaultrole()
 	Parameters: 1
 	Flags: None
 */
-function function_39029b1a(params)
+function malfunction_enter(params)
 {
 }
 
@@ -141,7 +141,7 @@ function malfunction_update(params)
 }
 
 /*
-	Name: function_36201a5c
+	Name: malfunction_end
 	Namespace: wing_drone
 	Checksum: 0xCA955905
 	Offset: 0x788
@@ -149,7 +149,7 @@ function malfunction_update(params)
 	Parameters: 1
 	Flags: None
 */
-function function_36201a5c(params)
+function malfunction_end(params)
 {
 }
 
@@ -326,12 +326,12 @@ function function_789652f2(origin, owner, innerradius, outerradius, halfheight, 
 				{
 					point._scoredebug = [];
 				}
-				if(!isdefined(point._scoredebug[#"hash_3f8a9579ce4600de"]))
+				if(!isdefined(point._scoredebug[#"no visibility"]))
 				{
-					point._scoredebug[#"hash_3f8a9579ce4600de"] = spawnstruct();
+					point._scoredebug[#"no visibility"] = spawnstruct();
 				}
-				point._scoredebug[#"hash_3f8a9579ce4600de"].score = -5000;
-				point._scoredebug[#"hash_3f8a9579ce4600de"].scorename = "";
+				point._scoredebug[#"no visibility"].score = -5000;
+				point._scoredebug[#"no visibility"].scorename = "";
 			#/
 			point.score = point.score + -5000;
 		}
@@ -446,12 +446,12 @@ function function_b0c75ada(leader)
 					{
 						point._scoredebug = [];
 					}
-					if(!isdefined(point._scoredebug[#"hash_3f8a9579ce4600de"]))
+					if(!isdefined(point._scoredebug[#"no visibility"]))
 					{
-						point._scoredebug[#"hash_3f8a9579ce4600de"] = spawnstruct();
+						point._scoredebug[#"no visibility"] = spawnstruct();
 					}
-					point._scoredebug[#"hash_3f8a9579ce4600de"].score = -5000;
-					point._scoredebug[#"hash_3f8a9579ce4600de"].scorename = "";
+					point._scoredebug[#"no visibility"].score = -5000;
+					point._scoredebug[#"no visibility"].scorename = "";
 				#/
 				point.score = point.score + -5000;
 			}

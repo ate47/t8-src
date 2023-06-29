@@ -30,11 +30,11 @@
 function init()
 {
 	init_clientfields();
-	level thread function_27e22ee8();
+	level thread init_decals();
 }
 
 /*
-	Name: function_27e22ee8
+	Name: init_decals
 	Namespace: namespace_57873b62
 	Checksum: 0x88035008
 	Offset: 0x160
@@ -42,10 +42,10 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_27e22ee8()
+function init_decals()
 {
 	wait(0.1);
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		var_c85b91c4 = findvolumedecalindexarray("freerangeanimalcrackers");
 		foreach(n_index in var_c85b91c4)

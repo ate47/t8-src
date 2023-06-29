@@ -172,7 +172,7 @@ class cct_shared_objcounter : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_shared_objcounter
 		Checksum: 0xBDD02BC9
 		Offset: 0x3E0
@@ -180,9 +180,9 @@ class cct_shared_objcounter : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -197,10 +197,10 @@ class cct_shared_objcounter : cLUIelem
 	function setup_clientfields(uid, var_c2f4c01a, var_d45d2560, var_cee9c803)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("objectiveCount", 1, 5, "int", var_c2f4c01a);
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("objectiveCount", 1, 5, "int", var_c2f4c01a);
 		cLUIelem::function_dcb34c80("string", "objectiveLabel", 1);
-		cLUIelem::function_da693cbe("objectiveTotal", 1, 5, "int", var_cee9c803);
+		cLUIelem::add_clientfield("objectiveTotal", 1, 5, "int", var_cee9c803);
 	}
 
 }
@@ -224,7 +224,7 @@ function register(uid, var_c2f4c01a, var_d45d2560, var_cee9c803)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_shared_objcounter
 	Checksum: 0x55A3A721
 	Offset: 0x158
@@ -232,10 +232,10 @@ function register(uid, var_c2f4c01a, var_d45d2560, var_cee9c803)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_shared_objcounter();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

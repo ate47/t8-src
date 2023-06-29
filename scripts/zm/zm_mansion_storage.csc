@@ -99,12 +99,12 @@ function start_billiards(localclientnum, oldval, newval, bnewent, binitialsnap, 
 {
 	if(newval)
 	{
-		function_ccfd819c();
+		billiards_setup();
 	}
 }
 
 /*
-	Name: function_ccfd819c
+	Name: billiards_setup
 	Namespace: mansion_storage
 	Checksum: 0x7306FEE3
 	Offset: 0x910
@@ -112,7 +112,7 @@ function start_billiards(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	Parameters: 0
 	Flags: Linked
 */
-function function_ccfd819c()
+function billiards_setup()
 {
 	var_5268e682 = array(getdynent("billiard_ball_01"), getdynent("billiard_ball_02"), getdynent("billiard_ball_03"), getdynent("billiard_ball_04"), getdynent("billiard_ball_05"), getdynent("billiard_ball_06"), getdynent("billiard_ball_07"), getdynent("billiard_ball_08"), getdynent("billiard_ball_09"));
 	for(i = 0; i < var_5268e682.size; i++)

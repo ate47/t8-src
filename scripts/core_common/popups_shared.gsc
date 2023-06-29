@@ -70,7 +70,7 @@ function init()
 		level thread devgui_notif_init();
 	#/
 	callback::on_connecting(&on_player_connect);
-	callback::add_callback(#"team_message", &function_fad72726);
+	callback::add_callback(#"team_message", &on_team_message);
 }
 
 /*
@@ -826,7 +826,7 @@ function shoulddisplayteammessages()
 */
 function function_eb9328f3()
 {
-	self notify(#"hash_d7033aab931511e");
+	self notify(#"received teammessage");
 	self callback::callback(#"team_message");
 }
 
@@ -907,7 +907,7 @@ function displayteammessagetoteam(message, player, team, optionalarg, var_3d4cfe
 }
 
 /*
-	Name: function_fad72726
+	Name: on_team_message
 	Namespace: popups
 	Checksum: 0x185D3DD1
 	Offset: 0x2A98
@@ -915,7 +915,7 @@ function displayteammessagetoteam(message, player, team, optionalarg, var_3d4cfe
 	Parameters: 0
 	Flags: Linked
 */
-function function_fad72726()
+function on_team_message()
 {
 	if(!shoulddisplayteammessages())
 	{

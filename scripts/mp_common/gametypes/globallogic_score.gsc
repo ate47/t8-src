@@ -50,9 +50,9 @@ function autoexec __init__()
 	clientfield::register("clientuimodel", "hudItems.minorActions.action0", 1, 1, "counter");
 	clientfield::register("clientuimodel", "hudItems.minorActions.action1", 1, 1, "counter");
 	clientfield::register("clientuimodel", "hudItems.hotStreak.level", 1, 3, "int");
-	callback::on_joined_team(&function_253ff387);
+	callback::on_joined_team(&set_character_spectate_on_index);
 	callback::on_joined_spectate(&function_30ab51a4);
-	callback::function_7117ff72(&function_30ab51a4);
+	callback::on_changed_specialist(&function_30ab51a4);
 }
 
 /*
@@ -546,13 +546,13 @@ function giveplayermomentumnotification(score, label, descvalue, countstowardram
 	{
 		if(!isdefined(var_36f23f1f) || var_36f23f1f < 2)
 		{
-			self luinotifyevent(#"hash_468a2878939e8c64", 1, eventindex);
-			self function_b552ffa9(#"hash_468a2878939e8c64", 1, eventindex);
+			self luinotifyevent(#"challenge_coin_received", 1, eventindex);
+			self function_b552ffa9(#"challenge_coin_received", 1, eventindex);
 		}
 		else
 		{
-			self luinotifyevent(#"hash_468a2878939e8c64", 2, eventindex, var_36f23f1f);
-			self function_b552ffa9(#"hash_468a2878939e8c64", 2, eventindex, var_36f23f1f);
+			self luinotifyevent(#"challenge_coin_received", 2, eventindex, var_36f23f1f);
+			self function_b552ffa9(#"challenge_coin_received", 2, eventindex, var_36f23f1f);
 		}
 	}
 	score = score;
@@ -685,7 +685,7 @@ function giveplayermomentum(event, player, victim, descvalue, weapon, var_36f23f
 			if(isdefined(weapon))
 			{
 				slot = player gadgetgetslot(weapon);
-				var_973c6918 = player ability_util::gadget_slot_for_type(11);
+				hero_slot = player ability_util::gadget_slot_for_type(11);
 			}
 		}
 	}
@@ -1209,7 +1209,7 @@ function _giveplayerkillstreakinternal(player, momentum, oldmomentum, killstreak
 					if(!was_already_at_max_stacking)
 					{
 						player challenges::earnedkillstreak();
-						player contracts::function_a54e2068(#"hash_3ddcd024e6e13a32");
+						player contracts::increment_contract(#"hash_3ddcd024e6e13a32");
 						if(player ability_util::gadget_is_active(12))
 						{
 							scoreevents::processscoreevent(#"focus_earn_scorestreak", player, undefined, undefined);
@@ -2101,7 +2101,7 @@ function updatewinlossstats()
 		{
 			return;
 		}
-		winner = match::function_9b24638f();
+		winner = match::get_winner();
 		updatewinstats(winner);
 		if(!level.teambased)
 		{
@@ -2445,7 +2445,7 @@ function givekillstats(smeansofdeath, weapon, evictim, var_e7a369ea)
 		}
 		if((attacker.headshots % 5) == 0)
 		{
-			self contracts::function_a54e2068(#"hash_ca75e54eb5e5ef8");
+			self contracts::increment_contract(#"hash_ca75e54eb5e5ef8");
 		}
 	}
 	pixendevent();
@@ -2768,7 +2768,7 @@ function function_30ab51a4(params)
 }
 
 /*
-	Name: function_253ff387
+	Name: set_character_spectate_on_index
 	Namespace: globallogic_score
 	Checksum: 0x3AA735D9
 	Offset: 0x77C0
@@ -2776,7 +2776,7 @@ function function_30ab51a4(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_253ff387(params)
+function set_character_spectate_on_index(params)
 {
 	if(params.var_b66879ad === 0)
 	{

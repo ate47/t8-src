@@ -471,12 +471,12 @@ function function_57011892(e_player)
 	var_10d4f67d setmodel("c_t8_zmb_dlc2_pegasus_fb");
 	var_10d4f67d notsolid();
 	var_10d4f67d.player = e_player;
-	var_10d4f67d thread function_77abe09b();
+	var_10d4f67d thread pegasus_think();
 	return var_10d4f67d;
 }
 
 /*
-	Name: function_77abe09b
+	Name: pegasus_think
 	Namespace: zm_weap_thunderstorm
 	Checksum: 0xA2B5DBF7
 	Offset: 0x1488
@@ -484,7 +484,7 @@ function function_57011892(e_player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_77abe09b()
+function pegasus_think()
 {
 	self clientfield::set("" + #"hash_7006a7d528a6f05c", self.player getentitynumber() + 1);
 	self thread scene::play("aib_zm_red_vign_peg_inair_flapattack_01", "loop", self);
@@ -768,7 +768,7 @@ function function_97429d68(n_player_index)
 	wait(0.3);
 	self clientfield::set("" + #"hash_51b05e5d116438a9", 0);
 	self.var_c6aafbdb = 0;
-	self ai::function_62795e55();
+	self ai::clear_stun();
 }
 
 /*

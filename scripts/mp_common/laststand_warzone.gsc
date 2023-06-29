@@ -1515,7 +1515,7 @@ function function_356caede(team)
 			continue;
 		}
 		self clientfield::set_player_uimodel("hudItems.beingFinished", 1);
-		finisher function_684a5394();
+		finisher increment_finishing();
 		var_c9c35e60 = (getdvarint(#"hash_4fe437fabb65172a", 0) > 0 ? getdvarint(#"hash_4fe437fabb65172a", 0) : randomintrange(1, level.var_91c33dcb.finishers.size - 1));
 		var_dc5a63bd = level.var_91c33dcb.finishers.size - 1;
 		if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising") && finisher clientfield::get("hasspectrebody"))
@@ -1560,7 +1560,7 @@ function function_356caede(team)
 			finisher enableweaponcycling();
 			finisher enableusability();
 			finisher enableoffhandweapons();
-			var_e24d6046 = finisher gettagangles("tag_sync");
+			kill_angles = finisher gettagangles("tag_sync");
 			kill_origin = finisher gettagorigin("tag_sync");
 			if(isdefined(self))
 			{
@@ -1569,7 +1569,7 @@ function function_356caede(team)
 					weapon = getweapon(#"bare_hands");
 					scoreevents::processscoreevent(#"finishers", finisher, self, weapon);
 					self function_516a3bef(0);
-					self setplayerangles(var_e24d6046);
+					self setplayerangles(kill_angles);
 					self setorigin(kill_origin);
 					self dodamage(self.var_969fabf4, self.origin, finisher, undefined, "none", "MOD_MELEE_ASSASSINATE", 8192);
 					self function_2907ce7a();
@@ -1586,7 +1586,7 @@ function function_356caede(team)
 }
 
 /*
-	Name: function_684a5394
+	Name: increment_finishing
 	Namespace: laststand_warzone
 	Checksum: 0x3285F840
 	Offset: 0x4F30
@@ -1594,7 +1594,7 @@ function function_356caede(team)
 	Parameters: 0
 	Flags: Linked
 */
-function function_684a5394()
+function increment_finishing()
 {
 	if(!isdefined(self.var_5c574004))
 	{
@@ -2118,8 +2118,8 @@ function revive_success(reviver, b_track_stats = 1)
 		self.laststandparams.attacker stats::function_d40764f3(#"downs_revived", 1);
 	}
 	self.var_d887a4ad = 1;
-	var_cbf9fa14 = getdvarint(#"hash_77107267fe87b359", 350) / 1000;
-	wait(var_cbf9fa14);
+	revive_wait_time = getdvarint(#"hash_77107267fe87b359", 350) / 1000;
+	wait(revive_wait_time);
 	if(!isdefined(self))
 	{
 		return;

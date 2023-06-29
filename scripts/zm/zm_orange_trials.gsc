@@ -23,7 +23,7 @@
 #using script_67da0c3654a906b6;
 #using scripts\zm_common\trials\zm_trial_defend_area.gsc;
 #using script_ddbbb750404a64b;
-#using script_e03b0e7919299ab;
+#using scripts\zm_common\trials\zm_trial_orange_open_all_doors.gsc;
 #using scripts\zm_common\trials\zm_trial_upgrade_multiple.gsc;
 #using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -461,12 +461,12 @@ function function_53a1ecb9()
 	ai = zombie_utility::spawn_zombie(level.zombie_spawners[0], undefined);
 	if(isdefined(ai))
 	{
-		ai thread function_b0779ef4();
+		ai thread blood_buff();
 	}
 }
 
 /*
-	Name: function_b0779ef4
+	Name: blood_buff
 	Namespace: zm_orange_trials
 	Checksum: 0x791891D6
 	Offset: 0x1A40
@@ -474,7 +474,7 @@ function function_53a1ecb9()
 	Parameters: 0
 	Flags: None
 */
-function function_b0779ef4()
+function blood_buff()
 {
 	self notify("6c9578c1610db2cd");
 	self endon("6c9578c1610db2cd");

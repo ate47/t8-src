@@ -114,9 +114,9 @@ class czm_game_timer : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("seconds", 1, 6, "int");
-		cLUIelem::function_da693cbe("minutes", 1, 9, "int");
-		cLUIelem::function_da693cbe("showzero", 1, 1, "int");
+		cLUIelem::add_clientfield("seconds", 1, 6, "int");
+		cLUIelem::add_clientfield("minutes", 1, 9, "int");
+		cLUIelem::add_clientfield("showzero", 1, 1, "int");
 	}
 
 }

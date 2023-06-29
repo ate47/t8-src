@@ -78,7 +78,7 @@ function perk_hasperk(str_perk)
 }
 
 /*
-	Name: function_3cd6f625
+	Name: perk_reset_all
 	Namespace: perks
 	Checksum: 0x69DD788
 	Offset: 0x260
@@ -86,7 +86,7 @@ function perk_hasperk(str_perk)
 	Parameters: 0
 	Flags: None
 */
-function function_3cd6f625()
+function perk_reset_all()
 {
 	self clearperks();
 	self.var_fb3c9d6a = [];

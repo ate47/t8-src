@@ -36,14 +36,14 @@ function __init__()
 	level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_charged"] = getweapon("ray_gun_mk2y_charged");
 	level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_upgraded"] = getweapon("ray_gun_mk2y_upgraded");
 	level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_upgraded_charged"] = getweapon("ray_gun_mk2y_upgraded_charged");
-	callback::function_f77ced93(&function_f77ced93);
-	callback::function_34dea974(level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_charged"], &function_8a977b42);
-	callback::function_34dea974(level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_upgraded_charged"], &function_8a977b42);
+	callback::on_weapon_change(&on_weapon_change);
+	callback::add_weapon_fired(level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_charged"], &function_8a977b42);
+	callback::add_weapon_fired(level.var_585eeded.var_ba76fe32[#"ray_gun_mk2y_upgraded_charged"], &function_8a977b42);
 	clientfield::register("allplayers", "" + #"ray_gun_mk2y_charged", 20000, 1, "int");
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: zm_weap_ray_gun_mk2y
 	Checksum: 0xAFFF13F5
 	Offset: 0x330
@@ -51,7 +51,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(s_params)
+function on_weapon_change(s_params)
 {
 	if(function_5b0214e(s_params.weapon))
 	{

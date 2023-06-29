@@ -36,7 +36,7 @@ function function_2c38e191(team)
 }
 
 /*
-	Name: function_a36c087f
+	Name: pause_commander
 	Namespace: commander_util
 	Checksum: 0x93CBAE75
 	Offset: 0x118
@@ -44,7 +44,7 @@ function function_2c38e191(team)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a36c087f(team)
+function pause_commander(team)
 {
 	switch(team)
 	{

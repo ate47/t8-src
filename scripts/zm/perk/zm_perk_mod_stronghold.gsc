@@ -112,7 +112,7 @@ function function_1c4f9c3f(s_params)
 		n_dist = distance(player.var_3748ec02, self.origin);
 		if(n_dist <= 130)
 		{
-			player zm_perk_stronghold::function_7e0559c1();
+			player zm_perk_stronghold::add_armor();
 			player zm_perk_stronghold::function_c25b980c();
 		}
 	}

@@ -54,8 +54,8 @@ function init()
 	level flag::init(#"hash_786b9153c754d127");
 	level flag::init(#"hash_17f15c9242ddea6f");
 	level flag::init(#"hash_70b6094c8cd39890");
-	zm_sq::register(#"ww_quest", #"destroy_wall", #"destroy_wall", &function_eb342c64, &function_56486fd0);
-	zm_sq::register(#"ww_quest", #"knock_brazier", #"knock_brazier", &function_87c0abfb, &function_2f217c86);
+	zm_sq::register(#"ww_quest", #"destroy_wall", #"destroy_wall", &destroy_wall_setup, &destroy_wall_cleanup);
+	zm_sq::register(#"ww_quest", #"knock_brazier", #"knock_brazier", &knock_brazier_setup, &knock_brazier_cleanup);
 	zm_sq::register(#"ww_quest", #"hash_32b57ffc37ccf79a", #"hash_32b57ffc37ccf79a", &function_26956e1e, &function_4f056f0c);
 	zm_sq::register(#"ww_quest", #"hash_2e681afa5f81f37", #"hash_2e681afa5f81f37", &function_708cd4d, &function_c4e5bf05);
 	zm_sq::register(#"ww_quest", #"hash_27967f916a97a057", #"hash_27967f916a97a057", &function_2eea86a9, &function_57b4770f);
@@ -114,7 +114,7 @@ function function_73808ab9(a_ents)
 }
 
 /*
-	Name: function_eb342c64
+	Name: destroy_wall_setup
 	Namespace: zm_towers_ww_quest
 	Checksum: 0xDBB1566C
 	Offset: 0x11A8
@@ -122,7 +122,7 @@ function function_73808ab9(a_ents)
 	Parameters: 1
 	Flags: Linked
 */
-function function_eb342c64(b_skipped)
+function destroy_wall_setup(b_skipped)
 {
 	if(b_skipped)
 	{
@@ -132,7 +132,7 @@ function function_eb342c64(b_skipped)
 }
 
 /*
-	Name: function_56486fd0
+	Name: destroy_wall_cleanup
 	Namespace: zm_towers_ww_quest
 	Checksum: 0xF2868C1A
 	Offset: 0x11E8
@@ -140,13 +140,13 @@ function function_eb342c64(b_skipped)
 	Parameters: 2
 	Flags: Linked
 */
-function function_56486fd0(b_skipped, var_19e802fa)
+function destroy_wall_cleanup(b_skipped, var_19e802fa)
 {
 	level thread scene::play("p8_fxanim_zm_towers_ww_quest_wall_bundle");
 }
 
 /*
-	Name: function_87c0abfb
+	Name: knock_brazier_setup
 	Namespace: zm_towers_ww_quest
 	Checksum: 0x6499AED0
 	Offset: 0x1228
@@ -154,7 +154,7 @@ function function_56486fd0(b_skipped, var_19e802fa)
 	Parameters: 1
 	Flags: Linked
 */
-function function_87c0abfb(b_skipped)
+function knock_brazier_setup(b_skipped)
 {
 	if(b_skipped)
 	{
@@ -165,7 +165,7 @@ function function_87c0abfb(b_skipped)
 }
 
 /*
-	Name: function_2f217c86
+	Name: knock_brazier_cleanup
 	Namespace: zm_towers_ww_quest
 	Checksum: 0x9FA98775
 	Offset: 0x1280
@@ -173,7 +173,7 @@ function function_87c0abfb(b_skipped)
 	Parameters: 2
 	Flags: Linked
 */
-function function_2f217c86(b_skipped, var_19e802fa)
+function knock_brazier_cleanup(b_skipped, var_19e802fa)
 {
 	wait(0.05);
 	level.var_1285519 clientfield::set("" + #"hash_42cc4bf5e47478c5", 0);

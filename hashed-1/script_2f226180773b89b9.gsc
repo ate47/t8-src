@@ -74,7 +74,7 @@ class cself_revive_visuals_rush : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cself_revive_visuals_rush
 		Checksum: 0x8260C864
 		Offset: 0x278
@@ -82,9 +82,9 @@ class cself_revive_visuals_rush : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class cself_revive_visuals_rush : cLUIelem
 	function setup_clientfields(uid, var_2e62cab3)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("revive_time", 1, 4, "int", var_2e62cab3);
+		cLUIelem::add_clientfield("revive_time", 1, 4, "int", var_2e62cab3);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_2e62cab3)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: self_revive_visuals_rush
 	Checksum: 0x121ED2F2
 	Offset: 0x108
@@ -131,10 +131,10 @@ function register(uid, var_2e62cab3)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cself_revive_visuals_rush();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

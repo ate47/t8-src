@@ -71,7 +71,7 @@ function enable_widows_wine_perk_for_level()
 	zm_perks::register_perk_clientfields(#"specialty_widowswine", &widows_wine_register_clientfield, &widows_wine_set_clientfield);
 	zm_perks::register_perk_machine(#"specialty_widowswine", &widows_wine_perk_machine_setup);
 	zm_perks::register_perk_host_migration_params(#"specialty_widowswine", "vending_widowswine", "widow_light");
-	zm_perks::register_perk_threads(#"specialty_widowswine", &widows_wine_perk_activate, &widows_wine_perk_lost, &function_46ad87c9);
+	zm_perks::register_perk_threads(#"specialty_widowswine", &widows_wine_perk_activate, &widows_wine_perk_lost, &reset_charges);
 	if(isdefined(level.custom_widows_wine_perk_threads) && level.custom_widows_wine_perk_threads)
 	{
 		level thread [[level.custom_widows_wine_perk_threads]]();
@@ -181,7 +181,7 @@ function init_widows_wine()
 function widows_wine_perk_activate()
 {
 	self.var_828492e6 = zm_perks::function_c1efcc57(#"specialty_widowswine");
-	self function_46ad87c9();
+	self reset_charges();
 	self thread function_bcb4c0e3();
 	self thread function_b2e5df58();
 }
@@ -373,7 +373,7 @@ function widows_wine_vehicle_damage_response(einflictor, eattacker, idamage, idf
 */
 function widows_wine_damage_callback(einflictor, eattacker, idamage, idflags, smeansofdeath, sweapon, vpoint, vdir, shitloc, psoffsettime)
 {
-	if(self hasperk(#"specialty_widowswine") && self function_8363e820() && !self bgb::is_enabled(#"zm_bgb_burned_out"))
+	if(self hasperk(#"specialty_widowswine") && self has_charge() && !self bgb::is_enabled(#"zm_bgb_burned_out"))
 	{
 		if(smeansofdeath == "MOD_MELEE" && isai(eattacker) || (smeansofdeath == "MOD_EXPLOSIVE" && isvehicle(eattacker)))
 		{
@@ -517,7 +517,7 @@ function widows_wine_perk_lost(b_pause, str_perk, str_result, n_slot)
 }
 
 /*
-	Name: function_8363e820
+	Name: has_charge
 	Namespace: zm_perk_widows_wine
 	Checksum: 0x7DF9290B
 	Offset: 0x1738
@@ -525,7 +525,7 @@ function widows_wine_perk_lost(b_pause, str_perk, str_result, n_slot)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8363e820()
+function has_charge()
 {
 	if(isdefined(self.var_a33a5a37) && self.var_a33a5a37 > 0)
 	{
@@ -629,7 +629,7 @@ function function_2de8f9a5()
 }
 
 /*
-	Name: function_46ad87c9
+	Name: reset_charges
 	Namespace: zm_perk_widows_wine
 	Checksum: 0x9145398D
 	Offset: 0x1A10
@@ -637,7 +637,7 @@ function function_2de8f9a5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_46ad87c9()
+function reset_charges()
 {
 	self.var_8376b1a = 0;
 	self.var_a33a5a37 = self function_fc256a55();
@@ -659,7 +659,7 @@ function function_b2e5df58()
 	while(true)
 	{
 		level waittill(#"end_of_round");
-		self function_46ad87c9();
+		self reset_charges();
 	}
 }
 

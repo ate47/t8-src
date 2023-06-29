@@ -150,14 +150,14 @@ function function_19adc0b7(outcome)
 {
 	player::function_2f80d95b(&function_3f65d5d3);
 	function_e6b4f2f7(outcome);
-	array::run_all(level.players, &hud_message::function_b5b53318, outcome);
+	array::run_all(level.players, &hud_message::can_bg_draw, outcome);
 	function_15e28b1a(outcome);
 	globallogic::function_452e18ad();
 	array::run_all(level.players, &hud_message::function_6be746c2);
 }
 
 /*
-	Name: function_26654e7e
+	Name: display_round_end
 	Namespace: display_transition
 	Checksum: 0xE06B1F82
 	Offset: 0x520
@@ -165,7 +165,7 @@ function function_19adc0b7(outcome)
 	Parameters: 1
 	Flags: Linked
 */
-function function_26654e7e(outcome)
+function display_round_end(outcome)
 {
 	player::function_2f80d95b(&function_3f65d5d3);
 	player::function_2f80d95b(&function_3cfb29e1);
@@ -694,14 +694,14 @@ function private function_e17d407e(transition, outcome)
 			array::add(var_77d0878c, player);
 		}
 	}
-	var_91cc037 = array();
+	player_positions = array();
 	i = 0;
 	for(;;)
 	{
 		pos = struct::get("team_pose_" + i, "targetname");
 		if(isdefined(pos))
 		{
-			array::add(var_91cc037, pos);
+			array::add(player_positions, pos);
 		}
 		else
 		{
@@ -710,13 +710,13 @@ function private function_e17d407e(transition, outcome)
 		i++;
 	}
 	var_5a552ef6 = struct::get("team_pose_cam", "targetname");
-	if(var_77d0878c.size == 0 || var_91cc037.size == 0 || !isdefined(var_5a552ef6))
+	if(var_77d0878c.size == 0 || player_positions.size == 0 || !isdefined(var_5a552ef6))
 	{
 		return;
 	}
 	function_26bbb839(transition, outcome);
 	var_77d0878c = array::quick_sort(var_77d0878c, &function_aed7dbe1);
-	for(i = 0; i < min(var_77d0878c.size, var_91cc037.size); i++)
+	for(i = 0; i < min(var_77d0878c.size, player_positions.size); i++)
 	{
 		player = var_77d0878c[i];
 		player.sessionstate = "playing";
@@ -724,10 +724,10 @@ function private function_e17d407e(transition, outcome)
 		fields = getcharacterfields(player player_role::get(), currentsessionmode());
 		if(i == 0)
 		{
-			var_91cc037[i] thread scene::play(fields.var_fa8365dc[0].scene, player);
+			player_positions[i] thread scene::play(fields.var_fa8365dc[0].scene, player);
 			continue;
 		}
-		var_91cc037[i] thread scene::play(fields.var_728ccd3d[0].scene, player);
+		player_positions[i] thread scene::play(fields.var_728ccd3d[0].scene, player);
 	}
 	var_5a552ef6 thread scene::play("team_pose_cam");
 }
@@ -768,7 +768,7 @@ function function_7e74281()
 	level.var_3a309902[#"blank"] = &function_26bbb839;
 	level.var_3a309902[#"outcome"] = &function_26bbb839;
 	level.var_3a309902[#"outcome_with_score"] = &function_26bbb839;
-	level.var_3a309902[#"hash_6fbf8ded3dc17ef0"] = &function_26bbb839;
+	level.var_3a309902[#"outcome_with_time"] = &function_26bbb839;
 	level.var_3a309902[#"switch_sides"] = &function_e3855f6d;
 	level.var_3a309902[#"final_killcam"] = &function_a2d39e40;
 	level.var_3a309902[#"play_of_the_match"] = &function_e3442abc;

@@ -3276,7 +3276,7 @@ function use_object_use_think(disableinitialholddelay, disableweaponcyclingdurin
 		{
 			continue;
 		}
-		if(!self function_a34c1761(player) && (!(isdefined(waitresult.forced) && waitresult.forced)))
+		if(!self can_touch(player) && (!(isdefined(waitresult.forced) && waitresult.forced)))
 		{
 			continue;
 		}
@@ -3952,7 +3952,7 @@ function private function_dfec159b(player)
 	{
 		return false;
 	}
-	if(isdefined(player.laststand) && player.laststand && (!(isdefined(player.var_de39e480) && player.var_de39e480)) && (!(isdefined(player.can_contest) && player.can_contest)))
+	if(isdefined(player.laststand) && player.laststand && (!(isdefined(player.can_capture) && player.can_capture)) && (!(isdefined(player.can_contest) && player.can_contest)))
 	{
 		return false;
 	}
@@ -4046,7 +4046,7 @@ function prox_trigger_think()
 		waitresult = undefined;
 		waitresult = self.trigger waittill(#"trigger");
 		sentient = waitresult.activator;
-		if(!self function_a34c1761(sentient) || !isdefined(sentient.touchtriggers))
+		if(!self can_touch(sentient) || !isdefined(sentient.touchtriggers))
 		{
 			continue;
 		}
@@ -4228,7 +4228,7 @@ function continue_trigger_touch_think(team, object)
 	{
 		return false;
 	}
-	if(isdefined(self.laststand) && self.laststand && (!(isdefined(self.var_de39e480) && self.var_de39e480)) && (!(isdefined(self.can_contest) && self.can_contest)))
+	if(isdefined(self.laststand) && self.laststand && (!(isdefined(self.can_capture) && self.can_capture)) && (!(isdefined(self.can_contest) && self.can_contest)))
 	{
 		return false;
 	}
@@ -4240,7 +4240,7 @@ function continue_trigger_touch_think(team, object)
 	{
 		return false;
 	}
-	if(!object function_a34c1761(self))
+	if(!object can_touch(self))
 	{
 		return false;
 	}
@@ -6206,7 +6206,7 @@ function is_friendly_team(team)
 }
 
 /*
-	Name: function_a34c1761
+	Name: can_touch
 	Namespace: gameobjects
 	Checksum: 0xB13AAA12
 	Offset: 0xE040
@@ -6214,7 +6214,7 @@ function is_friendly_team(team)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a34c1761(sentient)
+function can_touch(sentient)
 {
 	var_47a62b7b = isvehicle(sentient) || (isplayer(sentient) && sentient isinvehicle() && !sentient function_a867284b());
 	if(var_47a62b7b && (!(isdefined(level.b_allow_vehicle_proximity_pickup) && level.b_allow_vehicle_proximity_pickup)) && (!(isdefined(self.b_allow_vehicle_proximity_pickup) && self.b_allow_vehicle_proximity_pickup)))

@@ -128,9 +128,9 @@ class czm_arcade_timer : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("showzero", 1, 1, "int");
-		cLUIelem::function_da693cbe("seconds", 1, 6, "int");
-		cLUIelem::function_da693cbe("minutes", 1, 4, "int");
+		cLUIelem::add_clientfield("showzero", 1, 1, "int");
+		cLUIelem::add_clientfield("seconds", 1, 6, "int");
+		cLUIelem::add_clientfield("minutes", 1, 4, "int");
 		cLUIelem::function_dcb34c80("string", "title", 1);
 	}
 
@@ -149,7 +149,7 @@ class czm_arcade_timer : cLUIelem
 */
 function set_timer(player, var_c895e25d, var_b1100790)
 {
-	self function_bbba5164(player);
+	self open_timer(player);
 	n_minutes = int(floor(var_c895e25d / 60));
 	n_seconds = int(var_c895e25d - (n_minutes * 60));
 	self set_minutes(player, n_minutes);
@@ -267,11 +267,11 @@ function function_ecffd525(player)
 		player.var_e325b124 = 0;
 	}
 	player.var_e325b124++;
-	self function_bbba5164(player);
+	self open_timer(player);
 }
 
 /*
-	Name: function_bbba5164
+	Name: open_timer
 	Namespace: zm_arcade_timer
 	Checksum: 0xA228A17D
 	Offset: 0x540
@@ -279,7 +279,7 @@ function function_ecffd525(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_bbba5164(player)
+function open_timer(player)
 {
 	if(!self is_open(player))
 	{

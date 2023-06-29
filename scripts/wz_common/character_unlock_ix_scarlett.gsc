@@ -47,7 +47,7 @@ function function_2613aeec(enabled)
 {
 	if(enabled)
 	{
-		callback::function_c55a0479(&function_fcd28111);
+		callback::on_stash_open(&function_fcd28111);
 	}
 }
 

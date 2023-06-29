@@ -216,12 +216,12 @@ function function_211e7277(point, var_8bd17d7d)
 	nearby_players = getplayers(undefined, point.origin, 256);
 	move_pos = point.origin;
 	var_93a4284 = 0;
-	var_ff951b7a = 0;
+	check_count = 0;
 	if(nearby_players.size > 0)
 	{
 		var_93a4284 = 1;
 	}
-	while(var_93a4284 && var_ff951b7a < 20)
+	while(var_93a4284 && check_count < 20)
 	{
 		foreach(player in nearby_players)
 		{
@@ -236,7 +236,7 @@ function function_211e7277(point, var_8bd17d7d)
 			}
 			var_93a4284 = 0;
 		}
-		var_ff951b7a++;
+		check_count++;
 	}
 	self setorigin(move_pos);
 }
@@ -699,7 +699,7 @@ function private function_724a2fa5(eventstruct)
 	{
 		return;
 	}
-	var_a852a7dd = dynent_world::function_bf7b8a27(dynent);
+	var_a852a7dd = dynent_world::use_dynent(dynent);
 	dynent.var_a548ec11 = gettime() + (var_a852a7dd * 1000);
 }
 

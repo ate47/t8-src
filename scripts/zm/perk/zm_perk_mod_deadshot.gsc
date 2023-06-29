@@ -69,7 +69,7 @@ function enable_mod_deadshot_perk_for_level()
 function function_f93c5f09()
 {
 	self zm_perks::function_c8c7bc5(3, 1, #"perk_dead_shot");
-	self function_31e933f3();
+	self reset_counter();
 }
 
 /*
@@ -115,14 +115,14 @@ function on_ai_killed(params)
 			}
 			else
 			{
-				e_attacker function_31e933f3();
+				e_attacker reset_counter();
 			}
 		}
 	}
 }
 
 /*
-	Name: function_31e933f3
+	Name: reset_counter
 	Namespace: zm_perk_mod_deadshot
 	Checksum: 0x9E73F300
 	Offset: 0x480
@@ -130,7 +130,7 @@ function on_ai_killed(params)
 	Parameters: 0
 	Flags: Linked
 */
-function function_31e933f3()
+function reset_counter()
 {
 	self.var_957a1762 = 0;
 	self zm_perks::function_f2ff97a6(3, self.var_957a1762, #"perk_dead_shot");

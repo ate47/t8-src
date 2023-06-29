@@ -248,7 +248,7 @@ function private function_582a3075()
 		}
 		else
 		{
-			self.var_97a22974 = 0;
+			self.can_phase = 0;
 			self.can_shoot = 0;
 			self.var_349e111e = 0;
 			self.var_f1f44412 = 1;
@@ -300,7 +300,7 @@ function private function_b06bbbba()
 function private function_605e733f()
 {
 	self.can_shoot = 1;
-	self.var_97a22974 = 0;
+	self.can_phase = 0;
 	self.var_349e111e = 0;
 	self.var_f1f44412 = 0;
 	self.b_ignore_cleanup = 1;
@@ -322,7 +322,7 @@ function private function_ee3e7dc8()
 {
 	self.can_shoot = 1;
 	self.var_b421bafe = 0;
-	self.var_97a22974 = 1;
+	self.can_phase = 1;
 	self.var_349e111e = 0;
 	self.var_f1f44412 = 0;
 	self._effect[#"nova_crawler_aura_fx"] = "zm_ai/fx8_nova_crawler_elec_aura";
@@ -720,7 +720,7 @@ function private function_488ba9cc()
 function private function_6e16f65f(entity)
 {
 	result = 0;
-	if(isdefined(self.var_97a22974) && self.var_97a22974 && gettime() > entity.var_95a46290 && isdefined(entity.favoriteenemy) && distance2dsquared(entity.origin, entity.favoriteenemy.origin) > 250000 && entity can_see_enemy() && entity function_488ba9cc() && !entity function_68469a59())
+	if(isdefined(self.can_phase) && self.can_phase && gettime() > entity.var_95a46290 && isdefined(entity.favoriteenemy) && distance2dsquared(entity.origin, entity.favoriteenemy.origin) > 250000 && entity can_see_enemy() && entity function_488ba9cc() && !entity function_68469a59())
 	{
 		phase_direction = entity getblackboardattribute("_phase_direction");
 		result = phase_direction != "NONE";
@@ -769,7 +769,7 @@ function private function_12aaa2f7(entity)
 function private function_f89eddf1(entity)
 {
 	result = 0;
-	if(isdefined(self.var_97a22974) && self.var_97a22974 && (gettime() > entity.var_a89d0c1a || (gettime() > entity.var_5b8bf6ba && entity function_561b76c5())) && entity can_see_enemy() && !entity function_68469a59())
+	if(isdefined(self.can_phase) && self.can_phase && (gettime() > entity.var_a89d0c1a || (gettime() > entity.var_5b8bf6ba && entity function_561b76c5())) && entity can_see_enemy() && !entity function_68469a59())
 	{
 		function_8ae62d74(entity);
 		phase_direction = entity getblackboardattribute("_phase_direction");

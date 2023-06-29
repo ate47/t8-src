@@ -31,12 +31,12 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_localplayer_spawned(&function_e79ccfd8);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	callback::on_melee(&melee_event);
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: blade
 	Checksum: 0x4F7D1910
 	Offset: 0x1F8
@@ -44,7 +44,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(self == level || !isplayer(self))
 	{

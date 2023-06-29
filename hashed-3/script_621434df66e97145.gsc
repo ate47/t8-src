@@ -82,7 +82,7 @@ function init_weapons_locker()
 	{
 		weapon setinvisibletoall();
 	}
-	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+	if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 	{
 		foreach(e_player in getplayers())
 		{
@@ -118,20 +118,20 @@ function function_33e9442f()
 	level.s_ray_gun_case = struct::get("s_ray_gun_case", "targetname");
 	level.s_ray_gun_case.s_case = struct::get("rg_case", "targetname");
 	level.s_ray_gun_case.s_case scene::play("idle");
-	level.s_ray_gun_case.var_a2b9ebe7 = getent(level.s_ray_gun_case.target, "targetname");
-	level.s_ray_gun_case.var_a2b9ebe7.w_pickup = level.a_w_ray_guns[3];
-	if(zm_utility::function_e51dc2d8())
+	level.s_ray_gun_case.e_ray_gun = getent(level.s_ray_gun_case.target, "targetname");
+	level.s_ray_gun_case.e_ray_gun.w_pickup = level.a_w_ray_guns[3];
+	if(zm_utility::is_ee_enabled())
 	{
-		s_unitrigger = level.s_ray_gun_case.var_a2b9ebe7 zm_unitrigger::create(&zm_white_util::function_358da2a7);
-		level.s_ray_gun_case.var_a2b9ebe7.var_4f84520b = 0;
+		s_unitrigger = level.s_ray_gun_case.e_ray_gun zm_unitrigger::create(&zm_white_util::function_358da2a7);
+		level.s_ray_gun_case.e_ray_gun.var_4f84520b = 0;
 		level flag::wait_till(#"enable_countermeasure_5");
 		level.s_ray_gun_case.s_case scene::play("open");
 		zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
-		level.s_ray_gun_case.var_a2b9ebe7 thread zm_white_util::function_d1ca61a7();
+		level.s_ray_gun_case.e_ray_gun thread zm_white_util::function_d1ca61a7();
 	}
 	else
 	{
-		level.s_ray_gun_case.var_a2b9ebe7 hide();
+		level.s_ray_gun_case.e_ray_gun hide();
 	}
 }
 
@@ -203,7 +203,7 @@ function function_6c029b7()
 		}
 		if(zm_utility::is_player_valid(e_who) && level.s_shower_trap.var_41ee2ddc === 1)
 		{
-			b_purchased = self.s_trap.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, 1000);
+			b_purchased = self.s_trap.a_e_lights[0] zm_traps::trap_purchase(e_who, 1000);
 			if(!b_purchased)
 			{
 				continue;
@@ -211,7 +211,7 @@ function function_6c029b7()
 			self notify(#"hash_41d1d9f238b43a7");
 			self.var_64c09f7f = e_who;
 			level.s_shower_trap.activated_by_player = e_who;
-			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
+			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
@@ -315,7 +315,7 @@ function function_a77f3804(var_64c09f7f, e_volume)
 	if(isdefined(level.s_shower_trap.activated_by_player) && isplayer(level.s_shower_trap.activated_by_player))
 	{
 		level.s_shower_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-		level.s_shower_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+		level.s_shower_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 	}
 	self clientfield::set("shower_trap_death_fx", 1);
 	level notify(#"hash_336bf8053ce21208", {#e_player:var_64c09f7f});
@@ -540,7 +540,7 @@ function function_f24b1ecb()
 		}
 		if(zm_utility::is_player_valid(e_who) && level.s_fire_trap.var_41ee2ddc === 1)
 		{
-			b_purchased = self.s_trap.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, 1000);
+			b_purchased = self.s_trap.a_e_lights[0] zm_traps::trap_purchase(e_who, 1000);
 			if(!b_purchased)
 			{
 				continue;
@@ -548,7 +548,7 @@ function function_f24b1ecb()
 			self notify(#"fire_trap_activated");
 			self.var_64c09f7f = e_who;
 			level.s_fire_trap.activated_by_player = e_who;
-			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
+			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
@@ -652,7 +652,7 @@ function function_11e5b2ee(var_64c09f7f, e_volume)
 	if(isdefined(level.s_fire_trap.activated_by_player) && isplayer(level.s_fire_trap.activated_by_player))
 	{
 		level.s_fire_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-		level.s_fire_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+		level.s_fire_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 	}
 	level notify(#"fire_trap_kill", {#e_player:var_64c09f7f});
 	if(isdefined(self.animname) && self.animname != "zombie_dog")
@@ -862,7 +862,7 @@ function function_6facfabc()
 		}
 		if(zm_utility::is_player_valid(e_who) && level.s_spinning_trap.var_41ee2ddc === 1)
 		{
-			b_purchased = self.s_trap.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, 1000);
+			b_purchased = self.s_trap.a_e_lights[0] zm_traps::trap_purchase(e_who, 1000);
 			if(!b_purchased)
 			{
 				continue;
@@ -870,7 +870,7 @@ function function_6facfabc()
 			self notify(#"hash_5a7f89c0b12d9f27");
 			self.var_64c09f7f = e_who;
 			level.s_spinning_trap.activated_by_player = e_who;
-			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
+			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_generic", #"activate");
 			}
@@ -1009,7 +1009,7 @@ function function_7bd8cfde(var_64c09f7f, s_trap)
 	if(isdefined(s_trap.activated_by_player) && isplayer(s_trap.activated_by_player))
 	{
 		s_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-		s_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+		s_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 	}
 	level notify(#"hash_63be45d89436088", {#e_player:var_64c09f7f});
 	if(isalive(self) && (!isdefined(self.var_bd4627e1) || !self.var_bd4627e1))

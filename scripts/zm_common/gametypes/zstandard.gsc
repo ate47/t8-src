@@ -211,7 +211,7 @@ function function_2f63dc81(cmd)
 			{
 				if(zm_utility::function_880bd896())
 				{
-					zm_utility::function_aad01548(level.players[0].origin);
+					zm_utility::drop_key(level.players[0].origin);
 				}
 				break;
 			}
@@ -1260,7 +1260,7 @@ function function_cd6476e(var_16ef1c43)
 {
 	self zm_challenges::function_979f4cc0(#"hash_47685630580f6b5f", var_16ef1c43);
 	/#
-		if(self zm_stats::function_eb50d9bf(#"hash_47685630580f6b5f") >= 100000000)
+		if(self zm_stats::get_client_stat(#"hash_47685630580f6b5f") >= 100000000)
 		{
 			self iprintlnbold("");
 		}
@@ -1282,7 +1282,7 @@ function function_cd6476e(var_16ef1c43)
 			self zm_utility::giveachievement_wrapper("zm_rush_multiplier_100");
 			self.var_b3381e0 = 1;
 		}
-		self contracts::function_5b88297d(#"hash_88b286a634040c6");
+		self contracts::increment_zm_contract(#"hash_88b286a634040c6");
 	}
 }
 
@@ -1797,7 +1797,7 @@ function function_9c062829()
 	foreach(e_item in a_e_items)
 	{
 		w_item = e_item.item;
-		if(isdefined(w_item) && (isdefined(w_item.var_52a84c7a) && w_item.var_52a84c7a))
+		if(isdefined(w_item) && (isdefined(w_item.craftitem) && w_item.craftitem))
 		{
 			e_player = array::random(level.players);
 			zm_items::player_pick_up(e_player, w_item);
@@ -3075,7 +3075,7 @@ function function_21669ebc(restart = 0)
 		{
 			player zm_stats::update_playing_utc_time(matchutctime);
 			player zm_stats::function_4dd876ad();
-			player zm_utility::function_e0448fec(1);
+			player zm_utility::set_max_health(1);
 			for(i = 0; i < 4; i++)
 			{
 				player.number_revives_per_round[i] = 0;

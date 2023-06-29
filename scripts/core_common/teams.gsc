@@ -83,7 +83,7 @@ function function_3d288f14()
 }
 
 /*
-	Name: function_6d86768e
+	Name: is_team_empty
 	Namespace: teams
 	Checksum: 0x5827011
 	Offset: 0x2E8
@@ -91,7 +91,7 @@ function function_3d288f14()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6d86768e(team)
+function is_team_empty(team)
 {
 	team_players = getplayers(team);
 	if(team_players.size > 0)
@@ -114,7 +114,7 @@ function function_959bac94()
 {
 	foreach(team in level.teams)
 	{
-		if(self function_6d86768e(team))
+		if(self is_team_empty(team))
 		{
 			/#
 				println(((("" + "") + self.name) + "") + team);

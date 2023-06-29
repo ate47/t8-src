@@ -135,7 +135,7 @@ function private function_5b800648()
 	self.zigzag_activation_distance = 400;
 	self.var_7d39ec6a = 1;
 	self setavoidancemask("avoid actor");
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &function_2e5f2af4);
+	self callback::function_d8abfc3d(#"on_ai_melee", &function_2e5f2af4);
 }
 
 /*

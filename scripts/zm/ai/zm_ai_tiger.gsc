@@ -413,14 +413,14 @@ function tiger_init()
 	self.closest_player_override = &zm_utility::function_c52e1749;
 	self thread zombie_utility::round_spawn_failsafe();
 	level thread zm_spawner::zombie_death_event(self);
-	self callback::function_d8abfc3d(#"on_ai_killed", &function_5c8b8bef);
+	self callback::function_d8abfc3d(#"on_ai_killed", &on_tiger_killed);
 	self thread zm_audio::zmbaivox_notifyconvert();
 	self thread zm_audio::play_ambient_zombie_vocals();
 	self.deathfunction = &zm_spawner::zombie_death_animscript;
 }
 
 /*
-	Name: function_5c8b8bef
+	Name: on_tiger_killed
 	Namespace: zm_ai_tiger
 	Checksum: 0x5A50845E
 	Offset: 0x1208
@@ -428,7 +428,7 @@ function tiger_init()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5c8b8bef(params)
+function on_tiger_killed(params)
 {
 	self val::set(#"zm_ai_tiger", "hide", 1);
 	self notsolid();

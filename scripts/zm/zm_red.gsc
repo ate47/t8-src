@@ -1299,7 +1299,7 @@ function function_6f6cc58(e_player)
 	{
 		return false;
 	}
-	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+	if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 	{
 		if(isdefined(self.var_be2fc36d) && self.var_be2fc36d)
 		{
@@ -1779,9 +1779,9 @@ function function_9f645f7(e_holder, w_item)
 function function_8f72e6b8()
 {
 	w_component = zm_crafting::get_component(#"hash_5b9dc0415a4521f3");
-	w_component.var_62a98b13 = #"hash_46cc2afc76bb1891";
+	w_component.var_62a98b13 = #"anvil_brontes";
 	w_component = zm_crafting::get_component(#"hash_5b9dc1415a4523a6");
-	w_component.var_62a98b13 = #"hash_4378a7cfd8341a30";
+	w_component.var_62a98b13 = #"hammer_arges";
 	w_component = zm_crafting::get_component(#"hash_5b9dc2415a452559");
 	w_component.var_62a98b13 = #"hash_2ac16e115b8e401a";
 }
@@ -2327,7 +2327,7 @@ function function_acb5b0ec()
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand("");
-		if(zm_utility::function_e51dc2d8())
+		if(zm_utility::is_ee_enabled())
 		{
 			adddebugcommand("");
 			adddebugcommand("");
@@ -3276,13 +3276,13 @@ function function_bb5a8b5e(b_charged)
 	/#
 		if(b_charged)
 		{
-			var_d9d642ba = array(level.w_hand_charon, level.w_hand_gaia, level.w_hand_ouranos, level.w_hand_hemera);
+			a_w_ww = array(level.w_hand_charon, level.w_hand_gaia, level.w_hand_ouranos, level.w_hand_hemera);
 		}
 		else
 		{
-			var_d9d642ba = array(level.w_hand_charon_uncharged, level.w_hand_gaia_uncharged, level.w_hand_ouranos_uncharged, level.w_hand_hemera_uncharged);
+			a_w_ww = array(level.w_hand_charon_uncharged, level.w_hand_gaia_uncharged, level.w_hand_ouranos_uncharged, level.w_hand_hemera_uncharged);
 		}
-		var_d9d642ba = array::randomize(var_d9d642ba);
+		a_w_ww = array::randomize(a_w_ww);
 		foreach(i, e_player in getplayers())
 		{
 			var_3ba4bf7d = e_player getweaponslistprimaries();
@@ -3298,7 +3298,7 @@ function function_bb5a8b5e(b_charged)
 					return;
 				}
 			}
-			w_ww = var_d9d642ba[i];
+			w_ww = a_w_ww[i];
 			e_player giveweapon(w_ww);
 			e_player switchtoweaponimmediate(w_ww, 1);
 		}

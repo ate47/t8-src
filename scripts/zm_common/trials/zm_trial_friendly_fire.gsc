@@ -86,12 +86,12 @@ function __main__()
 */
 function register_bot_weapons()
 {
-	bot_action::function_ab03ca93(#"ar_accurate_t8_upgraded");
-	bot_action::function_ab03ca93(#"ar_fastfire_t8_upgraded");
-	bot_action::function_ab03ca93(#"ar_stealth_t8_upgraded");
-	bot_action::function_ab03ca93(#"ar_modular_t8_upgraded");
-	bot_action::function_ab03ca93(#"smg_capacity_t8_upgraded");
-	bot_action::function_ab03ca93(#"tr_powersemi_t8_upgraded");
+	bot_action::register_bulletweapon(#"ar_accurate_t8_upgraded");
+	bot_action::register_bulletweapon(#"ar_fastfire_t8_upgraded");
+	bot_action::register_bulletweapon(#"ar_stealth_t8_upgraded");
+	bot_action::register_bulletweapon(#"ar_modular_t8_upgraded");
+	bot_action::register_bulletweapon(#"smg_capacity_t8_upgraded");
+	bot_action::register_bulletweapon(#"tr_powersemi_t8_upgraded");
 }
 
 /*

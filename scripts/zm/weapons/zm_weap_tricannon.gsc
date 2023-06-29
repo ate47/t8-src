@@ -37,22 +37,22 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_ai_damage(&function_79f6f273);
-	callback::function_34dea974(getweapon(#"ww_tricannon_t8"), &function_68e4ed32);
-	callback::function_34dea974(getweapon(#"ww_tricannon_t8" + "_upgraded"), &function_68e4ed32);
-	callback::function_34dea974(getweapon(#"ww_tricannon_earth_t8"), &function_8ef8873e);
-	callback::function_34dea974(getweapon(#"ww_tricannon_earth_t8" + "_upgraded"), &function_8ef8873e);
-	callback::function_34dea974(getweapon(#"ww_tricannon_air_t8"), &function_4f2ea5e7);
-	callback::function_34dea974(getweapon(#"ww_tricannon_air_t8" + "_upgraded"), &function_c8912144);
-	callback::function_34dea974(getweapon(#"ww_tricannon_fire_t8"), &function_5a24e804);
-	callback::function_34dea974(getweapon(#"ww_tricannon_fire_t8" + "_upgraded"), &function_5a24e804);
-	callback::function_34dea974(getweapon(#"ww_tricannon_water_t8"), &function_14d49bd7);
-	callback::function_34dea974(getweapon(#"ww_tricannon_water_t8" + "_upgraded"), &function_14d49bd7);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_t8"), &function_68e4ed32);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_t8" + "_upgraded"), &function_68e4ed32);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_earth_t8"), &function_8ef8873e);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_earth_t8" + "_upgraded"), &function_8ef8873e);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_air_t8"), &function_4f2ea5e7);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_air_t8" + "_upgraded"), &function_c8912144);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_fire_t8"), &function_5a24e804);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_fire_t8" + "_upgraded"), &function_5a24e804);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_water_t8"), &function_14d49bd7);
+	callback::add_weapon_fired(getweapon(#"ww_tricannon_water_t8" + "_upgraded"), &function_14d49bd7);
 	namespace_9ff9f642::register_slowdown(#"hash_7dd6cbed104dd8bd", 0.75, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_7eece5e5a5f9cc4d", 0.85, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_64aafe3cc04860be", 0.65, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_111531769a0bf9e", 0.77, 1);
-	namespace_9ff9f642::function_9d45c058(#"hash_6adb03deacc3534", 200, 5);
-	namespace_9ff9f642::function_9d45c058(#"hash_474208b088fd5b3d", 400, 5);
+	namespace_9ff9f642::register_burn(#"hash_6adb03deacc3534", 200, 5);
+	namespace_9ff9f642::register_burn(#"hash_474208b088fd5b3d", 400, 5);
 	clientfield::register("actor", "water_tricannon_slow_fx", 1, 1, "int");
 	clientfield::register("allplayers", "fire_tricannon_muzzle_fx", 1, 1, "counter");
 	clientfield::register("allplayers", "water_tricannon_muzzle_fx", 1, 1, "counter");

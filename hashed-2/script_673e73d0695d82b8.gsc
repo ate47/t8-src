@@ -100,8 +100,8 @@ class cSpectreRisingIndicator : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("isAlive", 1, 1, "int");
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int");
+		cLUIelem::add_clientfield("isAlive", 1, 1, "int");
 	}
 
 }

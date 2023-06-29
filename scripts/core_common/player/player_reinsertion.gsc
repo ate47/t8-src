@@ -37,12 +37,12 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 	level.reinsertion = spawnstruct();
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: player_reinsertion
 	Checksum: 0xBF1C3FA7
 	Offset: 0x260
@@ -50,7 +50,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	level thread function_3d39c260();
 	/#
@@ -73,7 +73,7 @@ function function_3d39c260()
 	{
 		return;
 	}
-	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+	var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 	if(var_7eb8f61a != 0)
 	{
 		return;
@@ -417,16 +417,16 @@ function function_b2df2693()
 		if(isdefined(level.alivecount) && isdefined(level.alivecount[team]) && level.alivecount[team] > 0)
 		{
 			players = getplayers(team);
-			var_2a8c2091 = 0;
+			player_alive = 0;
 			foreach(player in players)
 			{
 				if(isalive(player) && player.sessionstate == "playing")
 				{
-					var_2a8c2091 = 1;
+					player_alive = 1;
 					break;
 				}
 			}
-			if(var_2a8c2091 == 0)
+			if(player_alive == 0)
 			{
 				continue;
 			}
@@ -527,7 +527,7 @@ function private function_c62b5591()
 		level.reinsertion.cameraent clientfield::set("infiltration_ent", player_insertion::function_1e4302d0(1, level.insertion.index));
 		level.reinsertion.cameraent setvisibletoplayer(self);
 	}
-	self player_insertion::function_aa4e9db8();
+	self player_insertion::show_postfx();
 }
 
 /*
@@ -545,7 +545,7 @@ function private function_402101af()
 	{
 		level.reinsertion.cameraent setinvisibletoplayer(self);
 	}
-	self player_insertion::function_af096637();
+	self player_insertion::hide_postfx();
 }
 
 /*
@@ -784,7 +784,7 @@ function function_836fe662()
 */
 function function_fec68e5c()
 {
-	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+	var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 	/#
 		if(getdvarint(#"scr_disable_infiltration", 0))
 		{

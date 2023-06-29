@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5da9076b8e4f6d28;
+#using scripts\mp_common\item_world_util.csc;
 #using scripts\mp_common\item_world.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -78,7 +78,7 @@ function private function_53d906fd(localclientnum)
 			{
 				if(show_fx)
 				{
-					if(namespace_ad5a0cd6::function_2c7fc531(i))
+					if(item_world_util::function_2c7fc531(i))
 					{
 						point = function_b1702735(i);
 						if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.name === #"sig_blade_wz_item")
@@ -90,7 +90,7 @@ function private function_53d906fd(localclientnum)
 							level function_6b5dfd6c(localclientnum, 0, 0, i, player);
 						}
 					}
-					else if(namespace_ad5a0cd6::function_da09de95(i))
+					else if(item_world_util::function_da09de95(i))
 					{
 						if(isdefined(level.var_a4a4012e[i]) && isdefined(level.var_a4a4012e[i].var_a6762160) && level.var_a4a4012e[i].var_a6762160.name === #"sig_blade_wz_item")
 						{

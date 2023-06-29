@@ -2,7 +2,7 @@
 #using scripts\wz_common\wz_ai_zonemgr.gsc;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\wz_common\gametypes\warzone.gsc;
-#using scripts/wz_common/wz_loadouts.gsc;
+#using scripts\wz_common\wz_loadouts.gsc;
 #using scripts\wz_common\wz_ai_utils.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using scripts\mp_common\item_world.gsc;
@@ -78,7 +78,7 @@ function private function_e717b0d(player)
 	{
 		return;
 	}
-	hatchet = wz_loadouts::function_ba18c3e5(#"hash_15bac43598d4827c");
+	hatchet = wz_loadouts::_get_item(#"hash_15bac43598d4827c");
 	var_fa3df96 = player item_inventory::function_e66dcff5(hatchet);
 	player item_world::function_de2018e3(hatchet, player, var_fa3df96);
 }

@@ -68,7 +68,7 @@ function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
-		player callback::function_53888e7f(&on_player_laststand);
+		player callback::remove_on_laststand(&on_player_laststand);
 	}
 }
 

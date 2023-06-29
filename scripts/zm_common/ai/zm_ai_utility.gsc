@@ -205,12 +205,12 @@ function function_594bb7bd(player)
 	{
 		return;
 	}
-	foreach(archetype, var_6bc70e1 in level.var_1029f68)
+	foreach(archetype, callback_array in level.var_1029f68)
 	{
 		ai_array = getaiarchetypearray(archetype);
 		foreach(ai in ai_array)
 		{
-			foreach(callback in var_6bc70e1)
+			foreach(callback in callback_array)
 			{
 				ai [[callback]](player);
 			}
@@ -219,7 +219,7 @@ function function_594bb7bd(player)
 }
 
 /*
-	Name: function_35eac38d
+	Name: get_pathnode_path
 	Namespace: zm_ai_utility
 	Checksum: 0x212E4A78
 	Offset: 0x840
@@ -227,7 +227,7 @@ function function_594bb7bd(player)
 	Parameters: 1
 	Flags: None
 */
-function function_35eac38d(pathnode)
+function get_pathnode_path(pathnode)
 {
 	path_struct = {#loops:0, #path:array(pathnode)};
 	var_592eaf7 = pathnode;
@@ -483,7 +483,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	}
 	if(var_8d3f5b7d)
 	{
-		var_38d1de41 = isdefined(namespace_81245006::function_fab3ee3e(self));
+		has_weakpoints = isdefined(namespace_81245006::function_fab3ee3e(self));
 		if(var_30362eca && attacker hasperk(#"specialty_mod_awareness"))
 		{
 			if(var_b1c1c5cf < 1)
@@ -508,7 +508,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 					var_b1c1c5cf = min(1, var_b1c1c5cf + 0.1);
 				}
 			}
-			else if(var_38d1de41 && !registerzombie_bgb_used_reinforce && weaponhasattachment(weapon, "fmj") && var_b1c1c5cf < 1)
+			else if(has_weakpoints && !registerzombie_bgb_used_reinforce && weaponhasattachment(weapon, "fmj") && var_b1c1c5cf < 1)
 			{
 				if(self.var_6f84b820 == #"boss")
 				{
@@ -593,7 +593,7 @@ function function_a2e8fd7b(entity, player, var_3f120c4d = 4)
 }
 
 /*
-	Name: function_8de1b5b9
+	Name: make_zombie_target
 	Namespace: zm_ai_utility
 	Checksum: 0x9ABF5796
 	Offset: 0x1790
@@ -601,7 +601,7 @@ function function_a2e8fd7b(entity, player, var_3f120c4d = 4)
 	Parameters: 1
 	Flags: None
 */
-function function_8de1b5b9(entity)
+function make_zombie_target(entity)
 {
 	if(isinarray(level.zombie_targets, entity))
 	{
@@ -636,7 +636,7 @@ function function_8de1b5b9(entity)
 }
 
 /*
-	Name: function_2d29434e
+	Name: is_zombie_target
 	Namespace: zm_ai_utility
 	Checksum: 0x2766F5E0
 	Offset: 0x1940
@@ -644,13 +644,13 @@ function function_8de1b5b9(entity)
 	Parameters: 1
 	Flags: None
 */
-function function_2d29434e(entity)
+function is_zombie_target(entity)
 {
 	return isinarray(level.zombie_targets, entity);
 }
 
 /*
-	Name: function_901eccf2
+	Name: remove_zombie_target
 	Namespace: zm_ai_utility
 	Checksum: 0xD78AE331
 	Offset: 0x1978
@@ -658,7 +658,7 @@ function function_2d29434e(entity)
 	Parameters: 1
 	Flags: None
 */
-function function_901eccf2(entity)
+function remove_zombie_target(entity)
 {
 	if(!isinarray(level.zombie_targets, entity))
 	{

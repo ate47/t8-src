@@ -74,7 +74,7 @@ class czm_arcade_keys : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_arcade_keys
 		Checksum: 0x25D01136
 		Offset: 0x278
@@ -82,9 +82,9 @@ class czm_arcade_keys : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class czm_arcade_keys : cLUIelem
 	function setup_clientfields(uid, var_dddbc7e5)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("key_count", 1, 4, "int", var_dddbc7e5);
+		cLUIelem::add_clientfield("key_count", 1, 4, "int", var_dddbc7e5);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_dddbc7e5)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_arcade_keys
 	Checksum: 0xE2E883FB
 	Offset: 0x108
@@ -131,10 +131,10 @@ function register(uid, var_dddbc7e5)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_arcade_keys();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

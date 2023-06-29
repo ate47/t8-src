@@ -579,15 +579,15 @@ function function_d36fb590(var_aa4f9213, var_6c9485fc = 15, n_fx_type = 1)
 		self thread function_29e6dc49(0, var_6c9485fc);
 	}
 	var_8b84b3ce = self.s_tribute_bowl.var_1a34d8e;
-	var_9ac46b0e = self.s_tribute_bowl.var_7b63dcba;
-	v_forward = anglestoforward(var_9ac46b0e);
+	v_spawn_angles = self.s_tribute_bowl.var_7b63dcba;
+	v_forward = anglestoforward(v_spawn_angles);
 	var_8b84b3ce = var_8b84b3ce + (v_forward * 7) + (vectorscale((0, 0, -1), 3));
 	var_24a867e4 = function_ed4a5d52(var_aa4f9213);
 	if(!isdefined(var_24a867e4))
 	{
 		return;
 	}
-	var_4d0b3b87 = util::spawn_model(var_24a867e4, var_8b84b3ce, var_9ac46b0e);
+	var_4d0b3b87 = util::spawn_model(var_24a867e4, var_8b84b3ce, v_spawn_angles);
 	var_4d0b3b87 playsound(#"zmb_spawn_powerup");
 	var_4d0b3b87 playloopsound(#"zmb_spawn_powerup_loop");
 	b_give_reward = self function_dcda5d87(var_4d0b3b87, 1, 1, n_fx_type);
@@ -676,8 +676,8 @@ function function_f152b354(str_bgb, var_6c9485fc = 15)
 		self thread function_29e6dc49(0, var_6c9485fc);
 	}
 	var_8b84b3ce = self.s_tribute_bowl.var_1a34d8e + (vectorscale((0, 0, -1), 6));
-	var_9ac46b0e = self.s_tribute_bowl.var_7b63dcba;
-	var_4d0b3b87 = util::spawn_model(#"wpn_t8_zm_elixir_bottle_world", var_8b84b3ce, var_9ac46b0e);
+	v_spawn_angles = self.s_tribute_bowl.var_7b63dcba;
+	var_4d0b3b87 = util::spawn_model(#"wpn_t8_zm_elixir_bottle_world", var_8b84b3ce, v_spawn_angles);
 	b_taken = self function_dcda5d87(var_4d0b3b87, 1, 0, 1);
 	if(b_taken)
 	{
@@ -1276,11 +1276,11 @@ function give_perk_reward(var_16c042b8, var_6c9485fc = 15)
 		self thread function_29e6dc49(0, var_6c9485fc);
 	}
 	var_8b84b3ce = self.s_tribute_bowl.var_9d32404.origin + vectorscale((0, 0, 1), 35);
-	var_9ac46b0e = self.s_tribute_bowl.var_9d32404.angles;
-	v_forward = anglestoforward(var_9ac46b0e);
+	v_spawn_angles = self.s_tribute_bowl.var_9d32404.angles;
+	v_forward = anglestoforward(v_spawn_angles);
 	var_8b84b3ce = var_8b84b3ce + (v_forward * 7) + (vectorscale((0, 0, -1), 9));
 	var_fb2313c1 = zm_perks::get_perk_weapon_model(var_16c042b8);
-	var_4d0b3b87 = util::spawn_model(var_fb2313c1, var_8b84b3ce, var_9ac46b0e);
+	var_4d0b3b87 = util::spawn_model(var_fb2313c1, var_8b84b3ce, v_spawn_angles);
 	self thread function_545834dc(var_16c042b8);
 	b_taken = self function_dcda5d87(var_4d0b3b87, 1, 1, 1);
 	if(b_taken)
@@ -1352,10 +1352,10 @@ function function_7dc3dfdb(var_6c9485fc = 0)
 		self thread function_29e6dc49(0, var_6c9485fc);
 	}
 	var_8b84b3ce = self.s_tribute_bowl.var_1a34d8e + (vectorscale((0, 0, -1), 6));
-	var_9ac46b0e = self.s_tribute_bowl.var_7b63dcba;
-	v_forward = anglestoforward(var_9ac46b0e);
+	v_spawn_angles = self.s_tribute_bowl.var_7b63dcba;
+	v_forward = anglestoforward(v_spawn_angles);
 	var_8b84b3ce = var_8b84b3ce + (v_forward * 7);
-	var_4d0b3b87 = util::spawn_model("p8_zm_powerup_aat", var_8b84b3ce, var_9ac46b0e);
+	var_4d0b3b87 = util::spawn_model("p8_zm_powerup_aat", var_8b84b3ce, v_spawn_angles);
 	b_taken = self function_dcda5d87(var_4d0b3b87, 1, 1, 1);
 	if(b_taken)
 	{

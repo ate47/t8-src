@@ -46,7 +46,7 @@ function __init__()
 }
 
 /*
-	Name: function_10006d25
+	Name: on_prematch_end
 	Namespace: callback
 	Checksum: 0x67DBA939
 	Offset: 0x150
@@ -54,7 +54,7 @@ function __init__()
 	Parameters: 2
 	Flags: Linked
 */
-function function_10006d25(func, obj)
+function on_prematch_end(func, obj)
 {
 	if(self == level)
 	{
@@ -67,7 +67,7 @@ function function_10006d25(func, obj)
 }
 
 /*
-	Name: function_7117ff72
+	Name: on_changed_specialist
 	Namespace: callback
 	Checksum: 0x79C8A58C
 	Offset: 0x1C8
@@ -75,7 +75,7 @@ function function_10006d25(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7117ff72(func, obj)
+function on_changed_specialist(func, obj)
 {
 	add_callback(#"changed_specialist", func, obj);
 }

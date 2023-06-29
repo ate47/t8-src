@@ -222,7 +222,7 @@ class cct_shared_aar : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_shared_aar
 		Checksum: 0xAB58DEE
 		Offset: 0x468
@@ -230,9 +230,9 @@ class cct_shared_aar : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -247,9 +247,9 @@ class cct_shared_aar : cLUIelem
 	function setup_clientfields(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
-		cLUIelem::function_da693cbe("timeMilliseconds", 1, 14, "int", var_fa61efce);
-		cLUIelem::function_da693cbe("bestTimeMilliseconds", 1, 14, "int", var_a2ce4dd8);
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("timeMilliseconds", 1, 14, "int", var_fa61efce);
+		cLUIelem::add_clientfield("bestTimeMilliseconds", 1, 14, "int", var_a2ce4dd8);
 		cLUIelem::function_dcb34c80("string", "missionResultMsg", 1);
 		cLUIelem::function_dcb34c80("string", "medalThresholds", 1);
 	}
@@ -275,7 +275,7 @@ function register(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_shared_aar
 	Checksum: 0x2039AF39
 	Offset: 0x180
@@ -283,10 +283,10 @@ function register(uid, var_fa61efce, var_a2ce4dd8, var_28aefa0, var_30cfd9be)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_shared_aar();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

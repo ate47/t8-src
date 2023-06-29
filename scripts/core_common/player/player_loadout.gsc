@@ -36,16 +36,16 @@ function function_c67222df()
 	{
 		self.pers[#"loadout"] = spawnstruct();
 	}
-	self function_8b7ebf9("primary");
-	self function_8b7ebf9("secondary");
-	self function_8b7ebf9("herogadget");
-	self function_8b7ebf9("ultimate");
-	self function_8b7ebf9("primarygrenade");
-	self function_8b7ebf9("specialgrenade");
+	self init_loadout_slot("primary");
+	self init_loadout_slot("secondary");
+	self init_loadout_slot("herogadget");
+	self init_loadout_slot("ultimate");
+	self init_loadout_slot("primarygrenade");
+	self init_loadout_slot("specialgrenade");
 }
 
 /*
-	Name: function_8b7ebf9
+	Name: init_loadout_slot
 	Namespace: loadout
 	Checksum: 0x5BD37F3B
 	Offset: 0x210
@@ -53,13 +53,13 @@ function function_c67222df()
 	Parameters: 1
 	Flags: Linked
 */
-function function_8b7ebf9(slot_index)
+function init_loadout_slot(slot_index)
 {
 	self.pers[#"loadout"].slots[slot_index] = {#killed:0, #count:0, #hash_4cfdfa9b:level.weaponnone, #weapon:level.weaponnone, #slot:slot_index};
 }
 
 /*
-	Name: function_e27dc453
+	Name: get_loadout_slot
 	Namespace: loadout
 	Checksum: 0xA6E3DE2B
 	Offset: 0x2B0
@@ -67,7 +67,7 @@ function function_8b7ebf9(slot_index)
 	Parameters: 1
 	Flags: None
 */
-function function_e27dc453(slot_index)
+function get_loadout_slot(slot_index)
 {
 	if(isdefined(self.pers[#"loadout"]))
 	{
@@ -98,7 +98,7 @@ function function_8435f729(weapon)
 }
 
 /*
-	Name: function_1ee886f7
+	Name: find_loadout_slot
 	Namespace: loadout
 	Checksum: 0x89E54DF2
 	Offset: 0x3B0
@@ -106,7 +106,7 @@ function function_8435f729(weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1ee886f7(weapon)
+function find_loadout_slot(weapon)
 {
 	if(isdefined(self.pers[#"loadout"]))
 	{

@@ -71,8 +71,8 @@ function main()
 	level flag::init(#"hash_2444d210a1dd0dd");
 	level flag::init(#"hash_6f71660057a5952f");
 	level flag::init(#"hash_66f358c0066d77d8");
-	function_3335f286();
-	if(zm_utility::function_e51dc2d8() || zm_utility::is_trials())
+	init_steps();
+	if(zm_utility::is_ee_enabled() || zm_utility::is_trials())
 	{
 		zm_sq::start(#"spoon_quest", 1);
 		/#
@@ -84,7 +84,7 @@ function main()
 }
 
 /*
-	Name: function_3335f286
+	Name: init_steps
 	Namespace: namespace_9d58c1cd
 	Checksum: 0xAC5F1A00
 	Offset: 0x688
@@ -92,7 +92,7 @@ function main()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3335f286()
+function init_steps()
 {
 	zm_sq::register(#"spoon_quest", #"1", #"hash_3b8b2ab09b97dee6", &step_1, &step_1_cleanup);
 }
@@ -867,7 +867,7 @@ function function_97be15e3(cmd)
 			}
 			case "hash_6959afd9d36f38b8":
 			{
-				if(zm_utility::function_e51dc2d8())
+				if(zm_utility::is_ee_enabled())
 				{
 					var_4f5b63ea = struct::get("");
 					var_83aecc80 = struct::get("");

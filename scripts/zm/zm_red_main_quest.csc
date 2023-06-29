@@ -2197,7 +2197,7 @@ function function_f5ec271e(localclientnum, oldval, newval, bnewent, binitialsnap
 			if(e_player postfx::function_556665f2(#"pstfx_fsblur"))
 			{
 				e_player postfx::exitpostfxbundle(#"pstfx_fsblur");
-				e_player notify(#"hash_5b73690bab0457f4");
+				e_player notify(#"stop_blur_postfx");
 			}
 		}
 	}
@@ -2227,7 +2227,7 @@ function function_19dea648(localclientnum)
 				{
 					if(!e_player util::function_50ed1561(localclientnum))
 					{
-						e_player thread zm_utility::function_bb54a31f(localclientnum, #"pstfx_fsblur", #"hash_5b73690bab0457f4");
+						e_player thread zm_utility::function_bb54a31f(localclientnum, #"pstfx_fsblur", #"stop_blur_postfx");
 					}
 				}
 			}

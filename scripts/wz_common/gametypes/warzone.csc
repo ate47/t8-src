@@ -67,7 +67,7 @@ event main(eventstruct)
 	}
 	level thread function_7be1ea25();
 	level thread function_783be487();
-	callback::function_d46d9315(&start_warzone);
+	callback::on_gameplay_started(&start_warzone);
 	level function_b522ef5c();
 	function_41f9de03();
 	function_f6b076db();
@@ -115,7 +115,7 @@ function function_7be1ea25()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_34bb692dbc392d7f");
+		waitresult = level waittill(#"teammate_waypoint_placed");
 		localclientnum = waitresult.localclientnum;
 		obj_id = util::getnextobjid(localclientnum);
 		clientobjid = level.var_a5ec5f1a[localclientnum][waitresult.clientnum];
@@ -180,7 +180,7 @@ function function_783be487()
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_123261c89a0bc7a");
+		waitresult = level waittill(#"teammate_waypoint_removed");
 		localclientnum = waitresult.localclientnum;
 		localplayer = function_5c10bd79(localclientnum);
 		clientobjid = level.var_a5ec5f1a[localclientnum][waitresult.clientnum];
@@ -486,7 +486,7 @@ function function_a1aaf8c0()
 	{
 		waitresult = undefined;
 		waitresult = level waittill(#"hash_5af34d08eac79f88");
-		function_2dba6c5(waitresult.localclientnum, waitresult.var_edf90e4e);
+		function_2dba6c5(waitresult.localclientnum, waitresult.teammateindex);
 	}
 }
 

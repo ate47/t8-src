@@ -768,7 +768,7 @@ function usekillstreaksupplydrop(killstreak)
 }
 
 /*
-	Name: function_6b6c41a7
+	Name: spawn_supplydrop
 	Namespace: supplydrop
 	Checksum: 0x57B79ADF
 	Offset: 0x2A88
@@ -776,7 +776,7 @@ function usekillstreaksupplydrop(killstreak)
 	Parameters: 3
 	Flags: None
 */
-function function_6b6c41a7(owner, context, origin)
+function spawn_supplydrop(owner, context, origin)
 {
 	location = spawnstruct();
 	location.origin = origin;
@@ -3928,7 +3928,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	#/
 	if(level.var_e071ed64)
 	{
-		chopper util::function_c596f193();
+		chopper util::make_sentient();
 		if(!ispathfinder(chopper))
 		{
 			chopper makepathfinder();

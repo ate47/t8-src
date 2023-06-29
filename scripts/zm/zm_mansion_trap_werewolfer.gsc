@@ -229,7 +229,7 @@ function ai_damage(e_trap)
 		if(isdefined(e_trap.activated_by_player) && isplayer(e_trap.activated_by_player))
 		{
 			e_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			e_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			e_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 			if(isdefined(e_trap.activated_by_player.zapped_zombies))
 			{
 				e_trap.activated_by_player.zapped_zombies++;

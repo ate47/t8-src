@@ -20,7 +20,7 @@ function init()
 	if(ispc() && getdvarint(#"hash_cca6902a7ce5273", 0) == 1)
 	{
 		callback::on_localclient_connect(&localclient_connect);
-		callback::function_d46d9315(&function_9b08184);
+		callback::on_gameplay_started(&function_9b08184);
 	}
 }
 
@@ -39,7 +39,7 @@ function function_9b08184(localclientnum)
 	player thread function_9ac87769(localclientnum);
 	level.var_4e740db2 = 1;
 	callback::on_spawned(&function_9ac87769);
-	callback::remove_callback(#"hash_53992479a389b987", &function_9b08184);
+	callback::remove_callback(#"on_gameplay_started", &function_9b08184);
 }
 
 /*

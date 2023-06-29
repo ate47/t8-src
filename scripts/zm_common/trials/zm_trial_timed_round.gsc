@@ -60,7 +60,7 @@ function private on_begin(var_6325d314, var_52b8b3a2, n_time)
 	level flag::set(#"pause_round_timeout");
 	level.var_382a24b0 = 1;
 	callback::on_spawned(&function_31f197c2);
-	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::add_callback(#"on_host_migration_end", &function_ff66b979);
 }
 
 /*
@@ -86,7 +86,7 @@ function private on_end(round_reset)
 	level flag::clear(#"pause_round_timeout");
 	level.var_382a24b0 = undefined;
 	callback::remove_on_spawned(&function_31f197c2);
-	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::remove_callback(#"on_host_migration_end", &function_ff66b979);
 }
 
 /*

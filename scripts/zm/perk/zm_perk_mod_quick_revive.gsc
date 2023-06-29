@@ -63,7 +63,7 @@ function enable_quick_revive_perk_for_level()
 */
 function give_perk()
 {
-	self thread function_733c712e();
+	self thread monitor_health_regen();
 }
 
 /*
@@ -97,7 +97,7 @@ function on_revived(s_params)
 {
 	if(isplayer(s_params.e_reviver) && s_params.e_reviver hasperk(#"specialty_mod_quickrevive"))
 	{
-		s_params.e_reviver zm_utility::function_e0448fec();
+		s_params.e_reviver zm_utility::set_max_health();
 		s_params.e_reviver thread function_118be9d8();
 	}
 	else
@@ -111,7 +111,7 @@ function on_revived(s_params)
 }
 
 /*
-	Name: function_733c712e
+	Name: monitor_health_regen
 	Namespace: zm_perk_mod_quick_revive
 	Checksum: 0xC5E1739F
 	Offset: 0x358
@@ -119,7 +119,7 @@ function on_revived(s_params)
 	Parameters: 0
 	Flags: Linked
 */
-function function_733c712e()
+function monitor_health_regen()
 {
 	self endon(#"hash_478eed143ecc82fc", #"disconnect");
 	while(true)

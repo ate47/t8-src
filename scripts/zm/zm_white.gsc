@@ -15,7 +15,7 @@
 #using script_3122530a9381e18b;
 #using scripts\zm\zm_white_toast.gsc;
 #using script_34b02db2817b42f;
-#using script_36ea1509e6736d65;
+#using scripts\zm\zm_white_trophies.gsc;
 #using scripts\zm\weapons\zm_weap_cymbal_monkey.gsc;
 #using scripts\zm\weapons\zm_weap_riotshield.gsc;
 #using script_48dd035d23bf8844;
@@ -25,7 +25,7 @@
 #using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm\weapons\zm_weap_flamethrower.gsc;
 #using script_5f9141e04e4e94a2;
-#using script_5fe6b28142434ff3;
+#using scripts\zm\zm_white_ww_quest_modkit.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using script_621434df66e97145;
 #using scripts\zm\zm_white_mee.gsc;
@@ -101,7 +101,7 @@ function autoexec opt_in()
 event main(eventstruct)
 {
 	setclearanceceiling(17);
-	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
+	level thread lui::add_luimenu("full_screen_movie", &full_screen_movie::register, "full_screen_movie");
 	level thread function_d0f18ffe();
 	level.custom_spawner_entry[#"crawl"] = &zm_white_special_rounds::function_45bb11e4;
 	level.var_ddcd74c6 = &zm_white_special_rounds::function_f79e10f9;
@@ -183,7 +183,7 @@ event main(eventstruct)
 	level thread zm_white_fx::init();
 	if(!zm_trial::function_b47f6aba())
 	{
-		level thread namespace_9269886b::init();
+		level thread zm_white_trophies::init();
 	}
 	level thread zm_white_util::init();
 	flag::wait_till("start_zombie_round_logic");
@@ -199,7 +199,7 @@ event main(eventstruct)
 	level thread zm_white_mee::init();
 	level thread namespace_a01a2431::init();
 	level thread namespace_87b5173f::init();
-	level thread namespace_d351d90f::init();
+	level thread zm_white_ww_quest_modkit::init();
 	level thread namespace_ca03bbb4::init();
 	level thread namespace_3b2b9e06::init();
 	level thread namespace_825eac6b::init();
@@ -222,7 +222,7 @@ event main(eventstruct)
 	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
 	level.var_e120ae98 = &function_e120ae98;
 	level thread function_7e6cf034();
-	callback::function_20263b9e(&zm_white_util::function_c05cc102);
+	callback::on_grenade_fired(&zm_white_util::function_c05cc102);
 	level thread function_814cda18();
 	/#
 		level thread white_devgui();
@@ -1491,7 +1491,7 @@ function private white_devgui()
 				}
 				case "hash_708994ac8f2d6d5":
 				{
-					if(zm_utility::function_e51dc2d8())
+					if(zm_utility::is_ee_enabled())
 					{
 						zm_sq::function_87306f8a(#"insanity_mode", #"step_6");
 					}

@@ -146,10 +146,10 @@ class czm_towers_challenges_hud : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("progress", 1, 7, "int");
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("progress", 1, 7, "int");
 		cLUIelem::function_dcb34c80("string", "challenge_text", 1);
-		cLUIelem::function_da693cbe("required_goal", 1, 7, "int");
+		cLUIelem::add_clientfield("required_goal", 1, 7, "int");
 	}
 
 }

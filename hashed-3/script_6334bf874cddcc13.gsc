@@ -63,7 +63,7 @@ class czm_towers_crowd_meter : cLUIelem
 		}
 		else
 		{
-			if(#"hash_2b0516887b8c733" == state_name)
+			if(#"crowd_server_paused" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_47e79fc, "_state", 1);
 			}
@@ -188,8 +188,8 @@ class czm_towers_crowd_meter : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
-		cLUIelem::function_da693cbe("visible", 1, 1, "int");
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("visible", 1, 1, "int");
 	}
 
 }

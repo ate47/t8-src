@@ -261,7 +261,7 @@ function start_cooldown()
 }
 
 /*
-	Name: function_2427a351
+	Name: clear_cooldown
 	Namespace: draft
 	Checksum: 0x535FDCBC
 	Offset: 0xA08
@@ -269,7 +269,7 @@ function start_cooldown()
 	Parameters: 0
 	Flags: Linked
 */
-function function_2427a351()
+function clear_cooldown()
 {
 	player = self;
 	/#
@@ -433,7 +433,7 @@ function function_9f408cf7(oldval, newval)
 }
 
 /*
-	Name: function_3e46326b
+	Name: client_ready
 	Namespace: draft
 	Checksum: 0x9B069BE6
 	Offset: 0x1000
@@ -441,7 +441,7 @@ function function_9f408cf7(oldval, newval)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3e46326b()
+function client_ready()
 {
 	player = self;
 	player function_427981d0(1);
@@ -683,7 +683,7 @@ function draft_run()
 		{
 			player player_role::clear();
 		}
-		class_num = player stats::get_stat(#"hash_2a738807be622e31");
+		class_num = player stats::get_stat(#"selectedcustomclass");
 		player setplayerstateloadoutweapons(class_num);
 	}
 	if(timeremaining == 0)
@@ -757,7 +757,7 @@ function draft_run()
 		{
 			assign_remaining_players(player);
 		}
-		player function_3e46326b();
+		player client_ready();
 	}
 }
 

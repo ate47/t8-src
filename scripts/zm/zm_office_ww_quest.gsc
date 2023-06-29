@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using script_59a783d756554a80;
 #using scripts\zm_common\zm_vo.gsc;
@@ -61,7 +61,7 @@ function init()
 {
 	function_1bfc7178();
 	function_74c94af4();
-	function_b6a978be();
+	init_reward();
 	function_73530998();
 	function_d486a10();
 	function_6ead7c1f();
@@ -574,7 +574,7 @@ function function_863b3a0()
 }
 
 /*
-	Name: function_b6a978be
+	Name: init_reward
 	Namespace: zm_office_ww_quest
 	Checksum: 0xE08B4AF3
 	Offset: 0x1B00
@@ -582,7 +582,7 @@ function function_863b3a0()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b6a978be()
+function init_reward()
 {
 	level.s_ww_quest_reward = struct::get("ww_quest_reward");
 	level.s_ww_quest_reward.var_8387846a = getentarray("ww_crate", "targetname");
@@ -815,7 +815,7 @@ function function_d486a10()
 	key = getent("code2_key", "targetname");
 	if(util::get_game_type() != #"zstandard")
 	{
-		key namespace_2e9c09b3::function_e8661563(&function_b32c1898);
+		key zm_item_pickup::function_e8661563(&function_b32c1898);
 	}
 }
 

@@ -80,7 +80,7 @@ function __main__()
 	foreach(item in a_items)
 	{
 		w_item = item.item;
-		if(isdefined(w_item) && (isdefined(w_item.var_52a84c7a) && w_item.var_52a84c7a))
+		if(isdefined(w_item) && (isdefined(w_item.craftitem) && w_item.craftitem))
 		{
 			tname = w_item;
 			if(!isdefined(level.item_spawns[tname]))
@@ -250,7 +250,7 @@ function private function_b64c32cf(player)
 */
 function player_has(player, w_item)
 {
-	if(!(isdefined(w_item.var_52a84c7a) && w_item.var_52a84c7a) && isdefined(player))
+	if(!(isdefined(w_item.craftitem) && w_item.craftitem) && isdefined(player))
 	{
 		if(w_item.var_9fffdcee)
 		{
@@ -336,7 +336,7 @@ function player_pick_up(player, w_item)
 */
 function player_take(player, w_item)
 {
-	if(!(isdefined(w_item.var_52a84c7a) && w_item.var_52a84c7a) && isdefined(player))
+	if(!(isdefined(w_item.craftitem) && w_item.craftitem) && isdefined(player))
 	{
 		if(w_item.var_9fffdcee)
 		{
@@ -424,7 +424,7 @@ function debug_items()
 			foreach(item in a_items)
 			{
 				w_item = item.item;
-				if(isdefined(w_item) && (isdefined(w_item.var_52a84c7a) && w_item.var_52a84c7a))
+				if(isdefined(w_item) && (isdefined(w_item.craftitem) && w_item.craftitem))
 				{
 					sphere(item.origin, 6, (0, 0, 1), 1, 0, 12, 20);
 				}

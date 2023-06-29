@@ -59,7 +59,7 @@ function private __init__()
 	callback::on_finalize_initialization(&finalize_clientfields);
 	level.var_a2859227 = 0;
 	level.var_f995ece6 = zm_trial_timer::register("zm_trial_timer");
-	level.var_e7295382 = zm_trial_weapon_locked::function_5c1bb138(#"zm_trial_weapon_locked");
+	level.var_e7295382 = zm_trial_weapon_locked::register_clientside(#"zm_trial_weapon_locked");
 }
 
 /*
@@ -103,7 +103,7 @@ function private finalize_clientfields(localclientnum)
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.playerCounterMax", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.gameState", 1, 2, "int", &function_686840b2, 0, 1);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.failurePlayer", 1, 4, "int", undefined, 0, 0);
-	clientfield::function_78175813("worlduimodel", "string", "ZMHudGlobal.trials.failureReason", 1, &function_b9a5a377, 0, 0);
+	clientfield::register_bgcache("worlduimodel", "string", "ZMHudGlobal.trials.failureReason", 1, &function_b9a5a377, 0, 0);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.gameStartTime", 1, 31, "int", undefined, 0, 0);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.showScoreboard", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
 	clientfield::register("worlduimodel", "ZMHudGlobal.trials.globalCheckState", 1, getminbitcountfornum(2), "int", undefined, 0, 0);
@@ -166,11 +166,11 @@ function private function_741dae5b(localclientnum, oldval, newval, bnewent, bini
 */
 function private function_88806df3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_ef0a371f = newval - 1;
-	if(isdefined(level.var_6d87ac05) && isdefined(level.var_6d87ac05.rounds[var_ef0a371f]))
+	round_index = newval - 1;
+	if(isdefined(level.var_6d87ac05) && isdefined(level.var_6d87ac05.rounds[round_index]))
 	{
 		on_challenge_end(localclientnum);
-		level.var_1420e3f6 = level.var_6d87ac05.rounds[var_ef0a371f];
+		level.var_1420e3f6 = level.var_6d87ac05.rounds[round_index];
 		function_c3febfe1(localclientnum);
 	}
 	else

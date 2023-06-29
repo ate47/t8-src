@@ -307,7 +307,7 @@ function fly_path(insertion, var_1d83d08d, fly_over_point, var_59526dd5)
 	var_72a7a8ee = function_ea1ad421(insertion, var_1d83d08d.end, var_1d83d08d.start);
 	var_309554a1 = function_ea1ad421(insertion, var_1d83d08d.start, var_1d83d08d.end);
 	var_7dea5d79 = (isdefined(getgametypesetting(#"wzplayerinsertionstartoffset")) ? getgametypesetting(#"wzplayerinsertionstartoffset") : 5000);
-	var_c7ac9056 = (isdefined(getgametypesetting(#"hash_3e8ed24e99b27614")) ? getgametypesetting(#"hash_3e8ed24e99b27614") : 15000);
+	var_c7ac9056 = (isdefined(getgametypesetting(#"wzplayerinsertionendoffset")) ? getgametypesetting(#"wzplayerinsertionendoffset") : 15000);
 	var_4c8131f2 = var_72a7a8ee + (var_7dea5d79 * direction);
 	var_e0079ca5 = var_309554a1 - (var_c7ac9056 * direction);
 	var_5d59bc67 = 2640;
@@ -730,7 +730,7 @@ function function_8dcd8623()
 		{
 			return;
 		}
-		var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+		var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 		switch(var_7eb8f61a)
 		{
 			case 0:
@@ -1461,7 +1461,7 @@ function function_ca5b6591(insertion, startorigin, endorigin, var_872f085f)
 	foreach(player in insertion.players)
 	{
 		player function_c62b5591(insertion);
-		player function_aa4e9db8();
+		player show_postfx();
 	}
 	foreach(player in insertion.otherplayers)
 	{
@@ -1866,7 +1866,7 @@ function function_80c60f66(player)
 	plane = player function_c4f5c468(insertion);
 	player function_f795bf83(insertion, plane, insertion.leadplane.angles[1]);
 	player function_c62b5591(insertion);
-	player function_aa4e9db8();
+	player show_postfx();
 }
 
 /*
@@ -2394,9 +2394,9 @@ function function_ab6af198()
 	{
 		x = abs(var_6024133d[0].origin[0] - var_6024133d[1].origin[0]);
 		y = abs(var_6024133d[0].origin[1] - var_6024133d[1].origin[1]);
-		var_e39b9b61 = max(x, y);
-		var_e39b9b61 = var_e39b9b61 * 0.75;
-		return math::clamp(var_e39b9b61, 10000, var_e39b9b61);
+		max_width = max(x, y);
+		max_width = max_width * 0.75;
+		return math::clamp(max_width, 10000, max_width);
 	}
 	return 10000;
 }
@@ -2876,7 +2876,7 @@ function function_2d683dc2(aircraft)
 		level.insertionpassenger [[level.var_81b39a59]](self);
 	}
 	self thread player_freefall(aircraft);
-	self function_af096637();
+	self hide_postfx();
 	self stoprumble(#"hash_233b436a07cd091a");
 	level callback::callback(#"hash_74b19f5972b0ee52", {#player:self});
 }
@@ -3232,8 +3232,8 @@ function function_e5d4df1c()
 */
 function private function_a4deb676()
 {
-	var_d9bf1973 = getentarray("game_start_button", "script_noteworthy");
-	array::delete_all(var_d9bf1973);
+	a_start_buttons = getentarray("game_start_button", "script_noteworthy");
+	array::delete_all(a_start_buttons);
 	if(isdefined(level.var_63460f40))
 	{
 		foreach(object in level.var_63460f40)
@@ -3245,7 +3245,7 @@ function private function_a4deb676()
 }
 
 /*
-	Name: function_aa4e9db8
+	Name: show_postfx
 	Namespace: player_insertion
 	Checksum: 0x6FF9E827
 	Offset: 0xB9C0
@@ -3253,13 +3253,13 @@ function private function_a4deb676()
 	Parameters: 0
 	Flags: Linked
 */
-function function_aa4e9db8()
+function show_postfx()
 {
 	self clientfield::set_to_player("heatblurpostfx", 1);
 }
 
 /*
-	Name: function_af096637
+	Name: hide_postfx
 	Namespace: player_insertion
 	Checksum: 0x752B264B
 	Offset: 0xB9F0
@@ -3267,7 +3267,7 @@ function function_aa4e9db8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_af096637()
+function hide_postfx()
 {
 	self clientfield::set_to_player("heatblurpostfx", 0);
 }

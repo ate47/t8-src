@@ -51,7 +51,7 @@ function main()
 }
 
 /*
-	Name: function_f8ae6f87
+	Name: give_gesture
 	Namespace: gestures
 	Checksum: 0x8134E42C
 	Offset: 0x418
@@ -59,7 +59,7 @@ function main()
 	Parameters: 1
 	Flags: None
 */
-function function_f8ae6f87(gestureweapon)
+function give_gesture(gestureweapon)
 {
 	/#
 		assert(gestureweapon != level.weaponnone, "");
@@ -73,7 +73,7 @@ function function_f8ae6f87(gestureweapon)
 }
 
 /*
-	Name: function_ae63f496
+	Name: clear_gesture
 	Namespace: gestures
 	Checksum: 0x35D4A0DA
 	Offset: 0x4E8
@@ -81,7 +81,7 @@ function function_f8ae6f87(gestureweapon)
 	Parameters: 0
 	Flags: None
 */
-function function_ae63f496()
+function clear_gesture()
 {
 	self notify(#"cleargesture");
 	if(isdefined(self.gestureweapon) && self.gestureweapon != level.weaponnone)
@@ -256,7 +256,7 @@ function function_c77349d4(var_851342cf)
 }
 
 /*
-	Name: function_b204f6e3
+	Name: play_gesture
 	Namespace: gestures
 	Checksum: 0x760B682
 	Offset: 0xB60
@@ -264,7 +264,7 @@ function function_c77349d4(var_851342cf)
 	Parameters: 7
 	Flags: Linked
 */
-function function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
+function play_gesture(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall)
 {
 	if(!isdefined(self))
 	{
@@ -307,7 +307,7 @@ function function_56e00fbf(var_851342cf, target, var_a085312c, blendtime, startt
 		return 0;
 	}
 	var_ee58f129 = self function_c77349d4(var_851342cf);
-	return function_b204f6e3(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
+	return play_gesture(var_ee58f129, target, var_a085312c, blendtime, starttime, var_15fc620c, stopall);
 }
 
 /*

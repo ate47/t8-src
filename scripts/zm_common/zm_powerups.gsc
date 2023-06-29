@@ -1662,7 +1662,7 @@ function powerup_grab(powerup_team)
 					player zm_stats::increment_player_stat(self.powerup_name + "_pickedup");
 					player zm_stats::increment_challenge_stat(#"survivalist_powerup");
 					player zm_stats::function_8f10788e(("boas_" + self.powerup_name) + "_pickedup");
-					player contracts::function_5b88297d(#"hash_456b19c561097c1b");
+					player contracts::increment_zm_contract(#"hash_456b19c561097c1b");
 					if(zm_utility::is_standard())
 					{
 						player zm_stats::increment_challenge_stat(#"hash_35ab7dfe675d26e9");

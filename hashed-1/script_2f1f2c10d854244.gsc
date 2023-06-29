@@ -89,7 +89,7 @@ class cmulti_stage_friendly_lockon : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmulti_stage_friendly_lockon
 		Checksum: 0xEA7CF898
 		Offset: 0x2E8
@@ -97,9 +97,9 @@ class cmulti_stage_friendly_lockon : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -114,8 +114,8 @@ class cmulti_stage_friendly_lockon : cLUIelem
 	function setup_clientfields(uid, var_5a7b4b38, var_29786c92)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int", var_5a7b4b38);
-		cLUIelem::function_da693cbe("targetState", 1, 3, "int", var_29786c92);
+		cLUIelem::add_clientfield("entNum", 1, 10, "int", var_5a7b4b38);
+		cLUIelem::add_clientfield("targetState", 1, 3, "int", var_29786c92);
 	}
 
 }
@@ -139,7 +139,7 @@ function register(uid, var_5a7b4b38, var_29786c92)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: multi_stage_friendly_lockon
 	Checksum: 0x70E3C477
 	Offset: 0x118
@@ -147,10 +147,10 @@ function register(uid, var_5a7b4b38, var_29786c92)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cmulti_stage_friendly_lockon();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

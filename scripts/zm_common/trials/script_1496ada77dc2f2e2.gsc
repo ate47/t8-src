@@ -85,9 +85,9 @@ function private on_begin(var_2a0af02f)
 			}
 			break;
 		}
-		case "hash_61b6ca8ab42d9761":
+		case "random_blindness":
 		{
-			callback::add_callback(#"hash_137b937fd26992be", &function_604ff1eb);
+			callback::add_callback(#"on_host_migration_end", &function_604ff1eb);
 			foreach(player in getplayers())
 			{
 				player thread function_ad641569();
@@ -144,9 +144,9 @@ function private on_end(round_reset)
 			}
 			break;
 		}
-		case "hash_61b6ca8ab42d9761":
+		case "random_blindness":
 		{
-			callback::remove_callback(#"hash_137b937fd26992be", &function_604ff1eb);
+			callback::remove_callback(#"on_host_migration_end", &function_604ff1eb);
 			break;
 		}
 	}

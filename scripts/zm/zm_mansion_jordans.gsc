@@ -47,14 +47,14 @@ function init()
 		clientfield::register("", "" + #"hash_3efe70d8ad68a07d", 8000, 4, "");
 		clientfield::register("", "" + #"hash_4d30672cd0a2ef31", 8000, 1, "");
 	#/
-	function_c739f755();
+	register_steps();
 	zm_sq::start(#"zm_jordans_painting");
 	zm_sq::start(#"zm_jordans_reward");
 	level thread function_da66169f();
 }
 
 /*
-	Name: function_c739f755
+	Name: register_steps
 	Namespace: mansion_jordans
 	Checksum: 0xF7FA9513
 	Offset: 0x3E8
@@ -62,7 +62,7 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c739f755()
+function register_steps()
 {
 	zm_sq::register(#"zm_jordans_painting", #"step_1", #"hash_21ed75bc8122939c", &function_f62d9f65, &function_6134319c);
 	zm_sq::register(#"zm_jordans_reward", #"step_1", #"hash_af33b9072da5dc1", &function_653412f4, &function_f1611d1);
@@ -810,7 +810,7 @@ function function_11a5f9cf(var_be17187b)
 		{
 			level flag::set(#"hash_2311d328e336b7d");
 		}
-		self callback::function_b74bf3e(&function_11a5f9cf);
+		self callback::remove_on_trigger(&function_11a5f9cf);
 	}
 }
 

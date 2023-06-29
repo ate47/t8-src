@@ -650,13 +650,13 @@ function function_fd8e3604()
 	while(true)
 	{
 		a_e_targets = zm_hero_weapon::function_7c3681f7();
-		array::thread_all(a_e_targets, &function_5ae28f27, self);
+		array::thread_all(a_e_targets, &storm_check, self);
 		wait(0.05);
 	}
 }
 
 /*
-	Name: function_5ae28f27
+	Name: storm_check
 	Namespace: zm_weap_hammer
 	Checksum: 0x7B33C046
 	Offset: 0x2280
@@ -664,7 +664,7 @@ function function_fd8e3604()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5ae28f27(player)
+function storm_check(player)
 {
 	player endon(#"disconnect", #"bled_out", #"death", #"storm_think");
 	player.e_storm endon(#"death");
@@ -739,7 +739,7 @@ function function_97429d68()
 		}
 	}
 	wait(0.2);
-	self ai::function_62795e55();
+	self ai::clear_stun();
 	self clientfield::set("" + #"hero_hammer_stun", 0);
 	self.var_c6aafbdb = 0;
 }

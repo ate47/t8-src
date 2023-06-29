@@ -118,7 +118,7 @@ class cplayer_insertion_choice : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 	}
 
 }

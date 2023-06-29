@@ -141,12 +141,12 @@ function function_f0f82833(e_ent)
 function function_d8e7a5e6()
 {
 	self flag::init("activated");
-	var_1a26b52 = arraygetclosest(self.origin, level.var_6024289d);
-	var_1a26b52 flag::init("activated");
+	soul_whale = arraygetclosest(self.origin, level.var_6024289d);
+	soul_whale flag::init("activated");
 	self zm_traps::function_19d61a68();
-	var_1a26b52.var_48698f89 = var_1a26b52.origin;
-	var_1a26b52.var_ab34489f = var_1a26b52.angles;
-	self.var_1a26b52 = var_1a26b52;
+	soul_whale.var_48698f89 = soul_whale.origin;
+	soul_whale.var_ab34489f = soul_whale.angles;
+	self.soul_whale = soul_whale;
 }
 
 /*
@@ -328,7 +328,7 @@ function damage(e_trap)
 	}
 	if(self.var_6f84b820 === #"miniboss" || self.var_6f84b820 === #"heavy")
 	{
-		e_trap.var_1a26b52 deactivate_trap(e_trap);
+		e_trap.soul_whale deactivate_trap(e_trap);
 		if(isdefined(e_trap.activated_by_player))
 		{
 			e_trap.activated_by_player notify(#"hash_74fc45698491be88");
@@ -340,7 +340,7 @@ function damage(e_trap)
 		if(isdefined(e_trap.activated_by_player) && isplayer(e_trap.activated_by_player))
 		{
 			e_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			e_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			e_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 		v_away = self.origin - e_trap.origin;
 		v_away = vectornormalize((v_away[0], v_away[1], 0)) * 64;
@@ -371,7 +371,7 @@ function player_damage(t_damage)
 		{
 			n_damage = n_damage * 0.5;
 		}
-		if(zm_utility::function_e51dc2d8() && self flag::get(#"hash_6757075afacfc1b4"))
+		if(zm_utility::is_ee_enabled() && self flag::get(#"hash_6757075afacfc1b4"))
 		{
 			n_damage = n_damage * 0.5;
 		}

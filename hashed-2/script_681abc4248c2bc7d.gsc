@@ -128,10 +128,10 @@ class czm_zod_wonderweapon_quest : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("radiance", 1, 1, "int");
-		cLUIelem::function_da693cbe("plasma", 1, 1, "int");
-		cLUIelem::function_da693cbe("purity", 1, 1, "int");
-		cLUIelem::function_da693cbe("decay", 1, 1, "int");
+		cLUIelem::add_clientfield("radiance", 1, 1, "int");
+		cLUIelem::add_clientfield("plasma", 1, 1, "int");
+		cLUIelem::add_clientfield("purity", 1, 1, "int");
+		cLUIelem::add_clientfield("decay", 1, 1, "int");
 	}
 
 }

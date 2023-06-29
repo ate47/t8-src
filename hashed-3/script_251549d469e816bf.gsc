@@ -209,7 +209,7 @@ class cluielemimage : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cluielemimage
 		Checksum: 0x6DAB4032
 		Offset: 0x688
@@ -217,9 +217,9 @@ class cluielemimage : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -234,15 +234,15 @@ class cluielemimage : cLUIelem
 	function setup_clientfields(uid, xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("x", 1, 7, "int", xcallback);
-		cLUIelem::function_da693cbe("y", 1, 6, "int", ycallback);
-		cLUIelem::function_da693cbe("width", 1, 6, "int", widthcallback);
-		cLUIelem::function_da693cbe("height", 1, 6, "int", heightcallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float", alphacallback);
-		cLUIelem::function_da693cbe("red", 1, 4, "float", redcallback);
-		cLUIelem::function_da693cbe("green", 1, 4, "float", greencallback);
-		cLUIelem::function_da693cbe("blue", 1, 4, "float", bluecallback);
+		cLUIelem::add_clientfield("x", 1, 7, "int", xcallback);
+		cLUIelem::add_clientfield("y", 1, 6, "int", ycallback);
+		cLUIelem::add_clientfield("width", 1, 6, "int", widthcallback);
+		cLUIelem::add_clientfield("height", 1, 6, "int", heightcallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("alpha", 1, 4, "float", alphacallback);
+		cLUIelem::add_clientfield("red", 1, 4, "float", redcallback);
+		cLUIelem::add_clientfield("green", 1, 4, "float", greencallback);
+		cLUIelem::add_clientfield("blue", 1, 4, "float", bluecallback);
 		cLUIelem::function_dcb34c80("material", "material", 1);
 	}
 
@@ -267,7 +267,7 @@ function register(uid, xcallback, ycallback, widthcallback, heightcallback, fade
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielemimage
 	Checksum: 0xE3055534
 	Offset: 0x1B8
@@ -275,10 +275,10 @@ function register(uid, xcallback, ycallback, widthcallback, heightcallback, fade
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cluielemimage();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

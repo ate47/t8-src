@@ -302,11 +302,11 @@ function defend_areas()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45);
 	zm_utility::function_fef4b36a(var_33efe293);
 	level notify(#"hash_545d84d6e7f5c7a6");
-	var_f79ff5ec = array::random(array(#"cd_street", #"times_square", #"hash_3003c8f8219988b2", #"cafeteria"));
+	var_f79ff5ec = array::random(array(#"cd_street", #"times_square", #"michigan_avenue", #"cafeteria"));
 	switch(var_f79ff5ec)
 	{
 		case "cd_street":
-		case "hash_3003c8f8219988b2":
+		case "michigan_avenue":
 		case "times_square":
 		{
 			var_420e4589 = array("cellblock_east_door", "cellblock_start_door");
@@ -487,13 +487,13 @@ function function_84139b27()
 {
 	zm_utility::function_c492c4d6(#"powerhouse", #"hash_3ba02a24d6f7086b", array(#"zone_powerhouse"), undefined, #"hash_5ca408aafa5fddf8", #"hash_6a3b160b4d946718");
 	zm_utility::function_c492c4d6(#"new_industries", #"hash_7e3b2316f6e262e1", array(#"zone_new_industries"), undefined, #"hash_432017d6aa7988ed", #"hash_273ce801ad0cb483");
-	zm_utility::function_c492c4d6(#"infirmary", #"hash_172bbfcfa72fefdb", array(#"zone_infirmary", #"zone_infirmary_roof"), array(#"roof", #"cafeteria", #"cd_street", #"hash_3003c8f8219988b2"), #"hash_354f9e364d7a69fb", #"hash_365c0402f060c7d5");
-	zm_utility::function_c492c4d6(#"citadel", #"hash_2857c7fc5ecb8d5c", array(#"zone_citadel_shower", #"zone_citadel", #"zone_citadel_warden"), array(#"warden_house", #"showers", #"hash_3003c8f8219988b2", #"times_square"), #"hash_2fe5a7985e8825e6", #"hash_7ebaa16cf92b78c2");
+	zm_utility::function_c492c4d6(#"infirmary", #"hash_172bbfcfa72fefdb", array(#"zone_infirmary", #"zone_infirmary_roof"), array(#"roof", #"cafeteria", #"cd_street", #"michigan_avenue"), #"hash_354f9e364d7a69fb", #"hash_365c0402f060c7d5");
+	zm_utility::function_c492c4d6(#"citadel", #"hash_2857c7fc5ecb8d5c", array(#"zone_citadel_shower", #"zone_citadel", #"zone_citadel_warden"), array(#"warden_house", #"showers", #"michigan_avenue", #"times_square"), #"hash_2fe5a7985e8825e6", #"hash_7ebaa16cf92b78c2");
 	zm_utility::function_c492c4d6(#"cd_street", #"hash_29336180c57eb188", array(#"zone_library", #"zone_cellblock_west", #"zone_broadway_floor_2"), array(#"citadel", #"infirmary", #"cafeteria", #"showers"), #"hash_14700e7ff43a0782", #"hash_8e08c6f6759009e");
-	zm_utility::function_c492c4d6(#"hash_3003c8f8219988b2", #"hash_4f13d455c1b0ecc9", array(#"zone_cellblock_west_barber", #"zone_cellblock_west_warden"), array(#"warden_house", #"showers", #"infirmary", #"cafeteria"), #"hash_705c102d1924f0dd", #"hash_6837df2367ad7713");
+	zm_utility::function_c492c4d6(#"michigan_avenue", #"hash_4f13d455c1b0ecc9", array(#"zone_cellblock_west_barber", #"zone_cellblock_west_warden"), array(#"warden_house", #"showers", #"infirmary", #"cafeteria"), #"hash_705c102d1924f0dd", #"hash_6837df2367ad7713");
 	zm_utility::function_c492c4d6(#"times_square", #"hash_1ea6cd0ac2c8866a", array(#"zone_cellblock_east"), array(#"citadel", #"roof", #"warden_house", #"infirmary"), #"hash_3f444c87fe7834fc", #"hash_3f7e50e6a57f764c");
-	zm_utility::function_c492c4d6(#"cafeteria", #"hash_7e27b77c809a76a", array(#"zone_cafeteria", #"zone_cafeteria_end"), array(#"roof", #"hash_3003c8f8219988b2", #"cd_street", #"warden_house"), #"hash_492da84cdf727cb8", #"hash_694e547781b620d8");
-	zm_utility::function_c492c4d6(#"roof", #"hash_218cfbef3166e972", array(#"zone_roof", #"zone_roof_infirmary"), array(#"cafeteria", #"times_square", #"infirmary", #"hash_3003c8f8219988b2"), #"hash_5e20d087e1e88e10", #"hash_606e86c2e28d9fa0");
+	zm_utility::function_c492c4d6(#"cafeteria", #"hash_7e27b77c809a76a", array(#"zone_cafeteria", #"zone_cafeteria_end"), array(#"roof", #"michigan_avenue", #"cd_street", #"warden_house"), #"hash_492da84cdf727cb8", #"hash_694e547781b620d8");
+	zm_utility::function_c492c4d6(#"roof", #"hash_218cfbef3166e972", array(#"zone_roof", #"zone_roof_infirmary"), array(#"cafeteria", #"times_square", #"infirmary", #"michigan_avenue"), #"hash_5e20d087e1e88e10", #"hash_606e86c2e28d9fa0");
 	zm_utility::function_c492c4d6(#"showers", #"hash_56095721b91ef81f", array(#"cellblock_shower"), array(#"citadel", #"cd_street", #"roof", #"times_square"), #"hash_c1918d583361503", #"hash_3f95fb31de34752d");
 	zm_utility::function_c492c4d6(#"building_64", #"hash_15a013048749503b", array(#"zone_studio"), undefined, #"hash_1feef237a0bc79f", #"hash_69300f7b6a0380f9");
 	zm_utility::function_c492c4d6(#"docks", #"hash_5a800036a297a5eb", array(#"zone_dock", #"zone_dock_gondola"), undefined, #"hash_63491ae91f2492a6", #"hash_59ffc5ba5f91082");

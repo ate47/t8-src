@@ -56,7 +56,7 @@ function init()
 	zm_weapons::add_zombie_weapon(#"ww_crossbow_impaler_t8", "", 0, 0, undefined, undefined, 0, "", "special", 0, undefined, 0);
 	weaponobjects::function_e6400478(#"ww_crossbow_impaler_t8", &createspecialcrossbowwatchertypes, 1);
 	callback::on_ai_damage(&function_615d8c38);
-	function_c739f755();
+	register_steps();
 	init_flags();
 	function_c6e2a4fd();
 	if(zm_custom::function_901b751c(#"zmwonderweaponisenabled") && zm_custom::function_901b751c(#"zmpapenabled") != 2)
@@ -66,7 +66,7 @@ function init()
 }
 
 /*
-	Name: function_c739f755
+	Name: register_steps
 	Namespace: mansion_impaler
 	Checksum: 0xDBBC2A32
 	Offset: 0x7A8
@@ -74,7 +74,7 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c739f755()
+function register_steps()
 {
 	zm_sq::register(#"zm_mansion_impaler", #"step_1", #"impaler_step_1", &function_cdfe68a2, &cleanup_step_1);
 	zm_sq::register(#"zm_mansion_impaler", #"step_2", #"impaler_step_2", &function_a03f8d25, &cleanup_step_2);
@@ -378,7 +378,7 @@ function function_86e35a69(var_a276c861)
 function cleanup_step_4(var_5ea5c94d, ended_early)
 {
 	level notify(#"hash_1c676c7286de913a");
-	callback::remove_on_ai_killed(&function_58251713);
+	callback::remove_on_ai_killed(&on_nosferatu_killed);
 }
 
 /*
@@ -1352,7 +1352,7 @@ function function_9768c04b()
 	level endon(#"hash_1c676c7286de913a");
 	var_7853cc7c = getent("imp_symbol_base", "targetname");
 	level.var_6a17ff24 = 0;
-	callback::on_ai_killed(&function_58251713);
+	callback::on_ai_killed(&on_nosferatu_killed);
 	var_7853cc7c clientfield::set("" + #"hash_3d5a64bed5e39d24", 1);
 	while(!level flag::get(#"hash_54326b9f13bd4f1"))
 	{
@@ -1381,7 +1381,7 @@ function function_cc11b6fd()
 }
 
 /*
-	Name: function_58251713
+	Name: on_nosferatu_killed
 	Namespace: mansion_impaler
 	Checksum: 0x8B1E0E7B
 	Offset: 0x4710
@@ -1389,7 +1389,7 @@ function function_cc11b6fd()
 	Parameters: 1
 	Flags: Linked
 */
-function function_58251713(s_params)
+function on_nosferatu_killed(s_params)
 {
 	if(self.archetype === #"nosferatu" && !level flag::get(#"hash_2e0f59cef233a264"))
 	{

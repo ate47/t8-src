@@ -174,7 +174,7 @@ class cct_shared_ingame_hint : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
 		cLUIelem::function_dcb34c80("string", "inGameHint", 1);
 	}
 

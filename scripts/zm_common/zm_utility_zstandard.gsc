@@ -633,7 +633,7 @@ function function_279ca150()
 				}
 				for(i = 0; i < s_key.var_232e4ebc; i++)
 				{
-					level thread function_aad01548(v_start, var_ebcac3c2);
+					level thread drop_key(v_start, var_ebcac3c2);
 					var_ebcac3c2 = 1;
 				}
 			}
@@ -642,7 +642,7 @@ function function_279ca150()
 }
 
 /*
-	Name: function_aad01548
+	Name: drop_key
 	Namespace: zm_utility
 	Checksum: 0x2982522D
 	Offset: 0x1AA8
@@ -650,7 +650,7 @@ function function_279ca150()
 	Parameters: 2
 	Flags: Linked
 */
-function function_aad01548(v_start_pos, var_b545186e = 0)
+function drop_key(v_start_pos, var_b545186e = 0)
 {
 	if(!function_880bd896())
 	{
@@ -990,7 +990,7 @@ function function_a877cd10(str_index)
 	Parameters: 3
 	Flags: Linked
 */
-function function_11101458(var_f79ff5ec, var_6cc77d4e = #"hash_3a35084ee8c333b2", var_9c19b511 = "creating_zone_defend_area")
+function function_11101458(var_f79ff5ec, var_6cc77d4e = #"hash_3a35084ee8c333b2", hide_notify = "creating_zone_defend_area")
 {
 	var_679cd7a8 = function_a877cd10(var_f79ff5ec);
 	if(isdefined(var_679cd7a8.var_9fc5eea1) && !isplayer(self))
@@ -1001,9 +1001,9 @@ function function_11101458(var_f79ff5ec, var_6cc77d4e = #"hash_3a35084ee8c333b2"
 		objective_setinvisibletoall(var_e1feb2f6);
 		foreach(e_player in getplayers())
 		{
-			e_player thread function_428cfaae(var_679cd7a8, var_6cc77d4e, var_9c19b511, n_obj_id, var_e1feb2f6);
+			e_player thread function_428cfaae(var_679cd7a8, var_6cc77d4e, hide_notify, n_obj_id, var_e1feb2f6);
 		}
-		level util::delay(var_9c19b511, "end_game", &function_b1f3be5c, n_obj_id);
+		level util::delay(hide_notify, "end_game", &function_b1f3be5c, n_obj_id);
 		level thread function_9704c82e(var_679cd7a8, var_e1feb2f6);
 		return n_obj_id;
 	}
@@ -1022,7 +1022,7 @@ function function_11101458(var_f79ff5ec, var_6cc77d4e = #"hash_3a35084ee8c333b2"
 			e_player thread zm_equipment::show_hint_text(var_679cd7a8.var_16a34df0, 10, 1.75, 120);
 		}
 	}
-	level util::delay(var_9c19b511, "end_game", &function_b1f3be5c, n_obj_id);
+	level util::delay(hide_notify, "end_game", &function_b1f3be5c, n_obj_id);
 	return n_obj_id;
 }
 
@@ -1035,7 +1035,7 @@ function function_11101458(var_f79ff5ec, var_6cc77d4e = #"hash_3a35084ee8c333b2"
 	Parameters: 5
 	Flags: Linked
 */
-function function_428cfaae(var_679cd7a8, var_6cc77d4e, var_9c19b511, n_obj_id, var_e1feb2f6)
+function function_428cfaae(var_679cd7a8, var_6cc77d4e, hide_notify, n_obj_id, var_e1feb2f6)
 {
 	level endon(#"end_game", #"hash_1dabaf25a56177a1");
 	self endon(#"disconnect");
@@ -1145,14 +1145,14 @@ function function_33798535(var_31721422, a_str_zones, var_ed1db1a7, var_6cc77d4e
 	function_9757d4d2(1);
 	callback::on_ai_damage(&function_6ca0c2d9);
 	callback::on_ai_killed(&function_d40910b4);
-	if(level flag::exists(#"hash_1b9ecc7979b0fcfb") && (!(isdefined(level.var_81c681aa) && level.var_81c681aa)))
+	if(level flag::exists(#"disable_fast_travel") && (!(isdefined(level.var_81c681aa) && level.var_81c681aa)))
 	{
-		level flag::set(#"hash_1b9ecc7979b0fcfb");
+		level flag::set(#"disable_fast_travel");
 	}
 	level waittill(#"hash_7a04a7fb98fa4e4d");
-	if(level flag::exists(#"hash_1b9ecc7979b0fcfb"))
+	if(level flag::exists(#"disable_fast_travel"))
 	{
-		level flag::clear(#"hash_1b9ecc7979b0fcfb");
+		level flag::clear(#"disable_fast_travel");
 	}
 	level thread play_sound_2d("zmb_rush_defend_end");
 	level thread zm_audio::sndannouncerplayvox(#"defend_complete", undefined, undefined, undefined, 1, 1);
@@ -1972,7 +1972,7 @@ function function_9b7bc715(str_archetype, var_f6e469ad = 1)
 		case "blight_father":
 		{
 			level function_e64ac3b6(3, #"hash_32d0a8ef63f997f0");
-			var_62af6f1 = array::random(array(#"hash_1abc3796d2516587", #"blightfather"));
+			var_62af6f1 = array::random(array(#"incoming_blight_father", #"blightfather"));
 			level thread zm_audio::sndannouncerplayvox(var_62af6f1, undefined, undefined, undefined, 1);
 			break;
 		}

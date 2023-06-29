@@ -520,10 +520,10 @@ function function_bf25aeb1(str)
 	{
 		/#
 			/#
-				assert(isdefined(s_bunker_door.var_ee00b371), "");
+				assert(isdefined(s_bunker_door.open_anim), "");
 			#/
 		#/
-		s_bunker_door thread scene::play(s_bunker_door.var_ee00b371);
+		s_bunker_door thread scene::play(s_bunker_door.open_anim);
 	}
 }
 

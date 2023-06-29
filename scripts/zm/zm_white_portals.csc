@@ -332,15 +332,15 @@ function portal_maps_clear_lights(localclientnum, oldval, newval, bnewent, binit
 	{
 		return;
 	}
-	level function_1b1de62b(localclientnum);
+	level get_portals(localclientnum);
 	foreach(var_9a586299 in level.var_31feb02b)
 	{
-		var_9a586299 thread function_bae44e14(localclientnum);
+		var_9a586299 thread clear_lights(localclientnum);
 	}
 }
 
 /*
-	Name: function_bae44e14
+	Name: clear_lights
 	Namespace: zm_white_portals
 	Checksum: 0x74298774
 	Offset: 0x1CF8
@@ -348,7 +348,7 @@ function portal_maps_clear_lights(localclientnum, oldval, newval, bnewent, binit
 	Parameters: 1
 	Flags: Linked
 */
-function function_bae44e14(localclientnum)
+function clear_lights(localclientnum)
 {
 	self util::waittill_dobj(localclientnum);
 	foreach(var_73d65850 in level.var_12cfa40a)
@@ -374,7 +374,7 @@ function portal_maps_initialize_lights(localclientnum, oldval, newval, bnewent, 
 	{
 		return;
 	}
-	level function_1b1de62b(localclientnum);
+	level get_portals(localclientnum);
 	foreach(var_9a586299 in level.var_31feb02b)
 	{
 		var_9a586299 util::waittill_dobj(localclientnum);
@@ -606,7 +606,7 @@ function portal_map_indicator_storage(localclientnum, oldval, newval, bnewent, b
 */
 function function_af29dda9(localclientnum, tag_label)
 {
-	level function_1b1de62b(localclientnum);
+	level get_portals(localclientnum);
 	foreach(portal_map in level.var_31feb02b)
 	{
 		portal_map util::waittill_dobj(localclientnum);
@@ -626,7 +626,7 @@ function function_af29dda9(localclientnum, tag_label)
 */
 function function_8353316a(localclientnum, tag_label)
 {
-	level function_1b1de62b(localclientnum);
+	level get_portals(localclientnum);
 	foreach(portal_map in level.var_31feb02b)
 	{
 		portal_map util::waittill_dobj(localclientnum);
@@ -636,7 +636,7 @@ function function_8353316a(localclientnum, tag_label)
 }
 
 /*
-	Name: function_1b1de62b
+	Name: get_portals
 	Namespace: zm_white_portals
 	Checksum: 0x1A14B06B
 	Offset: 0x27A0
@@ -644,7 +644,7 @@ function function_8353316a(localclientnum, tag_label)
 	Parameters: 1
 	Flags: Linked
 */
-function function_1b1de62b(localclientnum)
+function get_portals(localclientnum)
 {
 	if(!isdefined(level.var_31feb02b))
 	{

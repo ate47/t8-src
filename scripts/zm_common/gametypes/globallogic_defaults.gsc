@@ -101,7 +101,7 @@ function default_onforfeit(team)
 */
 function default_ondeadevent(team)
 {
-	level callback::callback(#"hash_4b1a02a87458f191", team);
+	level callback::callback(#"on_team_eliminated", team);
 	if(isdefined(level.teams[team]))
 	{
 		eliminatedstring = game.strings[team + "_eliminated"];

@@ -2979,7 +2979,7 @@ function function_17cd1b17(behaviortreeentity)
 	{
 		return 0;
 	}
-	return isdefined(behaviortreeentity.var_88bd96a9) && gettime() < behaviortreeentity.var_88bd96a9;
+	return isdefined(behaviortreeentity.melee_cooldown) && gettime() < behaviortreeentity.melee_cooldown;
 }
 
 /*

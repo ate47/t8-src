@@ -7,7 +7,7 @@
 #using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\zm_common\zm_characters.csc;
 #using script_2d9c4a173633aa72;
-#using script_2e85434cebf2404b;
+#using scripts\zm\zm_mansion_boss_ww.csc;
 #using scripts\zm\zm_mansion_ww_lvl3_quest.csc;
 #using script_3cd7be071a3f1ce0;
 #using script_42dd312945896668;

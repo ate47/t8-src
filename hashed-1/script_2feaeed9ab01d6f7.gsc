@@ -164,7 +164,7 @@ class cfull_screen_black : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cfull_screen_black
 		Checksum: 0x805BB644
 		Offset: 0x540
@@ -172,9 +172,9 @@ class cfull_screen_black : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -189,13 +189,13 @@ class cfull_screen_black : cLUIelem
 	function setup_clientfields(uid, redcallback, greencallback, bluecallback, fadeOverTimecallback, var_b046940, var_34291db, var_32445b2)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("red", 1, 3, "float", redcallback);
-		cLUIelem::function_da693cbe("green", 1, 3, "float", greencallback);
-		cLUIelem::function_da693cbe("blue", 1, 3, "float", bluecallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 12, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("startAlpha", 1, 5, "float", var_b046940);
-		cLUIelem::function_da693cbe("endAlpha", 1, 5, "float", var_34291db);
-		cLUIelem::function_da693cbe("drawHUD", 1, 1, "int", var_32445b2);
+		cLUIelem::add_clientfield("red", 1, 3, "float", redcallback);
+		cLUIelem::add_clientfield("green", 1, 3, "float", greencallback);
+		cLUIelem::add_clientfield("blue", 1, 3, "float", bluecallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 12, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("startAlpha", 1, 5, "float", var_b046940);
+		cLUIelem::add_clientfield("endAlpha", 1, 5, "float", var_34291db);
+		cLUIelem::add_clientfield("drawHUD", 1, 1, "int", var_32445b2);
 	}
 
 }
@@ -219,7 +219,7 @@ function register(uid, redcallback, greencallback, bluecallback, fadeOverTimecal
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: full_screen_black
 	Checksum: 0x9EC43F2D
 	Offset: 0x190
@@ -227,10 +227,10 @@ function register(uid, redcallback, greencallback, bluecallback, fadeOverTimecal
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cfull_screen_black();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

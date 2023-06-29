@@ -167,8 +167,8 @@ class cct_shared_warning : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
-		cLUIelem::function_da693cbe("objpoints", 1, 11, "int");
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("objpoints", 1, 11, "int");
 	}
 
 }

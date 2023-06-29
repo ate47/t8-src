@@ -135,7 +135,7 @@
 #using script_4ca7b9db6ce6a236;
 #using script_4c8dba49908aecc2;
 #using script_4c89d1237266da29;
-#using script_480b4ef11b7c73ec;
+#using scripts\weapons\mute_smoke.csc;
 #using script_473e9ef285385a00;
 #using script_446da318d52124e0;
 #using script_43928ec8431e6b96;
@@ -158,3 +158,10 @@
 #using script_1f56bc5e828;
 #using script_1f56bc5e768;
 #using script_1f56bc5e748;
+
+function fake() {
+    specialties = array(
+        #"hash_13d4a1427eda9882",
+        #"specialty_forwardspawninteract"
+    );
+}

@@ -277,8 +277,8 @@ function function_a2368263(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			level.var_22a393d4[level.var_22a393d4.size] = self;
 		}
-		self.var_922c0c5c = &function_915f2843;
-		self.var_ffeecdb6 = &function_e2730196;
+		self.show_function = &function_915f2843;
+		self.hide_function = &function_e2730196;
 	}
 	else
 	{
@@ -348,8 +348,8 @@ function function_58397147(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			level.var_22a393d4[level.var_22a393d4.size] = self;
 		}
-		self.var_922c0c5c = &function_36e09e98;
-		self.var_ffeecdb6 = &function_77fbeefa;
+		self.show_function = &function_36e09e98;
+		self.hide_function = &function_77fbeefa;
 		player = function_5c10bd79(localclientnum);
 		var_9094730f = zm_weap_spectral_shield::function_98890cd8(player.weapon, 1);
 		if(!var_9094730f)
@@ -376,8 +376,8 @@ function function_58397147(localclientnum, oldval, newval, bnewent, binitialsnap
 			{
 				level.var_22a393d4[level.var_22a393d4.size] = self;
 			}
-			self.var_922c0c5c = &function_36e09e98;
-			self.var_ffeecdb6 = &function_77fbeefa;
+			self.show_function = &function_36e09e98;
+			self.hide_function = &function_77fbeefa;
 			self hide();
 			self function_78233d29(var_2cf005a1, "", "Brightness", 0);
 			self function_78233d29(var_2cf005a1, "", "Alpha", 0);
@@ -386,8 +386,8 @@ function function_58397147(localclientnum, oldval, newval, bnewent, binitialsnap
 	else
 	{
 		arrayremovevalue(level.var_22a393d4, self);
-		self.var_922c0c5c = undefined;
-		self.var_ffeecdb6 = undefined;
+		self.show_function = undefined;
+		self.hide_function = undefined;
 		self show();
 		if(self isai())
 		{
@@ -1029,8 +1029,8 @@ function function_2380f2d5(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			self.var_2ef4fed9 = util::spawn_model(localclientnum, #"hash_11298e91093a52ac", self.origin, self.angles);
 			self.var_2ef4fed9.var_d2f68d5d = newval;
-			self.var_2ef4fed9.var_922c0c5c = &function_9fcac487;
-			self.var_2ef4fed9.var_ffeecdb6 = &function_ffd0f7c6;
+			self.var_2ef4fed9.show_function = &function_9fcac487;
+			self.var_2ef4fed9.hide_function = &function_ffd0f7c6;
 			self.var_2ef4fed9 function_ffd0f7c6(localclientnum);
 			if(!isdefined(level.var_22a393d4))
 			{

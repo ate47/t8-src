@@ -140,7 +140,7 @@ function private function_5bb13b48(player)
 		else
 		{
 			player iprintlnbold(#"hash_2ea29b19d0e205e7");
-			self playsoundtoplayer(#"hash_7527c43b92789608", player);
+			self playsoundtoplayer(#"uin_unavailable_charging", player);
 		}
 	}
 	if(!(isdefined(level.var_aff59367) && level.var_aff59367) && self.usecount >= level.var_ad9d03e7)

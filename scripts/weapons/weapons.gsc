@@ -137,8 +137,8 @@ function on_player_spawned()
 	self.tag_stowed_back = undefined;
 	self.tag_stowed_hip = undefined;
 	self callback::on_death(&on_death);
-	self callback::function_f77ced93(&function_f77ced93);
-	self callback::function_20263b9e(&function_20263b9e);
+	self callback::on_weapon_change(&on_weapon_change);
+	self callback::on_grenade_fired(&on_grenade_fired);
 	self callback::function_4b7977fe(&function_4b7977fe);
 	self function_2a928426();
 }
@@ -885,7 +885,7 @@ function watch_pickup()
 event function_cafc776a(eventstruct)
 {
 	self callback::callback(#"weapon_fired", eventstruct);
-	self callback::function_f19add2(eventstruct.weapon);
+	self callback::callback_weapon_fired(eventstruct.weapon);
 	self function_f2c53bb2(eventstruct.weapon);
 }
 
@@ -1797,7 +1797,7 @@ function function_c135199b(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: weapons
 	Checksum: 0xFDDB62FA
 	Offset: 0x4480
@@ -1805,7 +1805,7 @@ function function_c135199b(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	function_c135199b(params);
 	function_2698203b(params);
@@ -2157,7 +2157,7 @@ function function_8f148257(weapon)
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: weapons
 	Checksum: 0x20A3BD53
 	Offset: 0x53C0
@@ -2165,7 +2165,7 @@ function function_8f148257(weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(level.trackweaponstats)
 	{
@@ -2303,7 +2303,7 @@ function scavenger_think()
 			continue;
 		}
 		maxammo = 0;
-		loadout = player loadout::function_1ee886f7(weapon);
+		loadout = player loadout::find_loadout_slot(weapon);
 		if(isdefined(loadout))
 		{
 			if(loadout.count > 0)

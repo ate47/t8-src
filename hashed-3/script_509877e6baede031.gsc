@@ -236,8 +236,8 @@ function function_a546fd97()
 	{
 		s_notify = undefined;
 		s_notify = self waittill(#"damage");
-		var_16829d93 = s_notify.attacker aat::getaatonweapon(s_notify.weapon);
-		if(isdefined(var_16829d93) && var_16829d93.name === "zm_aat_kill_o_watt")
+		add_outtime = s_notify.attacker aat::getaatonweapon(s_notify.weapon);
+		if(isdefined(add_outtime) && add_outtime.name === "zm_aat_kill_o_watt")
 		{
 			/#
 				getplayers()[0] iprintln("");

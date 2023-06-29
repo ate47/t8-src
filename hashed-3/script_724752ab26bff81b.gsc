@@ -176,7 +176,7 @@ function function_da84e99e(var_5ea5c94d)
 	{
 		level flag::init(#"ww_code_acquired");
 		level flag::wait_till(#"ww_code_acquired");
-		if(!zm_utility::function_e51dc2d8())
+		if(!zm_utility::is_ee_enabled())
 		{
 			namespace_7d8e6ec3::function_4da0eaff();
 		}
@@ -476,7 +476,7 @@ function function_6d5a79fe(var_5ea5c94d, ended_early)
 */
 function function_cbeb9a33()
 {
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level flag::wait_till("insanity_mode_triggered");
 		a_s_screens = struct::get_array("ww_quest_tv");
@@ -499,7 +499,7 @@ function function_256cc56e()
 	{
 		level.var_f13364b4.var_12633dc5 thread zm_white_util::function_491673da(#"hash_ef67a616ce1cb99");
 	}
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		level namespace_7d8e6ec3::function_31890499();
 		namespace_7d8e6ec3::function_52838f02("both", 0);

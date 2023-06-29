@@ -68,7 +68,7 @@ function init()
 	level.countdown_clock function_eb17b80b();
 	level.countdown_clock.var_4cdc88ae = 0;
 	level thread function_45822b7e();
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level.var_f13364b4.a_n_codes[2265] = {#hash_d9d9d617:&function_607f8829, #hash_544c05c6:1};
 		level.var_f13364b4.a_n_codes[2739] = {#hash_d9d9d617:&function_ff176ced, #hash_544c05c6:1};
@@ -170,7 +170,7 @@ function function_4da0eaff()
 	level.var_f13364b4.a_s_keys = zm_hms_util::function_2719d4c0("keypad_keys", "targetname", "script_int");
 	function_52838f02("keypad", 1);
 	level function_9a2a7f26();
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level.var_18f1ca6e thread function_cafaeead();
 	}
@@ -282,12 +282,12 @@ function function_f359c8a0(s_key, e_player)
 			#/
 			n_code = function_352f47ae(level.var_f13364b4.var_d7813dfd);
 			function_cd7e0989(n_code);
-			level thread function_a4c9098e();
+			level thread reset_computer();
 			break;
 		}
 		case "clear":
 		{
-			level thread function_a4c9098e();
+			level thread reset_computer();
 			/#
 				iprintlnbold("");
 			#/
@@ -305,7 +305,7 @@ function function_f359c8a0(s_key, e_player)
 }
 
 /*
-	Name: function_a4c9098e
+	Name: reset_computer
 	Namespace: namespace_7d8e6ec3
 	Checksum: 0xC3CF3192
 	Offset: 0x24B0
@@ -313,16 +313,16 @@ function function_f359c8a0(s_key, e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a4c9098e(n_delay = 1)
+function reset_computer(n_delay = 1)
 {
 	wait(n_delay);
 	level.var_18f1ca6e notify(#"hash_23cb7679bd15f5aa");
-	function_e8bd25f9();
+	reset_code();
 	level.var_18f1ca6e.is_idling = 1;
 }
 
 /*
-	Name: function_e8bd25f9
+	Name: reset_code
 	Namespace: namespace_7d8e6ec3
 	Checksum: 0xA9461C16
 	Offset: 0x2520
@@ -330,7 +330,7 @@ function function_a4c9098e(n_delay = 1)
 	Parameters: 0
 	Flags: Linked
 */
-function function_e8bd25f9()
+function reset_code()
 {
 	level.var_f13364b4.var_b1e1ac14 = 0;
 	for(i = 0; i < 4; i++)
@@ -1836,7 +1836,7 @@ function function_450060dd()
 	{
 		wait(0.5);
 	}
-	level thread function_a4c9098e();
+	level thread reset_computer();
 }
 
 /*
@@ -2059,7 +2059,7 @@ function rushmore_speech_hamilton()
 	while(!b_spoke)
 	{
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
-		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
+		if(level.var_5dd0d3ff zm_audio::can_speak())
 		{
 			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3bb62fc3dd0ef854", 0, 0);
 			b_spoke = 1;
@@ -2096,7 +2096,7 @@ function rushmore_speech_franklin()
 	while(!b_spoke)
 	{
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
-		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
+		if(level.var_5dd0d3ff zm_audio::can_speak())
 		{
 			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_3d5961d25aa763a8", 0, 0);
 			b_spoke = 1;
@@ -2133,7 +2133,7 @@ function rushmore_speech_madison()
 	while(!b_spoke)
 	{
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
-		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
+		if(level.var_5dd0d3ff zm_audio::can_speak())
 		{
 			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_6bbfaf4e608a79b8", 0, 0);
 			b_spoke = 1;
@@ -2170,7 +2170,7 @@ function rushmore_speech_jefferson()
 	while(!b_spoke)
 	{
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
-		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
+		if(level.var_5dd0d3ff zm_audio::can_speak())
 		{
 			level.var_5dd0d3ff zm_hms_util::function_6a0d675d(#"hash_c11fc3ab92db957", 0, 0);
 			b_spoke = 1;
@@ -2207,7 +2207,7 @@ function rushmore_speech_flag()
 	while(!b_spoke)
 	{
 		s_interact zm_unitrigger::function_fac87205(&function_a74f51a8, 32);
-		if(level.var_5dd0d3ff zm_audio::function_65e5c19a())
+		if(level.var_5dd0d3ff zm_audio::can_speak())
 		{
 			function_5b16217f();
 			b_spoke = 1;

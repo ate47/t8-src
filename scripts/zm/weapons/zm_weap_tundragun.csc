@@ -47,11 +47,11 @@ function __init__()
 */
 function __main__()
 {
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: zm_weap_tundragun
 	Checksum: 0x8EF745F0
 	Offset: 0x180
@@ -59,7 +59,7 @@ function __main__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(s_params)
+function on_weapon_change(s_params)
 {
 	w_new_weapon = s_params.weapon;
 	w_old_weapon = s_params.last_weapon;

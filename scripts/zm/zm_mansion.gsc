@@ -34,7 +34,7 @@
 #using scripts\zm\zm_mansion_impaler.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_9af9e17217da6e6;
-#using script_a2c974cd6e11ddf;
+#using scripts\zm\zm_mansion_boss_ww.gsc;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\zm\zm_mansion_special_rounds.gsc;
@@ -2261,7 +2261,7 @@ function devgui_setup()
 {
 	/#
 		zm_devgui::add_custom_devgui_callback(&function_3f147b12);
-		if(zm_utility::function_e51dc2d8())
+		if(zm_utility::is_ee_enabled())
 		{
 			adddebugcommand("");
 			adddebugcommand("");
@@ -2401,7 +2401,7 @@ function devgui_setup()
 		adddebugcommand("");
 		adddebugcommand("");
 		wait(0.5);
-		if(zm_utility::function_e51dc2d8())
+		if(zm_utility::is_ee_enabled())
 		{
 			adddebugcommand("");
 			adddebugcommand("");

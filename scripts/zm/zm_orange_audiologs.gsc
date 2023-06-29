@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_hms_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -37,18 +37,18 @@ function preload()
 function init()
 {
 	level.s_audiologs = spawnstruct();
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
-		function_79c97f32();
+		init_records();
 		function_d6fec498();
 		function_ecba80df();
 		function_922ff46a();
-		function_71ecfbb2();
+		init_orbs();
 	}
 }
 
 /*
-	Name: function_79c97f32
+	Name: init_records
 	Namespace: zm_orange_audiologs
 	Checksum: 0xD22B8EAC
 	Offset: 0x288
@@ -56,14 +56,14 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_79c97f32()
+function init_records()
 {
 	level.s_audiologs.var_c9f26594 = spawnstruct();
 	level.s_audiologs.var_c9f26594.n_collected = 0;
 	level.s_audiologs.var_c9f26594.n_played = 0;
 	level.s_audiologs.var_c9f26594.var_7f4f65e6 = array(#"hash_30b1f52eee1181a1", #"hash_30b1f22eee117c88", #"hash_30b1f32eee117e3b", #"hash_30b1f82eee1186ba", #"hash_15353a598abe2499");
 	var_f9d547ec = getentarray("audiolog_record", "targetname");
-	array::run_all(var_f9d547ec, &namespace_2e9c09b3::function_f1827cc6, &pickup_record, "", undefined, 96);
+	array::run_all(var_f9d547ec, &zm_item_pickup::create_item_pickup, &pickup_record, "", undefined, 96);
 	level.s_audiologs.var_c9f26594.s_playback = struct::get("audiolog_record_player");
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 = getent(level.s_audiologs.var_c9f26594.s_playback.target, "targetname");
 	level.s_audiologs.var_c9f26594.var_d9a8e3e4 hide();
@@ -164,14 +164,14 @@ function function_d6fec498()
 	level.s_audiologs.s_reels.n_played = 0;
 	level.s_audiologs.s_reels.var_7f4f65e6 = array(#"hash_6fce75e5c4fe6210", #"hash_172aa60779a37741", #"hash_2388426b6c075d62", #"hash_1a1854072d6b2453", #"hash_23883c6b6c075330", #"hash_23883f6b6c075849");
 	var_d1c55c66 = getentarray("audiolog_reel", "targetname");
-	array::run_all(var_d1c55c66, &namespace_2e9c09b3::function_f1827cc6, &function_4a7ac7a6, "", undefined, 96);
+	array::run_all(var_d1c55c66, &zm_item_pickup::create_item_pickup, &pickup_reel, "", undefined, 96);
 	level.s_audiologs.s_reels.s_playback = struct::get("audiolog_reel_player");
 	level.s_audiologs.s_reels.s_playback zm_unitrigger::create(&function_90b10d7);
 	level.s_audiologs.s_reels.s_playback thread function_62fea2fe();
 }
 
 /*
-	Name: function_4a7ac7a6
+	Name: pickup_reel
 	Namespace: zm_orange_audiologs
 	Checksum: 0xB4FE3EA6
 	Offset: 0x980
@@ -179,7 +179,7 @@ function function_d6fec498()
 	Parameters: 2
 	Flags: Linked
 */
-function function_4a7ac7a6(e_item, e_player)
+function pickup_reel(e_item, e_player)
 {
 	/#
 		iprintln("" + level.s_audiologs.s_reels.n_collected);
@@ -324,7 +324,7 @@ function function_a8be9b98()
 }
 
 /*
-	Name: function_71ecfbb2
+	Name: init_orbs
 	Namespace: zm_orange_audiologs
 	Checksum: 0xAE4ECC96
 	Offset: 0xF90
@@ -332,7 +332,7 @@ function function_a8be9b98()
 	Parameters: 0
 	Flags: Linked
 */
-function function_71ecfbb2()
+function init_orbs()
 {
 	level.s_audiologs.var_7ab3422d = array(#"hash_60d74e6165b011e6", #"hash_60d74d6165b01033", #"hash_60d74c6165b00e80", #"hash_60d7536165b01a65");
 	var_b682d2ea = getentarray("audiolog_orb", "targetname");

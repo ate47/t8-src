@@ -58,12 +58,12 @@ function private on_begin()
 	level.var_375482b5 = 1;
 	callback::on_ai_killed(&on_ai_killed);
 	callback::function_33f0ddd3(&function_33f0ddd3);
-	callback::function_f77ced93(&zm_trial_util::function_79518194);
+	callback::on_weapon_change(&zm_trial_util::function_79518194);
 	foreach(player in getplayers())
 	{
 		player thread zm_trial_util::function_bf710271(1, 1, 1, 0, 0);
 		player thread zm_trial_util::function_dc9ab223(1, 0);
-		player thread function_963b8c82();
+		player thread lock_shield();
 		player thread function_29ee24dd();
 	}
 	level zm_trial::function_25ee130(1);
@@ -83,7 +83,7 @@ function private on_end(round_reset)
 	level.var_375482b5 = undefined;
 	callback::remove_on_ai_killed(&on_ai_killed);
 	callback::function_824d206(&function_33f0ddd3);
-	callback::function_5a753d97(&zm_trial_util::function_79518194);
+	callback::remove_on_weapon_change(&zm_trial_util::function_79518194);
 	level zm_trial::function_25ee130(0);
 	level thread refill_ammo();
 }
@@ -125,7 +125,7 @@ function private refill_ammo()
 }
 
 /*
-	Name: function_963b8c82
+	Name: lock_shield
 	Namespace: namespace_a9e73d8d
 	Checksum: 0x3836240F
 	Offset: 0x620
@@ -133,7 +133,7 @@ function private refill_ammo()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_963b8c82()
+function private lock_shield()
 {
 	foreach(weapon in zm_loadout::function_5a5a742a("tactical_grenade"))
 	{

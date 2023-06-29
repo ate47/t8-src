@@ -652,7 +652,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 				if(self function_db654c9(var_3cd641b, #"bonuscard_overkill"))
 				{
 					self stats::function_dad108fa(#"hash_33dd7ef72b15e6ac", 1);
-					self contracts::function_a54e2068(#"hash_bda5f100f182228");
+					self contracts::increment_contract(#"hash_bda5f100f182228");
 				}
 				else if(self function_db654c9(var_3cd641b, #"bonuscard_underkill"))
 				{
@@ -707,12 +707,12 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 					}
 					if(var_ee03db9e)
 					{
-						self contracts::function_a54e2068(#"hash_29c44b5c02f1674d");
+						self contracts::increment_contract(#"hash_29c44b5c02f1674d");
 					}
 				}
 				if(talents.size >= 5)
 				{
-					self contracts::function_a54e2068(#"hash_1d68713877c674d8");
+					self contracts::increment_contract(#"hash_1d68713877c674d8");
 				}
 				if(isdefined(var_5afc3871[#"talent_resistance"]))
 				{
@@ -1153,7 +1153,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 				{
 					self.var_93da0d74[weapon] = 1;
 				}
-				self contracts::function_a54e2068(#"hash_4b2b63ef119a97e5");
+				self contracts::increment_contract(#"hash_4b2b63ef119a97e5");
 			}
 		}
 		if(var_2adaec2f === 1)
@@ -2728,7 +2728,7 @@ function challengegameendmp(data)
 		if(playeriswinner)
 		{
 			player stats::function_dad108fa(#"hash_1ffca5180d4e7b6", 1);
-			player contracts::function_a54e2068(#"hash_8f83854f9aa068e");
+			player contracts::increment_contract(#"hash_8f83854f9aa068e");
 		}
 	}
 	if(var_f5d9e583 < 3)
@@ -3607,7 +3607,7 @@ function flakjacketprotectedmp()
 */
 function private function_7ec2f2c(slot_index, killed)
 {
-	slot = self loadout::function_e27dc453(slot_index);
+	slot = self loadout::get_loadout_slot(slot_index);
 	slot.killed = killed;
 }
 
@@ -3622,7 +3622,7 @@ function private function_7ec2f2c(slot_index, killed)
 */
 function private function_861fe993(slot_index)
 {
-	slot = self loadout::function_e27dc453(slot_index);
+	slot = self loadout::get_loadout_slot(slot_index);
 	return slot.killed;
 }
 

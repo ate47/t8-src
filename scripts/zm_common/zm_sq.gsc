@@ -156,7 +156,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 */
 function start(name, var_9d8cf7f = 0)
 {
-	if(!zm_utility::function_e51dc2d8() && !var_9d8cf7f)
+	if(!zm_utility::is_ee_enabled() && !var_9d8cf7f)
 	{
 		return;
 	}
@@ -527,12 +527,12 @@ function function_87306f8a(ee_name, step_name)
 {
 	/#
 		ee = level._ee[ee_name];
-		var_90adfb76 = function_9212ff4d(ee_name, step_name);
-		if(ee.started && var_90adfb76 <= ee.current_step)
+		step_index = function_9212ff4d(ee_name, step_name);
+		if(ee.started && step_index <= ee.current_step)
 		{
 			return false;
 		}
-		ee.skip_to_step = var_90adfb76;
+		ee.skip_to_step = step_index;
 		if(ee.started)
 		{
 			function_614612f(ee_name);
@@ -791,7 +791,7 @@ function function_5df75220()
 			ee.debug_hudelem settext(function_9e72a96(ee.name));
 			ee.debug_hudelem.fontscale = 1.5;
 			current_x = current_x + 5;
-			var_47db5536 = "";
+			step_string = "";
 			foreach(step in ee.steps)
 			{
 				current_y = current_y + 15;
@@ -799,7 +799,7 @@ function function_5df75220()
 				{
 					step.debug_hudelem = create_hudelem(current_y, current_x);
 				}
-				step.debug_hudelem settext(var_47db5536 + function_9e72a96(step.name));
+				step.debug_hudelem settext(step_string + function_9e72a96(step.name));
 				step.debug_hudelem.fontscale = 1.5;
 			}
 			current_y = current_y + 30;

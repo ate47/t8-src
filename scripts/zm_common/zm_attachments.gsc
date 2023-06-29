@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	namespace_9ff9f642::function_9d45c058(#"hash_72a155025f3da562", 100, 3);
+	namespace_9ff9f642::register_burn(#"hash_72a155025f3da562", 100, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_1c9af7bb427952d", 0.85, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_1d07249a2211a81d", 0.9, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_721bfbe781c0d680", 0.95, 1);

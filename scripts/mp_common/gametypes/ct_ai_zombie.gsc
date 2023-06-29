@@ -63,12 +63,12 @@ function private __init__()
 	level.attackablecallback = &attackable_callback;
 	level.var_cdc822b = &function_cdc822b;
 	level.var_a6a84389 = &function_a6a84389;
-	level.var_847ab632 = &function_847ab632;
+	level.custom_melee_fire = &custom_melee_fire;
 	level.startinghealth = 100;
 }
 
 /*
-	Name: function_847ab632
+	Name: custom_melee_fire
 	Namespace: mp_ai_zombie
 	Checksum: 0xDD38F8AD
 	Offset: 0x818
@@ -76,7 +76,7 @@ function private __init__()
 	Parameters: 0
 	Flags: None
 */
-function function_847ab632()
+function custom_melee_fire()
 {
 	idflags = 0;
 	if(isdefined(self.enemy) && (isdefined(self.enemy.armor) && self.enemy.armor))
@@ -932,13 +932,13 @@ function function_e261b81d()
 				break;
 			}
 		}
-		function_2ae5a795();
+		update_goal();
 		waitframe(1);
 	}
 }
 
 /*
-	Name: function_2ae5a795
+	Name: update_goal
 	Namespace: mp_ai_zombie
 	Checksum: 0x12E3ED97
 	Offset: 0x2670
@@ -946,7 +946,7 @@ function function_e261b81d()
 	Parameters: 0
 	Flags: Private
 */
-function private function_2ae5a795()
+function private update_goal()
 {
 	if(isdefined(self.var_80780af2) && (level.var_8de0b84e === self getentitynumber() || self.archetype == #"blight_father"))
 	{

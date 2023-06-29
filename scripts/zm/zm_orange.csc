@@ -20,7 +20,7 @@
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
 #using scripts\zm\zm_orange_mq_soapstone.csc;
 #using scripts\zm_common\zm_loadout.csc;
-#using script_70e92046734b4a71;
+#using scripts\zm\zm_orange_fasttravel_ziplines.csc;
 #using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\zm\weapons\zm_weap_katana.csc;
 #using scripts\zm\zm_orange_audiologs.csc;
@@ -96,7 +96,7 @@ event main(eventstruct)
 	level zm_orange_ee_tundragun::init();
 	level zm_orange_ee_yellow_snow::preload();
 	level namespace_6036de69::init();
-	level namespace_99a6629b::init();
+	level zm_orange_fasttravel_ziplines::init();
 	level zm_orange_freeze_trap::init();
 	level zm_orange_mq_mgr::preload();
 	level zm_orange_mq_soapstone::preload();

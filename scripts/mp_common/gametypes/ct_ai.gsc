@@ -273,9 +273,9 @@ function function_45a6adc0(einflictor, eattacker, idamage, idflags, smeansofdeat
 	Parameters: 2
 	Flags: None
 */
-function spawn_warlord(v_spawn_pos, var_9ac46b0e)
+function spawn_warlord(v_spawn_pos, v_spawn_angles)
 {
-	warlord = spawnactor("spawner_boct_sidea_warlord_mp", v_spawn_pos, var_9ac46b0e, "warlord");
+	warlord = spawnactor("spawner_boct_sidea_warlord_mp", v_spawn_pos, v_spawn_angles, "warlord");
 	warlord.overrideactordamage = &function_45a6adc0;
 	warlord.var_10a6d7df = 0;
 	warlord.var_3c5a5d29 = 0;
@@ -288,7 +288,7 @@ function spawn_warlord(v_spawn_pos, var_9ac46b0e)
 	warlord.highlyawareradius = 10;
 	warlord.var_ef59b90 = 4;
 	warlord.var_9a79d89d = v_spawn_pos;
-	warlord.var_5ab7c19c = var_9ac46b0e;
+	warlord.var_5ab7c19c = v_spawn_angles;
 	warlord.var_bab91f2 = 1000;
 	warlord.var_59860ee1 = 8000;
 	warlord.var_dd940df3 = 12000;

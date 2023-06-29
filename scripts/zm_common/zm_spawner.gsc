@@ -1842,12 +1842,12 @@ function zombie_death_event(zombie)
 	{
 		return;
 	}
-	if(isplayer(attacker) && isdefined(attacker.var_6162c5a7))
+	if(isplayer(attacker) && isdefined(attacker.n_health_on_kill))
 	{
-		attacker.health = attacker.health + attacker.var_6162c5a7;
+		attacker.health = attacker.health + attacker.n_health_on_kill;
 		if(attacker.health >= attacker.maxhealth)
 		{
-			attacker zm_utility::function_e0448fec(1);
+			attacker zm_utility::set_max_health(1);
 		}
 	}
 	if(isdefined(zombie.nuked) && zombie.nuked)
@@ -1858,12 +1858,12 @@ function zombie_death_event(zombie)
 			{
 				continue;
 			}
-			if(isdefined(player.var_6162c5a7))
+			if(isdefined(player.n_health_on_kill))
 			{
-				player.health = player.health + player.var_6162c5a7;
+				player.health = player.health + player.n_health_on_kill;
 				if(player.health >= player.maxhealth)
 				{
-					player zm_utility::function_e0448fec(1);
+					player zm_utility::set_max_health(1);
 				}
 			}
 		}

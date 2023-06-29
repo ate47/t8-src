@@ -167,7 +167,7 @@ function usekillstreakstraferun(hardpointtype)
 	plane.gunsoundentity linkto(plane, "tag_flash", (0, 0, 0), (0, 0, 0));
 	if(!issentient(plane))
 	{
-		plane util::function_c596f193();
+		plane util::make_sentient();
 		plane.ignoreme = 1;
 	}
 	plane.killcament = spawn("script_model", plane.origin + vectorscale((0, 0, 1), 700));

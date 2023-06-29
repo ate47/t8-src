@@ -197,7 +197,7 @@ function increment_downed_stat()
 	Parameters: 1
 	Flags: Linked
 */
-function registerfxanim_warehouse_explo(var_c247e7dc)
+function registerfxanim_warehouse_explo(pause_enabled)
 {
 	for(slot = 0; slot < 3; slot++)
 	{
@@ -207,10 +207,10 @@ function registerfxanim_warehouse_explo(var_c247e7dc)
 		}
 		if(isdefined(level.var_a53a05b5) && level.var_a53a05b5 == slot)
 		{
-			self zm_hero_weapon::function_76505465(slot, var_c247e7dc);
+			self zm_hero_weapon::function_76505465(slot, pause_enabled);
 			continue;
 		}
-		self function_19ed70ca(slot, var_c247e7dc);
+		self function_19ed70ca(slot, pause_enabled);
 	}
 }
 
@@ -2120,11 +2120,11 @@ function revive_success(reviver, b_track_stats = 1, var_c0ab6a65)
 			reviver thread check_for_sacrifice();
 		}
 	}
-	self function_54e3af3c(reviver, b_track_stats, var_c0ab6a65);
+	self revive_internal(reviver, b_track_stats, var_c0ab6a65);
 }
 
 /*
-	Name: function_54e3af3c
+	Name: revive_internal
 	Namespace: zm_laststand
 	Checksum: 0xC46682BE
 	Offset: 0x58B8
@@ -2132,10 +2132,10 @@ function revive_success(reviver, b_track_stats = 1, var_c0ab6a65)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_54e3af3c(reviver, b_track_stats, var_c0ab6a65 = 0)
+function private revive_internal(reviver, b_track_stats, var_c0ab6a65 = 0)
 {
 	self reviveplayer();
-	self zm_utility::function_e0448fec();
+	self zm_utility::set_max_health();
 	self clientfield::set("zmbLastStand", 0);
 	if(isdefined(self.revivetrigger))
 	{

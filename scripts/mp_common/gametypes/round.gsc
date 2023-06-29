@@ -35,7 +35,7 @@ function function_f37f02fc()
 }
 
 /*
-	Name: function_6343685
+	Name: round_stats_init
 	Namespace: round
 	Checksum: 0x3D601CFF
 	Offset: 0x100
@@ -43,14 +43,14 @@ function function_f37f02fc()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6343685()
+function round_stats_init()
 {
 	if(!isdefined(game.roundsplayed))
 	{
 		game.roundsplayed = 0;
 	}
 	setroundsplayed(game.roundsplayed + overtime::get_rounds_played());
-	overtime::function_6343685();
+	overtime::round_stats_init();
 	if(!isdefined(game.roundwinner))
 	{
 		game.roundwinner = [];
@@ -177,7 +177,7 @@ function function_b5f4c9d8()
 }
 
 /*
-	Name: function_9b24638f
+	Name: get_winner
 	Namespace: round
 	Checksum: 0x6A88045F
 	Offset: 0x4B0
@@ -185,9 +185,9 @@ function function_b5f4c9d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_9b24638f()
+function get_winner()
 {
-	return outcome::function_9b24638f(game.outcome.var_aefc8b8d);
+	return outcome::get_winner(game.outcome.var_aefc8b8d);
 }
 
 /*
@@ -205,7 +205,7 @@ function is_winner(team_or_player)
 }
 
 /*
-	Name: function_d1e740f6
+	Name: set_winner
 	Namespace: round
 	Checksum: 0x907F95D6
 	Offset: 0x520
@@ -213,9 +213,9 @@ function is_winner(team_or_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d1e740f6(team_or_player)
+function set_winner(team_or_player)
 {
-	outcome::function_d1e740f6(game.outcome.var_aefc8b8d, team_or_player);
+	outcome::set_winner(game.outcome.var_aefc8b8d, team_or_player);
 }
 
 /*

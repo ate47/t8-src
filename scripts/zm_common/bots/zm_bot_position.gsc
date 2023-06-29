@@ -171,7 +171,7 @@ function function_a0b3c01e()
 		return undefined;
 	}
 	pathfindingradius = self getpathfindingradius();
-	interact = self bot::function_f47bf51d();
+	interact = self bot::get_interact();
 	if(isentity(interact))
 	{
 		return self bot::function_f0c35734(interact);
@@ -202,7 +202,7 @@ function function_957ba503()
 	{
 		return undefined;
 	}
-	upgrade = self bot::function_f47bf51d();
+	upgrade = self bot::get_interact();
 	return self bot::function_52947b70(upgrade.trigger_stub);
 }
 

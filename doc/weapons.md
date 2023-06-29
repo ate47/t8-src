@@ -177,6 +177,7 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `briefcase_bomb` - Briefcase bomb
 - `briefcase_bomb_defuse` - Briefcase bomb (defuse)
 - `downed` - Downed
+- `bare_hands_ct` - Bare hands in the specialist HQ
 
 ### Wonder weapons (ZM/BLK)
 
@@ -191,7 +192,7 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `ww_blundergat_acid_t8` - Acidgat (escape ww)
 - `hash_3de0926b89369160` - Acidgat dart (magic bullet) (escape ww)
 - `hash_494f5501b3f8e1e9` - Acidgat dart (magic bullet) (escape ww)
-- `hash_617dcc39334959ce` - Magmagat tempered (escape ww)
+- `ww_blundergat_fire_t8_unfinished` - Magmagat tempered (escape ww)
 - `ww_crossbow_t8` - IX WW (zm_towers/blk)
 - `ww_crossbow_charged_t8` - IX WW (charged shot) (zm_towers)
 - `ww_freezegun_t8` - Classified WW (zm_office/zm_orange/blk)
@@ -221,6 +222,25 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `thundergun` - (Tag WW) Thundergun (zm_orange)
 - `tundragun` - (Tag WW) Tundragun (zm_orange)
 
+## Operator weapons (blackout)
+
+In Blackout the operator weapons can be used using the suffix `_operator`
+
+- `ar_fastfire_t8_operator` Operator version of `ar_fastfire_t8`
+- `ar_stealth_t8_operator` Operator version of `ar_stealth_t8`
+- `lmg_spray_t8_operator` Operator version of `lmg_spray_t8`
+- `lmg_standard_t8_operator` Operator version of `lmg_standard_t8`
+- `lmg_stealth_t8_operator` Operator version of `lmg_stealth_t8`
+- `pistol_revolver_t8_operator` Operator version of `pistol_revolver_t8`
+- `smg_accurate_t8_operator` Operator version of `smg_accurate_t8`
+- `smg_capacity_t8_operator` Operator version of `smg_capacity_t8`
+- `smg_fastfire_t8_operator` Operator version of `smg_fastfire_t8`
+- `sniper_fastrechamber_t8_operator` Operator version of `sniper_fastrechamber_t8`
+- `sniper_mini14_t8_operator` Operator version of `sniper_mini14_t8`
+- `sniper_quickscope_t8_operator` Operator version of `sniper_quickscope_t8`
+- `tr_longburst_t8_operator` Operator version of `tr_longburst_t8`
+- `tr_midburst_t8_operator` Operator version of `tr_midburst_t8`
+- `tr_powersemi_t8_operator` Operator version of `tr_powersemi_t8`
 ## Scorestreaks (mp)
 
 - `straferun_gun` - A10 gun
@@ -234,6 +254,7 @@ You can add `_upgraded` to most of the in-game weapons to have the zombies' upgr
 - `supplydrop` - Supply drop
 - `tank_robot` - mantis
 - `swat_team` - strike team
+- `ar_accurate_t8_swat` - strike team
 
 ## Environment
 

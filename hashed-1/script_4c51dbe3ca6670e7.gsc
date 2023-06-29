@@ -235,14 +235,14 @@ function electric_trap_think()
 		}
 		if(zm_utility::is_player_valid(e_who) && self.stub.related_parent.trap_struct.var_41ee2ddc === 1)
 		{
-			b_purchased = self.stub.related_parent.trap_struct.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, 1000);
+			b_purchased = self.stub.related_parent.trap_struct.a_e_lights[0] zm_traps::trap_purchase(e_who, 1000);
 			if(!b_purchased)
 			{
 				continue;
 			}
 			self.stub.related_parent.trap_struct notify(#"hash_5c14ac54b628d28");
 			self.stub.related_parent.trap_struct.var_64c09f7f = e_who;
-			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
+			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_electric", #"activate");
 			}
@@ -425,7 +425,7 @@ function function_fae74a9e(n_sequence)
 		{
 			if(var_6cc24199.script_int === n_sequence && isalive(e_player) && e_player istouching(var_6cc24199))
 			{
-				e_player thread function_93284efd(var_6cc24199);
+				e_player thread electrocute_player(var_6cc24199);
 				continue;
 			}
 			if(isalive(e_player) && e_player istouching(var_6cc24199))
@@ -575,7 +575,7 @@ function electrocute_zombie(var_64c09f7f, e_volume)
 }
 
 /*
-	Name: function_93284efd
+	Name: electrocute_player
 	Namespace: namespace_a6437486
 	Checksum: 0x245B4C7
 	Offset: 0x1D28
@@ -583,7 +583,7 @@ function electrocute_zombie(var_64c09f7f, e_volume)
 	Parameters: 1
 	Flags: Linked
 */
-function function_93284efd(e_trigger)
+function electrocute_player(e_trigger)
 {
 	if(!isdefined(self.var_58538bef))
 	{

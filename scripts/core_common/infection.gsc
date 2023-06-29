@@ -237,7 +237,7 @@ function give_loadout()
 }
 
 /*
-	Name: function_f3a05d39
+	Name: reset_character
 	Namespace: infection
 	Checksum: 0x9978CB69
 	Offset: 0x668
@@ -245,7 +245,7 @@ function give_loadout()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f3a05d39()
+function reset_character()
 {
 	if(!isplayer(self))
 	{
@@ -255,7 +255,7 @@ function function_f3a05d39()
 		return;
 	}
 	self setcharacteroutfit(0);
-	self function_9b48a8e5(0);
+	self setcharacterwarpaintoutfit(0);
 	self function_ab96a9b5("head", 0);
 	self function_ab96a9b5("headgear", 0);
 	self function_ab96a9b5("arms", 0);
@@ -267,7 +267,7 @@ function function_f3a05d39()
 }
 
 /*
-	Name: function_c37a6757
+	Name: give_body
 	Namespace: infection
 	Checksum: 0x5A6A7A9E
 	Offset: 0x7D8
@@ -275,7 +275,7 @@ function function_f3a05d39()
 	Parameters: 0
 	Flags: None
 */
-function function_c37a6757()
+function give_body()
 {
 	if(self hasdobj() && self haspart("j_spine4"))
 	{
@@ -287,13 +287,13 @@ function function_c37a6757()
 	{
 		if(current_role == body)
 		{
-			self function_f3a05d39();
+			self reset_character();
 			return;
 		}
 	}
 	body_index = (self getplayergendertype() == "male" ? 0 : 1);
 	self player_role::set(level.infection.bodies[body_index], 1);
-	self function_f3a05d39();
+	self reset_character();
 }
 
 /*

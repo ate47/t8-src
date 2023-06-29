@@ -551,7 +551,7 @@ function onplaceturret(turret)
 		turret.vehicle thread util::ghost_wait_show(0.05);
 		turret.vehicle.var_63d65a8d = "arc";
 		turret.vehicle.var_7eb3ebd5 = [];
-		turret.vehicle util::function_c596f193();
+		turret.vehicle util::make_sentient();
 		turret.vehicle function_bc7568f1();
 		turret.vehicle.var_aac73d6c = 1;
 		player killstreaks::play_killstreak_start_dialog("ultimate_turret", player.pers[#"team"], turret.killstreakid);

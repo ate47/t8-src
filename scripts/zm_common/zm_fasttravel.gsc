@@ -53,7 +53,7 @@ function __init__()
 {
 	init_clientfields();
 	function_44a82004("power_on");
-	level flag::init(#"hash_1b9ecc7979b0fcfb");
+	level flag::init(#"disable_fast_travel");
 	/#
 		zm_devgui::add_custom_devgui_callback(&function_dd6276f3);
 		adddebugcommand("");
@@ -383,7 +383,7 @@ function function_d06e636b(player)
 	{
 		return false;
 	}
-	if(level flag::get(#"hash_1b9ecc7979b0fcfb"))
+	if(level flag::get(#"disable_fast_travel"))
 	{
 		return false;
 	}
@@ -817,7 +817,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		self zm_challenges::debug_print("");
 	#/
 	self zm_stats::increment_challenge_stat(#"fast_travels");
-	self contracts::function_5b88297d(#"hash_71ed95630568c0a5");
+	self contracts::increment_zm_contract(#"hash_71ed95630568c0a5");
 	if(!(isdefined(self.var_472e3448) && self.var_472e3448))
 	{
 		self stopsounds();

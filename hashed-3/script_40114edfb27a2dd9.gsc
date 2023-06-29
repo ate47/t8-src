@@ -76,7 +76,7 @@ class cscavenger_icon : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cscavenger_icon
 		Checksum: 0x584E9E2C
 		Offset: 0x270
@@ -84,9 +84,9 @@ class cscavenger_icon : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -101,7 +101,7 @@ class cscavenger_icon : cLUIelem
 	function setup_clientfields(uid, var_bea2552f)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("pulse", 1, 1, "counter", var_bea2552f);
+		cLUIelem::add_clientfield("pulse", 1, 1, "counter", var_bea2552f);
 	}
 
 }
@@ -125,7 +125,7 @@ function register(uid, var_bea2552f)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: scavenger_icon
 	Checksum: 0xF35D5888
 	Offset: 0x108
@@ -133,10 +133,10 @@ function register(uid, var_bea2552f)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cscavenger_icon();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

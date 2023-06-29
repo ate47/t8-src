@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_orange_pablo.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
@@ -300,11 +300,11 @@ function function_bf106bdf()
 	vh_wisp vehicle::get_on_and_go_path(nd_start);
 	var_68e87752 = util::spawn_model("p8_zm_ora_elemental_vessel", vh_wisp.origin + (vectorscale((0, 0, -1), 10)));
 	var_68e87752 thread zm_orange_mq_hell::rotate_forever(vectorscale((0, 1, 0), 45));
-	var_68e87752 namespace_2e9c09b3::function_f1827cc6(&function_f140d71a, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
+	var_68e87752 zm_item_pickup::create_item_pickup(&pickup_device, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
 }
 
 /*
-	Name: function_f140d71a
+	Name: pickup_device
 	Namespace: zm_orange_mq_sendoff
 	Checksum: 0x6BC603E5
 	Offset: 0xF38
@@ -312,7 +312,7 @@ function function_bf106bdf()
 	Parameters: 2
 	Flags: Linked
 */
-function function_f140d71a(e_item, e_player)
+function pickup_device(e_item, e_player)
 {
 	e_player playrumbleonentity("zm_mansion_atlas_interact_rumble");
 	level flag::set(#"hash_2c3411c8b8b421d8");

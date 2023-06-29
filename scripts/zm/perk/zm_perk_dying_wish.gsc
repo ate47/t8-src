@@ -75,7 +75,7 @@ function enable_dying_wish_perk_for_level()
 	zm_perks::register_perk_clientfields(#"specialty_berserker", &function_bee10d1f, &function_dbf100ee);
 	zm_perks::register_perk_machine(#"specialty_berserker", &function_32b9bac, &function_536f842f);
 	zm_perks::register_perk_host_migration_params(#"specialty_berserker", "p7_zm_vending_nuke", "divetonuke_light");
-	zm_perks::register_perk_threads(#"specialty_berserker", &function_2aefd3c4, &function_f3862b9b, &function_9227a4d8);
+	zm_perks::register_perk_threads(#"specialty_berserker", &function_2aefd3c4, &function_f3862b9b, &reset_cooldown);
 	zm_player::function_a827358a(&function_a102936);
 	zm_perks::register_actor_damage_override(#"specialty_berserker", &function_ab41c8ab);
 }
@@ -398,7 +398,7 @@ function function_d2bbaa76(var_85dcb56c)
 	}
 	self thread function_7d72c6f9(var_85dcb56c);
 	wait(var_85dcb56c);
-	self thread function_9227a4d8();
+	self thread reset_cooldown();
 }
 
 /*
@@ -430,7 +430,7 @@ function function_7d72c6f9(var_85dcb56c)
 }
 
 /*
-	Name: function_9227a4d8
+	Name: reset_cooldown
 	Namespace: zm_perk_dying_wish
 	Checksum: 0x569244F1
 	Offset: 0x1218
@@ -438,7 +438,7 @@ function function_7d72c6f9(var_85dcb56c)
 	Parameters: 0
 	Flags: Linked
 */
-function function_9227a4d8()
+function reset_cooldown()
 {
 	self notify(#"hash_ed7c0dc0ca165df");
 	self.var_a4630f64 = 0;

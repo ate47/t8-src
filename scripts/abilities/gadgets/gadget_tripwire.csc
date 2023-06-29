@@ -353,7 +353,7 @@ function function_17d973ec(localclientnum)
 				var_e7640260 = 1;
 				level.tripwire.localclients[localclientnum].model show();
 			}
-			function_82a8db78(localclientnum);
+			update_previs(localclientnum);
 		}
 		else if(var_9480bc93 && !level.tripwire.localclients[localclientnum].previs)
 		{
@@ -450,7 +450,7 @@ function function_95d56693()
 }
 
 /*
-	Name: function_82a8db78
+	Name: update_previs
 	Namespace: gadget_tripwire
 	Checksum: 0x1971BA56
 	Offset: 0x1388
@@ -458,7 +458,7 @@ function function_95d56693()
 	Parameters: 1
 	Flags: Linked
 */
-function function_82a8db78(localclientnum)
+function update_previs(localclientnum)
 {
 	player = self;
 	function_3e8d9b27(localclientnum, level.var_c27600b0, 1);

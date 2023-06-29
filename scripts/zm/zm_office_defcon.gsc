@@ -484,7 +484,7 @@ function pack_hideaway_init()
 {
 	hideaway = getent("pack_hideaway", "targetname");
 	parts = getentarray("pack_hideaway_part", "targetname");
-	var_fe7e64ff = getent("vending_packapunch", "targetname");
+	pack_machine = getent("vending_packapunch", "targetname");
 	if(isdefined(parts))
 	{
 		for(i = 0; i < parts.size; i++)

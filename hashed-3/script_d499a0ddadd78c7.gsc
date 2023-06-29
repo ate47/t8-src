@@ -128,10 +128,10 @@ class czm_towers_pap_hud : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("danu_acquired", 1, 1, "int");
-		cLUIelem::function_da693cbe("ra_acquired", 1, 1, "int");
-		cLUIelem::function_da693cbe("zeus_acquired", 1, 1, "int");
-		cLUIelem::function_da693cbe("odin_acquired", 1, 1, "int");
+		cLUIelem::add_clientfield("danu_acquired", 1, 1, "int");
+		cLUIelem::add_clientfield("ra_acquired", 1, 1, "int");
+		cLUIelem::add_clientfield("zeus_acquired", 1, 1, "int");
+		cLUIelem::add_clientfield("odin_acquired", 1, 1, "int");
 	}
 
 }

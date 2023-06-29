@@ -185,7 +185,7 @@ function function_3bb2f43b()
 		self.var_3b55baa1 = undefined;
 		self.var_e01bb56 = undefined;
 		self notify(#"grenade_change");
-		self callback::function_53888e7f(&function_3bb2f43b);
+		self callback::remove_on_laststand(&function_3bb2f43b);
 	}
 }
 
@@ -224,7 +224,7 @@ function function_76e94d52()
 					self function_820a63e9(n_slot, 1);
 					wait(1);
 					self function_820a63e9(n_slot, 0);
-					self callback::function_53888e7f(&function_3bb2f43b);
+					self callback::remove_on_laststand(&function_3bb2f43b);
 					self notify(#"grenade_change");
 				}
 			}

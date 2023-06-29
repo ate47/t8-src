@@ -548,7 +548,7 @@ function zombienotetrackmeleefire(entity)
 	{
 		return;
 	}
-	entity.var_88bd96a9 = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
+	entity.melee_cooldown = gettime() + (getdvarfloat(#"scr_zombiemeleecooldown", 1) * 1000);
 	if(isdefined(entity.aat_turned) && entity.aat_turned)
 	{
 		if(isdefined(entity.enemy) && isalive(entity.enemy) && !isplayer(entity.enemy))
@@ -595,7 +595,7 @@ function zombienotetrackmeleefire(entity)
 					entity melee();
 				}
 			}
-			entity callback::callback(#"hash_11aa32ad6d527054");
+			entity callback::callback(#"on_ai_melee");
 		}
 	}
 	else
@@ -610,9 +610,9 @@ function zombienotetrackmeleefire(entity)
 				record3dtext("" + (gettime() - entity.ai.var_80045105), self.origin, (1, 0, 0), "", entity);
 			#/
 		}
-		if(isdefined(level.var_847ab632))
+		if(isdefined(level.custom_melee_fire))
 		{
-			entity [[level.var_847ab632]]();
+			entity [[level.custom_melee_fire]]();
 		}
 		else
 		{
@@ -633,7 +633,7 @@ function zombienotetrackmeleefire(entity)
 				entity.attackable [[level.attackablecallback]](entity);
 			}
 		}
-		entity callback::callback(#"hash_11aa32ad6d527054");
+		entity callback::callback(#"on_ai_melee");
 	}
 }
 
@@ -1166,7 +1166,7 @@ function private zombieshouldmovelowg(entity)
 */
 function private zombieshouldturn(entity)
 {
-	return !isdefined(entity.var_40f848c3) || entity.var_40f848c3 < gettime();
+	return !isdefined(entity.turn_cooldown) || entity.turn_cooldown < gettime();
 }
 
 /*
@@ -1180,7 +1180,7 @@ function private zombieshouldturn(entity)
 */
 function private function_a716a3af(entity)
 {
-	entity.var_40f848c3 = gettime() + 1000;
+	entity.turn_cooldown = gettime() + 1000;
 	return true;
 }
 

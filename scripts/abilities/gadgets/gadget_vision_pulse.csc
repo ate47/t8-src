@@ -294,7 +294,7 @@ function function_ab898b2d(notifystring)
 					self function_116b95e5(self.var_1618a13f, #"hash_2efccfad2b32081a", 1);
 					self thread function_844dbcb7(localclientnum);
 					self thread function_85e399a9(localclientnum);
-					self callback::on_end_game(&function_31a1aa18);
+					self callback::on_end_game(&on_game_ended);
 					waitframe(1);
 					self.var_168d7f5c = 0;
 					enemies = getplayers(localclientnum);
@@ -348,7 +348,7 @@ function function_f4ebfe85(localclientnum)
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: gadget_vision_pulse
 	Checksum: 0xF106E6E4
 	Offset: 0xF20
@@ -356,7 +356,7 @@ function function_f4ebfe85(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_31a1aa18(localclientnum)
+function on_game_ended(localclientnum)
 {
 	local_player = function_5c10bd79(localclientnum);
 	if(isdefined(local_player))
@@ -789,7 +789,7 @@ function function_9e2a452e(localclientnum, robname)
 			}
 			if(self postfx::function_556665f2(self.var_1618a13f))
 			{
-				self function_116b95e5(self.var_1618a13f, #"hash_37f66a8b81d64e90", 1 - alpha);
+				self function_116b95e5(self.var_1618a13f, #"enemy tint", 1 - alpha);
 			}
 		}
 	}

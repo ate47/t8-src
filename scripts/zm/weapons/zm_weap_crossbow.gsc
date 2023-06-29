@@ -63,11 +63,11 @@ function __init__()
 	callback::on_ai_damage(&function_615d8c38);
 	callback::on_connect(&function_39ffd9fc);
 	callback::on_connect(&function_89ec3604);
-	callback::function_f77ced93(&function_16be57e6);
-	callback::function_34dea974(level.w_crossbow, &function_62d37304);
-	callback::function_34dea974(level.w_crossbow_upgraded, &function_62d37304);
-	callback::function_34dea974(level.w_crossbow_charged, &function_62d37304);
-	callback::function_34dea974(level.w_crossbow_charged_upgraded, &function_62d37304);
+	callback::on_weapon_change(&function_16be57e6);
+	callback::add_weapon_fired(level.w_crossbow, &function_62d37304);
+	callback::add_weapon_fired(level.w_crossbow_upgraded, &function_62d37304);
+	callback::add_weapon_fired(level.w_crossbow_charged, &function_62d37304);
+	callback::add_weapon_fired(level.w_crossbow_charged_upgraded, &function_62d37304);
 	namespace_9ff9f642::register_slowdown(#"hash_664a130410d3fd9a", 0.75, 5);
 	namespace_9ff9f642::register_slowdown(#"hash_2607a6ffde83b4a7", 0.5, 5);
 	namespace_9ff9f642::register_slowdown(#"hash_3a067a5eb7a19857", 0.75, 5);
@@ -965,7 +965,7 @@ function function_43f61cad()
 	}
 	var_45ba344f = function_144a052b(self.archetype);
 	self namespace_9ff9f642::function_520f4da5(var_45ba344f);
-	self ai::function_62795e55();
+	self ai::clear_stun();
 }
 
 /*

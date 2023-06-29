@@ -38,14 +38,14 @@ function __init__()
 	callback::on_spawned(&on_player_spawned);
 	level.var_a4527012 = [];
 	level.var_ce8d80ba = [];
-	function_e9e03d6f(#"default", &function_51cc7d9a);
+	function_e9e03d6f(#"default", &handle_default);
 	function_e9e03d6f(#"in_combat", &function_567289f);
 	function_e9e03d6f(#"hash_156be21f04d01350", &function_d2161ccd);
 	function_e9e03d6f(#"hash_c0bcf7fa0d58e5", &function_b94f5770);
 	function_e9e03d6f(#"revive_player", &function_8adaa75f);
 	function_e9e03d6f(#"gameobject_interact", &function_daab6847);
 	function_e9e03d6f(#"hash_797d652ff338b7d4", &function_90ff35fc);
-	function_e9e03d6f(#"visible_enemy", &function_a0da5bb);
+	function_e9e03d6f(#"visible_enemy", &handle_visible_enemy);
 	function_e9e03d6f(#"hash_608fe62234892b49", &function_7ed3ada6);
 	function_aa8c6854(#"goal", &get_goal_center);
 	function_aa8c6854(#"gameobject_interact", &function_4fa26afe);
@@ -675,7 +675,7 @@ function function_7f65a721(notifyhash)
 }
 
 /*
-	Name: function_51cc7d9a
+	Name: handle_default
 	Namespace: bot_position
 	Checksum: 0xAA6E2A9E
 	Offset: 0x17E0
@@ -683,7 +683,7 @@ function function_7f65a721(notifyhash)
 	Parameters: 2
 	Flags: Linked
 */
-function function_51cc7d9a(params, tacbundle)
+function handle_default(params, tacbundle)
 {
 	center = self function_795a469(params.center);
 	if(!isdefined(center))
@@ -794,7 +794,7 @@ function function_90ff35fc(params, tacbundle)
 	{
 		return 0;
 	}
-	gameobject = self bot::function_f47bf51d();
+	gameobject = self bot::get_interact();
 	vehicle = gameobject.e_object;
 	if(!isdefined(vehicle) || !isvehicle(vehicle))
 	{
@@ -814,7 +814,7 @@ function function_90ff35fc(params, tacbundle)
 }
 
 /*
-	Name: function_a0da5bb
+	Name: handle_visible_enemy
 	Namespace: bot_position
 	Checksum: 0x2BA71007
 	Offset: 0x1D70
@@ -822,7 +822,7 @@ function function_90ff35fc(params, tacbundle)
 	Parameters: 2
 	Flags: Linked
 */
-function function_a0da5bb(params, tacbundle)
+function handle_visible_enemy(params, tacbundle)
 {
 	if(!self bot::has_visible_enemy())
 	{
@@ -936,7 +936,7 @@ function function_daab6847(params, tacbundle)
 	{
 		return 0;
 	}
-	gameobject = self bot::function_f47bf51d();
+	gameobject = self bot::get_interact();
 	trigger = gameobject.trigger;
 	if(!isdefined(trigger))
 	{
@@ -1115,7 +1115,7 @@ function function_4fa26afe()
 	{
 		return undefined;
 	}
-	return bot::function_f47bf51d().trigger;
+	return bot::get_interact().trigger;
 }
 
 /*

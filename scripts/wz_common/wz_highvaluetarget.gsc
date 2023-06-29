@@ -45,8 +45,8 @@ function __init__()
 		assert(level.wzhighvaluetargets <= 8);
 	#/
 	clientfield::register("allplayers", "ishighvaluetarget", 16000, 1, "int");
-	callback::add_callback(#"hash_405e46788e83af41", &function_77a44aec);
-	callback::add_callback(#"hash_7912e21750e4010d", &function_77a44aec);
+	callback::add_callback(#"hash_405e46788e83af41", &update_targets);
+	callback::add_callback(#"hash_7912e21750e4010d", &update_targets);
 	callback::add_callback(#"on_player_downed", &function_9141be4e);
 	callback::on_player_killed_with_params(&function_3f8e4156);
 	callback::on_disconnect(&on_player_disconnect);
@@ -81,7 +81,7 @@ function private function_fbb8f1d1()
 }
 
 /*
-	Name: function_77a44aec
+	Name: update_targets
 	Namespace: wz_highvaluetarget
 	Checksum: 0x6E8B6EB6
 	Offset: 0x438
@@ -89,7 +89,7 @@ function private function_fbb8f1d1()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_77a44aec()
+function private update_targets()
 {
 	possibletargets = [];
 	foreach(player in getplayers())

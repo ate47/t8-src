@@ -2780,7 +2780,7 @@ function function_8570168d()
 }
 
 /*
-	Name: function_bca268b3
+	Name: is_arena_lobby
 	Namespace: util
 	Checksum: 0x230D820C
 	Offset: 0x4DF0
@@ -2788,7 +2788,7 @@ function function_8570168d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_bca268b3()
+function is_arena_lobby()
 {
 	mode = function_bea73b01();
 	if(mode == 3)

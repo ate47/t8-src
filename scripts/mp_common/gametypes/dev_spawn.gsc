@@ -278,7 +278,7 @@ function function_423a05a4(gametypestr)
 	Parameters: 4
 	Flags: None
 */
-function function_5650f4ee(var_7a594c78, var_55a94d2c, var_9fd9c93b, var_b8543545)
+function function_5650f4ee(var_7a594c78, var_55a94d2c, actualteam, var_b8543545)
 {
 	/#
 		if(var_55a94d2c == "")
@@ -295,11 +295,11 @@ function function_5650f4ee(var_7a594c78, var_55a94d2c, var_9fd9c93b, var_b854354
 		}
 		if(var_55a94d2c == "" && var_7a594c78 != #"any")
 		{
-			if(var_7a594c78 == #"neutral" && isdefined(var_9fd9c93b))
+			if(var_7a594c78 == #"neutral" && isdefined(actualteam))
 			{
 				return false;
 			}
-			if(!(isdefined(var_9fd9c93b) && var_9fd9c93b == var_7a594c78))
+			if(!(isdefined(actualteam) && actualteam == var_7a594c78))
 			{
 				return false;
 			}

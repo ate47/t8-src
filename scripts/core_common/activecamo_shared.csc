@@ -36,7 +36,7 @@ function __init__()
 {
 	callback::add_callback(#"updateactivecamo", &updateactivecamo);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	callback::on_localplayer_spawned(&on_local_player_spawned);
 	level.var_b9b11197 = getgametypesetting(#"hash_1f3825ba2a669400");
 	if(!isdefined(level.var_ab319180))
@@ -79,12 +79,12 @@ function on_local_player_spawned(localclientnum)
 		weapon = player function_d2c2b168();
 		weaponoptions = player function_e10e6c37();
 		stagenum = getactivecamostage(weaponoptions);
-		player function_19a5d7e7(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
+		player update_active_camo(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
 	}
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: activecamo
 	Checksum: 0xF21AD9E3
 	Offset: 0x4B8
@@ -92,7 +92,7 @@ function on_local_player_spawned(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(self == level || !isplayer(self))
 	{
@@ -102,7 +102,7 @@ function function_f77ced93(params)
 	weapon = self function_d2c2b168();
 	weaponoptions = self function_e10e6c37();
 	stagenum = getactivecamostage(weaponoptions);
-	self function_19a5d7e7(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
+	self update_active_camo(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
 	self thread function_c887f58e();
 }
 
@@ -174,7 +174,7 @@ function on_player_spawned(localclientnum)
 	weapon = self function_d2c2b168();
 	weaponoptions = self function_e10e6c37();
 	stagenum = getactivecamostage(weaponoptions);
-	self function_19a5d7e7(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
+	self update_active_camo(localclientnum, weapon, "tag_weapon_right", stagenum, 0, 1, weaponoptions);
 }
 
 /*
@@ -319,11 +319,11 @@ function updateactivecamo(localclientnum, eventstruct)
 {
 	weaponoptions = self function_e10e6c37();
 	stagenum = getactivecamostage(weaponoptions);
-	self function_19a5d7e7(localclientnum, eventstruct.weapon, eventstruct.tagname, stagenum, eventstruct.impulse, 0, eventstruct.var_6f2ae9c0);
+	self update_active_camo(localclientnum, eventstruct.weapon, eventstruct.tagname, stagenum, eventstruct.impulse, 0, eventstruct.var_6f2ae9c0);
 }
 
 /*
-	Name: function_19a5d7e7
+	Name: update_active_camo
 	Namespace: activecamo
 	Checksum: 0x4947D2D4
 	Offset: 0xDC0
@@ -331,7 +331,7 @@ function updateactivecamo(localclientnum, eventstruct)
 	Parameters: 7
 	Flags: Linked
 */
-function function_19a5d7e7(localclientnum, weapon, tagname, stagenum, impulse, var_d71e8c6e, var_6f2ae9c0)
+function update_active_camo(localclientnum, weapon, tagname, stagenum, impulse, var_d71e8c6e, var_6f2ae9c0)
 {
 	var_d1460f46 = tagname == "tag_stowed_back";
 	self function_7a55e60a(var_d1460f46);

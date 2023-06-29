@@ -1369,7 +1369,7 @@ function gadget_primed(slot, weapon)
 }
 
 /*
-	Name: function_3d2a352e
+	Name: tutorial_timer
 	Namespace: ability_player
 	Checksum: 0xCE21DF03
 	Offset: 0x38B8
@@ -1377,7 +1377,7 @@ function gadget_primed(slot, weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
+function tutorial_timer(weapon, var_8be5aa55, var_de825ec6)
 {
 	/#
 		assert(isdefined(var_8be5aa55) && isstring(var_8be5aa55));
@@ -1412,7 +1412,7 @@ function tutorial_init(weapon)
 }
 
 /*
-	Name: function_4f74cee6
+	Name: tutorial_hints
 	Namespace: ability_player
 	Checksum: 0xA7346C82
 	Offset: 0x3A60
@@ -1420,7 +1420,7 @@ function tutorial_init(weapon)
 	Parameters: 6
 	Flags: None
 */
-function function_4f74cee6(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf8864, var_be7c29a3)
+function tutorial_hints(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf8864, var_be7c29a3)
 {
 	self notify("equip_tutorial_text_" + weapon.name);
 	self endon(#"disconnect", #"death", "equip_tutorial_text_" + weapon.name);
@@ -1453,32 +1453,32 @@ function function_4f74cee6(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf886
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyUsed"))
+		if(self tutorial_timer(weapon, "recentlyUsed"))
 		{
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyEquip"))
+		if(self tutorial_timer(weapon, "recentlyEquip"))
 		{
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyReady"))
+		if(self tutorial_timer(weapon, "recentlyReady"))
 		{
 			wait(5);
 			continue;
 		}
-		if(!self function_3d2a352e(weapon, "recentlyEquipText") && isdefined(var_6c65cb8d) && isdefined(var_be7c29a3) && self [[var_be7c29a3]](slot, weapon))
+		if(!self tutorial_timer(weapon, "recentlyEquipText") && isdefined(var_6c65cb8d) && isdefined(var_be7c29a3) && self [[var_be7c29a3]](slot, weapon))
 		{
-			self function_3d2a352e(weapon, "recentlyEquipText", 60);
+			self tutorial_timer(weapon, "recentlyEquipText", 60);
 			self thread [[var_6c65cb8d]](var_8430d11b, 0, "hide_gadget_equip_hint", 7);
 			/#
 				self function_374c4352(var_8430d11b);
 			#/
 		}
-		if(!self function_3d2a352e(weapon, "recentlyReadyVoice") && isdefined(var_eadf8864))
+		if(!self tutorial_timer(weapon, "recentlyReadyVoice") && isdefined(var_eadf8864))
 		{
-			self function_3d2a352e(weapon, "recentlyReadyVoice", 60);
+			self tutorial_timer(weapon, "recentlyReadyVoice", 60);
 			voiceevent(var_eadf8864, self, undefined);
 			/#
 				self function_374c4352(var_eadf8864);
@@ -2161,7 +2161,7 @@ function abilities_devgui_think()
 					abilities_devgui_handle_player_command(cmd, &abilities_devgui_power_toggle_auto_fill);
 					break;
 				}
-				case "hash_5c13c5720e67cf5e":
+				case "ability_power_f":
 				{
 					abilities_devgui_handle_player_command(cmd, &function_3db3dc4f, arg);
 					break;
@@ -2344,14 +2344,14 @@ function function_9a0f80b1(weapon_name)
 	Parameters: 2
 	Flags: None
 */
-function function_f3fa2789(offhandslot, var_f0242d8a)
+function function_f3fa2789(offhandslot, ability_list)
 {
 	/#
-		if(!isdefined(var_f0242d8a))
+		if(!isdefined(ability_list))
 		{
-			var_f0242d8a = level.var_29d4fb5b;
+			ability_list = level.var_29d4fb5b;
 		}
-		if(!isdefined(var_f0242d8a))
+		if(!isdefined(ability_list))
 		{
 			return;
 		}
@@ -2364,17 +2364,17 @@ function function_f3fa2789(offhandslot, var_f0242d8a)
 		if(isdefined(weapon))
 		{
 			var_29bc3853 = 0;
-			for(i = 0; i < var_f0242d8a.size; i++)
+			for(i = 0; i < ability_list.size; i++)
 			{
-				ability_name = var_f0242d8a[i];
+				ability_name = ability_list[i];
 				if(weapon.name == ability_name)
 				{
 					var_29bc3853 = i;
 					break;
 				}
 			}
-			var_29bc3853 = (var_29bc3853 + 1) % var_f0242d8a.size;
-			weapon_name = var_f0242d8a[var_29bc3853];
+			var_29bc3853 = (var_29bc3853 + 1) % ability_list.size;
+			weapon_name = ability_list[var_29bc3853];
 		}
 		if(2 == offhandslot)
 		{

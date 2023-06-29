@@ -3072,7 +3072,7 @@ function function_656691ab()
 			{
 				self makepathfinder();
 			}
-			self util::function_c596f193();
+			self util::make_sentient();
 			self.ignoreme = 1;
 			if(isdefined(self.heligoalpos))
 			{

@@ -279,7 +279,7 @@ function announce_round_winner(delay)
 	{
 		wait(delay);
 	}
-	winner = round::function_9b24638f();
+	winner = round::get_winner();
 	if(!isdefined(winner) || isplayer(winner))
 	{
 		return;
@@ -327,8 +327,8 @@ function announce_game_winner(outcome)
 		}
 		else
 		{
-			leader_dialog("gameWon", outcome::function_9b24638f(outcome));
-			leader_dialog_for_other_teams("gameLost", outcome::function_9b24638f(outcome));
+			leader_dialog("gameWon", outcome::get_winner(outcome));
+			leader_dialog_for_other_teams("gameLost", outcome::get_winner(outcome));
 		}
 	}
 }

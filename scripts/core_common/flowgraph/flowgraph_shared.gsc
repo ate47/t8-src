@@ -943,9 +943,9 @@ function function_9ef80b8b(var_f74b77ea)
 	Parameters: 1
 	Flags: None
 */
-function introduction_minigun(var_e08c6927)
+function introduction_minigun(ai_value)
 {
-	return var_e08c6927;
+	return ai_value;
 }
 
 /*

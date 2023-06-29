@@ -260,8 +260,8 @@ function defend_areas()
 	zm_utility::function_33798535(s_defend_area.var_39c44288, s_defend_area.a_str_zones, s_defend_area.var_ed1db1a7, undefined, undefined, 45);
 	level flag::set(#"hash_3bb140702c2b1323");
 	zm_utility::function_fef4b36a(var_f79ff5ec);
-	level.s_portal_power thread zm_white_portals::function_16ccd69f();
-	level.s_portal_street_mid thread zm_white_portals::function_16ccd69f();
+	level.s_portal_power thread zm_white_portals::reenable_teleporter();
+	level.s_portal_street_mid thread zm_white_portals::reenable_teleporter();
 	level function_a97f7327();
 	var_dca419c2 = arraycombine(var_dca419c2, array("truck_blocker"), 0, 0);
 	level zm_utility::open_door(var_dca419c2, undefined, undefined, 0);
@@ -324,12 +324,12 @@ function function_c87db3f7(var_f79ff5ec)
 {
 	level waittill(#"creating_zone_defend_area");
 	level flag::wait_till("started_defend_area");
-	level.s_portal_power thread zm_white_portals::function_978923cd();
-	level.s_portal_street_mid thread zm_white_portals::function_978923cd();
+	level.s_portal_power thread zm_white_portals::disable_teleporter();
+	level.s_portal_street_mid thread zm_white_portals::disable_teleporter();
 	level waittill(#"hash_7a04a7fb98fa4e4d");
 	wait(2);
-	level.s_portal_power thread zm_white_portals::function_16ccd69f();
-	level.s_portal_street_mid thread zm_white_portals::function_16ccd69f();
+	level.s_portal_power thread zm_white_portals::reenable_teleporter();
+	level.s_portal_street_mid thread zm_white_portals::reenable_teleporter();
 }
 
 /*

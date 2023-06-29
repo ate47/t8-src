@@ -211,7 +211,7 @@ function setup_tables()
 }
 
 /*
-	Name: function_6dccf508
+	Name: reset_table
 	Namespace: zm_crafting
 	Checksum: 0x8A225B6A
 	Offset: 0x940
@@ -219,7 +219,7 @@ function setup_tables()
 	Parameters: 0
 	Flags: None
 */
-function function_6dccf508()
+function reset_table()
 {
 	/#
 		assert(!(isdefined(self.registered) && self.registered), "");
@@ -1032,18 +1032,18 @@ function private function_514b8f17(player)
 	self notify(#"hash_295a022a1c72a359");
 	self endon(#"hash_295a022a1c72a359", #"unitrigger_deactivated");
 	player endon(#"death");
-	player.var_270241e9 = 0;
+	player.crafting_melee = 0;
 	while(isdefined(player))
 	{
-		var_28d406fe = player meleebuttonpressed();
-		if(var_28d406fe && !player.var_270241e9)
+		melee_now = player meleebuttonpressed();
+		if(melee_now && !player.crafting_melee)
 		{
 			if(isdefined(self.var_90dfb0bf) && isdefined(level.var_b87dee47[self.var_90dfb0bf].var_cb2020d8))
 			{
 				self [[level.var_b87dee47[self.var_90dfb0bf].var_cb2020d8]](player);
 			}
 		}
-		player.var_270241e9 = var_28d406fe;
+		player.crafting_melee = melee_now;
 		waitframe(1);
 	}
 }
@@ -2094,7 +2094,7 @@ function private function_df8ce6e2(player)
 		}
 		player notify(#"hash_77d44943fb143b18", {#weapon:self.stub.blueprint.var_54a97edd});
 		player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
-		player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
+		player contracts::increment_zm_contract(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
 		self.stub.bought = 1;
 		self.stub.hint_string = "";
 		self.stub.cost = undefined;

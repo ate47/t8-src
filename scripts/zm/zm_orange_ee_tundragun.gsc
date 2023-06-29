@@ -80,13 +80,13 @@ function main()
 		e_model = util::spawn_model(var_5fbb6b48.model, var_5fbb6b48.origin, var_5fbb6b48.angles);
 		level.var_97da986d.var_5fbb6b48.e_model = e_model;
 	}
-	zm_sq::register(#"ee_tundragun", #"step_1", #"ee_tundragun_step1", &function_8128801a, &function_5f8f9262);
-	zm_sq::register(#"ee_tundragun", #"step_2", #"ee_tundragun_step2", &function_219876e0, &function_67098abf);
+	zm_sq::register(#"ee_tundragun", #"step_1", #"ee_tundragun_step1", &ee_tundragun_step1_setup, &ee_tundragun_step1_cleanup);
+	zm_sq::register(#"ee_tundragun", #"step_2", #"ee_tundragun_step2", &ee_tundragun_step2_setup, &ee_tundragun_step2_cleanup);
 	zm_sq::start(#"ee_tundragun", !zm_utility::is_standard());
 }
 
 /*
-	Name: function_8128801a
+	Name: ee_tundragun_step1_setup
 	Namespace: zm_orange_ee_tundragun
 	Checksum: 0x519C246B
 	Offset: 0x4B0
@@ -94,7 +94,7 @@ function main()
 	Parameters: 1
 	Flags: Linked
 */
-function function_8128801a(var_5ea5c94d)
+function ee_tundragun_step1_setup(var_5ea5c94d)
 {
 	/#
 		iprintlnbold("");
@@ -118,7 +118,7 @@ function function_8128801a(var_5ea5c94d)
 }
 
 /*
-	Name: function_5f8f9262
+	Name: ee_tundragun_step1_cleanup
 	Namespace: zm_orange_ee_tundragun
 	Checksum: 0x5FDB17D0
 	Offset: 0x678
@@ -126,7 +126,7 @@ function function_8128801a(var_5ea5c94d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_5f8f9262(var_5ea5c94d, ended_early)
+function ee_tundragun_step1_cleanup(var_5ea5c94d, ended_early)
 {
 	/#
 		iprintlnbold("");
@@ -241,7 +241,7 @@ function private function_c19f52ea()
 }
 
 /*
-	Name: function_219876e0
+	Name: ee_tundragun_step2_setup
 	Namespace: zm_orange_ee_tundragun
 	Checksum: 0xB424EE0A
 	Offset: 0xC10
@@ -249,7 +249,7 @@ function private function_c19f52ea()
 	Parameters: 1
 	Flags: Linked
 */
-function function_219876e0(var_5ea5c94d)
+function ee_tundragun_step2_setup(var_5ea5c94d)
 {
 	/#
 		iprintlnbold("");
@@ -282,7 +282,7 @@ function function_219876e0(var_5ea5c94d)
 }
 
 /*
-	Name: function_67098abf
+	Name: ee_tundragun_step2_cleanup
 	Namespace: zm_orange_ee_tundragun
 	Checksum: 0xD0C41112
 	Offset: 0xEA8
@@ -290,7 +290,7 @@ function function_219876e0(var_5ea5c94d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_67098abf(var_5ea5c94d, ended_early)
+function ee_tundragun_step2_cleanup(var_5ea5c94d, ended_early)
 {
 	/#
 		iprintlnbold("");

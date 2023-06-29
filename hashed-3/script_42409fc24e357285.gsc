@@ -104,7 +104,7 @@ class czm_game_timer : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_game_timer
 		Checksum: 0xDEFB438D
 		Offset: 0x360
@@ -112,9 +112,9 @@ class czm_game_timer : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -129,9 +129,9 @@ class czm_game_timer : cLUIelem
 	function setup_clientfields(uid, var_b1de907e, var_359a4d9a, var_8fd8bfaa)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("seconds", 1, 6, "int", var_b1de907e);
-		cLUIelem::function_da693cbe("minutes", 1, 9, "int", var_359a4d9a);
-		cLUIelem::function_da693cbe("showzero", 1, 1, "int", var_8fd8bfaa);
+		cLUIelem::add_clientfield("seconds", 1, 6, "int", var_b1de907e);
+		cLUIelem::add_clientfield("minutes", 1, 9, "int", var_359a4d9a);
+		cLUIelem::add_clientfield("showzero", 1, 1, "int", var_8fd8bfaa);
 	}
 
 }
@@ -155,7 +155,7 @@ function register(uid, var_b1de907e, var_359a4d9a, var_8fd8bfaa)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_game_timer
 	Checksum: 0x1AA696BE
 	Offset: 0x130
@@ -163,10 +163,10 @@ function register(uid, var_b1de907e, var_359a4d9a, var_8fd8bfaa)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_game_timer();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

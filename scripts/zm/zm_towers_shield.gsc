@@ -71,12 +71,12 @@ function __init__()
 	level.var_70f7eb75 = level.var_c9d375dc.var_2039b8da;
 	callback::on_connect(&player_init);
 	level.riotshield_melee = &function_fbe77fa4;
-	callback::function_34dea974(level.var_c9d375dc.firestorm_weapon, &function_618e1db4);
-	callback::function_34dea974(level.var_c9d375dc.var_e9ffbbed, &function_618e1db4);
+	callback::add_weapon_fired(level.var_c9d375dc.firestorm_weapon, &function_618e1db4);
+	callback::add_weapon_fired(level.var_c9d375dc.var_e9ffbbed, &function_618e1db4);
 	callback::on_ai_killed(&function_f3137e13);
 	zm::register_zombie_damage_override_callback(&function_2a9a30bb);
 	zm::register_zombie_damage_override_callback(&function_3c6df289);
-	namespace_9ff9f642::function_9d45c058(#"hash_237b6756a81881cb", 100, 5);
+	namespace_9ff9f642::register_burn(#"hash_237b6756a81881cb", 100, 5);
 	if(zm_custom::function_901b751c(#"hash_3c5363541b97ca3e"))
 	{
 		level thread function_646d73c3();

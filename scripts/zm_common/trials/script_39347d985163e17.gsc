@@ -60,7 +60,7 @@ function private on_begin(var_264ee2f5)
 {
 	var_264ee2f5 = zm_trial::function_5769f26a(var_264ee2f5);
 	level thread function_cec06121(var_264ee2f5);
-	callback::function_f77ced93(&zm_trial_util::function_79518194);
+	callback::on_weapon_change(&zm_trial_util::function_79518194);
 	callback::function_33f0ddd3(&function_68af83a9);
 }
 
@@ -77,7 +77,7 @@ function private on_end(round_reset)
 {
 	level.var_388587c6 = undefined;
 	level zm_trial::function_25ee130(0);
-	callback::function_5a753d97(&zm_trial_util::function_79518194);
+	callback::remove_on_weapon_change(&zm_trial_util::function_79518194);
 	callback::function_824d206(&function_68af83a9);
 	foreach(player in getplayers())
 	{
@@ -227,8 +227,8 @@ function function_33e89162(mdl_weapon, var_6d4294b0)
 	var_be17187b = self waittilltimeout(var_6d4294b0, #"boon_weapon_picked_up");
 	if(var_be17187b._notify == "boon_weapon_picked_up" && isplayer(var_be17187b.player))
 	{
-		var_efd38e4b = var_be17187b.player namespace_f8f28e08::function_e2a25377(mdl_weapon.weapon.name);
-		var_be17187b.player unlockweapon(var_efd38e4b);
+		weapon_reward = var_be17187b.player namespace_f8f28e08::function_e2a25377(mdl_weapon.weapon.name);
+		var_be17187b.player unlockweapon(weapon_reward);
 		if(!isdefined(var_be17187b.player.var_ad52095e))
 		{
 			var_be17187b.player.var_ad52095e = [];
@@ -237,9 +237,9 @@ function function_33e89162(mdl_weapon, var_6d4294b0)
 		{
 			var_be17187b.player.var_ad52095e = array(var_be17187b.player.var_ad52095e);
 		}
-		if(!isinarray(var_be17187b.player.var_ad52095e, var_efd38e4b))
+		if(!isinarray(var_be17187b.player.var_ad52095e, weapon_reward))
 		{
-			var_be17187b.player.var_ad52095e[var_be17187b.player.var_ad52095e.size] = var_efd38e4b;
+			var_be17187b.player.var_ad52095e[var_be17187b.player.var_ad52095e.size] = weapon_reward;
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);

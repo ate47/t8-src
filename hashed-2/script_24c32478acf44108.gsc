@@ -35,7 +35,7 @@ function __init__()
 }
 
 /*
-	Name: function_9d45c058
+	Name: register_burn
 	Namespace: namespace_9ff9f642
 	Checksum: 0x84BF40D4
 	Offset: 0x148
@@ -43,7 +43,7 @@ function __init__()
 	Parameters: 5
 	Flags: Linked
 */
-function function_9d45c058(str_type, n_dps, n_duration, var_f472bfc, var_5713c703)
+function register_burn(str_type, n_dps, n_duration, var_f472bfc, var_5713c703)
 {
 	if(!isdefined(level.var_981dd9cf))
 	{

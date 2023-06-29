@@ -2011,7 +2011,7 @@ function function_173c3ce8(var_ecffa2a8, var_2c5f83d, vol_override = undefined)
 }
 
 /*
-	Name: function_33565c6e
+	Name: pause_challenges
 	Namespace: zm_red_challenges
 	Checksum: 0x88A3E0B4
 	Offset: 0x5968
@@ -2019,7 +2019,7 @@ function function_173c3ce8(var_ecffa2a8, var_2c5f83d, vol_override = undefined)
 	Parameters: 1
 	Flags: Linked
 */
-function function_33565c6e(b_pause)
+function pause_challenges(b_pause)
 {
 	a_players = getplayers();
 	if(b_pause && (!(isdefined(level.var_dc6fce4f) && level.var_dc6fce4f)))

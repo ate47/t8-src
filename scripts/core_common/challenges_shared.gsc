@@ -1088,7 +1088,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 				}
 			}
 		}
-		if(getdvarint(#"hash_522a538e0f11b88e", 1))
+		if(getdvarint(#"loot_enableblackmarket", 1))
 		{
 			credit_multiplier = max(player function_c52bcf79(), getdvarfloat(#"scr_credit_scale", 1));
 			credits = credits * credit_multiplier;
@@ -1146,7 +1146,7 @@ function function_90185171(totaltimeplayed, credits, var_e1020153)
 			}
 			if(credits > 0)
 			{
-				if(getdvarint(#"hash_2a028881d1835421", 0) == 1 && getdvarint(#"hash_21ab8e9a7fb70179", 0) != 1)
+				if(getdvarint(#"loot_tier_skips_enabled", 0) == 1 && getdvarint(#"lootcontracts_daily_tier_skip", 0) != 1)
 				{
 					if(!isdefined(player.pers[#"hash_6344af0b142ed0b6"]))
 					{
@@ -1822,7 +1822,7 @@ function earnedmicrowaveassistscore(score)
 	self stats::function_dad108fa(#"assist_score_killstreak", score);
 	self stats::function_e24eec31(getweapon(#"microwave_turret_deploy"), #"assists", 1);
 	self stats::function_e24eec31(getweapon(#"microwave_turret_deploy"), #"assist_score", score);
-	self contracts::function_a54e2068(#"hash_4840654e4b2597a5", score);
+	self contracts::increment_contract(#"hash_4840654e4b2597a5", score);
 }
 
 /*
@@ -1840,7 +1840,7 @@ function earnedcuavassistscore(score)
 	self stats::function_dad108fa(#"assist_score_killstreak", score);
 	self stats::function_e24eec31(getweapon(#"counteruav"), #"assists", 1);
 	self stats::function_e24eec31(getweapon(#"counteruav"), #"assist_score", score);
-	self contracts::function_a54e2068(#"hash_4840654e4b2597a5", score);
+	self contracts::increment_contract(#"hash_4840654e4b2597a5", score);
 }
 
 /*
@@ -1858,7 +1858,7 @@ function earneduavassistscore(score)
 	self stats::function_dad108fa(#"assist_score_killstreak", score);
 	self stats::function_e24eec31(getweapon(#"uav"), #"assists", 1);
 	self stats::function_e24eec31(getweapon(#"uav"), #"assist_score", score);
-	self contracts::function_a54e2068(#"hash_4840654e4b2597a5", score);
+	self contracts::increment_contract(#"hash_4840654e4b2597a5", score);
 }
 
 /*
@@ -1876,7 +1876,7 @@ function earnedsatelliteassistscore(score)
 	self stats::function_dad108fa(#"assist_score_killstreak", score);
 	self stats::function_e24eec31(getweapon(#"satellite"), #"assists", 1);
 	self stats::function_e24eec31(getweapon(#"satellite"), #"assist_score", score);
-	self contracts::function_a54e2068(#"hash_4840654e4b2597a5", score);
+	self contracts::increment_contract(#"hash_4840654e4b2597a5", score);
 }
 
 /*
@@ -1894,7 +1894,7 @@ function earnedempassistscore(score)
 	self stats::function_dad108fa(#"assist_score_killstreak", score);
 	self stats::function_e24eec31(getweapon(#"emp_turret"), #"assists", 1);
 	self stats::function_e24eec31(getweapon(#"emp_turret"), #"assist_score", score);
-	self contracts::function_a54e2068(#"hash_4840654e4b2597a5", score);
+	self contracts::increment_contract(#"hash_4840654e4b2597a5", score);
 }
 
 /*

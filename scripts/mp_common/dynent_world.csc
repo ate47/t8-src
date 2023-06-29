@@ -98,7 +98,7 @@ event function_3981d015(eventstruct)
 		}
 		if(isdefined(newstate.var_c7ae60e8))
 		{
-			function_b562a1b4(dynent, newstate.var_c7ae60e8);
+			add_helico(dynent, newstate.var_c7ae60e8);
 		}
 		if(isdefined(newstate.var_879eb2ff))
 		{

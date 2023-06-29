@@ -128,10 +128,10 @@ class cremote_missile_targets : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("player_target_active", 1, 16, "int");
-		cLUIelem::function_da693cbe("extra_target_1", 1, 10, "int");
-		cLUIelem::function_da693cbe("extra_target_2", 1, 10, "int");
-		cLUIelem::function_da693cbe("extra_target_3", 1, 10, "int");
+		cLUIelem::add_clientfield("player_target_active", 1, 16, "int");
+		cLUIelem::add_clientfield("extra_target_1", 1, 10, "int");
+		cLUIelem::add_clientfield("extra_target_2", 1, 10, "int");
+		cLUIelem::add_clientfield("extra_target_3", 1, 10, "int");
 	}
 
 }

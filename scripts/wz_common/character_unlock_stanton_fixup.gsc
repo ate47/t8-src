@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_170a9c130859c688;
+#using scripts\mp_common\item_world_fixup.gsc;
 #using scripts\wz_common\character_unlock_fixup.gsc;
 #using scripts\core_common\system_shared.gsc;
 

@@ -155,7 +155,7 @@ class cct_progressbar_status : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_progressbar_status
 		Checksum: 0x6A955C2E
 		Offset: 0x260
@@ -163,9 +163,9 @@ class cct_progressbar_status : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -180,7 +180,7 @@ class cct_progressbar_status : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
 	}
 
 }
@@ -204,7 +204,7 @@ function register(uid)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_progressbar_status
 	Checksum: 0x32E56F9F
 	Offset: 0xF8
@@ -212,10 +212,10 @@ function register(uid)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_progressbar_status();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

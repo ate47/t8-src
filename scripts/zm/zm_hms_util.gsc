@@ -206,13 +206,13 @@ function function_51b752a9(str_alias, n_variant = int(-1), b_wait_if_busy = 0, v
 			self notify(#"hash_7efd5bdf8133ff7b");
 			self endon(#"hash_7efd5bdf8133ff7b");
 			var_215d4efb = (b_wait_if_busy == 2 ? 1 : 0);
-			while(!zm_audio::function_65e5c19a(self.toself, var_215d4efb))
+			while(!zm_audio::can_speak(self.toself, var_215d4efb))
 			{
 				waitframe(1);
 				waittillframeend();
 			}
 		}
-		if(!zm_audio::function_65e5c19a(self.toself))
+		if(!zm_audio::can_speak(self.toself))
 		{
 			return false;
 		}
@@ -242,13 +242,13 @@ function function_6a0d675d(str_alias, n_variant = int(-1), b_wait_if_busy = 0, v
 		self notify(#"hash_7efd5bdf8133ff7b");
 		self endon(#"hash_7efd5bdf8133ff7b");
 		var_215d4efb = (b_wait_if_busy == 2 ? 1 : 0);
-		while(!zm_audio::function_65e5c19a(self.toself, var_215d4efb))
+		while(!zm_audio::can_speak(self.toself, var_215d4efb))
 		{
 			waitframe(1);
 			waittillframeend();
 		}
 	}
-	else if(!self zm_audio::function_65e5c19a())
+	else if(!self zm_audio::can_speak())
 	{
 		return;
 	}
@@ -411,10 +411,10 @@ function function_dc51a40(var_2a7487f4, str_key)
 	Parameters: 3
 	Flags: Linked
 */
-function function_bffcedde(var_4f07f125, get_key, var_333f876e)
+function function_bffcedde(get_value, get_key, code_key)
 {
-	temp_array = getentarray(var_4f07f125, get_key);
-	temp_array = function_dc51a40(temp_array, var_333f876e);
+	temp_array = getentarray(get_value, get_key);
+	temp_array = function_dc51a40(temp_array, code_key);
 	return temp_array;
 }
 
@@ -427,10 +427,10 @@ function function_bffcedde(var_4f07f125, get_key, var_333f876e)
 	Parameters: 3
 	Flags: Linked
 */
-function function_2719d4c0(var_4f07f125, get_key, var_333f876e)
+function function_2719d4c0(get_value, get_key, code_key)
 {
-	temp_array = struct::get_array(var_4f07f125, get_key);
-	temp_array = function_dc51a40(temp_array, var_333f876e);
+	temp_array = struct::get_array(get_value, get_key);
+	temp_array = function_dc51a40(temp_array, code_key);
 	return temp_array;
 }
 
@@ -669,7 +669,7 @@ function function_2ba419ee(var_53458a86 = 1, round = level.round_number)
 }
 
 /*
-	Name: function_314447b
+	Name: pause_zombies
 	Namespace: zm_hms_util
 	Checksum: 0xA4D3E22A
 	Offset: 0x16F8
@@ -677,7 +677,7 @@ function function_2ba419ee(var_53458a86 = 1, round = level.round_number)
 	Parameters: 2
 	Flags: Linked
 */
-function function_314447b(b_pause = 1, var_53458a86 = 1)
+function pause_zombies(b_pause = 1, var_53458a86 = 1)
 {
 	if(b_pause)
 	{

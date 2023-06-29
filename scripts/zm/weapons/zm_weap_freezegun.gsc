@@ -35,9 +35,9 @@ function autoexec __init__system__()
 function _init_()
 {
 	level.w_freezegun = getweapon(#"ww_freezegun_t8");
-	level.var_2f3fae68 = getweapon(#"ww_freezegun_t8_upgraded");
-	callback::function_34dea974(level.w_freezegun, &function_660bf66e);
-	callback::function_34dea974(level.var_2f3fae68, &function_660bf66e);
+	level.w_freezegun_upgraded = getweapon(#"ww_freezegun_t8_upgraded");
+	callback::add_weapon_fired(level.w_freezegun, &function_660bf66e);
+	callback::add_weapon_fired(level.w_freezegun_upgraded, &function_660bf66e);
 	callback::on_ai_damage(&function_b65fd5ae);
 	zombie_utility::add_zombie_gib_weapon_callback(#"ww_freezegun_t8", &function_3eedf19c, &function_3eedf19c);
 	zombie_utility::add_zombie_gib_weapon_callback(#"ww_freezegun_t8_upgraded", &function_3eedf19c, &function_3eedf19c);
@@ -113,7 +113,7 @@ function function_b65fd5ae(params)
 		self.var_4592c713 = 0;
 	}
 	var_bdbde2d2 = #"freezegun_slowdown";
-	if(self.var_4592c713 || params.weapon == level.var_2f3fae68)
+	if(self.var_4592c713 || params.weapon == level.w_freezegun_upgraded)
 	{
 		var_bdbde2d2 = #"hash_5a1a7bceb3b8fded";
 	}
@@ -163,7 +163,7 @@ function slow_watcher(var_bdbde2d2)
 function function_660bf66e(weapon)
 {
 	self endon(#"disconnect");
-	self thread freezegun_fired(weapon == level.var_2f3fae68);
+	self thread freezegun_fired(weapon == level.w_freezegun_upgraded);
 }
 
 /*
@@ -315,7 +315,7 @@ function freezegun_do_shatter(params, shatter_trigger, crumple_trigger)
 {
 	freezegun_debug_print("shattered");
 	self thread freezegun_cleanup_freezegun_triggers(shatter_trigger, crumple_trigger);
-	is_upgraded = params.weapon == level.var_2f3fae68;
+	is_upgraded = params.weapon == level.w_freezegun_upgraded;
 	centroid = self getcentroid();
 	a_targets = getentitiesinradius(centroid, freezegun_get_shatter_range(is_upgraded), 15);
 	foreach(ai in a_targets)
@@ -361,7 +361,7 @@ function freezegun_wait_for_shatter(params, shatter_trigger, crumple_trigger)
 	orig_attacker = params.eattacker;
 	s_notify = undefined;
 	s_notify = shatter_trigger waittill(#"damage");
-	if(isdefined(s_notify.eattacker) && orig_attacker == s_notify.eattacker && s_notify.smeansofdeath == "MOD_PROJECTILE" && (s_notify.weapon == level.w_freezegun || s_notify.weapon == level.var_2f3fae68))
+	if(isdefined(s_notify.eattacker) && orig_attacker == s_notify.eattacker && s_notify.smeansofdeath == "MOD_PROJECTILE" && (s_notify.weapon == level.w_freezegun || s_notify.weapon == level.w_freezegun_upgraded))
 	{
 		self thread freezegun_do_crumple(params, shatter_trigger, crumple_trigger);
 	}
@@ -384,7 +384,7 @@ function freezegun_do_crumple(params, shatter_trigger, crumple_trigger)
 {
 	freezegun_debug_print("crumpled");
 	self freezegun_cleanup_freezegun_triggers(shatter_trigger, crumple_trigger);
-	is_upgraded = params.weapon == level.var_2f3fae68;
+	is_upgraded = params.weapon == level.w_freezegun_upgraded;
 	level notify(#"hash_4904b9ea745d6545");
 	self zombie_utility::zombie_eye_glow_stop();
 	self function_c61abffb(is_upgraded);
@@ -559,7 +559,7 @@ function function_e31780b1()
 */
 function is_freezegun_damage(params)
 {
-	return params.smeansofdeath == "MOD_EXPLOSIVE" || params.smeansofdeath == "MOD_PROJECTILE" && isdefined(params.weapon) && (params.weapon == level.w_freezegun || params.weapon == level.var_2f3fae68);
+	return params.smeansofdeath == "MOD_EXPLOSIVE" || params.smeansofdeath == "MOD_PROJECTILE" && isdefined(params.weapon) && (params.weapon == level.w_freezegun || params.weapon == level.w_freezegun_upgraded);
 }
 
 /*
@@ -573,7 +573,7 @@ function is_freezegun_damage(params)
 */
 function is_freezegun_shatter_damage(params)
 {
-	return params.smeansofdeath == "MOD_EXPLOSIVE" && isdefined(params.weapon) && (params.weapon == level.w_freezegun || params.weapon == level.var_2f3fae68);
+	return params.smeansofdeath == "MOD_EXPLOSIVE" && isdefined(params.weapon) && (params.weapon == level.w_freezegun || params.weapon == level.w_freezegun_upgraded);
 }
 
 /*

@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14d4cc4687ff9afd;
-#using script_1c72973fb240f263;
+#using scripts\zm\zm_orange_fasttravel_ziplines.gsc;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_orange_pap.gsc;
 #using script_35598499769dbb3d;
 #using script_3e5ec44cfab7a201;
@@ -122,7 +122,7 @@ function function_ae270d9e(var_5ea5c94d, ended_early)
 {
 	if(var_5ea5c94d || ended_early)
 	{
-		zm_hms_util::function_314447b(1, 0);
+		zm_hms_util::pause_zombies(1, 0);
 	}
 }
 
@@ -552,7 +552,7 @@ function function_25c6ed8d()
 			}
 		}
 	}
-	zm_hms_util::function_314447b(0);
+	zm_hms_util::pause_zombies(0);
 	self waittill(#"defend");
 	self playsound(#"hash_1af3a3933941d01a");
 	level function_9be0a8a6("sc_lantern_1");
@@ -809,9 +809,9 @@ function function_fd5d0f2d(n_delay)
 function function_a4210fd2(n_time)
 {
 	level endon(#"end_game");
-	zm_hms_util::function_314447b(1);
+	zm_hms_util::pause_zombies(1);
 	wait(n_time);
-	zm_hms_util::function_314447b(0);
+	zm_hms_util::pause_zombies(0);
 }
 
 /*
@@ -884,7 +884,7 @@ function function_3c3bee91()
 	zm_orange_util::function_fd24e47f(#"hash_5aba3394c65e8f8c");
 	wait(5);
 	namespace_617a54f4::function_2a94055d(#"sc_lantern_end");
-	zm_hms_util::function_314447b(1);
+	zm_hms_util::pause_zombies(1);
 	if(getplayers().size > 1)
 	{
 		level thread zm_player::spectators_respawn();
@@ -1109,7 +1109,7 @@ function function_737be926()
 	}
 	n_wait_time = float(soundgetplaybacktime(#"hash_5742cfb2660b4d62")) / 1000;
 	wait(n_wait_time);
-	level.var_5d5b7e8e.var_a41818b5 namespace_2e9c09b3::function_f1827cc6(&function_2855a4fc, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
+	level.var_5d5b7e8e.var_a41818b5 zm_item_pickup::create_item_pickup(&function_2855a4fc, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
 }
 
 /*
@@ -1125,7 +1125,7 @@ function function_c5bf1974()
 {
 	/#
 		zm_devgui::zombie_devgui_open_sesame();
-		namespace_99a6629b::function_80a9077f();
+		zm_orange_fasttravel_ziplines::function_80a9077f();
 		zm_orange_zones::function_3b77181c(1);
 		if(!level flag::get(#"hash_6f7fd3d4d070db87"))
 		{
@@ -1190,7 +1190,7 @@ function function_fe36418c()
 		{
 			spawn_guide();
 		}
-		zm_hms_util::function_314447b(1, 0);
+		zm_hms_util::pause_zombies(1, 0);
 		level.var_5d5b7e8e.var_a41818b5 setspeed(5);
 		level.var_5d5b7e8e.var_a41818b5 thread vehicle::get_on_and_go_path(level.var_5d5b7e8e.nd_start);
 	#/

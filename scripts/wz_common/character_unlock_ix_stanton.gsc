@@ -50,8 +50,8 @@ function function_2613aeec(enabled)
 	if(enabled)
 	{
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_27e13b9438e33053", &function_36daf16b);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_drop_inventory", &on_use_perk);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 	}
 }
 
@@ -80,7 +80,7 @@ function function_1c4b5097(item)
 }
 
 /*
-	Name: function_36daf16b
+	Name: on_use_perk
 	Namespace: character_unlock_ix_stanton
 	Checksum: 0x3A9E516
 	Offset: 0x2B8
@@ -88,7 +88,7 @@ function function_1c4b5097(item)
 	Parameters: 1
 	Flags: Linked
 */
-function function_36daf16b(player)
+function on_use_perk(player)
 {
 	if(!isplayer(player))
 	{

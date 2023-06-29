@@ -600,7 +600,7 @@ function function_fc4df41e(watcher, owner)
 		assert(isdefined(level.var_87226c31.bundle), "");
 	#/
 	var_637dcf3d influencers::create_entity_enemy_influencer("grenade", owner.team);
-	var_637dcf3d util::function_c596f193();
+	var_637dcf3d util::make_sentient();
 	if(isdefined(level.var_87226c31.bundle.deployanim))
 	{
 		thread function_8d89605(var_637dcf3d, player.concertinawire.lastvalid);

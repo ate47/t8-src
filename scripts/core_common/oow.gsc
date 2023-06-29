@@ -32,11 +32,11 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.oow = {#height_max:2147483647, #hash_7a8196b2:2147483647};
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: oob
 	Checksum: 0x43B466D5
 	Offset: 0x168
@@ -44,7 +44,7 @@ function __init__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	var_65792f8b = map::get_script_bundle();
 	if(isdefined(var_65792f8b))
@@ -97,7 +97,7 @@ function function_e8f5803d()
 				}
 				if(player function_eb7eb3d4())
 				{
-					function_883f47d2(player);
+					kill_entity(player);
 				}
 			}
 		}
@@ -134,7 +134,7 @@ function function_eb7eb3d4()
 }
 
 /*
-	Name: function_883f47d2
+	Name: kill_entity
 	Namespace: oob
 	Checksum: 0xDB9D8081
 	Offset: 0x4B0
@@ -142,7 +142,7 @@ function function_eb7eb3d4()
 	Parameters: 1
 	Flags: Linked
 */
-function function_883f47d2(entity)
+function kill_entity(entity)
 {
 	if(isplayer(entity) && entity isinvehicle())
 	{

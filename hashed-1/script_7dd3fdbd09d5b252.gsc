@@ -74,7 +74,7 @@ class cdeath_zone : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cdeath_zone
 		Checksum: 0xAF31A14
 		Offset: 0x278
@@ -82,9 +82,9 @@ class cdeath_zone : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class cdeath_zone : cLUIelem
 	function setup_clientfields(uid, var_fd61f748)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("shutdown_sec", 1, 9, "int", var_fd61f748);
+		cLUIelem::add_clientfield("shutdown_sec", 1, 9, "int", var_fd61f748);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_fd61f748)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: death_zone
 	Checksum: 0x5B41D384
 	Offset: 0x108
@@ -131,10 +131,10 @@ function register(uid, var_fd61f748)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cdeath_zone();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

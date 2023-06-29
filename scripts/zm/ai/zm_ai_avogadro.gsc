@@ -726,8 +726,8 @@ function private function_be9ade6d(entity)
 	#/
 	for(player_index = 0; player_index < players.size; player_index++)
 	{
-		var_748152f4 = players[player_index] getcentroid();
-		distance_sq = distancesquared(var_e98404d8, var_748152f4);
+		player_centroid = players[player_index] getcentroid();
+		distance_sq = distancesquared(var_e98404d8, player_centroid);
 		if(distance_sq <= 102400)
 		{
 			players[player_index] thread function_15b528d9(3.5, player_index);
@@ -892,8 +892,8 @@ function private function_96e43661(entity)
 	#/
 	for(i = 0; i < players.size; i++)
 	{
-		var_748152f4 = players[i] getcentroid();
-		distance_sq = distancesquared(var_9a123fd6, var_748152f4);
+		player_centroid = players[i] getcentroid();
+		distance_sq = distancesquared(var_9a123fd6, player_centroid);
 		if(distance_sq <= 22500)
 		{
 			result = 1;
@@ -1033,8 +1033,8 @@ function private function_9c41ab55(entity)
 	#/
 	for(i = 0; i < players.size; i++)
 	{
-		var_748152f4 = players[i] getcentroid();
-		distance_sq = distancesquared(var_e98404d8, var_748152f4);
+		player_centroid = players[i] getcentroid();
+		distance_sq = distancesquared(var_e98404d8, player_centroid);
 		if(distance_sq <= 32400)
 		{
 			players[i] dodamage(150, var_e98404d8, entity, entity, "none", "MOD_MELEE");
@@ -1204,8 +1204,8 @@ function private function_7615515e(entity)
 	player_in_range = 0;
 	for(i = 0; i < players.size; i++)
 	{
-		var_748152f4 = players[i] getcentroid();
-		distance_sq = distancesquared(var_e98404d8, var_748152f4);
+		player_centroid = players[i] getcentroid();
+		distance_sq = distancesquared(var_e98404d8, player_centroid);
 		if(distance_sq <= 78400)
 		{
 			player_in_range = 1;

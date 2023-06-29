@@ -58,7 +58,7 @@ function __init__()
 */
 function __main__()
 {
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		delete_entities();
 		return;
@@ -225,7 +225,7 @@ function function_cff5f83(var_5ea5c94d)
 			}
 			else
 			{
-				function_7d470210();
+				reset_codes();
 				continue;
 			}
 			a_flags = array(#"hash_359cbec050523f4", #"hash_7524c96c167377ef");
@@ -242,7 +242,7 @@ function function_cff5f83(var_5ea5c94d)
 			}
 			else
 			{
-				function_7d470210();
+				reset_codes();
 				continue;
 			}
 			a_flags = array(#"hash_130656ec8ad5480d", #"hash_7524c96c167377ef");
@@ -258,7 +258,7 @@ function function_cff5f83(var_5ea5c94d)
 			}
 			else
 			{
-				function_7d470210();
+				reset_codes();
 				continue;
 			}
 		}
@@ -306,7 +306,7 @@ function timer_countdown()
 }
 
 /*
-	Name: function_7d470210
+	Name: reset_codes
 	Namespace: zm_white_private_mannequin
 	Checksum: 0x35B2E841
 	Offset: 0x12E0
@@ -314,7 +314,7 @@ function timer_countdown()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7d470210()
+function reset_codes()
 {
 	/#
 		iprintlnbold("");

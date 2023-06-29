@@ -1376,7 +1376,7 @@ function perk_unpause(perk)
 			/#
 				println(((("" + player.name) + "") + perk) + "");
 			#/
-			player zm_utility::function_e0448fec();
+			player zm_utility::set_max_health();
 			if(isdefined(level._custom_perks[perk]) && isdefined(level._custom_perks[perk].player_thread_give))
 			{
 				player thread [[level._custom_perks[perk].player_thread_give]]();
@@ -1916,17 +1916,17 @@ function perks_register_clientfield()
 	}
 	for(i = 0; i < 4; i++)
 	{
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".itemIndex", 1, 5, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".state", 1, 2, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".progress", 1, 5, "float", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".chargeCount", 1, 3, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".timerActive", 1, 1, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".bleedoutOrderIndex", 1, 2, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".bleedoutActive", 1, 1, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".specialEffectActive", 1, 1, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.perkVapor." + i) + ".modifierActive", 6000, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".itemIndex", 1, 5, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".state", 1, 2, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".progress", 1, 5, "float", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".chargeCount", 1, 3, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".timerActive", 1, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".bleedoutOrderIndex", 1, 2, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".bleedoutActive", 1, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".specialEffectActive", 1, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.perkVapor." + i) + ".modifierActive", 6000, 1, "int", 0);
 	}
-	clientfield::function_a8bbc967("hudItems.perkVapor.bleedoutProgress", 9000, 8, "float", 0);
+	clientfield::register_clientuimodel("hudItems.perkVapor.bleedoutProgress", 9000, 8, "float", 0);
 	for(i = 0; i < 6; i++)
 	{
 		n_version = 1;
@@ -1934,12 +1934,12 @@ function perks_register_clientfield()
 		{
 			n_version = 8000;
 		}
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".itemIndex", n_version, 5, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".state", n_version, 2, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".progress", n_version, 5, "float", 0);
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".chargeCount", n_version, 3, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".timerActive", n_version, 1, "int", 0);
-		clientfield::function_a8bbc967(("hudItems.extraPerkVapor." + i) + ".specialEffectActive", n_version, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".itemIndex", n_version, 5, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".state", n_version, 2, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".progress", n_version, 5, "float", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".chargeCount", n_version, 3, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".timerActive", n_version, 1, "int", 0);
+		clientfield::register_clientuimodel(("hudItems.extraPerkVapor." + i) + ".specialEffectActive", n_version, 1, "int", 0);
 	}
 	clientfield::register("scriptmover", "" + #"hash_cf74c35ecc5a49", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_35fe26fc5cb223b3", 1, 3, "int");

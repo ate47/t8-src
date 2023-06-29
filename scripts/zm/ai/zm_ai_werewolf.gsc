@@ -476,7 +476,7 @@ function private function_3d5e8286()
 	self.ignorepathenemyfightdist = 1;
 	self.var_ceed8829 = 1;
 	self.var_7d39ec6a = 1;
-	self callback::function_d8abfc3d(#"on_ai_killed", &function_f6db38ad);
+	self callback::function_d8abfc3d(#"on_ai_killed", &on_werewolf_killed);
 	self zm_powerup_nuke::function_9a79647b(0.5);
 	self setavoidancemask("avoid none");
 	self collidewithactors(1);
@@ -493,7 +493,7 @@ function private function_3d5e8286()
 }
 
 /*
-	Name: function_f6db38ad
+	Name: on_werewolf_killed
 	Namespace: zm_ai_werewolf
 	Checksum: 0xD5A38473
 	Offset: 0x1B08
@@ -501,7 +501,7 @@ function private function_3d5e8286()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f6db38ad(params)
+function on_werewolf_killed(params)
 {
 	if(self.archetype != #"werewolf")
 	{
@@ -1877,7 +1877,7 @@ function private function_39671958()
 			{
 				if(node.script_noteworthy === "" && !iscovernode(node) && ispathnode(node))
 				{
-					var_71c80ceb = zm_ai_utility::function_35eac38d(node);
+					var_71c80ceb = zm_ai_utility::get_pathnode_path(node);
 					zm_ai_utility::start_patrol(werewolf, var_71c80ceb.path, var_71c80ceb.loops, undefined, undefined);
 					break;
 				}

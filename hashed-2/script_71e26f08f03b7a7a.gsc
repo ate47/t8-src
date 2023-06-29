@@ -272,7 +272,7 @@ function start(supplydrops = 1, minwaittime = 20, var_fe6b2eab = 20)
 }
 
 /*
-	Name: function_1c1e1a45
+	Name: start_flare
 	Namespace: namespace_3d2704b3
 	Checksum: 0xDB19A763
 	Offset: 0xC68
@@ -280,7 +280,7 @@ function start(supplydrops = 1, minwaittime = 20, var_fe6b2eab = 20)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1c1e1a45(var_b3b96cdb = undefined, var_47d17dcb = 0)
+function start_flare(var_b3b96cdb = undefined, var_47d17dcb = 0)
 {
 	level flagsys::wait_till(#"hash_405e46788e83af41");
 	var_3d3a70a8 = 0;

@@ -394,7 +394,7 @@ function trap_use_think(trap)
 		}
 		if(zm_utility::is_player_valid(e_player) && !trap._trap_in_use)
 		{
-			b_purchased = self function_3f0a4c65(e_player, trap.zombie_cost);
+			b_purchased = self trap_purchase(e_player, trap.zombie_cost);
 			if(!b_purchased)
 			{
 				continue;
@@ -405,7 +405,7 @@ function trap_use_think(trap)
 }
 
 /*
-	Name: function_3f0a4c65
+	Name: trap_purchase
 	Namespace: zm_traps
 	Checksum: 0x2C9BAA38
 	Offset: 0x1228
@@ -413,7 +413,7 @@ function trap_use_think(trap)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3f0a4c65(e_player, n_cost)
+function trap_purchase(e_player, n_cost)
 {
 	if(namespace_b28d86fd::is_active())
 	{
@@ -848,7 +848,7 @@ function function_783361ed(e_trap)
 {
 	self endon(#"disconnect");
 	self.var_acc576f0 = 1;
-	level notify(#"hash_506a87adeefb4736", {#e_trap:e_trap, #e_victim:self});
+	level notify(#"trap_downed_player", {#e_trap:e_trap, #e_victim:self});
 	while(isalive(self) && self laststand::player_is_in_laststand())
 	{
 		waitframe(1);
@@ -1033,7 +1033,7 @@ function zombie_trap_death(e_trap, param)
 	if(isdefined(e_trap.activated_by_player) && isplayer(e_trap.activated_by_player))
 	{
 		e_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-		e_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+		e_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 	}
 }
 

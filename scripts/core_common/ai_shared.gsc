@@ -1248,7 +1248,7 @@ function is_stunned()
 }
 
 /*
-	Name: function_62795e55
+	Name: clear_stun
 	Namespace: ai
 	Checksum: 0x7A8993C3
 	Offset: 0x2DD8
@@ -1256,7 +1256,7 @@ function is_stunned()
 	Parameters: 0
 	Flags: Linked
 */
-function function_62795e55()
+function clear_stun()
 {
 	self.var_3d461e6f = undefined;
 }

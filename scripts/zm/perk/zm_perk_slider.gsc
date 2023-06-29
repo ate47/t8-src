@@ -76,14 +76,14 @@ function enable_slider_perk_for_level()
 	}
 	zm_perks::register_perk_precache_func(#"specialty_phdflopper", &function_1781c013);
 	zm_perks::register_perk_clientfields(#"specialty_phdflopper", &function_5ba17a72, &function_90f58801);
-	zm_perks::register_perk_machine(#"specialty_phdflopper", &function_ef14badb, &function_15d03600);
+	zm_perks::register_perk_machine(#"specialty_phdflopper", &function_ef14badb, &init_slider);
 	zm_perks::register_perk_host_migration_params(#"specialty_phdflopper", "p7_zm_vending_nuke", "divetonuke_light");
-	zm_perks::register_perk_threads(#"specialty_phdflopper", &function_1d4d3034, &function_ae56fb1a, &function_1def7e);
+	zm_perks::register_perk_threads(#"specialty_phdflopper", &function_1d4d3034, &function_ae56fb1a, &reset_charge);
 	zm_perks::register_perk_damage_override_func(&function_9e712df);
 }
 
 /*
-	Name: function_15d03600
+	Name: init_slider
 	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x4C0
@@ -91,7 +91,7 @@ function enable_slider_perk_for_level()
 	Parameters: 0
 	Flags: Linked
 */
-function function_15d03600()
+function init_slider()
 {
 }
 
@@ -233,7 +233,7 @@ function function_dc9a257a(n_slot)
 }
 
 /*
-	Name: function_1def7e
+	Name: reset_charge
 	Namespace: zm_perk_slider
 	Checksum: 0x6F7CC62
 	Offset: 0x9C0
@@ -241,7 +241,7 @@ function function_dc9a257a(n_slot)
 	Parameters: 0
 	Flags: Linked
 */
-function function_1def7e()
+function reset_charge()
 {
 	if(self hasperk(#"specialty_phdflopper"))
 	{

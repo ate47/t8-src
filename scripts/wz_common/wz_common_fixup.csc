@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_731df012f3a3c2fc;
+#using scripts\mp_common\item_world_fixup.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace wz_common_fixup;
@@ -71,7 +71,7 @@ function item_remover(func1, func2, param1)
 }
 
 /*
-	Name: function_149cbc84
+	Name: item_replacer
 	Namespace: wz_common_fixup
 	Checksum: 0xB4B91970
 	Offset: 0x150
@@ -79,7 +79,7 @@ function item_remover(func1, func2, param1)
 	Parameters: 4
 	Flags: Linked
 */
-function function_149cbc84(func1, func2, var_f3ef555b, var_e3c89f9)
+function item_replacer(func1, func2, var_f3ef555b, var_e3c89f9)
 {
 	if(!isdefined(var_f3ef555b) || !isdefined(var_e3c89f9))
 	{
@@ -106,11 +106,11 @@ function function_149cbc84(func1, func2, var_f3ef555b, var_e3c89f9)
 */
 function function_41453b43()
 {
-	var_a12b4736 = &namespace_b0722f43::function_96ff7b88;
-	var_d2223309 = &namespace_b0722f43::function_261ab7f5;
-	var_b5014996 = &namespace_b0722f43::function_19089c75;
-	var_87d0eef8 = &namespace_b0722f43::remove_item;
-	var_74257310 = &namespace_b0722f43::function_6da5e673;
-	var_f8a4c541 = &namespace_b0722f43::function_6991057;
+	var_a12b4736 = &item_world_fixup::function_96ff7b88;
+	var_d2223309 = &item_world_fixup::function_261ab7f5;
+	var_b5014996 = &item_world_fixup::function_19089c75;
+	var_87d0eef8 = &item_world_fixup::remove_item;
+	var_74257310 = &item_world_fixup::function_6da5e673;
+	var_f8a4c541 = &item_world_fixup::function_6991057;
 }
 

@@ -47,7 +47,7 @@ function __init__()
 	level.var_8dfa7ed7 = [];
 	for(ti = 0; ti < level.hawk_settings.bundle.var_48e78794; ti++)
 	{
-		uifield = remote_missile_target_lockon::function_5c1bb138(hash("remote_missile_target_lockon" + ti));
+		uifield = remote_missile_target_lockon::register_clientside(hash("remote_missile_target_lockon" + ti));
 		level.var_aac98621[ti] = uifield;
 		level.var_8dfa7ed7[uifield.var_47e79fc] = ti;
 	}
@@ -107,7 +107,7 @@ function private function_f95544c4(team1, team2)
 }
 
 /*
-	Name: function_5a4a871
+	Name: hawk_think
 	Namespace: hawk_wz
 	Checksum: 0xB5ABC05B
 	Offset: 0x5E0
@@ -115,7 +115,7 @@ function private function_f95544c4(team1, team2)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_5a4a871(localclientnum)
+function private hawk_think(localclientnum)
 {
 	self endoncallback(&function_8bd7314c, #"death");
 	self.owner endoncallback(&function_8bd7314c, #"death", #"disconnect");
@@ -152,7 +152,7 @@ function private function_23a9e4af(localclientnum)
 		setuimodelvalue(createuimodel(getuimodelforcontroller(localclientnum), "hudItems.hawkActive"), 1);
 		self thread function_2e07be71(localclientnum);
 	}
-	self thread function_5a4a871(localclientnum);
+	self thread hawk_think(localclientnum);
 }
 
 /*
@@ -208,7 +208,7 @@ function private set_target_locked(localclientnum, ti, var_3c5beee7)
 }
 
 /*
-	Name: function_69d0f012
+	Name: get_target_locked
 	Namespace: hawk_wz
 	Checksum: 0x690C460C
 	Offset: 0x940
@@ -216,7 +216,7 @@ function private set_target_locked(localclientnum, ti, var_3c5beee7)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_69d0f012(ti)
+function private get_target_locked(ti)
 {
 	return self.var_6a09a180[ti];
 }
@@ -607,7 +607,7 @@ function private function_d53feb8c(localclientnum, targets)
 			{
 				var_e06385a3 = 1;
 			}
-			if(self function_69d0f012(ti) != var_e06385a3)
+			if(self get_target_locked(ti) != var_e06385a3)
 			{
 				self set_target_locked(localclientnum, ti, var_e06385a3);
 				if(var_e06385a3 == 1)
@@ -894,8 +894,8 @@ function function_2e07be71(localclientnum)
 	self waittill(#"death");
 	if(isdefined(var_3216cebd))
 	{
-		var_dff09cb4 = getentbynum(localclientnum, var_3216cebd);
-		if(isdefined(var_dff09cb4) && isplayer(var_dff09cb4) && var_dff09cb4 function_21c0fa55())
+		hawk_owner = getentbynum(localclientnum, var_3216cebd);
+		if(isdefined(hawk_owner) && isplayer(hawk_owner) && hawk_owner function_21c0fa55())
 		{
 			setuimodelvalue(createuimodel(getuimodelforcontroller(localclientnum), "hudItems.hawkActive"), 0);
 		}

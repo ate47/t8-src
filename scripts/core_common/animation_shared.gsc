@@ -103,13 +103,13 @@ function last_frame(animation, v_origin_or_ent, v_angles_or_tag)
 */
 function play_siege(str_anim, n_rate = 1)
 {
-	self notify(#"hash_10506de382288d3");
-	self endon(#"death", #"scene_stop", #"hash_10506de382288d3");
+	self notify(#"stop_siege_anim");
+	self endon(#"death", #"scene_stop", #"stop_siege_anim");
 	b_loop = function_35c3fa74(str_anim);
 	self function_cf6be307(str_anim, "default", n_rate, b_loop);
 	if(b_loop)
 	{
-		self waittill(#"hash_10506de382288d3");
+		self waittill(#"stop_siege_anim");
 	}
 	else
 	{

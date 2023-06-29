@@ -176,7 +176,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_ca932c8
+		Name: is_streamed
 		Namespace: namespace_7da27482
 		Checksum: 0x93DCCE76
 		Offset: 0x47B0
@@ -184,7 +184,7 @@ class class_7da27482
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_ca932c8()
+	function is_streamed()
 	{
 		if(isdefined(var_228f64da))
 		{
@@ -258,7 +258,7 @@ class class_7da27482
 		{
 			itemindex = function_bd9a67ae(var_f141235b, _i_mode, var_1d73bad9, outfit_index, itemtype);
 		}
-		[[ self ]]->function_8701f84e(itemindex, itemtype);
+		[[ self ]]->set_character_outfit_item(itemindex, itemtype);
 	}
 
 	/*
@@ -273,7 +273,7 @@ class class_7da27482
 	function function_ac9cc79d(itemtype)
 	{
 		outfit_index = (itemtype == 7 ? var_cfe86a3e : var_cf55444c);
-		[[ self ]]->function_8701f84e(function_bd9a67ae(var_f141235b, _i_mode, var_1d73bad9, outfit_index, itemtype), itemtype);
+		[[ self ]]->set_character_outfit_item(function_bd9a67ae(var_f141235b, _i_mode, var_1d73bad9, outfit_index, itemtype), itemtype);
 	}
 
 	/*
@@ -374,12 +374,12 @@ class class_7da27482
 		[[ self ]]->function_158505aa(var_23904c1d.var_665ae20e);
 		/#
 			/#
-				assert(var_23904c1d.var_5f383817.size == 8);
+				assert(var_23904c1d.outfititems.size == 8);
 			#/
 		#/
-		foreach(itemtype, itemindex in var_23904c1d.var_5f383817)
+		foreach(itemtype, itemindex in var_23904c1d.outfititems)
 		{
-			[[ self ]]->function_8701f84e(itemindex, itemtype);
+			[[ self ]]->set_character_outfit_item(itemindex, itemtype);
 		}
 	}
 
@@ -396,7 +396,7 @@ class class_7da27482
 	{
 		for(itemtype = 0; itemtype < 8; itemtype++)
 		{
-			[[ self ]]->function_8701f84e(0, itemtype);
+			[[ self ]]->set_character_outfit_item(0, itemtype);
 		}
 	}
 
@@ -563,9 +563,9 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_69ac4009(var_cc478c99)
+	function function_69ac4009(gesture_index)
 	{
-		gesture = get_gesture(var_cc478c99);
+		gesture = get_gesture(gesture_index);
 	}
 
 	/*
@@ -604,7 +604,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_b204f6e3
+		Name: play_gesture
 		Namespace: namespace_7da27482
 		Checksum: 0x6092CEB
 		Offset: 0x3928
@@ -612,7 +612,7 @@ class class_7da27482
 		Parameters: 4
 		Flags: Linked
 	*/
-	function function_b204f6e3(var_cc478c99, var_4a759822, var_1b1e990c = 1, var_e14a92d8 = 0)
+	function play_gesture(gesture_index, var_4a759822, var_1b1e990c = 1, var_e14a92d8 = 0)
 	{
 		self endon(#"deleted");
 		self endon(#"cancel_gesture");
@@ -625,7 +625,7 @@ class class_7da27482
 		}
 		var_2ec36514 = var_cbcee022;
 		[[ self ]]->function_39a68bf2(1, 1);
-		gesture = get_gesture(var_cc478c99);
+		gesture = get_gesture(gesture_index);
 		if(isdefined(gesture) && isdefined(gesture.animation))
 		{
 			self endon(#"hash_578cb70e92c24a5a", #"cancel_gesture");
@@ -770,12 +770,12 @@ class class_7da27482
 			self.var_a287debe = undefined;
 			var_228f64da thread character_customization::play_intro_and_animation(_origin, _angles, params.anim_intro_name, var_cbcee022, 0);
 		}
-		else if(isdefined(params.scene) && (params.scene !== var_54430cb6 || params.var_c66a4a5d !== var_a287debe || ((isdefined(params.var_a34c858c) && params.var_a34c858c) != var_8d2161e9) || force_update))
+		else if(isdefined(params.scene) && (params.scene !== var_54430cb6 || params.scene_target !== var_a287debe || ((isdefined(params.var_a34c858c) && params.var_a34c858c) != var_8d2161e9) || force_update))
 		{
 			changed = 1;
 			[[ self ]]->function_39a68bf2(0);
 			self.var_54430cb6 = params.scene;
-			self.var_a287debe = (isdefined(params.var_c66a4a5d) ? params.var_c66a4a5d : level);
+			self.var_a287debe = (isdefined(params.scene_target) ? params.scene_target : level);
 			self.var_8d2161e9 = isdefined(params.var_a34c858c) && params.var_a34c858c;
 			self.var_cbcee022 = undefined;
 			if(var_8d2161e9)
@@ -871,7 +871,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_7ea1db75
+		Name: update_internal
 		Namespace: namespace_7da27482
 		Checksum: 0xAE9F8D6E
 		Offset: 0x1CD8
@@ -879,7 +879,7 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_7ea1db75(params)
+	function update_internal(params)
 	{
 		self notify("6ce05c58b7635c54");
 		self endon("6ce05c58b7635c54");
@@ -1083,7 +1083,7 @@ class class_7da27482
 		gestureindex = character_customization::function_6aee5a4e(self);
 		if(isdefined(gestureindex) && gestureindex > 0)
 		{
-			thread [[ self ]]->function_b204f6e3(gestureindex, 0, 1, 0);
+			thread [[ self ]]->play_gesture(gestureindex, 0, 1, 0);
 		}
 	}
 
@@ -1098,7 +1098,7 @@ class class_7da27482
 	*/
 	function update(params)
 	{
-		self thread function_7ea1db75(params);
+		self thread update_internal(params);
 	}
 
 	/*
@@ -1298,7 +1298,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_8701f84e
+		Name: set_character_outfit_item
 		Namespace: namespace_7da27482
 		Checksum: 0x6D516B69
 		Offset: 0x1798
@@ -1306,7 +1306,7 @@ class class_7da27482
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_8701f84e(item_index, item_type)
+	function set_character_outfit_item(item_index, item_type)
 	{
 		/#
 			/#
@@ -1574,9 +1574,9 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function get_gesture(var_cc478c99)
+	function get_gesture(gesture_index)
 	{
-		if(var_cc478c99 == -1)
+		if(gesture_index == -1)
 		{
 			if(#"female" === getherogender(var_1d73bad9, _i_mode))
 			{
@@ -1584,7 +1584,7 @@ class class_7da27482
 			}
 			return {#animation:#"hash_233be4ac797ac20"};
 		}
-		return function_2a6a2af(var_1d73bad9, _i_mode, var_cc478c99);
+		return function_2a6a2af(var_1d73bad9, _i_mode, gesture_index);
 	}
 
 	/*
@@ -2315,7 +2315,7 @@ function function_dd295310(charactermodel, localclientnum, alt_render_mode = 1)
 	Parameters: 3
 	Flags: Linked
 */
-function function_aa5382ed(customization1, customization2, var_f91927a1 = 1)
+function function_aa5382ed(customization1, customization2, check_xuid = 1)
 {
 	if(isdefined(customization1) != isdefined(customization2))
 	{
@@ -2325,7 +2325,7 @@ function function_aa5382ed(customization1, customization2, var_f91927a1 = 1)
 	{
 		return false;
 	}
-	if(var_f91927a1 && customization1.xuid !== customization2.xuid)
+	if(check_xuid && customization1.xuid !== customization2.xuid)
 	{
 		return true;
 	}
@@ -2349,9 +2349,9 @@ function function_aa5382ed(customization1, customization2, var_f91927a1 = 1)
 	{
 		return true;
 	}
-	for(i = 0; i < customization1.var_5f383817.size; i++)
+	for(i = 0; i < customization1.outfititems.size; i++)
 	{
-		if(customization1.var_5f383817[i] != customization2.var_5f383817[i])
+		if(customization1.outfititems[i] != customization2.outfititems[i])
 		{
 			return true;
 		}
@@ -2372,13 +2372,13 @@ function function_7474681d(local_client_num, session_mode, character_index)
 {
 	outfit_index = function_9ec573f1(local_client_num, session_mode, character_index);
 	var_17b172ca = function_76fbb09e(local_client_num, session_mode, character_index);
-	var_809a2fb0 = [];
+	outfit_items = [];
 	for(itemtype = 0; itemtype < 8; itemtype++)
 	{
 		var_9b90e15d = (itemtype == 7 ? var_17b172ca : outfit_index);
-		var_809a2fb0[itemtype] = function_bd9a67ae(local_client_num, session_mode, character_index, var_9b90e15d, itemtype);
+		outfit_items[itemtype] = function_bd9a67ae(local_client_num, session_mode, character_index, var_9b90e15d, itemtype);
 	}
-	return {#hash_5f383817:var_809a2fb0, #hash_665ae20e:var_17b172ca, #outfit:outfit_index, #hash_e1c69280:getequippedheadindexforhero(local_client_num, session_mode), #charactertype:character_index, #charactermode:session_mode};
+	return {#hash_5f383817:outfit_items, #hash_665ae20e:var_17b172ca, #outfit:outfit_index, #hash_e1c69280:getequippedheadindexforhero(local_client_num, session_mode), #charactertype:character_index, #charactermode:session_mode};
 }
 
 /*
@@ -2392,12 +2392,12 @@ function function_7474681d(local_client_num, session_mode, character_index)
 */
 function function_3f5625f1(mode, character_index = 1)
 {
-	var_809a2fb0 = [];
+	outfit_items = [];
 	for(itemtype = 0; itemtype < 8; itemtype++)
 	{
-		var_809a2fb0[itemtype] = 0;
+		outfit_items[itemtype] = 0;
 	}
-	return {#hash_5f383817:var_809a2fb0, #hash_665ae20e:0, #outfit:0, #hash_e1c69280:0, #charactertype:character_index, #charactermode:mode};
+	return {#hash_5f383817:outfit_items, #hash_665ae20e:0, #outfit:0, #hash_e1c69280:0, #charactertype:character_index, #charactermode:mode};
 }
 
 /*
@@ -2591,7 +2591,7 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 				[[ var_d0b01271 ]]->update(params);
 				break;
 			}
-			case "hash_4d0b69451140c364":
+			case "changewarpaintoutfit":
 			{
 				[[ var_d0b01271 ]]->function_72be01b9();
 				[[ var_d0b01271 ]]->function_158505aa(waitresult.outfit_index);
@@ -2605,9 +2605,9 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 				[[ var_d0b01271 ]]->update(params);
 				break;
 			}
-			case "hash_51c6c251729c60bd":
+			case "changeoutfititem":
 			{
-				[[ var_d0b01271 ]]->function_8701f84e(waitresult.item_index, waitresult.item_type);
+				[[ var_d0b01271 ]]->set_character_outfit_item(waitresult.item_index, waitresult.item_type);
 				params = {};
 				[[var_1d7f1597]](localclientnum, var_d0b01271, waitresult, params);
 				if(isdefined(params.var_c76f3e47) && params.var_c76f3e47)
@@ -2642,8 +2642,8 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 				[[ var_d0b01271 ]]->set_character_index(waitresult.character_index);
 				[[ var_d0b01271 ]]->set_character_outfit(waitresult.outfit_index);
 				[[ var_d0b01271 ]]->function_158505aa(waitresult.outfit_index);
-				var_5f383817 = strtok(waitresult.var_5f383817, ";");
-				foreach(type, item in var_5f383817)
+				outfititems = strtok(waitresult.outfititems, ";");
+				foreach(type, item in outfititems)
 				{
 					[[ var_d0b01271 ]]->function_9146bf81(int(item), type);
 				}
@@ -2662,8 +2662,8 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 			}
 			case "loadpreset":
 			{
-				var_5f383817 = strtok(waitresult.presets, ";");
-				foreach(type, item in var_5f383817)
+				outfititems = strtok(waitresult.presets, ";");
+				foreach(type, item in outfititems)
 				{
 					if(type != 7 && type != 1)
 					{
@@ -2695,7 +2695,7 @@ function updateeventthread(localclientnum, var_d0b01271, notifyname, var_1d7f159
 			}
 			case "previewgesture":
 			{
-				thread [[ var_d0b01271 ]]->function_b204f6e3(waitresult.var_cc478c99, waitresult.var_4a759822, waitresult.var_1b1e990c, waitresult.var_e14a92d8);
+				thread [[ var_d0b01271 ]]->play_gesture(waitresult.gesture_index, waitresult.var_4a759822, waitresult.var_1b1e990c, waitresult.var_e14a92d8);
 				break;
 			}
 			case "stopgesture":
@@ -2862,7 +2862,7 @@ function setup_character_extracam_settings(localclientnum, var_d0b01271, extraca
 		[[ var_d0b01271 ]]->function_77e3be08();
 		if(isdefined(extracam_data_struct.var_d3927004) && isdefined(extracam_data_struct.var_eb3dfef8))
 		{
-			[[ var_d0b01271 ]]->function_8701f84e(extracam_data_struct.var_eb3dfef8, extracam_data_struct.var_d3927004);
+			[[ var_d0b01271 ]]->set_character_outfit_item(extracam_data_struct.var_eb3dfef8, extracam_data_struct.var_d3927004);
 		}
 		if(isdefined(extracam_data_struct.useheadindex))
 		{
@@ -2870,7 +2870,7 @@ function setup_character_extracam_settings(localclientnum, var_d0b01271, extraca
 		}
 	}
 	[[ var_d0b01271 ]]->update(params);
-	while(![[ var_d0b01271 ]]->function_ca932c8())
+	while(![[ var_d0b01271 ]]->is_streamed())
 	{
 		waitframe(1);
 	}

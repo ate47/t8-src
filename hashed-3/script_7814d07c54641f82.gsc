@@ -74,7 +74,7 @@ class cvehicleturretdurability : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cvehicleturretdurability
 		Checksum: 0x1F60FFFB
 		Offset: 0x278
@@ -82,9 +82,9 @@ class cvehicleturretdurability : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class cvehicleturretdurability : cLUIelem
 	function setup_clientfields(uid, var_661989d5)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("bar_percent", 4000, 6, "float", var_661989d5);
+		cLUIelem::add_clientfield("bar_percent", 4000, 6, "float", var_661989d5);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_661989d5)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: vehicleturretdurability
 	Checksum: 0x2B2DD481
 	Offset: 0x108
@@ -131,10 +131,10 @@ function register(uid, var_661989d5)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cvehicleturretdurability();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

@@ -1099,7 +1099,7 @@ function function_8678055f()
 		{
 			level.var_7b46025 = struct::get_array("s_ruin_enemy_ajax_spawn_loc", "targetname");
 			level.var_47cd3e56 = 0;
-			var_3d11a5cb = ct_utils::function_d153452e(#"prt_mp_swatpolice");
+			var_3d11a5cb = ct_utils::get_roleindex(#"prt_mp_swatpolice");
 			level thread ct_bots::activate_bot(#"axis", undefined, 0, var_3d11a5cb);
 			level.var_6b1458ad notsolid();
 			level.var_6b1458ad.var_b1fd680c = 1;
@@ -1440,7 +1440,7 @@ function function_e340db61()
 function function_3857a1fb()
 {
 	level endon(#"combattraining_logic_finished");
-	level endoncallback(&function_b57b281a, #"hash_56fb6ae4bbd573d9");
+	level endoncallback(&function_b57b281a, #"tutorial_goto_end");
 	level ct_utils::tutorial_goto("s_hellstorm_end_obj");
 	level notify(#"dodge_the_hellstorm_objective_success");
 }
@@ -1520,7 +1520,7 @@ function function_1c78b967()
 	}
 	level thread ct_utils::function_79957328(undefined);
 	level thread ct_utils::function_c561377e(undefined);
-	level notify(#"hash_56fb6ae4bbd573d9");
+	level notify(#"tutorial_goto_end");
 	level thread ct_vo::function_831e0584(array("vox_tvoi_tutor_ruin_final_1_hell_fail"), 0);
 	level notify(#"hash_6308f4ed0b129e5d");
 }
@@ -1604,7 +1604,7 @@ function earn_the_hellstorm_objective()
 	while(true)
 	{
 		ct_utils::function_fdfeb384();
-		e_player ct_utils::function_8881abec();
+		e_player ct_utils::clear_killstreaks();
 		if(!level flag::get("killstreak_earned"))
 		{
 			globallogic_score::_setplayermomentum(e_player, 0);
@@ -1627,7 +1627,7 @@ function earn_the_hellstorm_objective()
 		setbombtimer("A", n_bomb_timer);
 		e_player ct_utils::function_61c3d59c(undefined, undefined, "dynobj_KillToEarnHellstorm");
 		e_player ct_utils::function_80bf685b(e_player.momentum);
-		level thread function_4d656f7f();
+		level thread update_momentum();
 		var_ab60380 = "killstreak_quantity_" + #"remote_missile";
 		result = undefined;
 		result = e_player waittilltimeout(var_40b03ff, #"death", var_ab60380);
@@ -1635,7 +1635,7 @@ function earn_the_hellstorm_objective()
 		setbombtimer("A", 0);
 		setmatchflag("bomb_timer_a", 0);
 		e_player ct_utils::function_1bb93418();
-		callback::function_e2ca0af6(&function_1f212110);
+		callback::remove_on_player_killed_with_params(&function_1f212110);
 		if(result._notify == var_ab60380)
 		{
 			break;
@@ -1686,7 +1686,7 @@ function function_e2a79d4()
 }
 
 /*
-	Name: function_4d656f7f
+	Name: update_momentum
 	Namespace: ct_ruin_tutorial
 	Checksum: 0xDCA55224
 	Offset: 0x7328
@@ -1694,7 +1694,7 @@ function function_e2a79d4()
 	Parameters: 0
 	Flags: None
 */
-function function_4d656f7f()
+function update_momentum()
 {
 	level endon(#"combattraining_logic_finished", #"hash_271b3e8ba24ae2e2");
 	while(true)

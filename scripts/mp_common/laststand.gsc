@@ -49,8 +49,8 @@ function __init__()
 {
 	level.revive_hud = revive_hud::register("revive_hud");
 	level.mp_revive_prompt = array(mp_revive_prompt::register("mp_revive_prompt_1"), mp_revive_prompt::register("mp_revive_prompt_2"), mp_revive_prompt::register("mp_revive_prompt_3"), mp_revive_prompt::register("mp_revive_prompt_4"));
-	clientfield::function_a8bbc967("hudItems.laststand.progress", 13000, 5, "float");
-	clientfield::function_a8bbc967("hudItems.laststand.beingRevived", 13000, 1, "int");
+	clientfield::register_clientuimodel("hudItems.laststand.progress", 13000, 5, "float");
+	clientfield::register_clientuimodel("hudItems.laststand.beingRevived", 13000, 1, "int");
 	clientfield::register("clientuimodel", "hudItems.laststand.revivingClientNum", 1, 7, "int");
 	clientfield::register("clientuimodel", "hudItems.laststand.reviveProgress", 1, 5, "float");
 	clientfield::register("clientuimodel", "EnemyTeamLastLivesData.numPlayersDowned", 1, 3, "int");
@@ -1193,7 +1193,7 @@ function function_356caede(team)
 		{
 			continue;
 		}
-		finisher function_684a5394();
+		finisher increment_finishing();
 		var_c9c35e60 = randomintrange(1, level.var_91c33dcb.finishers.size - 1);
 		/#
 			assert(level.var_91c33dcb.finishers.size >= var_c9c35e60);
@@ -1229,14 +1229,14 @@ function function_356caede(team)
 			finisher enableweaponcycling();
 			finisher enableusability();
 			finisher enableoffhandweapons();
-			var_e24d6046 = finisher gettagangles("tag_sync");
+			kill_angles = finisher gettagangles("tag_sync");
 			kill_origin = finisher gettagorigin("tag_sync");
 			if(isdefined(self))
 			{
 				if(isdefined(var_62728357) && var_62728357)
 				{
 					self function_516a3bef(0);
-					self setplayerangles(var_e24d6046);
+					self setplayerangles(kill_angles);
 					self setorigin(kill_origin);
 					self dodamage(self.var_969fabf4, self.origin, finisher, undefined, "none", "MOD_MELEE_ASSASSINATE", 8192);
 					self function_2907ce7a();
@@ -1252,7 +1252,7 @@ function function_356caede(team)
 }
 
 /*
-	Name: function_684a5394
+	Name: increment_finishing
 	Namespace: laststand_mp
 	Checksum: 0x3F1A02A0
 	Offset: 0x3F68
@@ -1260,7 +1260,7 @@ function function_356caede(team)
 	Parameters: 0
 	Flags: None
 */
-function function_684a5394()
+function increment_finishing()
 {
 	if(!isdefined(self.var_5c574004))
 	{
@@ -1680,8 +1680,8 @@ function auto_revive(reviver)
 	self function_102748f8();
 	if(var_8c0cedb7 >= gettime())
 	{
-		var_cbf9fa14 = (var_8c0cedb7 - gettime()) / 1000;
-		wait(var_cbf9fa14);
+		revive_wait_time = (var_8c0cedb7 - gettime()) / 1000;
+		wait(revive_wait_time);
 	}
 	if(!isdefined(self))
 	{
@@ -1721,8 +1721,8 @@ function revive_success(reviver, b_track_stats = 1)
 	}
 	self function_102748f8();
 	self.var_d887a4ad = 1;
-	var_cbf9fa14 = getdvarint(#"hash_77107267fe87b359", 350) / 1000;
-	wait(var_cbf9fa14);
+	revive_wait_time = getdvarint(#"hash_77107267fe87b359", 350) / 1000;
+	wait(revive_wait_time);
 	if(!isdefined(self))
 	{
 		return;

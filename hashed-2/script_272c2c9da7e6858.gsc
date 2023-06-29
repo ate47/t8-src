@@ -139,9 +139,9 @@ class clower_message : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 		cLUIelem::function_dcb34c80("string", "message", 1);
-		cLUIelem::function_da693cbe("countdownTimeSeconds", 1, 5, "int");
+		cLUIelem::add_clientfield("countdownTimeSeconds", 1, 5, "int");
 	}
 
 }

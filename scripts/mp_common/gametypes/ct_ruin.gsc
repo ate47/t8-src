@@ -29,7 +29,7 @@
 event main(eventstruct)
 {
 	ct_core::function_46e95cc7();
-	level.select_character = ct_utils::function_d153452e(#"prt_mp_mercenary");
+	level.select_character = ct_utils::get_roleindex(#"prt_mp_mercenary");
 	level.var_820c5561 = "RUIN";
 	ct_utils::function_be3a76b7(level.var_820c5561);
 	ct_core::function_fa03fc55();
@@ -43,7 +43,7 @@ event main(eventstruct)
 	level.var_cdb8ae2c = &ct_utils::function_a8da260c;
 	level.resurrect_override_spawn = &ct_utils::function_78469779;
 	level.var_e31c5d7a = &ct_bots::function_e31c5d7a;
-	callback::function_98a0917d(&ct_core::function_1e84c767);
+	callback::on_game_playing(&ct_core::function_1e84c767);
 	globallogic_spawn::addsupportedspawnpointtype("ct");
 	ct_utils::function_6046a5e3(#"ar_fastfire_t8", array(#"steadyaim", #"steadyaim2", #"stalker", #"uber"));
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
@@ -51,7 +51,7 @@ event main(eventstruct)
 	level.var_9b517372 = 0;
 	level.var_e6417b5b = 0;
 	level flag::init("combat_training_started");
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		level ct_ruin_tutorial::init();
 	}
@@ -68,7 +68,7 @@ event main(eventstruct)
 */
 function function_73c1ecd4(predictedspawn)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_ruin_tutorial::function_c9ff0dce();
 		return;
@@ -101,7 +101,7 @@ function function_73c1ecd4(predictedspawn)
 */
 function function_39002b98(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_ruin_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
@@ -151,7 +151,7 @@ function function_39002b98(einflictor, attacker, idamage, smeansofdeath, weapon,
 */
 function function_e8a7cae0()
 {
-	if(level.var_cd9d597c !== 0)
+	if(level.ctdifficulty !== 0)
 	{
 		var_932b0566 = getentarray("destroysite", "targetname");
 		for(index = 0; index < var_932b0566.size; index++)
@@ -182,7 +182,7 @@ function function_872c9404(mode)
 	self thread function_9270ab93(0, var_27875ecd);
 	self loadout::function_cdb86a18();
 	var_932b0566 = getentarray("destroysite", "targetname");
-	if(level.var_cd9d597c !== 0)
+	if(level.ctdifficulty !== 0)
 	{
 		level.var_b5529824 = var_932b0566.size;
 		for(index = 0; index < var_932b0566.size; index++)
@@ -291,7 +291,7 @@ function function_7d779cf7(gamedifficulty)
 function function_926fcb2f(b_success)
 {
 	level endon(#"hash_42057c28bd084d77");
-	if(level.var_cd9d597c !== 0)
+	if(level.ctdifficulty !== 0)
 	{
 		var_5d3ac5f0 = getentarray("destroysite", "targetname");
 		foreach(var_2fdbe1a in var_5d3ac5f0)

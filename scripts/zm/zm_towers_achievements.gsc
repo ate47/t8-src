@@ -53,7 +53,7 @@ function function_45057dc4()
 	self waittill(#"challenges_complete");
 	self zm_utility::giveachievement_wrapper("zm_towers_challenges");
 	/#
-		self function_53b04cab("");
+		self debug_notification("");
 	#/
 }
 
@@ -84,7 +84,7 @@ function function_131495a5()
 	}
 	self zm_utility::giveachievement_wrapper("zm_towers_get_ww");
 	/#
-		self function_53b04cab("");
+		self debug_notification("");
 	#/
 }
 
@@ -159,10 +159,10 @@ function function_7b7ba154(s_params)
 */
 function function_9bb7596b()
 {
-	b_ra = self zm_stats::function_eb50d9bf("towers_acid_trap_built_ra");
-	b_danu = self zm_stats::function_eb50d9bf("towers_acid_trap_built_danu");
-	b_odin = self zm_stats::function_eb50d9bf("towers_acid_trap_built_odin");
-	b_zeus = self zm_stats::function_eb50d9bf("towers_acid_trap_built_zeus");
+	b_ra = self zm_stats::get_client_stat("towers_acid_trap_built_ra");
+	b_danu = self zm_stats::get_client_stat("towers_acid_trap_built_danu");
+	b_odin = self zm_stats::get_client_stat("towers_acid_trap_built_odin");
+	b_zeus = self zm_stats::get_client_stat("towers_acid_trap_built_zeus");
 	if(b_ra && b_danu && b_odin && b_zeus)
 	{
 		self zm_utility::giveachievement_wrapper("zm_towers_trap_build");
@@ -201,7 +201,7 @@ function function_3cbde7f5(s_params)
 		e_player flag::set(#"hash_599401a7cc5b8a84");
 		e_player zm_utility::giveachievement_wrapper("zm_towers_ww_kills");
 		/#
-			e_player function_53b04cab("");
+			e_player debug_notification("");
 		#/
 	}
 }
@@ -263,7 +263,7 @@ function function_b43c1bad(s_params)
 		e_player flag::set(#"hash_4969e1eae9bf556f");
 		e_player zm_utility::giveachievement_wrapper("zm_towers_kitty_kitty");
 		/#
-			e_player function_53b04cab("");
+			e_player debug_notification("");
 		#/
 	}
 }
@@ -294,7 +294,7 @@ function function_cda4b8ba(e_attacker)
 		e_attacker flag::set(#"hash_2086e93d2f58efce");
 		e_attacker zm_utility::giveachievement_wrapper("zm_towers_dismember");
 		/#
-			e_attacker function_53b04cab("");
+			e_attacker debug_notification("");
 		#/
 	}
 }
@@ -312,7 +312,7 @@ function function_a24ba4fc()
 {
 	zm_utility::giveachievement_wrapper("zm_towers_boss_kill", 1);
 	/#
-		self function_53b04cab("");
+		self debug_notification("");
 	#/
 	self zm_challenges::function_9a9ab6f6(#"hash_6d5340d9e43ed73d");
 	if(isdefined(level.var_2d744147) && level.var_2d744147 <= 5940000)
@@ -367,7 +367,7 @@ function function_6fdb733f()
 	}
 	self zm_utility::giveachievement_wrapper("zm_towers_arena_survive");
 	/#
-		self function_53b04cab("");
+		self debug_notification("");
 	#/
 }
 
@@ -402,7 +402,7 @@ function function_cbdb5e70()
 			{
 				e_player zm_utility::giveachievement_wrapper("zm_towers_fast_pap");
 				/#
-					e_player function_53b04cab("");
+					e_player debug_notification("");
 				#/
 			}
 		}
@@ -410,7 +410,7 @@ function function_cbdb5e70()
 }
 
 /*
-	Name: function_53b04cab
+	Name: debug_notification
 	Namespace: zm_towers_achievements
 	Checksum: 0xC5C61DD6
 	Offset: 0x10D8
@@ -418,7 +418,7 @@ function function_cbdb5e70()
 	Parameters: 1
 	Flags: Private
 */
-function private function_53b04cab(var_378e29b9)
+function private debug_notification(var_378e29b9)
 {
 	/#
 		if(!isdefined(var_378e29b9))

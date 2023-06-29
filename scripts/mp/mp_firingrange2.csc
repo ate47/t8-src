@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\mp\mp_firingrange2_sound.csc;
 #using scripts\mp\mp_firingrange2_fx.csc;
-#using script_7b95b0c4948e03f8;
+#using scripts\mp\mp_firingrange2_scripted.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 #using scripts\mp_common\load.csc;

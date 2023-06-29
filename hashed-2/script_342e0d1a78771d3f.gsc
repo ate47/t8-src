@@ -128,10 +128,10 @@ class cremote_missile_target_lockon : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("target_locked", 1, 1, "int");
-		cLUIelem::function_da693cbe("isHawkTag", 13000, 1, "int");
-		cLUIelem::function_da693cbe("killed", 13000, 1, "int");
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int");
+		cLUIelem::add_clientfield("target_locked", 1, 1, "int");
+		cLUIelem::add_clientfield("isHawkTag", 13000, 1, "int");
+		cLUIelem::add_clientfield("killed", 13000, 1, "int");
 	}
 
 }

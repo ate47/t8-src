@@ -49,7 +49,7 @@ function private __init__()
 	plannerutility::registerplanneraction(#"hash_13ea5298a7e5b3ef", &function_393b9c76, &function_6fe73720, &function_ec7dcff9, &function_a023ae49);
 	plannerutility::registerplanneraction(#"hash_7e8d0cffd4b5daf5", &plannersquadutility::strategybotparam, &function_8e40731d, &function_8030d0d2, &function_a023ae49);
 	/#
-		level thread function_ebb13d25();
+		level thread debug_setup();
 	#/
 }
 
@@ -382,7 +382,7 @@ function private function_e0bf989(planner, params)
 	altar = params.altar[#"__unsafe__"][#"altar"];
 	if(!isdefined(altar) || altar.var_3468124.var_2977c27 != "on" || function_d6d5e252(params.bots[0], altar))
 	{
-		params.bots[0] bot::function_6c280dfe();
+		params.bots[0] bot::clear_interact();
 		return 2;
 	}
 	return 3;
@@ -1311,7 +1311,7 @@ function private function_8e40731d(planner, params)
 	{
 		if(strategiccommandutility::isvalidbot(bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 			bot.goalradius = 512;
 			bot.goalheight = 100;
 		}
@@ -1345,7 +1345,7 @@ function private function_8030d0d2(planner, params)
 }
 
 /*
-	Name: function_ebb13d25
+	Name: debug_setup
 	Namespace: namespace_ed876ec
 	Checksum: 0xDA054DAA
 	Offset: 0x4888
@@ -1353,7 +1353,7 @@ function private function_8030d0d2(planner, params)
 	Parameters: 0
 	Flags: None
 */
-function function_ebb13d25()
+function debug_setup()
 {
 	/#
 		adddebugcommand("");

@@ -89,7 +89,7 @@ class cseeker_mine_prompt : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cseeker_mine_prompt
 		Checksum: 0x92C22D06
 		Offset: 0x2F8
@@ -97,9 +97,9 @@ class cseeker_mine_prompt : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -114,8 +114,8 @@ class cseeker_mine_prompt : cLUIelem
 	function setup_clientfields(uid, var_afaddf7a, var_ca3086f0)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("progress", 1, 5, "float", var_afaddf7a);
-		cLUIelem::function_da693cbe("promptState", 1, 2, "int", var_ca3086f0);
+		cLUIelem::add_clientfield("progress", 1, 5, "float", var_afaddf7a);
+		cLUIelem::add_clientfield("promptState", 1, 2, "int", var_ca3086f0);
 	}
 
 }
@@ -139,7 +139,7 @@ function register(uid, var_afaddf7a, var_ca3086f0)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: seeker_mine_prompt
 	Checksum: 0x845BDBA5
 	Offset: 0x128
@@ -147,10 +147,10 @@ function register(uid, var_afaddf7a, var_ca3086f0)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cseeker_mine_prompt();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

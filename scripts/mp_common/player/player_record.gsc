@@ -131,12 +131,12 @@ function function_96d38b95(result)
 			secondaryweaponname = secondary_weapon.name;
 			secondaryweaponattachstr = function_685505ce(getarraykeys(secondary_weapon.attachments));
 		}
-		loadout = player loadout::function_e27dc453("primarygrenade");
+		loadout = player loadout::get_loadout_slot("primarygrenade");
 		if(isdefined(loadout))
 		{
 			grenadeprimaryname = loadout.weapon.name;
 		}
-		loadout = player loadout::function_e27dc453("specialgrenade");
+		loadout = player loadout::get_loadout_slot("specialgrenade");
 		if(isdefined(loadout))
 		{
 			grenadesecondaryname = loadout.weapon.name;
@@ -280,7 +280,7 @@ function function_96d38b95(result)
 	var_8607894c = spawnstruct();
 	var_8607894c.var_3cc73d67 = player function_5d23af5b();
 	var_8607894c.specialist_head = player function_44a7328f();
-	var_8607894c.var_d5985917 = player function_cde23658();
+	var_8607894c.specialist_legs = player function_cde23658();
 	var_8607894c.var_ef44bb8b = player function_92ea4100();
 	var_8607894c.specialist_showcase = showcaseweapon.weapon.name;
 	function_92d1707f(#"hash_4c5946fa1191bc64", #"hash_71960e91f80c3365", var_906bdcf3, #"hash_4682ee0eb5071d2", var_811ed119, #"hash_209c80d657442a83", var_a14ea2be, #"hash_43cb38816354c3aa", var_b65d83f5, #"hash_11fcb8f188ed5050", var_6e81e3c3, #"hash_78a6c018d9f82184", var_8607894c);

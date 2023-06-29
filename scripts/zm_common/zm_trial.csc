@@ -178,24 +178,24 @@ function private function_4dbf2663()
 			round = tablelookupcolumnforrow(table, row, 0);
 			if(row < var_e1617d73 && round != 0)
 			{
-				var_ef0a371f = round - 1;
-				if(!isdefined(var_6d87ac05.rounds[var_ef0a371f]))
+				round_index = round - 1;
+				if(!isdefined(var_6d87ac05.rounds[round_index]))
 				{
-					var_6d87ac05.rounds[var_ef0a371f] = {};
-					var_48c6ec2e = var_6d87ac05.rounds[var_ef0a371f];
-					var_48c6ec2e.name = tablelookupcolumnforrow(table, row, 1);
-					var_48c6ec2e.round = round;
-					var_48c6ec2e.name_str = tablelookupcolumnforrow(table, row, 2);
-					var_48c6ec2e.var_695d8fd1 = tablelookupcolumnforrow(table, row, 3);
-					var_48c6ec2e.challenges = [];
+					var_6d87ac05.rounds[round_index] = {};
+					round_info = var_6d87ac05.rounds[round_index];
+					round_info.name = tablelookupcolumnforrow(table, row, 1);
+					round_info.round = round;
+					round_info.name_str = tablelookupcolumnforrow(table, row, 2);
+					round_info.var_695d8fd1 = tablelookupcolumnforrow(table, row, 3);
+					round_info.challenges = [];
 				}
 				/#
-					assert(isdefined(var_6d87ac05.rounds[var_ef0a371f]));
+					assert(isdefined(var_6d87ac05.rounds[round_index]));
 				#/
-				var_48c6ec2e = var_6d87ac05.rounds[var_ef0a371f];
+				round_info = var_6d87ac05.rounds[round_index];
 				challenge_name = tablelookupcolumnforrow(table, row, 5);
 				var_10a28798 = [];
-				array::add(var_48c6ec2e.challenges, {#params:var_10a28798, #row:row, #name:challenge_name});
+				array::add(round_info.challenges, {#params:var_10a28798, #row:row, #name:challenge_name});
 				for(i = 0; i < 8; i++)
 				{
 					param = tablelookupcolumnforrow(table, row, 6 + i);

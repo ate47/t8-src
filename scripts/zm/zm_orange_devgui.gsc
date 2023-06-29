@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_14d4cc4687ff9afd;
+#using scripts\zm\zm_orange_fasttravel_ziplines.gsc;
 #using scripts\zm\zm_orange_pap.gsc;
 #using scripts\zm\zm_orange_mq_sendoff.gsc;
 #using scripts\zm\zm_orange_mq_hell.gsc;
@@ -97,7 +97,7 @@ function private devgui()
 				}
 				case "hash_18769c2b6ae60247":
 				{
-					level thread namespace_99a6629b::function_80a9077f();
+					level thread zm_orange_fasttravel_ziplines::function_80a9077f();
 					break;
 				}
 				case "hash_24668a82eef6ed20":
@@ -130,7 +130,7 @@ function private devgui()
 				case "test_last_stand":
 				{
 					zm_devgui::zombie_devgui_open_sesame();
-					namespace_99a6629b::function_80a9077f();
+					zm_orange_fasttravel_ziplines::function_80a9077f();
 					zm_orange_zones::function_3b77181c(1);
 					if(level flag::get(#"hash_6f7fd3d4d070db87") == 0)
 					{
@@ -208,7 +208,7 @@ function private devgui()
 				case "full_unlock":
 				{
 					zm_devgui::zombie_devgui_open_sesame();
-					namespace_99a6629b::function_80a9077f();
+					zm_orange_fasttravel_ziplines::function_80a9077f();
 					zm_orange_zones::function_3b77181c(1);
 					level thread zm_sq::function_f2dd8601(#"pap_rock", 1);
 					break;

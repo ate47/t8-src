@@ -118,7 +118,7 @@ function function_f3dbfe8d(einflictor, eattacker, idamage, idflags, smeansofdeat
 		self ghost();
 		if(!(isdefined(level.var_f2ea2755) && level.var_f2ea2755))
 		{
-			item_supply_drop::function_8366d4d6(self.origin, #"hash_6bf51ee970d5ba5e");
+			item_supply_drop::spawn_supply_drop(self.origin, #"hash_6bf51ee970d5ba5e");
 			level.var_f2ea2755 = 1;
 		}
 	}

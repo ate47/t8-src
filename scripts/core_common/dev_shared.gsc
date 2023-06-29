@@ -417,7 +417,7 @@ function function_f413b4d5(bodytype, outfitindex, var_c1154821, index)
 			{
 				if(var_c1154821 == "")
 				{
-					player function_9b48a8e5(outfitindex);
+					player setcharacterwarpaintoutfit(outfitindex);
 				}
 				player function_ab96a9b5(var_c1154821, index);
 			}
@@ -497,14 +497,14 @@ function body_customization_process_command(character_index)
 	Parameters: 5
 	Flags: None
 */
-function function_3cec5609(arr, var_7956c7ac, bodytype, outfitindex, optiontype)
+function function_3cec5609(arr, devgui_path, bodytype, outfitindex, optiontype)
 {
 	/#
 		foreach(index, option in arr)
 		{
 			if(option.isvalid)
 			{
-				util::add_debug_command((((((((((((((var_7956c7ac + index) + "") + "") + "") + "") + bodytype) + "") + "") + outfitindex) + "") + optiontype) + "") + index) + "");
+				util::add_debug_command((((((((((((((devgui_path + index) + "") + "") + "") + "") + bodytype) + "") + "") + outfitindex) + "") + optiontype) + "") + index) + "");
 			}
 		}
 	#/
@@ -746,11 +746,11 @@ function function_a432e633()
 				{
 					continue;
 				}
-				player gestures::function_ae63f496();
+				player gestures::clear_gesture();
 				player.loadoutgesture = getweapon(gesture);
 				if(isdefined(player.loadoutgesture) && player.loadoutgesture != level.weaponnone)
 				{
-					player gestures::function_f8ae6f87(player.loadoutgesture);
+					player gestures::give_gesture(player.loadoutgesture);
 				}
 			}
 		}

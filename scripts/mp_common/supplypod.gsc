@@ -292,7 +292,7 @@ function function_92856c6(attacker, victim, weapon, attackerweapon, meansofdeath
 function function_f579e72b(watcher)
 {
 	watcher.watchforfire = 1;
-	watcher.onspawn = &function_37a2d89d;
+	watcher.onspawn = &supplypod_spawned;
 	watcher.timeout = float(level.var_934fb97.bundle.ksduration) / 1000;
 	watcher.ontimeout = &function_7c0d095c;
 	watcher.var_994b472b = &function_f7d9ebce;
@@ -336,7 +336,7 @@ function function_7c0d095c()
 }
 
 /*
-	Name: function_37a2d89d
+	Name: supplypod_spawned
 	Namespace: supplypod
 	Checksum: 0xB292F2DA
 	Offset: 0x1060
@@ -344,7 +344,7 @@ function function_7c0d095c()
 	Parameters: 2
 	Flags: Linked
 */
-function function_37a2d89d(watcher, owner)
+function supplypod_spawned(watcher, owner)
 {
 	self endon(#"death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
@@ -370,7 +370,7 @@ function function_37a2d89d(watcher, owner)
 		owner.var_3823265d = undefined;
 		owner function_63c23d02(self);
 		supplypod = self.supplypod;
-		supplypod util::function_c596f193();
+		supplypod util::make_sentient();
 	}
 }
 
@@ -427,7 +427,7 @@ function setupclientfields()
 */
 function private setupcallbacks()
 {
-	ability_player::register_gadget_activation_callbacks(35, &function_8524b3c5, &function_f4255c84);
+	ability_player::register_gadget_activation_callbacks(35, &supplypod_on, &supplypod_off);
 	callback::on_player_killed_with_params(&on_player_killed);
 	callback::on_spawned(&on_player_spawned);
 	weaponobjects::function_e6400478(#"gadget_supplypod", &function_f579e72b, 1);
@@ -548,7 +548,7 @@ function function_46d74bb7(var_70150641)
 }
 
 /*
-	Name: function_8524b3c5
+	Name: supplypod_on
 	Namespace: supplypod
 	Checksum: 0x787D25D9
 	Offset: 0x1930
@@ -556,7 +556,7 @@ function function_46d74bb7(var_70150641)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8524b3c5(slot, playerweapon)
+function supplypod_on(slot, playerweapon)
 {
 	/#
 		assert(isplayer(self));
@@ -565,7 +565,7 @@ function function_8524b3c5(slot, playerweapon)
 }
 
 /*
-	Name: function_f4255c84
+	Name: supplypod_off
 	Namespace: supplypod
 	Checksum: 0xF9D39EB1
 	Offset: 0x19A0
@@ -573,7 +573,7 @@ function function_8524b3c5(slot, playerweapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_f4255c84(slot, weapon)
+function supplypod_off(slot, weapon)
 {
 }
 

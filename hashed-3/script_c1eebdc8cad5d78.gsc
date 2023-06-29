@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_5da9076b8e4f6d28;
+#using scripts\mp_common\item_world_util.csc;
 
 #namespace namespace_a0d533d1;
 
@@ -122,7 +122,7 @@ function function_2ced1d34(item, var_fe35755b, allowdupes = 0)
 	{
 		return;
 	}
-	weapon = namespace_ad5a0cd6::function_35e06774(item.var_a6762160);
+	weapon = item_world_util::function_35e06774(item.var_a6762160);
 	if(isdefined(weapon) && isdefined(weapon.statname) && weapon.statname != #"")
 	{
 		weapon = getweapon(weapon.statname);
@@ -324,7 +324,7 @@ function function_cfa794ca(mutators, var_a6762160)
 	/#
 		assert(isdefined(var_a6762160));
 	#/
-	weapon = namespace_ad5a0cd6::function_35e06774(var_a6762160);
+	weapon = item_world_util::function_35e06774(var_a6762160);
 	if(isdefined(weapon))
 	{
 		if(weapon.name == #"eq_tripwire")
@@ -510,7 +510,7 @@ function function_ee669356(item)
 	}
 	foreach(attachment in item.var_a6762160.attachments)
 	{
-		if(!namespace_ad5a0cd6::function_7363384a(attachment.var_6be1bec7))
+		if(!item_world_util::function_7363384a(attachment.var_6be1bec7))
 		{
 			continue;
 		}
@@ -671,7 +671,7 @@ function function_6e9e7169(item)
 	/#
 		assert(isdefined(item));
 	#/
-	weapon = namespace_ad5a0cd6::function_35e06774(item.var_a6762160);
+	weapon = item_world_util::function_35e06774(item.var_a6762160);
 	if(!isdefined(weapon))
 	{
 		return;
@@ -727,6 +727,6 @@ function function_2b83d3ff(item)
 	{
 		var_48cfb6ca = 1;
 	}
-	return namespace_ad5a0cd6::function_35e06774(item.var_a6762160, var_48cfb6ca);
+	return item_world_util::function_35e06774(item.var_a6762160, var_48cfb6ca);
 }
 

@@ -134,7 +134,7 @@ function function_6c288c45(spawnorigin, spawnangles)
 	turretvehicle function_bc7568f1();
 	turretvehicle thread function_d4f9ecb(turretvehicle.killstreak_duration);
 	turretvehicle.is_staircase_up = &is_staircase_up;
-	turretvehicle util::function_c596f193();
+	turretvehicle util::make_sentient();
 	turretvehicle thread turretscanning();
 	turretvehicle thread function_fefefcc4();
 	turretvehicle turret::set_torso_targetting(0);
@@ -291,7 +291,7 @@ function onturretdeath(einflictor, eattacker, idamage, smeansofdeath, weapon, vd
 		turretvehicle.owner [[level.playequipmentdestroyedonplayer]]();
 	}
 	turretvehicle function_9101e29a();
-	callback::callback(#"hash_782232ec47cbd89b", {#owner:turretvehicle.owner, #turret:turretvehicle});
+	callback::callback(#"on_turret_destroyed", {#owner:turretvehicle.owner, #turret:turretvehicle});
 }
 
 /*

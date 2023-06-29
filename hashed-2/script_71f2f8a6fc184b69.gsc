@@ -74,7 +74,7 @@ class cinsertion_passenger_count : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cinsertion_passenger_count
 		Checksum: 0x2A2CFAAF
 		Offset: 0x270
@@ -82,9 +82,9 @@ class cinsertion_passenger_count : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class cinsertion_passenger_count : cLUIelem
 	function setup_clientfields(uid, var_fbcc4763)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("count", 1, 7, "int", var_fbcc4763);
+		cLUIelem::add_clientfield("count", 1, 7, "int", var_fbcc4763);
 	}
 
 }
@@ -123,7 +123,7 @@ function register(uid, var_fbcc4763)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: insertion_passenger_count
 	Checksum: 0x7F774449
 	Offset: 0x100
@@ -131,10 +131,10 @@ function register(uid, var_fbcc4763)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cinsertion_passenger_count();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

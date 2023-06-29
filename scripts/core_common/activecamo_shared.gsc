@@ -34,14 +34,14 @@ function autoexec __init__system__()
 function __init__()
 {
 	callback::on_loadout(&on_player_loadout);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	/#
 		thread function_265047c1();
 	#/
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: activecamo
 	Checksum: 0x83B05FD
 	Offset: 0x198
@@ -49,7 +49,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(isdefined(level.var_b219667f) && level.var_b219667f)
 	{
@@ -104,7 +104,7 @@ function function_27779784()
 		{
 			activecamo.weapon = var_dd54a13b.weapon;
 			activecamo.baseweapon = function_c14cb514(activecamo.weapon);
-			self function_d005b26d(activecamo, 0, 1);
+			self init_stages(activecamo, 0, 1);
 		}
 	}
 }
@@ -190,7 +190,7 @@ function init_activecamo(weapon, activecamoinfo, owned)
 			activecamo.var_dd54a13b[activecamo.baseweapon].owned = 0;
 		}
 		activecamo.var_dd54a13b[activecamo.baseweapon].owned = activecamo.var_dd54a13b[activecamo.baseweapon].owned | owned;
-		self function_d005b26d(activecamo, 0, 0);
+		self init_stages(activecamo, 0, 0);
 		self callback::on_death(&on_player_death);
 	}
 }
@@ -284,7 +284,7 @@ function function_3aa81e0e(activecamoinfo)
 				/#
 					if(!isdefined(stage.var_19b6044e))
 					{
-						self function_8530ef96(((("" + info.name) + "") + function_9e72a96((isdefined(var_3594168e.var_879c8798) ? var_3594168e.var_879c8798 : "")) + "") + key);
+						self debug_error(((("" + info.name) + "") + function_9e72a96((isdefined(var_3594168e.var_879c8798) ? var_3594168e.var_879c8798 : "")) + "") + key);
 					}
 					else
 					{
@@ -296,11 +296,11 @@ function function_3aa81e0e(activecamoinfo)
 						}
 						if(!isdefined(var_31567a86))
 						{
-							self function_8530ef96((((("" + info.name) + "") + stage.var_19b6044e) + "") + key);
+							self debug_error((((("" + info.name) + "") + stage.var_19b6044e) + "") + key);
 						}
 						else if(!isdefined(var_31567a86.name) || var_31567a86.name != info.name)
 						{
-							self function_8530ef96(((((("" + info.name) + "") + stage.var_19b6044e) + "") + (isdefined(var_31567a86.name) ? var_31567a86.name : "") + "") + key);
+							self debug_error(((((("" + info.name) + "") + stage.var_19b6044e) + "") + (isdefined(var_31567a86.name) ? var_31567a86.name : "") + "") + key);
 						}
 					}
 				#/
@@ -377,7 +377,7 @@ function function_37a45562(camoindex, activecamo)
 }
 
 /*
-	Name: function_d005b26d
+	Name: init_stages
 	Namespace: activecamo
 	Checksum: 0x62065FD2
 	Offset: 0x1188
@@ -385,7 +385,7 @@ function function_37a45562(camoindex, activecamo)
 	Parameters: 3
 	Flags: Linked
 */
-function function_d005b26d(activecamo, var_3a8a1e00, isdeath)
+function init_stages(activecamo, var_3a8a1e00, isdeath)
 {
 	if(isdefined(activecamo))
 	{
@@ -1307,11 +1307,11 @@ function function_a80cb651(activecamo, stagenum)
 	stage.var_dd54a13b[activecamo.baseweapon].statvalue = 0;
 	stage.var_dd54a13b[activecamo.baseweapon].cleared = undefined;
 	stage.resettime = undefined;
-	self function_d005b26d(activecamo, 1, 0);
+	self init_stages(activecamo, 1, 0);
 }
 
 /*
-	Name: function_8530ef96
+	Name: debug_error
 	Namespace: activecamo
 	Checksum: 0xE0552F09
 	Offset: 0x3EF0
@@ -1319,7 +1319,7 @@ function function_a80cb651(activecamo, stagenum)
 	Parameters: 2
 	Flags: None
 */
-function function_8530ef96(message, weapon)
+function debug_error(message, weapon)
 {
 	/#
 		if(getdvarint(#"activecamo_debug", 0) > 0)
@@ -1987,7 +1987,7 @@ function function_9fc8a57c(activecamo)
 				{
 					self function_dc6014e8(activecamo, stage, stagenum);
 				}
-				self function_d005b26d(activecamo, 1, 0);
+				self init_stages(activecamo, 1, 0);
 			}
 		}
 	#/

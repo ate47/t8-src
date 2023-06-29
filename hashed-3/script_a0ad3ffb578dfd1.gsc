@@ -27,7 +27,7 @@ function init()
 {
 	getent("yoshi_doshi", "targetname") hide();
 	init_clientfields();
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		init_flags();
 		function_b11c26c9();

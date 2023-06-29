@@ -35,7 +35,7 @@ function __init__()
 	{
 		return;
 	}
-	clientfield::function_a8bbc967("hudItems.dynentUseHoldProgress", 13000, 5, "float", 0);
+	clientfield::register_clientuimodel("hudItems.dynentUseHoldProgress", 13000, 5, "float", 0);
 	/#
 		level thread devgui_loop();
 	#/
@@ -56,7 +56,7 @@ function __init__()
 */
 function private on_player_connect()
 {
-	usetrigger = function_938bdf98();
+	usetrigger = create_use_trigger();
 	self clientclaimtrigger(usetrigger);
 	self.var_8a022726 = usetrigger;
 	/#
@@ -99,7 +99,7 @@ function private on_player_killed()
 }
 
 /*
-	Name: function_938bdf98
+	Name: create_use_trigger
 	Namespace: dynent_world
 	Checksum: 0x954CBF42
 	Offset: 0x348
@@ -107,7 +107,7 @@ function private on_player_killed()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_938bdf98()
+function private create_use_trigger()
 {
 	usetrigger = spawn("trigger_radius_use", vectorscale((0, 0, -1), 10000), 0, 128, 64, 1);
 	usetrigger triggerignoreteam();
@@ -121,7 +121,7 @@ function private function_938bdf98()
 	usetrigger function_c96c67a5(0);
 	usetrigger function_89fca53b(1);
 	usetrigger function_49462027(1, (1 | 16) | 1024);
-	usetrigger callback::function_a04381e0(&function_46502841);
+	usetrigger callback::on_trigger_once(&function_46502841);
 	return usetrigger;
 }
 
@@ -350,7 +350,7 @@ function private function_2b9e2224(trigger)
 			if(gettime() >= endtime)
 			{
 				success = 1;
-				var_a852a7dd = trigger function_bf7b8a27(dynent, self);
+				var_a852a7dd = trigger use_dynent(dynent, self);
 				dynent.var_a548ec11 = gettime() + (var_a852a7dd * 1000);
 				trigger triggerenable(0);
 				break;
@@ -396,7 +396,7 @@ function private function_e882de59(trigger)
 	{
 		waitframe(1);
 	}
-	trigger callback::function_a04381e0(&function_46502841);
+	trigger callback::on_trigger_once(&function_46502841);
 }
 
 /*
@@ -414,12 +414,12 @@ function function_7f2040e8()
 	{
 		return;
 	}
-	self.var_8a022726 callback::function_3507ed1f(&function_46502841);
+	self.var_8a022726 callback::remove_on_trigger_once(&function_46502841);
 	self thread function_e882de59(self.var_8a022726);
 }
 
 /*
-	Name: function_bf7b8a27
+	Name: use_dynent
 	Namespace: dynent_world
 	Checksum: 0x225709EE
 	Offset: 0x13F0
@@ -427,7 +427,7 @@ function function_7f2040e8()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bf7b8a27(dynent, activator)
+function use_dynent(dynent, activator)
 {
 	stateindex = function_ffdbe8c2(dynent);
 	bundle = function_489009c1(dynent);
@@ -510,7 +510,7 @@ event private function_3981d015(eventstruct)
 		}
 		if(isdefined(newstate.var_c7ae60e8))
 		{
-			function_b562a1b4(dynent, newstate.var_c7ae60e8);
+			add_helico(dynent, newstate.var_c7ae60e8);
 		}
 		if(isdefined(newstate.var_879eb2ff))
 		{

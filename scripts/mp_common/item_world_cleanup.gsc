@@ -257,11 +257,11 @@ function private function_b7c5f376(deathcircle, var_898879a6)
 */
 function private function_6ef5c287(deathcircle, var_898879a6)
 {
-	if(!isdefined(level.var_a5f063d))
+	if(!isdefined(level.item_supply_drops))
 	{
 		return;
 	}
-	supplydrops = arraycopy(level.var_a5f063d);
+	supplydrops = arraycopy(level.item_supply_drops);
 	foreach(supplydrop in supplydrops)
 	{
 		if(!isdefined(supplydrop))
@@ -280,7 +280,7 @@ function private function_6ef5c287(deathcircle, var_898879a6)
 			waitframe(1);
 		}
 	}
-	arrayremovevalue(level.var_a5f063d, undefined, 0);
+	arrayremovevalue(level.item_supply_drops, undefined, 0);
 }
 
 /*

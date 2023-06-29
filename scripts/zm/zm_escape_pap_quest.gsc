@@ -126,7 +126,7 @@ function function_62933c32()
 		e_pack zm_pack_a_punch::function_bb629351(1);
 		pap_debris(0, e_pack.script_string);
 	}
-	level zm_ui_inventory::function_7df6bb60(#"hash_7629706a5a9c7bf7", 1);
+	level zm_ui_inventory::function_7df6bb60(#"zm_escape_paschal", 1);
 	level flag::set(#"pap_quest_completed");
 }
 
@@ -182,7 +182,7 @@ function function_124362b5(is_powered)
 				scene::play(#"hash_5220785f163cc4fc");
 				self zm_pack_a_punch::function_bb629351(1);
 				self thread function_c0bc0375();
-				level zm_ui_inventory::function_7df6bb60(#"hash_7629706a5a9c7bf7", 1);
+				level zm_ui_inventory::function_7df6bb60(#"zm_escape_paschal", 1);
 				level flag::set(#"pap_quest_completed");
 				util::delay(30, "game_over", &function_3357bedc);
 			}

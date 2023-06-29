@@ -89,7 +89,7 @@ function init()
 */
 function on_player_connect()
 {
-	self function_fc746047();
+	self init_played_time();
 }
 
 /*
@@ -135,7 +135,7 @@ function on_joined_spectators(params)
 }
 
 /*
-	Name: function_fc746047
+	Name: init_played_time
 	Namespace: teams
 	Checksum: 0xC68D6773
 	Offset: 0x3E8
@@ -143,7 +143,7 @@ function on_joined_spectators(params)
 	Parameters: 0
 	Flags: Linked
 */
-function function_fc746047()
+function init_played_time()
 {
 	if(!isdefined(self.pers[#"totaltimeplayed"]))
 	{

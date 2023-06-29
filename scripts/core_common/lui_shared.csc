@@ -144,7 +144,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cLUIelem
 		Checksum: 0xDB389259
 		Offset: 0x27A8
@@ -152,7 +152,7 @@ class cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
 		self.var_47e79fc = uid;
 		self.var_47d8642e = 1;
@@ -172,11 +172,11 @@ class cLUIelem
 		/#
 			assert(!var_47d8642e, "");
 		#/
-		clientfield::function_78175813("clientuimodel", var_2a0de052, (("luielement." + var_47e79fc) + ".") + field_name, version, undefined, 0, 0);
+		clientfield::register_bgcache("clientuimodel", var_2a0de052, (("luielement." + var_47e79fc) + ".") + field_name, version, undefined, 0, 0);
 	}
 
 	/*
-		Name: function_da693cbe
+		Name: add_clientfield
 		Namespace: cLUIelem
 		Checksum: 0x6DF9DD22
 		Offset: 0x2680
@@ -184,7 +184,7 @@ class cLUIelem
 		Parameters: 5
 		Flags: Linked
 	*/
-	function function_da693cbe(field_name, version, bits, type, callback)
+	function add_clientfield(field_name, version, bits, type, callback)
 	{
 		/#
 			assert(!var_47d8642e, "");
@@ -579,11 +579,11 @@ function setup_menu(localclientnum, menu_data, previous_menu)
 		}
 		else if(isdefined(new_menu.xcam))
 		{
-			var_f4c723e9 = (isdefined(new_menu.var_e57ed98b[currentsessionmode()]) ? new_menu.var_e57ed98b[currentsessionmode()] : new_menu);
-			camera_ent = struct::get(var_f4c723e9.target_name);
+			camera_data = (isdefined(new_menu.var_e57ed98b[currentsessionmode()]) ? new_menu.var_e57ed98b[currentsessionmode()] : new_menu);
+			camera_ent = struct::get(camera_data.target_name);
 			if(isdefined(camera_ent))
 			{
-				playmaincamxcam(localclientnum, var_f4c723e9.xcam, var_f4c723e9.lerp_time, var_f4c723e9.sub_xcam, "", camera_ent.origin, camera_ent.angles);
+				playmaincamxcam(localclientnum, camera_data.xcam, camera_data.lerp_time, camera_data.sub_xcam, "", camera_ent.origin, camera_ent.angles);
 			}
 		}
 		if(isdefined(new_menu.var_1f199068))
@@ -756,7 +756,7 @@ function client_menus(localclientnum)
 }
 
 /*
-	Name: function_b358e7d
+	Name: is_current_menu
 	Namespace: lui
 	Checksum: 0xF487D22B
 	Offset: 0x1C78
@@ -764,7 +764,7 @@ function client_menus(localclientnum)
 	Parameters: 3
 	Flags: Linked
 */
-function function_b358e7d(localclientnum, menu_name, state = undefined)
+function is_current_menu(localclientnum, menu_name, state = undefined)
 {
 	if(!isdefined(level.var_a14cc36b[localclientnum]) || level.var_a14cc36b[localclientnum].size == 0)
 	{
@@ -990,7 +990,7 @@ function function_b48acaf1(uid)
 }
 
 /*
-	Name: function_da693cbe
+	Name: add_clientfield
 	Namespace: lui
 	Checksum: 0x9DDF6A36
 	Offset: 0x25A8
@@ -998,9 +998,9 @@ function function_b48acaf1(uid)
 	Parameters: 5
 	Flags: None
 */
-function function_da693cbe(field_name, version, bits, type, callback)
+function add_clientfield(field_name, version, bits, type, callback)
 {
-	[[ self ]]->function_da693cbe(field_name, version, bits, type, callback);
+	[[ self ]]->add_clientfield(field_name, version, bits, type, callback);
 }
 
 /*

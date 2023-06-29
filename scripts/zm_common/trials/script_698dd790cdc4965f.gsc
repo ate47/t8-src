@@ -63,7 +63,7 @@ function private on_begin()
 		player function_6a8979c9();
 		player callback::function_33f0ddd3(&function_33f0ddd3);
 		player zm_trial_util::function_7dbb1712(1);
-		player callback::function_f77ced93(&zm_trial_util::function_79518194);
+		player callback::on_weapon_change(&zm_trial_util::function_79518194);
 	}
 	zm_trial_util::function_eea26e56();
 	level zm_trial::function_8e2a923(1);
@@ -83,7 +83,7 @@ function private on_end(round_reset)
 	foreach(player in getplayers())
 	{
 		player callback::function_824d206(&function_33f0ddd3);
-		player callback::function_5a753d97(&zm_trial_util::function_79518194);
+		player callback::remove_on_weapon_change(&zm_trial_util::function_79518194);
 		foreach(weapon in player getweaponslist(1))
 		{
 			player unlockweapon(weapon);

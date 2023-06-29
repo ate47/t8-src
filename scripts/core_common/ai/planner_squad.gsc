@@ -23,7 +23,7 @@ function private function_bf7acc22(squad)
 		bot = botinfo[#"__unsafe__"][#"bot"];
 		if(isdefined(bot) && isdefined(bot.bot))
 		{
-			bot bot::function_6c280dfe();
+			bot bot::clear_interact();
 		}
 	}
 }

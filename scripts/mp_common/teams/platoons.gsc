@@ -52,7 +52,7 @@ function private on_start_gametype()
 }
 
 /*
-	Name: function_a1d82bd3
+	Name: update_status
 	Namespace: platoons
 	Checksum: 0x9B7A6F6F
 	Offset: 0x160
@@ -60,7 +60,7 @@ function private on_start_gametype()
 	Parameters: 0
 	Flags: Linked
 */
-function function_a1d82bd3()
+function update_status()
 {
 	if(!function_382a49e0())
 	{

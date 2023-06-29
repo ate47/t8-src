@@ -101,9 +101,9 @@ function on_player_spawned()
 */
 function function_e49ceeb9(str_targetname)
 {
-	var_e007f14b = getent(str_targetname, "targetname");
-	var_5c7b8d71 = spawn("trigger_radius_new", var_e007f14b.origin, 0, 614);
-	var_5c7b8d71 thread function_91fabcb(var_e007f14b);
+	mdl_item = getent(str_targetname, "targetname");
+	var_5c7b8d71 = spawn("trigger_radius_new", mdl_item.origin, 0, 614);
+	var_5c7b8d71 thread function_91fabcb(mdl_item);
 }
 
 /*
@@ -139,9 +139,9 @@ function function_d69c301b()
 function forcestream_crafted_item(str_model, n_z_diff)
 {
 	level waittill(#"blueprint_completed");
-	var_e007f14b = getent(str_model, "targetname");
-	var_5c7b8d71 = spawn("trigger_radius_new", var_e007f14b.origin + (0, 0, n_z_diff), 0, 614);
-	var_5c7b8d71 thread function_91fabcb(var_e007f14b);
+	mdl_item = getent(str_model, "targetname");
+	var_5c7b8d71 = spawn("trigger_radius_new", mdl_item.origin + (0, 0, n_z_diff), 0, 614);
+	var_5c7b8d71 thread function_91fabcb(mdl_item);
 }
 
 /*
@@ -153,20 +153,20 @@ function forcestream_crafted_item(str_model, n_z_diff)
 	Parameters: 2
 	Flags: Linked
 */
-function function_91fabcb(var_e007f14b, b_clean_up = 0)
+function function_91fabcb(mdl_item, b_clean_up = 0)
 {
 	self endon(#"death");
 	if(b_clean_up)
 	{
-		self thread function_9aec1610(var_e007f14b);
+		self thread function_9aec1610(mdl_item);
 	}
 	while(true)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"trigger");
-		var_e007f14b clientfield::set("" + #"forcestream_crafted_item", 1);
+		mdl_item clientfield::set("" + #"forcestream_crafted_item", 1);
 		wait(3);
-		var_e007f14b clientfield::set("" + #"forcestream_crafted_item", 0);
+		mdl_item clientfield::set("" + #"forcestream_crafted_item", 0);
 		while(isdefined(s_result.activator) && s_result.activator istouching(self))
 		{
 			wait(1.6);
@@ -184,9 +184,9 @@ function function_91fabcb(var_e007f14b, b_clean_up = 0)
 	Parameters: 1
 	Flags: Linked
 */
-function function_9aec1610(var_e007f14b)
+function function_9aec1610(mdl_item)
 {
-	var_e007f14b waittill(#"death");
+	mdl_item waittill(#"death");
 	self delete();
 }
 

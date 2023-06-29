@@ -113,8 +113,8 @@ function private function_a1acece9()
 	self.var_2f68be48 = 1;
 	self zombie_utility::set_zombie_run_cycle();
 	self.base_speed = self.zombie_move_speed;
-	self function_10f99a8b();
-	self callback::function_d8abfc3d(#"hash_dfbeaa068b23e7c", &function_10f99a8b);
+	self setup_variant_type();
+	self callback::function_d8abfc3d(#"hash_dfbeaa068b23e7c", &setup_variant_type);
 	if(self.var_9fde8624 == #"hash_fd7b9665529dd42")
 	{
 		self attach(#"c_t8_zmb_dlc2_skeleton_helmet", "j_head");
@@ -146,7 +146,7 @@ function private function_a1acece9()
 }
 
 /*
-	Name: function_10f99a8b
+	Name: setup_variant_type
 	Namespace: archetype_skeleton
 	Checksum: 0x357D9E99
 	Offset: 0x7A0
@@ -154,7 +154,7 @@ function private function_a1acece9()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_10f99a8b(params)
+function private setup_variant_type(params)
 {
 	if(isdefined(level.var_cc1828c) && isdefined(level.var_cc1828c[self.zombie_move_speed]))
 	{

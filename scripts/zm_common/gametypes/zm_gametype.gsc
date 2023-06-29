@@ -537,7 +537,7 @@ function onspawnplayer(predictedspawn = 0)
 */
 function get_player_spawns_for_gametype()
 {
-	var_19c35ca = [];
+	a_s_player_spawns = [];
 	a_structs = struct::get_array("player_respawn_point", "targetname");
 	foreach(struct in a_structs)
 	{
@@ -548,30 +548,30 @@ function get_player_spawns_for_gametype()
 			{
 				if(var_5d975b01 == level.scr_zm_ui_gametype)
 				{
-					if(!isdefined(var_19c35ca))
+					if(!isdefined(a_s_player_spawns))
 					{
-						var_19c35ca = [];
+						a_s_player_spawns = [];
 					}
-					else if(!isarray(var_19c35ca))
+					else if(!isarray(a_s_player_spawns))
 					{
-						var_19c35ca = array(var_19c35ca);
+						a_s_player_spawns = array(a_s_player_spawns);
 					}
-					var_19c35ca[var_19c35ca.size] = struct;
+					a_s_player_spawns[a_s_player_spawns.size] = struct;
 				}
 			}
 			continue;
 		}
-		if(!isdefined(var_19c35ca))
+		if(!isdefined(a_s_player_spawns))
 		{
-			var_19c35ca = [];
+			a_s_player_spawns = [];
 		}
-		else if(!isarray(var_19c35ca))
+		else if(!isarray(a_s_player_spawns))
 		{
-			var_19c35ca = array(var_19c35ca);
+			a_s_player_spawns = array(a_s_player_spawns);
 		}
-		var_19c35ca[var_19c35ca.size] = struct;
+		a_s_player_spawns[a_s_player_spawns.size] = struct;
 	}
-	return var_19c35ca;
+	return a_s_player_spawns;
 }
 
 /*
@@ -660,7 +660,7 @@ function menu_onplayerconnect()
 }
 
 /*
-	Name: function_22d79e6e
+	Name: zm_map_restart
 	Namespace: zm_gametype
 	Checksum: 0x6C84FDB
 	Offset: 0x2230
@@ -668,7 +668,7 @@ function menu_onplayerconnect()
 	Parameters: 0
 	Flags: Linked
 */
-function function_22d79e6e()
+function zm_map_restart()
 {
 	self endon(#"disconnect");
 	while(!function_65f7de49())

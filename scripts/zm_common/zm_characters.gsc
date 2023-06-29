@@ -166,7 +166,7 @@ function function_b04c6f1f()
 		level.var_6f14e9e1 = [];
 	}
 	arrayremovevalue(level.var_6f14e9e1, undefined, 0);
-	var_8e495b9e = function_36936eeb();
+	var_8e495b9e = get_characters();
 	foreach(player in level.var_6f14e9e1)
 	{
 		if(isdefined(player.characterindex))
@@ -196,7 +196,7 @@ function function_b04c6f1f()
 function set_character(character)
 {
 	self detachall();
-	function_36936eeb();
+	get_characters();
 	if(isdefined(character))
 	{
 		if(isarray(character))
@@ -319,7 +319,7 @@ function setup_personality_character_exerts()
 }
 
 /*
-	Name: function_36936eeb
+	Name: get_characters
 	Namespace: zm_characters
 	Checksum: 0x57A9A01C
 	Offset: 0x1DC0
@@ -327,7 +327,7 @@ function setup_personality_character_exerts()
 	Parameters: 0
 	Flags: Linked
 */
-function function_36936eeb()
+function get_characters()
 {
 	if(!isdefined(level.characters))
 	{

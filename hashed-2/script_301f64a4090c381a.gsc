@@ -90,7 +90,7 @@ function function_9af806be(var_c5b25bc5)
 		case 1:
 		{
 			self player::function_2a67df65(#"fl1", -50);
-			self zm_utility::function_e0448fec();
+			self zm_utility::set_max_health();
 			break;
 		}
 		case 2:
@@ -101,7 +101,7 @@ function function_9af806be(var_c5b25bc5)
 		case 3:
 		{
 			self player::function_2a67df65(#"db1", 50);
-			self zm_utility::function_e0448fec();
+			self zm_utility::set_max_health();
 			break;
 		}
 		case 4:
@@ -117,11 +117,11 @@ function function_9af806be(var_c5b25bc5)
 		case 6:
 		{
 			self zm_laststand::function_3a00302e(1);
-			if(!isdefined(self.var_edd3eb35))
+			if(!isdefined(self.n_regen_delay))
 			{
-				self.var_edd3eb35 = zombie_utility::function_d2dfacfd("player_health_regen_delay");
+				self.n_regen_delay = zombie_utility::function_d2dfacfd("player_health_regen_delay");
 			}
-			self.var_edd3eb35 = self.var_edd3eb35 + 1;
+			self.n_regen_delay = self.n_regen_delay + 1;
 			break;
 		}
 	}
@@ -173,7 +173,7 @@ function function_2a94cd59()
 			case 6:
 			{
 				self zm_laststand::function_409dc98e(1, 0);
-				self.var_edd3eb35 = self.var_edd3eb35 - 1;
+				self.n_regen_delay = self.n_regen_delay - 1;
 				break;
 			}
 		}

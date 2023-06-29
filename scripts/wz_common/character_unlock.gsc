@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_170a9c130859c688;
+#using scripts\mp_common\item_world_fixup.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\mp_common\item_inventory.gsc;
 #using script_71e26f08f03b7a7a;
@@ -35,7 +35,7 @@ function __init__()
 {
 	level.var_b3681acb = (isdefined(getgametypesetting(#"hash_50b1121aee76a7e4")) ? getgametypesetting(#"hash_50b1121aee76a7e4") : 1);
 	callback::on_item_pickup(&function_6e8037ca);
-	callback::add_callback(#"hash_27e13b9438e33053", &function_28a6c197);
+	callback::add_callback(#"on_drop_inventory", &on_drop_inventory);
 	callback::add_callback(#"on_end_game", &on_end_game);
 	callback::on_disconnect(&on_player_disconnect);
 }
@@ -162,9 +162,9 @@ function function_f0406288(unlock_name)
 		return true;
 	}
 	var_9ba1646c = level.var_7d8da246[unlock_name];
-	item_name = var_9ba1646c.var_a531c26d;
-	var_a531c26d = self item_inventory::function_7fe4ce88(item_name);
-	if(isdefined(var_a531c26d))
+	item_name = var_9ba1646c.required_item;
+	required_item = self item_inventory::function_7fe4ce88(item_name);
+	if(isdefined(required_item))
 	{
 		return true;
 	}
@@ -229,7 +229,7 @@ function function_6e8037ca(params)
 	{
 		if(self function_d7e6fa92(unlock_name))
 		{
-			var_c340dd9f = getscriptbundle(var_9ba1646c.var_a531c26d);
+			var_c340dd9f = getscriptbundle(var_9ba1646c.required_item);
 			if(!isdefined(var_c340dd9f) || !isdefined(var_c340dd9f.unlockableitemref))
 			{
 				continue;
@@ -242,7 +242,7 @@ function function_6e8037ca(params)
 			self luinotifyevent(#"character_unlock_update", 2, 1, itemindex);
 			continue;
 		}
-		item_name = var_9ba1646c.var_a531c26d;
+		item_name = var_9ba1646c.required_item;
 		if(var_a6762160.name === item_name)
 		{
 			if(!isdefined(self.var_c53589da))
@@ -335,7 +335,7 @@ function function_20b0ca2e(unlock_name)
 			assert(isdefined(var_9ba1646c), ("" + function_9e72a96(unlock_name)) + "");
 		#/
 	#/
-	var_c340dd9f = getscriptbundle(var_9ba1646c.var_a531c26d);
+	var_c340dd9f = getscriptbundle(var_9ba1646c.required_item);
 	if(!isdefined(var_c340dd9f.unlockableitemref))
 	{
 		return;
@@ -455,13 +455,13 @@ function function_fb689837()
 			}
 			function_54fc60f5(self, var_2b469a7d);
 			var_ade8d0e9 = {#character:var_2b469a7d};
-			self callback::callback(#"hash_7fc16e58d454945", var_ade8d0e9);
+			self callback::callback(#"on_character_unlock", var_ade8d0e9);
 		}
 	}
 }
 
 /*
-	Name: function_28a6c197
+	Name: on_drop_inventory
 	Namespace: character_unlock
 	Checksum: 0x587A3808
 	Offset: 0x13F0
@@ -469,7 +469,7 @@ function function_fb689837()
 	Parameters: 1
 	Flags: Linked
 */
-function function_28a6c197(player)
+function on_drop_inventory(player)
 {
 	if(!isplayer(player))
 	{
@@ -481,9 +481,9 @@ function function_28a6c197(player)
 	}
 	foreach(unlock_name, var_9ba1646c in level.var_7d8da246)
 	{
-		item_name = var_9ba1646c.var_a531c26d;
-		var_a531c26d = player item_inventory::function_7fe4ce88(item_name);
-		if(isdefined(var_a531c26d))
+		item_name = var_9ba1646c.required_item;
+		required_item = player item_inventory::function_7fe4ce88(item_name);
+		if(isdefined(required_item))
 		{
 			player.var_474dff5e[unlock_name] = 1;
 		}

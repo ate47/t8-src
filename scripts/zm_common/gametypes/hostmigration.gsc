@@ -183,7 +183,7 @@ function callback_hostmigration()
 		return;
 	}
 	sethostmigrationstatus(1);
-	callback::function_daed27e8(#"hash_4d2043b190b84792");
+	callback::function_daed27e8(#"on_host_migration_begin");
 	level notify(#"host_migration_begin");
 	for(i = 0; i < level.players.size; i++)
 	{
@@ -301,7 +301,7 @@ function callback_hostmigration()
 		clientnum = level.players[i] getentitynumber();
 		level.players[i] stats::set_stat(#"afteractionreportstats", #"clientnum", clientnum);
 	}
-	callback::function_daed27e8(#"hash_137b937fd26992be");
+	callback::function_daed27e8(#"on_host_migration_end");
 	level notify(#"host_migration_end");
 }
 

@@ -142,7 +142,7 @@ class cct_timer_mod_ticks : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cct_timer_mod_ticks
 		Checksum: 0x23DA378C
 		Offset: 0x2D8
@@ -150,9 +150,9 @@ class cct_timer_mod_ticks : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -167,8 +167,8 @@ class cct_timer_mod_ticks : cLUIelem
 	function setup_clientfields(uid, var_2b2f0c89)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("timeMod", 1, 6, "int", var_2b2f0c89);
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("timeMod", 1, 6, "int", var_2b2f0c89);
 	}
 
 }
@@ -192,7 +192,7 @@ function register(uid, var_2b2f0c89)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: ct_timer_mod_ticks
 	Checksum: 0xDB8F4D7F
 	Offset: 0x110
@@ -200,10 +200,10 @@ function register(uid, var_2b2f0c89)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new cct_timer_mod_ticks();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

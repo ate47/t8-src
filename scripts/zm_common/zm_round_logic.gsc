@@ -1180,7 +1180,7 @@ function round_think(restart = 0)
 			player zm_stats::function_4dd876ad();
 			if(!(isdefined(zm_custom::function_901b751c(#"zmhealthdrain")) && zm_custom::function_901b751c(#"zmhealthdrain")) && !player laststand::player_is_in_laststand() && (isdefined(player.heal.enabled) && player.heal.enabled))
 			{
-				player zm_utility::function_e0448fec(1);
+				player zm_utility::set_max_health(1);
 			}
 			for(i = 0; i < 4; i++)
 			{
@@ -1285,7 +1285,7 @@ function round_timeout()
 function function_fb6aa5a3()
 {
 	level flag::clear("end_round_wait");
-	level callback::function_ec6dfc37(&function_fb6aa5a3);
+	level callback::remove_on_round_end(&function_fb6aa5a3);
 }
 
 /*

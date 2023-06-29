@@ -54,7 +54,7 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_546e7612359187c3", 8000, 1, "counter");
 	clientfield::register("toplayer", "" + #"mansion_mq_rumble", 8000, 1, "counter");
 	clientfield::register("world", "" + #"skybox_stream", 8000, 1, "int");
-	function_c739f755();
+	register_steps();
 	init_flags();
 	scene::add_scene_func(#"p8_fxanim_zm_man_atlas_bundle", &function_ea49787e, "init");
 	scene::add_scene_func(#"p8_fxanim_zm_man_telescope_bundle", &function_604f9d73, "init");
@@ -83,7 +83,7 @@ function init()
 	var_65c9997c ghost();
 	level thread function_5f259315();
 	level thread function_30fcf7ae();
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		level thread function_9513d3a6();
 		level thread function_3f64b455();
@@ -141,7 +141,7 @@ function function_30fcf7ae()
 function function_5f259315()
 {
 	level flag::wait_till(#"open_pap");
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		if(zm_custom::function_901b751c(#"hash_3c5363541b97ca3e") && zm_custom::function_901b751c(#"zmpapenabled") != 2)
 		{
@@ -151,7 +151,7 @@ function function_5f259315()
 }
 
 /*
-	Name: function_c739f755
+	Name: register_steps
 	Namespace: namespace_a8113e97
 	Checksum: 0x354AEF79
 	Offset: 0x1698
@@ -159,7 +159,7 @@ function function_5f259315()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c739f755()
+function register_steps()
 {
 	zm_sq::register(#"hash_559b7237b8acece2", #"step_1", #"hash_2388f47d8d90bdfb", &function_cdfe68a2, &cleanup_step_1);
 	zm_sq::register(#"hash_559b7237b8acece2", #"step_2", #"hash_2388f57d8d90bfae", &function_a03f8d25, &cleanup_step_2);
@@ -606,7 +606,7 @@ function function_d3128b5f()
 */
 function function_2038666b()
 {
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		return;
 	}
@@ -673,7 +673,7 @@ function function_57692917(s_ring)
 		level.var_1613cea0 = 1;
 		if(self.str_pos === "reset")
 		{
-			function_eeb45780();
+			ring_reset();
 		}
 		else
 		{
@@ -684,7 +684,7 @@ function function_57692917(s_ring)
 }
 
 /*
-	Name: function_eeb45780
+	Name: ring_reset
 	Namespace: namespace_a8113e97
 	Checksum: 0xF027C70A
 	Offset: 0x3350
@@ -692,7 +692,7 @@ function function_57692917(s_ring)
 	Parameters: 0
 	Flags: Linked
 */
-function function_eeb45780()
+function ring_reset()
 {
 	level.var_6ce9da5c.e_linkto rotateto(level.var_6ce9da5c.e_linkto.var_5287d229, 2);
 	level.var_7ff4f03a.e_linkto rotateto(level.var_7ff4f03a.e_linkto.var_5287d229, 2);
@@ -1943,7 +1943,7 @@ function function_31e641f5()
 		wait(0.1);
 	}
 	array::run_all(util::get_active_players(), &clientfield::increment_to_player, "" + #"mansion_mq_rumble", 1);
-	level flag::set(#"hash_1b9ecc7979b0fcfb");
+	level flag::set(#"disable_fast_travel");
 	level clientfield::set("fasttravel_exploder", 0);
 	exploder::exploder("fxexp_barrier_gameplay_observatory");
 	level thread mansion_util::function_f1c106b("loc4", 1);
@@ -2499,7 +2499,7 @@ function function_acf54a6a()
 function function_1be5e603()
 {
 	level flag::wait_till(#"greenhouse_open");
-	level flag::clear(#"hash_1b9ecc7979b0fcfb");
+	level flag::clear(#"disable_fast_travel");
 	level clientfield::set("fasttravel_exploder", 1);
 	exploder::stop_exploder("fxexp_barrier_gameplay_observatory");
 	level thread mansion_util::function_f1c106b("loc4", 0);

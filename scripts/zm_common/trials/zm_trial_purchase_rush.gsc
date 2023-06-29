@@ -53,7 +53,7 @@ function private on_begin(n_timer)
 	n_timer = zm_trial::function_5769f26a(n_timer);
 	level.var_63c017bd = n_timer;
 	callback::on_spawned(&on_player_spawned);
-	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::add_callback(#"on_host_migration_end", &function_ff66b979);
 	foreach(player in getplayers())
 	{
 		player thread function_2e2a518(n_timer);
@@ -73,7 +73,7 @@ function private on_end(round_reset)
 {
 	level.var_63c017bd = undefined;
 	callback::remove_on_spawned(&on_player_spawned);
-	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::remove_callback(#"on_host_migration_end", &function_ff66b979);
 	foreach(player in getplayers())
 	{
 		player stop_timer();

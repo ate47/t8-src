@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_27d214e32f50853d;
+#using scripts\zm_common\trials\zm_trial_damage_drains_points.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -656,7 +656,7 @@ function add_to_player_score(points, b_add_to_total = 1, str_awarded_by = "", va
 		self zm_stats::function_c0c6ab19(#"zearned", n_points_to_add_to_currency, 1);
 		level notify(#"earned_points", {#points:points, #player:self});
 		level thread zm_hero_weapon::function_3fe4a02e(self, points, str_awarded_by);
-		self contracts::function_5b88297d(#"hash_781e103e02826009", n_points_to_add_to_currency, #"zstandard");
+		self contracts::increment_zm_contract(#"hash_781e103e02826009", n_points_to_add_to_currency, #"zstandard");
 		if(zm_utility::is_standard())
 		{
 			self zm_stats::function_c0c6ab19(#"rush_points", n_points_to_add_to_currency);
@@ -698,7 +698,7 @@ function minus_to_player_score(points, b_forced = 0)
 	}
 	if(!b_forced)
 	{
-		self contracts::function_5b88297d(#"hash_257283d6c7065a1e", points);
+		self contracts::increment_zm_contract(#"hash_257283d6c7065a1e", points);
 	}
 	self.score = self.score - points;
 	self.pers[#"score"] = self.score;

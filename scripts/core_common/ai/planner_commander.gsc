@@ -397,7 +397,7 @@ function private function_9962ffd8(commander)
 		{
 			if(pause)
 			{
-				commander_util::function_a36c087f(team);
+				commander_util::pause_commander(team);
 				pause = 0;
 			}
 			else

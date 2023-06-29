@@ -61,7 +61,7 @@ class czm_towers_crowd_meter : cLUIelem
 		}
 		else
 		{
-			if(#"hash_2b0516887b8c733" == state_name)
+			if(#"crowd_server_paused" == state_name)
 			{
 				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
@@ -177,7 +177,7 @@ class czm_towers_crowd_meter : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_towers_crowd_meter
 		Checksum: 0xCD390F97
 		Offset: 0x2D8
@@ -185,9 +185,9 @@ class czm_towers_crowd_meter : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -202,8 +202,8 @@ class czm_towers_crowd_meter : cLUIelem
 	function setup_clientfields(uid, var_6ad1a3bb)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
-		cLUIelem::function_da693cbe("visible", 1, 1, "int", var_6ad1a3bb);
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("visible", 1, 1, "int", var_6ad1a3bb);
 	}
 
 }
@@ -227,7 +227,7 @@ function register(uid, var_6ad1a3bb)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_towers_crowd_meter
 	Checksum: 0xECDAC24
 	Offset: 0x110
@@ -235,10 +235,10 @@ function register(uid, var_6ad1a3bb)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_towers_crowd_meter();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

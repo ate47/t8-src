@@ -53,9 +53,9 @@ function __init__()
 */
 function private on_begin()
 {
-	callback::function_78ccee50(&function_78ccee50);
+	callback::on_weapon_fired(&on_weapon_fired);
 	callback::function_33f0ddd3(&function_33f0ddd3);
-	callback::function_f77ced93(&zm_trial_util::function_79518194);
+	callback::on_weapon_change(&zm_trial_util::function_79518194);
 	foreach(player in getplayers())
 	{
 		player thread zm_trial_util::function_bf710271(1, 1, 1, 0, 1);
@@ -75,9 +75,9 @@ function private on_begin()
 */
 function private on_end(round_reset)
 {
-	callback::function_deba137d(&function_78ccee50);
+	callback::remove_on_weapon_fired(&on_weapon_fired);
 	callback::function_824d206(&function_33f0ddd3);
-	callback::function_5a753d97(&zm_trial_util::function_79518194);
+	callback::remove_on_weapon_change(&zm_trial_util::function_79518194);
 	foreach(player in getplayers())
 	{
 		player notify(#"hash_1fbfdb0105f48f89");
@@ -115,7 +115,7 @@ function private function_33f0ddd3(s_event)
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: zm_trial_forced_reload
 	Checksum: 0x166EF71
 	Offset: 0x550
@@ -123,7 +123,7 @@ function private function_33f0ddd3(s_event)
 	Parameters: 1
 	Flags: Private
 */
-function private function_78ccee50(params)
+function private on_weapon_fired(params)
 {
 	self notify("3a8478a97b3babfa");
 	self endon("3a8478a97b3babfa");

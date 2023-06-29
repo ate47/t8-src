@@ -67,7 +67,7 @@ function init()
 	clientfield::register("vehicle", "" + #"hash_5da65e20d966c63f", 16000, 1, "counter");
 	clientfield::register("vehicle", "" + #"hash_463ff879b8d656bb", 16000, 1, "int");
 	clientfield::register("vehicle", "" + #"perseus_energy", 16000, 1, "int");
-	clientfield::register("world", "" + #"hash_6e61536372d6546d", 16000, 1, "int");
+	clientfield::register("world", "" + #"amphi_blood", 16000, 1, "int");
 	level.var_2f2b78fb = spawnstruct();
 	level.var_5cc61d5f = 0;
 	level.var_19819980 = 0;
@@ -95,13 +95,13 @@ function function_bda82828()
 	level flag::wait_till("all_players_spawned");
 	if(zm_custom::function_901b751c(#"zmpowerstate") == 2)
 	{
-		function_e8a7948d();
+		hide_skeletons();
 		function_e059d0e1();
 		return;
 	}
 	if(zm_custom::function_901b751c(#"zmpowerstate") == 0 || zm_custom::function_901b751c("zmMinibossState") == 2 || zm_custom::function_901b751c("zmEnhancedState") == 2)
 	{
-		function_e8a7948d();
+		hide_skeletons();
 		callback::remove_on_connect(&function_8efba1b4);
 		var_3e910f73 = getent("mdl_power_bullet", "targetname");
 		if(isdefined(var_3e910f73))
@@ -134,7 +134,7 @@ function function_bda82828()
 	var_3e910f73 thread zm_red_util::barrier_impact();
 	var_4ec3364d = getent("perseus_amphitheater_clip", "targetname");
 	var_4ec3364d notsolid();
-	level clientfield::set("" + #"hash_6e61536372d6546d", 1);
+	level clientfield::set("" + #"amphi_blood", 1);
 	a_n_sections = [];
 	level.var_2f2b78fb.var_9400690b = [];
 	level.var_2f2b78fb.var_5bf6d1df = 0;
@@ -254,7 +254,7 @@ function private function_d1435bda(player, var_feed7374)
 }
 
 /*
-	Name: function_e8a7948d
+	Name: hide_skeletons
 	Namespace: zm_red_power_quest
 	Checksum: 0x58A01871
 	Offset: 0x1CC0
@@ -262,7 +262,7 @@ function private function_d1435bda(player, var_feed7374)
 	Parameters: 0
 	Flags: Linked
 */
-function function_e8a7948d()
+function hide_skeletons()
 {
 	var_71da3f5a = getentarray("mdl_power_skeleton", "targetname");
 	foreach(mdl_skel in var_71da3f5a)
@@ -301,7 +301,7 @@ function function_77dd379a()
 	var_3e910f73.origin = var_3e910f73.origin + (0, 0, 2048);
 	mdl_blocker = getent("mdl_power_blocker", "targetname");
 	mdl_blocker delete();
-	function_e8a7948d();
+	hide_skeletons();
 	level.var_2f2b78fb.var_9400690b = [];
 	level.var_2f2b78fb.var_5bf6d1df = 0;
 	level.var_9400690b = [];
@@ -431,7 +431,7 @@ function despawn_zombie()
 function function_e059d0e1()
 {
 	hidemiscmodels("event_stands_zombies");
-	level clientfield::set("" + #"hash_6e61536372d6546d", 0);
+	level clientfield::set("" + #"amphi_blood", 0);
 	exploder::exploder("exp_lgt_power_event");
 	array::run_all(getentarray("event_ground_before", "targetname"), &delete);
 	array::run_all(getentarray("mdl_power_quest_aftermath_2", "targetname"), &solid);
@@ -989,7 +989,7 @@ function function_b3d827f()
 		mdl_sentinel_artifact clientfield::set("" + #"artifact_glow", 0);
 		mdl_sentinel_artifact stoploopsound();
 		mdl_sentinel_artifact playsound(#"hash_331b62b49768f70");
-		if(e_player zm_audio::function_65e5c19a())
+		if(e_player zm_audio::can_speak())
 		{
 			e_player thread zm_vo::function_a2bd5a0c(#"hash_497fcbdaee283347", 0.5, 1, 10000, 0);
 		}
@@ -1221,7 +1221,7 @@ function function_a5b8e88f(var_ddab7294 = 0)
 	level.var_ac6d10d4 = undefined;
 	zm_trial::function_ae725d63();
 	level thread function_1e9b5c67();
-	level thread function_c577b1bf();
+	level thread pegasus_intro();
 	level thread function_56c68db();
 	level flag::wait_till(#"pegasus_rescue");
 	wait(0.5);
@@ -1280,7 +1280,7 @@ function private function_9ead836c()
 }
 
 /*
-	Name: function_c577b1bf
+	Name: pegasus_intro
 	Namespace: zm_red_power_quest
 	Checksum: 0x5C5EF43D
 	Offset: 0x5678
@@ -1288,7 +1288,7 @@ function private function_9ead836c()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c577b1bf()
+function pegasus_intro()
 {
 	var_81f76694 = getent("pegasus_cloud", "targetname");
 	var_10d4f67d = util::spawn_model("c_t8_zmb_dlc2_pegasus_fb", var_81f76694.origin + (vectorscale((0, 0, -1), 285)), var_81f76694.angles);
@@ -1552,12 +1552,12 @@ function function_208a0da4(ai_zombie)
 		{
 			ai_zombie clientfield::set("" + #"pegasus_beam", 1);
 		}
-		ai_zombie thread function_52a818f();
+		ai_zombie thread pegasus_victim();
 	}
 }
 
 /*
-	Name: function_52a818f
+	Name: pegasus_victim
 	Namespace: zm_red_power_quest
 	Checksum: 0x6D53A85
 	Offset: 0x64A8
@@ -1565,7 +1565,7 @@ function function_208a0da4(ai_zombie)
 	Parameters: 0
 	Flags: Linked
 */
-function function_52a818f()
+function pegasus_victim()
 {
 	self endon(#"death");
 	self ai::stun();
@@ -1576,7 +1576,7 @@ function function_52a818f()
 		function_6eac4ca1(self, "electrocute");
 	}
 	wait(0.5);
-	self ai::function_62795e55();
+	self ai::clear_stun();
 	self clientfield::set("tesla_shock_eyes_fx", 0);
 	if(!zm_utility::is_magic_bullet_shield_enabled(self))
 	{

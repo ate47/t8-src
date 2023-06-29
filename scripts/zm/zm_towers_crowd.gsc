@@ -58,7 +58,7 @@ function init()
 	level thread function_e45ccfd7();
 	callback::on_spawned(&function_bdb90d4);
 	a_t_crowd_damage = getentarray("t_crowd_damage", "targetname");
-	array::thread_all(a_t_crowd_damage, &function_6020c0b2);
+	array::thread_all(a_t_crowd_damage, &crowd_damage_trigger);
 	level.var_857878e6 = &function_857878e6;
 	/#
 		zm_net::network_choke_init("", 3);
@@ -100,7 +100,7 @@ function function_e45ccfd7()
 	{
 		var_be17187b = undefined;
 		var_be17187b = level waittill(#"homunculus_thrown");
-		if(zm_utility::function_e51dc2d8() && isdefined(var_be17187b.e_homunculus))
+		if(zm_utility::is_ee_enabled() && isdefined(var_be17187b.e_homunculus))
 		{
 			var_be17187b.e_homunculus thread function_55d09221();
 		}
@@ -135,7 +135,7 @@ function function_55d09221()
 }
 
 /*
-	Name: function_6020c0b2
+	Name: crowd_damage_trigger
 	Namespace: zm_towers_crowd
 	Checksum: 0x36977936
 	Offset: 0xC48
@@ -143,7 +143,7 @@ function function_55d09221()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6020c0b2()
+function crowd_damage_trigger()
 {
 	self endon(#"death");
 	level endon(#"end_game");
@@ -1830,7 +1830,7 @@ function function_8e83be5d()
 			}
 			case "trap_activated":
 			{
-				e_player = waitresult.var_dd54ffdb;
+				e_player = waitresult.trap_activator;
 				str_event = #"trap_activated";
 				break;
 			}
@@ -2129,7 +2129,7 @@ function function_e0bb973(cmd)
 					}
 				}
 				level.var_55fdc354++;
-				if(zm_utility::function_e51dc2d8())
+				if(zm_utility::is_ee_enabled())
 				{
 					if(level.var_55fdc354 > 3)
 					{

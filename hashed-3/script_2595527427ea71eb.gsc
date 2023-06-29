@@ -101,7 +101,7 @@ class czm_trial_timer : cLUIelem
 	{
 		cLUIelem::setup_clientfields(uid);
 		cLUIelem::function_dcb34c80("string", "timer_text", 1);
-		cLUIelem::function_da693cbe("under_round_rules", 5000, 1, "int");
+		cLUIelem::add_clientfield("under_round_rules", 5000, 1, "int");
 	}
 
 }

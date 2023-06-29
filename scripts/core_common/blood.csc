@@ -84,7 +84,7 @@ function private function_e79ccfd8(localclientnum)
 		codestoppostfxbundlelocal(localclientnum, #"hash_73c750f53749d44d");
 	}
 	self.pstfx_blood = #"hash_44dcb6ac5e8787e0";
-	self.var_36732900 = "rob_wound_blood_splatter";
+	self.wound_rob = "rob_wound_blood_splatter";
 	function_162fe6ec(localclientnum);
 	self.var_9861062 = 0;
 	if(level.blood.rob.stage == 0)
@@ -135,7 +135,7 @@ function private setcontrollerlightbarcolorpulsing(localclientnum, color, pulser
 }
 
 /*
-	Name: function_e67f278c
+	Name: update_lightbar
 	Namespace: blood
 	Checksum: 0xD33AE92F
 	Offset: 0x798
@@ -143,7 +143,7 @@ function private setcontrollerlightbarcolorpulsing(localclientnum, color, pulser
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_e67f278c(localclientnum)
+function private update_lightbar(localclientnum)
 {
 	if(!(isdefined(self.nobloodlightbarchange) && self.nobloodlightbarchange))
 	{
@@ -328,8 +328,8 @@ function private function_8e228a1d(localclientnum, damage)
 {
 	if(damage > level.blood.rob.damage_threshold)
 	{
-		self playrenderoverridebundle(self.var_36732900);
-		self thread function_f192f00b(localclientnum, self.var_36732900);
+		self playrenderoverridebundle(self.wound_rob);
+		self thread function_f192f00b(localclientnum, self.wound_rob);
 	}
 }
 
@@ -372,7 +372,7 @@ function ramprobsetting(localclientnum, from, to, ramptime, key)
 	self endon(#"killbloodoverlay");
 	self notify("rampROBsetting" + key);
 	self endon("rampROBsetting" + key);
-	util::lerp_generic(localclientnum, ramptime, &function_1126eb8c, from, to, key, self.var_36732900);
+	util::lerp_generic(localclientnum, ramptime, &function_1126eb8c, from, to, key, self.wound_rob);
 }
 
 /*
@@ -488,10 +488,10 @@ function private update_damage_effects(localclientnum, damage, death)
 	}
 	else
 	{
-		if(self.var_430c4b70 === 1 && damage > 0)
+		if(self.dot_damaged === 1 && damage > 0)
 		{
 			function_47d0632f(localclientnum, damage, death, 1, 0);
-			self.var_430c4b70 = 0;
+			self.dot_damaged = 0;
 		}
 		else if(damage > 0)
 		{
@@ -730,19 +730,19 @@ function private function_55d01d42()
 	if(isdefined(fields) && (isdefined(fields.digitalblood) ? fields.digitalblood : 0))
 	{
 		self.pstfx_blood = #"hash_21152915158b09dd";
-		self.var_36732900 = "rob_wound_blood_splatter_reaper";
+		self.wound_rob = "rob_wound_blood_splatter_reaper";
 	}
 	else
 	{
 		if(util::is_mature())
 		{
 			self.pstfx_blood = #"hash_263a0659c7ff81ad";
-			self.var_36732900 = "rob_wound_blood_splatter";
+			self.wound_rob = "rob_wound_blood_splatter";
 		}
 		else
 		{
 			self.pstfx_blood = #"hash_44dcb6ac5e8787e0";
-			self.var_36732900 = "rob_wound_blood_splatter";
+			self.wound_rob = "rob_wound_blood_splatter";
 		}
 	}
 }
@@ -802,7 +802,7 @@ function private function_87544c4a(localclientnum)
 				self function_70299400(localclientnum);
 			}
 			self function_9a8dc0ec(localclientnum, var_406028bf, forceupdate);
-			self function_e67f278c(localclientnum);
+			self update_lightbar(localclientnum);
 		}
 		else if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
@@ -1037,7 +1037,7 @@ function private function_9a8dc0ec(localclientnum, playerhealth, forceupdate)
 		}
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_116b95e5(self.pstfx_blood, #"hash_3886e6a5c0c3df4c", level.blood.var_d3813c3a[new_blood_stage]);
+			self function_116b95e5(self.pstfx_blood, #"hash_3886e6a5c0c3df4c", level.blood.blood_boost[new_blood_stage]);
 		}
 		self function_56419db8(new_blood_stage);
 		self function_5a719e5(localclientnum, new_blood_stage, prior_blood_stage);
@@ -1199,26 +1199,26 @@ function private function_dd830dee()
 	{
 		level.blood.refraction[4] = (isdefined(level.blood.scriptbundle.var_e790f8e6) ? level.blood.scriptbundle.var_e790f8e6 : 0);
 	}
-	level.blood.var_d3813c3a = [];
-	if(!isdefined(level.blood.var_d3813c3a[0]))
+	level.blood.blood_boost = [];
+	if(!isdefined(level.blood.blood_boost[0]))
 	{
-		level.blood.var_d3813c3a[0] = (isdefined(level.blood.scriptbundle.var_fd86eebc) ? level.blood.scriptbundle.var_fd86eebc : 0);
+		level.blood.blood_boost[0] = (isdefined(level.blood.scriptbundle.var_fd86eebc) ? level.blood.scriptbundle.var_fd86eebc : 0);
 	}
-	if(!isdefined(level.blood.var_d3813c3a[1]))
+	if(!isdefined(level.blood.blood_boost[1]))
 	{
-		level.blood.var_d3813c3a[1] = (isdefined(level.blood.scriptbundle.var_e741c232) ? level.blood.scriptbundle.var_e741c232 : 0);
+		level.blood.blood_boost[1] = (isdefined(level.blood.scriptbundle.var_e741c232) ? level.blood.scriptbundle.var_e741c232 : 0);
 	}
-	if(!isdefined(level.blood.var_d3813c3a[2]))
+	if(!isdefined(level.blood.blood_boost[2]))
 	{
-		level.blood.var_d3813c3a[2] = (isdefined(level.blood.scriptbundle.var_e11b35e5) ? level.blood.scriptbundle.var_e11b35e5 : 0);
+		level.blood.blood_boost[2] = (isdefined(level.blood.scriptbundle.var_e11b35e5) ? level.blood.scriptbundle.var_e11b35e5 : 0);
 	}
-	if(!isdefined(level.blood.var_d3813c3a[3]))
+	if(!isdefined(level.blood.blood_boost[3]))
 	{
-		level.blood.var_d3813c3a[3] = (isdefined(level.blood.scriptbundle.var_cadf096d) ? level.blood.scriptbundle.var_cadf096d : 0);
+		level.blood.blood_boost[3] = (isdefined(level.blood.scriptbundle.var_cadf096d) ? level.blood.scriptbundle.var_cadf096d : 0);
 	}
-	if(!isdefined(level.blood.var_d3813c3a[4]))
+	if(!isdefined(level.blood.blood_boost[4]))
 	{
-		level.blood.var_d3813c3a[4] = (isdefined(level.blood.scriptbundle.var_c3ad7b0a) ? level.blood.scriptbundle.var_c3ad7b0a : 0);
+		level.blood.blood_boost[4] = (isdefined(level.blood.scriptbundle.var_c3ad7b0a) ? level.blood.scriptbundle.var_c3ad7b0a : 0);
 	}
 	level.blood.blur = [];
 	if(!isdefined(level.blood.blur[0]))
@@ -1351,7 +1351,7 @@ function private function_dd830dee()
 	level.blood.rob = spawnstruct();
 	if(!isdefined(level.blood.rob.stage))
 	{
-		level.blood.rob.stage = (isdefined(level.blood.scriptbundle.var_5e7ac43f) ? level.blood.scriptbundle.var_5e7ac43f : 0);
+		level.blood.rob.stage = (isdefined(level.blood.scriptbundle.rob_stage) ? level.blood.scriptbundle.rob_stage : 0);
 	}
 	if(!isdefined(level.blood.rob.hold_time))
 	{

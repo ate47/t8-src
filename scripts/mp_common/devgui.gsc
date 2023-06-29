@@ -234,10 +234,10 @@ function function_cb7cee87()
 		var_fca60300 = function_5e2d2d9b();
 		foreach(item_hash, boasts in var_fca60300)
 		{
-			var_64345a05 = (player_devgui_base + function_9e72a96(item_hash)) + "";
+			item_root = (player_devgui_base + function_9e72a96(item_hash)) + "";
 			foreach(boast in boasts)
 			{
-				util::add_devgui(var_64345a05 + function_9e72a96(boast), (("" + "") + "") + function_9e72a96(boast));
+				util::add_devgui(item_root + function_9e72a96(boast), (("" + "") + "") + function_9e72a96(boast));
 			}
 			waitframe(1);
 		}
@@ -1337,11 +1337,11 @@ function function_773432e2()
 			{
 				if(actionid != -1)
 				{
-					player luinotifyevent(#"hash_468a2878939e8c64", 1, actionid);
+					player luinotifyevent(#"challenge_coin_received", 1, actionid);
 				}
 				if(var_97c83f66 != -1)
 				{
-					player luinotifyevent(#"hash_2ba26a631965ab0b", 1, var_97c83f66);
+					player luinotifyevent(#"end_sustaining_action", 1, var_97c83f66);
 				}
 				if(hotstreakstage != -1)
 				{

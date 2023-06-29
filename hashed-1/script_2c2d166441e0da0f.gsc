@@ -29,7 +29,7 @@ function init()
 	level.var_6df0d3b6 = &function_6df0d3b6;
 	if(isdefined(level.warzoneblightfatherseverywhere) && level.warzoneblightfatherseverywhere && (isdefined(level.var_d33a57a) && level.var_d33a57a))
 	{
-		function_36cc50(#"hash_50c4ae7eab84983b", 1, 1);
+		function_36cc50(#"spawner_wz_blight_father", 1, 1);
 	}
 	else
 	{
@@ -41,7 +41,7 @@ function init()
 		{
 			if(isdefined(level.warzonebrutuslargeeverywhere) && level.warzonebrutuslargeeverywhere && (isdefined(level.var_4f7f5c18) && level.var_4f7f5c18))
 			{
-				function_36cc50(#"hash_2d45c1aaf7808b60", 4, 2);
+				function_36cc50(#"spawner_boct_brutus_special_wz", 4, 2);
 			}
 			else
 			{
@@ -53,7 +53,7 @@ function init()
 				{
 					if(isdefined(level.warzoneavogadroeverywhere) && level.warzoneavogadroeverywhere && (isdefined(level.var_9196aafd) && level.var_9196aafd))
 					{
-						function_36cc50(#"hash_78b8c004294d69fe", 4, 2);
+						function_36cc50(#"spawner_boct_avogadro", 4, 2);
 					}
 					else
 					{

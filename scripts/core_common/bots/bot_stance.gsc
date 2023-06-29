@@ -32,7 +32,7 @@ function __init__()
 {
 	level.var_17a3a139 = [];
 	level.botstances = [];
-	register_handler(#"default", &function_51cc7d9a);
+	register_handler(#"default", &handle_default);
 	register_handler(#"hash_2405aec12988c1f7", &function_7857357b);
 	register_handler(#"hash_ca2f8909b847c6f", &function_f1b497ec);
 	register_handler(#"hash_7a468797a3a33424", &function_41d967fe);
@@ -297,7 +297,7 @@ function g_stop_player_too_many_weapons_monitor(name)
 }
 
 /*
-	Name: function_51cc7d9a
+	Name: handle_default
 	Namespace: bot_stance
 	Checksum: 0x1E1F5F2C
 	Offset: 0xAE8
@@ -305,7 +305,7 @@ function g_stop_player_too_many_weapons_monitor(name)
 	Parameters: 3
 	Flags: Linked
 */
-function function_51cc7d9a(tacbundle, params, node)
+function handle_default(tacbundle, params, node)
 {
 	return self g_stop_player_too_many_weapons_monitor(params.stance);
 }

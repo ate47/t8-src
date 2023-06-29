@@ -42,7 +42,7 @@ function private function_8240e8b4()
 }
 
 /*
-	Name: function_b8d4946e
+	Name: init_tracking
 	Namespace: tracking
 	Checksum: 0x45119AA8
 	Offset: 0x180
@@ -50,7 +50,7 @@ function private function_8240e8b4()
 	Parameters: 1
 	Flags: None
 */
-function function_b8d4946e(window)
+function init_tracking(window)
 {
 	self.tracking = {#time_step:(int(window * 1000)) / 20, #window:window, #speed:0, #velocity:(0, 0, 0), #hash_712fc53e:0, #current_crumb:0, #breadcrumbs:[]};
 	crumb = {#time:level.time, #point:self.origin};
@@ -66,7 +66,7 @@ function function_b8d4946e(window)
 }
 
 /*
-	Name: function_c9f765ff
+	Name: track_points
 	Namespace: tracking
 	Checksum: 0x61CAE7C9
 	Offset: 0x320
@@ -74,7 +74,7 @@ function function_b8d4946e(window)
 	Parameters: 0
 	Flags: Private
 */
-function private function_c9f765ff()
+function private track_points()
 {
 	self endon(#"disconnect");
 	while(true)
@@ -99,8 +99,8 @@ function track(window)
 	{
 		return;
 	}
-	self function_b8d4946e(window);
-	self thread function_c9f765ff();
+	self init_tracking(window);
+	self thread track_points();
 }
 
 /*
@@ -148,7 +148,7 @@ function get_velocity()
 }
 
 /*
-	Name: function_ef4b25ba
+	Name: debug_tracking
 	Namespace: tracking
 	Checksum: 0x578D03C3
 	Offset: 0x600
@@ -156,7 +156,7 @@ function get_velocity()
 	Parameters: 0
 	Flags: None
 */
-function function_ef4b25ba()
+function debug_tracking()
 {
 	/#
 		self endon(#"disconnect");

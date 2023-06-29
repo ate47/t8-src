@@ -215,7 +215,7 @@ function private function_5bb13b48(player)
 		else
 		{
 			player iprintlnbold(#"hash_5a11b7ef0cd7e33b");
-			player playsoundtoplayer(#"hash_7527c43b92789608", player);
+			player playsoundtoplayer(#"uin_unavailable_charging", player);
 		}
 	}
 	if(!(isdefined(level.var_aff59367) && level.var_aff59367) && self.usecount >= level.var_ad9d03e7)

@@ -56,16 +56,16 @@ function __init__()
 */
 function __main__()
 {
-	level bot_action::function_66dacac1();
+	level bot_action::register_actions();
 	level bot_action::register_weapons();
 	level bot_action::function_25f1e3c1();
-	level function_66dacac1();
+	level register_actions();
 	level register_weapons();
 	level function_25f1e3c1();
 }
 
 /*
-	Name: function_66dacac1
+	Name: register_actions
 	Namespace: namespace_104c3c75
 	Checksum: 0xAB322BCC
 	Offset: 0x230
@@ -73,7 +73,7 @@ function __main__()
 	Parameters: 0
 	Flags: Linked
 */
-function function_66dacac1()
+function register_actions()
 {
 	bot_action::register_action(#"hash_43618a52a3bededc", &bot_action::weapon_rank, &function_bcb5ef11, &bot_action::function_c27fa689);
 	bot_action::register_action(#"throw_molotov", &bot_action::weapon_rank, &function_1275c409, &bot_action::function_90c011d5);
@@ -147,8 +147,8 @@ function function_938667bd()
 	bot_action::register_action(#"use_tripwire", &bot_action::weapon_rank, &function_d18123f8, &use_tripwire);
 	bot_action::register_action(#"activate_dog", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_4600e058d958fc21", &bot_action::weapon_rank, &function_17a8721f, &function_76c8b8e8);
-	bot_action::register_action(#"hash_2ca8b8806f95285b", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
-	bot_action::register_action(#"hash_79f1bffaa4e2fbd8", &bot_action::weapon_rank, &function_554a6177, &function_65bade);
+	bot_action::register_action(#"activate_vision_pulse", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
+	bot_action::register_action(#"hash_79f1bffaa4e2fbd8", &bot_action::weapon_rank, &function_554a6177, &use_grapple);
 	bot_action::register_action(#"hash_6b075b8b88b1cef", &bot_action::weapon_rank, &function_97e7772c, &bot_action::function_94f96101);
 	bot_action::register_action(#"deploy_spawnbeacon", &bot_action::weapon_rank, &function_9a0eb4f0, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_17f1a25f8c10e1cd", &bot_action::weapon_rank, &function_4a95cdaf, &bot_action::function_49161e05);
@@ -305,7 +305,7 @@ function function_aaede90c()
 	bot_action::function_a2c83569(#"shock_rifle", #"hash_7aaeac32a4e1bf84");
 	bot_action::function_a2c83569(#"shock_rifle", #"hash_434716893aa869f3");
 	bot_action::function_7e847a84(#"eq_sensor", #"hash_4600e058d958fc21");
-	bot_action::function_7e847a84(#"gadget_vision_pulse", #"hash_2ca8b8806f95285b");
+	bot_action::function_7e847a84(#"gadget_vision_pulse", #"activate_vision_pulse");
 	bot_action::function_7e847a84(#"eq_grapple", #"hash_79f1bffaa4e2fbd8");
 	bot_action::function_7e847a84(#"eq_gravityslam", #"hash_6b075b8b88b1cef");
 	bot_action::function_7e847a84(#"gadget_spawnbeacon", #"deploy_spawnbeacon");
@@ -969,7 +969,7 @@ function function_554a6177(actionparams)
 }
 
 /*
-	Name: function_65bade
+	Name: use_grapple
 	Namespace: namespace_104c3c75
 	Checksum: 0x34B4C308
 	Offset: 0x3FF8
@@ -977,7 +977,7 @@ function function_554a6177(actionparams)
 	Parameters: 1
 	Flags: Linked
 */
-function function_65bade(actionparams)
+function use_grapple(actionparams)
 {
 	weapon = actionparams.weapon;
 	if(!isdefined(weapon))

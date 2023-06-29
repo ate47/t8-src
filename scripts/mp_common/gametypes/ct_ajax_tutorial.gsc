@@ -1337,7 +1337,7 @@ function function_109c0cc2()
 			return;
 		}
 	}
-	callback::function_e2ca0af6(&ct_utils::function_944e4110);
+	callback::remove_on_player_killed_with_params(&ct_utils::function_944e4110);
 }
 
 /*

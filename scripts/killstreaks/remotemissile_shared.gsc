@@ -124,7 +124,7 @@ function function_bff5c062(remotemissile, attackingplayer)
 */
 function on_player_spawned()
 {
-	self.var_795afb1f = undefined;
+	self.lockedin = undefined;
 	self destroy_missile_hud();
 }
 
@@ -1162,7 +1162,7 @@ function getbesttarget(rocket, trace)
 	enemies = self getenemies();
 	foreach(player in enemies)
 	{
-		if(!isplayer(player) || (isdefined(player.var_795afb1f) && player.var_795afb1f))
+		if(!isplayer(player) || (isdefined(player.lockedin) && player.lockedin))
 		{
 			continue;
 		}

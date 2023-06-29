@@ -58,7 +58,7 @@ function grab_bonus_points_player(player)
 	player thread zm_powerups::powerup_vo("bonus");
 	if(zm_utility::is_standard())
 	{
-		player contracts::function_5b88297d(#"hash_722a0179c583fff8");
+		player contracts::increment_zm_contract(#"hash_722a0179c583fff8");
 	}
 }
 

@@ -60,7 +60,7 @@ function __init__()
 function private on_begin()
 {
 	function_58fc4e38(8);
-	level flag::set(#"hash_1b9ecc7979b0fcfb");
+	level flag::set(#"disable_fast_travel");
 	var_57ba058f = getentarray("gondola_call_trigger", "targetname");
 	var_9ce0aba1 = getentarray("gondola_move_trigger", "targetname");
 	array::run_all(var_57ba058f, &setinvisibletoall);
@@ -78,7 +78,7 @@ function private on_begin()
 */
 function private on_end(round_reset)
 {
-	level flag::clear(#"hash_1b9ecc7979b0fcfb");
+	level flag::clear(#"disable_fast_travel");
 	var_57ba058f = getentarray("gondola_call_trigger", "targetname");
 	var_9ce0aba1 = getentarray("gondola_move_trigger", "targetname");
 	array::run_all(var_57ba058f, &setvisibletoall);

@@ -921,7 +921,7 @@ function function_e270dfe4()
 }
 
 /*
-	Name: function_8b5765c6
+	Name: make_wobble
 	Namespace: zm_escape_util
 	Checksum: 0x1AE43E92
 	Offset: 0x29A0
@@ -929,7 +929,7 @@ function function_e270dfe4()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8b5765c6()
+function make_wobble()
 {
 	waittime = randomfloatrange(2.5, 5);
 	yaw = randomint(360);

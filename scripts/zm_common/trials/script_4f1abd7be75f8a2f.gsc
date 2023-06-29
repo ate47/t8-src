@@ -18,7 +18,7 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_49eecaed064bc08d", &__init__, undefined, undefined);
+	system::register(#"kills_with_flinger", &__init__, undefined, undefined);
 }
 
 /*
@@ -36,7 +36,7 @@ function __init__()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_49eecaed064bc08d", &on_begin, &on_end);
+	zm_trial::register_challenge(#"kills_with_flinger", &on_begin, &on_end);
 }
 
 /*

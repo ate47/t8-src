@@ -88,6 +88,7 @@ In zombies, the `zm_custom::function_901b751c(setting)` can be used to find sett
 - `"hash_6fbf57e2af153e5f"` - spawn homunculus
 - `"hash_53b5887dea69a320"` - enable spring homunculus
 - `"laststandrevivetime"` - time to revive a player
+- `"wzplayerinsertiontypeindex"` - Respawn type, 0=helicopter,1=portals,2=direct freefall??
 
 ### XP
 
@@ -161,12 +162,13 @@ the `"hash_50b1121aee76a7e4"` allow to unlock characters, then you have per char
 
 ### Modes
 
-- `"wzspectrerising"` - Is WZ Spectrer rising mode (true|false)
-- `"wzhardcore"` - Is WZ Hardcore mode (true|false)
-- `"wzheavymetalheroes"` - Is WZ Heavy metal heroes mode (true|false)
-- `"wzzombieapocalypse"` - Is WZ Pandemic mode (true|false)
-- `"wzambush"` - Is WZ Ambush mode (true|false)
-- `"wzwetworks"` - Is WZ Wetworks event (only affect vehicle spewn) (true|false)
+- `"wzspectrerising"` - Is WZ Spectrer rising mode
+- `"wzhardcore"` - Is WZ Hardcore mode
+- `"wzheavymetalheroes"` - Is WZ Heavy metal heroes mode
+- `"wzzombieapocalypse"` - Is WZ Pandemic mode
+- `"wzambush"` - Is WZ Ambush mode
+- `"wzwetworks"` - Is WZ Wetworks event (only affect vehicle spewn)
+- `"wzbigteambattle"` - Is WZ Ground War mode
 
 ### Item spawn
 
@@ -339,9 +341,10 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablesniperscope"` - Enable sniper scope
 - `"wzenablesuppressor"` Enable suppressor
 - `"wzenableextbarrel"` Enable extended barrel
-- `"hash_230f75891223e1f5"` Enable attachment unknown
-- `"hash_76563462cf31f5c"` Enable attachment unknown
-- `"hash_daba3be8725aaab"` Enable attachment unknown
+- `"wzenableextfastmag"` Enable hybrid mag
+- `"wzenable4xscope"` Enable 4x scope
+- `"wzenable3xscope"` Enable 3x scope
+- `"wzenable2xscope"` Enable 2x scope
 - `"wzenableforegrip"` Enable foregrip
 - `"wzenablepistolgrip"` Enable pistol grip
 
@@ -457,6 +460,7 @@ Or by elixir:
 - `"zmelixirantientrapment"` allow elixir antientrapment
 - `"zmelixiranywherebuthere"` allow elixir anywherebuthere
 - `"zmelixirarsenalaccelerator"` allow elixir arsenalaccelerator
+- `"zmelixirblooddebt"` allow elixir blood debt
 - `"zmelixirboardgames"` allow elixir boardgames
 - `"zmelixirbulletboost"` allow elixir bulletboost
 - `"zmelixirburnedout"` allow elixir burnedout
@@ -503,6 +507,7 @@ Or by elixir:
 - `"zmelixirtemporalgift"` allow elixir temporalgift
 - `"zmelixirundeadmanwalking"` allow elixir undeadmanwalking
 - `"zmelixirwallpower"` allow elixir wallpower
+- `"zmelixirwalltowall"` allow elixir wall to wall
 - `"zmelixirwhoskeepingscore"` allow elixir whoskeepingscore
 
 ### Talismans

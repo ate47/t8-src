@@ -233,7 +233,7 @@ class csceneplayer : csceneobject
 	}
 
 	/*
-		Name: function_f85ac52
+		Name: get_extracam_index
 		Namespace: csceneplayer
 		Checksum: 0x59FE3436
 		Offset: 0x5F58
@@ -241,7 +241,7 @@ class csceneplayer : csceneobject
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_f85ac52(player)
+	function get_extracam_index(player)
 	{
 		var_82e125b6 = (isdefined(var_55b4f21e.extracamindex) ? var_55b4f21e.extracamindex : _s.extracamindex);
 		if(isdefined(var_82e125b6))
@@ -495,7 +495,7 @@ class csceneplayer : csceneobject
 		player.current_scene = undefined;
 		player.scene_takedamage = undefined;
 		player._scene_old_gun_removed = undefined;
-		if(!([[ _o_scene ]]->function_19015532(_str_shot)) || _o_scene._str_mode === "single")
+		if(!([[ _o_scene ]]->has_next_shot(_str_shot)) || _o_scene._str_mode === "single")
 		{
 			player thread scene::scene_enable_player_stuff(_o_scene._s, _s, _o_scene._e_root);
 			var_700fed0d = player getentitynumber() + 2;
@@ -946,7 +946,7 @@ class csceneplayer : csceneobject
 	}
 
 	/*
-		Name: function_762978f8
+		Name: check_input
 		Namespace: csceneplayer
 		Checksum: 0x8EBD13EB
 		Offset: 0x3A30
@@ -954,7 +954,7 @@ class csceneplayer : csceneobject
 		Parameters: 3
 		Flags: Linked
 	*/
-	function function_762978f8(player, var_ec50a0d3, var_966ea21d)
+	function check_input(player, var_ec50a0d3, var_966ea21d)
 	{
 		if(isbot(player) && function_c503dca9(player, var_ec50a0d3))
 		{
@@ -1156,7 +1156,7 @@ class csceneplayer : csceneobject
 		self._str_current_anim = csceneobject::get_animation_name(_str_shot);
 		while(true)
 		{
-			result = function_762978f8(player, var_ec50a0d3, var_966ea21d);
+			result = check_input(player, var_ec50a0d3, var_966ea21d);
 			if(result === "combat")
 			{
 				n_movement = undefined;
@@ -1210,7 +1210,7 @@ class csceneplayer : csceneobject
 				{
 					var_7a496fd5 = var_7a496fd5 - (float(function_60d95f53()) / 1000);
 					var_33d5f97d = var_33d5f97d - (float(function_60d95f53()) / 1000);
-					b_result = function_762978f8(player, var_ec50a0d3, var_966ea21d);
+					b_result = check_input(player, var_ec50a0d3, var_966ea21d);
 					if(b_result)
 					{
 						var_1d3b9f6c = 1;
@@ -1233,7 +1233,7 @@ class csceneplayer : csceneobject
 					while(var_33d5f97d > 0)
 					{
 						var_33d5f97d = var_33d5f97d - (float(function_60d95f53()) / 1000);
-						b_result = function_762978f8(player, var_ec50a0d3, var_966ea21d);
+						b_result = check_input(player, var_ec50a0d3, var_966ea21d);
 						if(b_result)
 						{
 							var_1d3b9f6c = 1;
@@ -1280,7 +1280,7 @@ class csceneplayer : csceneobject
 						/#
 							assert(isassetloaded("", var_55b4f21e.var_f251a00e), ("" + var_55b4f21e.var_f251a00e) + "");
 						#/
-						var_208325df = player gestures::function_b204f6e3(var_55b4f21e.var_f251a00e, undefined, 0, 0);
+						var_208325df = player gestures::play_gesture(var_55b4f21e.var_f251a00e, undefined, 0, 0);
 					}
 					e_player_link = util::spawn_model("tag_origin", var_1cd52bd9, var_59c304d1);
 					player playerlinktodelta(e_player_link, undefined, 1, player.player_anim_clamp_right, player.player_anim_clamp_left, player.player_anim_clamp_top, player.player_anim_clamp_bottom);
@@ -1623,9 +1623,9 @@ class csceneplayer : csceneobject
 				}
 				else
 				{
-					var_4e2bf3dc = player getweaponoptions(w_primary);
+					a_weapon_options = player getweaponoptions(w_primary);
 					player val::set(#"hash_42d78b644f22da0b", "take_weapons", 1);
-					player giveweapon(getweapon(#"ar_accurate_t8"), var_4e2bf3dc);
+					player giveweapon(getweapon(#"ar_accurate_t8"), a_weapon_options);
 					player switchtoweaponimmediate(getweapon(#"ar_accurate_t8"), 1);
 					player.var_777951c = getweapon(#"ar_accurate_t8");
 				}
@@ -1783,7 +1783,7 @@ class csceneplayer : csceneobject
 			}
 		}
 		revive_player(player);
-		player thread util::function_419f0c21();
+		player thread util::cleanup_fancycam();
 		if(isdefined(player.hijacked_vehicle_entity))
 		{
 			player.hijacked_vehicle_entity delete();

@@ -55,7 +55,7 @@ function function_2613aeec(enabled)
 	{
 		callback::on_player_killed(&on_player_killed);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 		level thread function_4f4cf89e();
 	}
 }
@@ -84,12 +84,12 @@ function function_4f4cf89e()
 	{
 		if(isdefined(var_5901fe7f) && var_5901fe7f)
 		{
-			item_world::function_7730442c(var_daed388[x]);
+			item_world::consume_item(var_daed388[x]);
 			continue;
 		}
 		if(distance2d(var_daed388[x].origin, var_8a9122c8.origin) < 500)
 		{
-			item_world::function_7730442c(var_daed388[x]);
+			item_world::consume_item(var_daed388[x]);
 			continue;
 		}
 		var_5901fe7f = 1;

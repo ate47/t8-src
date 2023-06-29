@@ -67,11 +67,11 @@ function init_clientfields()
 	clientfield::register("toplayer", "infiltration_jump_warning", 1, 1, "int", &function_ded53cc6, 0, 0);
 	clientfield::register("toplayer", "infiltration_final_warning", 1, 1, "int", &function_ea3cc318, 0, 0);
 	clientfield::register("toplayer", "inside_infiltration_vehicle", 1, 1, "int", &inside_infiltration_vehicle, 0, 0);
-	clientfield::register("world", "infiltration_compass", 1, 1, "int", &function_2d2fc272, 0, 0);
+	clientfield::register("world", "infiltration_compass", 1, 1, "int", &infil_compass, 0, 0);
 	clientfield::register("world", "infiltration_compass", 16000, 2, "int", &function_4da7bee9, 0, 0);
 	clientfield::register("scriptmover", "infiltration_camera", 1, 2, "int", &function_a67b1f40, 0, 0);
 	clientfield::register("scriptmover", "infiltration_camera", 16000, 3, "int", &function_7bac6764, 0, 0);
-	clientfield::register("scriptmover", "infiltration_plane", 16000, 2, "int", &function_1f7ab61a, 0, 0);
+	clientfield::register("scriptmover", "infiltration_plane", 16000, 2, "int", &infil_plane, 0, 0);
 	clientfield::register("scriptmover", "infiltration_ent", 16000, 2, "int", &infil_ent, 0, 0);
 	clientfield::register("scriptmover", "infiltration_jump_point", 1, 1, "int", &function_81ac0c1, 0, 0);
 	clientfield::register("scriptmover", "infiltration_jump_point", 16000, 2, "int", &function_73a03a18, 0, 0);
@@ -94,7 +94,7 @@ function init_clientfields()
 */
 function on_localclient_connect(localclientnum)
 {
-	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+	var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 	if(var_7eb8f61a == 1)
 	{
 		level thread function_6c4ae982(localclientnum);
@@ -393,7 +393,7 @@ function function_7bac6764(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_1f7ab61a
+	Name: infil_plane
 	Namespace: player_insertion
 	Checksum: 0x8CE427D6
 	Offset: 0x1400
@@ -401,7 +401,7 @@ function function_7bac6764(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_1f7ab61a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function infil_plane(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	function_1b88c5(localclientnum, function_a4c14f8c(newval), self);
 	self setcompassicon("t8_hud_waypoints_drone_hunter_scaled_down");
@@ -695,7 +695,7 @@ function function_65cca2e1(localclientnum, var_1e7db62f)
 	end_point = force_drop_point + (direction * 150000);
 	var_5a20cc9d = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.freeFallStartAltitude");
 	setuimodelvalue(var_5a20cc9d, jump_point[2]);
-	var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+	var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 	if(var_7eb8f61a == 0)
 	{
 		function_4dfe3112(localclientnum, var_1e7db62f, start_point, end_point, jump_point, force_drop_point);
@@ -703,7 +703,7 @@ function function_65cca2e1(localclientnum, var_1e7db62f)
 }
 
 /*
-	Name: function_2d2fc272
+	Name: infil_compass
 	Namespace: player_insertion
 	Checksum: 0x9249D699
 	Offset: 0x20B8
@@ -711,7 +711,7 @@ function function_65cca2e1(localclientnum, var_1e7db62f)
 	Parameters: 7
 	Flags: Linked
 */
-function function_2d2fc272(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function infil_compass(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(newval)
 	{

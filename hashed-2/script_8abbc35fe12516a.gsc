@@ -100,8 +100,8 @@ class cmp_prop_timer : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("timeRemaining", 16000, 5, "int", 0);
-		cLUIelem::function_da693cbe("isProp", 16000, 1, "int");
+		cLUIelem::add_clientfield("timeRemaining", 16000, 5, "int", 0);
+		cLUIelem::add_clientfield("isProp", 16000, 1, "int");
 	}
 
 }

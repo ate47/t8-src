@@ -116,8 +116,8 @@ function __init__()
 	spawner::add_archetype_spawn_function(#"human", &function_48d57bc8);
 	callback::on_actor_damage(&function_493691bc);
 	callback::on_ai_killed(&function_6f7a6cbc);
-	callback::on_actor_killed(&function_ddaaaeee);
-	callback::on_player_killed_with_params(&function_ddaaaeee);
+	callback::on_actor_killed(&on_swat_kill);
+	callback::on_player_killed_with_params(&on_swat_kill);
 	callback::on_finalize_initialization(&function_3675de8b);
 	clientfield::register("actor", "swat_light_strobe", 1, 1, "int");
 	clientfield::register("scriptmover", "swat_light_strobe", 1, 1, "int");
@@ -125,7 +125,7 @@ function __init__()
 	clientfield::register("vehicle", "swat_helicopter_death_fx", 1, getminbitcountfornum(2), "int");
 	clientfield::register("actor", "swat_rob_state", 1, 1, "int");
 	killstreaks::register_killstreak("killstreak_swat_team", &function_87bf6422);
-	killstreaks::register_alt_weapon("swat_team", getweapon(#"hash_216eeca7a4295e4"));
+	killstreaks::register_alt_weapon("swat_team", getweapon(#"ar_accurate_t8_swat"));
 	player::function_3c5cc656(&function_610d3790);
 	registerbehaviorscriptfunctions();
 }
@@ -875,7 +875,7 @@ function private function_994477c0(entity)
 }
 
 /*
-	Name: function_ddaaaeee
+	Name: on_swat_kill
 	Namespace: swat_team
 	Checksum: 0x1074FB05
 	Offset: 0x2FB8
@@ -883,7 +883,7 @@ function private function_994477c0(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ddaaaeee(params)
+function private on_swat_kill(params)
 {
 	if(isdefined(params.einflictor) && isactor(params.einflictor) && (isdefined(params.einflictor.ai.var_ac89e6f6) && params.einflictor.ai.var_ac89e6f6))
 	{
@@ -1168,22 +1168,22 @@ function private function_8fa2faa5(swat, helicopter, position)
 	swat endon(#"death", #"stop_riding");
 	helicopter endon(#"death", #"hash_216c905d79c8bbea");
 	level endon(#"game_ended");
-	var_2d1d099c = undefined;
+	ride_anim = undefined;
 	switch(position)
 	{
 		case 0:
 		{
-			var_2d1d099c = "ai_swat_rifle_ent_litlbird_rappel_stn_base_01_idle";
+			ride_anim = "ai_swat_rifle_ent_litlbird_rappel_stn_base_01_idle";
 			break;
 		}
 		case 1:
 		{
-			var_2d1d099c = "ai_swat_rifle_ent_litlbird_rappel_stn_base_02_idle";
+			ride_anim = "ai_swat_rifle_ent_litlbird_rappel_stn_base_02_idle";
 			break;
 		}
 		case 2:
 		{
-			var_2d1d099c = "ai_swat_rifle_ent_litlbird_rappel_stn_base_03_idle";
+			ride_anim = "ai_swat_rifle_ent_litlbird_rappel_stn_base_03_idle";
 			break;
 		}
 		default:
@@ -1194,15 +1194,15 @@ function private function_8fa2faa5(swat, helicopter, position)
 		}
 	}
 	/#
-		assert(isdefined(var_2d1d099c));
+		assert(isdefined(ride_anim));
 	#/
-	if(isdefined(var_2d1d099c))
+	if(isdefined(ride_anim))
 	{
 		while(true)
 		{
 			if(isalive(swat) && swat hasanimtree())
 			{
-				swat animation::play(var_2d1d099c, helicopter, "tag_origin", 1, 0.2, 0.1, undefined, undefined, undefined, 0);
+				swat animation::play(ride_anim, helicopter, "tag_origin", 1, 0.2, 0.1, undefined, undefined, undefined, 0);
 			}
 		}
 	}
@@ -1531,7 +1531,7 @@ function function_656691ab()
 		{
 			heli_reset();
 			self makepathfinder();
-			self util::function_c596f193();
+			self util::make_sentient();
 			self.ignoreme = 1;
 			if(isdefined(self.heligoalpos))
 			{
@@ -2793,12 +2793,12 @@ function spawn_swat_team(owner, context, origin)
 	}
 	else
 	{
-		owner function_50adbe51();
+		owner swat_cleanup();
 		owner notify(#"hash_71a1db99eb99dcff");
 	}
 	owner.var_6c0553ea = context;
 	owner.var_6c0553ea.kills = 0;
-	owner.var_6c0553ea.var_79061c2 = 0;
+	owner.var_6c0553ea.clear_kills = 0;
 	zone = function_5615237b(origin);
 	var_1c996690 = undefined;
 	nodes = [];
@@ -2837,7 +2837,7 @@ function spawn_swat_team(owner, context, origin)
 		}
 	}
 	var_1c996690 = origin;
-	owner thread function_fb8614cc(context.killstreak_id);
+	owner thread swat_loop(context.killstreak_id);
 	owner function_820e7c92(owner, var_1c996690, nodes, context);
 }
 
@@ -3061,7 +3061,7 @@ function function_47e16e28()
 }
 
 /*
-	Name: function_fb8614cc
+	Name: swat_loop
 	Namespace: swat_team
 	Checksum: 0xC2BA34EA
 	Offset: 0x9020
@@ -3069,7 +3069,7 @@ function function_47e16e28()
 	Parameters: 1
 	Flags: Linked
 */
-function function_fb8614cc(killstreak_id)
+function swat_loop(killstreak_id)
 {
 	self endon(#"hash_71a1db99eb99dcff");
 	self endoncallback(&function_d524c2b8, #"disconnect", #"joined_team");
@@ -3514,7 +3514,7 @@ function swat_guard()
 		}
 		self.swat_team[i] setgoal(nodes[i]);
 	}
-	self.var_6c0553ea.var_79061c2 = 0;
+	self.var_6c0553ea.clear_kills = 0;
 }
 
 /*
@@ -3528,7 +3528,7 @@ function swat_guard()
 */
 function function_d524c2b8(str_notify)
 {
-	function_50adbe51();
+	swat_cleanup();
 }
 
 /*
@@ -3742,7 +3742,7 @@ function swat_leave()
 }
 
 /*
-	Name: function_50adbe51
+	Name: swat_cleanup
 	Namespace: swat_team
 	Checksum: 0xCAEF932
 	Offset: 0xAD40
@@ -3750,7 +3750,7 @@ function swat_leave()
 	Parameters: 1
 	Flags: Linked
 */
-function function_50adbe51(destroy_heli)
+function swat_cleanup(destroy_heli)
 {
 	if(gamestate::is_game_over())
 	{
@@ -3850,8 +3850,8 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 		}
 		else
 		{
-			attacker.var_6c0553ea.var_79061c2++;
-			if(attacker.var_6c0553ea.var_79061c2 == 2)
+			attacker.var_6c0553ea.clear_kills++;
+			if(attacker.var_6c0553ea.clear_kills == 2)
 			{
 				scoreevents::processscoreevent(#"hash_7e7146503217ca9c", attacker, victim, getweapon(#"swat_team"));
 			}

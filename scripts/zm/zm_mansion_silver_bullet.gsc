@@ -467,11 +467,11 @@ function function_dad1960c()
 		else
 		{
 			/#
-				e_player.var_3e7d47da destroy();
+				e_player.hud_bullet destroy();
 			#/
 			foreach(e_player in level.players)
 			{
-				if(isdefined(e_player.var_3e7d47da))
+				if(isdefined(e_player.hud_bullet))
 				{
 				}
 			}

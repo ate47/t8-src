@@ -178,7 +178,7 @@ function guns()
 			is_weapon_upgraded = e_player zm_weapons::is_weapon_upgraded(w_current);
 			var_fe8af21d = e_player zm_pap_util::function_83c29ddb(w_current);
 			e_player takeweapon(w_current);
-			var_fb1db24c = zm_weapons::function_efd851e();
+			var_fb1db24c = zm_weapons::get_guns();
 			do
 			{
 				w_random = array::random(var_fb1db24c);

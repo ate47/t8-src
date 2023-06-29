@@ -1683,7 +1683,7 @@ function function_639c87e1(str_type)
 */
 function function_617b9c13(n_index, e_player, str_type)
 {
-	if(!zm_utility::function_e51dc2d8() || !isstring(str_type))
+	if(!zm_utility::is_ee_enabled() || !isstring(str_type))
 	{
 		return n_index;
 	}
@@ -4553,8 +4553,8 @@ function function_debf98ad(v_color)
 		{
 			v_color = (0, 1, 0);
 		}
-		self notify(#"hash_75850c5ae5d8a5dc");
-		self endon(#"death", #"hash_75850c5ae5d8a5dc");
+		self notify(#"stop_debug_draw");
+		self endon(#"death", #"stop_debug_draw");
 		level flag::wait_till("");
 		while(getdvarint(#"hash_3c4df2fe4b1618d5", 0))
 		{
@@ -4590,8 +4590,8 @@ function debug_draw_star(v_color)
 		{
 			v_color = (0, 1, 0);
 		}
-		self notify(#"hash_75850c5ae5d8a5dc");
-		self endon(#"death", #"hash_75850c5ae5d8a5dc");
+		self notify(#"stop_debug_draw");
+		self endon(#"death", #"stop_debug_draw");
 		level flag::wait_till("");
 		while(getdvarint(#"hash_3c4df2fe4b1618d5", 0))
 		{
@@ -4623,7 +4623,7 @@ function debug_draw_star(v_color)
 function function_af24d641()
 {
 	/#
-		self notify(#"hash_75850c5ae5d8a5dc");
+		self notify(#"stop_debug_draw");
 	#/
 }
 

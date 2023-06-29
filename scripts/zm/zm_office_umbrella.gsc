@@ -82,9 +82,9 @@ function init_clientfield()
 */
 function function_ec9e5cf2()
 {
-	zm_sq::register(#"jump_scare", #"step_1", #"hash_3203b932029a4e0b", &jump_scare, &function_e3a2a8ab);
+	zm_sq::register(#"jump_scare", #"step_1", #"hash_3203b932029a4e0b", &jump_scare, &jump_scare_cleanup);
 	zm_sq::register(#"narrative_room", #"step_1", #"hash_64d6af5ddc324d26", &function_6f55d670, &function_13c87ace);
-	zm_sq::register(#"narrative_room", #"step_2", #"hash_3f567f217222e5b2", &narrative_room, &function_4f6285d0);
+	zm_sq::register(#"narrative_room", #"step_2", #"hash_3f567f217222e5b2", &narrative_room, &narrative_room_cleanup);
 }
 
 /*
@@ -194,7 +194,7 @@ function private is_weapon_sniper(w_weapon)
 }
 
 /*
-	Name: function_e3a2a8ab
+	Name: jump_scare_cleanup
 	Namespace: zm_office_umbrella
 	Checksum: 0x7C45A83E
 	Offset: 0x868
@@ -202,7 +202,7 @@ function private is_weapon_sniper(w_weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e3a2a8ab(var_a276c861, var_19e802fa)
+function jump_scare_cleanup(var_a276c861, var_19e802fa)
 {
 }
 
@@ -254,7 +254,7 @@ function narrative_room(var_a276c861)
 }
 
 /*
-	Name: function_4f6285d0
+	Name: narrative_room_cleanup
 	Namespace: zm_office_umbrella
 	Checksum: 0xE5DDD699
 	Offset: 0x9D8
@@ -262,7 +262,7 @@ function narrative_room(var_a276c861)
 	Parameters: 2
 	Flags: Linked
 */
-function function_4f6285d0(var_a276c861, var_19e802fa)
+function narrative_room_cleanup(var_a276c861, var_19e802fa)
 {
 }
 

@@ -140,8 +140,8 @@ function __init__()
 	zm_ai_utility::function_2ad308c4(#"blight_father", &function_744be31d);
 	zm_trial_special_enemy::function_95c1dd81(#"blight_father", &function_2315440d);
 	namespace_9ff9f642::register_slowdown(#"hash_2fd5f5f16583a427", 0.8);
-	callback::add_callback(#"hash_4d2043b190b84792", &function_ef860973);
-	callback::add_callback(#"hash_137b937fd26992be", &function_6fa41b21);
+	callback::add_callback(#"on_host_migration_begin", &on_host_migration_begin);
+	callback::add_callback(#"on_host_migration_end", &on_host_migration_end);
 	level.var_fcb96175 = 0;
 	/#
 		spawner::add_archetype_spawn_function(#"blight_father", &zombie_utility::updateanimationrate);
@@ -1801,8 +1801,8 @@ function private function_96f5d05a(entity, var_4c0587b)
 		return;
 	}
 	entity endoncallback(&function_e0b3baff, #"death", #"hash_2fb2eddfa6a0ef3f");
-	grapple_start = zm_grappler::function_6be863a(entity gettagorigin("tag_jaw"), entity.angles);
-	grapple_end = zm_grappler::function_6be863a(entity gettagorigin("tag_jaw"), entity.angles * -1);
+	grapple_start = zm_grappler::create_mover(entity gettagorigin("tag_jaw"), entity.angles);
+	grapple_end = zm_grappler::create_mover(entity gettagorigin("tag_jaw"), entity.angles * -1);
 	grapple_end.prone_2_run_roll = entity;
 	grapple_start linkto(entity, "tag_jaw");
 	entity.var_54c1950f = {#hash_5273e1a0:[], #status:0, #hash_65bf647c:grapple_end, #hash_a733d0aa:grapple_start};
@@ -1949,7 +1949,7 @@ function function_9d1a26f1(entity, var_8a713db5, var_3e06882e)
 		if(getdvarint(#"hash_692fb9cc4cff6541", 0))
 		{
 			var_1b97aa47 = sqrt(var_8a713db5);
-			var_e41cb172 = [];
+			debug_origins = [];
 		}
 	#/
 	while(true)
@@ -1959,19 +1959,19 @@ function function_9d1a26f1(entity, var_8a713db5, var_3e06882e)
 			/#
 				if(getdvarint(#"hash_692fb9cc4cff6541", 0))
 				{
-					if(!isdefined(var_e41cb172))
+					if(!isdefined(debug_origins))
 					{
-						var_e41cb172 = [];
+						debug_origins = [];
 					}
-					else if(!isarray(var_e41cb172))
+					else if(!isarray(debug_origins))
 					{
-						var_e41cb172 = array(var_e41cb172);
+						debug_origins = array(debug_origins);
 					}
-					if(!isinarray(var_e41cb172, entity.var_54c1950f.beamend.origin))
+					if(!isinarray(debug_origins, entity.var_54c1950f.beamend.origin))
 					{
-						var_e41cb172[var_e41cb172.size] = entity.var_54c1950f.beamend.origin;
+						debug_origins[debug_origins.size] = entity.var_54c1950f.beamend.origin;
 					}
-					foreach(origin in var_e41cb172)
+					foreach(origin in debug_origins)
 					{
 						recordcircle(origin, var_1b97aa47, (1, 0, 0));
 						recordstar(origin, (0, 1, 0));
@@ -2265,11 +2265,11 @@ function function_d67c455e(notifyhash)
 	if(isdefined(e_source))
 	{
 		e_source unlink();
-		zm_grappler::function_a8e7b940(e_source);
+		zm_grappler::destroy_mover(e_source);
 	}
 	if(isdefined(var_28ac1348))
 	{
-		zm_grappler::function_a8e7b940(var_28ac1348);
+		zm_grappler::destroy_mover(var_28ac1348);
 	}
 	util::wait_network_frame();
 	level.var_acec7a44 = 0;
@@ -2406,7 +2406,7 @@ function function_b5b42347(entity)
 }
 
 /*
-	Name: function_c0ea1203
+	Name: watch_disconnect
 	Namespace: zm_ai_blight_father
 	Checksum: 0xDCD1F57E
 	Offset: 0x8210
@@ -2414,7 +2414,7 @@ function function_b5b42347(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_c0ea1203(grappler)
+function private watch_disconnect(grappler)
 {
 	grappler endon(#"death", #"hash_2fb2eddfa6a0ef3f");
 	self waittill(#"disconnect");
@@ -2517,7 +2517,7 @@ function private function_1d2646(entity)
 		var_8aa5bbfb = entity gettagorigin("tag_jaw") - grapplee geteye();
 		angles = vectortoangles(var_8aa5bbfb);
 		grapplee setplayerangles((angles[0], angles[1], grapplee.angles[2]));
-		grapplee thread function_c0ea1203(entity);
+		grapplee thread watch_disconnect(entity);
 		grapplee thread function_5e853c85(entity);
 		/#
 			grapplee thread function_e989972e(entity);
@@ -4288,7 +4288,7 @@ function private function_2315440d()
 }
 
 /*
-	Name: function_ef860973
+	Name: on_host_migration_begin
 	Namespace: zm_ai_blight_father
 	Checksum: 0x19360B23
 	Offset: 0xCAF8
@@ -4296,13 +4296,13 @@ function private function_2315440d()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ef860973(params)
+function private on_host_migration_begin(params)
 {
 	level.var_9cfa4efd = 1;
 }
 
 /*
-	Name: function_6fa41b21
+	Name: on_host_migration_end
 	Namespace: zm_ai_blight_father
 	Checksum: 0xD76E6559
 	Offset: 0xCB20
@@ -4310,7 +4310,7 @@ function private function_ef860973(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_6fa41b21(params)
+function private on_host_migration_end(params)
 {
 	level.var_9cfa4efd = undefined;
 	level.var_fcb96175 = gettime() + (int(30 * 1000));

@@ -214,7 +214,7 @@ event main(eventstruct)
 	level.var_210ce105 = zm_towers_crowd_meter::register("zm_towers_crowd_meter");
 	load::main();
 	util::waitforclient(0);
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		a_decals = findvolumedecalindexarray("nardec");
 		foreach(i in a_decals)

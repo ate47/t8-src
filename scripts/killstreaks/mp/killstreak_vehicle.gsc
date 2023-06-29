@@ -83,7 +83,7 @@ function init_vehicle()
 	vehicle.overridevehiclekilled = &on_death;
 	vehicle.watch_remote_weapon_death = 1;
 	vehicle.watch_remote_weapon_death_duration = 0.3;
-	vehicle util::function_c596f193();
+	vehicle util::make_sentient();
 }
 
 /*
@@ -334,7 +334,7 @@ function function_c9aa9ee5(vehicle)
 	vehicle thread watch_timeout();
 	vehicle thread function_2cee4434();
 	vehicle thread function_22528515();
-	vehicle thread function_73cb1549();
+	vehicle thread watch_water();
 	player vehicle::set_vehicle_drivable_time_starting_now(int(vehicle.var_22a05c26.ksduration));
 	if(isdefined(vehicle.var_22a05c26.var_486124e6))
 	{
@@ -467,7 +467,7 @@ function function_e99d09a3()
 }
 
 /*
-	Name: function_73cb1549
+	Name: watch_water
 	Namespace: killstreak_vehicle
 	Checksum: 0x59187379
 	Offset: 0x13A0
@@ -475,7 +475,7 @@ function function_e99d09a3()
 	Parameters: 0
 	Flags: Linked
 */
-function function_73cb1549()
+function watch_water()
 {
 	self endon(#"shutdown");
 	var_8a7edebd = 10;

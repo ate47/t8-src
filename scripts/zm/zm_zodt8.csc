@@ -4,7 +4,7 @@
 #using scripts\zm_common\zm_fasttravel.csc;
 #using script_2a907fffc74a075d;
 #using scripts\zm_common\zm_characters.csc;
-#using script_52ab76d6216ed2cc;
+#using scripts\zm\zm_zodt8_sentinel_trial.csc;
 #using script_54a67b7ed7b385e6;
 #using script_5504fe574aed77a8;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;
@@ -89,13 +89,13 @@ event main(eventstruct)
 	level.var_59d3631c = #"hash_129339f4a4da8ea2";
 	level.var_d0ab70a2 = #"hash_3180c9ba4da02927";
 	zodt8_pap_quest::init();
-	namespace_74905749::init();
+	zodt8_sentinel::init();
 	namespace_4a807bff::init();
 	namespace_b45e3f05::init();
 	namespace_57873b62::init();
 	zm_audio_sq::init();
 	load::main();
-	function_99e9d1fa();
+	init_water();
 	init_flags();
 	zm_zodt8_sound::main();
 	level thread setup_personality_character_exerts();
@@ -414,7 +414,7 @@ function function_94a217a5(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_99e9d1fa
+	Name: init_water
 	Namespace: zm_zodt8
 	Checksum: 0xF53A68F5
 	Offset: 0x1BA0
@@ -422,7 +422,7 @@ function function_94a217a5(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 0
 	Flags: Linked
 */
-function function_99e9d1fa()
+function init_water()
 {
 	setdvar(#"phys_buoyancy", 1);
 	setdvar(#"hash_7016ead6b3c7a246", 1);

@@ -128,10 +128,10 @@ class cwz_revive_prompt : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("health", 1, 5, "float");
-		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float");
-		cLUIelem::function_da693cbe("cowardsWay", 17000, 1, "int");
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int");
+		cLUIelem::add_clientfield("health", 1, 5, "float");
+		cLUIelem::add_clientfield("reviveProgress", 1, 5, "float");
+		cLUIelem::add_clientfield("cowardsWay", 17000, 1, "int");
 	}
 
 }

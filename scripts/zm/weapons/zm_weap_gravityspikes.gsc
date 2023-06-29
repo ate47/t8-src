@@ -608,12 +608,12 @@ function private electrocute_actor(ai_zombie)
 	{
 		self.tesla_enemies_hit = 1;
 	}
-	var_2465e2eb = lightning_chain::create_lightning_chain_params(5);
-	var_2465e2eb.head_gib_chance = 100;
-	var_2465e2eb.network_death_choke = 4;
-	var_2465e2eb.should_kill_enemies = 0;
+	lightning_params = lightning_chain::create_lightning_chain_params(5);
+	lightning_params.head_gib_chance = 100;
+	lightning_params.network_death_choke = 4;
+	lightning_params.should_kill_enemies = 0;
 	ai_zombie.tesla_death = 0;
-	self thread arc_damage_init(ai_zombie, var_2465e2eb);
+	self thread arc_damage_init(ai_zombie, lightning_params);
 	ai_zombie thread tesla_death(self);
 }
 
@@ -1432,7 +1432,7 @@ function private zombie_lift(player, v_attack_source, n_push_away, n_lift_height
 				self ai::stun();
 				wait(1);
 				self.var_5bf7575e = undefined;
-				self ai::function_62795e55();
+				self ai::clear_stun();
 			}
 			else if(isalive(self) && (!(isdefined(self.var_42d5176d) && self.var_42d5176d)) && (isdefined(player.b_gravity_trap_spikes_in_ground) && player.b_gravity_trap_spikes_in_ground))
 			{

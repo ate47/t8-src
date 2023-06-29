@@ -287,7 +287,7 @@ function spawn_dog(bundle, owner)
 	dog = spawnactor(bundle.var_32f64ba3, origin, angles, "", 1);
 	dog ai_patrol::function_d091ff45(bundle);
 	dog ai_escort::function_60415868(bundle);
-	dog ai_leave::function_f9c30a79(bundle.var_cadb59a0);
+	dog ai_leave::init_leave(bundle.var_cadb59a0);
 	dog callback::function_d8abfc3d(#"hash_c3f225c9fa3cb25", &function_3fb68a86);
 	dog.goalradius = bundle.var_a562774d;
 	dog setentityowner(owner);

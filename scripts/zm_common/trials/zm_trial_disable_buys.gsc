@@ -79,7 +79,7 @@ function private on_begin(var_a29299fb)
 			function_d5e17413();
 		}
 		zm_trial_util::function_8036c103();
-		function_ffdd5310();
+		hide_traps();
 	}
 }
 
@@ -106,7 +106,7 @@ function private on_end(round_reset)
 		function_c348adcc();
 		zm_trial_util::function_302c6014();
 		level.buys_disabled = undefined;
-		function_c0da518d();
+		show_traps();
 	}
 }
 
@@ -487,7 +487,7 @@ function private function_c348adcc()
 }
 
 /*
-	Name: function_ffdd5310
+	Name: hide_traps
 	Namespace: zm_trial_disable_buys
 	Checksum: 0x21D3BBD9
 	Offset: 0x14E8
@@ -495,7 +495,7 @@ function private function_c348adcc()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_ffdd5310()
+function private hide_traps()
 {
 	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_55d25caf8f7bbb2f";
@@ -507,7 +507,7 @@ function private function_ffdd5310()
 }
 
 /*
-	Name: function_c0da518d
+	Name: show_traps
 	Namespace: zm_trial_disable_buys
 	Checksum: 0x1ED9C2F0
 	Offset: 0x15C8
@@ -515,7 +515,7 @@ function private function_ffdd5310()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_c0da518d()
+function private show_traps()
 {
 	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = zm_utility::function_d6046228(#"hash_23c1c09e94181fdb", #"hash_6e8ef1b690e98e51");

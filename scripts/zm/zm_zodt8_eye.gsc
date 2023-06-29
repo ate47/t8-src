@@ -6,7 +6,7 @@
 #using scripts\zm\ai\zm_ai_catalyst.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
-#using script_733222d63341ad58;
+#using scripts\zm\zm_zodt8_sentinel_trial.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -60,7 +60,7 @@ function __init__()
 {
 	init_clientfields();
 	init_flags();
-	function_3335f286();
+	init_steps();
 	function_a46c58d0();
 	function_f34b8812();
 	init_boss();
@@ -132,7 +132,7 @@ function init_flags()
 }
 
 /*
-	Name: function_3335f286
+	Name: init_steps
 	Namespace: zodt8_eye
 	Checksum: 0xA792B719
 	Offset: 0x1468
@@ -140,7 +140,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3335f286()
+function init_steps()
 {
 	zm_sq::register(#"boss_fight", #"step_1", #"hash_29b25d86ddeb7d44", &function_51e51897, &function_99cfd11d);
 	zm_sq::register(#"boss_fight", #"step_2", #"hash_29b26086ddeb825d", &function_85bc1590, &function_af6afecd);
@@ -471,7 +471,7 @@ function function_51e51897(var_5ea5c94d)
 	level flag::clear("spawn_zombies");
 	level flag::clear("zombie_drop_powerups");
 	level flag::clear(#"hash_21921ed511559aa3");
-	level flag::set(#"hash_1b9ecc7979b0fcfb");
+	level flag::set(#"disable_fast_travel");
 	level flag::set("pause_round_timeout");
 	level flag::set(#"boss_fight_started");
 	level zm_bgb_anywhere_but_here::function_886fce8f(0);
@@ -490,7 +490,7 @@ function function_51e51897(var_5ea5c94d)
 	level.custom_spawnplayer = &function_9bc4f8cb;
 	level.disable_nuke_delay_spawning = 1;
 	level notify(#"disable_nuke_delay_spawning");
-	level namespace_74905749::function_77a859a8(1);
+	level zodt8_sentinel::function_77a859a8(1);
 	level.var_d6f059f7 = max(level.round_number, 25);
 	zm_spawner::register_zombie_death_event_callback(&function_e9b8eaff);
 	level.var_c9f5947d = 1;
@@ -964,7 +964,7 @@ function function_714f8756(a_s_valid_respawn_points)
 function boss_teleport_players(str_loc)
 {
 	level.var_923e8cb4 = struct::get_array(str_loc, "script_teleport");
-	level namespace_74905749::function_43a16eb7(str_loc, struct::get(#"boss_fight"));
+	level zodt8_sentinel::function_43a16eb7(str_loc, struct::get(#"boss_fight"));
 }
 
 /*
@@ -1023,7 +1023,7 @@ function function_482a7a01()
 	self endon("1c4193aa80a6dcb8");
 	level waittill(#"hash_38f29f9cb03586ea", #"intermission");
 	zm_transform::function_e95ec8df();
-	level namespace_74905749::function_77a859a8(1, 0, 0);
+	level zodt8_sentinel::function_77a859a8(1, 0, 0);
 }
 
 /*
@@ -1073,7 +1073,7 @@ function function_c8f90603(var_da816ebe, b_solid)
 			{
 				foreach(mdl_fx in e_blocker.var_c2a873f6)
 				{
-					mdl_fx thread namespace_74905749::function_73145dbe();
+					mdl_fx thread zodt8_sentinel::function_73145dbe();
 					mdl_fx clientfield::set("" + #"blocker_fx", 0);
 				}
 				e_blocker.var_c2a873f6 = undefined;
@@ -1164,7 +1164,7 @@ function function_8f3497ee(n_stage, str_loc)
 		iprintlnbold(("" + n_stage) + "");
 	#/
 	zm_audio::sndvoxoverride(1);
-	level.powerup_vo_available = &namespace_74905749::return_false;
+	level.powerup_vo_available = &zodt8_sentinel::return_false;
 	switch(n_stage)
 	{
 		case 1:
@@ -1178,7 +1178,7 @@ function function_8f3497ee(n_stage, str_loc)
 			self animation::stop(0);
 			self thread scene::play(self.str_scene, self.str_idle, self);
 			level util::delay(#"hash_5286b6160d468570", undefined, &function_a2170913, n_stage, 3);
-			level thread namespace_74905749::function_53802e89(#"hash_696f2e5fafff5614", undefined, array(2, 1, 4, 3));
+			level thread zodt8_sentinel::function_53802e89(#"hash_696f2e5fafff5614", undefined, array(2, 1, 4, 3));
 			wait(1.5);
 			self function_671e8d37();
 			self boss_move(0, 0);
@@ -1333,7 +1333,7 @@ function function_1122d832(var_d503d5d9, str_loc, n_stage)
 	level thread scene::stop(#"p8_fxanim_zm_zod_skybox_bundle");
 	level thread scene::play(#"p8_fxanim_zm_zod_skybox_bundle", var_d503d5d9);
 	level thread function_f74b38da("zm_power_on_rumble");
-	level thread namespace_74905749::function_63a0f09e(1, 0);
+	level thread zodt8_sentinel::function_63a0f09e(1, 0);
 	wait(0.5);
 	self function_1e93034e(str_loc);
 	self function_a8a76e18(1);
@@ -1480,7 +1480,7 @@ function function_9bc73093(n_stage)
 	wait(n_wait);
 	if(n_stage != 5)
 	{
-		level thread namespace_74905749::function_63a0f09e(1, 0);
+		level thread zodt8_sentinel::function_63a0f09e(1, 0);
 		self boss_leave(1);
 		self clientfield::set("bs_bdy_fx_cf", 2);
 		wait(0.5);
@@ -2248,7 +2248,7 @@ function boss_arrive(var_dc094f99 = 0)
 	}
 	self thread function_55841cbf("bs_spn_fx_cf", 1, "bs_bdy_fx_cf", 1, 3, var_193df069, var_914750d);
 	self clientfield::set("bs_spn_fx_cf", 1);
-	self util::delay(0.1, "death", &function_10df7fb6);
+	self util::delay(0.1, "death", &show_self);
 	self scene::play(self.str_scene, self.str_arrive, self);
 	self animation::stop(0);
 	self clientfield::set("bs_bdy_fx_cf", 1);
@@ -2256,7 +2256,7 @@ function boss_arrive(var_dc094f99 = 0)
 }
 
 /*
-	Name: function_10df7fb6
+	Name: show_self
 	Namespace: zodt8_eye
 	Checksum: 0xB3A2D0E4
 	Offset: 0x83B8
@@ -2264,7 +2264,7 @@ function boss_arrive(var_dc094f99 = 0)
 	Parameters: 0
 	Flags: Linked
 */
-function function_10df7fb6()
+function show_self()
 {
 	self show();
 }

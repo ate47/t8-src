@@ -160,7 +160,7 @@ function watchforhack()
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: remote_weapons
 	Checksum: 0xFA229EED
 	Offset: 0x5E8
@@ -168,7 +168,7 @@ function watchforhack()
 	Parameters: 0
 	Flags: Linked
 */
-function function_31a1aa18()
+function on_game_ended()
 {
 	weapon = self;
 	weapon endremotecontrolweaponuse(0, 1);
@@ -420,7 +420,7 @@ function useremotecontrolweapon(allowmanualdeactivation = 1, always_allow_ride =
 			return;
 		}
 	}
-	weapon callback::function_d8abfc3d(#"on_end_game", &function_31a1aa18);
+	weapon callback::function_d8abfc3d(#"on_end_game", &on_game_ended);
 	weapon.var_57446df7 = 1;
 	weapon.remoteowner thread killstreaks::watch_for_remove_remote_weapon();
 	weapon.remoteowner util::setusingremote(weapon.remotename);
@@ -616,7 +616,7 @@ function endremotecontrolweaponuse(exitrequestedbyowner, gameended)
 	{
 		if(isdefined(weapon.var_57446df7) && weapon.var_57446df7)
 		{
-			weapon callback::function_52ac9652(#"on_end_game", &function_31a1aa18);
+			weapon callback::function_52ac9652(#"on_end_game", &on_game_ended);
 		}
 		weapon.control_initiated = 0;
 		weapon.controlled = 0;

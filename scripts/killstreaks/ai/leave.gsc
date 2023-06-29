@@ -16,11 +16,11 @@
 */
 function init()
 {
-	ai_state::function_e9b061a8(2, &make_leave, &function_5c1be07d, undefined, &function_5d31deb6, &function_4af1ff64, &function_a78474f2);
+	ai_state::function_e9b061a8(2, &make_leave, &update_leave, undefined, &update_enemy, &function_4af1ff64, &function_a78474f2);
 }
 
 /*
-	Name: function_f9c30a79
+	Name: init_leave
 	Namespace: ai_leave
 	Checksum: 0xE75B7443
 	Offset: 0x100
@@ -28,7 +28,7 @@ function init()
 	Parameters: 1
 	Flags: None
 */
-function function_f9c30a79(var_edc20efd)
+function init_leave(var_edc20efd)
 {
 	/#
 		assert(isdefined(self.ai));
@@ -65,7 +65,7 @@ function function_a78474f2()
 }
 
 /*
-	Name: function_5d31deb6
+	Name: update_enemy
 	Namespace: ai_leave
 	Checksum: 0x7EF68A30
 	Offset: 0x1B0
@@ -73,7 +73,7 @@ function function_a78474f2()
 	Parameters: 0
 	Flags: None
 */
-function function_5d31deb6()
+function update_enemy()
 {
 	if(isdefined(self.ai.hasseenfavoriteenemy) && self.ai.hasseenfavoriteenemy)
 	{
@@ -87,7 +87,7 @@ function function_5d31deb6()
 }
 
 /*
-	Name: function_5c1be07d
+	Name: update_leave
 	Namespace: ai_leave
 	Checksum: 0x80F724D1
 	Offset: 0x238
@@ -95,7 +95,7 @@ function function_5d31deb6()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1be07d()
+function update_leave()
 {
 }
 

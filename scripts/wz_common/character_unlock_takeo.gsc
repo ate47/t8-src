@@ -56,7 +56,7 @@ function function_2613aeec(enabled)
 	{
 		callback::on_item_use(&on_item_use);
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
-		callback::add_callback(#"hash_4b1a02a87458f191", &function_4ac25840);
+		callback::add_callback(#"on_team_eliminated", &function_4ac25840);
 		a_dynents = getdynentarray(#"hash_7b220e1de3a2000d");
 		if(isdefined(a_dynents) && isarray(a_dynents))
 		{

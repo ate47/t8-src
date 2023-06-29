@@ -118,8 +118,8 @@ class cvehicleturretoverheat : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("bar_percent", 4000, 6, "float", 0);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("bar_percent", 4000, 6, "float", 0);
 	}
 
 }

@@ -181,10 +181,10 @@ class cct_shared_objcounter : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("objectiveCount", 1, 5, "int");
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("objectiveCount", 1, 5, "int");
 		cLUIelem::function_dcb34c80("string", "objectiveLabel", 1);
-		cLUIelem::function_da693cbe("objectiveTotal", 1, 5, "int");
+		cLUIelem::add_clientfield("objectiveTotal", 1, 5, "int");
 	}
 
 }

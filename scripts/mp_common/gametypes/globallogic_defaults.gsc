@@ -59,7 +59,7 @@ function default_onforfeit(params)
 	wait(10);
 	if(!isdefined(params))
 	{
-		round::function_d1e740f6(level.players[0]);
+		round::set_winner(level.players[0]);
 	}
 	else
 	{
@@ -69,7 +69,7 @@ function default_onforfeit(params)
 		}
 		if(params.var_6eb69269.size)
 		{
-			round::function_d1e740f6(params.var_6eb69269[0]);
+			round::set_winner(params.var_6eb69269[0]);
 		}
 	}
 	level.forcedend = 1;
@@ -88,14 +88,14 @@ function default_onforfeit(params)
 */
 function default_ondeadevent(team)
 {
-	var_2e0d5506 = round::function_9b24638f();
+	var_2e0d5506 = round::get_winner();
 	if(isdefined(var_2e0d5506) && var_2e0d5506 != #"free")
 	{
 		return;
 	}
 	if(isdefined(level.teams[team]))
 	{
-		round::function_d1e740f6(getwinningteamfromloser(team));
+		round::set_winner(getwinningteamfromloser(team));
 		thread globallogic::end_round(6);
 	}
 	else
@@ -156,7 +156,7 @@ function function_dcf41142(params)
 */
 function function_daa7e9d5()
 {
-	level callback::remove_callback(#"hash_84d8c1164d90313", &function_dcf41142);
+	level callback::remove_callback(#"on_last_alive", &function_dcf41142);
 }
 
 /*
@@ -203,7 +203,7 @@ function default_ononeleftevent(team)
 {
 	if(!level.teambased)
 	{
-		round::function_d1e740f6(globallogic_score::gethighestscoringplayer());
+		round::set_winner(globallogic_score::gethighestscoringplayer());
 		thread globallogic::end_round(6);
 	}
 	else

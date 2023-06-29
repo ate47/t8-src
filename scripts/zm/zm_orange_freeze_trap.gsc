@@ -117,11 +117,11 @@ function function_c2e32275()
 		{
 			if(level flag::get(#"half_price_traps"))
 			{
-				b_purchased = self.s_trap.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, int(500));
+				b_purchased = self.s_trap.a_e_lights[0] zm_traps::trap_purchase(e_who, int(500));
 			}
 			else
 			{
-				b_purchased = self.s_trap.a_e_lights[0] zm_traps::function_3f0a4c65(e_who, 1000);
+				b_purchased = self.s_trap.a_e_lights[0] zm_traps::trap_purchase(e_who, 1000);
 			}
 			if(!b_purchased)
 			{
@@ -130,7 +130,7 @@ function function_c2e32275()
 			self notify(#"hash_35807fa157a46934");
 			self.var_64c09f7f = e_who;
 			level.s_freeze_trap.activated_by_player = e_who;
-			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::function_65e5c19a())
+			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_ice", #"activate");
 			}
@@ -276,7 +276,7 @@ function function_92f341d0(var_64c09f7f, e_volume)
 		if(isplayer(level.s_freeze_trap.activated_by_player))
 		{
 			level.s_freeze_trap.activated_by_player zm_stats::increment_challenge_stat(#"zombie_hunter_kill_trap");
-			level.s_freeze_trap.activated_by_player contracts::function_5b88297d(#"hash_1f11b620a6de486b");
+			level.s_freeze_trap.activated_by_player contracts::increment_zm_contract(#"hash_1f11b620a6de486b");
 		}
 		level notify(#"trap_kill", {#trap:e_volume, #victim:self});
 		self dodamage(self.health + 1000, e_volume.origin, e_volume);

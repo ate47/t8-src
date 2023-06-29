@@ -126,22 +126,22 @@ event main(eventstruct)
 	clientfield::register("worlduimodel", "hudItems.warzone.collapseTimerState", 1, 2, "int");
 	clientfield::register("worlduimodel", "hudItems.warzone.collapseProgress", 1, 7, "float");
 	clientfield::register("worlduimodel", "hudItems.warzone.reinsertionPassengerCount", 1, 7, "int");
-	clientfield::function_a8bbc967("hudItems.distanceFromDeathCircle", 1, 7, "float", 0);
-	clientfield::function_a8bbc967("hudItems.alivePlayerCount", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("hudItems.alivePlayerCountEnemy", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("hudItems.aliveTeammateCount", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.spectatorsCount", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.playerKills", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("hudItems.playerCleanUps", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("presence.modeparam", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.hasBackpack", 1, 1, "int", 0);
-	clientfield::function_a8bbc967("hudItems.armorType", 1, 2, "int", 0);
-	clientfield::function_a8bbc967("hudItems.streamerLoadFraction", 1, 5, "float", 1);
-	clientfield::function_a8bbc967("hudItems.wzLoadFinished", 1, 1, "int", 1);
-	clientfield::function_a8bbc967("hudItems.showReinsertionPassengerCount", 1, 1, "int", 0);
-	clientfield::function_a8bbc967("hudItems.playerLivesRemaining", 15000, 3, "int");
-	clientfield::function_a8bbc967("hudItems.playerCanRedeploy", 15000, 1, "int");
-	clientfield::function_a8bbc967("hudItems.playerOnInfectedPlatoon", 21000, 1, "int");
+	clientfield::register_clientuimodel("hudItems.distanceFromDeathCircle", 1, 7, "float", 0);
+	clientfield::register_clientuimodel("hudItems.alivePlayerCount", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("hudItems.alivePlayerCountEnemy", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("hudItems.aliveTeammateCount", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.spectatorsCount", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.playerKills", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("hudItems.playerCleanUps", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("presence.modeparam", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.hasBackpack", 1, 1, "int", 0);
+	clientfield::register_clientuimodel("hudItems.armorType", 1, 2, "int", 0);
+	clientfield::register_clientuimodel("hudItems.streamerLoadFraction", 1, 5, "float", 1);
+	clientfield::register_clientuimodel("hudItems.wzLoadFinished", 1, 1, "int", 1);
+	clientfield::register_clientuimodel("hudItems.showReinsertionPassengerCount", 1, 1, "int", 0);
+	clientfield::register_clientuimodel("hudItems.playerLivesRemaining", 15000, 3, "int");
+	clientfield::register_clientuimodel("hudItems.playerCanRedeploy", 15000, 1, "int");
+	clientfield::register_clientuimodel("hudItems.playerOnInfectedPlatoon", 21000, 1, "int");
 	clientfield::register("allplayers", "eliminator_screen", 1, 1, "int");
 	clientfield::register("toplayer", "realtime_multiplay", 1, 1, "int");
 	clientfield::register("worlduimodel", "hudItems.warzone.collapse", 11000, 21, "int");
@@ -154,9 +154,9 @@ event main(eventstruct)
 	callback::on_spawned(&on_player_spawned);
 	callback::on_connect(&on_player_connect);
 	callback::on_disconnect(&on_player_disconnect);
-	callback::function_98a0917d(&start_warzone);
+	callback::on_game_playing(&start_warzone);
 	callback::add_callback(#"hash_6b7d26d34885b425", &function_4012c0ab);
-	callback::add_callback(#"hash_84d8c1164d90313", &function_5af3a29);
+	callback::add_callback(#"on_last_alive", &function_5af3a29);
 	globallogic_spawn::addsupportedspawnpointtype("tdm");
 	function_aaa24662();
 	level.var_bde3d03 = &function_b777ff94;
@@ -164,7 +164,7 @@ event main(eventstruct)
 	setdvar(#"hash_7036719f41a78d54", 50);
 	setdvar(#"hash_6d545f685fa213dd", 3);
 	setdvar(#"scr_deleteexplosivesonspawn", 0);
-	level.var_6adbdb63 = 1;
+	level.wound_disabled = 1;
 	level.var_b219667f = 1;
 	level thread function_23600e7d();
 	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
@@ -222,7 +222,7 @@ function on_spawn_player()
 		var_8cc84817 = infection::function_76601b7d();
 		if(var_8cc84817 != #"none" && platoon == infection::function_76601b7d())
 		{
-			self infection::function_c37a6757();
+			self infection::give_body();
 			self player::spawn_player();
 		}
 	}
@@ -884,12 +884,12 @@ function private function_ec2c9808(response, intpayload)
 			{
 				xcoord = int(intpayload / 1000);
 				ycoord = intpayload - (xcoord * 1000);
-				player luinotifyevent(#"hash_34bb692dbc392d7f", 3, self getentitynumber(), xcoord, ycoord);
+				player luinotifyevent(#"teammate_waypoint_placed", 3, self getentitynumber(), xcoord, ycoord);
 				continue;
 			}
 			if(response == "removed")
 			{
-				player luinotifyevent(#"hash_123261c89a0bc7a", 1, self getentitynumber());
+				player luinotifyevent(#"teammate_waypoint_removed", 1, self getentitynumber());
 			}
 		}
 	}
@@ -1002,7 +1002,7 @@ function on_player_spawned()
 			if(getdvarint(#"scr_disable_infiltration", 0))
 			{
 			}
-			var_7eb8f61a = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+			var_7eb8f61a = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 			self clientfield::set_to_player("realtime_multiplay", 1);
 			switch(var_7eb8f61a)
 			{
@@ -1650,10 +1650,10 @@ function function_3832a0d2(team)
 		var_fc96f513 = winner getmpdialogname();
 		if(isdefined(var_fc96f513))
 		{
-			var_6cc23875 = struct::get_script_bundle("mpdialog_player", var_fc96f513);
-			if(isdefined(var_6cc23875))
+			player_bundle = struct::get_script_bundle("mpdialog_player", var_fc96f513);
+			if(isdefined(player_bundle))
 			{
-				var_520b24a = var_6cc23875.boostwin;
+				var_520b24a = player_bundle.boostwin;
 				if(isdefined(var_520b24a))
 				{
 					level.var_fec861a7 = 1;
@@ -1779,7 +1779,7 @@ function on_end_game(var_c1e98979)
 	}
 	level.var_bde3d03 = &function_b777ff94;
 	level thread globallogic_audio::function_85818e24("matchcomplete");
-	winner = round::function_9b24638f();
+	winner = round::get_winner();
 	var_1167be0c = round::function_d30d1a2e();
 	match::function_af2e264f(winner);
 	match::function_35702443(var_1167be0c);
@@ -1854,8 +1854,8 @@ function function_75134917()
 		{
 			if(player.team === self.team)
 			{
-				player luinotifyevent(#"hash_123261c89a0bc7a", 1, self getentitynumber());
-				self luinotifyevent(#"hash_123261c89a0bc7a", 1, player getentitynumber());
+				player luinotifyevent(#"teammate_waypoint_removed", 1, self getentitynumber());
+				self luinotifyevent(#"teammate_waypoint_removed", 1, player getentitynumber());
 			}
 		}
 	}
@@ -2917,7 +2917,7 @@ function function_ec375172(player)
 	{
 		return;
 	}
-	var_410bcc74 = (isdefined(getgametypesetting(#"hash_648fb3af9bc11566")) ? getgametypesetting(#"hash_648fb3af9bc11566") : 0);
+	var_410bcc74 = (isdefined(getgametypesetting(#"wzplayerinsertiontypeindex")) ? getgametypesetting(#"wzplayerinsertiontypeindex") : 0);
 	switch(var_410bcc74)
 	{
 		case 0:

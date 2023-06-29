@@ -1002,8 +1002,8 @@ function function_a2bd5a0c(var_cadd3b0c, n_delay = 0, b_wait_if_busy = 0, n_prio
 	}
 	n_index = zm_characters::function_dc232a80();
 	str_vo_alias = ((var_cadd3b0c + "_") + "plr_") + n_index;
-	var_a5e8d5c7 = zm_audio::get_valid_lines(str_vo_alias);
-	b_ret = vo_say(array::random(var_a5e8d5c7), n_delay, b_wait_if_busy, n_priority, var_34e7887, var_d7714e4e, 0, var_67fee570);
+	a_variants = zm_audio::get_valid_lines(str_vo_alias);
+	b_ret = vo_say(array::random(a_variants), n_delay, b_wait_if_busy, n_priority, var_34e7887, var_d7714e4e, 0, var_67fee570);
 	return isdefined(b_ret) && b_ret;
 }
 
@@ -1044,7 +1044,7 @@ function vo_say(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, v
 		__timeout__ = n_delay;
 		var_a51f2d59 = gettime();
 		self notify(#"hash_7efd5bdf8133ff7b");
-		if(!zm_audio::function_65e5c19a(var_d7714e4e))
+		if(!zm_audio::can_speak(var_d7714e4e))
 		{
 			if(isdefined(b_wait_if_busy) && b_wait_if_busy)
 			{
@@ -1052,7 +1052,7 @@ function vo_say(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, v
 				{
 					waitframe(1);
 				}
-				while(!zm_audio::function_65e5c19a(var_d7714e4e));
+				while(!zm_audio::can_speak(var_d7714e4e));
 			}
 			else
 			{

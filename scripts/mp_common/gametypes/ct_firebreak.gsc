@@ -34,7 +34,7 @@ event main(eventstruct)
 {
 	ct_core::function_46e95cc7();
 	level.var_d6d98fbe = 0;
-	level.select_character = ct_utils::function_d153452e(#"prt_mp_firebreak");
+	level.select_character = ct_utils::get_roleindex(#"prt_mp_firebreak");
 	level.var_820c5561 = "FIREBREAK";
 	ct_utils::function_be3a76b7(level.var_820c5561);
 	ct_core::function_fa03fc55();
@@ -47,14 +47,14 @@ event main(eventstruct)
 	level.var_cdb8ae2c = &ct_utils::function_a8da260c;
 	level.resurrect_override_spawn = &ct_utils::function_78469779;
 	level.var_e31c5d7a = &ct_bots::function_e31c5d7a;
-	callback::function_98a0917d(&ct_core::function_1e84c767);
+	callback::on_game_playing(&ct_core::function_1e84c767);
 	globallogic_spawn::addsupportedspawnpointtype("ct");
 	ct_utils::function_6046a5e3(#"ar_modular_t8", array("rf", "steadyanim", "mixclip"));
 	ct_utils::function_c3e647e2(#"pistol_standard_t8");
 	level.ct_firebreak_multi_kill = ct_firebreak_multi_kill::register("ct_firebreak_multi_kill");
 	level.a_s_beacons = struct::get_array("s_beacon", "targetname");
 	level.var_2392bd18 = level.a_s_beacons.size;
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		level ct_firebreak_tutorial::init();
 	}
@@ -74,7 +74,7 @@ function function_7c4ef26b(predictedspawn)
 {
 	self thread ct_core::function_d2845186();
 	spawning::onspawnplayer(predictedspawn);
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_firebreak_tutorial::function_c9ff0dce();
 		return;
@@ -147,7 +147,7 @@ function function_db31e447()
 */
 function function_9d65db70(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		self ct_firebreak_tutorial::function_72ba0df6(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration);
 		return;
@@ -245,7 +245,7 @@ function function_ba542258(mode)
 	var_61ca8276 = 420000;
 	self function_9270ab93(0, var_61ca8276);
 	self loadout::function_cdb86a18();
-	if(level.var_cd9d597c == 0)
+	if(level.ctdifficulty == 0)
 	{
 		level ct_firebreak_tutorial::setup();
 	}
@@ -339,7 +339,7 @@ function function_cf3224fe(b_success)
 	setbombtimer("A", 0);
 	setmatchflag("bomb_timer_a", 0);
 	ct_utils::get_player() ct_utils::function_8b7a2fdd();
-	if(level.var_cd9d597c === 0)
+	if(level.ctdifficulty === 0)
 	{
 		level.var_38c87b5 = 0;
 		var_cd803a6b = gettime();

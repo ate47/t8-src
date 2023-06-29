@@ -86,7 +86,7 @@ class cscavenger_icon : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("pulse", 1, 1, "counter");
+		cLUIelem::add_clientfield("pulse", 1, 1, "counter");
 	}
 
 }

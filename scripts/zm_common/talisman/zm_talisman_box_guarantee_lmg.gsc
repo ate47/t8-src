@@ -36,7 +36,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	zm_talisman::function_88a60d36("talisman_box_guarantee_lmg", &activate_talisman);
+	zm_talisman::register_talisman("talisman_box_guarantee_lmg", &activate_talisman);
 }
 
 /*

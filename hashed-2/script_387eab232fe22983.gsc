@@ -39,18 +39,18 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	level.var_491fd91 = getentarray("zombie_werewolf_spawner", "script_noteworthy");
-	if(level.var_491fd91.size == 0)
+	level.a_sp_werewolf = getentarray("zombie_werewolf_spawner", "script_noteworthy");
+	if(level.a_sp_werewolf.size == 0)
 	{
 		/#
 			assertmsg("");
 		#/
 		return;
 	}
-	foreach(var_362056e0 in level.var_491fd91)
+	foreach(sp_werewolf in level.a_sp_werewolf)
 	{
-		var_362056e0.is_enabled = 1;
-		var_362056e0.script_forcespawn = 1;
+		sp_werewolf.is_enabled = 1;
+		sp_werewolf.script_forcespawn = 1;
 	}
 	zm_score::function_e5d6e6dd(#"werewolf", 250);
 	zm_round_spawning::register_archetype(#"werewolf", &function_45bed901, &round_spawn, &function_47a88a0c, 300);
@@ -245,7 +245,7 @@ function private function_fb4cbb48()
 */
 function function_a7a6a96c(spawner, s_spot, n_round_number)
 {
-	ai_werewolf = zombie_utility::spawn_zombie(level.var_491fd91[0], "stoker", s_spot, n_round_number);
+	ai_werewolf = zombie_utility::spawn_zombie(level.a_sp_werewolf[0], "stoker", s_spot, n_round_number);
 	if(isdefined(ai_werewolf))
 	{
 		if(isdefined(s_spot.scriptbundlename))
@@ -360,7 +360,7 @@ function function_47a88a0c(n_to_spawn = 1, var_1fafa3fc, b_force_spawn = 0, var_
 		{
 			return;
 		}
-		ai = function_a7a6a96c(level.var_491fd91[0], s_spawn_loc, n_round);
+		ai = function_a7a6a96c(level.a_sp_werewolf[0], s_spawn_loc, n_round);
 		if(isdefined(ai))
 		{
 			ai forceteleport(s_spawn_loc.origin, s_spawn_loc.angles);
@@ -414,7 +414,7 @@ function function_774f6e70(s_spawn_loc, var_58a8a3cb = 1, var_cda6f9a7 = undefin
 	}
 	if(isdefined(s_spawn_loc.target))
 	{
-		var_a8a8b6f8 = zm_ai_utility::function_35eac38d(getnode(s_spawn_loc.target, "targetname"));
+		var_a8a8b6f8 = zm_ai_utility::get_pathnode_path(getnode(s_spawn_loc.target, "targetname"));
 		zm_ai_utility::start_patrol(self, var_a8a8b6f8.path, var_a8a8b6f8.loops, var_cda6f9a7, var_d5e7e76d);
 		if(var_58a8a3cb)
 		{

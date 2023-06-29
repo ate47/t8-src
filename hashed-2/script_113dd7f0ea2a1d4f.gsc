@@ -296,22 +296,22 @@ class cprototype_hud : cLUIelem
 	function setup_clientfields(uid)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("barrier_prompt_visibility", 4000, 1, "int");
-		cLUIelem::function_da693cbe("upgrade_resource_count", 4000, 8, "int");
-		cLUIelem::function_da693cbe("defense_resource_count", 4000, 8, "int");
-		cLUIelem::function_da693cbe("resource_count_visibility", 4000, 1, "int");
-		cLUIelem::function_da693cbe("craft_progress", 4000, 5, "float");
+		cLUIelem::add_clientfield("barrier_prompt_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("upgrade_resource_count", 4000, 8, "int");
+		cLUIelem::add_clientfield("defense_resource_count", 4000, 8, "int");
+		cLUIelem::add_clientfield("resource_count_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("craft_progress", 4000, 5, "float");
 		cLUIelem::function_dcb34c80("string", "active_objective_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective1_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective2_string", 4000);
 		cLUIelem::function_dcb34c80("string", "objective3_string", 4000);
-		cLUIelem::function_da693cbe("objective_prompt_visibility", 4000, 1, "int");
-		cLUIelem::function_da693cbe("objective1_strike", 4000, 1, "int");
-		cLUIelem::function_da693cbe("objective2_strike", 4000, 1, "int");
-		cLUIelem::function_da693cbe("objective3_strike", 4000, 1, "int");
-		cLUIelem::function_da693cbe("fanfare_visibility", 4000, 1, "int");
-		cLUIelem::function_da693cbe("fail_fanfare_visibility", 4000, 1, "int");
-		cLUIelem::function_da693cbe("deploy_prompt_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("objective_prompt_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("objective1_strike", 4000, 1, "int");
+		cLUIelem::add_clientfield("objective2_strike", 4000, 1, "int");
+		cLUIelem::add_clientfield("objective3_strike", 4000, 1, "int");
+		cLUIelem::add_clientfield("fanfare_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("fail_fanfare_visibility", 4000, 1, "int");
+		cLUIelem::add_clientfield("deploy_prompt_visibility", 4000, 1, "int");
 	}
 
 }

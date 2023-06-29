@@ -38,15 +38,15 @@ function autoexec __init__system__()
 function __init__()
 {
 	level.var_a6a3e12a = [];
-	clientfield::function_a8bbc967("hudItems.depositing", 13000, 1, "int", 0);
+	clientfield::register_clientuimodel("hudItems.depositing", 13000, 1, "int", 0);
 	if(getdvarint(#"hash_7074ed0f04816b75", 0))
 	{
 		clientfield::register("allplayers", "wz_cash_carrying", 13000, 1, "int");
 	}
-	level thread function_be29b8d2();
+	level thread setup_safes();
 	callback::on_player_killed(&on_player_killed);
 	/#
-		callback::function_98a0917d(&function_a6eac3b7);
+		callback::on_game_playing(&function_a6eac3b7);
 	#/
 }
 
@@ -83,7 +83,7 @@ function function_ed66923(targetname, count)
 }
 
 /*
-	Name: function_be29b8d2
+	Name: setup_safes
 	Namespace: wz_cash_safe
 	Checksum: 0x1BB4B824
 	Offset: 0x2B8
@@ -91,7 +91,7 @@ function function_ed66923(targetname, count)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_be29b8d2()
+function private setup_safes()
 {
 	item_world::function_1b11e73c();
 	foreach(targetname, count in level.var_a6a3e12a)
@@ -105,7 +105,7 @@ function private function_be29b8d2()
 		level.var_590e0497 = [];
 		foreach(targetname, count in level.var_a6a3e12a)
 		{
-			function_af4c6c9b(targetname, count);
+			activate_safes(targetname, count);
 		}
 		level thread function_fb346efb();
 	}
@@ -137,7 +137,7 @@ function private function_189f45d2(targetname)
 }
 
 /*
-	Name: function_af4c6c9b
+	Name: activate_safes
 	Namespace: wz_cash_safe
 	Checksum: 0x6673F2E
 	Offset: 0x548
@@ -145,18 +145,18 @@ function private function_189f45d2(targetname)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_af4c6c9b(targetname, count)
+function private activate_safes(targetname, count)
 {
 	safes = getdynentarray(targetname);
 	while(safes.size > count)
 	{
 		i = randomint(safes.size);
-		safes[i] function_ec834c4d();
+		safes[i] hide_safe();
 		arrayremoveindex(safes, i);
 	}
 	foreach(safe in safes)
 	{
-		safe function_fcf5be67();
+		safe activate_safe();
 	}
 }
 
@@ -202,15 +202,15 @@ function private function_3387f756(targetname, origin, radius)
 	{
 		if(distance2dsquared(origin, safe.origin) <= radiussq)
 		{
-			safe function_fcf5be67();
+			safe activate_safe();
 			continue;
 		}
-		safe function_ec834c4d();
+		safe hide_safe();
 	}
 }
 
 /*
-	Name: function_fcf5be67
+	Name: activate_safe
 	Namespace: wz_cash_safe
 	Checksum: 0x6775EEF4
 	Offset: 0x890
@@ -218,7 +218,7 @@ function private function_3387f756(targetname, origin, radius)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_fcf5be67()
+function private activate_safe()
 {
 	function_e2a06860(self, 0);
 	self.var_e7823894 = 1;
@@ -231,7 +231,7 @@ function private function_fcf5be67()
 }
 
 /*
-	Name: function_ec834c4d
+	Name: hide_safe
 	Namespace: wz_cash_safe
 	Checksum: 0xC2ACD134
 	Offset: 0x958
@@ -239,7 +239,7 @@ function private function_fcf5be67()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_ec834c4d()
+function private hide_safe()
 {
 	function_e2a06860(self, 2);
 }
@@ -318,7 +318,7 @@ function private function_3d49217f(activator)
 */
 function private function_7c5a1e82(activator, stateindex, var_9bdcfcd8)
 {
-	self function_651e50d9(activator);
+	self clear_prompts(activator);
 	if(!isdefined(activator) || !isstruct(activator.inventory) || !isarray(activator.inventory.items))
 	{
 		return false;
@@ -328,7 +328,7 @@ function private function_7c5a1e82(activator, stateindex, var_9bdcfcd8)
 	{
 		scoreamount = var_22aec194.var_a6762160.amount;
 		var_3e67196f = var_22aec194.count;
-		activator item_inventory::function_6e376bb1(var_22aec194.var_bd027dd9, 1);
+		activator item_inventory::use_inventory_item(var_22aec194.var_bd027dd9, 1);
 		if(var_22aec194.count < var_3e67196f)
 		{
 			[[level._setteamscore]](activator.team, [[level._getteamscore]](activator.team) + scoreamount);
@@ -379,11 +379,11 @@ function private function_2cef7d98()
 */
 function private function_368adf4f(activator)
 {
-	self function_651e50d9(activator);
+	self clear_prompts(activator);
 }
 
 /*
-	Name: function_651e50d9
+	Name: clear_prompts
 	Namespace: wz_cash_safe
 	Checksum: 0xE3BF264
 	Offset: 0xED0
@@ -391,7 +391,7 @@ function private function_368adf4f(activator)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_651e50d9(activator)
+function private clear_prompts(activator)
 {
 	bundle = function_489009c1(self);
 	state = function_ffdbe8c2(self);

@@ -90,10 +90,10 @@ function private on_item_use(params)
 	self function_bd506c77();
 	if(!self function_1e845317())
 	{
-		self function_c08cf66b();
+		self take_remote();
 		return;
 	}
-	traceresults = self function_8d3b7a66();
+	traceresults = self spawn_trace();
 	var_7f11909d = undefined;
 	var_2e2dbfa3 = undefined;
 	if(isdefined(traceresults.hitent))
@@ -163,7 +163,7 @@ function private function_bd506c77()
 }
 
 /*
-	Name: function_c08cf66b
+	Name: take_remote
 	Namespace: dart
 	Checksum: 0xE274E21C
 	Offset: 0x7F0
@@ -171,7 +171,7 @@ function private function_bd506c77()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_c08cf66b()
+function private take_remote()
 {
 	remoteweapon = getweapon(#"warzone_remote");
 	self takeweapon(remoteweapon);
@@ -214,7 +214,7 @@ function private function_bac16d76(spawnorigin, spawnangles, itemid)
 	}
 	else
 	{
-		self function_c08cf66b();
+		self take_remote();
 	}
 }
 
@@ -255,7 +255,7 @@ function function_79a59d11()
 }
 
 /*
-	Name: function_8d3b7a66
+	Name: spawn_trace
 	Namespace: dart
 	Checksum: 0xA676B4D7
 	Offset: 0xB28
@@ -263,7 +263,7 @@ function function_79a59d11()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8d3b7a66()
+function private spawn_trace()
 {
 	eyeangle = self getplayerangles();
 	forward = anglestoforward(eyeangle);
@@ -350,7 +350,7 @@ event function_ca9b286c(eventstruct)
 	vehicle thread watchownerdisconnect(self);
 	vehicle thread watchremotecontroldeactivate();
 	vehicle thread function_b35c5fa4();
-	vehicle callback::function_36aab2f3(&dartcollision);
+	vehicle callback::on_vehicle_collision(&dartcollision);
 	vehicle callback::function_d8abfc3d(#"on_vehicle_damage", &on_vehicle_damage);
 	vehicle callback::function_d8abfc3d(#"on_vehicle_killed", &on_vehicle_killed);
 }
@@ -673,7 +673,7 @@ function leave_dart(dart)
 		{
 			dart usevehicle(self, 0);
 		}
-		self function_c08cf66b();
+		self take_remote();
 	}
 }
 

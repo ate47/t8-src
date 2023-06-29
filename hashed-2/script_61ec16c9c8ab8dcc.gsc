@@ -129,7 +129,7 @@ class clower_message : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: clower_message
 		Checksum: 0x28C8FC2F
 		Offset: 0x360
@@ -137,9 +137,9 @@ class clower_message : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -154,9 +154,9 @@ class clower_message : cLUIelem
 	function setup_clientfields(uid, var_9af44e2b, var_7a5253d3)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 		cLUIelem::function_dcb34c80("string", "message", 1);
-		cLUIelem::function_da693cbe("countdownTimeSeconds", 1, 5, "int", var_7a5253d3);
+		cLUIelem::add_clientfield("countdownTimeSeconds", 1, 5, "int", var_7a5253d3);
 	}
 
 }
@@ -180,7 +180,7 @@ function register(uid, var_9af44e2b, var_7a5253d3)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: lower_message
 	Checksum: 0x407355B7
 	Offset: 0x138
@@ -188,10 +188,10 @@ function register(uid, var_9af44e2b, var_7a5253d3)
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new clower_message();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 

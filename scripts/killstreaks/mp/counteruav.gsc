@@ -594,7 +594,7 @@ function spawncounteruav(owner, killstreak_id)
 	cuav killstreaks::configure_team("counteruav", killstreak_id, owner, undefined, undefined, &configureteampost);
 	cuav killstreak_hacking::enable_hacking("counteruav", &hackedprefunction, undefined);
 	cuav.targetname = "counteruav";
-	cuav util::function_c596f193();
+	cuav util::make_sentient();
 	cuav.weapon = getweapon("counteruav");
 	cuav setweapon(cuav.weapon);
 	killstreak_detect::killstreaktargetset(cuav);

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_39bd5b6b799b1c9c;
+#using scripts\mp_common\item_world_util.gsc;
 #using scripts\mp_common\item_drop.gsc;
 #using scripts\core_common\flagsys_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -248,7 +248,7 @@ function private function_62c0d32d(item_name, stashitem = 0)
 		angles = self.angles;
 	}
 	var_a6762160 = (isdefined(level.var_de3d5d56) ? level.var_de3d5d56[item_name] : getscriptbundle(item_name));
-	weapon = namespace_ad5a0cd6::function_35e06774(var_a6762160, isdefined(var_a6762160.attachments));
+	weapon = item_world_util::function_35e06774(var_a6762160, isdefined(var_a6762160.attachments));
 	itemcount = (isdefined(var_a6762160.amount) ? var_a6762160.amount : 1);
 	var_aec6fa7f = 0;
 	if(var_a6762160.itemtype == #"weapon")
@@ -348,7 +348,7 @@ function private _spawn_item(point, row, stashitem = 0)
 		}
 		spawnpoint = ground_pos[#"position"] + vectorscale((0, 0, 1), 36);
 		vehicle = undefined;
-		if(namespace_ad5a0cd6::function_74e1e547(spawnpoint))
+		if(item_world_util::function_74e1e547(spawnpoint))
 		{
 			vehicle = spawnvehicle(var_a6762160.vehicle, spawnpoint, point.angles);
 		}
@@ -1366,7 +1366,7 @@ function is_enabled()
 }
 
 /*
-	Name: function_6a80751c
+	Name: reset_items
 	Namespace: namespace_65181344
 	Checksum: 0x68A3FD88
 	Offset: 0x4AC0
@@ -1374,7 +1374,7 @@ function is_enabled()
 	Parameters: 0
 	Flags: Linked
 */
-function function_6a80751c()
+function reset_items()
 {
 	var_f6e761cd = function_c77ddcd6();
 	for(pointid = 0; pointid < var_f6e761cd; pointid++)
@@ -1586,7 +1586,7 @@ function setup_groups(reset = 1)
 	}
 	if(reset)
 	{
-		function_6a80751c();
+		reset_items();
 	}
 	function_e88ecf7f();
 	function_9e9f43cd();

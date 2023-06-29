@@ -3,7 +3,7 @@
 #using scripts\zm\zm_zodt8_tutorial.csc;
 #using scripts\zm_common\zm_fasttravel.csc;
 #using scripts\zm_common\zm_characters.csc;
-#using script_52ab76d6216ed2cc;
+#using scripts\zm\zm_zodt8_sentinel_trial.csc;
 #using script_54a67b7ed7b385e6;
 #using script_5504fe574aed77a8;
 #using scripts\zm\weapons\zm_weap_riotshield.csc;

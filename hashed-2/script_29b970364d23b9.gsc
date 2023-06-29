@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm\zm_escape_travel.gsc;
-#using script_4cc2542101cb7973;
+#using scripts\zm\zm_escape_paschal.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_characters.gsc;
@@ -50,7 +50,7 @@ function __init__()
 {
 	callback::on_connect(&on_player_connect);
 	level init_flags();
-	level thread function_247786e5();
+	level thread init_announcer();
 }
 
 /*
@@ -96,7 +96,7 @@ function init_flags()
 }
 
 /*
-	Name: function_247786e5
+	Name: init_announcer
 	Namespace: namespace_a0f5c7fc
 	Checksum: 0x83C7422C
 	Offset: 0x4B8
@@ -104,7 +104,7 @@ function init_flags()
 	Parameters: 0
 	Flags: Linked
 */
-function function_247786e5()
+function init_announcer()
 {
 	zm_audio::sndannouncervoxadd(#"hash_180baca4b791b352", #"hash_53687fb8d75cd0d");
 }
@@ -467,7 +467,7 @@ function private function_5860fce9()
 		b_say = self zm_vo::function_a2bd5a0c(#"hash_227bd68a057f7198", 0, 1);
 		if(b_say && isalive(self) && level.activeplayers.size > 1)
 		{
-			e_richtofen = namespace_69ddf44f::function_b1203924();
+			e_richtofen = paschal::function_b1203924();
 			if(isdefined(e_richtofen) && self != e_richtofen && distancesquared(self.origin, e_richtofen.origin) < 1000000)
 			{
 				e_richtofen zm_vo::function_a2bd5a0c(#"hash_227bd68a057f7198");
@@ -506,7 +506,7 @@ function private function_49189399()
 	}
 	else
 	{
-		e_richtofen = namespace_69ddf44f::function_b1203924();
+		e_richtofen = paschal::function_b1203924();
 		if(isalive(e_richtofen))
 		{
 			e_richtofen thread zm_audio::create_and_play_dialog(#"cell_block", #"react", undefined, 1);

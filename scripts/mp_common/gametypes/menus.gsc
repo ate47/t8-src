@@ -348,7 +348,7 @@ function function_2d1eb0ec(intpayload)
 			}
 			if(isdefined(gesture))
 			{
-				self gestures::function_b204f6e3(gesture, undefined, 0);
+				self gestures::play_gesture(gesture, undefined, 0);
 			}
 		}
 		team = self.pers[#"team"];

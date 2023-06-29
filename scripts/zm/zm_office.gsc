@@ -20,12 +20,12 @@
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_63da2325262612ba;
+#using scripts\zm\zm_office_cleanup.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_office_floors.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
-#using script_7b75a29159ce123e;
+#using scripts\zm\zm_office_trophies.gsc;
 #using script_7be39c34f66312aa;
 #using script_ab862743b3070a;
 #using scripts\zm_common\zm_characters.gsc;
@@ -156,7 +156,7 @@ event main(eventstruct)
 	level thread zm_office_elevators::init();
 	level thread wait_for_power();
 	level thread zm_office_traps::init();
-	level thread namespace_ef310bfe::init();
+	level thread zm_office_cleanup::init();
 	level thread zm_office_special_rounds::init();
 	level thread namespace_a5657ff1::init();
 	level thread namespace_6a81d072::init();
@@ -167,7 +167,7 @@ event main(eventstruct)
 	level thread zm_office_sound::main();
 	if(!zm_trial::function_b47f6aba())
 	{
-		level thread namespace_55f8626e::init();
+		level thread zm_office_trophies::init();
 	}
 	if(zm_utility::is_classic())
 	{
@@ -180,7 +180,7 @@ event main(eventstruct)
 	level thread registergondola_moving_watcher();
 	level thread function_8aea12();
 	level thread function_785cadc4();
-	zm_sq::register(#"main_quest", #"step1", #"main_quest_step1", &function_7b48256b, &function_e3a10039, 1);
+	zm_sq::register(#"main_quest", #"step1", #"main_quest_step1", &main_quest_step1_setup, &main_quest_step1_cleanup, 1);
 	zm_sq::start(#"main_quest");
 	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
 	if(zm_custom::function_901b751c(#"zmenhancedstate") == 2)
@@ -193,7 +193,7 @@ event main(eventstruct)
 }
 
 /*
-	Name: function_7b48256b
+	Name: main_quest_step1_setup
 	Namespace: zm_office
 	Checksum: 0x972D3D7A
 	Offset: 0x14C0
@@ -201,7 +201,7 @@ event main(eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7b48256b(var_5ea5c94d)
+function main_quest_step1_setup(var_5ea5c94d)
 {
 	if(!var_5ea5c94d)
 	{
@@ -214,7 +214,7 @@ function function_7b48256b(var_5ea5c94d)
 }
 
 /*
-	Name: function_e3a10039
+	Name: main_quest_step1_cleanup
 	Namespace: zm_office
 	Checksum: 0x943DFC32
 	Offset: 0x15A8
@@ -222,7 +222,7 @@ function function_7b48256b(var_5ea5c94d)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e3a10039(var_5ea5c94d, ended_early)
+function main_quest_step1_cleanup(var_5ea5c94d, ended_early)
 {
 	level thread scene::play("cin_zm_office_outro");
 	callback::function_50fdac80(&outro_watcher);

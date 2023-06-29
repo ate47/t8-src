@@ -73,7 +73,7 @@ class czm_red_challenges_hud : cLUIelem
 	}
 
 	/*
-		Name: function_96972b9c
+		Name: increment_progress
 		Namespace: czm_red_challenges_hud
 		Checksum: 0x329E8760
 		Offset: 0x928
@@ -81,7 +81,7 @@ class czm_red_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_96972b9c(localclientnum)
+	function increment_progress(localclientnum)
 	{
 		current_val = [[ self ]]->get_data(localclientnum, "progress");
 		new_val = (current_val + 1) % 2;
@@ -213,7 +213,7 @@ class czm_red_challenges_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_red_challenges_hud
 		Checksum: 0xC5962BD7
 		Offset: 0x5C8
@@ -221,9 +221,9 @@ class czm_red_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: None
 	*/
-	function function_5c1bb138(uid)
+	function register_clientside(uid)
 	{
-		cLUIelem::function_5c1bb138(uid);
+		cLUIelem::register_clientside(uid);
 	}
 
 	/*
@@ -238,14 +238,14 @@ class czm_red_challenges_hud : cLUIelem
 	function setup_clientfields(uid, var_be2ad4d, var_a7896263, var_4866daed, var_afaddf7a, var_5d7491df, var_26df3d64, var_90359ec7)
 	{
 		cLUIelem::setup_clientfields(uid);
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 		cLUIelem::function_dcb34c80("string", "challengeText", 13000);
 		cLUIelem::function_dcb34c80("string", "bottomText", 13000);
-		cLUIelem::function_da693cbe("bInLocation", 13000, 1, "int", var_4866daed);
-		cLUIelem::function_da693cbe("progress", 13000, 1, "counter", var_afaddf7a);
-		cLUIelem::function_da693cbe("tributeAvailable", 13000, 3, "int", var_5d7491df);
-		cLUIelem::function_da693cbe("rewardHidden", 15000, 1, "int", var_26df3d64);
-		cLUIelem::function_da693cbe("challengeFailing", 15000, 1, "int", var_90359ec7);
+		cLUIelem::add_clientfield("bInLocation", 13000, 1, "int", var_4866daed);
+		cLUIelem::add_clientfield("progress", 13000, 1, "counter", var_afaddf7a);
+		cLUIelem::add_clientfield("tributeAvailable", 13000, 3, "int", var_5d7491df);
+		cLUIelem::add_clientfield("rewardHidden", 15000, 1, "int", var_26df3d64);
+		cLUIelem::add_clientfield("challengeFailing", 15000, 1, "int", var_90359ec7);
 	}
 
 }
@@ -269,7 +269,7 @@ function register(uid, var_be2ad4d, var_a7896263, var_4866daed, var_afaddf7a, va
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_red_challenges_hud
 	Checksum: 0xC452CA9A
 	Offset: 0x1C8
@@ -277,10 +277,10 @@ function register(uid, var_be2ad4d, var_a7896263, var_4866daed, var_afaddf7a, va
 	Parameters: 1
 	Flags: None
 */
-function function_5c1bb138(uid)
+function register_clientside(uid)
 {
 	elem = new czm_red_challenges_hud();
-	[[ elem ]]->function_5c1bb138(uid);
+	[[ elem ]]->register_clientside(uid);
 	return elem;
 }
 
@@ -383,7 +383,7 @@ function set_bInLocation(localclientnum, value)
 }
 
 /*
-	Name: function_96972b9c
+	Name: increment_progress
 	Namespace: zm_red_challenges_hud
 	Checksum: 0xCFE689A2
 	Offset: 0x348
@@ -391,9 +391,9 @@ function set_bInLocation(localclientnum, value)
 	Parameters: 1
 	Flags: None
 */
-function function_96972b9c(localclientnum)
+function increment_progress(localclientnum)
 {
-	[[ self ]]->function_96972b9c(localclientnum);
+	[[ self ]]->increment_progress(localclientnum);
 }
 
 /*

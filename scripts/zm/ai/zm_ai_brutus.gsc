@@ -94,7 +94,7 @@ function __init__()
 	clientfield::register("actor", "brutus_shock_attack", 1, 1, "counter");
 	clientfield::register("actor", "brutus_spawn_clientfield", 1, 1, "int");
 	clientfield::register("toplayer", "brutus_shock_attack_player", 1, 1, "counter");
-	callback::on_actor_killed(&function_fc5aa54d);
+	callback::on_actor_killed(&on_brutus_killed);
 	zm_cleanup::function_cdf5a512(#"brutus", &function_88efcb);
 	/#
 		zm_devgui::function_c7dd7a17("");
@@ -133,7 +133,7 @@ function function_debbd9da()
 	self.var_71ab4927 = 0;
 	self.var_905e4ce2 = self ai::function_9139c839().var_267bc182;
 	self.meleedamage = self ai::function_9139c839().var_da7f4645;
-	self.instakill_func = &function_eb0f90bf;
+	self.instakill_func = &instakill_override;
 	self.var_f46fbf3f = 1;
 	self.var_126d7bef = 1;
 	self.var_e38eaee5 = 0;
@@ -296,7 +296,7 @@ function function_6090f71a()
 }
 
 /*
-	Name: function_fc5aa54d
+	Name: on_brutus_killed
 	Namespace: zm_ai_brutus
 	Checksum: 0xC99D4D35
 	Offset: 0x1030
@@ -304,7 +304,7 @@ function function_6090f71a()
 	Parameters: 1
 	Flags: Linked
 */
-function function_fc5aa54d(params)
+function on_brutus_killed(params)
 {
 	if(self.archetype !== #"brutus")
 	{
@@ -1229,7 +1229,7 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 }
 
 /*
-	Name: function_eb0f90bf
+	Name: instakill_override
 	Namespace: zm_ai_brutus
 	Checksum: 0x640F2CE6
 	Offset: 0x3CE0
@@ -1237,7 +1237,7 @@ function private function_83a6d3ae(inflictor, attacker, damage, flags, meansofde
 	Parameters: 3
 	Flags: Linked
 */
-function function_eb0f90bf(player, mod, shitloc)
+function instakill_override(player, mod, shitloc)
 {
 	if(self.archetype === #"brutus")
 	{

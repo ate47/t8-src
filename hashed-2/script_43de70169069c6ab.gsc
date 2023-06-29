@@ -119,8 +119,8 @@ function function_ba8cd0cf(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_2ef4fed9 = util::spawn_model(localclientnum, self.model, self.origin, self.angles);
 			self.var_2ef4fed9.script_int = newval;
 			self.var_2ef4fed9.b_hidden = 1;
-			self.var_2ef4fed9.var_922c0c5c = &function_43c140b4;
-			self.var_2ef4fed9.var_ffeecdb6 = &function_386b1e70;
+			self.var_2ef4fed9.show_function = &function_43c140b4;
+			self.var_2ef4fed9.hide_function = &function_386b1e70;
 			self.var_2ef4fed9 function_386b1e70(localclientnum);
 			if(!isdefined(level.var_22a393d4))
 			{
@@ -147,8 +147,8 @@ function function_ba8cd0cf(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			self.var_2ef4fed9 = util::spawn_model(localclientnum, self.model, self.origin, self.angles);
 			self.var_2ef4fed9.script_int = newval;
-			self.var_2ef4fed9.var_922c0c5c = &function_43c140b4;
-			self.var_2ef4fed9.var_ffeecdb6 = &function_386b1e70;
+			self.var_2ef4fed9.show_function = &function_43c140b4;
+			self.var_2ef4fed9.hide_function = &function_386b1e70;
 			self.var_2ef4fed9 function_386b1e70(localclientnum);
 			if(!isdefined(level.var_22a393d4))
 			{

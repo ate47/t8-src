@@ -93,7 +93,7 @@ function __init__()
 {
 	vehicle::add_main_callback("bat", &function_6c223039);
 	spawner::function_89a2cd87(#"bat", &function_141c342b);
-	zm_transform::function_cfca77a7(#"hash_6937d645fe2be5b5", #"hash_791d597ac0457860", undefined, 0, undefined, undefined);
+	zm_transform::function_cfca77a7(#"spawner_zm_nosferatu", #"hash_791d597ac0457860", undefined, 0, undefined, undefined);
 	level thread function_1b029905();
 	zm_round_spawning::register_archetype(#"bat", &function_84cd2223, &function_9471b7f9, &function_2e37549f, 25);
 	zm_score::function_e5d6e6dd(#"bat", 60);
@@ -742,12 +742,12 @@ function function_1c4cd527(origin, owner, innerradius, outerradius, halfheight, 
 				{
 					point._scoredebug = [];
 				}
-				if(!isdefined(point._scoredebug[#"hash_3f8a9579ce4600de"]))
+				if(!isdefined(point._scoredebug[#"no visibility"]))
 				{
-					point._scoredebug[#"hash_3f8a9579ce4600de"] = spawnstruct();
+					point._scoredebug[#"no visibility"] = spawnstruct();
 				}
-				point._scoredebug[#"hash_3f8a9579ce4600de"].score = -5000;
-				point._scoredebug[#"hash_3f8a9579ce4600de"].scorename = "";
+				point._scoredebug[#"no visibility"].score = -5000;
+				point._scoredebug[#"no visibility"].scorename = "";
 			#/
 			point.score = point.score + -5000;
 		}

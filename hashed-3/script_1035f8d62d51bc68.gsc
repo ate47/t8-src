@@ -72,13 +72,13 @@ function init()
 	clientfield::register("actor", "" + #"hash_7a260c02e8c345c2", 8000, 1, "int");
 	clientfield::register("world", "" + #"hash_5f0c4b68b2a6a75d", 16000, 1, "int");
 	namespace_617a54f4::function_d8383812("ee_asf_altar", 8000, #"a_skeet_fink_charge", &function_123eb361, &function_9bb74431, 1);
-	function_c739f755();
+	register_steps();
 	level.w_stake_knife = getweapon(#"stake_knife");
 	level thread function_93bd3e32();
 }
 
 /*
-	Name: function_c739f755
+	Name: register_steps
 	Namespace: namespace_59d4913f
 	Checksum: 0xF4C4BCDF
 	Offset: 0x7E0
@@ -86,7 +86,7 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c739f755()
+function register_steps()
 {
 	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_1", #"a_skeet_fink_step_1", &function_ff75fde6, &function_ff3b1efd);
 	zm_sq::register(#"hash_331f9ba64e2c2478", #"step_2", #"a_skeet_fink_step_2", &function_39e0636, &function_4fccc01f);
@@ -447,7 +447,7 @@ function function_6941c919()
 			}
 			else if(var_be17187b.weapon === w_shield && var_be17187b.mod === "MOD_MELEE")
 			{
-				level.var_d5f74526 notify(#"hash_5f436e1bb5dc641d", {#attacker:var_be17187b.attacker, #hash_c8407ea2:self.script_int});
+				level.var_d5f74526 notify(#"rune_bashed", {#attacker:var_be17187b.attacker, #hash_c8407ea2:self.script_int});
 			}
 		}
 	}
@@ -470,7 +470,7 @@ function function_1dc8ad86()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_15ccd1fdda38284a", #"hash_5f436e1bb5dc641d");
+		var_be17187b = self waittill(#"hash_15ccd1fdda38284a", #"rune_bashed");
 		if(var_be17187b._notify == #"hash_15ccd1fdda38284a")
 		{
 			if(var_be17187b.var_c8407ea2 == var_1fc5672)
@@ -480,7 +480,7 @@ function function_1dc8ad86()
 				playsoundatposition("zmb_sk_tree_hit_knife", (-440, 4200, -415));
 			}
 		}
-		else if(var_be17187b._notify == #"hash_5f436e1bb5dc641d")
+		else if(var_be17187b._notify == #"rune_bashed")
 		{
 			if(var_be17187b.var_c8407ea2 == 0 && var_1fc5672 == 4)
 			{

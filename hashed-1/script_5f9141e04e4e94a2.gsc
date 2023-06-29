@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using script_174ce72cc0f850;
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_white_portals.gsc;
 #using scripts\zm\zm_white_main_quest.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
@@ -192,7 +192,7 @@ function private function_b60df00d()
 		exploder::stop_exploder("fxexp_mk2_y_smoke_emit_" + level.var_23674b8f.var_5dca8c75.script_string);
 		exploder::exploder("fxexp_mk2_y_dirt_reveal_" + level.var_23674b8f.var_5dca8c75.script_string);
 	}
-	s_unitrigger = var_5dca8c75.var_5760bda2 namespace_2e9c09b3::function_f1827cc6(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 96);
+	s_unitrigger = var_5dca8c75.var_5760bda2 zm_item_pickup::create_item_pickup(&function_9d66ea6f, &function_f6048ee, &function_5b4f9f76, 96);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 }
 
@@ -210,7 +210,7 @@ function function_33d9b1f8()
 	target = level.var_23674b8f.var_5dca8c75.var_ceb354bf;
 	if(isdefined(target) && distancesquared(self.origin, target.origin) < 262144)
 	{
-		target util::function_c596f193();
+		target util::make_sentient();
 		self.favoriteenemy = target;
 		v_goal = getclosestpointonnavmesh(target.origin);
 		self setgoal(v_goal);
@@ -616,7 +616,7 @@ function private function_2b0060b8()
 function private function_a66f0de2()
 {
 	namespace_bd74bbd2::end(#"sc_mk2y");
-	s_unitrigger = level.var_23674b8f.var_fead3ae9 namespace_2e9c09b3::function_f1827cc6(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76);
+	s_unitrigger = level.var_23674b8f.var_fead3ae9 zm_item_pickup::create_item_pickup(&function_b9a31cb, &function_f6048ee, &function_5b4f9f76);
 	zm_unitrigger::unitrigger_force_per_player_triggers(s_unitrigger);
 	level.var_23674b8f.var_fead3ae9 setmodel(#"hash_7b9a3cdf5dd8b4d7");
 	level.var_23674b8f.var_fead3ae9 clientfield::set("" + #"hash_70251001fe8c4abe", 1);

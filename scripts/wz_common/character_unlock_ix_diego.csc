@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\wz_common\character_unlock_fixup.csc;
-#using script_731df012f3a3c2fc;
+#using scripts\mp_common\item_world_fixup.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace character_unlock_ix_diego;
@@ -48,11 +48,11 @@ function function_2613aeec(enabled)
 	{
 		if(isdefined(getgametypesetting(#"hash_17f17e92c2654659")) && getgametypesetting(#"hash_17f17e92c2654659"))
 		{
-			namespace_b0722f43::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_24bfa16ffb71fe9f", 3);
+			item_world_fixup::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_24bfa16ffb71fe9f", 3);
 		}
 		else
 		{
-			namespace_b0722f43::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_24bfa16ffb71fe9f", 6);
+			item_world_fixup::function_e70fa91c(#"hash_5d3928f724e1cadf", #"hash_24bfa16ffb71fe9f", 6);
 		}
 	}
 }

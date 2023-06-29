@@ -1,6 +1,6 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c72973fb240f263;
+#using scripts\zm_common\zm_item_pickup.gsc;
 #using scripts\zm\zm_orange_snowball_piles.gsc;
 #using scripts\zm\zm_orange_pablo.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
@@ -1061,7 +1061,7 @@ function function_fd31e27b()
 	var_cbb3defa = getentarray("brain_item_drop", "targetname");
 	foreach(var_1e43a31e in var_cbb3defa)
 	{
-		var_1e43a31e namespace_2e9c09b3::function_d6812b9d();
+		var_1e43a31e zm_item_pickup::function_d6812b9d();
 	}
 }
 
@@ -2655,7 +2655,7 @@ function function_b0d64cce(v_pos, v_angles)
 		v_ground = v_ground + vectorscale((0, 0, 1), 36);
 		var_68101467 = util::spawn_model("p8_zm_esc_warden_organs_brain", v_ground);
 		waitframe(1);
-		s_unitrigger = var_68101467 namespace_2e9c09b3::function_f1827cc6(&function_4626ec3, &function_fde99ac6, undefined, 96);
+		s_unitrigger = var_68101467 zm_item_pickup::create_item_pickup(&function_4626ec3, &function_fde99ac6, undefined, 96);
 		var_68101467.targetname = "brain_item_drop";
 		var_68101467.var_8691c7d4 = 1;
 		var_68101467 playsound(#"zmb_spawn_powerup");
@@ -2857,16 +2857,16 @@ function function_11001794()
 		}
 	}
 	var_e18247ac = level.var_b42f4f4b.origin + self.var_f7d17867;
-	var_9ac46b0e = level.var_b42f4f4b.angles + self.var_14172483;
+	v_spawn_angles = level.var_b42f4f4b.angles + self.var_14172483;
 	if(isdefined(self.var_f2e7f46a) && self.var_f2e7f46a)
 	{
-		self.var_4d0b3b87 = zm_utility::spawn_buildkit_weapon_model(self.e_player, getweapon(self.str_reward), undefined, var_e18247ac, var_9ac46b0e);
+		self.var_4d0b3b87 = zm_utility::spawn_buildkit_weapon_model(self.e_player, getweapon(self.str_reward), undefined, var_e18247ac, v_spawn_angles);
 		self.var_4d0b3b87.str_weapon_name = self.str_reward;
 		self.var_4d0b3b87 movez(5, 1);
 	}
 	else
 	{
-		self.var_4d0b3b87 = util::spawn_model(self.var_3ff570f3, var_e18247ac, var_9ac46b0e);
+		self.var_4d0b3b87 = util::spawn_model(self.var_3ff570f3, var_e18247ac, v_spawn_angles);
 		self.var_4d0b3b87 movez(5, 1);
 		self.var_4d0b3b87.var_c9837131 = 1;
 		self.var_4d0b3b87 thread function_f5f83516();

@@ -53,7 +53,7 @@ function __init__()
 */
 function private on_begin(timeout_time, var_b2c60867)
 {
-	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::add_callback(#"on_host_migration_end", &function_ff66b979);
 	self.timeout_time = zm_trial::function_5769f26a(timeout_time);
 	foreach(player in getplayers())
 	{
@@ -73,7 +73,7 @@ function private on_begin(timeout_time, var_b2c60867)
 */
 function private on_end(round_reset)
 {
-	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::remove_callback(#"on_host_migration_end", &function_ff66b979);
 	foreach(player in getplayers())
 	{
 		player.var_b2c60867 = undefined;
@@ -203,8 +203,8 @@ function private function_ff66b979()
 	wait(5);
 	foreach(player in getplayers())
 	{
-		var_d1659cdf = var_a0328dd5 - player.var_e14296de;
-		player thread function_ad32d69(player.var_b2c60867, player.n_timeout_time, int(float(var_d1659cdf) / 1000), 0);
+		timer_delta = var_a0328dd5 - player.var_e14296de;
+		player thread function_ad32d69(player.var_b2c60867, player.n_timeout_time, int(float(timer_delta) / 1000), 0);
 		player thread damage_monitor(0);
 	}
 }
