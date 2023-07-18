@@ -457,14 +457,14 @@ event function_3981d015(eventstruct)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bbca669b(var_64c09f7f, dynent)
+function function_bbca669b(e_activator, dynent)
 {
-	if(isdefined(var_64c09f7f) && isdefined(dynent))
+	if(isdefined(e_activator) && isdefined(dynent))
 	{
-		var_64c09f7f notify(#"hash_2f586f8df1e6596d");
-		var_64c09f7f endon(#"hash_2f586f8df1e6596d", #"hash_59db65b924f851e4", #"hash_f787bd652d7a4b", #"disconnect");
+		e_activator notify(#"hash_2f586f8df1e6596d");
+		e_activator endon(#"hash_2f586f8df1e6596d", #"hash_59db65b924f851e4", #"hash_f787bd652d7a4b", #"disconnect");
 		wait(5);
-		var_64c09f7f thread function_c1cc29be(var_64c09f7f, dynent);
+		e_activator thread function_c1cc29be(e_activator, dynent);
 	}
 }
 
@@ -477,16 +477,16 @@ function function_bbca669b(var_64c09f7f, dynent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c1cc29be(var_64c09f7f, dynent)
+function function_c1cc29be(e_activator, dynent)
 {
-	if(isdefined(var_64c09f7f) && isdefined(dynent))
+	if(isdefined(e_activator) && isdefined(dynent))
 	{
-		var_64c09f7f endon(#"hash_59db65b924f851e4", #"disconnect");
-		var_64c09f7f notify(#"hash_f787bd652d7a4b");
-		localclientnum = var_64c09f7f.localclientnum;
-		var_8171dd3a = var_64c09f7f.tube1;
-		var_8dfff656 = var_64c09f7f.tube2;
-		var_44e1e41b = var_64c09f7f.tube3;
+		e_activator endon(#"hash_59db65b924f851e4", #"disconnect");
+		e_activator notify(#"hash_f787bd652d7a4b");
+		localclientnum = e_activator.localclientnum;
+		var_8171dd3a = e_activator.tube1;
+		var_8dfff656 = e_activator.tube2;
+		var_44e1e41b = e_activator.tube3;
 		var_954ac27a = 0;
 		if(var_8171dd3a == 1 && var_8dfff656 == 1 && var_44e1e41b == 5)
 		{
@@ -505,13 +505,13 @@ function function_c1cc29be(var_64c09f7f, dynent)
 			dynent.canuse = 0;
 			wait(1.5 + 0.25);
 			var_62002857 = 0;
-			var_64c09f7f thread function_f451b137();
+			e_activator thread function_f451b137();
 			wait(2);
-			var_64c09f7f function_172e72fa();
+			e_activator function_172e72fa();
 			if(var_954ac27a)
 			{
 				str_code = (("" + var_8171dd3a) + var_8dfff656) + var_44e1e41b;
-				var_64c09f7f thread function_a5d20d9b(str_code);
+				e_activator thread function_a5d20d9b(str_code);
 				if(str_code == "115")
 				{
 					var_62002857 = 6;
@@ -527,7 +527,7 @@ function function_c1cc29be(var_64c09f7f, dynent)
 			}
 			playsound(localclientnum, #"hash_6c0f63cd38c393e7", dynent.origin);
 			dynent.canuse = 0;
-			var_64c09f7f thread function_f451b137();
+			e_activator thread function_f451b137();
 			dynent.canuse = 1;
 		}
 	}

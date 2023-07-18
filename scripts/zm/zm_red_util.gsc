@@ -469,10 +469,10 @@ function function_f17015c8(a_ents, vol_area)
 */
 function function_a3a07623()
 {
-	var_1a83e85e = struct::get_array("collectibles_pos", "targetname");
-	array::thread_all(var_1a83e85e, &function_ee58ddd4);
-	var_551e1d09 = struct::get_array("scrolls_pos", "targetname");
-	array::thread_all(var_551e1d09, &function_ee58ddd4, 1);
+	a_s_collectibles = struct::get_array("collectibles_pos", "targetname");
+	array::thread_all(a_s_collectibles, &function_ee58ddd4);
+	a_s_scrolls = struct::get_array("scrolls_pos", "targetname");
+	array::thread_all(a_s_scrolls, &function_ee58ddd4, 1);
 }
 
 /*
@@ -495,16 +495,16 @@ function private function_ee58ddd4(is_scroll = 0)
 	{
 		mdl_collectible = util::spawn_model(self.model, self.origin, self.angles, 0, 1);
 	}
-	var_64c09f7f = self zm_unitrigger::function_fac87205("", n_radius);
-	if(isplayer(var_64c09f7f))
+	e_activator = self zm_unitrigger::function_fac87205("", n_radius);
+	if(isplayer(e_activator))
 	{
 		if(is_scroll)
 		{
-			var_64c09f7f thread function_eb6f144(self.script_string, mdl_collectible);
+			e_activator thread function_eb6f144(self.script_string, mdl_collectible);
 		}
 		else
 		{
-			var_64c09f7f thread function_8916aa62(self.script_string);
+			e_activator thread function_8916aa62(self.script_string);
 		}
 	}
 }
@@ -521,13 +521,13 @@ function private function_ee58ddd4(is_scroll = 0)
 function function_a94baf7b()
 {
 	/#
-		var_1a83e85e = struct::get_array("", "");
-		foreach(s_collectibles in var_1a83e85e)
+		a_s_collectibles = struct::get_array("", "");
+		foreach(s_collectibles in a_s_collectibles)
 		{
 			sphere(s_collectibles.origin + vectorscale((0, 0, 1), 60), 12, (0, 1, 1), 0.7, 0, 16, 10000);
 		}
-		var_551e1d09 = struct::get_array("", "");
-		foreach(s_scrolls in var_551e1d09)
+		a_s_scrolls = struct::get_array("", "");
+		foreach(s_scrolls in a_s_scrolls)
 		{
 			sphere(s_scrolls.origin + vectorscale((0, 0, 1), 60), 12, (1, 0.5, 0), 0.7, 0, 16, 10000);
 		}

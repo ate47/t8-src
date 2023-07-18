@@ -564,18 +564,18 @@ function cooldown_portal_timer(e_user)
 {
 	self endon(#"death", #"hash_3c91bf90cecbe758");
 	e_user endon(#"death");
-	if(!isdefined(self.var_3dac5f67))
+	if(!isdefined(self.a_e_users))
 	{
-		self.var_3dac5f67 = [];
+		self.a_e_users = [];
 	}
-	else if(!isarray(self.var_3dac5f67))
+	else if(!isarray(self.a_e_users))
 	{
-		self.var_3dac5f67 = array(self.var_3dac5f67);
+		self.a_e_users = array(self.a_e_users);
 	}
-	self.var_3dac5f67[self.var_3dac5f67.size] = e_user;
+	self.a_e_users[self.a_e_users.size] = e_user;
 	self function_cb7c6fc7(e_user, 0);
 	wait(20);
-	arrayremovevalue(self.var_3dac5f67, e_user);
+	arrayremovevalue(self.a_e_users, e_user);
 	self function_cb7c6fc7(e_user, 1);
 	playsoundatposition(#"hash_1c870a3a31a2dcf9", self.origin);
 }
@@ -1010,13 +1010,13 @@ function portal_init()
 		level.a_s_portals = array(level.a_s_portals);
 	}
 	self.var_a1cf77d2 = util::spawn_model("tag_origin", self.origin, self.angles);
-	if(!isdefined(self.var_3dac5f67))
+	if(!isdefined(self.a_e_users))
 	{
-		self.var_3dac5f67 = [];
+		self.a_e_users = [];
 	}
-	else if(!isarray(self.var_3dac5f67))
+	else if(!isarray(self.a_e_users))
 	{
-		self.var_3dac5f67 = array(self.var_3dac5f67);
+		self.a_e_users = array(self.a_e_users);
 	}
 	self.zone_name = zm_zonemgr::get_zone_from_position(self.origin, 1);
 	self.var_d5ea18bf = array("PORTAL_YELLOW_BACKYARD", "PORTAL_YELLOW_HOUSE", "PORTAL_RED_HOUSE", "PORTAL_GREEN_HOUSE", "PORTAL_GREEN_BACKYARD", "PORTAL_STREET_MID", "PORTAL_STREET_START", "PORTAL_PRISONER_HOLDING", "PORTAL_OPERATIONS", "PORTAL_TRANSFUSION_FACILITY", "PORTAL_APD_INTERROGATION", "PORTAL_DINER", "PORTAL_BEDS", "PORTAL_LOUNGE", "PORTAL_POWER", "PORTAL_STORAGE");
@@ -1397,7 +1397,7 @@ function function_360c6be0()
 			}
 			waitframe(1);
 		}
-		if(array::contains(self.var_3dac5f67, e_user) || (isdefined(self.var_cd2f1fed) && self.var_cd2f1fed))
+		if(array::contains(self.a_e_users, e_user) || (isdefined(self.var_cd2f1fed) && self.var_cd2f1fed))
 		{
 			continue;
 		}
@@ -1610,7 +1610,7 @@ function disable_teleporter()
 {
 	self.var_cd2f1fed = 1;
 	self notify(#"hash_3c91bf90cecbe758");
-	self.var_3dac5f67 = [];
+	self.a_e_users = [];
 	foreach(e_player in getplayers())
 	{
 		self function_7c7520a5(e_player);

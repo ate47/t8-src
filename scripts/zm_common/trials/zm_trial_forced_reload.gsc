@@ -35,7 +35,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -163,10 +163,10 @@ function private function_29ee24dd(weapon)
 	{
 		while(true)
 		{
-			var_be17187b = undefined;
-			var_be17187b = self waittill(#"reload", #"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"hash_1fbfdb0105f48f89", #"player_downed", #"death");
+			s_waitresult = undefined;
+			s_waitresult = self waittill(#"reload", #"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"hash_1fbfdb0105f48f89", #"player_downed", #"death");
 			w_current = self getcurrentweapon();
-			if(var_be17187b._notify == "reload" && weapon != w_current)
+			if(s_waitresult._notify == "reload" && weapon != w_current)
 			{
 				continue;
 			}

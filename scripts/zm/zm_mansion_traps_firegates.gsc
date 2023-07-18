@@ -134,8 +134,8 @@ function function_96e29e5f()
 */
 function function_85839afe()
 {
-	var_9a2f8aa = getentarray("zombie_trap", "targetname");
-	level.var_ba53c5c5 = array::filter(var_9a2f8aa, 0, &function_960a9a04);
+	a_zombie_traps = getentarray("zombie_trap", "targetname");
+	level.var_ba53c5c5 = array::filter(a_zombie_traps, 0, &function_960a9a04);
 	if(zm_custom::function_901b751c(#"zmtrapsenabled"))
 	{
 		level.var_940ee624 = 0;
@@ -187,23 +187,23 @@ function function_bd8eddac()
 	self.var_3a2026c0 = [];
 	self.var_3d6b88c4 = [];
 	self.var_872ce8b7 = [];
-	var_cc06b647 = getentarray(self.target, "targetname");
-	foreach(var_a2f7fe95 in var_cc06b647)
+	a_e_elements = getentarray(self.target, "targetname");
+	foreach(e_element in a_e_elements)
 	{
-		if(var_a2f7fe95.script_noteworthy === "trap_console")
+		if(e_element.script_noteworthy === "trap_console")
 		{
-			self.var_3d6b88c4[self.var_3d6b88c4.size] = var_a2f7fe95;
+			self.var_3d6b88c4[self.var_3d6b88c4.size] = e_element;
 			continue;
 		}
-		if(var_a2f7fe95.script_noteworthy === "trap_lever")
+		if(e_element.script_noteworthy === "trap_lever")
 		{
-			self.var_872ce8b7[self.var_872ce8b7.size] = var_a2f7fe95;
+			self.var_872ce8b7[self.var_872ce8b7.size] = e_element;
 			continue;
 		}
-		if(var_a2f7fe95.script_noteworthy === "bulletclip")
+		if(e_element.script_noteworthy === "bulletclip")
 		{
-			var_a2f7fe95 notsolid();
-			self.bulletclip = var_a2f7fe95;
+			e_element notsolid();
+			self.bulletclip = e_element;
 		}
 	}
 	a_s_elements = struct::get_array(self.target, "targetname");

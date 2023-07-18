@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -212,11 +212,11 @@ function function_2d961b95()
 	self endon(#"disconnect", #"allow_ads");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_change");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_change");
 		if(isalive(self))
 		{
-			if(var_be17187b.weapon.isriotshield)
+			if(s_waitresult.weapon.isriotshield)
 			{
 				self function_4488a530(1);
 			}

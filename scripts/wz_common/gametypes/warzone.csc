@@ -125,7 +125,7 @@ function function_7be1ea25()
 			util::releaseobjid(localclientnum, clientobjid);
 		}
 		level.var_a5ec5f1a[localclientnum][waitresult.clientnum] = obj_id;
-		if(!(isdefined(getgametypesetting(#"hash_76c2c603f164eb31")) && getgametypesetting(#"hash_76c2c603f164eb31")) || (!(isdefined(level.localplayers[localclientnum].var_13a5716d) && level.localplayers[localclientnum].var_13a5716d)))
+		if(!(isdefined(getgametypesetting(#"hash_76c2c603f164eb31")) && getgametypesetting(#"hash_76c2c603f164eb31")) || (!(isdefined(level.localplayers[localclientnum].infiltrating) && level.localplayers[localclientnum].infiltrating)))
 		{
 			objective_add(localclientnum, obj_id, "active", #"teammate_waypoint", (waitresult.xcoord, waitresult.ycoord, 0), #"none", waitresult.clientnum);
 		}
@@ -157,7 +157,7 @@ function function_97d0a8af(local_client_num, obj_id, x, y, clientnum)
 {
 	self notify("68f151c5b262427f");
 	self endon("68f151c5b262427f");
-	while(isdefined(level.localplayers[local_client_num].var_13a5716d) && level.localplayers[local_client_num].var_13a5716d)
+	while(isdefined(level.localplayers[local_client_num].infiltrating) && level.localplayers[local_client_num].infiltrating)
 	{
 		wait(0.1);
 	}
@@ -639,10 +639,10 @@ function private function_7e3a43c3(localclientnum)
 */
 function private function_b522ef5c()
 {
-	var_d106ba82 = struct::get("map_dest_hijacked");
-	if(isdefined(var_d106ba82))
+	s_hijacked = struct::get("map_dest_hijacked");
+	if(isdefined(s_hijacked))
 	{
-		var_d106ba82.origin = (22966, 46926, 1270);
+		s_hijacked.origin = (22966, 46926, 1270);
 	}
 }
 

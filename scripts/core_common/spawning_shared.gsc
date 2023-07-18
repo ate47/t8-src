@@ -1703,24 +1703,24 @@ function get_random_intermission_point()
 */
 function move_spawn_point(var_75347e0b, start_point, new_point, new_angles)
 {
-	var_690d7ade = [];
+	targetnamearray = [];
 	if(isarray(var_75347e0b))
 	{
-		var_690d7ade = var_75347e0b;
+		targetnamearray = var_75347e0b;
 	}
 	else
 	{
-		if(!isdefined(var_690d7ade))
+		if(!isdefined(targetnamearray))
 		{
-			var_690d7ade = [];
+			targetnamearray = [];
 		}
-		else if(!isarray(var_690d7ade))
+		else if(!isarray(targetnamearray))
 		{
-			var_690d7ade = array(var_690d7ade);
+			targetnamearray = array(targetnamearray);
 		}
-		var_690d7ade[var_690d7ade.size] = var_75347e0b;
+		targetnamearray[targetnamearray.size] = var_75347e0b;
 	}
-	foreach(targetname in var_690d7ade)
+	foreach(targetname in targetnamearray)
 	{
 		spawn_points = get_spawnpoint_array(targetname);
 		for(i = 0; i < spawn_points.size; i++)

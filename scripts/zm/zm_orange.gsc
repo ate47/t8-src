@@ -30,7 +30,7 @@
 #using script_652cf01d4f20aeb5;
 #using script_67c9a990c0db216c;
 #using scripts\zm\zm_hms_util.gsc;
-#using script_6b6fff322a8a64eb;
+#using scripts\zm\zm_orange_ee_misc.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm\zm_orange_mq_fuse.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
@@ -143,7 +143,7 @@ event main(eventstruct)
 		}
 	}
 	level zm_orange_challenges::init();
-	level namespace_f9df92f::preload();
+	level zm_orange_ee_misc::preload();
 	level zm_orange_ee_dynamite::init();
 	level zm_orange_ee_tundragun::init();
 	level namespace_5449c7ba::init();
@@ -183,7 +183,7 @@ event main(eventstruct)
 	level thread sndfunctions();
 	level thread zm_orange_pablo::init();
 	level thread zm_orange_challenges::main();
-	level thread namespace_f9df92f::main();
+	level thread zm_orange_ee_misc::main();
 	level thread zm_orange_ee_dynamite::main();
 	level thread zm_orange_ee_tundragun::main();
 	level thread namespace_5449c7ba::main();

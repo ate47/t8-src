@@ -90,17 +90,17 @@ function function_8d43b840(var_5ea5c94d)
 		{
 			case 1:
 			{
-				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 3);
+				zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 3);
 				break;
 			}
 			case 2:
 			{
-				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 5);
+				zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 5);
 				break;
 			}
 			case 3:
 			{
-				zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 7);
+				zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 7);
 				break;
 			}
 		}

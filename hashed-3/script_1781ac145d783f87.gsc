@@ -175,12 +175,12 @@ function function_fb74fc5f()
 	playsoundatposition(#"hash_7f8f5a20e4b87aac", (0, 0, 0));
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_3042a9bf2f57ea0a");
-		v_origin = var_be17187b.var_814c9389;
-		if(isplayer(var_be17187b.attacker))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"hash_3042a9bf2f57ea0a");
+		v_origin = s_waitresult.var_814c9389;
+		if(isplayer(s_waitresult.attacker))
 		{
-			str_player_zone = var_be17187b.attacker.zone_name;
+			str_player_zone = s_waitresult.attacker.zone_name;
 		}
 		if(istouching(v_origin, level.var_c1549bc8.var_f06465e0) && str_player_zone === "zone_zeus_top_floor")
 		{
@@ -404,9 +404,9 @@ function function_4b01369a()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"trap_activated");
-		t_trap = var_be17187b.trap;
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"trap_activated");
+		t_trap = s_waitresult.trap;
 		str_triggers = t_trap.var_a1aa5fa1;
 		if(isdefined(str_triggers))
 		{
@@ -458,10 +458,10 @@ function function_51817689()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"trap_kill");
-		ai_victim = var_be17187b.e_victim;
-		e_trap = var_be17187b.e_trap;
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"trap_kill");
+		ai_victim = s_waitresult.e_victim;
+		e_trap = s_waitresult.e_trap;
 		e_player = e_trap.activated_by_player;
 		if(isplayer(e_player) && isactor(ai_victim))
 		{
@@ -643,16 +643,16 @@ function function_3ce07a2b()
 	level endon(#"game_end", #"21_guns");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"damage");
-		e_attacker = var_be17187b.attacker;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"damage");
+		e_attacker = s_waitresult.attacker;
 		if(!isplayer(e_attacker))
 		{
 			continue;
 		}
-		if(namespace_52d8d460::function_a57b8fca(var_be17187b.weapon, 0) && e_attacker.var_c9d375dc.b_charged)
+		if(namespace_52d8d460::function_a57b8fca(s_waitresult.weapon, 0) && e_attacker.var_c9d375dc.b_charged)
 		{
-			str_player_zone = var_be17187b.attacker.zone_name;
+			str_player_zone = s_waitresult.attacker.zone_name;
 			if(str_player_zone == "zone_odin_top_floor")
 			{
 				e_attacker thread function_2ea36422();

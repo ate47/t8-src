@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_35857c2f8d30b2a4;
+#using scripts\core_common\flowgraph\flowgraph_core.csc;
 
 #namespace flowgraph_trigger;
 

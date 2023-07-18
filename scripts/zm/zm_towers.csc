@@ -2258,8 +2258,8 @@ function function_a1d393ad(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_ee4f01d8(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	var_a882b6eb = struct::get_array("sndCrowdOneshot");
-	foreach(s_crowd in var_a882b6eb)
+	a_s_crowd = struct::get_array("sndCrowdOneshot");
+	foreach(s_crowd in a_s_crowd)
 	{
 		playsound(localclientnum, #"hash_4857544e0712e0cc", s_crowd.origin);
 		n_random_wait = randomfloatrange(0.15, 0.5);
@@ -2745,8 +2745,8 @@ function function_1941a5ca(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function ww_quest_earthquake(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	function_36e4ebd4(localclientnum, #"hash_50888989ae869119");
-	function_36e4ebd4(localclientnum, #"hash_9c55bc1ac704fee");
+	function_36e4ebd4(localclientnum, #"zm_towers_earthquake_heavy");
+	function_36e4ebd4(localclientnum, #"zm_towers_earthquake_light");
 }
 
 /*

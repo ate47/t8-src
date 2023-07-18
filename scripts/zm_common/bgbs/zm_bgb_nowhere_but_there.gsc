@@ -379,13 +379,13 @@ function get_best_spawnpoint(e_player)
 		v_target = getclosestpointonnavmesh(v_target, 64);
 	}
 	var_ed38ae06 = arraysortclosest(var_ed38ae06, v_target, 16);
-	var_d5e3cab0 = generatenavmeshpath(v_target, var_ed38ae06);
+	s_pathdata = generatenavmeshpath(v_target, var_ed38ae06);
 	var_bbf0b888 = abs(distance(self.origin, e_player.origin)) + 300;
 	var_bbf0b888 = math::clamp(var_bbf0b888, 1, 1000);
-	if(isdefined(var_d5e3cab0))
+	if(isdefined(s_pathdata))
 	{
-		var_ed38ae06 = var_d5e3cab0.pathpoints;
-		var_68eca602 = var_d5e3cab0.pathdistance;
+		var_ed38ae06 = s_pathdata.pathpoints;
+		var_68eca602 = s_pathdata.pathdistance;
 		arrayremoveindex(var_ed38ae06, 0);
 		var_ed38ae06 = array::reverse(var_ed38ae06);
 		if(var_68eca602 >= var_bbf0b888)

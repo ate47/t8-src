@@ -21,11 +21,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_a0f5c7fc;
+#namespace zm_escape_vo_hooks;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x56A55E21
 	Offset: 0x240
 	Size: 0x44
@@ -34,12 +34,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_261b71c31eed2733", &__init__, &__main__, undefined);
+	system::register(#"zm_escape_vo_hooks", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x5C4588F2
 	Offset: 0x290
 	Size: 0x54
@@ -55,7 +55,7 @@ function __init__()
 
 /*
 	Name: __main__
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xBBFC86C4
 	Offset: 0x2F0
 	Size: 0x12C
@@ -80,7 +80,7 @@ function __main__()
 
 /*
 	Name: init_flags
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xADC2FE3F
 	Offset: 0x428
 	Size: 0x84
@@ -97,7 +97,7 @@ function init_flags()
 
 /*
 	Name: init_announcer
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x83C7422C
 	Offset: 0x4B8
 	Size: 0x34
@@ -111,7 +111,7 @@ function init_announcer()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xD77A5F0F
 	Offset: 0x4F8
 	Size: 0x3C
@@ -126,7 +126,7 @@ function on_player_connect()
 
 /*
 	Name: function_4e68b0f4
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x606D2643
 	Offset: 0x540
 	Size: 0xA4
@@ -144,7 +144,7 @@ function function_4e68b0f4()
 
 /*
 	Name: function_29543c
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x80F51943
 	Offset: 0x5F0
 	Size: 0x294
@@ -183,7 +183,7 @@ function function_29543c()
 
 /*
 	Name: function_9af564c
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x88C6058D
 	Offset: 0x890
 	Size: 0x68
@@ -202,7 +202,7 @@ function function_9af564c()
 
 /*
 	Name: function_f34169e8
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xD1D6B10F
 	Offset: 0x900
 	Size: 0xC4
@@ -223,7 +223,7 @@ function private function_f34169e8()
 
 /*
 	Name: function_65a374eb
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x9277D66D
 	Offset: 0x9D0
 	Size: 0x90
@@ -244,7 +244,7 @@ function function_65a374eb()
 
 /*
 	Name: function_f1da2bd5
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xA792CF2F
 	Offset: 0xA68
 	Size: 0x178
@@ -270,7 +270,7 @@ function private function_f1da2bd5()
 
 /*
 	Name: function_480ec8c
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x7AF09238
 	Offset: 0xBE8
 	Size: 0x58
@@ -289,7 +289,7 @@ function function_480ec8c(player)
 
 /*
 	Name: function_4f89089b
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x4AF1DF75
 	Offset: 0xC50
 	Size: 0x13E
@@ -319,7 +319,7 @@ function function_4f89089b()
 
 /*
 	Name: function_963edada
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xCC6198FF
 	Offset: 0xD98
 	Size: 0x128
@@ -345,7 +345,7 @@ function function_963edada()
 
 /*
 	Name: function_19af3d1b
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xCD6D09D4
 	Offset: 0xEC8
 	Size: 0x54
@@ -363,7 +363,7 @@ function function_19af3d1b(str_notify)
 
 /*
 	Name: function_bdc25d1b
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xF931B205
 	Offset: 0xF28
 	Size: 0xAC
@@ -382,7 +382,7 @@ function private function_bdc25d1b()
 
 /*
 	Name: function_350029c6
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xF7E38B4
 	Offset: 0xFE0
 	Size: 0x84
@@ -400,7 +400,7 @@ function function_350029c6()
 
 /*
 	Name: function_35491a0e
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xB5A3295F
 	Offset: 0x1070
 	Size: 0xA4
@@ -417,7 +417,7 @@ function private function_35491a0e()
 
 /*
 	Name: function_58813027
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xD43D02A0
 	Offset: 0x1120
 	Size: 0x2C
@@ -431,7 +431,7 @@ function function_58813027(e_player)
 
 /*
 	Name: function_f118f554
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xEF94AD28
 	Offset: 0x1158
 	Size: 0xBC
@@ -451,7 +451,7 @@ function function_f118f554()
 
 /*
 	Name: function_5860fce9
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x86CBA5B0
 	Offset: 0x1220
 	Size: 0x144
@@ -479,7 +479,7 @@ function private function_5860fce9()
 
 /*
 	Name: function_49189399
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x137A37B0
 	Offset: 0x1370
 	Size: 0x17C
@@ -517,7 +517,7 @@ function private function_49189399()
 
 /*
 	Name: function_22101968
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xAB7322DB
 	Offset: 0x14F8
 	Size: 0x13C
@@ -547,7 +547,7 @@ function function_22101968()
 
 /*
 	Name: function_3deb7fb0
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x1AA64BF1
 	Offset: 0x1640
 	Size: 0x54
@@ -562,7 +562,7 @@ function private function_3deb7fb0()
 
 /*
 	Name: function_db185b3
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x81C79C2F
 	Offset: 0x16A0
 	Size: 0x90
@@ -583,7 +583,7 @@ function function_db185b3()
 
 /*
 	Name: function_a78a3261
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x4BF17B94
 	Offset: 0x1738
 	Size: 0x14E
@@ -624,7 +624,7 @@ function private function_a78a3261()
 
 /*
 	Name: function_818b85eb
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0xDD425265
 	Offset: 0x1890
 	Size: 0xE4
@@ -652,7 +652,7 @@ function function_818b85eb()
 
 /*
 	Name: function_c179111e
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x748E0074
 	Offset: 0x1980
 	Size: 0xFC
@@ -676,7 +676,7 @@ function function_c179111e()
 
 /*
 	Name: function_d62aaf66
-	Namespace: namespace_a0f5c7fc
+	Namespace: zm_escape_vo_hooks
 	Checksum: 0x170BA816
 	Offset: 0x1A88
 	Size: 0x2A

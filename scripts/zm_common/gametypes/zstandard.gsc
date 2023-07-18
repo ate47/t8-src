@@ -394,7 +394,7 @@ function function_744ee8ce()
 	if(var_ca20f133)
 	{
 		wait(randomfloatrange(1, 4));
-		self.var_7d81025 = self zm_utility::function_ce46d95e(self.origin, isdefined(self.b_permanent) && self.b_permanent);
+		self.e_powerup = self zm_utility::function_ce46d95e(self.origin, isdefined(self.b_permanent) && self.b_permanent);
 	}
 }
 
@@ -1018,11 +1018,11 @@ function function_e03ea502()
 	clientfield::set_world_uimodel(("PlayerList.client" + self.entity_num) + ".multiplier_count", self.var_7e008e0c + 1);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(self.var_72b24dc2, #"zm_arcade_kill", #"damage", #"bled_out", #"player_downed", #"bonus_points_player_grabbed", #"multiplier_timeout", #"hash_b696fc900429737", #"player_grabbed_key");
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(self.var_72b24dc2, #"zm_arcade_kill", #"damage", #"bled_out", #"player_downed", #"bonus_points_player_grabbed", #"multiplier_timeout", #"hash_b696fc900429737", #"player_grabbed_key");
 		clientfield::set_world_uimodel(("PlayerList.client" + self.entity_num) + ".multiplier_blink", 0);
 		str_extra_info = #"hash_4ba6bddb362745d9";
-		switch(var_be17187b._notify)
+		switch(s_waitresult._notify)
 		{
 			case "bonus_points_player_grabbed":
 			{
@@ -1050,10 +1050,10 @@ function function_e03ea502()
 			case "multiplier_timeout":
 			case "damage":
 			{
-				if(isdefined(var_be17187b.mod) && var_be17187b.mod != "MOD_FALLING" || var_be17187b._notify == "multiplier_timeout")
+				if(isdefined(s_waitresult.mod) && s_waitresult.mod != "MOD_FALLING" || s_waitresult._notify == "multiplier_timeout")
 				{
 					str_extra_info = #"hash_68f33faa5abddd73";
-					if(var_be17187b._notify == "multiplier_timeout" && self.var_7e008e0c > 0)
+					if(s_waitresult._notify == "multiplier_timeout" && self.var_7e008e0c > 0)
 					{
 						var_210b3e4c = self.var_7e008e0c + 1;
 						if(var_210b3e4c >= 150)
@@ -1085,7 +1085,7 @@ function function_e03ea502()
 						{
 							zm_custom::function_db030433();
 						}
-						var_d866ecc6 = (isdefined(var_be17187b.amount) ? var_be17187b.amount : 50) * self.var_cf914505;
+						var_d866ecc6 = (isdefined(s_waitresult.amount) ? s_waitresult.amount : 50) * self.var_cf914505;
 						var_d866ecc6 = math::clamp(var_d866ecc6, 0, 0.75);
 						if(self.var_7e008e0c > 0 && (!(isdefined(self.var_5288b14b) && self.var_5288b14b)))
 						{
@@ -1233,9 +1233,9 @@ function function_c48750b()
 	var_273349fe = 1;
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"earned_points");
-		self function_cd6476e(var_be17187b.n_points);
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"earned_points");
+		self function_cd6476e(s_waitresult.n_points);
 		if(self.score >= (20000 * var_273349fe))
 		{
 			var_7b2ac985 = zm_laststand::function_618fd37e();
@@ -1804,9 +1804,9 @@ function function_9c062829()
 			e_item delete();
 		}
 	}
-	foreach(var_5f41c401 in level.var_4fe2f84d)
+	foreach(a_s_crafting in level.var_4fe2f84d)
 	{
-		foreach(s_crafting in var_5f41c401)
+		foreach(s_crafting in a_s_crafting)
 		{
 			if(!(isdefined(s_crafting.var_95f72816) && s_crafting.var_95f72816))
 			{
@@ -3248,11 +3248,11 @@ function function_f26f8251(str_archetype, n_player_count)
 			else
 			{
 				zm_transform::function_bdd8aba6(str_archetype);
-				var_be17187b = undefined;
-				var_be17187b = level waittill(#"transformation_complete");
-				if(var_be17187b.id === str_archetype)
+				s_waitresult = undefined;
+				s_waitresult = level waittill(#"transformation_complete");
+				if(s_waitresult.id === str_archetype)
 				{
-					ai = var_be17187b.var_944250d2[0];
+					ai = s_waitresult.var_944250d2[0];
 				}
 			}
 			waitframe(1);
@@ -3281,11 +3281,11 @@ function function_71e054d7()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"perk_bought");
-		if(isdefined(var_be17187b.var_16c042b8) && isdefined(level.zmannouncervox[var_be17187b.var_16c042b8]))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"perk_bought");
+		if(isdefined(s_waitresult.var_16c042b8) && isdefined(level.zmannouncervox[s_waitresult.var_16c042b8]))
 		{
-			level thread zm_audio::sndannouncerplayvox(var_be17187b.var_16c042b8, self);
+			level thread zm_audio::sndannouncerplayvox(s_waitresult.var_16c042b8, self);
 		}
 		else
 		{

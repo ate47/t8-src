@@ -70,9 +70,9 @@ function main()
 	}
 	level.var_d7374603 = 0;
 	level.var_3089454f = getentarray("mq_pap_vessel", "targetname");
-	foreach(var_8ac20606 in level.var_3089454f)
+	foreach(e_vessel in level.var_3089454f)
 	{
-		var_8ac20606 hide();
+		e_vessel hide();
 	}
 }
 
@@ -126,7 +126,7 @@ function function_a8748143(var_5ea5c94d, ended_early)
 */
 function function_91fbb734(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 6);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 6);
 	if(!var_5ea5c94d)
 	{
 		level waittill(#"hash_5266a594b96823e2");
@@ -165,7 +165,7 @@ function function_c2898bf0(var_5ea5c94d, ended_early)
 */
 function function_816c3132(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 9);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 9);
 	if(!var_5ea5c94d)
 	{
 		if(!isdefined(level.var_4d8e32c8))

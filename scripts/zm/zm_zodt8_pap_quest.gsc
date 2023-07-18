@@ -49,10 +49,10 @@ function init()
 		return;
 	}
 	level.s_pap_quest = struct::spawn();
-	level.s_pap_quest.var_e770eb55 = struct::get_array("pap_quest_interact");
-	level.s_pap_quest.var_ac28fc4d = level.s_pap_quest.var_e770eb55.size;
+	level.s_pap_quest.a_s_locations = struct::get_array("pap_quest_interact");
+	level.s_pap_quest.var_ac28fc4d = level.s_pap_quest.a_s_locations.size;
 	level.s_pap_quest.var_be6e6f65 = 0;
-	foreach(s_loc in level.s_pap_quest.var_e770eb55)
+	foreach(s_loc in level.s_pap_quest.a_s_locations)
 	{
 		level thread function_4d55584c(s_loc);
 	}
@@ -81,13 +81,13 @@ function init()
 function function_62933c32()
 {
 	level waittill(#"initial_fade_in_complete");
-	array::thread_all(level.s_pap_quest.var_e770eb55, &function_d6076798, 1);
+	array::thread_all(level.s_pap_quest.a_s_locations, &function_d6076798, 1);
 	if(!zm_utility::is_standard())
 	{
-		level.s_pap_quest.var_4ee2e2ab = randomintrange(0, level.s_pap_quest.var_e770eb55.size);
+		level.s_pap_quest.var_4ee2e2ab = randomintrange(0, level.s_pap_quest.a_s_locations.size);
 	}
 	level flag::wait_till("start_zombie_round_logic");
-	foreach(s_loc in level.s_pap_quest.var_e770eb55)
+	foreach(s_loc in level.s_pap_quest.a_s_locations)
 	{
 		s_loc.unitrigger_stub thread function_5c299a0f();
 	}
@@ -197,7 +197,7 @@ function function_11c3f280()
 	while(true)
 	{
 		level waittill(#"pap_moved");
-		if(level.s_pap_quest.var_e770eb55[level.s_pap_quest.var_4ee2e2ab] == self)
+		if(level.s_pap_quest.a_s_locations[level.s_pap_quest.var_4ee2e2ab] == self)
 		{
 			zm_unitrigger::unregister_unitrigger(self.unitrigger_stub);
 		}
@@ -258,9 +258,9 @@ function function_5c299a0f(player)
 	{
 		player playrumbleonentity("zm_castle_interact_rumble");
 	}
-	for(i = 0; i < level.s_pap_quest.var_e770eb55.size; i++)
+	for(i = 0; i < level.s_pap_quest.a_s_locations.size; i++)
 	{
-		if(!zm_utility::is_standard() && level.s_pap_quest.var_e770eb55[i].unitrigger_stub == self)
+		if(!zm_utility::is_standard() && level.s_pap_quest.a_s_locations[i].unitrigger_stub == self)
 		{
 			level.s_pap_quest.var_4ee2e2ab = i;
 		}
@@ -313,7 +313,7 @@ function function_214cd6b3()
 */
 function function_e19c174f()
 {
-	foreach(s_loc in level.s_pap_quest.var_e770eb55)
+	foreach(s_loc in level.s_pap_quest.a_s_locations)
 	{
 		s_loc.unitrigger_stub.pap_machine clientfield::set("pap_chunk_small_rune", 1);
 	}
@@ -340,7 +340,7 @@ function function_668e3f89(e_player)
 		return var_235457fd;
 	}
 	var_d679d54f = !isdefined(level.s_pap_quest.var_69e563d);
-	var_7cee75e6 = level.s_pap_quest.var_e770eb55[level.s_pap_quest.var_4ee2e2ab].unitrigger_stub === self.stub;
+	var_7cee75e6 = level.s_pap_quest.a_s_locations[level.s_pap_quest.var_4ee2e2ab].unitrigger_stub === self.stub;
 	var_cd46bf62 = isdefined(level.s_pap_quest.var_69e563d) && level.s_pap_quest.var_69e563d.unitrigger_stub === self.stub;
 	if(!(isdefined(level.var_efaaea43) && level.var_efaaea43) && var_7cee75e6 || (isdefined(level.var_a5340531) && level.var_a5340531 && var_d679d54f) || (isdefined(level.var_a5340531) && level.var_a5340531 && var_7cee75e6) || (isdefined(level.var_a8626e72) && level.var_a8626e72 && var_cd46bf62) || (isdefined(level.var_fea7bdae) && level.var_fea7bdae) || (level flag::exists(#"hash_598d4e6af1cf4c39") && level flag::get(#"hash_598d4e6af1cf4c39")) || zm_custom::function_901b751c(#"zmpapenabled") == 2)
 	{
@@ -352,7 +352,7 @@ function function_668e3f89(e_player)
 	}
 	else
 	{
-		switch(level.s_pap_quest.var_e770eb55[level.s_pap_quest.var_4ee2e2ab].prefabname)
+		switch(level.s_pap_quest.a_s_locations[level.s_pap_quest.var_4ee2e2ab].prefabname)
 		{
 			case "stairs_pap_location":
 			{
@@ -505,14 +505,14 @@ function function_306b4f35(b_initial = 0)
 		level notify(#"hash_14c80c5abb28b07b");
 		function_ef3c219a();
 		var_3eee8fb4 = level.s_pap_quest.var_4ee2e2ab;
-		level.s_pap_quest.var_69e563d = level.s_pap_quest.var_e770eb55[var_3eee8fb4];
+		level.s_pap_quest.var_69e563d = level.s_pap_quest.a_s_locations[var_3eee8fb4];
 		if(!isdefined(level.var_dd2ac1f3))
 		{
 			level.var_dd2ac1f3 = [];
 		}
 		if(!level.var_dd2ac1f3.size)
 		{
-			for(i = 0; i < level.s_pap_quest.var_e770eb55.size; i++)
+			for(i = 0; i < level.s_pap_quest.a_s_locations.size; i++)
 			{
 				level.var_dd2ac1f3[i] = i;
 			}
@@ -569,7 +569,7 @@ function function_ef3c219a()
 	var_88aa74e = level.s_pap_quest.var_88aa74e;
 	if(!isdefined(var_88aa74e))
 	{
-		var_88aa74e = level.s_pap_quest.var_e770eb55[level.s_pap_quest.var_4ee2e2ab];
+		var_88aa74e = level.s_pap_quest.a_s_locations[level.s_pap_quest.var_4ee2e2ab];
 	}
 	if(isdefined(var_88aa74e))
 	{
@@ -598,7 +598,7 @@ function function_ef3c219a()
 */
 function function_9e015223()
 {
-	level.s_pap_quest.var_88aa74e = level.s_pap_quest.var_e770eb55[level.s_pap_quest.var_4ee2e2ab];
+	level.s_pap_quest.var_88aa74e = level.s_pap_quest.a_s_locations[level.s_pap_quest.var_4ee2e2ab];
 	s_new_loc = level.s_pap_quest.var_88aa74e;
 	level.pap_machine = s_new_loc.unitrigger_stub.pap_machine;
 	if(!isdefined(level.pap_machine))
@@ -633,7 +633,7 @@ function function_1563bfc3()
 {
 	level.var_fea7bdae = 0;
 	level.var_a5340531 = 0;
-	foreach(s_loc in level.s_pap_quest.var_e770eb55)
+	foreach(s_loc in level.s_pap_quest.a_s_locations)
 	{
 		s_machine = s_loc.unitrigger_stub.pap_machine;
 		hidemiscmodels(s_loc.prefabname);
@@ -711,7 +711,7 @@ function function_a48b2870()
 {
 	if(!level flag::get("pap_quest_complete"))
 	{
-		foreach(s_loc in level.s_pap_quest.var_e770eb55)
+		foreach(s_loc in level.s_pap_quest.a_s_locations)
 		{
 			if(isdefined(s_loc.unitrigger_stub.pap_machine.var_4a7b80c6) && s_loc.unitrigger_stub.pap_machine.var_4a7b80c6)
 			{
@@ -845,7 +845,7 @@ function function_a48b2870()
 	}
 	if(isdefined(var_81731c8e))
 	{
-		foreach(s_loc in level.s_pap_quest.var_e770eb55)
+		foreach(s_loc in level.s_pap_quest.a_s_locations)
 		{
 			s_loc.unitrigger_stub.pap_machine clientfield::set("pap_chunk_small_rune", var_81731c8e);
 		}

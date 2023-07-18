@@ -210,10 +210,10 @@ function phone_init()
 	{
 		return;
 	}
-	self.var_a96a7dbd = struct::get(self.target, "targetname");
-	if(isdefined(self.var_a96a7dbd))
+	self.e_phone = struct::get(self.target, "targetname");
+	if(isdefined(self.e_phone))
 	{
-		self.var_a96a7dbd scene::play("blinking");
+		self.e_phone scene::play("blinking");
 	}
 	self usetriggerrequirelookat();
 	self setcursorhint("HINT_NOICON");
@@ -243,7 +243,7 @@ function function_a546fd97()
 				getplayers()[0] iprintln("");
 			#/
 			level.var_2363fbdb = level.var_2363fbdb + 1;
-			self.var_a96a7dbd scene::play("ring");
+			self.e_phone scene::play("ring");
 			if(level.var_2363fbdb == 3)
 			{
 				wait(1);
@@ -251,7 +251,7 @@ function function_a546fd97()
 				wait(1);
 			}
 			self waittill(#"dialog_played");
-			self.var_a96a7dbd scene::play("blinking");
+			self.e_phone scene::play("blinking");
 			wait(1);
 		}
 	}
@@ -319,7 +319,7 @@ function function_ccd6d7bc()
 {
 	foreach(trigger in level.var_1c33dba2)
 	{
-		trigger.var_a96a7dbd scene::play("init");
+		trigger.e_phone scene::play("init");
 		trigger delete();
 	}
 }

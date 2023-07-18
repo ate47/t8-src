@@ -1,7 +1,7 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm\weapons\zm_weap_tomahawk.gsc;
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using script_36222395658446f5;
 #using scripts\zm\zm_escape_pebble.gsc;
 #using scripts\zm_common\zm_items.gsc;
@@ -144,7 +144,7 @@ function function_6b107487()
 	wait(1);
 	var_e690c4cd = self.scene_ents[#"prop 1"];
 	var_e690c4cd thread function_5ae9d41e();
-	level thread namespace_a0f5c7fc::function_c179111e();
+	level thread zm_escape_vo_hooks::function_c179111e();
 	self thread scene::play("Shot 2");
 	wait(getanimlength(#"hash_591fb71679a08ed8"));
 	level flag::set(#"hash_dd62a8822ea4a38");
@@ -341,15 +341,15 @@ function function_1c670b79(var_217fca51)
 	{
 		s_result = undefined;
 		s_result = self waittill(#"throwing_tomahawk");
-		var_288eb627 = s_result.e_grenade;
-		if(!isdefined(var_288eb627))
+		e_tomahawk = s_result.e_grenade;
+		if(!isdefined(e_tomahawk))
 		{
 			return;
 		}
-		while(isdefined(var_288eb627) && !level flag::get(#"hash_66f358c0066d77d8"))
+		while(isdefined(e_tomahawk) && !level flag::get(#"hash_66f358c0066d77d8"))
 		{
 			var_47c6201 = getent("cr_sk_hit", "targetname");
-			if(var_288eb627 istouching(var_47c6201))
+			if(e_tomahawk istouching(var_47c6201))
 			{
 				level thread function_6ff33a91(var_217fca51);
 			}
@@ -457,7 +457,7 @@ function function_c5e0a9a4()
 			}
 			e_player clientfield::set_to_player("sp_ar_pi", 0);
 			e_player thread function_eebe4e13();
-			level flag::set(#"hash_3b1ad1b5bdc81825");
+			level flag::set(#"spoon_quest_completed");
 		}
 		waitframe(1);
 	}
@@ -724,13 +724,13 @@ function function_5753ae89()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"throwing_tomahawk");
-		var_288eb627 = s_result.e_grenade;
-		while(isdefined(var_288eb627))
+		e_tomahawk = s_result.e_grenade;
+		while(isdefined(e_tomahawk))
 		{
-			if(distancesquared(var_288eb627.origin, level.var_5c14fe03.origin) < 10000)
+			if(distancesquared(e_tomahawk.origin, level.var_5c14fe03.origin) < 10000)
 			{
 				level.var_5c14fe03.var_3d3748c4 = 1;
-				level.var_5c14fe03.var_d86e9c27 = var_288eb627.owner;
+				level.var_5c14fe03.var_d86e9c27 = e_tomahawk.owner;
 				level.var_5c14fe03 notify(#"hash_4ecfa36be208fd5f");
 				break;
 			}

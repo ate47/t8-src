@@ -181,7 +181,7 @@ event main(eventstruct)
 	level thread sndfunctions();
 	level thread zm_white_zones::init();
 	level thread zm_white_fx::init();
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		level thread zm_white_trophies::init();
 	}
@@ -218,7 +218,7 @@ event main(eventstruct)
 	{
 		level thread zm_white_trials::main();
 	}
-	zm_ui_inventory::function_7df6bb60(#"hash_24d1f7403563d66f", 0);
+	zm_ui_inventory::function_7df6bb60(#"zm_white_breakfast_trial", 0);
 	zm_custom::function_a00576dd(undefined, undefined, &function_c8ce0a17, &function_e5086229);
 	level.var_e120ae98 = &function_e120ae98;
 	level thread function_7e6cf034();
@@ -1449,7 +1449,7 @@ function private white_devgui()
 		while(true)
 		{
 			waitframe(1);
-			str_command = getdvarstring(#"hash_315fb43fca84a77e", "");
+			str_command = getdvarstring(#"zm_white_devgui_cmd", "");
 			switch(str_command)
 			{
 				case "hash_1535ec651f8ba226":
@@ -1517,7 +1517,7 @@ function private white_devgui()
 				{
 				}
 			}
-			setdvar(#"hash_315fb43fca84a77e", "");
+			setdvar(#"zm_white_devgui_cmd", "");
 		}
 	#/
 }

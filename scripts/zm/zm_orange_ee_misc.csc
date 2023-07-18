@@ -4,11 +4,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_f9df92f;
+#namespace zm_orange_ee_misc;
 
 /*
 	Name: preload
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0xDD20AF3F
 	Offset: 0xC0
 	Size: 0x2C
@@ -23,7 +23,7 @@ function preload()
 
 /*
 	Name: main
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0x80F724D1
 	Offset: 0xF8
 	Size: 0x4
@@ -36,7 +36,7 @@ function main()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0x31894AA6
 	Offset: 0x108
 	Size: 0xB4
@@ -51,7 +51,7 @@ function init_clientfields()
 
 /*
 	Name: function_30ed45c9
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0x8F529CF6
 	Offset: 0x1C8
 	Size: 0x8C
@@ -69,7 +69,7 @@ function function_30ed45c9(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_48a634b7
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0xD7CFA717
 	Offset: 0x260
 	Size: 0x8C
@@ -87,7 +87,7 @@ function function_48a634b7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: pareidolia_ee
-	Namespace: namespace_f9df92f
+	Namespace: zm_orange_ee_misc
 	Checksum: 0x5F6E41F0
 	Offset: 0x2F8
 	Size: 0x8C

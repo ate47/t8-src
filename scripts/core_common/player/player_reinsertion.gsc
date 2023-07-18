@@ -817,8 +817,8 @@ function function_fec68e5c()
 		player thread [[level.spawnclient]]();
 		player player_insertion::function_b9a53f50();
 	}
-	level.insertion flagsys::set(#"hash_5a3e17fbc33cdc86");
-	level.insertion flagsys::wait_till_timeout((1 + 2.5) + 0.5, #"hash_3dc9cb68998d9dfd");
+	level.insertion flagsys::set(#"insertion_teleport_completed");
+	level.insertion flagsys::wait_till_timeout((1 + 2.5) + 0.5, #"insertion_presentation_completed");
 	level.reinsertion.vehicle player_insertion::function_bc16f3b4(level.insertion);
 	/#
 		assert(10 > 0);

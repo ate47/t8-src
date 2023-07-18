@@ -494,7 +494,7 @@ function private function_e7b80b1e(var_72284260)
 	}
 	var_7bc3c842 = [];
 	var_653c94ca = [];
-	var_fd6be869 = [];
+	flagarray = [];
 	foreach(struct in var_d8bb5bb6)
 	{
 		if(!isdefined(struct.script_flag_activate) || level flag::get(struct.script_flag_activate))
@@ -504,7 +504,7 @@ function private function_e7b80b1e(var_72284260)
 		if(isdefined(struct.script_flag_activate) && !level flag::get(struct.script_flag_activate))
 		{
 			array::add(var_653c94ca, struct);
-			array::add(var_fd6be869, struct.script_flag_activate);
+			array::add(flagarray, struct.script_flag_activate);
 		}
 	}
 	if(var_7bc3c842.size)
@@ -514,9 +514,9 @@ function private function_e7b80b1e(var_72284260)
 	if(var_653c94ca.size)
 	{
 		/#
-			assert(var_fd6be869.size);
+			assert(flagarray.size);
 		#/
-		level flag::wait_till_any(var_fd6be869);
+		level flag::wait_till_any(flagarray);
 		foreach(struct in var_653c94ca)
 		{
 			/#

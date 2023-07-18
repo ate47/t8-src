@@ -6963,16 +6963,16 @@ function bunker_entrance_zoned()
 			return;
 		}
 		a_s_key = struct::get_array(1, "");
-		var_6b4f4e15 = getentitiesinradius((0, 0, 0), 640000);
-		var_5c9847ad = [];
-		foreach(ent in var_6b4f4e15)
+		a_e_all = getentitiesinradius((0, 0, 0), 640000);
+		a_e_key = [];
+		foreach(ent in a_e_all)
 		{
 			if(isdefined(ent.var_61330f48) && ent.var_61330f48)
 			{
-				array::add(var_5c9847ad, ent);
+				array::add(a_e_key, ent);
 			}
 		}
-		a_key = arraycombine(a_s_key, var_5c9847ad, 0, 0);
+		a_key = arraycombine(a_s_key, a_e_key, 0, 0);
 		while(getdvarint(#"hash_4cebb1d3b0ee545a", 0))
 		{
 			foreach(key in a_key)

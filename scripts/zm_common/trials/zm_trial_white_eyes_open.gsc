@@ -38,7 +38,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -69,38 +69,38 @@ function private on_begin()
 	wait(0.1);
 	foreach(player in getplayers())
 	{
-		player.var_5f4eaf85 = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
+		player.e_weeper = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
 		var_9d88bc68 = anglestoforward(player.angles);
 		var_9d88bc68 = 50 * vectornormalize(var_9d88bc68);
 		goal_pos = player.origin + var_9d88bc68;
 		goal_pos = getclosestpointonnavmesh(goal_pos, 128, 32);
-		player.var_5f4eaf85 forceteleport(goal_pos, player.angles - vectorscale((0, 1, 0), 180), 1);
-		player.var_5f4eaf85.var_72411ccf = &function_660c908;
-		player.var_5f4eaf85.favoriteenemy = player;
-		player.var_5f4eaf85 val::set(#"mee_2", "takedamage", 0);
-		player.var_5f4eaf85 val::set(#"mee_2", "ignoreme", 1);
-		player.var_5f4eaf85.team = #"team3";
+		player.e_weeper forceteleport(goal_pos, player.angles - vectorscale((0, 1, 0), 180), 1);
+		player.e_weeper.var_72411ccf = &function_660c908;
+		player.e_weeper.favoriteenemy = player;
+		player.e_weeper val::set(#"mee_2", "takedamage", 0);
+		player.e_weeper val::set(#"mee_2", "ignoreme", 1);
+		player.e_weeper.team = #"team3";
 		wait(0.1);
 	}
-	level.var_5f4eaf85 = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
-	level.var_5f4eaf85.var_72411ccf = &function_660c908;
-	level.var_5f4eaf85 val::set(#"mee_2", "takedamage", 0);
-	level.var_5f4eaf85 val::set(#"mee_2", "ignoreme", 1);
-	level.var_5f4eaf85.team = #"team3";
+	level.e_weeper = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
+	level.e_weeper.var_72411ccf = &function_660c908;
+	level.e_weeper val::set(#"mee_2", "takedamage", 0);
+	level.e_weeper val::set(#"mee_2", "ignoreme", 1);
+	level.e_weeper.team = #"team3";
 	wait(1.5);
 	level.disable_nuke_delay_spawning = 0;
 	level flag::set("spawn_zombies");
 	foreach(player in getplayers())
 	{
 		player setmovespeedscale(1);
-		player.var_5f4eaf85.var_72411ccf = undefined;
-		player.var_5f4eaf85 zombie_utility::set_zombie_run_cycle("super_sprint");
+		player.e_weeper.var_72411ccf = undefined;
+		player.e_weeper zombie_utility::set_zombie_run_cycle("super_sprint");
 		player callback::on_player_damage(&on_player_damage);
-		player.var_5f4eaf85 thread zm_white_mee::function_d10bf985();
+		player.e_weeper thread zm_white_mee::function_d10bf985();
 	}
-	level.var_5f4eaf85.var_72411ccf = undefined;
-	level.var_5f4eaf85 zombie_utility::set_zombie_run_cycle("super_sprint");
-	level.var_5f4eaf85 thread zm_white_mee::function_d10bf985();
+	level.e_weeper.var_72411ccf = undefined;
+	level.e_weeper zombie_utility::set_zombie_run_cycle("super_sprint");
+	level.e_weeper thread zm_white_mee::function_d10bf985();
 }
 
 /*
@@ -117,23 +117,23 @@ function private on_end(round_reset)
 	foreach(player in getplayers())
 	{
 		player callback::remove_on_player_damage(&on_player_damage);
-		player.var_5f4eaf85 val::reset(#"mee_2", "takedamage");
-		player.var_5f4eaf85 val::reset(#"mee_2", "ignoreme");
-		player.var_5f4eaf85.team = #"axis";
-		if(isdefined(player.var_5f4eaf85.kill_brush))
+		player.e_weeper val::reset(#"mee_2", "takedamage");
+		player.e_weeper val::reset(#"mee_2", "ignoreme");
+		player.e_weeper.team = #"axis";
+		if(isdefined(player.e_weeper.kill_brush))
 		{
-			player.var_5f4eaf85.kill_brush delete();
+			player.e_weeper.kill_brush delete();
 		}
-		player.var_5f4eaf85 kill();
+		player.e_weeper kill();
 	}
-	level.var_5f4eaf85 val::reset(#"mee_2", "takedamage");
-	level.var_5f4eaf85 val::reset(#"mee_2", "ignoreme");
-	level.var_5f4eaf85.team = #"axis";
-	if(isdefined(level.var_5f4eaf85.kill_brush))
+	level.e_weeper val::reset(#"mee_2", "takedamage");
+	level.e_weeper val::reset(#"mee_2", "ignoreme");
+	level.e_weeper.team = #"axis";
+	if(isdefined(level.e_weeper.kill_brush))
 	{
-		level.var_5f4eaf85.kill_brush delete();
+		level.e_weeper.kill_brush delete();
 	}
-	level.var_5f4eaf85 kill();
+	level.e_weeper kill();
 }
 
 /*

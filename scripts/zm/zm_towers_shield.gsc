@@ -352,29 +352,29 @@ function function_4591fd41()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"destroy_riotshield", #"flame_off", #"weapon_change", #"fake_death");
-		if(var_be17187b._notify == "weapon_change")
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"destroy_riotshield", #"flame_off", #"weapon_change", #"fake_death");
+		if(s_waitresult._notify == "weapon_change")
 		{
-			if(function_ed81d8f5(var_be17187b.last_weapon))
+			if(function_ed81d8f5(s_waitresult.last_weapon))
 			{
 				self clientfield::set("" + #"charge_gem", 0);
 				self clientfield::increment("" + #"hash_18fc1da5f1785e6b", 1);
 			}
-			else if(function_ed81d8f5(var_be17187b.weapon))
+			else if(function_ed81d8f5(s_waitresult.weapon))
 			{
 				self clientfield::set("" + #"charge_gem", self.var_c9d375dc.n_charge_level);
 			}
-			if(function_a57b8fca(var_be17187b.weapon) && self.var_c9d375dc.b_charged)
+			if(function_a57b8fca(s_waitresult.weapon) && self.var_c9d375dc.b_charged)
 			{
 				self clientfield::set("" + #"hash_275debebcd185ea1", 1);
 			}
-			else if(function_a57b8fca(var_be17187b.last_weapon) && self.var_c9d375dc.b_charged)
+			else if(function_a57b8fca(s_waitresult.last_weapon) && self.var_c9d375dc.b_charged)
 			{
 				self clientfield::set("" + #"hash_275debebcd185ea1", 0);
 			}
 		}
-		else if(var_be17187b._notify == "destroy_riotshield" || var_be17187b._notify == "flame_off" || var_be17187b._notify == "fake_death")
+		else if(s_waitresult._notify == "destroy_riotshield" || s_waitresult._notify == "flame_off" || s_waitresult._notify == "fake_death")
 		{
 			self clientfield::set("" + #"charge_gem", 0);
 			self clientfield::set("" + #"hash_275debebcd185ea1", 0);
@@ -737,9 +737,9 @@ function function_693527ec(str_piece)
 	s_unitrigger = self zm_unitrigger::create(&function_fb466de8, 96);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_player = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_player = s_waitresult.e_who;
 		if(e_player flag::get(var_f4c9f09a))
 		{
 			e_player flag::set(var_f00b4f9f);
@@ -886,10 +886,10 @@ function function_a9311397()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"damage");
-		e_attacker = var_be17187b.attacker;
-		w_weapon = var_be17187b.weapon;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"damage");
+		e_attacker = s_waitresult.attacker;
+		w_weapon = s_waitresult.weapon;
 		if(isplayer(e_attacker) && w_weapon === level.var_c9d375dc.firestorm_weapon)
 		{
 			if(!isdefined(e_attacker.var_12c9426e))
@@ -979,9 +979,9 @@ function function_4e59dd4b()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"flame_on");
-		ai_killed = var_be17187b.ai_killed;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"flame_on");
+		ai_killed = s_waitresult.ai_killed;
 		if(isdefined(ai_killed))
 		{
 			if(isdefined(self.var_75cd1b31))

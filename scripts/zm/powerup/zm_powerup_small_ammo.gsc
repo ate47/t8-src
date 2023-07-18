@@ -79,7 +79,7 @@ function function_81558cdf(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d7d24283(var_7d81025, player)
+function function_d7d24283(e_powerup, player)
 {
 	if(isdefined(level.check_player_is_ready_for_ammo))
 	{

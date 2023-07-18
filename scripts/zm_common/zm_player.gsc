@@ -559,7 +559,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 		{
 			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_value", level.var_39e18a71);
-			if(zm_trial::function_b47f6aba())
+			if(zm_trial::is_trial_mode())
 			{
 				self playsoundtoplayer(#"hash_3109126d3731f3d2", self);
 			}
@@ -738,7 +738,7 @@ function function_8ef51109(var_fb6fa3e1, var_bbbf9a69)
 {
 	if(!function_3799b373(var_fb6fa3e1, var_bbbf9a69) && !zm_utility::function_91403f47())
 	{
-		if(zm_trial::function_b47f6aba())
+		if(zm_trial::is_trial_mode())
 		{
 			var_57807cdc = [];
 			a_e_players = getplayers();

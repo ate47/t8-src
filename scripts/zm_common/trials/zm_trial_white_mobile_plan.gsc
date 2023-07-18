@@ -30,7 +30,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -94,11 +94,11 @@ function private function_53627246()
 	zm_trial_util::function_dace284(self.var_6a7521e3);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"portal_used");
-		if(!(isdefined(var_be17187b.s_portal.var_5b12474a) && var_be17187b.s_portal.var_5b12474a))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"portal_used");
+		if(!(isdefined(s_waitresult.s_portal.var_5b12474a) && s_waitresult.s_portal.var_5b12474a))
 		{
-			var_be17187b.s_portal.var_5b12474a = 1;
+			s_waitresult.s_portal.var_5b12474a = 1;
 			self.var_6a7521e3++;
 			zm_trial_util::function_dace284(self.var_6a7521e3);
 		}

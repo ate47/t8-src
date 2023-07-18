@@ -751,7 +751,7 @@ function private function_15b528d9(duration, var_2610777)
 	if(zm_utility::is_player_valid(self))
 	{
 		self val::set(#"avogadro_aoe", "disable_weapons", 1);
-		self status_effect::status_effect_apply(getstatuseffect(#"hash_1b824ff143d6ba43"), undefined, self, 1);
+		self status_effect::status_effect_apply(getstatuseffect(#"zm_white_nova_gas"), undefined, self, 1);
 		wait(duration);
 		function_866bf053();
 	}

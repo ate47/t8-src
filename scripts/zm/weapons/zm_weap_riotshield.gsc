@@ -236,13 +236,13 @@ function function_d987f765()
 	level endon(#"game_ended");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"carpenter_started");
-		if(zm_powerups::function_cfd04802(#"carpenter") && isplayer(var_be17187b.var_264cf1f9))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"carpenter_started");
+		if(zm_powerups::function_cfd04802(#"carpenter") && isplayer(s_waitresult.var_264cf1f9))
 		{
-			if(isdefined(var_be17187b.var_264cf1f9.hasriotshield) && var_be17187b.var_264cf1f9.hasriotshield && isdefined(var_be17187b.var_264cf1f9.player_shield_reset_health))
+			if(isdefined(s_waitresult.var_264cf1f9.hasriotshield) && s_waitresult.var_264cf1f9.hasriotshield && isdefined(s_waitresult.var_264cf1f9.player_shield_reset_health))
 			{
-				var_be17187b.var_264cf1f9 [[var_be17187b.var_264cf1f9.player_shield_reset_health]]();
+				s_waitresult.var_264cf1f9 [[s_waitresult.var_264cf1f9.player_shield_reset_health]]();
 			}
 		}
 		else

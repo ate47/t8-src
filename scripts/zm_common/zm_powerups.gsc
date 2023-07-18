@@ -975,11 +975,11 @@ function powerup_round_start()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5326bd06(var_7d81025)
+function function_5326bd06(e_powerup)
 {
-	if(isdefined(var_7d81025))
+	if(isdefined(e_powerup))
 	{
-		var_7d81025 delete();
+		e_powerup delete();
 	}
 }
 

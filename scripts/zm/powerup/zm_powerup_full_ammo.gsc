@@ -80,7 +80,7 @@ function grab_full_ammo(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_dae1df4d(var_7d81025, player)
+function function_dae1df4d(e_powerup, player)
 {
 	if(isdefined(level.check_player_is_ready_for_ammo))
 	{
@@ -126,9 +126,9 @@ function function_dae1df4d(var_7d81025, player)
 		player zm_perk_widows_wine::reset_charges();
 	}
 	player playsoundtoplayer(#"zmb_full_ammo", player);
-	if(isdefined(var_7d81025))
+	if(isdefined(e_powerup))
 	{
-		player zm_utility::function_7a35b1d7(var_7d81025.hint);
+		player zm_utility::function_7a35b1d7(e_powerup.hint);
 	}
 }
 

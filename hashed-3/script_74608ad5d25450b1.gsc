@@ -177,12 +177,12 @@ function private function_b60df00d()
 		level.var_ae5fb719.s_start = zm_hms_util::function_4e7f5b2e("mk2x_start");
 	}
 	level.var_ae5fb719.var_fead3ae9 = util::spawn_model("p8_zm_whi_fuse_pickup_empty", level.var_ae5fb719.s_start.origin, level.var_ae5fb719.s_start.angles);
-	var_d1cdd613 = getent(level.var_ae5fb719.s_start.target, "targetname");
-	if(!isdefined(var_d1cdd613.b_open))
+	e_drawer = getent(level.var_ae5fb719.s_start.target, "targetname");
+	if(!isdefined(e_drawer.b_open))
 	{
-		var_d1cdd613 setcandamage(1);
-		var_d1cdd613 val::set("quest_mk2x", "allowDeath", 0);
-		var_d1cdd613 thread function_4e9f1680();
+		e_drawer setcandamage(1);
+		e_drawer val::set("quest_mk2x", "allowDeath", 0);
+		e_drawer thread function_4e9f1680();
 	}
 	else
 	{
@@ -486,14 +486,14 @@ function private function_baec0416(v_pos, v_angles)
 		v_ground = groundtrace((v_drop + vectorscale((0, 0, 1), 32)) + vectorscale((0, 0, 1), 8), (v_drop + vectorscale((0, 0, 1), 32)) + (vectorscale((0, 0, -1), 100000)), 0, self)[#"position"];
 		v_normal = getnavmeshfacenormal(v_drop, 32);
 		var_55ab02db = function_c1fa62a2(v_angles, v_normal);
-		var_a79daf1f = util::spawn_model("p8_zm_whi_goop_puddle_01", v_ground, var_55ab02db);
-		var_a79daf1f zm_item_pickup::create_item_pickup(&function_cf69599, "", &function_18a1849f, 96);
-		var_a79daf1f.targetname = "mk2x_goo";
+		e_goo = util::spawn_model("p8_zm_whi_goop_puddle_01", v_ground, var_55ab02db);
+		e_goo zm_item_pickup::create_item_pickup(&function_cf69599, "", &function_18a1849f, 96);
+		e_goo.targetname = "mk2x_goo";
 		level.var_ae5fb719.var_ad2870bb--;
 		waitframe(1);
-		if(isdefined(var_a79daf1f))
+		if(isdefined(e_goo))
 		{
-			zm_unitrigger::reregister_unitrigger_as_dynamic(var_a79daf1f.s_unitrigger);
+			zm_unitrigger::reregister_unitrigger_as_dynamic(e_goo.s_unitrigger);
 		}
 	}
 }
@@ -566,8 +566,8 @@ function private function_6f437b06()
 function private cleanup_step_2()
 {
 	function_6f437b06();
-	var_5a7b8007 = getentarray("mk2x_goo", "targetname");
-	array::run_all(var_5a7b8007, &zm_item_pickup::function_d6812b9d);
+	a_e_goo = getentarray("mk2x_goo", "targetname");
+	array::run_all(a_e_goo, &zm_item_pickup::function_d6812b9d);
 }
 
 /*

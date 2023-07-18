@@ -159,11 +159,11 @@ function function_6d888241(status_effect, death_func)
 	Parameters: 3
 	Flags: None
 */
-function function_e2bff3ce(status_effect_type, weapon, var_84171a6c)
+function function_e2bff3ce(status_effect_type, weapon, applicant)
 {
 	if(isdefined(level.var_233471d2[status_effect_type]))
 	{
-		self status_effect_apply(level.var_233471d2[status_effect_type], weapon, var_84171a6c);
+		self status_effect_apply(level.var_233471d2[status_effect_type], weapon, applicant);
 	}
 }
 
@@ -212,7 +212,7 @@ function private function_91a9db75(sourcetype, setype, namehash)
 	Parameters: 7
 	Flags: Linked
 */
-function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var_ab5b905e, var_894859a2, location)
+function status_effect_apply(var_756fda07, weapon, applicant, isadditive, var_ab5b905e, var_894859a2, location)
 {
 	/#
 		assert(isdefined(var_756fda07.setype));
@@ -234,7 +234,7 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	}
 	register_status_effect(var_756fda07.setype);
 	var_f8f8abaa = 0;
-	if(isdefined(var_84171a6c) && var_84171a6c != self && !self function_4aac137f(var_84171a6c, var_756fda07.var_18d16a6b))
+	if(isdefined(applicant) && applicant != self && !self function_4aac137f(applicant, var_756fda07.var_18d16a6b))
 	{
 		var_b7a9b136 = 1;
 		if(isdefined(var_756fda07.var_2e4a8800))
@@ -249,9 +249,9 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 				var_b7a9b136 = 0;
 			}
 		}
-		if(var_b7a9b136 && util::function_fbce7263(self.team, var_84171a6c.team))
+		if(var_b7a9b136 && util::function_fbce7263(self.team, applicant.team))
 		{
-			var_84171a6c thread globallogic_score::function_969ea48d(var_756fda07, weapon);
+			applicant thread globallogic_score::function_969ea48d(var_756fda07, weapon);
 		}
 		var_f8f8abaa = 1;
 	}
@@ -259,7 +259,7 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	self function_52969ffe(var_756fda07);
 	self callback::callback(#"on_status_effect", var_756fda07);
 	var_275b5e13 = function_2ba2756c(var_756fda07.var_18d16a6b) > level.time;
-	var_b0144580 = var_84171a6c === self;
+	var_b0144580 = applicant === self;
 	if(!isdefined(isadditive))
 	{
 		isadditive = getdvarint(#"hash_6ce4aefbba354e2d", 0);
@@ -270,9 +270,9 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	{
 		effect.location = location;
 	}
-	else if(isdefined(var_84171a6c))
+	else if(isdefined(applicant))
 	{
-		effect.location = var_84171a6c.origin;
+		effect.location = applicant.origin;
 	}
 	effect handle_sounds(var_756fda07);
 	var_4df0ea83 = 1;
@@ -284,11 +284,11 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	{
 		if(isadditive && var_756fda07.setype != 4)
 		{
-			effect function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon);
+			effect function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, applicant, var_f8f8abaa, weapon);
 		}
 		else
 		{
-			effect update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon);
+			effect update_duration(var_756fda07, var_b0144580, var_ab5b905e, applicant, var_f8f8abaa, weapon);
 		}
 	}
 	maxduration = effect function_f9ca1b6a(var_756fda07);
@@ -313,9 +313,9 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	}
 	if(isdefined(level._status_effects[var_756fda07.setype].apply))
 	{
-		effect.var_4b22e697 = var_84171a6c;
+		effect.var_4b22e697 = applicant;
 		effect.var_3d1ed4bd = weapon;
-		effect thread [[level._status_effects[var_756fda07.setype].apply]](var_756fda07, weapon, var_84171a6c);
+		effect thread [[level._status_effects[var_756fda07.setype].apply]](var_756fda07, weapon, applicant);
 		thread function_86c0eb67(effect, "begin");
 	}
 	var_1d673e46 = !isplayer(self) || (self function_6c32d092(#"talent_resistance") && (!(isdefined(var_756fda07.var_857e12ae) && var_756fda07.var_857e12ae)));
@@ -341,10 +341,10 @@ function status_effect_apply(var_756fda07, weapon, var_84171a6c, isadditive, var
 	{
 		self thread function_47cad1aa(var_756fda07, isadditive);
 	}
-	if(isdefined(weapon) && isdefined(var_84171a6c) && var_84171a6c != self && (isdefined(var_756fda07.var_3469b797) && var_756fda07.var_3469b797))
+	if(isdefined(weapon) && isdefined(applicant) && applicant != self && (isdefined(var_756fda07.var_3469b797) && var_756fda07.var_3469b797))
 	{
 		var_594a2d34 = isdefined(weapon) && isdefined(weapon.var_965cc0b3) && weapon.var_965cc0b3;
-		var_84171a6c util::show_hit_marker(0, var_594a2d34);
+		applicant util::show_hit_marker(0, var_594a2d34);
 	}
 	if(isdefined(level._status_effects[var_756fda07.setype].end))
 	{
@@ -720,7 +720,7 @@ function private function_40293e80(status_effect_type)
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon)
+function private update_duration(var_756fda07, var_b0144580, var_ab5b905e, applicant, var_f8f8abaa, weapon)
 {
 	setype = var_756fda07.setype;
 	resistance = self function_a6613b51(var_756fda07);
@@ -731,9 +731,9 @@ function private update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_8
 	}
 	if(getgametypesetting(#"competitivesettings") !== 1 || weapon !== getweapon("eq_concertina_wire"))
 	{
-		if(resistance > 0 && isdefined(var_84171a6c) && var_f8f8abaa && var_756fda07.var_42c00474 === 1 && !var_b0144580 && setype !== 0)
+		if(resistance > 0 && isdefined(applicant) && var_f8f8abaa && var_756fda07.var_42c00474 === 1 && !var_b0144580 && setype !== 0)
 		{
-			var_84171a6c damagefeedback::update(undefined, undefined, function_40293e80(setype));
+			applicant damagefeedback::update(undefined, undefined, function_40293e80(setype));
 		}
 	}
 	var_7a1fa72a = 0;
@@ -782,7 +782,7 @@ function private update_duration(var_756fda07, var_b0144580, var_ab5b905e, var_8
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, var_84171a6c, var_f8f8abaa, weapon)
+function private function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, applicant, var_f8f8abaa, weapon)
 {
 	setype = var_756fda07.setype;
 	resistance = self function_a6613b51(var_756fda07);
@@ -797,9 +797,9 @@ function private function_57f33b96(var_756fda07, var_b0144580, var_ab5b905e, var
 	}
 	if(getgametypesetting(#"competitivesettings") !== 1 || weapon !== getweapon("eq_concertina_wire"))
 	{
-		if(resistance > 0 && setype != 0 && setype != 3 && isdefined(var_84171a6c) && var_f8f8abaa && var_756fda07.var_42c00474 === 1 && !var_b0144580)
+		if(resistance > 0 && setype != 0 && setype != 3 && isdefined(applicant) && var_f8f8abaa && var_756fda07.var_42c00474 === 1 && !var_b0144580)
 		{
-			var_84171a6c damagefeedback::update(undefined, undefined, function_40293e80(setype), weapon, self.owner);
+			applicant damagefeedback::update(undefined, undefined, function_40293e80(setype), weapon, self.owner);
 		}
 	}
 	var_7a1fa72a = 0;

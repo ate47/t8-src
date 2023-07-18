@@ -39,7 +39,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -136,7 +136,7 @@ function is_active()
 */
 function function_8327d26e()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}

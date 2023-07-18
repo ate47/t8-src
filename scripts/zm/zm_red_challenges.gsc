@@ -1096,13 +1096,13 @@ function function_8f0594cb(s_challenge)
 	}
 	level thread [[level.s_active_challenge.var_c376bcd5]]();
 	zm_red_util::start_timer(s_challenge.var_6346e7b + 1);
-	var_be17187b = undefined;
-	var_be17187b = level waittilltimeout(s_challenge.var_6346e7b + 1, #"round_reset");
+	s_waitresult = undefined;
+	s_waitresult = level waittilltimeout(s_challenge.var_6346e7b + 1, #"round_reset");
 	while(isdefined(level.var_dc6fce4f) && level.var_dc6fce4f)
 	{
 		waitframe(1);
 	}
-	var_c304d266 = var_be17187b._notify === "timeout";
+	var_c304d266 = s_waitresult._notify === "timeout";
 	stop_challenge(var_c304d266);
 }
 

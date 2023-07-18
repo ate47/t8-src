@@ -289,15 +289,15 @@ function private step_2_setup(var_a276c861)
 	{
 		if(function_8b1a219a())
 		{
-			var_64c09f7f = level.var_f9f50915 zm_unitrigger::function_fac87205(#"hash_6895c9bbfcd8ff94", (64, 48, 72));
+			e_activator = level.var_f9f50915 zm_unitrigger::function_fac87205(#"hash_6895c9bbfcd8ff94", (64, 48, 72));
 		}
 		else
 		{
-			var_64c09f7f = level.var_f9f50915 zm_unitrigger::function_fac87205(#"hash_14651a427e1b9f98", (64, 48, 72));
+			e_activator = level.var_f9f50915 zm_unitrigger::function_fac87205(#"hash_14651a427e1b9f98", (64, 48, 72));
 		}
-		if(isalive(var_64c09f7f))
+		if(isalive(e_activator))
 		{
-			var_64c09f7f zm_audio::create_and_play_dialog(#"treasure_chest", #"activate_1");
+			e_activator zm_audio::create_and_play_dialog(#"treasure_chest", #"activate_1");
 		}
 	}
 }

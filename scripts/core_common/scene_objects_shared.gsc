@@ -1982,8 +1982,8 @@ class csceneobject
 	{
 		_e notify(#"cleanupdelete");
 		_e endon(#"death", #"preparedelete", #"cleanupdelete");
-		var_be17187b = undefined;
-		var_be17187b = _o_scene waittilltimeout(0.15, #"hash_60adeaccbb565546", #"scene_stop", #"scene_done", #"scene_skip_completed");
+		s_waitresult = undefined;
+		s_waitresult = _o_scene waittilltimeout(0.15, #"hash_60adeaccbb565546", #"scene_stop", #"scene_done", #"scene_skip_completed");
 		_e thread scene::synced_delete(_o_scene._str_name);
 	}
 
@@ -3615,7 +3615,7 @@ class cscene
 			}
 		#/
 		wait_till_shot_finished(str_shot);
-		self flagsys::set(#"hash_5a8a0284760e5913");
+		self flagsys::set(#"shot_skip_completed");
 		if(!var_f6688aea)
 		{
 			if(is_skipping_scene())
@@ -4127,12 +4127,12 @@ class cscene
 				if(var_8b188654)
 				{
 					var_43cf9254 = 0;
-					while(!flagsys::get(#"hash_5a8a0284760e5913") || var_43cf9254 > 5)
+					while(!flagsys::get(#"shot_skip_completed") || var_43cf9254 > 5)
 					{
 						var_43cf9254 = var_43cf9254 + (float(function_60d95f53()) / 1000);
 						waitframe(1);
 					}
-					flagsys::clear(#"hash_5a8a0284760e5913");
+					flagsys::clear(#"shot_skip_completed");
 				}
 				if(_s.scenetype == "fxanim" && _s.nextscenemode === "init")
 				{

@@ -414,8 +414,8 @@ function function_774f6e70(s_spawn_loc, var_58a8a3cb = 1, var_cda6f9a7 = undefin
 	}
 	if(isdefined(s_spawn_loc.target))
 	{
-		var_a8a8b6f8 = zm_ai_utility::get_pathnode_path(getnode(s_spawn_loc.target, "targetname"));
-		zm_ai_utility::start_patrol(self, var_a8a8b6f8.path, var_a8a8b6f8.loops, var_cda6f9a7, var_d5e7e76d);
+		s_patrol = zm_ai_utility::get_pathnode_path(getnode(s_spawn_loc.target, "targetname"));
+		zm_ai_utility::start_patrol(self, s_patrol.path, s_patrol.loops, var_cda6f9a7, var_d5e7e76d);
 		if(var_58a8a3cb)
 		{
 			for(n_timer = randomintrange(60, 90); n_timer > 0 && level.var_9427911d > 15; n_timer--)

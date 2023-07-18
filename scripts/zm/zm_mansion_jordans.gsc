@@ -181,9 +181,9 @@ function function_23da5626()
 	level.var_22aacd56 = level.var_403919f2.size;
 	foreach(var_4ef73a79 in level.var_403919f2)
 	{
-		var_c189a18d = struct::get(var_4ef73a79.target, "targetname");
-		var_f3ce8379 = util::spawn_model(var_c189a18d.model, var_c189a18d.origin, var_c189a18d.angles);
-		var_f3ce8379 setscale(var_c189a18d.modelscale);
+		s_vase = struct::get(var_4ef73a79.target, "targetname");
+		var_f3ce8379 = util::spawn_model(s_vase.model, s_vase.origin, s_vase.angles);
+		var_f3ce8379 setscale(s_vase.modelscale);
 		var_4ef73a79.var_f3ce8379 = var_f3ce8379;
 		var_d7e8ee3e = getent(var_4ef73a79.target, "targetname");
 		var_4ef73a79.var_d7e8ee3e = var_d7e8ee3e;
@@ -216,9 +216,9 @@ function function_21334921()
 	n_count = 0;
 	while(n_count < level.var_403919f2.size)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(var_519cd38c);
-		switch(var_be17187b._notify)
+		s_waitresult = undefined;
+		s_waitresult = level waittill(var_519cd38c);
+		switch(s_waitresult._notify)
 		{
 			case "connect_main_hall_to_forest_entrance":
 			{
@@ -337,8 +337,8 @@ function function_dd162dbf()
 	self thread grenade_throw_watcher();
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_5bef9c261ba48023");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hash_5bef9c261ba48023");
 		if(isdefined(self))
 		{
 			self.var_c859fa3a++;
@@ -363,9 +363,9 @@ function grenade_throw_watcher()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"grenade_fire");
-		e_grenade = var_be17187b.projectile;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"grenade_fire");
+		e_grenade = s_waitresult.projectile;
 		if(e_grenade.weapon !== level.w_homunculus && e_grenade.weapon !== level.w_mini_turret && e_grenade.weapon !== level.w_claymore)
 		{
 			self thread function_fefbf8c2(e_grenade);
@@ -387,21 +387,21 @@ function function_fefbf8c2(e_grenade)
 	/#
 		iprintln(("" + self.playernum) + "");
 	#/
-	var_be17187b = undefined;
-	var_be17187b = e_grenade waittill(#"explode", #"death");
-	if(var_be17187b._notify === #"explode")
+	s_waitresult = undefined;
+	s_waitresult = e_grenade waittill(#"explode", #"death");
+	if(s_waitresult._notify === #"explode")
 	{
-		if(isdefined(var_be17187b.position))
+		if(isdefined(s_waitresult.position))
 		{
-			v_gren_pos = var_be17187b.position;
+			v_gren_pos = s_waitresult.position;
 			foreach(var_4ef73a79 in level.var_403919f2)
 			{
 				var_a878db9b = 0;
-				var_c189a18d = struct::get(var_4ef73a79.target, "targetname");
-				if(isdefined(var_c189a18d))
+				s_vase = struct::get(var_4ef73a79.target, "targetname");
+				if(isdefined(s_vase))
 				{
-					n_z_diff = v_gren_pos[2] - var_c189a18d.origin[2];
-					if(n_z_diff >= 0 && n_z_diff <= 30 && distance2dsquared(v_gren_pos, var_c189a18d.origin) < 121)
+					n_z_diff = v_gren_pos[2] - s_vase.origin[2];
+					if(n_z_diff >= 0 && n_z_diff <= 30 && distance2dsquared(v_gren_pos, s_vase.origin) < 121)
 					{
 						var_a878db9b = 1;
 					}
@@ -464,9 +464,9 @@ function function_db5aff40(var_a276c861)
 		callback::on_spawned(&function_3a57d343);
 		while(level.var_d4854b67 < level.var_1c929a74.size)
 		{
-			var_be17187b = undefined;
-			var_be17187b = level waittill(#"hash_13411a5231901c2e");
-			if(var_be17187b.var_8ee6e347 === level.var_d4854b67)
+			s_waitresult = undefined;
+			s_waitresult = level waittill(#"hash_13411a5231901c2e");
+			if(s_waitresult.var_8ee6e347 === level.var_d4854b67)
 			{
 				level.var_d4854b67++;
 			}
@@ -475,7 +475,7 @@ function function_db5aff40(var_a276c861)
 				level.var_d4854b67 = -1;
 				foreach(var_c453fc76 in level.var_1c929a74)
 				{
-					if(var_c453fc76.script_int != var_be17187b.var_8ee6e347)
+					if(var_c453fc76.script_int != s_waitresult.var_8ee6e347)
 					{
 						var_c453fc76 function_5a7f565a();
 					}
@@ -521,12 +521,12 @@ function function_8ead19be()
 	self.var_ce3d3ff6.health = 9999;
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self.var_ce3d3ff6 waittill(#"damage");
+		s_waitresult = undefined;
+		s_waitresult = self.var_ce3d3ff6 waittill(#"damage");
 		self.var_ce3d3ff6.health = 9999;
 		if(!self.b_lit)
 		{
-			if(isplayer(var_be17187b.attacker) && (var_be17187b.mod === "MOD_BURNED" || var_be17187b.mod === "MOD_PROJECTILE_SPLASH" || var_be17187b.mod === "MOD_EXPLOSIVE"))
+			if(isplayer(s_waitresult.attacker) && (s_waitresult.mod === "MOD_BURNED" || s_waitresult.mod === "MOD_PROJECTILE_SPLASH" || s_waitresult.mod === "MOD_EXPLOSIVE"))
 			{
 				self function_b094be90();
 				break;
@@ -602,14 +602,14 @@ function function_3a57d343()
 	w_wraith_fire = getweapon(#"eq_wraith_fire");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"projectile_impact", #"projectile_impact_explode");
-		if(var_be17187b.weapon === w_wraith_fire)
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"projectile_impact", #"projectile_impact_explode");
+		if(s_waitresult.weapon === w_wraith_fire)
 		{
-			var_672c5523 = array::get_all_closest(var_be17187b.position, level.var_1c929a74, undefined, level.var_1c929a74.size, 96);
+			var_672c5523 = array::get_all_closest(s_waitresult.position, level.var_1c929a74, undefined, level.var_1c929a74.size, 96);
 			foreach(var_c565a3b in var_672c5523)
 			{
-				if(!var_c565a3b.b_lit && bullettracepassed(var_c565a3b.origin, var_be17187b.position, 0, undefined))
+				if(!var_c565a3b.b_lit && bullettracepassed(var_c565a3b.origin, s_waitresult.position, 0, undefined))
 				{
 					var_c565a3b function_b094be90();
 				}
@@ -725,20 +725,20 @@ function function_c7da583f(var_a276c861)
 		level.var_a690f86 = array::exclude(level.var_a690f86, var_c58e489b);
 		while(level.var_352e1e6f < level.var_a690f86.size)
 		{
-			var_be17187b = undefined;
-			var_be17187b = level waittill(#"hash_df5cf4747eb1cf1");
-			if(var_be17187b.var_9ea53c54 === level.var_352e1e6f && var_be17187b.activator === level.var_a690f86[var_be17187b.var_9ea53c54].var_64c09f7f)
+			s_waitresult = undefined;
+			s_waitresult = level waittill(#"hash_df5cf4747eb1cf1");
+			if(s_waitresult.var_9ea53c54 === level.var_352e1e6f && s_waitresult.activator === level.var_a690f86[s_waitresult.var_9ea53c54].e_activator)
 			{
-				playsoundatposition(#"hash_ef68ee749dfd885" + level.var_352e1e6f, level.var_a690f86[var_be17187b.var_9ea53c54].origin);
+				playsoundatposition(#"hash_ef68ee749dfd885" + level.var_352e1e6f, level.var_a690f86[s_waitresult.var_9ea53c54].origin);
 				level.var_352e1e6f++;
-				zm_unitrigger::unregister_unitrigger(level.var_a690f86[var_be17187b.var_9ea53c54].s_unitrigger_stub);
-				level.var_a690f86[var_be17187b.var_9ea53c54] notify(#"step_done");
+				zm_unitrigger::unregister_unitrigger(level.var_a690f86[s_waitresult.var_9ea53c54].s_unitrigger_stub);
+				level.var_a690f86[s_waitresult.var_9ea53c54] notify(#"step_done");
 			}
 			else
 			{
-				if(isdefined(var_be17187b.var_9ea53c54))
+				if(isdefined(s_waitresult.var_9ea53c54))
 				{
-					playsoundatposition(#"hash_4ec26fe871550c11", level.var_a690f86[var_be17187b.var_9ea53c54].origin);
+					playsoundatposition(#"hash_4ec26fe871550c11", level.var_a690f86[s_waitresult.var_9ea53c54].origin);
 				}
 				level.var_352e1e6f = -1;
 			}
@@ -798,14 +798,14 @@ function function_9f6a9379()
 	Parameters: 1
 	Flags: Linked
 */
-function function_11a5f9cf(var_be17187b)
+function function_11a5f9cf(s_waitresult)
 {
-	if(isplayer(var_be17187b.activator))
+	if(isplayer(s_waitresult.activator))
 	{
 		var_29c75f3 = struct::get(self.targetname, "target");
 		level.var_72b665d8--;
 		var_29c75f3.script_int = level.var_72b665d8;
-		var_29c75f3.var_64c09f7f = var_be17187b.activator;
+		var_29c75f3.e_activator = s_waitresult.activator;
 		if(!level.var_72b665d8)
 		{
 			level flag::set(#"hash_2311d328e336b7d");
@@ -828,12 +828,12 @@ function function_88685116()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		if(isplayer(var_be17187b.activator))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		if(isplayer(s_waitresult.activator))
 		{
 			level.var_3a4aa2ab = 1;
-			var_be17187b.activator playsound(#"hash_7025b0d4a2011877");
+			s_waitresult.activator playsound(#"hash_7025b0d4a2011877");
 			var_1cb747b2 = self.stub.related_parent.var_1cb747b2;
 			if(isdefined(var_1cb747b2.var_f55eb63))
 			{
@@ -858,12 +858,12 @@ function function_4c925e67()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		if(isplayer(var_be17187b.activator) && (isdefined(level.var_3a4aa2ab) && level.var_3a4aa2ab))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		if(isplayer(s_waitresult.activator) && (isdefined(level.var_3a4aa2ab) && level.var_3a4aa2ab))
 		{
 			var_a690f86 = self.stub.related_parent;
-			level notify(#"hash_df5cf4747eb1cf1", {#activator:var_be17187b.activator, #hash_9ea53c54:var_a690f86.script_int});
+			level notify(#"hash_df5cf4747eb1cf1", {#activator:s_waitresult.activator, #hash_9ea53c54:var_a690f86.script_int});
 		}
 	}
 }
@@ -970,12 +970,12 @@ function function_1d7382d0()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		if(isplayer(var_be17187b.activator))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		if(isplayer(s_waitresult.activator))
 		{
 			var_10372151 = self.stub.related_parent;
-			e_player = var_be17187b.activator;
+			e_player = s_waitresult.activator;
 			var_6e84d29e = e_player function_ffc00d17(var_10372151);
 			if(var_6e84d29e)
 			{
@@ -1556,9 +1556,9 @@ function function_eb269563()
 	var_1611e2c0 = s_lookat.origin;
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		e_player = var_be17187b.activator;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		e_player = s_waitresult.activator;
 		if(isdefined(e_player.b_nosferatu_damage_fx) && e_player.b_nosferatu_damage_fx && (!(isdefined(e_player.var_4522314f) && e_player.var_4522314f)) && e_player util::is_looking_at(var_1611e2c0, 0.89))
 		{
 			e_player thread function_e92918f6(self, s_lookat);

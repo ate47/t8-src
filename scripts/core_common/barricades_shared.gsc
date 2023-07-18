@@ -224,12 +224,12 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!isdefined(level.var_9c740bff))
+	if(!isdefined(level.a_s_barricades))
 	{
-		level.var_9c740bff = [];
+		level.a_s_barricades = [];
 	}
-	level.var_9c740bff = struct::get_array("scriptbundle_barricades", "classname");
-	foreach(s_instance in level.var_9c740bff)
+	level.a_s_barricades = struct::get_array("scriptbundle_barricades", "classname");
+	foreach(s_instance in level.a_s_barricades)
 	{
 		c_door = s_instance function_14354831();
 		if(isdefined(c_door))

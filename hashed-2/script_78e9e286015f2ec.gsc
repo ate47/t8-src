@@ -190,9 +190,9 @@ function function_44748fe7()
 	level endon(#"end_computer");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		if(!level.var_5dd0d3ff.isspeaking || level.var_f13364b4.var_e3d3636b === 1)
 		{
 			foreach(s_key in level.var_f13364b4.a_s_keys)
@@ -1276,7 +1276,7 @@ function function_7ee18649()
 	level.var_f140d610 function_f0af359();
 	level.var_f140d610 function_66365668(function_da24090c(level.var_f13364b4.var_a7450be4));
 	level.var_f140d610 showpart("tag_code_paper_1");
-	var_dad3f7bf = zm_hms_util::function_bffcedde("sawyer_authorization_code", "targetname", "script_int");
+	a_e_paper = zm_hms_util::function_bffcedde("sawyer_authorization_code", "targetname", "script_int");
 	for(i = 0; i < var_2ec8989.size; i++)
 	{
 		if(i != var_127789d1)

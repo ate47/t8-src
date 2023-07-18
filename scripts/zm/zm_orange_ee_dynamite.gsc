@@ -202,14 +202,14 @@ function function_e93a8e82(v_pos, v_angles)
 			w_part = level.var_1f17f9bb[0];
 			if(isdefined(w_part))
 			{
-				var_ae79b49 = util::spawn_model(w_part.worldmodel, v_ground);
+				e_dynamite = util::spawn_model(w_part.worldmodel, v_ground);
 				waitframe(1);
-				s_unitrigger = var_ae79b49 zm_item_pickup::create_item_pickup(&function_ba26ccbb, &function_96b866fc, undefined, 96);
-				var_ae79b49.targetname = "dynamite_item_drop";
-				var_ae79b49.var_8691c7d4 = 1;
-				var_ae79b49.w_part = w_part;
-				var_ae79b49 playloopsound(#"zmb_spawn_powerup_loop");
-				var_ae79b49 thread zm_orange_challenges::function_f5f83516();
+				s_unitrigger = e_dynamite zm_item_pickup::create_item_pickup(&function_ba26ccbb, &function_96b866fc, undefined, 96);
+				e_dynamite.targetname = "dynamite_item_drop";
+				e_dynamite.var_8691c7d4 = 1;
+				e_dynamite.w_part = w_part;
+				e_dynamite playloopsound(#"zmb_spawn_powerup_loop");
+				e_dynamite thread zm_orange_challenges::function_f5f83516();
 				zm_unitrigger::reregister_unitrigger_as_dynamic(s_unitrigger);
 				return true;
 			}
@@ -509,10 +509,10 @@ function function_7056aa62()
 function function_4c525901()
 {
 	self endon(#"death");
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"trigger_activated");
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"trigger_activated");
 	self playsound(#"hash_55c30dada4e624a2");
-	var_be17187b.e_who zm_audio::create_and_play_dialog(#"explosive", #"pickup");
+	s_waitresult.e_who zm_audio::create_and_play_dialog(#"explosive", #"pickup");
 	level.var_518d6e34 = 1;
 	zm_ui_inventory::function_7df6bb60("orange_dynamite_bomb_complete", 1);
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);

@@ -71,20 +71,20 @@ function function_e5f05a92()
 	vol_spawn_area = getent("vol_spawn_area", "targetname");
 	while(!var_ac1242dd)
 	{
-		var_5f98e272 = [];
+		a_e_touching = [];
 		foreach(e_player in util::get_active_players())
 		{
 			if(e_player istouching(vol_spawn_area))
 			{
-				if(!isdefined(var_5f98e272))
+				if(!isdefined(a_e_touching))
 				{
-					var_5f98e272 = [];
+					a_e_touching = [];
 				}
-				else if(!isarray(var_5f98e272))
+				else if(!isarray(a_e_touching))
 				{
-					var_5f98e272 = array(var_5f98e272);
+					a_e_touching = array(a_e_touching);
 				}
-				var_5f98e272[var_5f98e272.size] = e_player;
+				a_e_touching[a_e_touching.size] = e_player;
 				continue;
 			}
 			if(e_player clientfield::get_to_player("snd_crowd_react") != 8)
@@ -96,25 +96,25 @@ function function_e5f05a92()
 				}
 			}
 		}
-		if(var_5f98e272.size == 0)
+		if(a_e_touching.size == 0)
 		{
 			a_ai_zombies = getactorarray();
 			foreach(ai_zombie in a_ai_zombies)
 			{
 				if(ai_zombie istouching(vol_spawn_area))
 				{
-					if(!isdefined(var_5f98e272))
+					if(!isdefined(a_e_touching))
 					{
-						var_5f98e272 = [];
+						a_e_touching = [];
 					}
-					else if(!isarray(var_5f98e272))
+					else if(!isarray(a_e_touching))
 					{
-						var_5f98e272 = array(var_5f98e272);
+						a_e_touching = array(a_e_touching);
 					}
-					var_5f98e272[var_5f98e272.size] = ai_zombie;
+					a_e_touching[a_e_touching.size] = ai_zombie;
 				}
 			}
-			if(var_5f98e272.size == 0)
+			if(a_e_touching.size == 0)
 			{
 				var_ac1242dd = 1;
 				break;

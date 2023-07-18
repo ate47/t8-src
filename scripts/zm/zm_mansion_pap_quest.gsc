@@ -295,8 +295,8 @@ function function_7255025f()
 	var_d8358012 = struct::get("mh_cpt1", "script_noteworthy");
 	var_a7181dd8 = struct::get("mh_cpt2", "script_noteworthy");
 	var_b4c5b933 = struct::get("mh_cpt3", "script_noteworthy");
-	var_8be21cb = array(var_d8358012, var_a7181dd8, var_b4c5b933);
-	s_pt = array::random(var_8be21cb);
+	a_s_pts = array(var_d8358012, var_a7181dd8, var_b4c5b933);
+	s_pt = array::random(a_s_pts);
 	var_99a245 = getent("gazing_stone_main_hall", "targetname");
 	var_99a245.origin = s_pt.origin;
 	var_99a245.angles = s_pt.angles;
@@ -307,8 +307,8 @@ function function_7255025f()
 	namespace_617a54f4::function_d8383812(#"sc_mh3", 8000, var_b4c5b933, &function_bbceb70a, &function_9ce2b677, 1);
 	var_b3513ad0 = struct::get("cl_cpt1", "script_noteworthy");
 	var_5245e75 = struct::get("cl_cpt2", "script_noteworthy");
-	var_41e6ec54 = array(var_b3513ad0, var_5245e75);
-	s_cellar = array::random(var_41e6ec54);
+	a_s_cellar = array(var_b3513ad0, var_5245e75);
+	s_cellar = array::random(a_s_cellar);
 	var_d8f56b29 = getent("gazing_stone_cellar", "targetname");
 	var_d8f56b29.origin = s_cellar.origin;
 	var_d8f56b29.angles = s_cellar.angles;
@@ -319,8 +319,8 @@ function function_7255025f()
 	var_bc650319 = struct::get("lb_cpt1", "script_noteworthy");
 	var_cd1aa484 = struct::get("lb_cpt2", "script_noteworthy");
 	var_36df7810 = struct::get("lb_cpt3", "script_noteworthy");
-	var_8811b3a = array(var_bc650319, var_cd1aa484, var_36df7810);
-	var_e009cb59 = array::random(var_8811b3a);
+	a_s_library = array(var_bc650319, var_cd1aa484, var_36df7810);
+	var_e009cb59 = array::random(a_s_library);
 	var_aa527474 = getent("gazing_stone_library", "targetname");
 	var_aa527474.origin = var_e009cb59.origin;
 	var_aa527474.angles = var_e009cb59.angles;
@@ -694,9 +694,9 @@ function function_686b9870()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		player = var_be17187b.activator;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		player = s_waitresult.activator;
 		var_f7a8259e = level flag::get_all(array("crystal_main_hall", "crystal_library", "crystal_greenhouse"));
 		if(zm_utility::is_player_valid(player) && !var_f7a8259e)
 		{
@@ -993,10 +993,10 @@ function function_1c62cd2()
 */
 function function_74bb3b2()
 {
-	var_20c9365c = struct::get_array("gate_greeter_wolf", "targetname");
-	foreach(var_32caf0b0 in var_20c9365c)
+	a_s_wolves = struct::get_array("gate_greeter_wolf", "targetname");
+	foreach(s_wolf in a_s_wolves)
 	{
-		ai_wolf = zombie_dog_util::function_62db7b1c(1, var_32caf0b0);
+		ai_wolf = zombie_dog_util::function_62db7b1c(1, s_wolf);
 		if(isdefined(ai_wolf))
 		{
 			ai_wolf.var_126d7bef = 1;
@@ -1244,17 +1244,17 @@ function function_9e7129d2(e_player, s_stone, var_6cf4ded4, str_hint)
 	/#
 		s_wormhole thread debug_draw_star();
 	#/
-	var_fd99631b = util::spawn_model(#"hash_106db0f970e1faec", s_wormhole.origin, s_wormhole.angles);
+	e_wormhole = util::spawn_model(#"hash_106db0f970e1faec", s_wormhole.origin, s_wormhole.angles);
 	e_player util::create_streamer_hint(v_cam, s_teleport_room.angles, 1);
 	e_player waittill(#"hash_18259ed594f164dc", #"disconnect");
-	s_wormhole thread scene::play(#"p8_fxanim_zm_man_wormhole_bundle_vision_stone", var_fd99631b);
+	s_wormhole thread scene::play(#"p8_fxanim_zm_man_wormhole_bundle_vision_stone", e_wormhole);
 	/#
 		if(!isdefined(var_6cf4ded4))
 		{
 			var_6cf4ded4 = getdvarint(#"hash_8a909b353203ed4", 1);
 		}
 	#/
-	var_fd99631b clientfield::set("" + #"vision_stone_wormhole", var_6cf4ded4);
+	e_wormhole clientfield::set("" + #"vision_stone_wormhole", var_6cf4ded4);
 	if(isplayer(e_player))
 	{
 		e_player camerasetposition(v_cam, s_teleport_room.angles);
@@ -1271,8 +1271,8 @@ function function_9e7129d2(e_player, s_stone, var_6cf4ded4, str_hint)
 		{
 			n_time = gettime();
 		}
-		var_be17187b = undefined;
-		var_be17187b = e_player waittilltimeout(3, #"hide_equipment_hint_text", #"disconnect", #"death");
+		s_waitresult = undefined;
+		s_waitresult = e_player waittilltimeout(3, #"hide_equipment_hint_text", #"disconnect", #"death");
 	}
 	if(isdefined(n_time))
 	{
@@ -1289,7 +1289,7 @@ function function_9e7129d2(e_player, s_stone, var_6cf4ded4, str_hint)
 		e_player util::streamer_wait(undefined, 0, 0.5);
 		if(isplayer(e_player))
 		{
-			if(var_be17187b._notify == #"timeout")
+			if(s_waitresult._notify == #"timeout")
 			{
 				e_player notify(#"hide_equipment_hint_text");
 			}
@@ -1326,7 +1326,7 @@ function function_9e7129d2(e_player, s_stone, var_6cf4ded4, str_hint)
 	s_wormhole scene::stop();
 	s_wormhole struct::delete();
 	s_anim struct::delete();
-	var_fd99631b thread function_e29d2d07();
+	e_wormhole thread function_e29d2d07();
 	wait(2);
 	if(isplayer(e_player))
 	{
@@ -2196,7 +2196,7 @@ function function_51367ff6(v_loc)
 	self endon(#"death");
 	if(zm_utility::is_player_valid(self))
 	{
-		var_83201b91 = self;
+		e_proclaimer = self;
 	}
 	else
 	{
@@ -2206,14 +2206,14 @@ function function_51367ff6(v_loc)
 		{
 			if(e_player !== self && zm_utility::is_player_valid(e_player))
 			{
-				var_83201b91 = e_player;
+				e_proclaimer = e_player;
 				break;
 			}
 		}
 	}
-	if(isdefined(var_83201b91) && zm_utility::is_player_valid(var_83201b91))
+	if(isdefined(e_proclaimer) && zm_utility::is_player_valid(e_proclaimer))
 	{
-		var_83201b91 zm_vo::function_a2bd5a0c(#"hash_69cfed93cf2b2ec5", 1.9, 1, 9999, 0);
+		e_proclaimer zm_vo::function_a2bd5a0c(#"hash_69cfed93cf2b2ec5", 1.9, 1, 9999, 0);
 	}
 }
 
@@ -3766,13 +3766,13 @@ function function_e8355769(vol_defend, str_flag)
 		}
 		wait(1);
 	}
-	foreach(var_5e81c7ad in array::remove_undefined(var_ef6d594a))
+	foreach(e_starting in array::remove_undefined(var_ef6d594a))
 	{
-		if(!(isdefined(var_5e81c7ad.var_e6abb74b) && var_5e81c7ad.var_e6abb74b))
+		if(!(isdefined(e_starting.var_e6abb74b) && e_starting.var_e6abb74b))
 		{
-			var_5e81c7ad notify(#"hash_305ca852d958a7e1");
+			e_starting notify(#"hash_305ca852d958a7e1");
 		}
-		var_5e81c7ad.var_e6abb74b = undefined;
+		e_starting.var_e6abb74b = undefined;
 	}
 }
 

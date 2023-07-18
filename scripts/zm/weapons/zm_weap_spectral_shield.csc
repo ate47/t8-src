@@ -129,12 +129,12 @@ function function_b7608e70(localclientnum, oldval, newval, bnewent, binitialsnap
 				}
 			}
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
-			foreach(var_56fd8656 in level.var_22a393d4)
+			foreach(e_vision in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.show_function))
+				if(isdefined(e_vision.show_function))
 				{
-					var_56fd8656.var_a5a0e616 = 1;
-					var_56fd8656 thread [[var_56fd8656.show_function]](localclientnum);
+					e_vision.var_a5a0e616 = 1;
+					e_vision thread [[e_vision.show_function]](localclientnum);
 				}
 			}
 			self thread function_85e7adcf(localclientnum);
@@ -159,12 +159,12 @@ function function_b7608e70(localclientnum, oldval, newval, bnewent, binitialsnap
 				}
 			}
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
-			foreach(var_56fd8656 in level.var_22a393d4)
+			foreach(e_vision in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.hide_function))
+				if(isdefined(e_vision.hide_function))
 				{
-					var_56fd8656.var_a5a0e616 = undefined;
-					var_56fd8656 thread [[var_56fd8656.hide_function]](localclientnum);
+					e_vision.var_a5a0e616 = undefined;
+					e_vision thread [[e_vision.hide_function]](localclientnum);
 				}
 			}
 		}
@@ -194,12 +194,12 @@ function private function_85e7adcf(localclientnum)
 		if(var_61467197 !== level.var_22a393d4.size)
 		{
 			level.var_22a393d4 = array::remove_undefined(level.var_22a393d4, 0);
-			foreach(var_56fd8656 in level.var_22a393d4)
+			foreach(e_vision in level.var_22a393d4)
 			{
-				if(isdefined(var_56fd8656.show_function) && (!(isdefined(var_56fd8656.var_a5a0e616) && var_56fd8656.var_a5a0e616)))
+				if(isdefined(e_vision.show_function) && (!(isdefined(e_vision.var_a5a0e616) && e_vision.var_a5a0e616)))
 				{
-					var_56fd8656.var_a5a0e616 = 1;
-					var_56fd8656 thread [[var_56fd8656.show_function]](localclientnum);
+					e_vision.var_a5a0e616 = 1;
+					e_vision thread [[e_vision.show_function]](localclientnum);
 				}
 			}
 			var_61467197 = level.var_22a393d4.size;

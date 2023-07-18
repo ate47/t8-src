@@ -65,6 +65,6 @@ function function_a3874ae0(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_1fe913e0(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self playrumbleonentity(localclientnum, #"hash_71011e15ea9a81c1");
+	self playrumbleonentity(localclientnum, #"zm_escape_catwalk_door");
 }
 

@@ -105,8 +105,8 @@ function function_96e29e5f()
 function function_286b5fa9()
 {
 	level.var_6024289d = getentarray("trap_blade_pillar", "script_label");
-	var_9a2f8aa = getentarray("zombie_trap", "targetname");
-	level.var_5f47f17d = array::filter(var_9a2f8aa, 0, &function_f0f82833);
+	a_zombie_traps = getentarray("zombie_trap", "targetname");
+	level.var_5f47f17d = array::filter(a_zombie_traps, 0, &function_f0f82833);
 	foreach(var_dabb9a97 in level.var_5f47f17d)
 	{
 		var_dabb9a97 function_d8e7a5e6();

@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -51,7 +51,7 @@ function __init__()
 */
 function private on_begin()
 {
-	level zm_ui_inventory::function_7df6bb60(#"hash_566a6ec283e2360a", 5);
+	level zm_ui_inventory::function_7df6bb60(#"zm_red_objective_progress", 5);
 	if(!(isdefined(level.var_4e4909a6) && level.var_4e4909a6))
 	{
 		level thread function_57755268();

@@ -253,7 +253,7 @@ function function_d2093ddd(willbekilled, inflictor, attacker, damage, flags, mod
 	Parameters: 3
 	Flags: Linked
 */
-function function_e40e9d94(n_eating_anim, ai_zombie, var_64c09f7f)
+function function_e40e9d94(n_eating_anim, ai_zombie, e_activator)
 {
 	if(!isdefined(ai_zombie))
 	{
@@ -305,7 +305,7 @@ function function_e40e9d94(n_eating_anim, ai_zombie, var_64c09f7f)
 	self notify(#"wolf_eating");
 	if(self.var_43bd3b5 < 5)
 	{
-		self thread function_e07f0c65(var_64c09f7f);
+		self thread function_e07f0c65(e_activator);
 	}
 	self.s_scene thread scene::play(var_f2c6c759);
 	a_scene_ents = self.s_scene.scene_ents;
@@ -553,13 +553,13 @@ function soul_catcher_check()
 	Parameters: 1
 	Flags: Linked
 */
-function function_e07f0c65(var_64c09f7f)
+function function_e07f0c65(e_activator)
 {
 	if(!zm_utility::is_classic())
 	{
 		return;
 	}
-	a_closest = function_74c96a90(var_64c09f7f);
+	a_closest = function_74c96a90(e_activator);
 	for(i = 0; i < a_closest.size; i++)
 	{
 		if(!(isdefined(a_closest[i].dontspeak) && a_closest[i].dontspeak))
@@ -607,10 +607,10 @@ function function_41b1af8c()
 	Parameters: 1
 	Flags: Linked
 */
-function first_wolf_encounter_vo(var_64c09f7f)
+function first_wolf_encounter_vo(e_activator)
 {
 	wait(2);
-	a_closest = function_74c96a90(var_64c09f7f);
+	a_closest = function_74c96a90(e_activator);
 	for(i = 0; i < a_closest.size; i++)
 	{
 		if(!(isdefined(a_closest[i].dontspeak) && a_closest[i].dontspeak))
@@ -631,7 +631,7 @@ function first_wolf_encounter_vo(var_64c09f7f)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_74c96a90(var_64c09f7f)
+function private function_74c96a90(e_activator)
 {
 	var_8114dab6 = 0;
 	switch(self.script_noteworthy)
@@ -656,9 +656,9 @@ function private function_74c96a90(var_64c09f7f)
 			var_e251bafa = "";
 		}
 	}
-	if(isalive(var_64c09f7f))
+	if(isalive(e_activator))
 	{
-		str_player_zone = var_64c09f7f zm_zonemgr::get_player_zone();
+		str_player_zone = e_activator zm_zonemgr::get_player_zone();
 		if(isdefined(str_player_zone) && str_player_zone == var_e251bafa)
 		{
 			var_8114dab6 = 1;
@@ -666,7 +666,7 @@ function private function_74c96a90(var_64c09f7f)
 	}
 	if(var_8114dab6)
 	{
-		a_closest = array(var_64c09f7f);
+		a_closest = array(e_activator);
 	}
 	else
 	{

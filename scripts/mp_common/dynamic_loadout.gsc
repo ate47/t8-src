@@ -653,8 +653,8 @@ function private function_1875e2a9(package)
 function private function_7a836986(slot, package, var_e120a933)
 {
 	var_51cc2fc9 = package.var_95c30fc5[var_e120a933 - 1].attachmentlist;
-	var_db6dac44 = strtok(var_51cc2fc9, "+");
-	foreach(attach in var_db6dac44)
+	attacharray = strtok(var_51cc2fc9, "+");
+	foreach(attach in attacharray)
 	{
 		if(!isdefined(self.pers[#"dynamic_loadout"].weapons[slot].attachments))
 		{

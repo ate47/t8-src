@@ -479,9 +479,9 @@ function cleanup_step_3(var_5ea5c94d, ended_early)
 		level.kp3 clientfield::set("" + #"triad_beam", 0);
 		level.kp3 thread kp_cleanup();
 	}
-	var_4eed727b = getent("stone_forest", "targetname");
-	var_4eed727b playsound(#"hash_224d8c48960f71ee");
-	var_4eed727b stoploopsound();
+	e_stone = getent("stone_forest", "targetname");
+	e_stone playsound(#"hash_224d8c48960f71ee");
+	e_stone stoploopsound();
 	wait(3);
 	var_a484bb88 = struct::get("kp1_end");
 	var_febddc3e = struct::get("kp2_end");
@@ -1185,8 +1185,8 @@ function function_4490aa7d()
 			s_loc = struct::get("kp_1", "script_noteworthy");
 			var_9e7c3935 = getent("kp_mark_lion", "script_noteworthy");
 			var_9e7c3935 clientfield::set("" + #"hash_2108935a0c33f89a", 1);
-			var_ce68e849 = util::spawn_model(#"p8_zm_man_statue_kisa_stone_02", s_spawn.origin, s_spawn.angles);
-			level.var_fbcb1d5b = var_ce68e849;
+			e_wisp = util::spawn_model(#"p8_zm_man_statue_kisa_stone_02", s_spawn.origin, s_spawn.angles);
+			level.var_fbcb1d5b = e_wisp;
 			break;
 		}
 		case "cemetery":
@@ -1195,8 +1195,8 @@ function function_4490aa7d()
 			s_loc = struct::get("kp_2", "script_noteworthy");
 			var_9e7c3935 = getent("kp_mark_cobra", "script_noteworthy");
 			var_9e7c3935 clientfield::set("" + #"hash_2108935a0c33f89a", 2);
-			var_ce68e849 = util::spawn_model(#"p8_zm_man_statue_kisa_stone_01", s_spawn.origin, s_spawn.angles);
-			level.var_abe1b67c = var_ce68e849;
+			e_wisp = util::spawn_model(#"p8_zm_man_statue_kisa_stone_01", s_spawn.origin, s_spawn.angles);
+			level.var_abe1b67c = e_wisp;
 			break;
 		}
 		case "greenhouse":
@@ -1205,21 +1205,21 @@ function function_4490aa7d()
 			s_loc = struct::get("kp_3", "script_noteworthy");
 			var_9e7c3935 = getent("kp_mark_wolf", "script_noteworthy");
 			var_9e7c3935 clientfield::set("" + #"hash_2108935a0c33f89a", 3);
-			var_ce68e849 = util::spawn_model(#"p8_zm_man_statue_kisa_stone_03", s_spawn.origin, s_spawn.angles);
-			level.var_c22f75e6 = var_ce68e849;
+			e_wisp = util::spawn_model(#"p8_zm_man_statue_kisa_stone_03", s_spawn.origin, s_spawn.angles);
+			level.var_c22f75e6 = e_wisp;
 			break;
 		}
 	}
 	util::wait_network_frame();
-	var_ce68e849 clientfield::set("" + #"wisp_fx", 1);
+	e_wisp clientfield::set("" + #"wisp_fx", 1);
 	var_9e7c3935 show();
 	wait(2.5);
-	var_ce68e849 thread function_d409a74f(var_9e7c3935);
-	var_ce68e849 waittill(#"hash_6df5566461d13967");
-	var_ce68e849 moveto(s_loc.origin, 0.25);
-	var_ce68e849 rotateto(s_loc.angles, 0.25);
-	var_ce68e849 waittill(#"rotatedone");
-	var_ce68e849 bobbing((0, 0, 1), 2, 3);
+	e_wisp thread function_d409a74f(var_9e7c3935);
+	e_wisp waittill(#"hash_6df5566461d13967");
+	e_wisp moveto(s_loc.origin, 0.25);
+	e_wisp rotateto(s_loc.angles, 0.25);
+	e_wisp waittill(#"rotatedone");
+	e_wisp bobbing((0, 0, 1), 2, 3);
 	a_players = util::get_active_players();
 	level.var_5beab970 = arraygetclosest(s_loc.origin, a_players, 600);
 	level.var_d96749fe = s_loc;
@@ -1829,16 +1829,16 @@ function function_90cc31c4(s_goal, var_ea62e3e9, str_flag)
 */
 function function_92227ee8(a_ents)
 {
-	var_ce68e849 = a_ents[getfirstarraykey(a_ents)];
-	if(isdefined(var_ce68e849.str_model))
+	e_wisp = a_ents[getfirstarraykey(a_ents)];
+	if(isdefined(e_wisp.str_model))
 	{
-		var_ce68e849 ghost();
-		var_ce68e849 setmodel(var_ce68e849.str_model);
+		e_wisp ghost();
+		e_wisp setmodel(e_wisp.str_model);
 		util::wait_network_frame(1);
-		if(isdefined(var_ce68e849))
+		if(isdefined(e_wisp))
 		{
-			var_ce68e849 show();
-			var_ce68e849 clientfield::set("" + #"wisp_fx", 2);
+			e_wisp show();
+			e_wisp clientfield::set("" + #"wisp_fx", 2);
 		}
 	}
 }
@@ -1867,9 +1867,9 @@ function function_444d9cf8()
 	level.kp1 clientfield::set("" + #"triad_beam", 1);
 	level.kp2 clientfield::set("" + #"triad_beam", 2);
 	level.kp3 clientfield::set("" + #"triad_beam", 3);
-	var_4eed727b = getent("stone_forest", "targetname");
-	var_4eed727b playsound(#"hash_7736e4287bd3440b");
-	var_4eed727b playloopsound(#"hash_22739fd2435ae7bd");
+	e_stone = getent("stone_forest", "targetname");
+	e_stone playsound(#"hash_7736e4287bd3440b");
+	e_stone playloopsound(#"hash_22739fd2435ae7bd");
 	namespace_617a54f4::function_3f808d3d(#"soul_capture_forest");
 	level thread function_df2c4d2d();
 	if(getplayers().size > 2)
@@ -1947,7 +1947,7 @@ function private function_46b38ca2(var_c34665fc)
 function function_a78b58f6(n_active, var_e05ded9, var_39cddd2a)
 {
 	a_s_center = struct::get_array("forest_center_spawns");
-	var_1dc59002 = struct::get_array("forest_n_spawns");
+	a_s_north = struct::get_array("forest_n_spawns");
 	var_4275b4d6 = [];
 	level.var_34ac013b = 0;
 	level.var_b02bf6d2 = 0;
@@ -1959,7 +1959,7 @@ function function_a78b58f6(n_active, var_e05ded9, var_39cddd2a)
 			var_4275b4d6[var_4275b4d6.size] = s_loc;
 		}
 	}
-	foreach(s_loc in var_1dc59002)
+	foreach(s_loc in a_s_north)
 	{
 		if(s_loc.script_noteworthy === "werewolf_location")
 		{
@@ -2840,14 +2840,14 @@ function function_f0a7d11b()
 	{
 		level.var_8a64ef3a = 0;
 	}
-	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_corrosive", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"corrosive_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
-	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_water", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"water_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
-	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_electric", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"electric_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
-	var_c1da220b = getspawnerarray("zombie_spawner_catalyst_plasma", "targetname")[0];
-	zm_transform::function_cfca77a7(var_c1da220b, #"plasma_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
+	sp_catalyst = getspawnerarray("zombie_spawner_catalyst_corrosive", "targetname")[0];
+	zm_transform::function_cfca77a7(sp_catalyst, #"corrosive_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_corrosive_spawn_pre_split", "aib_vign_zm_zod_catalyst_corrosive_spawn_post_split");
+	sp_catalyst = getspawnerarray("zombie_spawner_catalyst_water", "targetname")[0];
+	zm_transform::function_cfca77a7(sp_catalyst, #"water_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_water_spawn_pre_split", "aib_vign_zm_zod_catalyst_water_spawn_post_split");
+	sp_catalyst = getspawnerarray("zombie_spawner_catalyst_electric", "targetname")[0];
+	zm_transform::function_cfca77a7(sp_catalyst, #"electric_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_electric_spawn_pre_split", "aib_vign_zm_zod_catalyst_electric_spawn_post_split");
+	sp_catalyst = getspawnerarray("zombie_spawner_catalyst_plasma", "targetname")[0];
+	zm_transform::function_cfca77a7(sp_catalyst, #"plasma_scripted", &zm_ai_utility::function_db610082, 0, undefined, &function_724b3e30, "aib_vign_zm_zod_catalyst_plasma_spawn_pre_split", "aib_vign_zm_zod_catalyst_plasma_spawn_post_split");
 }
 
 /*

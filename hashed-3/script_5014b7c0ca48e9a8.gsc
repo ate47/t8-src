@@ -44,11 +44,11 @@ function autoexec function_45a212c0()
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_7f50125ebbc15534", #"hash_5ffca3f1385154e6");
 		}
-		if(!(isdefined(getgametypesetting(#"hash_f04393e2e028c01")) && getgametypesetting(#"hash_f04393e2e028c01")))
+		if(!(isdefined(getgametypesetting(#"wzenablewallbuyboxinggym")) && getgametypesetting(#"wzenablewallbuyboxinggym")))
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_5d334f942754156e", #"hash_5ffca3f1385154e6");
 		}
-		if(!(isdefined(getgametypesetting(#"hash_64aba694bd70856c")) && getgametypesetting(#"hash_64aba694bd70856c")))
+		if(!(isdefined(getgametypesetting(#"wzenablewallbuyghosttown")) && getgametypesetting(#"wzenablewallbuyghosttown")))
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_10db7f8ca1621554", #"hash_5ffca3f1385154e6");
 		}
@@ -211,157 +211,157 @@ function autoexec function_45a212c0()
 	}
 	if(!(isdefined(getgametypesetting(#"hash_5c6371ef701d7485")) && getgametypesetting(#"hash_5c6371ef701d7485")))
 	{
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_250876d81f2e6f6e");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_9dcbf9df7b19434");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6857c7a83fc6cdb1");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_2799bb4fa8f20048");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_e0a40edfec418ef");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_ac66bb9a3a19d91");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_691f420597727d56");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_321c0010d0c7fdc5");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_363ed03cee79d627");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_64f996475acdd244");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_7a53240a3664fe64");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_52d37104fb5e6eb5");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b69ed326eaa32c4");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_59da79c0dcf9cf76");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_21779574e3841392");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_52083f0c0759df13");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_48db4f35da313bd1");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_7dced4169cb1c6bd");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6fbf66e753d55ddd");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_2a4214db930e08a7");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1efebec8697e5720");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1caa1516c9ea66af");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_199230a69a867bf8");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_199230a69a867bf8");
-		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6d33368b7b126df8");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"pistol_revolver_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_handling_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_accurate_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_standard_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_capacity_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_fastburst_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_folding_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_accurate_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_modular_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_standard_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_damage_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_fastfire_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_stealth_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_longburst_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_midburst_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_powersemi_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_mini14_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_standard_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_spray_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_heavy_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_quickscope_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_powerbolt_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_powersemi_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_powersemi_t8_gold_item");
+		wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_fastrechamber_t8_gold_item");
 	}
 	else
 	{
 		if(!(isdefined(getgametypesetting(#"wzenablestrife")) && getgametypesetting(#"wzenablestrife")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_32834da10f1048b0");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"pistol_standard_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablemozu")) && getgametypesetting(#"wzenablemozu")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_250876d81f2e6f6e");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"pistol_revolver_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablerk7")) && getgametypesetting(#"wzenablerk7")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_499748ba05372c7");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"pistol_burst_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablekap45")) && getgametypesetting(#"wzenablekap45")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_40ced73804c1be81");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"pistol_fullauto_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablemog12")) && getgametypesetting(#"wzenablemog12")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_524268075ef65e1e");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"shotgun_pump_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablesg12")) && getgametypesetting(#"wzenablesg12")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1bfc7320c1335797");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"shotgun_semiauto_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablerampage")) && getgametypesetting(#"wzenablerampage")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_31c3a0cc51a512d2");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"shotgun_fullauto_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablesaug")) && getgametypesetting(#"wzenablesaug")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_9dcbf9df7b19434");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_handling_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablespitfire")) && getgametypesetting(#"wzenablespitfire")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1bd3cb5b4becaad9");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_fastfire_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablemx9")) && getgametypesetting(#"wzenablemx9")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_2799bb4fa8f20048");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_standard_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablecordite")) && getgametypesetting(#"wzenablecordite")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_e0a40edfec418ef");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_capacity_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablegks")) && getgametypesetting(#"wzenablegks")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6857c7a83fc6cdb1");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_accurate_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenabledaemon")) && getgametypesetting(#"wzenabledaemon")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_ac66bb9a3a19d91");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_fastburst_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableswitchblade")) && getgametypesetting(#"wzenableswitchblade")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_691f420597727d56");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"smg_folding_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableicr")) && getgametypesetting(#"wzenableicr")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_321c0010d0c7fdc5");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_accurate_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablekn")) && getgametypesetting(#"wzenablekn")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_363ed03cee79d627");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_modular_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableswat")) && getgametypesetting(#"wzenableswat")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_64f996475acdd244");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_standard_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablerampart")) && getgametypesetting(#"wzenablerampart")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_7a53240a3664fe64");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_damage_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablemaddox")) && getgametypesetting(#"wzenablemaddox")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_52d37104fb5e6eb5");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_fastfire_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablevapr")) && getgametypesetting(#"wzenablevapr")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1b69ed326eaa32c4");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"ar_stealth_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableswordfish")) && getgametypesetting(#"wzenableswordfish")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_59da79c0dcf9cf76");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_longburst_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableabr")) && getgametypesetting(#"wzenableabr")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_21779574e3841392");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_midburst_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableauger")) && getgametypesetting(#"wzenableauger")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_52083f0c0759df13");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"tr_powersemi_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablevendetta")) && getgametypesetting(#"wzenablevendetta")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_48db4f35da313bd1");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_mini14_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenabletitan")) && getgametypesetting(#"wzenabletitan")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_7dced4169cb1c6bd");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_standard_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablehades")) && getgametypesetting(#"wzenablehades")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6fbf66e753d55ddd");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_spray_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablevkm")) && getgametypesetting(#"wzenablevkm")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_2a4214db930e08a7");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"lmg_heavy_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablekoshka")) && getgametypesetting(#"wzenablekoshka")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1efebec8697e5720");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_quickscope_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablepaladin")) && getgametypesetting(#"wzenablepaladin")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_1caa1516c9ea66af");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_powerbolt_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenablesdm")) && getgametypesetting(#"wzenablesdm")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_199230a69a867bf8");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_powersemi_t8_gold_item");
 		}
 		if(!(isdefined(getgametypesetting(#"wzenableoutlaw")) && getgametypesetting(#"wzenableoutlaw")))
 		{
-			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"hash_6d33368b7b126df8");
+			wz_common_fixup::item_remover(var_a12b4736, var_87d0eef8, #"sniper_fastrechamber_t8_gold_item");
 		}
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablewarmachine")) && getgametypesetting(#"wzenablewarmachine")))

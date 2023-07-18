@@ -43,15 +43,15 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function slowed_apply(var_756fda07, weapon, var_84171a6c)
+function slowed_apply(var_756fda07, weapon, applicant)
 {
-	self.owner.var_a010bd8f = var_84171a6c;
+	self.owner.var_a010bd8f = applicant;
 	self.owner.var_9060b065 = weapon;
-	if(self.owner == var_84171a6c)
+	if(self.owner == applicant)
 	{
 		return;
 	}
-	var_c94d654b = var_84171a6c getentitynumber();
+	var_c94d654b = applicant getentitynumber();
 	if(!isdefined(self.owner.var_a4332cab))
 	{
 		self.owner.var_a4332cab = [];

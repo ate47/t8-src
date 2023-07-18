@@ -46,7 +46,7 @@ function autoexec __init__system__()
 */
 function private __init__()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}
@@ -128,7 +128,7 @@ function register_challenge(name, var_3b7ba215, var_6993ecb4)
 */
 function function_a36e8c38(name)
 {
-	if(function_b47f6aba() && isdefined(level.var_3dd975d5))
+	if(is_trial_mode() && isdefined(level.var_3dd975d5))
 	{
 		foreach(active_challenge in level.var_3dd975d5)
 		{
@@ -182,7 +182,7 @@ function function_48736df9(var_38f795c7)
 */
 function function_a1a9bd5d(name)
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return 0;
 	}
@@ -190,7 +190,7 @@ function function_a1a9bd5d(name)
 }
 
 /*
-	Name: function_b47f6aba
+	Name: is_trial_mode
 	Namespace: zm_trial
 	Checksum: 0x8F9D560
 	Offset: 0x848
@@ -198,7 +198,7 @@ function function_a1a9bd5d(name)
 	Parameters: 0
 	Flags: Linked
 */
-function function_b47f6aba()
+function is_trial_mode()
 {
 	return zm_utility::is_trials();
 }
@@ -943,7 +943,7 @@ function private function_17b04fd7()
 */
 function function_74872db6()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}
@@ -1005,7 +1005,7 @@ function function_74872db6()
 */
 function on_round_end()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}

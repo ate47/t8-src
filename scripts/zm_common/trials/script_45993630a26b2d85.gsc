@@ -32,7 +32,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -109,8 +109,8 @@ function private function_a5a431f6()
 	level endon(#"hash_7646638df88a3656");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"ammo_reduction", #"lightning_ball_created");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"ammo_reduction", #"lightning_ball_created");
 		self zm_score::player_reduce_points("take_specified", level.var_d34d02af);
 	}
 }

@@ -74,9 +74,9 @@ function function_131495a5()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_change");
-		w_weapon = var_be17187b.weapon;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_change");
+		w_weapon = s_waitresult.weapon;
 		if(zm_weap_crossbow::function_a2c527e5(w_weapon))
 		{
 			break;
@@ -104,8 +104,8 @@ function function_7b7ba154(s_params)
 	{
 		return;
 	}
-	var_64c09f7f = e_attacker.activated_by_player;
-	if(!isplayer(var_64c09f7f))
+	e_activator = e_attacker.activated_by_player;
+	if(!isplayer(e_activator))
 	{
 		return;
 	}
@@ -144,8 +144,8 @@ function function_7b7ba154(s_params)
 			return;
 		}
 	}
-	var_64c09f7f zm_stats::increment_client_stat(var_378e29b9, 1);
-	var_64c09f7f thread function_9bb7596b();
+	e_activator zm_stats::increment_client_stat(var_378e29b9, 1);
+	e_activator thread function_9bb7596b();
 }
 
 /*

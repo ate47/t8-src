@@ -165,7 +165,7 @@ event main(eventstruct)
 	level thread namespace_6f62781f::init();
 	level thread namespace_8f53e87b::init();
 	level thread zm_office_sound::main();
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		level thread zm_office_trophies::init();
 	}
@@ -875,7 +875,7 @@ function private office_devgui()
 		while(true)
 		{
 			waitframe(1);
-			str_command = getdvarstring(#"hash_1c410d7e116d84b7", "");
+			str_command = getdvarstring(#"zm_office_devgui_cmd", "");
 			switch(str_command)
 			{
 				case "go_defcon5":
@@ -899,7 +899,7 @@ function private office_devgui()
 					break;
 				}
 			}
-			setdvar(#"hash_1c410d7e116d84b7", "");
+			setdvar(#"zm_office_devgui_cmd", "");
 		}
 	#/
 }

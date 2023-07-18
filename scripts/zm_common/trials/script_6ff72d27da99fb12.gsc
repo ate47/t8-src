@@ -35,7 +35,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -108,17 +108,17 @@ function private function_7650d9fb(n_timer, var_f97d1a30)
 			wait(2);
 		}
 		self start_timer(n_timer, var_f97d1a30);
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(n_timer, #"fasttravel_bought");
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(n_timer, #"fasttravel_bought");
 		self stop_timer();
-		if(var_be17187b._notify == "timeout")
+		if(s_waitresult._notify == "timeout")
 		{
 			zm_trial::fail(#"hash_4e619a0715198f72", array(self));
 			level notify(#"hash_6223843ef1e3c6de");
 			return;
 		}
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"fasttravel_finished");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"fasttravel_finished");
 	}
 }
 

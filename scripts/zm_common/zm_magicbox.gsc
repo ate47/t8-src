@@ -1988,7 +1988,7 @@ function treasure_chest_should_move(chest, player)
 	{
 		random = randomint(100);
 		chance_of_joker = 0;
-		if(zm_trial::function_b47f6aba())
+		if(zm_trial::is_trial_mode())
 		{
 			if(level.chest_accessed >= 3 || (isdefined(level.var_bb641599) && level.var_bb641599))
 			{

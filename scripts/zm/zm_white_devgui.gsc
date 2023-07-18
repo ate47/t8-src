@@ -112,7 +112,7 @@ function private devgui()
 		while(true)
 		{
 			waitframe(1);
-			str_command = getdvarstring(#"hash_5c54f97f1540dbad", "");
+			str_command = getdvarstring(#"zm_white_debug_cmd", "");
 			switch(str_command)
 			{
 				case "perk1":
@@ -174,7 +174,7 @@ function private devgui()
 					break;
 				}
 			}
-			setdvar(#"hash_5c54f97f1540dbad", "");
+			setdvar(#"zm_white_debug_cmd", "");
 		}
 	#/
 }

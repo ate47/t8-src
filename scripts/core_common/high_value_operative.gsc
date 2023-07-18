@@ -59,7 +59,7 @@ function function_2ce5cb7e()
 		foreach(var_3aa46fc3 in var_e800bb6a)
 		{
 			hvo = getscriptbundle(var_3aa46fc3);
-			if(!isdefined(hvo) || !isdefined(hvo.var_739c1749) || !isarray(hvo.var_739c1749))
+			if(!isdefined(hvo) || !isdefined(hvo.statsarray) || !isarray(hvo.statsarray))
 			{
 				continue;
 			}
@@ -67,7 +67,7 @@ function function_2ce5cb7e()
 			{
 				continue;
 			}
-			foreach(stat in hvo.var_739c1749)
+			foreach(stat in hvo.statsarray)
 			{
 				if(!isdefined(stat) || !isdefined(stat.stattype))
 				{
@@ -143,7 +143,7 @@ function function_59d3154f()
 	foreach(var_3aa46fc3 in var_e800bb6a)
 	{
 		hvo = getscriptbundle(var_3aa46fc3);
-		if(!isdefined(hvo) || !isdefined(hvo.var_739c1749) || !isarray(hvo.var_739c1749))
+		if(!isdefined(hvo) || !isdefined(hvo.statsarray) || !isarray(hvo.statsarray))
 		{
 			continue;
 		}
@@ -155,7 +155,7 @@ function function_59d3154f()
 		{
 			continue;
 		}
-		foreach(stat in hvo.var_739c1749)
+		foreach(stat in hvo.statsarray)
 		{
 			if(!isdefined(stat) || (isdefined(stat.var_233a23b6) && stat.var_233a23b6) || !isdefined(stat.stattype))
 			{
@@ -230,7 +230,7 @@ function function_323c6715()
 	foreach(var_74be6838, var_3aa46fc3 in var_e800bb6a)
 	{
 		hvo = getscriptbundle(var_3aa46fc3);
-		if(!isdefined(hvo) || !isdefined(hvo.var_739c1749) || !isarray(hvo.var_739c1749))
+		if(!isdefined(hvo) || !isdefined(hvo.statsarray) || !isarray(hvo.statsarray))
 		{
 			continue;
 		}
@@ -261,7 +261,7 @@ function function_323c6715()
 			}
 			var_29da3a57 = 0;
 			var_6ad8c73b = [];
-			foreach(stat in hvo.var_739c1749)
+			foreach(stat in hvo.statsarray)
 			{
 				if(!isdefined(stat) || !isdefined(stat.stattype))
 				{

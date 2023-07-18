@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_720bad73;
+#namespace zm_orange_debris_buys;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_720bad73
+	Namespace: zm_orange_debris_buys
 	Checksum: 0x9A9B2002
 	Offset: 0xB0
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_333ef86886930605", &init, undefined, undefined);
+	system::register(#"zm_orange_debris_buys", &init, undefined, undefined);
 }
 
 /*
 	Name: init
-	Namespace: namespace_720bad73
+	Namespace: zm_orange_debris_buys
 	Checksum: 0xCCADD4DA
 	Offset: 0xF8
 	Size: 0x5C
@@ -34,7 +34,7 @@ function init()
 
 /*
 	Name: function_32f95e3f
-	Namespace: namespace_720bad73
+	Namespace: zm_orange_debris_buys
 	Checksum: 0xEF8B38FD
 	Offset: 0x160
 	Size: 0x126

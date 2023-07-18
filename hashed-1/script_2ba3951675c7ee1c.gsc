@@ -79,7 +79,7 @@ function __init__()
 	level flag::init(#"hash_3ec656e276ceee53");
 	level flag::init(#"hash_3fb7d58b07b04333");
 	level flag::init(#"hash_1d5f5fbf80476490");
-	level flag::init(#"hash_38c04d24b5213b00");
+	level flag::init(#"magma_forge_completed");
 	level flag::init(#"hash_5e6097345e223e2d");
 	level.var_19a54d73 = 0;
 	scene::add_scene_func(#"hash_22d77c3d8f8cdb1e", &function_6672db20, "play");
@@ -139,7 +139,7 @@ function function_d445bc55()
 */
 function function_842d114a(player)
 {
-	if(level flag::get(#"hash_38c04d24b5213b00") || level flag::get(#"hash_5e6097345e223e2d"))
+	if(level flag::get(#"magma_forge_completed") || level flag::get(#"hash_5e6097345e223e2d"))
 	{
 		return false;
 	}
@@ -522,8 +522,8 @@ function private function_11efbb03(e_player)
 				self notify(#"magma_taken");
 				e_player notify(#"magma_taken");
 				var_287a8343 = zm_utility::get_player_weapon_limit(e_player);
-				var_4f33a328 = e_player getweaponslistprimaries();
-				if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
+				a_primaries = e_player getweaponslistprimaries();
+				if(isdefined(a_primaries) && a_primaries.size >= var_287a8343)
 				{
 					e_player takeweapon(e_player.currentweapon);
 				}
@@ -1182,7 +1182,7 @@ function function_77e65267(player)
 		}
 		return true;
 	}
-	if(player hasweapon(getweapon(#"ww_blundergat_t8")) || player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")) || player hasweapon(getweapon(#"ww_blundergat_acid_t8")) || player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")) && level flag::get(#"hash_38c04d24b5213b00") && !isdefined(self.stub.var_cec3094a))
+	if(player hasweapon(getweapon(#"ww_blundergat_t8")) || player hasweapon(getweapon(#"ww_blundergat_t8_upgraded")) || player hasweapon(getweapon(#"ww_blundergat_acid_t8")) || player hasweapon(getweapon(#"ww_blundergat_acid_t8_upgraded")) && level flag::get(#"magma_forge_completed") && !isdefined(self.stub.var_cec3094a))
 	{
 		if(player hasweapon(getweapon(#"ww_blundergat_t8")))
 		{
@@ -1288,7 +1288,7 @@ function function_d3db303d()
 		var_fc074136 = undefined;
 		if(!(isdefined(self.stub.var_154419fd) && self.stub.var_154419fd))
 		{
-			if(!level flag::get(#"hash_38c04d24b5213b00"))
+			if(!level flag::get(#"magma_forge_completed"))
 			{
 				if(e_player hasweapon(getweapon(#"ww_blundergat_fire_t8_unfinished")))
 				{
@@ -1359,8 +1359,8 @@ function function_d3db303d()
 				self.stub notify(#"magma_taken");
 				e_player notify(#"magma_taken");
 				var_287a8343 = zm_utility::get_player_weapon_limit(e_player);
-				var_4f33a328 = e_player getweaponslistprimaries();
-				if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
+				a_primaries = e_player getweaponslistprimaries();
+				if(isdefined(a_primaries) && a_primaries.size >= var_287a8343)
 				{
 					e_player takeweapon(e_player.currentweapon);
 				}
@@ -1387,11 +1387,11 @@ function function_d3db303d()
 					e_player.var_6417e645 = undefined;
 					e_player.var_22b64976 = undefined;
 				}
-				if(!level flag::get(#"hash_38c04d24b5213b00"))
+				if(!level flag::get(#"magma_forge_completed"))
 				{
 					zombie_brutus_util::attempt_brutus_spawn(1, "zone_new_industries");
 				}
-				level flag::set(#"hash_38c04d24b5213b00");
+				level flag::set(#"magma_forge_completed");
 				self.stub.var_cec3094a = undefined;
 				self.stub.var_515e20e6 = 0;
 				self.stub.e_player = undefined;
@@ -1424,7 +1424,7 @@ function function_e672cf9(e_player, var_fc074136)
 	{
 		self.var_154419fd = 1;
 		self.var_515e20e6 = 0;
-		if(!level flag::get(#"hash_38c04d24b5213b00"))
+		if(!level flag::get(#"magma_forge_completed"))
 		{
 			self.var_515e20e6 = self function_a6a91f7a(e_player.var_22b64976);
 		}
@@ -1575,7 +1575,7 @@ function function_6f4823a9(cmd)
 			}
 			case "hash_384ee6deba35ca28":
 			{
-				level flag::set(#"hash_38c04d24b5213b00");
+				level flag::set(#"magma_forge_completed");
 				break;
 			}
 		}

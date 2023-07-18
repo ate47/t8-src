@@ -481,15 +481,15 @@ function private function_698ddbd9(weapon)
 	var_2ed6f142 = self getweaponmuzzlepoint();
 	var_16d329c7 = self getweaponforwarddir();
 	v_end_pos = var_2ed6f142 + vectorscale(var_16d329c7, var_c05cba98);
-	var_fa879df8 = beamtrace(var_2ed6f142, v_end_pos, 0, self);
+	a_beamtrace = beamtrace(var_2ed6f142, v_end_pos, 0, self);
 	var_26f49352 = var_f5df740b * var_f5df740b;
-	var_2dfd6afd = distance(var_2ed6f142, var_fa879df8[#"position"]);
+	var_2dfd6afd = distance(var_2ed6f142, a_beamtrace[#"position"]);
 	var_825c6643 = var_2dfd6afd * var_2dfd6afd;
 	var_2069eb4c = zm_hero_weapon::function_7c3681f7();
 	var_2069eb4c = arraysortclosest(var_2069eb4c, var_2ed6f142, undefined, undefined, var_2dfd6afd);
-	if(isdefined(var_fa879df8[#"entity"]) && var_fa879df8[#"entity"].var_6f84b820 === #"inanimate" || (isdefined(level.var_2c19331b) && isinarray(level.var_2c19331b, var_fa879df8[#"entity"])))
+	if(isdefined(a_beamtrace[#"entity"]) && a_beamtrace[#"entity"].var_6f84b820 === #"inanimate" || (isdefined(level.var_2c19331b) && isinarray(level.var_2c19331b, a_beamtrace[#"entity"])))
 	{
-		var_fa879df8[#"entity"].b_is_valid_target = 1;
+		a_beamtrace[#"entity"].b_is_valid_target = 1;
 		if(!isdefined(var_2069eb4c))
 		{
 			var_2069eb4c = [];
@@ -498,14 +498,14 @@ function private function_698ddbd9(weapon)
 		{
 			var_2069eb4c = array(var_2069eb4c);
 		}
-		if(!isinarray(var_2069eb4c, var_fa879df8[#"entity"]))
+		if(!isinarray(var_2069eb4c, a_beamtrace[#"entity"]))
 		{
-			var_2069eb4c[var_2069eb4c.size] = var_fa879df8[#"entity"];
+			var_2069eb4c[var_2069eb4c.size] = a_beamtrace[#"entity"];
 		}
 	}
 	if(isdefined(level.var_2e32e0bb))
 	{
-		self thread function_5ff8ad0b(weapon, var_fa879df8[#"position"]);
+		self thread function_5ff8ad0b(weapon, a_beamtrace[#"position"]);
 	}
 	if(n_level == 0 && var_2069eb4c.size <= 0)
 	{

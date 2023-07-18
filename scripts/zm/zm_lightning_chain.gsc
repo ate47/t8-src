@@ -438,8 +438,8 @@ function private function_915d4fec(params, v_origin, player)
 {
 	if(isdefined(params.var_a9255d36))
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(params.var_a9255d36, #"death");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(params.var_a9255d36, #"death");
 	}
 	weapon = (isdefined(params.weapon) ? params.weapon : level.weaponnone);
 	str_mod = (isdefined(params.str_mod) ? params.str_mod : "MOD_UNKNOWN");

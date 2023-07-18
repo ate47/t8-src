@@ -395,8 +395,8 @@ function sq_bg_spawn_rumble()
 function take_old_weapon_and_give_reward()
 {
 	var_287a8343 = zm_utility::get_player_weapon_limit(self);
-	var_4f33a328 = self getweaponslistprimaries();
-	if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
+	a_primaries = self getweaponslistprimaries();
+	if(isdefined(a_primaries) && a_primaries.size >= var_287a8343)
 	{
 		self takeweapon(self.currentweapon);
 	}

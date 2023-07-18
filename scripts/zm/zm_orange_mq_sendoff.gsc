@@ -62,7 +62,7 @@ function init()
 */
 function function_5309464a(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 11);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 11);
 	level.var_80c25d0a = 115;
 	if(isdefined(level.chests))
 	{
@@ -209,21 +209,21 @@ function function_d096f18f()
 	s_start = struct::get("pablo_rise_start");
 	level.npc_pablo setblackboardattribute("_stance", "swim");
 	e_mover = util::spawn_model("tag_origin", level.npc_pablo.origin);
-	var_6740ea1e = util::spawn_model("p8_fxp_hell_sphere", e_mover.origin);
-	var_6740ea1e setscale(1.5);
-	var_6740ea1e linkto(e_mover);
+	e_orb = util::spawn_model("p8_fxp_hell_sphere", e_mover.origin);
+	e_orb setscale(1.5);
+	e_orb linkto(e_mover);
 	level.npc_pablo linkto(e_mover);
 	e_mover moveto(s_start.origin, 1);
 	level thread zm_orange_pablo::function_e44c7c0c(#"hash_1a974fe7a0edddab");
 	wait(1);
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 12);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 12);
 	e_mover moveto(e_mover.origin + vectorscale((0, 0, 1), 4000), var_6df66af8 - 1);
 	wait(var_6df66af8 - 3);
 	exploder::stop_exploder("fxexp_portal_115_start");
 	exploder::exploder("fxexp_portal_115_end");
 	wait(2);
 	level.npc_pablo delete();
-	var_6740ea1e delete();
+	e_orb delete();
 	e_mover delete();
 	level thread function_bf106bdf();
 	level zm_orange_util::function_fd24e47f(#"hash_1a974fe7a0edddab");
@@ -266,12 +266,12 @@ function function_8a707841(n_loop_time)
 function function_39d9b290()
 {
 	level endon(#"end_game");
-	var_6fe200e3 = zm_zonemgr::get_players_in_zone("sun_deck", 1);
+	a_e_fallbacks = zm_zonemgr::get_players_in_zone("sun_deck", 1);
 	wait(1);
 	a_e_players = zm_zonemgr::get_players_in_zone("sun_deck", 1);
 	if(a_e_players.size == 0)
 	{
-		a_e_players = var_6fe200e3;
+		a_e_players = a_e_fallbacks;
 	}
 	e_player = array::random(a_e_players);
 	e_player thread zm_orange_util::function_51b752a9(#"hash_8f686e289c54c01");
@@ -298,9 +298,9 @@ function function_bf106bdf()
 	nd_start = getvehiclenode("portal_wisp_start", "targetname");
 	vh_wisp setspeed(20);
 	vh_wisp vehicle::get_on_and_go_path(nd_start);
-	var_68e87752 = util::spawn_model("p8_zm_ora_elemental_vessel", vh_wisp.origin + (vectorscale((0, 0, -1), 10)));
-	var_68e87752 thread zm_orange_mq_hell::rotate_forever(vectorscale((0, 1, 0), 45));
-	var_68e87752 zm_item_pickup::create_item_pickup(&pickup_device, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
+	e_device = util::spawn_model("p8_zm_ora_elemental_vessel", vh_wisp.origin + (vectorscale((0, 0, -1), 10)));
+	e_device thread zm_orange_mq_hell::rotate_forever(vectorscale((0, 1, 0), 45));
+	e_device zm_item_pickup::create_item_pickup(&pickup_device, zm_utility::function_d6046228(#"hash_50d83a4f11ad9d8", #"hash_51d8e27e625c6bd4"), undefined, 128);
 }
 
 /*

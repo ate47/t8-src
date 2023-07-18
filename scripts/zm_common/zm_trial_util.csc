@@ -51,7 +51,7 @@ function private __init__()
 	createuimodel(getglobaluimodel(), "ZMHudGlobal.trials.globalCounterMax");
 	createuimodel(getglobaluimodel(), "ZMHudGlobal.trials.globalCounterValue");
 	createuimodel(getglobaluimodel(), "ZMHudGlobal.trials.hudDeactivated");
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}

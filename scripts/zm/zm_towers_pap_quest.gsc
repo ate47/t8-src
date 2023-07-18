@@ -723,12 +723,12 @@ function function_199b1814(str_tower, var_32af2882)
 			wait(1);
 		}
 	}
-	var_be17187b = undefined;
-	var_be17187b = level waittill(#"hash_2ea1048758a3ff14");
-	v_origin = var_be17187b.v_origin;
-	var_7246d429 = var_be17187b.var_7246d429;
-	str_archetype = var_be17187b.str_archetype;
-	var_1e137cec = var_be17187b.var_1e137cec;
+	s_waitresult = undefined;
+	s_waitresult = level waittill(#"hash_2ea1048758a3ff14");
+	v_origin = s_waitresult.v_origin;
+	var_7246d429 = s_waitresult.var_7246d429;
+	str_archetype = s_waitresult.str_archetype;
+	var_1e137cec = s_waitresult.var_1e137cec;
 	if(var_32af2882 == #"both")
 	{
 		if(var_1e137cec == #"gladiator_destroyer")

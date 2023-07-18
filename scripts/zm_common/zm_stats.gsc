@@ -388,7 +388,7 @@ function update_players_stats_at_match_end(players)
 		player set_global_stat("rounds", level.round_number);
 		player function_9daadcaa("rounds", level.round_number);
 		total_rounds_survived = level.round_number - 1;
-		if(zm_trial::function_b47f6aba() && (isdefined(level.var_7fe57c6b) && level.var_7fe57c6b))
+		if(zm_trial::is_trial_mode() && (isdefined(level.var_7fe57c6b) && level.var_7fe57c6b))
 		{
 			total_rounds_survived = level.round_number;
 			player zm_challenges::function_bf0be8f1();

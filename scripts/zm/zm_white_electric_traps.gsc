@@ -16,11 +16,11 @@
 #using scripts\zm_common\zm_unitrigger.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_a6437486;
+#namespace zm_white_electric_traps;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xD5C2047F
 	Offset: 0x220
 	Size: 0x44
@@ -29,12 +29,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5d4022ed5385d3fa", &__init__, &__main__, undefined);
+	system::register(#"zm_white_electric_trap", &__init__, &__main__, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x88ACA4CD
 	Offset: 0x270
 	Size: 0x1C
@@ -48,7 +48,7 @@ function __init__()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x49B6D44
 	Offset: 0x298
 	Size: 0x84
@@ -63,7 +63,7 @@ function init_clientfields()
 
 /*
 	Name: __main__
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x5B9A00C7
 	Offset: 0x328
 	Size: 0xC8
@@ -85,7 +85,7 @@ function __main__()
 
 /*
 	Name: function_c6e2a4fd
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x2B06968F
 	Offset: 0x3F8
 	Size: 0x2A4
@@ -126,7 +126,7 @@ function function_c6e2a4fd()
 
 /*
 	Name: function_4d2eaaf4
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xA65B31BB
 	Offset: 0x6A8
 	Size: 0x98
@@ -143,7 +143,7 @@ function function_4d2eaaf4()
 
 /*
 	Name: function_d12e5ff9
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xF5B18397
 	Offset: 0x748
 	Size: 0x308
@@ -198,7 +198,7 @@ function function_d12e5ff9(e_player)
 
 /*
 	Name: electric_trap_think
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x70C39D35
 	Offset: 0xA60
 	Size: 0x2C8
@@ -210,9 +210,9 @@ function electric_trap_think()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		e_who = var_be17187b.activator;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		e_who = s_waitresult.activator;
 		if(!zm_utility::can_use(e_who))
 		{
 			continue;
@@ -241,7 +241,7 @@ function electric_trap_think()
 				continue;
 			}
 			self.stub.related_parent.trap_struct notify(#"hash_5c14ac54b628d28");
-			self.stub.related_parent.trap_struct.var_64c09f7f = e_who;
+			self.stub.related_parent.trap_struct.e_activator = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
 				e_who thread zm_audio::create_and_play_dialog(#"trap_electric", #"activate");
@@ -252,7 +252,7 @@ function electric_trap_think()
 
 /*
 	Name: function_f118c57a
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xC71B981E
 	Offset: 0xD30
 	Size: 0x2C0
@@ -268,7 +268,7 @@ function function_f118c57a(e_player)
 		self waittill(#"hash_5c14ac54b628d28");
 		function_91ecec97(self.a_e_lights, "p8_zm_off_trap_switch_light_red_on");
 		self.var_6b64b967 = 1;
-		e_who = self.var_64c09f7f;
+		e_who = self.e_activator;
 		foreach(e_volume in self.var_1be9f510)
 		{
 			e_volume.activated_by_player = e_who;
@@ -307,7 +307,7 @@ function function_f118c57a(e_player)
 
 /*
 	Name: function_193dbfbb
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x1428DDD2
 	Offset: 0xFF8
 	Size: 0x264
@@ -356,7 +356,7 @@ function function_193dbfbb()
 
 /*
 	Name: function_70557fa2
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x1E18A99C
 	Offset: 0x1268
 	Size: 0x138
@@ -385,7 +385,7 @@ function function_70557fa2(n_sequence)
 
 /*
 	Name: function_a01c3869
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x9E4B6FB8
 	Offset: 0x13A8
 	Size: 0x154
@@ -409,7 +409,7 @@ function function_a01c3869(n_sequence)
 
 /*
 	Name: function_fae74a9e
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xCA1E7EA
 	Offset: 0x1508
 	Size: 0x1AC
@@ -441,7 +441,7 @@ function function_fae74a9e(n_sequence)
 
 /*
 	Name: function_6ae39b5
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x1EAE0896
 	Offset: 0x16C0
 	Size: 0x18C
@@ -473,7 +473,7 @@ function function_6ae39b5()
 
 /*
 	Name: function_242055cf
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x9EAC6542
 	Offset: 0x1858
 	Size: 0x124
@@ -499,7 +499,7 @@ function function_242055cf()
 
 /*
 	Name: function_3b764073
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xC2345CC9
 	Offset: 0x1988
 	Size: 0xA8
@@ -519,7 +519,7 @@ function function_3b764073()
 
 /*
 	Name: function_8f250fa1
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x4C0F113F
 	Offset: 0x1A38
 	Size: 0xA8
@@ -539,14 +539,14 @@ function function_8f250fa1()
 
 /*
 	Name: electrocute_zombie
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x4E5E4B35
 	Offset: 0x1AE8
 	Size: 0x234
 	Parameters: 2
 	Flags: None
 */
-function electrocute_zombie(var_64c09f7f, e_volume)
+function electrocute_zombie(e_activator, e_volume)
 {
 	self endon(#"death");
 	self clientfield::set("" + #"electrocute_ai_fx", 1);
@@ -571,12 +571,12 @@ function electrocute_zombie(var_64c09f7f, e_volume)
 		wait(randomfloat(1.25));
 		self playsound(#"hash_5183b687ad8d715a");
 	}
-	self dodamage(self.health + 666, self.origin, var_64c09f7f, e_volume);
+	self dodamage(self.health + 666, self.origin, e_activator, e_volume);
 }
 
 /*
 	Name: electrocute_player
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x245B4C7
 	Offset: 0x1D28
 	Size: 0xDC
@@ -607,7 +607,7 @@ function electrocute_player(e_trigger)
 
 /*
 	Name: function_91ecec97
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x49599EF1
 	Offset: 0x1E10
 	Size: 0x88
@@ -624,7 +624,7 @@ function function_91ecec97(a_e_lights, str_model)
 
 /*
 	Name: function_9492f89b
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x40C1775A
 	Offset: 0x1EA0
 	Size: 0xCE

@@ -102,8 +102,8 @@ function on_ai_killed(params)
 			{
 				str_weapon = params.weapon.name;
 			}
-			var_846ddcf9 = array(#"pistol_topbreak_t8", #"pistol_topbreak_t8_upgraded", #"pistol_revolver_t8", #"hash_6d4623559d21eea0", #"pistol_revolver_t8_upgraded", #"hash_138efe2bb30be63c", #"hash_138f012bb30beb55", #"hash_46ad37ce8122812e", #"hash_138f002bb30be9a2", #"hash_3a8348f19a7e7629");
-			if(str_zone === "zone_library" && isdefined(str_weapon) && isinarray(var_846ddcf9, str_weapon))
+			a_revolvers = array(#"pistol_topbreak_t8", #"pistol_topbreak_t8_upgraded", #"pistol_revolver_t8", #"pistol_revolver_t8_gold", #"pistol_revolver_t8_upgraded", #"hash_138efe2bb30be63c", #"hash_138f012bb30beb55", #"hash_46ad37ce8122812e", #"hash_138f002bb30be9a2", #"hash_3a8348f19a7e7629");
+			if(str_zone === "zone_library" && isdefined(str_weapon) && isinarray(a_revolvers, str_weapon))
 			{
 				e_attacker notify(#"hash_1ac06d8c0149a66c");
 			}
@@ -252,7 +252,7 @@ function function_a46f4413()
 	level thread function_8dc740fa("zblueprint_mansion_a_skeet_fink");
 	while(true)
 	{
-		level waittill(#"hash_26829dcfe188bdee");
+		level waittill(#"crafting_table_completed");
 		if(level.var_f5ad5bac >= 6)
 		{
 			/#
@@ -282,7 +282,7 @@ function function_8dc740fa(var_c75beecc)
 		if(waitresult.blueprint.name === var_c75beecc)
 		{
 			level.var_f5ad5bac++;
-			level notify(#"hash_26829dcfe188bdee");
+			level notify(#"crafting_table_completed");
 			break;
 		}
 	}

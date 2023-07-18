@@ -1310,7 +1310,7 @@ function function_c36cef22(origin)
 	{
 		if(distancesquared(origin, player.origin) <= 6400)
 		{
-			player status_effect::status_effect_apply(getstatuseffect(#"hash_1b824ff143d6ba43"), undefined, player, 0);
+			player status_effect::status_effect_apply(getstatuseffect(#"zm_white_nova_gas"), undefined, player, 0);
 		}
 	}
 	playrumbleonposition("zm_nova_explosion_rumble", origin);
@@ -1384,7 +1384,7 @@ function function_3ec863f5()
 		{
 			if(player istouching(self))
 			{
-				player status_effect::status_effect_apply(getstatuseffect(#"hash_1b824ff143d6ba43"), undefined, player, 1);
+				player status_effect::status_effect_apply(getstatuseffect(#"zm_white_nova_gas"), undefined, player, 1);
 			}
 		}
 		wait(0.15);

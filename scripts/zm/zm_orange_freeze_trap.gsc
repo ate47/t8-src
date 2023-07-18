@@ -67,7 +67,7 @@ function function_e62e184a()
 	s_trap.var_28ea1870 = struct::get_array(s_trap.target3, "targetname");
 	s_trap.a_s_buttons = struct::get_array(s_trap.target2, "targetname");
 	s_trap.a_e_lights = getentarray(s_trap.target4, "targetname");
-	s_trap.var_2c0d31a5 = struct::get_array(s_trap.target5, "targetname");
+	s_trap.a_s_panels = struct::get_array(s_trap.target5, "targetname");
 	s_trap.var_6b64b967 = 0;
 	s_trap.var_41ee2ddc = 1;
 	level flag::wait_till("all_players_spawned");
@@ -94,9 +94,9 @@ function function_c2e32275()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		if(isdefined(level.var_4f7df1ac) && level.var_4f7df1ac)
 		{
 			continue;
@@ -128,7 +128,7 @@ function function_c2e32275()
 				continue;
 			}
 			self notify(#"hash_35807fa157a46934");
-			self.var_64c09f7f = e_who;
+			self.e_activator = e_who;
 			level.s_freeze_trap.activated_by_player = e_who;
 			if(!(isdefined(level.var_3c9cfd6f) && level.var_3c9cfd6f) && zm_audio::can_speak())
 			{
@@ -160,13 +160,13 @@ function function_270aecf7()
 		level flag::wait_till(self.power_flag);
 	}
 	function_91ecec97(level.s_freeze_trap.a_e_lights, "p8_zm_off_trap_switch_light_green_on");
-	function_eb59d9fe(level.s_freeze_trap.var_2c0d31a5);
+	function_eb59d9fe(level.s_freeze_trap.a_s_panels);
 	while(true)
 	{
 		self waittill(#"hash_35807fa157a46934");
 		function_91ecec97(level.s_freeze_trap.a_e_lights, "p8_zm_off_trap_switch_light_red_on");
 		level.s_freeze_trap.var_6b64b967 = 1;
-		e_who = self.var_64c09f7f;
+		e_who = self.e_activator;
 		if(isdefined(e_who))
 		{
 			zm_utility::play_sound_at_pos("purchase", e_who.origin);
@@ -223,8 +223,8 @@ function function_4bbed101(e_player)
 		}
 		level.s_soapstone.is_charged = 1;
 		level.s_soapstone.is_hot = 0;
-		level.s_soapstone.s_placement.var_4eed727b clientfield::set("soapstone_start_fx", 1);
-		level.s_soapstone.s_placement.var_4eed727b setmodel("p8_zm_ora_soapstone_01_cold");
+		level.s_soapstone.s_placement.e_stone clientfield::set("soapstone_start_fx", 1);
+		level.s_soapstone.s_placement.e_stone setmodel("p8_zm_ora_soapstone_01_cold");
 		if(level.s_soapstone.var_b6e5b65f == 2)
 		{
 			level.s_soapstone.s_placement.var_28f1732d clientfield::set("soapstone_start_fx", 1);
@@ -245,13 +245,13 @@ function function_4bbed101(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3d9b6ed6(var_64c09f7f)
+function function_3d9b6ed6(e_activator)
 {
 	foreach(ai in getaiteamarray(level.zombie_team))
 	{
 		if(isalive(ai) && ai istouching(self.e_volume) && (!isdefined(ai.marked_for_death) || !ai.marked_for_death))
 		{
-			ai thread function_92f341d0(var_64c09f7f, self.e_volume);
+			ai thread function_92f341d0(e_activator, self.e_volume);
 		}
 	}
 }
@@ -265,7 +265,7 @@ function function_3d9b6ed6(var_64c09f7f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_92f341d0(var_64c09f7f, e_volume)
+function function_92f341d0(e_activator, e_volume)
 {
 	self endon(#"death");
 	self.marked_for_death = 1;
@@ -498,9 +498,9 @@ function function_67b12ae8(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_eb59d9fe(var_2c0d31a5)
+function function_eb59d9fe(a_s_panels)
 {
-	foreach(panel in var_2c0d31a5)
+	foreach(panel in a_s_panels)
 	{
 		panel thread scene::play("open");
 	}

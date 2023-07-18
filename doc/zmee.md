@@ -12,7 +12,7 @@
       - [Record stats](#record-stats)
   - [EE per map](#ee-per-map)
     - [Global](#global)
-      - [`#"hash_637ceeb3bef1ea35"` (Music / Chaos storyline)](#hash_637ceeb3bef1ea35-music--chaos-storyline)
+      - [`#"music_sq"` (Music / Chaos storyline)](#music_sq-music--chaos-storyline)
     - [Voyage (`zm_zodt8`)](#voyage-zm_zodt8)
       - [`#"main_quest"` (Main quest)](#main_quest-main-quest)
       - [`#"hash_634eee6c99fa32d6"` (shield frost upgrade)](#hash_634eee6c99fa32d6-shield-frost-upgrade)
@@ -48,15 +48,15 @@
       - [`#"narrative_room"`](#narrative_room-1)
     - [Dead of the Night (`zm_mansion`)](#dead-of-the-night-zm_mansion)
       - [`#"zm_mansion_impaler"` (Impaler ww quest)](#zm_mansion_impaler-impaler-ww-quest)
-      - [`#"hash_391f247dda2377a9"`](#hash_391f247dda2377a9)
-      - [`#"hash_1fa9e2a949df3866"`](#hash_1fa9e2a949df3866)
+      - [`#"zm_jordans_painting"`](#zm_jordans_painting)
+      - [`#"zm_jordans_reward"`](#zm_jordans_reward)
       - [`#"zm_mansion_triad"` (stones/pap)](#zm_mansion_triad-stonespap)
       - [`#"zm_mansion_pap_quest"`](#zm_mansion_pap_quest)
       - [`#"zm_mansion_silver_bullet"` (silver bullets)](#zm_mansion_silver_bullet-silver-bullets)
       - [`#"hash_331f9ba64e2c2478"`](#hash_331f9ba64e2c2478)
       - [`#"hash_4c0e5e4b34877996"`](#hash_4c0e5e4b34877996)
       - [`#"hash_65636bbec86da22c"`](#hash_65636bbec86da22c)
-      - [`#"hash_4ca89643d74ccffb"`](#hash_4ca89643d74ccffb)
+      - [`#"zm_storage_billiards"`](#zm_storage_billiards)
       - [`#"hash_578d0d7709a00e6e"`](#hash_578d0d7709a00e6e)
       - [`#"hash_559b7237b8acece2"`](#hash_559b7237b8acece2)
     - [Ancien Evil (`zm_red`)](#ancien-evil-zm_red)
@@ -71,12 +71,12 @@
       - [`#"hash_75f9f80c2256f3d3"` (Canister step)](#hash_75f9f80c2256f3d3-canister-step)
       - [`#"hash_19d484735f237f45"` (Circuit step)](#hash_19d484735f237f45-circuit-step)
       - [`#"hash_ab36ea0a749269d"` (main quest related)](#hash_ab36ea0a749269d-main-quest-related)
-      - [`#"hash_8ad205f0a62b56e"` (main quest related)](#hash_8ad205f0a62b56e-main-quest-related)
+      - [`#"zm_white_mq_mannequin"` (main quest related)](#zm_white_mq_mannequin-main-quest-related)
       - [`#"mee_projectile"`](#mee_projectile)
       - [`#"mee_melee"`](#mee_melee)
       - [`#"mee_mixed"`](#mee_mixed)
       - [`#"mee_galvaknuckle"`](#mee_galvaknuckle)
-      - [`#"hash_306a7f142403b7c6"`](#hash_306a7f142403b7c6)
+      - [`#"jump_scare"`](#jump_scare)
       - [`#"private_mannequin_program"`](#private_mannequin_program)
       - [`#"boss_battle"`](#boss_battle-1)
       - [`#"hash_7b3ce20f6b2317db"`](#hash_7b3ce20f6b2317db)
@@ -246,15 +246,13 @@ if the game is an online game and if `ee.record_stat` is `true` it'll do for eac
 
 ### Global
 
-#### `#"hash_637ceeb3bef1ea35"` (Music / Chaos storyline)
+#### `#"music_sq"` (Music / Chaos storyline)
 
 **steps**
 
   - name: `#"first_location"`, flag name: `#"hash_3531cfab5aa57f4b"`
 
 ### Voyage (`zm_zodt8`)
-
-TODO
 
 #### `#"main_quest"` (Main quest)
 
@@ -349,19 +347,19 @@ TODO
 **steps**
 
   - name: `#"hash_616226b026783ca3"`, flag name: `#"hash_616226b026783ca3"`
-  - name: `#"hash_2704649c3e677ff6"`, flag name: `#"hash_2704649c3e677ff6"`
-  - name: `#"hash_7a12f2de1007d288"`, flag name: `#"hash_7a12f2de1007d288"`
-  - name: `#"hash_2a7a9596e2701e53"`, flag name: `#"hash_2a7a9596e2701e53"`
+  - name: `#"collect_ingredients"`, flag name: `#"collect_ingredients"`
+  - name: `#"mix_fertilizer"`, flag name: `#"mix_fertilizer"`
+  - name: `#"place_fertilizer"`, flag name: `#"place_fertilizer"`
   - name: `#"hash_c165871a3fda034"`, flag name: `#"hash_c165871a3fda034"`
-  - name: `#"hash_5aba9f4371e99329"`, flag name: `#"hash_5aba9f4371e99329"`
-  - name: `#"hash_465c382be9767735"`, flag name: `#"hash_465c382be9767735"`
+  - name: `#"activate_bulls"`, flag name: `#"activate_bulls"`
+  - name: `#"activate_puzzle"`, flag name: `#"activate_puzzle"`
   - name: `#"hash_1cf74a26bf73d769"`, flag name: `#"hash_1cf74a26bf73d769"`
   - name: `#"hash_73c85b5a7924fcfb"`, flag name: `#"hash_73c85b5a7924fcfb"`
-  - name: `#"hash_49bb6557dad570bc"`, flag name: `#"hash_49bb6557dad570bc"`
-  - name: `#"hash_3a3b52ced418a755"`, flag name: `#"hash_3a3b52ced418a755"`
-  - name: `#"hash_400b6544103b4197"`, flag name: `#"hash_400b6544103b4197"`
-  - name: `#"hash_4be55dd93c1af0c9"`, flag name: `#"hash_4be55dd93c1af0c9"`
-  - name: `#"hash_59857b327e500a51"`, flag name: `#"hash_59857b327e500a51"`
+  - name: `#"activate_lightning_balls"`, flag name: `#"activate_lightning_balls"`
+  - name: `#"gladiator_round"`, flag name: `#"gladiator_round"`
+  - name: `#"maelstrom_completed"`, flag name: `#"maelstrom_completed"`
+  - name: `#"light_runes"`, flag name: `#"light_runes"`
+  - name: `#"pressure_plate"`, flag name: `#"pressure_plate"`
   - name: `#"trilane_defend"`, flag name: `#"trilane_defend"`
   - name: `#"boss_battle"`, flag name: `#"boss_battle"`
 
@@ -369,8 +367,8 @@ TODO
 
 **steps**
 
-  - name: `#"hash_614495ae17eb5cbe"`, flag name: `#"hash_614495ae17eb5cbe"`
-  - name: `#"hash_d5c25527e182d3d"`, flag name: `#"hash_d5c25527e182d3d"`
+  - name: `#"destroy_wall"`, flag name: `#"destroy_wall"`
+  - name: `#"knock_brazier"`, flag name: `#"knock_brazier"`
   - name: `#"hash_32b57ffc37ccf79a"`, flag name: `#"hash_32b57ffc37ccf79a"`
   - name: `#"hash_2e681afa5f81f37"`, flag name: `#"hash_2e681afa5f81f37"`
   - name: `#"hash_27967f916a97a057"`, flag name: `#"hash_27967f916a97a057"`
@@ -389,7 +387,7 @@ TODO
 
 **steps**
 
-  - name: `#"hash_6781df3bbd692fe5"`, flag name: `#"hash_6781df3bbd692fe5"`
+  - name: `#"collect_charcoal"`, flag name: `#"collect_charcoal"`
 
 #### `#"hash_39d41ab4004ca686"`
 
@@ -401,7 +399,7 @@ TODO
 
 **steps**
 
-  - name: `#"hash_7b76394dab9e12ba"`, flag name: `#"hash_7b76394dab9e12ba"`
+  - name: `#"collect_dung"`, flag name: `#"collect_dung"`
 
 ### Blood of the Dead (`zm_escape`)
 
@@ -430,7 +428,7 @@ TODO
 
 **steps**
 
-  - name: `#"1"`, flag name: `#"hash_4f409d159ce41d57"`
+  - name: `#"1"`, flag name: `#"drawings_quest"`
 
 #### `#"narrative_room"`
 
@@ -460,7 +458,7 @@ TODO
 
   - name: `#"1"`, flag name: `#"hash_77cae6c10f2939fa"`
 
-#### `#"hash_670bd51cc2f6cb9b"`
+#### `#"spoon_quest"`
 
 **steps**
 
@@ -528,13 +526,13 @@ TODO
   - name: `#"step_4"`, flag name: `#"impaler_step_4"`
   - name: `#"step_5"`, flag name: `#"impaler_step_5"`
 
-#### `#"hash_391f247dda2377a9"`
+#### `#"zm_jordans_painting"`
 
 **steps**
 
   - name: `#"step_1"`, flag name: `#"hash_21ed75bc8122939c"`
 
-#### `#"hash_1fa9e2a949df3866"`
+#### `#"zm_jordans_reward"`
 
 **steps**
 
@@ -589,7 +587,7 @@ TODO
   - name: `#"step_1"`, flag name: `#"hash_1551692125951197"`
   - name: `#"step_2"`, flag name: `#"hash_15516a212595134a"`
 
-#### `#"hash_4ca89643d74ccffb"`
+#### `#"zm_storage_billiards"`
 
 **steps**
 
@@ -619,7 +617,7 @@ TODO
 
 **steps**
 
-  - name: `#"hash_46f2c0a9943a3b4"`, flag name: `#"hash_46f2c0a9943a3b4"`
+  - name: `#"stat_tracker"`, flag name: `#"stat_tracker"`
 
 #### `#"main_quest"`
 
@@ -634,8 +632,8 @@ TODO
   - name: `#"door_interact"`, flag name: `#"door_interact"`
   - name: `#"mid_igc"`, flag name: `#"mid_igc"`
   - name: `#"cleanse"`, flag name: `#"cleanse"`
-  - name: `#"hash_1f875aef67e9ade4"`, flag name: `#"hash_1f875aef67e9ade4"`
-  - name: `#"hash_d861e03ebf38f96"`, flag name: `#"hash_d861e03ebf38f96"`
+  - name: `#"push_ballista"`, flag name: `#"push_ballista"`
+  - name: `#"ignite_ballista"`, flag name: `#"ignite_ballista"`
   - name: `#"teleport"`, flag name: `#"teleport"`
 
 #### `#"prophecy"`
@@ -643,21 +641,21 @@ TODO
 **steps**
 
   - name: `#"shoot_roots"`, flag name: `#"shoot_roots"`
-  - name: `#"hash_2e55ff1b489306ce"`, flag name: `#"hash_2e55ff1b489306ce"`
-  - name: `#"hash_7f8f1fe8f7b285d0"`, flag name: `#"hash_7f8f1fe8f7b285d0"`
-  - name: `#"hash_51920e5d18511f72"`, flag name: `#"hash_51920e5d18511f72"`
-  - name: `#"hash_38a06e6fa57d2c74"`, flag name: `#"hash_38a06e6fa57d2c74"`
+  - name: `#"defeat_gegenees"`, flag name: `#"defeat_gegenees"`
+  - name: `#"take_spear"`, flag name: `#"take_spear"`
+  - name: `#"place_spear"`, flag name: `#"place_spear"`
+  - name: `#"sundial_puzzle"`, flag name: `#"sundial_puzzle"`
 
 #### `#"light"`
 
 **steps**
 
-  - name: `#"hash_59b9d987109997c8"`, flag name: `#"hash_59b9d987109997c8"`
-  - name: `#"hash_540790592c78a3cb"`, flag name: `#"hash_540790592c78a3cb"`
+  - name: `#"free_ankh"`, flag name: `#"free_ankh"`
+  - name: `#"take_ankh"`, flag name: `#"take_ankh"`
   - name: `#"give_ankh"`, flag name: `#"give_ankh"`
-  - name: `#"hash_177b41a8c9da003b"`, flag name: `#"hash_177b41a8c9da003b"`
-  - name: `#"hash_2ef35a0caeaf1677"`, flag name: `#"hash_2ef35a0caeaf1677"`
-  - name: `#"hash_6f1d1e83bc66b715"`, flag name: `#"hash_6f1d1e83bc66b715"`
+  - name: `#"defend_ra"`, flag name: `#"defend_ra"`
+  - name: `#"take_staff"`, flag name: `#"take_staff"`
+  - name: `#"give_staff"`, flag name: `#"give_staff"`
 
 #### `#"narrative_room"`
 
@@ -707,7 +705,7 @@ TODO
 
   - name: `#"server_start"`, flag name: `#"zm_white_mq_server_step1"`
 
-#### `#"hash_8ad205f0a62b56e"` (main quest related)
+#### `#"zm_white_mq_mannequin"` (main quest related)
 
 **steps**
 
@@ -755,7 +753,7 @@ TODO
 
 **steps**
 
-  - name: `#"hash_46f2c0a9943a3b4"`, flag name: `#"hash_46f2c0a9943a3b4"`
+  - name: `#"stat_tracker"`, flag name: `#"stat_tracker"`
 
 #### `#"hash_7b3ce20f6b2317db"`
 

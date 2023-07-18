@@ -708,10 +708,10 @@ function function_76ff758d()
 	Parameters: 1
 	Flags: Linked
 */
-function function_56b9aca4(var_64c09f7f)
+function function_56b9aca4(e_activator)
 {
 	var_82224aaf = (isdefined(self.var_82224aaf) ? self.var_82224aaf : 500);
-	a_e_targets = var_64c09f7f getenemiesinradius(self.origin, var_82224aaf);
+	a_e_targets = e_activator getenemiesinradius(self.origin, var_82224aaf);
 	if(a_e_targets.size > 0)
 	{
 		return arraygetclosest(self.origin, a_e_targets);
@@ -744,11 +744,11 @@ function function_72ff128e(v_target)
 	Parameters: 2
 	Flags: Linked
 */
-function shoot_trap_target(v_target, var_64c09f7f)
+function shoot_trap_target(v_target, e_activator)
 {
 	self endon(#"death", #"hash_1aa56851d9d4ec0d");
 	wait(0.5);
-	trigger_trap_explosion(v_target, var_64c09f7f);
+	trigger_trap_explosion(v_target, e_activator);
 	level thread function_ad646ef8(7);
 }
 
@@ -761,9 +761,9 @@ function shoot_trap_target(v_target, var_64c09f7f)
 	Parameters: 2
 	Flags: Linked
 */
-function trigger_trap_explosion(v_pos, var_64c09f7f)
+function trigger_trap_explosion(v_pos, e_activator)
 {
-	a_e_ai = var_64c09f7f getenemiesinradius(v_pos, 250);
+	a_e_ai = e_activator getenemiesinradius(v_pos, 250);
 	array::thread_all(a_e_ai, &zm_trap_electric::damage, level.var_ab11c23d);
 	if(a_e_ai.size > 0)
 	{
@@ -778,9 +778,9 @@ function trigger_trap_explosion(v_pos, var_64c09f7f)
 			e_player thread zm_trap_electric::player_damage(level.var_ab11c23d);
 		}
 	}
-	if(isdefined(level.s_soapstone) && isdefined(level.s_soapstone.var_4eed727b))
+	if(isdefined(level.s_soapstone) && isdefined(level.s_soapstone.e_stone))
 	{
-		if(distancesquared(v_pos, level.s_soapstone.var_4eed727b.origin) <= (250 * 250))
+		if(distancesquared(v_pos, level.s_soapstone.e_stone.origin) <= (250 * 250))
 		{
 			level.s_soapstone.is_charged = 1;
 			level.s_soapstone.is_hot = 1;
@@ -830,17 +830,17 @@ function function_27304b98(var_a5a067c5, var_a75e9b3b)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ef69a891(var_a5a067c5, var_64c09f7f)
+function function_ef69a891(var_a5a067c5, e_activator)
 {
 	self endon(#"death", #"hash_1aa56851d9d4ec0d");
-	e_target = var_a5a067c5 function_56b9aca4(var_64c09f7f);
+	e_target = var_a5a067c5 function_56b9aca4(e_activator);
 	if(!isdefined(e_target))
 	{
 		self thread function_ea089392();
 		while(!isdefined(e_target))
 		{
 			wait(0.1);
-			e_target = var_a5a067c5 function_56b9aca4(var_64c09f7f);
+			e_target = var_a5a067c5 function_56b9aca4(e_activator);
 		}
 	}
 	self.v_trap_target = e_target.origin;
@@ -1040,9 +1040,9 @@ function function_72d528e6()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		if(isdefined(level.var_4f7df1ac) && level.var_4f7df1ac)
 		{
 			continue;
@@ -1209,7 +1209,7 @@ function soapstone_watcher()
 	var_dac21b13 = 0;
 	while(true)
 	{
-		if(isdefined(level.s_soapstone) && isdefined(level.s_soapstone.s_placement) && level.s_soapstone.s_placement.var_4eed727b istouching(self))
+		if(isdefined(level.s_soapstone) && isdefined(level.s_soapstone.s_placement) && level.s_soapstone.s_placement.e_stone istouching(self))
 		{
 			var_76b556c9 = var_76b556c9 + 0.1;
 			if(var_76b556c9 >= 1)
@@ -1220,8 +1220,8 @@ function soapstone_watcher()
 				}
 				level.s_soapstone.is_charged = 1;
 				level.s_soapstone.is_hot = 1;
-				level.s_soapstone.s_placement.var_4eed727b clientfield::set("soapstone_start_fx", 2);
-				level.s_soapstone.s_placement.var_4eed727b setmodel("p8_zm_ora_soapstone_01_hot");
+				level.s_soapstone.s_placement.e_stone clientfield::set("soapstone_start_fx", 2);
+				level.s_soapstone.s_placement.e_stone setmodel("p8_zm_ora_soapstone_01_hot");
 				if(level.s_soapstone.var_b6e5b65f == 2)
 				{
 					level.s_soapstone.s_placement.var_28f1732d clientfield::set("soapstone_start_fx", 2);
@@ -1322,7 +1322,7 @@ function private devgui()
 		while(true)
 		{
 			waitframe(1);
-			str_command = getdvarstring(#"hash_76a56193c8903787", "");
+			str_command = getdvarstring(#"zm_orange_lighthouse_cmd", "");
 			switch(str_command)
 			{
 				case "hash_2e5bdb11c6bc0cd":
@@ -1341,7 +1341,7 @@ function private devgui()
 					break;
 				}
 			}
-			setdvar(#"hash_76a56193c8903787", "");
+			setdvar(#"zm_orange_lighthouse_cmd", "");
 		}
 	#/
 }

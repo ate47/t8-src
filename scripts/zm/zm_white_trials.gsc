@@ -200,13 +200,13 @@ function function_439b486f()
 function function_21e77256()
 {
 	level flag::set(#"hash_502f2e83a538c679");
-	level.var_df3991a = getentarray("dummy", "targetname");
-	level.var_561ae1f8 = level.var_df3991a.size;
-	if(level.var_df3991a.size <= 0)
+	level.a_mees = getentarray("dummy", "targetname");
+	level.var_561ae1f8 = level.a_mees.size;
+	if(level.a_mees.size <= 0)
 	{
 		return;
 	}
-	foreach(m in level.var_df3991a)
+	foreach(m in level.a_mees)
 	{
 		if(isdefined(m))
 		{

@@ -76,7 +76,7 @@ function grab_double_points(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6fd6ae61(var_7d81025, player)
+function function_6fd6ae61(e_powerup, player)
 {
 	player notify(#"powerup points scaled");
 	player endon(#"powerup points scaled", #"disconnect");

@@ -12,7 +12,7 @@
 #using scripts\zm_common\zm_hud.csc;
 #using scripts\zm\weapons\zm_weap_flamethrower.csc;
 #using scripts\zm_common\zm_trial.csc;
-#using script_4716533215778f7f;
+#using scripts\zm\zm_orange_ee_misc.csc;
 #using scripts\zm\zm_orange_ee_dynamite.csc;
 #using scripts\zm\zm_orange_water.csc;
 #using script_5fb8da2731850d9e;
@@ -91,7 +91,7 @@ event main(eventstruct)
 	level.var_d0ab70a2 = #"hash_544f128e274c84e0";
 	level.var_4016a739 = vectorscale((0, 1, 0), 90);
 	level zm_orange_challenges::init();
-	level namespace_f9df92f::preload();
+	level zm_orange_ee_misc::preload();
 	level zm_orange_ee_dynamite::init();
 	level zm_orange_ee_tundragun::init();
 	level zm_orange_ee_yellow_snow::preload();

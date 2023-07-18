@@ -675,10 +675,10 @@ function function_7df5ca0b(notifyhash)
 function function_10692994()
 {
 	level endoncallback(&function_7df5ca0b, #"hash_40f20925227353f4");
-	var_be17187b = undefined;
-	var_be17187b = level.var_2ea12e52 waittill(#"trigger_activated");
+	s_waitresult = undefined;
+	s_waitresult = level.var_2ea12e52 waittill(#"trigger_activated");
 	level flag::set(#"hash_30e0e4bbbfc9b7d8");
-	e_player = var_be17187b.e_who;
+	e_player = s_waitresult.e_who;
 	level.var_b2b15659 = 1;
 	e_player zm_vo::function_a2bd5a0c(#"hash_79d38c133d9291c4", 0, 0, 9999, 1);
 	level.var_b2b15659 = 0;
@@ -959,8 +959,8 @@ function function_ac4e38bc(b_skipped)
 	b_planted = 0;
 	while(!b_planted)
 	{
-		var_be17187b = trigger::wait_till("t_ww_quest_spile_damage_trigger");
-		e_player = var_be17187b.who;
+		s_waitresult = trigger::wait_till("t_ww_quest_spile_damage_trigger");
+		e_player = s_waitresult.who;
 		if(isplayer(e_player))
 		{
 			b_planted = 1;
@@ -1414,9 +1414,9 @@ function function_1da98a12()
 	{
 		self.var_1ac569e5 = s_loc zm_unitrigger::create(&function_6919af04);
 	}
-	var_be17187b = undefined;
-	var_be17187b = s_loc waittill(#"trigger_activated");
-	e_player = var_be17187b.e_who;
+	s_waitresult = undefined;
+	s_waitresult = s_loc waittill(#"trigger_activated");
+	e_player = s_waitresult.e_who;
 	level.var_b2b15659 = 1;
 	e_player thread zm_vo::function_a2bd5a0c(#"hash_1c667d0f1af843a9", 0, 0, 9999, 1);
 	level.var_b2b15659 = 0;

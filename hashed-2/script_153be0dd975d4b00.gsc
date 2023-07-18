@@ -279,8 +279,8 @@ function function_ea998c9(b_unitrigger = 0, b_eyes = 0)
 	level flag::wait_till(self.script_flag);
 	if(b_eyes)
 	{
-		var_541193d8 = struct::get_array(#"s_trap_button");
-		s_switch = arraygetclosest(self.origin, var_541193d8);
+		a_s_switches = struct::get_array(#"s_trap_button");
+		s_switch = arraygetclosest(self.origin, a_s_switches);
 		s_switch.scene_ents[#"prop 1"] clientfield::set("trap_switch_green", 1);
 	}
 	if(b_unitrigger)

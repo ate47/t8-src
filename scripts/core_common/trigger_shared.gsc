@@ -584,18 +584,18 @@ function get_all(vararg)
 {
 	if(vararg.size == 1 && isarray(vararg[0]))
 	{
-		var_b00e97e6 = vararg[0];
+		a_vararg = vararg[0];
 	}
 	else
 	{
-		var_b00e97e6 = vararg;
+		a_vararg = vararg;
 	}
 	a_all = getentarraybytype(20);
-	if(var_b00e97e6.size)
+	if(a_vararg.size)
 	{
 		for(i = a_all.size - 1; i >= 0; i--)
 		{
-			if(!isinarray(var_b00e97e6, a_all[i].classname))
+			if(!isinarray(a_vararg, a_all[i].classname))
 			{
 				arrayremoveindex(a_all, i);
 			}
@@ -617,13 +617,13 @@ function is_trigger_of_type(vararg)
 {
 	if(vararg.size == 1 && isarray(vararg[0]))
 	{
-		var_b00e97e6 = vararg[0];
+		a_vararg = vararg[0];
 	}
 	else
 	{
-		var_b00e97e6 = vararg;
+		a_vararg = vararg;
 	}
-	return isinarray(var_b00e97e6, self.classname);
+	return isinarray(a_vararg, self.classname);
 }
 
 /*

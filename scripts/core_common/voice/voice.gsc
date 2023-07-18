@@ -253,23 +253,23 @@ function play(scriptkey, var_17ee4803 = undefined, var_7f436309 = 0)
 		/#
 			assert(isdefined(self.var_46b25f4f) && self.var_46b25f4f, "");
 		#/
-		var_344157f3 = self function_5f8e1b94(scriptkey);
+		a_aliases = self function_5f8e1b94(scriptkey);
 		if(isdefined(self.var_6946d662))
 		{
-			var_ae215d05 = var_344157f3.size == 1 && var_344157f3[0] == self.var_6946d662;
+			var_ae215d05 = a_aliases.size == 1 && a_aliases[0] == self.var_6946d662;
 			if(var_ae215d05)
 			{
 				alias = self.var_6946d662;
 			}
 			else
 			{
-				var_344157f3 = array::exclude(var_344157f3, self.var_6946d662);
-				alias = array::random(var_344157f3);
+				a_aliases = array::exclude(a_aliases, self.var_6946d662);
+				alias = array::random(a_aliases);
 			}
 		}
 		else
 		{
-			alias = array::random(var_344157f3);
+			alias = array::random(a_aliases);
 		}
 	}
 	else
@@ -375,8 +375,8 @@ function private play_next()
 		}
 		else
 		{
-			var_bdd612e1 = getplayers(self.team);
-			foreach(e_player in var_bdd612e1)
+			a_e_teammates = getplayers(self.team);
+			foreach(e_player in a_e_teammates)
 			{
 				if(isbot(e_player))
 				{

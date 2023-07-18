@@ -403,7 +403,7 @@ function private function_14c67eb3(planner, constants)
 		assert(isint(constants[#"distance"]) || isfloat(constants[#"distance"]), ("" + "") + "");
 	#/
 	/#
-		assert(isint(constants[#"hash_387e0c5db2788b7f"]) || isfloat(constants[#"hash_387e0c5db2788b7f"]), ("" + "") + "");
+		assert(isint(constants[#"affordability"]) || isfloat(constants[#"affordability"]), ("" + "") + "");
 	#/
 	params = function_98118579(planner);
 	if(params.bots.size <= 0)
@@ -441,7 +441,7 @@ function private function_14c67eb3(planner, constants)
 			{
 				cost = [[level._custom_perks[perk].cost]]();
 			}
-			if(cost > params.var_3ff64dd6 || (cost / params.var_3ff64dd6) > constants[#"hash_387e0c5db2788b7f"])
+			if(cost > params.var_3ff64dd6 || (cost / params.var_3ff64dd6) > constants[#"affordability"])
 			{
 				continue;
 			}
@@ -536,7 +536,7 @@ function private function_2af9b775(planner, constants)
 		assert(isint(constants[#"distance"]) || isfloat(constants[#"distance"]), ("" + "") + "");
 	#/
 	/#
-		assert(isint(constants[#"hash_387e0c5db2788b7f"]) || isfloat(constants[#"hash_387e0c5db2788b7f"]), ("" + "") + "");
+		assert(isint(constants[#"affordability"]) || isfloat(constants[#"affordability"]), ("" + "") + "");
 	#/
 	params = function_98118579(planner);
 	if(params.bots.size <= 0)
@@ -559,7 +559,7 @@ function private function_2af9b775(planner, constants)
 				recordsphere(var_a1cd9f8e[#"origin"], 4, (1, 0.5, 0), "");
 			}
 		#/
-		if(isdefined(var_a1cd9f8e) && var_a1cd9f8e[#"cost"] <= params.var_3ff64dd6 && (var_a1cd9f8e[#"cost"] / params.var_3ff64dd6) <= constants[#"hash_387e0c5db2788b7f"])
+		if(isdefined(var_a1cd9f8e) && var_a1cd9f8e[#"cost"] <= params.var_3ff64dd6 && (var_a1cd9f8e[#"cost"] / params.var_3ff64dd6) <= constants[#"affordability"])
 		{
 			closeenough = 1;
 			foreach(botposition in params.botpositions)
@@ -691,7 +691,7 @@ function private function_e057582f(planner, constants)
 		assert(isint(constants[#"distance"]) || isfloat(constants[#"distance"]), ("" + "") + "");
 	#/
 	/#
-		assert(isint(constants[#"hash_387e0c5db2788b7f"]) || isfloat(constants[#"hash_387e0c5db2788b7f"]), ("" + "") + "");
+		assert(isint(constants[#"affordability"]) || isfloat(constants[#"affordability"]), ("" + "") + "");
 	#/
 	params = function_98118579(planner);
 	if(params.bots.size <= 0)
@@ -707,7 +707,7 @@ function private function_e057582f(planner, constants)
 	}
 	foreach(var_a0633d6d in chests)
 	{
-		if(isdefined(var_a0633d6d) && var_a0633d6d[#"cost"] <= params.var_3ff64dd6 && (var_a0633d6d[#"cost"] / params.var_3ff64dd6) <= constants[#"hash_387e0c5db2788b7f"])
+		if(isdefined(var_a0633d6d) && var_a0633d6d[#"cost"] <= params.var_3ff64dd6 && (var_a0633d6d[#"cost"] / params.var_3ff64dd6) <= constants[#"affordability"])
 		{
 			closeenough = 1;
 			foreach(botposition in params.botpositions)
@@ -1155,7 +1155,7 @@ function private function_393b9c76(planner, constants)
 		assert(isint(constants[#"distance"]) || isfloat(constants[#"distance"]), ("" + "") + "");
 	#/
 	/#
-		assert(isint(constants[#"hash_387e0c5db2788b7f"]) || isfloat(constants[#"hash_387e0c5db2788b7f"]), ("" + "") + "");
+		assert(isint(constants[#"affordability"]) || isfloat(constants[#"affordability"]), ("" + "") + "");
 	#/
 	/#
 		assert(isint(constants[#"hash_357612272d0dca05"]) || isfloat(constants[#"hash_357612272d0dca05"]), ("" + "") + "");
@@ -1180,7 +1180,7 @@ function private function_393b9c76(planner, constants)
 	}
 	foreach(var_df2f03d1 in wallbuys)
 	{
-		if(isdefined(var_df2f03d1) && var_df2f03d1[#"cost"] <= params.var_3ff64dd6 && (var_df2f03d1[#"cost"] / params.var_3ff64dd6) <= constants[#"hash_387e0c5db2788b7f"])
+		if(isdefined(var_df2f03d1) && var_df2f03d1[#"cost"] <= params.var_3ff64dd6 && (var_df2f03d1[#"cost"] / params.var_3ff64dd6) <= constants[#"affordability"])
 		{
 			closeenough = 1;
 			foreach(botposition in params.botpositions)

@@ -59,7 +59,7 @@ function __init__()
 	level flag::init(#"hash_1a367a4a0dfb0471");
 	level flag::init(#"hash_79e07d3dcfbfb5ae");
 	level flag::init(#"hash_29dc018e9551ecf");
-	level flag::init(#"hash_3b1ad1b5bdc81825");
+	level flag::init(#"spoon_quest_completed");
 	level.var_92a01e03 = struct::get("s_firm_use_trig");
 	level.s_break_large_metal = struct::get("s_break_large_metal");
 	level.var_4b9d0136 = util::spawn_model("p8_fxanim_zm_esc_water_tower_mod", level.s_break_large_metal.origin, level.s_break_large_metal.angles);
@@ -83,7 +83,7 @@ function __main__()
 	#/
 	level flag::wait_till("start_zombie_round_logic");
 	level.var_ac9cb27a = array(#"hash_67a31e96e8f4d0e9", #"hash_67a31b96e8f4cbd0", #"hash_67a31c96e8f4cd83", #"hash_67a32196e8f4d602");
-	level flag::wait_till(#"hash_3b1ad1b5bdc81825");
+	level flag::wait_till(#"spoon_quest_completed");
 	zm_spawner::register_zombie_death_event_callback(&function_85cfc2a3);
 	foreach(e_player in getplayers())
 	{
@@ -259,7 +259,7 @@ function function_85cfc2a3(e_player)
 		}
 		if(e_player.var_8c79ac3f >= 60)
 		{
-			e_player notify(#"hash_789b5173793a0f27");
+			e_player notify(#"roof_kills_completed");
 			e_player playsoundtoplayer(#"hash_65b4e7aafb64c1a1", e_player);
 			e_player.var_8c79ac3f = undefined;
 			e_player flag::set(#"hash_30ae3926b2d211db");
@@ -278,7 +278,7 @@ function function_85cfc2a3(e_player)
 */
 function function_7927b4f1()
 {
-	self endon(#"disconnect", #"hash_789b5173793a0f27");
+	self endon(#"disconnect", #"roof_kills_completed");
 	while(true)
 	{
 		var_bdf9e3c2 = self zm_zonemgr::get_player_zone();
@@ -643,7 +643,7 @@ function function_45d8a460()
 	/#
 		foreach(player in level.players)
 		{
-			level flag::set(#"hash_3b1ad1b5bdc81825");
+			level flag::set(#"spoon_quest_completed");
 			if(!player hasweapon(getweapon(#"spoon_alcatraz")))
 			{
 				while(!isdefined(player.var_1c4683c4))
@@ -681,7 +681,7 @@ function function_3dfa5598()
 					player giveweapon(player.var_1c4683c4);
 				}
 			}
-			player notify(#"hash_789b5173793a0f27");
+			player notify(#"roof_kills_completed");
 			player flag::set(#"hash_30ae3926b2d211db");
 			if(isdefined(player.var_8c79ac3f))
 			{

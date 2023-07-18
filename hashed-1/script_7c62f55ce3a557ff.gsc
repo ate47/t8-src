@@ -713,10 +713,10 @@ function brutus_death()
 		level thread brutus_round_spawn_failsafe_respawn();
 	}
 	var_1982af82 = 0;
-	var_6e022a91 = zm_crafting::function_31d883d7();
-	foreach(var_6645c992 in var_6e022a91)
+	a_s_blueprints = zm_crafting::function_31d883d7();
+	foreach(s_blueprint in a_s_blueprints)
 	{
-		if(var_6645c992.var_54a97edd == getweapon(#"zhield_spectral_dw"))
+		if(s_blueprint.var_54a97edd == getweapon(#"zhield_spectral_dw"))
 		{
 			var_1982af82 = 1;
 			break;

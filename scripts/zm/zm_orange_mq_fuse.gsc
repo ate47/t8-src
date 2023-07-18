@@ -120,10 +120,10 @@ function function_6bd2a719()
 		a_s_generators[i].e_vol = getent(a_s_generators[i].target, "targetname");
 	}
 	level.a_s_generators = a_s_generators;
-	var_ee92bf8c = getent("chicken_nugget", "targetname");
-	var_ee92bf8c playloopsound(#"hash_52058ae478647502");
-	var_ee92bf8c setscale(0.5);
-	var_ee92bf8c clientfield::set("elemental_shard_glow", 1);
+	e_shard = getent("chicken_nugget", "targetname");
+	e_shard playloopsound(#"hash_52058ae478647502");
+	e_shard setscale(0.5);
+	e_shard clientfield::set("elemental_shard_glow", 1);
 }
 
 /*
@@ -264,10 +264,10 @@ function function_206702d8()
 */
 function function_16386d70()
 {
-	var_ee92bf8c = getent("chicken_nugget", "targetname");
-	s_unitrigger = var_ee92bf8c zm_unitrigger::create("", 96);
-	var_ee92bf8c shard_think();
-	var_ee92bf8c zm_unitrigger::unregister_unitrigger(s_unitrigger);
+	e_shard = getent("chicken_nugget", "targetname");
+	s_unitrigger = e_shard zm_unitrigger::create("", 96);
+	e_shard shard_think();
+	e_shard zm_unitrigger::unregister_unitrigger(s_unitrigger);
 }
 
 /*

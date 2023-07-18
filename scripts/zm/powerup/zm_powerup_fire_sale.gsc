@@ -79,7 +79,7 @@ function grab_fire_sale(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3ceac0e1(var_7d81025, player)
+function function_3ceac0e1(e_powerup, player)
 {
 	self notify("602aa2e210cb16a0");
 	self endon("602aa2e210cb16a0");

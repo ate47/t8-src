@@ -363,7 +363,7 @@ function function_e2143adf(params)
 function function_1bd3da0f(params)
 {
 	/#
-		chunks = level.s_pap_quest.var_e770eb55;
+		chunks = level.s_pap_quest.a_s_locations;
 		if(isdefined(chunks))
 		{
 			foreach(chunk in chunks)

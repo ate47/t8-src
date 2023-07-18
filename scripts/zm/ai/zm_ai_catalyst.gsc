@@ -149,7 +149,7 @@ function private function_52ce9654()
 		{
 			var_31b16a0 = arraycombine(var_31b16a0, level.zm_loc_types[#"blight_father_location"], 0, 0);
 		}
-		ai_catalyst = zombie_utility::spawn_zombie(array::random(level.var_aa069b5), undefined, array::random(var_31b16a0));
+		ai_catalyst = zombie_utility::spawn_zombie(array::random(level.a_sp_catalyst), undefined, array::random(var_31b16a0));
 		if(isdefined(ai_catalyst))
 		{
 			ai_catalyst zm_transform::function_bbaec2fd();
@@ -1561,16 +1561,16 @@ function function_55c235fa(s_spot)
 */
 function function_6e75e858()
 {
-	level.var_aa069b5 = getentarray("zombie_catalyst_spawner", "script_noteworthy");
-	if(level.var_aa069b5.size == 0)
+	level.a_sp_catalyst = getentarray("zombie_catalyst_spawner", "script_noteworthy");
+	if(level.a_sp_catalyst.size == 0)
 	{
 		return;
 	}
-	foreach(var_c1da220b in level.var_aa069b5)
+	foreach(sp_catalyst in level.a_sp_catalyst)
 	{
-		var_c1da220b.is_enabled = 1;
-		var_c1da220b.script_forcespawn = 1;
-		var_c1da220b spawner::add_spawn_function(&catalyst_init);
+		sp_catalyst.is_enabled = 1;
+		sp_catalyst.script_forcespawn = 1;
+		sp_catalyst spawner::add_spawn_function(&catalyst_init);
 	}
 }
 
@@ -1636,7 +1636,7 @@ function function_da7cd6ce()
 function function_bbb2bab5(var_3d9951bb)
 {
 	var_b62aefe1 = function_e1763259(var_3d9951bb);
-	foreach(e_spawner in level.var_aa069b5)
+	foreach(e_spawner in level.a_sp_catalyst)
 	{
 		if(e_spawner.var_9fde8624 == var_b62aefe1)
 		{

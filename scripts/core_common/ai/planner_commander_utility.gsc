@@ -1320,9 +1320,9 @@ function private function_7706a6fa(commander)
 			}
 		}
 		blackboard::setstructblackboardattribute(commander, #"missioncomponents", components);
-		foreach(componenttype, var_c414ebaa in var_35301d62)
+		foreach(componenttype, componentarray in var_35301d62)
 		{
-			blackboard::setstructblackboardattribute(commander, componenttype, var_c414ebaa);
+			blackboard::setstructblackboardattribute(commander, componenttype, componentarray);
 		}
 	}
 }

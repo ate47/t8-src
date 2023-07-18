@@ -502,12 +502,12 @@ function function_705afbf2()
 {
 	/#
 		a_ai_zombies = getaiteamarray(level.zombie_team);
-		var_e3bc59c1 = getplayers()[0];
-		if(!isalive(var_e3bc59c1))
+		e_host = getplayers()[0];
+		if(!isalive(e_host))
 		{
 			return;
 		}
-		a_ai_zombies = arraysortclosest(a_ai_zombies, var_e3bc59c1.origin);
+		a_ai_zombies = arraysortclosest(a_ai_zombies, e_host.origin);
 		foreach(ai_zombie in a_ai_zombies)
 		{
 			if(ai_zombie.archetype === #"zombie")

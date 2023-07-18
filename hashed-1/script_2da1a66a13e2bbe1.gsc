@@ -666,7 +666,7 @@ function shed()
 		level flag::clear("magic_door_power_up_grabbed");
 		level flag::clear("population_count_step_complete");
 		level thread namespace_456de992::perks_behind_door();
-		if(!level flag::get(#"hash_a54ffd2751ba9de"))
+		if(!level flag::get(#"wisp_path_completed"))
 		{
 			level thread zm_white_insanity_mode::function_4bcfb4d9();
 		}

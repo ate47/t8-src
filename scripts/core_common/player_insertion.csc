@@ -535,9 +535,9 @@ function function_84ba1c41(local_client_num, eventstruct)
 */
 function function_f9e5d4d3(local_client_num, eventstruct)
 {
-	if(isdefined(self.var_13a5716d) && self.var_13a5716d)
+	if(isdefined(self.infiltrating) && self.infiltrating)
 	{
-		self.var_13a5716d = undefined;
+		self.infiltrating = undefined;
 		self callback::function_52ac9652(#"parachute", &function_84ba1c41);
 		self callback::function_52ac9652(#"death", &function_f9e5d4d3);
 	}
@@ -554,7 +554,7 @@ function function_f9e5d4d3(local_client_num, eventstruct)
 */
 function function_ec94346()
 {
-	self.var_13a5716d = 1;
+	self.infiltrating = 1;
 	self callback::add_entity_callback(#"parachute", &function_84ba1c41);
 	self callback::add_entity_callback(#"death", &function_f9e5d4d3);
 }

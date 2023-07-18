@@ -78,21 +78,21 @@ function scene_test_with_reachs()
 {
 	getent("mama_bear", "targetname") hide();
 	getent("papa_bear", "targetname") hide();
-	var_4eed727b = getent("electro", "targetname");
-	var_4eed727b hide();
-	var_28f1732d = getent(var_4eed727b.target, "targetname");
+	e_stone = getent("electro", "targetname");
+	e_stone hide();
+	var_28f1732d = getent(e_stone.target, "targetname");
 	var_28f1732d hide();
-	level.var_6b37a126 = struct::get(var_4eed727b.script_noteworthy, "targetname");
-	level.var_6b37a126.var_4eed727b = var_4eed727b;
+	level.var_6b37a126 = struct::get(e_stone.script_noteworthy, "targetname");
+	level.var_6b37a126.e_stone = e_stone;
 	level.var_6b37a126.var_28f1732d = var_28f1732d;
 	level.var_9369090c = [];
-	foreach(var_4eed727b in getentarray("disco", "targetname"))
+	foreach(e_stone in getentarray("disco", "targetname"))
 	{
-		var_4eed727b hide();
-		var_28f1732d = getent(var_4eed727b.target, "targetname");
+		e_stone hide();
+		var_28f1732d = getent(e_stone.target, "targetname");
 		var_28f1732d hide();
-		var_1ca0c514 = struct::get(var_4eed727b.script_noteworthy, "targetname");
-		var_1ca0c514.var_4eed727b = var_4eed727b;
+		var_1ca0c514 = struct::get(e_stone.script_noteworthy, "targetname");
+		var_1ca0c514.e_stone = e_stone;
 		var_1ca0c514.var_28f1732d = var_28f1732d;
 		if(!isdefined(level.var_9369090c))
 		{
@@ -107,7 +107,7 @@ function scene_test_with_reachs()
 	level.s_soapstone = struct::get("baby_bear", "targetname");
 	level.s_soapstone.is_hot = 1;
 	level.s_soapstone.is_charged = 0;
-	level.s_soapstone.var_4eed727b = undefined;
+	level.s_soapstone.e_stone = undefined;
 	level.s_soapstone.var_e15f0d15 = 0;
 	level.s_soapstone.var_b6e5b65f = 2;
 	level.s_soapstone.var_d143df71 = 0;
@@ -125,7 +125,7 @@ function scene_test_with_reachs()
 */
 function function_d878e1ee(var_a276c861)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 4);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 4);
 	if(!var_a276c861)
 	{
 		zm_orange_pablo::function_3f9e02b8(7, #"hash_3a5a3e5c65b49526", #"hash_f90cca21dd0dd02", &function_a9c8883f);
@@ -133,19 +133,19 @@ function function_d878e1ee(var_a276c861)
 		zm_orange_pablo::function_d83490c5(7);
 		level flag::wait_till(#"hash_710c2f40baf302c8");
 		level thread function_1c744b3f();
-		var_4eed727b = getent("papa_bear", "targetname");
-		var_4eed727b.s_unitrigger = var_4eed727b zm_unitrigger::create("", 96);
-		var_4eed727b.is_placed = 0;
-		var_4eed727b thread function_9961d00();
+		e_stone = getent("papa_bear", "targetname");
+		e_stone.s_unitrigger = e_stone zm_unitrigger::create("", 96);
+		e_stone.is_placed = 0;
+		e_stone thread function_9961d00();
 		level thread function_557d25c1();
-		var_4eed727b = getent("mama_bear", "targetname");
-		var_4eed727b.s_unitrigger = var_4eed727b zm_unitrigger::create("", 96);
-		var_4eed727b.is_placed = 0;
-		var_4eed727b thread function_9961d00();
+		e_stone = getent("mama_bear", "targetname");
+		e_stone.s_unitrigger = e_stone zm_unitrigger::create("", 96);
+		e_stone.is_placed = 0;
+		e_stone thread function_9961d00();
 		level flag::wait_till(#"hash_3a8a317fc0b5e5b0");
-		var_262ca6b1 = getent("porridge", "targetname");
-		var_262ca6b1.s_unitrigger = var_262ca6b1 zm_unitrigger::create("", 96);
-		var_262ca6b1 function_afa2f621();
+		e_fuse = getent("porridge", "targetname");
+		e_fuse.s_unitrigger = e_fuse zm_unitrigger::create("", 96);
+		e_fuse function_afa2f621();
 	}
 }
 
@@ -265,8 +265,8 @@ function function_476d4cb5()
 	s_activation = self waittill(#"trigger_activated");
 	if(!level.s_soapstone.is_charged)
 	{
-		self.var_4eed727b setmodel("p8_zm_ora_soapstone_01");
-		self.var_4eed727b clientfield::set("soapstone_start_fx", 0);
+		self.e_stone setmodel("p8_zm_ora_soapstone_01");
+		self.e_stone clientfield::set("soapstone_start_fx", 0);
 		if(level.s_soapstone.var_b6e5b65f == 2)
 		{
 			self.var_28f1732d setmodel("p8_zm_ora_soapstone_01");
@@ -277,8 +277,8 @@ function function_476d4cb5()
 	{
 		if(level.s_soapstone.is_hot)
 		{
-			self.var_4eed727b setmodel("p8_zm_ora_soapstone_01_hot");
-			self.var_4eed727b clientfield::set("soapstone_start_fx", 2);
+			self.e_stone setmodel("p8_zm_ora_soapstone_01_hot");
+			self.e_stone clientfield::set("soapstone_start_fx", 2);
 			if(level.s_soapstone.var_b6e5b65f == 2)
 			{
 				self.var_28f1732d setmodel("p8_zm_ora_soapstone_01_hot");
@@ -287,8 +287,8 @@ function function_476d4cb5()
 		}
 		else
 		{
-			self.var_4eed727b setmodel("p8_zm_ora_soapstone_01_cold");
-			self.var_4eed727b clientfield::set("soapstone_start_fx", 1);
+			self.e_stone setmodel("p8_zm_ora_soapstone_01_cold");
+			self.e_stone clientfield::set("soapstone_start_fx", 1);
 			if(level.s_soapstone.var_b6e5b65f == 2)
 			{
 				self.var_28f1732d setmodel("p8_zm_ora_soapstone_01_cold");
@@ -296,8 +296,8 @@ function function_476d4cb5()
 			}
 		}
 	}
-	self.var_4eed727b show();
-	self.var_4eed727b playsound(#"hash_16631d7fd4c4e599");
+	self.e_stone show();
+	self.e_stone playsound(#"hash_16631d7fd4c4e599");
 	if(level.s_soapstone.var_b6e5b65f == 2)
 	{
 		self.var_28f1732d show();
@@ -321,9 +321,9 @@ function function_b4ad839e()
 	level endon(#"hash_3a8a317fc0b5e5b0");
 	s_activation = undefined;
 	s_activation = self waittill(#"trigger_activated");
-	self.var_4eed727b clientfield::set("soapstone_start_fx", 0);
-	self.var_4eed727b playsound(#"hash_5f8cb5b7320b0002");
-	self.var_4eed727b hide();
+	self.e_stone clientfield::set("soapstone_start_fx", 0);
+	self.e_stone playsound(#"hash_5f8cb5b7320b0002");
+	self.e_stone hide();
 	if(level.s_soapstone.var_b6e5b65f == 2)
 	{
 		self.var_28f1732d clientfield::set("soapstone_start_fx", 0);
@@ -401,8 +401,8 @@ function function_2b438f6f()
 	s_activation = self waittill(#"trigger_activated");
 	if(!level.s_soapstone.is_charged)
 	{
-		self.var_4eed727b setmodel("p8_zm_ora_soapstone_01");
-		self.var_4eed727b clientfield::set("soapstone_start_fx", 0);
+		self.e_stone setmodel("p8_zm_ora_soapstone_01");
+		self.e_stone clientfield::set("soapstone_start_fx", 0);
 		if(level.s_soapstone.var_b6e5b65f == 2)
 		{
 			self.var_28f1732d setmodel("p8_zm_ora_soapstone_01");
@@ -413,8 +413,8 @@ function function_2b438f6f()
 	{
 		if(level.s_soapstone.is_hot)
 		{
-			self.var_4eed727b setmodel("p8_zm_ora_soapstone_01_hot");
-			self.var_4eed727b clientfield::set("soapstone_start_fx", 2);
+			self.e_stone setmodel("p8_zm_ora_soapstone_01_hot");
+			self.e_stone clientfield::set("soapstone_start_fx", 2);
 			if(level.s_soapstone.var_b6e5b65f == 2)
 			{
 				self.var_28f1732d setmodel("p8_zm_ora_soapstone_01_hot");
@@ -423,8 +423,8 @@ function function_2b438f6f()
 		}
 		else
 		{
-			self.var_4eed727b setmodel("p8_zm_ora_soapstone_01_cold");
-			self.var_4eed727b clientfield::set("soapstone_start_fx", 1);
+			self.e_stone setmodel("p8_zm_ora_soapstone_01_cold");
+			self.e_stone clientfield::set("soapstone_start_fx", 1);
 			if(level.s_soapstone.var_b6e5b65f == 2)
 			{
 				self.var_28f1732d setmodel("p8_zm_ora_soapstone_01_cold");
@@ -432,8 +432,8 @@ function function_2b438f6f()
 			}
 		}
 	}
-	self.var_4eed727b show();
-	self.var_4eed727b playsound(#"hash_16631d7fd4c4e599");
+	self.e_stone show();
+	self.e_stone playsound(#"hash_16631d7fd4c4e599");
 	if(level.s_soapstone.var_b6e5b65f == 2)
 	{
 		self.var_28f1732d show();
@@ -458,9 +458,9 @@ function function_a9511f0f()
 	level endon(#"hash_3a8a317fc0b5e5b0");
 	s_activation = undefined;
 	s_activation = self waittill(#"trigger_activated");
-	self.var_4eed727b clientfield::set("soapstone_start_fx", 0);
-	self.var_4eed727b playsound(#"hash_5f8cb5b7320b0002");
-	self.var_4eed727b hide();
+	self.e_stone clientfield::set("soapstone_start_fx", 0);
+	self.e_stone playsound(#"hash_5f8cb5b7320b0002");
+	self.e_stone hide();
 	if(level.s_soapstone.var_b6e5b65f == 2)
 	{
 		self.var_28f1732d clientfield::set("soapstone_start_fx", 0);
@@ -577,14 +577,14 @@ function function_9ee4c8c3(var_a276c861, var_19e802fa)
 		level flag::set(#"hash_3a8a317fc0b5e5b0");
 		getent("mama_bear", "targetname") show();
 		getent("papa_bear", "targetname") show();
-		var_4eed727b = getent("electro", "targetname");
-		var_4eed727b hide();
-		var_28f1732d = getent(var_4eed727b.target, "targetname");
+		e_stone = getent("electro", "targetname");
+		e_stone hide();
+		var_28f1732d = getent(e_stone.target, "targetname");
 		var_28f1732d hide();
-		foreach(var_4eed727b in getentarray("disco", "targetname"))
+		foreach(e_stone in getentarray("disco", "targetname"))
 		{
-			var_4eed727b hide();
-			var_28f1732d = getent(var_4eed727b.target, "targetname");
+			e_stone hide();
+			var_28f1732d = getent(e_stone.target, "targetname");
 			var_28f1732d hide();
 		}
 		level function_88a86ef8(2);

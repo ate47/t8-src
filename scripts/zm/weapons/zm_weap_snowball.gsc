@@ -72,10 +72,10 @@ function on_grenade_fired(s_params)
 	{
 		return;
 	}
-	var_be17187b = undefined;
-	var_be17187b = s_params.projectile waittill(#"projectile_impact_explode", #"explode");
+	s_waitresult = undefined;
+	s_waitresult = s_params.projectile waittill(#"projectile_impact_explode", #"explode");
 	a_e_players = getplayers();
-	a_e_players = arraysortclosest(a_e_players, var_be17187b.position, 4, 0, 64);
+	a_e_players = arraysortclosest(a_e_players, s_waitresult.position, 4, 0, 64);
 	foreach(e_player in a_e_players)
 	{
 		if(s_params.weapon == level.w_snowball || s_params.weapon == level.var_f8934665)
@@ -85,7 +85,7 @@ function on_grenade_fired(s_params)
 		}
 		e_player thread function_2291fc03();
 	}
-	var_566b3847 = getentitiesinradius(var_be17187b.position, 5);
+	var_566b3847 = getentitiesinradius(s_waitresult.position, 5);
 	foreach(var_c006f5e9 in var_566b3847)
 	{
 		if(isdefined(var_c006f5e9))
@@ -100,7 +100,7 @@ function on_grenade_fired(s_params)
 			}
 		}
 	}
-	var_d87c5b04 = array::get_all_closest(var_be17187b.position, trigger::get_all(), undefined, undefined, 64);
+	var_d87c5b04 = array::get_all_closest(s_waitresult.position, trigger::get_all(), undefined, undefined, 64);
 	foreach(var_32835396 in var_d87c5b04)
 	{
 		var_32835396 dodamage(1, var_c006f5e9.origin, self, undefined, undefined, "MOD_PROJECTILE", 0, s_params.weapon);

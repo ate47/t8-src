@@ -895,7 +895,7 @@ function private function_515b4a87(inflictor, attacker, damage, flags, meansofda
 		self.var_cdc2bec8 = self.var_cdc2bec8 + damage;
 		if(function_2ed4a174(self))
 		{
-			self.var_eb3ff149 = inflictor;
+			self.e_glidin = inflictor;
 		}
 	}
 	if(!(isdefined(self.var_c8f98f87) && self.var_c8f98f87) && isdefined(self.e_grapplee) && (zm_loadout::is_hero_weapon(weapon) || meansofdamage === "MOD_PROJECTILE"))
@@ -2149,7 +2149,7 @@ function function_c526065b(entity, var_e0ef3075)
 	grapplee = var_e0ef3075;
 	if(isdefined(entity))
 	{
-		entity.var_eb3ff149 = undefined;
+		entity.e_glidin = undefined;
 		grapplee = entity.e_grapplee;
 	}
 	if(!isdefined(grapplee) || (!(isdefined(grapplee.var_564dec14) && grapplee.var_564dec14)))
@@ -2258,7 +2258,7 @@ function function_d67c455e(notifyhash)
 		return;
 	}
 	e_source = entity.var_54c1950f.beamstart;
-	var_28ac1348 = entity.var_54c1950f.beamend;
+	e_beamend = entity.var_54c1950f.beamend;
 	entity.var_54c1950f = undefined;
 	zm_grappler::function_c43e7cab();
 	level.var_acec7a44 = 1;
@@ -2267,9 +2267,9 @@ function function_d67c455e(notifyhash)
 		e_source unlink();
 		zm_grappler::destroy_mover(e_source);
 	}
-	if(isdefined(var_28ac1348))
+	if(isdefined(e_beamend))
 	{
-		zm_grappler::destroy_mover(var_28ac1348);
+		zm_grappler::destroy_mover(e_beamend);
 	}
 	util::wait_network_frame();
 	level.var_acec7a44 = 0;

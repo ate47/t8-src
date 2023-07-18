@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_ca2d9d65;
+#namespace zm_office_ee_schuster;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_ca2d9d65
+	Namespace: zm_office_ee_schuster
 	Checksum: 0xF44498FC
 	Offset: 0xD8
 	Size: 0x3C
@@ -17,12 +17,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_55c97cd74c2ed150", &__init__, undefined, undefined);
+	system::register(#"zm_office_ee_schuster", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_ca2d9d65
+	Namespace: zm_office_ee_schuster
 	Checksum: 0x7B2F8D74
 	Offset: 0x120
 	Size: 0x7A
@@ -37,7 +37,7 @@ function __init__()
 
 /*
 	Name: function_50865dc7
-	Namespace: namespace_ca2d9d65
+	Namespace: zm_office_ee_schuster
 	Checksum: 0x1683DE33
 	Offset: 0x1A8
 	Size: 0x154

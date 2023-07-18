@@ -517,7 +517,7 @@ function start()
 	initcircle = level.deathcircles[0];
 	waitsec = function_76c22343(initcircle.var_227b1773, initcircle.waitsec, initcircle.var_42682706);
 	initcircle.var_23216f37 = waitsec;
-	level flagsys::wait_till(#"hash_5a3e17fbc33cdc86");
+	level flagsys::wait_till(#"insertion_teleport_completed");
 	level.var_56baa802 = gettime() + (int((waitsec + level.var_a425ed89) * 1000));
 	level clientfield::set_world_uimodel("hudItems.warzone.collapse", level.var_56baa802);
 	wait(level.var_a425ed89);
@@ -1099,8 +1099,8 @@ function function_936b3f09(p, d, circle)
 	m = p - circle.origin;
 	b = vectordot(m, d);
 	c = vectordot(m, m) - (circle.radius * circle.radius);
-	var_f43bd65b = (b * b) - c;
-	t = (b * -1) + sqrt(var_f43bd65b);
+	discr = (b * b) - c;
+	t = (b * -1) + sqrt(discr);
 	return p + (t * d);
 }
 

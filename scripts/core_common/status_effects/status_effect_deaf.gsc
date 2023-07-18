@@ -58,7 +58,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function deaf_apply(var_756fda07, weapon, var_84171a6c)
+function deaf_apply(var_756fda07, weapon, applicant)
 {
 }
 

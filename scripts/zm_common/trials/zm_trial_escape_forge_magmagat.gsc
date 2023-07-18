@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -86,7 +86,7 @@ function private on_end(round_reset)
 function private function_a543a954()
 {
 	level endon(#"hash_7646638df88a3656");
-	level waittill(#"hash_5dc448a84a24492", #"hash_38c04d24b5213b00");
+	level waittill(#"hash_5dc448a84a24492", #"magma_forge_completed");
 	level.var_e60b8c3a = 1;
 	zm_trial_util::function_7d32b7d0(1);
 }

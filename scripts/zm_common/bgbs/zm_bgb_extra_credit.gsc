@@ -65,12 +65,12 @@ function activation()
 function function_22f934e6(origin, var_22a4c702)
 {
 	self endon(#"disconnect", #"bled_out");
-	var_7d81025 = zm_powerups::specific_powerup_drop("bonus_points_player", origin, undefined, 0.1, undefined, undefined, 1, 1, 1, 1);
+	e_powerup = zm_powerups::specific_powerup_drop("bonus_points_player", origin, undefined, 0.1, undefined, undefined, 1, 1, 1, 1);
 	if(isdefined(level.var_5a2df97b))
 	{
-		var_7d81025 thread [[level.var_5a2df97b]]();
+		e_powerup thread [[level.var_5a2df97b]]();
 	}
-	var_7d81025.bonus_points_powerup_override = &function_19e7d278;
+	e_powerup.bonus_points_powerup_override = &function_19e7d278;
 }
 
 /*

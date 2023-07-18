@@ -342,9 +342,9 @@ function function_eb06b83()
 {
 	level endon(#"end_game");
 	self endon(#"death");
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"trigger_activated");
-	e_who = var_be17187b.e_who;
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"trigger_activated");
+	e_who = s_waitresult.e_who;
 	e_who playsound("zmb_ee_key_pickup");
 	e_who thread zm_audio::create_and_play_dialog(#"component_pickup", #"generic");
 	level flag::set("pernell_key_acquired");
@@ -370,9 +370,9 @@ function function_eb06b83()
 function function_65066810()
 {
 	level flag::wait_till("pernell_key_acquired");
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"trigger_activated");
-	e_who = var_be17187b.e_who;
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"trigger_activated");
+	e_who = s_waitresult.e_who;
 	var_6e32b553 = getent("pernell_drawer", "targetname");
 	if(isdefined(var_6e32b553))
 	{
@@ -561,9 +561,9 @@ function function_1e88595a()
 	do
 	{
 		var_6ba58f5f = 0;
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		if(!e_who zm_score::can_player_purchase(self.s_unitrigger.cost))
 		{
 			zm_utility::play_sound_on_ent("no_purchase");

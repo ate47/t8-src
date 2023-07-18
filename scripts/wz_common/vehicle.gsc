@@ -1339,8 +1339,8 @@ event function_e011eea6(eventstruct)
 		return;
 	}
 	vehicle.var_8e382c5f = gettime();
-	var_d8bf3ee8 = vehicle getvehoccupants();
-	if(var_d8bf3ee8.size == 0)
+	a_occupants = vehicle getvehoccupants();
+	if(a_occupants.size == 0)
 	{
 		function_2d00376(vehicle);
 	}

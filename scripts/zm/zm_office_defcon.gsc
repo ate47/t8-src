@@ -233,8 +233,8 @@ function play_defcon5_alarms()
 	var_674c8f1b = [];
 	foreach(s_alarm in a_s_alarms)
 	{
-		var_9844b012 = spawn("script_origin", s_alarm.origin);
-		var_9844b012 playloopsound(s_alarm.script_sound, 0.25);
+		e_sfx = spawn("script_origin", s_alarm.origin);
+		e_sfx playloopsound(s_alarm.script_sound, 0.25);
 		if(!isdefined(var_674c8f1b))
 		{
 			var_674c8f1b = [];
@@ -243,7 +243,7 @@ function play_defcon5_alarms()
 		{
 			var_674c8f1b = array(var_674c8f1b);
 		}
-		var_674c8f1b[var_674c8f1b.size] = var_9844b012;
+		var_674c8f1b[var_674c8f1b.size] = e_sfx;
 	}
 	level waittill(#"defcon_reset");
 	foreach(var_745f7c4 in var_674c8f1b)

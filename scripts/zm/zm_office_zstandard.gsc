@@ -464,28 +464,28 @@ function function_231d0b19()
 		{
 			var_f0a1a909.a_e_clip = array(var_f0a1a909.a_e_clip);
 		}
-		if(!isdefined(var_f0a1a909.var_ddcda303))
+		if(!isdefined(var_f0a1a909.a_e_barriers))
 		{
-			var_f0a1a909.var_ddcda303 = [];
+			var_f0a1a909.a_e_barriers = [];
 		}
-		else if(!isarray(var_f0a1a909.var_ddcda303))
+		else if(!isarray(var_f0a1a909.a_e_barriers))
 		{
-			var_f0a1a909.var_ddcda303 = array(var_f0a1a909.var_ddcda303);
+			var_f0a1a909.a_e_barriers = array(var_f0a1a909.a_e_barriers);
 		}
-		var_2b975c1a = getentarray(var_f0a1a909.target, "targetname");
-		foreach(var_28dbd41f in var_2b975c1a)
+		a_e_junk = getentarray(var_f0a1a909.target, "targetname");
+		foreach(e_junk in a_e_junk)
 		{
-			if(var_28dbd41f iszbarrier())
+			if(e_junk iszbarrier())
 			{
-				if(!isdefined(var_f0a1a909.var_ddcda303))
+				if(!isdefined(var_f0a1a909.a_e_barriers))
 				{
-					var_f0a1a909.var_ddcda303 = [];
+					var_f0a1a909.a_e_barriers = [];
 				}
-				else if(!isarray(var_f0a1a909.var_ddcda303))
+				else if(!isarray(var_f0a1a909.a_e_barriers))
 				{
-					var_f0a1a909.var_ddcda303 = array(var_f0a1a909.var_ddcda303);
+					var_f0a1a909.a_e_barriers = array(var_f0a1a909.a_e_barriers);
 				}
-				var_f0a1a909.var_ddcda303[var_f0a1a909.var_ddcda303.size] = var_28dbd41f;
+				var_f0a1a909.a_e_barriers[var_f0a1a909.a_e_barriers.size] = e_junk;
 				continue;
 			}
 			if(!isdefined(var_f0a1a909.a_e_clip))
@@ -496,7 +496,7 @@ function function_231d0b19()
 			{
 				var_f0a1a909.a_e_clip = array(var_f0a1a909.a_e_clip);
 			}
-			var_f0a1a909.a_e_clip[var_f0a1a909.a_e_clip.size] = var_28dbd41f;
+			var_f0a1a909.a_e_clip[var_f0a1a909.a_e_clip.size] = e_junk;
 		}
 		var_f0a1a909 thread namespace_a5657ff1::function_55ca39d8();
 	}
@@ -752,17 +752,17 @@ function init_traps()
 function function_9217567c()
 {
 	level waittill(#"all_players_spawned");
-	foreach(var_5f41c401 in level.var_4fe2f84d)
+	foreach(a_s_crafting in level.var_4fe2f84d)
 	{
-		foreach(s_crafting in var_5f41c401)
+		foreach(s_crafting in a_s_crafting)
 		{
 			if(isarray(s_crafting.craftfoundry.blueprints))
 			{
-				foreach(var_6645c992 in s_crafting.craftfoundry.blueprints)
+				foreach(s_blueprint in s_crafting.craftfoundry.blueprints)
 				{
-					if(var_6645c992.name === #"zblueprint_shield_zhield_riot")
+					if(s_blueprint.name === #"zblueprint_shield_zhield_riot")
 					{
-						s_crafting.blueprint = var_6645c992;
+						s_crafting.blueprint = s_blueprint;
 					}
 				}
 			}

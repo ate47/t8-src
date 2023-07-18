@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -246,8 +246,8 @@ event function_f8ea644(eventstruct)
 {
 	if(is_active() && isdefined(eventstruct.projectile))
 	{
-		var_be17187b = undefined;
-		var_be17187b = eventstruct.projectile waittilltimeout(2, #"death", #"explode", #"projectile_impact_explode", #"stationary", #"grenade_stuck");
+		s_waitresult = undefined;
+		s_waitresult = eventstruct.projectile waittilltimeout(2, #"death", #"explode", #"projectile_impact_explode", #"stationary", #"grenade_stuck");
 		self function_b33ed7bd();
 	}
 }

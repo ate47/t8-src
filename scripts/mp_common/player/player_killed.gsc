@@ -896,7 +896,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 		{
 			if(isdefined(var_a1f4d122))
 			{
-				level thread potm::function_5523a49a(#"hash_c0e3040ba19a2b8", lpattacknum, var_c8fa9c41, self, killcam_entity_info, weapon, smeansofdeath, self.deathtime, deathtimeoffset, psoffsettime, perks, killstreaks, var_a1f4d122, einflictor);
+				level thread potm::function_5523a49a(#"bh_kill", lpattacknum, var_c8fa9c41, self, killcam_entity_info, weapon, smeansofdeath, self.deathtime, deathtimeoffset, psoffsettime, perks, killstreaks, var_a1f4d122, einflictor);
 			}
 		}
 		else
@@ -1591,7 +1591,7 @@ function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee3
 		{
 			if(level.gametype === "bounty")
 			{
-				potm::function_66d09fea(#"hash_c0e3040ba19a2b8", self, self, einflictor, var_50d1e41a, overrideentitycamera);
+				potm::function_66d09fea(#"bh_kill", self, self, einflictor, var_50d1e41a, overrideentitycamera);
 			}
 			else
 			{
@@ -1609,7 +1609,7 @@ function function_a3030357(attacker, einflictor, weapon, smeansofdeath, var_bee3
 			{
 				if(isdefined(var_bee367e6))
 				{
-					potm::function_66d09fea(#"hash_c0e3040ba19a2b8", var_bee367e6, self, einflictor, var_50d1e41a, overrideentitycamera);
+					potm::function_66d09fea(#"bh_kill", var_bee367e6, self, einflictor, var_50d1e41a, overrideentitycamera);
 				}
 			}
 			else

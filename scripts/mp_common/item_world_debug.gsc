@@ -1092,21 +1092,21 @@ function private function_cdd9b388()
 						{
 							if(itemtype == 18)
 							{
-								var_c3ff57f0 = getdynentarray("");
+								a_homunculi = getdynentarray("");
 								zombie_apoc_homunculus = getdynent("");
 								if(isdefined(zombie_apoc_homunculus))
 								{
-									if(!isdefined(var_c3ff57f0))
+									if(!isdefined(a_homunculi))
 									{
-										var_c3ff57f0 = [];
+										a_homunculi = [];
 									}
-									else if(!isarray(var_c3ff57f0))
+									else if(!isarray(a_homunculi))
 									{
-										var_c3ff57f0 = array(var_c3ff57f0);
+										a_homunculi = array(a_homunculi);
 									}
-									var_c3ff57f0[var_c3ff57f0.size] = zombie_apoc_homunculus;
+									a_homunculi[a_homunculi.size] = zombie_apoc_homunculus;
 								}
-								foreach(d_homunculus in var_c3ff57f0)
+								foreach(d_homunculus in a_homunculi)
 								{
 									if(function_8a8a409b(d_homunculus))
 									{

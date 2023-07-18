@@ -654,19 +654,19 @@ function melee_power(weapon)
 function private function_92a54dac()
 {
 	self endon(#"death");
-	var_392095cb = getentarray("blast_attack_interactables", "script_noteworthy");
-	foreach(var_afdaa400 in var_392095cb)
+	a_e_afterlife = getentarray("blast_attack_interactables", "script_noteworthy");
+	foreach(e_afterlife in a_e_afterlife)
 	{
-		n_dist_sq = distancesquared(var_afdaa400.origin, self.origin);
+		n_dist_sq = distancesquared(e_afterlife.origin, self.origin);
 		if(n_dist_sq < 262144)
 		{
 			var_2ed6f142 = self getweaponmuzzlepoint();
-			v_normal = vectornormalize(var_afdaa400.origin - var_2ed6f142);
+			v_normal = vectornormalize(e_afterlife.origin - var_2ed6f142);
 			var_ee5864e0 = self getweaponforwarddir();
 			n_dot = vectordot(var_ee5864e0, v_normal);
 			if(n_dot > 0.61)
 			{
-				var_afdaa400 notify(#"blast_attack", {#e_player:self});
+				e_afterlife notify(#"blast_attack", {#e_player:self});
 			}
 		}
 	}

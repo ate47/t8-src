@@ -686,7 +686,7 @@ function debug_bots(var_841324bd)
 			{
 				foreach(nd in level.var_5ec2d86e)
 				{
-					if(!isdefined(nd.var_ccec4fe9))
+					if(!isdefined(nd.e_occupant))
 					{
 						print3d(nd.origin + vectorscale((0, 0, 1), 10), "", (1, 0, 0), 1, 1);
 						continue;
@@ -1843,7 +1843,7 @@ function function_a64b7003(var_bf0bb02d = 0, var_61e27031)
 	}
 	foreach(nd_guard in level.var_5ec2d86e)
 	{
-		nd_guard.var_ccec4fe9 = undefined;
+		nd_guard.e_occupant = undefined;
 	}
 	if(var_bf0bb02d)
 	{
@@ -1896,7 +1896,7 @@ function function_c2cfffdd(nd_guard, var_2fd67dea = 0, var_1d1ab17 = 0)
 		/#
 			assert(isdefined(nd_guard), "");
 		#/
-		nd_guard.var_ccec4fe9 = self;
+		nd_guard.e_occupant = self;
 		self.nd_guard = nd_guard;
 		self.var_9a79d89d = nd_guard.origin;
 		self.var_5ab7c19c = nd_guard.angles;
@@ -1954,7 +1954,7 @@ function function_623c7cae()
 {
 	if(isdefined(self.nd_guard))
 	{
-		self.nd_guard.var_ccec4fe9 = undefined;
+		self.nd_guard.e_occupant = undefined;
 		self.nd_guard = undefined;
 		self.var_bab91f2 = undefined;
 		self.var_daa4b90a = undefined;
@@ -1977,7 +1977,7 @@ function function_c9c5ed36()
 {
 	foreach(nd in level.var_5ec2d86e)
 	{
-		if(!isdefined(nd.var_ccec4fe9))
+		if(!isdefined(nd.e_occupant))
 		{
 			return nd;
 		}
@@ -1998,7 +1998,7 @@ function function_82569431(einflictor, attacker, idamage, smeansofdeath, weapon,
 {
 	if(isdefined(self.nd_guard))
 	{
-		self.nd_guard.var_ccec4fe9 = undefined;
+		self.nd_guard.e_occupant = undefined;
 		self.nd_guard = undefined;
 		self.var_9a79d89d = undefined;
 		self.var_5ab7c19c = undefined;

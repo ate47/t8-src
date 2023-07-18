@@ -345,12 +345,12 @@ function private tomahawk_thrown(e_grenade)
 	eyepos = self geteye();
 	if(level.active_powerups.size && isdefined(e_grenade))
 	{
-		foreach(var_7d81025 in level.active_powerups)
+		foreach(e_powerup in level.active_powerups)
 		{
-			if(self util::is_looking_at(var_7d81025))
+			if(self util::is_looking_at(e_powerup))
 			{
 				v_dir = vectornormalize(e_grenade.origin - eyepos);
-				if(isdefined(var_7d81025 sightconetrace(eyepos, self, v_dir, 4)) && var_7d81025 sightconetrace(eyepos, self, v_dir, 4))
+				if(isdefined(e_powerup sightconetrace(eyepos, self, v_dir, 4)) && e_powerup sightconetrace(eyepos, self, v_dir, 4))
 				{
 					if(!isdefined(a_powerups))
 					{
@@ -360,9 +360,9 @@ function private tomahawk_thrown(e_grenade)
 					{
 						a_powerups = array(a_powerups);
 					}
-					if(!isinarray(a_powerups, var_7d81025))
+					if(!isinarray(a_powerups, e_powerup))
 					{
-						a_powerups[a_powerups.size] = var_7d81025;
+						a_powerups[a_powerups.size] = e_powerup;
 					}
 				}
 			}

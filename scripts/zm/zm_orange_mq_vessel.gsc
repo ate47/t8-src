@@ -44,8 +44,8 @@ function main()
 	level flag::init(#"vessel_found");
 	level flag::init(#"blood_hints");
 	level.var_50e4c504 = [];
-	var_bd588d2c = array::randomize(getentarray("mq_shubozzor", "targetname"));
-	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_bd588d2c, 0, 0);
+	a_e_hearts = array::randomize(getentarray("mq_shubozzor", "targetname"));
+	level.var_50e4c504 = arraycombine(level.var_50e4c504, a_e_hearts, 0, 0);
 	if(!isdefined(level.var_54d62431))
 	{
 		level.var_54d62431 = [];
@@ -54,13 +54,13 @@ function main()
 	{
 		level.var_54d62431 = array(level.var_54d62431);
 	}
-	level.var_54d62431[level.var_54d62431.size] = array::pop_front(var_bd588d2c);
-	foreach(part in var_bd588d2c)
+	level.var_54d62431[level.var_54d62431.size] = array::pop_front(a_e_hearts);
+	foreach(part in a_e_hearts)
 	{
 		part hide();
 	}
-	var_6b7b4af3 = array::randomize(getentarray("mq_othna", "targetname"));
-	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_6b7b4af3, 0, 0);
+	a_e_bones = array::randomize(getentarray("mq_othna", "targetname"));
+	level.var_50e4c504 = arraycombine(level.var_50e4c504, a_e_bones, 0, 0);
 	if(!isdefined(level.var_54d62431))
 	{
 		level.var_54d62431 = [];
@@ -69,13 +69,13 @@ function main()
 	{
 		level.var_54d62431 = array(level.var_54d62431);
 	}
-	level.var_54d62431[level.var_54d62431.size] = array::pop_front(var_6b7b4af3);
-	foreach(part in var_6b7b4af3)
+	level.var_54d62431[level.var_54d62431.size] = array::pop_front(a_e_bones);
+	foreach(part in a_e_bones)
 	{
 		part hide();
 	}
-	var_3ca16bc7 = array::randomize(getentarray("mq_othnor", "targetname"));
-	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_3ca16bc7, 0, 0);
+	a_e_flesh = array::randomize(getentarray("mq_othnor", "targetname"));
+	level.var_50e4c504 = arraycombine(level.var_50e4c504, a_e_flesh, 0, 0);
 	if(!isdefined(level.var_54d62431))
 	{
 		level.var_54d62431 = [];
@@ -84,13 +84,13 @@ function main()
 	{
 		level.var_54d62431 = array(level.var_54d62431);
 	}
-	level.var_54d62431[level.var_54d62431.size] = array::pop_front(var_3ca16bc7);
-	foreach(part in var_3ca16bc7)
+	level.var_54d62431[level.var_54d62431.size] = array::pop_front(a_e_flesh);
+	foreach(part in a_e_flesh)
 	{
 		part hide();
 	}
-	var_6e1e26c6 = array::randomize(getentarray("mq_arknar", "targetname"));
-	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_6e1e26c6, 0, 0);
+	a_e_jaws = array::randomize(getentarray("mq_arknar", "targetname"));
+	level.var_50e4c504 = arraycombine(level.var_50e4c504, a_e_jaws, 0, 0);
 	if(!isdefined(level.var_54d62431))
 	{
 		level.var_54d62431 = [];
@@ -99,13 +99,13 @@ function main()
 	{
 		level.var_54d62431 = array(level.var_54d62431);
 	}
-	level.var_54d62431[level.var_54d62431.size] = array::pop_front(var_6e1e26c6);
-	foreach(part in var_6e1e26c6)
+	level.var_54d62431[level.var_54d62431.size] = array::pop_front(a_e_jaws);
+	foreach(part in a_e_jaws)
 	{
 		part hide();
 	}
-	var_8d21d8c4 = array::randomize(getentarray("mq_asteth", "targetname"));
-	level.var_50e4c504 = arraycombine(level.var_50e4c504, var_8d21d8c4, 0, 0);
+	a_e_skulls = array::randomize(getentarray("mq_asteth", "targetname"));
+	level.var_50e4c504 = arraycombine(level.var_50e4c504, a_e_skulls, 0, 0);
 	if(!isdefined(level.var_54d62431))
 	{
 		level.var_54d62431 = [];
@@ -114,8 +114,8 @@ function main()
 	{
 		level.var_54d62431 = array(level.var_54d62431);
 	}
-	level.var_54d62431[level.var_54d62431.size] = array::pop_front(var_8d21d8c4);
-	foreach(part in var_8d21d8c4)
+	level.var_54d62431[level.var_54d62431.size] = array::pop_front(a_e_skulls);
+	foreach(part in a_e_skulls)
 	{
 		part hide();
 	}
@@ -129,18 +129,18 @@ function main()
 	{
 		hint hide();
 	}
-	var_8f36abbb = struct::get_array("mq_vessel_loc", "targetname");
-	level.var_d6513b72 = array::random(var_8f36abbb);
-	level.var_d6513b72.var_8ac20606 = getent(level.var_d6513b72.target, "targetname");
-	level.var_d6513b72.var_8ac20606 hide();
+	a_s_vl = struct::get_array("mq_vessel_loc", "targetname");
+	level.var_d6513b72 = array::random(a_s_vl);
+	level.var_d6513b72.e_vessel = getent(level.var_d6513b72.target, "targetname");
+	level.var_d6513b72.e_vessel hide();
 	level.var_d6513b72.e_cover = getent(level.var_d6513b72.target2, "targetname");
 	level.var_d6513b72.e_safe = getent(level.var_d6513b72.target3, "targetname");
-	for(i = 0; i < var_8f36abbb.size; i++)
+	for(i = 0; i < a_s_vl.size; i++)
 	{
-		if(var_8f36abbb[i] != level.var_d6513b72)
+		if(a_s_vl[i] != level.var_d6513b72)
 		{
-			var_8ac20606 = getent(var_8f36abbb[i].target, "targetname");
-			var_8ac20606 delete();
+			e_vessel = getent(a_s_vl[i].target, "targetname");
+			e_vessel delete();
 		}
 	}
 }
@@ -156,7 +156,7 @@ function main()
 */
 function function_a5254494(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 2);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 2);
 	if(!var_5ea5c94d)
 	{
 		level.var_60b08c24 zm_hms_util::function_6a0d675d(#"hash_13b606b34fa64ed5", 0, 0, 1);
@@ -187,7 +187,7 @@ function function_77e4073b(var_5ea5c94d, ended_early)
 	level flag::set(#"vessel_found");
 	if(var_5ea5c94d || ended_early)
 	{
-		level.var_d6513b72.var_8ac20606 delete();
+		level.var_d6513b72.e_vessel delete();
 		level.var_d6513b72.e_cover delete();
 	}
 }
@@ -314,7 +314,7 @@ function private function_9c223c27()
 {
 	level endon(#"end_game", #"vessel_found");
 	self endon(#"death");
-	self.var_8ac20606 show();
+	self.e_vessel show();
 	self zm_orange_ee_dynamite::function_170afe2c(1);
 	self waittill(#"hash_126c823a82e09010");
 	self.e_safe hide();
@@ -324,8 +324,8 @@ function private function_9c223c27()
 	}
 	player = self zm_unitrigger::function_fac87205(zm_utility::function_d6046228(#"hash_3be823a04b5cca2d", #"hash_25cb84d1af883c53"), 64);
 	player thread zm_orange_util::function_51b752a9(#"hash_4323f85521955dd7");
-	self.var_8ac20606 hide();
-	self.var_8ac20606 playsound("zmb_vessel_pickup");
+	self.e_vessel hide();
+	self.e_vessel playsound("zmb_vessel_pickup");
 	level flag::set(#"vessel_found");
 }
 

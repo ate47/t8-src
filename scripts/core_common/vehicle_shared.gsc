@@ -5806,12 +5806,12 @@ function function_f2fa0421(n_health)
 		{
 			self.health = n_health;
 		}
-		var_d8bf3ee8 = self getvehoccupants();
-		foreach(var_ccec4fe9 in var_d8bf3ee8)
+		a_occupants = self getvehoccupants();
+		foreach(e_occupant in a_occupants)
 		{
-			if(isplayer(var_ccec4fe9))
+			if(isplayer(e_occupant))
 			{
-				var_ccec4fe9 update_damage_as_occupant(self.maxhealth - self.health, self.maxhealth);
+				e_occupant update_damage_as_occupant(self.maxhealth - self.health, self.maxhealth);
 			}
 		}
 		wait(0.1);

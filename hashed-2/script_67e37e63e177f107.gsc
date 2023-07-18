@@ -339,9 +339,9 @@ function function_ef0bfb9d()
 	{
 		enemies = util::function_81ccf6d3(self.team);
 		alltargets = arraysort(enemies, self function_d3a9800e(), 1);
-		var_a5a1f99c = getaiarchetypearray(#"zombie");
-		var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-		alltargets = arraycombine(var_a5a1f99c, alltargets, 0, 0);
+		zombiesarray = getaiarchetypearray(#"zombie");
+		zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+		alltargets = arraycombine(zombiesarray, alltargets, 0, 0);
 		foreach(target in alltargets)
 		{
 			var_87c0ec9c = distancesquared(target.origin, self function_d3a9800e());

@@ -219,8 +219,8 @@ function givecustomloadout()
 	self setweaponammostock(weapon, stockammo);
 	self setspawnweapon(weapon);
 	self giveperks();
-	var_5a17505c = (isdefined(getgametypesetting(#"hash_4ca06c610b5d53bd")) ? getgametypesetting(#"hash_4ca06c610b5d53bd") : 0);
-	if(!var_5a17505c)
+	e_whippings = (isdefined(getgametypesetting(#"hash_4ca06c610b5d53bd")) ? getgametypesetting(#"hash_4ca06c610b5d53bd") : 0);
+	if(!e_whippings)
 	{
 		secondaryoffhand = getweapon(#"gadget_health_regen");
 		secondaryoffhandcount = 1;

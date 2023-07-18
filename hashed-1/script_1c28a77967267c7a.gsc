@@ -75,11 +75,11 @@ function on_grenade_fired(s_params)
 		e_grenade.var_1a61db89 linkto(e_grenade);
 		e_grenade.var_1a61db89 clientfield::set("" + #"hash_136e9d44e7e2e888", 1);
 		e_grenade.weapon = s_params.weapon;
-		var_be17187b = undefined;
-		var_be17187b = s_params.projectile waittill(#"stationary");
+		s_waitresult = undefined;
+		s_waitresult = s_params.projectile waittill(#"stationary");
 		if(e_grenade _second_compass_map_mp_ruins(self))
 		{
-			e_grenade thread function_9d9bff80(var_be17187b.position, self);
+			e_grenade thread function_9d9bff80(s_waitresult.position, self);
 		}
 		else
 		{
@@ -120,14 +120,14 @@ function function_9d9bff80(var_2fe3186e, attacker)
 			}
 			e_zombie.var_42d5176d = 1;
 			e_zombie.marked_for_death = 1;
-			var_c70b3f89 = util::spawn_model("tag_origin", e_zombie getcentroid(), e_zombie.angles);
-			e_zombie linkto(var_c70b3f89);
-			e_zombie.var_c70b3f89 = var_c70b3f89;
-			e_zombie thread util::delete_on_death(e_zombie.var_c70b3f89);
-			var_c70b3f89 moveto(var_c70b3f89.origin + (0, 0, randomfloatrange(16, 64)), 0.5);
+			e_floater = util::spawn_model("tag_origin", e_zombie getcentroid(), e_zombie.angles);
+			e_zombie linkto(e_floater);
+			e_zombie.e_floater = e_floater;
+			e_zombie thread util::delete_on_death(e_zombie.e_floater);
+			e_floater moveto(e_floater.origin + (0, 0, randomfloatrange(16, 64)), 0.5);
 			if(e_zombie.archetype === #"zombie")
 			{
-				var_c70b3f89 thread function_3710157f(e_zombie);
+				e_floater thread function_3710157f(e_zombie);
 			}
 		}
 	}
@@ -142,12 +142,12 @@ function function_9d9bff80(var_2fe3186e, attacker)
 		{
 			var_c0225146 = var_b7fc8c3e + ((vectornormalize(e_zombie getcentroid() - var_b7fc8c3e)) * 80);
 			n_distance = distance(e_zombie getcentroid(), var_b7fc8c3e);
-			e_zombie.var_c70b3f89 moveto(var_c0225146, n_distance / 100);
+			e_zombie.e_floater moveto(var_c0225146, n_distance / 100);
 			var_358047f1 = vectortoangles(e_zombie getcentroid() - var_b7fc8c3e);
-			e_zombie.var_c70b3f89 rotateto(var_358047f1, 1);
+			e_zombie.e_floater rotateto(var_358047f1, 1);
 			continue;
 		}
-		if(isdefined(e_zombie) && isdefined(e_zombie.var_c70b3f89))
+		if(isdefined(e_zombie) && isdefined(e_zombie.e_floater))
 		{
 			e_zombie function_4ada560e();
 		}
@@ -288,10 +288,10 @@ function function_4ada560e()
 	{
 		self unlink();
 	}
-	if(isdefined(self.var_c70b3f89))
+	if(isdefined(self.e_floater))
 	{
-		self.var_c70b3f89 thread scene::stop();
-		self.var_c70b3f89 delete();
+		self.e_floater thread scene::stop();
+		self.e_floater delete();
 	}
 }
 

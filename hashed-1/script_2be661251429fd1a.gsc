@@ -75,7 +75,7 @@ function __main__()
 */
 function register_actions()
 {
-	bot_action::register_action(#"hash_43618a52a3bededc", &bot_action::weapon_rank, &function_bcb5ef11, &bot_action::function_c27fa689);
+	bot_action::register_action(#"activate_health_gadget", &bot_action::weapon_rank, &function_bcb5ef11, &bot_action::activate_health_gadget);
 	bot_action::register_action(#"throw_molotov", &bot_action::weapon_rank, &function_1275c409, &bot_action::function_90c011d5);
 	bot_action::register_action(#"throw_grenade", &bot_action::weapon_rank, &function_32e8b358, &bot_action::function_90c011d5);
 	bot_action::register_action(#"throw_mine", &bot_action::weapon_rank, &function_369cb1a5, &bot_action::function_94f96101);
@@ -122,8 +122,8 @@ function function_25f1e3c1()
 {
 	bot_action::function_a2c83569(#"knife_held", #"melee_enemy");
 	bot_action::function_a2c83569(#"bare_hands", #"melee_enemy");
-	bot_action::function_7e847a84(#"gadget_health_regen", #"hash_43618a52a3bededc");
-	bot_action::function_7e847a84(#"gadget_medicalinjectiongun", #"hash_43618a52a3bededc");
+	bot_action::function_7e847a84(#"gadget_health_regen", #"activate_health_gadget");
+	bot_action::function_7e847a84(#"gadget_medicalinjectiongun", #"activate_health_gadget");
 	self function_aaede90c();
 	self function_aa5475f();
 	self function_865733c1();
@@ -143,13 +143,13 @@ function function_938667bd()
 	bot_action::register_action(#"hash_5397239dd3c8da8d", &bot_action::weapon_rank, &function_c98fad6b, &function_74ab5468);
 	bot_action::register_action(#"hash_6fbd1b1c42e3a0c5", &bot_action::weapon_rank, &function_1c7ea685, &bot_action::function_49161e05);
 	bot_action::register_action(#"activate_localheal", &bot_action::weapon_rank, &function_7fa22be8, &bot_action::function_49161e05);
-	bot_action::register_action(#"hash_49634476519ac7ef", &bot_action::weapon_rank, &function_65b9c7c2, &function_8a5ad584);
+	bot_action::register_action(#"activate_radiation_field", &bot_action::weapon_rank, &function_65b9c7c2, &activate_radiation_field);
 	bot_action::register_action(#"use_tripwire", &bot_action::weapon_rank, &function_d18123f8, &use_tripwire);
 	bot_action::register_action(#"activate_dog", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_4600e058d958fc21", &bot_action::weapon_rank, &function_17a8721f, &function_76c8b8e8);
 	bot_action::register_action(#"activate_vision_pulse", &bot_action::weapon_rank, &bot_action::function_38d0d1df, &bot_action::function_49161e05);
-	bot_action::register_action(#"hash_79f1bffaa4e2fbd8", &bot_action::weapon_rank, &function_554a6177, &use_grapple);
-	bot_action::register_action(#"hash_6b075b8b88b1cef", &bot_action::weapon_rank, &function_97e7772c, &bot_action::function_94f96101);
+	bot_action::register_action(#"activate_noncombat_grapple", &bot_action::weapon_rank, &function_554a6177, &use_grapple);
+	bot_action::register_action(#"activate_gravity_slam", &bot_action::weapon_rank, &function_97e7772c, &bot_action::function_94f96101);
 	bot_action::register_action(#"deploy_spawnbeacon", &bot_action::weapon_rank, &function_9a0eb4f0, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_17f1a25f8c10e1cd", &bot_action::weapon_rank, &function_4a95cdaf, &bot_action::function_49161e05);
 	bot_action::register_action(#"hash_5d6b13cfb592ee04", &bot_action::weapon_rank, &function_e43892c4, &function_79988b4b);
@@ -290,7 +290,7 @@ function function_aaede90c()
 	bot_action::function_a2c83569(#"hero_pineapplegun", #"fire_grenade");
 	bot_action::function_7e847a84(#"gadget_supplypod", #"hash_6fbd1b1c42e3a0c5");
 	bot_action::function_7e847a84(#"eq_localheal", #"activate_localheal");
-	bot_action::function_7e847a84(#"gadget_radiation_field", #"hash_49634476519ac7ef");
+	bot_action::function_7e847a84(#"gadget_radiation_field", #"activate_radiation_field");
 	bot_action::function_7e847a84(#"hero_flamethrower", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"hero_flamethrower", #"hash_7aaeac32a4e1bf84");
 	bot_action::function_a2c83569(#"hero_flamethrower", #"hash_434716893aa869f3");
@@ -306,8 +306,8 @@ function function_aaede90c()
 	bot_action::function_a2c83569(#"shock_rifle", #"hash_434716893aa869f3");
 	bot_action::function_7e847a84(#"eq_sensor", #"hash_4600e058d958fc21");
 	bot_action::function_7e847a84(#"gadget_vision_pulse", #"activate_vision_pulse");
-	bot_action::function_7e847a84(#"eq_grapple", #"hash_79f1bffaa4e2fbd8");
-	bot_action::function_7e847a84(#"eq_gravityslam", #"hash_6b075b8b88b1cef");
+	bot_action::function_7e847a84(#"eq_grapple", #"activate_noncombat_grapple");
+	bot_action::function_7e847a84(#"eq_gravityslam", #"activate_gravity_slam");
 	bot_action::function_7e847a84(#"gadget_spawnbeacon", #"deploy_spawnbeacon");
 	bot_action::function_7e847a84(#"hero_annihilator", #"hash_5397239dd3c8da8d");
 	bot_action::function_a2c83569(#"hero_annihilator", #"hash_7aaeac32a4e1bf84");
@@ -799,7 +799,7 @@ function function_65b9c7c2(actionparams)
 }
 
 /*
-	Name: function_8a5ad584
+	Name: activate_radiation_field
 	Namespace: namespace_104c3c75
 	Checksum: 0x98994A8D
 	Offset: 0x3890
@@ -807,7 +807,7 @@ function function_65b9c7c2(actionparams)
 	Parameters: 1
 	Flags: Linked
 */
-function function_8a5ad584(actionparams)
+function activate_radiation_field(actionparams)
 {
 	weapon = actionparams.weapon;
 	self bot_action::function_ccdcc5d9(weapon);

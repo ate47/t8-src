@@ -43,8 +43,8 @@ function __init__()
 */
 function function_7186a3aa()
 {
-	zm_perks::register_perk_clientfields(#"hash_48255a3b086a9bea", &function_974d4ee2, &function_992358e3);
-	zm_perks::register_perk_init_thread(#"hash_48255a3b086a9bea", &function_4e184775);
+	zm_perks::register_perk_clientfields(#"specialty_mod_berserker", &function_974d4ee2, &function_992358e3);
+	zm_perks::register_perk_init_thread(#"specialty_mod_berserker", &function_4e184775);
 }
 
 /*

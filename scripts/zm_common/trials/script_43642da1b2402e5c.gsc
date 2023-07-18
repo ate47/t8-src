@@ -37,7 +37,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -203,10 +203,10 @@ function private function_29ee24dd()
 	self reset_ammo(1);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"melee_reload", #"wallbuy_done");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"zmb_max_ammo", #"hash_278526d0bbdb4ce7", #"melee_reload", #"wallbuy_done");
 		w_current = self getcurrentweapon();
-		if(var_be17187b._notify == "melee_reload")
+		if(s_waitresult._notify == "melee_reload")
 		{
 			self setweaponammoclip(w_current, w_current.clipsize);
 		}

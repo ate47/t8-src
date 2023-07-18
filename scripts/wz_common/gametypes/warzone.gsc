@@ -715,7 +715,7 @@ function private start_insertion()
 		if(getdvarint(#"scr_disable_infiltration", 0))
 		{
 			level.var_bde3d03 = undefined;
-			level flagsys::set(#"hash_5a3e17fbc33cdc86");
+			level flagsys::set(#"insertion_teleport_completed");
 			return;
 		}
 		while(getplayers().size == 0)
@@ -815,7 +815,7 @@ function start_warzone()
 */
 function private function_fbb2b180()
 {
-	level flagsys::wait_till(#"hash_5a3e17fbc33cdc86");
+	level flagsys::wait_till(#"insertion_teleport_completed");
 	function_3ca3c6e4();
 	resetglass();
 	if(isdefined(level.var_82eb1dab))
@@ -2809,7 +2809,7 @@ function private function_b777ff94(entity)
 */
 function private function_6ee52dd0(damage, damageinterval)
 {
-	level flagsys::wait_till(#"hash_5a3e17fbc33cdc86");
+	level flagsys::wait_till(#"insertion_teleport_completed");
 	var_366959 = 0;
 	var_1b5e849 = int(damageinterval * 1000);
 	while(!(isdefined(level.gameended) && level.gameended))

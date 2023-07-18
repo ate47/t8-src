@@ -698,9 +698,9 @@ function private function_31f887b5(behaviortreeentity)
 	predicttime = 0.2;
 	movevector = velocity * predicttime;
 	predictedpos = behaviortreeentity.origin + movevector;
-	var_a5a1f99c = getaiarchetypearray(#"zombie");
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-	var_86476d47 = array::filter(var_a5a1f99c, 0, &namespace_9ff9f642::function_865a83f8, behaviortreeentity, predictedpos, var_92cf09df);
+	zombiesarray = getaiarchetypearray(#"zombie");
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+	var_86476d47 = array::filter(zombiesarray, 0, &namespace_9ff9f642::function_865a83f8, behaviortreeentity, predictedpos, var_92cf09df);
 	if(var_86476d47.size > 0)
 	{
 		foreach(zombie in var_86476d47)

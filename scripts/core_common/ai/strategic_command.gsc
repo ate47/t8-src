@@ -626,13 +626,13 @@ function private function_1e535a11()
 		while(true)
 		{
 			waitframe(1);
-			if(!getdvarint(#"hash_2e02207d5878b8eb", 0) || !isdefined(level.var_6a36223c))
+			if(!getdvarint(#"hash_2e02207d5878b8eb", 0) || !isdefined(level.a_s_breadcrumbs))
 			{
 				continue;
 			}
-			for(i = 0; i < level.var_6a36223c.size; i++)
+			for(i = 0; i < level.a_s_breadcrumbs.size; i++)
 			{
-				function_adb62fbb(level.var_6a36223c[i], i);
+				function_adb62fbb(level.a_s_breadcrumbs[i], i);
 			}
 		}
 	#/

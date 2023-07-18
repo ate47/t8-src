@@ -32,7 +32,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -105,10 +105,10 @@ function private function_2e2a518(n_timer, var_f97d1a30)
 			wait(2);
 		}
 		self start_timer(n_timer, var_f97d1a30);
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(n_timer, #"spent_points", #"hash_14b0ad44336160bc");
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(n_timer, #"spent_points", #"hash_14b0ad44336160bc");
 		self stop_timer();
-		if(var_be17187b._notify == "timeout")
+		if(s_waitresult._notify == "timeout")
 		{
 			zm_trial::fail(#"hash_1a444a987e075837", array(self));
 			level notify(#"hash_76fb373d2d71c744");

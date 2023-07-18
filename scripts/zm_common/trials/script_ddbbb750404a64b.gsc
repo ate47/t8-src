@@ -32,7 +32,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -52,7 +52,7 @@ function private on_begin(str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_
 {
 	if(str_zone1 == #"hash_13aa327bb61b59de")
 	{
-		if(str_zone2 == #"hash_3c64caae70d6af41")
+		if(str_zone2 == #"zm_red_dark_side")
 		{
 			level.var_da1e5199 = array(#"zone_river_upper", #"zone_river_lower", #"zone_serpent_pass_upper", #"zone_serpent_pass_center", #"zone_serpent_pass_lower", #"zone_serpent_pass_bridge", #"zone_drakaina_arena", #"zone_cliff_tombs_upper", #"zone_cliff_tombs_forge", #"zone_cliff_tombs_center", #"zone_cliff_tombs_lower", #"zone_cliff_tombs_bridge", #"zone_ww_quest_death", #"zone_ww_quest_air");
 		}

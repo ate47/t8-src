@@ -174,7 +174,7 @@ function function_43e2a503()
 	}
 	var_26d86758 = spawn("script_origin", self.origin);
 	var_26d86758 playloopsound(#"hash_368d31ed538206b0");
-	var_64c09f7f = self zm_unitrigger::function_fac87205(undefined, 40);
+	e_activator = self zm_unitrigger::function_fac87205(undefined, 40);
 	if(!isdefined(level.var_ec4c747a))
 	{
 		level.var_ec4c747a = 0;

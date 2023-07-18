@@ -1654,7 +1654,7 @@ function function_d5bfc8e8()
 {
 	level endon(#"hash_11429494f29d116d");
 	self endon(#"death");
-	self.var_ee6ce319 = [];
+	self.a_bashers = [];
 	var_1a50a8c5 = undefined;
 	do
 	{
@@ -1670,24 +1670,24 @@ function function_d5bfc8e8()
 		if(var_989dd232)
 		{
 			e_player thread function_3d93d103();
-			if(!isdefined(self.var_ee6ce319))
+			if(!isdefined(self.a_bashers))
 			{
-				self.var_ee6ce319 = [];
+				self.a_bashers = [];
 			}
-			else if(!isarray(self.var_ee6ce319))
+			else if(!isarray(self.a_bashers))
 			{
-				self.var_ee6ce319 = array(self.var_ee6ce319);
+				self.a_bashers = array(self.a_bashers);
 			}
-			if(!isinarray(self.var_ee6ce319, e_player))
+			if(!isinarray(self.a_bashers, e_player))
 			{
-				self.var_ee6ce319[self.var_ee6ce319.size] = e_player;
+				self.a_bashers[self.a_bashers.size] = e_player;
 			}
 		}
 		var_1a50a8c5 = 0;
-		self.var_ee6ce319 = array::remove_undefined(self.var_ee6ce319);
-		foreach(var_ef904cac in self.var_ee6ce319)
+		self.a_bashers = array::remove_undefined(self.a_bashers);
+		foreach(e_basher in self.a_bashers)
 		{
-			if(isdefined(var_ef904cac.var_12c0dec1) && var_ef904cac.var_12c0dec1)
+			if(isdefined(e_basher.var_12c0dec1) && e_basher.var_12c0dec1)
 			{
 				var_1a50a8c5++;
 			}
@@ -2353,9 +2353,9 @@ function wave_3()
 			break;
 		}
 	}
-	var_602ff9e4 = struct::get_array("greenhouse_lab_spawns");
+	a_s_greenhouse = struct::get_array("greenhouse_lab_spawns");
 	a_s_locs = [];
-	foreach(s_greenhouse in var_602ff9e4)
+	foreach(s_greenhouse in a_s_greenhouse)
 	{
 		if(s_greenhouse.script_noteworthy === "werewolf_location")
 		{

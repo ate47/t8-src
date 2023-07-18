@@ -40,7 +40,7 @@ function autoexec __init__system__()
 */
 function private __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -816,12 +816,12 @@ function function_96e10d88(successful)
 */
 function function_1e223bce(players)
 {
-	var_10991f64 = 0;
+	bitarray = 0;
 	foreach(player in players)
 	{
-		var_10991f64 = var_10991f64 | (1 << player getentitynumber());
+		bitarray = bitarray | (1 << player getentitynumber());
 	}
-	return var_10991f64;
+	return bitarray;
 }
 
 /*
@@ -835,9 +835,9 @@ function function_1e223bce(players)
 */
 function function_85d088ed(player)
 {
-	var_10991f64 = 0;
-	var_10991f64 = var_10991f64 | (1 << player getentitynumber());
-	return var_10991f64;
+	bitarray = 0;
+	bitarray = bitarray | (1 << player getentitynumber());
+	return bitarray;
 }
 
 /*

@@ -1122,14 +1122,14 @@ function ee_exp_monkey_fire_()
 	{
 		s_result = undefined;
 		s_result = self waittill(#"throwing_tomahawk");
-		var_288eb627 = s_result.e_grenade;
-		if(!isdefined(var_288eb627))
+		e_tomahawk = s_result.e_grenade;
+		if(!isdefined(e_tomahawk))
 		{
 			return;
 		}
-		while(isdefined(var_288eb627) && self flag::get(#"hash_1213756b45a941f0") && level flag::get(#"hash_5466d69fa17fc721"))
+		while(isdefined(e_tomahawk) && self flag::get(#"hash_1213756b45a941f0") && level flag::get(#"hash_5466d69fa17fc721"))
 		{
-			if(var_288eb627 istouching(level.t_g_o_s4))
+			if(e_tomahawk istouching(level.t_g_o_s4))
 			{
 				self function_a88a6e6a();
 				self thread zm_audio::create_and_play_dialog(#"success_resp", #"generic");
@@ -1172,14 +1172,14 @@ function function_ca9bfe21(a_ents, e_player)
 {
 	self notify("79b726cd6d4f2032");
 	self endon("79b726cd6d4f2032");
-	var_1520674d = a_ents[#"prop 1"];
-	var_1520674d setinvisibletoall();
-	var_1520674d setvisibletoplayer(e_player);
+	e_nugget = a_ents[#"prop 1"];
+	e_nugget setinvisibletoall();
+	e_nugget setvisibletoplayer(e_player);
 	self waittill(#"scene_done");
-	var_1520674d.s_unitrigger_stub = var_1520674d zm_unitrigger::function_fac87205(&function_45c5ebfb, 64);
+	e_nugget.s_unitrigger_stub = e_nugget zm_unitrigger::function_fac87205(&function_45c5ebfb, 64);
 	e_player flag::set(#"hash_21827937692e2aba");
-	playsoundatposition(#"hash_7cfaf85826852b1f", var_1520674d.origin);
-	var_1520674d delete();
+	playsoundatposition(#"hash_7cfaf85826852b1f", e_nugget.origin);
+	e_nugget delete();
 }
 
 /*
@@ -1625,7 +1625,7 @@ function function_efd25c9()
 	/#
 		level flag::set(#"hash_dd62a8822ea4a38");
 		level flag::set(#"hash_66f358c0066d77d8");
-		level flag::set(#"hash_3b1ad1b5bdc81825");
+		level flag::set(#"spoon_quest_completed");
 		level flag::set(#"hash_29dc018e9551ecf");
 		var_217fca51 = struct::get("");
 		var_6b6eb535 = var_217fca51.scene_ents[#"skeleton_arm"];

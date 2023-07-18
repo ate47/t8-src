@@ -480,7 +480,7 @@ function blood_buff()
 	self endon("6c9578c1610db2cd");
 	self val::set(#"bludy", "takedamage", 0);
 	self val::set(#"bludy", "allowdeath", 0);
-	level.var_1f7db45b = self;
+	level.e_bludy = self;
 	self.var_e1cad99d = 3;
 	self.team = #"team3";
 	self.var_d45ca662 = 1;

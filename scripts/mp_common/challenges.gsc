@@ -2340,22 +2340,22 @@ function function_223ff464()
 	if(!self stats::get_stat(#"extrabools", 0) === 1)
 	{
 		self force_challenge_stat(#"mastery_marksman", 0);
-		var_62fe685a = [];
-		array::add(var_62fe685a, #"hash_4075f20007923416");
-		array::add(var_62fe685a, #"hash_72d1952fced05f40");
-		array::add(var_62fe685a, #"hash_70cd6c54d1c07272");
-		array::add(var_62fe685a, #"hash_6b828c2fcb0e8df5");
-		array::add(var_62fe685a, #"hash_2ea8a6bab2364c58");
-		array::add(var_62fe685a, #"hash_7ecfcae46143397c");
-		array::add(var_62fe685a, #"hash_3b30f98820bc20cf");
-		array::add(var_62fe685a, #"hash_18816731b999fbfb");
-		array::add(var_62fe685a, #"hash_6c1c399dcbe1af97");
-		array::add(var_62fe685a, #"hash_5630ec40181e1db3");
-		array::add(var_62fe685a, #"hash_354bfe5c140365bf");
-		array::add(var_62fe685a, #"hash_51eff59939399dc9");
-		for(index = 0; index < var_62fe685a.size; index++)
+		marksmanarray = [];
+		array::add(marksmanarray, #"hash_4075f20007923416");
+		array::add(marksmanarray, #"hash_72d1952fced05f40");
+		array::add(marksmanarray, #"hash_70cd6c54d1c07272");
+		array::add(marksmanarray, #"hash_6b828c2fcb0e8df5");
+		array::add(marksmanarray, #"hash_2ea8a6bab2364c58");
+		array::add(marksmanarray, #"hash_7ecfcae46143397c");
+		array::add(marksmanarray, #"hash_3b30f98820bc20cf");
+		array::add(marksmanarray, #"hash_18816731b999fbfb");
+		array::add(marksmanarray, #"hash_6c1c399dcbe1af97");
+		array::add(marksmanarray, #"hash_5630ec40181e1db3");
+		array::add(marksmanarray, #"hash_354bfe5c140365bf");
+		array::add(marksmanarray, #"hash_51eff59939399dc9");
+		for(index = 0; index < marksmanarray.size; index++)
 		{
-			if(self stats::function_af5584ca(var_62fe685a[index]) === 1)
+			if(self stats::function_af5584ca(marksmanarray[index]) === 1)
 			{
 				self stats::function_dad108fa(#"mastery_marksman", 1);
 			}

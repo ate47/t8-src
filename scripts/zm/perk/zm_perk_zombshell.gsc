@@ -151,9 +151,9 @@ function function_7328ce94(b_pause, str_perk, str_result, n_slot)
 {
 	self notify(#"specialty_zombshell" + "_take");
 	self function_993d228c();
-	if(isdefined(self.var_c153f587))
+	if(isdefined(self.e_zombshell))
 	{
-		self.var_c153f587 delete();
+		self.e_zombshell delete();
 	}
 	/#
 		assert(isdefined(self.var_849c3bcf), "");
@@ -180,7 +180,7 @@ function on_ai_killed(s_params)
 	if(isplayer(player) && player hasperk(#"specialty_zombshell") && s_params.shitloc !== "none")
 	{
 		n_chance = (player hasperk(#"specialty_mod_zombshell") ? 20 : 15);
-		if(!isdefined(player.var_c153f587) && !player.var_69604b18 && math::cointoss(n_chance) && (isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
+		if(!isdefined(player.e_zombshell) && !player.var_69604b18 && math::cointoss(n_chance) && (isdefined(self.completed_emerging_into_playable_area) && self.completed_emerging_into_playable_area))
 		{
 			self.no_powerups = 1;
 			self shell_explosion(player, s_params.weapon);
@@ -207,12 +207,12 @@ function shell_explosion(e_attacker, w_weapon)
 	}
 	v_origin = self.origin + vectorscale((0, 0, 1), 20);
 	self clientfield::increment("" + #"zombshell_explosion");
-	if(!isdefined(e_attacker.var_c153f587))
+	if(!isdefined(e_attacker.e_zombshell))
 	{
-		e_attacker.var_c153f587 = util::spawn_model("tag_origin", v_origin);
+		e_attacker.e_zombshell = util::spawn_model("tag_origin", v_origin);
 	}
-	e_attacker.var_c153f587.origin = v_origin;
-	e_attacker.var_c153f587 clientfield::set("" + #"zombshell_aoe", 1);
+	e_attacker.e_zombshell.origin = v_origin;
+	e_attacker.e_zombshell clientfield::set("" + #"zombshell_aoe", 1);
 	a_enemies = getaiteamarray(#"axis");
 	if(isdefined(self))
 	{
@@ -225,7 +225,7 @@ function shell_explosion(e_attacker, w_weapon)
 		util::wait_network_frame();
 	}
 	physicsexplosionsphere(v_origin, 128, 0, 5, 500, 500);
-	e_attacker thread function_4e547cfd(e_attacker.var_c153f587.origin);
+	e_attacker thread function_4e547cfd(e_attacker.e_zombshell.origin);
 	if(e_attacker hasperk(#"specialty_mod_zombshell"))
 	{
 		wait(8);
@@ -234,16 +234,16 @@ function shell_explosion(e_attacker, w_weapon)
 	{
 		wait(8);
 	}
-	e_attacker.var_c153f587 clientfield::set("" + #"zombshell_aoe", 0);
+	e_attacker.e_zombshell clientfield::set("" + #"zombshell_aoe", 0);
 	e_attacker notify(#"zombshell_aoe");
 	e_attacker function_993d228c();
 	e_attacker thread zombshell_cooldown(e_attacker.var_c0832831);
 	e_attacker.var_491bd66d++;
 	e_attacker.var_c0832831 = e_attacker.var_c0832831 + 15;
 	wait(0.1);
-	if(isdefined(e_attacker.var_c153f587))
+	if(isdefined(e_attacker.e_zombshell))
 	{
-		e_attacker.var_c153f587 delete();
+		e_attacker.e_zombshell delete();
 	}
 }
 
@@ -436,8 +436,8 @@ function function_279e31b8(e_owner)
 	self endon("b24e157aae48642");
 	self endoncallback(&function_26c2620, #"death", #"zombshell_aoe", #"scene_ready", #"specialty_zombshell" + "_take");
 	var_bbf6e7fd = 16384;
-	var_fc7bb684 = e_owner.var_c153f587.origin;
-	while(isdefined(e_owner.var_c153f587) && distancesquared(self.origin, var_fc7bb684) < var_bbf6e7fd && self hasperk(#"specialty_mod_zombshell"))
+	var_fc7bb684 = e_owner.e_zombshell.origin;
+	while(isdefined(e_owner.e_zombshell) && distancesquared(self.origin, var_fc7bb684) < var_bbf6e7fd && self hasperk(#"specialty_mod_zombshell"))
 	{
 		if(!isdefined(self.var_9c1c5b59))
 		{

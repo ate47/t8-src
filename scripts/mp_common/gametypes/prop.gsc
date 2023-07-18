@@ -3669,18 +3669,18 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, sweapon, v
 				scoreevents::processscoreevent("prop_killed_three_props", attacker, victim);
 			}
 		}
-		foreach(var_909b3023 in victim.attackers)
+		foreach(assailant in victim.attackers)
 		{
-			if(!isdefined(var_909b3023) || !isentity(var_909b3023))
+			if(!isdefined(assailant) || !isentity(assailant))
 			{
 				continue;
 			}
-			if(var_909b3023 == attacker)
+			if(assailant == attacker)
 			{
-				var_909b3023 playhitmarker("mpl_hit_alert");
+				assailant playhitmarker("mpl_hit_alert");
 				continue;
 			}
-			var_909b3023 playhitmarker("mpl_hit_alert_escort");
+			assailant playhitmarker("mpl_hit_alert_escort");
 		}
 	}
 	foreach(player in level.players)

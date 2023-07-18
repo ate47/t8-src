@@ -93,8 +93,8 @@ function function_ec9e5cf2()
 	level flag::init("mee_projectile_count_reached");
 	zm_sq::register(#"mee_projectile", #"step_1", #"mee_projectile_step1", &mee_projectile_step1_setup, &mee_projectile_step1_cleanup);
 	level flag::init("mee_melee_count_reached");
-	var_57ce903d = getent("mee_2_female", "targetname");
-	var_57ce903d hide();
+	e_partner = getent("mee_2_female", "targetname");
+	e_partner hide();
 	var_e979d075 = getentarray("e_mee_2_weeper_final", "targetname");
 	foreach(e_model in var_e979d075)
 	{
@@ -586,13 +586,13 @@ function function_e9768f1f()
 {
 	level.var_561ae1f8 = 0;
 	level.var_e80139f = 0;
-	level.var_df3991a = getentarray("dummy", "targetname");
-	level.var_561ae1f8 = level.var_df3991a.size;
-	if(level.var_df3991a.size <= 0)
+	level.a_mees = getentarray("dummy", "targetname");
+	level.var_561ae1f8 = level.a_mees.size;
+	if(level.a_mees.size <= 0)
 	{
 		return;
 	}
-	foreach(m in level.var_df3991a)
+	foreach(m in level.a_mees)
 	{
 		if(isdefined(m))
 		{
@@ -1159,61 +1159,61 @@ function function_800ff39e()
 		waitframe(1);
 	}
 	spawner = getent("weeping_spawner", "script_noteworthy");
-	level.var_5f4eaf85 = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
-	level.var_5f4eaf85 setmodel("c_t8_zmb_dlc3_mannequin_male");
-	level.var_5f4eaf85.var_72411ccf = &function_589845fe;
-	level.var_5f4eaf85 val::set(#"mee_2", "takedamage", 0);
-	level.var_5f4eaf85 val::set(#"mee_2", "ignoreme", 1);
-	level.var_5f4eaf85.team = #"team3";
+	level.e_weeper = zombie_utility::spawn_zombie(spawner, spawner.targetname, undefined, level.round_number);
+	level.e_weeper setmodel("c_t8_zmb_dlc3_mannequin_male");
+	level.e_weeper.var_72411ccf = &function_589845fe;
+	level.e_weeper val::set(#"mee_2", "takedamage", 0);
+	level.e_weeper val::set(#"mee_2", "ignoreme", 1);
+	level.e_weeper.team = #"team3";
 	var_83302022 = getent("t_mee_2_activate", "targetname");
 	level thread trigger::look_trigger(var_83302022);
 	waitresult = undefined;
 	waitresult = var_83302022 waittill(#"trigger_look");
 	var_83302022 delete();
-	level.var_5f4eaf85.var_72411ccf = undefined;
-	level.var_5f4eaf85 thread function_d10bf985();
-	level.var_57ce903d = getent("mee_2_female", "targetname");
-	level.var_57ce903d show();
-	level.var_7b22edab = spawn("script_origin", level.var_57ce903d.origin + vectorscale((0, 0, 1), 10));
-	while(!level.var_5f4eaf85 is_near("mee_2_follow_trigger"))
+	level.e_weeper.var_72411ccf = undefined;
+	level.e_weeper thread function_d10bf985();
+	level.e_partner = getent("mee_2_female", "targetname");
+	level.e_partner show();
+	level.var_7b22edab = spawn("script_origin", level.e_partner.origin + vectorscale((0, 0, 1), 10));
+	while(!level.e_weeper is_near("mee_2_follow_trigger"))
 	{
 		waitframe(1);
 	}
-	level.var_57ce903d thread function_6fa00342(level.var_5f4eaf85);
+	level.e_partner thread function_6fa00342(level.e_weeper);
 	s_goal = struct::get("s_mee_2_goalPos", "targetname");
-	level.var_5f4eaf85.var_3d366381 = getclosestpointonnavmesh(s_goal.origin, 32);
-	level.var_5f4eaf85.team = #"allies";
-	level.var_5f4eaf85 zombie_utility::set_zombie_run_cycle("run");
-	level.var_5f4eaf85.var_72411ccf = &function_589845fe;
-	while(!level.var_5f4eaf85 is_near("mee_2_shed"))
+	level.e_weeper.var_3d366381 = getclosestpointonnavmesh(s_goal.origin, 32);
+	level.e_weeper.team = #"allies";
+	level.e_weeper zombie_utility::set_zombie_run_cycle("run");
+	level.e_weeper.var_72411ccf = &function_589845fe;
+	while(!level.e_weeper is_near("mee_2_shed"))
 	{
 		waitframe(1);
 	}
-	level.var_57ce903d notify(#"follow_complete");
-	level.var_5f4eaf85.var_3d366381 = undefined;
+	level.e_partner notify(#"follow_complete");
+	level.e_weeper.var_3d366381 = undefined;
 	e_door = getent("mee_2_door", "targetname");
 	e_door playsound("zmb_shed_door_open");
 	e_door rotateto(vectorscale((0, 1, 0), 202), 1);
 	wait(2);
 	var_e979d075 = getentarray("e_mee_2_weeper_final", "targetname");
-	while(level.var_5f4eaf85 function_7f971d26() || level.var_57ce903d function_7f971d26() || var_e979d075[0] function_7f971d26())
+	while(level.e_weeper function_7f971d26() || level.e_partner function_7f971d26() || var_e979d075[0] function_7f971d26())
 	{
 		waitframe(1);
 	}
-	if(isdefined(level.var_5f4eaf85.kill_brush))
+	if(isdefined(level.e_weeper.kill_brush))
 	{
-		level.var_5f4eaf85.kill_brush delete();
+		level.e_weeper.kill_brush delete();
 	}
-	level.var_5f4eaf85 delete();
+	level.e_weeper delete();
 	level.var_7b22edab delete();
-	level.var_57ce903d show();
+	level.e_partner show();
 	foreach(e_model in var_e979d075)
 	{
 		e_model show();
 	}
 	var_881f5a41 = struct::get("s_mee_2_partner_final", "targetname");
-	level.var_57ce903d.origin = var_881f5a41.origin;
-	level.var_57ce903d.angles = var_881f5a41.angles;
+	level.e_partner.origin = var_881f5a41.origin;
+	level.e_partner.angles = var_881f5a41.angles;
 	var_1d15513c = struct::get("s_mee_2_partner_final_head", "targetname");
 	var_1ccba54f = getent("e_mee_2_partner_head", "targetname");
 	var_1ccba54f.origin = var_1d15513c.origin;
@@ -1453,22 +1453,22 @@ function is_near(str_info)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6fa00342(var_374b5229)
+function function_6fa00342(e_follow)
 {
 	self endon(#"follow_complete");
 	level endon(#"preamble_started");
 	while(true)
 	{
-		var_9d88bc68 = anglestoforward(var_374b5229.angles);
+		var_9d88bc68 = anglestoforward(e_follow.angles);
 		var_9d88bc68 = 15 * vectornormalize(var_9d88bc68);
-		goal_pos = var_374b5229.origin - var_9d88bc68;
+		goal_pos = e_follow.origin - var_9d88bc68;
 		goal_pos = getnearestpathpoint(goal_pos, 64);
 		level.var_7b22edab.origin = goal_pos + vectorscale((0, 0, 1), 15);
 		if(self function_66a7e20a() && level.var_7b22edab function_66a7e20a())
 		{
 			self ghost();
 			self.origin = goal_pos;
-			var_6dcf609c = (var_374b5229.origin[0], var_374b5229.origin[1], 0) + (0, 0, self.origin[2]);
+			var_6dcf609c = (e_follow.origin[0], e_follow.origin[1], 0) + (0, 0, self.origin[2]);
 			var_61e1fa2f = var_6dcf609c - self.origin;
 			var_867c9147 = vectortoangles(var_61e1fa2f);
 			self.angles = var_867c9147;

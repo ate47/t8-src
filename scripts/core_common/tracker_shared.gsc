@@ -193,7 +193,7 @@ function function_a7e7bda0()
 			{
 				continue;
 			}
-			if(!player hasperk(#"hash_82d803aeee9cafb"))
+			if(!player hasperk(#"specialty_detectedicon"))
 			{
 				continue;
 			}

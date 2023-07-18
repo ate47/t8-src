@@ -7,7 +7,7 @@
 #using script_22ebc4167e3bcd3f;
 #using scripts\zm\weapons\zm_weap_blundergat.gsc;
 #using scripts\zm\weapons\zm_weap_gravityspikes.gsc;
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using script_2ba3951675c7ee1c;
 #using scripts\zm\weapons\zm_weap_claymore.gsc;
 #using script_36222395658446f5;

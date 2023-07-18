@@ -94,8 +94,8 @@ function __main__()
 */
 function function_60a6c623()
 {
-	var_d3701e86 = getscriptbundles("craftfoundry");
-	foreach(foundry in var_d3701e86)
+	foundries = getscriptbundles("craftfoundry");
+	foreach(foundry in foundries)
 	{
 		setup_craftfoundry(foundry);
 	}
@@ -1587,8 +1587,8 @@ function function_a187b293(player)
 	{
 		self.blueprint = self.craftfoundry;
 	}
-	var_6e022a91 = function_4165306b(player);
-	self.var_9c8338de = var_6e022a91.size;
+	a_s_blueprints = function_4165306b(player);
+	self.var_9c8338de = a_s_blueprints.size;
 	self.crafted = 1;
 	self.blueprint.completed = 1;
 	if(self.blueprint.var_46309255 === "persistent_buy" || self.blueprint.var_46309255 === "buy_once_then_box" || self.blueprint.var_46309255 === "spawn_as_ingredient")

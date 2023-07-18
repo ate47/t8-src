@@ -109,10 +109,10 @@ function function_ea67bd7c()
 */
 function function_e12fb431()
 {
-	var_7dc2a7aa = getentarray("challenges_bell", "targetname");
-	foreach(var_b13d3e31 in var_7dc2a7aa)
+	a_e_bells = getentarray("challenges_bell", "targetname");
+	foreach(e_bell in a_e_bells)
 	{
-		var_b13d3e31 thread function_e86e864b();
+		e_bell thread function_e86e864b();
 	}
 }
 
@@ -814,9 +814,9 @@ function function_3d9f4eef()
 */
 function function_2b6fe83b()
 {
-	var_334e4fdd = getent("animosity", "targetname");
-	var_334e4fdd setcandamage(1);
-	var_334e4fdd thread function_82947e72();
+	e_jar = getent("animosity", "targetname");
+	e_jar setcandamage(1);
+	e_jar thread function_82947e72();
 }
 
 /*

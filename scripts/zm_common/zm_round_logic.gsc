@@ -1125,7 +1125,7 @@ function round_think(restart = 0)
 		level notify(#"end_of_round");
 		bb::logroundevent("end_of_round");
 		uploadstats();
-		if(!zm_trial::function_b47f6aba() || !zm_utility::is_standard())
+		if(!zm_trial::is_trial_mode() || !zm_utility::is_standard())
 		{
 			playsoundatposition(#"hash_58df62ae7fa7b42b", (0, 0, 0));
 		}

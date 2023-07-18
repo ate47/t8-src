@@ -2680,8 +2680,8 @@ function function_f03da80a()
 function function_6b71f442()
 {
 	function_64f9f527();
-	var_d00cf77 = struct::get_array("s_ct_obstacle", "targetname");
-	var_23537161 = array::filter(var_d00cf77, 0, &function_e928f210);
+	a_s_obstacles = struct::get_array("s_ct_obstacle", "targetname");
+	var_23537161 = array::filter(a_s_obstacles, 0, &function_e928f210);
 	if(var_23537161.size > 0)
 	{
 		foreach(s_obj in var_23537161)
@@ -2911,10 +2911,10 @@ function is_within(v_origin, var_22068a81)
 */
 function get_player()
 {
-	var_f353312a = util::get_players(#"allies");
-	if(var_f353312a.size > 0)
+	a_e_allies = util::get_players(#"allies");
+	if(a_e_allies.size > 0)
 	{
-		return var_f353312a[0];
+		return a_e_allies[0];
 	}
 	return undefined;
 }
@@ -4956,13 +4956,13 @@ function function_c655d719(n_dist_min = 800, n_dist_max = 1600, var_5e5dc085)
 */
 function function_3dd59a93(str_targetname)
 {
-	var_ca902c80 = ct_bots::function_fbe3dcbb();
+	a_e_potentials = ct_bots::function_fbe3dcbb();
 	a_e_bots = [];
-	foreach(var_f2703a3 in var_ca902c80)
+	foreach(e_potential in a_e_potentials)
 	{
-		if(var_f2703a3.targetname === str_targetname)
+		if(e_potential.targetname === str_targetname)
 		{
-			a_e_bots[a_e_bots.size] = var_f2703a3;
+			a_e_bots[a_e_bots.size] = e_potential;
 		}
 	}
 	return a_e_bots;

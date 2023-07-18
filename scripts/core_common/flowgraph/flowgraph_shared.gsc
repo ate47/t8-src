@@ -929,9 +929,9 @@ function pathnodeconstant(var_f4af12cc)
 	Parameters: 1
 	Flags: None
 */
-function function_9ef80b8b(var_f74b77ea)
+function function_9ef80b8b(e_value)
 {
-	return var_f74b77ea;
+	return e_value;
 }
 
 /*

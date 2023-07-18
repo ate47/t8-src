@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using script_7c62f55ce3a557ff;
 #using scripts\zm\weapons\zm_weap_spectral_shield.gsc;
@@ -340,23 +340,23 @@ function function_c52e8ba(player, var_8d5d092c)
 	Parameters: 1
 	Flags: Linked
 */
-function function_640bb879(var_3ff283ce)
+function function_640bb879(e_unitrigger)
 {
-	var_8d5d092c = var_3ff283ce.stub.var_8d5d092c;
-	var_d5376a79 = function_d7af842d(var_3ff283ce);
+	var_8d5d092c = e_unitrigger.stub.var_8d5d092c;
+	var_d5376a79 = function_d7af842d(e_unitrigger);
 	if(level flag::get(var_d5376a79))
 	{
 		n_cost = 0;
 	}
 	else
 	{
-		if(isdefined(var_3ff283ce.stub))
+		if(isdefined(e_unitrigger.stub))
 		{
-			n_cost = var_3ff283ce.stub.zombie_cost;
+			n_cost = e_unitrigger.stub.zombie_cost;
 		}
 		else
 		{
-			n_cost = var_3ff283ce.zombie_cost;
+			n_cost = e_unitrigger.zombie_cost;
 		}
 	}
 	return n_cost;
@@ -371,16 +371,16 @@ function function_640bb879(var_3ff283ce)
 	Parameters: 1
 	Flags: Linked
 */
-function function_47dec08f(var_3ff283ce)
+function function_47dec08f(e_unitrigger)
 {
-	var_8d5d092c = var_3ff283ce.stub.var_8d5d092c;
-	var_d5376a79 = function_d7af842d(var_3ff283ce);
+	var_8d5d092c = e_unitrigger.stub.var_8d5d092c;
+	var_d5376a79 = function_d7af842d(e_unitrigger);
 	n_player_index = self getentitynumber();
 	if(!level flag::get(var_d5376a79))
 	{
-		level thread function_429e121c(var_d5376a79, var_8d5d092c, var_3ff283ce.stub.var_67cba496, var_3ff283ce.stub.var_374f0c4e, self);
+		level thread function_429e121c(var_d5376a79, var_8d5d092c, e_unitrigger.stub.var_67cba496, e_unitrigger.stub.var_374f0c4e, self);
 	}
-	switch(var_3ff283ce.hint_string[n_player_index])
+	switch(e_unitrigger.hint_string[n_player_index])
 	{
 		case "hash_9fdf28b2277fe11":
 		case "hash_2465c3ca09a8650f":
@@ -434,7 +434,7 @@ function function_47dec08f(var_3ff283ce)
 			break;
 		}
 	}
-	self thread namespace_a0f5c7fc::function_818b85eb();
+	self thread zm_escape_vo_hooks::function_818b85eb();
 	self thread function_c179676a();
 	self thread function_402d070f();
 }
@@ -529,9 +529,9 @@ function private function_402d070f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d7af842d(var_3ff283ce)
+function function_d7af842d(e_unitrigger)
 {
-	var_8d5d092c = var_3ff283ce.stub.var_8d5d092c;
+	var_8d5d092c = e_unitrigger.stub.var_8d5d092c;
 	switch(var_8d5d092c)
 	{
 		case "warden_house_shower":

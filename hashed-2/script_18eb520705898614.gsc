@@ -185,10 +185,10 @@ function cleanup_step_1(var_a276c861, var_19e802fa)
 {
 	level flag::set(#"gazed_greenhouse");
 	level flag::set(#"stick_done");
-	var_1c324f1b = getent("burning_man_shrub", "targetname");
-	if(isdefined(var_1c324f1b))
+	e_bush = getent("burning_man_shrub", "targetname");
+	if(isdefined(e_bush))
 	{
-		var_1c324f1b delete();
+		e_bush delete();
 	}
 	if(var_a276c861 || var_19e802fa)
 	{
@@ -251,8 +251,8 @@ function init_sticks()
 	var_e036b66c = getentarray("stick_man_stick", "script_noteworthy");
 	foreach(var_1f23d8cf in var_e036b66c)
 	{
-		var_1f23d8cf.var_6b2939b8 = struct::get(var_1f23d8cf.target);
-		var_1f23d8cf.var_e2d32a32 = struct::get(var_1f23d8cf.targetname);
+		var_1f23d8cf.s_form = struct::get(var_1f23d8cf.target);
+		var_1f23d8cf.s_fall = struct::get(var_1f23d8cf.targetname);
 		var_1f23d8cf thread function_e8f819b0();
 	}
 	level.n_sticks = 0;
@@ -344,12 +344,12 @@ function function_1ca135cf(n_int)
 	s_scene scene::play("Shot 2");
 	if(level.n_sticks == 1)
 	{
-		var_1c324f1b = getent("burning_man_shrub", "targetname");
-		var_1c324f1b clientfield::set("" + #"stick_fire", 1);
+		e_bush = getent("burning_man_shrub", "targetname");
+		e_bush clientfield::set("" + #"stick_fire", 1);
 		wait(1);
-		var_1c324f1b clientfield::set("" + #"stick_fire", 0);
+		e_bush clientfield::set("" + #"stick_fire", 0);
 		waitframe(1);
-		var_1c324f1b delete();
+		e_bush delete();
 	}
 }
 
@@ -477,16 +477,16 @@ function cleanup_step_2(var_5ea5c94d, ended_early)
 	{
 		level.stick_player setvisibletoall();
 	}
-	if(isdefined(level.var_8491c913) && isdefined(level.var_8491c913.mdl_head))
+	if(isdefined(level.e_guide) && isdefined(level.e_guide.mdl_head))
 	{
-		if(isdefined(level.var_8491c913.var_c176969a))
+		if(isdefined(level.e_guide.var_c176969a))
 		{
-			level.var_8491c913.var_c176969a scene::stop();
-			level.var_8491c913.var_c176969a delete();
+			level.e_guide.var_c176969a scene::stop();
+			level.e_guide.var_c176969a delete();
 		}
-		level.var_8491c913 scene::stop();
-		level.var_8491c913.mdl_head delete();
-		level.var_8491c913 delete();
+		level.e_guide scene::stop();
+		level.e_guide.mdl_head delete();
+		level.e_guide delete();
 	}
 	if(var_5ea5c94d || ended_early)
 	{
@@ -678,16 +678,16 @@ function private function_36d70cbd()
 		}
 		level zm_ui_inventory::function_7df6bb60(#"hash_7b006b4a8b213489", 0);
 		level thread function_d8ca90b7();
-		if(isdefined(level.var_8491c913) && isdefined(level.var_8491c913.mdl_head))
+		if(isdefined(level.e_guide) && isdefined(level.e_guide.mdl_head))
 		{
-			if(isdefined(level.var_8491c913.var_c176969a))
+			if(isdefined(level.e_guide.var_c176969a))
 			{
-				level.var_8491c913.var_c176969a scene::stop();
-				level.var_8491c913.var_c176969a delete();
+				level.e_guide.var_c176969a scene::stop();
+				level.e_guide.var_c176969a delete();
 			}
-			level.var_8491c913 scene::stop();
-			level.var_8491c913.mdl_head delete();
-			level.var_8491c913 delete();
+			level.e_guide scene::stop();
+			level.e_guide.mdl_head delete();
+			level.e_guide delete();
 		}
 		level flag::wait_till(#"stick_rise");
 		level zm_ui_inventory::function_7df6bb60(#"hash_7b006b4a8b213489", 1);
@@ -767,9 +767,9 @@ function private function_d8ca90b7()
 	{
 		level flag::wait_till(#"stick_ready");
 		s_loc = struct::get("stick_drag_loc");
-		var_9e1e33fa = getentarray("entity_drag", "targetname");
-		var_d81c75ab = array::get_all_closest(s_loc.origin, var_9e1e33fa)[0];
-		if(isdefined(var_d81c75ab) && distance(var_d81c75ab.origin, s_loc.origin) <= s_loc.radius)
+		a_e_drag = getentarray("entity_drag", "targetname");
+		e_drag = array::get_all_closest(s_loc.origin, a_e_drag)[0];
+		if(isdefined(e_drag) && distance(e_drag.origin, s_loc.origin) <= s_loc.radius)
 		{
 			var_7a7793c6 = struct::get("wicker_fire_pos", "targetname");
 			level.var_fb97a4cf = util::spawn_model("tag_origin", var_7a7793c6.origin);
@@ -997,16 +997,16 @@ function private function_eabb32ca()
 function private function_9e01297e()
 {
 	var_7e2d2356 = getent("stick_guide", "targetname");
-	while(!isdefined(level.var_8491c913))
+	while(!isdefined(level.e_guide))
 	{
-		level.var_8491c913 = util::spawn_model("c_t8_zmb_dlc1_catherine_ghost_body", var_7e2d2356.origin, var_7e2d2356.angles);
+		level.e_guide = util::spawn_model("c_t8_zmb_dlc1_catherine_ghost_body", var_7e2d2356.origin, var_7e2d2356.angles);
 		waitframe(1);
 	}
-	level.var_8491c913.mdl_head = util::spawn_model("c_t8_zmb_dlc1_catherine_ghost_head", level.var_8491c913.origin, level.var_8491c913.angles);
-	level.var_8491c913.mdl_head linkto(level.var_8491c913);
-	level.var_8491c913 clientfield::set("" + #"ghost_trail", 1);
-	level.var_8491c913 playsound(#"hash_4826261b01f96036");
-	level.var_8491c913 playloopsound(#"hash_298631572be3dd79");
+	level.e_guide.mdl_head = util::spawn_model("c_t8_zmb_dlc1_catherine_ghost_head", level.e_guide.origin, level.e_guide.angles);
+	level.e_guide.mdl_head linkto(level.e_guide);
+	level.e_guide clientfield::set("" + #"ghost_trail", 1);
+	level.e_guide playsound(#"hash_4826261b01f96036");
+	level.e_guide playloopsound(#"hash_298631572be3dd79");
 	a_players = getplayers();
 	arrayremovevalue(a_players, level.stick_player);
 	foreach(e_player in a_players)
@@ -1027,12 +1027,12 @@ function private function_9e01297e()
 function private function_e7144c05()
 {
 	self endon(#"disconnect");
-	level.var_8491c913 endon(#"death");
-	level.var_8491c913.mdl_head endon(#"death");
+	level.e_guide endon(#"death");
+	level.e_guide.mdl_head endon(#"death");
 	while(true)
 	{
-		level.var_8491c913 setinvisibletoplayer(self, 1);
-		level.var_8491c913.mdl_head setinvisibletoplayer(self, 1);
+		level.e_guide setinvisibletoplayer(self, 1);
+		level.e_guide.mdl_head setinvisibletoplayer(self, 1);
 		waitframe(1);
 	}
 }
@@ -1141,7 +1141,7 @@ function private stick_guide()
 {
 	level endon(#"stone_visible");
 	level.stick_player endon(#"disconnect");
-	level.var_8491c913 endon(#"death");
+	level.e_guide endon(#"death");
 	level flag::wait_till(#"stick_hide");
 	player = level.stick_player;
 	s_loc = array::random(struct::get_array("stick_guide_loc"));
@@ -1153,17 +1153,17 @@ function private stick_guide()
 		waitframe(1);
 	}
 	nd_start = getvehiclenode(s_loc.target, "targetname");
-	level.var_8491c913 thread mansion_pap::function_c9c7a593();
-	var_3387e30b = level.var_8491c913 getlinkedent();
+	level.e_guide thread mansion_pap::function_c9c7a593();
+	var_3387e30b = level.e_guide getlinkedent();
 	if(isdefined(var_3387e30b))
 	{
-		level.var_8491c913 unlink();
+		level.e_guide unlink();
 		var_3387e30b delete();
 	}
-	level.var_8491c913 moveto(s_loc.origin, 0.05);
-	level.var_8491c913 rotateto(s_loc.angles, 0.05);
-	level.var_8491c913 waittill(#"movedone");
-	level.var_8491c913 thread lead_player(nd_start, player);
+	level.e_guide moveto(s_loc.origin, 0.05);
+	level.e_guide rotateto(s_loc.angles, 0.05);
+	level.e_guide waittill(#"movedone");
+	level.e_guide thread lead_player(nd_start, player);
 }
 
 /*
@@ -1697,8 +1697,8 @@ function lead_player(nd_start, player)
 	var_65c9997c movez(5, 2);
 	var_65c9997c waittill(#"movedone");
 	var_47323b73 = var_65c9997c zm_unitrigger::create(undefined, (64, 64, 100), &function_48aadc5d);
-	var_47323b73.var_8491c913 = self;
-	var_47323b73.var_8491c913.mdl_head = self.mdl_head;
+	var_47323b73.e_guide = self;
+	var_47323b73.e_guide.mdl_head = self.mdl_head;
 	waitframe(1);
 	var_dafa2b89 delete();
 	self.var_c176969a delete();

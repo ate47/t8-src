@@ -3346,7 +3346,7 @@ function function_ccdcc5d9(weapon)
 }
 
 /*
-	Name: function_c27fa689
+	Name: activate_health_gadget
 	Namespace: bot_action
 	Checksum: 0x31E81229
 	Offset: 0x8CD0
@@ -3354,7 +3354,7 @@ function function_ccdcc5d9(weapon)
 	Parameters: 1
 	Flags: None
 */
-function function_c27fa689(actionparams)
+function activate_health_gadget(actionparams)
 {
 	weapon = actionparams.weapon;
 	self function_ccdcc5d9(weapon);

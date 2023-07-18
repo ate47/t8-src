@@ -1513,20 +1513,20 @@ function function_e9b5de80()
 		do
 		{
 			waitframe(1);
-			level.var_8aea4f28 = getent("recon_car", "targetname");
+			level.e_rcxd = getent("recon_car", "targetname");
 		}
-		while(!isalive(level.var_8aea4f28));
+		while(!isalive(level.e_rcxd));
 		level notify(#"stop_car_blocker_exit_collision");
 		level notify(#"stop_permanent_rcxd_collision");
 		level notify(#"stop_open_car_blocker_collision");
 		level notify(#"start_car_kill_collision");
 		level notify(#"hash_60e26e14a51c5211");
 		e_player ct_vo::function_3ca1b77d();
-		if(isdefined(level.var_8aea4f28))
+		if(isdefined(level.e_rcxd))
 		{
 			s_loc = struct::get("s_rccar_spawn_ok_loc", "targetname");
 			v_forward = anglestoforward(s_loc.angles);
-			v_dir = vectornormalize(s_loc.origin - level.var_8aea4f28.origin);
+			v_dir = vectornormalize(s_loc.origin - level.e_rcxd.origin);
 			dp = vectordot(v_dir, v_forward);
 			if(dp < 0)
 			{
@@ -1550,7 +1550,7 @@ function function_e9b5de80()
 		}
 		level notify(#"hash_24bd25e0736c3ca3");
 		level.var_e36bc03f = 1;
-		if(b_success && isdefined(level.var_8aea4f28))
+		if(b_success && isdefined(level.e_rcxd))
 		{
 			b_success = 0;
 			function_90c6b9d4();
@@ -1564,9 +1564,9 @@ function function_e9b5de80()
 		else
 		{
 			b_success = 0;
-			if(isdefined(level.var_8aea4f28))
+			if(isdefined(level.e_rcxd))
 			{
-				level.var_8aea4f28 dodamage(level.var_8aea4f28.health + 100, level.var_8aea4f28.origin);
+				level.e_rcxd dodamage(level.e_rcxd.health + 100, level.e_rcxd.origin);
 			}
 			e_player = getplayers()[0];
 			var_6a58d9ed = killstreaks::get_killstreak_momentum_cost(e_player, "recon_car");
@@ -1680,16 +1680,16 @@ function function_852f4e51()
 function function_90c6b9d4()
 {
 	level endon(#"combattraining_logic_finished");
-	while(isdefined(level.var_8aea4f28) && level.var_8aea4f28.health > 0)
+	while(isdefined(level.e_rcxd) && level.e_rcxd.health > 0)
 	{
 		waitframe(1);
 	}
 	level notify(#"stop_open_car_blocker_collision");
-	if(isdefined(level.var_8aea4f28))
+	if(isdefined(level.e_rcxd))
 	{
-		level.var_8a21b7f2 = level.var_8aea4f28;
+		level.var_8a21b7f2 = level.e_rcxd;
 		level.var_8a21b7f2.targetname = "recon_car_dead";
-		level.var_8aea4f28 = undefined;
+		level.e_rcxd = undefined;
 	}
 	level.var_18d34c86 = 1;
 	level notify(#"start_open_car_blocker_collision");

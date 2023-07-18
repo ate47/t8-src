@@ -780,9 +780,9 @@ function filter_script_vehicles_from_vehicle_descriptors(allowed_game_modes)
 */
 function function_71699fe2()
 {
-	level.var_c3977917 = struct::get_script_bundle_instances("gameobject");
+	level.a_s_gameobjects = struct::get_script_bundle_instances("gameobject");
 	n_count = 1;
-	foreach(s_radiant in level.var_c3977917)
+	foreach(s_radiant in level.a_s_gameobjects)
 	{
 		if(isdefined(s_radiant.targetname))
 		{
@@ -810,7 +810,7 @@ function function_71699fe2()
 function function_176070dc()
 {
 	waittillframeend();
-	foreach(s_radiant in level.var_c3977917)
+	foreach(s_radiant in level.a_s_gameobjects)
 	{
 		if(isdefined(s_radiant.script_team) && s_radiant.script_team != #"none")
 		{
@@ -1253,14 +1253,14 @@ function function_9e7fca5f()
 	self endon(#"hash_767d05d04b5ba2f6");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self.mdl_gameobject waittill(#"gameobject_end_use_player");
+		s_waitresult = undefined;
+		s_waitresult = self.mdl_gameobject waittill(#"gameobject_end_use_player");
 		foreach(s_scene in self.var_abba8d92)
 		{
-			if(isplayer(var_be17187b.player) && scene::get_player_count(s_scene.scriptbundlename) >= 1)
+			if(isplayer(s_waitresult.player) && scene::get_player_count(s_scene.scriptbundlename) >= 1)
 			{
-				var_be17187b.player animation::stop(0);
-				s_scene thread scene::play(var_be17187b.player);
+				s_waitresult.player animation::stop(0);
+				s_scene thread scene::play(s_waitresult.player);
 				continue;
 			}
 			s_scene thread scene::play();
@@ -4124,9 +4124,9 @@ function function_98aae7cf()
 	}
 	foreach(var_1dbb2b2b in self.var_1dbb2b2b)
 	{
-		foreach(var_9b38d2c0 in var_1dbb2b2b)
+		foreach(contributor in var_1dbb2b2b)
 		{
-			var_9b38d2c0.contribution = 0;
+			contributor.contribution = 0;
 		}
 	}
 }
@@ -7107,9 +7107,9 @@ function play_interact_anim(e_player)
 		}
 		if(isdefined(self.var_a7ef92ac) && self.var_a7ef92ac)
 		{
-			var_be17187b = undefined;
-			var_be17187b = self waittill(#"gameobject_end_use_player", #"gameobject_abort", #"death");
-			if(var_be17187b._notify === "gameobject_end_use_player")
+			s_waitresult = undefined;
+			s_waitresult = self waittill(#"gameobject_end_use_player", #"gameobject_abort", #"death");
+			if(s_waitresult._notify === "gameobject_end_use_player")
 			{
 				e_align thread scene::play(str_player_scene, a_ents);
 			}
@@ -7223,7 +7223,7 @@ function function_c6fa00c2()
 	{
 		return;
 	}
-	var_5b307a20 = [];
+	contributors = [];
 	var_1dbb2b2b = self.var_1dbb2b2b[self.team];
 	if(!var_1dbb2b2b.size)
 	{
@@ -7231,22 +7231,22 @@ function function_c6fa00c2()
 	}
 	foreach(contribution in var_1dbb2b2b)
 	{
-		var_9b38d2c0 = contribution.player;
+		contributor = contribution.player;
 		percentage = (100 * contribution.contribution) / self.usetime;
-		var_9b38d2c0.var_759a143b = int(0.5 + percentage);
-		if(var_9b38d2c0.var_759a143b > getgametypesetting(#"contributionmin"))
+		contributor.var_759a143b = int(0.5 + percentage);
+		if(contributor.var_759a143b > getgametypesetting(#"contributionmin"))
 		{
-			if(!isdefined(var_5b307a20))
+			if(!isdefined(contributors))
 			{
-				var_5b307a20 = [];
+				contributors = [];
 			}
-			else if(!isarray(var_5b307a20))
+			else if(!isarray(contributors))
 			{
-				var_5b307a20 = array(var_5b307a20);
+				contributors = array(contributors);
 			}
-			var_5b307a20[var_5b307a20.size] = var_9b38d2c0;
+			contributors[contributors.size] = contributor;
 		}
 	}
-	return var_5b307a20;
+	return contributors;
 }
 

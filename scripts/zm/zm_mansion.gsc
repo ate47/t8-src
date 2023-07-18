@@ -173,7 +173,7 @@ event main(eventstruct)
 	clientfield::register("item", "" + #"ww_pickup_part", 8000, 1, "int");
 	clientfield::register("item", "" + #"hash_35ce4034ca7e543c", 8000, 3, "int");
 	clientfield::register("scriptmover", "" + #"hash_487e544e29aa8e45", 8000, 1, "int");
-	clientfield::register("scriptmover", "" + #"hash_65180cdab951d111", 8000, getminbitcountfornum(3), "int");
+	clientfield::register("scriptmover", "" + #"activate_mansion_artifact", 8000, getminbitcountfornum(3), "int");
 	clientfield::register("scriptmover", "" + #"hash_44ee99a6591fe600", 8000, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_6a4f537da00ae3f9", 8000, 1, "int");
 	clientfield::register("world", "" + #"hash_7fcdc47572bdbafa", 8000, 1, "int");
@@ -231,10 +231,10 @@ event main(eventstruct)
 	level.magic_box_zbarrier_state_func = &zm_magicbox::function_35c66b27;
 	level.chest_joker_model = "p8_fxanim_zm_zod_magic_box_skull_mod";
 	level.chest_joker_custom_movement = &zm_magicbox::function_f5503c41;
-	var_2c661c04 = struct::get_array("treasure_chest_use");
-	for(i = 0; i < var_2c661c04.size; i++)
+	a_s_boxes = struct::get_array("treasure_chest_use");
+	for(i = 0; i < a_s_boxes.size; i++)
 	{
-		level.open_chest_location[i] = var_2c661c04[i].script_noteworthy;
+		level.open_chest_location[i] = a_s_boxes[i].script_noteworthy;
 	}
 	level._zombiemode_custom_box_move_logic = &function_c8ac6f35;
 	level.customrandomweaponweights = &function_adac5e49;
@@ -496,9 +496,9 @@ function function_3cdddd34()
 	}
 	while(!self.var_15ba8367 || !self.var_714f6ae6)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_change");
-		w_new = var_be17187b.weapon;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_change");
+		w_new = s_waitresult.weapon;
 		if(!self.var_15ba8367 && w_new === level.var_6fe89212)
 		{
 			self thread zm_equipment::show_hint_text(#"hash_495dc239b32c6400", 7);
@@ -1400,7 +1400,7 @@ function function_2d164b86()
 	mdl_artifact = getent("artifact_mind", "script_noteworthy");
 	var_3f772556 = getent("artifact_mind_card", "targetname");
 	var_3f772556 linkto(mdl_artifact);
-	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 1);
+	mdl_artifact clientfield::set("" + #"activate_mansion_artifact", 1);
 	var_3f772556 clientfield::set("" + #"hash_44ee99a6591fe600", 1);
 	mdl_artifact notsolid();
 	mdl_artifact bobbing((0, 0, 1), 0.5, 5);
@@ -1444,12 +1444,12 @@ function function_2d164b86()
 		var_d11a4648 val::set("artifact_pickup", "takedamage", 0);
 		var_d11a4648 val::set("artifact_pickup", "ignoreme", 1);
 	}
-	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 2);
+	mdl_artifact clientfield::set("" + #"activate_mansion_artifact", 2);
 	var_3f772556 clientfield::set("" + #"hash_44ee99a6591fe600", 0);
 	wait(3);
 	var_3f772556 delete();
 	mdl_artifact setmodel(#"hash_57d5802b9383f9c7");
-	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 3);
+	mdl_artifact clientfield::set("" + #"activate_mansion_artifact", 3);
 	var_8a281f69 = getvehiclenode("power_on_projectile_path_1", "targetname");
 	v_pos = var_8a281f69.origin + (vectorscale((0, 0, -1), 16));
 	mdl_artifact moveto(v_pos, 1.5, 1, 0.5);
@@ -1460,7 +1460,7 @@ function function_2d164b86()
 		var_d11a4648 val::reset("artifact_pickup", "ignoreme");
 	}
 	exploder::exploder("fxexp_power_artifact_burst");
-	mdl_artifact clientfield::set("" + #"hash_65180cdab951d111", 0);
+	mdl_artifact clientfield::set("" + #"activate_mansion_artifact", 0);
 	mdl_artifact delete();
 	foreach(e_active_player in util::get_active_players())
 	{

@@ -345,9 +345,9 @@ function function_7e7626b5()
 	level endon(#"ww_case_completed");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger");
-		player = var_be17187b.activator;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger");
+		player = s_waitresult.activator;
 		if(zombie_utility::is_player_valid(player))
 		{
 			player thread zm_vo::function_a2bd5a0c(#"hash_28aa1fc068bb2e3b", 1);

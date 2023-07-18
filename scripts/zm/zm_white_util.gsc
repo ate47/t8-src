@@ -186,12 +186,12 @@ function function_5d7d0c85(var_2753f06a)
 	Parameters: 4
 	Flags: None
 */
-function function_733a6ab7(e_player, var_50a85511, var_3d7ad116, var_21fd1ca8)
+function function_733a6ab7(e_player, var_50a85511, e_computer, var_21fd1ca8)
 {
 	level endon(#"end_game");
 	e_player zm_hms_util::function_51b752a9(var_50a85511);
 	wait(1);
-	var_3d7ad116 thread zm_hms_util::function_6a0d675d(var_21fd1ca8, -1, 1);
+	e_computer thread zm_hms_util::function_6a0d675d(var_21fd1ca8, -1, 1);
 }
 
 /*
@@ -242,11 +242,11 @@ function function_491673da(var_21fd1ca8)
 	Parameters: 4
 	Flags: None
 */
-function function_31e7b76f(n_delay, var_3d7ad116, var_21fd1ca8, str_cancel)
+function function_31e7b76f(n_delay, e_computer, var_21fd1ca8, str_cancel)
 {
 	level endon(#"end_game", str_cancel);
 	wait(n_delay);
-	var_3d7ad116 thread zm_hms_util::function_6a0d675d(var_21fd1ca8, 0, 1);
+	e_computer thread zm_hms_util::function_6a0d675d(var_21fd1ca8, 0, 1);
 }
 
 /*
@@ -802,9 +802,9 @@ function function_d1ca61a7()
 {
 	self endon(#"death");
 	w_give = self.w_pickup;
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"trigger_activated");
-	e_player = var_be17187b.e_who;
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"trigger_activated");
+	e_player = s_waitresult.e_who;
 	w_take = e_player function_c7274071();
 	b_give_weapon = 1;
 	if(isdefined(w_take))
@@ -899,15 +899,15 @@ function function_c05cc102(s_params)
 	{
 		return;
 	}
-	var_be17187b = undefined;
-	var_be17187b = s_params.projectile waittill(#"projectile_impact_explode", #"explode", #"death");
-	if(isdefined(s_params.projectile) && var_be17187b._notify == "death")
+	s_waitresult = undefined;
+	s_waitresult = s_params.projectile waittill(#"projectile_impact_explode", #"explode", #"death");
+	if(isdefined(s_params.projectile) && s_waitresult._notify == "death")
 	{
 		level notify(#"hash_3042a9bf2f57ea0a", {#hash_814c9389:s_params.projectile.origin, #attacker:self});
 	}
-	else if(var_be17187b._notify == "projectile_impact_explode")
+	else if(s_waitresult._notify == "projectile_impact_explode")
 	{
-		level notify(#"hash_3042a9bf2f57ea0a", {#hash_814c9389:var_be17187b.position, #attacker:self});
+		level notify(#"hash_3042a9bf2f57ea0a", {#hash_814c9389:s_waitresult.position, #attacker:self});
 	}
 }
 

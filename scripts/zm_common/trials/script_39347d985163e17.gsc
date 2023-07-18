@@ -40,7 +40,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -223,23 +223,23 @@ function function_33e89162(mdl_weapon, var_6d4294b0)
 	mdl_weapon thread clientfield::set("powerup_fx", 2);
 	mdl_weapon thread namespace_f8f28e08::function_51fd2597(1);
 	mdl_weapon thread namespace_f8f28e08::pickup_timeout(undefined, undefined, max(var_6d4294b0 - 5, 5));
-	var_be17187b = undefined;
-	var_be17187b = self waittilltimeout(var_6d4294b0, #"boon_weapon_picked_up");
-	if(var_be17187b._notify == "boon_weapon_picked_up" && isplayer(var_be17187b.player))
+	s_waitresult = undefined;
+	s_waitresult = self waittilltimeout(var_6d4294b0, #"boon_weapon_picked_up");
+	if(s_waitresult._notify == "boon_weapon_picked_up" && isplayer(s_waitresult.player))
 	{
-		weapon_reward = var_be17187b.player namespace_f8f28e08::function_e2a25377(mdl_weapon.weapon.name);
-		var_be17187b.player unlockweapon(weapon_reward);
-		if(!isdefined(var_be17187b.player.var_ad52095e))
+		weapon_reward = s_waitresult.player namespace_f8f28e08::function_e2a25377(mdl_weapon.weapon.name);
+		s_waitresult.player unlockweapon(weapon_reward);
+		if(!isdefined(s_waitresult.player.var_ad52095e))
 		{
-			var_be17187b.player.var_ad52095e = [];
+			s_waitresult.player.var_ad52095e = [];
 		}
-		else if(!isarray(var_be17187b.player.var_ad52095e))
+		else if(!isarray(s_waitresult.player.var_ad52095e))
 		{
-			var_be17187b.player.var_ad52095e = array(var_be17187b.player.var_ad52095e);
+			s_waitresult.player.var_ad52095e = array(s_waitresult.player.var_ad52095e);
 		}
-		if(!isinarray(var_be17187b.player.var_ad52095e, weapon_reward))
+		if(!isinarray(s_waitresult.player.var_ad52095e, weapon_reward))
 		{
-			var_be17187b.player.var_ad52095e[var_be17187b.player.var_ad52095e.size] = weapon_reward;
+			s_waitresult.player.var_ad52095e[s_waitresult.player.var_ad52095e.size] = weapon_reward;
 		}
 	}
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
@@ -279,9 +279,9 @@ function function_ebd0491e()
 	{
 		for(;;)
 		{
-			var_be17187b = undefined;
-			var_be17187b = self waittill(#"trigger");
-			player = var_be17187b.activator;
+			s_waitresult = undefined;
+			s_waitresult = self waittill(#"trigger");
+			player = s_waitresult.activator;
 		}
 		if(!zm_utility::can_use(player, 1))
 		{

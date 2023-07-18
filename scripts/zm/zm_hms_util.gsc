@@ -394,12 +394,12 @@ function function_2270b2c8(var_6d71e83a)
 */
 function function_dc51a40(var_2a7487f4, str_key)
 {
-	var_5e997e7a = [];
+	coded_array = [];
 	foreach(entity in var_2a7487f4)
 	{
-		var_5e997e7a[entity.(str_key)] = entity;
+		coded_array[entity.(str_key)] = entity;
 	}
-	return var_5e997e7a;
+	return coded_array;
 }
 
 /*

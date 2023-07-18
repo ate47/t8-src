@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using script_35598499769dbb3d;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\ai\zombie_death.gsc;

@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
@@ -94,11 +94,11 @@ function __main__()
 	}
 	else if(zm_custom::function_901b751c(#"zmpapenabled") == 0)
 	{
-		var_9aa0f846 = getentarray("zm_pack_a_punch", "targetname");
-		foreach(var_532cdfcf in var_9aa0f846)
+		a_e_zbarriers = getentarray("zm_pack_a_punch", "targetname");
+		foreach(e_zbarrier in a_e_zbarriers)
 		{
-			var_532cdfcf zm_pack_a_punch::set_state_initial();
-			var_532cdfcf zm_pack_a_punch::set_state_hidden();
+			e_zbarrier zm_pack_a_punch::set_state_initial();
+			e_zbarrier zm_pack_a_punch::set_state_hidden();
 		}
 	}
 	level thread function_ccb1f009();
@@ -432,7 +432,7 @@ function function_ccb1f009()
 		if(array::contains(var_5ae7f356, var_9f5d5d73))
 		{
 			var_bb6e9418 = var_9f5d5d73;
-			var_bb6e9418 thread namespace_a0f5c7fc::function_350029c6();
+			var_bb6e9418 thread zm_escape_vo_hooks::function_350029c6();
 		}
 	}
 	var_d40e1ced = 0.1;

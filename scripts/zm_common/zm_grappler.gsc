@@ -134,39 +134,39 @@ function start_grapple(prone_2_run_roll, e_grapplee, n_type, n_speed = 1800)
 		assert(n_type == 2);
 	#/
 	e_source = create_mover(prone_2_run_roll function_f21c3519(), prone_2_run_roll.angles);
-	var_28ac1348 = create_mover(prone_2_run_roll function_f21c3519(), prone_2_run_roll.angles * -1);
-	thread function_30a5f5c1(e_source, var_28ac1348);
-	if(isdefined(var_28ac1348))
+	e_beamend = create_mover(prone_2_run_roll function_f21c3519(), prone_2_run_roll.angles * -1);
+	thread function_30a5f5c1(e_source, e_beamend);
+	if(isdefined(e_beamend))
 	{
 		e_grapplee function_a60cb756(1, 1);
 		util::wait_network_frame();
 		n_time = function_b9937e84(prone_2_run_roll, e_grapplee, n_speed);
-		var_28ac1348.origin = prone_2_run_roll function_f21c3519();
+		e_beamend.origin = prone_2_run_roll function_f21c3519();
 		var_5f04bf66 = e_grapplee function_f21c3519();
-		var_28ac1348 playsound(#"zmb_grapple_start");
-		var_28ac1348 moveto(var_5f04bf66, n_time);
-		var_28ac1348 waittill(#"movedone");
+		e_beamend playsound(#"zmb_grapple_start");
+		e_beamend moveto(var_5f04bf66, n_time);
+		e_beamend waittill(#"movedone");
 		var_7fdf7771 = var_5f04bf66 - e_grapplee.origin;
-		var_28ac1348.origin = e_grapplee.origin;
+		e_beamend.origin = e_grapplee.origin;
 		if(isplayer(e_grapplee))
 		{
-			e_grapplee playerlinkto(var_28ac1348, "tag_origin");
+			e_grapplee playerlinkto(e_beamend, "tag_origin");
 		}
 		else
 		{
-			e_grapplee linkto(var_28ac1348);
+			e_grapplee linkto(e_beamend);
 		}
 		e_grapplee playsound(#"zmb_grapple_grab");
 		var_b7f19309 = prone_2_run_roll function_f21c3519() - var_7fdf7771;
-		var_28ac1348 moveto(var_b7f19309, n_time);
-		var_28ac1348 playsound(#"zmb_grapple_pull");
-		var_28ac1348 waittill(#"movedone");
+		e_beamend moveto(var_b7f19309, n_time);
+		e_beamend playsound(#"zmb_grapple_pull");
+		e_beamend waittill(#"movedone");
 		function_c43e7cab();
-		var_28ac1348 clientfield::set("grappler_beam_target", 0);
+		e_beamend clientfield::set("grappler_beam_target", 0);
 		e_grapplee unlink();
 		e_grapplee function_a60cb756(0, 1);
 		util::wait_network_frame();
-		destroy_mover(var_28ac1348);
+		destroy_mover(e_beamend);
 		destroy_mover(e_source);
 	}
 }
@@ -355,11 +355,11 @@ function create_mover(v_origin, v_angles)
 	Parameters: 1
 	Flags: Linked
 */
-function destroy_mover(var_28ac1348)
+function destroy_mover(e_beamend)
 {
-	if(isdefined(var_28ac1348))
+	if(isdefined(e_beamend))
 	{
-		var_28ac1348 delete();
+		e_beamend delete();
 	}
 }
 

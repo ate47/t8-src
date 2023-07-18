@@ -118,27 +118,27 @@ function private update_targets()
 		topplayers = function_f81eaa29(possibletargets);
 		while(topplayers.size > 0 && targetcount < level.wzhighvaluetargets)
 		{
-			var_6e9efb43 = level.var_45c1873e[targetcount];
+			indicatorarray = level.var_45c1873e[targetcount];
 			targetcount++;
 			randomindex = randomint(topplayers.size);
 			player = topplayers[randomindex];
 			player clientfield::set("ishighvaluetarget", 1);
 			player playsoundtoplayer(#"hash_6d40de6f3e747fb1", player);
 			player luinotifyevent(#"hash_6b67aa04e378d681", 1, 10);
-			var_6e9efb43[#"clientnum"] = player getentitynumber();
+			indicatorarray[#"clientnum"] = player getentitynumber();
 			foreach(other_player in getplayers())
 			{
-				if(!var_6e9efb43[#"indicator"] spectrerisingindicator::is_open(other_player))
+				if(!indicatorarray[#"indicator"] spectrerisingindicator::is_open(other_player))
 				{
-					var_6e9efb43[#"indicator"] spectrerisingindicator::open(other_player);
+					indicatorarray[#"indicator"] spectrerisingindicator::open(other_player);
 				}
 				var_d1a98222 = 1;
 				if(other_player.team == player.team)
 				{
 					var_d1a98222 = 0;
 				}
-				var_6e9efb43[#"indicator"] spectrerisingindicator::set_clientnum(other_player, var_6e9efb43[#"clientnum"]);
-				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(other_player, var_d1a98222);
+				indicatorarray[#"indicator"] spectrerisingindicator::set_clientnum(other_player, indicatorarray[#"clientnum"]);
+				indicatorarray[#"indicator"] spectrerisingindicator::set_isAlive(other_player, var_d1a98222);
 			}
 			arrayinsert(var_1ac2b0cd, player, var_1ac2b0cd.size);
 			arrayremovevalue(topplayers, player);
@@ -147,13 +147,13 @@ function private update_targets()
 	}
 	for(i = targetcount + 1; i < level.var_45c1873e.size; i++)
 	{
-		var_6e9efb43 = level.var_45c1873e[i];
-		var_6e9efb43[#"clientnum"] = -1;
+		indicatorarray = level.var_45c1873e[i];
+		indicatorarray[#"clientnum"] = -1;
 		foreach(player in getplayers())
 		{
-			if(var_6e9efb43[#"indicator"] spectrerisingindicator::is_open(player))
+			if(indicatorarray[#"indicator"] spectrerisingindicator::is_open(player))
 			{
-				var_6e9efb43[#"indicator"] spectrerisingindicator::close(player);
+				indicatorarray[#"indicator"] spectrerisingindicator::close(player);
 			}
 		}
 	}
@@ -238,15 +238,15 @@ function private function_3f8e4156(params)
 	}
 	self clientfield::set("ishighvaluetarget", 0);
 	clientnum = self getentitynumber();
-	foreach(var_6e9efb43 in level.var_45c1873e)
+	foreach(indicatorarray in level.var_45c1873e)
 	{
-		if(clientnum == var_6e9efb43[#"clientnum"])
+		if(clientnum == indicatorarray[#"clientnum"])
 		{
 			foreach(player in getplayers())
 			{
-				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
+				indicatorarray[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
 			}
-			var_6e9efb43[#"clientnum"] = -1;
+			indicatorarray[#"clientnum"] = -1;
 		}
 	}
 	attacker = params.eattacker;
@@ -284,15 +284,15 @@ function private on_player_disconnect()
 	}
 	self clientfield::set("ishighvaluetarget", 0);
 	clientnum = self getentitynumber();
-	foreach(var_6e9efb43 in level.var_45c1873e)
+	foreach(indicatorarray in level.var_45c1873e)
 	{
-		if(clientnum == var_6e9efb43[#"clientnum"])
+		if(clientnum == indicatorarray[#"clientnum"])
 		{
 			foreach(player in getplayers())
 			{
-				var_6e9efb43[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
+				indicatorarray[#"indicator"] spectrerisingindicator::set_isAlive(player, 0);
 			}
-			var_6e9efb43[#"clientnum"] = -1;
+			indicatorarray[#"clientnum"] = -1;
 		}
 	}
 }

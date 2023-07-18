@@ -44,7 +44,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function shock_apply(var_756fda07, weapon, var_84171a6c)
+function shock_apply(var_756fda07, weapon, applicant)
 {
 	if((isdefined(var_756fda07.var_120475e6) ? var_756fda07.var_120475e6 : 0))
 	{

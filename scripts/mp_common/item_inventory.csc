@@ -390,25 +390,25 @@ function private function_e094fd92(item)
 */
 function private function_f3ef5269(localclientnum)
 {
-	var_b25b2894 = [];
+	perksarray = [];
 	clientdata = item_world::function_a7e98a1a(localclientnum);
 	for(i = 0; i < 10; i++)
 	{
 		currentitem = clientdata.inventory.items[i];
 		if(function_e094fd92(currentitem))
 		{
-			if(!isdefined(var_b25b2894))
+			if(!isdefined(perksarray))
 			{
-				var_b25b2894 = [];
+				perksarray = [];
 			}
-			else if(!isarray(var_b25b2894))
+			else if(!isarray(perksarray))
 			{
-				var_b25b2894 = array(var_b25b2894);
+				perksarray = array(perksarray);
 			}
-			var_b25b2894[var_b25b2894.size] = currentitem;
+			perksarray[perksarray.size] = currentitem;
 		}
 	}
-	return var_b25b2894;
+	return perksarray;
 }
 
 /*
@@ -455,8 +455,8 @@ function private function_535a5a06(localclientnum, var_6e51c00)
 	#/
 	inventoryuimodel = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.inventory");
 	var_f99434b1 = createuimodel(inventoryuimodel, "quickConsumeIndex");
-	var_b25b2894 = function_f3ef5269(localclientnum);
-	var_be32fa6d = var_b25b2894.size;
+	perksarray = function_f3ef5269(localclientnum);
+	var_be32fa6d = perksarray.size;
 	if(var_be32fa6d < 2)
 	{
 		setuimodelvalue(var_f99434b1, 0);
@@ -519,19 +519,19 @@ function private function_9f5d2dc8(localclientnum)
 */
 function private function_1606ff3(localclientnum, var_6e51c00)
 {
-	var_b25b2894 = function_f3ef5269(localclientnum);
+	perksarray = function_f3ef5269(localclientnum);
 	currentindex = function_535a5a06(localclientnum, var_6e51c00);
 	inventoryuimodel = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.inventory");
 	var_98d32f1c = createuimodel(inventoryuimodel, "quickConsumeNetworkId");
-	if(isdefined(var_b25b2894[currentindex]))
+	if(isdefined(perksarray[currentindex]))
 	{
-		setuimodelvalue(var_98d32f1c, var_b25b2894[currentindex].var_bd027dd9);
+		setuimodelvalue(var_98d32f1c, perksarray[currentindex].var_bd027dd9);
 	}
 	else
 	{
 		setuimodelvalue(var_98d32f1c, 32767);
 	}
-	if(var_b25b2894.size > 1)
+	if(perksarray.size > 1)
 	{
 		playsound(localclientnum, #"hash_4d31bd9927d823c3");
 	}
@@ -636,10 +636,10 @@ function private function_9b83c65d(localclientnum)
 				if(waitresult._notify === var_6a10d173)
 				{
 					currentindex = function_535a5a06(localclientnum, 0);
-					var_b25b2894 = function_f3ef5269(localclientnum);
-					if(isdefined(var_b25b2894[currentindex]))
+					perksarray = function_f3ef5269(localclientnum);
+					if(isdefined(perksarray[currentindex]))
 					{
-						inventoryitem = var_b25b2894[currentindex];
+						inventoryitem = perksarray[currentindex];
 					}
 					else
 					{
@@ -1644,7 +1644,7 @@ function private function_8bb02a48(localclientnum)
 	var_7007b688 = [];
 	if(isdefined(var_b8f1b496.var_a6762160))
 	{
-		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"equipment", array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"hash_16a1f841da0b877d", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
+		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"equipment", array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"spiked_barrier_wz_item", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"hash_735d22a674b7f8c0", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{

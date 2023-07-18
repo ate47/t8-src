@@ -262,6 +262,10 @@ In Blackout the operator weapons can be used using the suffix `_operator`
 - `destructible_car`
 - `explodable_barrel`
 
+## Easter eggs
+
+- `equip_sprout` - Gaia (zm/ae)
+
 ## Equipment
 
 - `music_box` - Sam's box (zm/tag)

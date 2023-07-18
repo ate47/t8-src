@@ -1027,7 +1027,7 @@ function vo_say(str_vo_alias, n_delay = 0, b_wait_if_busy = 0, n_priority = 0, v
 	{
 		return false;
 	}
-	if(zm_trial::function_b47f6aba() || zm_utility::is_standard() && !var_9c64da7c || (isdefined(level.var_d555ff19) && level.var_d555ff19))
+	if(zm_trial::is_trial_mode() || zm_utility::is_standard() && !var_9c64da7c || (isdefined(level.var_d555ff19) && level.var_d555ff19))
 	{
 		return false;
 	}

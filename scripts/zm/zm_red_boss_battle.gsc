@@ -894,22 +894,22 @@ function function_2858e671(var_c34665fc, e_boss)
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(var_c34665fc);
+		s_waitresult = undefined;
+		s_waitresult = self waittill(var_c34665fc);
 		self.health = 100000;
 		if(var_c34665fc == #"damage")
 		{
-			e_attacker = var_be17187b.attacker;
-			w_weapon = var_be17187b.weapon;
+			e_attacker = s_waitresult.attacker;
+			w_weapon = s_waitresult.weapon;
 		}
 		else if(var_c34665fc == #"hero_weapon_hit")
 		{
-			e_attacker = var_be17187b.player;
-			w_weapon = var_be17187b.var_80e17549;
+			e_attacker = s_waitresult.player;
+			w_weapon = s_waitresult.var_80e17549;
 		}
 		if(zm_loadout::is_hero_weapon(w_weapon))
 		{
-			n_damage = e_attacker function_12f4c281(var_be17187b, w_weapon, e_boss);
+			n_damage = e_attacker function_12f4c281(s_waitresult, w_weapon, e_boss);
 		}
 		else
 		{
@@ -954,9 +954,9 @@ function function_2858e671(var_c34665fc, e_boss)
 	Parameters: 3
 	Flags: Linked
 */
-function function_12f4c281(var_be17187b, w_weapon, e_boss)
+function function_12f4c281(s_waitresult, w_weapon, e_boss)
 {
-	str_notify = var_be17187b._notify;
+	str_notify = s_waitresult._notify;
 	n_lvl = self.var_72d6f15d;
 	str_weapon = self.var_b708af7b;
 	var_e635b6cb = 50 * n_lvl;
@@ -964,16 +964,16 @@ function function_12f4c281(var_be17187b, w_weapon, e_boss)
 	{
 		if(isinarray(level.hero_weapon[#"chakram"], w_weapon))
 		{
-			if(w_weapon === level.hero_weapon[#"chakram"][2] && var_be17187b.mod === "MOD_UNKNOWN")
+			if(w_weapon === level.hero_weapon[#"chakram"][2] && s_waitresult.mod === "MOD_UNKNOWN")
 			{
 				var_7bf2d9c0 = 1;
 			}
-			else if(var_be17187b.mod === "MOD_PROJECTILE")
+			else if(s_waitresult.mod === "MOD_PROJECTILE")
 			{
 				var_b162218f = 1;
 			}
 		}
-		if(isinarray(level.hero_weapon[#"scepter"], w_weapon) && var_be17187b.mod === "MOD_BURNED")
+		if(isinarray(level.hero_weapon[#"scepter"], w_weapon) && s_waitresult.mod === "MOD_BURNED")
 		{
 			if(isdefined(self.var_d6fe2916) && self.var_d6fe2916)
 			{
@@ -986,9 +986,9 @@ function function_12f4c281(var_be17187b, w_weapon, e_boss)
 		}
 		if(isinarray(level.hero_weapon[#"hammer"], w_weapon))
 		{
-			if(isdefined(var_be17187b.mod))
+			if(isdefined(s_waitresult.mod))
 			{
-				switch(var_be17187b.mod)
+				switch(s_waitresult.mod)
 				{
 					case "mod_electrocuted":
 					{
@@ -1005,17 +1005,17 @@ function function_12f4c281(var_be17187b, w_weapon, e_boss)
 		}
 		if(isinarray(level.hero_weapon[#"sword_pistol"], w_weapon))
 		{
-			if(var_be17187b.mod === "MOD_EXPLOSIVE")
+			if(s_waitresult.mod === "MOD_EXPLOSIVE")
 			{
 				return 0;
 			}
-			if(w_weapon === level.hero_weapon[#"sword_pistol"][2] && var_be17187b.mod === "MOD_PROJECTILE")
+			if(w_weapon === level.hero_weapon[#"sword_pistol"][2] && s_waitresult.mod === "MOD_PROJECTILE")
 			{
 				var_b46b719c = 1;
 			}
 		}
 	}
-	else if(str_notify === "hero_weapon_hit" && var_be17187b.e_entity === e_boss)
+	else if(str_notify === "hero_weapon_hit" && s_waitresult.e_entity === e_boss)
 	{
 		if(isinarray(level.hero_weapon[#"scepter"], w_weapon))
 		{
@@ -1757,37 +1757,37 @@ function function_21ef9bb7(a_ents)
 	}
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = e_boss waittill(#"damage", #"death");
+		s_waitresult = undefined;
+		s_waitresult = e_boss waittill(#"damage", #"death");
 		e_boss.health = 100000;
-		if(var_be17187b._notify === "death")
+		if(s_waitresult._notify === "death")
 		{
 			return;
 		}
-		e_attacker = var_be17187b.attacker;
+		e_attacker = s_waitresult.attacker;
 		if(isdefined(e_attacker) && isplayer(e_attacker))
 		{
 			e_boss function_4c17036d(e_attacker);
 		}
 		if(var_653b9351)
 		{
-			level.s_boss_battle.var_36f0e240 = level.s_boss_battle.var_36f0e240 + var_be17187b.amount;
+			level.s_boss_battle.var_36f0e240 = level.s_boss_battle.var_36f0e240 + s_waitresult.amount;
 		}
 		else
 		{
-			if(zm_weapons::function_35746b9c(var_be17187b.weapon))
+			if(zm_weapons::function_35746b9c(s_waitresult.weapon))
 			{
 				level.s_boss_battle.var_ad3f929f = level.s_boss_battle.var_ad3f929f + 50;
 				/#
 					if(getdvarint(#"zm_debug_ee", 0))
 					{
-						var_be17187b.amount = 50;
+						s_waitresult.amount = 50;
 					}
 				#/
 			}
 			else
 			{
-				level.s_boss_battle.var_ad3f929f = level.s_boss_battle.var_ad3f929f + var_be17187b.amount;
+				level.s_boss_battle.var_ad3f929f = level.s_boss_battle.var_ad3f929f + s_waitresult.amount;
 			}
 		}
 		/#
@@ -1795,7 +1795,7 @@ function function_21ef9bb7(a_ents)
 			{
 				if(var_653b9351 || (!var_653b9351 && (!(isdefined(e_boss.var_c3505998) && e_boss.var_c3505998))))
 				{
-					iprintlnbold(((var_b9c3f277 + "") + var_be17187b.amount) + "");
+					iprintlnbold(((var_b9c3f277 + "") + s_waitresult.amount) + "");
 				}
 			}
 		#/
@@ -3001,9 +3001,9 @@ function spawn_miniboss()
 			if(zm_ai_blight_father::function_858c7fa5())
 			{
 				zm_transform::function_bdd8aba6(#"blight_father");
-				var_be17187b = undefined;
-				var_be17187b = level waittilltimeout(10, #"transformation_complete");
-				if(var_be17187b._notify != "timeout")
+				s_waitresult = undefined;
+				s_waitresult = level waittilltimeout(10, #"transformation_complete");
+				if(s_waitresult._notify != "timeout")
 				{
 					function_8b1f9518();
 				}
@@ -3188,14 +3188,14 @@ function function_1722dae1()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"aoe_damage");
-		if(var_be17187b.var_159100b7 == "zm_aoe_chaos_bolt" || var_be17187b.var_159100b7 == "zm_aoe_chaos_bolt_2")
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"aoe_damage");
+		if(s_waitresult.var_159100b7 == "zm_aoe_chaos_bolt" || s_waitresult.var_159100b7 == "zm_aoe_chaos_bolt_2")
 		{
 			self status_effect::status_effect_apply(level.s_boss_battle.var_b42f3b39, undefined, level.s_boss_battle.var_3edd432d, 0, 3000);
 			zm_hero_weapon::function_3fe4a02e(self, 50);
 		}
-		else if(var_be17187b.var_159100b7 == "zm_aoe_strafe_storm")
+		else if(s_waitresult.var_159100b7 == "zm_aoe_strafe_storm")
 		{
 			self status_effect::status_effect_apply(level.s_boss_battle.var_86d9f46c);
 			self clientfield::increment_to_player("" + #"hash_3bb8b5cda11eecc6");

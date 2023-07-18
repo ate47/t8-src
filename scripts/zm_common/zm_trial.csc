@@ -34,7 +34,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}
@@ -82,7 +82,7 @@ function function_ce2fdd3b(index)
 }
 
 /*
-	Name: function_b47f6aba
+	Name: is_trial_mode
 	Namespace: zm_trial
 	Checksum: 0xB724B7CE
 	Offset: 0x258
@@ -90,7 +90,7 @@ function function_ce2fdd3b(index)
 	Parameters: 0
 	Flags: Linked
 */
-function function_b47f6aba()
+function is_trial_mode()
 {
 	return zm_utility::is_trials();
 }
@@ -128,7 +128,7 @@ function register_challenge(name, var_c5dd8620, var_bbcdbff5)
 */
 function function_a36e8c38(name)
 {
-	if(function_b47f6aba() && isdefined(level.var_1420e3f6))
+	if(is_trial_mode() && isdefined(level.var_1420e3f6))
 	{
 		foreach(active_challenge in level.var_1420e3f6.challenges)
 		{

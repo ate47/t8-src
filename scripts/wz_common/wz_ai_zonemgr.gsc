@@ -2572,7 +2572,7 @@ function function_f3e8cf82()
 	}
 	if(isdefined(level.var_65d14681) && level.var_65d14681)
 	{
-		level flagsys::wait_till(#"hash_5a3e17fbc33cdc86");
+		level flagsys::wait_till(#"insertion_teleport_completed");
 	}
 	level.var_5b357434 = array::randomize(level.var_5b357434);
 	level thread function_51961049();

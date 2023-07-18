@@ -308,11 +308,11 @@ function function_a2e4892a()
 		}
 		foreach(var_382df182 in var_cf6166dd)
 		{
-			var_daae257e = struct::get_array(var_382df182.target);
-			var_daae257e = arraysortclosest(var_daae257e, var_382df182.origin, 1);
-			if(var_daae257e.size > 0)
+			a_s_sound = struct::get_array(var_382df182.target);
+			a_s_sound = arraysortclosest(a_s_sound, var_382df182.origin, 1);
+			if(a_s_sound.size > 0)
 			{
-				var_daae257e[0] struct::delete();
+				a_s_sound[0] struct::delete();
 			}
 			var_382df182 delete();
 		}

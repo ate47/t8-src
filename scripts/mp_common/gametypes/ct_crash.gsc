@@ -384,10 +384,10 @@ function function_587088a0()
 	{
 		bot clientfield::set("set_vip", 1);
 	}
-	level.var_1102e61 = struct::get_array("s_human_captive", "targetname");
-	if(level.var_1102e61.size > 0)
+	level.a_s_captives = struct::get_array("s_human_captive", "targetname");
+	if(level.a_s_captives.size > 0)
 	{
-		level.var_9e8e503f = level.var_1102e61.size;
+		level.var_9e8e503f = level.a_s_captives.size;
 		function_7bc70c24(level.var_9e8e503f);
 		self ct_utils::objcounter_init(undefined, 0, level.var_9e8e503f, 1, 1);
 		self thread function_5f17f29();
@@ -406,7 +406,7 @@ function function_587088a0()
 function function_7bc70c24(var_a1b34e6f)
 {
 	entities = bot::get_bots();
-	level.var_1102e61 = struct::get_array("s_human_captive", "targetname");
+	level.a_s_captives = struct::get_array("s_human_captive", "targetname");
 	var_e8d6f89 = 0;
 	foreach(entity in entities)
 	{
@@ -418,11 +418,11 @@ function function_7bc70c24(var_a1b34e6f)
 		{
 			continue;
 		}
-		entity.var_9a79d89d = level.var_1102e61[var_e8d6f89].origin;
-		entity.var_5ab7c19c = level.var_1102e61[var_e8d6f89].angles;
+		entity.var_9a79d89d = level.a_s_captives[var_e8d6f89].origin;
+		entity.var_5ab7c19c = level.a_s_captives[var_e8d6f89].angles;
 		entity ct_bots::function_3895c193("allies");
 		entity clientfield::set("set_vip", 2);
-		entity.var_57f1bd45 = level.var_1102e61[var_e8d6f89];
+		entity.var_57f1bd45 = level.a_s_captives[var_e8d6f89];
 		entity.var_d6c52b74 = 1;
 		entity ct_bots::function_26d45f32();
 		entity.var_ef59b90 = 5;
@@ -491,10 +491,10 @@ function function_836b3d02()
 				{
 					waitframe(1);
 				}
-				var_1639ae86 = function_d4c7a27f();
-				if(isdefined(var_1639ae86))
+				e_captive = function_d4c7a27f();
+				if(isdefined(e_captive))
 				{
-					var_346f0ce6 = var_1639ae86 ct_utils::function_aa9c8fbf();
+					var_346f0ce6 = e_captive ct_utils::function_aa9c8fbf();
 					if(isdefined(var_346f0ce6))
 					{
 						var_6207d37d = 1;
@@ -508,17 +508,17 @@ function function_836b3d02()
 			}
 			case 1:
 			{
-				if(isalive(var_1639ae86) && isalive(var_346f0ce6))
+				if(isalive(e_captive) && isalive(var_346f0ce6))
 				{
-					var_346f0ce6 function_e268297c(var_1639ae86);
+					var_346f0ce6 function_e268297c(e_captive);
 					var_6207d37d = 2;
 				}
 				break;
 			}
 			case 2:
 			{
-				var_1639ae86 = function_d4c7a27f();
-				if(!isdefined(var_1639ae86))
+				e_captive = function_d4c7a27f();
+				if(!isdefined(e_captive))
 				{
 					return;
 				}
@@ -574,7 +574,7 @@ function function_d4c7a27f()
 	Parameters: 1
 	Flags: None
 */
-function function_e268297c(var_1639ae86)
+function function_e268297c(e_captive)
 {
 	self.var_ef59b90 = 4;
 	self.var_59860ee1 = 1000;
@@ -582,8 +582,8 @@ function function_e268297c(var_1639ae86)
 	self.var_bab91f2 = 128;
 	self.var_4c7240f1 = 1;
 	self.var_b1fd680c = 1;
-	v_dir = anglestoforward(var_1639ae86.var_57f1bd45.angles);
-	var_6c9efff0 = var_1639ae86.var_57f1bd45.origin + (v_dir * 150);
+	v_dir = anglestoforward(e_captive.var_57f1bd45.angles);
+	var_6c9efff0 = e_captive.var_57f1bd45.origin + (v_dir * 150);
 	self.var_9a79d89d = var_6c9efff0;
 	v_dir = v_dir * -1;
 	v_angles = vectortoangles(v_dir);
@@ -599,7 +599,7 @@ function function_e268297c(var_1639ae86)
 			level thread function_6511fb07();
 			break;
 		}
-		if(var_1639ae86.var_3c5a5d29 != 1)
+		if(e_captive.var_3c5a5d29 != 1)
 		{
 			self.var_ef59b90 = 1;
 			break;
@@ -623,7 +623,7 @@ function function_e268297c(var_1639ae86)
 			}
 			if(dt >= 40)
 			{
-				var_1639ae86 suicide();
+				e_captive suicide();
 				e_player = getplayers()[0];
 				e_player thread ct_utils::function_d471f8fa(-60, undefined, 1);
 				level thread function_f5eba86b();
@@ -637,7 +637,7 @@ function function_e268297c(var_1639ae86)
 		if(n_dist < 256 && !isdefined(level.var_f78f9034) && (!(isdefined(level.var_3574b65f) && level.var_3574b65f)))
 		{
 			level thread function_1b25b7dc();
-			level.var_f78f9034 = ct_utils::create_waypoint(#"hash_10b60fe281bbfeca", var_1639ae86.origin, var_1639ae86.angles, #"any", undefined, 0, undefined);
+			level.var_f78f9034 = ct_utils::create_waypoint(#"hash_10b60fe281bbfeca", e_captive.origin, e_captive.angles, #"any", undefined, 0, undefined);
 			self.var_7630c482 = 1;
 			n_start_time = gettime() / 1000;
 			e_player = getplayers()[0];
@@ -703,12 +703,12 @@ function function_e60bbaf4()
 	while(true)
 	{
 		e_player = getplayers()[0];
-		var_86810743 = util::get_active_players(#"allies");
-		arrayremovevalue(var_86810743, e_player);
+		a_captives = util::get_active_players(#"allies");
+		arrayremovevalue(a_captives, e_player);
 		b_game_over = 1;
-		foreach(var_1639ae86 in var_86810743)
+		foreach(e_captive in a_captives)
 		{
-			if(!(isdefined(var_1639ae86.v_train_inbound_igc) && var_1639ae86.v_train_inbound_igc))
+			if(!(isdefined(e_captive.v_train_inbound_igc) && e_captive.v_train_inbound_igc))
 			{
 				b_game_over = 0;
 				break;

@@ -233,7 +233,7 @@ function callback_vehicledamage(einflictor, eattacker, idamage, idflags, smeanso
 	}
 	idamage = weapons::function_74bbb3fa(idamage, weapon, self);
 	idamage = int(idamage);
-	var_a1f8d00b = idamage;
+	unmodified = idamage;
 	if(isdefined(self.overridevehicledamage))
 	{
 		idamage = self [[self.overridevehicledamage]](einflictor, eattacker, idamage, self.idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal);
@@ -250,9 +250,9 @@ function callback_vehicledamage(einflictor, eattacker, idamage, idflags, smeanso
 			idamage = self [[damagecallback]](einflictor, eattacker, idamage, self.idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal);
 		}
 	}
-	if(self.idflags & 8192 && idamage < var_a1f8d00b)
+	if(self.idflags & 8192 && idamage < unmodified)
 	{
-		idamage = var_a1f8d00b;
+		idamage = unmodified;
 	}
 	/#
 		assert(isdefined(idamage), "");

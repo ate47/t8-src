@@ -50,10 +50,10 @@ function __init__()
 {
 	if(!zm_custom::function_901b751c(#"zmwallbuysenabled"))
 	{
-		var_b936460 = getentarray("wallbuy_outline", "targetname");
-		foreach(var_160326ff in var_b936460)
+		a_outlines = getentarray("wallbuy_outline", "targetname");
+		foreach(e_outline in a_outlines)
 		{
-			var_160326ff delete();
+			e_outline delete();
 		}
 		return;
 	}

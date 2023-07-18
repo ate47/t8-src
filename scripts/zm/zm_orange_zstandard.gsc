@@ -415,8 +415,8 @@ function intro_electric_zombie(n_round_number)
 	n_spawn_count = 0;
 	while(n_spawn_count < 3)
 	{
-		var_2b12a83f = zm_orange_special_rounds::function_27695a82();
-		if(isdefined(var_2b12a83f))
+		e_electric = zm_orange_special_rounds::function_27695a82();
+		if(isdefined(e_electric))
 		{
 			n_spawn_count++;
 		}
@@ -606,17 +606,17 @@ function init_traps()
 function function_9217567c()
 {
 	level waittill(#"all_players_spawned");
-	foreach(var_5f41c401 in level.var_4fe2f84d)
+	foreach(a_s_crafting in level.var_4fe2f84d)
 	{
-		foreach(s_crafting in var_5f41c401)
+		foreach(s_crafting in a_s_crafting)
 		{
 			if(isarray(s_crafting.craftfoundry.blueprints))
 			{
-				foreach(var_6645c992 in s_crafting.craftfoundry.blueprints)
+				foreach(s_blueprint in s_crafting.craftfoundry.blueprints)
 				{
-					if(var_6645c992.name === "zblueprint_shield_zhield_riot")
+					if(s_blueprint.name === "zblueprint_shield_zhield_riot")
 					{
-						s_crafting.blueprint = var_6645c992;
+						s_crafting.blueprint = s_blueprint;
 					}
 				}
 			}
@@ -724,7 +724,7 @@ function function_80a9077f()
 	{
 		if(!(isdefined(s_zipline_crank.var_2e77da49) && s_zipline_crank.var_2e77da49))
 		{
-			s_zipline_crank.var_41580343 show();
+			s_zipline_crank.e_crank show();
 			s_zipline_crank.var_2e77da49 = 1;
 			s_zipline_crank notify(#"hash_762e0e4561d25aeb");
 			s_zipline_crank zm_unitrigger::unregister_unitrigger(s_zipline_crank.s_unitrigger);
@@ -791,9 +791,9 @@ function function_f8dc2ddb(n_obj_id)
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_adea2587 = undefined;
-		var_adea2587 = self waittill(#"hash_702a9c7f10066b19", #"death");
-		if(var_adea2587.str_location === "lighthouse_to_facility" || var_adea2587._notify === "death")
+		s_results = undefined;
+		s_results = self waittill(#"hash_702a9c7f10066b19", #"death");
+		if(s_results.str_location === "lighthouse_to_facility" || s_results._notify === "death")
 		{
 			objective_setinvisibletoplayer(n_obj_id, self);
 			return;

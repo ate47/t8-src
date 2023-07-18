@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_29b970364d23b9;
+#using scripts\zm\zm_escape_vo_hooks.gsc;
 #using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_customgame.gsc;
@@ -454,11 +454,11 @@ function function_17ccf041()
 	while(true)
 	{
 		n_check_time = function_27b45f3e();
-		var_f9b5a331 = function_9ac202b9();
-		if(isplayer(var_f9b5a331))
+		e_leader = function_9ac202b9();
+		if(isplayer(e_leader))
 		{
 			s_notify = undefined;
-			s_notify = var_f9b5a331 waittilltimeout(n_check_time, #"damage", #"death");
+			s_notify = e_leader waittilltimeout(n_check_time, #"damage", #"death");
 			if(s_notify._notify === "death")
 			{
 				waitframe(1);
@@ -472,12 +472,12 @@ function function_17ccf041()
 		}
 		while(zm_escape_util::function_28d0cf11("catwalk_event_zombie") && !level.var_20cff6f0)
 		{
-			if(!isdefined(var_f9b5a331))
+			if(!isdefined(e_leader))
 			{
 				break;
 			}
 			a_ai_zombies = zombie_utility::get_zombie_array();
-			a_ai_zombies = arraysort(a_ai_zombies, var_f9b5a331.origin, 0);
+			a_ai_zombies = arraysort(a_ai_zombies, e_leader.origin, 0);
 			var_57662f94 = arraycopy(a_ai_zombies);
 			var_8778c04e = 0;
 			foreach(ai_zombie in a_ai_zombies)
@@ -586,20 +586,20 @@ function function_27b45f3e()
 */
 function function_9ac202b9()
 {
-	var_f9b5a331 = undefined;
+	e_leader = undefined;
 	a_players = util::get_active_players();
 	if(a_players.size)
 	{
-		var_f9b5a331 = a_players[0];
+		e_leader = a_players[0];
 		foreach(e_player in a_players)
 		{
-			if(e_player.origin[0] < var_f9b5a331.origin[0])
+			if(e_player.origin[0] < e_leader.origin[0])
 			{
-				var_f9b5a331 = e_player;
+				e_leader = e_player;
 			}
 		}
 	}
-	return var_f9b5a331;
+	return e_leader;
 }
 
 /*

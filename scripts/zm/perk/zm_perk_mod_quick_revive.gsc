@@ -78,9 +78,9 @@ function give_perk()
 function take_perk(b_pause, str_perk, str_result, n_slot)
 {
 	self notify(#"hash_478eed143ecc82fc");
-	if(self hasperk(#"hash_650a97787905913f"))
+	if(self hasperk(#"specialty_sprintspeed"))
 	{
-		self perks::perk_unsetperk(#"hash_650a97787905913f");
+		self perks::perk_unsetperk(#"specialty_sprintspeed");
 	}
 }
 
@@ -148,14 +148,14 @@ function function_118be9d8()
 	self notify("16d61e93859b61b7");
 	self endon("16d61e93859b61b7");
 	self endon(#"hash_478eed143ecc82fc", #"disconnect");
-	if(!self hasperk(#"hash_650a97787905913f"))
+	if(!self hasperk(#"specialty_sprintspeed"))
 	{
-		self perks::perk_setperk(#"hash_650a97787905913f");
+		self perks::perk_setperk(#"specialty_sprintspeed");
 	}
 	wait(3);
-	if(self hasperk(#"hash_650a97787905913f"))
+	if(self hasperk(#"specialty_sprintspeed"))
 	{
-		self perks::perk_unsetperk(#"hash_650a97787905913f");
+		self perks::perk_unsetperk(#"specialty_sprintspeed");
 	}
 }
 

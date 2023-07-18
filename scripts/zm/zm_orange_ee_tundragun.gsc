@@ -261,10 +261,10 @@ function ee_tundragun_step2_setup(var_5ea5c94d)
 	level.var_97da986d.s_weapon_pickup = s_weapon_pickup;
 	e_weapon = util::spawn_model(s_weapon_pickup.model, s_weapon_pickup.origin, s_weapon_pickup.angles);
 	level.var_97da986d.s_weapon_pickup.e_weapon = e_weapon;
-	var_9dd10753 = level.var_97da986d.var_5fbb6b48.e_model;
-	var_9dd10753 playsound(#"hash_1cfa90c531f36b92");
-	var_9dd10753 rotatepitch(-100, 1.5);
-	var_9dd10753 waittill(#"rotatedone");
+	e_lid = level.var_97da986d.var_5fbb6b48.e_model;
+	e_lid playsound(#"hash_1cfa90c531f36b92");
+	e_lid rotatepitch(-100, 1.5);
+	e_lid waittill(#"rotatedone");
 	if(isdefined(s_weapon_pickup))
 	{
 		e_weapon moveto(e_weapon.origin + vectorscale((0, 0, 1), 16), 1.5);

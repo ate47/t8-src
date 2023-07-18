@@ -75,7 +75,7 @@ function grab_insta_kill(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d7a1e6a8(var_7d81025, player)
+function function_d7a1e6a8(e_powerup, player)
 {
 	player notify(#"powerup instakill");
 	player endon(#"powerup instakill", #"disconnect");

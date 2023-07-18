@@ -311,7 +311,7 @@ function function_d752a094()
 	self clientfield::set("" + #"hash_10f459edea6b3eb", 1);
 	self waittilltimeout(10, #"fake_death", #"scene_igc_shot_started");
 	self function_2ca96414();
-	if(self hasperk(#"hash_48255a3b086a9bea"))
+	if(self hasperk(#"specialty_mod_berserker"))
 	{
 		self.health = self.var_66cb03ad;
 	}

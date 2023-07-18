@@ -58,17 +58,17 @@ function init()
 */
 function init_records()
 {
-	level.s_audiologs.var_c9f26594 = spawnstruct();
-	level.s_audiologs.var_c9f26594.n_collected = 0;
-	level.s_audiologs.var_c9f26594.n_played = 0;
-	level.s_audiologs.var_c9f26594.var_7f4f65e6 = array(#"hash_30b1f52eee1181a1", #"hash_30b1f22eee117c88", #"hash_30b1f32eee117e3b", #"hash_30b1f82eee1186ba", #"hash_15353a598abe2499");
+	level.s_audiologs.s_records = spawnstruct();
+	level.s_audiologs.s_records.n_collected = 0;
+	level.s_audiologs.s_records.n_played = 0;
+	level.s_audiologs.s_records.var_7f4f65e6 = array(#"hash_30b1f52eee1181a1", #"hash_30b1f22eee117c88", #"hash_30b1f32eee117e3b", #"hash_30b1f82eee1186ba", #"hash_15353a598abe2499");
 	var_f9d547ec = getentarray("audiolog_record", "targetname");
 	array::run_all(var_f9d547ec, &zm_item_pickup::create_item_pickup, &pickup_record, "", undefined, 96);
-	level.s_audiologs.var_c9f26594.s_playback = struct::get("audiolog_record_player");
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 = getent(level.s_audiologs.var_c9f26594.s_playback.target, "targetname");
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 hide();
-	level.s_audiologs.var_c9f26594.s_playback zm_unitrigger::create(&function_4164ac1d);
-	level.s_audiologs.var_c9f26594.s_playback thread function_aef698f1();
+	level.s_audiologs.s_records.s_playback = struct::get("audiolog_record_player");
+	level.s_audiologs.s_records.var_d9a8e3e4 = getent(level.s_audiologs.s_records.s_playback.target, "targetname");
+	level.s_audiologs.s_records.var_d9a8e3e4 hide();
+	level.s_audiologs.s_records.s_playback zm_unitrigger::create(&function_4164ac1d);
+	level.s_audiologs.s_records.s_playback thread function_aef698f1();
 }
 
 /*
@@ -83,10 +83,10 @@ function init_records()
 function pickup_record(e_item, e_player)
 {
 	/#
-		iprintln("" + level.s_audiologs.var_c9f26594.n_collected);
+		iprintln("" + level.s_audiologs.s_records.n_collected);
 	#/
 	e_item playsound(#"hash_760800881cd94dd1");
-	level.s_audiologs.var_c9f26594.n_collected++;
+	level.s_audiologs.s_records.n_collected++;
 }
 
 /*
@@ -101,18 +101,18 @@ function pickup_record(e_item, e_player)
 function function_6ad87fb1()
 {
 	self endon(#"death");
-	n_id = level.s_audiologs.var_c9f26594.n_played;
-	level.s_audiologs.var_c9f26594.n_played++;
+	n_id = level.s_audiologs.s_records.n_played;
+	level.s_audiologs.s_records.n_played++;
 	/#
 		iprintln("" + n_id);
 	#/
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 show();
+	level.s_audiologs.s_records.var_d9a8e3e4 show();
 	wait(1);
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 600);
-	zm_hms_util::function_e308175e(level.s_audiologs.var_c9f26594.var_7f4f65e6[n_id], self.origin);
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 1);
+	level.s_audiologs.s_records.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 600);
+	zm_hms_util::function_e308175e(level.s_audiologs.s_records.var_7f4f65e6[n_id], self.origin);
+	level.s_audiologs.s_records.var_d9a8e3e4 rotatevelocity(vectorscale((0, 1, 0), 200), 1);
 	wait(2);
-	level.s_audiologs.var_c9f26594.var_d9a8e3e4 hide();
+	level.s_audiologs.s_records.var_d9a8e3e4 hide();
 }
 
 /*
@@ -126,7 +126,7 @@ function function_6ad87fb1()
 */
 function function_4164ac1d(e_player)
 {
-	return level.s_audiologs.var_c9f26594.n_collected > level.s_audiologs.var_c9f26594.n_played;
+	return level.s_audiologs.s_records.n_collected > level.s_audiologs.s_records.n_played;
 }
 
 /*
@@ -335,8 +335,8 @@ function function_a8be9b98()
 function init_orbs()
 {
 	level.s_audiologs.var_7ab3422d = array(#"hash_60d74e6165b011e6", #"hash_60d74d6165b01033", #"hash_60d74c6165b00e80", #"hash_60d7536165b01a65");
-	var_b682d2ea = getentarray("audiolog_orb", "targetname");
-	array::run_all(var_b682d2ea, &setup_orb);
+	a_e_orbs = getentarray("audiolog_orb", "targetname");
+	array::run_all(a_e_orbs, &setup_orb);
 }
 
 /*

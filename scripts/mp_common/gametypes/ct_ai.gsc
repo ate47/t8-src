@@ -364,11 +364,11 @@ function function_9313dd47(s_loc, n_radius)
 	Parameters: 1
 	Flags: None
 */
-function function_12f9ed01(var_4abe70c5)
+function function_12f9ed01(a_s_goto)
 {
 	self endon(#"deah");
 	self.var_2925fedc = undefined;
-	foreach(s_loc in var_4abe70c5)
+	foreach(s_loc in a_s_goto)
 	{
 		self function_8e0db9e6(s_loc, 40, 40, 1);
 	}

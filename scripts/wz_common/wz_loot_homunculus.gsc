@@ -54,13 +54,13 @@ function function_eaeb557()
 	level endon(#"game_ended");
 	item_world::function_1b11e73c();
 	zombie_apoc_homunculus = getdynent("zombie_apoc_homunculus");
-	var_c3ff57f0 = array::randomize(getdynentarray("spring_event_homunculus"));
+	a_homunculi = array::randomize(getdynentarray("spring_event_homunculus"));
 	b_enable = isdefined(getgametypesetting(#"hash_53b5887dea69a320")) && getgametypesetting(#"hash_53b5887dea69a320");
 	if(isdefined(zombie_apoc_homunculus))
 	{
 		function_e2a06860(zombie_apoc_homunculus, 3);
 	}
-	foreach(e_homunculus in var_c3ff57f0)
+	foreach(e_homunculus in a_homunculi)
 	{
 		function_e2a06860(e_homunculus, 3);
 	}
@@ -77,7 +77,7 @@ function function_eaeb557()
 		}
 	}
 	n_active = 0;
-	foreach(e_homunculus in var_c3ff57f0)
+	foreach(e_homunculus in a_homunculi)
 	{
 		if(b_enable && n_active < 5 && (!(isdefined(e_homunculus.b_disabled) && e_homunculus.b_disabled)))
 		{

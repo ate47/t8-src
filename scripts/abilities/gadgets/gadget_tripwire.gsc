@@ -546,7 +546,7 @@ function function_430b5b99(entity, var_7ffaab28)
 			return false;
 		}
 	}
-	if(isplayer(entity) && entity hasperk(#"hash_11ba78d175e4720a"))
+	if(isplayer(entity) && entity hasperk(#"specialty_nottargetedbytripwire"))
 	{
 		return false;
 	}
@@ -576,7 +576,7 @@ function function_5b8dea90(player)
 	{
 		return false;
 	}
-	if(player hasperk(#"hash_11ba78d175e4720a"))
+	if(player hasperk(#"specialty_nottargetedbytripwire"))
 	{
 		return false;
 	}
@@ -764,7 +764,7 @@ function private function_84101bb5(notifyhash)
 	Parameters: 5
 	Flags: Linked
 */
-function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
+function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, tripper)
 {
 	if(!isdefined(self))
 	{
@@ -851,7 +851,7 @@ function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
 			{
 				self.hitnormal = (0, 0, 1);
 			}
-			if(isdefined(var_83b1839e) && isvehicle(var_83b1839e))
+			if(isdefined(tripper) && isvehicle(tripper))
 			{
 				if(isdefined(var_2f6adbe3))
 				{

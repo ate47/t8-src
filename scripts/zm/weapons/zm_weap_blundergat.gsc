@@ -1696,8 +1696,8 @@ function function_b1347a6()
 			{
 				e_player notify(#"acid_taken");
 				var_287a8343 = zm_utility::get_player_weapon_limit(e_player);
-				var_4f33a328 = e_player getweaponslistprimaries();
-				if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
+				a_primaries = e_player getweaponslistprimaries();
+				if(isdefined(a_primaries) && a_primaries.size >= var_287a8343)
 				{
 					e_player takeweapon(e_player.currentweapon);
 				}

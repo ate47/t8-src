@@ -592,9 +592,9 @@ function private function_eb1f805(entity)
 	predicttime = 0.2;
 	movevector = velocity * predicttime;
 	predictedpos = entity.origin + movevector;
-	var_a5a1f99c = getaiarchetypearray(#"zombie");
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-	var_86476d47 = array::filter(var_a5a1f99c, 0, &namespace_9ff9f642::function_865a83f8, entity, predictedpos, ai::function_9139c839().var_b7366094);
+	zombiesarray = getaiarchetypearray(#"zombie");
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+	var_86476d47 = array::filter(zombiesarray, 0, &namespace_9ff9f642::function_865a83f8, entity, predictedpos, ai::function_9139c839().var_b7366094);
 	if(var_86476d47.size > 0)
 	{
 		foreach(zombie in var_86476d47)

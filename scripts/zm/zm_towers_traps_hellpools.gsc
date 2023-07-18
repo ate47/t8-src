@@ -99,11 +99,11 @@ function init()
 */
 function function_7cc8a854()
 {
-	level.var_4a4e3bdc = getentarray("mdl_hellpool_lava_grate", "targetname");
-	foreach(var_bcdc2fe7 in level.var_4a4e3bdc)
+	level.a_e_hellpools = getentarray("mdl_hellpool_lava_grate", "targetname");
+	foreach(e_hellpool in level.a_e_hellpools)
 	{
-		var_bcdc2fe7 flag::init("activated");
-		var_bcdc2fe7 notsolid();
+		e_hellpool flag::init("activated");
+		e_hellpool notsolid();
 	}
 	level.a_s_hellpool_cauldron = struct::get_array("s_hellpool_cauldron", "targetname");
 	level.var_c07e6d20 = getentarray("zm_towers_hellpool_ghost", "script_label");
@@ -120,8 +120,8 @@ function function_7cc8a854()
 	mdl_clip notsolid();
 	var_d58ee8b5 = getweapon(#"hash_72cba96681a7af18");
 	zm_items::function_4d230236(var_d58ee8b5, &function_b54b9d5e);
-	var_9a2f8aa = getentarray("zombie_trap", "targetname");
-	level.var_482bcfef = array::filter(var_9a2f8aa, 0, &function_9cc4d7b9);
+	a_zombie_traps = getentarray("zombie_trap", "targetname");
+	level.var_482bcfef = array::filter(a_zombie_traps, 0, &function_9cc4d7b9);
 	foreach(var_299f1fa2 in level.var_482bcfef)
 	{
 		var_299f1fa2 function_586dd237();
@@ -149,9 +149,9 @@ function function_b589dae1()
 	while(true)
 	{
 		level waittill(#"host_migration_end");
-		foreach(var_bcdc2fe7 in level.var_4a4e3bdc)
+		foreach(e_hellpool in level.a_e_hellpools)
 		{
-			var_bcdc2fe7 notify(#"hash_5aa6001392300725");
+			e_hellpool notify(#"hash_5aa6001392300725");
 		}
 	}
 }
@@ -168,13 +168,13 @@ function function_b589dae1()
 function private function_a3661fef()
 {
 	level waittill(#"start_zombie_round_logic");
-	var_6645c992 = zm_crafting::function_b18074d0(#"zblueprint_trap_hellpools");
+	s_blueprint = zm_crafting::function_b18074d0(#"zblueprint_trap_hellpools");
 	while(true)
 	{
 		level waittill(#"component_collected");
 		foreach(e_player in getplayers())
 		{
-			if(zm_crafting::function_6d1e4410(e_player, var_6645c992))
+			if(zm_crafting::function_6d1e4410(e_player, s_blueprint))
 			{
 				level scene::function_27f5972e(#"p8_fxanim_zm_towers_trap_acid_bundle");
 				level notify(#"hash_476cae376318f3d5");
@@ -416,11 +416,11 @@ function function_45a2294f(str_id)
 		return;
 	}
 	self.b_activated = 1;
-	foreach(var_bcdc2fe7 in level.var_4a4e3bdc)
+	foreach(e_hellpool in level.a_e_hellpools)
 	{
-		if(var_bcdc2fe7.script_string === str_id)
+		if(e_hellpool.script_string === str_id)
 		{
-			var_bcdc2fe7 thread activate_trap(self);
+			e_hellpool thread activate_trap(self);
 		}
 	}
 	level notify(#"traps_activated", {#hash_be3f58a:str_id});

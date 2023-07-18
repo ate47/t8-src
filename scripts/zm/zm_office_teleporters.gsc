@@ -498,21 +498,21 @@ function cooldown_portal_timer(e_user)
 		return;
 	}
 	self endon(#"death", #"hash_3c91bf90cecbe758");
-	if(!isdefined(self.var_3dac5f67))
+	if(!isdefined(self.a_e_users))
 	{
-		self.var_3dac5f67 = [];
+		self.a_e_users = [];
 	}
-	else if(!isarray(self.var_3dac5f67))
+	else if(!isarray(self.a_e_users))
 	{
-		self.var_3dac5f67 = array(self.var_3dac5f67);
+		self.a_e_users = array(self.a_e_users);
 	}
-	self.var_3dac5f67[self.var_3dac5f67.size] = e_user;
+	self.a_e_users[self.a_e_users.size] = e_user;
 	self function_cb7c6fc7(e_user, 0);
 	for(time = 0; !level flag::get("defcon_active") && time < 20 || time < 2; time++)
 	{
 		wait(1);
 	}
-	arrayremovevalue(self.var_3dac5f67, e_user);
+	arrayremovevalue(self.a_e_users, e_user);
 	self function_cb7c6fc7(e_user, 1);
 }
 
@@ -1101,13 +1101,13 @@ function portal_init()
 		level.a_s_portals = array(level.a_s_portals);
 	}
 	self.var_a1cf77d2 = util::spawn_model("tag_origin", self.origin, self.angles);
-	if(!isdefined(self.var_3dac5f67))
+	if(!isdefined(self.a_e_users))
 	{
-		self.var_3dac5f67 = [];
+		self.a_e_users = [];
 	}
-	else if(!isarray(self.var_3dac5f67))
+	else if(!isarray(self.a_e_users))
 	{
-		self.var_3dac5f67 = array(self.var_3dac5f67);
+		self.a_e_users = array(self.a_e_users);
 	}
 	self.zone_name = zm_zonemgr::get_zone_from_position(self.origin, 1);
 	self.var_d5ea18bf = array(4);
@@ -1198,7 +1198,7 @@ function portal_think()
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
 		e_user = waitresult.activator;
-		if(array::contains(s_portal.var_3dac5f67, e_user) || (isdefined(self.stub.related_parent.var_cd2f1fed) && self.stub.related_parent.var_cd2f1fed))
+		if(array::contains(s_portal.a_e_users, e_user) || (isdefined(self.stub.related_parent.var_cd2f1fed) && self.stub.related_parent.var_cd2f1fed))
 		{
 			continue;
 		}
@@ -1517,7 +1517,7 @@ function function_a6bb56f6()
 		{
 			s_portal.var_cd2f1fed = 1;
 			s_portal notify(#"hash_3c91bf90cecbe758");
-			s_portal.var_3dac5f67 = [];
+			s_portal.a_e_users = [];
 			foreach(e_player in getplayers())
 			{
 				s_portal function_cb7c6fc7(e_player, 0);

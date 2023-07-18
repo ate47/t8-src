@@ -315,7 +315,7 @@ function elevator_kill_player(t_damage)
 				}
 				continue;
 			}
-			if(level flagsys::get(#"hash_5a3e17fbc33cdc86") || level.script === "mp_alcatraz")
+			if(level flagsys::get(#"insertion_teleport_completed") || level.script === "mp_alcatraz")
 			{
 				e_player.var_1a776c13 = 1;
 				e_player suicide();
@@ -396,7 +396,7 @@ function function_26ab1b5e(t_damage)
 							}
 							continue;
 						}
-						var_1c8ad6c7 = level flagsys::get(#"hash_5a3e17fbc33cdc86");
+						var_1c8ad6c7 = level flagsys::get(#"insertion_teleport_completed");
 						if(var_1c8ad6c7)
 						{
 							player.var_1a776c13 = 1;

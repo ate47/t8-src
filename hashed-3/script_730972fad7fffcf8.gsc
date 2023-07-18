@@ -109,11 +109,11 @@ function function_62cd02cc()
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_7f50125ebbc15534", #"hash_45b5072d8475909");
 		}
-		if(isdefined(getgametypesetting(#"hash_f04393e2e028c01")) && getgametypesetting(#"hash_f04393e2e028c01") || (isdefined(getgametypesetting(#"hash_232750b87390cbff")) && getgametypesetting(#"hash_232750b87390cbff")))
+		if(isdefined(getgametypesetting(#"wzenablewallbuyboxinggym")) && getgametypesetting(#"wzenablewallbuyboxinggym") || (isdefined(getgametypesetting(#"hash_232750b87390cbff")) && getgametypesetting(#"hash_232750b87390cbff")))
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_5d334f942754156e", #"hash_45b5072d8475909");
 		}
-		if(isdefined(getgametypesetting(#"hash_64aba694bd70856c")) && getgametypesetting(#"hash_64aba694bd70856c") || (isdefined(getgametypesetting(#"hash_232750b87390cbff")) && getgametypesetting(#"hash_232750b87390cbff")))
+		if(isdefined(getgametypesetting(#"wzenablewallbuyghosttown")) && getgametypesetting(#"wzenablewallbuyghosttown") || (isdefined(getgametypesetting(#"hash_232750b87390cbff")) && getgametypesetting(#"hash_232750b87390cbff")))
 		{
 			wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_10db7f8ca1621554", #"hash_45b5072d8475909");
 		}

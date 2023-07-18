@@ -2973,11 +2973,11 @@ function private function_172decfc()
 		var_32d62863 = array();
 		var_210f7603 = 0;
 		var_ecc27a73 = 0;
-		foreach(var_8258bc10 in var_325bac97)
+		foreach(s_var in var_325bac97)
 		{
-			if(var_8258bc10.name.size > var_ecc27a73)
+			if(s_var.name.size > var_ecc27a73)
 			{
-				var_ecc27a73 = var_8258bc10.name.size;
+				var_ecc27a73 = s_var.name.size;
 			}
 		}
 		for(i = 0; i < var_325bac97.size; i++)

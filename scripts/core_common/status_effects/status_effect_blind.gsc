@@ -44,25 +44,25 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function blind_apply(var_756fda07, weapon, var_84171a6c)
+function blind_apply(var_756fda07, weapon, applicant)
 {
 	self.owner.flashendtime = gettime() + var_756fda07.var_77449e9;
-	self.owner.lastflashedby = var_84171a6c;
-	if(self.owner == var_84171a6c)
+	self.owner.lastflashedby = applicant;
+	if(self.owner == applicant)
 	{
 		return;
 	}
-	var_c94d654b = var_84171a6c getentitynumber();
+	var_c94d654b = applicant getentitynumber();
 	if(!isdefined(self.owner.var_b68518ab))
 	{
 		self.owner.var_b68518ab = [];
 	}
-	var_3860e7da = self.owner.var_b68518ab;
-	if(!isdefined(var_3860e7da[var_c94d654b]))
+	blindarray = self.owner.var_b68518ab;
+	if(!isdefined(blindarray[var_c94d654b]))
 	{
-		var_3860e7da[var_c94d654b] = 0;
+		blindarray[var_c94d654b] = 0;
 	}
-	if(isdefined(var_3860e7da[var_c94d654b]) && (var_3860e7da[var_c94d654b] + 3000) < gettime())
+	if(isdefined(blindarray[var_c94d654b]) && (blindarray[var_c94d654b] + 3000) < gettime())
 	{
 		if(isdefined(weapon) && weapon == getweapon(#"hash_3f62a872201cd1ce"))
 		{
@@ -70,18 +70,18 @@ function blind_apply(var_756fda07, weapon, var_84171a6c)
 			{
 				self.owner.var_ef9b6f0b = 1;
 				level notify(#"hash_ac034f4f7553641");
-				var_84171a6c.var_a467e27f = (isdefined(var_84171a6c.var_a467e27f) ? var_84171a6c.var_a467e27f : 0) + 1;
+				applicant.var_a467e27f = (isdefined(applicant.var_a467e27f) ? applicant.var_a467e27f : 0) + 1;
 				if(isdefined(level.var_ac6052e9))
 				{
 					var_9194a036 = [[level.var_ac6052e9]]("swatGrenadeSuccessLineCount", 0);
 				}
-				if(var_84171a6c.var_a467e27f == (isdefined(var_9194a036) ? var_9194a036 : 0))
+				if(applicant.var_a467e27f == (isdefined(var_9194a036) ? var_9194a036 : 0))
 				{
-					var_84171a6c thread [[level.playgadgetsuccess]](getweapon(#"hash_3f62a872201cd1ce"), undefined, self.owner, undefined);
+					applicant thread [[level.playgadgetsuccess]](getweapon(#"hash_3f62a872201cd1ce"), undefined, self.owner, undefined);
 				}
 			}
 		}
-		var_3860e7da[var_c94d654b] = gettime();
+		blindarray[var_c94d654b] = gettime();
 	}
 }
 

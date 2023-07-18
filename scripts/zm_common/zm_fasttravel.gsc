@@ -160,13 +160,13 @@ function __main__()
 */
 function wormhole_fx(a_ents)
 {
-	var_fd99631b = a_ents[getfirstarraykey(a_ents)];
+	e_wormhole = a_ents[getfirstarraykey(a_ents)];
 	do
 	{
 		util::wait_network_frame();
 	}
-	while(!var_fd99631b isplayinganimscripted());
-	var_fd99631b clientfield::set("" + #"wormhole_fx", zm_utility::get_story());
+	while(!e_wormhole isplayinganimscripted());
+	e_wormhole clientfield::set("" + #"wormhole_fx", zm_utility::get_story());
 }
 
 /*

@@ -170,8 +170,8 @@ function givecustomloadout()
 	self ability_util::gadget_reset(offhandprimary, 0, 0, 1, 0);
 	self ability_util::function_36a15b60(offhandprimary);
 	self.heroweapon = undefined;
-	var_5a17505c = (isdefined(getgametypesetting(#"hash_4ca06c610b5d53bd")) ? getgametypesetting(#"hash_4ca06c610b5d53bd") : 0);
-	if(!var_5a17505c)
+	e_whippings = (isdefined(getgametypesetting(#"hash_4ca06c610b5d53bd")) ? getgametypesetting(#"hash_4ca06c610b5d53bd") : 0);
+	if(!e_whippings)
 	{
 		secondaryoffhand = getweapon(#"gadget_health_regen");
 		secondaryoffhandcount = 0;

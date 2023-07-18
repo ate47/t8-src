@@ -174,6 +174,7 @@ gadget_jammer
 frag_grenade
 flash_grenade
 explodable_barrel
+equip_sprout
 eq_smoke
 eq_shroud
 eq_emp_grenade

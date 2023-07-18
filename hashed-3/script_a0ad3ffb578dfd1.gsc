@@ -243,15 +243,15 @@ function function_8a44027()
 */
 function function_c3a5f1fe(a_ents)
 {
-	var_e96b5d4f = a_ents[getfirstarraykey(a_ents)];
-	var_e96b5d4f val::set(#"raven_cipher", "takedamage", 1);
-	var_e96b5d4f val::set(#"raven_cipher", "allowdeath", 0);
+	e_raven = a_ents[getfirstarraykey(a_ents)];
+	e_raven val::set(#"raven_cipher", "takedamage", 1);
+	e_raven val::set(#"raven_cipher", "allowdeath", 0);
 	w_weapon = getweapon(#"ww_tricannon_earth_t8");
 	var_eb115bf1 = getweapon(#"ww_tricannon_earth_t8_upgraded");
 	while(true)
 	{
 		s_result = undefined;
-		s_result = var_e96b5d4f waittill(#"damage");
+		s_result = e_raven waittill(#"damage");
 		if(s_result.weapon === w_weapon || s_result.weapon === var_eb115bf1)
 		{
 			if(isalive(s_result.attacker) && isplayer(s_result.attacker))
@@ -263,7 +263,7 @@ function function_c3a5f1fe(a_ents)
 	}
 	var_617131bd = getent("pages_of_words", "targetname");
 	var_617131bd setmodel(#"hash_6a0ad79cfc79892d");
-	var_e96b5d4f delete();
+	e_raven delete();
 }
 
 /*
@@ -354,7 +354,7 @@ function function_d3a41243()
 		if(s_result.weapon === w_sticky)
 		{
 			mdl_fx = util::spawn_model("tag_origin", struct::get(#"macaroni_puddle").origin);
-			mdl_fx linkto(level.var_56665536);
+			mdl_fx linkto(level.e_sway);
 			mdl_fx clientfield::set("" + #"morse_star", 1);
 			break;
 		}
@@ -409,14 +409,14 @@ function function_ea0460f4()
 		var_255658de val::set(#"phono_roll", "takedamage", 1);
 		var_255658de val::set(#"phono_roll", "allowdeath", 0);
 	}
-	var_b27c3401 = struct::get_array(#"hash_44ff0c493e2791eb");
-	foreach(var_66a89e74 in var_b27c3401)
+	a_s_phonographs = struct::get_array(#"hash_44ff0c493e2791eb");
+	foreach(s_phonograph in a_s_phonographs)
 	{
-		s_unitrigger = var_66a89e74 zm_unitrigger::create();
-		var_66a89e74 thread function_63c3fd24(var_314c1b5a);
-		if(isdefined(var_66a89e74.target))
+		s_unitrigger = s_phonograph zm_unitrigger::create();
+		s_phonograph thread function_63c3fd24(var_314c1b5a);
+		if(isdefined(s_phonograph.target))
 		{
-			s_trigger_loc = struct::get(var_66a89e74.target);
+			s_trigger_loc = struct::get(s_phonograph.target);
 			zm_unitrigger::function_47625e58(s_unitrigger, s_trigger_loc.origin);
 		}
 	}
@@ -732,16 +732,16 @@ function function_7c9ab1ea(var_87e0cf0b, var_f96aafd8)
 */
 function function_b11c26c9()
 {
-	var_56665536 = getent("skybox_water", "targetname");
+	e_sway = getent("skybox_water", "targetname");
 	e_homunculus = getent("life_preserver_catch", "targetname");
 	var_21bb918c = getent("life_preserver_catch" + "_l", "targetname");
 	var_c8279d50 = getent("life_preserver_catch" + "_r", "targetname");
 	e_homunculus setscale(5);
 	var_21bb918c setscale(1.75);
 	var_c8279d50 setscale(1.75);
-	e_homunculus linkto(var_56665536);
-	var_21bb918c linkto(var_56665536);
-	var_c8279d50 linkto(var_56665536);
+	e_homunculus linkto(e_sway);
+	var_21bb918c linkto(e_sway);
+	var_c8279d50 linkto(e_sway);
 	e_homunculus ghost();
 	var_21bb918c ghost();
 	var_c8279d50 ghost();
@@ -825,8 +825,8 @@ function function_c867ac0a(e_homunculus, var_21bb918c, var_c8279d50)
 	var_c8279d50 sethighdetail(1);
 	var_21bb918c.var_55e11aa9 = util::spawn_model("tag_origin", var_21bb918c.origin);
 	var_c8279d50.var_55e11aa9 = util::spawn_model("tag_origin", var_c8279d50.origin);
-	var_21bb918c.var_55e11aa9 linkto(level.var_56665536);
-	var_c8279d50.var_55e11aa9 linkto(level.var_56665536);
+	var_21bb918c.var_55e11aa9 linkto(level.e_sway);
+	var_c8279d50.var_55e11aa9 linkto(level.e_sway);
 	a_angles = function_a7ae2066();
 	function_dc92e2d4(a_angles, var_21bb918c, var_c8279d50, #"start");
 	wait(1);
@@ -943,8 +943,8 @@ function function_dc92e2d4(a_angles, var_21bb918c, var_c8279d50, str_letter)
 	var_c8279d50 waittill(#"rotatedone");
 	var_21bb918c.origin = var_21bb918c.var_55e11aa9.origin;
 	var_c8279d50.origin = var_c8279d50.var_55e11aa9.origin;
-	var_21bb918c linkto(level.var_56665536);
-	var_c8279d50 linkto(level.var_56665536);
+	var_21bb918c linkto(level.e_sway);
+	var_c8279d50 linkto(level.e_sway);
 	wait(1.25);
 }
 

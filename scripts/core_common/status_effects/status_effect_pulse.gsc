@@ -60,7 +60,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function pulse_apply(var_756fda07, weapon, var_84171a6c)
+function pulse_apply(var_756fda07, weapon, applicant)
 {
 	self.owner clientfield::set_to_player("pulsed", 1);
 	shutdownpulserebootindicatormenu();

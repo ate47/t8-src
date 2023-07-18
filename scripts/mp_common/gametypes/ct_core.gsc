@@ -274,7 +274,7 @@ function function_edd52efc()
 	{
 		self player_role::set(level.select_character);
 	}
-	level notify(#"hash_2cbc372b0dee9bec");
+	level notify(#"custom_draft_completed");
 }
 
 /*
@@ -383,7 +383,7 @@ function function_f8f94589(gamedifficulty)
 */
 function function_1e84c767()
 {
-	level waittill(#"hash_2cbc372b0dee9bec", #"draft_complete");
+	level waittill(#"custom_draft_completed", #"draft_complete");
 	level.usingmomentum = 0;
 	level.var_90bb9821 = 0;
 	setdvar(#"scr_disablechallenges", 1);

@@ -422,11 +422,11 @@ function private function_7d162bd0(projectile, var_e15d8b1f, var_c3f91959)
 					aoe = zm_aoe::function_371b4147(id, var_f34f8a95, groundtrace(result.position + vectorscale((0, 0, 1), 8), result.position + (vectorscale((0, 0, -1), 100000)), 0, projectile)[#"position"]);
 				}
 			}
-			var_a5a1f99c = getaiarchetypearray(#"zombie");
-			var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-			var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"tiger"), 0, 0);
-			var_a5a1f99c = array::filter(var_a5a1f99c, 0, &function_5ae551a6, projectile);
-			function_9b64dc73(var_a5a1f99c, projectile);
+			zombiesarray = getaiarchetypearray(#"zombie");
+			zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+			zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"tiger"), 0, 0);
+			zombiesarray = array::filter(zombiesarray, 0, &function_5ae551a6, projectile);
+			function_9b64dc73(zombiesarray, projectile);
 			physicsexplosionsphere(result.position, 200, 100, 2);
 		}
 	}

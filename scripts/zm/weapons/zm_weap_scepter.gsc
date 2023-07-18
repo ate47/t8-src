@@ -1161,10 +1161,10 @@ function private function_717a1af2()
 	self thread reset_after_bleeding_out();
 	do
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_4078956b159dd0f3");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hash_4078956b159dd0f3");
 	}
-	while(var_be17187b.weapon != w_beacon);
+	while(s_waitresult.weapon != w_beacon);
 	if(isdefined(self.var_165b5fce))
 	{
 		self gadgetpowerset(self gadgetgetslot(w_beacon), self.var_165b5fce);
@@ -1193,11 +1193,11 @@ function weapon_drop_watcher()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_switch_started");
-		if(zm_loadout::is_hero_weapon(var_be17187b.w_current))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_switch_started");
+		if(zm_loadout::is_hero_weapon(s_waitresult.w_current))
 		{
-			self setweaponammoclip(var_be17187b.w_current, 0);
+			self setweaponammoclip(s_waitresult.w_current, 0);
 		}
 	}
 }
@@ -1216,11 +1216,11 @@ function weapon_change_watcher()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hero_weapon_change");
-		if(isdefined(var_be17187b.w_previous) && zm_loadout::is_hero_weapon(var_be17187b.w_current))
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hero_weapon_change");
+		if(isdefined(s_waitresult.w_previous) && zm_loadout::is_hero_weapon(s_waitresult.w_current))
 		{
-			self.var_7e973e30 = var_be17187b.w_previous;
+			self.var_7e973e30 = s_waitresult.w_previous;
 		}
 	}
 }

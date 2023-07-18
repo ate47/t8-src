@@ -40,7 +40,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -213,9 +213,9 @@ function private function_69fa75f8()
 		self function_e0c7d69(0);
 		while(true)
 		{
-			var_be17187b = undefined;
-			var_be17187b = self waittilltimeout(1, #"weapon_fired", #"hash_3e0895cd0cc16d2d", #"lightning_ball_created", #"hash_4d733389a8e35a7c");
-			if(var_be17187b._notify != "timeout")
+			s_waitresult = undefined;
+			s_waitresult = self waittilltimeout(1, #"weapon_fired", #"hash_3e0895cd0cc16d2d", #"lightning_ball_created", #"hash_4d733389a8e35a7c");
+			if(s_waitresult._notify != "timeout")
 			{
 				self clientfield::set_to_player("" + #"hash_1b9477ddcf30191f", 0);
 				self function_e0c7d69(1);

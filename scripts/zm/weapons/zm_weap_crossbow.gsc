@@ -285,9 +285,9 @@ function private function_39ffd9fc()
 	self endon(#"disconnect");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_change");
-		w_current = var_be17187b.weapon;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_change");
+		w_current = s_waitresult.weapon;
 		if(is_crossbow(w_current))
 		{
 			self thread zm_equipment::show_hint_text(#"hash_781f9cab14f565c8");

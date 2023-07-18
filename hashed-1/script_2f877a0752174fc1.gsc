@@ -80,9 +80,9 @@ function function_c7d4845()
 {
 	while(!self.is_collected)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		e_who playsound("evt_punch_card_pickup");
 		if(math::cointoss())
 		{
@@ -108,9 +108,9 @@ function function_445e3d3d()
 {
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		if(level.var_b53764f7 < level.var_389d1b12)
 		{
 			level.var_da4b53f8 function_7a70f281();
@@ -247,9 +247,9 @@ function function_22393009()
 	while(self.is_active && !self.is_complete)
 	{
 		var_2dc7965c = self.n_station;
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_who = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_who = s_waitresult.e_who;
 		b_using = 1;
 		var_ee23f17d = 1;
 		if(self.n_station == 5)

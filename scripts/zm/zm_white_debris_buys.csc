@@ -2,27 +2,27 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_8d9c976e;
+#namespace zm_white_debris_buys;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_8d9c976e
-	Checksum: 0x2BD2C8EE
-	Offset: 0xB0
+	Namespace: zm_white_debris_buys
+	Checksum: 0xB9B39B61
+	Offset: 0xA8
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_435f2e0dff1c53c7", &init, undefined, undefined);
+	system::register(#"zm_white_debris_buys", &init, undefined, undefined);
 }
 
 /*
 	Name: init
-	Namespace: namespace_8d9c976e
-	Checksum: 0xB0629EDB
-	Offset: 0xF8
+	Namespace: zm_white_debris_buys
+	Checksum: 0xECE4C4DA
+	Offset: 0xF0
 	Size: 0x5C
 	Parameters: 0
 	Flags: Linked
@@ -34,9 +34,9 @@ function init()
 
 /*
 	Name: function_32f95e3f
-	Namespace: namespace_8d9c976e
-	Checksum: 0x9583B5A3
-	Offset: 0x160
+	Namespace: zm_white_debris_buys
+	Checksum: 0xDB24D0EA
+	Offset: 0x158
 	Size: 0x126
 	Parameters: 7
 	Flags: Linked
@@ -48,7 +48,7 @@ function function_32f95e3f(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(i = 0; i < self getnumzbarrierpieces(); i++)
 		{
 			var_a6b8d2c2 = self zbarriergetpiece(i);
-			var_a6b8d2c2 playrenderoverridebundle("rob_zm_office_debris_clear");
+			var_a6b8d2c2 playrenderoverridebundle("rob_zm_white_crate_clear");
 		}
 	}
 	else
@@ -56,7 +56,7 @@ function function_32f95e3f(localclientnum, oldval, newval, bnewent, binitialsnap
 		for(i = 0; i < self getnumzbarrierpieces(); i++)
 		{
 			var_a6b8d2c2 = self zbarriergetpiece(i);
-			var_a6b8d2c2 stoprenderoverridebundle("rob_zm_office_debris_clear");
+			var_a6b8d2c2 stoprenderoverridebundle("rob_zm_white_crate_clear");
 		}
 	}
 }

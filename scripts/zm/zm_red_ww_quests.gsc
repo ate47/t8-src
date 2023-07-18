@@ -409,16 +409,16 @@ function function_7e94450c()
 	array::thread_all(getplayers(), &function_aaaf780e, self, t_damage);
 	while(!(isdefined(self.var_b542e87f) && self.var_b542e87f))
 	{
-		var_be17187b = undefined;
-		var_be17187b = t_damage waittill(#"damage");
-		e_player = var_be17187b.attacker;
-		if(var_be17187b.mod === "MOD_MELEE")
+		s_waitresult = undefined;
+		s_waitresult = t_damage waittill(#"damage");
+		e_player = s_waitresult.attacker;
+		if(s_waitresult.mod === "MOD_MELEE")
 		{
 			break;
 		}
 		else
 		{
-			self.n_health = self.n_health - var_be17187b.amount;
+			self.n_health = self.n_health - s_waitresult.amount;
 			if(self.n_health <= 9400)
 			{
 				break;
@@ -499,9 +499,9 @@ function function_fa621ff5(e_destructible)
 	e_destructible endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_melee");
-		if(isplayer(self) && var_be17187b.weapon == getweapon(#"zhield_zpear_dw") && self util::is_looking_at(e_destructible.origin) && distance2d(e_destructible.origin, self.origin) < 100)
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_melee");
+		if(isplayer(self) && s_waitresult.weapon == getweapon(#"zhield_zpear_dw") && self util::is_looking_at(e_destructible.origin) && distance2d(e_destructible.origin, self.origin) < 100)
 		{
 			e_destructible dodamage(e_destructible.health + 100, e_destructible.origin, self);
 		}
@@ -608,9 +608,9 @@ function function_cf82cb0b()
 	var_1ab50f4 clientfield::set("" + #"hash_23ba81a7c071845d", 1);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_player = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_player = s_waitresult.e_who;
 		if(e_player flag::get(#"hash_664c4b8d9b3d0237") || isdefined(e_player function_996fee51()))
 		{
 			continue;
@@ -1351,9 +1351,9 @@ function function_37c18ffd(var_fc6baa64)
 	var_a1327d58.var_afda9f06 = undefined;
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = var_a1327d58 waittill(#"trigger_activated");
-		e_player = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = var_a1327d58 waittill(#"trigger_activated");
+		e_player = s_waitresult.e_who;
 		if(zm_utility::is_player_valid(e_player) && e_player flag::get(#"hash_664c4b8d9b3d0237"))
 		{
 			break;
@@ -1516,18 +1516,18 @@ function function_9520e85d(var_fc6baa64)
 {
 	s_quest = level.var_d225ea18[var_fc6baa64];
 	var_a1327d58 = s_quest.var_a1327d58;
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"hash_7fe6ca08732b8a1d", #"fake_death");
-	if(level flag::get("round_reset") || var_be17187b._notify == "fake_death")
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"hash_7fe6ca08732b8a1d", #"fake_death");
+	if(level flag::get("round_reset") || s_waitresult._notify == "fake_death")
 	{
-		var_be17187b.b_success = 0;
+		s_waitresult.b_success = 0;
 	}
 	var_a1327d58 flag::clear(#"hash_58c0761173ca055");
 	if(isdefined(self))
 	{
 		self flag::clear(#"hash_9e34b0e30895cb2");
 	}
-	if(var_be17187b.b_success === 0)
+	if(s_waitresult.b_success === 0)
 	{
 		s_quest notify(#"shrine_available");
 		var_a1327d58 thread function_37c18ffd(var_fc6baa64);
@@ -1668,9 +1668,9 @@ function function_4c66319a(var_fc6baa64)
 	var_50928a25 thread function_6e84f472();
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
-		e_player = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
+		e_player = s_waitresult.e_who;
 		if(zm_utility::can_use(e_player, 1) && e_player.currentweapon.name != "none")
 		{
 			if(isdefined(e_player function_996fee51()))
@@ -1826,10 +1826,10 @@ function function_9aa785fe(e_player)
 	self endon(#"hand_returned");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"trigger_activated");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"trigger_activated");
 		w_hand = e_player getcurrentweapon();
-		if(var_be17187b.e_who === e_player && w_hand === self.var_884c4b3a && !e_player flag::get(#"hash_8cdde8e6a8607f1") && w_hand != level.var_3eccc872)
+		if(s_waitresult.e_who === e_player && w_hand === self.var_884c4b3a && !e_player flag::get(#"hash_8cdde8e6a8607f1") && w_hand != level.var_3eccc872)
 		{
 			if(!(isdefined(e_player.intermission) && e_player.intermission) && (!(isdefined(e_player.is_drinking) && e_player.is_drinking)))
 			{
@@ -1865,9 +1865,9 @@ function function_7f7c692(var_fc6baa64)
 	s_quest thread function_57b78484(self);
 	s_quest thread function_6b3c32b6(var_fc6baa64, self);
 	self thread function_89b62137(var_d02a32e2.origin);
-	var_be17187b = undefined;
-	var_be17187b = self waittilltimeout(30, #"fake_death");
-	if(var_be17187b._notify != #"timeout")
+	s_waitresult = undefined;
+	s_waitresult = self waittilltimeout(30, #"fake_death");
+	if(s_waitresult._notify != #"timeout")
 	{
 		b_success = 0;
 	}
@@ -2406,9 +2406,9 @@ function function_bce6357e()
 	while(var_29ae8bf9 < 3)
 	{
 		var_a1327d58 = self.var_a1327d58;
-		var_be17187b = undefined;
-		var_be17187b = var_a1327d58 waittill(#"trigger_activated");
-		e_player = var_be17187b.e_who;
+		s_waitresult = undefined;
+		s_waitresult = var_a1327d58 waittill(#"trigger_activated");
+		e_player = s_waitresult.e_who;
 		if(!e_player flag::get(#"hash_8cdde8e6a8607f1"))
 		{
 			continue;
@@ -2626,7 +2626,7 @@ function private function_e9127e33()
 	var_b338fe44 = 0;
 	while(!(isdefined(self.heal.enabled) && self.heal.enabled))
 	{
-		if(self hasperk(#"hash_650a97787905913f"))
+		if(self hasperk(#"specialty_sprintspeed"))
 		{
 			self zm_perk_mod_quick_revive::take_perk();
 			var_b338fe44 = 1;
@@ -3886,7 +3886,7 @@ function function_381519d9(var_8290a028, mdl_feather, n_max_height, s_original)
 		var_2ed6f142 = e_player getweaponmuzzlepoint();
 		var_16d329c7 = e_player getweaponforwarddir();
 		v_end_pos = var_2ed6f142 + vectorscale(var_16d329c7, 3000);
-		var_fa879df8 = bullettrace(var_2ed6f142, v_end_pos, 0, e_player);
+		a_beamtrace = bullettrace(var_2ed6f142, v_end_pos, 0, e_player);
 		var_74238e2c = out_of_range_lp_ * out_of_range_lp_;
 		var_1dc736c5 = pointonsegmentnearesttopoint(var_2ed6f142, v_end_pos, var_8290a028.origin);
 		n_dist = distancesquared(var_8290a028.origin, var_1dc736c5);
@@ -4513,14 +4513,14 @@ function function_4e2445e0()
 	e_player = undefined;
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = var_a1327d58 waittill(#"hash_16ea93eb944ff512");
+		s_waitresult = undefined;
+		s_waitresult = var_a1327d58 waittill(#"hash_16ea93eb944ff512");
 		if(namespace_8216831d::is_active())
 		{
 			waitframe(1);
 			continue;
 		}
-		e_player = var_be17187b.e_who;
+		e_player = s_waitresult.e_who;
 		var_b37a7d1e = e_player function_996fee51();
 		if(var_b37a7d1e === var_a1327d58.var_884c4b3a)
 		{
@@ -5345,7 +5345,7 @@ function function_aeaedb3c()
 				var_2ed6f142 = self getweaponmuzzlepoint();
 				var_16d329c7 = self getweaponforwarddir();
 				v_end_pos = var_2ed6f142 + vectorscale(var_16d329c7, 3000);
-				var_fa879df8 = bullettrace(var_2ed6f142, v_end_pos, 0, self);
+				a_beamtrace = bullettrace(var_2ed6f142, v_end_pos, 0, self);
 				var_74238e2c = 50 * 50;
 				var_1dc736c5 = pointonsegmentnearesttopoint(var_2ed6f142, v_end_pos, s_tall_brazier.origin);
 				n_dist = distancesquared(s_tall_brazier.origin, var_1dc736c5);
@@ -5998,8 +5998,8 @@ function function_eeed4f2f(s_spawn_loc)
 	{
 		return undefined;
 	}
-	var_546cd1ac = randomint(level.var_aa069b5.size - 1);
-	ai = zombie_utility::spawn_zombie(level.var_aa069b5[var_546cd1ac], undefined, level.var_aa069b5[var_546cd1ac]);
+	var_546cd1ac = randomint(level.a_sp_catalyst.size - 1);
+	ai = zombie_utility::spawn_zombie(level.a_sp_catalyst[var_546cd1ac], undefined, level.a_sp_catalyst[var_546cd1ac]);
 	if(isdefined(ai))
 	{
 		ai.script_string = s_spawn_loc.script_string;

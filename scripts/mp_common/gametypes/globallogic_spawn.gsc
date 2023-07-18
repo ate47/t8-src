@@ -403,16 +403,16 @@ function addspawnsforteamname(teamname, searchentity, spawnarray, startspawns)
 					continue;
 				}
 			}
-			var_61a53e63 = ((isdefined(spawn._human_were) ? spawn._human_were : 0) ? startspawns : spawnarray);
-			if(!isdefined(var_61a53e63[teamname]))
+			usespawnarray = ((isdefined(spawn._human_were) ? spawn._human_were : 0) ? startspawns : spawnarray);
+			if(!isdefined(usespawnarray[teamname]))
 			{
-				var_61a53e63[teamname] = [];
+				usespawnarray[teamname] = [];
 			}
 			if(!isdefined(spawn.enabled))
 			{
 				spawn.enabled = -1;
 			}
-			array::add(var_61a53e63[teamname], spawn);
+			array::add(usespawnarray[teamname], spawn);
 		}
 	}
 }
@@ -426,13 +426,13 @@ function addspawnsforteamname(teamname, searchentity, spawnarray, startspawns)
 	Parameters: 2
 	Flags: None
 */
-function function_d400d613(targetname, var_37c5ce49)
+function function_d400d613(targetname, typesarray)
 {
 	returnarray = [];
 	rawspawns = struct::get_array(targetname, "targetname");
 	foreach(spawn in rawspawns)
 	{
-		foreach(supportedspawntype in var_37c5ce49)
+		foreach(supportedspawntype in typesarray)
 		{
 			if(!function_82ca1565(spawn, supportedspawntype))
 			{
@@ -565,12 +565,12 @@ function function_8acd9309()
 				{
 					continue;
 				}
-				var_61a53e63 = ((isdefined(spawn._human_were) ? spawn._human_were : 0) ? startspawns : spawnarray);
+				usespawnarray = ((isdefined(spawn._human_were) ? spawn._human_were : 0) ? startspawns : spawnarray);
 				if(!isdefined(spawn.enabled))
 				{
 					spawn.enabled = -1;
 				}
-				array::add(var_61a53e63, spawn);
+				array::add(usespawnarray, spawn);
 			}
 		}
 	}

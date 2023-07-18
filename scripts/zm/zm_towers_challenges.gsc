@@ -90,7 +90,7 @@ function init()
 	level flag::init(#"first_player_completed_3rd_challenge");
 	level flag::init(#"challenge_trap_piece_spawned");
 	level flag::init(#"hash_7e6d1a215978eac4");
-	if(zm_utility::is_standard() || zm_trial::function_b47f6aba())
+	if(zm_utility::is_standard() || zm_trial::is_trial_mode())
 	{
 		function_3e23c5c0(0);
 		level function_99cdcc10();
@@ -282,13 +282,13 @@ function function_fd8a137e(n_time = 0)
 		wait(n_time);
 	}
 	level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges", 0, self);
-	level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", 0, self);
+	level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", 0, self);
 	if(isdefined(self.challenge_struct))
 	{
 		foreach(var_6bf81b9d in self.challenge_struct function_876f93aa())
 		{
 			level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges", 0, var_6bf81b9d);
-			level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", 0, var_6bf81b9d);
+			level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", 0, var_6bf81b9d);
 		}
 	}
 }
@@ -398,9 +398,9 @@ function function_702ac990(e_player, e_trig)
 	{
 		self flag::set(#"hash_5a7dfe069f4cbcec");
 		self.var_4931480f setvisibletoplayer(e_player);
-		foreach(var_ae7b1d33 in self function_876f93aa())
+		foreach(e_helper in self function_876f93aa())
 		{
-			self.var_4931480f setvisibletoplayer(var_ae7b1d33);
+			self.var_4931480f setvisibletoplayer(e_helper);
 		}
 		if(isdefined(self.var_25276720) && e_player != self.var_25276720 && self.var_25276720 flag::get(#"flag_player_initialized_reward") && !self.var_25276720 flag::get(#"hash_6534297bbe7e180d"))
 		{
@@ -483,25 +483,25 @@ function function_702ac990(e_player, e_trig)
 		case "odin_brazier":
 		{
 			level clientfield::set("brazier_fire_blue", 2);
-			var_38e7a8be = #"hash_5bbde3b2770c9e6a";
+			var_38e7a8be = #"challenges_odin_completed";
 			break;
 		}
 		case "zeus_brazier":
 		{
 			level clientfield::set("brazier_fire_purple", 2);
-			var_38e7a8be = #"hash_3b388348c6fa1fd3";
+			var_38e7a8be = #"challenges_zeus_completed";
 			break;
 		}
 		case "ra_brazier":
 		{
 			level clientfield::set("brazier_fire_red", 2);
-			var_38e7a8be = #"hash_1c9809895527844b";
+			var_38e7a8be = #"challenges_ra_completed";
 			break;
 		}
 		case "danu_brazier":
 		{
 			level clientfield::set("brazier_fire_green", 2);
-			var_38e7a8be = #"hash_7e9f4297d7232ab0";
+			var_38e7a8be = #"challenges_danu_completed";
 			break;
 		}
 	}
@@ -551,7 +551,7 @@ function function_ae982bb9(str_type)
 		{
 			self.var_907d9581 = 0;
 		}
-		var_69836136 = #"hash_7e0b3bf6d477a92f";
+		var_69836136 = #"challenges_challenge_completed";
 		n_vo = self.var_907d9581;
 		var_a1effcd = 9;
 	}
@@ -1123,7 +1123,7 @@ function function_2cf8fe6a(e_player, e_trig, var_5f06d3f8)
 		self.var_5630d868 = 5;
 		self.initboss_balcony_south = "";
 	#/
-	self waittill(#"hash_5a396dde8622e0e3");
+	self waittill(#"headshot_challenge_completed");
 	self function_544b63c0(5);
 	playsoundatposition(#"zmb_challenges_complete", (0, 0, 0));
 	self.var_6c499d = undefined;
@@ -1173,7 +1173,7 @@ function function_edf51f63(e_attacker)
 	}
 	if(n_progress >= 5)
 	{
-		e_attacker.challenge_struct notify(#"hash_5a396dde8622e0e3");
+		e_attacker.challenge_struct notify(#"headshot_challenge_completed");
 	}
 }
 
@@ -1498,7 +1498,7 @@ function function_8b70fc31(e_player, e_trig, var_5f06d3f8)
 	{
 		self thread function_347214f4(e_player);
 	}
-	self waittill(#"hash_2818df4f7bf04998");
+	self waittill(#"temple_challenge_completed");
 	self function_544b63c0(1);
 	playsoundatposition(#"zmb_challenges_complete", (0, 0, 0));
 	self.var_edf07bbf = undefined;
@@ -1517,7 +1517,7 @@ function function_8b70fc31(e_player, e_trig, var_5f06d3f8)
 */
 function function_347214f4(e_player)
 {
-	self endon(#"hash_2818df4f7bf04998");
+	self endon(#"temple_challenge_completed");
 	e_player endon(#"disconnect");
 	var_24f5d9f8 = array("zone_pap_room", "zone_pap_room_balcony_flooded_crypt");
 	while(true)
@@ -1539,7 +1539,7 @@ function function_347214f4(e_player)
 	}
 	self function_2ae8eabe(1, 1);
 	self function_544b63c0(1);
-	self notify(#"hash_2818df4f7bf04998");
+	self notify(#"temple_challenge_completed");
 }
 
 /*
@@ -1554,7 +1554,7 @@ function function_347214f4(e_player)
 function function_29c490cf(var_31e6bd22)
 {
 	self endon(#"death", #"hash_7df55853368e6305");
-	var_31e6bd22 endon(#"hash_2818df4f7bf04998");
+	var_31e6bd22 endon(#"temple_challenge_completed");
 	var_24f5d9f8 = array("zone_pap_room", "zone_pap_room_balcony_flooded_crypt");
 	while(true)
 	{
@@ -1580,7 +1580,7 @@ function function_29c490cf(var_31e6bd22)
 function function_789f4d85(var_31e6bd22)
 {
 	self endon(#"death", #"left_temple");
-	var_31e6bd22 endon(#"hash_2818df4f7bf04998");
+	var_31e6bd22 endon(#"temple_challenge_completed");
 	level waittill(#"end_of_round");
 	self notify(#"hash_7df55853368e6305");
 }
@@ -1692,7 +1692,7 @@ function function_45396550(e_player, e_trig, var_5f06d3f8)
 		self.var_5630d868 = 9;
 		self.initboss_balcony_south = "";
 	#/
-	self waittill(#"hash_34fea1fe34962ee4");
+	self waittill(#"shield_challenge_completed");
 	self function_544b63c0(9);
 	playsoundatposition(#"zmb_challenges_complete", (0, 0, 0));
 	self.var_d7571058 = undefined;
@@ -1740,7 +1740,7 @@ function function_4f3835a0(e_attacker)
 		}
 		if(n_progress >= 9)
 		{
-			e_attacker.challenge_struct notify(#"hash_34fea1fe34962ee4");
+			e_attacker.challenge_struct notify(#"shield_challenge_completed");
 		}
 	}
 }
@@ -2279,9 +2279,9 @@ function function_ea1042c6(var_986431d3, var_394c506d)
 	}
 	e_player.challenge_struct.var_4931480f function_1583001a(e_player, var_986431d3);
 	var_20e5c3e2 = var_986431d3.target + "_banner";
-	var_c1c87772 = getent(var_20e5c3e2, "targetname");
-	str_color = function_7e61f202(var_c1c87772);
-	var_c1c87772 scene::play(("p8_fxanim_zm_towers_banner_achievement_" + str_color) + "_bundle");
+	e_banner = getent(var_20e5c3e2, "targetname");
+	str_color = function_7e61f202(e_banner);
+	e_banner scene::play(("p8_fxanim_zm_towers_banner_achievement_" + str_color) + "_bundle");
 }
 
 /*
@@ -2618,9 +2618,9 @@ function registerlove_mountain_(e_player)
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = e_player waittill(#"perk_acquired");
-		if(var_be17187b.var_16c042b8 === self.var_62fef0f1)
+		s_waitresult = undefined;
+		s_waitresult = e_player waittill(#"perk_acquired");
+		if(s_waitresult.var_16c042b8 === self.var_62fef0f1)
 		{
 			var_f26e01e4 = e_player zm_perks::function_5ea0c6cf();
 			if(!isdefined(var_f26e01e4))
@@ -2814,12 +2814,12 @@ function function_bce7e59b(e_player, n_challenge_index, n_current_progress)
 {
 	if(isdefined(e_player) && isdefined(self.var_25276720) && e_player == self.var_25276720)
 	{
-		level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", n_current_progress, e_player);
+		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", n_current_progress, e_player);
 		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges", n_challenge_index, e_player);
 	}
 	foreach(var_6bf81b9d in self function_876f93aa())
 	{
-		level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", n_current_progress, var_6bf81b9d);
+		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", n_current_progress, var_6bf81b9d);
 		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges", n_challenge_index, var_6bf81b9d);
 	}
 }
@@ -2837,11 +2837,11 @@ function private function_544b63c0(n_progress)
 {
 	if(isdefined(self.var_25276720))
 	{
-		level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", n_progress, self.var_25276720);
+		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", n_progress, self.var_25276720);
 	}
 	foreach(var_6bf81b9d in self function_876f93aa())
 	{
-		level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", n_progress, var_6bf81b9d);
+		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", n_progress, var_6bf81b9d);
 	}
 }
 
@@ -2907,7 +2907,7 @@ function function_a83b406a()
 function function_e4b04738(var_5630d868, e_player, str_hint_text, var_2597a9f0)
 {
 	/#
-		level zm_ui_inventory::function_7df6bb60(#"hash_4b82dc3b7c860360", var_5630d868, e_player);
+		level zm_ui_inventory::function_7df6bb60(#"zm_towers_challenges_progress", var_5630d868, e_player);
 		self function_2ae8eabe(var_5630d868, var_5630d868);
 		self notify(var_2597a9f0);
 	#/

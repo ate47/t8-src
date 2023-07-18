@@ -2269,7 +2269,7 @@ function end_game()
 	{
 		restart_prompt();
 	}
-	if(zm_trial::function_b47f6aba())
+	if(zm_trial::is_trial_mode())
 	{
 		level thread zm_trial_util::function_f79b96ac();
 	}

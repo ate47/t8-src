@@ -260,18 +260,18 @@ function function_ca096bad(model, index, namehash, entnum, category, categoryind
 	{
 		setuimodelvalue(createuimodel(itemuimodel, "hackableName"), namehash);
 	}
-	var_c097c11c = 0;
+	doublewidth = 0;
 	setuimodelvalue(createuimodel(itemuimodel, "hackableId"), entnum);
 	if(isdefined(weapon) && weapon.statname != #"")
 	{
 		weaponindex = getitemindexfromref(weapon.statname);
 		setuimodelvalue(createuimodel(itemuimodel, "hackableItemIndex"), weaponindex);
-		var_c097c11c = weapon.var_df381b5d == 2;
+		doublewidth = weapon.var_df381b5d == 2;
 	}
 	setuimodelvalue(createuimodel(itemuimodel, "hackableCategory"), category);
 	setuimodelvalue(createuimodel(itemuimodel, "indexWithinCategory"), categoryindex);
 	setuimodelvalue(createuimodel(itemuimodel, "hackStatus"), 0);
-	setuimodelvalue(createuimodel(itemuimodel, "hackableDoubleWidth"), var_c097c11c);
+	setuimodelvalue(createuimodel(itemuimodel, "hackableDoubleWidth"), doublewidth);
 	setuimodelvalue(createuimodel(itemuimodel, "hackableFlavorText"), #"");
 }
 

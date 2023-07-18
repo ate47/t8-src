@@ -518,11 +518,11 @@ function private function_df15eebf(entity)
 		}
 	}
 	entity clientfield::increment("towers_boss_melee_effect");
-	var_a5a1f99c = getaiarchetypearray(#"zombie");
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"tiger"), 0, 0);
-	var_a5a1f99c = array::filter(var_a5a1f99c, 0, &function_1d65bc12, entity);
-	[[self.ai.var_64eb729e]](var_a5a1f99c, entity);
+	zombiesarray = getaiarchetypearray(#"zombie");
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"tiger"), 0, 0);
+	zombiesarray = array::filter(zombiesarray, 0, &function_1d65bc12, entity);
+	[[self.ai.var_64eb729e]](zombiesarray, entity);
 	var_bfd0a84a = getentarray("towers_boss_tower_trigger", "targetname");
 	foreach(var_e220a902 in var_bfd0a84a)
 	{
@@ -1370,11 +1370,11 @@ function private elephantknockdownservice(entity)
 	{
 		return false;
 	}
-	var_a5a1f99c = getaiarchetypearray(#"zombie");
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"catalyst"), 0, 0);
-	var_a5a1f99c = arraycombine(var_a5a1f99c, getaiarchetypearray(#"tiger"), 0, 0);
-	var_a5a1f99c = array::filter(var_a5a1f99c, 0, &function_1d65bc12, entity);
-	[[self.ai.var_64eb729e]](var_a5a1f99c, entity);
+	zombiesarray = getaiarchetypearray(#"zombie");
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"catalyst"), 0, 0);
+	zombiesarray = arraycombine(zombiesarray, getaiarchetypearray(#"tiger"), 0, 0);
+	zombiesarray = array::filter(zombiesarray, 0, &function_1d65bc12, entity);
+	[[self.ai.var_64eb729e]](zombiesarray, entity);
 }
 
 /*

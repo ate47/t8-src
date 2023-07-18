@@ -63,8 +63,8 @@ function __main__()
 */
 function function_60a6c623()
 {
-	var_d3701e86 = getscriptbundles("craftfoundry");
-	foreach(foundry in var_d3701e86)
+	foundries = getscriptbundles("craftfoundry");
+	foreach(foundry in foundries)
 	{
 		setup_craftfoundry(foundry);
 	}

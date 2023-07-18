@@ -87,7 +87,7 @@ function private devgui()
 		while(true)
 		{
 			waitframe(1);
-			str_command = getdvarstring(#"hash_8ba12660bfba5e4", "");
+			str_command = getdvarstring(#"zm_orange_debug_cmd", "");
 			switch(str_command)
 			{
 				case "hash_78bca375c84177d4":
@@ -229,7 +229,7 @@ function private devgui()
 					break;
 				}
 			}
-			setdvar(#"hash_8ba12660bfba5e4", "");
+			setdvar(#"zm_orange_debug_cmd", "");
 		}
 	#/
 }

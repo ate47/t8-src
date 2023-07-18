@@ -94,17 +94,17 @@ function function_9217567c()
 	w_item = zm_crafting::get_component(#"hash_1e5657f6a6f09389");
 	e_player = array::random(level.players);
 	zm_items::player_pick_up(e_player, w_item);
-	foreach(var_5f41c401 in level.var_4fe2f84d)
+	foreach(a_s_crafting in level.var_4fe2f84d)
 	{
-		foreach(s_crafting in var_5f41c401)
+		foreach(s_crafting in a_s_crafting)
 		{
 			if(isarray(s_crafting.craftfoundry.blueprints))
 			{
-				foreach(var_6645c992 in s_crafting.craftfoundry.blueprints)
+				foreach(s_blueprint in s_crafting.craftfoundry.blueprints)
 				{
-					if(var_6645c992.name === #"zblueprint_shield_spectral_shield")
+					if(s_blueprint.name === #"zblueprint_shield_spectral_shield")
 					{
-						s_crafting.blueprint = var_6645c992;
+						s_crafting.blueprint = s_blueprint;
 					}
 				}
 			}
@@ -623,11 +623,11 @@ function function_b356f6ae()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_4ffec9c5f552e6fc");
-		if(isdefined(var_be17187b.e_door) && isdefined(var_be17187b.e_door.script_flag))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"hash_4ffec9c5f552e6fc");
+		if(isdefined(s_waitresult.e_door) && isdefined(s_waitresult.e_door.script_flag))
 		{
-			switch(var_be17187b.e_door.script_flag)
+			switch(s_waitresult.e_door.script_flag)
 			{
 				case "activate_west_side_exterior":
 				{
@@ -716,7 +716,7 @@ function function_b356f6ae()
 				}
 				default:
 				{
-					if(var_be17187b.e_door.targetname === "zombie_debris")
+					if(s_waitresult.e_door.targetname === "zombie_debris")
 					{
 						var_ff20f7d3 = #"hash_782714d88bdaa1b6";
 					}

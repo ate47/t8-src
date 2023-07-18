@@ -579,14 +579,14 @@ function function_92e77dc6()
 	level.monolith_ghost.mdl_head setinvisibletoplayer(self);
 	while(true)
 	{
-		if(isdefined(self.b_is_designated_target) && self.b_is_designated_target && !isdefined(level.var_8491c913) && (!(isdefined(self.var_22514848) && self.var_22514848)))
+		if(isdefined(self.b_is_designated_target) && self.b_is_designated_target && !isdefined(level.e_guide) && (!(isdefined(self.var_22514848) && self.var_22514848)))
 		{
 			self.var_22514848 = 1;
 			level.monolith_ghost setvisibletoplayer(self);
 			level.monolith_ghost.mdl_head setvisibletoplayer(self);
 			level.monolith_ghost thread mansion_pap::function_c9c7a593();
 		}
-		else if(!(isdefined(self.b_is_designated_target) && self.b_is_designated_target) && (isdefined(self.var_22514848) && self.var_22514848) || isdefined(level.var_8491c913))
+		else if(!(isdefined(self.b_is_designated_target) && self.b_is_designated_target) && (isdefined(self.var_22514848) && self.var_22514848) || isdefined(level.e_guide))
 		{
 			self.var_22514848 = 0;
 			level.monolith_ghost setinvisibletoplayer(self);
@@ -662,7 +662,7 @@ function function_a6978e42(nd_start)
 	self.var_c176969a vehicle::get_on_and_go_path(nd_start);
 	self.var_c176969a thread scene::stop();
 	self thread scene::stop();
-	while(isdefined(level.var_8491c913))
+	while(isdefined(level.e_guide))
 	{
 		wait(1);
 	}
@@ -878,15 +878,15 @@ function function_79556c43(var_80296afc, var_5e246f88)
 */
 function function_8846933a()
 {
-	var_446aeb44 = [];
+	arrayconcubitant = [];
 	foreach(player in getplayers())
 	{
 		if(isdefined(player.b_is_designated_target) && player.b_is_designated_target)
 		{
-			var_446aeb44[var_446aeb44.size] = player;
+			arrayconcubitant[arrayconcubitant.size] = player;
 		}
 	}
-	return var_446aeb44;
+	return arrayconcubitant;
 }
 
 /*
@@ -900,12 +900,12 @@ function function_8846933a()
 */
 function function_4a51430a(n_range = 190, var_16752072 = 1, var_caa1b6b8 = 0.8)
 {
-	var_446aeb44 = function_8846933a();
+	arrayconcubitant = function_8846933a();
 	n_range_sq = n_range * n_range;
-	if(var_446aeb44.size > 0)
+	if(arrayconcubitant.size > 0)
 	{
-		var_446aeb44 = arraysortclosest(var_446aeb44, self.origin);
-		player = var_446aeb44[0];
+		arrayconcubitant = arraysortclosest(arrayconcubitant, self.origin);
+		player = arrayconcubitant[0];
 		if(var_16752072)
 		{
 			b_can_see = player util::is_player_looking_at(self.origin, var_caa1b6b8, 0, self);
@@ -940,11 +940,11 @@ function function_9ee098d5()
 	e_trigger = getent("e_possess_trigger", "targetname");
 	while(var_ac3fdee1 < 4)
 	{
-		while(isdefined(level.var_8491c913))
+		while(isdefined(level.e_guide))
 		{
 			wait(1);
 		}
-		var_c31108da = self function_5270aabe(e_trigger);
+		e_possessed = self function_5270aabe(e_trigger);
 		if(isdefined(v_drop))
 		{
 			var_24a4f2c0 = v_drop;
@@ -961,27 +961,27 @@ function function_9ee098d5()
 			fx_org.origin = self.origin;
 		}
 		wait(0.15);
-		if(isdefined(var_c31108da))
+		if(isdefined(e_possessed))
 		{
 			fx_org clientfield::increment("" + #"hash_4d45dc65a8307183");
-			n_time = function_c5a4ae6(fx_org.origin, var_c31108da.origin);
-			fx_org moveto(var_c31108da gettagorigin("j_spine4"), n_time);
+			n_time = function_c5a4ae6(fx_org.origin, e_possessed.origin);
+			fx_org moveto(e_possessed gettagorigin("j_spine4"), n_time);
 			level.monolith_ghost notify(#"hash_6edff0409a51550e");
 			level.monolith_ghost hide();
 			level.monolith_ghost.mdl_head hide();
 			fx_org waittill(#"movedone");
 			fx_org delete();
 		}
-		if(isdefined(var_c31108da))
+		if(isdefined(e_possessed))
 		{
-			var_c31108da clientfield::set("" + #"soul_possess", 1);
-			var_c31108da thread function_99257c19();
+			e_possessed clientfield::set("" + #"soul_possess", 1);
+			e_possessed thread function_99257c19();
 			waitresult = undefined;
-			waitresult = var_c31108da waittill(#"death");
+			waitresult = e_possessed waittill(#"death");
 		}
-		if(isdefined(var_c31108da) && isdefined(var_c31108da.origin))
+		if(isdefined(e_possessed) && isdefined(e_possessed.origin))
 		{
-			v_death = var_c31108da.origin;
+			v_death = e_possessed.origin;
 		}
 		v_drop = mansion_util::function_a8176b98(v_death);
 		if(isdefined(v_drop))
@@ -1713,7 +1713,7 @@ function function_615d8c38(params)
 	}
 	if(isdefined(params.einflictor))
 	{
-		var_40dea06f = params.einflictor;
+		e_bolt = params.einflictor;
 	}
 	switch(self.archetype)
 	{
@@ -1727,7 +1727,7 @@ function function_615d8c38(params)
 				case "left_leg_upper":
 				{
 					gibserverutils::gibleftleg(self);
-					self thread function_9a05e3c2(e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+					self thread function_9a05e3c2(e_player, e_bolt, str_hitloc, str_meansofdeath);
 					break;
 				}
 				case "right_leg_upper":
@@ -1735,7 +1735,7 @@ function function_615d8c38(params)
 				case "right_foot":
 				{
 					gibserverutils::gibrightleg(self);
-					self thread function_9a05e3c2(e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+					self thread function_9a05e3c2(e_player, e_bolt, str_hitloc, str_meansofdeath);
 					break;
 				}
 				case "left_arm_lower":
@@ -1757,7 +1757,7 @@ function function_615d8c38(params)
 				case "neck":
 				{
 					gibserverutils::gibhead(self);
-					self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+					self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 					break;
 				}
 			}
@@ -1765,7 +1765,7 @@ function function_615d8c38(params)
 			{
 				self zombie_utility::gib_random_parts();
 				gibserverutils::annihilate(self);
-				self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+				self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 				break;
 			}
 			break;
@@ -1779,7 +1779,7 @@ function function_615d8c38(params)
 				case "neck":
 				{
 					gibserverutils::gibhead(self);
-					self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+					self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 					break;
 				}
 			}
@@ -1787,7 +1787,7 @@ function function_615d8c38(params)
 			{
 				self zombie_utility::gib_random_parts();
 				gibserverutils::annihilate(self);
-				self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+				self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 				break;
 			}
 			break;
@@ -1796,7 +1796,7 @@ function function_615d8c38(params)
 		{
 			self zombie_utility::gib_random_parts();
 			gibserverutils::annihilate(self);
-			self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+			self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 			break;
 		}
 	}
@@ -1811,10 +1811,10 @@ function function_615d8c38(params)
 	Parameters: 5
 	Flags: Linked
 */
-function crossbow_kill(n_damage, e_player, var_40dea06f, str_hitloc, str_meansofdeath)
+function crossbow_kill(n_damage, e_player, e_bolt, str_hitloc, str_meansofdeath)
 {
 	self.var_e104fa93 = 1;
-	self dodamage(n_damage, self.origin, e_player, var_40dea06f, str_hitloc, str_meansofdeath, 0, level.w_crossbow);
+	self dodamage(n_damage, self.origin, e_player, e_bolt, str_hitloc, str_meansofdeath, 0, level.w_crossbow);
 }
 
 /*
@@ -1826,12 +1826,12 @@ function crossbow_kill(n_damage, e_player, var_40dea06f, str_hitloc, str_meansof
 	Parameters: 4
 	Flags: Linked
 */
-function function_9a05e3c2(e_player, var_40dea06f, str_hitloc, str_meansofdeath)
+function function_9a05e3c2(e_player, e_bolt, str_hitloc, str_meansofdeath)
 {
 	self endon(#"death");
 	if(isdefined(level.var_41259f0d) && level.var_41259f0d || ((isdefined(level.num_crawlers) ? level.num_crawlers : 0)))
 	{
-		self crossbow_kill(self.health, e_player, var_40dea06f, str_hitloc, str_meansofdeath);
+		self crossbow_kill(self.health, e_player, e_bolt, str_hitloc, str_meansofdeath);
 		return;
 	}
 	self.has_legs = 0;

@@ -328,13 +328,13 @@ function on_player_connect()
 		return;
 	}
 	self.var_6a885e6e = 0;
-	self.var_b22aca27[0] = function_4b36d499(1, -1);
-	self.var_b22aca27[1] = function_4b36d499(1, 10);
-	self.var_b22aca27[2] = function_4b36d499(1, 5);
-	self.var_b22aca27[3] = function_4b36d499(1, 10);
-	self.var_b22aca27[4] = function_4b36d499(1, -1);
-	self.var_b22aca27[5] = function_4b36d499(1, -1);
-	self.var_b22aca27[6] = function_4b36d499(1, 10);
+	self.s_boons[0] = function_4b36d499(1, -1);
+	self.s_boons[1] = function_4b36d499(1, 10);
+	self.s_boons[2] = function_4b36d499(1, 5);
+	self.s_boons[3] = function_4b36d499(1, 10);
+	self.s_boons[4] = function_4b36d499(1, -1);
+	self.s_boons[5] = function_4b36d499(1, -1);
+	self.s_boons[6] = function_4b36d499(1, 10);
 	self thread function_e1bfb2de();
 	self thread function_4e1abe8f();
 	self thread function_99792b2f();
@@ -630,9 +630,9 @@ function private function_e1bfb2de()
 		var_59130748 = 0;
 		if(isarray(level.active_powerups) && level.active_powerups.size)
 		{
-			foreach(var_7d81025 in level.active_powerups)
+			foreach(e_powerup in level.active_powerups)
 			{
-				if(isdefined(var_7d81025) && var_7d81025.powerup_name === "full_ammo")
+				if(isdefined(e_powerup) && e_powerup.powerup_name === "full_ammo")
 				{
 					var_59130748 = 1;
 					break;
@@ -763,8 +763,8 @@ function private function_de053460(pap_machine)
 		waitframe(1);
 	}
 	var_287a8343 = zm_utility::get_player_weapon_limit(self);
-	var_4f33a328 = self getweaponslistprimaries();
-	if(isdefined(var_4f33a328) && var_4f33a328.size >= var_287a8343)
+	a_primaries = self getweaponslistprimaries();
+	if(isdefined(a_primaries) && a_primaries.size >= var_287a8343)
 	{
 		return;
 	}
@@ -959,9 +959,9 @@ function private function_3b81466e(n_boon)
 	{
 		return false;
 	}
-	if(isdefined(self.var_b22aca27[n_boon].b_available) && self.var_b22aca27[n_boon].b_available && (isdefined(self.var_6a885e6e) && !self.var_6a885e6e) && self zm_audio::can_speak())
+	if(isdefined(self.s_boons[n_boon].b_available) && self.s_boons[n_boon].b_available && (isdefined(self.var_6a885e6e) && !self.var_6a885e6e) && self zm_audio::can_speak())
 	{
-		self.var_b22aca27[n_boon].b_available = 0;
+		self.s_boons[n_boon].b_available = 0;
 		self thread function_5e8518bb(n_boon);
 		self thread function_edb554f3();
 		return true;
@@ -981,15 +981,15 @@ function private function_3b81466e(n_boon)
 function private function_5e8518bb(n_boon)
 {
 	self endon(#"death");
-	if(self.var_b22aca27[n_boon].var_e7a18e05 <= 0)
+	if(self.s_boons[n_boon].var_e7a18e05 <= 0)
 	{
 		return;
 	}
-	for(n_rounds = self.var_b22aca27[n_boon].var_e7a18e05; n_rounds > 0; n_rounds--)
+	for(n_rounds = self.s_boons[n_boon].var_e7a18e05; n_rounds > 0; n_rounds--)
 	{
 		level waittill(#"start_of_round");
 	}
-	self.var_b22aca27[n_boon].b_available = 1;
+	self.s_boons[n_boon].b_available = 1;
 }
 
 /*

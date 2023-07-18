@@ -117,13 +117,13 @@ function actor_death_override(s_data)
 	{
 		if(gettime() >= level.var_5bf2be84 && randomint(100) < 40)
 		{
-			var_56fcbe0f = util::spawn_model("p8_zm_red_floatie_duck", self gettagorigin("j_spinelower"), self gettagangles("j_spinelower"));
-			if(isdefined(var_56fcbe0f))
+			duckie = util::spawn_model("p8_zm_red_floatie_duck", self gettagorigin("j_spinelower"), self gettagangles("j_spinelower"));
+			if(isdefined(duckie))
 			{
 				self detach("p8_zm_red_floatie_duck", "j_spinelower");
 				level.var_5bf2be84 = gettime() + randomintrange(2000, 5000);
-				var_56fcbe0f physicslaunch(self.origin, vectorscale((0, 0, 1), 64));
-				var_56fcbe0f thread function_645efd58();
+				duckie physicslaunch(self.origin, vectorscale((0, 0, 1), 64));
+				duckie thread function_645efd58();
 			}
 		}
 	}

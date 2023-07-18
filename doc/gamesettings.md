@@ -308,9 +308,9 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenablemeshmines"` Enable mesh mines
 - `"wzenablespectregrenade"` Enable spectre grenade
 - `"wzenablehellsretriever"` Enable hell retriever
+- `"wzenableflareguns"` Enable flare guns
+- `"wzenablemeshmines"` Enable mesh mines
 - `"hash_2e25d475b271a700"` Enable unknown equipment
-- `"hash_20787bdeafae5592"` Enable unknown equipment
-- `"hash_16f10373ec8e6906"` Enable unknown equipment
 #### Perks
 
 - `"wzenableperkawareness"` - Enable perk awareness

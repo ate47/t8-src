@@ -93,7 +93,7 @@ function main()
 */
 function function_5309464a(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 10);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 10);
 	level flag::clear(#"hash_18b94410e3b6b0bf");
 	level thread function_d9d65ea6();
 	if(!var_5ea5c94d)

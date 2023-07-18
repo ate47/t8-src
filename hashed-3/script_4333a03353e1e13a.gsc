@@ -7,7 +7,7 @@
 #using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm\zm_hms_util.gsc;
-#using script_6b6fff322a8a64eb;
+#using scripts\zm\zm_orange_ee_misc.gsc;
 #using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -751,7 +751,7 @@ function fling_player(v_flinger)
 		var_466d154d = struct::get("landing_point_edge", "targetname");
 		var_9d84111 = randomintrange(3400, 3450);
 		var_cef149e8 = self.var_c1d4f4d9 zm_utility::fake_physicslaunch(var_466d154d.origin, var_9d84111);
-		self thread namespace_f9df92f::function_1b0e51b5();
+		self thread zm_orange_ee_misc::function_1b0e51b5();
 		self.var_e5340f3e = 0;
 		self.var_cdce7ec = 1;
 		self val::set(#"edge_of_the_world", "ignoreme");
@@ -959,9 +959,9 @@ function function_57806638(v_flinger)
 	{
 		var_61cb960b = 2;
 	}
-	var_a94437c2 = getent(v_flinger.var_48abac67.target, "targetname");
-	var_a94437c2 playsound(#"hash_157ec960f5af0676");
-	var_a94437c2 clientfield::set("flinger_impact_wood", 1);
+	e_planks = getent(v_flinger.var_48abac67.target, "targetname");
+	e_planks playsound(#"hash_157ec960f5af0676");
+	e_planks clientfield::set("flinger_impact_wood", 1);
 	if(v_flinger.var_ad63608b >= var_61cb960b)
 	{
 		if(!isdefined(v_flinger.var_48abac67.s_unitrigger) && !zm_utility::is_standard())
@@ -973,9 +973,9 @@ function function_57806638(v_flinger)
 			v_flinger.var_320be97e = 1;
 			v_flinger.var_48abac67 zm_unitrigger::create(&function_8bf0a961, 64);
 			v_flinger.var_48abac67 thread function_ad05ccbb();
-			var_a94437c2 = getent(v_flinger.var_48abac67.target, "targetname");
-			var_a94437c2 setmodel("p8_zm_ora_crate_wood_01_tall_open_lid_dmg");
-			v_flinger.var_48abac67.e_part = getent(var_a94437c2.target, "targetname");
+			e_planks = getent(v_flinger.var_48abac67.target, "targetname");
+			e_planks setmodel("p8_zm_ora_crate_wood_01_tall_open_lid_dmg");
+			v_flinger.var_48abac67.e_part = getent(e_planks.target, "targetname");
 		}
 	}
 }
@@ -1375,13 +1375,13 @@ function function_c0df509(index)
 function function_ac9a3646()
 {
 	playsoundatposition(#"hash_5474570f37d75aa7", self.origin);
-	var_29c7dbd6 = spawn("script_origin", self.origin);
-	var_29c7dbd6 playsound(#"hash_5913634c5007a95");
+	e_snd = spawn("script_origin", self.origin);
+	e_snd playsound(#"hash_5913634c5007a95");
 	self waittill(#"launcher_activated", #"hash_1a5c6352ea49c8ff");
 	playsoundatposition(#"hash_3db70e71d59b6393", self.origin);
-	var_29c7dbd6 stopsounds();
+	e_snd stopsounds();
 	waitframe(1);
-	var_29c7dbd6 delete();
+	e_snd delete();
 }
 
 /*

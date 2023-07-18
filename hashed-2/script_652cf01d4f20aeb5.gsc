@@ -176,7 +176,7 @@ function function_ee2edc25()
 	arrayremovevalue(var_7ab3d884, var_f3d781b9);
 	foreach(s_keycard in level.var_79260935.a_s_keycards)
 	{
-		s_keycard.var_cd0e32a2 = getent(s_keycard.target, "targetname");
+		s_keycard.e_keycard = getent(s_keycard.target, "targetname");
 	}
 	var_5731429e = [];
 	var_5731429e = arraycombine(var_88f6f50a, var_7ab3d884, 1, 0);
@@ -199,11 +199,11 @@ function function_ee2edc25()
 function function_d332685()
 {
 	level endon(#"end_game", #"hash_7220fbbcfb27dbd4");
-	var_adea2587 = undefined;
-	var_adea2587 = self waittill(#"trigger_activated");
-	e_who = var_adea2587.e_who;
-	playsoundatposition(#"hash_d8937c5c97f485e", self.var_cd0e32a2.origin);
-	self.var_cd0e32a2 delete();
+	s_results = undefined;
+	s_results = self waittill(#"trigger_activated");
+	e_who = s_results.e_who;
+	playsoundatposition(#"hash_d8937c5c97f485e", self.e_keycard.origin);
+	self.e_keycard delete();
 	if(level.var_79260935.var_f4c36022 === 0 && level.var_79260935.n_keys_placed === 0)
 	{
 		e_who thread zm_orange_util::function_51b752a9(#"hash_18bc664341e86310");
@@ -239,9 +239,9 @@ function function_f83bfaa()
 	level endon(#"end_game", #"hash_7220fbbcfb27dbd4");
 	while(true)
 	{
-		var_adea2587 = undefined;
-		var_adea2587 = self waittill(#"trigger_activated");
-		e_who = var_adea2587.e_who;
+		s_results = undefined;
+		s_results = self waittill(#"trigger_activated");
+		e_who = s_results.e_who;
 		if(level.var_79260935.var_f4c36022 === 0)
 		{
 			continue;
@@ -340,9 +340,9 @@ function function_3aa0b188(var_5ea5c94d, ended_early)
 	{
 		foreach(s_keycard in level.var_79260935.a_s_keycards)
 		{
-			if(isdefined(s_keycard.var_cd0e32a2))
+			if(isdefined(s_keycard.e_keycard))
 			{
-				s_keycard.var_cd0e32a2 delete();
+				s_keycard.e_keycard delete();
 				s_keycard zm_unitrigger::unregister_unitrigger(s_keycard.s_unitrigger);
 			}
 		}
@@ -730,14 +730,14 @@ function function_b53212e5()
 	wait(2);
 	foreach(alarm in var_408fc16d)
 	{
-		alarm.var_29c7dbd6 = spawn("script_origin", alarm.origin);
-		alarm.var_29c7dbd6 playloopsound(#"evt_vault_alarm");
+		alarm.e_snd = spawn("script_origin", alarm.origin);
+		alarm.e_snd playloopsound(#"evt_vault_alarm");
 		wait(0.05);
 	}
 	wait(60);
 	foreach(alarm in var_408fc16d)
 	{
-		alarm.var_29c7dbd6 delete();
+		alarm.e_snd delete();
 	}
 }
 

@@ -600,11 +600,11 @@ function teleport_sigil(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	Parameters: 3
 	Flags: Linked
 */
-function function_8b8f2a41(localclientnum, var_96346c22, var_2880a6b3)
+function function_8b8f2a41(localclientnum, e_sigil, var_2880a6b3)
 {
 	self notify("2f09079d0cfe9c7f");
 	self endon("2f09079d0cfe9c7f");
-	var_96346c22 waittill(#"death");
+	e_sigil waittill(#"death");
 	if(isdefined(var_2880a6b3))
 	{
 		killfx(localclientnum, var_2880a6b3);
@@ -894,7 +894,7 @@ function function_48719840(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(newval == 1)
 	{
 		util::playfxontag(localclientnum, level._effect[#"hash_23c18b717592a89d"], self, "tag_origin");
-		function_36e4ebd4(localclientnum, #"hash_2e8bb4e737eaf9b0");
+		function_36e4ebd4(localclientnum, #"zm_zodt8_planet_impact");
 	}
 	else
 	{
@@ -1109,7 +1109,7 @@ function function_57196646(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		util::playfxontag(localclientnum, level._effect[#"tree_impact"], self, "tag_origin");
 		self playsound(localclientnum, #"hash_3d9dcef3d979480b");
-		function_36e4ebd4(localclientnum, #"hash_2e8bb4e737eaf9b0");
+		function_36e4ebd4(localclientnum, #"zm_zodt8_planet_impact");
 	}
 }
 

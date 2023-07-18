@@ -790,9 +790,9 @@ function function_c3d56ed8()
 {
 	self endon(#"death");
 	w_give = self.w_pickup;
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"trigger_activated");
-	e_player = var_be17187b.e_who;
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"trigger_activated");
+	e_player = s_waitresult.e_who;
 	w_take = e_player function_60403468();
 	b_give_weapon = 1;
 	if(isdefined(w_take))

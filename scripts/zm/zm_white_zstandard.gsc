@@ -699,17 +699,17 @@ function init_traps()
 function function_9217567c()
 {
 	level waittill(#"all_players_spawned");
-	foreach(var_5f41c401 in level.var_4fe2f84d)
+	foreach(a_s_crafting in level.var_4fe2f84d)
 	{
-		foreach(s_crafting in var_5f41c401)
+		foreach(s_crafting in a_s_crafting)
 		{
 			if(isarray(s_crafting.craftfoundry.blueprints))
 			{
-				foreach(var_6645c992 in s_crafting.craftfoundry.blueprints)
+				foreach(s_blueprint in s_crafting.craftfoundry.blueprints)
 				{
-					if(var_6645c992.name === "zblueprint_zhield_white")
+					if(s_blueprint.name === "zblueprint_zhield_white")
 					{
-						s_crafting.blueprint = var_6645c992;
+						s_crafting.blueprint = s_blueprint;
 					}
 				}
 			}

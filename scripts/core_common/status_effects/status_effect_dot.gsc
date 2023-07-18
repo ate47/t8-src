@@ -61,7 +61,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function dot_apply(var_756fda07, weapon, var_84171a6c)
+function dot_apply(var_756fda07, weapon, applicant)
 {
 	self.var_7b465aaa = var_756fda07.var_7b465aaa;
 	self.var_234d0133 = var_756fda07.var_234d0133;
@@ -86,15 +86,15 @@ function dot_apply(var_756fda07, weapon, var_84171a6c)
 		self.var_82e80202 = 0;
 		if(self.var_8df76e2f > 0)
 		{
-			self dot_report(var_84171a6c);
+			self dot_report(applicant);
 		}
-		self thread function_5236325e(var_84171a6c, var_756fda07.killcament);
-		self thread function_c13d20c4();
+		self thread function_5236325e(applicant, var_756fda07.killcament);
+		self thread dot_rumble_loop();
 	}
 }
 
 /*
-	Name: function_c13d20c4
+	Name: dot_rumble_loop
 	Namespace: status_effect_dot
 	Checksum: 0x13D80620
 	Offset: 0x428
@@ -102,7 +102,7 @@ function dot_apply(var_756fda07, weapon, var_84171a6c)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_c13d20c4()
+function private dot_rumble_loop()
 {
 	self notify(#"dot_rumble_loop");
 	self endon(#"dot_rumble_loop", #"endstatuseffect");
@@ -177,7 +177,7 @@ function private function_3b694684(count)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_5236325e(var_84171a6c, killcament)
+function private function_5236325e(applicant, killcament)
 {
 	self endon(#"endstatuseffect");
 	var_6307def9 = 0;
@@ -206,16 +206,16 @@ function private function_5236325e(var_84171a6c, killcament)
 			{
 				var_4ba055ed = int(floor(var_6307def9));
 				location = (isdefined(self.location) ? self.location : self.owner.origin);
-				if(isdefined(var_84171a6c) && isdefined(var_84171a6c.var_d44d1214))
+				if(isdefined(applicant) && isdefined(applicant.var_d44d1214))
 				{
-					location = var_84171a6c.var_d44d1214.origin;
+					location = applicant.var_d44d1214.origin;
 				}
-				self.owner dodamage(var_4ba055ed, location, var_84171a6c, killcament, undefined, mod, var_85ef8797, self.weapon);
+				self.owner dodamage(var_4ba055ed, location, applicant, killcament, undefined, mod, var_85ef8797, self.weapon);
 				var_6307def9 = var_6307def9 - var_4ba055ed;
 			}
 		}
 		wait(self.var_5cf129b8 / 1000);
-		self function_ae0405e2(var_84171a6c);
+		self function_ae0405e2(applicant);
 	}
 }
 
@@ -228,12 +228,12 @@ function private function_5236325e(var_84171a6c, killcament)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ae0405e2(var_84171a6c)
+function private function_ae0405e2(applicant)
 {
 	if(self.var_82e80202 == self.var_8df76e2f)
 	{
 		self.var_82e80202 = 0;
-		self dot_report(var_84171a6c);
+		self dot_report(applicant);
 	}
 	else
 	{
@@ -242,12 +242,12 @@ function private function_ae0405e2(var_84171a6c)
 		{
 			self.owner.var_dbffaa32 = undefined;
 		}
-		if(isdefined(var_84171a6c) && (!isdefined(self.owner) || self.owner != var_84171a6c))
+		if(isdefined(applicant) && (!isdefined(self.owner) || self.owner != applicant))
 		{
-			var_84171a6c.var_dbffaa32 = undefined;
-			if(isdefined(var_84171a6c.owner) && isplayer(var_84171a6c.owner))
+			applicant.var_dbffaa32 = undefined;
+			if(isdefined(applicant.owner) && isplayer(applicant.owner))
 			{
-				var_84171a6c.owner.var_dbffaa32 = undefined;
+				applicant.owner.var_dbffaa32 = undefined;
 			}
 		}
 	}
@@ -262,29 +262,29 @@ function private function_ae0405e2(var_84171a6c)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private dot_report(var_84171a6c)
+function private dot_report(applicant)
 {
 	if(!isdefined(self.owner))
 	{
 		return;
 	}
-	if(!isdefined(var_84171a6c))
+	if(!isdefined(applicant))
 	{
 		return;
 	}
 	self.owner.var_dbffaa32 = 1;
-	if(isplayer(var_84171a6c))
+	if(isplayer(applicant))
 	{
-		var_84171a6c.var_dbffaa32 = 1;
+		applicant.var_dbffaa32 = 1;
 	}
-	else if(isdefined(var_84171a6c.owner) && isplayer(var_84171a6c.owner))
+	else if(isdefined(applicant.owner) && isplayer(applicant.owner))
 	{
-		var_84171a6c.owner.var_dbffaa32 = 1;
+		applicant.owner.var_dbffaa32 = 1;
 	}
 	location = (isdefined(self.location) ? self.location : self.owner.origin);
-	if(isdefined(var_84171a6c.var_d44d1214))
+	if(isdefined(applicant.var_d44d1214))
 	{
-		location = var_84171a6c.var_d44d1214.origin;
+		location = applicant.var_d44d1214.origin;
 	}
 	dir = self.owner.origin - location;
 	if(isplayer(self.owner) && !self.owner getinvulnerability())

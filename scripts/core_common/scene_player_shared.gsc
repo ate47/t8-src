@@ -161,10 +161,10 @@ class csceneplayer : csceneobject
 			n_shot = csceneobject::get_shot(_str_shot);
 			foreach(e_hero in level.heroes)
 			{
-				var_c37dad97 = e_hero;
+				e_specialist = e_hero;
 				break;
 			}
-			var_d57bf586 = var_c37dad97.animname;
+			var_d57bf586 = e_specialist.animname;
 			if(isdefined(n_shot) && isdefined(_s.var_2df1a365[n_shot]) && isdefined(_s.var_2df1a365[n_shot][var_d57bf586]))
 			{
 				if(b_camera && isdefined(_s.var_2df1a365[n_shot][var_d57bf586].var_e6b1664b))
@@ -784,18 +784,18 @@ class csceneplayer : csceneobject
 		player endon(#"hash_7ba9e3058f933eb", #"hash_feb654ece8faa3d", #"death");
 		while(true)
 		{
-			var_be17187b = undefined;
-			var_be17187b = player waittill(#"hash_940a817baf9765e");
-			if(!isdefined(var_be17187b.str_input))
+			s_waitresult = undefined;
+			s_waitresult = player waittill(#"hash_940a817baf9765e");
+			if(!isdefined(s_waitresult.str_input))
 			{
-				var_be17187b.str_input = "";
+				s_waitresult.str_input = "";
 			}
-			switch(var_be17187b.str_input)
+			switch(s_waitresult.str_input)
 			{
 				case "move_up":
 				case "move_down":
 				{
-					if(var_be17187b.str_input == "move_up")
+					if(s_waitresult.str_input == "move_up")
 					{
 						if(player gamepadusedlast())
 						{
@@ -822,7 +822,7 @@ class csceneplayer : csceneobject
 				case "move_right":
 				case "move_left":
 				{
-					if(var_be17187b.str_input == "move_right")
+					if(s_waitresult.str_input == "move_right")
 					{
 						if(player gamepadusedlast())
 						{
@@ -933,13 +933,13 @@ class csceneplayer : csceneobject
 		}
 		thread function_d4446494(player);
 		player notify(#"hash_940a817baf9765e", {#str_input:var_a0332034});
-		var_be17187b = undefined;
-		var_be17187b = player waittill(#"hash_7ba9e3058f933eb", #"hash_feb654ece8faa3d", #"death");
+		s_waitresult = undefined;
+		s_waitresult = player waittill(#"hash_7ba9e3058f933eb", #"hash_feb654ece8faa3d", #"death");
 		if(isdefined(player) && level.interactive_shot interactive_shot::is_open(player))
 		{
 			level.interactive_shot interactive_shot::close(player);
 		}
-		if(var_be17187b._notify == "death")
+		if(s_waitresult._notify == "death")
 		{
 			[[ _o_scene ]]->stop();
 		}
@@ -1749,9 +1749,9 @@ class csceneplayer : csceneobject
 								if(isdefined(_s.var_a5617859) && isarray(var_322595c6.presets))
 								{
 									var_a919ac81 = strtok(_s.var_a5617859, "");
-									foreach(var_a343b02b, var_47fc7c6f in var_322595c6.presets)
+									foreach(var_a343b02b, s_preset in var_322595c6.presets)
 									{
-										if(!(isdefined(var_47fc7c6f.isvalid) && var_47fc7c6f.isvalid))
+										if(!(isdefined(s_preset.isvalid) && s_preset.isvalid))
 										{
 											continue;
 										}
@@ -1888,8 +1888,8 @@ class csceneplayer : csceneobject
 		self notify(#"hash_30095f69ee804b7e");
 		self endon(#"hash_30095f69ee804b7e");
 		_o_scene endon(#"scene_done", #"scene_stop", #"scene_skip_completed", #"hash_3168dab591a18b9b");
-		var_be17187b = undefined;
-		var_be17187b = _e waittill(#"death");
+		s_waitresult = undefined;
+		s_waitresult = _e waittill(#"death");
 		self.var_1f97724a = 1;
 		_e notify(#"hash_6e7fd8207fd988c6", {#str_scene:_o_scene._str_name});
 		csceneobject::function_1e19d813();

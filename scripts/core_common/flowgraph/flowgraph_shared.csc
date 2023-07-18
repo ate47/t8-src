@@ -1,5 +1,5 @@
 // Decompiled by Serious. Credits to Scoba for his original tool, Cerberus, which I heavily upgraded to support remaining features, other games, and other platforms.
-#using script_35857c2f8d30b2a4;
+#using scripts\core_common\flowgraph\flowgraph_core.csc;
 
 #namespace flowgraph_logic;
 
@@ -945,9 +945,9 @@ function pathnodeconstant(var_f4af12cc)
 	Parameters: 1
 	Flags: None
 */
-function function_9ef80b8b(var_f74b77ea)
+function function_9ef80b8b(e_value)
 {
-	return var_f74b77ea;
+	return e_value;
 }
 
 /*

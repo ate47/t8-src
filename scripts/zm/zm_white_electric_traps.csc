@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_a6437486;
+#namespace zm_white_electric_traps;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x7A904D9B
 	Offset: 0xD8
 	Size: 0x3C
@@ -16,12 +16,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_5d4022ed5385d3fa", &__init__, undefined, undefined);
+	system::register(#"zm_white_electric_trap", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x81AA6534
 	Offset: 0x120
 	Size: 0x34
@@ -36,7 +36,7 @@ function __init__()
 
 /*
 	Name: init_fx
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xE2D394E
 	Offset: 0x160
 	Size: 0xC2
@@ -53,7 +53,7 @@ function init_fx()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x82BA7CFD
 	Offset: 0x230
 	Size: 0xB4
@@ -68,7 +68,7 @@ function init_clientfields()
 
 /*
 	Name: function_946acaec
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0x4AF579C5
 	Offset: 0x2F0
 	Size: 0x10C
@@ -96,7 +96,7 @@ function function_946acaec(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: electrocute_ai
-	Namespace: namespace_a6437486
+	Namespace: zm_white_electric_traps
 	Checksum: 0xB11F1801
 	Offset: 0x408
 	Size: 0x1FE

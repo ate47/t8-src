@@ -35,7 +35,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -145,9 +145,9 @@ function private function_29bcf2f8()
 	self zm_trial_util::function_63060af4(0);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_24326081081c2468");
-		if(var_be17187b.var_9e09931e === 4)
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hash_24326081081c2468");
+		if(s_waitresult.var_9e09931e === 4)
 		{
 			self.var_bfc22435 = 1;
 			self zm_trial_util::function_63060af4(1);

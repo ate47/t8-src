@@ -279,16 +279,16 @@ function function_9e8fddfe()
 	Parameters: 4
 	Flags: None
 */
-function spawn_attack_wave(n_count, var_2c6e8cfe = 0, var_edf46d6e, var_1b783b8b = 0)
+function spawn_attack_wave(n_count, var_2c6e8cfe = 0, a_parms, var_1b783b8b = 0)
 {
 	var_d3dc6155 = [];
 	var_c580022d = [];
 	var_4ea36929[0] = "ct_attack_helicopter";
 	var_4ea36929[1] = "ct_mini_quadtank";
-	var_a6335767 = struct::get_array(var_4ea36929[var_2c6e8cfe], "script_noteworthy");
-	if(n_count > var_a6335767.size)
+	a_s_enemy = struct::get_array(var_4ea36929[var_2c6e8cfe], "script_noteworthy");
+	if(n_count > a_s_enemy.size)
 	{
-		n_limit = var_a6335767.size;
+		n_limit = a_s_enemy.size;
 	}
 	else
 	{
@@ -300,29 +300,29 @@ function spawn_attack_wave(n_count, var_2c6e8cfe = 0, var_edf46d6e, var_1b783b8b
 		{
 			case 0:
 			{
-				s_enemy = arraygetfarthest(self.origin, var_a6335767);
+				s_enemy = arraygetfarthest(self.origin, a_s_enemy);
 				break;
 			}
 			case 1:
 			{
-				s_enemy = arraygetclosest(self.origin, var_a6335767);
+				s_enemy = arraygetclosest(self.origin, a_s_enemy);
 				break;
 			}
 			case 2:
 			{
-				s_enemy = array::random(var_a6335767);
+				s_enemy = array::random(a_s_enemy);
 				break;
 			}
 		}
 		if(var_2c6e8cfe == 0)
 		{
-			var_d3dc6155[var_d3dc6155.size] = s_enemy spawn_attack_helicopter("enemy_chopper", #"axis", 1, 1, var_edf46d6e);
+			var_d3dc6155[var_d3dc6155.size] = s_enemy spawn_attack_helicopter("enemy_chopper", #"axis", 1, 1, a_parms);
 		}
 		else if(var_2c6e8cfe == 1)
 		{
 			var_d3dc6155[var_d3dc6155.size] = s_enemy function_4c8f915a("enemy_mini_quad_tank", #"axis");
 		}
-		arrayremovevalue(var_a6335767, s_enemy);
+		arrayremovevalue(a_s_enemy, s_enemy);
 		waitframe(1);
 	}
 	return var_d3dc6155;
@@ -363,39 +363,39 @@ function registerstart_killstreak_collision_rounds(s_veh)
 	Parameters: 5
 	Flags: None
 */
-function spawn_attack_helicopter(str_targetname, str_team, b_guns = 1, b_missiles = 1, var_edf46d6e = [])
+function spawn_attack_helicopter(str_targetname, str_team, b_guns = 1, b_missiles = 1, a_parms = [])
 {
 	chopper = spawnvehicle(#"veh_t8_helicopter_gunship_mp", self.origin, self.angles, str_targetname);
-	if(!isdefined(var_edf46d6e[#"hash_340f1ead2b66b1e5"]))
+	if(!isdefined(a_parms[#"hash_340f1ead2b66b1e5"]))
 	{
-		var_edf46d6e[#"hash_340f1ead2b66b1e5"] = 1200;
+		a_parms[#"hash_340f1ead2b66b1e5"] = 1200;
 	}
-	if(!isdefined(var_edf46d6e[#"attack_time"]))
+	if(!isdefined(a_parms[#"attack_time"]))
 	{
-		var_edf46d6e[#"attack_time"] = 5;
+		a_parms[#"attack_time"] = 5;
 	}
-	if(!isdefined(var_edf46d6e[#"attack_rest"]))
+	if(!isdefined(a_parms[#"attack_rest"]))
 	{
-		var_edf46d6e[#"attack_rest"] = 3;
+		a_parms[#"attack_rest"] = 3;
 	}
-	if(!isdefined(var_edf46d6e[#"shoot_spread"]))
+	if(!isdefined(a_parms[#"shoot_spread"]))
 	{
-		var_edf46d6e[#"shoot_spread"] = 25;
+		a_parms[#"shoot_spread"] = 25;
 	}
-	if(!isdefined(var_edf46d6e[#"speed"]))
+	if(!isdefined(a_parms[#"speed"]))
 	{
-		var_edf46d6e[#"speed"] = 30;
+		a_parms[#"speed"] = 30;
 	}
-	if(!isdefined(var_edf46d6e[#"accel"]))
+	if(!isdefined(a_parms[#"accel"]))
 	{
-		var_edf46d6e[#"accel"] = 10;
+		a_parms[#"accel"] = 10;
 	}
-	chopper.var_6982e1d6 = var_edf46d6e[#"hash_340f1ead2b66b1e5"];
-	chopper.var_9d8645cf = var_edf46d6e[#"attack_time"];
-	chopper.var_847fac28 = var_edf46d6e[#"attack_rest"];
-	chopper.n_shoot_spread = var_edf46d6e[#"shoot_spread"];
-	chopper.n_speed = var_edf46d6e[#"speed"];
-	chopper.n_accel = var_edf46d6e[#"accel"];
+	chopper.var_6982e1d6 = a_parms[#"hash_340f1ead2b66b1e5"];
+	chopper.var_9d8645cf = a_parms[#"attack_time"];
+	chopper.var_847fac28 = a_parms[#"attack_rest"];
+	chopper.n_shoot_spread = a_parms[#"shoot_spread"];
+	chopper.n_speed = a_parms[#"speed"];
+	chopper.n_accel = a_parms[#"accel"];
 	chopper setteam(str_team);
 	chopper.originalteam = str_team;
 	chopper.attackers = [];
@@ -1289,13 +1289,13 @@ function function_52d196f2(n_difficulty = 2)
 		var_44092575 = var_44092575 + n_count;
 	}
 	e_player thread function_9be2d75f();
-	var_edf46d6e = [];
-	var_edf46d6e[#"hash_72de0eaa7f3c7619"] = var_a7b6c024[n_difficulty];
-	var_edf46d6e[#"attack_rest"] = var_89d9697a[n_difficulty];
-	var_edf46d6e[#"shoot_spread"] = var_ed621a12[n_difficulty];
-	var_edf46d6e[#"speed"] = var_c52588b6[n_difficulty];
-	var_edf46d6e[#"accel"] = var_c005d40b[n_difficulty];
-	level.a_vh_choppers = e_player spawn_attack_wave(var_88e49d60[n_difficulty], 0, var_edf46d6e, 2);
+	a_parms = [];
+	a_parms[#"hash_72de0eaa7f3c7619"] = var_a7b6c024[n_difficulty];
+	a_parms[#"attack_rest"] = var_89d9697a[n_difficulty];
+	a_parms[#"shoot_spread"] = var_ed621a12[n_difficulty];
+	a_parms[#"speed"] = var_c52588b6[n_difficulty];
+	a_parms[#"accel"] = var_c005d40b[n_difficulty];
+	level.a_vh_choppers = e_player spawn_attack_wave(var_88e49d60[n_difficulty], 0, a_parms, 2);
 	foreach(vh_chopper in level.a_vh_choppers)
 	{
 		vh_chopper.waypoint = vh_chopper ct_utils::create_waypoint(#"hash_3489718f227fba3", vh_chopper.origin, vh_chopper.angles, #"any", undefined, 0, undefined);
@@ -1534,8 +1534,8 @@ function function_868cd9ac()
 				}
 				case "spawn_chopper":
 				{
-					var_1cad30e7 = struct::get_array("", "");
-					registerstart_killstreak_collision_rounds(var_1cad30e7[0]);
+					a_s_chopper = struct::get_array("", "");
+					registerstart_killstreak_collision_rounds(a_s_chopper[0]);
 					break;
 				}
 				case "hash_3336321eb0a42dd":

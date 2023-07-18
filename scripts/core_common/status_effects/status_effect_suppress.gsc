@@ -47,7 +47,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function suppress_apply(var_756fda07, weapon, var_84171a6c)
+function suppress_apply(var_756fda07, weapon, applicant)
 {
 }
 

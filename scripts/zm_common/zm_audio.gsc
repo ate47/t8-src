@@ -1478,7 +1478,7 @@ function create_and_play_dialog(category, subcategory, force_variant, b_wait_if_
 		return false;
 	}
 	self endon(#"death");
-	if(zm_trial::function_b47f6aba() || zm_utility::is_standard() || (isdefined(level.var_d555ff19) && level.var_d555ff19))
+	if(zm_trial::is_trial_mode() || zm_utility::is_standard() || (isdefined(level.var_d555ff19) && level.var_d555ff19))
 	{
 		return false;
 	}
@@ -2491,7 +2491,7 @@ function sndmusicsystem_playstate(state, var_ceca37b = 0)
 	}
 	s = level.musicsystem.states[state];
 	playtype = s.playtype;
-	if(zm_utility::is_standard() || zm_trial::function_b47f6aba() && !var_ceca37b)
+	if(zm_utility::is_standard() || zm_trial::is_trial_mode() && !var_ceca37b)
 	{
 		if(playtype != 5)
 		{

@@ -860,17 +860,17 @@ function function_451e442e()
 function function_feee6e66()
 {
 	self endon(#"death");
-	var_adea2587 = undefined;
-	var_adea2587 = self waittill(#"trigger_activated");
+	s_results = undefined;
+	s_results = self waittill(#"trigger_activated");
 	zm_ui_inventory::function_7df6bb60("zm_orange_pap_rock", 1);
 	self playsound(#"hash_5c0903506e9a705a");
 	if(level flag::get(#"hash_641f14d0b2fd57d7"))
 	{
-		var_adea2587.e_who thread zm_orange_util::function_51b752a9(#"hash_1558be2f4ebc39b5");
+		s_results.e_who thread zm_orange_util::function_51b752a9(#"hash_1558be2f4ebc39b5");
 	}
 	else
 	{
-		var_adea2587.e_who thread zm_orange_util::function_51b752a9(#"hash_7e030fccc2c5a121");
+		s_results.e_who thread zm_orange_util::function_51b752a9(#"hash_7e030fccc2c5a121");
 	}
 	level flag::set(#"hash_3310bb35ce396e49");
 }

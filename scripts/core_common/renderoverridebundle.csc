@@ -152,12 +152,12 @@ function function_e04728e4(local_client_num)
 		{
 			function_9129cbe3(local_client_num);
 		}
-		foreach(entity_num, var_29e36786 in level.renderoverridebundle.local_clients[local_client_num].var_e04728e4)
+		foreach(entity_num, entity_array in level.renderoverridebundle.local_clients[local_client_num].var_e04728e4)
 		{
 			entity = getentbynum(local_client_num, entity_num);
 			if(isalive(entity))
 			{
-				foreach(flag, var_166900a8 in var_29e36786)
+				foreach(flag, var_166900a8 in entity_array)
 				{
 					if(shoutcaster::is_shoutcaster(local_client_num) && (var_166900a8 == #"hash_2f86d28434166be7" || var_166900a8 == #"hash_16bdbd0b3de5c91a"))
 					{
@@ -182,14 +182,14 @@ function function_e04728e4(local_client_num)
 */
 function function_9129cbe3(local_client_num)
 {
-	foreach(entity_num, var_29e36786 in level.renderoverridebundle.local_clients[local_client_num].var_e04728e4)
+	foreach(entity_num, entity_array in level.renderoverridebundle.local_clients[local_client_num].var_e04728e4)
 	{
 		entity = getentbynum(local_client_num, entity_num);
 		if(!isdefined(entity))
 		{
 			continue;
 		}
-		foreach(flag, var_3a009b84 in var_29e36786)
+		foreach(flag, var_3a009b84 in entity_array)
 		{
 			if(entity flag::exists(flag))
 			{

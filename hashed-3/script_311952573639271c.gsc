@@ -117,7 +117,7 @@ function init_flags()
 {
 	level flag::init(#"hash_2aaea7cd22f44712");
 	level flag::init(#"hash_3799c8bb28e2f2f");
-	level flag::init(#"hash_7c5a0573f12750a8");
+	level flag::init(#"activate_sea_walkers");
 	level flag::init(#"hash_480b6b675a3076ec");
 	level flag::init(#"hash_525ff2b2a2f7d97a");
 	level flag::init(#"hash_f244999377a9081");
@@ -403,10 +403,10 @@ function function_a0f5819b(b_on = 1)
 {
 	level notify(#"hash_14c80c5abb28b07b");
 	n_current = level.s_pap_quest.var_4ee2e2ab;
-	for(i = 0; i < level.s_pap_quest.var_e770eb55.size; i++)
+	for(i = 0; i < level.s_pap_quest.a_s_locations.size; i++)
 	{
 		level.s_pap_quest.var_4ee2e2ab = i;
-		level.pap_machine = level.s_pap_quest.var_e770eb55[i].unitrigger_stub.pap_machine;
+		level.pap_machine = level.s_pap_quest.a_s_locations[i].unitrigger_stub.pap_machine;
 		level.pap_machine.var_b64e889a = b_on;
 		if(b_on)
 		{
@@ -418,13 +418,13 @@ function function_a0f5819b(b_on = 1)
 			continue;
 		}
 		level.var_bceee222 = undefined;
-		level.s_pap_quest.var_69e563d = level.s_pap_quest.var_e770eb55[i];
+		level.s_pap_quest.var_69e563d = level.s_pap_quest.a_s_locations[i];
 		zodt8_pap_quest::function_ef3c219a();
 	}
 	if(!b_on)
 	{
 		level.var_efaaea43 = 1;
-		level.s_pap_quest.var_4ee2e2ab = randomint(level.s_pap_quest.var_e770eb55.size - 1);
+		level.s_pap_quest.var_4ee2e2ab = randomint(level.s_pap_quest.a_s_locations.size - 1);
 		zodt8_pap_quest::function_9e015223();
 		level.var_efaaea43 = 0;
 		level.var_fea7bdae = 0;
@@ -1027,9 +1027,9 @@ function function_143dcc81(var_5ea5c94d)
 					fx::play(#"hash_708765aa3f48456d", s_landing.origin + vectorscale((0, 0, 1), 20), (270, 180, 180));
 				}
 				s_landing.origin = s_landing.origin + vectorscale((0, 0, 1), 48);
-				var_64c09f7f = s_landing zm_unitrigger::function_fac87205();
+				e_activator = s_landing zm_unitrigger::function_fac87205();
 				e_fish playsound(#"hash_62d7c979858b9326");
-				var_64c09f7f zm_audio::create_and_play_dialog(#"fish", #"retrieve_first");
+				e_activator zm_audio::create_and_play_dialog(#"fish", #"retrieve_first");
 				s_landing struct::delete();
 				e_fish hide();
 				break;
@@ -1069,7 +1069,7 @@ function function_282743a6(var_5ea5c94d)
 {
 	array::run_all(util::get_players(), &forcestreambundle, #"p8_fxanim_zm_zod_tentacle_bundle");
 	s_trigger = struct::get(#"hash_693bda099c0710af");
-	var_64c09f7f = s_trigger zm_unitrigger::function_fac87205();
+	e_activator = s_trigger zm_unitrigger::function_fac87205();
 	playsoundatposition(#"hash_42f8105535463377", s_trigger.origin);
 	/#
 		if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -1083,9 +1083,9 @@ function function_282743a6(var_5ea5c94d)
 	scene::add_scene_func(#"p8_fxanim_zm_zod_tentacle_bundle", &function_a343f892);
 	s_scene scene::play();
 	array::run_all(util::get_players(), &function_66b6e720, #"p8_fxanim_zm_zod_tentacle_bundle");
-	if(isalive(var_64c09f7f))
+	if(isalive(e_activator))
 	{
-		var_64c09f7f zm_audio::create_and_play_dialog(#"fish", #"reward_comp");
+		e_activator zm_audio::create_and_play_dialog(#"fish", #"reward_comp");
 	}
 }
 
@@ -1163,7 +1163,7 @@ function sea_walkers_setup(var_5ea5c94d)
 	}
 	level waittill(#"power_on");
 	struct::get(#"hash_7de555271928a1f4") zm_unitrigger::create(undefined, undefined, &function_ebb2139);
-	level flag::wait_till(#"hash_7c5a0573f12750a8");
+	level flag::wait_till(#"activate_sea_walkers");
 }
 
 /*
@@ -1287,7 +1287,7 @@ function function_ebb2139()
 		if(level.var_f02a5fea.size >= 3 && (!isdefined(level.var_d889fbd9) || (level.var_d889fbd9 + 9) <= level.round_number))
 		{
 			level thread function_5daf1bb7();
-			playsoundatposition(#"hash_33065f8e09911175", var_a89972df.origin);
+			playsoundatposition(#"zmb_statue_completed", var_a89972df.origin);
 		}
 	}
 }
@@ -1307,11 +1307,11 @@ function function_5daf1bb7()
 	var_fcec724a = struct::get(#"floaters_fx");
 	playrumbleonposition("grenade_rumble", var_fcec724a.origin);
 	level waittill(#"start_of_round");
-	level flag::set(#"hash_7c5a0573f12750a8");
+	level flag::set(#"activate_sea_walkers");
 	exploder::exploder("exp_eye_glow");
 	level.var_d889fbd9 = level.round_number;
 	level waittill(#"end_of_round");
-	level flag::clear(#"hash_7c5a0573f12750a8");
+	level flag::clear(#"activate_sea_walkers");
 	level flag::clear(#"hash_480b6b675a3076ec");
 }
 

@@ -1435,9 +1435,9 @@ function function_f7bb860a()
 				wait(0.5);
 			}
 		}
-		if(function_25e3484e(s_defend_area.origin) && !isdefined(s_defend_area.var_7d81025))
+		if(function_25e3484e(s_defend_area.origin) && !isdefined(s_defend_area.e_powerup))
 		{
-			s_defend_area.var_7d81025 = function_ce46d95e(s_defend_area.origin, 1, 0);
+			s_defend_area.e_powerup = function_ce46d95e(s_defend_area.origin, 1, 0);
 		}
 	}
 }
@@ -2060,9 +2060,9 @@ function function_92162963(var_b9fefaba, b_permanent = 0)
 */
 function function_72725f77(b_permanent = 0)
 {
-	if(!isdefined(self.var_7d81025))
+	if(!isdefined(self.e_powerup))
 	{
-		self.var_7d81025 = self function_ce46d95e(self.origin, b_permanent);
+		self.e_powerup = self function_ce46d95e(self.origin, b_permanent);
 	}
 	if(isdefined(self.target))
 	{

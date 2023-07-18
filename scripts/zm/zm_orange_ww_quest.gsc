@@ -482,9 +482,9 @@ function ww_quest_step4_cleanup(var_5ea5c94d, ended_early)
 function function_731665dd()
 {
 	level endon(#"end_game", #"ww_safe_opened");
-	var_adea2587 = undefined;
-	var_adea2587 = self waittill(#"trigger_activated");
-	e_who = var_adea2587.e_who;
+	s_results = undefined;
+	s_results = self waittill(#"trigger_activated");
+	e_who = s_results.e_who;
 	level zm_ui_inventory::function_7df6bb60("zm_orange_ww_quest", 0);
 	level.s_ww_quest.var_aaedf111 function_8613de32();
 	level thread function_29d4087d(e_who);
@@ -854,7 +854,7 @@ function ww_quest_step9_setup(var_5ea5c94d)
 {
 	level.s_ww_quest.var_16c37c7f = struct::get("reward_crate_dg1", "targetname");
 	var_16c37c7f = level.s_ww_quest.var_16c37c7f;
-	var_16c37c7f.var_9dd10753 = getent(var_16c37c7f.var_c8166135, "targetname");
+	var_16c37c7f.e_lid = getent(var_16c37c7f.var_c8166135, "targetname");
 	var_16c37c7f.e_lock = getent(var_16c37c7f.target_lock, "targetname");
 	var_16c37c7f.e_weapon = getent(var_16c37c7f.target_weapon, "targetname");
 	if(!var_5ea5c94d)
@@ -879,8 +879,8 @@ function ww_quest_step9_cleanup(var_5ea5c94d, ended_early)
 	var_16c37c7f = level.s_ww_quest.var_16c37c7f;
 	if(var_5ea5c94d || ended_early)
 	{
-		var_16c37c7f.var_9dd10753 rotatepitch(-90, 0.5);
-		var_16c37c7f.var_9dd10753 waittill(#"rotatedone");
+		var_16c37c7f.e_lid rotatepitch(-90, 0.5);
+		var_16c37c7f.e_lid waittill(#"rotatedone");
 		var_16c37c7f.e_weapon movez(24, 0.5);
 		var_16c37c7f.e_weapon waittill(#"movedone");
 		level flag::set(#"hash_44512b5e960df8f0");
@@ -940,9 +940,9 @@ function function_735037d4()
 		self.e_lock delete();
 	}
 	wait(0.5);
-	self.var_9dd10753 rotatepitch(-90, 2, 0, 0.6666667);
-	self.var_9dd10753 playsound(#"hash_1cfa90c531f36b92");
-	self.var_9dd10753 waittill(#"rotatedone");
+	self.e_lid rotatepitch(-90, 2, 0, 0.6666667);
+	self.e_lid playsound(#"hash_1cfa90c531f36b92");
+	self.e_lid waittill(#"rotatedone");
 	self.e_weapon movez(24, 2);
 	if(!level.pablo_npc.isspeaking)
 	{

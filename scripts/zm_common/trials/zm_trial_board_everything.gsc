@@ -34,7 +34,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -102,8 +102,8 @@ function function_4172344e()
 		}
 		zm_trial_util::function_2976fa44(level.var_70135c38);
 		zm_trial_util::function_dace284(level.var_3de460b1, 1);
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"zombie_board_tear", #"board_repaired", #"carpenter_finished");
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"zombie_board_tear", #"board_repaired", #"carpenter_finished");
 	}
 }
 

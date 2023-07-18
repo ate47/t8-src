@@ -120,13 +120,13 @@ function private function_35e11623(deathcircle, var_898879a6)
 		{
 			continue;
 		}
-		foreach(var_b5645d79 in player.weaponobjectwatcherarray)
+		foreach(watcherarray in player.weaponobjectwatcherarray)
 		{
-			if(!isdefined(var_b5645d79) || !isarray(var_b5645d79.objectarray))
+			if(!isdefined(watcherarray) || !isarray(watcherarray.objectarray))
 			{
 				continue;
 			}
-			foreach(object in var_b5645d79.objectarray)
+			foreach(object in watcherarray.objectarray)
 			{
 				if(function_3703bc36(object, deathcircle))
 				{
@@ -145,7 +145,7 @@ function private function_35e11623(deathcircle, var_898879a6)
 								continue;
 							}
 						}
-						var_b5645d79 thread weaponobjects::waitanddetonate(object, 0);
+						watcherarray thread weaponobjects::waitanddetonate(object, 0);
 					}
 					if(isdefined(object))
 					{
@@ -157,7 +157,7 @@ function private function_35e11623(deathcircle, var_898879a6)
 					}
 				}
 			}
-			arrayremovevalue(var_b5645d79.objectarray, undefined, 0);
+			arrayremovevalue(watcherarray.objectarray, undefined, 0);
 		}
 		waitframe(1);
 	}

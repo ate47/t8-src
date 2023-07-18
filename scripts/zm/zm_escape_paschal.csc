@@ -54,7 +54,7 @@ function init()
 	level._effect[#"energy_red"] = #"hash_7909599a5d17a4b4";
 	level._effect[#"energy_white"] = #"hash_1c2a3285932c7a7e";
 	level._effect[#"energy_glow"] = #"hash_390f28af5955af1f";
-	level._effect[#"hash_70915dc4a67a296c"] = #"hash_10198f7ef5535f3a";
+	level._effect[#"kr_glow"] = #"hash_10198f7ef5535f3a";
 	level._effect[#"ritual_gobo"] = #"hash_140f0bd65e4d70d2";
 	level._effect[#"hash_180f832f742958d6"] = #"hash_66bb6697a9882bd6";
 	level._effect[#"door_explosion"] = #"hash_4fba451426ea3bb7";
@@ -189,7 +189,7 @@ function function_e5437696(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(newval)
 	{
-		self.var_4e35f286 = util::playfxontag(localclientnum, level._effect[#"hash_70915dc4a67a296c"], self, "tag_cover");
+		self.var_4e35f286 = util::playfxontag(localclientnum, level._effect[#"kr_glow"], self, "tag_cover");
 		if(!isdefined(self.var_a863bc25))
 		{
 			self.var_a863bc25 = self playloopsound(#"hash_59f1ff45d390f7f1");
@@ -838,6 +838,6 @@ function function_d663c13e(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_42693309(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self playrumbleonentity(localclientnum, #"hash_22fa851adfc91c0a");
+	self playrumbleonentity(localclientnum, #"zm_escape_map_interact");
 }
 

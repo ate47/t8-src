@@ -1202,7 +1202,7 @@ function function_bb613572(a_s_spawns, a_str_endons, n_spawn_delay = 1, n_round 
 	}
 	n_spawn_delay = n_spawn_delay / n_players;
 	var_e8711f44 = 14 + (n_players * 2);
-	var_3a615dd8 = getspawnerarray("spawner_zm_zombie", "targetname");
+	a_sp_zombies = getspawnerarray("spawner_zm_zombie", "targetname");
 	var_7c332548 = arraycopy(a_s_spawns);
 	while(true)
 	{
@@ -1211,7 +1211,7 @@ function function_bb613572(a_s_spawns, a_str_endons, n_spawn_delay = 1, n_round 
 			wait(0.5);
 		}
 		s_spawn = array::random(var_7c332548);
-		sp_zombie = array::random(var_3a615dd8);
+		sp_zombie = array::random(a_sp_zombies);
 		ai = zombie_utility::spawn_zombie(sp_zombie, undefined, s_spawn, n_round);
 		if(isdefined(ai))
 		{

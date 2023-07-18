@@ -45,10 +45,10 @@ function init()
 	}
 	var_dd3ac19c = getent("narsho", "targetname");
 	var_dd3ac19c hide();
-	var_551e1d09 = struct::get_array(#"hash_4ff4d74fc1ff150d");
-	array::thread_all(var_551e1d09, &function_58c9a8b3, 1);
-	var_73aee06c = struct::get_array(#"hash_70b8946b02777c1d");
-	array::thread_all(var_73aee06c, &function_58c9a8b3);
+	a_s_scrolls = struct::get_array(#"hash_4ff4d74fc1ff150d");
+	array::thread_all(a_s_scrolls, &function_58c9a8b3, 1);
+	a_s_skulls = struct::get_array(#"hash_70b8946b02777c1d");
+	array::thread_all(a_s_skulls, &function_58c9a8b3);
 	level thread function_c2e32573("narrative_whispers", array(#"hash_609c2bdb6def129f", #"hash_4af81ddd4ad3f4d1", #"hash_23a8e8f61c4fc32c", #"hash_7f6bf79b60f1e8d4"), 1, #"hash_46aec984fab973b8", #"hash_46ddcfa7b8081e89", 1.5);
 	level thread function_c2e32573("narrative_warning", array(#"hash_5c9150da16c41e10", #"hash_66dd1564ba1e9474", #"hash_4489363f604b439c", #"hash_4e2811c0bd19be20", #"hash_7101f8d31ad66888"), 1);
 	level thread function_a38e222b();
@@ -145,10 +145,10 @@ function function_c2e32573(str_notify, var_3608d414, var_4bb99e1c = 1, var_763c8
 	}
 	foreach(str_vo in var_3608d414)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(str_notify);
+		s_waitresult = undefined;
+		s_waitresult = level waittill(str_notify);
 		level flag::set(#"hash_64e187377acec152");
-		v_origin = var_be17187b.v_origin;
+		v_origin = s_waitresult.v_origin;
 		if(isdefined(var_763c80f1))
 		{
 			playsoundatposition(var_763c80f1, v_origin);
@@ -469,9 +469,9 @@ function function_51f7da68()
 	}
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_3042a9bf2f57ea0a");
-		v_origin = var_be17187b.var_814c9389;
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"hash_3042a9bf2f57ea0a");
+		v_origin = s_waitresult.var_814c9389;
 		if(istouching(v_origin, self))
 		{
 			break;
@@ -764,10 +764,10 @@ function function_341bdf82()
 	self endon(#"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"damage");
-		w_weapon = var_be17187b.weapon;
-		v_origin = var_be17187b.position;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"damage");
+		w_weapon = s_waitresult.weapon;
+		v_origin = s_waitresult.position;
 		if(istouching(v_origin, self) && zm_utility::is_frag_grenade(w_weapon))
 		{
 			break;
@@ -841,9 +841,9 @@ function function_ca4e26c3()
 	var_59795ba5 = array(level.hero_weapon[#"sword_pistol"][0].dualwieldweapon, level.hero_weapon[#"sword_pistol"][1].dualwieldweapon, level.hero_weapon[#"sword_pistol"][2].dualwieldweapon);
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_fired");
-		w_weapon = var_be17187b.weapon;
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_fired");
+		w_weapon = s_waitresult.weapon;
 		if(isdefined(w_weapon) && isinarray(var_59795ba5, w_weapon))
 		{
 			v_origin = self getweaponmuzzlepoint();
@@ -955,9 +955,9 @@ function function_e6f26f04()
 		if(var_33f252eb === self)
 		{
 			level flag::set(#"hash_3e90f82a2802b3");
-			var_be17187b = undefined;
-			var_be17187b = level waittill(#"traps_cooldown");
-			str_off = var_be17187b.var_be3f58a;
+			s_waitresult = undefined;
+			s_waitresult = level waittill(#"traps_cooldown");
+			str_off = s_waitresult.var_be3f58a;
 			if(str_off === str_id)
 			{
 				level flag::clear(#"hash_3e90f82a2802b3");
@@ -1253,39 +1253,39 @@ function function_cab1990a()
 */
 function function_b315d709()
 {
-	level.var_f2dc2287 = spawnstruct();
-	level.var_f2dc2287.var_12b6c455 = 1;
-	level.var_f2dc2287.a_objects = [];
-	level.var_f2dc2287.a_objects[1] = getent("t_narrative_25", "targetname");
-	level.var_f2dc2287.a_objects[2] = getent("mdl_note_2", "targetname");
-	level.var_f2dc2287.a_objects[3] = getent("mdl_blade_traps", "targetname");
-	level.var_f2dc2287.a_objects[4] = getent("mdl_tattle_tale", "targetname");
-	level.var_f2dc2287.a_objects[5] = struct::get("s_note_wall_1");
-	level.var_f2dc2287.a_objects[6] = struct::get("s_note_wall_2");
-	level.var_f2dc2287.a_objects[7] = struct::get("s_note_wall_3");
-	level.var_f2dc2287.a_objects[8] = struct::get("s_note_wall_4");
-	level.var_f2dc2287.a_objects[9] = struct::get("s_note_serpent");
-	level.var_f2dc2287.a_objects[10] = struct::get("s_note_blood");
-	level.var_f2dc2287.a_objects[11] = struct::get("s_note_steel");
-	level.var_f2dc2287.a_objects[12] = struct::get("s_note_observe");
-	level.var_f2dc2287.a_objects[13] = struct::get("s_note_reveal");
-	level.var_f2dc2287.a_objects[14] = getent("reveal_blocker", "targetname");
+	level.s_remus = spawnstruct();
+	level.s_remus.var_12b6c455 = 1;
+	level.s_remus.a_objects = [];
+	level.s_remus.a_objects[1] = getent("t_narrative_25", "targetname");
+	level.s_remus.a_objects[2] = getent("mdl_note_2", "targetname");
+	level.s_remus.a_objects[3] = getent("mdl_blade_traps", "targetname");
+	level.s_remus.a_objects[4] = getent("mdl_tattle_tale", "targetname");
+	level.s_remus.a_objects[5] = struct::get("s_note_wall_1");
+	level.s_remus.a_objects[6] = struct::get("s_note_wall_2");
+	level.s_remus.a_objects[7] = struct::get("s_note_wall_3");
+	level.s_remus.a_objects[8] = struct::get("s_note_wall_4");
+	level.s_remus.a_objects[9] = struct::get("s_note_serpent");
+	level.s_remus.a_objects[10] = struct::get("s_note_blood");
+	level.s_remus.a_objects[11] = struct::get("s_note_steel");
+	level.s_remus.a_objects[12] = struct::get("s_note_observe");
+	level.s_remus.a_objects[13] = struct::get("s_note_reveal");
+	level.s_remus.a_objects[14] = getent("reveal_blocker", "targetname");
 	if(!zm_utility::is_ee_enabled())
 	{
 		for(i = 2; i < 14; i++)
 		{
-			e_object = level.var_f2dc2287.a_objects[i];
+			e_object = level.s_remus.a_objects[i];
 			if(isentity(e_object))
 			{
 				e_object delete();
 			}
 		}
-		level.var_f2dc2287.a_objects = undefined;
+		level.s_remus.a_objects = undefined;
 		return;
 	}
-	level.var_f2dc2287.a_objects[2] hide();
-	level.var_f2dc2287.a_objects[3] hide();
-	level.var_f2dc2287.a_objects[4] hide();
+	level.s_remus.a_objects[2] hide();
+	level.s_remus.a_objects[3] hide();
+	level.s_remus.a_objects[4] hide();
 	level thread function_98d6ce32();
 }
 
@@ -1312,10 +1312,10 @@ function function_98d6ce32()
 	function_2cb83322(#"hash_642834b4c1587ac9", #"hash_6b02638730f2f88c");
 	function_2cb83322(#"hash_4ccddcb7cba5b2d2", #"hash_2897f70604cc0fb6");
 	level.var_b2b15659 = 1;
-	var_f2dc2287 = level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455];
-	playsoundatposition(#"hash_2897f80604cc1169", var_f2dc2287.origin);
+	s_remus = level.s_remus.a_objects[level.s_remus.var_12b6c455];
+	playsoundatposition(#"hash_2897f80604cc1169", s_remus.origin);
 	function_d24a0f09(#"hash_2897f80604cc1169");
-	playsoundatposition(#"hash_2897f50604cc0c50", var_f2dc2287.origin);
+	playsoundatposition(#"hash_2897f50604cc0c50", s_remus.origin);
 	function_d24a0f09(#"hash_2897f50604cc0c50");
 	level.var_b2b15659 = 0;
 	function_d6e81c01(#"hash_4832047b1941ace1", #"hash_3501eab062d8e553");
@@ -1324,14 +1324,14 @@ function function_98d6ce32()
 	function_d6e81c01(#"hash_49fb781467abd24c", #"hash_634818c98eff6728");
 	var_2cff1c1e = getent("mdl_massage_wall", "targetname");
 	var_2cff1c1e clientfield::set("" + #"hash_2407f687f7d24a83", 1);
-	level.var_f2dc2287.var_12b6c455++;
-	level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455] zm_unitrigger::function_fac87205("");
-	level.var_f2dc2287.var_12b6c455++;
+	level.s_remus.var_12b6c455++;
+	level.s_remus.a_objects[level.s_remus.var_12b6c455] zm_unitrigger::function_fac87205("");
+	level.s_remus.var_12b6c455++;
 	level.var_b2b15659 = 1;
 	s_skull = struct::get("s_remvox");
 	playsoundatposition(#"hash_46233f5f75541000", s_skull.origin);
 	function_d24a0f09(#"hash_46233f5f75541000");
-	mdl_wall = level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455];
+	mdl_wall = level.s_remus.a_objects[level.s_remus.var_12b6c455];
 	mdl_wall scene::play(#"p8_fxanim_zm_towers_wall_2_bundle", mdl_wall);
 	level.var_b2b15659 = 0;
 }
@@ -1347,8 +1347,8 @@ function function_98d6ce32()
 */
 function function_801b77c0()
 {
-	level.var_f2dc2287.var_12b6c455++;
-	level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455] show();
+	level.s_remus.var_12b6c455++;
+	level.s_remus.a_objects[level.s_remus.var_12b6c455] show();
 }
 
 /*
@@ -1362,8 +1362,8 @@ function function_801b77c0()
 */
 function function_2cb83322(var_1600546f, var_759598cf)
 {
-	level.var_f2dc2287.var_12b6c455++;
-	s_crying = level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455];
+	level.s_remus.var_12b6c455++;
+	s_crying = level.s_remus.a_objects[level.s_remus.var_12b6c455];
 	var_9185084 = spawn("script_origin", s_crying.origin);
 	level thread function_415b58b1(var_1600546f, s_crying, var_9185084);
 	s_crying zm_unitrigger::function_fac87205("");
@@ -1409,17 +1409,17 @@ function function_415b58b1(var_1600546f, s_crying, var_9185084)
 function function_d6e81c01(var_cc9813c7, var_e504825e)
 {
 	level.var_b2b15659 = 1;
-	playsoundatposition(var_cc9813c7, level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455].origin);
+	playsoundatposition(var_cc9813c7, level.s_remus.a_objects[level.s_remus.var_12b6c455].origin);
 	function_d24a0f09(var_cc9813c7);
 	level.var_b2b15659 = 0;
-	level.var_f2dc2287.var_12b6c455++;
-	var_64c09f7f = level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455] zm_unitrigger::function_fac87205("");
-	var_64c09f7f playsoundtoplayer(#"hash_cfcdb12c4cc0476", var_64c09f7f);
+	level.s_remus.var_12b6c455++;
+	e_activator = level.s_remus.a_objects[level.s_remus.var_12b6c455] zm_unitrigger::function_fac87205("");
+	e_activator playsoundtoplayer(#"hash_cfcdb12c4cc0476", e_activator);
 	wait(4);
 	if(isdefined(var_e504825e))
 	{
 		level.var_b2b15659 = 1;
-		playsoundatposition(var_e504825e, level.var_f2dc2287.a_objects[level.var_f2dc2287.var_12b6c455].origin);
+		playsoundatposition(var_e504825e, level.s_remus.a_objects[level.s_remus.var_12b6c455].origin);
 		function_d24a0f09(var_e504825e);
 		level.var_b2b15659 = 0;
 	}

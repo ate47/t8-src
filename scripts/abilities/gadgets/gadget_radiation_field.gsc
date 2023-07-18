@@ -171,7 +171,7 @@ function sndonoverride_eye_()
 		objective_setprogress(player.var_e9791ff9, 0);
 	}
 	total_time = level.radiationfield_bundle.baseduration + level.radiationfield_bundle.var_500496c9;
-	var_9c4a70ee = 0.75;
+	redline = 0.75;
 	player notify(#"hash_477083bb681cce64");
 	while(true)
 	{
@@ -180,7 +180,7 @@ function sndonoverride_eye_()
 		percent = min(1, cur_time / total_time);
 		if(isdefined(player.var_e9791ff9))
 		{
-			objective_setprogress(player.var_e9791ff9, percent * var_9c4a70ee);
+			objective_setprogress(player.var_e9791ff9, percent * redline);
 		}
 		if(cur_time > total_time)
 		{
@@ -189,7 +189,7 @@ function sndonoverride_eye_()
 	}
 	if(isdefined(player.var_e9791ff9))
 	{
-		objective_setprogress(player.var_e9791ff9, var_9c4a70ee);
+		objective_setprogress(player.var_e9791ff9, redline);
 	}
 	dps = player status_effect::function_7f14a56f();
 	while(dps == 0)
@@ -215,7 +215,7 @@ function sndonoverride_eye_()
 		wait(rate);
 		cur_time = cur_time + rate;
 		percent = min(1, 1 - (player.health / start_health));
-		value = var_9c4a70ee + (percent * (1 - var_9c4a70ee));
+		value = redline + (percent * (1 - redline));
 		value = math::clamp(value, 0, 0.99);
 		if(isdefined(player.var_e9791ff9))
 		{

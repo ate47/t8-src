@@ -44,7 +44,7 @@ function __init__()
 	Parameters: 3
 	Flags: Linked
 */
-function wound_apply(var_756fda07, weapon, var_84171a6c)
+function wound_apply(var_756fda07, weapon, applicant)
 {
 	self.var_f031d238 = var_756fda07.var_6406d0cd;
 	self.var_4a3f5865 = var_756fda07.var_18d16a6b;

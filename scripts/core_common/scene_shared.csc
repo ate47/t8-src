@@ -3122,14 +3122,14 @@ function __main__()
 function _trigger_init(trig)
 {
 	trig endon(#"death");
-	var_be17187b = undefined;
-	var_be17187b = trig waittill(#"trigger");
+	s_waitresult = undefined;
+	s_waitresult = trig waittill(#"trigger");
 	a_ents = [];
 	if(get_player_count(self.scriptbundlename) > 0)
 	{
-		if(isplayer(var_be17187b.activator))
+		if(isplayer(s_waitresult.activator))
 		{
-			a_ents[0] = var_be17187b.activator;
+			a_ents[0] = s_waitresult.activator;
 		}
 	}
 	self thread init(a_ents);
@@ -3149,14 +3149,14 @@ function _trigger_play(trig)
 	trig endon(#"death");
 	do
 	{
-		var_be17187b = undefined;
-		var_be17187b = trig waittill(#"trigger");
+		s_waitresult = undefined;
+		s_waitresult = trig waittill(#"trigger");
 		a_ents = [];
 		if(get_player_count(self.scriptbundlename) > 0)
 		{
-			if(isplayer(var_be17187b.activator))
+			if(isplayer(s_waitresult.activator))
 			{
-				a_ents[0] = var_be17187b.activator;
+				a_ents[0] = s_waitresult.activator;
 			}
 		}
 		self thread play(a_ents);

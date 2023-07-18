@@ -69,7 +69,7 @@ function main()
 */
 function function_77ed3bab(var_5ea5c94d)
 {
-	zm_ui_inventory::function_7df6bb60(#"hash_2fbec633e5118bab", 1);
+	zm_ui_inventory::function_7df6bb60(#"zm_orange_objective_progress", 1);
 	if(!var_5ea5c94d)
 	{
 		/#
@@ -179,13 +179,13 @@ function private function_1e5c0d3b()
 	level endon(#"end_game");
 	while(!level flag::get(#"dials_done"))
 	{
-		var_adea2587 = undefined;
-		var_adea2587 = self waittill(#"trigger_activated", #"dials_done");
-		if(var_adea2587._notify == #"dials_done")
+		s_results = undefined;
+		s_results = self waittill(#"trigger_activated", #"dials_done");
+		if(s_results._notify == #"dials_done")
 		{
 			return;
 		}
-		e_who = var_adea2587.e_who;
+		e_who = s_results.e_who;
 		if(!self.var_e5f66b29)
 		{
 			self.var_e5f66b29 = 1;

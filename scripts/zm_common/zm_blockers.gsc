@@ -450,9 +450,9 @@ function function_5989dd12(a_doors)
 	Parameters: 1
 	Flags: Linked
 */
-function force_open_door(var_64c09f7f)
+function force_open_door(e_activator)
 {
-	self notify(#"trigger", {#is_forced:1, #activator:var_64c09f7f});
+	self notify(#"trigger", {#is_forced:1, #activator:e_activator});
 }
 
 /*
@@ -1647,7 +1647,7 @@ function debris_think()
 			{
 				self [[level.var_a9944fbd]]();
 			}
-			var_2b975c1a = getentarray(self.target, "targetname");
+			a_e_junk = getentarray(self.target, "targetname");
 			if(isdefined(self.script_flag))
 			{
 				tokens = strtok(self.script_flag, ",");
@@ -1658,53 +1658,53 @@ function debris_think()
 			}
 			move_ent = undefined;
 			a_clip = [];
-			for(i = 0; i < var_2b975c1a.size; i++)
+			for(i = 0; i < a_e_junk.size; i++)
 			{
-				var_2b975c1a[i] connectpaths();
-				if(isdefined(var_2b975c1a[i].script_noteworthy))
+				a_e_junk[i] connectpaths();
+				if(isdefined(a_e_junk[i].script_noteworthy))
 				{
-					if(var_2b975c1a[i].script_noteworthy == "clip")
+					if(a_e_junk[i].script_noteworthy == "clip")
 					{
-						a_clip[a_clip.size] = var_2b975c1a[i];
+						a_clip[a_clip.size] = a_e_junk[i];
 						continue;
 					}
 				}
 				struct = undefined;
-				if(var_2b975c1a[i] iszbarrier())
+				if(a_e_junk[i] iszbarrier())
 				{
-					move_ent = var_2b975c1a[i];
-					var_2b975c1a[i] thread debris_zbarrier_move();
+					move_ent = a_e_junk[i];
+					a_e_junk[i] thread debris_zbarrier_move();
 					continue;
 				}
-				if(isdefined(var_2b975c1a[i].script_linkto))
+				if(isdefined(a_e_junk[i].script_linkto))
 				{
-					struct = struct::get(var_2b975c1a[i].script_linkto, "script_linkname");
+					struct = struct::get(a_e_junk[i].script_linkto, "script_linkname");
 					if(isdefined(struct))
 					{
-						move_ent = var_2b975c1a[i];
-						var_2b975c1a[i] thread debris_move(struct);
+						move_ent = a_e_junk[i];
+						a_e_junk[i] thread debris_move(struct);
 					}
 					else
 					{
-						var_2b975c1a[i] delete();
+						a_e_junk[i] delete();
 					}
 					continue;
 				}
-				if(isdefined(var_2b975c1a[i].target))
+				if(isdefined(a_e_junk[i].target))
 				{
-					struct = struct::get(var_2b975c1a[i].target, "targetname");
+					struct = struct::get(a_e_junk[i].target, "targetname");
 					if(isdefined(struct))
 					{
-						move_ent = var_2b975c1a[i];
-						var_2b975c1a[i] thread debris_move(struct);
+						move_ent = a_e_junk[i];
+						a_e_junk[i] thread debris_move(struct);
 					}
 					else
 					{
-						var_2b975c1a[i] delete();
+						a_e_junk[i] delete();
 					}
 					continue;
 				}
-				var_2b975c1a[i] delete();
+				a_e_junk[i] delete();
 			}
 			a_nd_targets = getnodearray(self.target, "targetname");
 			foreach(nd_target in a_nd_targets)
