@@ -127,9 +127,9 @@ function private function_bebe535()
 				}
 			}
 		}
-		if(isdefined(level.var_2e96a450[#"hash_4d4893453c660a3d"]))
+		if(isdefined(level.var_2e96a450[#"paint_can_items"]))
 		{
-			var_9243cc66 = var_9243cc66 - level.var_2e96a450[#"hash_4d4893453c660a3d"];
+			var_9243cc66 = var_9243cc66 - level.var_2e96a450[#"paint_can_items"];
 		}
 		println("" + n_total);
 		println("" + var_9243cc66);
@@ -833,7 +833,7 @@ function private function_cdd9b388()
 				if(itemtype == 13)
 				{
 					atv_spawn = function_91b29d2a(#"atv_spawn");
-					var_f5196a40 = function_91b29d2a(#"hash_44623cfed77fbb23");
+					cargo_truck_spawn = function_91b29d2a(#"cargo_truck_spawn");
 					var_dfebf4da = function_91b29d2a(#"hash_7e0f31597a8a30af");
 					heli_spawn = function_91b29d2a(#"heli_spawn");
 					var_56c17d74 = function_91b29d2a(#"hash_7f58537ca200b519");
@@ -843,7 +843,7 @@ function private function_cdd9b388()
 					var_453c640c = function_91b29d2a(#"hash_781a27d230f31faf");
 					var_b351e4a0 = function_91b29d2a(#"hash_19db6f9cacbc79c3");
 					var_e4dc1e88 = function_91b29d2a(#"hash_60758a532bcf65bf");
-					var_b3103dc6 = function_91b29d2a(#"hash_48a5672439afc27f");
+					muscle_car_spawn = function_91b29d2a(#"muscle_car_spawn");
 					arav_spawn = function_91b29d2a(#"arav_spawn");
 					suv_spawn = function_91b29d2a(#"suv_spawn");
 					pbr_spawn = function_91b29d2a(#"pbr_spawn");
@@ -857,7 +857,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, (1, 0, 0), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_f5196a40)
+					foreach(vehicle in cargo_truck_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;
@@ -957,7 +957,7 @@ function private function_cdd9b388()
 						}
 						sphere(vehicle.origin, radius, (1, 0.5, 0), 1, 0, 10, 20);
 					}
-					foreach(vehicle in var_b3103dc6)
+					foreach(vehicle in muscle_car_spawn)
 					{
 						radius = 128;
 						var_84dd2a8b = 4096;

@@ -40,7 +40,7 @@ robot
 zombie_dog
 nova_crawler
 gegenees
-hash_3b41c3299f47fb7f
+dust_ball
 catalyst
 blight_father
 werewolf
@@ -70,10 +70,10 @@ turret
 amws
 gladiator
 zombie_quad
-hash_165d4f75a46540bb
+elephant_rider
 elephant
 crimson_nosferatu
-hash_777dead372b3a736
+weeping_angel
 thrasher
 glaive
 ```

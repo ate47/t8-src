@@ -66,7 +66,7 @@ function function_2613aeec(enabled)
 */
 function function_1c4b5097(item)
 {
-	if(isdefined(item.var_a6762160) && item.var_a6762160.name === #"hash_3fd471201d49cc19")
+	if(isdefined(item.var_a6762160) && item.var_a6762160.name === #"cu31_item")
 	{
 		var_c503939b = globallogic::function_e9e52d05();
 		if(var_c503939b <= function_c816ea5b())

@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"ix_diego_unlock", #"hash_75365263415c16f2", #"hash_2bf04f3a8191f11a", &function_d95e620c, #"hash_374df23cda9c79ed");
+	character_unlock_fixup::register_character_unlock(#"ix_diego_unlock", #"hash_75365263415c16f2", #"cu29_item", &function_d95e620c, #"hash_374df23cda9c79ed");
 }
 
 /*

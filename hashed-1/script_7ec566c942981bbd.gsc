@@ -47,14 +47,14 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablecargotruck")) && getgametypesetting(#"wzenablecargotruck")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_1fb06a3f56ce1796", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"cargo_truck_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_4cb788e3e2dbf87b", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_42baf85b0315910a", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_734a2c922f9005de", #"");
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablelittlebird")) && getgametypesetting(#"wzenablelittlebird")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_3838dc85d5d723c2", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"helicopter_light_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_4d7bcf7f8d0c186d", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_75eee449043ac5de", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_52f2c1a871c6ec1f", #"");
@@ -63,7 +63,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenabletacticalraft")) && getgametypesetting(#"wzenabletacticalraft")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_400500d7f09c79bc", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"zodiac_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_2042fbc5251cee8", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_5596b963052eb73a", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_4e20ad723ed1eaaf", #"");
@@ -81,7 +81,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablepbr")) && getgametypesetting(#"wzenablepbr")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_19dc50f4de7eee0a", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"pbr_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_2731d0584cb10b76", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_17ad8eedc1451066", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_378682f68abe6168", #"");
@@ -103,7 +103,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablemusclecar")) && getgametypesetting(#"wzenablemusclecar")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_466620938ca8df9a", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"muscle_car_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_25c2cc7eb3a2a6e6", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_633457fb952af20b", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_14bb8c1eee3726b6", #"");
@@ -117,7 +117,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablemotorcycle")) && getgametypesetting(#"wzenablemotorcycle")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_783d715d99a78f7", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"motorcycle_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_6c03445407374b2", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_181704659001416a", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_1575cc856e117a7f", #"");
@@ -135,7 +135,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenablesuv")) && getgametypesetting(#"wzenablesuv")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_281f596586975bd0", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"suv_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_57d41aed7b572c2c", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_127376a55715570e", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_64507c7b423c85e5", #"");
@@ -145,7 +145,7 @@ function function_6df391ab()
 	}
 	if(!(isdefined(getgametypesetting(#"wzenabletank")) && getgametypesetting(#"wzenabletank")))
 	{
-		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_ae20347969d9e80", #"");
+		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"tank_wz_vehicle", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_5fb94a533612f4fc", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_50dd094cb5f196a4", #"");
 		wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"hash_70f97f9de558c03e", #"");

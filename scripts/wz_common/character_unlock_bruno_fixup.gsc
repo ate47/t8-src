@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"bruno_unlock", #"hash_4815f130a1c1d840", #"hash_7ed229d63a11e187", &function_d95e620c, #"hash_21c5510d64c20b71");
+	character_unlock_fixup::register_character_unlock(#"bruno_unlock", #"hash_4815f130a1c1d840", #"cu11_item", &function_d95e620c, #"hash_21c5510d64c20b71");
 }
 
 /*

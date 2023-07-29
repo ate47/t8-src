@@ -65,7 +65,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_512902807bf52e0")
+	if(var_a6762160.name === #"cu34_item")
 	{
 		if(self character_unlock::function_f0406288(#"spectre_unlock"))
 		{

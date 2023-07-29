@@ -5348,7 +5348,7 @@ function callback_startgametype()
 {
 	function_b9b7618();
 	[[level.var_6c4ec3fc]]();
-	gametype::function_d81f6eb7();
+	gametype::on_start_game_type();
 	callback::callback(#"on_start_gametype");
 	[[level.onstartgametype]]();
 	level thread function_54b079aa();

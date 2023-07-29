@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"nomad_unlock", #"hash_4b77f84c47802222", #"hash_2c46bb9444d71ab6", &function_d95e620c, #"hash_7eb32c4c67ae13fe");
+	character_unlock_fixup::register_character_unlock(#"nomad_unlock", #"hash_4b77f84c47802222", #"cu07_item", &function_d95e620c, #"hash_7eb32c4c67ae13fe");
 }
 
 /*

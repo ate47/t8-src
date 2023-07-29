@@ -1129,9 +1129,9 @@ function function_7870114(var_38280f2f)
 			}
 			break;
 		}
-		case "hash_b42506e4d4c358e":
-		case "hash_135411bb98a54f65":
-		case "hash_67bcd474fe4e62f6":
+		case "warzone_closequarters_duo":
+		case "warzone_closequarters_solo":
+		case "warzone_closequarters_quads":
 		{
 			if(var_38280f2f == #"hash_bc7c4d0a20fd6b5")
 			{
@@ -1253,9 +1253,9 @@ function function_e82e67c5(n_time_played)
 			self increment_wz_contract(#"hash_6f4d7d1506be4c97", var_89bb208b);
 			break;
 		}
-		case "hash_b42506e4d4c358e":
-		case "hash_135411bb98a54f65":
-		case "hash_67bcd474fe4e62f6":
+		case "warzone_closequarters_duo":
+		case "warzone_closequarters_solo":
+		case "warzone_closequarters_quads":
 		{
 			self increment_wz_contract(#"hash_bc7c4d0a20fd6b5", var_89bb208b);
 			break;

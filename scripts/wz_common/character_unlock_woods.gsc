@@ -193,7 +193,7 @@ function function_6a61388f(vehicle)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_2b5695464a83f96d")
+	if(var_a6762160.name === #"cu22_item")
 	{
 		if(self character_unlock::function_f0406288(#"woods_unlock") && (self.deaths !== 0 || self.suicides !== 0))
 		{

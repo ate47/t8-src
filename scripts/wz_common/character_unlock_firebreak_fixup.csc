@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"firebreak_unlock", #"hash_8596bc069593313", #"hash_67a672ee53e0a823", &function_d95e620c, #"hash_48b3b84fe88578f2");
+	character_unlock_fixup::register_character_unlock(#"firebreak_unlock", #"hash_8596bc069593313", #"cu06_item", &function_d95e620c, #"hash_48b3b84fe88578f2");
 }
 
 /*

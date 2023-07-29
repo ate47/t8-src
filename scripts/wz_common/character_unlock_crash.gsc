@@ -78,7 +78,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_6e170d3f9454d08a")
+	if(var_a6762160.name === #"cu03_item")
 	{
 		if(self character_unlock::function_f0406288(#"crash_unlock"))
 		{

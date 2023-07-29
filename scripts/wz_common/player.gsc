@@ -68,7 +68,7 @@ function on_grenade_fired(params)
 			grenade thread function_cd8ee3c5();
 			break;
 		}
-		case "hash_6f845f867b85855e":
+		case "flare_gun_veh":
 		{
 			grenade function_4861487f(weapon, self);
 			grenade thread function_f3edce9a();

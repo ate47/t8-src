@@ -36,7 +36,7 @@ function init()
 }
 
 /*
-	Name: function_d81f6eb7
+	Name: on_start_game_type
 	Namespace: gametype
 	Checksum: 0xEF3B58D4
 	Offset: 0x240
@@ -44,7 +44,7 @@ function init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d81f6eb7()
+function on_start_game_type()
 {
 	bundle = level.var_d1455682;
 	if(!isdefined(bundle))

@@ -91,7 +91,7 @@ function function_2613aeec(enabled)
 */
 function function_80635b6f()
 {
-	foreach(item_name in array(#"hash_4da28db320e11353", #"hash_5a5f9a4b9aede3f4", #"hash_12d0b662134986e2"))
+	foreach(item_name in array(#"cu15_item", #"cu16_item", #"cu18_item"))
 	{
 		item = self item_inventory::function_7fe4ce88(item_name);
 		if(isdefined(item))
@@ -113,7 +113,7 @@ function function_80635b6f()
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name == #"hash_4da28db320e11353" || var_a6762160.name == #"hash_5a5f9a4b9aede3f4" || var_a6762160.name == #"hash_12d0b662134986e2")
+	if(var_a6762160.name == #"cu15_item" || var_a6762160.name == #"cu16_item" || var_a6762160.name == #"cu18_item")
 	{
 		characterassetname = getcharacterassetname(self getcharacterbodytype(), currentsessionmode());
 		if(characterassetname !== #"hash_f66f1d73b4acc45" && characterassetname !== #"hash_29e6a0007c925dd4" && characterassetname !== #"hash_22648ce3a4423d8f")

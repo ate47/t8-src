@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"takeo_unlock", #"hash_36157750ed7c6584", #"hash_12d0b662134986e2", &function_d95e620c, #"hash_56b5eb94fb75cbed", #"hash_56b5e894fb75c6d4");
+	character_unlock_fixup::register_character_unlock(#"takeo_unlock", #"hash_36157750ed7c6584", #"cu18_item", &function_d95e620c, #"hash_56b5eb94fb75cbed", #"hash_56b5e894fb75c6d4");
 }
 
 /*

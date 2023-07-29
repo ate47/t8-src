@@ -74,7 +74,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_4da28db320e11353")
+	if(var_a6762160.name === #"cu15_item")
 	{
 		self thread function_895b40e4();
 	}

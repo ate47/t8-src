@@ -51,7 +51,7 @@ function function_2613aeec(enabled)
 		callback::add_callback(#"hash_48bcdfea6f43fecb", &function_1c4b5097);
 		callback::add_callback(#"on_drop_item", &on_drop_item);
 		callback::on_item_use(&on_item_use);
-		item_drop::function_f3f9788a(#"hash_6677ee7663182fb8", 0.35);
+		item_drop::function_f3f9788a(#"cu01_item", 0.35);
 	}
 }
 
@@ -67,7 +67,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(isdefined(var_a6762160) && var_a6762160.name === #"hash_6677ee7663182fb8")
+	if(isdefined(var_a6762160) && var_a6762160.name === #"cu01_item")
 	{
 		var_b6015a5d = self function_b854ffba();
 		if(var_b6015a5d >= 3 && self character_unlock::function_f0406288(#"ajax_unlock"))
@@ -98,7 +98,7 @@ function on_drop_item(params)
 	{
 		return;
 	}
-	if(isdefined(var_a6762160) && var_a6762160.name === #"hash_6677ee7663182fb8")
+	if(isdefined(var_a6762160) && var_a6762160.name === #"cu01_item")
 	{
 		var_b6015a5d = self function_b854ffba();
 		if(var_b6015a5d < 3 && self character_unlock::function_c70bcc7a(#"ajax_unlock"))
@@ -120,7 +120,7 @@ function on_drop_item(params)
 function on_item_use(params)
 {
 	var_a6762160 = params.item.var_a6762160;
-	if(isdefined(var_a6762160) && var_a6762160.name === #"hash_6677ee7663182fb8")
+	if(isdefined(var_a6762160) && var_a6762160.name === #"cu01_item")
 	{
 		if(self character_unlock::function_c70bcc7a(#"ajax_unlock"))
 		{
@@ -150,7 +150,7 @@ function private function_b854ffba()
 		foreach(item in self.inventory.items)
 		{
 			var_a6762160 = item.var_a6762160;
-			if(isdefined(var_a6762160) && var_a6762160.name === #"hash_6677ee7663182fb8")
+			if(isdefined(var_a6762160) && var_a6762160.name === #"cu01_item")
 			{
 				var_b6015a5d = var_b6015a5d + item.count;
 			}

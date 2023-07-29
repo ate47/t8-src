@@ -29,7 +29,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::register_character_unlock(#"outrider_unlock", #"hash_1dc888eecacf65d4", #"hash_447ad6b75cf77f8b", &function_d95e620c, #"hash_28966e441535b733");
+	character_unlock_fixup::register_character_unlock(#"outrider_unlock", #"hash_1dc888eecacf65d4", #"cu33_item", &function_d95e620c, #"hash_28966e441535b733");
 }
 
 /*

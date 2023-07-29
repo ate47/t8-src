@@ -256,7 +256,7 @@ function function_10c650e6()
 		}
 		item_world::function_1b11e73c();
 		item_world::function_4de3ca98();
-		var_6e64f8a3 = function_91b29d2a(#"hash_68307ed314684f1d");
+		var_6e64f8a3 = function_91b29d2a(#"cu35_item");
 		while(getdvarint(#"hash_45acaa3a266bbdec", 0))
 		{
 			foreach(point in var_6e64f8a3)

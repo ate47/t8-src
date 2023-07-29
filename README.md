@@ -16,7 +16,6 @@ Scobalula - Original T7 decompiler
 
 # ATE47's files
 
-- [doc](doc/index.md) - information about the game
 - [find.txt](find.txt) - the find hashes
 - [BOHashTool](https://github.com/ate47/BOHashTool) tool I'm using to search
 

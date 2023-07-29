@@ -93,14 +93,14 @@ event main(eventstruct)
 	level.var_e16a689f = (isdefined(getgametypesetting(#"hash_557cb4680634f585")) ? getgametypesetting(#"hash_557cb4680634f585") : 0);
 	level.var_f97a6ba3 = 1;
 	level.overrideteamscore = 1;
-	level.onstartgametype = &function_d81f6eb7;
+	level.onstartgametype = &on_start_game_type;
 	level.onspawnplayer = &on_spawn_player;
 	level.onroundswitch = &on_round_switch;
 	level.onendround = &on_end_round;
 	level.onendgame = &on_end_game;
-	level.ondeadevent = &function_40843d72;
-	level.ononeleftevent = &function_80efb8b1;
-	level.givecustomloadout = &function_511245ae;
+	level.ondeadevent = &on_dead_event;
+	level.ononeleftevent = &on_one_left_event;
+	level.givecustomloadout = &give_custom_loadout;
 	level.var_a962eeb6 = &function_486a8395;
 	level.var_a3e209ba = &function_a3e209ba;
 	level.var_3a0bbaea = 0;
@@ -606,7 +606,7 @@ function private function_23600e7d()
 }
 
 /*
-	Name: function_d81f6eb7
+	Name: on_start_game_type
 	Namespace: warzone
 	Checksum: 0x590FD289
 	Offset: 0x29C8
@@ -614,7 +614,7 @@ function private function_23600e7d()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d81f6eb7()
+function on_start_game_type()
 {
 	level.callbackplayerlaststand = &laststand_warzone::playerlaststand;
 	level.displayroundendtext = 0;
@@ -1380,7 +1380,7 @@ function team_eliminated(team, var_293493b)
 }
 
 /*
-	Name: function_40843d72
+	Name: on_dead_event
 	Namespace: warzone
 	Checksum: 0x827247C
 	Offset: 0x4CB8
@@ -1388,7 +1388,7 @@ function team_eliminated(team, var_293493b)
 	Parameters: 1
 	Flags: Linked
 */
-function function_40843d72(team)
+function on_dead_event(team)
 {
 	if(team == "all")
 	{
@@ -1717,7 +1717,7 @@ function function_9498e451(team)
 }
 
 /*
-	Name: function_80efb8b1
+	Name: on_one_left_event
 	Namespace: warzone
 	Checksum: 0xFA51C0C7
 	Offset: 0x5B78
@@ -1725,7 +1725,7 @@ function function_9498e451(team)
 	Parameters: 1
 	Flags: Linked
 */
-function function_80efb8b1(team)
+function on_one_left_event(team)
 {
 	if(team == "all")
 	{
@@ -2397,7 +2397,7 @@ event function_87b05fa3(eventstruct)
 }
 
 /*
-	Name: function_511245ae
+	Name: give_custom_loadout
 	Namespace: warzone
 	Checksum: 0xB4A873C5
 	Offset: 0x7668
@@ -2405,7 +2405,7 @@ event function_87b05fa3(eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_511245ae(takeoldweapon = 0)
+function give_custom_loadout(takeoldweapon = 0)
 {
 	self loadout::init_player(!takeoldweapon);
 	if(takeoldweapon)

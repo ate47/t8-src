@@ -76,7 +76,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_400a089fa8ccd917")
+	if(var_a6762160.name === #"cu02_item")
 	{
 		self.var_cadd241b = 1;
 		var_c503939b = globallogic::function_e9e52d05();

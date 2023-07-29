@@ -113,8 +113,8 @@ function private function_9b8d4d02(prematch = 0)
 */
 function private function_d0dc6619()
 {
-	item_world_fixup::function_96ff7b88(#"hash_35f5430256d9c158");
-	item_world_fixup::remove_item(#"hash_35f5430256d9c158");
+	item_world_fixup::function_96ff7b88(#"perk_item_squadlink");
+	item_world_fixup::remove_item(#"perk_item_squadlink");
 }
 
 /*

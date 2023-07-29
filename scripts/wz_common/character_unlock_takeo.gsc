@@ -147,7 +147,7 @@ function function_d5cd583a(activator, laststate, state)
 	{
 		return;
 	}
-	point = function_4ba8fde(#"hash_12d0b662134986e2");
+	point = function_4ba8fde(#"cu18_item");
 	if(isdefined(point) && isdefined(point.var_a6762160))
 	{
 		dropitem = self item_drop::drop_item(point.var_a6762160.weapon, 1, point.var_a6762160.amount, point.id, spawnpos.origin, spawnpos.angles);
@@ -166,7 +166,7 @@ function function_d5cd583a(activator, laststate, state)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_12d0b662134986e2")
+	if(var_a6762160.name === #"cu18_item")
 	{
 		if(self character_unlock::function_f0406288(#"takeo_unlock"))
 		{

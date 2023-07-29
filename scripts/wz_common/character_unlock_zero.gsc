@@ -85,7 +85,7 @@ function function_2a798d57()
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_71890d1ecc35f71e")
+	if(var_a6762160.name === #"cu32_item")
 	{
 		if(self character_unlock::function_f0406288(#"zero_unlock"))
 		{

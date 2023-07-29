@@ -65,7 +65,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_447ad6b75cf77f8b")
+	if(var_a6762160.name === #"cu33_item")
 	{
 		if(self character_unlock::function_f0406288(#"outrider_unlock"))
 		{

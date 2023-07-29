@@ -68,7 +68,7 @@ function function_2613aeec(enabled)
 function function_1c4b5097(item)
 {
 	var_a6762160 = item.var_a6762160;
-	if(var_a6762160.name === #"hash_68307ed314684f1d")
+	if(var_a6762160.name === #"cu35_item")
 	{
 		if(self character_unlock::function_f0406288(#"reaper_unlock"))
 		{

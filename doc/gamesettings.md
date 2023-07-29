@@ -326,8 +326,8 @@ the logic behide the item list spawn are in the [`script_5014b7c0ca48e9a8.gsc`](
 - `"wzenableperkparanoia"` - Enable perk paranoia
 - `"wzenableperkreinforced"` - Enable perk reinforced
 - `"wzenableperksquadlink"` - Enable perk squadlink
-- `"hash_9fa187740ff5e40"` - Enable perk unknown (probably tracker)
-- `"hash_78e459ad87509a46"` - Enable perk unknown (probably skulker)
+- `"hash_9fa187740ff5e40"` - Enable perk health cut (add 100 HP to the max health)
+- `"hash_78e459ad87509a46"` - Enable perk shulker
 
 #### Attachments
 
