@@ -33,7 +33,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::function_90ee7a97(#"hash_f1156c5f8b9f0e8", &function_2613aeec);
+	character_unlock_fixup::function_90ee7a97(#"ix_bruno_unlock", &function_2613aeec);
 }
 
 /*
@@ -90,10 +90,10 @@ function on_player_killed()
 	{
 		return;
 	}
-	if(!attacker character_unlock::function_f0406288(#"hash_f1156c5f8b9f0e8"))
+	if(!attacker character_unlock::function_f0406288(#"ix_bruno_unlock"))
 	{
 		return;
 	}
-	attacker character_unlock::function_c8beca5e(#"hash_f1156c5f8b9f0e8", #"hash_1493c49bbdfb17ad", 1);
+	attacker character_unlock::function_c8beca5e(#"ix_bruno_unlock", #"hash_1493c49bbdfb17ad", 1);
 }
 

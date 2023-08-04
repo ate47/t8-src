@@ -686,7 +686,7 @@ function private function_216a69d6(var_9f19fcb6, reset)
 	var_418a2e03 = [];
 	foreach(dynent in dynents)
 	{
-		level.var_5862f2ce[level.var_5862f2ce.size] = dynent;
+		level.item_spawn_stashes[level.item_spawn_stashes.size] = dynent;
 		dynent.lootlocker = self.var_b91441dd.lootlocker;
 		randint = function_d59c2d03(100);
 		shouldspawn = randint <= var_9f19fcb6;
@@ -1287,7 +1287,7 @@ function private function_c6477714(reset)
 			dynents = getdynentarray(group.target, 1);
 			foreach(dynent in dynents)
 			{
-				level.var_5862f2ce[level.var_5862f2ce.size] = dynent;
+				level.item_spawn_stashes[level.item_spawn_stashes.size] = dynent;
 				setdynentenabled(dynent, 0);
 			}
 			spawnpoints = function_91b29d2a(group.target);
@@ -1407,9 +1407,9 @@ function reset_items()
 		}
 	}
 	function_682385e7();
-	if(isarray(level.var_a4a4012e))
+	if(isarray(level.item_spawn_drops))
 	{
-		foreach(item in level.var_a4a4012e)
+		foreach(item in level.item_spawn_drops)
 		{
 			if(isdefined(item))
 			{
@@ -1422,7 +1422,7 @@ function reset_items()
 		waitframe(1);
 		level.var_d0676b07 = getrealtime();
 	}
-	level.var_a4a4012e = [];
+	level.item_spawn_drops = [];
 	if(isarray(level.var_8ac64bf3))
 	{
 		foreach(stash in level.var_8ac64bf3)
@@ -1456,7 +1456,7 @@ function reset_items()
 	}
 	level.item_vehicles = [];
 	level.var_8819644a = [];
-	level.var_a4a4012e = [];
+	level.item_spawn_drops = [];
 }
 
 /*
@@ -1572,7 +1572,7 @@ function setup_groups(reset = 1)
 	#/
 	starttime = gettime();
 	level.var_d0676b07 = getrealtime();
-	level.var_4afb8f5a = (reset ? level.var_f726653d : level.var_ee46a98d);
+	level.var_4afb8f5a = (reset ? level.itemreplacement : level.var_ee46a98d);
 	foreach(value in level.var_4afb8f5a)
 	{
 	}
@@ -1590,7 +1590,7 @@ function setup_groups(reset = 1)
 	}
 	function_e88ecf7f();
 	function_9e9f43cd();
-	level.var_5862f2ce = [];
+	level.item_spawn_stashes = [];
 	level.var_5ce07338 = [];
 	level.var_93d08989 = [];
 	level.item_vehicles = [];

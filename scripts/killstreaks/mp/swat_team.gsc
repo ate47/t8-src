@@ -2475,7 +2475,7 @@ function function_2bade425(owner, helicopter)
 		swat.ignoreall = 1;
 		swat.ignoreme = 1;
 		swat clientfield::set("enemyvehicle", 1);
-		function_89fd0498("swat_member", swat);
+		obj_set("swat_member", swat);
 		swat.ai.var_2b570fa6 = "parametric_traverse@traversal";
 		if(self.team == #"allies")
 		{
@@ -4150,7 +4150,7 @@ function addoffsetontopoint(point, direction, offset)
 }
 
 /*
-	Name: function_89fd0498
+	Name: obj_set
 	Namespace: swat_team
 	Checksum: 0x42AD41A7
 	Offset: 0xC070
@@ -4158,7 +4158,7 @@ function addoffsetontopoint(point, direction, offset)
 	Parameters: 2
 	Flags: Linked
 */
-function function_89fd0498(str_objective, e_target)
+function obj_set(str_objective, e_target)
 {
 	n_obj_id = gameobjects::get_next_obj_id();
 	if(!isdefined(e_target.a_n_objective_ids))

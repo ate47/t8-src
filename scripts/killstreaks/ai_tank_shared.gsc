@@ -860,7 +860,7 @@ function function_9b13ebf(drone)
 	drone vehicle_ai::init_state_machine_for_role("default");
 	drone vehicle_ai::get_state_callbacks("combat").enter_func = &state_combat_enter;
 	drone.identifier_weapon = getweapon("ai_Tank_marker");
-	if(drone.vehicletype == #"hash_153a326c2357a196")
+	if(drone.vehicletype == #"archetype_mini_quadtank_ct")
 	{
 		drone vehicle_ai::get_state_callbacks("combat").update_func = &function_dd91d091;
 	}
@@ -947,7 +947,7 @@ function function_3dc3ca04(entity, jammer)
 	Parameters: 6
 	Flags: None
 */
-function ai_tank_killstreak_start(owner, origin, killstreak_id, category, var_d88f5623, context)
+function ai_tank_killstreak_start(owner, origin, killstreak_id, category, tankarchetype, context)
 {
 	team = owner.team;
 	waittillframeend();
@@ -955,9 +955,9 @@ function ai_tank_killstreak_start(owner, origin, killstreak_id, category, var_d8
 	{
 		return;
 	}
-	if(!isdefined(var_d88f5623))
+	if(!isdefined(tankarchetype))
 	{
-		var_d88f5623 = #"archetype_mini_quadtank_mp";
+		tankarchetype = #"archetype_mini_quadtank_mp";
 	}
 	if(isdefined(context) && isdefined(context.vehicle))
 	{
@@ -965,7 +965,7 @@ function ai_tank_killstreak_start(owner, origin, killstreak_id, category, var_d8
 	}
 	else
 	{
-		drone = spawnvehicle(var_d88f5623, origin + vectorscale((0, 0, 1), 40), (0, 0, 0), "talon", undefined, 1, owner);
+		drone = spawnvehicle(tankarchetype, origin + vectorscale((0, 0, 1), 40), (0, 0, 0), "talon", undefined, 1, owner);
 	}
 	drone killstreak_bundles::spawned(level.killstreakbundle[#"tank_robot"]);
 	if(!isdefined(drone))

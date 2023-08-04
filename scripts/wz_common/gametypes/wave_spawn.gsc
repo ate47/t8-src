@@ -77,7 +77,7 @@ function function_301b775b()
 */
 function private function_a27362d0(params)
 {
-	if(level.var_52b56362 >= (level.deathcircles.size - 2))
+	if(level.deathcircleindex >= (level.deathcircles.size - 2))
 	{
 		foreach(player in getplayers())
 		{

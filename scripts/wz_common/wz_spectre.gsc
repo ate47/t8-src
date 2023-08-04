@@ -233,7 +233,7 @@ function private give_max_ammo(weaponslot)
 		return;
 	}
 	self setweaponammoclip(weapon, weapon.clipsize);
-	foreach(ammo in array(#"hash_182fdef2ad243e20", #"hash_212b01feaa916a00", #"hash_3bf6ed4e3a22e9f3", #"hash_1f72dec518451f8c", #"hash_3b5119f663e783b1", #"hash_7ebaa4e1e2f5d8a2", #"hash_46dd75a1a3f70780", #"hash_394e9478cf4f8d9d"))
+	foreach(ammo in array(#"ammo_type_9mm_item", #"ammo_type_45_item", #"ammo_type_556_item", #"ammo_type_762_item", #"ammo_type_338_item", #"ammo_type_50cal_item", #"ammo_type_12ga_item", #"ammo_type_rocket_item"))
 	{
 		ammoitem = getscriptbundle(ammo);
 		if(!isdefined(ammoitem.weapon) || ammoitem.weapon.ammoindex !== weapon.ammoindex)

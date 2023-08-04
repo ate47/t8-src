@@ -159,7 +159,7 @@ function onplayerkilled(s_params)
 */
 function function_c5f0b9e7(func)
 {
-	level.var_6230d238 = func;
+	level.onconcertinawireplaced = func;
 }
 
 /*
@@ -587,9 +587,9 @@ function function_fc4df41e(watcher, owner)
 	{
 		var_26c9fcc2 function_4ee7d46a(1);
 	}
-	if(isdefined(level.var_6230d238))
+	if(isdefined(level.onconcertinawireplaced))
 	{
-		owner [[level.var_6230d238]](self);
+		owner [[level.onconcertinawireplaced]](self);
 	}
 	self thread function_d82c03d4(player);
 	var_637dcf3d clientfield::set("concertinaWire_placed", 1);
@@ -1169,15 +1169,15 @@ function function_a9160578(damagedealt, player)
 	}
 	damagedealt = int(damagedealt);
 	self.damagedealt = (isdefined(self.damagedealt) ? self.damagedealt : 0) + damagedealt;
-	if(!isdefined(self.var_84ac42b3))
+	if(!isdefined(self.playersdamaged))
 	{
-		self.var_84ac42b3 = [];
+		self.playersdamaged = [];
 	}
 	entnumb = player getentitynumber();
-	self.var_84ac42b3[entnumb] = 1;
+	self.playersdamaged[entnumb] = 1;
 	if(isdefined(level.var_87226c31.bundle.var_89ee8a9) && self.damagedealt >= level.var_87226c31.bundle.var_89ee8a9)
 	{
-		scoreevents::processscoreevent(#"hash_6024b59ca1d3b641", self.owner, undefined, self.weapon, self.var_84ac42b3.size);
+		scoreevents::processscoreevent(#"hash_6024b59ca1d3b641", self.owner, undefined, self.weapon, self.playersdamaged.size);
 		self.damagedealt = self.damagedealt - level.var_87226c31.bundle.var_89ee8a9;
 	}
 }

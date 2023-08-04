@@ -1037,7 +1037,7 @@ function private function_9a8dc0ec(localclientnum, playerhealth, forceupdate)
 		}
 		if(isdefined(self.blood_enabled) && self.blood_enabled)
 		{
-			self function_116b95e5(self.pstfx_blood, #"hash_3886e6a5c0c3df4c", level.blood.blood_boost[new_blood_stage]);
+			self function_116b95e5(self.pstfx_blood, #"blood boost", level.blood.blood_boost[new_blood_stage]);
 		}
 		self function_56419db8(new_blood_stage);
 		self function_5a719e5(localclientnum, new_blood_stage, prior_blood_stage);

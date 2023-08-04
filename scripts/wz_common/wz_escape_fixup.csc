@@ -33,7 +33,7 @@ function function_d8c2344b()
 	var_d2223309 = &item_world_fixup::function_261ab7f5;
 	var_b5014996 = &item_world_fixup::function_19089c75;
 	var_87d0eef8 = &item_world_fixup::remove_item;
-	var_74257310 = &item_world_fixup::function_6da5e673;
+	var_74257310 = &item_world_fixup::add_item_replacement;
 	var_f8a4c541 = &item_world_fixup::function_6991057;
 	if(isdefined(getgametypesetting(#"wzenableflareguns")) && getgametypesetting(#"wzenableflareguns"))
 	{
@@ -41,9 +41,9 @@ function function_d8c2344b()
 	}
 	if(isdefined(getgametypesetting(#"hash_50b1121aee76a7e4")) && getgametypesetting(#"hash_50b1121aee76a7e4"))
 	{
-		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"hash_48fa61223caa452a", #"hash_1da9ceb74ddf1630");
-		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"hash_7c0767064e854e59", #"hash_36306d42eea65205");
-		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"hash_90248d512c483c", #"hash_4d6effbdac72977a");
+		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"cu08_list", #"hash_1da9ceb74ddf1630");
+		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"cu32_list", #"hash_36306d42eea65205");
+		wz_common_fixup::item_replacer(var_f8a4c541, undefined, #"cu33_list", #"hash_4d6effbdac72977a");
 	}
 }
 

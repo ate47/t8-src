@@ -78,7 +78,7 @@ function private function_e717b0d(player)
 	{
 		return;
 	}
-	hatchet = wz_loadouts::_get_item(#"hash_15bac43598d4827c");
+	hatchet = wz_loadouts::_get_item(#"tomahawk_t8_wz_item_pandemic");
 	var_fa3df96 = player item_inventory::function_e66dcff5(hatchet);
 	player item_world::function_de2018e3(hatchet, player, var_fa3df96);
 }

@@ -1438,7 +1438,7 @@ function getutilityapifunction(functionname)
 }
 
 /*
-	Name: function_b822982
+	Name: pausecommander
 	Namespace: plannercommanderutility
 	Checksum: 0xB726B0B3
 	Offset: 0x5358
@@ -1446,7 +1446,7 @@ function getutilityapifunction(functionname)
 	Parameters: 1
 	Flags: Linked
 */
-function function_b822982(commander)
+function pausecommander(commander)
 {
 	/#
 		assert(isstruct(commander));

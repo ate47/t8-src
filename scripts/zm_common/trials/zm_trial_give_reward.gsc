@@ -128,7 +128,7 @@ function private function_e7254828()
 		{
 			player zm_stats::function_49469f35(self.var_c2964c77, curr_time);
 		}
-		best_time = zm_stats::function_c9d32eb9(self.var_c2964c77);
+		best_time = zm_stats::get_match_stat(self.var_c2964c77);
 		if(best_time == 0 || curr_time < best_time)
 		{
 			zm_stats::set_match_stat(self.var_c2964c77, curr_time);

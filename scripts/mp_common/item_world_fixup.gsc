@@ -14,7 +14,7 @@
 */
 function autoexec __init__()
 {
-	level.var_f726653d = [];
+	level.itemreplacement = [];
 	level.var_ee46a98d = [];
 	level.var_ee110db8 = [];
 	level.var_db0e7b82 = [];
@@ -68,13 +68,13 @@ function private function_59c1a869(replacementarray, var_d1c21f6f, var_b06dd57e)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_41015db1(replacementarray, itemname, var_44ed74a7)
+function private function_41015db1(replacementarray, itemname, replacementitemname)
 {
 	if(!function_bbc0b67f(0))
 	{
 		return;
 	}
-	if(!ishash(itemname) || !ishash(var_44ed74a7))
+	if(!ishash(itemname) || !ishash(replacementitemname))
 	{
 		/#
 			assert(0);
@@ -88,14 +88,14 @@ function private function_41015db1(replacementarray, itemname, var_44ed74a7)
 	{
 		return;
 	}
-	if(var_44ed74a7 == #"")
+	if(replacementitemname == #"")
 	{
-		var_44ed74a7 = "";
+		replacementitemname = "";
 	}
 	/#
-		function_cd5f2152(var_44ed74a7);
+		function_cd5f2152(replacementitemname);
 	#/
-	replacementarray[itemname] = var_44ed74a7;
+	replacementarray[itemname] = replacementitemname;
 }
 
 /*
@@ -194,7 +194,7 @@ function function_19089c75(var_d1c21f6f, var_b06dd57e)
 }
 
 /*
-	Name: function_6da5e673
+	Name: add_item_replacement
 	Namespace: item_world_fixup
 	Checksum: 0x7524245D
 	Offset: 0x470
@@ -202,9 +202,9 @@ function function_19089c75(var_d1c21f6f, var_b06dd57e)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6da5e673(itemname, var_44ed74a7)
+function add_item_replacement(itemname, replacementitemname)
 {
-	function_41015db1(level.var_f726653d, itemname, var_44ed74a7);
+	function_41015db1(level.itemreplacement, itemname, replacementitemname);
 }
 
 /*
@@ -216,9 +216,9 @@ function function_6da5e673(itemname, var_44ed74a7)
 	Parameters: 2
 	Flags: Linked
 */
-function function_261ab7f5(itemname, var_44ed74a7)
+function function_261ab7f5(itemname, replacementitemname)
 {
-	function_41015db1(level.var_ee46a98d, itemname, var_44ed74a7);
+	function_41015db1(level.var_ee46a98d, itemname, replacementitemname);
 }
 
 /*
@@ -358,7 +358,7 @@ function remove_item(itemname)
 		#/
 		return;
 	}
-	level.var_f726653d[itemname] = "";
+	level.itemreplacement[itemname] = "";
 }
 
 /*

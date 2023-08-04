@@ -1772,8 +1772,8 @@ function function_356af630()
 	{
 		otherteam = util::getotherteam(e_player.team);
 		newpos = getclosestpointonnavmesh(e_player.origin + (vectorscale((-1, -1, 0), 600)), 800, 60);
-		drone = spawnvehicle(#"hash_153a326c2357a196", newpos + vectorscale((0, 0, 1), 20), (0, 0, 0), "talon", undefined, 1);
-		drone.vehicletype = #"hash_153a326c2357a196";
+		drone = spawnvehicle(#"archetype_mini_quadtank_ct", newpos + vectorscale((0, 0, 1), 20), (0, 0, 0), "talon", undefined, 1);
+		drone.vehicletype = #"archetype_mini_quadtank_ct";
 		ai_tank::function_9b13ebf(drone);
 		drone.controlled = 0;
 		drone.goalradius = 250;

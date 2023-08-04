@@ -403,7 +403,7 @@ function onplayerjoinedteam(params)
 }
 
 /*
-	Name: function_92fb8327
+	Name: onspecialistchange
 	Namespace: icepick
 	Checksum: 0xC2D33ADF
 	Offset: 0x13E0
@@ -411,7 +411,7 @@ function onplayerjoinedteam(params)
 	Parameters: 1
 	Flags: None
 */
-function function_92fb8327(params)
+function onspecialistchange(params)
 {
 	function_ea2dfad6(self);
 }

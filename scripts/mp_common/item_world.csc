@@ -50,14 +50,14 @@ function private __init__()
 	level.var_ce95aace = [];
 	level.var_7e2f5883 = [];
 	level.var_19cf0be9 = [];
-	level.var_418d51ad = array(#"hash_3bf6ed4e3a22e9f3", #"hash_1f72dec518451f8c", #"hash_46dd75a1a3f70780", #"hash_182fdef2ad243e20", #"hash_212b01feaa916a00", #"hash_3b5119f663e783b1", #"hash_7ebaa4e1e2f5d8a2", #"hash_394e9478cf4f8d9d");
-	level.var_69ee9282 = array(#"hash_568173e016d45c2a", #"hash_8578856a247ab60", #"hash_6f80136c3b79d9e");
-	level.var_6cb314b1 = array(#"sniperscope_wz_item", #"acog_plus_wz_item", #"reddot_wz_item", #"acog_wz_item", #"dualoptic_wz_item", #"holo_wz_item", #"reflex_wz_item", #"tritium_wz_item", #"suppressor_wz_item", #"extbarrel_wz_item", #"hash_43b78d5eff27f2f7", #"extmag_wz_item", #"fastmag_wz_item", #"foregrip_wz_item", #"laser_sight_wz_item", #"pistol_grip_wz_item", #"stock_wz_item");
-	level.var_3fd5d8f0 = array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"spiked_barrier_wz_item", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"flare_gun_veh_wz_item", #"wz_snowball", #"wz_waterballoon");
-	level.var_9bc8c1bc = array(#"hash_1abfcce0e9955057", #"hash_ff50c93155e445f", #"hash_80292d121740f6f", #"hash_45ced3880667df22");
-	level.var_683c7e30 = array(#"perk_item_stimulant", #"perk_item_awareness", #"perk_item_deadsilence", #"perk_item_lightweight", #"hash_1f0f67f0ad9a766", #"perk_item_engineer", #"perk_item_medic", #"perk_item_reinforced", #"perk_item_looter", #"perk_item_outlander", #"perk_item_paranoia", #"perk_item_ironlungs", #"perk_item_squadlink", #"perk_item_consumer", #"perk_item_brawler");
+	level.var_418d51ad = array(#"ammo_type_556_item", #"ammo_type_762_item", #"ammo_type_12ga_item", #"ammo_type_9mm_item", #"ammo_type_45_item", #"ammo_type_338_item", #"ammo_type_50cal_item", #"ammo_type_rocket_item");
+	level.var_69ee9282 = array(#"armor_item_large", #"armor_item_medium", #"armor_item_small");
+	level.var_6cb314b1 = array(#"sniperscope_wz_item", #"acog_plus_wz_item", #"reddot_wz_item", #"acog_wz_item", #"dualoptic_wz_item", #"holo_wz_item", #"reflex_wz_item", #"tritium_wz_item", #"suppressor_wz_item", #"extbarrel_wz_item", #"advmag_wz_item", #"extmag_wz_item", #"fastmag_wz_item", #"foregrip_wz_item", #"laser_sight_wz_item", #"pistol_grip_wz_item", #"stock_wz_item");
+	level.var_3fd5d8f0 = array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"smoke_grenade_wz_item_spring_holiday", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"spiked_barrier_wz_item", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"flare_gun_veh_wz_item", #"wz_snowball", #"wz_waterballoon");
+	level.var_9bc8c1bc = array(#"health_item_small", #"health_item_medium", #"health_item_large", #"health_item_squad");
+	level.var_683c7e30 = array(#"perk_item_stimulant", #"perk_item_awareness", #"perk_item_deadsilence", #"perk_item_lightweight", #"perk_item_drifter", #"perk_item_engineer", #"perk_item_medic", #"perk_item_reinforced", #"perk_item_looter", #"perk_item_outlander", #"perk_item_paranoia", #"perk_item_ironlungs", #"perk_item_squadlink", #"perk_item_consumer", #"perk_item_brawler");
 	level.var_e93e16b = array(#"annihilator_wz_item", #"warmachine_wz_item", #"flamethrower_wz_item", #"sniper_fastrechamber_t8_gold_item", #"sniper_powerbolt_t8_gold_item", #"sniper_powersemi_t8_gold_item", #"sniper_quickscope_t8_gold_item", #"tr_longburst_t8_gold_item", #"tr_midburst_t8_gold_item", #"tr_powersemi_t8_gold_item", #"ar_accurate_t8_gold_item", #"ar_damage_t8_gold_item", #"ar_fastfire_t8_gold_item", #"ar_modular_t8_gold_item", #"ar_stealth_t8_gold_item", #"lmg_heavy_t8_gold_item", #"lmg_spray_t8_gold_item", #"lmg_standard_t8_gold_item", #"smg_accurate_t8_gold_item", #"smg_capacity_t8_gold_item", #"smg_fastfire_t8_gold_item", #"smg_handling_t8_gold_item", #"smg_standard_t8_gold_item", #"shotgun_semiauto_t8_gold_item", #"shotgun_pump_t8_gold_item", #"pistol_burst_t8_gold_item", #"pistol_revolver_t8_gold_item", #"pistol_standard_t8_gold_item");
-	level.var_b9917a92 = array(#"annihilator_wz_item", #"warmachine_wz_item", #"flamethrower_wz_item", #"hash_7313f9c02b023a53", #"launcher_standard_t8_item", #"sniper_fastrechamber_t8_item", #"sniper_powerbolt_t8_item", #"sniper_powersemi_t8_item", #"sniper_quickscope_t8_item", #"tr_leveraction_t8_item", #"tr_longburst_t8_item", #"tr_midburst_t8_item", #"tr_powersemi_t8_item", #"ar_accurate_t8_item", #"ar_damage_t8_item", #"ar_fastfire_t8_item", #"ar_galil_t8_item", #"ar_mg1909_t8_item", #"ar_modular_t8_item", #"ar_stealth_t8_item", #"lmg_double_t8_item", #"lmg_heavy_t8_item", #"lmg_spray_t8_item", #"lmg_standard_t8_item", #"smg_accurate_t8_item", #"smg_capacity_t8_item", #"smg_drum_pistol_t8_item", #"smg_fastfire_t8_item", #"smg_handling_t8_item", #"smg_mp40_t8_item", #"smg_standard_t8_item", #"smg_thompson_t8_item", #"pistol_burst_t8_item", #"pistol_revolver_t8_item", #"pistol_standard_t8_item", #"pistol_topbreak_t8_item", #"shotgun_pump_t8_item", #"shotgun_semiauto_t8_item", #"shotgun_trenchgun_t8_item", #"hash_32c805d452b5f91b");
+	level.var_b9917a92 = array(#"annihilator_wz_item", #"warmachine_wz_item", #"flamethrower_wz_item", #"ray_gun_t8_item", #"launcher_standard_t8_item", #"sniper_fastrechamber_t8_item", #"sniper_powerbolt_t8_item", #"sniper_powersemi_t8_item", #"sniper_quickscope_t8_item", #"tr_leveraction_t8_item", #"tr_longburst_t8_item", #"tr_midburst_t8_item", #"tr_powersemi_t8_item", #"ar_accurate_t8_item", #"ar_damage_t8_item", #"ar_fastfire_t8_item", #"ar_galil_t8_item", #"ar_mg1909_t8_item", #"ar_modular_t8_item", #"ar_stealth_t8_item", #"lmg_double_t8_item", #"lmg_heavy_t8_item", #"lmg_spray_t8_item", #"lmg_standard_t8_item", #"smg_accurate_t8_item", #"smg_capacity_t8_item", #"smg_drum_pistol_t8_item", #"smg_fastfire_t8_item", #"smg_handling_t8_item", #"smg_mp40_t8_item", #"smg_standard_t8_item", #"smg_thompson_t8_item", #"pistol_burst_t8_item", #"pistol_revolver_t8_item", #"pistol_standard_t8_item", #"pistol_topbreak_t8_item", #"shotgun_pump_t8_item", #"shotgun_semiauto_t8_item", #"shotgun_trenchgun_t8_item", #"melee_bowie_t8_item");
 	level.weaponbasemeleeheld = getweapon(#"bare_hands");
 	level.var_c49f422c = 125;
 	level.var_927fd418 = 75;
@@ -79,13 +79,13 @@ function private __init__()
 	level.var_45ca79e5 = &function_9160538;
 	level.var_a6c75fcb = &function_9e4552fe;
 	level.var_d342a3fd = [];
-	if(!isdefined(level.var_5862f2ce))
+	if(!isdefined(level.item_spawn_stashes))
 	{
-		level.var_5862f2ce = [];
+		level.item_spawn_stashes = [];
 	}
-	if(!isdefined(level.var_a4a4012e))
+	if(!isdefined(level.item_spawn_drops))
 	{
-		level.var_a4a4012e = [];
+		level.item_spawn_drops = [];
 	}
 	if(!isdefined(level.var_624588d5))
 	{
@@ -170,7 +170,7 @@ function private function_952d97dc(localclientnum)
 	data.var_ffc1c0e1 = [];
 	data.var_baf65690 = [];
 	level.var_d342a3fd[localclientnum] = data;
-	item_inventory::function_42e2bb1a(localclientnum);
+	item_inventory::inventory_init(localclientnum);
 	level.var_d9beffb9 = util::getnextobjid(localclientnum);
 	objective_add(localclientnum, level.var_d9beffb9, "invisible", #"weapon_pickup");
 	level.var_383edf80 = util::getnextobjid(localclientnum);
@@ -341,7 +341,7 @@ function private function_c17fe536(localclientnum, clientdata, var_bd027dd9)
 	{
 		return;
 	}
-	var_1ba7b9c8 = arraysortclosest(level.var_5862f2ce, model.origin, 1, 0, 12);
+	var_1ba7b9c8 = arraysortclosest(level.item_spawn_stashes, model.origin, 1, 0, 12);
 	if(var_1ba7b9c8.size > 0)
 	{
 		return var_1ba7b9c8[0];
@@ -372,9 +372,9 @@ function private function_839d4c20(localclientnum, clientdata, var_bd027dd9)
 	{
 		model = clientdata.modellist[var_bd027dd9];
 	}
-	else if(isdefined(level.var_a4a4012e[var_bd027dd9]))
+	else if(isdefined(level.item_spawn_drops[var_bd027dd9]))
 	{
-		model = level.var_a4a4012e[var_bd027dd9];
+		model = level.item_spawn_drops[var_bd027dd9];
 	}
 	return model;
 }
@@ -627,7 +627,7 @@ function private _draw(localclientnum, draworigin)
 	}
 	maxdist = getdvarfloat(#"hash_2cd1a08f81049564", var_6369afab);
 	var_f4b807cb = function_abaeb170(draworigin, undefined, level.var_c49f422c, maxdist, -1, 1, servertime);
-	var_6665e24 = arraysortclosest(level.var_a4a4012e, draworigin, level.var_c49f422c, 0, maxdist);
+	var_6665e24 = arraysortclosest(level.item_spawn_drops, draworigin, level.var_c49f422c, 0, maxdist);
 	var_13e4be37 = [];
 	foreach(dynamicitem in var_6665e24)
 	{
@@ -749,13 +749,13 @@ function private _draw(localclientnum, draworigin)
 	#/
 	if(getdvarint(#"hash_220f360a2cc8359a", 1))
 	{
-		var_b8db3f93 = arraysortclosest(level.var_a4a4012e, draworigin, undefined, maxdist);
+		var_b8db3f93 = arraysortclosest(level.item_spawn_drops, draworigin, undefined, maxdist);
 		foreach(item in var_b8db3f93)
 		{
 			function_3ee12d25(localclientnum, item);
 		}
 		waitframe(1);
-		var_f945c1d4 = arraysortclosest(level.var_5862f2ce, draworigin, undefined, maxdist);
+		var_f945c1d4 = arraysortclosest(level.item_spawn_stashes, draworigin, undefined, maxdist);
 		foreach(supplystash in var_f945c1d4)
 		{
 			function_3ee12d25(localclientnum, supplystash);
@@ -767,9 +767,9 @@ function private _draw(localclientnum, draworigin)
 			function_3ee12d25(localclientnum, deathstash);
 		}
 		waitframe(1);
-		var_6665e24 = arraysortclosest(level.var_a4a4012e, draworigin, level.var_927fd418, 0, maxdist);
+		var_6665e24 = arraysortclosest(level.item_spawn_drops, draworigin, level.var_927fd418, 0, maxdist);
 		waitframe(1);
-		var_ac2b6007 = arraysortclosest(level.var_5862f2ce, draworigin, level.var_927fd418, 0, maxdist);
+		var_ac2b6007 = arraysortclosest(level.item_spawn_stashes, draworigin, level.var_927fd418, 0, maxdist);
 		waitframe(1);
 		var_c36bd68a = arraysortclosest(level.var_624588d5, draworigin, level.var_927fd418, 0, maxdist);
 		waitframe(1);
@@ -1102,7 +1102,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 		}
 		case 10:
 		{
-			item_inventory::function_42e2bb1a(localclientnum);
+			item_inventory::inventory_init(localclientnum);
 			break;
 		}
 		case 13:
@@ -1141,7 +1141,7 @@ function private function_9160538(localclientnum, eventtype, eventdata, var_c5a6
 function private function_60386766(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level flagsys::wait_till(#"item_world_initialized");
-	foreach(supply_stash in level.var_5862f2ce)
+	foreach(supply_stash in level.item_spawn_stashes)
 	{
 		setdynentenabled(supply_stash, !newval);
 	}
@@ -1190,7 +1190,7 @@ function private function_4e9220ab(localclientnum, oldval, newval, bnewent, bini
 		}
 		setdvar(#"hash_21e070fbb56cf0f", 0);
 		level flagsys::clear(#"item_world_initialized");
-		level item_inventory::function_42e2bb1a(localclientnum);
+		level item_inventory::inventory_init(localclientnum);
 		clientdata = function_a7e98a1a(localclientnum);
 		if(isdefined(clientdata) && isdefined(clientdata.modellist))
 		{
@@ -1845,9 +1845,9 @@ function private function_b0af857f(localclientnum)
 							}
 							else if(item_world_util::function_da09de95(itemid))
 							{
-								if(isdefined(level.var_a4a4012e[itemid]))
+								if(isdefined(level.item_spawn_drops[itemid]))
 								{
-									self.var_9b882d22 = level.var_a4a4012e[itemid];
+									self.var_9b882d22 = level.item_spawn_drops[itemid];
 								}
 							}
 							if(isdefined(self.var_9b882d22))
@@ -1920,7 +1920,7 @@ function private function_802915bc(localclientnum)
 		}
 		else
 		{
-			var_1ba7b9c8 = arraysortclosest(level.var_5862f2ce, self.var_9b882d22.origin, 1, 0, 12);
+			var_1ba7b9c8 = arraysortclosest(level.item_spawn_stashes, self.var_9b882d22.origin, 1, 0, 12);
 			if(var_1ba7b9c8.size > 0 && isdefined(var_1ba7b9c8[0].displayname))
 			{
 				hinttext = var_1ba7b9c8[0].displayname;
@@ -2665,9 +2665,9 @@ function function_a4886b1e(localclientnum, var_bd027dd9, model)
 			}
 			else if(item_world_util::function_da09de95(var_bd027dd9))
 			{
-				if(isdefined(level.var_a4a4012e[var_bd027dd9]))
+				if(isdefined(level.item_spawn_drops[var_bd027dd9]))
 				{
-					var_a6762160 = level.var_a4a4012e[var_bd027dd9].var_a6762160;
+					var_a6762160 = level.item_spawn_drops[var_bd027dd9].var_a6762160;
 				}
 			}
 		}
@@ -2697,9 +2697,9 @@ function play_spawn_fx(localclientnum, var_bd027dd9)
 	}
 	else if(item_world_util::function_da09de95(var_bd027dd9))
 	{
-		if(isdefined(level.var_a4a4012e[var_bd027dd9]))
+		if(isdefined(level.item_spawn_drops[var_bd027dd9]))
 		{
-			item = level.var_a4a4012e[var_bd027dd9];
+			item = level.item_spawn_drops[var_bd027dd9];
 		}
 	}
 	if(!isdefined(item) || !isdefined(item.var_a6762160) || !isdefined(item.var_a6762160.var_86d1fc36))
@@ -2805,9 +2805,9 @@ function function_28b42f1c(localclientnum, var_bd027dd9)
 		}
 		if(item_world_util::function_da09de95(var_bd027dd9))
 		{
-			if(isdefined(level.var_a4a4012e[var_bd027dd9]))
+			if(isdefined(level.item_spawn_drops[var_bd027dd9]))
 			{
-				return level.var_a4a4012e[var_bd027dd9].id;
+				return level.item_spawn_drops[var_bd027dd9].id;
 			}
 		}
 		else
@@ -2851,7 +2851,7 @@ function get_item_name(item)
 function function_2e3efdda(origin, dir, var_4e7bdb02, maxdistance, dot, var_653b55e5 = 0)
 {
 	var_f4b807cb = function_abaeb170(origin, dir, var_4e7bdb02, maxdistance, dot, 1, 2147483647);
-	var_6665e24 = arraysortclosest(level.var_a4a4012e, origin, var_4e7bdb02, 0, maxdistance);
+	var_6665e24 = arraysortclosest(level.item_spawn_drops, origin, var_4e7bdb02, 0, maxdistance);
 	var_f4b807cb = arraycombine(var_f4b807cb, var_6665e24, 1, 0);
 	var_f4b807cb = arraysortclosest(var_f4b807cb, origin, var_4e7bdb02, 0, maxdistance);
 	if(var_653b55e5)
@@ -2954,7 +2954,7 @@ function show_item(localclientnum, var_bd027dd9, showitem)
 	}
 	else
 	{
-		item = level.var_a4a4012e[var_bd027dd9];
+		item = level.item_spawn_drops[var_bd027dd9];
 	}
 	clientdata = function_a7e98a1a(localclientnum);
 	if(isdefined(clientdata) && isdefined(item))

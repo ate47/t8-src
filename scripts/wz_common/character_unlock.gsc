@@ -229,12 +229,12 @@ function function_6e8037ca(params)
 	{
 		if(self function_d7e6fa92(unlock_name))
 		{
-			var_c340dd9f = getscriptbundle(var_9ba1646c.required_item);
-			if(!isdefined(var_c340dd9f) || !isdefined(var_c340dd9f.unlockableitemref))
+			itembundle = getscriptbundle(var_9ba1646c.required_item);
+			if(!isdefined(itembundle) || !isdefined(itembundle.unlockableitemref))
 			{
 				continue;
 			}
-			itemindex = getitemindexfromref(var_c340dd9f.unlockableitemref);
+			itemindex = getitemindexfromref(itembundle.unlockableitemref);
 			if(itemindex == 0)
 			{
 				continue;
@@ -335,12 +335,12 @@ function function_20b0ca2e(unlock_name)
 			assert(isdefined(var_9ba1646c), ("" + function_9e72a96(unlock_name)) + "");
 		#/
 	#/
-	var_c340dd9f = getscriptbundle(var_9ba1646c.required_item);
-	if(!isdefined(var_c340dd9f.unlockableitemref))
+	itembundle = getscriptbundle(var_9ba1646c.required_item);
+	if(!isdefined(itembundle.unlockableitemref))
 	{
 		return;
 	}
-	itemindex = getitemindexfromref(var_c340dd9f.unlockableitemref);
+	itemindex = getitemindexfromref(itembundle.unlockableitemref);
 	if(itemindex == 0)
 	{
 		return;

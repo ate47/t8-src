@@ -218,11 +218,11 @@ function start(supplydrops = 1, minwaittime = 20, var_fe6b2eab = 20)
 	var_f2cf27c4 = 0;
 	while(true)
 	{
-		if(!isdefined(level.var_52b56362))
+		if(!isdefined(level.deathcircleindex))
 		{
 			return;
 		}
-		deathcircle = level.deathcircles[level.var_52b56362];
+		deathcircle = level.deathcircles[level.deathcircleindex];
 		var_caba78c2 = minwaittime;
 		if(isarray(minwaittime))
 		{
@@ -286,7 +286,7 @@ function start_flare(var_b3b96cdb = undefined, var_47d17dcb = 0)
 	var_3d3a70a8 = 0;
 	while(true)
 	{
-		if(!isdefined(level.var_52b56362))
+		if(!isdefined(level.deathcircleindex))
 		{
 			return;
 		}
@@ -363,11 +363,11 @@ function start_vehicle(vehicletype, supplydrops = 1, minwaittime = 20, var_fe6b2
 	var_f2cf27c4 = 0;
 	while(true)
 	{
-		if(!isdefined(level.var_52b56362))
+		if(!isdefined(level.deathcircleindex))
 		{
 			return;
 		}
-		deathcircle = level.deathcircles[level.var_52b56362];
+		deathcircle = level.deathcircles[level.deathcircleindex];
 		var_caba78c2 = minwaittime;
 		if(isarray(minwaittime))
 		{

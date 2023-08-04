@@ -78,7 +78,7 @@ function dot_apply(var_756fda07, weapon, applicant)
 	self.var_8df76e2f = var_756fda07.var_8df76e2f;
 	self.var_423e3c32 = var_756fda07.var_423e3c32;
 	self.var_ddf59c36 = var_756fda07.var_ddf59c36;
-	self.var_c878586d = var_756fda07.var_c878586d;
+	self.dotrumble = var_756fda07.dotrumble;
 	if(!isdefined(self.var_45c9768))
 	{
 		self.owner.var_213b4a61 = 1;
@@ -111,7 +111,7 @@ function private dot_rumble_loop()
 	{
 		return;
 	}
-	rumble = (isdefined(self.var_c878586d) ? self.var_c878586d : "status_effect_dot");
+	rumble = (isdefined(self.dotrumble) ? self.dotrumble : "status_effect_dot");
 	while(isdefined(self) && isdefined(self.owner))
 	{
 		self.owner playrumbleonentity(rumble);

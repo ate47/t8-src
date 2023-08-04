@@ -2,11 +2,11 @@
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_ffb86e0f;
+#namespace wz_perk_bloody_tracker;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_ffb86e0f
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0x9D018F60
 	Offset: 0xD0
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_b4777816c1a0582", &__init__, undefined, undefined);
+	system::register(#"wz_perk_bloody_tracker", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_ffb86e0f
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0x368056D2
 	Offset: 0x118
 	Size: 0x74
@@ -38,7 +38,7 @@ function __init__()
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_ffb86e0f
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0x248000A8
 	Offset: 0x198
 	Size: 0x24
@@ -47,19 +47,19 @@ function __init__()
 */
 function on_player_connect(localclientnum)
 {
-	level thread function_ad692418(localclientnum);
+	level thread bloody_tracker(localclientnum);
 }
 
 /*
-	Name: function_ad692418
-	Namespace: namespace_ffb86e0f
+	Name: bloody_tracker
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0xCBEDD3AB
 	Offset: 0x1C8
 	Size: 0x1FA
 	Parameters: 1
 	Flags: Linked
 */
-function function_ad692418(localclientnum)
+function bloody_tracker(localclientnum)
 {
 	while(true)
 	{
@@ -96,7 +96,7 @@ function function_ad692418(localclientnum)
 
 /*
 	Name: gettrackerfxposition
-	Namespace: namespace_ffb86e0f
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0x20C0C21C
 	Offset: 0x3D0
 	Size: 0x2EE
@@ -163,7 +163,7 @@ function gettrackerfxposition(localclientnum)
 
 /*
 	Name: tracker_playfx
-	Namespace: namespace_ffb86e0f
+	Namespace: wz_perk_bloody_tracker
 	Checksum: 0x9844A29D
 	Offset: 0x6C8
 	Size: 0x5E

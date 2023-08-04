@@ -132,11 +132,11 @@ event private function_209450ae(eventstruct)
 	}
 	if(dynent.targetname == "spring_event_homunculus")
 	{
-		a_items = var_7580ce3e namespace_65181344::function_fd87c780(#"hash_6da7deb599deaa8e", 5);
+		a_items = var_7580ce3e namespace_65181344::function_fd87c780(#"spring_event_homunculus_list", 5);
 	}
 	else
 	{
-		a_items = var_7580ce3e namespace_65181344::function_fd87c780(#"hash_7a5e7842cd4cca81", 7);
+		a_items = var_7580ce3e namespace_65181344::function_fd87c780(#"zombie_apoc_event_homunculus_list", 7);
 	}
 	foreach(item in a_items)
 	{

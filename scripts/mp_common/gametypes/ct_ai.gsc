@@ -23,8 +23,8 @@ function function_4c8f915a(origin)
 {
 	team = #"axis";
 	waittillframeend();
-	var_d88f5623 = #"hash_153a326c2357a196";
-	drone = spawnvehicle(var_d88f5623, origin, (0, 0, 0), "talon", undefined, 1);
+	tankarchetype = #"archetype_mini_quadtank_ct";
+	drone = spawnvehicle(tankarchetype, origin, (0, 0, 0), "talon", undefined, 1);
 	drone.team = team;
 	drone.settings = struct::get_script_bundle("vehiclecustomsettings", drone.scriptbundlesettings);
 	drone.isstunned = 0;

@@ -45,9 +45,9 @@ function init()
 	setdvar(#"compassmaxrange", "3600");
 	level.var_ae120f18 = array("vox_tvoi_tutor_torq_start_0");
 	level.var_bb9429c2 = level.var_c8b46e18;
-	level.var_6230d238 = &on_concertinawire_placed;
-	level.var_d013d2e3 = level.var_c8d7d200;
-	level.var_c8d7d200 = &on_smartcover_placed;
+	level.onconcertinawireplaced = &on_concertinawire_placed;
+	level.var_d013d2e3 = level.onsmartcoverplaced;
+	level.onsmartcoverplaced = &on_smartcover_placed;
 	level.var_eea9be19 = 150;
 	level.var_e72728b8 = [];
 	level flag::init("fin1_enemies_spawn_done");

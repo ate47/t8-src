@@ -59,7 +59,7 @@ function __init__()
 	}
 	level.disableweapondrop = 1;
 	level.var_ace9fb52 = [];
-	level.var_a4a4012e = [];
+	level.item_spawn_drops = [];
 	level.var_18dc9d17 = [];
 	level.var_8ac64bf3 = [];
 	level.var_19e75cfb = [];
@@ -369,7 +369,7 @@ function private function_23b6897(player, position)
 		#/
 		var_f4b807cb = item_world::function_2e3efdda(centerpoint, undefined, undefined, checkdistance, undefined, 1);
 		var_c36bd68a = arraysortclosest(level.var_ace9fb52, centerpoint, 24, 0, checkdistance);
-		var_ac2b6007 = arraysortclosest(level.var_5862f2ce, centerpoint, 36, 0, checkdistance);
+		var_ac2b6007 = arraysortclosest(level.item_spawn_stashes, centerpoint, 36, 0, checkdistance);
 		var_6594679a = arraysortclosest(level.item_supply_drops, centerpoint, 36, 0, checkdistance);
 		for(var_709013a9 = 0; var_709013a9 < distances.size; var_709013a9++)
 		{
@@ -839,14 +839,14 @@ function function_f3f9788a(itemtype, percentchance)
 */
 function function_8a5fd783()
 {
-	foreach(item in level.var_a4a4012e)
+	foreach(item in level.item_spawn_drops)
 	{
 		if(isdefined(item))
 		{
 			item delete();
 		}
 	}
-	arrayremovevalue(level.var_a4a4012e, undefined, 0);
+	arrayremovevalue(level.item_spawn_drops, undefined, 0);
 	arrayremovevalue(level.var_18dc9d17, undefined, 0);
 	foreach(stash in level.var_ace9fb52)
 	{
@@ -969,7 +969,7 @@ function drop_inventory(player)
 		var_8aad666b = level.var_ace9fb52[0];
 		if(isdefined(var_8aad666b))
 		{
-			dynamicitems = arraysortclosest(level.var_a4a4012e, var_8aad666b.origin, level.var_a4a4012e.size, 0, 12);
+			dynamicitems = arraysortclosest(level.item_spawn_drops, var_8aad666b.origin, level.item_spawn_drops.size, 0, 12);
 			var_6e680942 = dynamicitems.size;
 			for(index = 0; index < var_6e680942; index++)
 			{
@@ -1362,12 +1362,12 @@ function drop_item(weapon = undefined, count = 0, amount = 0, itemid, position, 
 			dropitem linkto(parentent);
 		}
 	}
-	arrayremovevalue(level.var_a4a4012e, undefined, 1);
-	if(isdefined(level.var_a4a4012e[dropitem.var_bd027dd9]))
+	arrayremovevalue(level.item_spawn_drops, undefined, 1);
+	if(isdefined(level.item_spawn_drops[dropitem.var_bd027dd9]))
 	{
-		level.var_a4a4012e[dropitem.var_bd027dd9] delete();
+		level.item_spawn_drops[dropitem.var_bd027dd9] delete();
 	}
-	level.var_a4a4012e[dropitem.var_bd027dd9] = dropitem;
+	level.item_spawn_drops[dropitem.var_bd027dd9] = dropitem;
 	level.var_18dc9d17[level.var_18dc9d17.size] = dropitem;
 	return dropitem;
 }
@@ -1396,7 +1396,7 @@ function function_4da960f6(origin, radius, time)
 	{
 		return;
 	}
-	var_6665e24 = arraysortclosest(level.var_a4a4012e, origin, 24, 0, radius);
+	var_6665e24 = arraysortclosest(level.item_spawn_drops, origin, 24, 0, radius);
 	var_c36bd68a = arraysortclosest(level.var_ace9fb52, origin, 24, 0, radius);
 	var_f4b807cb = arraycombine(var_6665e24, var_c36bd68a, 1, 0);
 	starttime = gettime();
@@ -1429,10 +1429,10 @@ function function_4da960f6(origin, radius, time)
 */
 function function_ba4c90d9(item)
 {
-	if(isdefined(item) && isdefined(item.var_bd027dd9) && isdefined(level.var_a4a4012e[item.var_bd027dd9]))
+	if(isdefined(item) && isdefined(item.var_bd027dd9) && isdefined(level.item_spawn_drops[item.var_bd027dd9]))
 	{
 		item clientfield::set("dynamic_item_drop", 0);
-		arrayremoveindex(level.var_a4a4012e, item.var_bd027dd9, 1);
+		arrayremoveindex(level.item_spawn_drops, item.var_bd027dd9, 1);
 	}
 }
 

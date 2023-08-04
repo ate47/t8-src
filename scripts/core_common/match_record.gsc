@@ -38,7 +38,7 @@ function get_stat(vararg)
 	{
 		return undefined;
 	}
-	result = function_644a3b03(vararg);
+	result = readmatchstat(vararg);
 	/#
 		function_d92cb558(result, vararg);
 	#/
@@ -111,7 +111,7 @@ function inc_stat(vararg)
 	}
 	value = vararg[vararg.size - 1];
 	arrayremoveindex(vararg, vararg.size - 1);
-	result = function_976e9113(vararg, value);
+	result = incrementmatchstat(vararg, value);
 	/#
 		function_d92cb558(result, vararg);
 	#/

@@ -196,7 +196,7 @@ function function_afa2f621()
 }
 
 /*
-	Name: function_b6ef150d
+	Name: setup_door_interact
 	Namespace: zm_orange_mq_fuse
 	Checksum: 0xAFD8DB5C
 	Offset: 0xA90
@@ -204,7 +204,7 @@ function function_afa2f621()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b6ef150d()
+function setup_door_interact()
 {
 	s_unitrigger = level.s_fuse zm_unitrigger::create("", 96);
 	level.s_fuse door_think();
@@ -397,7 +397,7 @@ function function_c723e684(var_a276c861)
 		level exploder::stop_exploder("fxexp_electric_arcs_fx_to_lighthouse_base_1");
 		level exploder::stop_exploder("fxexp_electric_arcs_fx_to_lighthouse_base_2");
 		level exploder::stop_exploder("fxexp_electric_arcs_fx_to_lighthouse_base_3");
-		level function_b6ef150d();
+		level setup_door_interact();
 		level function_16386d70();
 	}
 }

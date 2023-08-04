@@ -101,7 +101,7 @@ function private setup_safes()
 	item_world::function_4de3ca98();
 	if(getdvarint(#"hash_7074ed0f04816b75", 0))
 	{
-		item_drop::function_f3f9788a(#"hash_c4258356b038138", 1);
+		item_drop::function_f3f9788a(#"cash_item_500", 1);
 		level.var_590e0497 = [];
 		foreach(targetname, count in level.var_a6a3e12a)
 		{
@@ -173,11 +173,11 @@ function private function_fb346efb()
 {
 	level flagsys::wait_till(#"hash_405e46788e83af41");
 	var_c88d9756 = level.deathcircles.size - 1;
-	while(level.var_52b56362 < var_c88d9756)
+	while(level.deathcircleindex < var_c88d9756)
 	{
 		wait(1);
 	}
-	var_8e3c3c5b = level.deathcircles[level.var_52b56362];
+	var_8e3c3c5b = level.deathcircles[level.deathcircleindex];
 	level.var_590e0497 = [];
 	foreach(targetname, count in level.var_a6a3e12a)
 	{

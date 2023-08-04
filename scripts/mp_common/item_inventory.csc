@@ -1552,10 +1552,10 @@ function private function_1a99656a(localclientnum, inventoryitem, var_bd027dd9, 
 			{
 				if(data.inventory.items[var_4838b749].var_bd027dd9 === var_bd027dd9)
 				{
-					var_2a311ae = array("attachSlotOptics", "attachSlotBarrel", "attachSlotRail", "attachSlotMagazine", "attachSlotBody", "attachSlotStock");
+					attachmentslots = array("attachSlotOptics", "attachSlotBarrel", "attachSlotRail", "attachSlotMagazine", "attachSlotBody", "attachSlotStock");
 					foreach(index, var_259f58f3 in array(1, 2, 3, 4, 5, 6))
 					{
-						slot = var_2a311ae[index];
+						slot = attachmentslots[index];
 						var_f9f8c0b5 = namespace_a0d533d1::function_dfaca25e(var_4838b749, var_259f58f3);
 						attachmentitem = data.inventory.items[var_f9f8c0b5];
 						if(!isdefined(inventoryitem.var_a6762160.(slot)))
@@ -1644,7 +1644,7 @@ function private function_8bb02a48(localclientnum)
 	var_7007b688 = [];
 	if(isdefined(var_b8f1b496.var_a6762160))
 	{
-		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"equipment", array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"hash_56e573d15c6402bc", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"spiked_barrier_wz_item", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"flare_gun_veh_wz_item", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
+		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"equipment", array(#"frag_grenade_wz_item", #"cluster_semtex_wz_item", #"acid_bomb_wz_item", #"molotov_wz_item", #"wraithfire_wz_item", #"hatchet_wz_item", #"tomahawk_t8_wz_item", #"seeker_mine_wz_item", #"dart_wz_item", #"hawk_wz_item", #"ultimate_turret_wz_item", #"swat_grenade_wz_item", #"concussion_wz_item", #"smoke_grenade_wz_item", #"smoke_grenade_wz_item_spring_holiday", #"emp_grenade_wz_item", #"spectre_grenade_wz_item", #"grapple_wz_item", #"unlimited_grapple_wz_item", #"barricade_wz_item", #"spiked_barrier_wz_item", #"trophy_system_wz_item", #"concertina_wire_wz_item", #"sensor_dart_wz_item", #"supply_pod_wz_item", #"trip_wire_wz_item", #"cymbal_monkey_wz_item", #"homunculus_wz_item", #"vision_pulse_wz_item", #"flare_gun_wz_item", #"flare_gun_veh_wz_item", #"wz_snowball", #"wz_waterballoon"), var_b8f1b496.var_a6762160);
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{
@@ -1682,7 +1682,7 @@ function private function_5c2fff73(localclientnum)
 	var_7007b688 = [];
 	if(isdefined(var_765bac06.var_a6762160))
 	{
-		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"health", array(#"hash_1abfcce0e9955057", #"hash_ff50c93155e445f", #"hash_80292d121740f6f", #"hash_45ced3880667df22"), var_765bac06.var_a6762160);
+		var_7007b688 = item_world_util::function_4cbb6617(data.inventory, #"health", array(#"health_item_small", #"health_item_medium", #"health_item_large", #"health_item_squad"), var_765bac06.var_a6762160);
 	}
 	for(index = 0; index < var_7007b688.size && index < 2; index++)
 	{
@@ -2951,7 +2951,7 @@ function has_attachments(localclientnum, var_4838b749)
 }
 
 /*
-	Name: function_42e2bb1a
+	Name: inventory_init
 	Namespace: item_inventory
 	Checksum: 0x307FF005
 	Offset: 0xB608
@@ -2959,7 +2959,7 @@ function has_attachments(localclientnum, var_4838b749)
 	Parameters: 1
 	Flags: Linked
 */
-function function_42e2bb1a(localclientnum)
+function inventory_init(localclientnum)
 {
 	data = item_world::function_a7e98a1a(localclientnum);
 	inventoryuimodel = createuimodel(getuimodelforcontroller(localclientnum), "hudItems.inventory");
@@ -3068,7 +3068,7 @@ function function_42e2bb1a(localclientnum)
 function function_dab42db1(localclientnum)
 {
 	level flagsys::wait_till(#"item_world_initialized");
-	foreach(ammotype in array(#"hash_182fdef2ad243e20", #"hash_212b01feaa916a00", #"hash_3bf6ed4e3a22e9f3", #"hash_1f72dec518451f8c", #"hash_3b5119f663e783b1", #"hash_7ebaa4e1e2f5d8a2", #"hash_46dd75a1a3f70780", #"hash_394e9478cf4f8d9d"))
+	foreach(ammotype in array(#"ammo_type_9mm_item", #"ammo_type_45_item", #"ammo_type_556_item", #"ammo_type_762_item", #"ammo_type_338_item", #"ammo_type_50cal_item", #"ammo_type_12ga_item", #"ammo_type_rocket_item"))
 	{
 		point = function_4ba8fde(ammotype);
 		if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.itemtype == #"ammo")
@@ -3117,7 +3117,7 @@ function function_d7869556(localclientnum)
 {
 	level flagsys::wait_till(#"item_world_initialized");
 	data = item_world::function_a7e98a1a(localclientnum);
-	point = function_4ba8fde(#"hash_5e9c3f9821e1ee0a");
+	point = function_4ba8fde(#"resource_item_paint");
 	if(isdefined(point) && isdefined(point.var_a6762160) && point.var_a6762160.itemtype == #"resource")
 	{
 		function_1a99656a(localclientnum, data.inventory.items[14], point.var_bd027dd9, point.id, 0, 0, 0);

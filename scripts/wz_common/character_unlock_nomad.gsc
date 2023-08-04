@@ -56,7 +56,7 @@ function function_2613aeec(enabled)
 		}
 		else
 		{
-			item_world_fixup::function_e70fa91c(#"hash_4bfbb656e63b17ae", #"hash_d245b711188db4c", 6);
+			item_world_fixup::function_e70fa91c(#"supply_stash_parent_dlc1", #"hash_d245b711188db4c", 6);
 		}
 	}
 }

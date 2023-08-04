@@ -48,7 +48,7 @@ function __init__()
 */
 function on_localclient_connect(localclientnum)
 {
-	if((isdefined(getgametypesetting(#"hash_33d1ac5e99fb0584")) ? getgametypesetting(#"hash_33d1ac5e99fb0584") : 0) || (isdefined(getgametypesetting(#"hash_3e2d2cf6b1cc6c68")) ? getgametypesetting(#"hash_3e2d2cf6b1cc6c68") : 0))
+	if((isdefined(getgametypesetting(#"wzwaterballoonsenabled")) ? getgametypesetting(#"wzwaterballoonsenabled") : 0) || (isdefined(getgametypesetting(#"hash_3e2d2cf6b1cc6c68")) ? getgametypesetting(#"hash_3e2d2cf6b1cc6c68") : 0))
 	{
 		level thread function_4433b7ba(localclientnum);
 	}

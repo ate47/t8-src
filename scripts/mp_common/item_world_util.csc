@@ -713,7 +713,7 @@ function function_41f06d9d(var_a6762160)
 	{
 		return 0;
 	}
-	return var_a6762160.name == #"hash_5e9c3f9821e1ee0a" || var_a6762160.name == #"hash_470d57195b2db913";
+	return var_a6762160.name == #"resource_item_paint" || var_a6762160.name == #"resource_item_paint_stack_10";
 }
 
 /*

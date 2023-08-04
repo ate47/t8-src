@@ -300,12 +300,12 @@ function private function_9a898f07(e_target)
 		{
 			return undefined;
 		}
-		var_c61e7ea7 = level.zones[var_5f3b05e8];
-		var_24f5d9f8 = array(var_c61e7ea7.name);
-		a_str_adj_zones = getarraykeys(var_c61e7ea7.adjacent_zones);
+		target_zone = level.zones[var_5f3b05e8];
+		var_24f5d9f8 = array(target_zone.name);
+		a_str_adj_zones = getarraykeys(target_zone.adjacent_zones);
 		foreach(str_zone in a_str_adj_zones)
 		{
-			if(var_c61e7ea7.adjacent_zones[str_zone].is_connected)
+			if(target_zone.adjacent_zones[str_zone].is_connected)
 			{
 				if(!isdefined(var_24f5d9f8))
 				{

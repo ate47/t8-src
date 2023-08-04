@@ -2823,7 +2823,7 @@ function private function_3526a519()
 function private function_e4335431()
 {
 	var_726f6c6 = [];
-	foreach(stash in level.var_5862f2ce)
+	foreach(stash in level.item_spawn_stashes)
 	{
 		state = function_ffdbe8c2(stash);
 		data = {#hash_fa0ba6bc:isdefined(stash.lootlocker) && stash.lootlocker, #hash_a7feba9c:(isdefined(stash.var_80b1d504) ? stash.var_80b1d504 : 0), #state:state, #used:state != 0, #type:stash.var_15d44120, #pos_z:stash.origin[2], #pos_y:stash.origin[1], #pos_x:stash.origin[0]};

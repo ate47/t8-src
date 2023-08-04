@@ -2,11 +2,11 @@
 #using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_dafacbee;
+#namespace status_effect_movement_speed;
 
 /*
 	Name: __init__system__
-	Namespace: namespace_dafacbee
+	Namespace: status_effect_movement_speed
 	Checksum: 0xB0B7759C
 	Offset: 0x88
 	Size: 0x3C
@@ -15,12 +15,12 @@
 */
 function autoexec __init__system__()
 {
-	system::register(#"hash_221a828ea2610a47", &__init__, undefined, undefined);
+	system::register(#"status_effect_movement_speed", &__init__, undefined, undefined);
 }
 
 /*
 	Name: __init__
-	Namespace: namespace_dafacbee
+	Namespace: status_effect_movement_speed
 	Checksum: 0xF241D5D2
 	Offset: 0xD0
 	Size: 0x4C
@@ -35,7 +35,7 @@ function __init__()
 
 /*
 	Name: function_f7e9c0bb
-	Namespace: namespace_dafacbee
+	Namespace: status_effect_movement_speed
 	Checksum: 0x80F724D1
 	Offset: 0x128
 	Size: 0x4

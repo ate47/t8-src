@@ -119,7 +119,7 @@ function trigger_think()
 		level thread look_trigger(self);
 		s_info = undefined;
 		s_info = self waittill(#"trigger_look");
-		self thread callback::function_6eb09118(s_info, 1);
+		self thread callback::codecallback_trigger(s_info, 1);
 	}
 }
 

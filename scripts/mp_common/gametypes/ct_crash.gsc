@@ -37,7 +37,7 @@ event main(eventstruct)
 	level.var_820c5561 = "CRASH";
 	ct_utils::function_be3a76b7(level.var_820c5561);
 	level.var_d6d98fbe = 1;
-	level.var_5e97302a = 0;
+	level.debugbots = 0;
 	ct_core::function_fa03fc55();
 	level.var_4c2ecc6f = &function_6db6572b;
 	level.var_c01b7f8b = &function_ba542258;

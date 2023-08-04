@@ -46,7 +46,7 @@ function __init__()
 	clientfield::register("scriptmover", "dynamic_item_drop", 10000, 3, "int", &function_a517a859, 0, 0);
 	clientfield::register("scriptmover", "dynamic_stash", 1, 2, "int", &function_e7bb925a, 0, 0);
 	clientfield::register("scriptmover", "dynamic_stash_type", 1, 2, "int", &function_63226f88, 0, 0);
-	level.var_a4a4012e = [];
+	level.item_spawn_drops = [];
 	level.var_624588d5 = [];
 	level.var_d49a1a10 = [];
 	level thread function_b8f6e02f();
@@ -106,9 +106,9 @@ function private function_67189b6b(localclientnum, newval)
 	newval = newval & -5;
 	if(newval == 0)
 	{
-		if(isdefined(self) && isdefined(self.var_bd027dd9) && isdefined(level.var_a4a4012e[self.var_bd027dd9]))
+		if(isdefined(self) && isdefined(self.var_bd027dd9) && isdefined(level.item_spawn_drops[self.var_bd027dd9]))
 		{
-			arrayremoveindex(level.var_a4a4012e, self.var_bd027dd9, 1);
+			arrayremoveindex(level.item_spawn_drops, self.var_bd027dd9, 1);
 		}
 		if(isdefined(self) && isdefined(self.var_bd027dd9) && isdefined(level.var_5b2a8d88[self.var_bd027dd9]))
 		{
@@ -141,8 +141,8 @@ function private function_67189b6b(localclientnum, newval)
 					level.var_5b2a8d88[self.var_bd027dd9] = 1;
 				}
 			}
-			arrayremovevalue(level.var_a4a4012e, undefined, 1);
-			level.var_a4a4012e[self.var_bd027dd9] = self;
+			arrayremovevalue(level.item_spawn_drops, undefined, 1);
+			level.item_spawn_drops[self.var_bd027dd9] = self;
 			item_world::function_b78a9820(localclientnum);
 			player = function_5c10bd79(localclientnum);
 			if(isplayer(player) && distance2dsquared(self.origin, player.origin) <= (1350 * 1350))
@@ -161,7 +161,7 @@ function private function_67189b6b(localclientnum, newval)
 			item_world::function_2990e5f(localclientnum, self);
 			if(isdefined(self.var_bd027dd9) && getdvarint(#"hash_99bb0233e482c77", 0))
 			{
-				level.var_a4a4012e[self.var_bd027dd9] = undefined;
+				level.item_spawn_drops[self.var_bd027dd9] = undefined;
 			}
 			player = function_5c10bd79(localclientnum);
 			player item_world::hide_item(localclientnum, self.var_bd027dd9);

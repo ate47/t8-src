@@ -278,9 +278,9 @@ function on_spawn_player(predictedspawn)
 	{
 		self.var_63af7f75 = -1;
 	}
-	if(isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircleindex))
 	{
-		self.var_63af7f75 = level.var_52b56362;
+		self.var_63af7f75 = level.deathcircleindex;
 	}
 	if(level.usestartspawns && !level.ingraceperiod && !level.playerqueuedrespawn)
 	{

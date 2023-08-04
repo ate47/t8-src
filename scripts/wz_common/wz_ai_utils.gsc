@@ -61,11 +61,11 @@ function private __init__()
 	{
 		if(isdefined(getgametypesetting(#"hash_42471cb0cbc19544")) && getgametypesetting(#"hash_42471cb0cbc19544"))
 		{
-			level.zombie_itemlist = #"hash_2a471518604bcd8b";
+			level.zombie_itemlist = #"zombie_itemlist_ammo_close_quarters";
 		}
 		else
 		{
-			level.zombie_itemlist = #"hash_15895bcfe301ee08";
+			level.zombie_itemlist = #"zombie_itemlist_close_quarters";
 		}
 	}
 	else
@@ -80,10 +80,10 @@ function private __init__()
 		}
 	}
 	level.var_db43cbd7 = #"zombie_raygun_itemlist";
-	level.var_1b7acd6d = #"hash_33bdf9068c8cfb57";
-	level.var_72151997 = #"hash_3e1e0d5abe4173f2";
-	level.var_14364e26 = #"hash_1d5141b0fcc5b473";
-	level.var_7d2bc89 = #"hash_1ee01737fce4ccfe";
+	level.var_1b7acd6d = #"cu12_list";
+	level.var_72151997 = #"cu13_list";
+	level.var_14364e26 = #"cu30_list";
+	level.var_7d2bc89 = #"cu31_list";
 	clientfield::register("scriptmover", "aizoneflag", -1, 2, "int");
 	clientfield::register("scriptmover", "aizoneflag_tu14", 14000, 3, "int");
 	clientfield::register("scriptmover", "magicboxflag", 1, 3, "int");
@@ -1017,9 +1017,9 @@ function function_9fa1c215(ai_zone)
 	if(isdefined(level.var_b4143320) && level.var_b4143320)
 	{
 		var_d0c1e811 = 0;
-		if(isdefined(level.deathcircle) && isdefined(level.var_52b56362))
+		if(isdefined(level.deathcircle) && isdefined(level.deathcircleindex))
 		{
-			if(level.var_52b56362 < level.var_1a35832e)
+			if(level.deathcircleindex < level.var_1a35832e)
 			{
 				var_d0c1e811 = 1;
 			}

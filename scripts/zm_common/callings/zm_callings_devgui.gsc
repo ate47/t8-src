@@ -53,8 +53,8 @@ function function_1d4f22e4(cmd)
 			arr = strtok(str, "");
 			taskid = arr[0];
 			taskid = int(taskid);
-			setdvar(#"hash_4ef2b14c3bfef02a", taskid);
-			setdvar(#"hash_74323bf8006c003f", 0);
+			setdvar(#"zm_active_daily_calling", taskid);
+			setdvar(#"zm_active_event_calling", 0);
 			setdvar(#"hash_acdd08b365cb62f", 1);
 		}
 		else

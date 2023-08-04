@@ -248,11 +248,11 @@ function function_6842bdd7(player)
 				{
 					if(function_8b1a219a())
 					{
-						var_4a186601 = #"hash_17ff339e7f75ae18";
+						str_altar = #"hash_17ff339e7f75ae18";
 					}
 					else
 					{
-						var_4a186601 = #"hash_7e97aa53c3038fb4";
+						str_altar = #"hash_7e97aa53c3038fb4";
 					}
 					break;
 				}
@@ -260,11 +260,11 @@ function function_6842bdd7(player)
 				{
 					if(function_8b1a219a())
 					{
-						var_4a186601 = #"hash_5eaee5bec056161d";
+						str_altar = #"hash_5eaee5bec056161d";
 					}
 					else
 					{
-						var_4a186601 = #"hash_133c9b7b564b707f";
+						str_altar = #"hash_133c9b7b564b707f";
 					}
 					break;
 				}
@@ -272,11 +272,11 @@ function function_6842bdd7(player)
 				{
 					if(function_8b1a219a())
 					{
-						var_4a186601 = #"hash_2599dfad21d29341";
+						str_altar = #"hash_2599dfad21d29341";
 					}
 					else
 					{
-						var_4a186601 = #"hash_726a5f9b0d18c78b";
+						str_altar = #"hash_726a5f9b0d18c78b";
 					}
 					break;
 				}
@@ -284,17 +284,17 @@ function function_6842bdd7(player)
 				{
 					if(function_8b1a219a())
 					{
-						var_4a186601 = #"hash_497917c49187deea";
+						str_altar = #"hash_497917c49187deea";
 					}
 					else
 					{
-						var_4a186601 = #"hash_228c88065496b9fe";
+						str_altar = #"hash_228c88065496b9fe";
 					}
 					break;
 				}
 			}
 			player.var_e07e301b = s_interact;
-			self sethintstringforplayer(player, var_4a186601, s_interact.n_cost);
+			self sethintstringforplayer(player, str_altar, s_interact.n_cost);
 			return true;
 		}
 		player.var_e07e301b = undefined;

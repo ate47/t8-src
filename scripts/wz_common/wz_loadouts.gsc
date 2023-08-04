@@ -134,12 +134,12 @@ function function_3fed57dd()
 		{
 			return;
 		}
-		if(!isdefined(level.var_52b56362))
+		if(!isdefined(level.deathcircleindex))
 		{
 			self function_58190f52();
 			return;
 		}
-		switch(level.var_52b56362)
+		switch(level.deathcircleindex)
 		{
 			case 0:
 			{
@@ -238,13 +238,13 @@ function function_9de0644f()
 				namespace_a0d533d1::function_9e9c82a6(smg, attachment);
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
-				ammo = _get_item(#"hash_212b01feaa916a00");
+				ammo = _get_item(#"ammo_type_45_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				armor = _get_item(#"hash_8578856a247ab60");
+				armor = _get_item(#"armor_item_medium");
 				var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 				self item_world::function_de2018e3(armor, self, var_fa3df96);
-				health = _get_item(#"hash_1abfcce0e9955057");
+				health = _get_item(#"health_item_small");
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -282,13 +282,13 @@ function function_9de0644f()
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
-				ammo = _get_item(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"ammo_type_9mm_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				armor = _get_item(#"hash_6f80136c3b79d9e");
+				armor = _get_item(#"armor_item_small");
 				var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 				self item_world::function_de2018e3(armor, self, var_fa3df96);
-				health = _get_item(#"hash_1abfcce0e9955057");
+				health = _get_item(#"health_item_small");
 				health.count = 10;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -319,10 +319,10 @@ function function_9de0644f()
 				smg.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(smg));
 				self item_world::function_de2018e3(smg, self, var_fa3df96);
 				self item_inventory::equip_weapon(smg, 1, 1, 0, 1);
-				ammo = _get_item(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"ammo_type_9mm_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = _get_item(#"hash_1abfcce0e9955057");
+				health = _get_item(#"health_item_small");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -356,10 +356,10 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = _get_item(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"ammo_type_9mm_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = _get_item(#"hash_1abfcce0e9955057");
+				health = _get_item(#"health_item_small");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -393,10 +393,10 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = _get_item(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"ammo_type_9mm_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
-				health = _get_item(#"hash_1abfcce0e9955057");
+				health = _get_item(#"health_item_small");
 				health.count = 5;
 				var_fa3df96 = self item_inventory::function_e66dcff5(health);
 				self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -427,7 +427,7 @@ function function_9de0644f()
 				pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 				self item_world::function_de2018e3(pistol, self, var_fa3df96);
 				self item_inventory::equip_weapon(pistol, 1, 1, 0, 1);
-				ammo = _get_item(#"hash_182fdef2ad243e20");
+				ammo = _get_item(#"ammo_type_9mm_item");
 				var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 				self item_world::function_de2018e3(ammo, self, var_fa3df96);
 				grapple = _get_item(#"unlimited_grapple_wz_item");
@@ -456,7 +456,7 @@ function private function_58190f52()
 		pistol = _get_item(#"pistol_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(pistol);
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
-		ammo = _get_item(#"hash_212b01feaa916a00");
+		ammo = _get_item(#"ammo_type_45_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
 	}
@@ -467,7 +467,7 @@ function private function_58190f52()
 			weapon = _get_item(#"lmg_spray_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
+			ammo = _get_item(#"ammo_type_556_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
 		}
@@ -511,10 +511,10 @@ function private function_6667abef()
 		namespace_a0d533d1::function_9e9c82a6(pistol, attachment);
 		pistol.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(pistol));
 		self item_world::function_de2018e3(pistol, self, var_fa3df96);
-		ammo = _get_item(#"hash_212b01feaa916a00");
+		ammo = _get_item(#"ammo_type_45_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		health = _get_item(#"hash_1abfcce0e9955057");
+		health = _get_item(#"health_item_small");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -542,10 +542,10 @@ function private function_6667abef()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
+			ammo = _get_item(#"ammo_type_556_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = _get_item(#"hash_80292d121740f6f");
+			health = _get_item(#"health_item_large");
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
 		}
@@ -573,10 +573,10 @@ function private function_7376c60d()
 		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = _get_item(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"ammo_type_9mm_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
-		health = _get_item(#"hash_1abfcce0e9955057");
+		health = _get_item(#"health_item_small");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -588,10 +588,10 @@ function private function_7376c60d()
 			weapon = _get_item(#"lmg_standard_t8_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = _get_item(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"ammo_type_762_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = _get_item(#"hash_80292d121740f6f");
+			health = _get_item(#"health_item_large");
 			health.count = 2;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
@@ -620,17 +620,17 @@ function private function_1f091d2f()
 		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = _get_item(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"ammo_type_9mm_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
 		attachment = _get_item(#"laser_sight_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		health = _get_item(#"hash_1abfcce0e9955057");
+		health = _get_item(#"health_item_small");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
-		armor = _get_item(#"hash_6f80136c3b79d9e");
+		armor = _get_item(#"armor_item_small");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
 		armorShard = _get_item(#"armor_shard_item");
@@ -661,14 +661,14 @@ function private function_1f091d2f()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = _get_item(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"ammo_type_762_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = _get_item(#"hash_80292d121740f6f");
+			health = _get_item(#"health_item_large");
 			health.count = 3;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
-			armor = _get_item(#"hash_568173e016d45c2a");
+			armor = _get_item(#"armor_item_large");
 			var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 			self item_world::function_de2018e3(armor, self, var_fa3df96);
 		}
@@ -696,7 +696,7 @@ function private function_2d31b980()
 		smg = _get_item(#"smg_standard_t8_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(smg);
 		self item_world::function_de2018e3(smg, self, var_fa3df96);
-		ammo = _get_item(#"hash_182fdef2ad243e20");
+		ammo = _get_item(#"ammo_type_9mm_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 		self item_world::function_de2018e3(ammo, self, var_fa3df96);
 		attachment = _get_item(#"laser_sight_wz_item");
@@ -708,11 +708,11 @@ function private function_2d31b980()
 		attachment = _get_item(#"extbarrel_wz_item");
 		var_fa3df96 = self item_inventory::function_e66dcff5(attachment);
 		self item_world::function_de2018e3(attachment, self, var_fa3df96);
-		health = _get_item(#"hash_1abfcce0e9955057");
+		health = _get_item(#"health_item_small");
 		health.count = 5;
 		var_fa3df96 = self item_inventory::function_e66dcff5(health);
 		self item_world::function_de2018e3(health, self, var_fa3df96);
-		armor = _get_item(#"hash_8578856a247ab60");
+		armor = _get_item(#"armor_item_medium");
 		var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 		self item_world::function_de2018e3(armor, self, var_fa3df96);
 		armorShard = _get_item(#"armor_shard_item");
@@ -750,14 +750,14 @@ function private function_2d31b980()
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 			weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 			self item_world::function_de2018e3(weapon, self, var_fa3df96);
-			ammo = _get_item(#"hash_1f72dec518451f8c");
+			ammo = _get_item(#"ammo_type_762_item");
 			var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 			self item_world::function_de2018e3(ammo, self, var_fa3df96);
-			health = _get_item(#"hash_80292d121740f6f");
+			health = _get_item(#"health_item_large");
 			health.count = 3;
 			var_fa3df96 = self item_inventory::function_e66dcff5(health);
 			self item_world::function_de2018e3(health, self, var_fa3df96);
-			armor = _get_item(#"hash_568173e016d45c2a");
+			armor = _get_item(#"armor_item_large");
 			var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 			self item_world::function_de2018e3(armor, self, var_fa3df96);
 			armorShard = _get_item(#"armor_shard_item");
@@ -786,20 +786,20 @@ function private function_f56a5599()
 	weapon = _get_item(#"lmg_stealth_t8_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 	self item_world::function_de2018e3(weapon, self, var_fa3df96);
-	ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
+	ammo = _get_item(#"ammo_type_556_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 	self item_world::function_de2018e3(ammo, self, var_fa3df96);
 	weapon = _get_item(#"ar_peacekeeper_t8_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(weapon);
 	self item_world::function_de2018e3(weapon, self, var_fa3df96);
-	ammo = _get_item(#"hash_3bf6ed4e3a22e9f3");
+	ammo = _get_item(#"ammo_type_556_item");
 	var_fa3df96 = self item_inventory::function_e66dcff5(ammo);
 	self item_world::function_de2018e3(ammo, self, var_fa3df96);
-	health = _get_item(#"hash_45ced3880667df22");
+	health = _get_item(#"health_item_squad");
 	health.count = 5;
 	var_fa3df96 = self item_inventory::function_e66dcff5(health);
 	self item_world::function_de2018e3(health, self, var_fa3df96);
-	armor = _get_item(#"hash_8578856a247ab60");
+	armor = _get_item(#"armor_item_medium");
 	var_fa3df96 = self item_inventory::function_e66dcff5(armor);
 	self item_world::function_de2018e3(armor, self, var_fa3df96);
 	var_57fd914e = _get_item(#"dart_wz_item");

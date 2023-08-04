@@ -106,7 +106,7 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		return function_e148e3b7(localclientnum, var_47e79fc);
+		return isluielemopen(localclientnum, var_47e79fc);
 	}
 
 	/*

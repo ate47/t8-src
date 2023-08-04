@@ -91,7 +91,7 @@ function on_player_killed()
 	{
 		return;
 	}
-	if(weapon.name != #"melee_bowie" && weapon.name != #"hash_3c94920deb0cbd90")
+	if(weapon.name != #"melee_bowie" && weapon.name != #"melee_bowie_bloody")
 	{
 		return;
 	}

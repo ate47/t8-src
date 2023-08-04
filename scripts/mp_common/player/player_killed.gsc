@@ -585,7 +585,7 @@ function callback_playerkilled(einflictor, attacker, idamage, smeansofdeath, wea
 				}
 				else
 				{
-					function_ed2725ad(einflictor, attacker, weapon);
+					updatekillstreak(einflictor, attacker, weapon);
 					if(bledout == 0 || level.var_7d1eeba9 === 1)
 					{
 						self kill(einflictor, attacker, smeansofdeath, weapon, shitloc);
@@ -1097,7 +1097,7 @@ function function_d5c8119d()
 	{
 		return 0;
 	}
-	if(level.var_52b56362 === var_8e3c3c5b)
+	if(level.deathcircleindex === var_8e3c3c5b)
 	{
 		return isdefined(level.deathcircle.scaling) && level.deathcircle.scaling || level.deathcircle.radius <= 0;
 	}
@@ -2798,7 +2798,7 @@ function private function_e8decd0b(attacker, weapon, victim, einflictor, smeanso
 }
 
 /*
-	Name: function_ed2725ad
+	Name: updatekillstreak
 	Namespace: player
 	Checksum: 0x8F22541D
 	Offset: 0x8CC0
@@ -2806,7 +2806,7 @@ function private function_e8decd0b(attacker, weapon, victim, einflictor, smeanso
 	Parameters: 3
 	Flags: Linked
 */
-function function_ed2725ad(einflictor, attacker, weapon)
+function updatekillstreak(einflictor, attacker, weapon)
 {
 	if(isalive(attacker))
 	{

@@ -73,12 +73,12 @@ function init()
 		}
 	}
 	initscoreinfo();
-	level.maxrank = int(function_a2f05227());
+	level.maxrank = int(getrankcap());
 	level.maxprestige = int(getprestigecap());
 	for(rankid = 0; rankid <= level.maxrank; rankid++)
 	{
-		level.ranktable[rankid][0] = function_3a2469b8(rankid);
-		level.ranktable[rankid][1] = function_a9c3ae72(rankid);
+		level.ranktable[rankid][0] = getrankminxp(rankid);
+		level.ranktable[rankid][1] = getrankmaxxp(rankid);
 		level.ranktable[rankid][2] = level.ranktable[rankid][1] - level.ranktable[rankid][0];
 	}
 	callback::on_connect(&on_player_connect);
@@ -946,7 +946,7 @@ function getspm()
 {
 	if(isarenamode())
 	{
-		ranklevel = function_a2f05227() + 1;
+		ranklevel = getrankcap() + 1;
 	}
 	else
 	{

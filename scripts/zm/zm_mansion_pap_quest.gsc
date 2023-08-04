@@ -1765,7 +1765,7 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 			t_spawn thread function_f7b04d9c(s_key);
 			level flag::wait_till("nosferatu_pap_event_done");
 			/#
-				t_spawn function_af24d641();
+				t_spawn debug_draw_stop();
 			#/
 			if(isdefined(level.var_9ce3e25a))
 			{
@@ -1833,10 +1833,10 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 			e_fx playloopsound("zmb_sq_souls_lp");
 			e_fx delete();
 			/#
-				var_ff4b3a13 function_af24d641();
+				var_ff4b3a13 debug_draw_stop();
 			#/
 			/#
-				s_spawnpt function_af24d641();
+				s_spawnpt debug_draw_stop();
 			#/
 			nd_start = getvehiclenode(var_ff4b3a13.targetname + "_spline", "targetname");
 			e_trail = util::spawn_model("tag_origin", nd_start.origin, nd_start.angles);
@@ -1922,10 +1922,10 @@ function function_16288b92(str_type, s_loc, mdl_key, vol_transform)
 			}
 			e_fx delete();
 			/#
-				s_trophy function_af24d641();
+				s_trophy debug_draw_stop();
 			#/
 			/#
-				s_spawnpt function_af24d641();
+				s_spawnpt debug_draw_stop();
 			#/
 			nd_start = getvehiclenode(s_trophy.targetname + "_trail_start_node", "targetname");
 			e_trail = util::spawn_model("tag_origin", nd_start.origin, nd_start.angles);
@@ -3029,7 +3029,7 @@ function function_450b01a5()
 	s_result = undefined;
 	s_result = self waittill(#"trigger");
 	/#
-		self thread function_af24d641();
+		self thread debug_draw_stop();
 	#/
 	level flag::set(self.stub.str_flag);
 	s_result.activator thread zm_audio::create_and_play_dialog(#"painting", #"interact_first");
@@ -3707,7 +3707,7 @@ function function_d29a3f81()
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
 		/#
-			self thread function_af24d641();
+			self thread debug_draw_stop();
 		#/
 		player = waitresult.activator;
 		if(player zm_utility::in_revive_trigger())
@@ -4329,7 +4329,7 @@ function trigger_think()
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
 		/#
-			self function_af24d641();
+			self debug_draw_stop();
 		#/
 		player = waitresult.activator;
 		if(!zm_utility::can_use(player))
@@ -4612,7 +4612,7 @@ function debug_draw_star(v_color)
 }
 
 /*
-	Name: function_af24d641
+	Name: debug_draw_stop
 	Namespace: mansion_pap
 	Checksum: 0x7FBF8984
 	Offset: 0xE978
@@ -4620,7 +4620,7 @@ function debug_draw_star(v_color)
 	Parameters: 0
 	Flags: None
 */
-function function_af24d641()
+function debug_draw_stop()
 {
 	/#
 		self notify(#"stop_debug_draw");

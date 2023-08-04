@@ -548,7 +548,7 @@ function function_7d86a450()
 function debug_bots(var_841324bd)
 {
 	/#
-		if(!(isdefined(level.var_5e97302a) && level.var_5e97302a))
+		if(!(isdefined(level.debugbots) && level.debugbots))
 		{
 			return;
 		}

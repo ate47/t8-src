@@ -1784,7 +1784,7 @@ event function_5067ee2f(eventstruct)
 }
 
 /*
-	Name: function_fa19b45b
+	Name: codecallback_forcestreambundle
 	Namespace: callback
 	Checksum: 0x6E55CAC1
 	Offset: 0x2ED8
@@ -1792,7 +1792,7 @@ event function_5067ee2f(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_fa19b45b(eventstruct)
+event codecallback_forcestreambundle(eventstruct)
 {
 	forcestreambundle(eventstruct.name, eventstruct.var_3c542760, eventstruct.var_a0e51075);
 }
@@ -1832,7 +1832,7 @@ event function_11988454(eventstruct)
 }
 
 /*
-	Name: function_6eb09118
+	Name: codecallback_trigger
 	Namespace: callback
 	Checksum: 0x8844CFFE
 	Offset: 0x2FD0
@@ -1840,7 +1840,7 @@ event function_11988454(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_6eb09118(eventstruct)
+event codecallback_trigger(eventstruct)
 {
 	if(isdefined(level.var_a6c75fcb))
 	{
@@ -1881,7 +1881,7 @@ event function_87b05fa3(eventstruct)
 }
 
 /*
-	Name: function_2eb17944
+	Name: codecallback_death
 	Namespace: callback
 	Checksum: 0x9C04A217
 	Offset: 0x3128
@@ -1889,14 +1889,14 @@ event function_87b05fa3(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_2eb17944(eventstruct)
+event codecallback_death(eventstruct)
 {
 	self callback(#"death", eventstruct);
 	self entity_callback(#"death", eventstruct);
 }
 
 /*
-	Name: function_40d9ce80
+	Name: codecallback_melee
 	Namespace: callback
 	Checksum: 0xC019DDAC
 	Offset: 0x3180
@@ -1904,7 +1904,7 @@ event function_2eb17944(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_40d9ce80(eventstruct)
+event codecallback_melee(eventstruct)
 {
 	self callback(#"melee", eventstruct);
 }
@@ -1992,7 +1992,7 @@ event function_a1ad9b51(eventstruct)
 }
 
 /*
-	Name: function_fbeb26f6
+	Name: codecallback_updateactivecamo
 	Namespace: callback
 	Checksum: 0xE5CBC7B0
 	Offset: 0x33A0
@@ -2000,7 +2000,7 @@ event function_a1ad9b51(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_fbeb26f6(eventstruct)
+event codecallback_updateactivecamo(eventstruct)
 {
 	self callback(#"updateactivecamo", eventstruct.localclientnum, eventstruct);
 }

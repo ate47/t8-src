@@ -37,13 +37,13 @@ function autoexec __init__system__()
 function __init__()
 {
 	init_shared();
-	function_649f8cbe(&function_c8d7d200);
+	function_649f8cbe(&onsmartcoverplaced);
 	function_a9427b5c(&function_a430cceb);
 	level.var_b57c1895 = &function_9a2b3318;
 }
 
 /*
-	Name: function_c8d7d200
+	Name: onsmartcoverplaced
 	Namespace: smart_cover
 	Checksum: 0x94ECFB2F
 	Offset: 0x170
@@ -51,7 +51,7 @@ function __init__()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c8d7d200(smartcover)
+function onsmartcoverplaced(smartcover)
 {
 	self battlechatter::function_bd715920(smartcover.weapon, undefined, smartcover.origin, smartcover);
 	self callback::callback(#"hash_70eeb7d813f149b2", {#cover:smartcover.smartcover, #owner:self});

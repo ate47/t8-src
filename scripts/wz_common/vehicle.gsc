@@ -3055,7 +3055,7 @@ function private function_638d1ade()
 	self endon(#"death", #"hash_41dbbf5434aab9e0");
 	while(true)
 	{
-		if(isdefined(level.deathcircle) && isdefined(level.var_52b56362))
+		if(isdefined(level.deathcircle) && isdefined(level.deathcircleindex))
 		{
 			radius = level.deathcircle.radius;
 			var_b4ed4ca = distance2dsquared(self.origin, level.deathcircle.origin) - (radius * radius);

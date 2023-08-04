@@ -217,7 +217,7 @@ function function_1deb2b38(var_b721e8a9)
 	level.var_e91bcfae = 1;
 	if(isdefined(var_b721e8a9))
 	{
-		a_items = var_b721e8a9 namespace_65181344::function_fd87c780(#"hash_36b0e1ba91844d34", 1);
+		a_items = var_b721e8a9 namespace_65181344::function_fd87c780(#"zombie_bathtub_ee_list", 1);
 		foreach(item in a_items)
 		{
 			if(isdefined(item))

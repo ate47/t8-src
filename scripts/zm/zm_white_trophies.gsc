@@ -393,9 +393,9 @@ function function_df71a9b9()
 	level endon(#"game_ended", #"hash_5aa1c9627e8626e0");
 	while(true)
 	{
-		var_ddb40357 = undefined;
-		var_ddb40357 = level waittill(#"hash_4543ba0bff75332e");
-		e_attacker = var_ddb40357.e_player;
+		waitresults = undefined;
+		waitresults = level waittill(#"hash_4543ba0bff75332e");
+		e_attacker = waitresults.e_player;
 		if(isplayer(e_attacker) && isdefined(e_attacker.var_5e47a087))
 		{
 			a_e_zombies = getaiteamarray(level.zombie_team);

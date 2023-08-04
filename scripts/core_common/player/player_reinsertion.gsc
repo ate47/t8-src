@@ -106,11 +106,11 @@ function function_3d39c260()
 	Parameters: 2
 	Flags: Linked
 */
-function function_a20b914d(var_c164cd96, circle_radius)
+function function_a20b914d(circle_origin, circle_radius)
 {
 	angles = (0, randomint(360), 0);
 	direction = anglestoforward(angles);
-	spawn_origin = var_c164cd96 - (direction * circle_radius);
+	spawn_origin = circle_origin - (direction * circle_radius);
 	return spawn_origin;
 }
 
@@ -296,12 +296,12 @@ function private function_14f79b33(center, radius, height, var_e294ac7d)
 	{
 		if(!isdefined(level.deathcircle))
 		{
-			var_c164cd96 = center;
+			circle_origin = center;
 			circle_radius = radius;
 		}
 		else
 		{
-			var_c164cd96 = (level.deathcircle.origin[0], level.deathcircle.origin[1], height);
+			circle_origin = (level.deathcircle.origin[0], level.deathcircle.origin[1], height);
 			circle_radius = level.deathcircle.radius * var_e294ac7d;
 		}
 		if(circle_radius < 0.01)
@@ -311,16 +311,16 @@ function private function_14f79b33(center, radius, height, var_e294ac7d)
 		}
 		/#
 			level.reinsertion.debug_duration = 1000;
-			thread player_insertion::debug_line(var_c164cd96, level.reinsertion.vehicle.origin, (0, 0, 1), level.reinsertion.debug_duration);
+			thread player_insertion::debug_line(circle_origin, level.reinsertion.vehicle.origin, (0, 0, 1), level.reinsertion.debug_duration);
 		#/
-		var_9c068ab1 = vectornormalize(level.reinsertion.vehicle.origin - var_c164cd96);
+		var_9c068ab1 = vectornormalize(level.reinsertion.vehicle.origin - circle_origin);
 		var_c40f2e06 = vectortoangles(var_9c068ab1);
 		var_1288d4ef = var_c40f2e06[1];
 		var_c5a2c1c9 = (var_5d59bc67 / circle_radius) * 57.29578;
 		new_yaw = var_1288d4ef + (time_step * var_c5a2c1c9);
 		new_angles = (0, new_yaw, 0);
-		goal = var_c164cd96 + (anglestoforward(new_angles) * circle_radius);
-		goal = function_521bff14(var_c164cd96, goal, var_e294ac7d);
+		goal = circle_origin + (anglestoforward(new_angles) * circle_radius);
+		goal = function_521bff14(circle_origin, goal, var_e294ac7d);
 		/#
 			thread player_insertion::debug_line(level.reinsertion.vehicle.origin, goal, (0, 1, 0), level.reinsertion.debug_duration);
 		#/
@@ -626,15 +626,15 @@ function function_de24c569()
 */
 function function_f9348c1d()
 {
-	var_483315f7 = (0, 0, 0);
+	circle_center = (0, 0, 0);
 	if(isdefined(level.deathcircle))
 	{
-		var_483315f7 = level.deathcircle.origin;
+		circle_center = level.deathcircle.origin;
 	}
 	angles = (0, 0, 0);
 	if(isdefined(level.reinsertion) && isdefined(level.reinsertion.vehicle))
 	{
-		var_9c068ab1 = vectornormalize(var_483315f7 - level.reinsertion.vehicle.origin);
+		var_9c068ab1 = vectornormalize(circle_center - level.reinsertion.vehicle.origin);
 		angles = vectortoangles(var_9c068ab1);
 	}
 	return angles;
@@ -763,9 +763,9 @@ function function_584c9f1()
 function function_836fe662()
 {
 	wait(1);
-	if(isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircleindex))
 	{
-		level clientfield::set_world_uimodel("hudItems.warzone.reinsertionIndex", level.var_52b56362 + 1);
+		level clientfield::set_world_uimodel("hudItems.warzone.reinsertionIndex", level.deathcircleindex + 1);
 	}
 	else
 	{
@@ -858,11 +858,11 @@ function function_fec68e5c()
 */
 function function_5425f45d()
 {
-	if(isdefined(level.deathcircle) && isdefined(level.deathcircles) && isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircle) && isdefined(level.deathcircles) && isdefined(level.deathcircleindex))
 	{
 		var_d89a84b0 = level.deathcircles.size - 1;
 		step_height = 20000 / var_d89a84b0;
-		height_diff = level.var_52b56362 * step_height;
+		height_diff = level.deathcircleindex * step_height;
 		center = level.deathcircle.origin;
 		radius = level.deathcircle.radius * 0.5;
 		angle = 0;
@@ -875,12 +875,12 @@ function function_5425f45d()
 			y_pos = center[1] + (radius * sin(angle));
 			height = 20000 - height_diff;
 			z_pos = math::clamp(height, 12000, 20000);
-			if(level.var_52b56362 == var_d89a84b0)
+			if(level.deathcircleindex == var_d89a84b0)
 			{
 				height = 12000;
 			}
 			portal.origin = (x_pos, y_pos, z_pos);
-			var_10fdb78b = level.var_52b56362 + 1;
+			var_10fdb78b = level.deathcircleindex + 1;
 			var_b0221a68 = math::clamp(var_10fdb78b, 0, var_d89a84b0);
 			nextcircle = level.deathcircles[var_b0221a68];
 			if(isdefined(nextcircle))

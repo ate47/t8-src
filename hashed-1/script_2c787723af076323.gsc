@@ -68,12 +68,12 @@ function function_63ad593a()
 	var_d2223309 = &item_world_fixup::function_261ab7f5;
 	var_b5014996 = &item_world_fixup::function_19089c75;
 	var_87d0eef8 = &item_world_fixup::remove_item;
-	var_74257310 = &item_world_fixup::function_6da5e673;
+	var_74257310 = &item_world_fixup::add_item_replacement;
 	var_f8a4c541 = &item_world_fixup::function_6991057;
 	var_edfbccd0 = &item_world_fixup::function_e70fa91c;
 	if(isdefined(getgametypesetting(#"wzspectrerising")) && getgametypesetting(#"wzspectrerising"))
 	{
-		wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"hash_13ba73311ab5250f", #"hash_58c8b457cdf56278");
+		wz_common_fixup::item_replacer(var_b5014996, var_f8a4c541, #"blackjack_ammo_stash_parent_placeholder", #"hash_58c8b457cdf56278");
 		if(isdefined(getgametypesetting(#"wzenablespectregrenade")) && getgametypesetting(#"wzenablespectregrenade"))
 		{
 			wz_common_fixup::item_replacer(var_d2223309, var_74257310, #"smoke_grenade_wz_item", #"spectre_grenade_wz_item");

@@ -1962,24 +1962,24 @@ function private function_34c2aeb5()
 		}
 		case 1:
 		{
-			player thread function_90f06996(6);
+			player thread drain_health(6);
 			break;
 		}
 		case 2:
 		{
-			player thread function_90f06996(3);
+			player thread drain_health(3);
 			break;
 		}
 		case 3:
 		{
-			player thread function_90f06996(1);
+			player thread drain_health(1);
 			break;
 		}
 	}
 }
 
 /*
-	Name: function_90f06996
+	Name: drain_health
 	Namespace: zm_custom
 	Checksum: 0x3AEE6037
 	Offset: 0x5728
@@ -1987,7 +1987,7 @@ function private function_34c2aeb5()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_90f06996(var_c454f44e)
+function private drain_health(var_c454f44e)
 {
 	self notify(#"hash_13fcb28a561bd5fe");
 	self endon(#"disconnect", #"hash_13fcb28a561bd5fe");

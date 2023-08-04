@@ -1176,9 +1176,9 @@ function function_7bf9c38f(reinserting)
 	self flagsys::set(#"hash_287397edba8966f9");
 	speed = 4400;
 	circleindex = 1;
-	if(isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircleindex))
 	{
-		circleindex = level.var_52b56362 + 2;
+		circleindex = level.deathcircleindex + 2;
 	}
 	speed = speed / circleindex;
 	self unlink();
@@ -1267,11 +1267,11 @@ function function_a25e421c()
 			{
 				self setorigin(level.warp_portal_vehicles[var_180a7b48].origin);
 				self function_648c1f6(level.warp_portal_vehicles[var_180a7b48], undefined, 0, 180, 180, 180, 180, 0);
-				if(isdefined(level.deathcircle) && isdefined(level.var_52b56362) && isdefined(level.deathcircles))
+				if(isdefined(level.deathcircle) && isdefined(level.deathcircleindex) && isdefined(level.deathcircles))
 				{
 					target = level.deathcircle.origin;
 					target = (target[0], target[1], -4000);
-					currentindex = level.var_52b56362 + 1;
+					currentindex = level.deathcircleindex + 1;
 					if(currentindex >= level.deathcircles.size)
 					{
 						currentindex = level.deathcircles.size - 1;

@@ -2534,7 +2534,7 @@ event function_87b05fa3(eventstruct)
 }
 
 /*
-	Name: function_8a53b367
+	Name: codecallback_swimming
 	Namespace: callback
 	Checksum: 0xBAE084F6
 	Offset: 0x42D0
@@ -2542,13 +2542,13 @@ event function_87b05fa3(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_8a53b367(eventstruct)
+event codecallback_swimming(eventstruct)
 {
 	self callback(#"swimming", eventstruct);
 }
 
 /*
-	Name: function_df998213
+	Name: codecallback_underwater
 	Namespace: callback
 	Checksum: 0x5F1CA4AA
 	Offset: 0x4308
@@ -2556,7 +2556,7 @@ event function_8a53b367(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_df998213(eventstruct)
+event codecallback_underwater(eventstruct)
 {
 	self callback(#"underwater", eventstruct);
 }
@@ -2608,7 +2608,7 @@ event function_7d45bff(eventstruct)
 }
 
 /*
-	Name: function_6eb09118
+	Name: codecallback_trigger
 	Namespace: callback
 	Checksum: 0x71DA971F
 	Offset: 0x4420
@@ -2616,7 +2616,7 @@ event function_7d45bff(eventstruct)
 	Parameters: 2
 	Flags: Linked, Event
 */
-event function_6eb09118(eventstruct, look_trigger = 0)
+event codecallback_trigger(eventstruct, look_trigger = 0)
 {
 	if(look_trigger || !trigger::is_look_trigger())
 	{
@@ -2758,7 +2758,7 @@ event function_f4449e63(eventstruct)
 }
 
 /*
-	Name: function_8e693523
+	Name: codecallback_detonate
 	Namespace: callback
 	Checksum: 0xE4B0DA1C
 	Offset: 0x47A0
@@ -2766,7 +2766,7 @@ event function_f4449e63(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_8e693523(eventstruct)
+event codecallback_detonate(eventstruct)
 {
 	self callback(#"detonate", eventstruct);
 }
@@ -2786,7 +2786,7 @@ event function_92aba4c4(eventstruct)
 }
 
 /*
-	Name: function_2eb17944
+	Name: codecallback_death
 	Namespace: callback
 	Checksum: 0xE6FF4420
 	Offset: 0x4810
@@ -2794,7 +2794,7 @@ event function_92aba4c4(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_2eb17944(eventstruct)
+event codecallback_death(eventstruct)
 {
 	self callback(#"death", eventstruct);
 }

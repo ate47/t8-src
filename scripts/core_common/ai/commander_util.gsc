@@ -52,7 +52,7 @@ function pause_commander(team)
 		{
 			if(isdefined(level.alliescommander))
 			{
-				plannercommanderutility::function_b822982(level.alliescommander);
+				plannercommanderutility::pausecommander(level.alliescommander);
 			}
 			break;
 		}
@@ -60,7 +60,7 @@ function pause_commander(team)
 		{
 			if(isdefined(level.axiscommander))
 			{
-				plannercommanderutility::function_b822982(level.axiscommander);
+				plannercommanderutility::pausecommander(level.axiscommander);
 			}
 			break;
 		}

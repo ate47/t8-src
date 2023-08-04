@@ -160,7 +160,7 @@
 #using script_474309807eb94f34;
 #using script_47848ab40aed0eaf;
 #using script_48288470fe0b53d;
-#using script_4845926e98a2635e;
+#using scripts\zm\weapons\zm_weap_hand_charon.csc;
 #using script_489b835a247c990e;
 #using script_48adcbbbccee5e60;
 #using script_48bb1764a662152d;
@@ -171,7 +171,6 @@
 #using script_4a2b97c7370e8997;
 #using script_4a375dc7d0573a9a;
 #using script_4a3f9b8905878272;
-#using script_4a65444860409b01;
 #using script_4b0b3de126cf7c9a;
 #using script_4b80fc97d8469299;
 #using script_4bae07eadc57bb51;
@@ -188,7 +187,7 @@
 #using script_4d85e8de54b02198;
 #using script_4daa124bc391e7ed;
 #using script_4de1878f8140315a;
-#using script_4dec1136a08eb9f1;
+#using scripts\abilities\mp\gadgets\gadget_vision_pulse.csc;
 #using script_4deda6ab11ad22af;
 #using script_4ec1d631174f7283;
 #using script_4f1abd7be75f8a2f;
@@ -228,7 +227,7 @@
 #using script_5afd8ff8f8304cc4;
 #using script_5b1947b613ef787d;
 #using script_5c5aa0d5054f56ee;
-#using script_5c8d7d98cc9b256a;
+#using scripts\weapons\mp\explosive_bolt.csc;
 #using script_5ce7e9d1829d57dc;
 #using script_5db30ea2f37108d;
 #using script_5dd9f3b0dbcf017d;
@@ -280,14 +279,13 @@
 #using script_6951ea86fdae9ae0;
 #using script_698dd790cdc4965f;
 #using script_69e3966400876ea0;
-#using script_69e5b270aeb5b960;
+#using scripts\killstreaks\mp\overwatch_helicopter.csc;
 #using script_6b221588ece2c4aa;
 #using script_6d7c7d238494d395;
 #using script_6d7d84509b62f422;
 #using script_6d83a991329d10c1;
 #using script_6d8831640a918235;
 #using script_6d8831640a918235;
-#using script_6e50f04874f4eb8d;
 #using script_6f5e741b2bceba3a;
 #using script_6fdaa897ed596805;
 #using script_6ff72d27da99fb12;
@@ -647,6 +645,8 @@
 #using scripts\core_common\status_effects\status_effect_dot.gsc;
 #using scripts\core_common\status_effects\status_effect_explosive_damage.csc;
 #using scripts\core_common\status_effects\status_effect_explosive_damage.gsc;
+#using scripts\core_common\status_effects\status_effect_movement_speed.csc;
+#using scripts\core_common\status_effects\status_effect_movement_speed.gsc;
 #using scripts\core_common\status_effects\status_effect_pulse.csc;
 #using scripts\core_common\status_effects\status_effect_pulse.gsc;
 #using scripts\core_common\status_effects\status_effect_shock.csc;
@@ -1796,4 +1796,36 @@ function fake() {
         #"hash_33547b925aa16a42",
         #"hash_5163411d6d29e0a4"
     );
+
+    unknown_systems = array(
+        // wz/mp/zm system dump
+        #"hash_2f08b5db3c5752cf",
+        // wz_open_skycrapers dump
+        #"hash_647d89c55443e16e",
+        #"hash_1c3d95ef5e4dd71a",
+        #"hash_4331f49c99185d62",
+        #"hash_18ce058ad321248f",
+        #"hash_552e94dba7128a55", // mp_nuke
+        #"hash_1dbcac37fa2e17de",
+        #"hash_502d65acd9829223",
+        #"hash_32ef71953f1186eb",
+        // wz_open_skycrapers dump (CLIENT)
+        #"hash_35f179ff17a10369",
+        #"hash_7b0e7e7796beb14c",
+        #"hash_411c8f5d7f8749b9",
+        // mp_nuketown_4 dump
+        #"classicmode",
+        #"spawn_beacon", // killstreak
+        #"shroud",
+        #"killstreak_dog", // killstreak
+        #"ai_tank", // killstreak
+        
+    );
+    function_227b0384(); // switchmap_buffer?
+    function_541ee9fe();    function_e026e86b();
+    function_42ebd40f();    function_64f4bd9b();
+    function_347b5108();    function_3666f7a1();
+    function_b1caa36a();    function_b2121354();
+    function_f2a18369();    function_45de7fc7();
+    function_c1dd02b1();
 }

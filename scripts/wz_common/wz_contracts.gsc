@@ -203,15 +203,15 @@ function on_player_killed()
 	{
 		attacker increment_wz_contract(#"hash_4bc7882cf1404beb");
 	}
-	if(isdefined(level.deathcircle) && isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircle) && isdefined(level.deathcircleindex))
 	{
 		var_2b1b1e51 = 0;
 		if(!isdefined(attacker.var_4f1edabd))
 		{
-			attacker.var_4f1edabd = level.var_52b56362;
+			attacker.var_4f1edabd = level.deathcircleindex;
 			var_2b1b1e51 = 1;
 		}
-		if(attacker.var_4f1edabd < level.var_52b56362 || var_2b1b1e51)
+		if(attacker.var_4f1edabd < level.deathcircleindex || var_2b1b1e51)
 		{
 			if(attacker.var_4f1edabd >= 0)
 			{
@@ -219,7 +219,7 @@ function on_player_killed()
 				{
 					attacker.var_718ae1b5 = 0;
 				}
-				attacker.var_4f1edabd = level.var_52b56362;
+				attacker.var_4f1edabd = level.deathcircleindex;
 				attacker.var_718ae1b5++;
 				if(attacker.var_718ae1b5 >= 3)
 				{

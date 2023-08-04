@@ -30,7 +30,7 @@ function autoexec __init__system__()
 */
 function __init__()
 {
-	character_unlock_fixup::function_90ee7a97(#"hash_f1156c5f8b9f0e8", &function_2613aeec);
+	character_unlock_fixup::function_90ee7a97(#"ix_bruno_unlock", &function_2613aeec);
 }
 
 /*

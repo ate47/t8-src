@@ -227,19 +227,19 @@ function on_player_disconnect()
 */
 function function_c7d3aeec(statname, value)
 {
-	if(!isdefined(self.var_e241decf))
+	if(!isdefined(self.cleanupstats))
 	{
-		self.var_e241decf = [];
+		self.cleanupstats = [];
 	}
-	if(!isdefined(self.var_e241decf[statname]))
+	if(!isdefined(self.cleanupstats[statname]))
 	{
-		self.var_e241decf[statname] = 0;
+		self.cleanupstats[statname] = 0;
 	}
-	self.var_e241decf[statname] = self.var_e241decf[statname] + value;
+	self.cleanupstats[statname] = self.cleanupstats[statname] + value;
 	self stats::function_d40764f3(statname, value);
 	self stats::function_b7f80d87(statname, value);
 	cleanups = 0;
-	foreach(var_1c190326 in self.var_e241decf)
+	foreach(var_1c190326 in self.cleanupstats)
 	{
 		cleanups = cleanups + var_1c190326;
 	}

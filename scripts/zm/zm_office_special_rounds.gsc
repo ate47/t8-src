@@ -153,12 +153,12 @@ function function_a409c2a7(e_target)
 		{
 			return undefined;
 		}
-		var_c61e7ea7 = level.zones[zone_tag];
-		adj_zone_names = getarraykeys(var_c61e7ea7.adjacent_zones);
-		var_2057a8c1 = array(var_c61e7ea7.name);
+		target_zone = level.zones[zone_tag];
+		adj_zone_names = getarraykeys(target_zone.adjacent_zones);
+		var_2057a8c1 = array(target_zone.name);
 		foreach(zone_name in adj_zone_names)
 		{
-			if(var_c61e7ea7.adjacent_zones[zone_name].is_connected)
+			if(target_zone.adjacent_zones[zone_name].is_connected)
 			{
 				if(!isdefined(var_2057a8c1))
 				{

@@ -78,11 +78,11 @@ function private function_53d906fd(localclientnum)
 			vehicle = getplayervehicle(player);
 			playfx = isdefined(vehicle) && vehicle.scriptvehicletype === "player_muscle";
 		}
-		foreach(stash in level.var_5862f2ce)
+		foreach(stash in level.item_spawn_stashes)
 		{
 			if(function_8a8a409b(stash))
 			{
-				if(stash.var_aa9f8f87 === #"hash_4bfbb656e63b17ae" || stash.var_aa9f8f87 === #"supply_stash_parent")
+				if(stash.var_aa9f8f87 === #"supply_stash_parent_dlc1" || stash.var_aa9f8f87 === #"supply_stash_parent")
 				{
 					stash update_fx(localclientnum, playfx, function_ffdbe8c2(stash));
 				}

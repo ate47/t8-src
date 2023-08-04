@@ -59,7 +59,7 @@ function private _cleanup()
 			foreach(func in var_314770d8)
 			{
 				util::wait_network_frame(1);
-				[[func]](level.deathcircle, level.deathcircles[level.var_52b56362 - 1]);
+				[[func]](level.deathcircle, level.deathcircles[level.deathcircleindex - 1]);
 			}
 		}
 		wait(1);
@@ -210,12 +210,12 @@ function private function_35e11623(deathcircle, var_898879a6)
 */
 function private function_b7c5f376(deathcircle, var_898879a6)
 {
-	if(!isdefined(level.var_a4a4012e))
+	if(!isdefined(level.item_spawn_drops))
 	{
 		return;
 	}
-	var_4d4bb0da = arraycopy(level.var_a4a4012e);
-	foreach(dropitem in var_4d4bb0da)
+	itemspawndrops = arraycopy(level.item_spawn_drops);
+	foreach(dropitem in itemspawndrops)
 	{
 		if(!isdefined(dropitem))
 		{
@@ -242,7 +242,7 @@ function private function_b7c5f376(deathcircle, var_898879a6)
 			waitframe(1);
 		}
 	}
-	arrayremovevalue(level.var_a4a4012e, undefined, 1);
+	arrayremovevalue(level.item_spawn_drops, undefined, 1);
 	arrayremovevalue(level.var_18dc9d17, undefined, 1);
 }
 
