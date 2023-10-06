@@ -1,3 +1,7 @@
+
+ATE47's notice: I don't put my hashes here anymore, see my own decompiler dump [bo4-source](https://github.com/ate47/bo4-source) for my latest find.
+
+
 # Decompiled BO4 GSC/CSC Scripts
 This is a repository containing my best attempt at decompiling the scripts for BO4\
 \
